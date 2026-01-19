@@ -6,11 +6,6 @@ export default defineConfig({
   theme: {
     accentColor: '#10b981',
   },
-  vite: {
-    build: {
-      outDir: 'dist',
-    },
-  },
   topNav: [
     {
       text: 'Docs',
