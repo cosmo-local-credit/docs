@@ -1,1 +1,7 @@
-This is a [Vocs](https://vocs.dev) project bootstrapped with the Vocs CLI.
+## Docs
+
+All CLC related documentation.
+
+## License
+
+[CC-BY-SA-4.0](LICENSE).
