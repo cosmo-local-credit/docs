@@ -6,16 +6,6 @@ export default defineConfig({
   theme: {
     accentColor: '#10b981',
   },
-  topNav: [
-    {
-      text: 'Docs',
-      link: '/getting-started',
-    },
-    {
-      text: 'Discord',
-      link: 'https://discord.gg/xayVsrkHPQ',
-    },
-  ],
   socials: [
     {
       icon: 'github',
@@ -24,6 +14,10 @@ export default defineConfig({
     {
       icon: 'x',
       link: 'https://x.com/grassEcon',
+    },
+    {
+      icon: 'discord',
+      link: 'https://discord.gg/xayVsrkHPQ',
     },
   ],
   sidebar: [
