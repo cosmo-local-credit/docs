@@ -1,0 +1,253 @@
+/* Landing Page Styles */
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: left;
+  gap: 1.5rem;
+  padding: 3rem 2rem 2.5rem; /* Increased top padding for space between nav and content */
+}
+
+/* Remove default Vocs spacing on landing page */
+body:has(.landing-container) .vocs_Layout_main {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+body:has(.landing-container) .vocs_Layout_headerSpacer {
+  display: none !important;
+}
+
+/* Landing navbar layout */
+@media (min-width: 769px) {
+  body:has(.landing-container) .vocs_DesktopTopNav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 980px;
+    margin: 0 auto !important;
+    padding: 1rem 2rem !important;
+    height: auto !important;
+    position: relative !important;
+    background: transparent !important;
+    border-bottom: none !important;
+  }
+
+  /* Hide logo in navbar on landing page (desktop) */
+  body:has(.landing-container) .vocs_DesktopTopNav_logoWrapper {
+    display: none !important;
+  }
+
+  /* Ensure search bar is at the start and wide */
+  body:has(.landing-container) .vocs_DesktopSearch_search,
+  body:has(.landing-container) .vocs_DesktopTopNav_search {
+    flex: 0 1 auto !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    width: 280px !important; /* Increased width to restore original feel */
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Ensure links and socials are at the end */
+  body:has(.landing-container) .vocs_DesktopTopNav_section,
+  body:has(.landing-container) .vocs_DesktopTopNav_socials {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    flex: 0 0 auto !important;
+    margin-left: 0 !important;
+    visibility: visible !important;
+  }
+}
+
+/* Mobile Top Nav Fixes */
+@media (max-width: 768px) {
+  body:has(.landing-container) .vocs_MobileTopNav {
+    position: relative !important;
+    width: 100%;
+    background: transparent !important;
+    border-bottom: none !important;
+  }
+
+  body:has(.landing-container) .vocs_MobileTopNav_logoWrapper {
+    display: none !important;
+  }
+
+  /* Ensure search bar is visible and aligned in mobile top nav if needed */
+  body:has(.landing-container) .vocs_MobileTopNav .vocs_MobileTopNav_search {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Prevent duplicated links in mobile header if they are in the menu */
+  body:has(.landing-container) .vocs_MobileTopNav_section {
+    display: none !important;
+  }
+  
+  /* Ensure container doesn't overflow and has proper spacing */
+  .landing-container {
+    padding: 2.5rem 1.25rem 2rem !important; /* Added space between nav and content for mobile */
+    width: 100%;
+    overflow-x: hidden;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-start;
+  }
+
+  .landing-hero, .landing-description {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .landing-logo {
+    font-size: 1.75rem;
+  }
+
+  .landing-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Removed the :empty hide rule to ensure sections are visible */
+
+.landing-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Reduced from 0.75rem */
+  max-width: 720px;
+}
+
+.landing-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--vocs-color_text);
+}
+
+/* Tagline */
+.landing-tagline {
+  font-size: 1.25rem;
+  color: var(--vocs-color_text2);
+  max-width: 700px;
+  margin: 0;
+  line-height: 1.4; /* Reduced from 1.5 */
+  font-weight: 500;
+}
+
+/* Description */
+.landing-description {
+  font-size: 1rem;
+  color: var(--vocs-color_text3);
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.5; /* Reduced from 1.6 */
+}
+
+
+/* Feature Cards */
+.landing-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+.landing-feature-card {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--vocs-color_border);
+  background: var(--vocs-color_background2);
+}
+
+.landing-feature-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--vocs-color_text);
+  margin-bottom: 0.35rem;
+}
+
+.landing-feature-text {
+  font-size: 0.85rem;
+  color: var(--vocs-color_text3);
+  line-height: 1.5;
+}
+
+/* CTA Buttons */
+.landing-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.landing-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.landing-button--primary {
+  background: var(--vocs-color_backgroundAccent);
+  color: #ffffff !important;
+}
+
+.landing-button--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.landing-button--secondary {
+  background: var(--vocs-color_background2);
+  color: var(--vocs-color_text);
+  border: 1px solid var(--vocs-color_border);
+}
+
+.landing-button--secondary:hover {
+  background: var(--vocs-color_background3);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 5rem 1.5rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .landing-description {
+    font-size: 0.9rem;
+  }
+
+  .landing-features {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .landing-button {
+    justify-content: center;
+  }
+}

@@ -1,16 +1,36 @@
 ---
 layout: landing
+content:
+  horizontalPadding: 0px
+  width: 100%
+  verticalPadding: 0px
 ---
 
-import { HomePage } from 'vocs/components'
+import '../styles.css'
 
-<HomePage.Root>
-  <HomePage.Logo />
-  <HomePage.Tagline>My Awesome Docs</HomePage.Tagline>
-  <HomePage.InstallPackage name="vocs" type="init" />
-  <HomePage.Description>This is a description of my documentation website.</HomePage.Description>
-  <HomePage.Buttons>
-    <HomePage.Button href="/getting-started" variant="accent">Get started</HomePage.Button>
-    <HomePage.Button href="https://github.com/wevm/vocs">GitHub</HomePage.Button>
-  </HomePage.Buttons>
-</HomePage.Root>
+<div className="landing-container">
+  <div className="landing-hero">
+    <div className="landing-logo">Cosmo-Local Credit</div>
+    <div className="landing-description">CLC is a clearing network for redeemable commitments e.g. digital gift-cards, service credits, and delivery claims that can be exchanged across curated markets.</div>
+  </div>
+
+  <div className="landing-features">
+    <div className="landing-feature-card">
+      <div className="landing-feature-title">Interoperable Commitments</div>
+      <div className="landing-feature-text">Route redeemable claims across curated markets with shared standards.</div>
+    </div>
+    <div className="landing-feature-card">
+      <div className="landing-feature-title">Transparent Governance</div>
+      <div className="landing-feature-text">Clear rules for pools, disclosures, and optional insurance layers.</div>
+    </div>
+    <div className="landing-feature-card">
+      <div className="landing-feature-title">Resilient Settlement</div>
+      <div className="landing-feature-text">Designed for real production, service delivery, and local exchange.</div>
+    </div>
+  </div>
+
+  <div className="landing-buttons">
+    <a href="/getting-started" className="landing-button landing-button--primary">Get Started</a>
+    <a href="https://github.com/cosmo-local-credit" target="_blank" rel="noopener noreferrer" className="landing-button landing-button--secondary">Read Whitepaper →</a>
+  </div>
+</div>
