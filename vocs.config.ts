@@ -13,7 +13,7 @@ export default defineConfig({
     },
     {
       text: 'Discord',
-      link: 'https://github.com/cosmo-local-credit',
+      link: 'https://discord.gg/xayVsrkHPQ',
     },
   ],
   socials: [
@@ -23,7 +23,7 @@ export default defineConfig({
     },
     {
       icon: 'x',
-      link: 'https://x.com/grass_econ',
+      link: 'https://x.com/grassEcon',
     },
   ],
   sidebar: [
