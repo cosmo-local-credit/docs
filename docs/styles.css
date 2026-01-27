@@ -129,6 +129,15 @@ body:has(.landing-container) .vocs_Layout_headerSpacer {
   max-width: 720px;
 }
 
+.landing-logo-image {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  border-radius: 24px;
+  background: var(--vocs-color_background2);
+  border: 1px solid var(--vocs-color_border);
+}
+
 .landing-logo {
   font-size: 1.5rem;
   font-weight: 700;
