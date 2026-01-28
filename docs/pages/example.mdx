@@ -1,3 +1,41 @@
-# Example
+# Examples
 
-This is an example page.
+## Audience examples
+
+### Pool stewards (local curators)
+You run a market or co-op and want to list a clinic voucher, publish limits, and compare redemption performance with other pools. The network helps route demand into your listings while keeping your governance local.
+
+### Lenders & liquidity providers
+You provide stable liquidity and accept curated vouchers as collateral. Routing and clearing increase the chance those vouchers get redeemed, so your capital recycles faster without forcing speculative issuance.
+
+### Producers/borrowers (shops, services, projects)
+You take a loan by swapping your already-issued vouchers for lender stables. As customers redeem your vouchers, your outstanding obligations shrink and repayment accelerates.
+
+### Consumers (everyday users)
+You hold a food voucher but need transport. Routing finds trusted pools that accept your voucher so you can swap into transport credit and redeem locally.
+
+### Market makers & routers
+You operate inventory and routing services. You earn by improving reliability and settlement speed, not by manufacturing speculative volume.
+
+### DAO/policy stewards
+You tune waterfall parameters, caps, and insurance targets based on real settlement KPIs, not price volatility.
+
+## Simulator
+
+Live simulator: [sim.cosmolocal.credit](https://sim.cosmolocal.credit/)
+
+### Example snapshot (default parameters, 2-year run = 96 ticks)
+
+- Pools: 125 total (4 system)
+- Assets: 127
+- Stable total in pools: 578,202.18 USD
+- Voucher total in pools: 1,071,031.12 units
+- Outstanding voucher value: 1,225,239.36 USD
+- Swap volume (avg): 90,364.04 USD per tick
+- Transactions (avg): 325.74 swaps per tick
+- NOAM clearing (avg): 15.60 swaps per tick
+- Stable on/off-ramp (avg): 16,188.39 USD per tick (balanced)
+- LP injected: 400,000.00 USD
+- LP returned: 142,041.50 USD
+
+If you want these numbers to reflect a specific scenario, run the simulator and paste the results here.

@@ -1,3 +1,114 @@
-# Get started
+# Cosmo-Local Credit (CLC) DAO
 
-Hello world!
+## Executive Brief
+
+Think of it as Visa/Mastercard for **vouchers and obligations** (not bank accounts), but governed as a commons: it helps many issuers **swap, route, and settle** credits safely, without turning them into speculative money.
+
+**This is commitment-first clearing:** the unit exchanged is a redeemable claim with clear terms and receipts (not a volatile token) and fees are tied to real settlement, not trading churn.
+
+# What problem it solves
+
+Commitment Pools are shared markets/vaults where people can swap redeemable commitments (vouchers/credits) and settle them over time.
+
+A ‘commitment’ can be **any redeemable obligation**: gift cards, loyalty points, invoices, service credits, school/clinic vouchers, carbon/repair credits, micro-loans, prepaid utilities, or mutual-aid pledges.
+
+But **scaling beyond a single pool** requires shared infrastructure that no single steward should control: **insurance buffers, audits, monitoring, routing standards, and off-ramps** - plus clear, democratic rules for risk.
+
+# What the CLC DAO is
+
+The CLC DAO (a **member-governed Decentralized Autonomous Organization with transparent rules**) is the network-level “commons steward”that **funds and governs the safety layer** for many independent Commitment Pools, so commitment pooling can scale **without becoming extractive or fragile**. In practice, it becomes a **credit routing + clearing layer** across many issuers - so different communities and institutions can settle obligations with each other without needing one central bank-like operator.
+
+Example: a clinic voucher in one pool can be swapped through trusted pools into food or transport credits, and the network “clears” by netting flows so fewer swaps need cash.
+
+**Mission (North Star):** maximize the **velocity of settlement** of outstanding commitments (how quickly listed promises become fulfilled) while preserving care, fairness, and resilience. *(Metric: settlement velocity, fulfillment rate, redemption latency.)*
+
+# Who wants this and why
+
+* **Pool stewards (local curators)** list vouchers and publish guarantees; their fulfillment history becomes discoverable and comparable.
+* **Lenders & liquidity providers (infrastructure funders)** can finance real production while holding redeemable collateral (vouchers) that can route across trusted pools.
+* **Producers/borrowers (shops, services, projects)** get working capital now and can repay **in-kind** by fulfilling their vouchers—broadening their market instead of shrinking it.
+* **Consumers (everyday people)** can browse curated markets they trust and choose purchases that directly reduce someone’s outstanding obligations.
+* **Market makers & routers (inventory + routing operators)** earn by improving reliability and settlement speed (keeping inventory available, improving routes, maintaining off-ramps), not by manufacturing speculation.
+* **CLC stakers (policy stewards)** govern where liquidity is injected to increase settlement velocity and receive swap access to protocol fees as defined by on-chain policy.
+
+# How it works
+
+### **1) Pools remain local and sovereign**
+
+* Each pool steward lists **redeemable obligations** (vouchers/tokens), sets values, and sets pool fees (e.g., 0–20% depending on risk and voucher type).
+* Pools enforce swap limits and redemption rules locally. This means **many issuers can coexist** (shops, schools, clinics, coops, municipalities) while still being interoperable.
+
+### **2) The network takes a small “rake on the pool’s rake”**
+
+* When value routes through pools, pool fees are charged **in the same asset that moved**.
+* The DAO takes a **percentage of those pool fees** (a network rake), funding shared safety and operations.
+* This aligns incentives: the network earns more only when **real settlement throughput** grows.
+
+### **3) Fees follow a safety-first “Waterfall” (a governed, automated priority order)**
+
+Fee inflows are allocated in order:
+
+1. **Insurance buffers** (to handle defaults/incidents within defined limits)
+2. **Core operations** (audits, monitoring, incident response, governance ops)
+3. **Liquidity/off-ramp mandates** (to keep settlement reliable and fast)
+4. Only if the above are met: an **epoch (e.g., monthly) fee-access budget**
+
+**Key clarity:** fees arrive in **whatever asset moved**, including non-convertible vouchers (like gift cards or service credits). Only the **cash-eligible/convertible portion** can reliably fund fiat/stable-denominated insurance and operations—so break-even depends on both **volume** and **convertibility**, and reaching it can require substantial network growth. Every swap emits an **immutable receipt** (a permanent, human-readable record) so listings, swaps, redemptions, pauses, and guarantees can be audited.
+
+# Liquidity Providers (LPs): what you get for taking risk
+
+**LPs are:** contributors who provide **cash-eligible liquidity** (stables/fiat rails and liquid tokens) to the CLC Pool and/or approved settlement/off-ramp mandates that keep routing reliable.
+
+**LPs receive:**
+
+* **CLC** (governance rights) so contributors can **set/limit risk**, approve policies, and prevent capture.
+* **sCLC** (epoch access receipt) which can grant **capped access** to the fee-access budget.
+
+LPs are funding the shared clearing infrastructure itself - governance plus policy-gated fee access is the mechanism for democratic, non-extractive infrastructure financing.
+
+# Routing & Clearing
+
+When two pools list overlapping obligations, value can **route** across pools (multi-hop), and the network **clears** by netting flows and using shared liquidity and **off-ramps (ways to convert to local currency/stables when needed)** to reduce settlement delays. This is important because it turns fragmented obligations (thousands of small issuers) into a **usable economic fabric** - so people can pay, trade, and fulfill needs even when no single issuer is universally trusted or universally liquid.
+
+**Clearing** means the network can “net out” flows across many swaps so fewer transfers require cash—making settlement faster and more reliable.
+
+# Tokens
+
+### **CLC (governance + safety coordination)**
+
+* **Purpose:** coordinate and secure the network’s shared rules and budgets.
+* **Not equity:** no guaranteed returns, no dividends, no promise of profit.
+* Used for governance participation and escrow/staking to align decision-makers with network safety.
+
+### **sCLC (epoch receipt / access key)**
+
+* **What it represents:** a **time-bounded receipt** for staked/escrowed CLC that can grant** access** to the epoch’s fee-access budget. That fee-access budget is what makes the network’s **shared clearing infrastructure** sustainable
+* sCLC is best understood as **access under limits**, not a yield instrument.
+
+---
+
+# Governance that limits capture
+
+The DAO’s job is to keep scaling **democratic and safe**:
+
+* **Timelocks + quorum tiers** for sensitive changes
+* **Transparent receipts and reporting** (what changed, why, and who approved it)
+* **Emergency pause + incident runbooks**
+* **Credible exit / forkability** so communities can leave if governance becomes harmful
+
+---
+
+## **Why the DAO is essential for safely scaling Commitment Pooling**
+
+The protocol makes commitment pooling possible; the DAO makes it **durable at scale** by funding and enforcing the commons: **safety rules, insurance capacity, operational reliability, and settlement/off-ramp liquidity** - all governed democratically with explicit risk boundaries.
+
+That’s how Commitment Pools can scale from a local exchange tool into a **general-purpose settlement network for obligations** (from gift cards to invoices) without sacrificing democratic control or safety.
+
+~*~ \
+**Input needed.**
+
+///
+
+![CLC DAO template](/white-paper/CLC-DAO-template.svg)
+
+For a detailed explanation, see [Section 7.4 of the White Paper](/white-paper/chapter-07-the-clc-dao-and-the-clc-token).
