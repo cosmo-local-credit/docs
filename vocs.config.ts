@@ -51,6 +51,10 @@ export default defineConfig({
       link: '/example',
     },
     {
+      text: 'History',
+      link: '/history',
+    },
+    {
       text: 'White Paper',
       link: '/white-paper',
       items: [
