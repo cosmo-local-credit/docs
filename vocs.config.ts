@@ -135,10 +135,6 @@ export default defineConfig({
           link: '/white-paper/chapter-18-conclusion',
         },
         {
-          text: 'Appendix',
-          link: '/white-paper/appendix',
-        },
-        {
           text: 'Appendix A. Math Box',
           link: '/white-paper/appendix-a-math-box',
         },
