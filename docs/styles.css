@@ -1,5 +1,10 @@
 /* Landing Page Styles */
 
+.vocs_Content strong,
+.vocs_Content b {
+  font-weight: 700;
+}
+
 .landing-container {
   display: flex;
   flex-direction: column;
