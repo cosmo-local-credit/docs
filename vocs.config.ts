@@ -55,6 +55,16 @@ export default defineConfig({
       link: '/history',
     },
     {
+      text: 'Governance',
+      link: '/governance/mechanics',
+      items: [
+        {
+          text: 'Governance Mechanics',
+          link: '/governance/mechanics',
+        },
+      ],
+    },
+    {
       text: 'White Paper',
       link: '/white-paper',
       items: [
