@@ -43,24 +43,41 @@ export default defineConfig({
   ],
   sidebar: [
     {
-      text: 'Getting Started',
-      link: '/getting-started',
-    },
-    {
-      text: 'Example',
-      link: '/example',
-    },
-    {
-      text: 'History',
-      link: '/history',
+      text: 'Introduction',
+      items: [
+        {
+          text: 'Getting Started',
+          link: '/introduction/getting-started',
+        },
+        {
+          text: 'Example',
+          link: '/introduction/example',
+        },
+        {
+          text: 'History',
+          link: '/introduction/history',
+        },
+      ],
     },
     {
       text: 'Protocol',
-      link: '/protocol',
+      items: [
+        {
+          text: 'Overview',
+          link: '/protocol/overview',
+        },
+        {
+          text: 'Smart Contracts',
+          link: '/protocol/smart-contracts',
+        },
+        {
+          text: 'Network Architecture',
+          link: '/protocol/network',
+        },
+      ],
     },
     {
       text: 'Governance',
-      link: '/governance/mechanics',
       items: [
         {
           text: 'Governance Mechanics',
