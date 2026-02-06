@@ -4,7 +4,6 @@ The CLC protocol is the on-chain implementation of the **Commitment Pooling Prot
 
 Source: [github.com/cosmo-local-credit/protocol](https://github.com/cosmo-local-credit/protocol)
 
----
 
 ## Voucher (GiftableToken)
 
@@ -16,7 +15,6 @@ A **voucher** is an ERC20 token that represents a **redeemable commitment** — 
 
 Vouchers are the **edges** of the network — every pool holds and exchanges them. A clinic might issue health-service vouchers; a farmers' cooperative might issue maize-delivery vouchers; a transport company might issue ride credits. Each is its own `GiftableToken` instance.
 
----
 
 ## Commitment Pool
 
@@ -77,7 +75,6 @@ The pool steward (or authorized writers) sets limits like: *"Pool X will accept 
 
 Limits are checked on every deposit. If accepting more of a token would push the pool's balance beyond the credit limit, the transaction reverts. This ensures pools only take on commitment debt they believe can be fulfilled.
 
----
 
 ## Protocol Fee Controller
 
@@ -89,7 +86,6 @@ The `ProtocolFeeController` is the **network-level** fee mechanism — the "rake
 
 This funds the shared safety and operational layer described in the white paper: insurance buffers, audits, monitoring, and liquidity mandates.
 
----
 
 ## Deployment Pattern
 
@@ -99,7 +95,6 @@ All contracts use the **ERC-1967 proxy pattern** via Solady's `ERC1967Factory`. 
 - **Upgradeability** where needed (with governance controls).
 - **Deterministic addresses** for registry and discovery purposes.
 
----
 
 ## Network Architecture
 
