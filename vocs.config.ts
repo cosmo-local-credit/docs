@@ -55,6 +55,10 @@ export default defineConfig({
       link: '/history',
     },
     {
+      text: 'Protocol',
+      link: '/protocol',
+    },
+    {
       text: 'Governance',
       link: '/governance/mechanics',
       items: [
