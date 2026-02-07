@@ -5,6 +5,18 @@
   font-weight: 700;
 }
 
+/* Match default Vocs link styling for raw <a> tags in MDX. */
+.vocs_Content a:not([class]) {
+  color: var(--vocs-color_link);
+  text-decoration: underline;
+  text-underline-offset: var(--vocs-space_2);
+  transition: color 0.1s;
+}
+
+.vocs_Content a:not([class]):hover {
+  color: var(--vocs-color_linkHover);
+}
+
 .landing-container {
   display: flex;
   flex-direction: column;

@@ -26,6 +26,7 @@ export default defineConfig({
   ),
   theme: {
     accentColor: '#10b981',
+    colorScheme: 'dark',
   },
   socials: [
     {
