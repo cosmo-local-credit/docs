@@ -1,0 +1,1712 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{url}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{2em}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={Cosmo-Local Credit (CLC) White Paper},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC): A Network for Routing Credit, Settling Commitments, and Financing a Healthy Cosmo-Local Economy}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{Version 0.6 --- May 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Cosmo-Local Credit (CLC) is a pattern for network clearing houses and governance layers built around Commitment Pooling Protocol (CPP) curation markets. Commitment Pools (CPs) coordinate redeemable commitments (vouchers) using four pooling functions: \textbf{Curation} (Commitment Registry), \textbf{Valuation} (Value Index Registry), \textbf{Limitation} (Swap Limiter), and \textbf{Exchange} (Vault/Fee Registry: fee policy + custody/settlement). A CLC deployment can publish a registry of Commitment Pools, route liquidity across pools, fund insurance, and charge transparent service fees for routing, clearing, monitoring, liquidity support, or other shared services.
+
+Cosmo-local means we share open standards and software globally, while keeping issuance, redemption, governance, and real-world accountability local.
+
+CPP curation markets: independent CPs list (``curate'') which vouchers they accept, publish their own value indices, limits, fees, and guarantee structures (reserves, guarantors, and redemption SLAs). A CLC-compatible registry or service layer can provide network routing, shared standards, and insurance layers - but does not automatically guarantee any specific pool or voucher unless explicitly stated by that pool's terms and relevant published policies.
+\end{abstract}
+
+\noindent\textbf{Status:} Draft for review and discussion only. This document is not investment advice and does not constitute an offer to sell or a solicitation to buy any security or financial instrument.
+
+\tableofcontents
+\newpage
+
+\section*{Front Matter and Key Concepts}
+\addcontentsline{toc}{section}{Front Matter and Key Concepts}
+
+\textbf{Version:} 0.6
+
+\textbf{Distribution:} Limited-circulation draft for review and discussion only. This document is not investment advice and does not constitute an offer to sell or a solicitation to buy any security or financial instrument. Subject to change.
+
+\textbf{Framing note:} The website describes possible CLC governance and service models. Sarafu Network is one implementation example; other registries may be managed by different institutions or governance bodies.
+
+\textbf{Intended audience:} Pool builders/stewards, protocol engineers/auditors, impact-liquidity providers and mandate funders, governance designers, and legal/compliance reviewers.
+
+\subsection*{Pool Sovereignty \& Forkability.}
+\addcontentsline{toc}{subsection}{Pool Sovereignty \& Forkability.}
+
+Commitment Pools are sovereign: each pool's steward(s) can change their own listings, limits, fees, guarantees, and routing preferences, and can exit the CLC canonical registries at any time. ``Canonical'' registries and routers are a convenience layer for discovery and shared standards - not a monopoly.
+
+CLC technical stack is intentionally \textbf{forkable}: all contracts and SDKs are open-source and reproducible; registries are mirrored; and there is a documented ``fork \& migrate'' procedure (see \S{}11.5) so communities and operators can credibly exit if governance is captured or drifts from shared values.
+
+\subsection*{Key Concepts:}
+\addcontentsline{toc}{subsection}{Key Concepts:}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Confederation note:} CLC is designed so that many independent CPP networks can coexist (each with its own registry roots, compliance policies, and insurance scope) while still routing to one another through multi-profile discovery. Canonical registries/routers are a convenience layer, not a monopoly; credible exit is preserved by fork-and-repoint (see Sections 5.2a, 8.1, and 11.5).
+\begin{itemize}[leftmargin=*]
+\item A ``profile'' is a named bundle of registry roots + routing policies (and optional compliance/insurance scope) that a community can choose as its discovery and safety baseline.
+\item Registry management and service-fee recipients are deployment-specific. Any institution or governance body can set up a Commitment Pool registry and charge transparent fees for services such as routing, clearing, monitoring, liquidity support, or insurance coordination. A network may be stewarded by a nonprofit foundation, cooperative, holding company, public agency, community group, multisig, service operator, or another accountable structure; Sarafu Network is one example managed by the nonprofit Grassroots Economics Foundation.
+\end{itemize}
+\item \textbf{Cosmo-Local: Cosmopolitan-localism} links local communities through shared global infrastructures while keeping production, redemption, and governance local. In practice: we share ``light'' resources globally (standards, software, knowledge, registries), while keeping ``heavy'' realities local (relationships, fulfillment, ecology, material production, and legal accountability). This aligns with ``Small, Local, Open and Connected'' (SLOC) and ``design global, manufacture local'' (DGML): share what's light; keep what's heavy local.  See \href{https://en.wikipedia.org/wiki/Cosmopolitan_localism}{Cosmopolitan\_localism}
+\item \textbf{Cosmo-Local Credit (CLC):} CLC applies this to obligations: commitments are issued, guaranteed, and redeemed locally, but can be discovered and routed globally across trusted pools using common registries, auditable receipts, and safety constraints (limits/reserves).
+\begin{itemize}[leftmargin=*]
+\item Example: a clinic voucher remains a local promise, but it can be swapped into food or transport credits by routing through trusted pools, with receipts showing what happened and why.
+\end{itemize}
+\item \textbf{Cosmo-Local Economy:} A cosmo-local economy is a federation of local markets that interoperate and clear obligations without a central monopoly. Communities can choose their routers/registries, publish their own policies, and retain credible exit (forkability) if governance is captured.
+\item The digital layer is a \textbf{shared memory + coordination tool}, not a replacement for in-person relationships or local accountability. We explicitly design against techno-solutionism and capture risks by prioritizing: credible exit/forkability, local sovereignty, transparent receipts, timelocks/quorums, bounded limits/reserves, and low-tech access (assisted flows).. Where proof matters, vouchers may require simple evidence (signatures/photos/device proofs) governed locally.
+\item \textbf{Producer Credit (repay-by-delivery):} CLC also enables working-capital lending where lenders can accept \textbf{curated vouchers as exchangeable collateral}. A lender (or LP program) can provide stablecoins into a pool or credit facility and receive the borrower's vouchers; as those vouchers are bought, routed, and redeemed in trusted markets, the borrower repays \textbf{in-kind}, and the system can route receipts so repayment happens \textbf{faster} than waiting for cash collection.
+\end{itemize}
+\subsection*{Quick Facts}
+\addcontentsline{toc}{subsection}{Quick Facts}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{What this is:} CLC describes clearing-network patterns for \textbf{redeemable commitments} (think: tokens, \textbf{digital gift-cards / service credits / delivery claims}) that can be exchanged across curated markets.
+\begin{enumerate}[leftmargin=*]
+\item Not 1-to-1 barter: barter is usually a direct trade between two people. A Commitment Pool enables multi-party exchange - you can contribute value to the pool and later redeem from the pool's shared inventory. It's multilateral barter through a shared intermediary (the pool) - CLC expands that by routing between a network of pools..
+\end{enumerate}
+\item \textbf{Values:}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Care for People}-- collaboration and vision driven care for oneself and others' well-being and happiness
+\item \textbf{Care for the Environment}- support environmental protection and regeneration, minimize use of finite resources for economic activity, ecosystem management approach to farming and business development.
+\item \textbf{Fairness}- fair and secure access to Instruments, land, resources, knowledge \& care for members from different backgrounds, age, gender and religion.
+\item \textbf{Reciprocity}-- mutual sharing of risk, cost and surplus
+\item \textbf{Non-Dominance}- no person or association to have dominant rights over another person or association's resources eg. data, finances, intellect, materials and freedom.
+\item \textbf{Resilience}- capacity to prepare for, address and adapt to economic, political, climate and other events in order to ensure sustainable community based systems/commons.
+\end{enumerate}
+\item \textbf{How we reach sustainability / How fees are generated:} Fees come from \textbf{settlement activity} (people swapping, redeeming, and fulfilling goods/services), not price speculation. Where enabled, service fees on routed swaps/settlements across participating CPs fund shared services. These fees may be a percentage of pool fees, a routing/clearing fee, or another published fee schedule.
+\begin{enumerate}[leftmargin=*]
+\item Opt-in, not extraction: service fees apply only to pools and routes that opt into a registry, routing profile, or shared service layer. Pools remain sovereign and can exit canonical registries/routers at any time while continuing to operate locally.
+\item Not trickle-down: pooled fees are allocated by a published Waterfall - insurance targets, core operations, and liquidity/off-ramp mandates come first. Only after those priorities are met can a capped ``fee-access budget'' be published.
+\end{enumerate}
+\item \textbf{How Liquidity Providers participate:}
+\begin{enumerate}[leftmargin=*]
+\item Provide liquidity by seeding designated Commitment Pools (receive policy-gated swap access to pooled fees) under published limits \textbf{and may become eligible for CLC governance tokens via the Impact Seeding program (\S{}7.2.3)}.
+\item Support liquidity mandates (policy-directed endowments; reporting-heavy; impact-first).
+\item Lock (stake/escrow) CLC to receive stCLC (voting power).
+\item Each epoch, the protocol may also mint sCLC (epoch authorization / incentives) under published caps. sCLC can be used to exercise capped swap access into designated fee-holding pools after the Waterfall. No dividends. No profit-share. No residual rights.
+\end{enumerate}
+\item \textbf{What you fund:} You provide liquidity endowments (e.g., stable cash-equivalents) so real-world vouchers can be exchanged and redeemed smoothly.
+\item \textbf{Downside controls}: Losses are bounded by limits + inventory checks + disclosed guarantees + an insurance waterfall + timelocked governance + credible exit (forkability).
+\item \textbf{What you receive:} Public dashboards and receipts: volume, settlement rate, redemption SLA performance, reserves, incidents, fee flows, and governance changes (timelocked and logged), plus the KPI list used for mandates and insurance targets.
+\item What moves? Redeemable commitments (vouchers).
+\item What's the goal? Increase velocity of settlement of real-world obligations - while maintaining the CLC values.
+\begin{enumerate}[leftmargin=*]
+\item We treat the digital layer as shared memory and coordination (not as a substitute for human relationships) and design explicitly against capture (timelocks, transparency, limits, and credible exit).
+\end{enumerate}
+\item \textbf{Who guarantees what?} Issuers guarantee their own vouchers. Each Commitment Pool (CP) curates listings and is responsible for its own guarantees (reserves/guarantors/SLA). CLC provides routing + standards + governance and may offer optional insurance policy layers; it does not automatically guarantee every pool. This avoids ``free-riding'': routing and insurance are granted under explicit, published requirements (limits, reserves, disclosure, reporting), and routers can degrade/deny routes to pools that don't meet them. CLC is not a universal guarantor unless explicitly stated in published network policy and pool terms.
+\item Benefits? Where enabled by policy, staked CLC participants may receive \textbf{time-bounded swap access} (via sCLC) to a defined portion of pooled fees, under caps/windows; governance may set this access to \textbf{zero} in any epoch.
+\item Safety? Each CP has per-voucher/window limits, reserve policies, guarantor bonds, insurance waterfall, circuit breakers.
+\end{enumerate}
+Reader Map (where to look)
+
+\begin{itemize}[leftmargin=*]
+\item If you care about confederation \& interoperability: see \S{}5.2a, \S{}8.1, and \S{}11.5.
+\item If you care about guarantees / insurance boundaries: see \S{}11.3.
+\item If you care about LP economics and fee flow: see \S{}7.4, \S{}9, and \S{}12.
+\item If you care about risk controls: see \S{}6 and \S{}10.
+\item If you care about forkability and credible exit: see \S{}8.2 and \S{}11.5.
+\end{itemize}
+
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+
+Modern financial systems excel at trading volatile assets but struggle to finance real production, community resilience, and long-term commitments. The \textbf{Commitment Pooling Protocol (CPP)} offers an alternative: a simple, extensible protocol for issuing, routing, and settling redeemable commitments (claims on future goods, services, and labor) within and across communities. Issuers guarantee their vouchers; pools may add disclosed guarantees; \textbf{the CLC is not a universal guarantor} unless explicitly stated in published network policy and pool terms.
+
+CPP is already live in pilot on \textbf{Sarafu.Network}, coordinating community vouchers, savings groups, mutual aid systems, and production commitments.
+
+\subsection*{Current Traction (Sarafu.Network, since Jul 5 2023 on Celo; as of Jul 20 2025):}
+\addcontentsline{toc}{subsection}{Current Traction (Sarafu.Network, since Jul 5 2023 on Celo; as of Jul 20 2025):}
+
+\textbf{Via Dune Analytics:} \href{https://dune.com/grassrootseconomics/sarafu-network}{https://dune.com/grassrootseconomics/sarafu-network}
+
+\begin{itemize}[leftmargin=*]
+\item 26,367 users
+\item 285,197 peer-to-peer exchanges
+\item 188 unique active commitment pools
+\item 745 unique active vouchers
+\item \$320,692 pool swap volume
+\item 899 impact reports published (\href{https://sarafu.network/reports}{https://sarafu.network/reports} )
+\end{itemize}
+What the existing CPP systems on Sarafu Network currently lack is a liquidity and governance layer that can:
+
+\begin{enumerate}[leftmargin=*]
+\item Inject liquidity across pools,
+\item Coordinate accountable governance as the network scales,
+\item Underwrite settlement risk via shared insurance policies and incident runbooks,
+\item Provide bounded, policy-gated fee-credit (ex-post swap access to a defined portion of pooled fees) for those who underwrite risk and coordination.
+\end{enumerate}
+The \textbf{Cosmo-Local Credit (CLC)} is proposed to fulfill this role.
+
+CLC is designed as a win-win routing layer across curated commitment markets:
+
+\begin{enumerate}[leftmargin=*]
+\item Pool stewards curate voucher listings and publish guarantees; their reputation becomes discoverable and comparable.
+\item Lenders and liquidity providers can finance real production while holding collateral that is redeemable (vouchers) and can be routed across trusted pools.
+\item Producers/borrowers get working capital now and can repay in-kind by fulfilling their vouchers - broadening their market instead of shrinking it.
+\item Consumers can browse curated markets they trust and choose purchases that directly reduce someone's outstanding obligations.
+\item Governance participants direct liquidity mandates to increase settlement velocity and may receive bounded, policy-gated access to eligible fee assets only as defined by published policy.
+\end{enumerate}
+CLC introduces a \textbf{network governance and liquidity coordination layer (including the CLC token design)} that aligns liquidity providers, pool creators, communities, and stewards around one shared goal:
+
+\textbf{Increase the velocity of settlement of real-world commitments while preserving care, fairness, and resilience.}
+
+\textbf{A worst-case governance scenario:} A hostile actor accumulates CLC voting power (e.g., via public markets) and attempts to redirect fee flows, weaken curation standards, or force liquidity mandates that harm communities.
+
+This design therefore treats anti-capture and credible exit (forkability) as first-class safety properties: (i) time-locked and multi-threshold governance for critical parameters, (ii) voting power that requires lockups (no instant governance via spot purchases), (iii) transparent delegation and conflict-of-interest rules, and (iv) a documented fork-and-migrate process so pools and communities can exit if governance is captured (see \S{}11.5).
+
+
+
+\section*{1. Commitment Pooling Protocol (CPP): The Core Primitive}
+\addcontentsline{toc}{section}{1. Commitment Pooling Protocol (CPP): The Core Primitive}
+
+\textbf{Mental model:} A Commitment Pool is like a small, governed \textbf{clearing house} for community ``gift cards'' (vouchers). People deposit vouchers or reserve assets, exchange them under published rules, and redeem them for real goods/services. The software enforces limits and keeps receipts so disputes and guarantees can be handled transparently. CLC connects many pools so vouchers can find redemption paths beyond a single community.
+
+CPP is a protocol for coordinating value using \textbf{commitments}. Commitments are the economy; CLC makes them open and routable. CPP is described in the book, \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{Grassroots Economics: Reflection and Practice.}
+
+\subsection*{1.1 What is a Commitment?}
+\addcontentsline{toc}{subsection}{1.1 What is a Commitment?}
+
+A commitment is a clearly defined promise of future delivery - e.g., maize, transport services, labor hours, storage, or currency redemption. These commitments are represented as \textbf{vouchers}, which function economically like \textbf{pre-paid delivery claims} (similar to gift cards / service credits). (further defined in the section of voucher schemas).
+
+\subsection*{1.2 What is a Commitment Pool?}
+\addcontentsline{toc}{subsection}{1.2 What is a Commitment Pool?}
+
+Roles:
+
+\begin{itemize}[leftmargin=*]
+\item Pool steward: decides listings, values, fees, limits, guarantees, and pauses for a specific pool.
+\item CLC shared services: standards/registries, routing policies, monitoring, liquidity/off-ramps, and optional insurance.
+\item Router/operator: finds and executes paths across pools; can prefer safer profiles and degrade toxic routes.
+\item Guarantor (optional): backs specific vouchers/pools with an explicit remedy if commitments fail.
+\end{itemize}
+A Commitment Pool is a stewarded contract suite that implements four interfaces:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Curation}: Registers acceptable vouchers (Commitment (token) Registry),
+\item \textbf{Valuation}: Maintains a value index (Value Index Registry),
+\begin{itemize}[leftmargin=*]
+\item The Value Index is the pool's price list: a reference that says how much each voucher is worth relative to a common unit (often local currency), so swaps can be quoted consistently. Pools can use different valuation methods and still interoperate, as long as each pool can quote and enforce its own rules on each hop.
+\end{itemize}
+\item \textbf{Limitation}: Enforces credit/swap limits (Swap Limiter),
+\item \textbf{Exchange (Vault/Fee Registry):} Configures fees and custodies assets; executes seed/swap only if listed, valued by the pool index, within limits, and in stock; emits receipts for every action.
+\end{itemize}
+Each pool behaves like a \textbf{mini clearinghouse inside a cooperative}, governed locally by those who depend on it.
+
+\textbf{Big idea:} We are already doing commitment pooling all the time: wages, rent, invoices, loans, warranties, memberships, and mutual aid are all promises that get trusted, netted, and settled. Today that pooling is mostly closed, opaque, and permissioned (inside institutions and platforms) so commitments can't easily connect or route beyond their enclosures. \textbf{CLC proposes to make the underlying protocol open and interoperable}, so commitments can be published, pooled, and routed across communities and markets - by anyone.
+
+\textbf{Why this matters:} pools can be compared and risk-rated because their listings, limits, fees, reserves, and guarantees are explicitly published.
+
+Minimal Swap Logic (canonical)
+
+\begin{enumerate}[leftmargin=*]
+\item Listed?: Input and output vouchers must be listed in the Commitment Registry.
+\item Price?: Compute input$\to$output via the Value Index (with fee preview).
+\item Limits?: Enforce Swap Limiter windows/caps for each voucher (and account/global if configured).
+\item Exchange:
+\begin{enumerate}[leftmargin=*]
+\item (fees): Apply Vault/Fee Registry fee rules (pair-specific OK); preview and emit on receipt.
+\item (inventory): Verify Vault inventory for the outgoing voucher.
+\end{enumerate}
+\item Transfer \& Log: Move in/out, update registries, and emit an immutable receipt that links the quote to the receipt.
+\item Multi-hop?: Repeat hop-by-hop; atomic if supported, else HTLC/escrow with explicit abort paths.
+\end{enumerate}
+\textbf{In other words:} a pool only lets people exchange vouchers that are (a) approved, (b) priced by the pool's published index, (c) within safety caps, and (d) actually in stock - then it issues a receipt.
+
+\subsection*{1.3 Why CPP is Different from Traditional Crypto Decentralized Exchanges (DEXs)}
+\addcontentsline{toc}{subsection}{1.3 Why CPP is Different from Traditional Crypto Decentralized Exchanges (DEXs)}
+
+Most decentralized exchanges (automated trading pools) rely on bilateral token pairs, continuous curves, and volatility-driven fees. CPP supports those use cases \emph{and} enables low-frequency, high-impact coordination:
+
+\begin{itemize}[leftmargin=*]
+\item Community savings (VSLAs),
+\item Production financing,
+\item Mutual credit and mutual aid,
+\item Insurance and guarantees,
+\item Lending against real output,
+\item Settlement of personal and institutional debts.
+\item Portfolio-directed liquidity (e.g. curated pools for ecosystem services, humanitarian support, and health \& wellness)
+\end{itemize}
+\emph{CPP is optimized for \textbf{fulfillment} and \textbf{auditable receipts}, not speculative churn.}
+
+
+
+\section*{2. The Accounting Shift: From Assets to Trust}
+\addcontentsline{toc}{section}{2. The Accounting Shift: From Assets to Trust}
+
+Traditional finance begins with \textbf{Assets - Liabilities = Equity}. CPP reframes this for a commitment economy:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Credit Access}: How much the network is still willing to accept from you.
+\item \textbf{Outstanding Commitments (Debt)}: Your unfulfilled promises held by others.
+\item \textbf{Backing Capacity}: Your real ability to honor those promises.
+\end{itemize}
+\subsection*{Commitment--Capacity Identity:}
+\addcontentsline{toc}{subsection}{Commitment--Capacity Identity:}
+
+Credit - Debt = Backing Capacity
+
+This identity governs risk, limits, and safety across pools: unlimited issuance does not imply unlimited power - only accepted commitments matter.
+
+\textbf{Example:} A transporter issues ``100 rides'' in vouchers. The network only accepts 40 rides worth at a time (credit access). If 15 rides are currently outstanding (debt), then backing capacity = 40 - 15 = 25 rides worth of additional safe acceptance.
+
+
+
+\section*{3. Velocity of Settlement: Why Liquidity Providers Should Care}
+\addcontentsline{toc}{section}{3. Velocity of Settlement: Why Liquidity Providers Should Care}
+
+We reframe ``velocity of money'' as velocity of settlement: how quickly outstanding promises move from owed to fulfilled.
+
+For a given voucher type j across a network of CPs, define:
+
+\begin{enumerate}[leftmargin=*]
+\item D\_j = total outstanding debt (unsettled vouchers) valued in a common index
+\item S\_j = total value of settlements (redemptions routed through CPs) per period
+\end{enumerate}
+Then the network settlement velocity of voucher j is:
+
+\[
+V_j^{\mathrm{network}} = \frac{S_j}{D_j}
+\]
+
+This is a flow/stock ratio: how many units of settlement flow pass through the network per unit of outstanding debt. We will expand this below to a federation of CPs.
+
+\textbf{Key insight:} swaps do \textbf{not} change total value in a pool or the network; only settlement (redemption) reduces debt of the voucher issuer. Liquidity that increases routing capacity \textbf{increases settlement velocity}, which drives economically grounded fee volume.
+
+\textbf{Plain language:} If vouchers get redeemed quickly, more real trade flows through the network. More flow $\to$ more fee events $\to$ more sustainable fee pooling.
+
+What This Is / Isn't
+
+\begin{itemize}[leftmargin=*]
+\item Not an AMM for speculative pairs. CPP values and limits are policyful and capacity-aware.
+\item Not a bank deposit scheme. Vouchers are redeemable claims with explicit SLAs and fallback guarantors.
+\item Not uncollateralized credit expansion. Limits and inventory checks bound issuance and routing.
+\item Is a clearing network for redeemable commitments with auditable receipts and recourse.
+\item Is a producer-credit \& clearing rail: vouchers can function as exchangeable collateral, enabling working capital that can be repaid through in-kind fulfillment as vouchers are purchased and redeemed.
+\end{itemize}
+
+
+\section*{4. Reusable Forward-Style Collateral}
+\addcontentsline{toc}{section}{4. Reusable Forward-Style Collateral}
+
+When debt is collateralized by \textbf{fungible, tradable vouchers} (reusable gift cards or production forwards):
+
+\begin{itemize}[leftmargin=*]
+\item Collateral becomes liquid and discoverable across pools,
+\item Obligations are absorbed by those best placed to fulfill them,
+\item Default risk decreases as redemption paths multiply,
+\item Throughput (and fee generation) increases for LPs \textbf{without raising leverage}.
+\end{itemize}
+\subsection*{4.1 Producer Credit Loop (Loan Repayment via Curated Vouchers)}
+\addcontentsline{toc}{subsection}{4.1 Producer Credit Loop (Loan Repayment via Curated Vouchers)}
+
+CLC enables a form of producer credit where a loan can be repaid through real-world delivery:
+
+\begin{enumerate}[leftmargin=*]
+\item A producer (or service provider) issues a voucher: a redeemable claim on their future output (e.g., ``10 taxi rides,'' ``50kg maize,'' ``10 labor-hours'').
+\item A pool steward lists (``curates'') that voucher, publishes limits, fees, valuation policy, and the guarantee structure (e.g., reserve policy and/or guarantor bond and an SLA).
+\item A lender (or LP program) provides stablecoins into the pool or into a designated credit facility, receiving the producer's curated vouchers as collateral (or as the primary repayment instrument).
+\begin{enumerate}[leftmargin=*]
+\item Note \textbf{:} the lender is not stuck holding a private IOU. They hold vouchers that other people actually want (because they're redeemable), and those vouchers can be swapped/routed across curated pools - so collateral is more liquid. Meanwhile, the borrower can repay by delivering what they produce, and every redemption reduces their outstanding obligation.
+\end{enumerate}
+\end{enumerate}
+2.
+
+\begin{enumerate}[leftmargin=*]
+\item Consumers purchase or accept those vouchers within curated markets they trust. When consumers redeem (or when vouchers are routed and settled), the producer fulfills in-kind.
+\item Critically: voucher settlement reduces the producer's outstanding obligations. The system can route proceeds/receipts so that settlement activity accelerates the producer's debt payoff---meaning ``anyone'' who buys/redeems the voucher helps retire the producer's debt faster (with pool fees funding the curation + routing infrastructure).
+\item Redemptions reduce outstanding obligations of voucher issuers; receipts reference voucher class, SLA, and any applicable guarantee.
+\end{enumerate}
+This turns repayment from ``wait for cash'' into ``get fulfilled by real delivery,'' while preserving clear limits, inventories, receipts, and recourse.
+
+\textbf{Mini example:} A producer receives \$1,000 working capital. They issue \$1,000 worth of ``maize vouchers.'' As those vouchers are bought and redeemed, the producer's outstanding obligation falls - so end-user purchases directly retire the loan. As demand for the vouchers increases (more people swapping into them), more redemptions occur - so the loan amortizes through real customer usage, not only through cash repayments.
+
+
+\section*{5. From Isolated Pools to a Federated Network}
+\addcontentsline{toc}{section}{5. From Isolated Pools to a Federated Network}
+
+CPs interoperate when they list the same vouchers. Routers move value across pools, respecting each hop's \textbf{value index, limits, fees, and inventory}. As pools proliferate:
+
+\begin{itemize}[leftmargin=*]
+\item Routing paths multiply,
+\item Settlement velocity increases,
+\item Fee volume grows,
+\item The network becomes more valuable than any single pool.
+\end{itemize}
+\textbf{Routing story:} A school accepts ``maize vouchers'' but needs ``transport vouchers.'' A router finds a path across pools that accept both. The swap clears only if each hop is within limits and inventory \ldots{} so the voucher reaches someone who can actually redeem it.
+
+\subsection*{5.1 Velocity Multiplier}
+\addcontentsline{toc}{subsection}{5.1 Velocity Multiplier}
+
+When pools operate in isolation, each voucher can only settle within the small local circle that recognizes it. As pools are federated via a common protocol:
+
+\begin{enumerate}[leftmargin=*]
+\item More routes appear: a voucher can cross several pools to reach someone who can redeem it.
+\item Credit is aggregated: multiple pools' acceptance capacity can support the same voucher type.
+\item Netting surfaces: multi-lateral swaps reduce the need for bilateral matching.
+\end{enumerate}
+The result is higher settlement flow for a given stock of obligations: the same commitments can find fulfillment faster.
+
+Formally, if we index pools by k:
+
+\[
+S_j = \sum_k S_{j,k}
+\]
+
+\[
+D_j = \sum_k D_{j,k}
+\]
+
+Connectivity increases per-pool settlement flow without necessarily increasing per-pool obligation stock.
+
+Thus settlement velocity for voucher j rises across the network as routing improves.
+
+\subsection*{5.2 Routing as a Service: Pathfinding + Rebalancing (Liquidity-Saving)}
+\addcontentsline{toc}{subsection}{5.2 Routing as a Service: Pathfinding + Rebalancing (Liquidity-Saving)}
+
+In a CLC-compatible network, ``routing'' is not only a user-facing convenience (``swap voucher A for voucher B''). It is also a network liquidity service that increases settlement velocity by improving how inventory is distributed across pools and by surfacing multilateral netting opportunities.
+
+Two routing modes:
+
+\begin{enumerate}[leftmargin=*]
+\item End-user routing (on-demand)
+\end{enumerate}
+Given (token\_in, token\_out, amount, constraints), the router discovers a multi-hop path across CPs. A route is valid only if each hop clears: (i) listing/registry checks, (ii) value index pricing, (iii) swap limiter windows/caps, (iv) fee rules, and (v) outgoing inventory availability. Execution is atomic where possible; otherwise HTLC/escrow is used with explicit abort paths.
+
+\begin{enumerate}[leftmargin=*]
+\item Pool rebalancing / batch netting (scheduled or threshold-triggered)
+\end{enumerate}
+Pools may opt-in to publish ``rebalance intents'' (or standing constraints): target inventory bands by voucher class, maximum deviation vs. the pool's value index, per-epoch caps, and allow/deny routing preferences. Routers/clearing agents then search for multilateral cycles and chains that:
+
+(i) satisfy every hop's limits and inventories,
+
+(ii) reduce inventory imbalance across pools, and
+
+(iii) maximize total off-set value subject to policy constraints.
+
+These cycles are executed as batch routes, producing receipts per hop (quote $\to$ receipt mapping).
+
+\subsection*{Why this works}
+\addcontentsline{toc}{subsection}{Why this works}
+
+Obligation networks contain cycles. When cycles are processed simultaneously, obligations can be discharged faster and, in some cases, with less external liquidity than sequential bilateral processing. This ``cycle surfacing'' effect is what CPP routing unlocks across Commitment Pools---subject to each pool's published value, limit, fee, and inventory constraints.
+
+\subsection*{Opt-in \& sovereignty note}
+\addcontentsline{toc}{subsection}{Opt-in \& sovereignty note}
+
+Rebalancing is never forced. A pool can be routable for end-users while disabling outbound rebalancing, or can enable only specific voucher classes, caps, and counterparties.
+
+As routing and netting improve, the network can produce more fee events from real settlement activity; this can expand (policy-permitting) the fee-credit budget that defines sCLC swap-access capacity - without turning sCLC into an equity or profit instrument.
+
+\subsection*{5.2a Confederation \& Interoperability}
+\addcontentsline{toc}{subsection}{5.2a Confederation \& Interoperability}
+
+CLC is designed as a confederation protocol: many independent networks can run their own registries, routers, and policy layers, while still routing to one another when they share compatible vouchers and standards. This is not a hub-and-spoke monopoly; it is a mesh of overlapping curations.
+
+\subsection*{Interoperability incentive (why open source + forks help everyone):}
+\addcontentsline{toc}{subsection}{Interoperability incentive (why open source + forks help everyone):}
+
+\begin{itemize}[leftmargin=*]
+\item Any fork/network that remains CPP-compatible can route to CLC pools (and CLC routers can route to theirs), increasing settlement paths, inventory reach, and real-world fulfillment velocity for all parties.
+\item More interoperable networks $\to$ more routable paths $\to$ higher throughput and fee volume from real settlement activity (not speculation), benefiting LP programs and routing services across the confederation.
+\item Open-source ``forkability'' reduces systemic risk: if any canonical registry/router becomes captured or degraded, communities can re-point or fork without bricking local economies.
+\end{itemize}
+\subsection*{Confederation mechanics (how it works):}
+\addcontentsline{toc}{subsection}{Confederation mechanics (how it works):}
+
+\begin{enumerate}[leftmargin=*]
+\item Multi-profile discovery and explicit user/pool choice of registry roots (``network profiles'') (see \S{}8.1).
+\item Reciprocal routing: confederated networks can publish mutual allowlists (registry roots / bridge adapters) with risk parameters (caps, escrow requirements, health-score thresholds).
+\item Policy separation: each profile defines its own fee norms, insurance scope, and compliance hooks; routing across profiles must satisfy each hop's stated constraints and inventory.
+\end{enumerate}
+\subsection*{5.3. From Settlement Velocity to Fee Volume}
+\addcontentsline{toc}{subsection}{5.3. From Settlement Velocity to Fee Volume}
+
+Every routed swap or settlement can carry a small fee, analogous to an interchange fee in card networks.
+
+Let:
+
+\begin{enumerate}[leftmargin=*]
+\item $\tau$ = average fee rate (e.g. 0.2\% per routed value unit)
+\item D\_tot = ``how many promises exist'' (total outstanding redeemable obligations across vouchers, valued in the common index)
+\item V(settlement) = aggregate settlement velocity across all vouchers
+\end{enumerate}
+Then approximate total fee revenue per period as:
+
+\[
+F \approx \tau \cdot V_{\mathrm{settle}} \cdot D_{\mathrm{tot}}
+\]
+
+D\_tot is ``how many promises exist'' (total outstanding redeemable obligations across vouchers), V\_settle is ``how fast they move,'' and $\tau$ is the effective service-fee rate per unit of routed value. Note that this may be a percentage of the fees that pool stewards charge.
+
+\textbf{Rake-on-rake clarification (pool fees $\to$ network rake).} Pool stewards set a per-pool usage fee f\_p (as \% of value routed through that pool). CLC policy sets a rake share r\_p (as \% of that pool's collected fees). The effective network fee rate contributed by that pool is:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+The network-wide $\tau$ is the routed-value-weighted average across pools and routes (plus any router fees when applicable).
+
+Convertibility constraint (cash-eligible vs. in-kind fees). Fees are collected in the same asset that moves through pools. If fees arrive as clinic credits or service vouchers, they can't directly pay for auditors, incident response, or insurance unless they are settled in-network or converted under policy.
+
+Some fee assets are cash-equivalent/convertible (stables, major liquid tokens), while others are not (non-fiat-redeemable vouchers). Let $\chi$ be the share of total fee inflows that are cash-eligible/convertible after slippage and policy constraints. Define cash-usable fee revenue as:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+Eligibility \& conversion note: Fee inflows may include both cash-eligible assets (stables / major liquid tokens) and in-kind voucher assets. The protocol may convert allowlisted cash-eligible assets into stables/fiat when needed to meet insurance payouts, maintain off-ramp liquidity, and fund core operations - while prioritizing in-network settlement and using liquidity mandates/CLC Pool inventories to reduce settlement latency.
+
+Break-even and any non-zero sCLC fee-access budgets must be evaluated on F\_cash, not gross F.
+
+\subsection*{Break-even \& Self-Sustaining Scenarios (illustrative, update quarterly):}
+\addcontentsline{toc}{subsection}{Break-even \& Self-Sustaining Scenarios (illustrative, update quarterly):}
+
+Publish a 3-row table each quarter:
+
+\begin{itemize}[leftmargin=*]
+\item Conservative: D\_tot, V\_settle, $\tau$ $\to$ F; compare to Core Ops budget B\_core.
+\item Base: same.
+\item Expansion: same.
+\end{itemize}
+``Operational break-even'' is when F\_cash (cash-usable fee revenue) covers (Insurance top-ups + B\_core + required liquidity mandates) for 3 consecutive months under conservative assumptions. If $\chi$ is low (many fees arrive as non-convertible vouchers), break-even requires proportionally higher routed value and/or explicit conversion/subsidy policies. Therefore sCLC fee-access budgets (F\_epoch) may remain zero for extended periods until safety and operating targets are sustainably met.
+
+As pools federate:
+
+\begin{itemize}[leftmargin=*]
+\item D(tot) tends to grow (more participants, more commitments), and
+\item V(settlement) tends to rise (better routing, more netting, faster fulfillment).
+\end{itemize}
+Both forces push fee volume F upward.
+
+Downstream of fees: Waterfall $\to$ policy budgets $\to$ optional sCLC budget-exit
+
+Higher F increases the resources available to the Waterfall (insurance targets, core ops, liquidity mandates).
+
+Only after safety and operations priorities are satisfied (insurance targets, core ops, liquidity mandates), the protocol may publish an epoch fee-credit budget F\_epoch that bounds sCLC budget-exit windows/caps into designated fee-holding pools. This makes the post-waterfall budget contestable: stakers can directly reallocate a bounded portion of pooled fee assets by exercising sCLC (e.g., injecting liquidity into specific pools), providing a ``vote with your feet'' accountability mechanism. sCLC is downstream of real settlement throughput (fulfilled commitments), not speculation, and F\_epoch may be set to zero.
+
+Fee Flow (summary): Gross fees (in many assets)
+
+$\to$ Waterfall (1) Insurance targets $\to$ (2) Core ops $\to$ (3) Liquidity/off-ramp mandates
+
+$\to$ Optional: publish capped fee-credit budget F\_epoch (may be zero)
+
+$\to$ sCLC ``budget-exit'' lets stakers direct a bounded portion of fee assets
+
+\subsection*{5.4. Fee Pooling}
+\addcontentsline{toc}{subsection}{5.4. Fee Pooling}
+
+Liquidity providers (LPs) stake assets/vouchers into pools so that swaps and settlements can clear smoothly. They take on inventory and routing risk; service fees are the natural way to pay them.
+
+\subsection*{LP risks \& protections (plain language)}
+\addcontentsline{toc}{subsection}{LP risks \& protections (plain language)}
+
+\begin{enumerate}[leftmargin=*]
+\item Risks:
+\begin{enumerate}[leftmargin=*]
+\item Inventory risk: you may hold assets/vouchers that are slower to redeem or rebalance.
+\item Convertibility risk: some fees arrive as non-cash vouchers; cash-usable revenue depends on $\chi$.
+\item Incident risk: in extreme failures, remedies follow the disclosed loss waterfall (issuer/guarantor $\to$ reserves $\to$ optional insurance $\to$ capped haircuts).
+\item Governance/lock risk: participation may require lockups; changes are timelocked.
+\end{enumerate}
+\item Protections:
+\begin{enumerate}[leftmargin=*]
+\item Limits + reserves cap the speed and size of drains/runs.
+\item Receipts + dashboards make issuer performance and incidents visible.
+\item Policy-gated fee-access is downstream of safety/ops and may be zero---preventing ``promised yield'' dynamics.
+\item Credible exit/forkability: communities can re-point/fork if governance is captured (see \S{}11.5).
+\end{enumerate}
+\end{enumerate}
+Let:
+
+\begin{enumerate}[leftmargin=*]
+\item $\phi$ = fraction of total fees allocated to LPs (the rest can fund software, governance, guarantees, etc.)
+\item K = total value of liquidity staked by LPs into the network
+\end{enumerate}
+The LP fee-access ex-post metric (measured from realized settlement fees; not promised returns) per period is roughly:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot V_{\mathrm{settle}} \cdot D_{\mathrm{tot}}}{K}
+\]
+
+This formula makes the incentive structure explicit:
+
+\begin{enumerate}[leftmargin=*]
+\item Higher settlement velocity V(settle) $\to$ more routed value $\to$ more fees $\to$ higher fee pooling.
+\item More productive debt D(tot) (claims on real output, not speculation) $\to$ larger base on which fees are pooled.
+\item Reasonable fee rate $\tau$ and LP share $\phi$ sustain both the infrastructure and the risk-takers.
+\end{enumerate}
+As the network scales, LP programs may receive policy-gated fee access or sCLC allocations based on how well the system coordinates and settles real obligations, not on how much it speculates.
+
+
+
+\section*{6. The Missing Piece: Network-Level Liquidity \& Governance}
+\addcontentsline{toc}{section}{6. The Missing Piece: Network-Level Liquidity \& Governance}
+
+CPP on Sarafu.Network today enables interoperability but lacks:
+
+\begin{enumerate}[leftmargin=*]
+\item a mechanism for LPs to \textbf{inject liquidity across pools and access sCLC}, and
+\item explicit governance options as the network scales.
+\end{enumerate}
+One CLC design addresses both by introducing a \textbf{network clearing house (the CLC Pool)} and a \textbf{governance token (CLC)}. Other deployments may use different institutions, governance bodies, or fee models while retaining the same Commitment Pool registry and routing pattern.
+
+\subsection*{6.1 Participation Mechanics: Downside Protection vs. Upside Pull}
+\addcontentsline{toc}{subsection}{6.1 Participation Mechanics: Downside Protection vs. Upside Pull}
+
+\textbf{Downside protection} is built in at three levels: trade limits, inventory enforcement, and an explicit loss/insurance waterfall. CPP implemented via the CLC makes risk explicit and bounded at the protocol level: swaps enforce per-voucher windows/caps and inventory checks (cannot swap what the vault does not hold) and emit immutable receipts for every action.
+
+Network policy adds circuit breakers, timelocks, and an insurance runbook with a transparent loss waterfall (issuer/guarantor bonds $\to$ pool reserves $\to$ network insurance $\to$ policy-capped haircuts $\to$ clawbacks for fraud).
+
+Governance enforcement is narrow and reviewable: registry actions (list/suspend/delist) are timelocked where possible, include notice-to-cure and appeal paths, and emergency actions require incident reporting and automatic review/sunset.
+
+\textbf{Upside Pull (why participation is attractive):} CPP implemented via CLC increases access and optionality by allowing real production and service vouchers to function as collateral and as repayment instruments, so settlement by end-users can accelerate debt payoff (``repayment via delivery''), while keeping limits, inventories, receipts, and recourse.
+
+Confederation and routing multiply fulfillment paths across pools (more routes, more netting surfaces), implementing a better matching mechanism - raising settlement velocity and fee volume - so liquidity providers and operators benefit from real settlement activity rather than speculative churn.
+
+Participation remains permissioned only by published limits and health policies (not discretionary gatekeepers), with human-readable failure codes and auditable logs to reduce friction and increase user agency.
+
+
+
+\section*{7. CLC Stewardship and the CLC Token}
+\addcontentsline{toc}{section}{7. CLC Stewardship and the CLC Token}
+
+\subsection*{7.1 Purpose}
+\addcontentsline{toc}{subsection}{7.1 Purpose}
+
+CLC exists to:
+
+\begin{itemize}[leftmargin=*]
+\item Coordinate governance for CPP networks,
+\item Allocate liquidity across pools,
+\item Underwrite settlement risk via an insurance fund,
+\item Maintain core infrastructure and registries,
+\item Recognize the risk of liquidity providers,
+\item Preserve decentralization and auditability as the network scales.
+\end{itemize}
+\subsection*{7.2 CLC Token Overview}
+\addcontentsline{toc}{subsection}{7.2 CLC Token Overview}
+
+CLC is the base governance asset. Locking (staking/escrowing) CLC mints stCLC (vote-escrow governance power) and qualifies the holder for epoch-scoped sCLC under policy.
+
+\begin{enumerate}[leftmargin=*]
+\item stCLC - a non-transferable vote-escrow receipt that represents governance voting power (and can be delegated).
+\item sCLC - an epoch-scoped authorization / incentives token minted each epoch under policy and allocated to (a) stCLC holders (fee-credit authorization after the Safety Waterfall) and/or (b) approved gauges (incentives to productive liquidity and routing operators). Either allocation may be set to zero in any epoch.
+\end{enumerate}
+Neither stCLC nor sCLC is equity, a dividend instrument, or a guaranteed return. Policy may set sCLC issuance and/or fee-credit access to zero in any epoch.
+
+CLC is not a community voucher and is not intended to be used as a general medium of exchange; it exists to coordinate governance and policy-gated access to network resources.
+
+\textbf{Governance Lockups (Anti-Capture; vote-escrow).} Voting power is represented by stCLC, minted only when CLC is locked under a minimum lock period and exit cooldown (timelocked governance parameters). Spot-held CLC does not vote. This makes hostile takeovers slower, visible, and contestable.
+
+\textbf{sCLC Properties (Anti-Speculation).} sCLC is epoch-scoped (expires or is burned at epoch end) and functions as an authorization / incentives token under caps --- not a tradable claim on profits. sCLC is minted according to an epoch policy (including emissions to approved gauges and/or voter incentives), and may be set to zero in any epoch.
+
+\textbf{Total CLC Supply:} 500,000,000 - Minted to a CLC Vault (Multisig-wallet held by Grassroots Economics Foundation)
+
+At launch, the CLC Vault is a multisig with published signers and rotation policy; over time it transitions to governance-controlled timelocked contracts as governance hardening milestones are met (2 independent audits, monitoring, incident runbooks, and tested pause/fork procedures). Public trading venues are OPTIONAL and must be approved as a safety decision.
+
+\subsection*{CLC Allocations:}
+\addcontentsline{toc}{subsection}{CLC Allocations:}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% Grassroots Economics Foundation (GEF):} Permanently staked; non-transferable; soul-bound to the GEF multisig. Receives governance voting \& swap-window access per policy, but underlying CLC can not be unstaked.
+\item \textbf{15\% Core Team \& Early Partners:} Staked during vesting; soul-bound until vesting ends. Cliff/linear vesting over 24 months (policy-set). Voting via CLC during vesting; transfers disabled until vesting completes.
+\item \textbf{30\% Endowments (Private):} Recognition and governance for early LPs providing network liquidity. 24-month vesting (policy-set).
+\item \textbf{40\% Public Liquidity (DEX venue):} Unvested, used for public endowment liquidity bootstrapping.
+\begin{itemize}[leftmargin=*]
+\item 40\% Public Liquidity Reserve (venue-agnostic): Held in a timelocked vault and released in tranches.
+\item Max Active Deployment: $\leq$ 10\% of total supply at any time across all venues.
+\item Each deployment expires (sunsets) after 90 days unless renewed by governance.
+\item LP positions are governance-controlled; LP tokens are timelocked; public venues are optional.
+\item Any CLC used for liquidity does NOT vote unless staked under the same lockup rules as all other voters.
+\end{itemize}
+\end{itemize}
+(All parameters timelocked and on-chain; edits require governance quorum.)
+
+\subsection*{7.2.2 CLC Availability Stages}
+\addcontentsline{toc}{subsection}{7.2.2 CLC Availability Stages}
+
+\textbf{Endowment Contribution Tiers (reference valuation):} Early endowments may be accepted in staged tiers using a published reference valuation for intake and budgeting purposes. This reference valuation is a governance parameter, timelocked and disclosed on-chain, and is not a promise of market price or future appreciation. Public liquidity, if provided on third-party venues, is for accessibility and discovery; CLC policy does not target a price and may add/withdraw liquidity subject to inventory constraints and risk policy.
+
+\textbf{Endowment Covenant (Seeder Responsibility):} Endowments are treated as a stewarded endowment to increase settlement capacity, not to extract yield. Large endowments may be capped in voting influence via conviction caps and/or delegated-community veto (policy-defined) to preserve non-dominance. All endowment deployments must publish: purpose, expected network benefit, risks, and exit conditions.
+
+\subsection*{7.2.3 Impact Seeding Program (CLC Eligibility for Seeding Commitment Pools)}
+\addcontentsline{toc}{subsection}{7.2.3 Impact Seeding Program (CLC Eligibility for Seeding Commitment Pools)}
+
+Published policy may allocate portions of the CLC Vault to recognize contributors who seed liquidity directly into designated Commitment Pools when that liquidity measurably increases network settlement (fulfilled redemptions), not speculative churn.
+
+\subsection*{Eligibility (example policy, finalized by governance):}
+\addcontentsline{toc}{subsection}{Eligibility (example policy, finalized by governance):}
+
+\begin{enumerate}[leftmargin=*]
+\item Seed into an approved pool (or set of pools) for a minimum duration (rolling lockup).
+\item Liquidity must be ``productive'' as measured by receipts: it supports routed swaps that culminate in redemption/settlement within published SLAs.
+\item Rewards are based on marginal settlement contribution, not TVL alone (e.g., net increase in successful settlement volume attributable to the added inventory and routing capacity).
+\end{enumerate}
+Approved pools for seeding may be expressed as gauges, so stCLC voters can transparently direct incentives toward productive settlement capacity rather than TVL.
+
+\subsection*{Anti-gaming rules:}
+\addcontentsline{toc}{subsection}{Anti-gaming rules:}
+
+\begin{itemize}[leftmargin=*]
+\item Exclude self-wash loops (same beneficial owner cycling value) and routes flagged by the router deny-list.
+\item Apply per-entity caps and diminishing returns to reduce whale capture.
+\item Use an observation window and delayed finalization (timelocked) to allow dispute/appeal of manipulated metrics.
+\end{itemize}
+\subsection*{7.3 Vote-Escrow (stCLC) + Epoch Incentives (sCLC) + Pooled Fees}
+\addcontentsline{toc}{subsection}{7.3 Vote-Escrow (stCLC) + Epoch Incentives (sCLC) + Pooled Fees}
+
+Locking CLC mints stCLC (voting power) and enables participation in epoch incentive decisions. Each epoch, stCLC holders vote on ``gauges'' (approved pools / mandates) that direct how any sCLC incentives are distributed to productive liquidity and routing operators.
+
+Separately, after the Safety Waterfall funds Insurance, Core Ops, and Liquidity Mandates, published policy may define a fee-credit budget (F\_epoch). When enabled, sCLC can be used to exercise capped swap access from designated fee-holding pools, under published windows and inventory constraints.
+
+Design rationale (``vote with your feet''): sCLC makes post-waterfall fee budgets contestable. If stakers disagree with routing policy, treasury allocations, or perceive governance capture, they can directly reallocate a bounded portion of pooled fee assets by exercising their fee-credit (e.g., injecting liquidity into specific pools, supporting local voucher inventories, purchasing coverage collateral, or other self-directed deployments). This is an accountability and anti-capture mechanism, not a promise of yield.
+
+\subsection*{stCLC Gauge Voting (Directing sCLC Incentives)}
+\addcontentsline{toc}{subsection}{stCLC Gauge Voting (Directing sCLC Incentives)}
+
+To avoid discretionary allocation and to keep incentives tied to real settlement, CLC uses a gauge system (a curated list of eligible pools/mandates).
+
+Each epoch:
+
+\begin{enumerate}[leftmargin=*]
+\item stCLC holders vote on gauges (eligible pools / portfolios / routing mandates).
+\item The protocol computes vote weights per gauge (with caps / anti-whale rules).
+\end{enumerate}
+If enabled, the protocol mints a bounded amount of sCLC incentives and distributes them to productive liquidity providers and routing operators in proportion to the votes their gauge received --- only when their activity leads to measurable settlement (redemptions) within SLA windows.
+
+\textbf{Key difference from speculation-driven AMMs:} votes do not target token price or ``APY.'' They target settlement capacity (inventory availability, routing reliability, off-ramps), measured by receipts and fulfillment outcomes.
+
+\textbf{Waterfall Usage of Fees (policy-bound).} Fees first fund Insurance Reserve Targets and Core Ops, then Liquidity Mandates. Only thereafter (and only if enabled for that epoch) the protocol publishes a fee-credit budget F\_epoch that bounds sCLC budget-exit swap access. Values, caps, and windows are published in advance and may be tightened or set to zero during incidents. This ordering ensures essential safety and operations are funded before any optional budget-exit is enabled. (See Section 7.4 Waterfall.)
+
+\subsection*{Why stake CLC?}
+\addcontentsline{toc}{subsection}{Why stake CLC?}
+
+Staking/escrowing CLC is how participants direct network policy and enforce accountability. In addition to voting rights, staking/escrowing makes participants eligible to receive epoch-scoped sCLC, which can be used to exercise a capped, epoch-bound budget-exit from the post-waterfall fee budget. This lets stakers ``vote with their feet'' by directly reallocating a bounded portion of fee assets (e.g., injecting liquidity into specific pools or supporting inventories they believe improve settlement) rather than relying solely on proposals and committees. This is access to a governed resource under caps, not a claim on profits or dividends.
+
+\subsection*{Service-Fee Enforcement Option}
+\addcontentsline{toc}{subsection}{Service-Fee Enforcement Option}
+
+(a) \textbf{Factory Gating.} A registry operator may deploy CPP pools via a \textbf{PoolFactory} that wires a \textbf{FeeHook} into the Vault/Fee Registry; fees can auto-route to a configured fee recipient via the Waterfall per policy. Pools missing the FeeHook may be ineligible for that registry.
+
+(b) \textbf{Registry Gating.} A registry profile may make only registered pools discoverable by its routers and SDKs. Independent registries can define their own listing and fee rules.
+
+(c) \textbf{Router Policy.} Routers may \textbf{refuse routes} that touch unregistered pools or pools with invalid FeeHooks for the selected profile. SDK invariant checks can enforce this.
+
+(d) \textbf{Programmatic Attestations.} Liquidity mandates and LP programs may require FeeHook compliance; non-compliant pools may lose routing and liquidity support within that profile.
+
+\textbf{Result:} ``Mandatory'' is profile-specific: a non-paying pool may be unroutable in one registry or service profile while remaining free to operate locally or join another registry.
+
+\textbf{Fork/Exit Note.} This enforcement applies only to the selected discovery profile. Pools remain free to operate outside a given registry, and independent routers/registries may exist. This preserves credible exit if governance is captured: a fork can deploy alternative registries/routers and pools can re-register there without changing the underlying CPP primitives.
+
+Users/pools can always select alternative profiles/registries in compatible clients. Registry enforcement must not ``brick'' local economies. Fee policies must be surfaced in UI before swap/seed.
+
+\subsection*{sCLC Emission \& Budget-Exit Windows}
+\addcontentsline{toc}{subsection}{sCLC Emission \& Budget-Exit Windows}
+
+Each epoch, after the Waterfall funds Insurance, Core Ops, and Liquidity Mandates, the protocol may publish a fee-credit budget F\_epoch (USD value; may be zero). sCLC confers a pro-rata user limit based on stCLC voting power:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+Within published windows/caps (and subject to inventory), sCLC can be exercised to swap fee assets out of designated fee-holding pools and into listed assets/vouchers. This is a bounded budget-exit mechanism (accountability / anti-capture), not passive income; governance may set F\_epoch = 0 and may tighten, pause, or geofence access per compliance and incident policy.
+
+\textbf{DEX Float Reduction (optional, non-speculative):} If measured CLC DEX float exceeds a policy cap, published policy may authorize a capped, TWAP-limited repurchase solely to reduce external float and governance-attack surface. Acquired CLC is retired to avoid custody risk. This program has no price target, may be set to zero, and must halt automatically during incidents or when insurance buffers are below target.
+
+\subsection*{Guardrails (policy parameters; on-chain):}
+\addcontentsline{toc}{subsection}{Guardrails (policy parameters; on-chain):}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Trigger-based:} only if DEX float > \textbf{X\%} for \textbf{Y} days
+\item \textbf{Cap:} max \textbf{Z\%} of monthly fees and/or max \textbf{W\%} of DEX daily volume
+\item \textbf{Execution:}\textbf{TWAP + random time delays}+ \textbf{no announcement of exact timing}
+\item \textbf{Emergency stop:} automatic stop if \textbf{insurance ratio < threshold}
+\item \textbf{Disclosure:}``\textbf{Not intended to support price; settlement does not depend on DEX price}''
+\end{itemize}
+\textbf{Treasury Liquidity Cache (non-distributive):} A portion of fees may be used to maintain protocol-owned liquidity positions needed for network functioning (e.g., off-ramp buffers, rebalancing inventories), under policy caps and timelocks.
+
+\textbf{7.3.1 Portfolio Pools:} Direct Seeding, Voted Allocations, and sCLC-Directed Liquidity (Examples)
+
+Commitment Pools can be curated as ``portfolio pools'': pools that list redeemable commitments aligned to a mission domain (e.g., ecosystem support services, humanitarian support, health \& wellness). Portfolio pools make it easy for liquidity providers to target real-world outcomes without requiring a single central issuer.
+
+\subsection*{There are three complementary ways to support a specific portfolio pool:}
+\addcontentsline{toc}{subsection}{There are three complementary ways to support a specific portfolio pool:}
+
+A) Seed directly into the pool: deposit accepted assets/vouchers into the pool's Vault, increasing inventory and routing capacity (subject to listings, limits, and reserve policy).
+
+B) Vote allocations into the pool: propose and approve Liquidity Mandates (Waterfall allocations) that seed or backstop designated portfolio pools with time-bounded mandates and sunset/review.
+
+C) Stake CLC and direct sCLC swaps: when enabled for an epoch, stakers can exercise sCLC budget-exit swaps to reallocate a bounded portion of post-waterfall fee assets into specific portfolio pools (e.g., by swapping fee assets into the pool's inventories or accepted liquidity assets), strengthening the pools they believe most improve settlement and mission outcomes. This is an accountability mechanism under caps/windows---not a claim on profits.
+
+Note: Portfolio pools remain sovereign. They can be canonical (discoverable via official registries/routers) or independent (discoverable via independent registries/routers), without changing the underlying CPP primitives.
+
+\subsection*{7.3.2 Curating Portfolio Pools (Including Certifications)}
+\addcontentsline{toc}{subsection}{7.3.2 Curating Portfolio Pools (Including Certifications)}
+
+Any steward (individual, cooperative, community group, multisig, service operator, or public agency) can curate a portfolio pool: define a listing policy, publish a Value Index method, configure limiters, and require clear redemption proofs and fallback remedies. Portfolio pools can be specialized (ecosystem, humanitarian, health) or mixed.
+
+Certifications can be used to improve trust and reduce risk, but should be modeled as attestations that affect eligibility and risk treatment---not as profit tokens. Two safe patterns:
+
+A) Attestation Certificates (non-transferable or registry-bound): a verifier issues an attestation that a voucher issuer/project meets stated criteria (methodology, safeguards, monitoring). The pool uses attestations to whitelist listings, adjust haircuts, widen/narrow limits, or qualify for insurance participation.
+
+B) Audit/Verification Service Vouchers (redeemable commitments): a token represents a redeemable verification service (who will verify what, by when, under what standard). Pools/projects can purchase these vouchers to fund monitoring and strengthen integrity.
+
+In both cases, the economic claim remains the underlying redeemable commitment; certifications modify risk and eligibility rather than creating entitlement to fees, profits, or residual assets.
+
+\subsection*{7.4 Waterfall Policy \& Budgets}
+\addcontentsline{toc}{subsection}{7.4 Waterfall Policy \& Budgets}
+
+Fee inflows (pool usage fees, routing fees, network rake) are allocated by a deterministic waterfall and adjustable by governance decision.
+
+\textbf{Fee Asset Eligibility \& Conversion (cash vs. in-kind).} Fee inflows arrive in mixed assets because fees are collected in the same asset that moves through pools. The Waterfall distinguishes:
+
+(i) Cash-eligible fee assets (E\_cash): allowlisted stablecoins/cash-equivalents and (optionally) major liquid tokens that may be converted to fund fiat-denominated insurance payouts and core operating costs; and
+
+(ii) In-kind fee assets (E\_kind): non-fiat-redeemable vouchers and other non-convertible assets that may be redeployed for in-network settlement support, local mandates, or in-kind operating needs, but do not count toward fiat-denominated insurance/ops obligations.
+
+CLC maintains a Conversion Policy (allowlists, caps, slippage limits, TWAP windows, and reporting) for fungible assets only. Voucher pricing remains governed by pool Value Indices and Swap Limiters; conversion is for treasury/operations reliability, not voucher valuation.
+
+\subsection*{Waterfall Priorities:}
+\addcontentsline{toc}{subsection}{Waterfall Priorities:}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Insurance Reserve Target}-- Fund to a policy target (risk-weighted by pool class, fulfillment rate, issuer concentration, and limit utilization).
+\item \textbf{Core Operations}-- Legal, advocacy, IEC, infra, audits, observability.
+\item \textbf{Liquidity Mandates}-- Endowments into target pools/routers to improve settlement velocity, including (optionally) interoperability mandates: bridge/adaptor maintenance, confederation routing pilots, and cross-network liquidity backstops under published caps and sunset reviews.
+\item \textbf{DEX Float Reduction (optional, non-speculative):} If measured CLC DEX float exceeds a policy cap, published policy may authorize a capped, TWAP-limited repurchase solely to reduce external float and governance-attack surface. Acquired CLC is retired (or placed in a non-voting sink) to avoid custody risk. This program has no price target, may be set to zero, and must halt automatically during incidents or when insurance buffers are below target.
+\item \textbf{CLC Pool Fee-Access Budget:} Allocate remaining eligible fee assets to the CLC Pool (cash-eligible E\_cash by default; E\_kind only if explicitly allowlisted per program) and publish the epoch fee-access budget F\_epoch (may be zero), which bounds sCLC swap-access windows/caps as defined in \S{}7.4.
+\end{enumerate}
+\textbf{KPI-Linked Budgets.} Advisory data to adjust the waterfall parameters via on-chain policy keyed to pool-health KPIs: fulfillment rate, reserve adequacy, limit utilization, routing pass/fail, guarantor performance, and redemption latency. All edits are timelocked and logged on-chain.
+
+A typical contributor flow is:
+
+\begin{enumerate}[leftmargin=*]
+\item Liquidity Providers supporting endowments - stable coins going to CLC Vault and receiving CLC tokens (as governance participants).
+\item CLC holders can stake them to receive stCLC voting rights (and sCLC \ldots{} step 4)
+\item Pools in the CLC Registry send (automatically) a \% of their fees to the Waterfall Contract. The waterfall contract pushes these fees into:
+\begin{enumerate}[leftmargin=*]
+\item Insurance \& Ops Vault: funded primarily by cash-eligible fee assets (E\_cash) and/or conversions under policy; in-kind fees (E\_kind) do not count toward fiat-denominated obligations.
+\item Back into the CPs based on voting
+\item Used for DEX Float Reduction (capped repurchase + retirement / non-voting sink) only when trigger conditions are met; otherwise set to zero.
+\item Into the CLC Pool (Fee Budget Vault): holds post-waterfall eligible fee assets; sCLC provides capped, epoch-bound swap access only to allowlisted assets/programs and may be zero.
+\end{enumerate}
+\item After the Safety Waterfall, the protocol may mint sCLC under epoch policy and allocate it to: (a) stCLC holders as fee-credit authorization (pro-rata; may be zero) and/or (b) approved gauges as incentives to productive liquidity providers and routing operators (may be zero).
+\item CLC Fee Budget Vault (CLC Pool) - Holds post-waterfall pooled fee assets. When enabled, sCLC provides capped, epoch-bound fee-credit spend authority (pro-rata to staked/escrowed CLC) to execute allowlisted deployments (e.g., seed specified CP inventories, purchase coverage collateral) by swapping from designated fee-holding vaults within published windows/caps. This is not a claim on vault ownership.
+\end{enumerate}
+
+
+\section*{8. Technical Scope \& Growth}
+\addcontentsline{toc}{section}{8. Technical Scope \& Growth}
+
+Priorities:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Routing protocols across} Sarafu.Network pools; SDKs and index/limit discovery APIs.
+\item \textbf{Bridges to external DEX} registries; Time-locked contract/escrow for cross-domain settlement.
+\item Support for the long tail of \textbf{micro-pools} (including personal pools UX).
+\item \textbf{Auditable registries} for vouchers, pools, limits, values, and fee policies.
+\item \textbf{Fiat/stable on/off-ramp connectors}: a partner/rail registry (by jurisdiction), checkout/invoice flows, and UI ``network profiles'' that can geofence features and require attestations for cash-equivalent redemptions.
+\item \textbf{Bridges to external liquidity venues} (DEXs and other registries) for fungible assets (e.g., stable cash-equivalents and major liquid tokens), using time-locked escrow/HTLC where cross-domain atomicity is unavailable. Purpose: rebalancing, on/off-ramp liquidity, and risk-managed settlement support - not pricing of redeemable vouchers by speculative curves.
+\item \textbf{Treasury conversion \& settlement acceleration}: policy-capped conversion of cash-eligible fee assets (E\_cash) held in the CLC Pool into stables/fiat when needed for insurance/ops and to maintain off-ramp liquidity---while prioritizing in-network settlement and using liquidity mandates/rebalancing to reduce settlement latency.
+\end{itemize}
+\textbf{DEX Interop Boundary:} DEX adapters are for fungible liquidity management (stables, rebalancing, exit ramps), not for defining the value index of redeemable commitments. Voucher pricing remains governed by each pool's Value Index + limits + inventories; DEX prices may be used only as an auxiliary reference for fungible assets and must be guarded against manipulation (caps, TWAP/medianization, deny-lists, and incident pauses).
+
+\subsection*{8.1 Router \& SDK Norms}
+\addcontentsline{toc}{subsection}{8.1 Router \& SDK Norms}
+
+\textbf{Public Discovery.} Routers must query public registries of voucher listings, value indices, limits, fees, and inventories; cache with freshness bounds.
+
+\textbf{Multi-Profile Discovery (Confederation).} Routers/SDKs may support multiple registry roots (``network profiles'') and must surface to users/pools which profile a route uses (registry root, policy constraints, bridge adapters). Cross-profile routes must satisfy the strictest applicable caps/escrow requirements and must be auditable hop-by-hop (quote $\to$ receipt mapping).
+
+\textbf{Path Policies.} Deny-list toxic routes (known bad bridges/pools) and enforce per-route caps and minimum health scores (reserve adequacy, SLA adherence).
+
+\textbf{Fees \& Caps.} Routing fees expressed per-hop; routers may add a small discoverability fee within policy bounds; hard caps apply under stress (utilization spikes).
+
+\textbf{Atomicity \& Escrow.} Prefer atomic multi-hop where possible; otherwise use HTLC/escrow with conservative timeouts and explicit abort paths.
+
+\textbf{Batch Netting \& Rebalancing.} Routers may also perform batch netting runs across opted-in pools by collecting rebalance intents and searching for multilateral cycles/chains that satisfy each pool's constraints. Norms:
+
+(i) publish a machine-readable ``rebalance receipt'' summary (cycles executed, total off-set value, fees charged),
+
+(ii) enforce conservative per-epoch caps and health-score gating,
+
+(iii) reject any route that violates a pool's allow/deny policies or exceeds limiter windows/caps,
+
+(iv) keep batch execution auditable (deterministic inputs $\to$ receipts) to support dispute resolution.
+
+\textbf{SDK Guarantees.} Provide (i) deterministic quote $\to$ receipt mapping, (ii) invariant checks per hop, (iii) human-readable failure codes, (iv) audit-friendly logs.
+
+\subsection*{8.1.1 Minimum Confederation Compatibility Contract (MCC)}
+\addcontentsline{toc}{subsection}{8.1.1 Minimum Confederation Compatibility Contract (MCC)}
+
+To be routable across profiles (and thus across confederated networks), a pool ecosystem must publish the following in a machine-readable way:
+
+\begin{enumerate}[leftmargin=*]
+\item Registry roots: canonical addresses for voucher registry, pool registry, value index registry, limiter registry, and fee policy registry (or a single root that deterministically resolves these).
+\item Receipt standard: every hop must emit/return a receipt that references (a) registry root/profile used, (b) voucher/token in/out, (c) value index version or timestamp, (d) limiter window/cap snapshot, (e) fees charged, and (f) inventory check result.
+\item Health endpoints: per-pool signals required for routing policies---reserve adequacy, SLA adherence, limiter utilization, and incident state---plus freshness bounds.
+\item Policy constraints: explicit allow/deny policies (bridges, counterparties, voucher classes) and required escrow/HTLC requirements for non-atomic hops.
+\item Failure codes: human-readable, deterministic failure codes so clients can explain why a route was refused (limits, inventory, policy, escrow, incident pause).
+\end{enumerate}
+Networks may implement additional features (insurance overlays, compliance hooks, arbitration modules), but these must remain profile-scoped and must not be required for basic CPP compatibility.
+
+\subsection*{8.2 Licensing \& Transparency}
+\addcontentsline{toc}{subsection}{8.2 Licensing \& Transparency}
+
+All contracts are \textbf{EVM-compatible}, open-source under \textbf{AGPL-3.0}, with reproducible builds, published ABIs, and audit reports. Canonical addresses and registries are timelocked and mirrored for independent verification. Community contributions are welcomed under the same license.
+
+\textbf{Fork Kit (Required Deliverable).} The project will maintain a ``fork kit'' that includes:
+
+(i) deterministic deployment scripts; (ii) registry snapshot/export tooling; (iii) a documented procedure to re-point routers/SDKs to a new registry root; and (iv) a pool steward checklist for exiting canonical registries safely (including fee-hook redirection options where supported).
+
+\subsection*{Example: Minimum Exit Checklist (publish + test annually):}
+\addcontentsline{toc}{subsection}{Example: Minimum Exit Checklist (publish + test annually):}
+
+\begin{enumerate}[leftmargin=*]
+\item How to export registry snapshots + receipts.
+\item How to repoint routers/SDKs to a new root.
+\item How to migrate insurance scope (or explicitly terminate it).
+\item How to honor outstanding vouchers during migration (notice-to-redeem + remedy options).
+\end{enumerate}
+\textbf{Why AGPL + Fork Kit:} Confederation rewards compatibility. Networks that fork and improve routers, registry tooling, bridge adapters, or observability can still route with CLC if they remain CPP-compatible - expanding settlement paths and strengthening the whole mesh. AGPL ensures improvements to the shared plumbing remain shareable across the confederation, reducing systemic risk and duplication.
+
+
+
+\section*{9. Economics for LPs}
+\addcontentsline{toc}{section}{9. Economics for LPs}
+
+\subsection*{9.1 Revenue Streams}
+\addcontentsline{toc}{subsection}{9.1 Revenue Streams}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Network Fee Rake $\to$ Policy Pools.} A portion of per-pool fees is routed to the \textbf{CLC Pool} via the Waterfall contract which starts with Insurance, Core Ops, Liquidity Mandates, and (if, when, and to the extent enabled) \textbf{sCLC swap windows}.
+\item \textbf{Policy-gated fee-credit (ex-post)}
+\item \textbf{Routing Fees}: Fees from multi-hop routes discovered by routers.
+\begin{enumerate}[leftmargin=*]
+\item Rebalancing / Netting Fees (optional): Fees earned for executing batch netting cycles and inventory rebalancing routes that reduce imbalance and increase successful settlement throughput (ex-post, policy-bound).
+\end{enumerate}
+\item \textbf{Curation \& Validation Fees:} pools may allocate a disclosed portion of fees to listing/verification/monitoring roles (curators, auditors, claims modules) under published mandates.
+\end{enumerate}
+\subsection*{9.2 Illustrative Fee Math (Example Only)}
+\addcontentsline{toc}{subsection}{9.2 Illustrative Fee Math (Example Only)}
+
+\begin{itemize}[leftmargin=*]
+\item Per-pool usage fee: 30--500 bps depending on voucher class and risk tier.
+\item Network rake: 10--30\% of per-pool fees -> Waterfall -> CLC Pool.
+\begin{itemize}[leftmargin=*]
+\item \textbf{Worked example} ( ``2\% fee'' case). If a pool charges f\_p = 2.00\% and the network rake share is r\_p = 20\% of that pool's fees, then the effective network fee rate on routed value is:
+\item $\tau$\_p = f\_p $\cdot$ r\_p = 2.00\% $\cdot$ 20\% = 0.40\% = 40 bps.
+\item Convertibility matters. If only $\chi$ = 25\% of fee inflows are cash-eligible/convertible (E\_cash), then cash-usable effective revenue is \textasciitilde{}10 bps (40 bps $\times$ 0.25). Therefore, meaningful sCLC fee-access budgets (F\_epoch) require both high settlement throughput and sufficient $\chi$; otherwise F\_epoch may remain zero for long periods.
+\end{itemize}
+\item Routing fee: 5--20 bps across hops.
+\item Distribution to Waterfall (policy-bound)
+\item \textbf{Net LP Credit Access} drivers: local swap usage, routing volume, policy-deployed liquidity credit access, less losses/insurance haircuts.
+\end{itemize}
+*\textbf{Accounting only: Any annualized figures are ex-post metrics of policy-gated swap access to pooled fees (not promised returns) and may be zero or negative after losses/haircuts.}*
+
+\subsection*{Downside Examples (ex-post):}
+\addcontentsline{toc}{subsection}{Downside Examples (ex-post):}
+
+\begin{itemize}[leftmargin=*]
+\item Inventory Loss Case: losses from defaults/redemption delays reduce fee-credit access by X (haircut).
+\item Run-Protection Case: limiter-triggered throttling reduces settlement flow, lowering F temporarily.
+\item Policy Case: governance sets fee-credit budget F\_epoch = 0 (no sCLC exit) during incidents or rebuild phases.
+\end{itemize}
+\emph{Numerical schedules are governance parameters and will be finalized via on-chain proposals and timelocks.}
+
+
+
+\section*{10. Comprehensive Risk Framework}
+\addcontentsline{toc}{section}{10. Comprehensive Risk Framework}
+
+We classify risk into \textbf{ten} categories. For each we list \emph{Threats}, \emph{Indicators}, and \emph{Controls} (Preventive/Detective/Corrective), plus \emph{Stress Tests} and a \emph{Risk Appetite} statement.
+
+\subsection*{10.1 Protocol \& Smart Contract Risk}
+\addcontentsline{toc}{subsection}{10.1 Protocol \& Smart Contract Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Contract bugs, upgrade errors, misconfigured limits/fees.
+\item \textbf{Indicators}: Audit findings, unexplained vault movements, reverts/spikes.
+\item \textbf{Controls}:
+\begin{itemize}[leftmargin=*]
+\item \emph{Preventive}: Independent audits, formal verification where critical, minimal privileged roles, least-privilege vaults.
+\item \emph{Detective}: On-chain monitors, invariant checks, receipt reconciliation.
+\item \emph{Corrective}: Timelocked upgrades, emergency pause with public criteria, fork/migration path.
+\end{itemize}
+\item \textbf{Stress Tests}: Simulate paused oracles, inventory shortfalls, routed burst traffic.
+\item \textbf{Risk Appetite:} Low; require audits before scaling network exposure (outstanding obligations and routed volume).
+\end{itemize}
+\subsection*{10.2 Economic/Market Risk (Liquidity, Runs, Oracle)}
+\addcontentsline{toc}{subsection}{10.2 Economic/Market Risk (Liquidity, Runs, Oracle)}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Thin inventory, bank-run dynamics, oracle manipulation/latency.
+\item \textbf{Indicators}: Limit utilization >80\%, widening spreads, frequent limit rejections.
+\item \textbf{Controls}:
+\begin{itemize}[leftmargin=*]
+\item \emph{Preventive}: Swap Limiter windows/caps; tiered limits; minimum reserve ratios; medianized oracles with failover constants.
+\item \emph{Detective}: Utilization \& spread dashboards; variance alarms on value index updates.
+\item \emph{Corrective}: Widen margins; tighten caps; route-around policies; temporary fee surcharges to dampen flow.
+\end{itemize}
+\item \textbf{Stress Tests}: Price shocks ($\pm$50\%), redemption surges (5--10$\times$ baseline), oracle outages.
+\item \textbf{Risk Appetite}: Moderate, bounded by policy thresholds.
+\end{itemize}
+\subsection*{10.3 Credit/Voucher Issuance Risk}
+\addcontentsline{toc}{subsection}{10.3 Credit/Voucher Issuance Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Over-issuance vs. capacity; issuer default; mis-specified redemption windows.
+\item \textbf{Indicators}: Fulfillment rate $\downarrow$, aging vouchers $\uparrow$, guarantor exposures $\uparrow$.
+\item \textbf{Controls}:
+\begin{itemize}[leftmargin=*]
+\item \emph{Preventive}: Issuer due diligence; pool operator guarantor/bond requirements; issuance quotas; clarity-first voucher terms.
+\item \emph{Detective}: Cohort aging reports; fulfillment SLA tracking; guarantor performance logs.
+\item \emph{Corrective}: Tighten issuance, require top-ups, delist/route-around, trigger insurance.
+\end{itemize}
+\item \textbf{Stress Tests}: Issuer insolvency; regional shock to production.
+\item \textbf{Risk Appetite}: Moderate for diversified issuers; low for concentrated exposure.
+\end{itemize}
+\subsection*{10.4 Redemption/Operations Risk}
+\addcontentsline{toc}{subsection}{10.4 Redemption/Operations Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Inability to honor redemptions due to logistics, supply chain, or custody failures.
+\item \textbf{Indicators}: Redemption latency > SLA; stockouts; ticket backlogs.
+\item \textbf{Controls}: Redemption buffers; emergency backstops; off-chain attestation flows; multi-venue redemption options.
+\item \textbf{Stress Tests}: 2--4$\times$ redemption spikes; facility outages.
+\item \textbf{Risk Appetite}: Low; protect end-users.
+\end{itemize}
+\subsection*{10.5 Governance Risk}
+\addcontentsline{toc}{subsection}{10.5 Governance Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Steward capture; rushed parameter edits; conflicts of interest.
+\item \textbf{Indicators}: Concentrated voting power; frequent emergency actions; policy churn.
+\item \textbf{Controls}: Quorums; timelocks; delegated voting with transparency; conflict disclosures; veto/appeal mechanisms; forkability.
+\item \textbf{Risk Appetite}: Low; emphasize transparency and recourse.
+\item \textbf{Stress Tests}: Adversarial proposals; bribery attempts.
+\begin{itemize}[leftmargin=*]
+\item \textbf{Additional Stress Test: Hostile Voting Capture (Public Market Accumulation).}
+\end{itemize}
+\end{itemize}
+Scenario: An external actor accumulates a large fraction of CLC, delegates votes to a small set of accounts, and proposes to (i) redirect Waterfall allocations, (ii) weaken listing/delisting standards, (iii) drain insurance via permissive claims, or (iv) force liquidity mandates into self-serving pools.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Controls (must all be true):}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Governance requires lockups} (no instant voting power from spot purchases).
+\item \textbf{Timelocks} on all critical actions, with public alerts and a defined response window.
+\item \textbf{Supermajority + higher quorum tiers} for Waterfall, registry root, insurance policy, and emergency powers.
+\item \textbf{Transparent delegation}+ concentration monitoring triggers (automatic escalation to higher thresholds).
+\item \textbf{Appeal + incident process} and an explicit \textbf{fork-and-migrate} procedure if values drift or capture occurs.
+\end{itemize}
+\end{itemize}
+\subsection*{10.6 Legal \& Compliance Risk}
+\addcontentsline{toc}{subsection}{10.6 Legal \& Compliance Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Vouchers deemed regulated instruments; KYC/AML obligations; cross-border restrictions.
+\item \textbf{Indicators}: Jurisdictional flags; regulator inquiries.
+\item \textbf{Controls}: Modular compliance hooks (allow/deny lists, attestations); geofenced UIs; legal reviews per class; disclosures.
+\item \textbf{Stress Tests}: Jurisdictional bans; counterparty de-listings.
+\item \textbf{Risk Appetite}: Low; comply or geofence.
+\end{itemize}
+\subsubsection*{10.6.1 Legal Positioning \& Token Treatment (Summary)}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Open-source infra.} All smart contracts are EVM, open-source \textbf{AGPL-3.0}, and auditable.
+\item \textbf{Token posture.} CLC is a governance and access token. Staking may mint sCLC tokens that confers policy-gated swap rights into fee-holding pools under published caps/windows. No dividends. No profit-share. No residual rights.
+\item \textbf{Representations.} CLC contributors do \textbf{not} market CLC/sCLC with profit expectations; materials avoid financial return language.
+\item \textbf{Jurisdiction strategy.} (i) Geofenced UIs and RPCs; (ii) attestation gates for restricted classes; (iii) no promotions in restricted jurisdictions; (iv) per-voucher class legal reviews; (v) programmatic kill-switches to disable sCLC swap windows under policy.
+\item \textbf{Endowment notice.} Based on governance decision - access based on staked CLC may be disabled or reduced for compliance, operational, or risk reasons with no compensation. See \S{}17.3 for plain-language instrument definitions.
+\end{enumerate}
+\subsection*{10.7 Routing \& Cross-Domain Risk}
+\addcontentsline{toc}{subsection}{10.7 Routing \& Cross-Domain Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Partial fills, stuck hops, bridge exploits, MEV (router perspective): artificially inflate route hops, front-running value index (if timelocked).
+\item \textbf{Indicators}: HTLC expiries; escrow backlogs.
+\item \textbf{Controls}: Atomicity where possible; escrow/HTLC with conservative timeouts; deny risky bridges; per-route fees and caps slash router stake; implement path efficiency score (including retroactively, see OP style challenge games), capping fees.
+\item \textbf{Stress Tests}: Bridge halt; chain reorgs.
+\item \textbf{Risk Appetite}: Low to moderate; whitelist bridges.
+\end{itemize}
+\subsection*{10.8 Custody \& Key Management Risk}
+\addcontentsline{toc}{subsection}{10.8 Custody \& Key Management Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Key loss/compromise; signer collusion.
+\item \textbf{Indicators}: Anomalous signer behavior; threshold changes.
+\item \textbf{Controls}: Multisig/threshold schemes; hardware security; signer rotation; monitoring; withdrawal rate limits.
+\item \textbf{Risk Appetite}: Low.
+\end{itemize}
+\subsection*{10.9 Reputation \& Social Risk}
+\addcontentsline{toc}{subsection}{10.9 Reputation \& Social Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Misaligned incentives harming communities; poor redemption experiences, insurance gamification.
+\item \textbf{Indicators}: Community feedback; complaint ratios; social sentiment.
+\item \textbf{Controls}: NVC-aligned evaluation; grievance redressal; transparent reporting.
+\item \textbf{Risk Appetite}: Low; prioritize care and fairness.
+\item \textbf{Mis-selling controls:} standardized consumer disclosures in-UI; mis-selling incident log; sanctions ladder for violators (warnings $\to$ suspensions $\to$ delistings).
+\end{itemize}
+\subsection*{10.10 Concentration \& Fragmentation Risk}
+\addcontentsline{toc}{subsection}{10.10 Concentration \& Fragmentation Risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Threats}: Dependence on a few issuers/pools; incompatible forks.
+\item \textbf{Indicators}: HHI by issuer/pool; routing failures across clusters.
+\item \textbf{Controls}: Diversification targets; publish registries/indices/limits; maintain routing bridges; encourage standard adherence.
+\end{itemize}
+
+
+\section*{11. Governance Mechanics}
+\addcontentsline{toc}{section}{11. Governance Mechanics}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Constitutional Values}: Care for People, Care for the Environment, Fairness, Reciprocity, Non-Dominance, Resilience.
+\item \textbf{Proposal Types}: Fee/limit/index edits; liquidity mandates; pool listings/delistings; insurance payouts; parameter guardrails.
+\item \textbf{Process}: Intake $\to$ Evaluation (template) $\to$ Risk review $\to$ On-chain vote (staked CLC) $\to$ Timelock $\to$ Execution.
+\item \textbf{Quorum \& Thresholds}: Parameterized per class (e.g., higher for value-index edits and emergency pauses).
+\item \textbf{Delegation}: Optional delegate system with public mandates and recall.
+\item \textbf{Circuit Breakers}: Emergency pause with criteria; automatic resume conditions; post-mortems required.
+\item \textbf{Transparency}: All edits/flows logged; dashboards for fulfillment, reserves, utilization, routing, guarantors.
+\end{itemize}
+\textbf{Registry Governance (Listing / Suspension / Delisting).} A CLC-compatible deployment may maintain discovery registries for vouchers, tokens, and pools. Depending on the governance model, authorized controls may add, update, suspend, or remove (``delist'') registry entries through on-chain voting, multisig approvals, board decisions, cooperative resolutions, public mandates, or other accountable processes. Voucher, token, and pool issuers acknowledge that registry status is conditional: repeated non-fulfillment of published Redemption SLAs, fraud/misrepresentation, unsafe contract behavior, or persistent violation of published values/principles may result in suspension or delisting, and routers may route around delisted entries by default. Where feasible, delisting follows notice to cure (remedy) period to decision, with an appeal path; emergency delisting requires a public incident report and automatic review/sunset.
+
+\subsection*{Prohibited Listings (non-negotiable):}
+\addcontentsline{toc}{subsection}{Prohibited Listings (non-negotiable):}
+
+\begin{enumerate}[leftmargin=*]
+\item Instruments that directly fund or incentivize ecological destruction beyond agreed boundaries, violence/weaponization, coercive extraction, or systemic abuse.
+\item Any voucher class lacking clear redemption terms, accountability, and remedy pathways.
+\end{enumerate}
+The prohibited list is versioned, publicly auditable, and requires Q3 + T3 to change.
+
+\subsection*{11.1 Index \& Limit Governance}
+\addcontentsline{toc}{subsection}{11.1 Index \& Limit Governance}
+
+\textbf{Timelocked Edits.} All Value Index and Swap Limiter parameter edits execute after a public timelock. Emergency changes must meet stricter quorum and include automatic sunset or review.
+
+\textbf{Quorum \& Thresholds.} Higher quorum/threshold for (a) Value Index base changes and (b) global Limit Tier changes; medium for per-pool third party; standard for fee tweaks.
+
+\textbf{Publish Feeds.} For each pool: publish on-chain index variables, oracle sources/medians, update cadence, limit windows/caps, and failure modes (safe constants).
+
+\textbf{Emergency Pause Criteria.} Pre-declare conditions (eg, oracle outage, $\geq$80\% limit utilization with redemption SLA breaches, invariant failure) and automated resume checks, with mandatory post-mortems.
+
+\subsection*{Ex. Public Index Feed (per pool, per voucher)}
+\addcontentsline{toc}{subsection}{Ex. Public Index Feed (per pool, per voucher)}
+
+\begin{itemize}[leftmargin=*]
+\item Symbol: e.g., Maize\_50kg@IssuerY
+\item Reference Unit: ``Index Unit'' (IUX)
+\item Valuation: 30.000 IUX
+\item Source: Median(Oracles: local market survey, ministry bulletin, CLC baseline)
+\item Update Cadence: daily at 18:00 EAT; Timelock: 24h
+\item Failure Mode: freeze at last-good, widen limiter bands by +20\%, pause at 72h outage
+\item Rationale: published notes + diff from prior update
+\item Signers: multisig addresses; quorum threshold
+\end{itemize}
+\subsection*{11.2 Insurance Fund Runbook}
+\addcontentsline{toc}{subsection}{11.2 Insurance Fund Runbook}
+
+\textbf{Triggers.} (i) Issuer default/non-fulfillment; (ii) Pool insolvency (reserve shortfall vs. bonds); (iii) Bridge/escrow loss impacting redeemability.
+
+\textbf{Assessment.} Convene risk committee; reconcile receipts, vault balances, guarantor bonds, and redemption tickets; publish incident ledger.
+
+\textbf{Loss Waterfall.} (1) Offending issuer bonds/guarantor stakes $\to$ (2) Pool-level reserves $\to$ (3) Network Insurance Fund $\to$ (4) Temporary haircuts on affected vouchers (policy-capped) $\to$ (5) Clawbacks in case of fraud/abuse.
+
+\textbf{Haircuts \& Make-Whole.} Define per-class haircut caps and time-boxed make-whole plans (from future fees/rakes) with transparent accounting.
+
+\textbf{Clawbacks.} Mandatory for proven fraud/abuse; governance-ratified claims; legal follow-up as required.
+
+\textbf{Reporting.} Publish public post-mortem, remediation timeline, and parameter changes (limits, fees, routes).
+
+\textbf{Important:} Insurance coverage is \textbf{limited}. Some incidents receive no payout after caps are reached; see the Loss Waterfall and exclusions below.
+
+\textbf{When Shared Insurance Will \emph{Not} Make You Whole.}
+
+The Insurance Fund \textbf{does not} cover: (a) redemptions outside the published SLA/venues; (b) haircuts \textbf{beyond} policy caps; (c) losses from using delisted/denied routes; (d) fraudulent claims or missing evidence; (e) jurisdictions where payout is restricted. Payouts, if any, follow the waterfall and may be \textbf{zero} after caps are reached.
+
+\subsection*{Make-Whole Schedule (policy-bound, published on-chain):}
+\addcontentsline{toc}{subsection}{Make-Whole Schedule (policy-bound, published on-chain):}
+
+\begin{enumerate}[leftmargin=*]
+\item Claims are paid in this order: (a) issuer/guarantor bonds $\to$ (b) pool reserves $\to$ (c) network insurance.
+\item If residual shortfall remains: apply haircut $\leq$ H\_cap per incident (see Appendix D).
+\item Haircut recovery plan:
+\end{enumerate}
+\begin{itemize}[leftmargin=*]
+\item - 25\% of recovered value applied monthly until made whole OR
+\item - 12-month maximum make-whole horizon; remainder becomes a recorded loss with public postmortem.
+\end{itemize}
+\begin{enumerate}[leftmargin=*]
+\item Every claim produces a receipt: incident\_id, affected vouchers, haircut \%, recovery plan, and appeal window.
+\end{enumerate}
+\subsection*{11.3 Guarantor Framework}
+\addcontentsline{toc}{subsection}{11.3 Guarantor Framework}
+
+This section clarifies who guarantees what (issuer vs. pool vs. third-party guarantors), define the collateral/bonding instruments behind those guarantees, and standardize triggers + payout paths. This is the backbone of the curation market: pools compete on trust, terms, and guarantees - without implying that the network automatically guarantees every voucher.
+
+\subsection*{Baseline Guarantee: Issuer Responsibility (Gift-Card Analogy).}
+\addcontentsline{toc}{subsection}{Baseline Guarantee: Issuer Responsibility (Gift-Card Analogy).}
+
+\begin{itemize}[leftmargin=*]
+\item Each voucher is first and foremost guaranteed by its issuer: the issuer commits to deliver the specified good/service (or declared cash-equivalent) within the voucher's Redemption SLA.
+\item Issuers must publish clear terms (who/what/where/when/proof) and disclose limits, venues, and dispute hooks in voucher metadata.
+\item If an issuer fails to fulfill, they are the primary party in default; pool or network protections (if any) are secondary layers.
+\end{itemize}
+\subsection*{Pool-Level Guarantees (Optional, Competitive, Disclosed).}
+\addcontentsline{toc}{subsection}{Pool-Level Guarantees (Optional, Competitive, Disclosed).}
+
+A pool may choose to add extra guarantees to vouchers it lists. These are not automatic; they must be explicitly declared in pool metadata and surfaced in receipts.
+
+\subsection*{Common guarantee types:}
+\addcontentsline{toc}{subsection}{Common guarantee types:}
+
+\begin{enumerate}[leftmargin=*]
+\item Cash-Back Guarantee (Make-Whole in Stable/Reserve Asset)
+\begin{itemize}[leftmargin=*]
+\item If the issuer defaults or breaches SLA, the pool pays out a defined amount in a designated reserve asset (e.g., stablecoin) up to a policy-capped limit.
+\item Funding source: pool-level reserve buffers and/or posted guarantor bonds.
+\end{itemize}
+\item Swap-Back Guarantee (Reversal / Exit Window)
+\begin{itemize}[leftmargin=*]
+\item If a voucher cannot be redeemed under declared terms, the pool offers a time-boxed swap-back path (e.g., swap back into the prior asset, or into an approved reserve asset), subject to caps and inventory.
+\item This is a liquidity protection, not a promise that every swap is always reversible: it is limited by published caps, windows, and reserve ratios.
+\end{itemize}
+\item Alternative-Fulfillment Guarantee (Multi-Venue / Substitute Delivery)
+\begin{itemize}[leftmargin=*]
+\item The pool guarantees fulfillment by routing redemption to an alternative approved provider (e.g., another vetted taxi operator) when the original issuer fails, within a capped quantity/value.
+\item This is especially useful for essential services (food/transport) where continuity matters.
+\end{itemize}
+\item Price/Index Band Guarantee (Optional)
+\begin{itemize}[leftmargin=*]
+\item For selected voucher classes, the pool may commit to keep swap-out value within a published band vs. its Value Index. If the band is broken, predefined haircuts or swap-back rules apply.
+\end{itemize}
+\end{enumerate}
+\subsection*{Guarantors \& Bonds (Who can guarantee).}
+\addcontentsline{toc}{subsection}{Guarantors \& Bonds (Who can guarantee).}
+
+\begin{itemize}[leftmargin=*]
+\item Issuer Bond: collateral posted by the issuer (or locked reserve) that can be drawn down upon verified default.
+\item Pool Reserve: pool-owned buffers funded by a portion of pool fees, used for payouts under the pool's advertised guarantees.
+\item Third-Party Guarantor Bond: collateral posted by external guarantors (individuals, institutions, insurers, community orgs) that back specific issuers, voucher classes, or the pool as a whole.
+\item Note: Guarantor participation is governed by published eligibility criteria, bond sizing, concentration limits, and slashing rules.
+\end{itemize}
+\subsection*{Triggers (When a guarantee can be claimed).}
+\addcontentsline{toc}{subsection}{Triggers (When a guarantee can be claimed).}
+
+Claims must be based on explicit, auditable triggers, such as:
+
+\begin{itemize}[leftmargin=*]
+\item Redemption SLA breach (target/max exceeded) with proof of attempted redemption;
+\item Verified issuer non-fulfillment or insolvency (as defined by pool policy);
+\item Bridge/escrow failure impacting redeemability (when applicable);
+\item Governance-declared incident state (emergency pause / run conditions).
+\end{itemize}
+\textbf{Claim Process (Human-readable and auditable)}.
+
+\begin{itemize}[leftmargin=*]
+\item Ticket: user opens a redemption/claim ticket referencing the voucher + proof (QR receipt, ticket \#, required ID type).
+\item Verification: pool (or delegated claims module) checks voucher terms, redemption attempt evidence, and issuer response window.
+\item Decision: approve/deny within a published dispute window; all outcomes logged.
+\item Payout: execute per the published payout path (below), with receipts referencing guarantee type and cap.
+\end{itemize}
+\subsection*{Payout Path \& Recovery (Aligned to the loss (insurance) waterfall).}
+\addcontentsline{toc}{subsection}{Payout Path \& Recovery (Aligned to the loss (insurance) waterfall).}
+
+Guarantee payouts follow a transparent waterfall:
+
+(1) Offending issuer bond / guarantor stakes $\to$ (2) Pool-level reserves $\to$ (3) Network Insurance Fund (if covered by published network policy) $\to$ (4) Policy-capped temporary haircuts $\to$ (5) Clawbacks for proven fraud/abuse.
+
+Recovery proceeds (from issuer settlement, arbitration awards, or legal enforcement) refill bonds/reserves per policy before CLC Pool swap access.
+
+\subsection*{Parameterization (What must be declared).}
+\addcontentsline{toc}{subsection}{Parameterization (What must be declared).}
+
+For every pool and voucher class, publish:
+
+\begin{itemize}[leftmargin=*]
+\item Guarantor Requirement: None / Recommended / Required.
+\item Bond sizing: minimum bond, scaling rule (e.g., \% of issuance or exposure), concentration caps.
+\item Guarantee catalog: which guarantee types apply, caps, windows, eligible assets (cash-back asset; swap-back asset).
+\item SLA: target/max and claim windows.
+\item Disclosures: plain-language ``who is guaranteeing what'', and what is explicitly not guaranteed.
+\end{itemize}
+\subsection*{Curation Market Principle.}
+\addcontentsline{toc}{subsection}{Curation Market Principle.}
+
+Pools are responsible for the guarantees they advertise. CLC provides standards, registries, and optional shared insurance policies---but does not automatically guarantee vouchers or pools unless explicitly stated in published network policy and the pool's published terms.
+
+\subsection*{11.4 Anti-Capture Guardrails}
+\addcontentsline{toc}{subsection}{11.4 Anti-Capture Guardrails}
+
+The following actions are classified as \textbf{Critical} and require the highest quorum/threshold tiers plus a long timelock:
+
+\begin{enumerate}[leftmargin=*]
+\item Waterfall structure changes (adding/removing destinations; changing insurance/core ops priority),
+\item Registry root changes (canonical voucher/pool registries),
+\item Insurance policy scope, haircut caps, and claims authority changes,
+\item Emergency pause scope expansions,
+\item Any change that weakens forkability, transparency, or pool sovereignty guarantees stated in this paper.
+\end{enumerate}
+\subsection*{11.5 Fork \& Exit Procedure (Credible Exit for Communities and Operators)}
+\addcontentsline{toc}{subsection}{11.5 Fork \& Exit Procedure (Credible Exit for Communities and Operators)}
+
+If governance is captured or values drift materially, communities, pool stewards, and operators can exit by forking the network governance layer while preserving underlying Commitment Pools and vouchers.
+
+\subsection*{Procedure:}
+\addcontentsline{toc}{subsection}{Procedure:}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Snapshot:} Export canonical registries (pools, vouchers, indices, limits, fee policies) and publish a signed snapshot hash.
+\item \textbf{Redeploy:} Deploy new registry roots, router endpoints, and (if needed) a new Waterfall + Insurance policy contract set under a new governance arrangement.
+\item \textbf{Re-register:} Pool stewards opt-in by registering their pool addresses under the new registry root (no need to migrate user-held vouchers).
+\item \textbf{Client Re-point:} SDKs/UIs add the new registry root as a selectable network profile; default routing can shift via published governance decisions.
+\item \textbf{Bridge Period:} Maintain routing bridges where safe to reduce fragmentation; deny-list toxic routes.
+\end{enumerate}
+\textbf{Key guarantee:} Exiting canonical registries must not brick local economies. Pools continue operating locally; federation is an opt-in discovery layer.
+
+
+
+\section*{12. LP Term Sheet (Non-Binding Outline)}
+\addcontentsline{toc}{section}{12. LP Term Sheet (Non-Binding Outline)}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Eligible Contributions}: Stablecoins, reserve tokens, approved community vouchers.
+\item \textbf{Placement}: Into designated CPP pools or the CLC Pool per published mandate.
+\item \textbf{Lock-up / Exit}: Program-specific (e.g., rolling 30--90 days; gates under stress).
+\item \textbf{Policy-gated fee-credit (ex-post)}, under published caps/windows.
+\item \textbf{Risk Sharing}: Insurance haircuts; loss waterfalls; clawbacks in fraud/abuse.
+\item \textbf{Reporting}: Monthly dashboards; quarterly attestation of pool health and insurance reserves.
+\item \textbf{Covenants}: Use-of-proceeds constraints; oracle hygiene; limit tiers.
+\item \textbf{CLC Eligibility (Impact Seeding):} LPs who seed designated pools may become eligible for vested CLC grants based on measured increases in successful network settlement (see \S{}7.2.3), subject to anti-gaming rules and policy caps.
+\end{itemize}
+
+
+\section*{13. Jargon $\to$ Plain Language (Glossary)}
+\addcontentsline{toc}{section}{13. Jargon to Plain Language (Glossary)}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{CPP}: A set of contracts that list vouchers, set values, limit swaps, charge fees, and safely hold assets.
+\item \textbf{Voucher}: A digital claim for a specific good/service/cash-equivalent.
+\item \textbf{Seed (Deposit)}: Add vouchers/tokens into a pool.
+\item \textbf{Swap}: Exchange one voucher/asset for another if values and limits allow and inventory exists.
+\item \textbf{Value Index}: The pool's pricing table for vouchers vs. a reference unit (may use oracles or governance updates).
+\item \textbf{Swap Limiter}: Caps on how much can be swapped over time to prevent runs/arbitrage.
+\item \textbf{Router}: Software/contract that finds multi-pool paths for a desired exchange.
+\item \textbf{Inventory}: What the vault currently holds and can pay out.
+\item \textbf{Guarantor}: A party that stakes collateral to back a voucher/pool against default.
+\item \textbf{Redemption SLA}: Expected time to receive the good/service/cash when redeeming a voucher.
+\item \textbf{Clearing House (CLC Pool)}: Network account that collects fees, holds reserves, funds LP programs, and pays insurance.
+\item \textbf{Fee-credit (budget-exit):} A time-bounded, policy-capped authorization (typically via sCLC) to swap fee assets out of designated fee-holding vaults after the Waterfall. It may be set to zero and is not a dividend, yield, or profit-share.
+\item \textbf{Rebalancing / Netting Run}: A batch process that executes multilateral cycles/chains across opted-in pools to reduce inventory imbalances and increase successful settlement throughput, subject to published caps and policies.
+\item \textbf{On/Off-Ramp:} A regulated service that converts fiat $\leftrightarrow$ approved stable cash-equivalents used to seed or exit pools (e.g., bank transfer, e-money/payment institutions, card-based cash-out), subject to jurisdictional compliance.
+\end{itemize}
+
+
+\section*{14. KPIs \& Health Indicators}
+\addcontentsline{toc}{section}{14. KPIs \& Health Indicators}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Fulfillment Rate}\&\textbf{Redemption Latency} (SLA adherence).
+\item \textbf{Reserve Adequacy} by voucher and pool.
+\item \textbf{Limit Utilization}\& run-incident avoidance.
+\item \textbf{Routing Pass/Fail}\& average hop count.
+\item \textbf{Guarantor Performance}\& recovery percentages.
+\item \textbf{Protocol Revenue}: pool fees, routing, network rake.
+\item \textbf{Net Fee Outcome} (annualized \textbf{sCLC} fee-access, ex-post)
+\item \textbf{Governance Responsiveness}: time-to-alarm, time-to-pause, timelock adherence.
+\item \textbf{Consumer Protection:} Mis-selling complaints per 1,000 redemptions; median time-to-remedy; delisting decisions per quarter (with public reasons).
+\item \textbf{Inventory Skew Index:} per voucher class, dispersion of inventory across pools vs. target bands.
+\item \textbf{Rebalance Success Rate:} executed rebalance cycles / attempted cycles; median time-to-rebalance.
+\item \textbf{Netting Yield:} (gross routed value - net external liquidity injected) / gross routed value, computed over rebalance windows (method published and timelocked).
+\item \textbf{Well-being Outcomes} (profolio program-scoped):
+\begin{itemize}[leftmargin=*]
+\item Basic-needs coverage proxy (food/transport/health voucher redemption success in target communities).
+\item Household resilience proxy (repeat redemption without increased delinquency).
+\end{itemize}
+\item \textbf{Planetary Regeneration}:
+\begin{itemize}[leftmargin=*]
+\item Verified ecological outcomes per voucher class (method + auditor published).
+\item ``Do-no-harm'' exceptions count (attempted listings rejected by prohibited-list policy).
+\end{itemize}
+\end{itemize}
+
+
+\section*{15. Roadmap (Indicative)}
+\addcontentsline{toc}{section}{15. Roadmap (Indicative)}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{v1}: CLC token launch; CLC Pool; fee adapters; governance MVP (quorum + timelocks).
+\item \textbf{v1.1: Router SDK \& registry APIs; health dashboards; Insurance Fund policy v1; opt-in rebalance intents + batch netting (cycle-finding) MVP.}
+\item \textbf{v1.2}: Cross-domain routing via HTLC/escrow; guarantor module; tiered limit presets.
+\item \textbf{v2: Retail on/off-ramps (via regulated partners), personal micro-pools;} compliance plugin marketplace; third-party audits of voucher classes.
+\begin{itemize}[leftmargin=*]
+\item \textbf{- On-ramps:} convert fiat $\to$ approved stable cash-equivalents that can seed designated pools.
+\item \textbf{Off-ramps:} convert approved cash-equivalent stables $\to$ fiat via an approved off-ramp list (bank transfer, e-money issuers, and card-issuing/payment processors on major card rails), with jurisdictional KYC/attestation and geofencing where required.
+\item \textbf{Principle:} CLC operators and CPP pools do not operate fiat rails; ramps are provided by licensed third parties under local regulation.
+\end{itemize}
+\end{itemize}
+
+
+\section*{16. Values \& Evaluation Template (for Listings/Liquidity Mandates)}
+\addcontentsline{toc}{section}{16. Values \& Evaluation Template (for Listings/Liquidity Mandates)}
+
+\subsection*{Listing / Mandate Evaluation Rubric (required fields):}
+\addcontentsline{toc}{subsection}{Listing / Mandate Evaluation Rubric (required fields):}
+
+\begin{enumerate}[leftmargin=*]
+\item Observation: objective facts (issuer history, redemption terms, reserve plan, guarantors, limits).
+\item Valuation: what matters (care, risk, capacity, non-dominance) + who is affected.
+\item Needs/Boundaries: ecological + social + trust constraints (including prohibited list screening).
+\item Request: concrete next step with owner + deadline (approve / revise / reject / human review).
+\end{enumerate}
+Output must include: risk tier, reserve floor, limiter caps, remedy pathway, and review date.
+
+\textbf{Guardrails}: Timelocked index edits; quorumed limit changes; emergency pause criteria; auditable logs; forkability.
+
+\textbf{Health Indicators}: fulfillment rate; reserve alarms; limit utilization; routing pass/fail; guarantor payout performance.
+
+
+
+\section*{17. Legal \& Compliance Note}
+\addcontentsline{toc}{section}{17. Legal \& Compliance Note}
+
+CPP coordinates redeemable commitments. Some vouchers may fall under financial or consumer-protection rules depending on jurisdiction. Deployments should include local legal review, disclosures, and---where required---geofenced interfaces and attestation/KYC hooks for off-ledger redemptions.
+
+Where fiat on/off-ramps are offered, they are provided by regulated third-party partners (e.g., banks, licensed e-money/payment institutions, or card-issuing/payment processors); CLC operators do not themselves custody fiat or operate money-transmission rails.
+
+\subsection*{17.1 Voucher Class Matrix (Policy)}
+\addcontentsline{toc}{subsection}{17.1 Voucher Class Matrix (Policy)}
+
+This matrix standardizes how voucher classes are listed, monitored, and governed across pools. Each class must be declared in pool metadata and surfaced in receipts.
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+Field & Options / Policy \\
+\midrule
+\endhead
+Class Name & eg, Staple Food, Transport Service, Labor Hour, Storage, Cash-Equivalent Stable, Community Stable, Tool/Equipment Use \\
+Legal Stance & Redeemable commitment / service credit. If cash-equivalent (eg, stablecoin redemption), treat as payment instrument exposure with additional attestations/geofencing as required. \\
+Redemption SLA & Target and max (eg, Target $\leq$ 24h; Max $\leq$ 72h). Include redemption venues/contacts and fallback guarantee. \\
+KYC / Attestation & None / Light Attestation / Full KYC (as required by jurisdiction, especially for cash-equivalent or high-value redemptions). \\
+Fee Tier & Low (30--50 bps), Medium (50--80 bps), High (80--100 bps) depending on operational/credit risk. \\
+Certification / Attestation Policy & If used: accepted attestation issuers, certificate scope + expiry + revocation rules, whether certificates are non-transferable/registry-bound, and how attestations affect listing eligibility, haircuts, limits, and insurance qualification. \\
+Index Source & Static schedule / Medianized oracle / Governance-updated feed. Publish source, cadence, and failure mode (safe default). \\
+Limit Tier & Tier 1 (tight), Tier 2 (moderate), Tier 3 (expanded). Limits apply per voucher, optionally per-account and globally, over rolling windows. \\
+Guarantor Requirement & None / Recommended / Required. Specify bond size, triggers, and payout path. \\
+Off-Ramp Policy & For cash-equivalent stables: approved stable list + approved off-ramp provider list (by jurisdiction), required attestations/KYC tier, timelocks on changes, dispute window, and incident pause criteria. Off-ramp providers may include banks, licensed e-money/payment institutions, and card-issuing/payment processors (on major card rails). For non-cash vouchers: multi-venue redemption options and local contacts. \\
+Disclosures & Plain-language ``who/what/where/when'' + fallback, embedded in voucher metadata and displayed in all receipts. \\
+\bottomrule
+\end{longtable}
+
+Pools must (i) declare the class used; (ii) enforce matching Fee/Limit/Index settings; (iii) publish any exceptions with justification and timelock.
+
+\subsection*{17.2 Voucher Metadata Schema (minimum)}
+\addcontentsline{toc}{subsection}{17.2 Voucher Metadata Schema (minimum)}
+
+\begin{itemize}[leftmargin=*]
+\item who: issuer legal name + contact
+\item what: claim description (plain language), unit, quantity
+\item where: redemption venues / geofence
+\item when: SLA target \& max window
+\item proof: acceptable evidence at redemption (QR receipt, ticket \#, ID type)
+\item fallback: guarantor / payout path if not fulfilled
+\item class: matches declared Voucher Class Matrix entry
+\item fees: applicable pool/network fees shown to user
+\item limits: per-account/global windows (human-readable)
+\item disclosures: legal stance, risks, dispute hooks
+\end{itemize}
+\subsection*{17.3 Vouchers and Pools as Legal Instruments (Plain-Language)}
+\addcontentsline{toc}{subsection}{17.3 Vouchers and Pools as Legal Instruments (Plain-Language)}
+
+Voucher: A voucher is a redeemable commitment---a defined claim on future delivery of a good/service (and in some classes, redemption into a cash-equivalent). It functions like a service credit or gift-card style claim with an explicit redemption SLA, venues, and fallback/recourse terms.
+
+\textbf{Not a Bank Deposit / Not E-Money.} Vouchers and pool receipts are \textbf{redeemable commitments} (service/goods claims) and \textbf{not} bank deposits or e-money. No interest is paid; \textbf{no guarantee of principal}. Redemption is governed by \textbf{published SLAs/venues} and any \textbf{disclosed} guarantees.
+
+Pool: A Commitment Pool is not merely software; it is a stewarded contract suite with published market terms: what vouchers are accepted (curation), how they are valued (index policy), how flows are limited (limit windows/caps), what fees apply, what inventory/reserve policy exists, and what guarantee/guarantor framework backs the listings. The pool steward is responsible for these published terms and any guarantees they advertise.
+
+\textbf{Restricted Jurisdictions.} Access to certain voucher classes and/or UI features may be \textbf{restricted or geofenced}; additional \textbf{attestations/KYC} may be required for cash-equivalents. Operators or authorized governance controls may programmatically \textbf{disable} sCLC swap windows or certain routes to comply with policy.
+
+CLC: CLC provides network governance, routing standards, and optional shared insurance policies. It is not automatically a guarantor of any pool or voucher unless explicitly stated in the relevant pool terms and published network policy.
+
+
+
+\section*{18. Conclusion}
+\addcontentsline{toc}{section}{18. Conclusion}
+
+CLC aligns mission-driven liquidity with durable, auditable settlement flows and explicit guardrails. By connecting local production, mutual aid, and lending through interoperable commitment pools (each with clear registries, value indices, swap limits, and accountable stewardship) CLC helps route real redeemable commitments at community scale without relying on opaque leverage. Participants can engage through governance and, where enabled by policy, sCLC provides time-bounded swap access to a defined portion of pooled fees, strengthening resilience through transparency, limits, and shared infrastructure.
+
+
+\section*{A. Math Box - Settlement, Fees, Fee Pooling}
+\addcontentsline{toc}{section}{A. Math Box - Settlement, Fees, Fee Pooling}
+
+Definitions (per voucher j, per period):
+
+D\_j  := outstanding debt (unsettled vouchers) valued in the network index
+
+S\_j  := value of redemptions (settlements) routed through pools
+
+V\_j  := settlement velocity for voucher j
+
+Pool- and Network-Level:
+
+\[
+D_j = \sum_k D_{j,k}
+\]
+
+\[
+S_j = \sum_k S_{j,k}
+\]
+
+\[
+V_j = \frac{S_j}{D_j}\quad \text{if }D_j>0,\qquad V_j=0\quad \text{if }D_j=0
+\]
+
+Aggregate across all vouchers:
+
+\[
+D_{\mathrm{tot}} = \sum_j D_j
+\]
+
+\[
+V_{\mathrm{settle}} = \frac{\sum_j S_j}{D_{\mathrm{tot}}} = \frac{\text{settlement flow}}{\text{outstanding stock}}
+\]
+
+Fee volume per period:
+
+\[
+F \approx \tau \cdot V_{\mathrm{settle}} \cdot D_{\mathrm{tot}}
+\]
+
+Cash-usable fee revenue (convertibility constraint). Let $\chi$ $\in$ [0,1] be the fraction of fee inflows that are cash-eligible/convertible (E\_cash) after slippage and policy constraints. Define:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+Operational break-even and any non-zero sCLC fee-access budget must be evaluated on F\_cash.
+
+LP fee ex-post metrics (per period, rough):
+
+\[
+\mathrm{ExPostMetric}_{LP} \approx \frac{\phi \cdot F}{K}
+\]
+
+where $\tau$ = average network fee rate; $\phi$ = fee share to LPs; K = LP capital staked.
+
+
+\section*{B. Fee Waterfall (executed monthly, on-chain)}
+\addcontentsline{toc}{section}{B. Fee Waterfall (executed monthly, on-chain)}
+
+Let F\_in be all fees collected across pools/routers during the epoch.
+
+Eligibility \& conversion note. F\_in may include both cash-eligible fee assets (E\_cash) and in-kind fee assets (E\_kind). The protocol may convert allowlisted fungible assets (E\_cash) into stables/fiat when needed to meet insurance payouts, maintain off-ramp liquidity, and fund core operations---while prioritizing in-network settlement and using liquidity mandates/CLC Pool inventories to reduce settlement latency.
+
+\begin{enumerate}[leftmargin=*]
+\item Insurance Reserve Target (IRT): top-up InsuranceFund to Target = $\Sigma$\_p (RW\_p $\cdot$ D\_p),
+\begin{enumerate}[leftmargin=*]
+\item where D\_p is the pool's outstanding obligations stock (valued in the network index),
+\item with RW\_p (risk weight) = f(fulfillment\_rate, issuer\_concentration, limit\_utilization, SLA latency).
+\item Allocation = min(IRT - InsuranceFund, MaxTopUp).
+\end{enumerate}
+\item Core Operations: fixed budget B\_core (timelocked; $\pm$20\% with quorum Q2).
+\item Liquidity Mandates: allocate L to approved pools/routers per mandate schedule.
+\item Pooled Fees --- allocation of remaining F\_in - (1 + 2 + 3):
+\begin{itemize}[leftmargin=*]
+\item Protocol Operations/Insurance (non-distributive): $\alpha$
+\item Liquidity Programs (incentives/rebates): $\beta$
+\item Insurance Buffer (overflow reserve): $\gamma$
+\end{itemize}
+\end{enumerate}
+subject to $\alpha$ + $\beta$ + $\gamma$ = 1, policy bounds, and per-budget caps.
+
+\textbf{Guardrail:} Waterfall allocations are for (i) insurance adequacy, (ii) operations, and (iii) liquidity needed for settlement. They must not be framed or executed as price-support operations.
+
+Any CLC acquired via DEX Float Reduction is \textbf{retired} (burned) to avoid custody and governance-risk; it is not distributed to stakers.
+
+
+\section*{C. KPI Definitions}
+\addcontentsline{toc}{section}{C. KPI Definitions}
+
+\begin{itemize}[leftmargin=*]
+\item Fulfillment Rate (pool p, period t):  FR\_\{p, t\} = Settlements\_\{p, t\} / RedemptionsRequested\_\{p, t\}
+\item Redemption Latency (SLA): median time(issue$\to$redeem) with 90th percentile cap
+\item Reserve Adequacy (voucher v): RA\_\{v\} = Vault\_\{v\} / RequiredReserves\_\{v\} (policy function)
+\item Limit Utilization (voucher v): LU\_\{v, t\} = Usage\_\{v, t\} / Cap\_\{v, t\}
+\item Routing Pass Rate: RPR\_t = SuccessfulRoutes\_t / AttemptedRoutes\_t
+\item Avg Hop Count: H\_t = ($\Sigma$ routes hop\_count) / routes
+\item Guarantor Recovery: GR\_t = RecoveredFromBonds\_t / ClaimsPaid\_t
+\item Protocol Revenue: PR\_t = PoolFees\_t + RoutingFees\_t + NetworkRake\_t
+\item Net LP Credit Access (program x): CA\_x = (FeesToLP\_x - InsuranceHaircuts\_x) / AvgStake\_x (annualized)
+\item Governance Timeliness: TTA = median(time$\to$alarm), TTP = median(time$\to$pause), TLK = timelock adherence \%
+\end{itemize}
+
+\section*{D. Launch Parameters}
+\addcontentsline{toc}{section}{D. Launch Parameters}
+
+All values set on-chain by governance decision at deployment and enforced by governance-controlled contracts
+
+\begin{itemize}[leftmargin=*]
+\item Quorum Tiers (of staked voting power):
+\begin{itemize}[leftmargin=*]
+\item Q1 (Routine): $\geq$ 4\% quorum, >50\% approval.
+\item Q2 (Sensitive): $\geq$ 10\% quorum, $\geq$60\% approval.
+\item Q3 (Critical): $\geq$ 20\% quorum, $\geq$66.7\% approval.
+\end{itemize}
+\item Timelocks (minimum delay before execution):
+\begin{itemize}[leftmargin=*]
+\item T1: 48 hours (Q1 actions)
+\item T2: 7 days (Q2 actions)
+\item T3: 30 days (Q3 actions)
+\end{itemize}
+\item Epoch Cadence: default 7 days (policy-set). Each epoch includes:
+\begin{itemize}[leftmargin=*]
+\item (i) gauge voting window,
+\item (ii) emissions calculation,
+\item (iii) publication of F\_epoch (may be zero),
+\item (iv) sCLC swap windows (if enabled).
+\end{itemize}
+\item Gauges: canonical list of eligible pools/mandates for incentive direction; edits are timelocked and require Q2 quorum or higher.
+\item Emissions Budget (sCLC): a bounded, policy-set maximum per epoch; may be zero; cannot override Waterfall priorities.
+\item Anti-gaming: wash-loop exclusion, beneficial-owner clustering, per-entity caps, delayed finalization, and dispute/appeal windows for manipulated metrics.
+\item Emergency Pause: immediate (multisig/emergency role), auto-sunsets in 72 hours unless ratified by Q2.
+\item Network Fee $\tau$: 20--60 bps (default 30 bps) on routed value
+\item Pool Fee Range (steward-set): 0\%--20\% depending on voucher class and risk tier (disclosed on-chain per pool).
+\item Network Rake Share r: CLC receives r\% of each pool's collected fees (default 20\%; policy-bounded per pool class).
+\item Effective network fee rate per pool: $\tau$\_p = f\_p $\cdot$ r\_p (rake-on-rake).
+\item Fee Asset Eligibility Sets:
+\item E\_cash (cash-eligible): allowlisted stables/cash-equivalents and (optionally) major liquid tokens.
+\begin{itemize}[leftmargin=*]
+\item E\_kind (in-kind): non-fiat-redeemable vouchers and other non-convertible fee assets.
+\end{itemize}
+\item Conversion Policy (fungible assets only): venue allowlists, TWAP windows, max slippage, and monthly caps; quarterly reporting of $\chi$ (cash-eligible share).
+\item F\_epoch enablement rule: publish F\_epoch only if (i) InsuranceFund $\geq$ Target and (ii) B\_core is fully funded for the epoch; otherwise F\_epoch = 0.
+\item Router Fee Cap: $\leq$ 20 bps per route
+\item Reserve Floors by Class: Cash-Equivalent Stable $\geq$ 100\% off-ramp attestations
+\item Segregated Risk Lanes:
+\begin{itemize}[leftmargin=*]
+\item Cash-Equivalent lanes do not cross-subsidize goods/services voucher losses.
+\item No routing from Cash-Equivalent to higher-risk classes unless explicitly opted-in per account/pool.
+\end{itemize}
+\item Default router policy: ``safe-by-default'' (deny cross-class risk unless allowlisted).
+\item Insurance Haircut Cap (per incident): $\leq$ 10\% of affected voucher balance, with make-whole schedule
+\item \textbf{DEX Float Reduction Parameters (if enabled):}
+\begin{itemize}[leftmargin=*]
+\item \textbf{DEX float definition:} sum of CLC balances in \textbf{allowlisted} external liquidity venues (list on-chain), measured by oracle/indexer method M.
+\item \textbf{Trigger:} activate only if DEX float > \textbf{X\%} for \textbf{Y} consecutive days.
+\item \textbf{Spend/volume caps:}$\leq$\textbf{Z\%} of trailing-month fee inflows \textbf{and/or}$\leq$\textbf{W\%} of trailing-day DEX volume (use the stricter cap).
+\item \textbf{Execution controls:} TWAP window \textbf{T}; max slippage \textbf{S}; randomized delay range \textbf{R}; \textbf{no publication of exact timing} beyond the standing policy.
+\item \textbf{Emergency stop:} auto-disable if \textbf{InsuranceFund / Target < I\_min} or if any \textbf{Reserve Floor} is breached.
+\item \textbf{Disclosure requirement:}``Not intended to support price; settlement does not depend on DEX price.''
+\item \textbf{Receipt transparency:} all executions emit on-chain receipts and are summarized in the epoch report.
+\end{itemize}
+\end{itemize}
+
+\section*{E. Worked Example - Rake-on-Rake, Convertibility, and Break-Even Runway}
+\addcontentsline{toc}{section}{E. Worked Example - Rake-on-Rake, Convertibility, and Break-Even Runway}
+
+Fees are collected in the asset that moves through pools. Some fee assets are cash eligible or convertible (E\_cash), others are in-kind (E\_kind). Define $\chi$ as the trailing-month share of fee inflows that are cash eligible or convertible after slippage and policy constraints.
+
+Example A.
+
+Assume:
+
+\begin{itemize}[leftmargin=*]
+\item Average pool usage fee f = 2.00\%
+\item Network rake share r = 20\% of pool fees
+\item Effective network fee rate $\tau$ = f $\cdot$ r = 0.40\% = 40 bps
+\item Monthly cash-denominated requirement B\_cash = Core Ops + required Insurance Top-ups (USD)
+\item Cash-eligible share $\chi$ (0 to 1)
+\end{itemize}
+Then required monthly routed value (in USD-indexed terms) to reach cash break-even is approximately:
+
+\[
+R_{\mathrm{required}} \approx \frac{B_{\mathrm{cash}}}{\tau \cdot \chi}
+\]
+
+Illustration ($\tau$ = 40 bps):
+
+\begin{itemize}[leftmargin=*]
+\item If B\_cash = \$150,000/month and $\chi$ = 25\% $\to$ R\_required $\approx$ \$150,000 / (0.004 $\cdot$ 0.25) $\approx$ \$150,000,000 / month
+\item If B\_cash = \$150,000/month and $\chi$ = 50\% $\to$ R\_required $\approx$ \$75,000,000 / month
+\item If B\_cash = \$150,000/month and $\chi$ = 100\% $\to$ R\_required $\approx$ \$37,500,000 / month
+\end{itemize}
+Runway to non-zero sCLC budgets.
+
+Because sCLC fee-access budgets (F\_epoch) are downstream of: (1) Insurance targets, (2) Core Ops, and (3) Liquidity Mandates, F\_epoch may remain zero until R\_monthly consistently exceeds R\_required under conservative $\chi$. This is a long time-frame commitment.
+
+Time-to-target worksheet (update quarterly).
+
+Let R\_0 be current monthly routed value and g be monthly growth rate (e.g., 5\% or 10\%).
+
+Time (months) to reach R\_required is approximately:
+
+\[
+t \approx \frac{\log(R_{\mathrm{required}}/R_0)}{\log(1+g)}
+\]
+
+Stewards/operators publish quarterly updates of: R\_0, $\chi$, B\_cash, $\tau$ (effective), and the implied t under conservative/base scenarios.
+
+
+\section*{F. Dataroom Checklist}
+\addcontentsline{toc}{section}{F. Dataroom Checklist}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Sarafu.Network traction:} monthly swap volumes, redemption rates, incident history, settlement velocity, aging vouchers, fulfillment SLAs.
+\begin{enumerate}[leftmargin=*]
+\item \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics}
+\item \href{https://sarafu.network}{Pilot Site}
+\end{enumerate}
+\item \textbf{Fee enforcement proof (required invariant):} FeeHook contract and registry gating integrated into settlement execution path (not UI-only).
+\begin{enumerate}[leftmargin=*]
+\item Router rejects any hop whose receipt does not prove fees were collected per policy.
+\item Published test vectors + failure cases + list of compliant pools (signed by registry root).
+\item (segregated cash-equivalent lanes)
+\item \href{https://software.grassecon.org}{Software Description}
+\end{enumerate}
+\item \textbf{Guarantor Framework pack:} eligibility, collateral, premiums, triggers, dispute/appeal examples; 2--3 sample vouchers showing issuer vs. pool guarantee vs. network insurance.
+\begin{enumerate}[leftmargin=*]
+\item \href{https://sarafu.network/reports}{Sarafu.Network reports}
+\item \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{A year in review - operations in Kenya}
+\end{enumerate}
+\item \textbf{Legal memo:} jurisdiction strategy, voucher classes, cash-equivalent policies, KYC/attestation options, geofencing, and mis-selling avoidance language.
+\item \textbf{Governance hardening:} COI template, recusal mechanism, sanctions ladder, delisting due-process templates, and examples of time-locked index/limit edits.
+\begin{enumerate}[leftmargin=*]
+\item \href{https://docs.grassecon.org/commons/}{Licences for Vouchers and Pools}
+\item \href{https://grassecon.org/pages/terms-and-conditions}{Terms and Conditions for Sarafu.Network}
+\end{enumerate}
+\item \textbf{Open-source/audit pack:} AGPL-3.0 repos, audit reports, invariants, and monitoring dashboards.
+\begin{enumerate}[leftmargin=*]
+\item \href{http://github.com/grassrootseconomics}{GitHub}
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

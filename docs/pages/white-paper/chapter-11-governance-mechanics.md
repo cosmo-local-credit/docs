@@ -10,7 +10,7 @@
 * **Circuit Breakers**: Emergency pause with criteria; automatic resume conditions; post-mortems required.
 * **Transparency**: All edits/flows logged; dashboards for fulfillment, reserves, utilization, routing, guarantors.
 
-**Registry Governance (Listing / Suspension / Delisting).** The CLC DAO maintains the canonical discovery registries for vouchers, tokens, and pools. By on-chain vote (staked CLC) and timelocked execution (except for narrowly-scoped emergency actions) the DAO may add, update, suspend, or remove (“delist”) registry entries. Voucher, token, and pool issuers acknowledge that registry status is conditional: repeated non-fulfillment of published Redemption SLAs, fraud/misrepresentation, unsafe contract behavior, or persistent violation of CLC constitutional values/principles may result in suspension or delisting (and official routers may route-around delisted entries by default). Where feasible, delisting follows notice to cure (remedy) period to decision, with an appeal path; emergency delisting requires a public incident report and automatic review/sunset.
+**Registry Governance (Listing / Suspension / Delisting).** A CLC-compatible deployment may maintain discovery registries for vouchers, tokens, and pools. Depending on the governance model, authorized controls may add, update, suspend, or remove (“delist”) registry entries through on-chain voting, multisig approvals, board decisions, cooperative resolutions, public mandates, or other accountable processes. Voucher, token, and pool issuers acknowledge that registry status is conditional: repeated non-fulfillment of published Redemption SLAs, fraud/misrepresentation, unsafe contract behavior, or persistent violation of published values/principles may result in suspension or delisting, and routers may route around delisted entries by default. Where feasible, delisting follows notice to cure (remedy) period to decision, with an appeal path; emergency delisting requires a public incident report and automatic review/sunset.
 
 **Prohibited Listings (non-negotiable):**
 
@@ -74,7 +74,7 @@ The prohibited list is versioned, publicly auditable, and requires Q3 + T3 to ch
 
 **Important:** Insurance coverage is **limited**. Some incidents receive no payout after caps are reached; see the Loss Waterfall and exclusions below.
 
-**When the DAO Will *Not* Make You Whole.**
+**When Shared Insurance Will *Not* Make You Whole.**
 The Insurance Fund **does not** cover: (a) redemptions outside the published SLA/venues; (b) haircuts **beyond** policy caps; (c) losses from using delisted/denied routes; (d) fraudulent claims or missing evidence; (e) jurisdictions where payout is restricted. Payouts, if any, follow the waterfall and may be **zero** after caps are reached. 
 
 **Make-Whole Schedule (policy-bound, published on-chain):**
@@ -169,7 +169,7 @@ Claims must be based on explicit, auditable triggers, such as:
 
 Guarantee payouts follow a transparent waterfall:
 
-(1) Offending issuer bond / guarantor stakes → (2) Pool-level reserves → (3) Network Insurance Fund (if covered by DAO policy) → (4) Policy-capped temporary haircuts → (5) Clawbacks for proven fraud/abuse.
+(1) Offending issuer bond / guarantor stakes → (2) Pool-level reserves → (3) Network Insurance Fund (if covered by published network policy) → (4) Policy-capped temporary haircuts → (5) Clawbacks for proven fraud/abuse.
 
 Recovery proceeds (from issuer settlement, arbitration awards, or legal enforcement) refill bonds/reserves per policy before CLC Pool swap access.
 
@@ -189,7 +189,7 @@ For every pool and voucher class, publish:
 
 **Curation Market Principle.**
 
-Pools are responsible for the guarantees they advertise. The CLC DAO provides standards, registries, and optional shared insurance policies—but does not automatically guarantee vouchers or pools unless explicitly stated in DAO policy and the pool’s published terms.
+Pools are responsible for the guarantees they advertise. CLC provides standards, registries, and optional shared insurance policies—but does not automatically guarantee vouchers or pools unless explicitly stated in published network policy and the pool’s published terms.
 
 **11.4 Anti-Capture Guardrails**
 The following actions are classified as **Critical** and require the highest quorum/threshold tiers plus a long timelock:
@@ -211,7 +211,7 @@ If governance is captured or values drift materially, communities, pool stewards
 
 1. **Snapshot:** Export canonical registries (pools, vouchers, indices, limits, fee policies) and publish a signed snapshot hash.
 
-2. **Redeploy:** Deploy new registry roots, router endpoints, and (if needed) a new Waterfall + Insurance policy contract set under a new governance process.
+2. **Redeploy:** Deploy new registry roots, router endpoints, and (if needed) a new Waterfall + Insurance policy contract set under a new governance arrangement.
 
 3. **Re-register:** Pool stewards opt-in by registering their pool addresses under the new registry root (no need to migrate user-held vouchers).
 

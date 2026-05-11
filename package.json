@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vocs dev",
     "build": "vocs build",
-    "preview": "vocs preview"
+    "preview": "vocs preview",
+    "whitepaper:tex": "python3 scripts/build_white_paper_tex.py",
+    "whitepaper:pdf": "python3 scripts/build_white_paper_tex.py && latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=white-paper/build white-paper/clc_white_paper.tex",
+    "whitepaper:publish": "npm run whitepaper:pdf && cp white-paper/build/clc_white_paper.pdf docs/public/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v6.pdf && cp white-paper/build/clc_white_paper.pdf '../RegenBonds/references/Cosmo-Local Credit (CLC) - White Paper-d25.pdf'"
   },
   "dependencies": {
     "react": "latest",

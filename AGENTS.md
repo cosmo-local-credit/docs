@@ -1,7 +1,7 @@
 # Agent Defaults
 
 - This repository is the public Cosmo-Local Credit documentation site.
-- Remove DAO-first framing when editing public content.
+- Remove old single-structure-first framing when editing public content.
 - Use broad governance and agentic language: stewards, cooperatives, public agencies, federations, multisigs, services, and other accountable structures.
 - Do not introduce Regenerative Bonds branding into the docs site unless explicitly requested.
 - Maintain a docs-owned LaTeX white paper source and derive the public PDF from that source.

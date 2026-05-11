@@ -93,9 +93,9 @@ Scenario: An external actor accumulates a large fraction of CLC, delegates votes
 
 1. **Open-source infra.** All smart contracts are EVM, open-source **AGPL-3.0**, and auditable.
 2. **Token posture.** CLC is a governance and access token. Staking may mint sCLC tokens that confers policy-gated swap rights into fee-holding pools under published caps/windows. No dividends. No profit-share. No residual rights.
-3. **Representations.** The DAO and contributors do **not** market CLC/sCLC with profit expectations; materials avoid financial return language.
+3. **Representations.** CLC contributors do **not** market CLC/sCLC with profit expectations; materials avoid financial return language.
 4. **Jurisdiction strategy.** (i) Geofenced UIs and RPCs; (ii) attestation gates for restricted classes; (iii) no promotions in restricted jurisdictions; (iv) per-voucher class legal reviews; (v) programmatic kill-switches to disable sCLC swap windows under policy.
-5. **Endowment notice.** Based on DAO vote - access based on staked CLC may be disabled or reduced for compliance, operational, or risk reasons with no compensation. See §17.3 for plain-language instrument definitions. 
+5. **Endowment notice.** Based on governance decision - access based on staked CLC may be disabled or reduced for compliance, operational, or risk reasons with no compensation. See §17.3 for plain-language instrument definitions.
 
 
 ### **10.7 Routing & Cross-Domain Risk**

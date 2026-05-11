@@ -1,6 +1,6 @@
 ## D. Launch Parameters 
 
-All values set on-chain by DAO vote at deployment and enforced by DAO-owned contracts
+All values set on-chain by governance decision at deployment and enforced by governance-controlled contracts
 
 
 
@@ -20,10 +20,10 @@ All values set on-chain by DAO vote at deployment and enforced by DAO-owned cont
 * Gauges: canonical list of eligible pools/mandates for incentive direction; edits are timelocked and require Q2 quorum or higher.
 * Emissions Budget (sCLC): a bounded, policy-set maximum per epoch; may be zero; cannot override Waterfall priorities.
 * Anti-gaming: wash-loop exclusion, beneficial-owner clustering, per-entity caps, delayed finalization, and dispute/appeal windows for manipulated metrics.
-* Emergency Pause: immediate (multisig/DAO emergency role), auto-sunsets in 72 hours unless ratified by Q2.
+* Emergency Pause: immediate (multisig/emergency role), auto-sunsets in 72 hours unless ratified by Q2.
 * Network Fee τ: 20–60 bps (default 30 bps) on routed value
 * Pool Fee Range (steward-set): 0%–20% depending on voucher class and risk tier (disclosed on-chain per pool).
-* Network Rake Share r: DAO takes r% of each pool’s collected fees (default 20%; policy-bounded per pool class).
+* Network Rake Share r: CLC receives r% of each pool’s collected fees (default 20%; policy-bounded per pool class).
 *   Effective network fee rate per pool: τ_p = f_p · r_p (rake-on-rake).
 * Fee Asset Eligibility Sets:
 *   	E_cash (cash-eligible): allowlisted stables/cash-equivalents and (optionally) major liquid tokens.

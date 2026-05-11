@@ -1,6 +1,6 @@
-## F. Worked Example - Rake-on-Rake, Convertibility (χ), and Break-Even Runway
+## E. Worked Example - Rake-on-Rake, Convertibility, and Break-Even Runway
 
-Fees are collected in the asset that moves through pools. Some fee assets are cash-eligible/convertible (E_cash), others are in-kind (E_kind). Define χ as the trailing-month share of fee inflows that are cash-eligible/convertible after slippage and policy constraints.
+Fees are collected in the asset that moves through pools. Some fee assets are cash eligible or convertible (E_cash), others are in-kind (E_kind). Define χ as the trailing-month share of fee inflows that are cash eligible or convertible after slippage and policy constraints.
 
 Example A.
 
@@ -40,4 +40,4 @@ Time (months) to reach R_required is approximately:
 
 t ≈ log(R_required / R_0) / log(1 + g)
 
-The DAO will publish quarterly updates of: R_0, χ, B_cash, τ (effective), and the implied t under conservative/base scenarios.
+Stewards/operators publish quarterly updates of: R_0, χ, B_cash, τ (effective), and the implied t under conservative/base scenarios.

@@ -21,23 +21,25 @@ When pools operate in isolation, each voucher can only settle within the small l
 2. Credit is aggregated: multiple pools’ acceptance capacity can support the same voucher type.
 3. Netting surfaces: multi-lateral swaps reduce the need for bilateral matching.
 
-The result is a higher Sj​ for a given Dˉj​: the same stock of obligations can find fulfillment faster.
+The result is higher settlement flow for a given stock of obligations: the same commitments can find fulfillment faster.
 Formally, if we index pools by k:
 
 
 
 
 
-![alt_text](images/image1.png "image_tooltip")
+S_j = ∑_k S_{j, k}
+
+D_j = ∑_k D_{j, k}
 
 
-Connectivity increases the {Sj(k)​} terms without necessarily increasing {Dj(k)}.
+Connectivity increases per-pool settlement flow without necessarily increasing per-pool obligation stock.
 
-Thus The Velocity for (j) across the network rises as routing improves.
+Thus settlement velocity for voucher j rises across the network as routing improves.
 
 **5.2 Routing as a Service: Pathfinding + Rebalancing (Liquidity-Saving)**
 
-In CLC Network, “routing” is not only a user-facing convenience (“swap voucher A for voucher B”). It is also a network liquidity service that increases settlement velocity by improving how inventory is distributed across pools and by surfacing multilateral netting opportunities.
+In a CLC-compatible network, “routing” is not only a user-facing convenience (“swap voucher A for voucher B”). It is also a network liquidity service that increases settlement velocity by improving how inventory is distributed across pools and by surfacing multilateral netting opportunities.
 
 Two routing modes:
 
@@ -105,11 +107,9 @@ F ≈ τ · V_settle · D_tot
 
 
 
-1. D(tot) = “how many promises exist,” (Total Value locked via swaps)
-2. V(settlement) = “how fast they move,”
-3. τ = “how much the network skims per unit of routed value.” Note that this is a percentage of the fees that pool stewards charge.
+D_tot is “how many promises exist” (total outstanding redeemable obligations across vouchers), V_settle is “how fast they move,” and τ is the effective service-fee rate per unit of routed value. Note that this may be a percentage of the fees that pool stewards charge.
 
-**Rake-on-rake clarification (pool fees → DAO rake).** Pool stewards set a per-pool usage fee f_p (as % of value routed through that pool). The CLC DAO sets a rake share r_p (as % of that pool’s collected fees). The effective network fee rate contributed by that pool is:
+**Rake-on-rake clarification (pool fees → network rake).** Pool stewards set a per-pool usage fee f_p (as % of value routed through that pool). CLC policy sets a rake share r_p (as % of that pool’s collected fees). The effective network fee rate contributed by that pool is:
 
 τ_p = f_p · r_p
 
@@ -145,11 +145,9 @@ As pools federate:
 
 Both forces push fee volume F upward.
 
-Downstream of fees: Waterfall → policy budgets → (optional) sCLC access
+Downstream of fees: Waterfall → policy budgets → optional sCLC budget-exit
 
-Higher F increases the resources available to the Waterfall (insurance targets, core ops, liquidity mandates). 
-
-Downstream of fees: Waterfall → policy budgets → (optional) sCLC budget-exit
+Higher F increases the resources available to the Waterfall (insurance targets, core ops, liquidity mandates).
 
 Only after safety and operations priorities are satisfied (insurance targets, core ops, liquidity mandates), the protocol may publish an epoch fee-credit budget F_epoch that bounds sCLC budget-exit windows/caps into designated fee-holding pools. This makes the post-waterfall budget contestable: stakers can directly reallocate a bounded portion of pooled fee assets by exercising sCLC (e.g., injecting liquidity into specific pools), providing a “vote with your feet” accountability mechanism. sCLC is downstream of real settlement throughput (fulfilled commitments), not speculation, and F_epoch may be set to zero.
 
@@ -187,13 +185,13 @@ Let:
 1. ϕ = fraction of total fees allocated to LPs (the rest can fund software, governance, guarantees, etc.)
 2. K = total value of liquidity staked by LPs into the network
 
-LP fee-access ex-post metrics (FeeFlow)… (measured from realized settlement fees; not promised returns) per period is roughly:
+The LP fee-access ex-post metric (measured from realized settlement fees; not promised returns) per period is roughly:
 
 
 
 
 
-![alt_text](images/image2.png "image_tooltip")
+FeeFlow_LP ≈ (ϕ · F) / K = (ϕ · τ · V_settle · D_tot) / K
 
 
 This formula makes the incentive structure explicit:
@@ -204,7 +202,7 @@ This formula makes the incentive structure explicit:
 2. More productive debt D(tot) (claims on real output, not speculation) → larger base on which fees are pooled.
 3. Reasonable fee rate τ and LP share ϕ sustain both the infrastructure and the risk-takers.
 
-As the network scales, LPs are effectively distributed sCLC (access to the fee pool) based on how well the system coordinates and settles real obligations, not on how much it speculates.
+As the network scales, LP programs may receive policy-gated fee access or sCLC allocations based on how well the system coordinates and settles real obligations, not on how much it speculates.
 
 
 ---

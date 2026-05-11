@@ -3,7 +3,7 @@
 
 
 * **Eligible Contributions**: Stablecoins, reserve tokens, approved community vouchers.
-* **Placement**: Into designated CPP pools or the CLC Pool per DAO mandate.
+* **Placement**: Into designated CPP pools or the CLC Pool per published mandate.
 * **Lock-up / Exit**: Program-specific (e.g., rolling 30–90 days; gates under stress).
 * **Policy-gated fee-credit (ex-post)**, under published caps/windows.
 * **Risk Sharing**: Insurance haircuts; loss waterfalls; clawbacks in fraud/abuse.

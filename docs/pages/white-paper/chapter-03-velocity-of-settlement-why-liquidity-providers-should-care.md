@@ -7,7 +7,7 @@ For a given voucher type j across a network of CPs, define:
 
 
 1. D_j = total outstanding debt (unsettled vouchers) valued in a common index
-2. S_j​ = total value of settlements (redemptions routed through CPs) per period
+2. S_j = total value of settlements (redemptions routed through CPs) per period
 
 Then the network settlement velocity of voucher j is:
 

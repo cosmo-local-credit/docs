@@ -73,10 +73,12 @@ Limits are checked on every deposit. If accepting more of a token would push the
 
 ## Protocol Fee Controller
 
-The `ProtocolFeeController` is the **network-level** fee mechanism — the "rake on the pool's rake" described in [Getting Started](/introduction/getting-started). It is a single contract shared across all pools in the network.
+The `ProtocolFeeController` is the **deployment-level** fee mechanism described in [Getting Started](/introduction/getting-started). It can be shared across pools in a registry profile.
 
-- **Fee rate** — A percentage (in PPM) of each pool's swap fees that is redirected to the protocol. For example, if a pool charges 2% and the protocol fee is 10%, then 0.2% goes to the protocol and 1.8% stays with the pool.
-- **Fee recipient** — The address that receives protocol fees (typically a DAO treasury or multi-sig).
+The controller does not assume one kind of operator. The fee recipient and update authority are set per deployment, so fees can support the institution or governance body that maintains a registry of Commitment Pools and provides services such as routing, clearing, monitoring, liquidity support, or insurance coordination.
+
+- **Fee rate** — A percentage (in PPM) of each pool's swap fees that is redirected to the configured service-fee recipient. For example, if a pool charges 2% and the protocol fee is 10%, then 0.2% goes to the configured recipient and 1.8% stays with the pool.
+- **Fee recipient** — The address that receives protocol fees, such as a shared treasury, multisig, cooperative account, or service operator account.
 - **Active toggle** — The controller can be activated or deactivated. When inactive, pools operate with zero protocol fee regardless of the stored rate.
 
 This funds the shared safety and operational layer described in the white paper: insurance buffers, audits, monitoring, and liquidity mandates.

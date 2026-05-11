@@ -119,8 +119,8 @@ export default defineConfig({
           link: '/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance',
         },
         {
-          text: '7. The CLC DAO and the CLC Token',
-          link: '/white-paper/chapter-07-the-clc-dao-and-the-clc-token',
+          text: '7. Network Stewardship and the CLC Token',
+          link: '/white-paper/chapter-07-clc-stewardship-and-the-clc-token',
         },
         {
           text: '8. Technical Scope & Growth',
@@ -183,8 +183,8 @@ export default defineConfig({
           link: '/white-paper/appendix-d-launch-parameters',
         },
         {
-          text: 'Appendix F. Worked Example',
-          link: '/white-paper/appendix-f-worked-example',
+          text: 'Appendix E. Worked Example',
+          link: '/white-paper/appendix-e-worked-example',
         },
         {
           text: 'Appendix F. Dataroom Checklist',

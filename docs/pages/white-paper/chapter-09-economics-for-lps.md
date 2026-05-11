@@ -18,12 +18,12 @@
 
 * Per-pool usage fee: 30–500 bps depending on voucher class and risk tier.
 * Network rake: 10–30% of per-pool fees -> Waterfall -> CLC Pool.
-    * **Worked example** ( “2% fee” case). If a pool charges f_p = 2.00% and the DAO rake share is r_p = 20% of that pool’s fees, then the effective network fee rate on routed value is:
+    * **Worked example** ( “2% fee” case). If a pool charges f_p = 2.00% and the network rake share is r_p = 20% of that pool’s fees, then the effective network fee rate on routed value is:
     * τ_p = f_p · r_p = 2.00% · 20% = 0.40% = 40 bps.
     * Convertibility matters. If only χ = 25% of fee inflows are cash-eligible/convertible (E_cash), then cash-usable effective revenue is ~10 bps (40 bps × 0.25). Therefore, meaningful sCLC fee-access budgets (F_epoch) require both high settlement throughput and sufficient χ; otherwise F_epoch may remain zero for long periods.
 * Routing fee: 5–20 bps across hops.
 * Distribution to Waterfall (policy-bound)
-* **Net LP Credit Access** drivers: local swap usage, routing volume, DAO-deployed liquidity credit access, less losses/insurance haircuts.
+* **Net LP Credit Access** drivers: local swap usage, routing volume, policy-deployed liquidity credit access, less losses/insurance haircuts.
 
 ***Accounting only: Any annualized figures are ex-post metrics of policy-gated swap access to pooled fees (not promised returns) and may be zero or negative after losses/haircuts.***
 

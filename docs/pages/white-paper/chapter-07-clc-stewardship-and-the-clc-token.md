@@ -1,17 +1,17 @@
-## **7. The CLC DAO and the CLC Token**
+## **7. CLC Stewardship and the CLC Token**
 
 
 ### **7.1 Purpose**
 
-The CLC DAO exists to:
+CLC exists to:
 
 
 
-* Govern the CPP network,
+* Coordinate governance for CPP networks,
 * Allocate liquidity across pools,
 * Underwrite settlement risk via an insurance fund,
 * Maintain core infrastructure and registries,
-* Appreciate the risk of liquidity providers,
+* Recognize the risk of liquidity providers,
 * Preserve decentralization and auditability as the network scales.
 
 
@@ -23,7 +23,7 @@ CLC is the base governance asset. Locking (staking/escrowing) CLC mints stCLC (v
 
 
 1. stCLC - a non-transferable vote-escrow receipt that represents governance voting power (and can be delegated). 
-2. 2. sCLC - an epoch-scoped authorization / incentives token minted each epoch under policy and allocated to (a) stCLC holders (fee-credit authorization after the Safety Waterfall) and/or (b) approved gauges (incentives to productive liquidity and routing operators). Either allocation may be set to zero in any epoch.
+2. sCLC - an epoch-scoped authorization / incentives token minted each epoch under policy and allocated to (a) stCLC holders (fee-credit authorization after the Safety Waterfall) and/or (b) approved gauges (incentives to productive liquidity and routing operators). Either allocation may be set to zero in any epoch.
 
 Neither stCLC nor sCLC is equity, a dividend instrument, or a guaranteed return. Policy may set sCLC issuance and/or fee-credit access to zero in any epoch.
 
@@ -35,7 +35,7 @@ CLC is not a community voucher and is not intended to be used as a general mediu
 
 **Total CLC Supply:** 500,000,000 - Minted to a CLC Vault (Multisig-wallet held by Grassroots Economics Foundation)
 
-At launch, the CLC Vault is a multisig with published signers and rotation policy; over time it transitions to DAO-controlled timelocked contracts as governance hardening milestones are met (2 independent audits, monitoring, incident runbooks, and tested pause/fork procedures). Public trading venues are OPTIONAL and must be approved as a safety decision.
+At launch, the CLC Vault is a multisig with published signers and rotation policy; over time it transitions to governance-controlled timelocked contracts as governance hardening milestones are met (2 independent audits, monitoring, incident runbooks, and tested pause/fork procedures). Public trading venues are OPTIONAL and must be approved as a safety decision.
 
 **CLC Allocations:**
 
@@ -48,21 +48,21 @@ At launch, the CLC Vault is a multisig with published signers and rotation polic
     * 40% Public Liquidity Reserve (venue-agnostic): Held in a timelocked vault and released in tranches.
     * Max Active Deployment: ≤ 10% of total supply at any time across all venues.
     * Each deployment expires (sunsets) after 90 days unless renewed by governance.
-    * LP positions are DAO owned; LP tokens are timelocked; public venues are optional.
+    * LP positions are governance-controlled; LP tokens are timelocked; public venues are optional.
     * Any CLC used for liquidity does NOT vote unless staked under the same lockup rules as all other voters.
 
 (All parameters timelocked and on-chain; edits require governance quorum.)
 
 7.2.2 CLC Availability Stages
 
-**Endowment Contribution Tiers (reference valuation):** Early endowments may be accepted in staged tiers using a published reference valuation for intake and budgeting purposes. This reference valuation is a governance parameter, timelocked and disclosed on-chain, and is not a promise of market price or future appreciation. Public liquidity, if provided on third-party venues, is for accessibility and discovery; the DAO does not target a price and may add/withdraw liquidity subject to inventory constraints and risk policy.
+**Endowment Contribution Tiers (reference valuation):** Early endowments may be accepted in staged tiers using a published reference valuation for intake and budgeting purposes. This reference valuation is a governance parameter, timelocked and disclosed on-chain, and is not a promise of market price or future appreciation. Public liquidity, if provided on third-party venues, is for accessibility and discovery; CLC policy does not target a price and may add/withdraw liquidity subject to inventory constraints and risk policy.
 
 **Endowment Covenant (Seeder Responsibility):** Endowments are treated as a stewarded endowment to increase settlement capacity, not to extract yield. Large endowments may be capped in voting influence via conviction caps and/or delegated-community veto (policy-defined) to preserve non-dominance. All endowment deployments must publish: purpose, expected network benefit, risks, and exit conditions.
 
 
 **7.2.3 Impact Seeding Program (CLC Eligibility for Seeding Commitment Pools)**
 
-The DAO may allocate portions of the CLC Vault to recognize contributors who seed liquidity directly into designated Commitment Pools when that liquidity measurably increases network settlement (fulfilled redemptions), not speculative churn.
+Published policy may allocate portions of the CLC Vault to recognize contributors who seed liquidity directly into designated Commitment Pools when that liquidity measurably increases network settlement (fulfilled redemptions), not speculative churn.
 
 **Eligibility (example policy, finalized by governance):**
 
@@ -84,13 +84,13 @@ Approved pools for seeding may be expressed as gauges, so stCLC voters can trans
 
 Locking CLC mints stCLC (voting power) and enables participation in epoch incentive decisions. Each epoch, stCLC holders vote on “gauges” (approved pools / mandates) that direct how any sCLC incentives are distributed to productive liquidity and routing operators.
 
-Separately, after the Safety Waterfall funds Insurance, Core Ops, and Liquidity Mandates, the DAO may publish a fee-credit budget (F_epoch). When enabled, sCLC can be used to exercise capped swap access from designated fee-holding pools, under published windows and inventory constraints.
+Separately, after the Safety Waterfall funds Insurance, Core Ops, and Liquidity Mandates, published policy may define a fee-credit budget (F_epoch). When enabled, sCLC can be used to exercise capped swap access from designated fee-holding pools, under published windows and inventory constraints.
 
 Design rationale (“vote with your feet”): sCLC makes post-waterfall fee budgets contestable. If stakers disagree with routing policy, treasury allocations, or perceive governance capture, they can directly reallocate a bounded portion of pooled fee assets by exercising their fee-credit (e.g., injecting liquidity into specific pools, supporting local voucher inventories, purchasing coverage collateral, or other self-directed deployments). This is an accountability and anti-capture mechanism, not a promise of yield.
 
 **stCLC Gauge Voting (Directing sCLC Incentives)**
 
-To avoid discretionary allocation and to keep incentives tied to real settlement, the DAO uses a gauge system (a curated list of eligible pools/mandates).
+To avoid discretionary allocation and to keep incentives tied to real settlement, CLC uses a gauge system (a curated list of eligible pools/mandates).
 
 Each epoch:
 
@@ -110,18 +110,18 @@ If enabled, the protocol mints a bounded amount of sCLC incentives and distribut
 Staking/escrowing CLC is how participants direct network policy and enforce accountability. In addition to voting rights, staking/escrowing makes participants eligible to receive epoch-scoped sCLC, which can be used to exercise a capped, epoch-bound budget-exit from the post-waterfall fee budget. This lets stakers “vote with their feet” by directly reallocating a bounded portion of fee assets (e.g., injecting liquidity into specific pools or supporting inventories they believe improve settlement) rather than relying solely on proposals and committees. This is access to a governed resource under caps, not a claim on profits or dividends.
 
 
-**Mandatory Fee Enforcement**
+**Service-Fee Enforcement Option**
 
-(a) **Factory Gating.** Official CPP pools are deployed via a **PoolFactory** that wires a **FeeHook** into the Vault/Fee Registry; fees auto-route to the **CLC Pool** via the Waterfall per policy. Pools missing the FeeHook cannot register.
-(b) **Registry Gating.** Only pools in the **canonical Pool Registry** (timelocked governance edits) are discoverable by official routers and SDKs. Non-compliant forks fail discovery.
-(c) **Router Policy.** Official routers **refuse routes** that touch unregistered pools or pools with invalid FeeHook. (SDK invariant checks enforce this.)
-(d) **Programmatic Attestations.** Liquidity mandates and LP programs require FeeHook compliance; **non-compliant forks lose routing and liquidity support**.
+(a) **Factory Gating.** A registry operator may deploy CPP pools via a **PoolFactory** that wires a **FeeHook** into the Vault/Fee Registry; fees can auto-route to a configured fee recipient via the Waterfall per policy. Pools missing the FeeHook may be ineligible for that registry.
+(b) **Registry Gating.** A registry profile may make only registered pools discoverable by its routers and SDKs. Independent registries can define their own listing and fee rules.
+(c) **Router Policy.** Routers may **refuse routes** that touch unregistered pools or pools with invalid FeeHooks for the selected profile. SDK invariant checks can enforce this.
+(d) **Programmatic Attestations.** Liquidity mandates and LP programs may require FeeHook compliance; non-compliant pools may lose routing and liquidity support within that profile.
 
-**Result:**“Mandatory” equals **unroutable (on the CLC DAO network) if non-paying**- not a social norm.
+**Result:** “Mandatory” is profile-specific: a non-paying pool may be unroutable in one registry or service profile while remaining free to operate locally or join another registry.
 
-**Fork/Exit Note.** This “mandatory” enforcement applies only to **official** discovery (canonical registries, SDK invariants, and official routers). Pools remain free to operate outside these registries, and independent routers/registries may exist. This preserves credible exit if governance is captured: a fork can deploy alternative registries/routers and pools can re-register there without changing the underlying CPP primitives.
+**Fork/Exit Note.** This enforcement applies only to the selected discovery profile. Pools remain free to operate outside a given registry, and independent routers/registries may exist. This preserves credible exit if governance is captured: a fork can deploy alternative registries/routers and pools can re-register there without changing the underlying CPP primitives.
 
-Users/pools can always select alternative profiles/registries in compatible clients. Canonical enforcement must not “brick” local economies. Fee policies must be surfaced in UI before swap/seed
+Users/pools can always select alternative profiles/registries in compatible clients. Registry enforcement must not “brick” local economies. Fee policies must be surfaced in UI before swap/seed.
 
 **sCLC Emission & Budget-Exit Windows**
 
@@ -131,7 +131,7 @@ limit_user_epoch = F_epoch × (stCLC_user / stCLC_total).
 
 Within published windows/caps (and subject to inventory), sCLC can be exercised to swap fee assets out of designated fee-holding pools and into listed assets/vouchers. This is a bounded budget-exit mechanism (accountability / anti-capture), not passive income; governance may set F_epoch = 0 and may tighten, pause, or geofence access per compliance and incident policy.
 
-**DEX Float Reduction (optional, non-speculative):** If measured CLC DEX float exceeds a policy cap, the DAO MAY execute a capped, TWAP-limited repurchase solely to reduce external float and governance-attack surface. Acquired CLC is retired to avoid custody risk. This program has no price target, may be set to zero, and must halt automatically during incidents or when insurance buffers are below target.
+**DEX Float Reduction (optional, non-speculative):** If measured CLC DEX float exceeds a policy cap, published policy may authorize a capped, TWAP-limited repurchase solely to reduce external float and governance-attack surface. Acquired CLC is retired to avoid custody risk. This program has no price target, may be set to zero, and must halt automatically during incidents or when insurance buffers are below target.
 
 
 **Guardrails (policy parameters; on-chain):**
@@ -141,7 +141,7 @@ Within published windows/caps (and subject to inventory), sCLC can be exercised 
 • **Emergency stop:** automatic stop if **insurance ratio &lt; threshold**
 • **Disclosure:**“**Not intended to support price; settlement does not depend on DEX price**”
 
-**Treasury Liquidity Cache (non-distributive):** A portion of fees MAY be used to maintain protocol-owned liquidity positions needed for network functioning (e.g., off-ramp buffers, rebalancing inventories), under policy caps and timelocks.
+**Treasury Liquidity Cache (non-distributive):** A portion of fees may be used to maintain protocol-owned liquidity positions needed for network functioning (e.g., off-ramp buffers, rebalancing inventories), under policy caps and timelocks.
 
 **7.3.1 Portfolio Pools:** Direct Seeding, Voted Allocations, and sCLC-Directed Liquidity (Examples)
 
@@ -159,7 +159,7 @@ Note: Portfolio pools remain sovereign. They can be canonical (discoverable via 
 
 **7.3.2 Curating Portfolio Pools (Including Certifications)**
 
-Any steward (individual, cooperative, multisig, or DAO) can curate a portfolio pool: define a listing policy, publish a Value Index method, configure limiters, and require clear redemption proofs and fallback remedies. Portfolio pools can be specialized (ecosystem, humanitarian, health) or mixed.
+Any steward (individual, cooperative, community group, multisig, service operator, or public agency) can curate a portfolio pool: define a listing policy, publish a Value Index method, configure limiters, and require clear redemption proofs and fallback remedies. Portfolio pools can be specialized (ecosystem, humanitarian, health) or mixed.
 
 Certifications can be used to improve trust and reduce risk, but should be modeled as attestations that affect eligibility and risk treatment—not as profit tokens. Two safe patterns:
 
@@ -172,7 +172,7 @@ In both cases, the economic claim remains the underlying redeemable commitment; 
 
 ### **7.4 Waterfall Policy & Budgets**
 
-Fee inflows (pool usage fees, routing fees, network rake) are allocated by a deterministic waterfall and adjustable by DAO vote. 
+Fee inflows (pool usage fees, routing fees, network rake) are allocated by a deterministic waterfall and adjustable by governance decision.
 
 **Fee Asset Eligibility & Conversion (cash vs. in-kind).** Fee inflows arrive in mixed assets because fees are collected in the same asset that moves through pools. The Waterfall distinguishes:
 
@@ -180,7 +180,7 @@ Fee inflows (pool usage fees, routing fees, network rake) are allocated by a det
 
 (ii) In-kind fee assets (E_kind): non-fiat-redeemable vouchers and other non-convertible assets that may be redeployed for in-network settlement support, local mandates, or in-kind operating needs, but do not count toward fiat-denominated insurance/ops obligations.
 
-The DAO maintains a Conversion Policy (allowlists, caps, slippage limits, TWAP windows, and reporting) for fungible assets only. Voucher pricing remains governed by pool Value Indices and Swap Limiters; conversion is for treasury/operations reliability, not voucher valuation.
+CLC maintains a Conversion Policy (allowlists, caps, slippage limits, TWAP windows, and reporting) for fungible assets only. Voucher pricing remains governed by pool Value Indices and Swap Limiters; conversion is for treasury/operations reliability, not voucher valuation.
 
 **Waterfall Priorities:**
 
@@ -189,25 +189,15 @@ The DAO maintains a Conversion Policy (allowlists, caps, slippage limits, TWAP w
 1. **Insurance Reserve Target**– Fund to a policy target (risk-weighted by pool class, fulfillment rate, issuer concentration, and limit utilization).
 2. **Core Operations**– Legal, advocacy, IEC, infra, audits, observability.
 3. **Liquidity Mandates**– Endowments into target pools/routers to improve settlement velocity, including (optionally) interoperability mandates: bridge/adaptor maintenance, confederation routing pilots, and cross-network liquidity backstops under published caps and sunset reviews.
-4. **DEX Float Reduction (optional, non-speculative):** If measured CLC DEX float exceeds a policy cap, the DAO MAY execute a capped, TWAP-limited repurchase solely to reduce external float and governance-attack surface. Acquired CLC is retired (or placed in a non-voting sink) to avoid custody risk. This program has no price target, may be set to zero, and must halt automatically during incidents or when insurance buffers are below target.
+4. **DEX Float Reduction (optional, non-speculative):** If measured CLC DEX float exceeds a policy cap, published policy may authorize a capped, TWAP-limited repurchase solely to reduce external float and governance-attack surface. Acquired CLC is retired (or placed in a non-voting sink) to avoid custody risk. This program has no price target, may be set to zero, and must halt automatically during incidents or when insurance buffers are below target.
 5. **CLC Pool Fee-Access Budget:** Allocate remaining eligible fee assets to the CLC Pool (cash-eligible E_cash by default; E_kind only if explicitly allowlisted per program) and publish the epoch fee-access budget F_epoch (may be zero), which bounds sCLC swap-access windows/caps as defined in §7.4.
 
 **KPI-Linked Budgets.** Advisory data to adjust the waterfall parameters via on-chain policy keyed to pool-health KPIs: fulfillment rate, reserve adequacy, limit utilization, routing pass/fail, guarantor performance, and redemption latency. All edits are timelocked and logged on-chain.
 
 
-
-
-
-![CLC DAO template](/white-paper/CLC-DAO-template.svg)
-
-
-The Contributor Flow diagram above shows:
-
-
-
-
-1. Liquidity Providers supporting endowments - stable coins going to CLC Vault and receiving CLC tokens (as DAO Members).
-2. CLC holders can stake them to receive stCLC DAO voting rights (and sCLC … step 4)
+A typical contributor flow is:
+1. Liquidity Providers supporting endowments - stable coins going to CLC Vault and receiving CLC tokens (as governance participants).
+2. CLC holders can stake them to receive stCLC voting rights (and sCLC … step 4)
 3. Pools in the CLC Registry send (automatically) a % of their fees to the Waterfall Contract. The waterfall contract pushes these fees into:
     1. Insurance & Ops Vault: funded primarily by cash-eligible fee assets (E_cash) and/or conversions under policy; in-kind fees (E_kind) do not count toward fiat-denominated obligations.
     2. Back into the CPs based on voting

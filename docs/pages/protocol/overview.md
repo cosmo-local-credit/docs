@@ -1,6 +1,6 @@
 # Protocol
 
-The CLC protocol is the on-chain implementation of the **Commitment Pooling Protocol (CPP)** described in [Chapter 1](/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) of the white paper. All contracts are EVM-compatible, open-source under **AGPL-3.0**, and deployed via upgradeable proxies (ERC-1967).
+CLC protocol contracts are the on-chain implementation of the **Commitment Pooling Protocol (CPP)** described in [Chapter 1](/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) of the white paper. All contracts are EVM-compatible, open-source under **AGPL-3.0**, and deployed via upgradeable proxies (ERC-1967).
 
 Source: [github.com/cosmo-local-credit/protocol](https://github.com/cosmo-local-credit/protocol)
 

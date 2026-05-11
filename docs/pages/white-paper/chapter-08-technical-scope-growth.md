@@ -19,7 +19,7 @@ Priorities:
 
 **Public Discovery.** Routers must query public registries of voucher listings, value indices, limits, fees, and inventories; cache with freshness bounds.
 
-**Multi-Profile Discovery (Confederation).** Routers/SDKs MAY support multiple registry roots (“network profiles”) and must surface to users/pools which profile a route uses (registry root, policy constraints, bridge adapters). Cross-profile routes must satisfy the strictest applicable caps/escrow requirements and must be auditable hop-by-hop (quote → receipt mapping).
+**Multi-Profile Discovery (Confederation).** Routers/SDKs may support multiple registry roots (“network profiles”) and must surface to users/pools which profile a route uses (registry root, policy constraints, bridge adapters). Cross-profile routes must satisfy the strictest applicable caps/escrow requirements and must be auditable hop-by-hop (quote → receipt mapping).
 
 **Path Policies.** Deny-list toxic routes (known bad bridges/pools) and enforce per-route caps and minimum health scores (reserve adequacy, SLA adherence).
 
@@ -41,11 +41,11 @@ Priorities:
 
 **8.1.1 Minimum Confederation Compatibility Contract (MCC)**
 
-To be routable across profiles (and thus across confederated networks), a pool ecosystem MUST publish the following in a machine-readable way:
+To be routable across profiles (and thus across confederated networks), a pool ecosystem must publish the following in a machine-readable way:
 
 1) Registry roots: canonical addresses for voucher registry, pool registry, value index registry, limiter registry, and fee policy registry (or a single root that deterministically resolves these).
 
-2) Receipt standard: every hop MUST emit/return a receipt that references (a) registry root/profile used, (b) voucher/token in/out, (c) value index version or timestamp, (d) limiter window/cap snapshot, (e) fees charged, and (f) inventory check result.
+2) Receipt standard: every hop must emit/return a receipt that references (a) registry root/profile used, (b) voucher/token in/out, (c) value index version or timestamp, (d) limiter window/cap snapshot, (e) fees charged, and (f) inventory check result.
 
 3) Health endpoints: per-pool signals required for routing policies—reserve adequacy, SLA adherence, limiter utilization, and incident state—plus freshness bounds.
 
@@ -53,7 +53,7 @@ To be routable across profiles (and thus across confederated networks), a pool e
 
 5) Failure codes: human-readable, deterministic failure codes so clients can explain why a route was refused (limits, inventory, policy, escrow, incident pause).
 
-Networks MAY implement additional features (insurance overlays, compliance hooks, arbitration modules), but these MUST remain profile-scoped and MUST NOT be required for basic CPP compatibility.
+Networks may implement additional features (insurance overlays, compliance hooks, arbitration modules), but these must remain profile-scoped and must not be required for basic CPP compatibility.
 
 
 ### **8.2 Licensing & Transparency**

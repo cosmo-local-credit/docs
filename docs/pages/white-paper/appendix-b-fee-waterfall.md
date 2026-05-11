@@ -13,13 +13,13 @@ Eligibility & conversion note. F_in may include both cash-eligible fee assets (E
 2. Core Operations: fixed budget B_core (timelocked; ±20% with quorum Q2).
 3. Liquidity Mandates: allocate L to approved pools/routers per mandate schedule.
 4. Pooled Fees — allocation of remaining F_in − (1 + 2 + 3):
-    4.    • Protocol Operations/Insurance (non-distributive): α
-    5.    • Liquidity Programs (incentives/rebates):           β
-    6.    • Insurance Buffer (overflow reserve):               γ
+    - Protocol Operations/Insurance (non-distributive): α
+    - Liquidity Programs (incentives/rebates): β
+    - Insurance Buffer (overflow reserve): γ
 
     subject to α + β + γ = 1, policy bounds, and per-budget caps.
 
 
-**Guardrail:** Waterfall allocations are for (i) insurance adequacy, (ii) operations, and (iii) liquidity needed for settlement. They MUST NOT be framed or executed as price-support operations.
+**Guardrail:** Waterfall allocations are for (i) insurance adequacy, (ii) operations, and (iii) liquidity needed for settlement. They must not be framed or executed as price-support operations.
 
 Any CLC acquired via DEX Float Reduction is **retired** (burned) to avoid custody and governance-risk; it is not distributed to stakers.

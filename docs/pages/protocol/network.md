@@ -1,6 +1,8 @@
 # Network Architecture
 
-A CLC network consists of **many vouchers** and **many pools** connected through shared registries, a protocol fee controller, and routing logic.
+CLC deployments connect **many vouchers** and **many pools** through shared registries, a protocol fee controller, and routing logic.
+
+Each deployment chooses its own registry roots, routing profile, fee recipient, and governance controls. Any institution or governance body can operate a registry of Commitment Pools and charge transparent fees for services such as routing, clearing, monitoring, liquidity support, or insurance coordination. Those responsibilities may sit with a nonprofit foundation, cooperative, holding company, public agency, community group, multisig, service operator, or another accountable structure.
 
 ## Network Diagram
 
@@ -8,7 +10,7 @@ The diagram shows the network-level view — pools as single nodes, vouchers lis
 
 ![CLC Network Architecture](/mermaid/mermaid-diagram-2026-02-06-101821.png)
 
-**How to read it:** Vouchers (purple) are standalone ERC20 tokens — each issued by a different community. A single voucher can be **listed in multiple pools**, which is what enables routing. Because every pool's `SwapPool` exposes the same interface, any route finder can discover paths and execute multi-hop swaps: whenever a voucher appears in two pools, a route exists between them. The **overlapping token** (cUSD in this example) acts as a bridge — Clinic Voucher swaps to cUSD in Pool C, then cUSD swaps to Transport Credit in Pool A. Stablecoins and widely-accepted vouchers naturally become bridges because they appear in many pools. Every pool sends a share of its swap fees to the **Protocol Fee Controller**, which routes them to the DAO Treasury.
+**How to read it:** Vouchers (purple) are standalone ERC20 tokens — each issued by a different community. A single voucher can be **listed in multiple pools**, which is what enables routing. Because every pool's `SwapPool` exposes the same interface, any route finder can discover paths and execute multi-hop swaps: whenever a voucher appears in two pools, a route exists between them. The **overlapping token** (cUSD in this example) acts as a bridge — Clinic Voucher swaps to cUSD in Pool C, then cUSD swaps to Transport Credit in Pool A. Stablecoins and widely-accepted vouchers naturally become bridges because they appear in many pools. Every pool can send a share of its swap fees to the **Protocol Fee Controller**, which routes them to the configured recipient for registry, routing, clearing, safety, operations, and liquidity support.
 
 ## Pool Internals Diagram
 

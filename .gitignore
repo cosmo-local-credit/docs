@@ -3,8 +3,16 @@ vocs_docs
 WHITEPAPER.md
 docs/dist
 docs-sim.code-workspace
-Cosmo-Local Credit (CLC) DAO - White Paper-d25.pdf
+Cosmo-Local Credit (CLC) - White Paper-d25.pdf
 package-lock.json
 .gitignore
 white-paper.md
 Grassroots Economics - Reflection and Practice (PDF Single Spread).pdf
+white-paper/build/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+AGENTS.md
