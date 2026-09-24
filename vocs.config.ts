@@ -84,6 +84,10 @@ export default defineConfig({
           text: 'Governance Mechanics',
           link: '/governance/mechanics',
         },
+        {
+          text: 'Terms of Service',
+          link: '/governance/terms',
+        },
       ],
     },
     {
