@@ -2,12 +2,14 @@
 
 CPs interoperate when they list the same vouchers. Routers move value across pools, respecting each hop’s **value index, limits, fees, and inventory**. As pools proliferate:
 
+**Status note:** Direct Pool interactions are available in the public PWA. Multi-hop routing, cross-profile routing, batch netting, shared Waterfall budgets, and sCLC mechanisms in this chapter are optional or proposed capabilities unless a deployment expressly identifies them as active.
 
 
-* Routing paths multiply,
-* Settlement velocity increases,
-* Fee volume grows,
-* The network becomes more valuable than any single pool.
+
+* Possible routing paths may multiply,
+* Fulfillment velocity may increase,
+* Fee volume may grow, and
+* Participants may gain access to inventories beyond a single Pool.
 
 **Routing story:** A school accepts “maize vouchers” but needs “transport vouchers.” A router finds a path across pools that accept both. The swap clears only if each hop is within limits and inventory … so the voucher reaches someone who can actually redeem it.
 
@@ -61,7 +63,7 @@ These cycles are executed as batch routes, producing receipts per hop (quote →
 
 **Why this works**
 
-Obligation networks contain cycles. When cycles are processed simultaneously, obligations can be discharged faster and, in some cases, with less external liquidity than sequential bilateral processing. This “cycle surfacing” effect is what CPP routing unlocks across Commitment Pools—subject to each pool’s published value, limit, fee, and inventory constraints.
+Obligation networks can contain cycles. When expressly compatible obligations are processed together, matching and fulfillment may require less external liquidity than sequential bilateral processing. This proposed “cycle surfacing” mechanism remains subject to every Pool's valuation, limits, fees, inventory, authorization, and applicable terms. It does not make an ordinary Swap a loan repayment.
 
 **Opt-in & sovereignty note**
 
@@ -170,10 +172,10 @@ Liquidity providers (LPs) stake assets/vouchers into pools so that swaps and set
 1. Risks:
     1. Inventory risk: you may hold assets/vouchers that are slower to redeem or rebalance.
     2. Convertibility risk: some fees arrive as non-cash vouchers; cash-usable revenue depends on χ.
-    3. Incident risk: in extreme failures, remedies follow the disclosed loss waterfall (issuer/guarantor → reserves → optional insurance → capped haircuts).
+    3. Incident risk: in extreme failures, remedies follow the disclosed loss waterfall (responsible issuer or guarantor → reserves → optional insurance → any lawfully authorized, capped reduction to optional coverage or Pool settlement claims).
     4. Governance/lock risk: participation may require lockups; changes are timelocked.
 2. Protections:
-    5. Limits + reserves cap the speed and size of drains/runs.
+    5. Configured limits can slow certain drains; disclosed reserves may absorb specified losses if they exist and are available. Neither eliminates loss.
     6. Receipts + dashboards make issuer performance and incidents visible.
     7. Policy-gated fee-access is downstream of safety/ops and may be zero—preventing “promised yield” dynamics.
     8. Credible exit/forkability: communities can re-point/fork if governance is captured (see §11.5).
@@ -199,7 +201,7 @@ This formula makes the incentive structure explicit:
 
 
 1. Higher settlement velocity V(settle) → more routed value → more fees → higher fee pooling.
-2. More productive debt D(tot) (claims on real output, not speculation) → larger base on which fees are pooled.
+2. More outstanding productive commitments D(tot) (claims on real output, not speculation) → a larger potential base for fee-generating fulfillment.
 3. Reasonable fee rate τ and LP share ϕ sustain both the infrastructure and the risk-takers.
 
 As the network scales, LP programs may receive policy-gated fee access or sCLC allocations based on how well the system coordinates and settles real obligations, not on how much it speculates.

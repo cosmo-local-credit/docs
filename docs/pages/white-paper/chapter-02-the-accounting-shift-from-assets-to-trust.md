@@ -4,16 +4,16 @@ Traditional finance begins with **Assets − Liabilities = Equity**. CPP reframe
 
 
 
-* **Credit Access**: How much the network is still willing to accept from you.
-* **Outstanding Commitments (Debt)**: Your unfulfilled promises held by others.
+* **Acceptance Capacity**: How much of an issuer's commitments a Pool or network is still willing to accept.
+* **Outstanding Commitments**: Issued promises that remain unfulfilled and are held by others.
 * **Backing Capacity**: Your real ability to honor those promises.
 
 **Commitment–Capacity Identity:**
-Credit − Debt = Backing Capacity
+Acceptance Capacity − Outstanding Commitments = Remaining Capacity
 
-This identity governs risk, limits, and safety across pools: unlimited issuance does not imply unlimited power - only accepted commitments matter.
+This conceptual identity can inform Pool risk limits: unlimited issuance does not imply unlimited acceptance. It is not a balance-sheet identity or a statement that every Voucher is legally a debt or loan.
 
-**Example:** A transporter issues “100 rides” in vouchers. The network only accepts 40 rides worth at a time (credit access). If 15 rides are currently outstanding (debt), then backing capacity = 40 − 15 = 25 rides worth of additional safe acceptance.
+**Example:** A transporter issues “100 rides” in Vouchers. A Pool accepts at most 40 rides worth at a time. If 15 accepted rides remain outstanding, the Pool has capacity to accept up to 25 additional rides under that policy. The calculation does not itself create a loan or guarantee fulfillment.
 
 
 ---

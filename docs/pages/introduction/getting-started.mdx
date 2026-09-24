@@ -1,113 +1,73 @@
-# Cosmo-Local Credit (CLC)
+# Getting Started
 
-This site describes what is possible with Cosmo-Local Credit: options for registries, routing, clearing, shared services, and governance. Sarafu Network is one working example, not the only governance model.
+Cosmo-Local Credit (CLC) is a progressive web app for creating, discovering, holding, transferring, and exchanging digital assets, including redeemable Vouchers, through independently governed Pools. The public App is available at [cosmolocal.credit](https://cosmolocal.credit).
 
-## Executive Brief
+Grassroots Economics Foundation (GEF) operates the public App and supporting infrastructure. Unless GEF expressly accepts another role for a particular offering or transaction, it is not the Issuer of a user-created Voucher, the Steward of a user-created Pool, a custodian, lender, borrower, guarantor, insurer, or redeemer. Issuers are responsible for their Voucher commitments, and Pool Stewards are responsible for their Pool rules.
 
-CLC can work like shared clearing infrastructure for **vouchers and obligations**: it helps many issuers **swap, route, and settle** credits safely, without turning them into speculative money.
+Before creating an Account or transacting, read the [Terms of Service](/governance/terms). In particular:
 
-**This is commitment-first clearing:** the unit exchanged is a redeemable claim with clear terms and receipts (not a volatile token) and fees are tied to real settlement, not trading churn.
+- You must be at least 18 years old, have reached the age of legal majority that applies to you, and have contractual capacity.
+- You are responsible for confirming that your Account, Voucher, Pool, or transaction is lawful in every relevant jurisdiction.
+- Wallet credentials must be protected. GEF may be unable to recover a lost Wallet or reverse an authorized transaction.
+- Public-blockchain transactions and records may be visible, permanent, and irreversible.
+- A listing in the App is not a GEF endorsement or a guarantee of redemption, value, liquidity, convertibility, or cash-out.
 
-# What problem it solves
+## Start with the live App
 
-Commitment Pools are shared markets where people can swap redeemable commitments and settle them over time.
+### 1. Browse the public market
 
-A ‘commitment’ can be **any redeemable obligation**: gift cards, loyalty points, invoices, service credits, school/clinic vouchers, carbon/repair credits, micro-loans, prepaid utilities, or mutual-aid pledges.
+Open [cosmolocal.credit](https://cosmolocal.credit) to explore public marketplace listings before signing in. Review the responsible Issuer, the promised goods or services, location, availability, and other published information. Visibility in the market does not mean that GEF has guaranteed or independently valued an offering.
 
-**Scaling to a federation of pools** requires shared infrastructure that no single steward has to control: **insurance buffers, audits, monitoring, routing standards, and off-ramps** - plus clear, accountable rules for risk.
+### 2. Create an Account and Wallet
 
-# What Cosmo-Local Credit is
+Follow the App's onboarding flow to create an Account and a supported Wallet, or to connect or import a Wallet when that option is available. Provide accurate profile information and carefully store every passkey, paper-wallet credential, private key, password, or recovery method associated with the Wallet.
 
-Cosmo-Local Credit (CLC) is shared settlement infrastructure for many independent Commitment Pools. It can be stewarded by different accountable structures - cooperatives, community groups, federations, public agencies, companies, multisigs, service operators, or other governance arrangements with transparent rules. Its role is to **coordinate and fund the safety layer** so commitment pooling can scale **without becoming extractive or fragile**. In practice, it becomes a **credit routing + clearing layer** across many issuers - so different communities and institutions can settle obligations with each other without needing one central bank-like operator.
+Do not share signing credentials. Before approving any Wallet request, confirm the assets, amounts, recipient, Pool, fees, and other displayed transaction details.
 
-Any institution or governance body can set up a CLC-compatible registry of Commitment Pools and define transparent fees for services such as routing, clearing, monitoring, liquidity support, or insurance coordination. Who manages shared registries and receives those service fees is deployment-specific: a deployment might be stewarded by a nonprofit foundation, cooperative, holding company, public agency, community group, multisig, or service operator. Sarafu Network, for example, is managed by the nonprofit Grassroots Economics Foundation.
+### 3. Inspect the Voucher and Pool
 
-Example: a clinic voucher in one pool can be swapped through trusted pools into food or transport credits, and the network “clears” by netting flows so fewer swaps need cash.
+Before accepting or acquiring a Voucher, inspect its terms. These should identify the Issuer and explain what the Voucher can be redeemed for, its supply or capacity, unit and valuation, expiry, redemption process, geography, timing, fees, restrictions, and available remedies.
 
-**Mission (North Star):** maximize the **velocity of settlement** of outstanding commitments (how quickly listed promises become fulfilled) while preserving care, fairness, and resilience. *(Metric: settlement velocity, fulfillment rate, redemption latency.)*
+Before using a Pool, inspect the Pool Steward and the published rules: accepted assets, valuations, fees, limits, inventory, governance and upgrade powers, pause controls, and any reserve or guarantee. A Pool's displayed value is not itself a promise that an Issuer will redeem a Voucher or that another asset will always be available.
 
-# Who wants this and why
+### 4. Review and execute a Swap
 
-* **Pool stewards (local curators)** list vouchers (goods and services) and publish guarantees; their fulfillment history becomes discoverable and comparable.
-* **Lenders & liquidity providers (infrastructure funders)** can finance real production while holding redeemable collateral (vouchers) that can route across trusted pools. Debt becomes a relational market.
-* **Producers/borrowers (shops, services, projects)** get working capital now and can repay **in-kind** by fulfilling their vouchers—broadening their market instead of shrinking it.
-* **Consumers (everyday people)** can browse curated markets they trust and choose purchases that directly reduce someone’s outstanding obligations.
-* **Market makers & routers (inventory + routing operators)** earn by improving reliability and settlement speed (keeping inventory available, improving routes, maintaining off-ramps), not by manufacturing speculation.
-* **Registry and policy stewards** maintain pool registries, risk rules, routing policies, and service-fee terms for the networks they operate.
+Where a Pool supports a pair, the App can request a quote and prepare a Swap. Quotes can be temporary, and a transaction can fail or change because of inventory, limits, fees, network conditions, authorization, or Pool configuration. Review the final parameters immediately before confirming.
 
-# How it works
+An ordinary Swap exchanges assets under the displayed transaction parameters and Pool rules. The direction of an exchange—including exchanging a Voucher for a stablecoin or another asset—does not by itself make the transaction a loan or repayment.
 
-### **1) Pools remain local and sovereign**
+### 5. Redeem or continue using the asset
 
-* Each pool steward lists **redeemable obligations** (vouchers/tokens), sets values, and sets pool fees (e.g., 0–20% depending on risk and voucher type).
-* Pools enforce swap limits and redemption rules locally. This means **many issuers can coexist** (shops, schools, clinics, coops, municipalities) while still being interoperable.
+To redeem a Voucher, follow the Issuer's published process. The Issuer, rather than GEF or an unrelated Pool Steward, is responsible for providing the promised goods, services, benefits, or other performance. A completed redemption should be recorded in the manner specified by the Issuer and applicable system so that the same claim cannot be used twice.
 
-### **2) Registries and services can charge transparent fees**
+### 6. Create a Voucher or Pool
 
-* When value routes through pools, pool and service fees can be charged **in the same asset that moved**.
-* A registry, routing service, clearing service, or shared safety layer may receive a percentage of pool fees or a separate service fee under published terms.
-* This aligns incentives: service providers earn more only when **real settlement throughput** grows.
+Users with the necessary authority and legal capacity can use supported App flows to create Vouchers and Pools.
 
-### **3) Shared-service fees can follow a safety-first “Waterfall”**
+- A **Voucher Issuer** must publish complete, accurate terms, issue within its capacity, keep material information current, and honor the redemption commitment it makes.
+- A **Pool Steward** must publish and consistently apply the Pool's admission, curation, valuation, fee, limit, inventory, governance, conflict, pause, and risk rules. Any guarantee, reserve, or insurance arrangement must state who provides it and its exact limits.
 
-One possible design allocates shared-service fee inflows in order:
+Creating a smart contract or listing does not make an activity lawful. Issuers and Stewards remain responsible for required registrations, disclosures, permissions, taxes, consumer protections, and other obligations.
 
-1. **Insurance buffers** (to handle defaults/incidents within defined limits)
-2. **Core operations** (audits, monitoring, incident response, governance ops)
-3. **Liquidity/off-ramp mandates** (to keep settlement reliable and fast)
-4. Only if the above are met: an **epoch (e.g., monthly) fee-access budget**
+### 7. Install the PWA, if useful
 
-**Key clarity:** fees arrive in **whatever asset moved**, including non-convertible vouchers (like gift cards or service credits). Only the **cash-eligible/convertible portion** can reliably fund fiat/stable-denominated insurance and operations—so break-even depends on both **volume** and **convertibility**, and reaching it can require substantial network growth. Every swap emits an **immutable receipt** (a permanent, human-readable record) so listings, swaps, redemptions, pauses, and guarantees can be audited.
+On supported browsers and devices, the App can be installed as a progressive web app. Installation is optional and does not change the Account, Wallet, transaction risks, or applicable terms.
 
-# Liquidity Providers (LPs): what they can support
+## What is available and what is optional
 
-**LPs are:** contributors who provide **cash-eligible liquidity** (stables/fiat rails and liquid tokens) to approved pools, settlement mandates, or off-ramp mandates that keep routing reliable.
+The public App provides a market and supported flows for Accounts, Wallets, Vouchers, Pools, transfers, and Pool Swaps. Particular features depend on the active deployment, asset, Pool configuration, device, network, and user eligibility.
 
-In tokenized deployments, LPs may receive:
+The wider CLC protocol can also support registries, routing services, oracle-based pricing, limiters, fee policies, monitoring, liquidity programs, and other governance arrangements. Multi-hop routing, cross-Pool netting, shared insurance, token-based governance, and fiat or stablecoin on/off-ramps are optional or future capabilities unless a specific deployment clearly says they are active. Their discussion in these docs or the White Paper is not a promise that GEF currently provides them.
 
-* **CLC** (governance rights) so contributors can **set/limit risk**, approve policies, and prevent capture.
-* **sCLC** (epoch access receipt) which can grant **capped access** to the fee-access budget.
+## When a Swap is expressly a loan
 
-LPs fund shared clearing infrastructure itself. Governance, public reporting, and policy-gated fee access are possible mechanisms for non-extractive infrastructure financing.
+A Swap is subject to loan mechanics only when a Pool expressly presents it before confirmation as a repayable advance. A designated Swap Loan needs its own Transaction Terms, including the parties or roles, advance and repayment amounts, due date, interest or fees, collateral rights, assignment and Holder changes, partial settlement, any redemption at an agreed Full Value, evidence of discharge, default rules, and lawful remedies.
 
-# Routing & Clearing
+There is no CLC-wide assumption of a one-year term, zero interest, or any other missing credit term. Applicable law and the expressly disclosed Transaction Terms—not asset direction or informal labels—determine the arrangement's legal effect.
 
-When two pools list overlapping obligations, value can **route** across pools (multi-hop), and the network **clears** by netting flows and using shared liquidity and **off-ramps (ways to convert to local currency/stables when needed)** to reduce settlement delays. This is important because it turns fragmented obligations (thousands of small issuers) into a **usable economic fabric** - so people can pay, trade, and fulfill needs even when no single issuer is universally trusted or universally liquid.
+## Learn more
 
-**Clearing** means the network can “net out” flows across many swaps so fewer transfers require cash—making settlement faster and more reliable.
-
-# Tokenized Governance Option
-
-Some CLC deployments may use tokens for governance and safety coordination. Other deployments may use cooperative rules, foundation governance, public mandates, multisigs, institutional boards, or hybrid arrangements.
-
-### **CLC (governance + safety coordination)**
-
-* **Purpose:** coordinate and secure the network’s shared rules and budgets.
-* **Not equity:** no guaranteed returns, no dividends, no promise of profit.
-* Can be used for governance participation and escrow/staking to align decision-makers with network safety.
-
-### **sCLC (epoch receipt / access key)**
-
-* **What it represents:** a **time-bounded receipt** for staked/escrowed CLC that can grant** access** to the epoch’s fee-access budget. That fee-access budget is what makes the network’s **shared clearing infrastructure** sustainable
-* sCLC is best understood as **access under limits**, not a yield instrument.
-
----
-
-# Governance that limits capture
-
-Whatever governance option is used, network governance should keep scaling **accountable and safe**:
-
-* **Timelocks + quorum tiers** for sensitive changes
-* **Transparent receipts and reporting** (what changed, why, and who approved it)
-* **Emergency pause + incident runbooks**
-* **Credible exit / forkability** so communities can leave if governance becomes harmful
-
----
-
-## **Why shared governance is essential for safely scaling Commitment Pooling**
-
-The protocol makes commitment pooling possible; shared governance can make it **durable at scale** by funding and enforcing the commons: **safety rules, insurance capacity, operational reliability, and settlement/off-ramp liquidity** - all governed with explicit risk boundaries.
-
-That’s how Commitment Pools can scale from a local exchange tool into a **general-purpose settlement network for obligations** (from gift cards to invoices) without sacrificing local accountability or safety.
-
-For a detailed explanation, see the [network stewardship and token section of the White Paper](/white-paper/chapter-07-clc-stewardship-and-the-clc-token).
+- See a [practical Voucher example](/introduction/example).
+- Understand the network's [Governance Mechanics](/governance/mechanics).
+- Review the current [Protocol Overview](/protocol/overview).
+- Read the [White Paper](/white-paper) for the broader design and roadmap.

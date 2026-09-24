@@ -1,5 +1,7 @@
 ## **11. Governance Mechanics**
 
+**Design status:** This chapter is a governance template, not a representation that the current App uses a CLC token vote, timelocks, shared insurance, a claims process, or every control described below. A deployment must identify its actual decision-makers, authorities, contracts, processes, and policies.
+
 
 
 * **Constitutional Values**: Care for People, Care for the Environment, Fairness, Reciprocity, Non-Dominance, Resilience.
@@ -10,7 +12,7 @@
 * **Circuit Breakers**: Emergency pause with criteria; automatic resume conditions; post-mortems required.
 * **Transparency**: All edits/flows logged; dashboards for fulfillment, reserves, utilization, routing, guarantors.
 
-**Registry Governance (Listing / Suspension / Delisting).** A CLC-compatible deployment may maintain discovery registries for vouchers, tokens, and pools. Depending on the governance model, authorized controls may add, update, suspend, or remove (“delist”) registry entries through on-chain voting, multisig approvals, board decisions, cooperative resolutions, public mandates, or other accountable processes. Voucher, token, and pool issuers acknowledge that registry status is conditional: repeated non-fulfillment of published Redemption SLAs, fraud/misrepresentation, unsafe contract behavior, or persistent violation of published values/principles may result in suspension or delisting, and routers may route around delisted entries by default. Where feasible, delisting follows notice to cure (remedy) period to decision, with an appeal path; emergency delisting requires a public incident report and automatic review/sunset.
+**Registry Governance (Listing / Suspension / Delisting).** A CLC-compatible deployment may maintain discovery registries for Vouchers, Tokens, and Pools. Depending on the governance model, authorized controls may add, update, suspend, or remove (“delist”) registry entries through on-chain voting, multisig approvals, board decisions, cooperative resolutions, public mandates, or other accountable processes. Published registry rules should make status conditional and may identify repeated non-fulfillment, fraud or misrepresentation, unsafe contract behavior, or persistent violation of published principles as grounds for suspension or delisting. Routers may route around entries that the selected registry has delisted. Where feasible, the adopted process should provide notice, an opportunity to remedy, and an appeal path; emergency delisting should require a public incident report and automatic review or sunset.
 
 **Prohibited Listings (non-negotiable):**
 
@@ -19,7 +21,7 @@
 1. Instruments that directly fund or incentivize ecological destruction beyond agreed boundaries, violence/weaponization, coercive extraction, or systemic abuse.
 2. Any voucher class lacking clear redemption terms, accountability, and remedy pathways.
 
-The prohibited list is versioned, publicly auditable, and requires Q3 + T3 to change.
+Under this governance template, the prohibited list would be versioned, publicly auditable, and changeable only through the adopted critical-action threshold and timelock, illustrated as Q3 + T3 in Appendix D.
 
 
 
@@ -27,13 +29,13 @@ The prohibited list is versioned, publicly auditable, and requires Q3 + T3 to ch
 
 ### **11.1 Index & Limit Governance**
 
-**Timelocked Edits.** All Value Index and Swap Limiter parameter edits execute after a public timelock. Emergency changes must meet stricter quorum and include automatic sunset or review.
+**Timelocked Edits.** A deployment following this template should execute Value Index and Swap Limiter parameter edits after a public timelock. Any emergency path should use a separately disclosed authorization process and include automatic sunset or review.
 
-**Quorum & Thresholds.** Higher quorum/threshold for (a) Value Index base changes and (b) global Limit Tier changes; medium for per-pool third party; standard for fee tweaks.
+**Quorum & Thresholds.** The template proposes higher quorum or approval thresholds for (a) Value Index base changes and (b) global Limit Tier changes, intermediate thresholds for Pool-specific third-party changes, and standard thresholds for routine fee changes.
 
-**Publish Feeds.** For each pool: publish on-chain index variables, oracle sources/medians, update cadence, limit windows/caps, and failure modes (safe constants).
+**Publish Feeds.** A participating deployment should publish, for each Pool, the on-chain index variables, oracle sources or medians, update cadence, limit windows and caps, and failure modes or safe constants.
 
-**Emergency Pause Criteria.** Pre-declare conditions (eg, oracle outage, ≥80% limit utilization with redemption SLA breaches, invariant failure) and automated resume checks, with mandatory post-mortems.
+**Emergency Pause Criteria.** A participating deployment should pre-declare conditions such as an oracle outage, high limit utilization combined with redemption failures, or an invariant failure, together with resume checks and post-incident review requirements.
 
 
 **Ex. Public Index Feed (per pool, per voucher)**
@@ -60,46 +62,48 @@ The prohibited list is versioned, publicly auditable, and requires Q3 + T3 to ch
 
 ### **11.2 Insurance Fund Runbook**
 
+**Optional design only.** This runbook applies only to a deployment that has expressly adopted and funded an Insurance Fund and published the covered events, eligible claimants, responsible entity, assets, limits, exclusions, evidence, process, and governing terms. Neither the current App nor GEF provides coverage merely because this design appears in the White Paper.
+
 **Triggers.** (i) Issuer default/non-fulfillment; (ii) Pool insolvency (reserve shortfall vs. bonds); (iii) Bridge/escrow loss impacting redeemability.
 
 **Assessment.** Convene risk committee; reconcile receipts, vault balances, guarantor bonds, and redemption tickets; publish incident ledger.
 
-**Loss Waterfall.** (1) Offending issuer bonds/guarantor stakes → (2) Pool-level reserves → (3) Network Insurance Fund → (4) Temporary haircuts on affected vouchers (policy-capped) → (5) Clawbacks in case of fraud/abuse.
+**Illustrative Loss Waterfall.** Where each layer exists and lawfully applies: (1) responsible issuer bonds or guarantor stakes → (2) Pool-level reserves → (3) Network Insurance Fund → (4) a temporary reduction to an optional insurance payout or Pool settlement claim, but only where pre-existing applicable terms expressly authorize it, law permits it, and every required consent and process is satisfied → (5) lawful recovery for proven fraud or abuse. A coverage or settlement haircut does not reduce an Issuer's underlying Voucher commitment or alter an on-chain balance unless valid pre-existing terms and applicable law expressly permit that result and any required Holder consent is obtained.
 
-**Haircuts & Make-Whole.** Define per-class haircut caps and time-boxed make-whole plans (from future fees/rakes) with transparent accounting.
+**Coverage Reductions & Make-Whole.** Define caps on any authorized reduction to optional coverage or Pool settlement claims and time-boxed make-whole plans from future fees or rakes, with transparent accounting. Do not describe these reductions as changes to a Holder's underlying Voucher rights.
 
-**Clawbacks.** Mandatory for proven fraud/abuse; governance-ratified claims; legal follow-up as required.
+**Recoveries.** Any clawback or recovery must be authorized by applicable terms and law, supported by the required process and evidence, and subject to mandatory rights.
 
 **Reporting.** Publish public post-mortem, remediation timeline, and parameter changes (limits, fees, routes).
 
 **Important:** Insurance coverage is **limited**. Some incidents receive no payout after caps are reached; see the Loss Waterfall and exclusions below.
 
 **When Shared Insurance Will *Not* Make You Whole.**
-The Insurance Fund **does not** cover: (a) redemptions outside the published SLA/venues; (b) haircuts **beyond** policy caps; (c) losses from using delisted/denied routes; (d) fraudulent claims or missing evidence; (e) jurisdictions where payout is restricted. Payouts, if any, follow the waterfall and may be **zero** after caps are reached. 
+The Insurance Fund **does not** cover: (a) redemptions outside the published SLA or venues; (b) losses or coverage reductions beyond policy caps; (c) losses from using delisted or denied routes; (d) fraudulent claims or missing evidence; or (e) jurisdictions where payout is restricted. Payouts, if any, follow the applicable coverage terms and may be **zero** after caps are reached.
 
-**Make-Whole Schedule (policy-bound, published on-chain):**
+**Illustrative Make-Whole Schedule (only if adopted and published):**
 
 1) Claims are paid in this order: (a) issuer/guarantor bonds → (b) pool reserves → (c) network insurance.
 
-2) If residual shortfall remains: apply haircut ≤ H_cap per incident (see Appendix D).
+2) If a covered shortfall remains, apply only the reduction to the optional insurance payout or Pool settlement claim that the pre-existing coverage terms and applicable law authorize, up to H_cap per incident (see Appendix D).
 
 3) Haircut recovery plan:
 
 
 
-* - 25% of recovered value applied monthly until made whole OR
-* - 12-month maximum make-whole horizon; remainder becomes a recorded loss with public postmortem.
+* - 25% of recovered value applied monthly to the covered shortfall until made whole OR
+* - 12-month maximum make-whole horizon; any remaining covered shortfall becomes a recorded loss with a public post-mortem.
 
-4) Every claim produces a receipt: incident_id, affected vouchers, haircut %, recovery plan, and appeal window.
+4) Every claim produces a receipt: incident ID, affected claim and related Vouchers, coverage-reduction percentage, recovery plan, and appeal window.
 
 
 ### **11.3 Guarantor Framework**
 
-This section clarifies who guarantees what (issuer vs. pool vs. third-party guarantors), define the collateral/bonding instruments behind those guarantees, and standardize triggers + payout paths. This is the backbone of the curation market: pools compete on trust, terms, and guarantees - without implying that the network automatically guarantees every voucher.
+This section clarifies who may guarantee what (issuer, Pool, or third-party guarantor), defines the collateral or bonding instruments behind those guarantees, and proposes standard triggers and payout paths. Pools can compete on trust, terms, and expressly offered guarantees without implying that the network automatically guarantees every Voucher.
 
-**Baseline Guarantee: Issuer Responsibility (Gift-Card Analogy).**
+**Baseline Issuer Responsibility (Gift-Card Analogy).**
 
-• Each voucher is first and foremost guaranteed by its issuer: the issuer commits to deliver the specified good/service (or declared cash-equivalent) within the voucher’s Redemption SLA.
+• Each Voucher is first and foremost the issuer's responsibility: the issuer commits to deliver the specified good or service, or declared cash-equivalent where lawful, under the published redemption terms.
 
 • Issuers must publish clear terms (who/what/where/when/proof) and disclose limits, venues, and dispute hooks in voucher metadata.
 
@@ -131,7 +135,7 @@ A pool may choose to add extra guarantees to vouchers it lists. These are not au
 
 4) Price/Index Band Guarantee (Optional)
 
-   • For selected voucher classes, the pool may commit to keep swap-out value within a published band vs. its Value Index. If the band is broken, predefined haircuts or swap-back rules apply.
+   • For selected Voucher classes, a Pool may commit to keep Swap-out value within a published band relative to its Value Index. If the band is broken, only the coverage adjustment or Swap-back remedy authorized by the pre-existing guarantee terms and applicable law would apply; the guarantee does not itself reduce the Issuer's underlying Voucher obligation.
 
 **Guarantors & Bonds (Who can guarantee).**
 
@@ -169,7 +173,7 @@ Claims must be based on explicit, auditable triggers, such as:
 
 Guarantee payouts follow a transparent waterfall:
 
-(1) Offending issuer bond / guarantor stakes → (2) Pool-level reserves → (3) Network Insurance Fund (if covered by published network policy) → (4) Policy-capped temporary haircuts → (5) Clawbacks for proven fraud/abuse.
+(1) Responsible issuer bond or guarantor stakes → (2) Pool-level reserves → (3) Network Insurance Fund, if covered by published policy → (4) a policy-capped temporary reduction to an optional insurance payout or Pool settlement claim, only if authorized as described in Section 11.2 → (5) lawful recoveries for proven fraud or abuse.
 
 Recovery proceeds (from issuer settlement, arbitration awards, or legal enforcement) refill bonds/reserves per policy before CLC Pool swap access.
 
@@ -189,21 +193,21 @@ For every pool and voucher class, publish:
 
 **Curation Market Principle.**
 
-Pools are responsible for the guarantees they advertise. CLC provides standards, registries, and optional shared insurance policies—but does not automatically guarantee vouchers or pools unless explicitly stated in published network policy and the pool’s published terms.
+Pools are responsible for the guarantees they advertise. A CLC deployment may provide standards, registries, or optional shared insurance policies, but neither CLC nor GEF automatically guarantees Vouchers or Pools. Any coverage must identify the responsible party and be stated in the applicable published policy and Pool terms.
 
 **11.4 Anti-Capture Guardrails**
-The following actions are classified as **Critical** and require the highest quorum/threshold tiers plus a long timelock:
+Under this template, the following actions would be classified as **Critical** and would require the adopted highest quorum or approval tier plus a long timelock:
 
 
 
 1. Waterfall structure changes (adding/removing destinations; changing insurance/core ops priority),
 2. Registry root changes (canonical voucher/pool registries),
-3. Insurance policy scope, haircut caps, and claims authority changes,
+3. Insurance policy scope, coverage-reduction caps, and claims authority changes,
 4. Emergency pause scope expansions,
 5. Any change that weakens forkability, transparency, or pool sovereignty guarantees stated in this paper.
 
 **11.5 Fork & Exit Procedure (Credible Exit for Communities and Operators)**
-If governance is captured or values drift materially, communities, pool stewards, and operators can exit by forking the network governance layer while preserving underlying Commitment Pools and vouchers.
+If governance were captured or values drifted materially, communities, Pool Stewards, and operators could seek to exit by forking the network governance layer. Preservation of underlying Pools and Vouchers would depend on the deployed contracts, keys, interfaces, infrastructure, and applicable obligations.
 
 **Procedure:**
 
@@ -220,7 +224,7 @@ If governance is captured or values drift materially, communities, pool stewards
 5. **Bridge Period:** Maintain routing bridges where safe to reduce fragmentation; deny-list toxic routes.
 
 
-**Key guarantee:** Exiting canonical registries must not brick local economies. Pools continue operating locally; federation is an opt-in discovery layer.
+**Design objective:** Exiting canonical registries should not disable otherwise functional local Pools. Actual continuity depends on the relevant contracts, keys, infrastructure, interfaces, and third-party services; federation remains an opt-in discovery layer.
 
 
 ---

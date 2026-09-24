@@ -1,6 +1,6 @@
 ## **10. Comprehensive Risk Framework**
 
-We classify risk into **ten** categories. For each we list *Threats*, *Indicators*, and *Controls* (Preventive/Detective/Corrective), plus *Stress Tests* and a *Risk Appetite* statement.
+We classify risk into **ten** categories. For each we list *Threats*, *Indicators*, and possible *Controls* (Preventive/Detective/Corrective), plus *Stress Tests* and a *Risk Appetite* statement. These are design recommendations, not representations that every control is deployed, effective, or sufficient. Limits, reserves, guarantees, monitoring, insurance, and governance processes cannot eliminate loss.
 
 
 ### **10.1 Protocol & Smart Contract Risk**
@@ -91,11 +91,11 @@ Scenario: An external actor accumulates a large fraction of CLC, delegates votes
 
 
 
-1. **Open-source infra.** All smart contracts are EVM, open-source **AGPL-3.0**, and auditable.
-2. **Token posture.** CLC is a governance and access token. Staking may mint sCLC tokens that confers policy-gated swap rights into fee-holding pools under published caps/windows. No dividends. No profit-share. No residual rights.
-3. **Representations.** CLC contributors do **not** market CLC/sCLC with profit expectations; materials avoid financial return language.
-4. **Jurisdiction strategy.** (i) Geofenced UIs and RPCs; (ii) attestation gates for restricted classes; (iii) no promotions in restricted jurisdictions; (iv) per-voucher class legal reviews; (v) programmatic kill-switches to disable sCLC swap windows under policy.
-5. **Endowment notice.** Based on governance decision - access based on staked CLC may be disabled or reduced for compliance, operational, or risk reasons with no compensation. See §17.3 for plain-language instrument definitions.
+1. **Verifiable infrastructure.** The protocol contracts are EVM-compatible and their source is published under the terms and third-party exceptions identified in the protocol repository. Publication makes independent review possible but does not mean that a contract or deployment has been audited. Each deployment should disclose its code version, build provenance, addresses, administrator powers, and audit status.
+2. **Proposed token posture.** In this design, CLC would be a governance and access token. A separately implemented policy could allow staking to mint sCLC that confers policy-gated Swap rights into fee-holding Pools under published caps and windows. The design provides no dividends, profit share, or residual rights.
+3. **Proposed representation policy.** Materials for any CLC, stCLC, or sCLC deployment should not promise profit or market the assets using expected-return language.
+4. **Possible jurisdiction controls.** Depending on applicable law, a deployment could use: (i) geofenced interfaces or RPC access; (ii) attestation gates for restricted classes; (iii) promotion restrictions; (iv) per-Voucher-class legal review; and (v) programmatic controls that can disable sCLC Swap windows under published policy.
+5. **Proposed endowment notice.** Any adopted terms should explain that access based on staked CLC may be disabled or reduced for compliance, operational, or risk reasons and whether compensation or another remedy is available. See §17.3 for plain-language instrument definitions.
 
 
 ### **10.7 Routing & Cross-Domain Risk**

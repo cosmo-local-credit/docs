@@ -1,30 +1,28 @@
 ## **4. Reusable Forward-Style Collateral**
 
-When debt is collateralized by **fungible, tradable vouchers** (reusable gift cards or production forwards):
+An expressly documented credit facility may accept **fungible, transferable Vouchers** (such as service credits or production forwards) as collateral or as a repayment instrument. If it does:
 
 
 
-* Collateral becomes liquid and discoverable across pools,
-* Obligations are absorbed by those best placed to fulfill them,
-* Default risk decreases as redemption paths multiply,
-* Throughput (and fee generation) increases for LPs **without raising leverage**.
+* Collateral may become more discoverable across participating Pools,
+* Additional lawful redemption paths may improve fulfillment options,
+* Limits, inventory, value, liquidity, and default risks remain, and
+* No route, redemption, repayment, value, or recovery is guaranteed.
 
 
 ### 4.1 Producer Credit Loop (Loan Repayment via Curated Vouchers)
 
-CLC enables a form of producer credit where a loan can be repaid through real-world delivery:
+CLC can support producer credit only when the parties establish a distinct facility and expressly present the transaction as a repayable advance. Its transaction terms must identify the creditor and debtor and state the advance and repayment amounts, due date, interest or fees, collateral use, changes in the creditor or Holder, assignment, partial settlement, redemption valuation, evidence of discharge, default, and lawful remedies.
 
 
 
 1. A producer (or service provider) issues a voucher: a redeemable claim on their future output (e.g., “10 taxi rides,” “50kg maize,” “10 labor-hours”).
-2. A pool steward lists (“curates”) that voucher, publishes limits, fees, valuation policy, and the guarantee structure (e.g., reserve policy and/or guarantor bond and an SLA).
-3. A lender (or LP program) provides stablecoins into the pool or into a designated credit facility, receiving the producer’s curated vouchers as collateral (or as the primary repayment instrument).
-    1. Note **:** the lender is not stuck holding a private IOU. They hold vouchers that other people actually want (because they’re redeemable), and those vouchers can be swapped/routed across curated pools - so collateral is more liquid. Meanwhile, the borrower can repay by delivering what they produce, and every redemption reduces their outstanding obligation.
-    2. 
-4. Consumers purchase or accept those vouchers within curated markets they trust. When consumers redeem (or when vouchers are routed and settled), the producer fulfills in-kind.
-5. Critically: voucher settlement reduces the producer’s outstanding obligations. The system can route proceeds/receipts so that settlement activity accelerates the producer’s debt payoff—meaning “anyone” who buys/redeems the voucher helps retire the producer’s debt faster (with pool fees funding the curation + routing infrastructure).
-6. Redemptions reduce outstanding obligations of voucher issuers; receipts reference voucher class, SLA, and any applicable guarantee.
+2. A Pool Steward may list that Voucher and publish the Pool's limits, fees, valuation, inventory rules, and any optional reserve or guarantee terms.
+3. A lender or liquidity program separately provides an advance under written transaction terms and takes the producer's Vouchers as collateral or an agreed repayment instrument.
+4. Holders may Swap or redeem those Vouchers under the applicable issuer and Pool terms.
+5. A redemption fulfills the relevant Voucher commitment. It reduces the separate credit balance only to the extent, at the valuation, and upon the evidence specified in the credit terms.
+6. Transaction records should distinguish Voucher fulfillment from loan accounting and identify any partial settlement, remaining amount, assignment, default, or discharge.
 
-This turns repayment from “wait for cash” into “get fulfilled by real delivery,” while preserving clear limits, inventories, receipts, and recourse.
+This structure can permit agreed in-kind repayment while preserving separate records for the Voucher and credit obligations. It does not arise from an ordinary Swap, from which asset enters or leaves a Pool, or from redemption alone.
 
-**Mini example:** A producer receives $1,000 working capital. They issue $1,000 worth of “maize vouchers.” As those vouchers are bought and redeemed, the producer’s outstanding obligation falls - so end-user purchases directly retire the loan. As demand for the vouchers increases (more people swapping into them), more redemptions occur - so the loan amortizes through real customer usage, not only through cash repayments.
+**Mini example:** A producer receives a $1,000 advance under terms stating that verified redemption of specified maize Vouchers is credited against the repayment amount at a stated Full Value. A Holder's redemption fulfills the maize Voucher; the lender credits the amount only after receiving the evidence required by those terms. If the terms do not make that connection, buying, swapping, or redeeming the Voucher has no effect on any loan.

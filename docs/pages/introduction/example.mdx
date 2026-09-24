@@ -1,41 +1,67 @@
-# Examples
+# Practical Voucher Example
 
-## Audience examples
+This example follows a Voucher from issuance through a Pool Swap and redemption. It illustrates the roles involved; it is not a promise that a particular Voucher, Pool, route, or outcome will be available.
 
-### Pool stewards (local curators for local markets)
-You run a market or co-op and want to list a clinic voucher, publish limits, and compare redemption performance with other pools. The network helps route demand into your listings while keeping your governance local.
+## 1. An Issuer publishes a commitment
 
-### Lenders & liquidity providers
-You provide stable liquidity and accept curated vouchers as collateral. Routing and clearing increase the chance those vouchers get redeemed, so your capital recycles faster without forcing speculative issuance.
+Imagine a community kitchen creates a digital meal Voucher. Before issuing it, the kitchen publishes information a Holder needs to make an informed decision:
 
-### Producers/borrowers (shops, services, projects)
-You take a loan by swapping your already-issued vouchers for lender stables. As customers redeem your vouchers, your outstanding obligations shrink and repayment accelerates.
+- the kitchen's identity and contact details;
+- the meal or other offering represented by one Voucher;
+- the supply, unit, valuation method, and the kitchen's capacity to perform;
+- where and during what hours it can be redeemed;
+- any expiry date, booking process, fees, taxes, or transfer restrictions; and
+- how redemption, complaints, refunds, substitutions, and other remedies work.
 
-### Consumers (everyday users)
-You hold a food voucher but need transport. Routing finds trusted pools that accept your voucher so you can swap into transport credit and redeem locally.
+The kitchen is the Issuer. It must keep this information accurate, avoid issuing beyond its reasonable capacity, and honor Vouchers according to the terms under which Holders acquired them. Creating the Voucher in the App does not transfer that responsibility to GEF.
 
-### Market makers & routers
-You operate inventory and routing services. You earn by improving reliability and settlement speed, not by manufacturing speculative volume.
+## 2. A Pool Steward decides whether to list it
 
-### Registry and service stewards
-You operate a Commitment Pool registry, routing service, clearing service, or shared safety layer. You publish the rules, fees, and risk limits for your network profile, then tune them based on real settlement KPIs, not price volatility.
+A local cooperative operates a Pool and considers the meal Voucher for admission. The Pool Steward evaluates the Issuer and offering, then publishes how the Pool treats the asset, including:
 
-## Simulator
+- the exchange rate or valuation method;
+- deposit, withdrawal, Swap, exposure, and concentration limits;
+- Pool, protocol, network, or other disclosed fees;
+- available inventory and circumstances in which a Swap can be unavailable;
+- who can change settings, pause activity, or upgrade dependencies; and
+- any reserve, guarantee, or loss-allocation arrangement and its exact limits.
 
-Live simulator: [sim.cosmolocal.credit](https://sim.cosmolocal.credit/)
+The Pool's rate is a transaction parameter, not proof that the meal Voucher has a guaranteed cash value. If no guarantee is expressly disclosed, users should not assume one exists.
 
-### Example snapshot (default parameters, 5-year run = 240 ticks, 1 tick = 1 week)
+## 3. A Holder reviews the terms
 
-- Pools: 125 total (4 system)
-- Assets: 127
-- Stable total in pools: 728,019.99 USD
-- Voucher total in pools: 1,106,141.71 units
-- Outstanding voucher value: 1,190,297.61 USD
-- Swap volume (avg): 91,104.00 USD per tick
-- Transactions (avg): 335.68 swaps per tick
-- NOAM clearing (avg): 9.86 swaps per tick
-- Stable on/off-ramp (avg): 15,714.23 USD per tick (balanced)
-- LP injected: 400,000.00 USD
-- LP returned: 432,588.91 USD via sCLC swaps to the CLC pool
+A Holder finds the Voucher through the public market and reviews both layers of information:
 
-If you want these numbers to reflect a specific scenario for your network, run the [simulator](https://sim.cosmolocal.credit/).
+1. **Voucher terms:** what the kitchen promises and how redemption works.
+2. **Pool rules:** how the cooperative values, limits, charges for, and governs Swaps involving the Voucher.
+
+The Holder also checks that participation is lawful in their jurisdiction and decides whether the Issuer, Steward, asset, Pool, and available protections are acceptable. A listing is not an endorsement, valuation, or guarantee by GEF.
+
+## 4. The Holder makes a Swap
+
+Suppose the Pool supports a direct exchange between another accepted asset and the meal Voucher. The App estimates the input and output, checks relevant liquidity and limits, identifies the Pool, and may indicate that a fee will be calculated at confirmation. The Holder reviews every displayed amount and notice, then checks the final Wallet request immediately before approval.
+
+The quote may expire, and the transaction may fail or produce a different permitted result because of inventory, limits, Pool configuration, network conditions, or the bounds the Holder accepts. Once confirmed on a public blockchain, the transaction may be irreversible.
+
+This ordinary Swap is an asset exchange. It is not automatically a loan, an advance, or a repayment merely because one of the assets is a Voucher, stablecoin, or other Token.
+
+## 5. The Holder redeems the Voucher
+
+The Holder follows the kitchen's published process and presents the Voucher for the promised meal. The kitchen verifies control, provides the agreed offering, and records the Voucher as redeemed, returned, burned, cancelled, or otherwise discharged so it cannot be used twice.
+
+If the kitchen does not honor its commitment, the Holder uses the Issuer's published complaint or remedy process and any rights available under applicable law. Neither GEF nor the Pool Steward becomes the redeemer merely because the App displayed the Voucher or the Pool enabled the Swap.
+
+## Responsibilities at a glance
+
+- **Issuer:** accurately describes and fulfills the Voucher.
+- **Pool Steward:** curates assets and publishes and enforces the Pool's rules, rates, fees, limits, controls, and any guarantee.
+- **Holder:** reviews the Issuer, Voucher terms, Pool rules, quote, Wallet authorization, and applicable law.
+- **GEF:** operates the public App and supporting infrastructure, subject to the [Terms of Service](/governance/terms); it does not automatically take on the other roles.
+
+## Separate example: an expressly designated Swap Loan
+
+A Pool could separately offer a transaction described before confirmation as a repayable advance secured or evidenced by a Voucher or other collateral. Only that express arrangement would invoke Swap Loan mechanics.
+
+Before a user accepts such a transaction, its specific Transaction Terms would need to identify the borrower and creditor roles and disclose the advance, repayment amount and asset, due date, interest and fees, collateral use, creditor or Holder changes, assignment, partial settlement, any redemption at an agreed Full Value, evidence of discharge, default, cure rights, and lawful remedies.
+
+CLC supplies no platform-wide one-year due date, zero-interest rule, or missing loan term. Exchanging a Voucher for another asset does not create those obligations on its own.

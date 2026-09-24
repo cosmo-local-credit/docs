@@ -3,7 +3,8 @@ import { defineConfig } from 'vocs'
 
 export default defineConfig({
   title: 'Cosmo-Local Credit',
-  description: 'cosmo-local credit',
+  description:
+    'Documentation for the Cosmo-Local Credit progressive web app and protocol for redeemable commitments and curated Pools.',
   iconUrl: '/icons/favicon.ico',
   head: createElement(
     Fragment,

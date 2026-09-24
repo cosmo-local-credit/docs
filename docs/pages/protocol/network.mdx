@@ -1,0 +1,69 @@
+import { MermaidDiagram } from '../../components/MermaidDiagram'
+
+# Protocol Network Architecture
+
+A CLC deployment can connect many Vouchers and Pools through optional registries, indexes, quote modules, and application-level route discovery. Each Pool remains a separate vault with its own liquidity, owner, proxy administrator, configuration, and dependencies.
+
+Grassroots Economics Foundation operates the public App at [cosmolocal.credit](https://cosmolocal.credit). Other interfaces and deployments can use the same public protocol. Operating the App does not automatically make GEF the owner, issuer, Steward, fee recipient, or guarantor for every contract shown below.
+
+
+## Candidate Routes and Execution
+
+<MermaidDiagram
+  label="Candidate route discovery and wallet-batch execution"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Voucher A"] ---|listed and held| PoolA["Pool A"]
+    Bridge["Generic bridge asset"] ---|listed and held| PoolA
+    Bridge ---|listed and held| PoolB["Pool B"]
+    VoucherB["Voucher B"] ---|listed and held| PoolB
+
+    App["PWA or route finder"] -. discovers candidates .-> Index["Registries and indexes"]
+    App -. requests a quote .-> Router["SwapRouter: quote only"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|builds ordered calls| WalletStart["User smart-account wallet"]
+    WalletStart -->|hop 1: Voucher A| PoolA
+    PoolA -->|bridge output| WalletBridge["Same wallet between calls"]
+    WalletBridge -->|hop 2: bridge asset| PoolB
+    PoolB -->|Voucher B output| WalletFinal["Same user wallet"]
+
+    PoolA -->|protocol fee| ProtocolRecipient["Configured protocol recipient"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+A shared asset creates a **possible graph path**, not a guaranteed route. In this example, Voucher A could be exchanged for the bridge asset in Pool A, then the bridge asset could be exchanged for Voucher B in Pool B. Every hop still depends on current token admission, Pool limits, available inventory, quote and fee configuration, oracle state, approvals, transaction bounds, and network execution.
+
+`SwapRouter` only calls Pool quote functions across a proposed path. It does not hold funds, approve tokens, or execute swaps. An integrator or compatible app can use those quote results to construct ordered approval and Pool calls in a signed smart-account batch; this does not mean that the current public App offers multi-hop execution. Each hop settles to the Wallet before that Wallet supplies the intermediate asset to the next Pool, and the integrator can configure the batch to revert when a call fails.
+
+Quotes are snapshots. A successful route quote can still fail or settle differently if relevant state changes before execution. The bounded `SwapPool.withdraw` overload adds `minAmountOut` and `deadline` protection for an individual hop; integrators must decide how to apply bounds across the full route.
+
+Pool fees remain with the relevant Pool for later collection. Any protocol fee is additional and is transferred directly from that Pool to its configured protocol recipient during the swap.
+
+
+## Pool Internals
+
+<MermaidDiagram
+  label="Commitment Pool dependencies and administrative powers"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
+    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
+    Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
+    Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["User wallet"] -->|deposit or swap input| Pool
+    Pool -->|net swap output| Wallet
+    Pool -->|collected Pool fees| FeeAddress["Configured<br/>fee address"]
+    Pool -->|protocol fee in same swap| ProtocolRecipient["Protocol<br/>recipient"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+The registry, limiter, quoter, fee policy, and protocol-fee controller are optional. With no registry, any token passes the admission check; with no limiter, deposits are uncapped; with no quoter, the Pool uses raw-unit parity; and with no fee modules, the corresponding fees are zero.
+
+The five sealable slots are `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry`, and `tokenLimiter`. A seal prevents the current Pool owner from replacing that address through its setter, but it does not freeze the dependency's internal state. The `protocolFeeController` address and `feesDecoupled` mode are not covered by those five seal bits. The proxy administrator's ability to upgrade the Pool is also separate from sealing.
+
+The contract owner can withdraw available Pool liquidity to a chosen address. In decoupled-fee mode, accrued fees are reserved from that path; the power to withdraw the remaining liquidity still exists. Participants should inspect the owner, proxy administrator, dependency controllers, seal state, fee recipients, and published Pool rules before relying on a Pool.
+
+For the conceptual design behind these contracts—including curation, valuation, limitation, exchange, and governance—see the [White Paper](/white-paper).

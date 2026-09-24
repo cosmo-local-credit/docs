@@ -126,6 +126,8 @@ def escape_text(text: str) -> str:
 
 
 def escape_url(url: str) -> str:
+    if url.startswith("/"):
+        url = f"https://docs.cosmolocal.credit{url}"
     return url.replace("\\", "/").replace(" ", "%20").replace("%", r"\%").replace("#", r"\#")
 
 
@@ -392,10 +394,11 @@ def convert_lines(lines: list[str]) -> list[str]:
     return out
 
 
-def extract_index() -> tuple[list[str], str, list[str]]:
+def extract_index() -> tuple[list[str], str, dict[str, str]]:
     text = normalize_source((PAGES / "index.mdx").read_text(encoding="utf-8"))
     lines = text.splitlines()
     version = ""
+    publication_date = ""
     distribution = ""
     framing = ""
     audience = ""
@@ -408,6 +411,8 @@ def extract_index() -> tuple[list[str], str, list[str]]:
         stripped = line.strip()
         if stripped.startswith("**Version:**"):
             version = stripped
+        elif stripped.startswith("**Date:**"):
+            publication_date = stripped
         elif stripped.startswith("**Distribution:**"):
             distribution = stripped
         elif stripped.startswith("**Framing note:**"):
@@ -416,6 +421,11 @@ def extract_index() -> tuple[list[str], str, list[str]]:
             audience = stripped
         elif stripped == "**Abstract**":
             in_abstract = True
+            continue
+        elif in_abstract and re.match(r"^#{1,6}\s", stripped):
+            in_abstract = False
+            in_body = True
+            body.append(stripped)
             continue
         elif stripped.startswith("**Pool Sovereignty"):
             in_abstract = False
@@ -428,8 +438,13 @@ def extract_index() -> tuple[list[str], str, list[str]]:
         elif in_body:
             body.append(line)
 
+    version_value = re.sub(r"^\*\*Version:\*\*\s*", "", version).strip()
+    date_value = re.sub(r"^\*\*Date:\*\*\s*", "", publication_date).strip()
+    if not version_value or not date_value:
+        raise ValueError("White Paper index must define **Version:** and **Date:** metadata")
+
     front_lines = ["## Front Matter and Key Concepts", ""]
-    for value in [version, distribution, framing, audience]:
+    for value in [version, publication_date, distribution, framing, audience]:
         if value:
             front_lines.append(value)
             front_lines.append("")
@@ -439,10 +454,13 @@ def extract_index() -> tuple[list[str], str, list[str]]:
         for line in abstract
         if line.strip()
     )
-    return front_lines, abstract_text, [version, distribution, framing, audience]
+    return front_lines, abstract_text, {
+        "version": version_value,
+        "date": date_value,
+    }
 
 
-def preamble(abstract_text: str) -> list[str]:
+def preamble(abstract_text: str, version: str, publication_date: str) -> list[str]:
     return [
         r"\documentclass[11pt]{article}",
         "",
@@ -474,7 +492,7 @@ def preamble(abstract_text: str) -> list[str]:
         "",
         r"\title{Cosmo-Local Credit (CLC): A Network for Routing Credit, Settling Commitments, and Financing a Healthy Cosmo-Local Economy}",
         r"\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}",
-        r"\date{Version 0.6 --- May 2026}",
+        rf"\date{{Version {escape_text(version)} --- {escape_text(publication_date)}}}",
         "",
         r"\begin{document}",
         r"\maketitle",
@@ -492,8 +510,8 @@ def preamble(abstract_text: str) -> list[str]:
 
 
 def build() -> str:
-    front_lines, abstract_text, _meta = extract_index()
-    out = preamble(abstract_text)
+    front_lines, abstract_text, meta = extract_index()
+    out = preamble(abstract_text, meta["version"], meta["date"])
     out.extend(convert_lines(front_lines))
     for filename in ORDER:
         source = normalize_source((PAGES / filename).read_text(encoding="utf-8"))

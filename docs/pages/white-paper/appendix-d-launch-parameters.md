@@ -1,6 +1,6 @@
 ## D. Launch Parameters 
 
-All values set on-chain by governance decision at deployment and enforced by governance-controlled contracts
+These values are illustrative proposals for a future governance deployment. Actual values, if any, must be separately adopted, disclosed, and enforced by the deployed contracts; they are not current App defaults or guarantees.
 
 
 
@@ -36,7 +36,7 @@ All values set on-chain by governance decision at deployment and enforced by gov
     * Cash-Equivalent lanes do not cross-subsidize goods/services voucher losses.
     * No routing from Cash-Equivalent to higher-risk classes unless explicitly opted-in per account/pool.
 * Default router policy: “safe-by-default” (deny cross-class risk unless allowlisted).
-* Insurance Haircut Cap (per incident): ≤ 10% of affected voucher balance, with make-whole schedule
+* Optional Coverage-Reduction Cap (per incident): an illustrative maximum of 10% of the covered claim, with a make-whole schedule, only where pre-existing terms and applicable law authorize it. This does not itself reduce the underlying Voucher commitment or on-chain balance.
 * **DEX Float Reduction Parameters (if enabled):**
     * **DEX float definition:** sum of CLC balances in **allowlisted** external liquidity venues (list on-chain), measured by oracle/indexer method M.
     * **Trigger:** activate only if DEX float > **X%** for **Y** consecutive days.

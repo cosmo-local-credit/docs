@@ -1,84 +1,96 @@
 # Smart Contracts
 
-## Voucher (GiftableToken)
-
-A **voucher** is an ERC20 token that represents a **redeemable commitment** — a pre-paid claim on future delivery of goods or services (think gift cards, service credits, loyalty points). The `GiftableToken` contract extends a standard ERC20 with features tailored for community issuance:
-
-- **Authorized minting** — The token owner designates **writers** (minters) who can issue new vouchers via `mintTo`. This allows multiple trusted parties (e.g. a cooperative's officers) to issue on behalf of the community.
-- **Expiration** — Each voucher can carry an optional expiry timestamp. After expiry, all transfers are blocked and the token enters a terminal state. This enforces time-bounded commitments.
-- **Burn tracking** — The owner can burn tokens, and cumulative `totalMinted` / `totalBurned` counters provide transparent supply accounting.
-
-Vouchers are the **edges** of the network — every pool holds and exchanges them. A clinic might issue health-service vouchers; a farmers' cooperative might issue maize-delivery vouchers; a transport company might issue ride credits. Each is its own `GiftableToken` instance.
+This page describes the main Pool and Voucher contracts in protocol v1.1.0. Contract behavior provides settlement mechanics; it does not replace the issuer disclosures, Pool rules, or other transaction terms that apply to a particular use.
 
 
-## Commitment Pool
+## Voucher (`GiftableToken`)
 
-A **commitment pool** is the on-chain clearinghouse described in the white paper. It is not a single contract but a **composed suite** of contracts that together implement the four CPP interfaces: **Curation, Valuation, Limitation, and Exchange**.
+`GiftableToken` is an ERC20 token with mechanics that an issuer can use for a Voucher:
 
-### SwapPool (Exchange + Vault)
+- **Authorized minting** — The owner can designate writers that may issue tokens with `mintTo`.
+- **Optional expiry** — An expiry of `0` means no contract-level expiry. Otherwise, transfers, minting, and burning revert at or after the configured timestamp. Anyone can persist the terminal `expired` state by calling `applyExpiry` directly.
+- **Supply accounting** — `totalMinted` and `totalBurned` expose cumulative supply activity. The owner-only `burn` function burns tokens held by the owner address.
 
-The `SwapPool` is the **core contract** — the vault that custodies voucher liquidity and executes swaps. It integrates all other components through dependency injection:
+The token contract does **not** identify the issuer's goods or services, set a redemption value, prove capacity, or promise cash conversion. A `GiftableToken` becomes a redeemable commitment only through the issuer's separately published terms and conduct. Issuers remain responsible for accurately describing and honoring those terms.
 
-- **Token Registry** (`have(address)`) — **Curation**: which vouchers are listed
-- **Quoter** (`IQuoter`) — **Valuation**: how vouchers are priced relative to each other
-- **Fee Policy** (`IFeePolicy`) — Fee schedule for swaps
-- **Limiter** (`ILimiter`) — **Limitation**: per-token holding caps
-- **Protocol Fee Controller** (`IProtocolFeeController`) — Network-level fees
 
-**How a swap works:**
+## Commitment Pool (`SwapPool`)
 
-1. **Deposit** — The user transfers the input voucher into the pool. The pool verifies the token is listed (Token Registry) and within holding limits (Limiter).
-2. **Quote** — The pool asks the Quoter: *"how much of the output voucher is this input worth?"* The quoter adjusts for decimal differences and/or exchange rates.
-3. **Fee calculation** — The Fee Policy returns the applicable fee rate (in PPM). If a Protocol Fee Controller is active, the protocol's share is carved out of that fee.
-4. **Transfer** — The pool sends the net output amount to the user, routes the protocol fee to the protocol recipient, and accumulates the pool owner's fee share internally.
-5. **Receipt** — A `Swap` event is emitted with full details: initiator, tokens, amounts, and fee — providing the **immutable receipt** required by CPP.
+`SwapPool` is a token vault and swap-settlement engine. Although it exposes ERC20 metadata for the Pool name, symbol, and decimals, the v1.1.0 contract does not mint Pool-share tokens. Liquidity is supplied by transferring tokens into the Pool, and the contract owner can withdraw available liquidity.
 
-**Seal mechanism** — Critical configuration (quoter, fee policy, fee address) can be progressively **sealed** using bitwise flags. Once sealed, a parameter becomes immutable — allowing pool stewards to credibly commit to their published terms.
+### Composition and optional dependencies
 
-**Fee collection** — The pool steward (owner) can withdraw accumulated fees to a designated `feeAddress` at any time. Fees are tracked per-token, so a pool earning fees in multiple voucher types can collect each independently.
+| Configuration | When unset | Sealable address slot |
+| --- | --- | --- |
+| `tokenRegistry` | Any token can pass the Pool's curation check | Yes |
+| `tokenLimiter` | Deposits have no contract-level balance cap | Yes |
+| `quoter` | The raw input amount is treated as the raw quoted output amount | Yes |
+| `feePolicy` | The Pool fee is zero | Yes |
+| `feeAddress` | Pool fees are not accrued as withdrawable fees for a designated recipient | Yes |
+| `protocolFeeController` | No protocol fee is charged | No |
 
-### Quoter (Valuation)
+The five seal bits permanently lock the current `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry`, and `tokenLimiter` addresses against their corresponding setters. `protocolFeeController` and `feesDecoupled` are initialization values and are not among those five bits.
 
-The quoter implements the pool's **Value Index** — it answers: *"given X of token A, how much of token B should the user receive?"*
+Sealing an address slot does not freeze the contract at that address. A sealed registry, limiter, quoter, or fee policy—and a configured protocol-fee controller—can still change if its own governance permits it. The ERC-1967 proxy administrator can also upgrade the Pool implementation. A meaningful immutability claim therefore depends on the governance of the Pool owner, proxy administrator, and every configured dependency.
 
-Two implementations are provided:
+### Swap settlement
 
-**DecimalQuoter** — The simplest quoter. It treats all vouchers as having equal value and only adjusts for decimal precision differences. If voucher A has 6 decimals and voucher B has 18 decimals, it scales accordingly. This is appropriate when vouchers within a pool are pegged 1:1 (e.g. multiple community vouchers all denominated in the same local currency unit).
+For a swap, `SwapPool`:
 
-**RelativeQuoter** — A richer quoter that maintains a **price index**: a mapping from each token address to an exchange rate expressed in **parts per million (PPM)**. The pool steward sets these rates (e.g. "voucher A = 1,000,000 PPM, voucher B = 500,000 PPM" means A is worth twice B). The quoter then computes:
+1. Checks that input and output tokens pass the optional registry and tests the requested input against the optional Pool-balance limit.
+2. Pulls the input token from the caller and measures the amount actually received. Pricing uses this measured amount, including for fee-on-transfer tokens.
+3. Obtains a gross quote from the configured quoter, or uses the raw received amount when no quoter is set.
+4. Calculates the Pool fee and any additional protocol fee, then checks available output-token liquidity.
+5. Sends the protocol fee directly to the configured protocol recipient, transfers the nominal net output to the recipient, and records the Pool fee when a fee address is configured.
+6. Emits the legacy `Swap` event and the more detailed `SwapSettlement` event.
 
-```
-output = (inputAmount * inRate) / outRate
-```
+`SwapSettlement` records the initiator, both tokens, measured input, gross quoted output, nominal output sent, output actually observed at the recipient, Pool fee, and protocol fee. The nominal and observed outputs can differ when the output token itself charges a transfer fee. The `fee` field in the legacy `Swap` event is only the Pool fee.
 
-…adjusted for decimal differences. This enables pools to host vouchers with different values (e.g. a transport credit worth 50 KES alongside a food voucher worth 100 KES) while quoting accurate exchange amounts.
+The six-argument `withdraw(tokenOut, tokenIn, value, recipient, minAmountOut, deadline)` overload is the bounded execution path. It reverts after the deadline or when the recipient's observed balance increase is below `minAmountOut`. Integrators should prefer it because a displayed quote is temporary: quoter state, fee policy, liquidity, limits, and oracle data may change before execution. The older three- and four-argument overloads do not provide those Pool-level bounds.
 
-### Fee Policy
+### Additive fee calculation
 
-The `FeePolicy` contract manages swap fees with a **two-tier structure**:
+Pool and protocol fees are both deducted from the gross quoted output. The protocol fee is **not carved out of the Pool fee**, and the Pool retains its full calculated fee.
 
-- **Default fee** — A pool-wide fee rate in PPM (e.g. 20,000 PPM = 2%).
-- **Pair-specific overrides** — The steward can set custom fees for specific token pairs (e.g. a lower fee for stablecoin-to-voucher swaps, a higher fee for riskier pairs).
+For example, on a gross quote of 100 units:
 
-When the pool calculates fees, it checks for a pair-specific rate first and falls back to the default. All fees are expressed in **PPM** (parts per million), where 1,000,000 PPM = 100%.
+- a 2% Pool fee accrues 2 units to the Pool;
+- a 10% protocol rate applied to that Pool fee sends another 0.2 units directly to the protocol recipient; and
+- the user receives 97.8 units.
 
-### Limiter
+The protocol calculation uses the greater of the calculated Pool fee and an assumed 1% fee base. This prevents a very small Pool fee from reducing the protocol calculation to nearly zero. Invalid combined rates revert with `FeeTooHigh`, and a quote that would settle at zero reverts with `InsufficientOutput`.
 
-The `Limiter` enforces **credit limits** — how much of any given voucher a pool is willing to accept. This is the on-chain expression of the **Commitment–Capacity Identity** described in [Chapter 2](/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust): *Credit − Debt = Backing Capacity*.
+### Owner and upgrade powers
 
-The pool steward (or authorized writers) sets limits like: *"Pool X will accept at most 10,000 of Voucher A."* This bounds the pool's **credit exposure** to each voucher issuer — the pool is declaring how much of that issuer's outstanding debt it is willing to hold, based on its assessment of the issuer's capacity to deliver.
+The contract owner can collect accrued Pool fees and can call `withdrawLiquidity` to transfer any available Pool token to a chosen non-zero address. When fees are decoupled, accrued fees are reserved from this liquidity-withdrawal path; otherwise they remain part of the Pool balance. Pool participants should not interpret deposited liquidity as permanently locked unless additional, verifiable governance controls establish that result.
 
-Limits are checked on every deposit. If accepting more of a token would push the pool's balance beyond the credit limit, the transaction reverts. This ensures pools only take on commitment debt they believe can be fulfilled.
+Configuration sealing does not remove this liquidity-withdrawal power. It also does not remove the separate ERC-1967 proxy administrator's upgrade power.
+
+
+## Valuation Modules
+
+All three quoters implement forward and reverse quote functions used by `SwapPool` and `SwapRouter`:
+
+- **`DecimalQuoter`** — Stateless decimal normalization under a 1:1 value-parity assumption.
+- **`RelativeQuoter`** — Decimal normalization plus owner-managed relative price indexes. An unset token index defaults to parity.
+- **`OracleQuoter`** — Rates each token through a configured oracle, with a global or per-token staleness limit and an optional 0.9-to-1.0 output multiplier.
+
+An `OracleQuoter` is only as reliable as its feed selection and administration. Feed denomination and direction must be consistent, decimals must be correct, updates must be positive and fresh, and governance can replace feeds or change freshness settings. Source manipulation, delayed updates, network outages, incorrect pair configuration, or loss of the oracle-owner key can cause bad quotes or make swaps revert.
+
+`OracleRelay` is an optional single-feed, latest-round relay compatible with the oracle interface. A designated writer republishes source values; there is no cross-chain proof and no stored round history. The relay accepts the writer's values with only a future-timestamp check. `OracleQuoter` independently rejects non-positive or stale answers, while the relay owner can rotate the writer or invalidate the current round. Users must therefore assess the source feed, relay writer, relay owner, and monitoring process.
+
+
+## Fee Policy and Limits
+
+`FeePolicy` stores a default fee in parts per million and optional directional pair overrides. Its owner can change those rates unless governance outside the contract restricts that power.
+
+`Limiter` stores a maximum balance for a token at a particular Pool address. The owner or an authorized writer can change that limit. A zero limit blocks deposits when the limiter is active; an unset limiter leaves deposits uncapped.
+
+These limits describe configured **token exposure** at a Pool. They do not, by themselves, classify a token balance as a loan or legal debt, prove an issuer's capacity, or guarantee redemption. Those questions depend on issuer terms, Pool rules, the transaction presented to the user, and applicable law.
 
 
 ## Protocol Fee Controller
 
-The `ProtocolFeeController` is the **deployment-level** fee mechanism described in [Getting Started](/introduction/getting-started). It can be shared across pools in a registry profile.
+`ProtocolFeeController` is an optional deployment-level fee component. Its owner can change the protocol rate and recipient or deactivate the fee. A single controller can be shared by multiple Pools, but the protocol does not require one controller per network.
 
-The controller does not assume one kind of operator. The fee recipient and update authority are set per deployment, so fees can support the institution or governance body that maintains a registry of Commitment Pools and provides services such as routing, clearing, monitoring, liquidity support, or insurance coordination.
-
-- **Fee rate** — A percentage (in PPM) of each pool's swap fees that is redirected to the configured service-fee recipient. For example, if a pool charges 2% and the protocol fee is 10%, then 0.2% goes to the configured recipient and 1.8% stays with the pool.
-- **Fee recipient** — The address that receives protocol fees, such as a shared treasury, multisig, cooperative account, or service operator account.
-- **Active toggle** — The controller can be activated or deactivated. When inactive, pools operate with zero protocol fee regardless of the stored rate.
-
-This funds the shared safety and operational layer described in the white paper: insurance buffers, audits, monitoring, and liquidity mandates.
+When active and configured, the recipient is paid directly in the output token during each successful swap. How that recipient uses the funds—for example for operations, monitoring, liquidity support, or another published purpose—is a governance matter, not a guarantee made by the contract.

@@ -1,27 +1,30 @@
 # Protocol
 
-CLC protocol contracts are the on-chain implementation of the **Commitment Pooling Protocol (CPP)** described in [Chapter 1](/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) of the white paper. All contracts are EVM-compatible, open-source under **AGPL-3.0**, and deployed via upgradeable proxies (ERC-1967).
+CLC protocol contracts provide the on-chain building blocks for the **Commitment Pooling Protocol (CPP)** described in [Chapter 1](/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) of the white paper. This reference follows the public [`v1.1.0` release](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0).
 
-Source: [github.com/cosmo-local-credit/protocol](https://github.com/cosmo-local-credit/protocol)
+Grassroots Economics Foundation (GEF) operates the Progressive Web App at [cosmolocal.credit](https://cosmolocal.credit), which offers one way to interact with these contracts. The App and the contracts are distinct. Operating the interface does not by itself make GEF a Voucher issuer, Pool Steward, custodian, guarantor, or counterparty to a user transaction. Those roles depend on the relevant deployment, controller addresses, and published issuer or Pool terms. See the [Terms of Service](/governance/terms).
 
 
 ## Deployment Pattern
 
-All contracts use the **ERC-1967 proxy pattern** via Solady's `ERC1967Factory`. Each contract is deployed as a minimal proxy pointing to a shared implementation, then initialized with its specific parameters. This enables:
+Most stateful modules are initialized as **ERC-1967 proxy instances** through Solady's `ERC1967Factory`. Multiple instances can share an implementation while keeping separate owners, configuration, and storage. A deployment may also use deterministic salts so addresses can be predicted before deployment.
 
-- **Gas-efficient deployment** of many pools and vouchers from the same implementation.
-- **Upgradeability** where needed (with governance controls).
-- **Deterministic addresses** for registry and discovery purposes.
+Not every contract is proxied. `DecimalQuoter` and `SwapRouter` are stateless direct deployments; `RescueVault` and `ERC1967Factory` are also deployed directly. The remaining stateful modules listed below are designed for proxy deployment.
+
+Each proxy has an administrator that can replace its implementation. Proxy administration is separate from contract ownership and should be assigned to an appropriately governed address. An upgrade can change behavior even after a Pool has sealed configuration, so users should assess both the Pool owner and the proxy administrator.
+
+EIP-165 support is also contract-specific, not universal. It is exposed by `GiftableToken`, the three quoters, `OracleRelay`, `Limiter`, several registries and indexes, `Splitter`, `EthFaucet`, `PeriodSimple`, and `RescueVault`. `SwapPool`, `SwapRouter`, `FeePolicy`, `ProtocolFeeController`, and `CAT` do not expose `supportsInterface` in v1.1.0.
 
 
-## Contract Summary
+## Component Map
 
-- **GiftableToken** — Voucher (redeemable ERC20 commitment). *Many per network* (one per issuer).
-- **SwapPool** — Vault and swap engine. *Many per network* (one per pool).
-- **DecimalQuoter** — 1:1 valuation with decimal adjustment. *Shared or per-pool.*
-- **RelativeQuoter** — Price-index valuation with exchange rates. *Per-pool.*
-- **FeePolicy** — Swap fee schedule. *Per-pool.*
-- **Limiter** — Per-token credit limits. *Shared or per-pool.*
-- **ProtocolFeeController** — Network fee extraction. *One per network.*
+- **GiftableToken** — ERC20 supply, minting, burning, and optional-expiry mechanics. An issuer can use an instance as a Voucher, but the contract alone does not define what can be redeemed, by whom, where, or on what terms.
+- **SwapPool** — Token vault and swap-settlement engine. A deployment can attach curation, valuation, fee, limit, and protocol-fee components or leave supported dependencies unset.
+- **DecimalQuoter, RelativeQuoter, and OracleQuoter** — Interchangeable valuation modules for decimal parity, owner-managed relative rates, or oracle-derived rates. `OracleRelay` can relay one external feed for use by an `OracleQuoter`.
+- **FeePolicy and Limiter** — Optional pair-fee rules and per-token Pool-balance limits.
+- **ProtocolFeeController** — Optional, mutable protocol-fee rate, recipient, and active state that a Pool can consult during settlement.
+- **TokenUniqueSymbolIndex, AccountsIndex, and ContractRegistry** — Token, account, and address discovery components. `CAT` records an account's ordered settlement-token preferences.
+- **SwapRouter** — Quote-only exact-input and exact-output calculations over a proposed multi-Pool path. It does not custody tokens or execute swaps.
+- **Splitter, EthFaucet, PeriodSimple, and RescueVault** — Supporting distribution, gas-funding, rate-limit, and asset-recovery utilities.
 
-All contracts implement **EIP-165** (`supportsInterface`) for on-chain discoverability and use **Solady** for gas-optimized ERC20, access control, and proxy patterns.
+The contracts can be combined in different ways. A registry listing, quote, or graph path is not a guarantee that a transaction will execute: current liquidity, token limits, fees, oracle state, authorization, deadlines, network conditions, and each Pool's configuration still apply.

@@ -1,11 +1,13 @@
 ## **9. Economics for LPs**
 
+**Design status:** The mechanisms and figures in this chapter are illustrative proposals, not current App features, promised returns, or offers. A deployment must publish its actual fees, budgets, assets, risks, and eligibility rules before participation.
+
 
 ### **9.1 Revenue Streams**
 
 
 
-1. **Network Fee Rake → Policy Pools.** A portion of per-pool fees is routed to the **CLC Pool** via the Waterfall contract which starts with Insurance, Core Ops, Liquidity Mandates, and (if, when, and to the extent enabled) **sCLC swap windows**.
+1. **Network Fee Rake → Policy Pools.** Under the proposed model, a disclosed portion of participating Pool fees would be routed through an implemented Waterfall to adopted insurance, Core Operations, and Liquidity Mandate budgets, followed only where enabled by **sCLC Swap windows**.
 2. **Policy-gated fee-credit (ex-post)**
 3. **Routing Fees**: Fees from multi-hop routes discovered by routers.
     1. Rebalancing / Netting Fees (optional): Fees earned for executing batch netting cycles and inventory rebalancing routes that reduce imbalance and increase successful settlement throughput (ex-post, policy-bound).
@@ -23,19 +25,19 @@
     * Convertibility matters. If only χ = 25% of fee inflows are cash-eligible/convertible (E_cash), then cash-usable effective revenue is ~10 bps (40 bps × 0.25). Therefore, meaningful sCLC fee-access budgets (F_epoch) require both high settlement throughput and sufficient χ; otherwise F_epoch may remain zero for long periods.
 * Routing fee: 5–20 bps across hops.
 * Distribution to Waterfall (policy-bound)
-* **Net LP Credit Access** drivers: local swap usage, routing volume, policy-deployed liquidity credit access, less losses/insurance haircuts.
+* **Net LP Credit Access** drivers: local Swap usage, routing volume, policy-deployed liquidity access, less losses and any authorized reductions to optional coverage or Pool settlement claims.
 
-***Accounting only: Any annualized figures are ex-post metrics of policy-gated swap access to pooled fees (not promised returns) and may be zero or negative after losses/haircuts.***
+***Accounting only: Any annualized figures are ex-post metrics of policy-gated Swap access to pooled fees (not promised returns) and may be zero or negative after losses or authorized coverage reductions.***
 
 **Downside Examples (ex-post):**
 
 
 
-* Inventory Loss Case: losses from defaults/redemption delays reduce fee-credit access by X (haircut).
+* Inventory Loss Case: losses from defaults or redemption delays reduce fee-credit access by X.
 * Run-Protection Case: limiter-triggered throttling reduces settlement flow, lowering F temporarily.
 * Policy Case: governance sets fee-credit budget F_epoch = 0 (no sCLC exit) during incidents or rebuild phases.
 
-*Numerical schedules are governance parameters and will be finalized via on-chain proposals and timelocks.*
+*Any numerical schedule would require separate adoption, disclosure, and enforcement under the applicable deployment's governance and terms.*
 
 
 ---

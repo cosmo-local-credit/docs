@@ -16,6 +16,6 @@
 
 - Protocol Revenue: PR_t = PoolFees_t + RoutingFees_t + NetworkRake_t
 
-- Net LP Credit Access (program x): CA_x = (FeesToLP_x − InsuranceHaircuts_x) / AvgStake_x (annualized)
+- Net LP Credit Access (program x): CA_x = (FeesToLP_x − AuthorizedCoverageReductions_x) / AvgStake_x (annualized)
 
 - Governance Timeliness: TTA = median(time→alarm), TTP = median(time→pause), TLK = timelock adherence %

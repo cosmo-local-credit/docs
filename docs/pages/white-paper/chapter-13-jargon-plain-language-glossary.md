@@ -12,7 +12,7 @@
 * **Inventory**: What the vault currently holds and can pay out.
 * **Guarantor**: A party that stakes collateral to back a voucher/pool against default.
 * **Redemption SLA**: Expected time to receive the good/service/cash when redeeming a voucher.
-* **Clearing House (CLC Pool)**: Network account that collects fees, holds reserves, funds LP programs, and pays insurance.
+* **Clearing House (CLC Pool)**: A proposed network-level Pool that may collect fees, hold assets, fund LP programs, or support expressly adopted insurance policies. These functions are not automatic.
 * **Fee-credit (budget-exit):** A time-bounded, policy-capped authorization (typically via sCLC) to swap fee assets out of designated fee-holding vaults after the Waterfall. It may be set to zero and is not a dividend, yield, or profit-share.
 * **Rebalancing / Netting Run**: A batch process that executes multilateral cycles/chains across opted-in pools to reduce inventory imbalances and increase successful settlement throughput, subject to published caps and policies.
 * **On/Off-Ramp:** A regulated service that converts fiat ↔ approved stable cash-equivalents used to seed or exit pools (e.g., bank transfer, e-money/payment institutions, card-based cash-out), subject to jurisdictional compliance.

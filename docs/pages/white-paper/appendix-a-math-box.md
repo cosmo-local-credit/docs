@@ -2,7 +2,7 @@
 
 Definitions (per voucher j, per period):
 
-D_j  := outstanding debt (unsettled vouchers) valued in the network index
+D_j  := outstanding Voucher commitments valued in the network index (not necessarily debt or a loan)
 
 S_j  := value of redemptions (settlements) routed through pools
 

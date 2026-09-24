@@ -1,4 +1,6 @@
-## B. Fee Waterfall (executed monthly, on-chain)
+## B. Illustrative Future Fee Waterfall
+
+This is an illustrative design for a future deployment. It applies only if implemented in contracts and adopted through published governance policy; it does not describe a guaranteed current fee or insurance arrangement.
 
 Let F_in be all fees collected across pools/routers during the epoch.
 
@@ -22,4 +24,4 @@ Eligibility & conversion note. F_in may include both cash-eligible fee assets (E
 
 **Guardrail:** Waterfall allocations are for (i) insurance adequacy, (ii) operations, and (iii) liquidity needed for settlement. They must not be framed or executed as price-support operations.
 
-Any CLC acquired via DEX Float Reduction is **retired** (burned) to avoid custody and governance-risk; it is not distributed to stakers.
+Under this illustrative design, any CLC acquired through an enabled DEX Float Reduction program would be **retired** or placed in a disclosed non-voting sink; it would not be distributed to stakers.

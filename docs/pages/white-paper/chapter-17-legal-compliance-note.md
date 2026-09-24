@@ -1,64 +1,60 @@
 ## **17. Legal & Compliance Note**
 
-CPP coordinates redeemable commitments. Some vouchers may fall under financial or consumer-protection rules depending on jurisdiction. Deployments should include local legal review, disclosures, and—where required—geofenced interfaces and attestation/KYC hooks for off-ledger redemptions.
+CPP coordinates Tokens, Vouchers, Pools, and Swaps whose legal treatment depends on their design, marketing, use, responsible parties, and jurisdiction. A Voucher may be treated as a contractual claim, prepaid service, gift card, payment instrument, credit arrangement, security, taxable supply, or another regulated product in a particular context. Nothing in this White Paper is legal, tax, investment, credit, or financial advice. Issuers, Pool Stewards, service providers, and users must determine and comply with the laws that apply to them before acting.
 
-Where fiat on/off-ramps are offered, they are provided by regulated third-party partners (e.g., banks, licensed e-money/payment institutions, or card-issuing/payment processors); CLC operators do not themselves custody fiat or operate money-transmission rails.
+Use of the public PWA is governed by the [Terms of Service](/governance/terms). Grassroots Economics Foundation (GEF) operates that App and supporting infrastructure. Unless GEF expressly assumes a role in transaction-specific terms, it is not an issuer, Pool Steward, custodian, lender, borrower, broker, guarantor, redeemer, adviser, insurer, or party to obligations between users. Neither GEF nor the protocol guarantees legality, value, liquidity, convertibility, redemption, or performance.
 
-**17.1 Voucher Class Matrix (Policy)**
+Where fiat on/off-ramps are offered, they must be provided under the responsible provider's own terms and applicable law. The presence of a connector in a CLC interface does not mean that GEF or a Pool operates the underlying banking, e-money, card, or money-transmission service.
 
-This matrix standardizes how voucher classes are listed, monitored, and governed across pools. Each class must be declared in pool metadata and surfaced in receipts.
+### **17.1 Voucher Class Matrix (Policy Template)**
 
-| Field | Options / Policy |
+This illustrative matrix can help a Pool disclose how it lists and monitors Voucher classes. It is not a legal classification, default guarantee, or representation that every field is implemented by the App.
+
+| Field | Required disclosure or policy choice |
 | --- | --- |
-| Class Name | eg, Staple Food, Transport Service, Labor Hour, Storage, Cash-Equivalent Stable, Community Stable, Tool/Equipment Use |
-| Legal Stance | Redeemable commitment / service credit. If cash-equivalent (eg, stablecoin redemption), treat as payment instrument exposure with additional attestations/geofencing as required. |
-| Redemption SLA | Target and max (eg, Target ≤ 24h; Max ≤ 72h). Include redemption venues/contacts and fallback guarantee. |
-| KYC / Attestation | None / Light Attestation / Full KYC (as required by jurisdiction, especially for cash-equivalent or high-value redemptions). |
-| Fee Tier | Low (30–50 bps), Medium (50–80 bps), High (80–100 bps) depending on operational/credit risk. |
-| Certification / Attestation Policy | If used: accepted attestation issuers, certificate scope + expiry + revocation rules, whether certificates are non-transferable/registry-bound, and how attestations affect listing eligibility, haircuts, limits, and insurance qualification. |
-| Index Source | Static schedule / Medianized oracle / Governance-updated feed. Publish source, cadence, and failure mode (safe default). |
-| Limit Tier | Tier 1 (tight), Tier 2 (moderate), Tier 3 (expanded). Limits apply per voucher, optionally per-account and globally, over rolling windows. |
-| Guarantor Requirement | None / Recommended / Required. Specify bond size, triggers, and payout path. |
-| Off-Ramp Policy | For cash-equivalent stables: approved stable list + approved off-ramp provider list (by jurisdiction), required attestations/KYC tier, timelocks on changes, dispute window, and incident pause criteria. Off-ramp providers may include banks, licensed e-money/payment institutions, and card-issuing/payment processors (on major card rails). For non-cash vouchers: multi-venue redemption options and local contacts. |
-| Disclosures | Plain-language “who/what/where/when” + fallback, embedded in voucher metadata and displayed in all receipts. |
+| Class Name | For example: food, transport, labor, storage, cash-equivalent, community service, or equipment use. |
+| Legal Treatment | The classification reached by the responsible issuer or Steward after jurisdiction-specific review; include material restrictions and required registrations or approvals. |
+| Redemption Terms | Issuer identity, offering, quantity or supply, valuation basis, capacity limits, expiry, geography, timing, procedure, fees, restrictions, and material-change process. |
+| Identity / Attestation | None, attestation, or identity verification, as lawfully required for the relevant class, value, user, or jurisdiction. |
+| Fees | All issuer, Pool, protocol, network, and third-party fees displayed before the relevant action; there is no universal fee tier. |
+| Certification / Provenance | If used: source, methodology, scope, expiry, revocation, transferability, and effect on listing or risk treatment. |
+| Index Source | Static schedule, OracleQuoter, or governance-updated source; publish method, authority, cadence, bounds, and failure mode. |
+| Limits | Per-Voucher, per-account, global, or rolling-window limits, if configured; disclose how limits can change or pause activity. |
+| Guarantee / Reserve | None unless expressly offered. If offered, identify the responsible party, assets, funding, caps, triggers, exclusions, evidence, claim process, and applicable terms. |
+| Fiat / Stablecoin Provider | Identify the independent provider, supported jurisdictions, eligibility, fees, custody model, and compliance requirements. |
+| Disclosures | Plain-language issuer, offering, redemption, risk, complaint, and remedy information displayed before acquisition where required. |
 
+Pools should declare the class used, enforce their published settings, disclose conflicts and material changes, and avoid representing optional controls as universal protections.
 
-Pools must (i) declare the class used; (ii) enforce matching Fee/Limit/Index settings; (iii) publish any exceptions with justification and timelock.
+### **17.2 Minimum Voucher Information**
 
-**17.2 Voucher Metadata Schema (minimum)**
+An issuer should publish, and keep current:
 
-• who: issuer legal name + contact
+* **who:** issuer name, contact details, and responsible legal person or organization;
+* **what:** the good, service, benefit, or other offering; unit, quantity, supply, valuation basis, and capacity;
+* **where:** redemption locations, service area, and lawful geographic restrictions;
+* **when:** issue date, expiry, operating times, fulfillment timing, and any claim window;
+* **how:** redemption steps and acceptable evidence;
+* **cost:** issuer, Pool, protocol, network, and third-party fees;
+* **limits:** per-user, per-transaction, supply, or other material limits;
+* **fallback:** complaint process and any remedy, guarantor, reserve, or payout path that is actually offered; and
+* **rights:** any permitted copying, adaptation, redistribution, transfer, suspension, or cancellation and the process for material changes.
 
-• what: claim description (plain language), unit, quantity
+### **17.3 Vouchers, Pools, Swaps, and Credit**
 
-• where: redemption venues / geofence
+**Voucher.** A Voucher records an issuer's published commitment. The issuer—not GEF merely because it operates the App—is responsible for honoring that commitment. A Holder must assess the issuer, redemption terms, restrictions, expiry, and risks. There is no platform-wide cash-out, stable value, liquidity, or redemption guarantee.
 
-• when: SLA target & max window
+**Pool.** A Commitment Pool is a contract system governed by its Pool Steward's published rules for admissions, listed assets, valuation, fees, limits, inventory, pauses, configuration, contributions, provenance, conflicts, and any reserve or guarantee. The Steward is responsible for those rules and for any protection it expressly advertises. Listing does not mean that GEF endorses, values, insures, or guarantees an asset.
 
-• proof: acceptable evidence at redemption (QR receipt, ticket #, ID type)
+**Ordinary Swap.** A Swap is governed by the displayed quote and bounds, Pool rules, smart contracts, network conditions, and applicable law. Asset direction alone does not make one party a lender or borrower, and an ordinary Swap or Voucher redemption does not by itself create, transfer, repay, or discharge a loan.
 
-• fallback: guarantor / payout path if not fulfilled
+**Express credit facility.** Credit mechanics apply only when a Pool or other responsible party expressly presents a transaction as a repayable Advance or Swap Loan and supplies transaction-specific terms. Those terms must identify the parties and disclose the advance and repayment amounts, due date, interest or fees, collateral use, changes in the creditor or Holder, assignment, partial settlement, redemption at any stated Full Value, evidence of discharge, default, and lawful remedies. No network-wide interest rate, repayment period, or redemption-to-repayment rule is implied.
 
-• class: matches declared Voucher Class Matrix entry
+### **17.4 Access, Risk, and Local Law**
 
-• fees: applicable pool/network fees shown to user
+Features or asset classes may be restricted, paused, or unavailable based on location, sanctions, eligibility, law, contract state, inventory, limits, security concerns, or third-party services. Identity checks, attestations, consumer disclosures, tax treatment, employment rules, financial-services permissions, or other safeguards may be required. Interface suspension or delisting does not necessarily erase or reverse public-blockchain transactions, balances, contracts, or third-party copies.
 
-• limits: per-account/global windows (human-readable)
-
-• disclosures: legal stance, risks, dispute hooks
-
-
-**17.3 Vouchers and Pools as Legal Instruments (Plain-Language)**
-
-Voucher: A voucher is a redeemable commitment—a defined claim on future delivery of a good/service (and in some classes, redemption into a cash-equivalent). It functions like a service credit or gift-card style claim with an explicit redemption SLA, venues, and fallback/recourse terms.
-
-**Not a Bank Deposit / Not E-Money.** Vouchers and pool receipts are **redeemable commitments** (service/goods claims) and **not** bank deposits or e-money. No interest is paid; **no guarantee of principal**. Redemption is governed by **published SLAs/venues** and any **disclosed** guarantees.
-
-Pool: A Commitment Pool is not merely software; it is a stewarded contract suite with published market terms: what vouchers are accepted (curation), how they are valued (index policy), how flows are limited (limit windows/caps), what fees apply, what inventory/reserve policy exists, and what guarantee/guarantor framework backs the listings. The pool steward is responsible for these published terms and any guarantees they advertise.
-
-**Restricted Jurisdictions.** Access to certain voucher classes and/or UI features may be **restricted or geofenced**; additional **attestations/KYC** may be required for cash-equivalents. Operators or authorized governance controls may programmatically **disable** sCLC swap windows or certain routes to comply with policy.
-
-CLC: CLC provides network governance, routing standards, and optional shared insurance policies. It is not automatically a guarantor of any pool or voucher unless explicitly stated in the relevant pool terms and published network policy.
+Users remain responsible for Wallet credentials, transaction review, taxes, and the legality of their own issuance, Pool operation, acquisition, redemption, and other activity. Smart-contract defects, network congestion or reorganization, OracleQuoter failures, malicious or mistaken configuration, key compromise, issuer non-performance, illiquidity, stablecoin or provider failure, and regulatory change can cause delay or permanent loss. Optional limits, reserves, guarantees, insurance, audits, and governance controls may reduce selected risks but do not eliminate them.
 
 
 ---

@@ -1,10 +1,12 @@
 ## **8. Technical Scope & Growth**
 
+This section describes optional and future technical work. It is not a list of features guaranteed to be present in the current public PWA.
+
 Priorities:
 
 
 
-* **Routing protocols across** Sarafu.Network pools; SDKs and index/limit discovery APIs.
+* **Routing protocols across** Cosmo-Local Credit and other compatible Pools; SDKs and index/limit discovery APIs.
 * **Bridges to external DEX** registries; Time-locked contract/escrow for cross-domain settlement.
 * Support for the long tail of **micro-pools** (including personal pools UX).
 * **Auditable registries** for vouchers, pools, limits, values, and fee policies.
@@ -58,9 +60,9 @@ Networks may implement additional features (insurance overlays, compliance hooks
 
 ### **8.2 Licensing & Transparency**
 
-All contracts are **EVM-compatible**, open-source under **AGPL-3.0**, with reproducible builds, published ABIs, and audit reports. Canonical addresses and registries are timelocked and mirrored for independent verification. Community contributions are welcomed under the same license.
+The protocol contracts are **EVM-compatible**. Contracts under the protocol's `src` directory are published under **AGPL-3.0** except for unmodified third-party components, such as identified Solady contracts, that retain their original terms. Published source, ABIs, and deployment instructions support independent verification. Each deployment must separately disclose its code version, build provenance, canonical addresses, administrator and upgrade powers, audit status, registry mirrors, and any timelock protections; none of those protections should be assumed merely from protocol compatibility.
 
-**Fork Kit (Required Deliverable).** The project will maintain a “fork kit” that includes:
+**Fork Kit (Proposed Deliverable).** A mature deployment should maintain a “fork kit” that includes:
  (i) deterministic deployment scripts; (ii) registry snapshot/export tooling; (iii) a documented procedure to re-point routers/SDKs to a new registry root; and (iv) a pool steward checklist for exiting canonical registries safely (including fee-hook redirection options where supported).
 
 **Example: Minimum Exit Checklist (publish + test annually):**
@@ -72,7 +74,7 @@ All contracts are **EVM-compatible**, open-source under **AGPL-3.0**, with repro
 3. How to migrate insurance scope (or explicitly terminate it).
 4. How to honor outstanding vouchers during migration (notice-to-redeem + remedy options).
 
-**Why AGPL + Fork Kit:** Confederation rewards compatibility. Networks that fork and improve routers, registry tooling, bridge adapters, or observability can still route with CLC if they remain CPP-compatible - expanding settlement paths and strengthening the whole mesh. AGPL ensures improvements to the shared plumbing remain shareable across the confederation, reducing systemic risk and duplication.
+**Why shared-source licensing + a Fork Kit:** Confederation rewards compatibility. Networks that fork and improve routers, registry tooling, bridge adapters, or observability can still route with CLC if they remain CPP-compatible, expanding settlement paths and strengthening the whole mesh. Improvements to AGPL-covered shared infrastructure remain shareable under its terms, while identified third-party components retain their applicable terms.
 
 
 ---
