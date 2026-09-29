@@ -297,7 +297,7 @@ export function AboutPage() {
               Open App →
             </a>
             <a className="about-button about-button--secondary about-overview__button" href="#about">
-              About CLC
+              About
             </a>
             <a
               className="about-button about-button--secondary about-overview__button"
@@ -305,8 +305,17 @@ export function AboutPage() {
             >
               Get Started
             </a>
-            <a className="about-button about-button--secondary about-overview__button" href="/white-paper">
-              Read White Paper →
+            <a
+              className="about-button about-button--secondary about-overview__button"
+              href="/protocol/overview"
+            >
+              Protocol
+            </a>
+            <a
+              className="about-button about-button--secondary about-overview__button"
+              href="/white-paper"
+            >
+              White Paper
             </a>
           </nav>
 
@@ -691,7 +700,11 @@ export function AboutPage() {
         <div className="about-shell about-footer__content">
           <p>© 2026 Cosmo-Local Credit. Sarafu Network’s history continues here.</p>
           <nav aria-label="Legal">
-            <a href="https://grassecon.org/pages/terms-and-conditions" rel="noreferrer" target="_blank">
+            <a
+              href="https://docs.cosmolocal.credit/governance/terms"
+              rel="noreferrer"
+              target="_blank"
+            >
               Terms of Service
             </a>
             <a href="https://docs.grassecon.org/commons/data_policy/" rel="noreferrer" target="_blank">
