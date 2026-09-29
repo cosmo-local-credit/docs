@@ -31,6 +31,12 @@
   padding: 3rem 2rem 2.5rem; /* Increased top padding for space between nav and content */
 }
 
+.landing-theme-row {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
 /* Remove default Vocs spacing on landing page */
 body:has(.landing-container) .vocs_Layout_main {
   padding-top: 0 !important;
@@ -215,6 +221,7 @@ body:has(.landing-container) .vocs_Layout_headerSpacer {
 /* CTA Buttons */
 .landing-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 0.5rem;
 }

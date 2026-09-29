@@ -27,7 +27,6 @@ export default defineConfig({
   ),
   theme: {
     accentColor: '#10b981',
-    colorScheme: 'dark',
   },
   socials: [
     {
@@ -47,6 +46,10 @@ export default defineConfig({
     {
       text: 'Introduction',
       items: [
+        {
+          text: 'About',
+          link: '/introduction/about',
+        },
         {
           text: 'Getting Started',
           link: '/introduction/getting-started',

@@ -5,9 +5,7 @@ type DiagramTheme = 'default' | 'dark'
 let renderCount = 0
 
 function activeTheme(): DiagramTheme {
-  if (document.documentElement.classList.contains('dark')) return 'dark'
-  if (document.documentElement.classList.contains('light')) return 'default'
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'default'
 }
 
 export function MermaidDiagram({
@@ -27,19 +25,14 @@ export function MermaidDiagram({
   useEffect(() => {
     const updateTheme = () => setTheme(activeTheme())
     const observer = new MutationObserver(updateTheme)
-    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
     updateTheme()
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['class'],
     })
-    colorScheme.addEventListener('change', updateTheme)
 
-    return () => {
-      observer.disconnect()
-      colorScheme.removeEventListener('change', updateTheme)
-    }
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {

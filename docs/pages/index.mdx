@@ -7,8 +7,13 @@ content:
 ---
 
 import '../styles.css'
+import { LandingThemeToggle } from '../components/LandingThemeToggle'
 
 <div className="landing-container">
+  <div className="landing-theme-row">
+    <LandingThemeToggle />
+  </div>
+
   <div className="landing-hero">
     <img
       className="landing-logo-image"
@@ -24,6 +29,7 @@ import '../styles.css'
 
   <div className="landing-buttons">
     <a href="https://cosmolocal.credit" target="_blank" rel="noopener noreferrer" className="landing-button landing-button--primary">Open App →</a>
+    <a href="/introduction/about" className="landing-button landing-button--secondary">About CLC</a>
     <a href="/introduction/getting-started" className="landing-button landing-button--secondary">Get Started</a>
     <a href="/white-paper" className="landing-button landing-button--secondary">Read White Paper →</a>
   </div>
