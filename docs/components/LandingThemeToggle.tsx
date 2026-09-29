@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 import '../theme-toggle.css'
 
@@ -8,8 +9,13 @@ function activeTheme(): Theme {
   return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
 }
 
-export function LandingThemeToggle() {
+type LandingThemeToggleProps = {
+  portalToDesktopNav?: boolean
+}
+
+export function LandingThemeToggle({ portalToDesktopNav = false }: LandingThemeToggleProps) {
   const [theme, setTheme] = useState<Theme>()
+  const [portalTarget, setPortalTarget] = useState<Element | null>(null)
 
   useEffect(() => {
     const updateTheme = () => setTheme(activeTheme())
@@ -24,14 +30,24 @@ export function LandingThemeToggle() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!portalToDesktopNav) return
+
+    setPortalTarget(document.querySelector('.vocs_DesktopTopNav'))
+  }, [portalToDesktopNav])
+
   function selectTheme(nextTheme: Theme) {
     localStorage.setItem('vocs.theme', nextTheme)
     document.documentElement.classList.toggle('dark', nextTheme === 'dark')
     setTheme(nextTheme)
   }
 
-  return (
-    <div className="landing-theme-control" aria-label="Color theme" role="group">
+  const control = (
+    <div
+      className={`landing-theme-control${portalToDesktopNav ? ' landing-theme-control--portal' : ''}`}
+      aria-label="Color theme"
+      role="group"
+    >
       <button
         aria-label="Use light mode"
         aria-pressed={theme === 'light'}
@@ -52,4 +68,10 @@ export function LandingThemeToggle() {
       </button>
     </div>
   )
+
+  if (portalToDesktopNav) {
+    return portalTarget ? createPortal(control, portalTarget) : null
+  }
+
+  return control
 }

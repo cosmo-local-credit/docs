@@ -1,4 +1,6 @@
 ---
+title: Cosmo-Local Credit
+description: Create and exchange redeemable commitments through independently curated Pools.
 layout: landing
 content:
   horizontalPadding: 0px
@@ -6,47 +8,7 @@ content:
   verticalPadding: 0px
 ---
 
-import '../styles.css'
-import { LandingThemeToggle } from '../components/LandingThemeToggle'
+import '../about.css'
+import { AboutPage } from '../components/AboutPage'
 
-<div className="landing-container">
-  <div className="landing-theme-row">
-    <LandingThemeToggle />
-  </div>
-
-  <div className="landing-hero">
-    <img
-      className="landing-logo-image"
-      src="/icons/CLC-logo.svg"
-      alt="Cosmo-Local Credit logo"
-      width="128"
-      height="128"
-      loading="eager"
-    />
-    <div className="landing-logo">Cosmo-Local Credit</div>
-    <div className="landing-description">Cosmo-Local Credit is a live progressive web app and open protocol for creating and exchanging redeemable commitments—such as vouchers, service credits, and delivery claims—through independently curated Pools.</div>
-  </div>
-
-  <div className="landing-buttons">
-    <a href="https://cosmolocal.credit" target="_blank" rel="noopener noreferrer" className="landing-button landing-button--primary">Open App →</a>
-    <a href="/introduction/about" className="landing-button landing-button--secondary">About CLC</a>
-    <a href="/introduction/getting-started" className="landing-button landing-button--secondary">Get Started</a>
-    <a href="/white-paper" className="landing-button landing-button--secondary">Read White Paper →</a>
-  </div>
-
-  <div className="landing-features">
-    <div className="landing-feature-card">
-      <div className="landing-feature-title">Redeemable Commitments</div>
-      <div className="landing-feature-text">Issuers publish what each Voucher represents and how, where, and when a Holder can redeem it.</div>
-    </div>
-    <div className="landing-feature-card">
-      <div className="landing-feature-title">Curated Pools</div>
-      <div className="landing-feature-text">Pool Stewards publish accepted assets, valuations, fees, limits, controls, and any specifically scoped guarantee.</div>
-    </div>
-    <div className="landing-feature-card">
-      <div className="landing-feature-title">Accountable Exchange</div>
-      <div className="landing-feature-text">Users inspect Voucher terms, Pool rules, and transaction details before exchanging assets on a public blockchain.</div>
-    </div>
-  </div>
-
-</div>
+<AboutPage />

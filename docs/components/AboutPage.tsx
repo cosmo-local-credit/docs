@@ -120,13 +120,6 @@ const mediaPartners = [
 
 const organizationalPartners = [
   {
-    name: 'Celo Foundation',
-    logo: '/about/partners/celo.png',
-    link: 'https://celo.org/',
-    width: 148,
-    height: 47,
-  },
-  {
     name: 'Mustard Seed Trust',
     logo: '/about/partners/mustardseed.png',
     link: 'https://mustardseedtrust.org/',
@@ -257,9 +250,7 @@ function RoleSeparator() {
 export function AboutPage() {
   return (
     <main className="about-page">
-      <div className="about-theme-row about-shell">
-        <LandingThemeToggle />
-      </div>
+      <LandingThemeToggle portalToDesktopNav />
 
       <div className="about-migration-wrap about-shell">
         <div className="about-migration-note">
@@ -275,24 +266,90 @@ export function AboutPage() {
         </div>
       </div>
 
-      <section className="about-hero about-section" aria-labelledby="about-title">
+      <section className="about-overview" aria-labelledby="overview-title">
+        <div className="about-shell">
+          <div className="about-overview__intro">
+            <img
+              alt="Cosmo-Local Credit logo"
+              className="about-overview__logo"
+              height="128"
+              loading="eager"
+              src="/icons/CLC-logo.svg"
+              width="128"
+            />
+            <div>
+              <h1 id="overview-title">Cosmo-Local Credit</h1>
+              <p className="about-overview__description">
+                Cosmo-Local Credit is a live progressive web app and open protocol for creating
+                and exchanging redeemable commitments—such as vouchers, service credits, and
+                delivery claims—through independently curated Pools.
+              </p>
+            </div>
+          </div>
+
+          <nav className="about-overview__actions" aria-label="Cosmo-Local Credit resources">
+            <a
+              className="about-button about-button--primary about-overview__button"
+              href="https://cosmolocal.credit"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Open App →
+            </a>
+            <a className="about-button about-button--secondary about-overview__button" href="#about">
+              About CLC
+            </a>
+            <a
+              className="about-button about-button--secondary about-overview__button"
+              href="/introduction/getting-started"
+            >
+              Get Started
+            </a>
+            <a className="about-button about-button--secondary about-overview__button" href="/white-paper">
+              Read White Paper →
+            </a>
+          </nav>
+
+          <div className="about-overview__feature-grid">
+            <article className="about-overview__feature-card">
+              <h2>Redeemable Commitments</h2>
+              <p>Issuers publish what each Voucher represents and how, where, and when a Holder can redeem it.</p>
+            </article>
+            <article className="about-overview__feature-card">
+              <h2>Curated Pools</h2>
+              <p>Pool Stewards publish accepted assets, valuations, fees, limits, controls, and any specifically scoped guarantee.</p>
+            </article>
+            <article className="about-overview__feature-card">
+              <h2>Accountable Exchange</h2>
+              <p>Users inspect Voucher terms, Pool rules, and transaction details before exchanging assets on a public blockchain.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-hero about-section" id="about" aria-labelledby="about-title">
         <div className="about-shell about-hero__grid">
           <div className="about-hero__content">
-            <h1 id="about-title">
+            <h2 id="about-title">
               Empowering communities through <span>commitment pooling</span>
-            </h1>
+            </h2>
             <p className="about-hero__lead">
               Commitment pooling enables communities to create, manage and connect their own
               economic systems, fostering local trade and resilience.
             </p>
-            <a
-              className="about-text-link"
-              href="https://youtu.be/gn4mMspXlF0"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Learn more about commitment pooling <span aria-hidden="true">→</span>
-            </a>
+            <div className="about-video">
+              <p className="about-video__label">Learn more about commitment pooling</p>
+              <div className="about-video__frame">
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  src="https://www.youtube-nocookie.com/embed/gn4mMspXlF0"
+                  title="Learn more about commitment pooling"
+                />
+              </div>
+            </div>
 
             <dl className="about-stats">
               {statistics.map((stat) => (

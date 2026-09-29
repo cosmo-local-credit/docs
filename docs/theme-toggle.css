@@ -9,6 +9,11 @@
   box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
 }
 
+.landing-theme-control--portal {
+  flex: 0 0 auto;
+  margin-left: 1rem;
+}
+
 .landing-theme-control__button {
   display: inline-grid;
   width: 2rem;
