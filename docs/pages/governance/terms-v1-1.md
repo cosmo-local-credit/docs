@@ -1,12 +1,18 @@
-# Cosmo Local Credit Terms of Service
+---
+searchPriority: 0
+---
 
-**Version 1.0**
+# Cosmo-Local Credit Terms of Service
 
-**Effective date: 24 September 2026**
+**Version 1.1**
 
-> **Upcoming Terms Version 1.1.** Version 1.1 was published on 1 October 2026 and takes effect on 31 October 2026. Version 1.0 remains effective through 30 October 2026. [Review the upcoming Terms Version 1.1](/governance/terms-v1-1).
+**Publication date: 1 October 2026**
 
-These Terms of Service (the **Terms**) are a binding agreement between you and Grassroots Economics Foundation (**GEF**, **we**, **us**, or **our**) concerning your access to and use of the Cosmo Local Credit progressive web application made available at `cosmolocal.credit` and the related services that GEF operates (together, the **App**).
+**Effective date: 31 October 2026**
+
+> **Upcoming version.** Version 1.0 remains effective through 30 October 2026. [Read the currently effective Terms of Service](/governance/terms).
+
+These Terms of Service (the **Terms**) are a binding agreement between you and Grassroots Economics Foundation (**GEF**, **we**, **us**, or **our**) concerning your access to and use of the Cosmo-Local Credit progressive web application made available at `cosmolocal.credit` and the related services that GEF operates (together, the **App**).
 
 These Terms apply to every person or organization that creates or uses an Account, holds or uses a Token or Voucher through the App, creates or operates a Pool, contributes assets to a Pool, or carries out a Swap. Read them carefully before accepting them or using the App.
 
@@ -15,7 +21,7 @@ These Terms apply to every person or organization that creates or uses an Accoun
 1. **Users make commitments to one another.** An Issuer is responsible for its Voucher and a Steward is responsible for its Pool rules and any guarantee it advertises. GEF does not automatically guarantee either one.
 2. **No value, cash-out, liquidity, or redemption is guaranteed by GEF.** A Token, Voucher, Pool position, or other digital asset may lose value, become illiquid, be impossible to redeem, or be unavailable in a particular jurisdiction.
 3. **Blockchain activity carries permanent risks.** Transactions may be public, irreversible, technically defective, delayed, rejected, or lost. GEF may be unable to recover credentials or assets, reverse a transaction, or remove a public record.
-4. **A Swap is not automatically a loan.** The Pool's disclosed rules, the Transaction Terms, the parties' conduct, and applicable law determine its legal effect. Loan obligations apply under these Terms only when a transaction is expressly presented as a repayable advance.
+4. **No current App action is automatically a loan.** Any future loan or credit product requires separately presented supplemental and transaction terms; these Terms do not create one.
 5. **You are responsible for legality in your jurisdiction.** You must determine whether your use, Token, Voucher, Pool, Swap, offering, or other activity is lawful and what registrations, permits, approvals, disclosures, taxes, and safeguards are required.
 
 These notices summarize important points but do not replace the rest of the Terms.
@@ -25,25 +31,31 @@ These notices summarize important points but do not replace the rest of the Term
 In these Terms:
 
 - **Account** means a user profile, authenticated session, and related access to App features. An Account may be associated with one or more Wallet credentials and a public blockchain address.
-- **Advance** means an asset delivered to a Swapper under a transaction expressly designated as a Swap Loan.
-- **Collateral** means an asset expressly transferred or pledged to secure or evidence a Swap Loan, subject to the applicable Transaction Terms and law.
 - **Content** means information submitted, created, or published through the App, including names, images, descriptions, posts, locations, contact details, Voucher terms, Pool rules, and offering information.
-- **Full Value** means the value assigned to Collateral or to an Issuer's redemption obligation in the Transaction Terms for a particular Swap Loan. There is no platform-wide Full Value.
-- **Holder** means a person or organization that lawfully controls a Token or Voucher. For a Swap Loan, the Transaction Terms may also use Holder to identify a person that lawfully holds all or part of a repayment or redemption claim.
+- **Discharge** means the record or action that prevents fulfilled Voucher units from being presented or used again, such as receiving, burning, cancelling, or otherwise disabling them under the applicable terms.
+- **Fulfillment** means the Issuer providing the goods, services, benefits, performance, or other value promised by the Voucher terms.
+- **Holder** means a person or organization that lawfully controls a Token or Voucher. Control does not itself prove beneficial ownership, issuer fulfillment, cash value, or a guarantee.
 - **Issuer** means the person or organization that creates, issues, mints, or is identified as responsible for a Token or Voucher and its associated commitments.
+- **Offering** means an App catalog record describing goods or services associated with a Voucher. Publishing an Offering does not mint a Token, prove availability, or establish Fulfillment.
 - **Pool** means a smart-contract arrangement or other coordinated system that curates Tokens or Vouchers, holds or accounts for digital-asset inventory, applies valuations, limits or fees, and enables Swaps or other transactions.
+- **Pool Contribution** means a transfer of assets into a Pool under separately disclosed terms. It does not automatically create a Pool share, repayment claim, withdrawal right, reward, or governance right.
+- **Pool Fee** means a fee charged under a Pool's published rules and configuration.
+- **Pool Quote** means a transaction estimate produced by a Pool's configured valuation method. It is not automatically the Offering price, Voucher stated value, redemption value, or cash value.
+- **Protocol Fee** means a separate fee, if configured, paid to the disclosed protocol-fee recipient in addition to a Pool Fee.
 - **Steward** means the person, organization, group, governance body, or authorized controller responsible for creating, administering, or publishing the rules of a Pool.
-- **Swap** means a transaction that exchanges, routes, deposits, or withdraws Tokens, Vouchers, stablecoins, or other supported assets through one or more Pools.
-- **Swap Loan** means only a Swap expressly presented before confirmation as a repayable Advance secured or evidenced by Collateral. A transaction is not a Swap Loan merely because a Voucher is exchanged for a stablecoin or another asset.
+- **Technical Controller** means a contract owner, proxy administrator, dependency owner or writer, catalog moderator, fee recipient, or other person with a stated technical power. Technical control does not by itself transfer every Issuer or Steward responsibility.
+- **Swap** means an exchange of one supported asset for another through one or more Pools. A Pool contribution or deposit, Pool liquidity withdrawal, fee collection, provider transaction, or cash on-ramp or off-ramp is not a Swap unless it also performs that asset exchange.
 - **Token** means a digital token, record, balance, or other digital asset accessible through the App. A Token is not necessarily a Voucher and its legal character depends on its features, representations, use, and applicable law.
-- **Transaction Terms** means the parameters and specific rules presented or made available for a transaction, such as the assets, amounts, Pool, route, valuation, fees, limits, deadline, Collateral, repayment obligations, or redemption conditions.
+- **Transaction Terms** means the parameters and specific rules presented or made available for a transaction, such as the assets, amounts, Pool, route, exchange-rate method, fees, limits, deadline, provider terms, or redemption conditions.
+- **Redemption Presentment** means a Holder returning or presenting Voucher units to the Issuer through the stated redemption process. Presentment does not by itself prove Fulfillment or Discharge.
+- **Service Fee** means a separately disclosed fee for routing, interface, provider, payment, monitoring, or another identified service.
 - **User** or **you** means the individual who accepts these Terms and any organization that individual validly represents.
 - **Voucher** means a Token or record that an Issuer represents as a commitment, prepaid claim, or right to receive specified goods, services, benefits, performance, or other value under published redemption terms.
 - **Wallet** means the blockchain account, address, signing credentials, passkey, paper-wallet key, smart account, or related mechanism used to authorize transactions.
 
 ## 2. Acceptance and scope
 
-You accept these Terms when they are presented to you and you affirmatively select the control indicating your agreement during Account creation or a later reacceptance process. Where applicable law permits acceptance through continued use, you also accept a notified update by continuing to use the App after the update takes effect. Merely viewing these Terms without creating or using an Account does not by itself create an agreement.
+The current App does not record an affirmative acceptance of these Terms during Account creation. To the extent applicable law permits, you accept these Terms by creating or using an Account or by continuing to use the App after a notified update takes effect. Where applicable law requires affirmative acceptance or reacceptance, GEF will present an acceptance control before allowing continued use of the affected Account features. Merely viewing these Terms without creating or using an Account does not by itself create an agreement.
 
 If you do not agree, do not create an Account or use the App. If you are accepting for an organization, you represent that you have authority to bind it. In that case, **you** includes both you and the organization where the context permits.
 
@@ -84,7 +96,7 @@ Unless GEF expressly identifies itself in writing as acting in another capacity 
 - a party to a Swap or other user-to-user transaction;
 - a lender, borrower, broker, dealer, exchange, bank, money transmitter, insurer, fiduciary, investment manager, escrow agent, or financial adviser;
 - the seller, producer, inspector, carrier, or redeemer of an underlying good or service; or
-- a guarantor of any User, Token, Voucher, Pool, transaction, obligation, reserve, Collateral, price, or outcome.
+- a guarantor of any User, Token, Voucher, Pool, transaction, obligation, reserve, collateral, price, or outcome.
 
 A Pool smart contract may hold digital assets under its programmed rules. That fact does not by itself mean that GEF owns those assets, owes their value, or can recover them. Similarly, a relayer may broadcast an authorized transaction without becoming the owner or custodian of the assets involved.
 
@@ -94,7 +106,7 @@ Listing, displaying, indexing, reviewing, verifying, or declining to remove an A
 
 The App may be accessible across many jurisdictions with different rules. You are solely responsible for obtaining competent advice and determining the laws that apply to your activity, including laws concerning consumer protection, credit, lending, payments, money transmission, banking, e-money, digital assets, securities, commodities, fundraising, charities, employment, wages, taxation, sanctions, anti-money-laundering controls, product safety, trade, privacy, intellectual property, cultural heritage, and electronic transactions.
 
-GEF does not represent that any Token, Voucher, Pool, Swap, Swap Loan, contribution, or other arrangement has a particular legal, accounting, regulatory, or tax classification. Labels used by a User or within the App do not override applicable law.
+GEF does not represent that any Token, Voucher, Pool, Swap, Pool Contribution, future credit product, or other arrangement has a particular legal, accounting, regulatory, or tax classification. Labels used by a User or within the App do not override applicable law.
 
 You must obtain and maintain every registration, permit, approval, disclosure, consent, record, and safeguard required for your activities. You must not use these Terms or the availability of an App feature as evidence that GEF or any authority has approved your activity.
 
@@ -126,7 +138,9 @@ By creating, issuing, minting, distributing, or publishing a Token or Voucher th
 
 You must not retroactively reduce the rights attached to an outstanding Voucher unless the terms accepted before acquisition clearly permit the change, the affected Holder gives any consent required by law, and the change is otherwise lawful. Where an on-chain field cannot be updated, you must make any permitted correction or change conspicuous in the current off-chain listing and preserve the prior record where reasonably necessary.
 
-## 9. Fulfilling and redeeming a Voucher
+## 9. Redemption presentment, fulfillment, and discharge
+
+In the current App, the UI label **“Redeem”** prepares an ordinary Token transfer to the Token owner as Redemption Presentment. That transfer does not by itself prove Fulfillment or Discharge.
 
 An Issuer, not GEF, is responsible for fulfilling its Voucher according to the terms published when the Holder acquired it and any valid later agreement. Subject to disclosed lawful conditions, the Issuer must:
 
@@ -134,13 +148,15 @@ An Issuer, not GEF, is responsible for fulfilling its Voucher according to the t
 - provide the promised quality and quantity within the stated period;
 - not refuse, unreasonably delay, or apply an undisclosed discount merely because the Voucher was transferred or passed through a Pool;
 - provide a practical process for presentment, verification, delivery, complaints, and remedies; and
-- record completed redemption by receiving, burning, cancelling, or otherwise disabling the redeemed Voucher where necessary to prevent reuse.
+- record completed Fulfillment and Discharge by receiving, burning, cancelling, or otherwise disabling the fulfilled Voucher units where necessary to prevent reuse.
 
 An Issuer may apply restrictions based on legality, safety, location, capacity, scheduling, expiry, identity, or other conditions only if they are lawful and were clearly disclosed before acquisition, except where a later restriction is required by law or necessary to prevent imminent harm.
 
 A Holder must read the Voucher terms, assess the Issuer and offering, follow the stated redemption process, provide lawful evidence of control, inspect delivered goods or services where appropriate, and avoid presenting the same Voucher more than once. Acquiring a Voucher does not make GEF responsible for the Issuer's performance.
 
 If a recipient modifies, repackages, or redistributes an offering where the Issuer's terms permit it, that recipient must accurately identify material changes, preserve required provenance and source acknowledgments, pass on applicable conditions, and avoid implying that the original Issuer or GEF approved the modified offering.
+
+The App label **“Retire voucher”** means reversible catalog unlisting. It does not burn or cancel balances, complete Fulfillment or Discharge, or extinguish the Issuer's outstanding commitments.
 
 ## 10. Creating and operating a Pool
 
@@ -152,7 +168,7 @@ A Steward is responsible for the design, administration, representations, and la
 - valuation methods, units of account, price sources, oracle dependencies, update authority, and treatment of valuation errors;
 - default and pair-specific fees, fee recipients, network or service charges, and when fees may change;
 - deposit, withdrawal, Swap, exposure, concentration, time, and other limits;
-- available inventory, reserves, liquidity, Collateral, and the circumstances in which assets may be unavailable;
+- available inventory, reserves, liquidity, collateral, and the circumstances in which assets may be unavailable;
 - every guarantee, reserve, guarantor, insurance arrangement, redemption support, or loss-allocation rule, and the exact limits of each;
 - governance procedures, conflicts of interest, emergency powers, pause authority, upgrade authority, sealed or immutable settings, and notice of changes;
 - the rights attached to a contribution, deposit, liquidity position, gift, or endowment and whether withdrawal or repayment is available;
@@ -165,11 +181,13 @@ A Steward must not use a Pool to make deceptive return claims, disguise unlawful
 
 GEF may set minimum listing, safety, disclosure, or technical standards and may decline, suspend, flag, or remove a Pool from an App-operated registry. Registry status is conditional and is not a GEF guarantee.
 
+The Steward, Pool owner, proxy administrator, dependency controllers, catalog moderator, and fee recipients may be different parties. Pool disclosures must identify each material authority. A Technical Controller's power does not by itself make that party the Steward or transfer the Steward's obligations.
+
 ## 11. Using or contributing to a Pool
 
 Before using or contributing to a Pool, you must assess its Steward, rules, contracts, accepted assets, valuations, fees, limits, inventory, reserves, governance, upgrade powers, guarantees, and legal status. You accept the risk that:
 
-- an Issuer may default or refuse redemption;
+- an Issuer may reject a valid Redemption Presentment or fail to provide Fulfillment;
 - a Steward, administrator, oracle, guarantor, or other dependency may fail or act improperly;
 - prices, reference values, fees, limits, routes, or future availability may change where the governing rules permit;
 - a setting may become immutable or may remain changeable by an administrator;
@@ -189,50 +207,17 @@ A routed Swap may interact with multiple Pools, contracts, or providers. Each ad
 
 The direction of assets does not by itself decide the transaction's legal character. For example, receiving a stablecoin in exchange for a Voucher is not automatically a loan, and delivering a stablecoin in exchange for a Voucher is not automatically repayment. The express Transaction Terms, Pool rules, parties' conduct, and applicable law control.
 
-## 13. Swap Loans expressly designated by a Pool
+## 13. Future credit or loan products
 
-This section applies only when, before confirmation, the Pool expressly presents a Swap as a repayable Advance. If a transaction is not expressly designated in that way, this section does not independently create a debt, Collateral arrangement, assignment, due date, or right to enforce redemption.
+The current App Terms do not create or govern a loan product. An ordinary Send, Pool Contribution, Pool deposit, Pool Swap, Pool liquidity withdrawal, fee collection, provider transaction, Redemption Presentment, Fulfillment, or Discharge is not automatically a loan, advance, repayment, security interest, or credit facility.
 
-### 13.1 Required Transaction Terms
-
-The Steward must ensure that the Transaction Terms clearly disclose every material term required by law, including:
-
-- the identities or roles of the borrower and initial lender or creditor;
-- the input asset and amount, and whether it is Collateral or evidence of a claim;
-- the output asset and amount constituting the Advance;
-- the repayment amount, currency or asset, due date, grace period, and payment process;
-- every interest rate, fee, charge, or valuation adjustment, or an express statement that none applies;
-- the Full Value and how it is calculated;
-- whether and how the Pool or another Holder may hold, use, swap, transfer, lend, sell, auction, or otherwise dispose of Collateral;
-- whether a repayment or redemption claim may be transferred, how a current Holder is identified, and how partial transfers are treated;
-- the permitted settlement methods, who may choose between them, and how settlement is evidenced;
-- the redemption conditions where a Voucher may be fulfilled through goods, services, or other performance;
-- events of default, cure rights, enforcement methods, costs, and dispute procedures; and
-- the governing law and any mandatory consumer or borrower protections.
-
-These Terms do not supply a default one-year due date, a default zero-interest rate, or any other missing credit term. A Pool may impose only charges and remedies that are clearly disclosed and lawful. Tax, accounting, consumer-credit, lending, and regulatory treatment is determined by applicable law, not by the label used in the App.
-
-### 13.2 Collateral and transfer of claims
-
-The Pool may hold, use, or transfer Collateral only to the extent clearly authorized by the Transaction Terms and applicable law. If the Collateral is the borrower's own Voucher, the Transaction Terms may provide that it also records or evidences a repayment or redemption claim.
-
-Transfer of Collateral does not automatically extinguish or assign an obligation. Where the Transaction Terms and applicable law provide for assignment, transfer may move the corresponding claim to the current lawful Holder. A partial transfer may move only the corresponding portion of the claim. The Pool, Steward, and Holders must maintain records sufficient to prevent more than one person collecting the same portion, and valid settlement of a portion discharges that portion.
-
-### 13.3 Repayment, redemption, and discharge
-
-The Transaction Terms may permit settlement through payment of an approved asset, redemption of the borrower's Voucher at Full Value, or another lawful method. Where redemption is permitted, the Issuer must honor the Voucher according to its published lawful conditions and must not impose an undisclosed discount because the Voucher became associated with a Swap Loan.
-
-Redemption is complete only when the promised performance has occurred and the relevant Voucher or claim has been returned, burned, cancelled, or otherwise recorded as discharged to prevent reuse. Asset repayment is complete only when received and recorded as satisfying the corresponding obligation. A person that has received full settlement may not pursue the same claim again.
-
-### 13.4 Default and enforcement
-
-The Transaction Terms may define default to include missed payment after any grace period, failure to honor a valid redemption request, counterfeit or unauthorized Collateral, double pledging, fraud, or another material breach. Remedies may include enforcement against Collateral, limits or registry action, recovery of an unpaid amount, or lawful off-chain proceedings, but only as permitted by the disclosed terms and applicable law.
-
-A Steward may encourage another person to acquire and redeem a borrower's Voucher, but neither the Steward nor GEF guarantees that anyone will do so. Any Wallet authorization, confirmation record, signed message, transaction call, event, transfer, or state change may be used as evidence to the extent allowed by law, but no record overrides proof of fraud, compromise, error, discharge, or a binding legal decision.
+Any future loan, repayable advance, secured transaction, or other credit product must be separately identified before a User enters it and must be governed by counsel-approved supplemental terms and transaction-specific terms. Those terms must identify the parties and every material feature required by applicable law, including amounts, due dates, fees or interest, collateral treatment, assignment, default, remedies, disclosures, consent, and evidence of repayment or discharge. No such product is offered merely because this section describes that requirement.
 
 ## 14. Fees, taxes, and third-party payment services
 
 You are responsible for reviewing and paying the fees and charges disclosed for an App service, Pool, transaction, network, relayer, or third-party provider. Fees may be deducted from transferred amounts or paid separately as disclosed. A completed or irreversibly submitted transaction is non-refundable except where the applicable terms or law require otherwise.
+
+Pool Fees, Protocol Fees, Service Fees, blockchain network fees, and third-party provider charges are distinct. Before authorization, the responsible party must disclose the fee type, calculation basis, amount or rate, payer, recipient, timing, refund treatment, and material conditions. A current Protocol Fee may be additional to a Pool Fee; it is not the proposed network-rake model discussed in the White Paper.
 
 You are solely responsible for identifying, reporting, withholding, collecting, and paying taxes, duties, levies, and assessments arising from your activity. GEF does not calculate or pay your taxes and does not provide tax advice.
 
@@ -328,7 +313,7 @@ Information in the App is general information, not legal, tax, accounting, finan
 
 GEF will not exclude any warranty, duty, or remedy that applicable law does not permit it to exclude. Subject to that rule and to the maximum extent permitted by law, the App is provided on an as-available basis. GEF does not warrant that the App or any User-created Content, Token, Voucher, Pool, route, quote, transaction, good, service, or third-party provider will be uninterrupted, error-free, secure, accurate, lawful, available, fit for a particular purpose, of satisfactory quality, redeemable, liquid, or profitable.
 
-GEF does not warrant another User's identity, authority, solvency, capacity, honesty, performance, goods, services, reserves, Collateral, or compliance. You are responsible for appropriate due diligence and for the commitments you make.
+GEF does not warrant another User's identity, authority, solvency, capacity, honesty, performance, goods, services, reserves, collateral, or compliance. You are responsible for appropriate due diligence and for the commitments you make.
 
 Nothing in this section reduces an Issuer's duty to honor its Voucher, a Steward's duty to honor its Pool rules and advertised guarantees, or another party's obligations under valid Transaction Terms.
 
@@ -339,7 +324,7 @@ Nothing in these Terms excludes or limits liability for fraud, wilful misconduct
 Subject to those exceptions and to the maximum extent permitted by law, GEF and its officers, directors, staff, contractors, agents, and affiliated entities are not liable for:
 
 - an Issuer's, Steward's, Holder's, counterparty's, or other User's conduct or failure;
-- the quality, safety, legality, delivery, redemption, pricing, or availability of goods, services, Tokens, Vouchers, Pools, or Collateral;
+- the quality, safety, legality, delivery, redemption, pricing, or availability of goods, services, Tokens, Vouchers, Pools, or collateral;
 - loss of credentials, assets, data, opportunities, goodwill, profit, revenue, business, or anticipated savings;
 - indirect, incidental, special, exemplary, punitive, or consequential loss;
 - a smart contract, blockchain, Wallet, device, network, oracle, bridge, relayer, third-party service, force-majeure event, or public record outside GEF's reasonable control; or
@@ -354,7 +339,7 @@ If applicable law does not allow a particular exclusion or limit, that exclusion
 To the maximum extent permitted by law, you will indemnify and hold harmless GEF and its officers, directors, staff, contractors, agents, and affiliated entities from third-party claims, losses, liabilities, penalties, judgments, and reasonable costs arising from:
 
 - your breach of these Terms or applicable law;
-- your Account, Content, Token, Voucher, Pool, Swap, Swap Loan, goods, services, or other commitments;
+- your Account, Content, Token, Voucher, Pool, Swap, Pool Contribution, goods, services, or other commitments;
 - your infringement or misuse of another person's rights, information, assets, or credentials; or
 - a tax, regulatory, consumer, employment, redemption, payment, or other obligation for which you are responsible.
 
@@ -372,7 +357,7 @@ These Terms and disputes between you and GEF are governed by the laws of Kenya, 
 
 GEF may update these Terms to reflect changes in the App, law, risk, security, or operations. GEF will identify the new version and effective date.
 
-GEF will give at least 30 days' notice before a material change takes effect, normally through the App, Account communication, or the contact information you provided. A change may take effect sooner where reasonably necessary to comply with law, address an urgent security or safety risk, prevent fraud, or respond to an event outside GEF's reasonable control.
+GEF will give at least 30 days' notice before a material change takes effect through the notice method approved for that update. For Version 1.1, notice was published on the canonical Terms page on 1 October 2026, and Version 1.1 takes effect on 31 October 2026. A change may take effect sooner where reasonably necessary to comply with law, address an urgent security or safety risk, prevent fraud, or respond to an event outside GEF's reasonable control.
 
 Where applicable law permits, continued use after the effective date constitutes acceptance of the updated Terms. Where law requires affirmative consent, GEF will request reacceptance before allowing continued use of affected Account features. If you do not agree, you must stop using the affected features. Changes apply prospectively and do not alter a completed transaction or previously agreed Transaction Terms.
 

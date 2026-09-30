@@ -1,73 +1,74 @@
-# Getting Started
+# Getting started
 
-Cosmo-Local Credit (CLC) is a progressive web app for creating, discovering, holding, transferring, and exchanging digital assets, including redeemable Vouchers, through independently governed Pools. The public App is available at [cosmolocal.credit](https://cosmolocal.credit).
+Cosmo-Local Credit (CLC) is a progressive web app for creating, discovering, holding, transferring, and exchanging digital assets, including redeemable vouchers, through independently governed Commitment Pools. The CLC App is available at [cosmolocal.credit](https://cosmolocal.credit).
 
-Grassroots Economics Foundation (GEF) operates the public App and supporting infrastructure. Unless GEF expressly accepts another role for a particular offering or transaction, it is not the Issuer of a user-created Voucher, the Steward of a user-created Pool, a custodian, lender, borrower, guarantor, insurer, or redeemer. Issuers are responsible for their Voucher commitments, and Pool Stewards are responsible for their Pool rules.
+Grassroots Economics Foundation (GEF) operates the App and supporting infrastructure. Unless GEF expressly accepts another role for a particular Offering or transaction, it is not the issuer of a user-created voucher, the Pool Steward of a user-created pool, a custodian, lender, borrower, guarantor, insurer, or redeemer. Issuers are responsible for their voucher commitments, and Pool Stewards are responsible for their pool rules.
 
-Before creating an Account or transacting, read the [Terms of Service](/governance/terms). In particular:
+Read [Concepts and Vocabulary](/introduction/concepts) for the exact product layers, roles, actions, values, fees, and status terms used in these docs.
+
+Before creating an account or transacting, read the [Terms of Service](/governance/terms). In particular:
 
 - You must be at least 18 years old, have reached the age of legal majority that applies to you, and have contractual capacity.
-- You are responsible for confirming that your Account, Voucher, Pool, or transaction is lawful in every relevant jurisdiction.
-- Wallet credentials must be protected. GEF may be unable to recover a lost Wallet or reverse an authorized transaction.
+- You are responsible for confirming that your account, voucher, pool, or transaction is lawful in every relevant jurisdiction.
+- Wallet credentials must be protected. GEF may be unable to recover a lost wallet or reverse an authorized transaction.
 - Public-blockchain transactions and records may be visible, permanent, and irreversible.
 - A listing in the App is not a GEF endorsement or a guarantee of redemption, value, liquidity, convertibility, or cash-out.
 
-## Start with the live App
+## Start with the current App
 
-### 1. Browse the public market
+### 1. Browse the Market
 
-Open [cosmolocal.credit](https://cosmolocal.credit) to explore public marketplace listings before signing in. Review the responsible Issuer, the promised goods or services, location, availability, and other published information. Visibility in the market does not mean that GEF has guaranteed or independently valued an offering.
+Open [cosmolocal.credit](https://cosmolocal.credit) to explore the public **Market**, the App's discovery catalog. Review the responsible issuer, the promised goods or services, location, availability, and published terms. A Market listing is not automatically an exchange venue, seller relationship, independent valuation, endorsement, or guarantee.
 
-### 2. Create an Account and Wallet
+### 2. Create or access an account and wallet
 
-Follow the App's onboarding flow to create an Account and a supported Wallet, or to connect or import a Wallet when that option is available. Provide accurate profile information and carefully store every passkey, paper-wallet credential, private key, password, or recovery method associated with the Wallet.
+The App uses an account for profile and session access and a wallet for blockchain authorization. Protect your passkey, paper-wallet material, recovery information, devices, and any other credentials. Review every asset, amount, address, pool, fee, and authorization before confirming a transaction.
 
-Do not share signing credentials. Before approving any Wallet request, confirm the assets, amounts, recipient, Pool, fees, and other displayed transaction details.
+### 3. Create a voucher
 
-### 3. Inspect the Voucher and Pool
+A voucher combines several distinct layers:
 
-Before accepting or acquiring a Voucher, inspect its terms. These should identify the Issuer and explain what the Voucher can be redeemed for, its supply or capacity, unit and valuation, expiry, redemption process, geography, timing, fees, restrictions, and available remedies.
+1. token-contract mechanics and balances;
+2. the issuer's voucher designation and published terms;
+3. one or more Offering records for associated goods or services; and
+4. the issuer's real-world fulfillment.
 
-Before using a Pool, inspect the Pool Steward and the published rules: accepted assets, valuations, fees, limits, inventory, governance and upgrade powers, pause controls, and any reserve or guarantee. A Pool's displayed value is not itself a promise that an Issuer will redeem a Voucher or that another asset will always be available.
+Creating or minting a token does not by itself prove that an Offering exists, that the issuer has capacity, or that GEF guarantees redemption.
 
-### 4. Review and execute a Swap
+### 4. Create or assess a Commitment Pool
 
-Where a Pool supports a pair, the App can request a quote and prepare a Swap. Quotes can be temporary, and a transaction can fail or change because of inventory, limits, fees, network conditions, authorization, or Pool configuration. Review the final parameters immediately before confirming.
+A Commitment Pool is a governed arrangement. Its current `SwapPool` contract can hold supported token inventory and execute direct swaps. Before using or contributing to one, review:
 
-An ordinary Swap exchanges assets under the displayed transaction parameters and Pool rules. The direction of an exchange—including exchanging a Voucher for a stablecoin or another asset—does not by itself make the transaction a loan or repayment.
+- the accountable Pool Steward and the current contract owner;
+- the proxy administrator and controllers of configured dependencies;
+- admitted vouchers and other supported assets;
+- exchange-rate or quote methods;
+- the App's **“Credit limit”**, which is a pool token-balance cap rather than personal credit;
+- Pool and protocol fees;
+- available inventory and the Pool owner's liquidity-withdrawal power; and
+- any separately published contribution, guarantee, reserve, or insurance terms.
 
-### 5. Redeem or continue using the asset
+A deposit transfers assets to the `SwapPool`. Protocol v1.1.0 does not mint Pool-share tokens or automatically give the depositor repayment, withdrawal, reward, or governance rights.
 
-To redeem a Voucher, follow the Issuer's published process. The Issuer, rather than GEF or an unrelated Pool Steward, is responsible for providing the promised goods, services, benefits, or other performance. A completed redemption should be recorded in the manner specified by the Issuer and applicable system so that the same claim cannot be used twice.
+### 5. Use the correct action
 
-### 6. Create a Voucher or Pool
+- **Send** transfers a token balance to another address.
+- **Pool swap** exchanges one supported asset for another through one `SwapPool`. On-chain swap settlement does not prove issuer fulfillment.
+- **“Redeem”** opens the send flow with the token owner's address prefilled. It presents or returns the voucher to the issuer; completed redemption also requires the issuer's promised performance and a discharge record that prevents reuse.
+- **“Retire voucher”** hides the catalog listing. It does not burn balances, cancel the voucher, or extinguish the issuer's outstanding obligations.
+- **Pool liquidity withdrawal** lets the Pool owner transfer available inventory.
+- **Fee collection** sends accrued Pool fees to the configured recipient.
 
-Users with the necessary authority and legal capacity can use supported App flows to create Vouchers and Pools.
+See the [practical voucher example](/introduction/example) for the complete lifecycle.
 
-- A **Voucher Issuer** must publish complete, accurate terms, issue within its capacity, keep material information current, and honor the redemption commitment it makes.
-- A **Pool Steward** must publish and consistently apply the Pool's admission, curation, valuation, fee, limit, inventory, governance, conflict, pause, and risk rules. Any guarantee, reserve, or insurance arrangement must state who provides it and its exact limits.
+## Current, deployment-dependent, and proposed capabilities
 
-Creating a smart contract or listing does not make an activity lawful. Issuers and Stewards remain responsible for required registrations, disclosures, permissions, taxes, consumer protections, and other obligations.
+The current App provides a Market and supported flows for accounts, wallets, vouchers, Offerings, pools, transfers, direct Pool swaps, and related records. Availability depends on the active deployment, asset, Pool configuration, device, network, eligibility, provider, jurisdiction, and published terms.
 
-### 7. Install the PWA, if useful
+Payment services, support methods, rewards, guarantees, contribution arrangements, and other provider integrations are deployment-dependent. Their responsible party, fees, limits, eligibility, and legal terms must be disclosed where they are offered.
 
-On supported browsers and devices, the App can be installed as a progressive web app. Installation is optional and does not change the Account, Wallet, transaction risks, or applicable terms.
+Protocol v1.1.0 provides direct Pool execution and a quote-only `SwapRouter`. Multi-hop execution, HTLC or escrow routing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
 
-## What is available and what is optional
+Any future loan or other credit product requires separately presented supplemental and transaction terms. An ordinary transfer, Pool deposit, Pool swap, redemption presentment, fulfillment, or discharge is not automatically a loan, advance, or repayment.
 
-The public App provides a market and supported flows for Accounts, Wallets, Vouchers, Pools, transfers, and Pool Swaps. Particular features depend on the active deployment, asset, Pool configuration, device, network, and user eligibility.
-
-The wider CLC protocol can also support registries, routing services, oracle-based pricing, limiters, fee policies, monitoring, liquidity programs, and other governance arrangements. Multi-hop routing, cross-Pool netting, shared insurance, token-based governance, and fiat or stablecoin on/off-ramps are optional or future capabilities unless a specific deployment clearly says they are active. Their discussion in these docs or the White Paper is not a promise that GEF currently provides them.
-
-## When a Swap is expressly a loan
-
-A Swap is subject to loan mechanics only when a Pool expressly presents it before confirmation as a repayable advance. A designated Swap Loan needs its own Transaction Terms, including the parties or roles, advance and repayment amounts, due date, interest or fees, collateral rights, assignment and Holder changes, partial settlement, any redemption at an agreed Full Value, evidence of discharge, default rules, and lawful remedies.
-
-There is no CLC-wide assumption of a one-year term, zero interest, or any other missing credit term. Applicable law and the expressly disclosed Transaction Terms—not asset direction or informal labels—determine the arrangement's legal effect.
-
-## Learn more
-
-- See a [practical Voucher example](/introduction/example).
-- Understand the network's [Governance Mechanics](/governance/mechanics).
-- Review the current [Protocol Overview](/protocol/overview).
-- Read the [White Paper](/white-paper) for the broader design and roadmap.
+Next, read the [Protocol overview](/protocol/overview), the [governance mechanics](/governance/mechanics), or the broader [White Paper](/white-paper).

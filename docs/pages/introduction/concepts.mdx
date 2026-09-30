@@ -1,0 +1,100 @@
+# Concepts and vocabulary
+
+Cosmo-Local Credit connects an application, an open protocol, independently governed pools, and the real-world commitments represented by vouchers. These layers work together, but they are not the same thing.
+
+This page defines the terms used across the documentation. Exact app labels appear in quotation marks where the interface uses a shorter or potentially ambiguous name.
+
+## Product and protocol layers
+
+| Term | Meaning |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | The product family: the CLC App, its documentation, and the wider commitment-pooling work. |
+| **CLC App** | The progressive web app at [cosmolocal.credit](https://cosmolocal.credit). GEF operates this interface and its supporting services. |
+| **Commitment Pooling Protocol (CPP)** | The reusable model of curation, valuation, limitation, exchange, and accountable governance. |
+| **Protocol v1.1.0** | The verified public smart-contract release documented in the [Protocol reference](/protocol/overview). |
+| **Commitment Pool** | A governed arrangement that curates assets, publishes rules, and enables exchange. **Pool** is the ordinary shorthand. |
+| **`SwapPool`** | The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool. |
+| **Proposed CLC governance token** | A future governance design in the White Paper. It is not a current App or Protocol v1.1.0 asset. |
+| **Proposed CLC Network Pool** | A future network-level clearing and coordination design. It is not the same as a current `SwapPool`. |
+
+## Tokens, vouchers, and Offerings
+
+A **token** is an on-chain balance or digital asset. Token mechanics can record supply, transfers, expiry, and burning, but they do not by themselves promise goods, services, cash conversion, or redemption.
+
+A **voucher** is a token or record that an issuer represents as a redeemable commitment under published terms. Those terms should identify what is promised, who is responsible, where and when it can be presented, material limits, and the fulfillment and complaint process.
+
+An **Offering** is the catalog record for goods or services associated with a voucher. Publishing an Offering does not mint tokens, prove availability, or show that fulfillment occurred.
+
+These are four separate layers:
+
+1. the token contract and balances;
+2. the voucher designation and published terms;
+3. one or more Offering records; and
+4. the issuer's real-world performance.
+
+## Accountable roles and technical control
+
+| Role or authority | Responsibility or power |
+| --- | --- |
+| **Issuer** | Publishes and fulfills a voucher commitment. This responsibility is not automatically transferred merely because contract ownership changes. |
+| **Holder** | Controls a voucher balance. Control does not prove fulfillment, cash value, or a guarantee. |
+| **Service provider** | A public-facing persona. A service provider becomes an issuer when it publishes a voucher commitment. |
+| **Pool Steward** | The accountable person, cooperative, public agency, federation, multisig, service, or other structure that publishes and administers Pool rules. |
+| **Pool owner** | The address with the current `SwapPool` owner powers, including configuration, fee collection, and available-liquidity withdrawal. |
+| **Proxy administrator** | The authority that can upgrade a proxied contract implementation. It may differ from the Pool owner. |
+| **Dependency controller** | An owner or writer controlling a registry, limiter, quoter, oracle, fee policy, or protocol-fee controller. |
+| **Catalog moderator** | An App operator that can correct, hide, or restore catalog records without changing on-chain balances. |
+| **Fee recipient** | The configured address receiving a Pool or protocol fee. It is not necessarily the Pool Steward or owner. |
+| **Supporter or liquidity provider** | A participant contributing assets under separately disclosed terms. The current `SwapPool` does not create Pool shares or automatic repayment, withdrawal, reward, or governance rights. |
+
+“Community member” is informal social language. It does not by itself create admission, ownership, governance, repayment, or other legal rights.
+
+## Actions and lifecycle
+
+| App or documentation term | What it means |
+| --- | --- |
+| **Create or publish a voucher** | Deploy or configure a token and publish its catalog record and terms. |
+| **Issue or mint** | Create token balance under the configured owner or writer authority. |
+| **Publish an Offering** | Add a goods or services record beneath a voucher. |
+| **Send** | Transfer a token balance to another address. |
+| **“Redeem”** | In the current App, open the send flow with the token owner's address prefilled. This presents or returns tokens to the issuer; it does not prove fulfillment. |
+| **Fulfill** | The issuer provides the promised goods, services, benefits, or other performance. |
+| **Discharge** | Record fulfilled units so they cannot be presented again, for example by receiving, burning, cancelling, or otherwise disabling them under the published terms. |
+| **“Retire voucher”** | Hide a voucher from the App catalog. Balances and history remain, and an administrator can restore the listing. It is not a burn or cancellation. |
+| **Pool deposit or contribution** | Transfer assets into a `SwapPool`. Rights to repayment, withdrawal, rewards, or governance exist only when separately disclosed. |
+| **Pool swap** | Exchange one supported asset for another through one `SwapPool`. This is not issuer fulfillment or automatically a loan. |
+| **Pool liquidity withdrawal** | The Pool owner transfers available inventory to a selected address. |
+| **Fee collection** | A configured recipient collects accrued Pool fees. |
+
+Use **swap settlement** for the on-chain transfers and fee accounting that complete a Pool swap. Use **redemption presentment**, **fulfillment**, and **discharge** for the separate real-world voucher lifecycle.
+
+## Market, values, limits, and fees
+
+The App's **Market** is a discovery catalog for vouchers, Pools, Offerings, and public information. A listing is not automatically an exchange venue, seller relationship, endorsement, valuation, or guarantee.
+
+Keep these value terms separate:
+
+- **Offering price:** the amount requested for a listed good or service;
+- **voucher stated value:** a value represented in the issuer's published terms;
+- **Pool exchange rate or quote:** the transaction parameter produced by a Pool's configured quoter;
+- **oracle reference:** external data used by a configured valuation module; and
+- **redemption terms:** what the issuer promises to provide and under what conditions.
+
+The App label **“Credit limit”** refers to a Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. It is not a personal credit line, an issuer-capacity check, or a guarantee of redemption. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.
+
+Current Protocol v1.1.0 can charge a **Pool fee** and an additional **protocol fee**. The proposed White Paper model separately describes a future **network rake** taken from Pool fees and possible routing or service fees. These models must not be combined when explaining current charges or calculating future revenue.
+
+## Protections and evidence
+
+Curation, registry inclusion, a limit, a reserve, App visibility, or a blockchain transaction does not by itself establish endorsement, issuer capacity, fulfillment, a guarantee, or insurance.
+
+Any protection should identify the obligated party, covered event, funding, cap, exclusions, duration, evidence, and claim process. On-chain records can show addresses, assets, amounts, timestamps, and contract events. Issuer performance, satisfaction, governance deliberation, and social impact require separate disclosures, reports, attestations, or other evidence.
+
+## Status words
+
+- **Current:** verified in the CLC App or Protocol v1.1.0 described by these docs.
+- **Deployment-dependent:** available only where a particular deployment, Pool, provider, jurisdiction, or published policy enables it.
+- **Historical:** evidence or functionality from the earlier Sarafu Network service.
+- **Proposed:** a design or roadmap mechanism that is not represented as deployed.
+
+The [Getting started guide](/introduction/getting-started) applies these terms to the current App. The [Protocol reference](/protocol/overview) documents the verified contracts, while the [White Paper](/white-paper) presents the wider design and proposals.

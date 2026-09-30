@@ -1,33 +1,20 @@
-## **3. Velocity of Settlement: Why Liquidity Providers Should Care**
+## **3. Fulfillment, discharge, and exchange activity**
 
-We reframe “velocity of money” as velocity of settlement: how quickly outstanding promises move from owed to fulfilled.
+A Pool swap changes which addresses hold assets. Voucher fulfillment occurs when the issuer performs the published commitment. Discharge records the fulfilled units so they cannot be presented again. These events must not be collapsed into one use of “settlement.”
 
-For a given voucher type j across a network of CPs, define:
+The proposed measurement framework uses separate records for:
 
+- completed Pool swap volume;
+- valid redemption presentments;
+- confirmed issuer fulfillment;
+- discharge;
+- outstanding eligible commitments; and
+- measured Pool inventory.
 
+A proposed commitment-discharge velocity can compare fulfilled value during a period with average outstanding eligible commitment value, but only where both use the same disclosed valuation method. Token supply is not a sufficient denominator: it can include issuer inventory, expired or inaccessible units, tests, and balances that do not represent an outstanding third-party commitment.
 
-1. D_j = total outstanding Voucher commitments valued in a common index
-2. S_j = total value of settlements (redemptions routed through CPs) per period
+A separate Pool swap-activity ratio can compare completed Pool swap value with measured Pool inventory. It describes exchange activity, not issuer fulfillment.
 
-Then the network settlement velocity of voucher j is:
+Liquidity may improve inventory availability and make exchanges easier. It does not guarantee that issuers will perform, that contributors will recover assets, or that a Pool quote represents redemption or cash value. Any liquidity-provider rights require separate published terms.
 
-V_j (network) = S_j/D_j
-
-This is a flow/stock ratio: how many units of fulfillment flow pass through the network per unit of outstanding Voucher commitments. We will expand this below to a federation of CPs.
-
-**Key insight:** an ordinary Swap changes who holds assets; its direction does not create or repay a loan. Redemption can fulfill an issuer's Voucher commitment. It reduces a separate debt only when express, transaction-specific credit terms say that redemption constitutes repayment and provide evidence of discharge. Liquidity that increases routing capacity may increase fulfillment velocity and fee volume.
-
-**Plain language:** If vouchers get redeemed quickly, more real trade flows through the network. More flow → more fee events → more sustainable fee pooling.
-
-What This Is / Isn’t
-
-
-
-* Not an AMM for speculative pairs. CPP values and limits are policyful and capacity-aware.
-* Not necessarily a bank deposit, payment instrument, security, or other regulated product; classification depends on the asset, terms, activities, and jurisdiction.
-* Does not make unbounded issuance safe. Pool limits and inventory checks can constrain eligible Swaps, but do not constrain an issuer's total supply unless expressly configured to do so.
-* Is a clearing-network design for redeemable commitments with transaction records and any recourse that the responsible parties expressly publish.
-* Can support a separately documented producer-credit facility in which Vouchers serve as collateral or a repayment instrument. No ordinary Swap or redemption is a loan or repayment merely because of asset direction.
-
-
----
+See [Appendix A](/white-paper/appendix-a-math-box) for definitions and [Appendix C](/white-paper/appendix-c-kpi-definitions) for the proposed measurement specification.

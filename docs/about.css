@@ -278,6 +278,19 @@ body:has(.about-page) {
   line-height: 1.35;
 }
 
+.about-stats-source {
+  margin: 1rem 0 0;
+  color: var(--about-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.about-stats-source a {
+  color: var(--about-link);
+  font-weight: 700;
+}
+
 .about-stat--orange dd {
   color: var(--about-orange);
 }

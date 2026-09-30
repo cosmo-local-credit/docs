@@ -1,43 +1,41 @@
-## **9. Economics for LPs**
+## **9. Proposed economics for liquidity programs**
 
-**Design status:** The mechanisms and figures in this chapter are illustrative proposals, not current App features, promised returns, or offers. A deployment must publish its actual fees, budgets, assets, risks, and eligibility rules before participation.
+This chapter describes a future, separately adopted model. It is not a current App feature, an offer, a promised return, or a right created by depositing into `SwapPool`.
 
+### **9.1 Proposed revenue sources**
 
-### **9.1 Revenue Streams**
+A future network budget could receive:
 
+1. a disclosed **network rake** taken as a share of participating Pools' collected fees;
+2. separate routing or service fees from implemented shared services; and
+3. other expressly adopted, received revenue.
 
+Gross Pool fees retained by Pools are not network revenue. Current Protocol v1.1.0 uses a different model: an optional protocol fee is additional to the Pool fee and is sent directly to its configured recipient.
 
-1. **Network Fee Rake → Policy Pools.** Under the proposed model, a disclosed portion of participating Pool fees would be routed through an implemented Waterfall to adopted insurance, Core Operations, and Liquidity Mandate budgets, followed only where enabled by **sCLC Swap windows**.
-2. **Policy-gated fee-credit (ex-post)**
-3. **Routing Fees**: Fees from multi-hop routes discovered by routers.
-    1. Rebalancing / Netting Fees (optional): Fees earned for executing batch netting cycles and inventory rebalancing routes that reduce imbalance and increase successful settlement throughput (ex-post, policy-bound).
-4. **Curation & Validation Fees:** pools may allocate a disclosed portion of fees to listing/verification/monitoring roles (curators, auditors, claims modules) under published mandates.
+### **9.2 Illustrative rake math**
 
+If a participating Pool charges a 2.00% Pool fee and an adopted network rake receives 20% of that Pool fee, the proposed effective network-rake rate on routed value is:
 
-### **9.2 Illustrative Fee Math (Example Only)**
+`rake_rate = 2.00% × 20% = 0.40% = 40 bps`
 
+If 25% of received rake and service-fee assets are eligible and convertible for a stated cash-denominated use after costs, the cash-usable share of the 40-bps rake is approximately 10 bps.
 
+Proposed network revenue is:
 
-* Per-pool usage fee: 30–500 bps depending on voucher class and risk tier.
-* Network rake: 10–30% of per-pool fees -> Waterfall -> CLC Pool.
-    * **Worked example** ( “2% fee” case). If a pool charges f_p = 2.00% and the network rake share is r_p = 20% of that pool’s fees, then the effective network fee rate on routed value is:
-    * τ_p = f_p · r_p = 2.00% · 20% = 0.40% = 40 bps.
-    * Convertibility matters. If only χ = 25% of fee inflows are cash-eligible/convertible (E_cash), then cash-usable effective revenue is ~10 bps (40 bps × 0.25). Therefore, meaningful sCLC fee-access budgets (F_epoch) require both high settlement throughput and sufficient χ; otherwise F_epoch may remain zero for long periods.
-* Routing fee: 5–20 bps across hops.
-* Distribution to Waterfall (policy-bound)
-* **Net LP Credit Access** drivers: local Swap usage, routing volume, policy-deployed liquidity access, less losses and any authorized reductions to optional coverage or Pool settlement claims.
+`network_rake_received + routing_or_service_fees_received`
 
-***Accounting only: Any annualized figures are ex-post metrics of policy-gated Swap access to pooled fees (not promised returns) and may be zero or negative after losses or authorized coverage reductions.***
+Do not add gross Pool fees to the network rake: the rake is a transfer from those fees and would otherwise be counted twice.
 
-**Downside Examples (ex-post):**
+### **9.3 Liquidity-program rights**
 
+A separately adopted program could fund Pool inventory, routing services, monitoring, or other mandates. Its terms would need to disclose:
 
+- whether a transfer is a gift, endowment, loan, recoverable contribution, or purchase;
+- custody and control;
+- withdrawal, repayment, loss, and priority rules;
+- fee and reward eligibility;
+- governance rights;
+- valuation and reporting methods; and
+- suspension, termination, and remedies.
 
-* Inventory Loss Case: losses from defaults or redemption delays reduce fee-credit access by X.
-* Run-Protection Case: limiter-triggered throttling reduces settlement flow, lowering F temporarily.
-* Policy Case: governance sets fee-credit budget F_epoch = 0 (no sCLC exit) during incidents or rebuild phases.
-
-*Any numerical schedule would require separate adoption, disclosure, and enforcement under the applicable deployment's governance and terms.*
-
-
----
+The current `SwapPool` creates no Pool-share token or automatic contributor entitlement. Any ex-post metric must be based on realized receipts and losses, must not be presented as promised yield, and may be zero or negative.

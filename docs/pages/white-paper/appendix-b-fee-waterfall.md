@@ -1,27 +1,25 @@
-## B. Illustrative Future Fee Waterfall
+## B. Illustrative future fee waterfall
 
-This is an illustrative design for a future deployment. It applies only if implemented in contracts and adopted through published governance policy; it does not describe a guaranteed current fee or insurance arrangement.
+This is a proposed design for a future deployment. It applies only if implemented, funded, and adopted through published governance and participant terms. It does not describe a current Protocol v1.1.0 fee, contributor right, reserve, guarantee, or insurance arrangement.
 
-Let F_in be all fees collected across pools/routers during the epoch.
+Let `F_in` be revenue actually received by the proposed network budget during an epoch: the proposed network rake, separate routing or service fees, and any other expressly designated revenue. Gross Pool fees that remain with Pools are not included.
 
-Eligibility & conversion note. F_in may include both cash-eligible fee assets (E_cash) and in-kind fee assets (E_kind). The protocol may convert allowlisted fungible assets (E_cash) into stables/fiat when needed to meet insurance payouts, maintain off-ramp liquidity, and fund core operations—while prioritizing in-network settlement and using liquidity mandates/CLC Pool inventories to reduce settlement latency.
+Revenue assets must be classified as:
 
+- `E_cash`: assets eligible for a stated cash-denominated use under the adopted policy; or
+- `E_kind`: in-kind vouchers or other assets that are not treated as cash-convertible.
 
+Any conversion policy would need asset and venue allowlists, responsible authorities, price sources, slippage limits, reporting, and applicable legal controls.
 
-1. Insurance Reserve Target (IRT): top-up InsuranceFund to Target = Σ_p (RW_p · D_p), 
-    1. where D_p is the pool’s outstanding obligations stock (valued in the network index),
-    2. with RW_p (risk weight) = f(fulfillment_rate, issuer_concentration, limit_utilization, SLA latency).
-    3. Allocation = min(IRT − InsuranceFund, MaxTopUp).
-2. Core Operations: fixed budget B_core (timelocked; ±20% with quorum Q2).
-3. Liquidity Mandates: allocate L to approved pools/routers per mandate schedule.
-4. Pooled Fees — allocation of remaining F_in − (1 + 2 + 3):
-    - Protocol Operations/Insurance (non-distributive): α
-    - Liquidity Programs (incentives/rebates): β
-    - Insurance Buffer (overflow reserve): γ
+A proposed waterfall could apply received revenue in this order:
 
-    subject to α + β + γ = 1, policy bounds, and per-budget caps.
+1. **Covered reserve target:** fund an adopted reserve or insurance target based only on defined covered exposure, eligible assets, exclusions, and claim rules.
+2. **Core operations:** fund a disclosed, capped operating budget.
+3. **Liquidity mandates:** fund approved, separately governed Pool or routing programs.
+4. **Remaining budget:** allocate any remaining amount among operations, liquidity programs, and an additional buffer under published caps.
 
+A reserve target is not itself a guarantee. Any insurance or guarantee must identify the obligated party, covered event, funding, cap, exclusions, duration, evidence, claim process, and loss allocation.
 
-**Guardrail:** Waterfall allocations are for (i) insurance adequacy, (ii) operations, and (iii) liquidity needed for settlement. They must not be framed or executed as price-support operations.
+**Guardrail:** Waterfall allocations are intended for adopted coverage, operations, and liquidity services. They must not be framed or executed as price-support operations.
 
-Under this illustrative design, any CLC acquired through an enabled DEX Float Reduction program would be **retired** or placed in a disclosed non-voting sink; it would not be distributed to stakers.
+Under the proposed model, any proposed CLC governance tokens acquired through a separately enabled external-liquidity program would be retired or placed in a disclosed non-voting sink. This mechanism is not deployed.

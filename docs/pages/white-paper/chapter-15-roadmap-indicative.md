@@ -1,24 +1,20 @@
-## **15. Roadmap (Indicative)**
+## **15. Roadmap (indicative)**
 
-### **15.1 Current Public Service**
+### **15.1 Current foundation**
 
-As of 24 September 2026, GEF operates the progressive web app at `cosmolocal.credit` on Gnosis Chain. The App provides account and Wallet access, a public market, and interfaces for creating or using Tokens, Vouchers, Commitment Pools, and direct Swaps. Documentation is published at `docs.cosmolocal.credit`. Specific availability depends on the App, contracts, inventory, configured limits and fees, network state, and the terms published by issuers and Pool Stewards.
+GEF operates the CLC App at `cosmolocal.credit` on Gnosis Chain. The App provides supported account and wallet access, a public Market catalog, and interfaces for tokens, vouchers, Offerings, Commitment Pools, transfers, and direct Pool swaps.
 
-### **15.2 Future and Optional Work**
+Protocol v1.1.0 provides the current contract foundation: `GiftableToken`, direct `SwapPool` execution, optional registries, valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only `SwapRouter`. Availability still depends on the interface, deployed contracts, inventory, configuration, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
 
-The following sequence is indicative. Its labels describe design phases, not the current protocol release number, delivery dates, or commitments that any feature will be launched:
+### **15.2 Proposed milestones**
 
+These named milestones are design directions, not release numbers, delivery dates, or commitments that a feature will launch.
 
+- **Governance Foundation:** proposed CLC governance token; proposed CLC Network Pool; fee adapters; quorum, timelock, and governance foundations.
+- **Routing & Observability:** Router SDK and registry APIs; health dashboards; a proposed insurance-policy framework; opt-in rebalance intents; batch-netting prototype.
+- **Cross-Domain Risk Tools:** HTLC or escrow routing; separately governed guarantor modules; rolling, account, and tiered limit presets.
+- **Regulated Access:** deployment-specific third-party payment services; personal micro-pools; compliance-service discovery; third-party audits of voucher classes.
 
-* **v1**: CLC token launch; CLC Pool; fee adapters; governance MVP (quorum + timelocks).
-* **v1.1: Router SDK & registry APIs; health dashboards; Insurance Fund policy v1; opt-in rebalance intents + batch netting (cycle-finding) MVP.**
-* **v1.2**: Cross-domain routing via HTLC/escrow; guarantor module; tiered limit presets.
-* **v2: Retail on/off-ramps (via regulated partners), personal micro-pools;** compliance plugin marketplace; third-party audits of voucher classes.
-    * **- On-ramps:** convert fiat → approved stable cash-equivalents that can seed designated pools.
-    * **Off-ramps:** convert approved cash-equivalent stables → fiat via an approved off-ramp list (bank transfer, e-money issuers, and card-issuing/payment processors on major card rails), with jurisdictional KYC/attestation and geofencing where required.
-    * **Principle:** CLC operators and CPP pools do not operate fiat rails; ramps are provided by licensed third parties under local regulation.
+Any payment service would be provided by separately identified third parties under the applicable jurisdiction, eligibility, fees, limits, and terms. The CLC App and Protocol v1.1.0 contracts do not themselves operate fiat rails.
 
-Multi-hop routing, shared insurance, the proposed CLC/stCLC/sCLC governance system, batch netting, and fiat on/off-ramps remain future or deployment-specific unless the App and applicable published terms expressly state otherwise.
-
-
----
+Multi-hop execution, shared insurance, the proposed CLC governance token and proposed CLC Network Pool, batch netting, personal micro-pools, and regulated payment services remain proposed or deployment-dependent until an implementation and its governing terms identify them as active.

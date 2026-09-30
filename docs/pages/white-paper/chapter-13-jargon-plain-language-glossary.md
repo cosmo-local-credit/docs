@@ -1,21 +1,25 @@
-## **13. Jargon → Plain Language (Glossary)**
+## **13. Plain-language glossary**
 
-
-
-* **CPP**: A set of contracts that list vouchers, set values, limit swaps, charge fees, and safely hold assets.
-* **Voucher**: A digital claim for a specific good/service/cash-equivalent.
-* **Seed (Deposit)**: Add vouchers/tokens into a pool.
-* **Swap**: Exchange one voucher/asset for another if values and limits allow and inventory exists.
-* **Value Index**: The pool’s pricing table for vouchers vs. a reference unit (may use oracles or governance updates).
-* **Swap Limiter**: Caps on how much can be swapped over time to prevent runs/arbitrage.
-* **Router**: Software/contract that finds multi-pool paths for a desired exchange.
-* **Inventory**: What the vault currently holds and can pay out.
-* **Guarantor**: A party that stakes collateral to back a voucher/pool against default.
-* **Redemption SLA**: Expected time to receive the good/service/cash when redeeming a voucher.
-* **Clearing House (CLC Pool)**: A proposed network-level Pool that may collect fees, hold assets, fund LP programs, or support expressly adopted insurance policies. These functions are not automatic.
-* **Fee-credit (budget-exit):** A time-bounded, policy-capped authorization (typically via sCLC) to swap fee assets out of designated fee-holding vaults after the Waterfall. It may be set to zero and is not a dividend, yield, or profit-share.
-* **Rebalancing / Netting Run**: A batch process that executes multilateral cycles/chains across opted-in pools to reduce inventory imbalances and increase successful settlement throughput, subject to published caps and policies.
-* **On/Off-Ramp:** A regulated service that converts fiat ↔ approved stable cash-equivalents used to seed or exit pools (e.g., bank transfer, e-money/payment institutions, card-based cash-out), subject to jurisdictional compliance.
-
-
----
+- **Cosmo-Local Credit (CLC):** The product family, including the CLC App, documentation, and wider commitment-pooling work.
+- **CLC App:** The progressive web app operated by GEF at `cosmolocal.credit`.
+- **Commitment Pooling Protocol (CPP):** The reusable model of curation, valuation, limitation, exchange, and accountable governance.
+- **Protocol v1.1.0:** The verified public smart-contract release.
+- **Commitment Pool:** A governed arrangement that admits supported assets and publishes exchange rules.
+- **`SwapPool`:** The current token vault and direct-swap contract.
+- **Token:** An on-chain balance or digital asset. Token mechanics alone do not create a redeemable promise.
+- **Voucher:** A token or record represented by an issuer as a redeemable commitment under published terms.
+- **Offering:** A catalog record for goods or services associated with a voucher.
+- **Issuer:** The party responsible for publishing and fulfilling a voucher commitment.
+- **Pool Steward:** The accountable structure that publishes and administers Pool rules.
+- **Pool exchange rate or quote:** A transaction parameter produced by a configured quoter; not proof of cash or redemption value.
+- **Pool token-balance cap:** The current `Limiter` maximum for a token held by a Pool. The App may label it **“Credit limit.”**
+- **Pool swap:** A direct asset exchange through one `SwapPool`.
+- **Swap settlement:** The on-chain transfers and fee accounting completing a Pool swap.
+- **Redemption presentment:** Returning or otherwise presenting voucher units to the issuer.
+- **Fulfillment:** The issuer provides the promised good, service, benefit, or other performance.
+- **Discharge:** A record preventing fulfilled units from being presented again.
+- **Proposed execution router:** Future software that would authorize and execute routes. The current `SwapRouter` quotes only.
+- **Proposed CLC Network Pool:** A future network-level clearing and budget-coordination arrangement.
+- **Proposed CLC governance token:** A future governance design, not a current App or Protocol v1.1.0 asset.
+- **Network rake:** A proposed share of Pool fees transferred to a future network budget.
+- **Guarantee or insurance:** A protection that applies only when an identified party expressly assumes, funds, and publishes it.

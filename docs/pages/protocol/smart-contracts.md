@@ -1,6 +1,8 @@
-# Smart Contracts
+# Smart contracts
 
 This page describes the main Pool and Voucher contracts in protocol v1.1.0. Contract behavior provides settlement mechanics; it does not replace the issuer disclosures, Pool rules, or other transaction terms that apply to a particular use.
+
+Use [Concepts and vocabulary](/introduction/concepts) to distinguish the governed Commitment Pool from `SwapPool`, and swap settlement from redemption presentment, fulfillment, and discharge.
 
 
 ## Voucher (`GiftableToken`)
@@ -67,7 +69,7 @@ The contract owner can collect accrued Pool fees and can call `withdrawLiquidity
 Configuration sealing does not remove this liquidity-withdrawal power. It also does not remove the separate ERC-1967 proxy administrator's upgrade power.
 
 
-## Valuation Modules
+## Valuation modules
 
 All three quoters implement forward and reverse quote functions used by `SwapPool` and `SwapRouter`:
 
@@ -80,16 +82,16 @@ An `OracleQuoter` is only as reliable as its feed selection and administration. 
 `OracleRelay` is an optional single-feed, latest-round relay compatible with the oracle interface. A designated writer republishes source values; there is no cross-chain proof and no stored round history. The relay accepts the writer's values with only a future-timestamp check. `OracleQuoter` independently rejects non-positive or stale answers, while the relay owner can rotate the writer or invalidate the current round. Users must therefore assess the source feed, relay writer, relay owner, and monitoring process.
 
 
-## Fee Policy and Limits
+## Fee policy and limits
 
 `FeePolicy` stores a default fee in parts per million and optional directional pair overrides. Its owner can change those rates unless governance outside the contract restricts that power.
 
 `Limiter` stores a maximum balance for a token at a particular Pool address. The owner or an authorized writer can change that limit. A zero limit blocks deposits when the limiter is active; an unset limiter leaves deposits uncapped.
 
-These limits describe configured **token exposure** at a Pool. They do not, by themselves, classify a token balance as a loan or legal debt, prove an issuer's capacity, or guarantee redemption. Those questions depend on issuer terms, Pool rules, the transaction presented to the user, and applicable law.
+These limits describe configured **token exposure** at a Pool. They do not, by themselves, classify a token balance as a loan or legal debt, prove an issuer's capacity, or guarantee fulfillment. Those questions depend on issuer terms, Pool rules, the transaction presented to the user, and applicable law.
 
 
-## Protocol Fee Controller
+## Protocol fee controller
 
 `ProtocolFeeController` is an optional deployment-level fee component. Its owner can change the protocol rate and recipient or deactivate the fee. A single controller can be shared by multiple Pools, but the protocol does not require one controller per network.
 

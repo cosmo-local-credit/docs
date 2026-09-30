@@ -3,10 +3,10 @@ import type { CSSProperties, ReactNode } from 'react'
 import { LandingThemeToggle } from './LandingThemeToggle'
 
 const statistics = [
-  { value: '752', label: 'Vouchers', tone: 'orange' },
-  { value: '141', label: 'Pools', tone: 'deep-green' },
-  { value: '3,540', label: 'Active Members', tone: 'gold' },
-  { value: '271,144', label: 'P2P Exchanges', tone: 'earth-green' },
+  { value: '745', label: 'Unique active vouchers', tone: 'orange' },
+  { value: '188', label: 'Unique active Commitment Pools', tone: 'deep-green' },
+  { value: '26,367', label: 'Users', tone: 'gold' },
+  { value: '285,197', label: 'Peer-to-peer exchanges', tone: 'earth-green' },
 ] as const
 
 const roles = [
@@ -14,28 +14,28 @@ const roles = [
     id: 'stewards',
     icon: '/about/home/stewards-icon.png',
     title: 'Stewards',
-    description: 'I want to create a commitment pool',
+    description: 'I want to create a Commitment Pool',
     color: '#004844',
   },
   {
     id: 'service-providers',
     icon: '/about/home/service-providers-icon.png',
     title: 'Service Providers',
-    description: 'I want to create Vouchers to offer my goods or services',
+    description: 'I want to create vouchers for my goods or services',
     color: '#8a9129',
   },
   {
     id: 'voucher-users',
     icon: '/about/home/voucher-users-icon.png',
     title: 'Voucher Users',
-    description: 'I want to send, swap or redeem my Vouchers',
+    description: 'I want to send, swap or present my vouchers to their issuers',
     color: '#9ca332',
   },
   {
     id: 'supporters',
     icon: '/about/home/supporters-icon.png',
     title: 'Supporters',
-    description: 'I want to support a commitment pool',
+    description: 'I want to support a Commitment Pool',
     color: '#e86a2c',
   },
 ] as const
@@ -43,54 +43,54 @@ const roles = [
 const howItWorks = [
   {
     number: '01',
-    title: 'Join or Create',
+    title: 'Join or create',
     description:
-      'Join an existing commitment Pool or create your own with customizable rules and governance.',
+      'Join an existing Commitment Pool or create your own with customizable rules and governance.',
   },
   {
     number: '02',
-    title: 'Issue & Exchange',
+    title: 'Issue and exchange',
     description:
-      'Issue or receive redeemable commitments, then send, swap or redeem them with other community members.',
+      'Issue or receive redeemable commitments, then send, swap or present them to issuers for fulfillment.',
   },
   {
     number: '03',
-    title: 'Build Networks',
+    title: 'Build networks',
     description:
-      'Connect with other communities to expand exchange opportunities and strengthen bioregional economies.',
+      'Connect with other communities to expand exchange opportunities through compatible, independently governed Pools.',
   },
   {
     number: '04',
-    title: 'Measure Impact',
+    title: 'Measure impact',
     description:
-      'Account for community health, exchange activity and social impact through public records and shared reporting.',
+      'Inspect on-chain exchange records and combine them with separately sourced community and impact reporting.',
   },
 ] as const
 
 const features = [
   {
     number: '01',
-    title: 'Community Driven',
+    title: 'Community driven',
     description:
       'Built by communities, for communities. Local governance and decision-making put power in the hands of users.',
   },
   {
     number: '02',
-    title: 'Open-Source & Public-Benefit',
+    title: 'Open source and public benefit',
     description:
       'Sarafu Network was built and stewarded by Grassroots Economics Foundation. Cosmo-Local Credit carries that transparent, open-source foundation forward.',
   },
   {
     number: '03',
-    title: 'Last-Mile',
+    title: 'Last-mile',
     description:
       'Cosmo-Local Credit is a mobile-first PWA with QR flows and printable paper wallets. Sarafu’s earlier last-mile work also included NFC cards.',
   },
   {
     number: '04',
-    title: 'Secure & Transparent',
+    title: 'Secure and transparent',
     description:
-      'Public blockchain records make exchanges and community operations inspectable, while published Voucher terms and Pool rules keep responsibilities clear.',
+      'Public blockchain records make addresses, assets, amounts, timestamps and contract events inspectable. Published voucher terms, Pool rules and separate reports provide evidence about responsibilities and off-chain activity.',
   },
 ] as const
 
@@ -254,14 +254,12 @@ export function AboutPage() {
 
       <div className="about-migration-wrap about-shell">
         <div className="about-migration-note">
-          <span className="about-migration-note__label">Sarafu Network has migrated</span>
+          <span className="about-migration-note__label">From Sarafu Network to Cosmo-Local Credit</span>
           <p>
-            Sarafu Network’s community, history, figures, partners and commitment-pooling work
-            continue as <strong>Cosmo-Local Credit</strong> at{' '}
-            <a href="https://cosmolocal.credit" rel="noreferrer" target="_blank">
-              cosmolocal.credit
-            </a>
-            . <a href="/introduction/history">Read the history</a>.
+            Cosmo-Local Credit carries forward Sarafu Network’s history, lessons and
+            commitment-pooling work. This service transition does not mean that every historic
+            account, asset, participant or obligation migrated.{' '}
+            <a href="/introduction/history">Read the history</a>.
           </p>
         </div>
       </div>
@@ -280,9 +278,9 @@ export function AboutPage() {
             <div>
               <h1 id="overview-title">Cosmo-Local Credit</h1>
               <p className="about-overview__description">
-                Cosmo-Local Credit is a live progressive web app and open protocol for creating
-                and exchanging redeemable commitments—such as vouchers, service credits, and
-                delivery claims—through independently curated Pools.
+                The Cosmo-Local Credit product family includes a progressive web app and an open
+                protocol for creating and exchanging redeemable commitments—such as vouchers,
+                service credits and delivery claims—through independently governed Commitment Pools.
               </p>
             </div>
           </div>
@@ -321,16 +319,16 @@ export function AboutPage() {
 
           <div className="about-overview__feature-grid">
             <article className="about-overview__feature-card">
-              <h2>Redeemable Commitments</h2>
-              <p>Issuers publish what each Voucher represents and how, where, and when a Holder can redeem it.</p>
+              <h2>Redeemable commitments</h2>
+              <p>Issuers publish what each voucher represents and how, where and when a holder can present it for fulfillment.</p>
             </article>
             <article className="about-overview__feature-card">
               <h2>Curated Pools</h2>
-              <p>Pool Stewards publish accepted assets, valuations, fees, limits, controls, and any specifically scoped guarantee.</p>
+              <p>Pool Stewards publish admitted assets, exchange-rate methods, fees, limits, controls and any expressly scoped guarantee.</p>
             </article>
             <article className="about-overview__feature-card">
-              <h2>Accountable Exchange</h2>
-              <p>Users inspect Voucher terms, Pool rules, and transaction details before exchanging assets on a public blockchain.</p>
+              <h2>Accountable exchange</h2>
+              <p>Participants inspect voucher terms, Pool rules and transaction details before exchanging assets on a public blockchain.</p>
             </article>
           </div>
         </div>
@@ -368,6 +366,17 @@ export function AboutPage() {
                 </div>
               ))}
             </dl>
+            <p className="about-stats-source">
+              Historical Sarafu Network activity on Celo, 5 July 2023–20 July 2025.{' '}
+              <a
+                href="https://dune.com/grassrootseconomics/sarafu-network"
+                rel="noreferrer"
+                target="_blank"
+              >
+                View the Dune source
+              </a>
+              . These are not current CLC adoption figures.
+            </p>
           </div>
 
           <div
@@ -408,9 +417,9 @@ export function AboutPage() {
           <div className="about-section-heading">
             <h2>What brings you to Cosmo-Local Credit?</h2>
             <p>
-              Offerings, registered as Vouchers with published redemption terms, come together in
-              shared commitment Pools that work like virtual marketplaces. Accountable Stewards
-              curate those Pools so communities can exchange valuable goods and services.
+              Vouchers with published terms and associated Offerings can be admitted to
+              independently governed Commitment Pools. Accountable Pool Stewards curate those
+              Pools so participants can exchange supported assets.
             </p>
           </div>
           <nav className="about-role-grid" aria-label="Explore Cosmo-Local Credit by role">
@@ -458,7 +467,7 @@ export function AboutPage() {
         accent="#004844"
         cardTitle="Create your Pool"
         cta={{ href: 'https://cosmolocal.credit/pools/create/pool', label: 'Start Now' }}
-        description="Stewards curate which Vouchers and issuers are allowed into the Pool, set reasonable limits, help members onboard and redeem Vouchers, reward supporters, and connect with other Pools sharing common Vouchers. In return for their services, Stewards may set and collect small membership or transaction fees."
+        description="Pool Stewards curate which vouchers and issuers are admitted, set reasonable limits, help participants onboard and present vouchers for fulfillment, reward supporters, and connect with other Pools sharing common assets. In return for their services, Stewards may set and collect disclosed participation or transaction fees."
         id="stewards"
         image={{
           src: '/about/home/community-collab-image.png',
@@ -469,8 +478,8 @@ export function AboutPage() {
         imageSide="right"
         items={[
           'Publish a Pool: name, description and governance',
-          'Curate and approve Vouchers',
-          'Set values, limits and fees',
+          'Curate and approve vouchers',
+          'Set exchange-rate methods, limits and fees',
           'Launch, share and invite supporters',
           'Start swapping',
         ]}
@@ -484,7 +493,7 @@ export function AboutPage() {
         accent="#8a9129"
         cardTitle="Create your Voucher"
         cta={{ href: 'https://cosmolocal.credit/vouchers/create/voucher', label: 'Start Now' }}
-        description="Whether you’re offering food, education, mobile repair or another useful commitment, you can issue Vouchers with clear terms, receive support and build trust over time."
+        description="Whether you’re offering food, education, mobile repair or another useful commitment, you can issue vouchers with clear terms, receive support and build trust over time."
         id="service-providers"
         image={{
           src: '/about/home/service-providers-image.png',
@@ -494,8 +503,8 @@ export function AboutPage() {
         }}
         imageSide="left"
         items={[
-          'Create Vouchers for your services or products',
-          'Publish your terms and redemption rules',
+          'Create vouchers for your services or products',
+          'Publish your terms and fulfillment process',
           'Build trust through community verification',
           'Access exchange opportunities through Pool participation',
           'Start accepting Vouchers for services',
@@ -508,9 +517,9 @@ export function AboutPage() {
 
       <AudienceSection
         accent="#9ca332"
-        cardTitle="What’s Available Near You"
+        cardTitle="What’s available near you"
         cta={{ href: 'https://cosmolocal.credit/vouchers', label: 'Explore Vouchers' }}
-        description="You can think of a Voucher as a gift card or digital credit representing a redeemable commitment within a community. Members receive Vouchers for goods or services and use them to access other members’ offerings. Vouchers keep value circulating locally and strengthen community trade."
+        description="You can think of a voucher as a gift card or digital credit representing an issuer’s redeemable commitment. Participants can receive vouchers for goods or services, swap supported assets through Pools, and present vouchers to issuers for fulfillment."
         id="voucher-users"
         image={{
           src: '/about/home/community-vouchers-image.png',
@@ -520,11 +529,11 @@ export function AboutPage() {
         }}
         imageSide="right"
         items={[
-          'Browse Vouchers and their published redemption terms',
-          'See the Pools that accept each Voucher',
-          'Send, swap, redeem or gift Vouchers forward',
+          'Browse vouchers and their published redemption terms',
+          'See the Pools that admit each voucher',
+          'Send, swap, present or gift vouchers forward',
         ]}
-        tagline="Swap your Vouchers in Pools, redeem them for local products, or gift them forward."
+        tagline="Swap your vouchers in Pools, present them to issuers for fulfillment, or gift them forward."
         title="Voucher Users"
       />
 
@@ -672,8 +681,8 @@ export function AboutPage() {
         <div className="about-shell">
           <h2>Ready to transform your community?</h2>
           <p>
-            Join thousands of community members building stronger local economies through
-            redeemable commitments and shared commitment Pools.
+            Explore redeemable commitments and independently governed Commitment Pools that
+            can support stronger local exchange.
           </p>
           <div className="about-cta__buttons">
             <a

@@ -1,80 +1,64 @@
-## **8. Technical Scope & Growth**
+## **8. Technical scope and growth**
 
-This section describes optional and future technical work. It is not a list of features guaranteed to be present in the current public PWA.
+This chapter describes optional or proposed work. It is not a list of features guaranteed to be present in the current CLC App or Protocol v1.1.0.
 
-Priorities:
+Possible work areas include:
 
+- execution routing across compatible Pools, with registry, quote, limit, fee, and inventory discovery;
+- timelocked escrow or HTLC adapters for cross-domain execution where atomic settlement is unavailable;
+- interfaces and policy tools for small or personal Pools;
+- auditable registries for vouchers, Pools, exchange-rate methods, limits, controllers, and fees;
+- deployment-specific payment-provider connectors, checkout flows, and eligibility controls;
+- fungible-asset connections to external liquidity venues for rebalancing and payment liquidity; and
+- policy-capped treasury conversion for adopted coverage, operating costs, or liquidity mandates.
 
+External-market prices would not determine what an issuer owes under voucher terms. A Pool could use a guarded external reference for a fungible asset, but its published exchange-rate method, limits, fees, and inventory would govern its quotes.
 
-* **Routing protocols across** Cosmo-Local Credit and other compatible Pools; SDKs and index/limit discovery APIs.
-* **Bridges to external DEX** registries; Time-locked contract/escrow for cross-domain settlement.
-* Support for the long tail of **micro-pools** (including personal pools UX).
-* **Auditable registries** for vouchers, pools, limits, values, and fee policies.
-* **Fiat/stable on/off-ramp connectors**: a partner/rail registry (by jurisdiction), checkout/invoice flows, and UI “network profiles” that can geofence features and require attestations for cash-equivalent redemptions.
-* **Bridges to external liquidity venues** (DEXs and other registries) for fungible assets (e.g., stable cash-equivalents and major liquid tokens), using time-locked escrow/HTLC where cross-domain atomicity is unavailable. Purpose: rebalancing, on/off-ramp liquidity, and risk-managed settlement support - not pricing of redeemable vouchers by speculative curves.
-* **Treasury conversion & settlement acceleration**: policy-capped conversion of cash-eligible fee assets (E_cash) held in the CLC Pool into stables/fiat when needed for insurance/ops and to maintain off-ramp liquidity—while prioritizing in-network settlement and using liquidity mandates/rebalancing to reduce settlement latency.
+### **8.1 Proposed route-service and SDK norms**
 
-**DEX Interop Boundary:** DEX adapters are for fungible liquidity management (stables, rebalancing, exit ramps), not for defining the value index of redeemable commitments. Voucher pricing remains governed by each pool’s Value Index + limits + inventories; DEX prices may be used only as an auxiliary reference for fungible assets and must be guarded against manipulation (caps, TWAP/medianization, deny-lists, and incident pauses).
+**Discovery.** A proposed route service would query identified registries for asset admission, exchange-rate methods, limits, fees, inventory, incidents, and controller information. Cached records would include freshness bounds and source identifiers.
 
+**Network profiles.** A client could support more than one registry root or policy profile. It would tell the participant which profile, counterparties, adapters, constraints, and responsible service operators a quote uses. A cross-profile route would need to satisfy every applicable hop's conditions.
 
-### **8.1 Router & SDK Norms**
+**Path policy.** An accountable operator could exclude unsafe dependencies or counterparties and apply route-level caps, freshness requirements, and health criteria. These signals would support a decision; they would not guarantee fulfillment or protection from loss.
 
-**Public Discovery.** Routers must query public registries of voucher listings, value indices, limits, fees, and inventories; cache with freshness bounds.
+**Fees and limits.** A quote would itemize Pool fees, any additional current Protocol fee, and any separately proposed routing or service fee. Execution would reject expired quotes or breached bounds.
 
-**Multi-Profile Discovery (Confederation).** Routers/SDKs may support multiple registry roots (“network profiles”) and must surface to users/pools which profile a route uses (registry root, policy constraints, bridge adapters). Cross-profile routes must satisfy the strictest applicable caps/escrow requirements and must be auditable hop-by-hop (quote → receipt mapping).
+**Atomicity and recovery.** Multi-hop execution would be atomic where possible. Where it used HTLCs or escrow, the service would disclose timeouts, abort paths, responsible controllers, incident procedures, and residual risks.
 
-**Path Policies.** Deny-list toxic routes (known bad bridges/pools) and enforce per-route caps and minimum health scores (reserve adequacy, SLA adherence).
+**Proposed batch netting and rebalancing.** An opt-in service might collect rebalance intents and search for compatible cycles or chains. It would:
 
-**Fees & Caps.** Routing fees expressed per-hop; routers may add a small discoverability fee within policy bounds; hard caps apply under stress (utilization spikes).
+1. publish a machine-readable receipt identifying executed cycles, assets, amounts, valuation timestamps, and fees;
+2. enforce adopted per-period caps and counterparty policies;
+3. reject activity that breaches any participating Pool's authorization, limits, or available inventory; and
+4. preserve deterministic inputs and receipts for review and dispute handling.
 
-**Atomicity & Escrow.** Prefer atomic multi-hop where possible; otherwise use HTLC/escrow with conservative timeouts and explicit abort paths.
+**SDK requirements.** An SDK for executed routes would provide deterministic quote-to-receipt mapping, per-hop invariant checks, understandable failure codes, and audit-friendly logs. The current Protocol v1.1.0 `SwapRouter` provides quotes only; it does not execute these proposed routes.
 
-**Batch Netting & Rebalancing.** Routers may also perform batch netting runs across opted-in pools by collecting rebalance intents and searching for multilateral cycles/chains that satisfy each pool’s constraints. Norms:
+#### **8.1.1 Minimum confederation compatibility specification**
 
-(i) publish a machine-readable “rebalance receipt” summary (cycles executed, total off-set value, fees charged),
+A Pool ecosystem seeking cross-profile routing would publish machine-readable information for:
 
-(ii) enforce conservative per-epoch caps and health-score gating,
+1. **Registry roots:** identifiers for assets, Pools, exchange-rate methods, limits, and fee policies, or one root that deterministically resolves them.
+2. **Receipts:** the profile, assets in and out, amounts, quote source and timestamp, limit snapshot, fees, inventory result, and execution outcome for every hop.
+3. **Operational signals:** freshness-bounded information about inventory, limit utilization, incidents, and any separately evidenced fulfillment or funded protection.
+4. **Policy constraints:** allowed or denied counterparties, asset classes, adapters, and any escrow requirements.
+5. **Failure codes:** deterministic explanations for rejection, expiry, limit, inventory, policy, dependency, or incident failures.
 
-(iii) reject any route that violates a pool’s allow/deny policies or exceeds limiter windows/caps,
+A profile could add coverage, compliance, arbitration, or other services without making them requirements for basic CPP compatibility. Each optional service would identify its responsible party, authority, scope, and terms.
 
-(iv) keep batch execution auditable (deterministic inputs → receipts) to support dispute resolution.
+### **8.2 Licensing, verification, and exit**
 
-**SDK Guarantees.** Provide (i) deterministic quote → receipt mapping, (ii) invariant checks per hop, (iii) human-readable failure codes, (iv) audit-friendly logs.
+Protocol v1.1.0 contracts are EVM-compatible. Contracts in the Protocol repository's `src` directory are published under AGPL-3.0 except for identified unmodified third-party components that retain their own terms. Published source, ABIs, and deployment instructions support independent review but do not by themselves prove an audit, safe deployment, or legal compliance.
 
-**8.1.1 Minimum Confederation Compatibility Contract (MCC)**
+Each deployment would separately disclose its code version, build provenance, addresses, controller and upgrade powers, audit status, registry mirrors, and any timelock or pause protections.
 
-To be routable across profiles (and thus across confederated networks), a pool ecosystem must publish the following in a machine-readable way:
+A proposed **fork kit** could include:
 
-1) Registry roots: canonical addresses for voucher registry, pool registry, value index registry, limiter registry, and fee policy registry (or a single root that deterministically resolves these).
+1. deterministic deployment scripts;
+2. registry snapshot and export tools;
+3. a documented process for repointing route services, SDKs, and interfaces to a new registry root;
+4. a Pool Steward checklist for leaving a shared registry safely; and
+5. a migration checklist for outstanding vouchers, including issuer notices, presentment and fulfillment deadlines, continued access to records, and remedies.
 
-2) Receipt standard: every hop must emit/return a receipt that references (a) registry root/profile used, (b) voucher/token in/out, (c) value index version or timestamp, (d) limiter window/cap snapshot, (e) fees charged, and (f) inventory check result.
-
-3) Health endpoints: per-pool signals required for routing policies—reserve adequacy, SLA adherence, limiter utilization, and incident state—plus freshness bounds.
-
-4) Policy constraints: explicit allow/deny policies (bridges, counterparties, voucher classes) and required escrow/HTLC requirements for non-atomic hops.
-
-5) Failure codes: human-readable, deterministic failure codes so clients can explain why a route was refused (limits, inventory, policy, escrow, incident pause).
-
-Networks may implement additional features (insurance overlays, compliance hooks, arbitration modules), but these must remain profile-scoped and must not be required for basic CPP compatibility.
-
-
-### **8.2 Licensing & Transparency**
-
-The protocol contracts are **EVM-compatible**. Contracts under the protocol's `src` directory are published under **AGPL-3.0** except for unmodified third-party components, such as identified Solady contracts, that retain their original terms. Published source, ABIs, and deployment instructions support independent verification. Each deployment must separately disclose its code version, build provenance, canonical addresses, administrator and upgrade powers, audit status, registry mirrors, and any timelock protections; none of those protections should be assumed merely from protocol compatibility.
-
-**Fork Kit (Proposed Deliverable).** A mature deployment should maintain a “fork kit” that includes:
- (i) deterministic deployment scripts; (ii) registry snapshot/export tooling; (iii) a documented procedure to re-point routers/SDKs to a new registry root; and (iv) a pool steward checklist for exiting canonical registries safely (including fee-hook redirection options where supported).
-
-**Example: Minimum Exit Checklist (publish + test annually):**
-
-
-
-1. How to export registry snapshots + receipts.
-2. How to repoint routers/SDKs to a new root.
-3. How to migrate insurance scope (or explicitly terminate it).
-4. How to honor outstanding vouchers during migration (notice-to-redeem + remedy options).
-
-**Why shared-source licensing + a Fork Kit:** Confederation rewards compatibility. Networks that fork and improve routers, registry tooling, bridge adapters, or observability can still route with CLC if they remain CPP-compatible, expanding settlement paths and strengthening the whole mesh. Improvements to AGPL-covered shared infrastructure remain shareable under its terms, while identified third-party components retain their applicable terms.
-
-
----
+Compatible forks can improve resilience when communities, cooperatives, public agencies, federations, multisigs, or service operators need different governance. Actual continuity still depends on contract ownership, keys, dependencies, interfaces, infrastructure, legal obligations, and third-party services.

@@ -1,47 +1,27 @@
-## D. Launch Parameters 
+## D. Proposed launch parameters
 
-These values are illustrative proposals for a future governance deployment. Actual values, if any, must be separately adopted, disclosed, and enforced by the deployed contracts; they are not current App defaults or guarantees.
+Every value below is illustrative. It is not a current App default, Protocol v1.1.0 setting, guarantee, offer, or delivery commitment. A future deployment would need to adopt, enforce, monitor, and publish its actual parameters.
 
+- **Quorum tiers for the proposed CLC governance token:**
+  - Q1 routine: at least 4% quorum and more than 50% approval.
+  - Q2 sensitive: at least 10% quorum and at least 60% approval.
+  - Q3 critical: at least 20% quorum and at least 66.7% approval.
+- **Proposed timelocks:**
+  - T1: 48 hours for Q1 actions.
+  - T2: 7 days for Q2 actions.
+  - T3: 30 days for Q3 actions.
+- **Epoch cadence:** 7 days, including any adopted voting, budget publication, and proposed sCLC windows.
+- **Emergency pause:** immediate through an identified emergency authority, expiring after 72 hours unless ratified under the adopted process.
+- **Proposed network rake:** 20% of participating Pool fees by default, bounded by policy.
+- **Illustrative Pool fee range:** 0%–20%, published by each participating Pool.
+- **Proposed routing or service fee cap:** 20 bps per route.
+- **Proposed network-rake rate:** `rake_rate_p = pool_fee_p × rake_share_p`.
+- **Revenue eligibility:** classify received assets as cash-eligible `E_cash` or in-kind `E_kind` under a published method.
+- **Conversion controls:** asset and venue allowlists, responsible authorities, price sources, time windows, slippage limits, caps, and reporting.
+- **Budget enablement:** publish a proposed fee-access budget only after adopted covered-reserve and operating targets are satisfied; the budget may be zero.
+- **Risk lanes:** do not expose one asset class to another class's risk without explicit, informed opt-in under applicable law.
+- **Proposed rolling and account limits:** deny unapproved cross-class activity and apply adopted caps.
+- **Optional coverage reduction:** only where pre-existing coverage terms, required consent, and applicable law authorize it; it does not by itself reduce an issuer's voucher commitment or an on-chain balance.
+- **External-liquidity controls, if separately enabled:** publish venue scope, measurement method, triggers, spend and volume caps, execution controls, emergency stops, and receipts. Do not present the program as token-price support.
 
-
-* Quorum Tiers (of staked voting power):
-    * Q1 (Routine): ≥ 4% quorum, >50% approval.
-    * Q2 (Sensitive): ≥ 10% quorum, ≥60% approval.
-    * Q3 (Critical): ≥ 20% quorum, ≥66.7% approval.
-* Timelocks (minimum delay before execution):
-    * T1: 48 hours (Q1 actions)
-    * T2: 7 days (Q2 actions)
-    * T3: 30 days (Q3 actions)
-* Epoch Cadence: default 7 days (policy-set). Each epoch includes: 
-    * (i) gauge voting window, 
-    * (ii) emissions calculation, 
-    * (iii) publication of F_epoch (may be zero), 
-    * (iv) sCLC swap windows (if enabled).
-* Gauges: canonical list of eligible pools/mandates for incentive direction; edits are timelocked and require Q2 quorum or higher.
-* Emissions Budget (sCLC): a bounded, policy-set maximum per epoch; may be zero; cannot override Waterfall priorities.
-* Anti-gaming: wash-loop exclusion, beneficial-owner clustering, per-entity caps, delayed finalization, and dispute/appeal windows for manipulated metrics.
-* Emergency Pause: immediate (multisig/emergency role), auto-sunsets in 72 hours unless ratified by Q2.
-* Network Fee τ: 20–60 bps (default 30 bps) on routed value
-* Pool Fee Range (steward-set): 0%–20% depending on voucher class and risk tier (disclosed on-chain per pool).
-* Network Rake Share r: CLC receives r% of each pool’s collected fees (default 20%; policy-bounded per pool class).
-*   Effective network fee rate per pool: τ_p = f_p · r_p (rake-on-rake).
-* Fee Asset Eligibility Sets:
-*   	E_cash (cash-eligible): allowlisted stables/cash-equivalents and (optionally) major liquid tokens.
-    * E_kind (in-kind): non-fiat-redeemable vouchers and other non-convertible fee assets.
-* Conversion Policy (fungible assets only): venue allowlists, TWAP windows, max slippage, and monthly caps; quarterly reporting of χ (cash-eligible share).
-* F_epoch enablement rule: publish F_epoch only if (i) InsuranceFund ≥ Target and (ii) B_core is fully funded for the epoch; otherwise F_epoch = 0.
-* Router Fee Cap: ≤ 20 bps per route
-* Reserve Floors by Class: Cash-Equivalent Stable ≥ 100% off-ramp attestations
-* Segregated Risk Lanes:
-    * Cash-Equivalent lanes do not cross-subsidize goods/services voucher losses.
-    * No routing from Cash-Equivalent to higher-risk classes unless explicitly opted-in per account/pool.
-* Default router policy: “safe-by-default” (deny cross-class risk unless allowlisted).
-* Optional Coverage-Reduction Cap (per incident): an illustrative maximum of 10% of the covered claim, with a make-whole schedule, only where pre-existing terms and applicable law authorize it. This does not itself reduce the underlying Voucher commitment or on-chain balance.
-* **DEX Float Reduction Parameters (if enabled):**
-    * **DEX float definition:** sum of CLC balances in **allowlisted** external liquidity venues (list on-chain), measured by oracle/indexer method M.
-    * **Trigger:** activate only if DEX float > **X%** for **Y** consecutive days.
-    * **Spend/volume caps:**≤**Z%** of trailing-month fee inflows **and/or**≤**W%** of trailing-day DEX volume (use the stricter cap).
-    * **Execution controls:** TWAP window **T**; max slippage **S**; randomized delay range **R**; **no publication of exact timing** beyond the standing policy.
-    * **Emergency stop:** auto-disable if **InsuranceFund / Target &lt; I_min** or if any **Reserve Floor** is breached.
-    * **Disclosure requirement:**“Not intended to support price; settlement does not depend on DEX price.”
-    * **Receipt transparency:** all executions emit on-chain receipts and are summarized in the epoch report.
+Current Protocol v1.1.0 Pool fees, additional protocol fees, and Pool token-balance caps remain governed by the deployed contracts and configuration, not these proposed values.

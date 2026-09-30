@@ -1,210 +1,115 @@
-## **5. From Isolated Pools to a Federated Network**
+## **5. From isolated Pools to a federated network**
 
-CPs interoperate when they list the same vouchers. Routers move value across pools, respecting each hop’s **value index, limits, fees, and inventory**. As pools proliferate:
+Current Protocol v1.1.0 supports direct execution through one `SwapPool` and provides a quote-only `SwapRouter`. It does not execute multi-hop routes, HTLCs, escrow routes, batch netting, or cross-network clearing.
 
-**Status note:** Direct Pool interactions are available in the public PWA. Multi-hop routing, cross-profile routing, batch netting, shared Waterfall budgets, and sCLC mechanisms in this chapter are optional or proposed capabilities unless a deployment expressly identifies them as active.
+This chapter proposes how independently governed Pools could coordinate without giving up their own admission, valuation, limit, fee, inventory, authorization, and governance rules.
 
+### **5.1 Separate exchange and fulfillment measures**
 
+Federation might improve access to inventory, but it would not merge the voucher and exchange lifecycles. Any implementation would measure these events separately:
 
-* Possible routing paths may multiply,
-* Fulfillment velocity may increase,
-* Fee volume may grow, and
-* Participants may gain access to inventories beyond a single Pool.
+1. a route is quoted;
+2. one or more Pool swaps execute and settle on-chain;
+3. a holder presents voucher units to the issuer;
+4. the issuer fulfills the commitment; and
+5. fulfilled units are discharged.
 
-**Routing story:** A school accepts “maize vouchers” but needs “transport vouchers.” A router finds a path across pools that accept both. The swap clears only if each hop is within limits and inventory … so the voucher reaches someone who can actually redeem it.
+More quoted or executed routes do not prove more fulfillment. Reports would state the cohort, period, assets, valuation method and timestamp, exclusions, corrections, and off-chain evidence required by Appendix C.
 
-**5.1 Velocity Multiplier**
+**Illustrative route:** A school holds maize vouchers but needs transport vouchers. A route service identifies compatible Pool inventories. Execution would succeed only if every separately authorized hop remained within its quote bounds, limits, fees, inventory, and policy. The resulting swaps would not prove that either issuer later fulfilled its voucher commitments.
 
-When pools operate in isolation, each voucher can only settle within the small local circle that recognizes it. As pools are federated via a common protocol:
+### **5.2 Proposed routing and rebalancing services**
 
+A future route service could support two distinct activities.
 
+**Participant-initiated execution.** Given input and output assets, an amount, and user constraints, the service could identify a path and prepare execution. Each hop would have its own responsible Pool, quote, authorization, fees, limits, inventory, and receipt. Atomic batches, HTLCs, and escrow are possible future execution choices, not current Protocol behavior.
 
-1. More routes appear: a voucher can cross several pools to reach someone who can redeem it.
-2. Credit is aggregated: multiple pools’ acceptance capacity can support the same voucher type.
-3. Netting surfaces: multi-lateral swaps reduce the need for bilateral matching.
+**Opt-in Pool rebalancing.** Pool Stewards could publish inventory targets, allowed counterparties, asset classes, quote-deviation bounds, and per-period limits. An accountable service could search for compatible cycles or chains and execute only the authorized intents.
 
-The result is higher settlement flow for a given stock of obligations: the same commitments can find fulfillment faster.
-Formally, if we index pools by k:
+Rebalancing would be opt-in. A Pool could allow participant routes while refusing outbound rebalancing, or it could enable only selected assets, counterparties, and amounts. Every executed hop would produce a receipt, and any service fee would be disclosed separately from Pool and Protocol fees.
 
+#### **5.2.1 Confederation and interoperability**
 
+Independent deployments could operate their own registries, interfaces, route services, and policy profiles while choosing compatible data and receipt standards. Cross-profile execution would remain deployment-dependent.
 
+A compatible profile would:
 
+- identify its registry roots, service operators, controllers, and applicable terms;
+- disclose allowed and denied counterparties, assets, adapters, and routes;
+- apply every participating Pool's authorization, limits, fees, and inventory constraints;
+- preserve per-hop quote-to-receipt evidence; and
+- allow otherwise functional Pools to leave or select another registry without erasing balances or issuer obligations.
 
-S_j = ∑_k S_{j, k}
+Compatibility can increase available exchange paths and reduce dependency on one registry or operator. It does not make the network, CLC App, GEF, or another Pool responsible for an issuer's fulfillment.
 
-D_j = ∑_k D_{j, k}
+### **5.3 Proposed network-rake and service-fee model**
 
+Current Protocol v1.1.0 charges a Pool fee and, when configured, an additional Protocol fee on a direct Pool swap. Those current fees remain distinct.
 
-Connectivity increases per-pool settlement flow without necessarily increasing per-pool obligation stock.
+A future program could separately receive:
 
-Thus settlement velocity for voucher j rises across the network as routing improves.
+1. a **network rake**, defined as a stated share of participating Pools' collected Pool fees; and
+2. a **routing or service fee**, charged for an identified future service.
 
-**5.2 Routing as a Service: Pathfinding + Rebalancing (Liquidity-Saving)**
-
-In a CLC-compatible network, “routing” is not only a user-facing convenience (“swap voucher A for voucher B”). It is also a network liquidity service that increases settlement velocity by improving how inventory is distributed across pools and by surfacing multilateral netting opportunities.
-
-Two routing modes:
-
-1) End-user routing (on-demand)
-
-Given (token_in, token_out, amount, constraints), the router discovers a multi-hop path across CPs. A route is valid only if each hop clears: (i) listing/registry checks, (ii) value index pricing, (iii) swap limiter windows/caps, (iv) fee rules, and (v) outgoing inventory availability. Execution is atomic where possible; otherwise HTLC/escrow is used with explicit abort paths.
-
-2) Pool rebalancing / batch netting (scheduled or threshold-triggered)
-
-Pools may opt-in to publish “rebalance intents” (or standing constraints): target inventory bands by voucher class, maximum deviation vs. the pool’s value index, per-epoch caps, and allow/deny routing preferences. Routers/clearing agents then search for multilateral cycles and chains that:
-
-(i) satisfy every hop’s limits and inventories,
-
-(ii) reduce inventory imbalance across pools, and
-
-(iii) maximize total off-set value subject to policy constraints.
-
-These cycles are executed as batch routes, producing receipts per hop (quote → receipt mapping).
-
-**Why this works**
-
-Obligation networks can contain cycles. When expressly compatible obligations are processed together, matching and fulfillment may require less external liquidity than sequential bilateral processing. This proposed “cycle surfacing” mechanism remains subject to every Pool's valuation, limits, fees, inventory, authorization, and applicable terms. It does not make an ordinary Swap a loan repayment.
-
-**Opt-in & sovereignty note**
-
-Rebalancing is never forced. A pool can be routable for end-users while disabling outbound rebalancing, or can enable only specific voucher classes, caps, and counterparties.
-
-As routing and netting improve, the network can produce more fee events from real settlement activity; this can expand (policy-permitting) the fee-credit budget that defines sCLC swap-access capacity - without turning sCLC into an equity or profit instrument.
-
-**5.2a Confederation & Interoperability**
-
-CLC is designed as a confederation protocol: many independent networks can run their own registries, routers, and policy layers, while still routing to one another when they share compatible vouchers and standards. This is not a hub-and-spoke monopoly; it is a mesh of overlapping curations.
-
-**Interoperability incentive (why open source + forks help everyone):**
-
-• Any fork/network that remains CPP-compatible can route to CLC pools (and CLC routers can route to theirs), increasing settlement paths, inventory reach, and real-world fulfillment velocity for all parties.
-
-• More interoperable networks → more routable paths → higher throughput and fee volume from real settlement activity (not speculation), benefiting LP programs and routing services across the confederation.
-
-• Open-source “forkability” reduces systemic risk: if any canonical registry/router becomes captured or degraded, communities can re-point or fork without bricking local economies.
-
-**Confederation mechanics (how it works):**
-
-1) Multi-profile discovery and explicit user/pool choice of registry roots (“network profiles”) (see §8.1).
-
-2) Reciprocal routing: confederated networks can publish mutual allowlists (registry roots / bridge adapters) with risk parameters (caps, escrow requirements, health-score thresholds).
-
-3) Policy separation: each profile defines its own fee norms, insurance scope, and compliance hooks; routing across profiles must satisfy each hop’s stated constraints and inventory.
-
-**5.3. From Settlement Velocity to Fee Volume**
-
-Every routed swap or settlement can carry a small fee, analogous to an interchange fee in card networks.
-
-Let:
-
-
-
-1. τ = average fee rate (e.g. 0.2% per routed value unit)
-2. D_tot = “how many promises exist” (total outstanding redeemable obligations across vouchers, valued in the common index)
-3. V(settlement) = aggregate settlement velocity across all vouchers
-
-Then approximate total fee revenue per period as:
-
-F ≈ τ · V_settle · D_tot
-
-
-
-D_tot is “how many promises exist” (total outstanding redeemable obligations across vouchers), V_settle is “how fast they move,” and τ is the effective service-fee rate per unit of routed value. Note that this may be a percentage of the fees that pool stewards charge.
-
-**Rake-on-rake clarification (pool fees → network rake).** Pool stewards set a per-pool usage fee f_p (as % of value routed through that pool). CLC policy sets a rake share r_p (as % of that pool’s collected fees). The effective network fee rate contributed by that pool is:
+The proposed network rake is not an additional percentage applied to the full swap amount after already counting the Pool fee. For Pool `p`:
 
 τ_p = f_p · r_p
 
-The network-wide τ is the routed-value-weighted average across pools and routes (plus any router fees when applicable).
+where `f_p` is the Pool-fee rate and `r_p` is the proposed share of that Pool fee allocated to the network program.
 
-Convertibility constraint (cash-eligible vs. in-kind fees). Fees are collected in the same asset that moves through pools. If fees arrive as clinic credits or service vouchers, they can’t directly pay for auditors, incident response, or insurance unless they are settled in-network or converted under policy.
-Some fee assets are cash-equivalent/convertible (stables, major liquid tokens), while others are not (non-fiat-redeemable vouchers). Let χ be the share of total fee inflows that are cash-eligible/convertible after slippage and policy constraints. Define cash-usable fee revenue as:
+For a measured period:
+
+- **gross Pool fees** are the sum of each Pool's actual collected Pool fees;
+- **network-rake receipts** are the stated shares of those collected fees;
+- **service-fee receipts** are separately collected routing or service fees; and
+- **program fee receipts** equal network-rake receipts plus service-fee receipts.
+
+No category is counted twice. Current Protocol fees are not included unless a separately adopted policy lawfully redirects actual Protocol-fee receipts into the future program.
+
+For an aggregate approximation, let:
+
+- `Q_swap` be the value of executed Pool swaps for the defined cohort and period; and
+- `τ` be the effective rate of the proposed network rake and separately identified service fees over that executed swap value.
+
+Then:
+
+F ≈ τ · Q_swap
+
+This is an analytical approximation, not a promise of revenue. Every input requires a stated cohort, period, unit, valuation timestamp, exclusions, and correction policy.
+
+#### **5.3.1 Cash-eligible and in-kind receipts**
+
+Fees may arrive in cash-eligible fungible assets or in vouchers and other in-kind assets. In-kind receipts cannot automatically pay cash expenses or coverage claims. Any exchange or conversion would require authority, available inventory, disclosed venues, bounds, and actual execution.
+
+Let `χ` be the realized share of fee receipts that is cash-eligible after policy restrictions, failed conversions, and slippage. Cash-usable receipts are:
 
 F_cash ≈ χ · F
 
-Eligibility & conversion note: Fee inflows may include both cash-eligible assets (stables / major liquid tokens) and in-kind voucher assets. The protocol may convert allowlisted cash-eligible assets into stables/fiat when needed to meet insurance payouts, maintain off-ramp liquidity, and fund core operations - while prioritizing in-network settlement and using liquidity mandates/CLC Pool inventories to reduce settlement latency.
+Budget and break-even analysis would use realized `F_cash`, not gross quoted fees or the face value of in-kind inventory. A future program would report gross Pool fees, network-rake receipts, service fees, asset composition, conversion results, and cash-usable receipts separately.
 
-Break-even and any non-zero sCLC fee-access budgets must be evaluated on F_cash, not gross F.
+### **5.4 Proposed liquidity programs**
 
-**Break-even & Self-Sustaining Scenarios (illustrative, update quarterly):**
+A future, separately documented liquidity program could allocate assets to designated Pools or routing services. Current `SwapPool` contracts do not mint Pool shares or automatically create repayment, withdrawal, reward, governance, or profit rights.
 
-Publish a 3-row table each quarter:
+Any program would publish:
 
+- the responsible entity and participating Pool Stewards;
+- contributed assets and whether the transfer is repayable, withdrawable, donated, or endowed;
+- custody and technical-control arrangements;
+- permitted uses, limits, lockups, withdrawal gates, and loss allocation;
+- fee or incentive eligibility and whether the amount may be zero;
+- reporting, conflicts, complaints, and remedies; and
+- migration, termination, and treatment of remaining assets and obligations.
 
+Material risks include inventory that is difficult to exchange or fulfill, low cash eligibility, issuer non-performance, contract or provider failures, governance changes, and restrictions on exit. Limits, reserves, receipts, and dashboards may reduce or reveal some risks; they do not eliminate loss.
 
-* Conservative: D_tot, V_settle, τ → F; compare to Core Ops budget B_core.
-* Base: same.
-* Expansion: same.
+For an ex-post analytical metric, let:
 
-“Operational break-even” is when F_cash (cash-usable fee revenue) covers (Insurance top-ups + B_core + required liquidity mandates) for 3 consecutive months under conservative assumptions. If χ is low (many fees arrive as non-convertible vouchers), break-even requires proportionally higher routed value and/or explicit conversion/subsidy policies. Therefore sCLC fee-access budgets (F_epoch) may remain zero for extended periods until safety and operating targets are sustainably met.
+- `ϕ` be the realized fraction of program fee receipts allocated under the program's adopted terms; and
+- `K` be the measured value of assets covered by the program under one stated method.
 
-As pools federate:
+Then:
 
+FeeFlow_LP ≈ (ϕ · F) / K = (ϕ · τ · Q_swap) / K
 
-
-* D(tot) tends to grow (more participants, more commitments), and
-* V(settlement) tends to rise (better routing, more netting, faster fulfillment).
-
-Both forces push fee volume F upward.
-
-Downstream of fees: Waterfall → policy budgets → optional sCLC budget-exit
-
-Higher F increases the resources available to the Waterfall (insurance targets, core ops, liquidity mandates).
-
-Only after safety and operations priorities are satisfied (insurance targets, core ops, liquidity mandates), the protocol may publish an epoch fee-credit budget F_epoch that bounds sCLC budget-exit windows/caps into designated fee-holding pools. This makes the post-waterfall budget contestable: stakers can directly reallocate a bounded portion of pooled fee assets by exercising sCLC (e.g., injecting liquidity into specific pools), providing a “vote with your feet” accountability mechanism. sCLC is downstream of real settlement throughput (fulfilled commitments), not speculation, and F_epoch may be set to zero.
-
-Fee Flow (summary): Gross fees (in many assets) 
-
-→ Waterfall (1) Insurance targets → (2) Core ops → (3) Liquidity/off-ramp mandates
-
-→ Optional: publish capped fee-credit budget F_epoch (may be zero)
-
-→ sCLC “budget-exit” lets stakers direct a bounded portion of fee assets
-
-**5.4. Fee Pooling**
-
-Liquidity providers (LPs) stake assets/vouchers into pools so that swaps and settlements can clear smoothly. They take on inventory and routing risk; service fees are the natural way to pay them.
-
-**LP risks & protections (plain language)**
-
-
-
-1. Risks:
-    1. Inventory risk: you may hold assets/vouchers that are slower to redeem or rebalance.
-    2. Convertibility risk: some fees arrive as non-cash vouchers; cash-usable revenue depends on χ.
-    3. Incident risk: in extreme failures, remedies follow the disclosed loss waterfall (responsible issuer or guarantor → reserves → optional insurance → any lawfully authorized, capped reduction to optional coverage or Pool settlement claims).
-    4. Governance/lock risk: participation may require lockups; changes are timelocked.
-2. Protections:
-    5. Configured limits can slow certain drains; disclosed reserves may absorb specified losses if they exist and are available. Neither eliminates loss.
-    6. Receipts + dashboards make issuer performance and incidents visible.
-    7. Policy-gated fee-access is downstream of safety/ops and may be zero—preventing “promised yield” dynamics.
-    8. Credible exit/forkability: communities can re-point/fork if governance is captured (see §11.5).
-
-Let:
-
-
-
-1. ϕ = fraction of total fees allocated to LPs (the rest can fund software, governance, guarantees, etc.)
-2. K = total value of liquidity staked by LPs into the network
-
-The LP fee-access ex-post metric (measured from realized settlement fees; not promised returns) per period is roughly:
-
-
-
-
-
-FeeFlow_LP ≈ (ϕ · F) / K = (ϕ · τ · V_settle · D_tot) / K
-
-
-This formula makes the incentive structure explicit:
-
-
-
-1. Higher settlement velocity V(settle) → more routed value → more fees → higher fee pooling.
-2. More outstanding productive commitments D(tot) (claims on real output, not speculation) → a larger potential base for fee-generating fulfillment.
-3. Reasonable fee rate τ and LP share ϕ sustain both the infrastructure and the risk-takers.
-
-As the network scales, LP programs may receive policy-gated fee access or sCLC allocations based on how well the system coordinates and settles real obligations, not on how much it speculates.
-
-
----
+This metric describes realized fee flow per measured program asset. It is not APY, a forecast, a dividend, or a guaranteed return. Reports would keep swap volume, redemption presentment, issuer fulfillment, discharge, holding duration, losses, withdrawals, and fee receipts separate.

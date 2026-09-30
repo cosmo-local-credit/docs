@@ -1,107 +1,111 @@
-
-
 # **Cosmo-Local Credit (CLC)**
 
+## A network for routing credit, coordinating commitments, and financing a healthy cosmo-local economy
 
-## White Paper - FOR REVIEW (open-source)
+**Version:** 0.8
 
-
-## A Network for Routing Credit, Settling Commitments, and Financing a Healthy Cosmo-Local Economy
-
-**Version:** 0.7
-
-**Date:** 24 September 2026
+**Date:** 30 September 2026
 
 **Authors:** William O. Ruddick and Mohamed Sohail
 
-**Contact:** [info@grassecon.org](mailto:info@grassecon.org) 
+**Contact:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v7.pdf">CLC White Paper PDF</a>
+**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf">CLC White Paper v0.8 PDF</a>
 
-**Distribution:** Limited-circulation draft for review and discussion only. This document is not investment advice and does not constitute an offer to sell or a solicitation to buy any security or financial instrument. Subject to change.
+**Publication:** Final versioned public publication. This paper is not investment advice and does not constitute an offer to sell or a solicitation to buy any security or financial instrument. Later versions may revise the designs described here.
 
-**Framing note:** This paper combines deployed capabilities with proposed governance and service models. The historic Sarafu Network service transitioned to Cosmo-Local Credit, but that transition does not assert that every account, wallet, token, pool, balance, report, or transaction was migrated. Other registries may be managed by different institutions or governance bodies.
+## How to read this paper
 
-**Intended audience:** Pool builders/stewards, protocol engineers/auditors, impact-liquidity providers and mandate funders, governance designers, and legal/compliance reviewers.
+This paper combines four kinds of material. The status applies throughout, even where a chapter does not repeat it.
 
-**Abstract**
+| Status | Meaning |
+| --- | --- |
+| **Current** | Behavior verified in the CLC App or the public Protocol v1.1.0 contracts. The [Protocol reference](/protocol/overview) is the factual source for those contracts. |
+| **Deployment-dependent** | A capability that exists only where a particular Pool, provider, jurisdiction, governance body, or published policy enables it. |
+| **Historical** | Evidence or functionality from the earlier Sarafu Network service. It is not current CLC adoption or proof that a user, asset, record, or obligation migrated. |
+| **Proposed** | A design, economic model, governance mechanism, or roadmap item that is not represented as deployed. |
 
-Cosmo-Local Credit (CLC) is a pattern for network clearing houses and governance layers built around Commitment Pooling Protocol (CPP) curation markets. Commitment Pools (CPs) coordinate redeemable commitments (vouchers) using four pooling functions: **Curation** (Commitment Registry), **Valuation** (Value Index Registry), **Limitation** (Swap Limiter), and **Exchange** (Vault/Fee Registry: fee policy + custody/settlement). A CLC deployment can publish a registry of Commitment Pools and may add routing, monitoring, liquidity support, service fees, reserves, guarantees, or insurance under expressly published policies.
+Current Protocol v1.1.0 includes direct `SwapPool` execution, optional curation, valuation, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only `SwapRouter`. Multi-hop execution, HTLC or escrow routing, batch netting, shared insurance, the proposed CLC governance token, the proposed CLC Network Pool, fee-credit mechanisms, and network liquidity programs are proposed or deployment-dependent.
 
-Cosmo-local means we share open standards and software globally, while keeping issuance, redemption, governance, and real-world accountability local.
+**Intended audience:** Pool builders and Stewards, protocol engineers and auditors, liquidity and mandate funders, governance designers, and legal or compliance reviewers.
 
-CPP curation markets: independent CPs list (“curate”) which vouchers they accept and publish their own value indices, limits, fees, inventory rules, and any applicable guarantee structures. A CLC-compatible registry or service layer can provide network routing, shared standards, and optional insurance layers, but does not automatically guarantee any specific pool or voucher unless an identified party expressly assumes that obligation in published terms.
+## Abstract
 
-## Current Deployment
+Cosmo-Local Credit is a product family built around the **Commitment Pooling Protocol (CPP)**. CPP describes how independently governed Commitment Pools can curate redeemable commitments, publish exchange-rate methods and limits, hold inventory, and enable accountable exchange.
 
-As of 24 September 2026, the public progressive web app at `cosmolocal.credit` provides account and Wallet access, a public market, and interfaces for creating or using Tokens, Vouchers, Commitment Pools, and Swaps on Gnosis Chain. Documentation is published at `docs.cosmolocal.credit`. Available actions remain subject to the App interface, the relevant smart contracts, network state, inventory, limits, fees, and the terms published by each issuer and Pool Steward.
+A **Commitment Pool** is the governed arrangement. A current Protocol v1.1.0 **`SwapPool`** is one contract component: a token vault and direct-swap engine. A deployment can connect that contract to registries, quoters, Pool token-balance caps, fee policies, and other services.
 
-Grassroots Economics Foundation (GEF) operates the public App and supporting infrastructure. Operating the interface does not by itself make GEF an issuer, Pool Steward, custodian, lender, borrower, broker, guarantor, redeemer, adviser, insurer, or party to obligations between users. GEF does not guarantee the legality, value, liquidity, convertibility, redemption, or performance of any Token, Voucher, Pool, or Swap. Users remain responsible for reviewing transaction terms and complying with the laws that apply to them. Use of the App is governed by the [Terms of Service](/governance/terms).
+Cosmo-local means sharing open standards, software, and knowledge globally while keeping issuance, fulfillment, governance, and real-world accountability local. An issuer remains responsible for its voucher. A Pool Steward remains responsible for Pool rules and any guarantee it expressly assumes. Neither the CLC App nor GEF automatically guarantees a voucher, Pool, value, route, liquidity position, or outcome.
 
-The historic Sarafu Network service preceded this deployment and transitioned to Cosmo-Local Credit. Historical metrics in this paper describe that earlier service and are not current App metrics or evidence that every historical account, asset, record, or obligation migrated.
+## Current deployment
 
-**Pool Sovereignty & Forkability.**
-As a design principle, each Commitment Pool's Steward controls its listings, limits, fees, any guarantees, and routing preferences within the deployed contracts and applicable terms. A compatible Pool should be able to leave a discovery registry without changing valid user balances or commitments. “Canonical” registries and routers are intended as convenience layers for discovery and shared standards, not as a monopoly.
+GEF operates the CLC App at [cosmolocal.credit](https://cosmolocal.credit). It provides account and wallet access, a public Market catalog, and supported interfaces for tokens, vouchers, Offerings, Commitment Pools, transfers, and direct Pool swaps. Availability depends on the interface, contracts, inventory, configured limits and fees, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
 
-The broader CLC technical design is intentionally **forkable**. Compatible deployments should use reproducible open-source software, exportable registries, and a documented “fork & migrate” procedure (see §11.5) so communities and operators can credibly exit if governance is captured or drifts from shared values.
-**Key Concepts:**
+Operating the interface does not by itself make GEF an issuer, Pool Steward, custodian, lender, borrower, broker, guarantor, redeemer, adviser, insurer, or party to obligations between participants. Use of the App is governed by the [Terms of Service](/governance/terms).
 
+Protocol v1.1.0 separates accountable roles from technical control. A Pool Steward, `SwapPool` owner, proxy administrator, dependency controller, catalog moderator, and fee recipient may be different parties. See [Concepts and vocabulary](/introduction/concepts) for the shared terminology.
 
+## Historical lineage
 
-* **Confederation note:** CLC is designed so that many independent CPP networks can coexist (each with its own registry roots, compliance policies, and insurance scope) while still routing to one another through multi-profile discovery. Canonical registries/routers are a convenience layer, not a monopoly; credible exit is preserved by fork-and-repoint (see Sections 5.2a, 8.1, and 11.5).
-    * A “profile” is a named bundle of registry roots + routing policies (and optional compliance/insurance scope) that a community can choose as its discovery and safety baseline.
-    * Registry management and service-fee recipients are deployment-specific. Any institution or governance body can set up a Commitment Pool registry and charge transparent fees for services such as routing, clearing, monitoring, liquidity support, or insurance coordination. A network may be stewarded by a nonprofit foundation, cooperative, holding company, public agency, community group, multisig, service operator, or another accountable structure. GEF operates the current public Cosmo-Local Credit App; the historic Sarafu Network was an earlier GEF-operated service.
-* **Cosmo-Local: Cosmopolitan-localism** links local communities through shared global infrastructures while keeping production, redemption, and governance local. In practice: we share “light” resources globally (standards, software, knowledge, registries), while keeping “heavy” realities local (relationships, fulfillment, ecology, material production, and legal accountability). This aligns with “Small, Local, Open and Connected” (SLOC) and “design global, manufacture local” (DGML): share what’s light; keep what’s heavy local.  See [Cosmopolitan_localism](https://en.wikipedia.org/wiki/Cosmopolitan_localism) 
-* **Cosmo-Local Credit (CLC):** CLC applies this to obligations: commitments are issued and redeemed locally, while any guarantee must be expressly assumed and disclosed. Compatible commitments may be discovered and routed across trusted Pools using common registries, transaction records, and configured safety constraints.
-    * Example: a clinic voucher remains a local promise, but it can be swapped into food or transport credits by routing through trusted pools, with receipts showing what happened and why.
-* **Cosmo-Local Economy:** A cosmo-local economy is a federation of local markets that interoperate and clear obligations without a central monopoly. Communities can choose their routers/registries, publish their own policies, and retain credible exit (forkability) if governance is captured.
-* The digital layer is a **shared memory + coordination tool**, not a replacement for in-person relationships or local accountability. We explicitly design against techno-solutionism and capture risks by prioritizing: credible exit/forkability, local sovereignty, transparent receipts, timelocks/quorums, bounded limits/reserves, and low-tech access (assisted flows).. Where proof matters, vouchers may require simple evidence (signatures/photos/device proofs) governed locally.
-* **Producer Credit (optional, expressly documented):** A separately established credit facility may accept curated vouchers as collateral or a repayment instrument. It is a loan only when the transaction is expressly presented as a repayable advance and states the parties, principal or advance, repayment amount, fees or interest, due date, collateral treatment, assignment, default, remedies, and discharge evidence. An ordinary Swap, the direction of assets in a Swap, or redemption of a Voucher does not by itself create, transfer, repay, or discharge a loan.
+The historic Sarafu Network preceded the CLC App and provided evidence about community currencies and commitment pooling. Its service transition to Cosmo-Local Credit did not transfer every historic account, wallet, token, voucher, Pool, balance, report, participant, or obligation.
 
-**Quick Facts**
+Historical metrics in this paper use a dated, internally coherent Sarafu dataset. They are not current CLC usage figures. See the [Executive Summary](/white-paper/executive-summary) for the source and measurement period.
 
-The following points summarize the full CLC design. Governance tokens, multi-hop routing, shared insurance, netting, liquidity mandates, and fee-credit mechanisms are proposed or deployment-specific unless expressly identified as active.
+## Design model
 
+CPP uses four broad functions:
 
+- **Curation:** decide which vouchers or other assets are admitted.
+- **Valuation:** publish the method used to produce Pool exchange rates or quotes.
+- **Limitation:** apply current Pool token-balance caps or other separately implemented risk controls.
+- **Exchange:** hold inventory and execute Pool swaps under disclosed fees and bounds.
 
-1. **What this is:** CLC describes clearing-network patterns for **redeemable commitments** (think: tokens, **digital gift-cards / service credits / delivery claims**) that can be exchanged across curated markets.
-    1. Not 1-to-1 barter: barter is usually a direct trade between two people. A Commitment Pool enables multi-party exchange - you can contribute value to the pool and later redeem from the pool’s shared inventory. It’s multilateral barter through a shared intermediary (the pool) - CLC expands that by routing between a network of pools..
-2. **Values:**
-    2. **Care for People**– collaboration and vision driven care for oneself and others’ well-being and happiness
-    3. **Care for the Environment**- support environmental protection and regeneration, minimize use of finite resources for economic activity, ecosystem management approach to farming and business development.
-    4. **Fairness**- fair and secure access to Instruments, land, resources, knowledge & care for members from different backgrounds, age, gender and religion.
-    5. **Reciprocity**– mutual sharing of risk, cost and surplus
-    6. **Non-Dominance**- no person or association to have dominant rights over another person or association’s resources eg. data, finances, intellect, materials and freedom.
-    7. **Resilience**- capacity to prepare for, address and adapt to economic, political, climate and other events in order to ensure sustainable community based systems/commons.
-3. **How we reach sustainability / How fees are generated:** Fees come from **settlement activity** (people swapping, redeeming, and fulfilling goods/services), not price speculation. Where enabled, service fees on routed swaps/settlements across participating CPs fund shared services. These fees may be a percentage of pool fees, a routing/clearing fee, or another published fee schedule.
-    8. Opt-in, not extraction: service fees apply only to pools and routes that opt into a registry, routing profile, or shared service layer. Pools remain sovereign and can exit canonical registries/routers at any time while continuing to operate locally.
-    9. Not trickle-down: pooled fees are allocated by a published Waterfall - insurance targets, core operations, and liquidity/off-ramp mandates come first. Only after those priorities are met can a capped “fee-access budget” be published.
-4. **How Liquidity Providers could participate in the proposed model:**
-    10. Provide liquidity by seeding designated Commitment Pools and, only under a separately adopted program, become eligible for policy-gated access to pooled fees or CLC governance tokens via the Impact Seeding program (§7.2.3).
-    11. Support liquidity mandates (policy-directed endowments; reporting-heavy; impact-first).
-    12. Under that proposed model, participants could lock or escrow CLC to receive stCLC voting power.
-    13. An implemented epoch policy could also mint sCLC as a bounded authorization or incentive. Where expressly enabled, sCLC could provide capped Swap access into designated fee-holding Pools after the Waterfall. It would provide no dividends, profit share, or residual rights.
-5. **What a future LP program could fund:** Liquidity endowments (e.g., stable cash-equivalents) intended to help real-world Vouchers be exchanged and redeemed, subject to the program's published risks and terms.
-6. **Downside controls:** Limits and inventory checks can reduce certain risks. Reserves, guarantees, insurance, timelocks, dashboards, and credible exit are optional controls and protect users only when implemented, funded, and expressly disclosed; they do not eliminate loss.
-7. **What a deployment may publish:** Dashboards and receipts for volume, settlement rate, redemption performance, reserves, incidents, fee flows, and governance changes, plus the KPIs used for any mandates or insurance targets.
-8. What moves? Redeemable commitments (vouchers).
-9. What’s the goal? Increase velocity of settlement of real-world obligations - while maintaining the CLC values. 
-    14. We treat the digital layer as shared memory and coordination (not as a substitute for human relationships) and design explicitly against capture (timelocks, transparency, limits, and credible exit).
-10. **Who is responsible for what?** Issuers are responsible for honoring their published Voucher commitments. Pool Stewards are responsible for the Pool rules and any guarantees they expressly publish. A CLC deployment may provide routing, standards, governance, or an optional insurance policy, but neither CLC nor GEF automatically guarantees any Pool, Voucher, value, liquidity, or redemption. Any guarantee or coverage must identify the responsible party, scope, funding, caps, exclusions, claim process, and applicable terms.
-11. Proposed participant access? If separately implemented and enabled by policy, eligible staked-CLC participants could receive **time-bounded Swap access** through sCLC to a defined portion of pooled fees under disclosed caps and windows; governance could set this access to **zero** in any epoch.
-12. Safety? A CP can configure per-Voucher or rolling-window limits and may publish reserve, guarantor, insurance, or circuit-breaker policies. Users must verify which controls actually apply to a particular Pool and transaction.
+A deployment may add routing, monitoring, liquidity support, guarantees, reserves, insurance, or governance services only under separately published policies. Listing, curation, a limit, a reserve, or a blockchain record does not by itself establish issuer capacity, fulfillment, endorsement, a guarantee, or insurance.
 
-Reader Map (where to look)
+## Values and design principles
 
-• If you care about confederation & interoperability: see §5.2a, §8.1, and §11.5.
+- **Care for people:** support individual and collective well-being.
+- **Care for the environment:** reduce ecological harm and support regenerative practice.
+- **Fairness:** promote secure and equitable access to resources, knowledge, and care.
+- **Reciprocity:** share risk, cost, responsibility, and surplus under disclosed rules.
+- **Non-dominance:** resist concentrated control over people, data, finance, knowledge, and material resources.
+- **Resilience:** help communities prepare for and adapt to economic, political, and climate disruptions.
+- **Local accountability:** keep real-world fulfillment and legal responsibility with identified parties.
+- **Forkability:** allow compatible communities and deployments to leave shared registries or services without erasing valid balances or obligations.
 
-• If you care about guarantees / insurance boundaries: see §11.3.
+The digital layer is shared memory and coordination infrastructure. It is not a substitute for relationships, issuer performance, local governance, or legal accountability.
 
-• If you care about LP economics and fee flow: see §7.4, §9, and §12.
+## Current and proposed flows
 
-• If you care about risk controls: see §6 and §10.
+### Current direct Pool flow
 
-• If you care about forkability and credible exit: see §8.2 and §11.5.
+1. A holder reviews a voucher, its issuer, its terms, and associated Offerings.
+2. A Pool admits supported assets and publishes its configuration and responsible authorities.
+3. The holder obtains a quote and authorizes a direct Pool swap.
+4. `SwapPool` performs on-chain swap settlement and accounts for Pool and protocol fees.
+5. If the holder later chooses **“Redeem”** in the App, the App prepares a transfer to the token owner as redemption presentment.
+6. The issuer separately performs the promised fulfillment and records discharge so fulfilled units cannot be reused.
 
+Taking inventory from a Pool is a swap. It is redemption only if that Pool has separately assumed the issuer role and fulfills the applicable voucher terms.
 
----
+### Wider proposed design
+
+The proposed design explores execution routing, netting, shared services, network liquidity programs, insurance policies, and governance assets. Each would require implementation, responsible parties, adopted rules, funding, controls, and public disclosures before it could apply.
+
+The proposed fee model may use a network rake taken from Pool fees and separate routing or service fees. That proposal is distinct from Protocol v1.1.0, where an optional protocol fee is additional to the Pool fee.
+
+Supporters or liquidity providers receive no automatic Pool shares, repayment, withdrawal, reward, or governance rights from the current `SwapPool`. Any current or future program must separately disclose the transfer type, responsible party, control, recovery or withdrawal rights, losses, rewards, fees, and governance rights.
+
+## Reader map
+
+- Current terminology and action lifecycle: [Concepts and vocabulary](/introduction/concepts)
+- Verified deployed contracts: [Protocol v1.1.0](/protocol/overview)
+- Historical evidence: [Executive Summary](/white-paper/executive-summary)
+- Confederation and interoperability: Chapters 5, 8, and 11
+- Proposed guarantees and insurance boundaries: Chapters 10 and 11
+- Proposed liquidity and fee models: Chapters 7, 9, and 12
+- Proposed measurement framework: Chapter 14 and Appendices A–C
+- Proposed roadmap: Chapter 15
+- Legal and compliance considerations: Chapter 17
+
+[Previous White Paper versions](/white-paper/archive) are retained only as clearly superseded historical publications.

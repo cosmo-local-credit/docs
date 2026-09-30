@@ -1,25 +1,26 @@
-## **14. KPIs & Health Indicators**
+## **14. Proposed KPIs and health indicators**
 
+A deployment should publish a KPI only when it can define the event, source, cohort or period, unit, valuation method and timestamp, exclusions, correction policy, off-chain evidence, and data-quality limitations.
 
+Proposed measures include:
 
-* **Fulfillment Rate**&**Redemption Latency** (SLA adherence).
-* **Reserve Adequacy** by voucher and pool.
-* **Limit Utilization**& run-incident avoidance.
-* **Routing Pass/Fail**& average hop count.
-* **Guarantor Performance**& recovery percentages.
-* **Protocol Revenue**: pool fees, routing, network rake.
-* **Net Fee Outcome** (annualized **sCLC** fee-access, ex-post)
-* **Governance Responsiveness**: time-to-alarm, time-to-pause, timelock adherence.
-* **Consumer Protection:** Mis-selling complaints per 1,000 redemptions; median time-to-remedy; delisting decisions per quarter (with public reasons).
-* **Inventory Skew Index:** per voucher class, dispersion of inventory across pools vs. target bands.
-* **Rebalance Success Rate:** executed rebalance cycles / attempted cycles; median time-to-rebalance.
-* **Netting Yield:** (gross routed value − net external liquidity injected) / gross routed value, computed over rebalance windows (method published and timelocked).
-* **Well-being Outcomes** (profolio program-scoped):
-    * Basic-needs coverage proxy (food/transport/health voucher redemption success in target communities).
-    * Household resilience proxy (repeat redemption without increased delinquency).
-* **Planetary Regeneration**:
-    * Verified ecological outcomes per voucher class (method + auditor published).
-    * “Do-no-harm” exceptions count (attempted listings rejected by prohibited-list policy).
+- valid redemption presentments;
+- cohort-based fulfillment rate;
+- discharge completeness;
+- presentment-to-fulfillment latency;
+- acquisition-to-presentment holding duration;
+- outstanding eligible commitments under a stated methodology;
+- completed Pool swap volume;
+- measured Pool inventory;
+- Pool token-balance-cap utilization;
+- quote pass rate, kept separate from route execution rate;
+- eligible reserves divided by expressly covered exposure;
+- guarantor claims and recoveries under an identified policy;
+- proposed network rake and service fees actually received, without double-counting gross Pool fees;
+- governance detection, decision, pause, repair, and closure times;
+- complaints, disputes, corrections, and remedies; and
+- separately evidenced social or ecological outcomes.
 
+On-chain transaction data does not by itself prove identity, issuer performance, satisfaction, causality, community health, or social impact. Those claims require their own methodology and evidence.
 
----
+See [Appendix C](/white-paper/appendix-c-kpi-definitions) for the proposed measurement specification.

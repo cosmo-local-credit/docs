@@ -1,77 +1,56 @@
-## **1. Commitment Pooling Protocol (CPP): The Core Primitive**
+## **1. Commitment Pooling Protocol (CPP): the core primitive**
 
-**Mental model:** A Commitment Pool is like a small, governed **clearing house** for community “gift cards” (Vouchers). People deposit Vouchers or other accepted assets, exchange them under published rules, and redeem Vouchers for the goods or services described by their issuers. Configured contracts can enforce limits and record transactions. Any guarantee, remedy, or cross-Pool route exists only where it is expressly implemented and disclosed.
+**Mental model:** A Commitment Pool is a governed arrangement for admitting vouchers or other assets, publishing exchange rules, holding inventory, and enabling swaps. Holders later present vouchers to their issuers for real-world fulfillment. Pool exchange and issuer fulfillment are separate lifecycles.
 
+CPP coordinates value through clearly described commitments. The model is discussed in [Grassroots Economics: Reflection and Practice](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
-CPP is a protocol for coordinating value using **commitments**. Commitments are the economy; CLC makes them open and routable. CPP is described in the book, [Grassroots Economics: Reflection and Practice.](https://willruddick.substack.com/p/grassroots-economics-the-book-is)
+### **1.1 What is a commitment?**
 
+A commitment is an identified party's promise of future delivery—for example food, transport, labor, storage, or another lawful good, service, benefit, or performance. A **voucher** is a token or record represented as that commitment under published terms.
 
-### **1.1 What is a Commitment?**
-
-A commitment is a clearly defined promise of future delivery - e.g., maize, transport services, labor hours, storage, or currency redemption. These commitments are represented as **vouchers**, which function economically like **pre-paid delivery claims** (similar to gift cards / service credits). (further defined in the section of voucher schemas).
-
+The token contract records digital mechanics. Voucher terms identify the issuer, Offering, capacity, place, timing, restrictions, presentment, fulfillment, complaints, and discharge process.
 
 ### **1.2 What is a Commitment Pool?**
 
-Roles:
+A Commitment Pool is the governed arrangement. It can be stewarded by an individual, cooperative, community group, public agency, federation, multisig, service operator, or another accountable structure.
 
+Relevant roles and authorities include:
 
+- **Pool Steward:** publishes and administers Pool rules and any expressly assumed guarantee;
+- **Pool owner:** holds current `SwapPool` owner powers;
+- **proxy administrator:** can upgrade a proxied implementation;
+- **dependency controllers:** govern configured registries, quoters, limiters, or fee components;
+- **route finder or operator:** may discover quotes or, in a future implementation, execute a separately authorized route; and
+- **guarantor:** assumes a defined obligation only through published, funded terms.
 
-* Pool steward: decides listings, values, fees, limits, guarantees, and pauses for a specific pool.
-* CLC shared services: standards/registries, routing policies, monitoring, liquidity/off-ramps, and optional insurance.
-* Router/operator: finds and executes paths across pools; can prefer safer profiles and degrade toxic routes.
-* Guarantor (optional): backs specific vouchers/pools with an explicit remedy if commitments fail.
+CPP groups Pool functions into four concepts:
 
-A Commitment Pool is a stewarded contract suite that implements four interfaces:
+- **Curation:** admit supported tokens or vouchers.
+- **Valuation:** publish the method used for an exchange rate or quote.
+- **Limitation:** apply current Pool token-balance caps or other separately implemented controls.
+- **Exchange:** hold inventory, execute swaps, account for fees, and emit transaction records.
 
+Protocol v1.1.0 implements these functions through `SwapPool` and optional dependencies. Its current `Limiter` caps a token balance at a Pool; it does not provide rolling, per-account, or network-wide swap limits. Its current `SwapRouter` calculates multi-Pool quotes; it does not execute swaps.
 
+The wider proposed CPP design may add rolling limits, account controls, execution routers, HTLC or escrow paths, and batch netting. Those are proposed components, not descriptions of the current limiter or router.
 
-* **Curation**: Registers acceptable vouchers (Commitment (token) Registry),
-* **Valuation**: Maintains a value index (Value Index Registry),
-    * The Value Index is the Pool’s published valuation reference for quoting one accepted asset relative to another. A reference is not a guarantee of market price, redemption value, liquidity, or convertibility. Pools using different valuation methods may interoperate where each Pool and route can quote and enforce compatible rules.
-* **Limitation**: Enforces swap limits and, only for an expressly designated credit facility, any configured credit limits (Swap Limiter),
-* **Exchange (Vault/Fee Registry):** Configures fees and custodies assets; executes seed/swap only if listed, valued by the pool index, within limits, and in stock; emits receipts for every action. 
+### **1.3 Current direct-swap logic**
 
-Each Pool can behave like a **locally governed clearing house**, stewarded by an individual, cooperative, community group, public agency, federation, multisig, service operator, or another accountable structure.
+A current direct Pool swap:
 
-**Big idea:** We are already doing commitment pooling all the time: wages, rent, invoices, loans, warranties, memberships, and mutual aid are all promises that get trusted, netted, and settled. Today that pooling is mostly closed, opaque, and permissioned (inside institutions and platforms) so commitments can’t easily connect or route beyond their enclosures. **CLC proposes to make the underlying protocol open and interoperable**, so commitments can be published, pooled, and routed across communities and markets - by anyone.
+1. checks the optional registry for the input and output tokens;
+2. measures the input received;
+3. obtains a quote from the configured quoter or applies raw-unit parity;
+4. checks the resulting Pool token balance against the optional limiter;
+5. calculates the Pool fee and any additional protocol fee;
+6. checks available output inventory;
+7. transfers the protocol fee and output and accounts for the Pool fee; and
+8. emits swap events.
 
+The quote is a transaction parameter, not proof of issuer capacity, redemption value, fair value, cash convertibility, or a guarantee.
 
-**Why this matters:** pools can be compared and risk-rated because their listings, limits, fees, reserves, and guarantees are explicitly published.
+### **1.4 Wider use**
 
-Minimal Swap Logic (canonical)
+Commitment Pools can support community exchange, production, mutual aid, public programs, and other accountable structures. A separately documented credit product could use a voucher as collateral or a repayment instrument, but it would require supplemental and transaction-specific terms. An ordinary send, Pool deposit, Pool swap, redemption presentment, fulfillment, or discharge is not automatically a loan or repayment.
 
-This is reference logic for a compatible Pool. A particular deployment or user interface may expose only a subset, such as direct Swaps; multi-hop routing and alternative settlement mechanisms are optional capabilities rather than guaranteed paths.
-
-
-
-1. Listed?: Input and output vouchers must be listed in the Commitment Registry.
-2. Price?: Compute input→output via the Value Index (with fee preview).
-3. Limits?: Enforce Swap Limiter windows/caps for each voucher (and account/global if configured).
-4. Exchange: 
-    1. (fees): Apply Vault/Fee Registry fee rules (pair-specific OK); preview and emit on receipt.
-    2. (inventory): Verify Vault inventory for the outgoing voucher.
-5. Transfer & Log: Move in/out, update registries, and emit an immutable receipt that links the quote to the receipt.
-6. Multi-hop?: Repeat hop-by-hop; atomic if supported, else HTLC/escrow with explicit abort paths.
-
-**In other words:** a pool only lets people exchange vouchers that are (a) approved, (b) priced by the pool’s published index, (c) within safety caps, and (d) actually in stock - then it issues a receipt.
-
-
-### **1.3 Why CPP is Different from Traditional Crypto Decentralized Exchanges (DEXs)**
-
-Most decentralized exchanges (automated trading pools) rely on bilateral token pairs, continuous curves, and volatility-driven fees. CPP supports those use cases *and* enables low-frequency, high-impact coordination:
-
-
-
-* Community savings (VSLAs),
-* Production financing,
-* Mutual credit and mutual aid,
-* Insurance and guarantees,
-* Lending against real output,
-* Settlement support for separately documented personal or institutional debts.
-* Portfolio-directed liquidity (e.g. curated pools for ecosystem services, humanitarian support, and health & wellness)
-
-*CPP is optimized for **fulfillment** and **auditable receipts**, not speculative churn.*
-
-
----
+CPP is intended for accountable exchange and auditable transaction records, not speculative churn. On-chain records still do not prove real-world fulfillment or social impact.

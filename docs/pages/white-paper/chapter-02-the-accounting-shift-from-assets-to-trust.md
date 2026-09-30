@@ -1,15 +1,16 @@
-## **2. The Accounting Shift: From Assets to Trust**
+## **2. The accounting shift: from assets to trust**
 
 Traditional finance begins with **Assets − Liabilities = Equity**. CPP reframes this for a commitment economy:
 
 
 
-* **Acceptance Capacity**: How much of an issuer's commitments a Pool or network is still willing to accept.
-* **Outstanding Commitments**: Issued promises that remain unfulfilled and are held by others.
-* **Backing Capacity**: Your real ability to honor those promises.
+- **Acceptance capacity:** how much of an issuer's commitments a Pool or network is still willing to accept.
+- **Outstanding commitments:** issued promises that remain unfulfilled and are held by others.
+- **Fulfillment capacity:** the issuer's evidenced ability to perform those promises.
 
-**Commitment–Capacity Identity:**
-Acceptance Capacity − Outstanding Commitments = Remaining Capacity
+**Illustrative commitment-capacity relationship:**
+
+Acceptance capacity − outstanding commitments = remaining acceptance capacity
 
 This conceptual identity can inform Pool risk limits: unlimited issuance does not imply unlimited acceptance. It is not a balance-sheet identity or a statement that every Voucher is legally a debt or loan.
 

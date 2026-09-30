@@ -1,4 +1,4 @@
-# Governance Mechanics
+# Governance mechanics
 
 Governance in Cosmo-Local Credit (CLC) is divided among distinct roles rather than assigned to one universal authority. This page describes governance options for CLC-compatible networks; it does not prescribe a single legal form, voting system, or organization.
 
@@ -6,9 +6,11 @@ Grassroots Economics Foundation (GEF) operates the public progressive web app at
 
 The [Terms of Service](/governance/terms) govern use of the public App and explain these responsibilities in detail.
 
+[Concepts and vocabulary](/introduction/concepts) maps these public roles to contract ownership, proxy administration, dependency control, catalog moderation, and fee receipt.
+
 ## Responsibility by role
 
-- **Voucher Issuers** govern their own offerings. They publish accurate identity, capacity, supply, valuation, expiry, redemption, geographic, timing, fee, restriction, and remedy information, and they remain responsible for honoring those commitments.
+- **Voucher Issuers** govern their own Offerings. They publish accurate identity, capacity, supply, valuation, expiry, presentment, fulfillment, geographic, timing, fee, restriction, and remedy information, and they remain responsible for honoring those commitments.
 - **Pool Stewards** govern admission, asset curation, valuation, fees, limits, inventory, reserves, contributions, conflicts, provenance, configuration, pauses, upgrades, and any guarantee or loss-allocation mechanism for their Pools.
 - **Registry and service stewards** may govern which Pools or assets appear in a registry and the rules and fees for routing, monitoring, liquidity support, or other shared services.
 - **Users** decide whether an Issuer, Voucher, Pool, quote, and transaction are acceptable and lawful for them. A registry entry or App listing is not a guarantee or endorsement.

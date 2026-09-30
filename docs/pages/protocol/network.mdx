@@ -1,13 +1,15 @@
 import { MermaidDiagram } from '../../components/MermaidDiagram'
 
-# Protocol Network Architecture
+# Protocol network architecture
 
-A CLC deployment can connect many Vouchers and Pools through optional registries, indexes, quote modules, and application-level route discovery. Each Pool remains a separate vault with its own liquidity, owner, proxy administrator, configuration, and dependencies.
+A CPP-compatible deployment can connect many Vouchers and Pools through optional registries, indexes, quote modules, and application-level route discovery. Each Pool remains a separate vault with its own liquidity, owner, proxy administrator, configuration, and dependencies.
 
 Grassroots Economics Foundation operates the public App at [cosmolocal.credit](https://cosmolocal.credit). Other interfaces and deployments can use the same public protocol. Operating the App does not automatically make GEF the owner, issuer, Steward, fee recipient, or guarantor for every contract shown below.
 
+See [Concepts and vocabulary](/introduction/concepts) for the separation between accountable roles and technical powers.
 
-## Candidate Routes and Execution
+
+## Candidate routes and execution
 
 <MermaidDiagram
   label="Candidate route discovery and wallet-batch execution"
@@ -42,7 +44,7 @@ Quotes are snapshots. A successful route quote can still fail or settle differen
 Pool fees remain with the relevant Pool for later collection. Any protocol fee is additional and is transferred directly from that Pool to its configured protocol recipient during the swap.
 
 
-## Pool Internals
+## Pool internals
 
 <MermaidDiagram
   label="Commitment Pool dependencies and administrative powers"

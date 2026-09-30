@@ -19,12 +19,10 @@ DISPLAY_FORMULAS = {
     "D_j = ∑_k D_{j, k}": r"D_j = \sum_k D_{j,k}",
     "S_j = ∑_k S_{j, k}": r"S_j = \sum_k S_{j,k}",
     "V_j = S_j / D_j (if D_j = 0, define V_j = 0)": r"V_j = \frac{S_j}{D_j}\quad \text{if }D_j>0,\qquad V_j=0\quad \text{if }D_j=0",
-    "D_tot = ∑_j D_j": r"D_{\mathrm{tot}} = \sum_j D_j",
-    "V_settle = (∑_j S_j) / D_tot = (settlement flow) / (outstanding stock)": r"V_{\mathrm{settle}} = \frac{\sum_j S_j}{D_{\mathrm{tot}}} = \frac{\text{settlement flow}}{\text{outstanding stock}}",
-    "F ≈ τ · V_settle · D_tot": r"F \approx \tau \cdot V_{\mathrm{settle}} \cdot D_{\mathrm{tot}}",
+    "F ≈ τ · Q_swap": r"F \approx \tau \cdot Q_{\mathrm{swap}}",
     "F_cash ≈ χ · F": r"F_{\mathrm{cash}} \approx \chi \cdot F",
     "Ex-Post-Metrics_LP ≈ (ϕ · F) / K": r"\mathrm{ExPostMetric}_{LP} \approx \frac{\phi \cdot F}{K}",
-    "FeeFlow_LP ≈ (ϕ · F) / K = (ϕ · τ · V_settle · D_tot) / K": r"\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot V_{\mathrm{settle}} \cdot D_{\mathrm{tot}}}{K}",
+    "FeeFlow_LP ≈ (ϕ · F) / K = (ϕ · τ · Q_swap) / K": r"\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}",
     "τ_p = f_p · r_p": r"\tau_p = f_p \cdot r_p",
     "limit_user_epoch = F_epoch × (stCLC_user / stCLC_total)": r"\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}",
     "R_required ≈ B_cash / (τ · χ)": r"R_{\mathrm{required}} \approx \frac{B_{\mathrm{cash}}}{\tau \cdot \chi}",
@@ -419,8 +417,14 @@ def extract_index() -> tuple[list[str], str, dict[str, str]]:
             framing = stripped
         elif stripped.startswith("**Intended audience:**"):
             audience = stripped
-        elif stripped == "**Abstract**":
+            continue
+        elif stripped == "## How to read this paper":
+            in_body = True
+            body.append(stripped)
+            continue
+        elif stripped in {"**Abstract**", "## Abstract"}:
             in_abstract = True
+            in_body = False
             continue
         elif in_abstract and re.match(r"^#{1,6}\s", stripped):
             in_abstract = False
@@ -490,7 +494,7 @@ def preamble(abstract_text: str, version: str, publication_date: str) -> list[st
         r"  pdfauthor={William O. Ruddick and Mohamed Sohail}",
         r"}",
         "",
-        r"\title{Cosmo-Local Credit (CLC): A Network for Routing Credit, Settling Commitments, and Financing a Healthy Cosmo-Local Economy}",
+        r"\title{Cosmo-Local Credit (CLC): A Network for Routing Credit, Coordinating Commitments, and Financing a Healthy Cosmo-Local Economy}",
         r"\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}",
         rf"\date{{Version {escape_text(version)} --- {escape_text(publication_date)}}}",
         "",
@@ -501,7 +505,7 @@ def preamble(abstract_text: str, version: str, publication_date: str) -> list[st
         abstract_text,
         r"\end{abstract}",
         "",
-        r"\noindent\textbf{Status:} Draft for review and discussion only. This document is not investment advice and does not constitute an offer to sell or a solicitation to buy any security or financial instrument.",
+        r"\noindent\textbf{Publication status:} Final versioned public publication. This paper is not investment advice and does not constitute an offer to sell or a solicitation to buy any security or financial instrument. Later versions may revise the designs described here.",
         "",
         r"\tableofcontents",
         r"\newpage",
