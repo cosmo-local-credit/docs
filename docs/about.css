@@ -206,7 +206,7 @@ body:has(.about-page) {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
   gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  align-items: start;
 }
 
 .about-hero__content h2 {
@@ -228,8 +228,16 @@ body:has(.about-page) {
   line-height: 1.7;
 }
 
+.about-hero__evidence {
+  grid-column: 1 / -1;
+  width: min(100%, 58rem);
+  justify-self: center;
+  text-align: center;
+}
+
 .about-video {
-  margin-top: 1.5rem;
+  width: 100%;
+  margin-inline: auto;
 }
 
 .about-video__label {
@@ -332,6 +340,23 @@ body:has(.about-page) {
 
 .about-network-frame--three {
   animation-delay: 3.6s;
+}
+
+@media (min-width: 1024px) {
+  .about-network-graphic {
+    position: relative;
+    display: block;
+    min-height: 0;
+    overflow: hidden;
+    aspect-ratio: 3508 / 1423;
+  }
+
+  .about-network-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-21.048%);
+  }
 }
 
 @keyframes about-network-frame {

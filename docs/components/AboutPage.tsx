@@ -344,39 +344,6 @@ export function AboutPage() {
               Commitment pooling enables communities to create, manage and connect their own
               economic systems, fostering local trade and resilience.
             </p>
-            <div className="about-video">
-              <p className="about-video__label">Learn more about commitment pooling</p>
-              <div className="about-video__frame">
-                <iframe
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  src="https://www.youtube-nocookie.com/embed/gn4mMspXlF0"
-                  title="Learn more about commitment pooling"
-                />
-              </div>
-            </div>
-
-            <dl className="about-stats">
-              {statistics.map((stat) => (
-                <div className={`about-stat about-stat--${stat.tone}`} key={stat.label}>
-                  <dd>{stat.value}</dd>
-                  <dt>{stat.label}</dt>
-                </div>
-              ))}
-            </dl>
-            <p className="about-stats-source">
-              Historical Sarafu Network activity on Celo, 5 July 2023–20 July 2025.{' '}
-              <a
-                href="https://dune.com/grassrootseconomics/sarafu-network"
-                rel="noreferrer"
-                target="_blank"
-              >
-                View the Dune source
-              </a>
-              .
-            </p>
           </div>
 
           <div
@@ -410,6 +377,42 @@ export function AboutPage() {
               src="/about/home/network-graphic-3.png"
               width="3508"
             />
+          </div>
+
+          <div className="about-hero__evidence">
+            <div className="about-video">
+              <p className="about-video__label">Learn more about commitment pooling</p>
+              <div className="about-video__frame">
+                <iframe
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  src="https://www.youtube-nocookie.com/embed/gn4mMspXlF0"
+                  title="Learn more about commitment pooling"
+                />
+              </div>
+            </div>
+
+            <dl className="about-stats">
+              {statistics.map((stat) => (
+                <div className={`about-stat about-stat--${stat.tone}`} key={stat.label}>
+                  <dd>{stat.value}</dd>
+                  <dt>{stat.label}</dt>
+                </div>
+              ))}
+            </dl>
+            <p className="about-stats-source">
+              Historical Sarafu Network activity on Celo, 5 July 2023–20 July 2025.{' '}
+              <a
+                href="https://dune.com/grassrootseconomics/sarafu-network"
+                rel="noreferrer"
+                target="_blank"
+              >
+                View the Dune source
+              </a>
+              .
+            </p>
           </div>
         </div>
 
