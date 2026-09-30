@@ -375,7 +375,7 @@ export function AboutPage() {
               >
                 View the Dune source
               </a>
-              . These are not current CLC adoption figures.
+              .
             </p>
           </div>
 
