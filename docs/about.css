@@ -270,10 +270,13 @@ body:has(.about-page) {
 }
 
 .about-stat {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
 .about-stat dd {
+  order: 1;
   margin-bottom: 0.25rem;
   font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 800;
@@ -281,6 +284,7 @@ body:has(.about-page) {
 }
 
 .about-stat dt {
+  order: 2;
   color: var(--about-muted);
   font-size: 0.78rem;
   line-height: 1.35;
