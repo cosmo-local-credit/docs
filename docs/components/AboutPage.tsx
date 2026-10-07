@@ -158,7 +158,10 @@ type AudienceSectionProps = {
   cardTitle: string
   cardSubtitle?: string
   items: readonly string[]
-  badges?: readonly string[]
+  badges?: readonly {
+    label: string
+    href: string
+  }[]
   footer?: ReactNode
   cta: {
     href: string
@@ -200,7 +203,15 @@ function AudienceSection({
       {badges ? (
         <div className="about-badges" aria-label="Example Pool themes">
           {badges.map((badge) => (
-            <span key={badge}>{badge}</span>
+            <a
+              aria-label={`Explore ${badge.label} Pools`}
+              href={badge.href}
+              key={badge.label}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {badge.label}
+            </a>
           ))}
         </div>
       ) : null}
@@ -252,17 +263,6 @@ export function AboutPage() {
     <main className="about-page">
       <LandingThemeToggle portalToDesktopNav />
 
-      <div className="about-migration-wrap about-shell">
-        <div className="about-migration-note">
-          <span className="about-migration-note__label">From Sarafu Network to Cosmo-Local Credit</span>
-          <p>
-            Cosmo-Local Credit builds on what we learned from Sarafu Network. The CLC App is a new
-            service, so past Sarafu accounts, vouchers and obligations did not automatically move
-            to it. <a href="/introduction/history">Read our history.</a>
-          </p>
-        </div>
-      </div>
-
       <section className="about-overview" aria-labelledby="overview-title">
         <div className="about-shell">
           <div className="about-overview__intro">
@@ -276,12 +276,18 @@ export function AboutPage() {
             />
             <div>
               <h1 id="overview-title">Cosmo-Local Credit</h1>
-              <p className="about-overview__description">
-                Cosmo-Local Credit helps people and organizations promote goods and services with
-                vouchers. A voucher works much like a gift card. Its creator explains what it can
-                be used for. A Commitment Pool works like a curated marketplace where people can
-                exchange selected vouchers under clear rules.
-              </p>
+              <div className="about-overview__description">
+                <p>
+                  Cosmo-Local Credit helps people and organizations support, share, and exchange
+                  goods and services.
+                </p>
+                <p>
+                  Anyone can describe what they offer, who it is for, and the conditions for using
+                  it. These offers can then be brought together in a trusted network, making it
+                  easier to find, exchange, and support useful goods and services within a community
+                  or across different places.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -545,7 +551,19 @@ export function AboutPage() {
 
       <AudienceSection
         accent="#e86a2c"
-        badges={['Community needs', 'Environment', 'Women-led', 'Education', 'Agriculture']}
+        badges={[
+          {
+            label: 'Agriculture',
+            href: 'https://cosmolocal.credit/pools?tags=Agriculture',
+          },
+          { label: 'Art', href: 'https://cosmolocal.credit/pools?tags=Art' },
+          {
+            label: 'Biodiversity',
+            href: 'https://cosmolocal.credit/pools?tags=Biodiversity',
+          },
+          { label: 'Education', href: 'https://cosmolocal.credit/pools?tags=Education' },
+          { label: 'Youth', href: 'https://cosmolocal.credit/pools?tags=Youth' },
+        ]}
         cardSubtitle="Explore Pools"
         cardTitle="Find a Pool to support"
         cta={{ href: 'https://cosmolocal.credit/pools', label: 'Explore Pools' }}
@@ -603,8 +621,31 @@ export function AboutPage() {
       <section className="about-section about-features" id="features">
         <div className="about-shell">
           <div className="about-section-heading">
-            <h2>Why use Cosmo-Local Credit?</h2>
-            <p>Simple tools for creating, sharing and exchanging vouchers.</p>
+            <h2>Why Cosmo-Local Credit?</h2>
+            <div className="about-features__intro">
+              <p>
+                People and organizations often have useful goods and services to offer, even when
+                money is scarce or direct exchange is difficult. Cosmo-Local Credit makes those
+                offers easier to describe, find, support and exchange.
+              </p>
+              <p>
+                Vouchers make each offer and its conditions clear. Commitment Pools bring selected
+                vouchers together under shared rules, so people do not have to find someone who
+                wants exactly what they offer at the same time.
+              </p>
+              <p>
+                Cosmo-Local Credit is built and maintained by{' '}
+                <a href="https://grassrootseconomics.org/" rel="noreferrer" target="_blank">
+                  Grassroots Economics Foundation
+                </a>
+                , a Kenyan nonprofit that has developed community exchange tools since 2010. It
+                grows from lessons learned through community currencies, Sarafu Network and
+                commitment pooling.
+              </p>
+              <p>
+                <a href="/introduction/history">Read where Cosmo-Local Credit came from.</a>
+              </p>
+            </div>
           </div>
           <div className="about-features__layout">
             <div className="about-feature-grid">
