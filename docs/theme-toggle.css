@@ -13,46 +13,15 @@
   display: none;
 }
 
-.landing-language-control,
 .landing-theme-control {
   display: inline-flex;
+  gap: 0.2rem;
   align-items: center;
+  padding: 0.2rem;
   border: 1px solid var(--vocs-color_border);
   border-radius: 999px;
   background: var(--vocs-color_background2);
   box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
-}
-
-.landing-language-control {
-  position: relative;
-  gap: 0.35rem;
-  min-height: 2.4rem;
-  padding-inline: 0.65rem 0.45rem;
-  color: var(--vocs-color_text2);
-}
-
-.landing-language-control select {
-  max-width: 9.5rem;
-  min-height: 2rem;
-  padding-block: 0;
-  padding-inline: 0.15rem 1.4rem;
-  border: 0;
-  color: var(--vocs-color_text);
-  background: transparent;
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 650;
-}
-
-.landing-language-control:focus-within {
-  outline: 2px solid var(--vocs-color_borderAccent);
-  outline-offset: 2px;
-}
-
-.landing-theme-control {
-  gap: 0.2rem;
-  padding: 0.2rem;
 }
 
 .landing-theme-control__button {
@@ -120,9 +89,5 @@
   .landing-controls--mobile {
     justify-content: center;
     padding-inline: 1rem;
-  }
-
-  .landing-language-control select {
-    max-width: 8.5rem;
   }
 }

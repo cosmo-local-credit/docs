@@ -11,6 +11,7 @@ import {
   type SupportedLocale,
 } from '../i18n/locales'
 import type { SplashMessages } from '../i18n/messages'
+import { LocaleSelector } from './LocaleSelector'
 
 type Theme = 'light' | 'dark'
 
@@ -81,18 +82,52 @@ export function LandingControls({ locale, messages }: LandingControlsProps) {
   useEffect(() => {
     setPortalTarget(document.querySelector('.vocs_DesktopTopNav'))
 
-    const markEnglishSearch = () => {
+    const localizeSearch = () => {
       document
-        .querySelectorAll('[class*="vocs_"][class*="Search"]')
-        .forEach((element) => element.setAttribute('lang', 'en'))
-    }
-    const observer = new MutationObserver(markEnglishSearch)
+        .querySelectorAll<HTMLButtonElement>('button[class*="DesktopSearch_search"]')
+        .forEach((button) => {
+          button.lang = locale
+          const labelNode = Array.from(button.childNodes).find(
+            (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim() === 'Search...',
+          )
+          if (labelNode) labelNode.textContent = `${messages.search}...`
+        })
 
-    markEnglishSearch()
+      document
+        .querySelectorAll<HTMLButtonElement>('button[class*="MobileSearch_searchButton"]')
+        .forEach((button) => {
+          button.lang = locale
+          button.setAttribute('aria-label', messages.search)
+        })
+
+      document.querySelectorAll<HTMLElement>('[role="dialog"]').forEach((dialog) => {
+        if (!dialog.querySelector('input[type="search"]')) return
+
+        // Search results remain English. Only the search prompt is localized in this phase.
+        dialog.lang = 'en'
+        dialog.querySelectorAll<HTMLElement>('[aria-label="Search"]').forEach((element) => {
+          element.lang = locale
+          element.setAttribute('aria-label', messages.search)
+        })
+        dialog.querySelectorAll<HTMLInputElement>('input[type="search"]').forEach((input) => {
+          input.lang = locale
+          input.placeholder = messages.search
+          input.setAttribute('aria-label', messages.search)
+        })
+        dialog.querySelectorAll<HTMLElement>('h1, h2, h3, h4, h5, h6').forEach((title) => {
+          if (title.textContent?.trim() !== 'Search') return
+          title.lang = locale
+          title.textContent = messages.search
+        })
+      })
+    }
+    const observer = new MutationObserver(localizeSearch)
+
+    localizeSearch()
     observer.observe(document.body, { childList: true, subtree: true })
 
     return () => observer.disconnect()
-  }, [])
+  }, [locale, messages.search])
 
   useEffect(() => {
     const onRoot = window.location.pathname === '/'
@@ -127,20 +162,11 @@ export function LandingControls({ locale, messages }: LandingControlsProps) {
   function control(className: string) {
     return (
       <div className={className}>
-        <label className="landing-language-control">
-          <span className="visually-hidden">{messages.language}</span>
-          <select
-            aria-label={messages.language}
-            onChange={(event) => selectLocale(event.target.value as SupportedLocale)}
-            value={locale}
-          >
-            {LOCALE_OPTIONS.map((option) => (
-              <option dir={option.direction} key={option.code} lang={option.code} value={option.code}>
-                {option.nativeLabel}
-              </option>
-            ))}
-          </select>
-        </label>
+        <LocaleSelector
+          label={messages.language}
+          locale={locale}
+          onLocaleChange={selectLocale}
+        />
 
         <div aria-label={messages.colorTheme} className="landing-theme-control" role="group">
           <button

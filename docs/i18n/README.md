@@ -20,6 +20,10 @@ This directory owns the splash-page locale registry and translations. The synchr
 
 The order, codes, native names, number-formatting locales, and direction match the app snapshot. The docs are deliberately independent at runtime: they do not import from or request the sibling app repository.
 
+`components/LocaleSelector.tsx` is the reusable presentation and keyboard-interaction component. It does not own routes, redirects, or browser storage; its caller supplies the current locale and handles changes. `LandingControls.tsx` provides the splash-specific navigation and preference behavior. This separation allows the same selector to be used later in documentation navigation with locale-specific routing rules.
+
+The splash shell's search trigger and search prompt use `controls.search`. Search results and the documentation they open remain English until the documentation routes themselves are localized.
+
 ## Terminology
 
 - Keep `Cosmo-Local Credit`, `CLC App`, `Sarafu Network`, organization names, media names, and partner names unchanged.
