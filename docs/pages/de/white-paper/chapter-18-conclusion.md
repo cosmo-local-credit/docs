@@ -1,0 +1,5 @@
+## **18. Das ist alles. Schlussfolgerung**
+
+Cosmo-Local Credit verbindet eine aktuelle Anwendung und die Protocol v1.1.0-Stiftung mit einem weiteren vorgeschlagenen Entwurf für unabhängig regierte Engagement Pools. Aktuelle Direkt-Pool-Swaps, Quote- und Limit-Komponenten und öffentliche Transaktionsunterlagen können einen verantwortungsvollen Austausch unterstützen, beweisen jedoch nicht die Erfüllung durch den Emittenten, schaffen keine Beitrittsrechte oder garantieren Wert, Liquidität, Rückzahlung, Versicherung, Rechtsstatus oder Schutz vor Verlusten.
+
+Die in diesem Papier beschriebenen vorgeschlagenen Ausführungsrouting, Netting, Governance Assets, Network Clearing, Liquiditätsprogramme und geteilten Schutzmaßnahmen erfordern separate Implementierung, Finanzierung, Governance und veröffentlichte Bedingungen. Das Design zielt darauf ab, die Interoperabilität zu erweitern und gleichzeitig die Leistung der Emittenten, die Pool-Governance und die Rechenschaftspflicht mit identifizierten Parteien in der realen Welt zu erhalten.

@@ -1,0 +1,5 @@
+## **18 ans. Conclusion**
+
+Cosmo-Local Credit relie une application actuelle et la fondation Protocol v1.1.0 à une conception plus large proposée pour les pools d'engagement indépendants. Les swaps directs actuels du pool, les composantes de cotation et de limite et les dossiers de transaction publics peuvent appuyer un échange responsable, mais ils ne prouvent pas le respect de l'émetteur, ne créent pas de droits de contributeur ni ne garantissent la valeur, la liquidité, le rachat, l'assurance, le statut juridique ou la protection contre les pertes.
+
+La mise en œuvre proposée d'un routage d'exécution, d'un netting, d'actifs de gouvernance, de compensation du réseau, de programmes de liquidité et de protections partagées décrites dans le présent document nécessiterait une mise en œuvre, un financement, une gouvernance et des termes publiés distincts. La conception vise à élargir l'interopérabilité tout en conservant le rendement des émetteurs, la gouvernance du pool et la responsabilité dans le monde réel avec les parties identifiées.

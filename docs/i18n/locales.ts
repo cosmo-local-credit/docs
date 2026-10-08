@@ -67,13 +67,3 @@ export function matchSupportedLocale(preferred: readonly string[]): SupportedLoc
   }
   return DEFAULT_LOCALE
 }
-
-export function getSplashPath(locale: SupportedLocale): string {
-  return locale === DEFAULT_LOCALE ? '/' : `/${locale}/`
-}
-
-export function getLocaleFromSplashPath(pathname: string): SupportedLocale | null {
-  if (pathname === '/') return DEFAULT_LOCALE
-  const match = pathname.match(/^\/([^/]+)\/?$/)
-  return match && isSupportedLocale(match[1]) ? match[1] : null
-}

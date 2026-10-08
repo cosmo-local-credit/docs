@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""Compile every tracked White Paper TeX source and publish its PDF."""
+
+from __future__ import annotations
+
+import shutil
+import subprocess
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+TEX_DIR = ROOT / "white-paper"
+PUBLIC_DIR = ROOT / "docs/public/white-paper"
+BUILD_ROOT = TEX_DIR / "build"
+LOCALES = ["en", "ar", "de", "dz", "es", "fr", "it", "pt", "sr", "sw", "uk"]
+
+
+def compile_pdf(locale: str) -> None:
+    stem = "clc_white_paper" if locale == "en" else f"clc_white_paper_{locale}"
+    source = TEX_DIR / f"{stem}.tex"
+    build_dir = BUILD_ROOT if locale == "en" else BUILD_ROOT / locale
+    build_dir.mkdir(parents=True, exist_ok=True)
+
+    engine = "-pdf" if locale == "en" else "-lualatex"
+    subprocess.run(
+        [
+            "latexmk",
+            engine,
+            "-interaction=nonstopmode",
+            "-halt-on-error",
+            f"-outdir={build_dir}",
+            str(source),
+        ],
+        cwd=ROOT,
+        check=True,
+    )
+
+    built = build_dir / f"{stem}.pdf"
+    suffix = "" if locale == "en" else f"-{locale}"
+    published = PUBLIC_DIR / f"Cosmo-Local-Credit-CLC-White-Paper-v8{suffix}.pdf"
+    shutil.copyfile(built, published)
+    if built.read_bytes() != published.read_bytes():
+        raise RuntimeError(f"Published PDF differs from build output: {locale}")
+    print(published)
+
+
+def main() -> None:
+    PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
+    for locale in LOCALES:
+        compile_pdf(locale)
+
+
+if __name__ == "__main__":
+    main()

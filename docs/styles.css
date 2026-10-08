@@ -1,5 +1,27 @@
 /* Landing Page Styles */
 
+html:lang(ar) body {
+  font-family: Tahoma, Arial, system-ui, sans-serif;
+}
+
+html:lang(dz) body {
+  font-family: 'Noto Sans Tibetan', 'Microsoft Himalaya', Jomolhari, system-ui, sans-serif;
+}
+
+html[dir='rtl'] :is(code, pre, kbd, samp, .katex, [data-mermaid-diagram]) {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: left;
+}
+
+html[dir='rtl'] [class*='Footer_navigation'] {
+  direction: rtl;
+}
+
+html[dir='rtl'] [class*='Footer_navigationIcon'] {
+  transform: scaleX(-1);
+}
+
 .vocs_Content strong,
 .vocs_Content b {
   font-weight: 700;

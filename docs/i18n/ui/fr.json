@@ -1,0 +1,39 @@
+{
+  "controls": {
+    "language": "Langue",
+    "colorTheme": "Thème de couleur",
+    "lightMode": "Utiliser le mode clair",
+    "darkMode": "Utiliser le mode sombre"
+  },
+  "chrome": {
+    "search": "Recherche",
+    "menu": "Le menu",
+    "onThisPage": "Sur cette page",
+    "previous": "Précédent",
+    "next": "La prochaine .",
+    "copy": "Copié",
+    "copied": "Copié",
+    "skipToContent": "Passer au contenu",
+    "askInChatGPT": "Demandez dans le ChatGPT",
+    "copyPageForLlms": "Page de copie pour les LLM",
+    "noResultsFor": "Aucun résultat pour",
+    "top": "En haut",
+    "scrollToTop": "Roulez vers le haut",
+    "pageNotFound": "Page non trouvée",
+    "notFoundDescription": "La page que vous cherchiez n'a pas été trouvée.",
+    "goHome": "Allez à la page d'accueil",
+    "diagramScroll": "Faites défiler horizontalement pour voir le diagramme complet.",
+    "diagramError": "Le schéma n'a pas pu être rendu"
+  },
+  "legal": {
+    "translationTitle": "Traduction de commodité",
+    "translationNotice": "Cette traduction est fournie pour votre commodité. Les termes en anglais sont le texte source et le contrôle, sauf si la loi applicable l'exige autrement.",
+    "englishSource": "Lisez les termes en anglais"
+  },
+  "whitePaper": {
+    "translationTitle": "À propos de cette traduction",
+    "translationNotice": "C'est une traduction de White Paper v0.8. La source anglaise a été publiée le 30 septembre 2026. Cette traduction a été publiée le 8 octobre 2026. L'anglais est le texte source.",
+    "englishSource": "Lisez la source en anglais",
+    "archivedEnglishOnly": "La version 0.7 PDF remplacée est disponible uniquement en anglais."
+  }
+}

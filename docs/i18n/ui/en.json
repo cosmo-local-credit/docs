@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Language",
+    "colorTheme": "Color theme",
+    "lightMode": "Use light mode",
+    "darkMode": "Use dark mode"
+  },
+  "chrome": {
+    "search": "Search",
+    "closeSearchDialog": "Close search dialog",
+    "toggleDetailView": "Toggle detail view",
+    "resetSearch": "Reset search",
+    "navigate": "Navigate",
+    "select": "Select",
+    "close": "Close",
+    "reset": "Reset",
+    "menu": "Menu",
+    "onThisPage": "On this page",
+    "previous": "Previous",
+    "next": "Next",
+    "copy": "Copy",
+    "copied": "Copied",
+    "skipToContent": "Skip to content",
+    "askInChatGPT": "Ask in ChatGPT",
+    "copyPageForLlms": "Copy page for LLMs",
+    "lastUpdated": "Last updated:",
+    "codeGroup": "Code group",
+    "terminal": "Terminal",
+    "file": "File",
+    "noResultsFor": "No results for",
+    "top": "Top",
+    "scrollToTop": "Scroll to top",
+    "pageNotFound": "Page not found",
+    "notFoundDescription": "The page you were looking for could not be found.",
+    "goHome": "Go to home page",
+    "diagramScroll": "Scroll horizontally to view the full diagram.",
+    "diagramError": "The diagram could not be rendered"
+  },
+  "legal": {
+    "translationTitle": "Convenience translation",
+    "translationNotice": "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.",
+    "englishSource": "Read the English Terms"
+  },
+  "whitePaper": {
+    "translationTitle": "About this translation",
+    "translationNotice": "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.",
+    "englishSource": "Read the English source",
+    "archivedEnglishOnly": "The superseded v0.7 PDF is available in English only."
+  }
+}

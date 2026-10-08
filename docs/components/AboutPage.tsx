@@ -2,7 +2,7 @@ import { Fragment, type CSSProperties, type ReactNode } from 'react'
 
 import { LOCALE_BY_CODE, type SupportedLocale } from '../i18n/locales'
 import type { SplashMessages } from '../i18n/messages'
-import { LandingControls } from './LandingControls'
+import { localizedPath } from '../i18n/routes'
 
 const statistics = [
   { value: 745, key: 'vouchers', tone: 'orange' },
@@ -262,10 +262,10 @@ type AboutPageProps = {
 export function AboutPage({ locale, messages }: AboutPageProps) {
   const numberFormatter = new Intl.NumberFormat(LOCALE_BY_CODE[locale].intlLocale)
   const supportSection = messages.sections[3]
+  const docsPath = (path: string) => localizedPath(path, locale)
 
   return (
     <main className="about-page">
-      <LandingControls locale={locale} messages={messages.controls} />
 
       <section className="about-overview" aria-labelledby="overview-title">
         <div className="about-shell">
@@ -305,28 +305,23 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
             </a>
             <a
               className="about-button about-button--secondary about-overview__button"
-              href="/introduction/getting-started"
-              hrefLang="en"
+              href={docsPath('/introduction/getting-started')}
             >
               {messages.overview.actions.getStarted}
             </a>
             <a
               className="about-button about-button--secondary about-overview__button"
-              href="/protocol/overview"
-              hrefLang="en"
+              href={docsPath('/protocol/overview')}
             >
               {messages.overview.actions.protocol}
             </a>
             <a
               className="about-button about-button--secondary about-overview__button"
-              href="/white-paper"
-              hrefLang="en"
+              href={docsPath('/white-paper')}
             >
               {messages.overview.actions.whitePaper}
             </a>
           </nav>
-
-          {locale !== 'en' ? <p className="about-english-notice">{messages.englishDocsNotice}</p> : null}
 
           <div className="about-overview__feature-grid">
             {messages.overview.cards.map((card) => (
@@ -541,7 +536,7 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
                 })}
               </p>
               <p>
-                <a href="/introduction/history" hrefLang="en">
+                <a href={docsPath('/introduction/history')}>
                   {messages.features.historyLink}
                 </a>
               </p>
@@ -651,12 +646,7 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
         <div className="about-shell about-footer__content">
           <p>{messages.footer.lineage}</p>
           <nav aria-label={messages.footer.legalLabel}>
-            <a
-              href="https://docs.cosmolocal.credit/governance/terms"
-              hrefLang="en"
-              rel="noreferrer"
-              target="_blank"
-            >
+            <a href={docsPath('/governance/terms')}>
               {messages.footer.terms}
             </a>
             <a

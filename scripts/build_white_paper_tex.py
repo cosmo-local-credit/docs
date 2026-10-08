@@ -4,14 +4,29 @@
 from __future__ import annotations
 
 import html
+import argparse
 import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ROOT / "docs" / "pages" / "white-paper"
+PAGES_ROOT = ROOT / "docs" / "pages"
+PAGES = PAGES_ROOT / "white-paper"
 OUT_DIR = ROOT / "white-paper"
 OUT_TEX = OUT_DIR / "clc_white_paper.tex"
+LOCALES = ["en", "ar", "de", "dz", "es", "fr", "it", "pt", "sr", "sw", "uk"]
+POLYGLOSSIA_LANGUAGES = {
+    "ar": "arabic",
+    "de": "german",
+    "dz": "tibetan",
+    "es": "spanish",
+    "fr": "french",
+    "it": "italian",
+    "pt": "portuguese",
+    "sr": "serbian",
+    "sw": "english",
+    "uk": "ukrainian",
+}
 
 DISPLAY_FORMULAS = {
     "V_j (network) = S_j/D_j": r"V_j^{\mathrm{network}} = \frac{S_j}{D_j}",
@@ -131,7 +146,7 @@ def escape_url(url: str) -> str:
 
 def normalize_source(text: str) -> str:
     text = html.unescape(text)
-    text = re.sub(r'<a\s+href="([^"]+)">([^<]+)</a>', r"[\2](\1)", text)
+    text = re.sub(r'<a\b[^>]*href="([^"]+)"[^>]*>([^<]+)</a>', r"[\2](\1)", text)
     text = re.sub(r"<[^>]+>", "", text)
     return text.replace("\r\n", "\n")
 
@@ -392,8 +407,8 @@ def convert_lines(lines: list[str]) -> list[str]:
     return out
 
 
-def extract_index() -> tuple[list[str], str, dict[str, str]]:
-    text = normalize_source((PAGES / "index.mdx").read_text(encoding="utf-8"))
+def extract_index(pages_dir: Path = PAGES) -> tuple[list[str], str, dict[str, str]]:
+    text = normalize_source((pages_dir / "index.mdx").read_text(encoding="utf-8"))
     lines = text.splitlines()
     version = ""
     publication_date = ""
@@ -464,7 +479,7 @@ def extract_index() -> tuple[list[str], str, dict[str, str]]:
     }
 
 
-def preamble(abstract_text: str, version: str, publication_date: str) -> list[str]:
+def english_preamble(abstract_text: str, version: str, publication_date: str) -> list[str]:
     return [
         r"\documentclass[11pt]{article}",
         "",
@@ -513,12 +528,94 @@ def preamble(abstract_text: str, version: str, publication_date: str) -> list[st
     ]
 
 
-def build() -> str:
-    front_lines, abstract_text, meta = extract_index()
-    out = preamble(abstract_text, meta["version"], meta["date"])
+def localized_preamble(locale: str, subtitle: str) -> list[str]:
+    language = POLYGLOSSIA_LANGUAGES[locale]
+    main_font = "Noto Serif Tibetan" if locale == "dz" else "Noto Sans"
+    language_fonts: list[str] = []
+    if locale == "ar":
+        language_fonts = [r"\newfontfamily\arabicfont[Script=Arabic]{Noto Sans Arabic}"]
+    elif locale == "dz":
+        language_fonts = [r"\newfontfamily\tibetanfont[Script=Tibetan]{Noto Serif Tibetan}"]
+    elif locale in {"sr", "uk"}:
+        language_fonts = [r"\newfontfamily\cyrillicfont[Script=Cyrillic]{Noto Sans}"]
+
+    column_alignment = r"\raggedleft" if locale == "ar" else r"\raggedright"
+    return [
+        r"\documentclass[11pt]{article}",
+        "",
+        r"\usepackage{fontspec}",
+        r"\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}",
+        rf"\setmainfont{{{main_font}}}",
+        r"\setsansfont{Noto Sans}",
+        r"\setmonofont{Noto Sans Mono}",
+        r"\usepackage[margin=1in]{geometry}",
+        r"\usepackage{amsmath,amssymb}",
+        r"\usepackage{booktabs}",
+        r"\usepackage{array}",
+        r"\usepackage{longtable}",
+        r"\usepackage{tabularx}",
+        r"\usepackage{graphicx}",
+        r"\usepackage{caption}",
+        r"\usepackage{enumitem}",
+        r"\usepackage{hyperref}",
+        r"\usepackage{url}",
+        r"\usepackage{polyglossia}",
+        rf"\setdefaultlanguage{{{language}}}",
+        *language_fonts,
+        rf"\newcolumntype{{P}}[1]{{>{{{column_alignment}\arraybackslash}}p{{#1}}}}",
+        r"\captionsetup{font=small,labelfont=bf}",
+        r"\setlength{\emergencystretch}{2em}",
+        r"\hypersetup{",
+        r"  unicode=true,",
+        r"  colorlinks=true,",
+        r"  linkcolor=blue,",
+        r"  citecolor=blue,",
+        r"  urlcolor=blue,",
+        rf"  pdflang={{{locale}}},",
+        r"  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},",
+        r"  pdfauthor={William O. Ruddick and Mohamed Sohail}",
+        r"}",
+        "",
+        r"\title{Cosmo-Local Credit (CLC)\\" + render_inline(subtitle) + "}",
+        r"\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}",
+        r"\date{White Paper v0.8 --- 8 October 2026}",
+        "",
+        r"\begin{document}",
+        r"\maketitle",
+        r"\tableofcontents",
+        r"\newpage",
+        "",
+    ]
+
+
+def localized_index(pages_dir: Path) -> tuple[list[str], str]:
+    lines = normalize_source((pages_dir / "index.mdx").read_text(encoding="utf-8")).splitlines()
+    subtitle = "A Network for Routing Credit, Coordinating Commitments, and Financing a Healthy Cosmo-Local Economy"
+    output: list[str] = []
+    found_subtitle = False
+    for line in lines:
+        if line.startswith("# "):
+            continue
+        if line.startswith("## ") and not found_subtitle:
+            subtitle = strip_md(line)
+            found_subtitle = True
+            continue
+        output.append(line)
+    return output, subtitle
+
+
+def build(locale: str = "en") -> str:
+    if locale == "en":
+        front_lines, abstract_text, meta = extract_index()
+        out = english_preamble(abstract_text, meta["version"], meta["date"])
+        pages_dir = PAGES
+    else:
+        pages_dir = PAGES_ROOT / locale / "white-paper"
+        front_lines, subtitle = localized_index(pages_dir)
+        out = localized_preamble(locale, subtitle)
     out.extend(convert_lines(front_lines))
     for filename in ORDER:
-        source = normalize_source((PAGES / filename).read_text(encoding="utf-8"))
+        source = normalize_source((pages_dir / filename).read_text(encoding="utf-8"))
         out.extend(convert_lines(source.splitlines()))
         out.append("")
     out.append(r"\end{document}")
@@ -526,9 +623,16 @@ def build() -> str:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--all", action="store_true")
+    parser.add_argument("--locale", choices=LOCALES)
+    args = parser.parse_args()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    OUT_TEX.write_text(build(), encoding="utf-8")
-    print(OUT_TEX)
+    locales = LOCALES if args.all else [args.locale or "en"]
+    for locale in locales:
+        output = OUT_TEX if locale == "en" else OUT_DIR / f"clc_white_paper_{locale}.tex"
+        output.write_text(build(locale), encoding="utf-8")
+        print(output)
 
 
 if __name__ == "__main__":

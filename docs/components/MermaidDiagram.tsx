@@ -10,12 +10,16 @@ function activeTheme(): DiagramTheme {
 
 export function MermaidDiagram({
   chart,
+  errorMessage = 'The diagram could not be rendered',
   label,
   minWidth = 720,
+  scrollMessage = 'Scroll horizontally to view the full diagram.',
 }: {
   chart: string
+  errorMessage?: string
   label: string
   minWidth?: number
+  scrollMessage?: string
 }) {
   const reactId = useId()
   const containerRef = useRef<HTMLDivElement>(null)
@@ -78,7 +82,7 @@ export function MermaidDiagram({
   if (error) {
     return (
       <pre role="alert">
-        {label} could not be rendered: {error}
+        {errorMessage}: {error}
       </pre>
     )
   }
@@ -88,7 +92,7 @@ export function MermaidDiagram({
       <figcaption
         style={{ color: 'var(--vocs-color_text3)', fontSize: '0.8rem', marginBottom: '0.5rem' }}
       >
-        Scroll horizontally to view the full diagram.
+        {scrollMessage}
       </figcaption>
       <div
         ref={containerRef}

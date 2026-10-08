@@ -59,7 +59,7 @@ export function LocaleSelector({ locale, label, onLocaleChange }: LocaleSelector
 
   function chooseLocale(nextLocale: SupportedLocale) {
     closeMenu({ restoreFocus: nextLocale === locale })
-    if (nextLocale !== locale) onLocaleChange(nextLocale)
+    onLocaleChange(nextLocale)
   }
 
   function moveActive(offset: number) {

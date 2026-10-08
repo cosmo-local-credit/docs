@@ -1,0 +1,73 @@
+# Exemple de bon pratique
+
+Cet exemple suit un bon d'émission par le biais d'un swap de pool, de la présentation du rachat, de l'exécution et de la décharge. Il illustre les rôles qui s'y rattachent; il ne s'agit pas d'une promesse selon laquelle un bon, une piscine, un itinéraire ou un résultat précis seront disponibles.
+
+Pour les définitions utilisées ici, voir [Concepts and Vocabulary](/fr/introduction/concepts).
+
+## 1°. Un émetteur publie un engagement
+
+Imaginez qu'une cuisine communautaire crée un bon de repas numérique. Avant de l'émettre, la cuisine publie les informations dont le titulaire a besoin pour prendre une décision éclairée:
+
+- l'identité et les coordonnées de la cuisine;
+- le repas ou toute autre offre représentée par un bon;
+- l'alimentation, l'unité, la valeur déclarée et la capacité de fonctionnement de la cuisine;
+- où et à quelle heure il peut être présenté;
+- toute date d'expiration, processus de réservation, frais, taxes ou restrictions de transfert; et
+- Comment fonctionnent la présentation, l'exécution, les plaintes, les remboursements, les remplacements et autres recours.
+
+La cuisine est l'émetteur. Elle doit maintenir ces informations exactes, éviter de les émettre au-delà de sa capacité raisonnable et honorer les bons en fonction des conditions auxquelles les titulaires les ont acquis. La création du jeton ou la publication de l'offre ne prouvent pas cette capacité ni ne font de GEF l'émetteur.
+
+## 2°. Il n'y a pas de problème. Un gestionnaire de piscine admet le bon
+
+Un pool d'engagement en matière de sécurité alimentaire examine la cuisine, ses conditions de paiement et le but de la piscine. En cas d'admission, le gestionnaire de la piscine publie les règles qui s'appliquent, notamment:
+
+- qui est responsable de la piscine;
+- le propriétaire actuel de `SwapPool`, l'administrateur par procuration et les contrôleurs de la dépendance au matériel;
+- actifs acceptés;
+- méthodes de taux de change ou de devises;
+- les plafonds de solde des jetons, appelés **“Limites de crédit”** dans l'application;
+- les frais de pool et de protocole;
+- les pouvoirs d'inventaire et de retrait de liquidité; et
+- tout accord de garantie, de réserve ou de soutien financé séparément.
+
+L'admission signifie que les règles de la piscine permettent le bon. Il ne prouve pas la capacité d'accomplissement, n'établit pas de valeur en espèces ni ne crée une assurance.
+
+## 3 - Le dépôt Un participant contribue à l'inventaire
+
+Un participant transfère des bons de repas ou un autre actif soutenu dans le `SwapPool` selon les modalités publiées applicables. Ce dépôt augmente le stock disponible.
+
+Le transfert ne crée pas automatiquement une part de pool, une demande de remboursement, un droit de retrait, une récompense ou un pouvoir de gouvernance. Un tel droit doit provenir d'un accord séparé.
+
+## 4e. Un détenteur fait un échange de piscine
+
+Un titulaire échange un actif soutenu contre des bons de repas par l'intermédiaire de la piscine. La cotation affichée est un paramètre de transaction produit par le cotateur configuré, et non une preuve de la valeur en espèces du bon ou des performances de la cuisine.
+
+L'échange direct de pool s'effectue sur la chaîne en transférant les entrées, sorties, frais de pool et toute redevance de protocole supplémentaire. Il ne s'agit pas automatiquement d'un prêt, d'un rachat par l'émetteur ou d'une réalisation réelle.
+
+## 5°. Le titulaire présente le bon
+
+Dans l'application actuelle, en sélectionnant **“Redeem”**, le flux d'envoi ordinaire est ouvert avec l'adresse du propriétaire du jeton pré-remplie. L'envoi du bon de retour est une preuve de présentation à l'émetteur; il ne prouve pas par lui-même que la cuisine a fourni un repas.
+
+La cuisine vérifie la présentation et fournit le repas promis selon ses termes publiés.
+
+## 6e. L'émetteur enregistre l'accomplissement et la décharge
+
+Après avoir fourni le repas, l'émetteur enregistre les unités remplies afin qu'elles ne puissent pas être présentées deux fois. En fonction du processus publié, cela peut impliquer la réception, la combustion, l'annulation ou la désactivation du bon retourné.
+
+Si la cuisine ne respecte pas son engagement, le titulaire utilise le processus de plainte ou de recours publié par l'émetteur et tous les droits disponibles en vertu de la loi applicable. Ni GEF ni le gestionnaire de la piscine ne deviennent racheteurs simplement parce que l'application a affiché le bon ou que la piscine a permis un swap.
+
+Le choix de **“Retire voucher”** dans l'application est différent: il cache la liste du catalogue pendant que les soldes et l'historique restent, et un administrateur peut la restaurer. Il ne s'agit pas de l'accomplissement, de la décharge, de la combustion ou de l'annulation.
+
+## Responsabilités d'un coup d'œil
+
+- **Émetteur:**décrit et remplit le bon et enregistre la décharge.
+- **Éleveur de piscine:**publie et administre les règles, les tarifs, les redevances, les limites, les contrôles et toute garantie expressément assumée.
+- **Réservateur:**examine l'émetteur, les conditions du bon, les règles du pool, la cotation, l'autorisation de portefeuille et la loi applicable.
+- **Contrôleurs techniques:**exercent uniquement les pouvoirs de contrat, de dépendance, de mise à niveau, de catalogue ou de redevance qui leur sont attribués.
+- **GEF:**exploite le CLC App et l'infrastructure de soutien, sous réserve des [termes de service](/fr/governance/terms); il n'assume pas automatiquement les autres rôles.
+
+## Accords de crédit futurs
+
+Un futur groupe ou une autre partie responsable pourrait offrir séparément une transaction sous forme d'avance remboursable, d'une transaction garantie ou d'un autre produit de crédit. Un tel produit nécessiterait une présentation séparée des conditions supplémentaires et des conditions de transaction indiquant les parties, les montants, les dates d'échéance, les frais ou les intérêts, le traitement des garanties, l'affectation, le défaut, les recours et les preuves de décharge.
+
+Un envoi ordinaire, un dépôt de pool, un swap de pool, une présentation de bon, une exécution ou une décharge ne créent pas de telles obligations par elles-mêmes.

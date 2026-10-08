@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **Über diese Übersetzung.** Das ist eine Übersetzung von White Paper v0.8. Die englische Quelle wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde am 8. Oktober 2026 veröffentlicht. Englisch ist der Quelltext. <a data-english-source="true" href="/white-paper" hreflang="en">Lesen Sie die englische Quelle</a>.
+
+## Ein Netzwerk zur Vermittlung von Krediten, zur Koordinierung von Verpflichtungen und zur Finanzierung einer gesunden kosmos-lokalen Wirtschaft
+
+**Version:** 0.8
+
+**Datum:**30. September 2026
+
+**Autoren:**William O. Ruddick und Mohamed Sohail
+
+**Kontakt:**[info@grassecon.org](mailto:info@grassecon.org)
+
+**Herunterladen:**<a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-de.pdf">CLC White Paper v0.8 PDF</a>
+
+**Veröffentlichung:**Endversion öffentliche Veröffentlichung. Dieses Papier ist kein Anlageberatung und stellt kein Verkaufsangebot oder eine Aufforderung zum Kauf von Wertpapieren oder Finanzinstrumenten dar. In späteren Versionen können die hier beschriebenen Entwürfe überarbeitet werden.
+
+## Wie man diese Zeitung liest
+
+Dieses Papier kombiniert vier Arten von Material. Der Status gilt überall, auch wenn ein Kapitel ihn nicht wiederholt.
+
+|Status|Bedeutung|
+| --- | --- |
+| **Strom** |Verhalten, das in den CLC App oder den öffentlichen Protocol v1.1.0-Verträgen überprüft wurde. Die [Verweis auf das Protokoll](/de/protocol/overview) ist die tatsächliche Quelle für diese Verträge.|
+| **Entsprechungsabhängig** |Eine Fähigkeit, die nur dann besteht, wenn ein bestimmter Pool, Anbieter, Gerichtsbarkeit, Regierungsorgan oder veröffentlichte Politik dies ermöglicht.|
+| **Historisches** |Nachweis oder Funktionalität des früheren Sarafu Network-Dienstes. Es ist keine aktuelle CLC-Annahme oder Nachweis, dass ein Benutzer, ein Vermögenswert, eine Aufzeichnung oder eine Verpflichtung migriert ist.|
+| **Vorgeschlagen** |Ein Entwurf, ein Wirtschaftsmodell, ein Governance-Mechanismus oder ein Roadmap-Element, das nicht als eingesetzt dargestellt wird.|
+
+Der aktuelle Protocol v1.1.0 umfasst die direkte Ausführung von `SwapPool`, die optionale Curation, die Bewertung, die Pool-Token-Balance-Caps, die Pool-Gebühren, eine zusätzliche Protokollgebühr und nur ein Zitat `SwapRouter`. Mehrfach-Hop-Ausführung, HTLC oder Escrow-Routing, Charge-Netting, geteilte Versicherung, das vorgeschlagene CLC Governance-Token, der vorgeschlagene CLC Network Pool, Gebühren-Kreditmechanismen und Netzwerklüiditätsprogramme werden vorgeschlagen oder abhängig von dem Einsatz.
+
+**Zielgruppe:**Pool-Builder und Stewards, Protokollingenieure und Wirtschaftsprüfer, Liquiditäts- und Mandatfinanzierer, Governance-Designer und Rechts- oder Konformitätsprüfer.
+
+## Abstrakt
+
+Cosmo-Local Credit ist eine Produktfamilie, die sich auf das **Commitment Pooling Protocol (CPP)** konzentriert. CPP beschreibt, wie unabhängig regierte Engagement Pools einlösbare Engagements kuratieren, Wechselkursmethoden und -grenzen veröffentlichen, Inventar halten und einen verantwortungsvollen Austausch ermöglichen können.
+
+Ein "Commitment Pool" ist die geregelte Vereinbarung. Ein aktueller Protocol v1.1.0 **`SwapPool`** ist eine Vertragskomponente: ein Token-Vault und eine Direkt-Swap-Engine. Eine Bereitstellung kann diesen Vertrag mit Registern, Quoten, Pool-Token-Balance-Caps, Gebührenrichtlinien und anderen Diensten verbinden.
+
+Kosmo-local bedeutet, offene Standards, Software und Wissen weltweit zu teilen und gleichzeitig die Ausgabe, Erfüllung, Governance und reale Rechenschaftspflicht lokal zu halten. Ein Emittent bleibt für seinen Gutschein verantwortlich. Ein Pool Steward ist weiterhin für die Pool-Regeln und alle von ihm ausdrücklich angenommenen Garantien verantwortlich. Weder die CLC App noch die GEF garantieren automatisch einen Gutschein, einen Pool, einen Wert, eine Route, eine Liquiditätsposition oder ein Ergebnis.
+
+## Aktuelle Bereitstellung
+
+GEF betreibt die CLC App unter [cosmolocal.credit](https://cosmolocal.credit). Es bietet Zugang zu Konten und Brieftaschen, einen öffentlichen Marktkatalog und unterstützte Schnittstellen für Token, Gutscheine, Angebote, Verpflichtungspools, Überweisungen und direkte Pool-Swaps. Die Verfügbarkeit hängt von der Schnittstelle, den Verträgen, dem Inventar, den konfigurierten Grenzen und Gebühren, dem Netzstand, der Berechtigung, den Anbietern, der Gerichtsbarkeit und den veröffentlichten Emittenten- oder Poolbedingungen ab.
+
+Der Betrieb der Schnittstelle macht GEF nicht von sich selbst zum Emittenten, Pool Steward, Verwalter, Kreditgeber, Kreditnehmer, Makler, Bürger, Erlöser, Berater, Versicherer oder Partei bei Verpflichtungen zwischen den Teilnehmern. Die Nutzung der App unterliegt den [Nutzungsbedingungen](/de/governance/terms).
+
+Protocol v1.1.0 trennt verantwortliche Rollen von der technischen Kontrolle. Ein Pool Steward, Eigentümer von `SwapPool`, Proxy-Administrator, Abhängigkeitscontroller, Katalogmoderator und Gebührenempfänger können verschiedene Parteien sein. Siehe [Konzepte und Vokabular](/de/introduction/concepts) für die gemeinsame Terminologie.
+
+## Historische Abstammung
+
+Der historische Sarafu Network ging dem CLC App voraus und lieferte Beweise für Gemeinschaftswährungen und Verpflichtungspooling. Der Übergang zu Cosmo-Local Credit hat nicht alle historischen Konten, Brieftasche, Token, Gutscheine, Pool, Saldo, Bericht, Teilnehmer oder Verpflichtung übertragen.
+
+Die historischen Metriken in diesem Papier verwenden einen datierten, intern kohärenten Sarafu-Datensatz. Sie sind keine aktuellen Nutzungszahlen von CLC. Siehe [Exekutivsummary](/de/white-paper/executive-summary) für die Quelle und den Messzeitraum.
+
+## Konstruktionsmodell
+
+CPP verwendet vier große Funktionen:
+
+- **Verpflegung:**entscheidet, welche Gutscheine oder sonstige Vermögenswerte zugelassen werden.
+- **Bewertungen:**Veröffentlichen Sie die Methode zur Erstellung von Wechselkursen oder Angebote des Pools.
+- **Einschränkung:**die geltenden Token-Balance-Obergrenzen oder andere separat eingeführte Risikokontrollen anzuwenden.
+- **Umtausch:**Inventar halten und Pool-Swaps unter offenbarten Gebühren und Grenzen durchführen.
+
+Eine Bereitstellung kann Routing, Überwachung, Liquiditätsunterstützung, Garantien, Reserven, Versicherungen oder Governance-Dienste nur unter gesondert veröffentlichten Richtlinien hinzufügen. Die Auflistung, die Aufbewahrung, eine Grenze, eine Reserve oder ein Blockchain-Record bestimmen von selbst nicht die Emittentenkapazität, die Erfüllung, die Zulassung, eine Garantie oder eine Versicherung.
+
+## Werte und Konstruktionsprinzipien
+
+- **Fürsorge für Menschen:**Förderung des individuellen und kollektiven Wohlbefindens.
+- **Umweltschutz:**Um ökologische Schäden zu reduzieren und die Regenerationspraxis zu unterstützen.
+- **Gerechtigkeit:**Förderung eines sicheren und gerechten Zugangs zu Ressourcen, Wissen und Pflege.
+- **Gegenseitigkeit:**Teil des Risikos, der Kosten, der Verantwortung und des Überschusses nach offenbarten Regeln.
+- **Nicht-Dominante:**Sie können sich der konzentrierten Kontrolle über Menschen, Daten, Finanzen, Wissen und materielle Ressourcen widersetzen.
+- **Widerstandsfähigkeit:**Unterstützung der Gemeinschaften bei der Vorbereitung auf und Anpassung an wirtschaftliche, politische und klimatische Störungen.
+- **lokale Rechenschaftspflicht:**die Realität und die gesetzliche Verantwortung bei identifizierten Parteien zu wahren.
+- **Forktabilität:**ermöglichen, dass kompatible Gemeinschaften und Bereitstellungen geteilte Register oder Dienstleistungen verlassen können, ohne dass gültige Salden oder Verpflichtungen gelöscht werden.
+
+Die digitale Schicht ist die gemeinsame Speicher- und Koordinationsinfrastruktur. Es ist kein Ersatz für Beziehungen, Leistung der Emittenten, lokale Governance oder rechtliche Rechenschaftspflicht.
+
+## Aktuelle und vorgeschlagene Ströme
+
+### Der direkte Strom des Pools
+
+1. Ein Inhaber überprüft einen Gutschein, seinen Aussteller, seine Bedingungen und die damit verbundenen Angebote.
+2. Ein Pool erkennt unterstützte Vermögenswerte an und veröffentlicht seine Aufstellung und die zuständigen Behörden.
+3. Der Inhaber erhält ein Angebot und genehmigt einen direkten Pool-Swap.
+4. `SwapPool` führt die Swap-Abwicklung in der Kette durch und berechnet Pool- und Protokollgebühren.
+5. Wenn der Inhaber später **“Redeem”** in der App wählt, bereitet die App eine Übertragung an den Token-Inhaber als Erlösungsvorlage vor.
+6. Der Emittent führt die versprochene Erfüllung separat durch und verzeichnet die Entlastung, sodass die erfüllten Einheiten nicht wiederverwendet werden können.
+
+Inventare aus einem Pool zu nehmen, ist ein Austausch. Es ist nur dann eine Rückzahlung, wenn dieser Pool die Rolle des Emittenten getrennt übernommen hat und die geltenden Gutscheinsbedingungen erfüllt.
+
+### Breiter vorgeschlagener Entwurf
+
+Das vorgeschlagene Entwurf untersucht die Ausführung von Routing, Netting, Shared Services, Network Liquidity-Programme, Versicherungen und Governance-Assets. Jede von ihnen würde die Umsetzung, die Verantwortlichen, die verabschiedeten Regeln, die Finanzierung, die Kontrollen und die öffentliche Offenlegung erfordern, bevor sie angewandt werden könnte.
+
+Das vorgeschlagene Gebührenmodell kann ein Netzwerk-Rake verwenden, das aus Pool-Gebühren und separaten Routing- oder Servicegebühren entnommen wird. Dieser Vorschlag unterscheidet sich von Protocol v1.1.0, wo eine optionale Protokollgebühr zusätzlich zur Poolgebühr ist.
+
+Unterstützer oder Liquiditätsanbieter erhalten keine automatischen Pool-Aktien, Rückzahlungen, Auszahlungen, Belohnungen oder Governance-Rechte aus dem aktuellen `SwapPool`. Jedes aktuelle oder zukünftige Programm muss den Übertragungstyp, die verantwortliche Partei, die Kontroll-, Rückforderungs- oder Rücknahmerechte, Verluste, Belohnungen, Gebühren und Governance-Rechte separat offenlegen.
+
+## Leserkarte
+
+- Aktuelle Terminologie und Aktionslebenszyklus: [Konzepte und Vokabular](/de/introduction/concepts)
+- Überprüfbare bereitgestellte Verträge: [Protocol v1.1.0](/de/protocol/overview)
+- Historische Beweise: [Exekutivübersicht](/de/white-paper/executive-summary)
+- Konföderation und Interoperabilität: Kapitel 5, 8 und 11
+- Angebotene Garantien und Versicherungsgrenzen: Kapitel 10 und 11
+- Angebotene Liquiditäts- und Gebührenmodelle: Kapitel 7, 9 und 12
+- Angebotene Messrahmen: Kapitel 14 und Anlagen A–C
+- Vorschlag für einen Fahrplan: Kapitel 15
+- Rechts- und Konformitätsüberlegungen: Kapitel 17
+
+[Frühere White Paper-Versionen](/de/white-paper/archive) werden nur als eindeutig ersetzte historische Publikationen aufbewahrt.

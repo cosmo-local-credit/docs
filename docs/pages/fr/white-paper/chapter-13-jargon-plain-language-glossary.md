@@ -1,0 +1,25 @@
+## **Il y en a 13. Glossaire en langage clair**
+
+- **Cosmo-Local Credit (CLC):**La famille de produits, y compris le CLC App, la documentation et un travail plus large de partage d'engagements.
+- **CLC App:**L'application web progressive exploitée par GEF à `cosmolocal.credit`.
+- **Protocole de regroupement des engagements (CPP):**Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.
+- **Protocol v1.1.0:**L'annonce vérifiée des contrats intelligents.
+- **Pôle d'engagement:**Un arrangement réglementé qui admet les actifs soutenus et publie les règles de change.
+- **`SwapPool`:**Le coffre-fort des jetons et le contrat d'échange direct.
+- **Marque de dépôt:**Un solde en chaîne ou un actif numérique. La mécanique des jetons à elle seule ne crée pas une promesse redevable.
+- **Voucher:**Un jeton ou un enregistrement représenté par un émetteur en tant qu'engagement redevable dans des conditions publiées.
+- **L'offrande:**Registre de catalogue des biens ou services associés à un bon.
+- **Émetteur:**La partie responsable de la publication et de l'accomplissement d'un engagement de bon.
+- **Éleveur de piscine:**La structure responsable qui publie et administre les règles de Pool.
+- **Taux de change ou cotation:**Un paramètre de transaction produit par un cotateur configuré; non preuve de trésorerie ou de valeur de rachat.
+- **Cap de équilibre des jetons de pool:** Le maximum `Limiter` actuel pour un jeton détenu par un pool. L'application peut l'étiqueter **“Limit de crédit.”**
+- **Échange de piscine:**Un échange direct d'actifs via un `SwapPool`.
+- **Swap settlement:**Les transferts en chaîne et la comptabilisation des frais complétant un échange de pool.
+- **Présentation du remboursement:**Retour ou autre présentation d'unités de bon à l'émetteur.
+- **Réalisé:**L'émetteur fournit le bien, le service, le bénéfice ou toute autre performance promis.
+- **Décharge:**Un enregistrement empêchant de présenter à nouveau les unités remplies.
+- **Routeur d'exécution proposé:**Des futurs logiciels qui autorisent et exécutent des itinéraires. Seules les citations actuelles `SwapRouter`.
+- **Proposition de réseau CLC:**Un futur accord de compensation et de coordination budgétaire au niveau du réseau.
+- **Le jeton de gouvernance CLC proposé:**Une conception de gouvernance future, pas une App actuelle ou un actif Protocol v1.1.0.
+- **Rackage de réseau:**Une part proposée des frais du pool transférée à un futur budget du réseau.
+- **Garantie ou assurance:**Une protection qui ne s'applique que lorsqu'une partie identifiée l'assume expressément, le finance et la publie.

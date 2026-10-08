@@ -1,15 +1,15 @@
-.landing-controls {
+.site-controls {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
 }
 
-.landing-controls--portal {
+.site-controls--desktop {
   flex: 0 0 auto;
   margin-inline-start: 1rem;
 }
 
-.landing-controls--mobile {
+.site-controls--mobile {
   display: none;
 }
 
@@ -72,21 +72,23 @@
 }
 
 @media (max-width: 1080px) {
-  .landing-controls--mobile {
+  .site-controls--mobile {
     display: flex;
     width: min(100%, 1280px);
     justify-content: flex-end;
     margin-inline: auto;
-    padding: 0.75rem clamp(1.25rem, 4vw, 2.5rem) 0;
+    padding: 0.65rem clamp(1.25rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--vocs-color_border);
+    background: var(--vocs-color_background);
   }
 
-  .landing-controls--portal {
+  .site-controls--desktop {
     display: none;
   }
 }
 
 @media (max-width: 460px) {
-  .landing-controls--mobile {
+  .site-controls--mobile {
     justify-content: center;
     padding-inline: 1rem;
   }

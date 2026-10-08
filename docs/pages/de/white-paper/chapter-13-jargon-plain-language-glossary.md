@@ -1,0 +1,25 @@
+## **13. Das ist alles. Einfaches Sprachglossar**
+
+- **Cosmo-Local Credit (CLC):**Die Produktfamilie, einschließlich der CLC App, die Dokumentation und die breitere Verpflichtungsabteilung.
+- **CLC App:**Die progressive Web-App, die von GEF bei `cosmolocal.credit` betrieben wird.
+- **Protokoll zur Zusammensetzung der Verpflichtungen (CPP):**Das wiederverwendbare Modell von Curation, Bewertung, Begrenzung, Austausch und verantwortungsbewusster Governance.
+- **Protocol v1.1.0:**Die bestätigte öffentliche Veröffentlichung des Smart-Contract.
+- **Engagement-Pool:**Eine geregelte Vereinbarung, die geförderte Vermögenswerte zugibt und die Wechselkursregeln veröffentlicht.
+- **`SwapPool`:**Der jetzige Token-Vault und der Direkt-Swap-Vertrag.
+- **Zeichnung:**Ein Bilanz in der Kette oder ein digitales Vermögen. Die Token-Mechanik allein schafft kein lösbares Versprechen.
+- **Gutschein:**Ein Token oder eine Aufzeichnung, die von einem Emittenten als ein einlösbares Engagement unter veröffentlichten Bedingungen dargestellt wird.
+- **Das Angebot:**Ein Katalogbuch für Waren oder Dienstleistungen, die mit einem Gutschein verbunden sind.
+- **Aussteller:**Die für die Veröffentlichung und Erfüllung eines Gutscheinsverpflichtens zuständige Partei.
+- **Pool Steward:**Die verantwortliche Struktur, die Pool-Regeln veröffentlicht und verwaltet.
+- **Pool Wechselkurs oder Quote:**Ein Transaktionsparameter, der von einem konfigurierten Anbieter erstellt wird; kein Beweis für Bargeld- oder Rückzahlungswert.
+- **Pool-Token-Balance-Cap:** Das aktuelle Maximum von `Limiter` für ein Token, das von einem Pool gehalten wird. Die App kann sie mit der Kennzeichnung ** Credit limit.”**
+- **Pool swap:**Ein direkter Vermögenswertwechsel über einen `SwapPool`.
+- **Swap-Abwicklung:**Die Überweisungen in der Kette und die Rechnungslegung der Gebühren, die einen Pool-Swap abschließen.
+- **Erlösungsvorlage:**Rückgabe oder sonstige Vorlage von Gutscheineinheiten an den Emittenten.
+- **Erfüllung:**Der Emittent liefert das versprochene Gut, die versprochene Dienstleistung, die versprochene Leistung oder eine andere Leistung.
+- **Entlastung:**Eine Aufzeichnung, die verhindert, dass ausgefüllte Einheiten erneut vorgestellt werden.
+- **vorgeschlagener Ausführungsrouter:**Zukunftssoftware, die Routen autorisieren und ausführen würde. Nur die aktuellen Zitate von `SwapRouter`.
+- **Angebotene Netzwerkpool CLC:**Eine zukünftige Vereinbarung zur Clearing und zur Koordinierung des Budgets auf Ebene des Netzes.
+- **Angebotene CLC Governance-Token:**Ein zukünftiges Governance-Design, nicht ein aktuelles App- oder Protocol v1.1.0-Asset.
+- **Netzwerk-Rake:**Ein vorgeschlagener Anteil der Poolgebühren, der auf einen zukünftigen Netzbudget übertragen wird.
+- **Garantie oder Versicherung:**Ein Schutz, der nur dann gilt, wenn eine identifizierte Partei es ausdrücklich übernimmt, finanziert und veröffentlicht.

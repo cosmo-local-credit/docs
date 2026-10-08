@@ -1,65 +1,86 @@
-# Splash-page localization guide
+# Documentation localization guide
 
-This directory owns the splash-page locale registry and translations. The synchronization baseline is `clc-app` develop commit `3e7bd5213560`.
+This directory owns the locale registry, visitor-facing catalogs, navigation,
+heading mappings, app-aligned glossary, and translation review manifest for the
+complete public documentation site. The synchronization baseline is `clc-app`
+`origin/develop` commit `32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1`.
 
-## Locale registry
+English is unprefixed. Arabic, Dzongkha, German, Spanish, French, Italian,
+Portuguese, Serbian, Kiswahili, and Ukrainian use their two-letter locale prefix.
+Stable English slugs are deliberately retained below each prefix.
 
-| Code | Native name | Formatting locale | Direction |
-| --- | --- | --- | --- |
-| `en` | English | `en` | LTR |
-| `ar` | العربية | `ar-u-nu-arab` | RTL |
-| `dz` | རྫོང་ཁ | `dz` | LTR |
-| `de` | Deutsch | `de` | LTR |
-| `es` | Español | `es` | LTR |
-| `fr` | Français | `fr` | LTR |
-| `it` | Italiano | `it` | LTR |
-| `pt` | Português | `pt` | LTR |
-| `sr` | Српски | `sr` | LTR |
-| `uk` | Українська | `uk` | LTR |
-| `sw` | Kiswahili | `sw` | LTR |
+## Files
 
-The order, codes, native names, number-formatting locales, and direction match the app snapshot. The docs are deliberately independent at runtime: they do not import from or request the sibling app repository.
+- `locales.ts` is the single locale registry and preserves the app's order,
+  native names, number-formatting locales, and text directions.
+- `messages/` contains the splash catalogs.
+- `ui/` contains translated site controls, search, accessibility, legal, and
+  White Paper translation notices.
+- `navigation/` contains sidebar labels; `navigation.ts` generates every
+  path-scoped sidebar from one route structure.
+- `glossary.json` records the app vocabulary and the docs' canonical
+  Commitment Pool and Pool Steward terms.
+- `heading-map.json` maps equivalent heading anchors by document order.
+- `translation-manifest.json` records source and translation hashes, the app
+  baseline, publication date, and automated review results.
 
-`components/LocaleSelector.tsx` is the reusable presentation and keyboard-interaction component. It does not own routes, redirects, or browser storage; its caller supplies the current locale and handles changes. `LandingControls.tsx` provides the splash-specific navigation and preference behavior. This separation allows the same selector to be used later in documentation navigation with locale-specific routing rules.
+`LocaleSelector.tsx` is presentation-only and reusable. `SiteControls.tsx` owns
+global routing, browser detection, persistence, translated Vocs chrome, and
+theme controls. An explicit localized URL controls that visit without changing
+the saved preference; only a manual choice writes `clc.docs.locale`.
 
-The splash shell's search trigger and search prompt use `controls.search`. Search results and the documentation they open remain English until the documentation routes themselves are localized.
+## Translation and review workflow
 
-## Terminology
+The maintained translation generator uses the local open NLLB-200 distilled
+model (`JustFrederik/nllb-200-distilled-600M-ct2-int8`, CC BY-NC 4.0) as a
+maintainer tool. It is not shipped to visitors and is not a runtime dependency.
+Every release applies:
 
-- Keep `Cosmo-Local Credit`, `CLC App`, `Sarafu Network`, organization names, media names, and partner names unchanged.
-- Reuse established app terminology for Voucher, Pool, Issuer, Market, and action labels when it expresses the same meaning.
-- A Voucher works much like a gift card for goods or services.
-- A Commitment Pool works like a curated marketplace for exchanging selected Vouchers.
-- A Pool Steward chooses supported Vouchers and publishes the Pool's rules.
-- An Issuer creates a Voucher and is responsible for what it promises.
-- “Marketplace” on the splash page is an analogy. The named app **Market** is a discovery catalog.
+1. semantic translation with URLs, code, formulas, names, contract identifiers,
+   dates, and version identifiers protected;
+2. clarity normalization using complete Markdown units and the app-aligned
+   glossary;
+3. unit-by-unit back-translation, source-hash checks, heading parity, protected
+   token checks, internal-link checks, and rendered inspection.
 
-## Translation workflow
+The English Terms are controlling; every localized Terms page is a convenience
+translation and links prominently to English. English is also the source text
+for White Paper v0.8. Localized HTML and PDFs state the English publication date
+and the translation publication date.
 
-Each catalog in `messages/` must receive three passes before publication:
-
-1. **Semantic:** translate every English unit faithfully and preserve roles, responsibilities, history, placeholders, and product names.
-2. **Clarity:** use natural, plain language, complete short sentences, and avoid literal English phrasing.
-3. **Verification:** compare the meaning back to English, check the glossary and placeholders, and inspect the rendered page for wrapping and direction.
-
-URLs, anchors, asset paths, partner names, statistic quantities, and exact Pool-tag query values stay in `AboutPage.tsx`, outside the catalogs. English documentation links retain their English destinations and `hreflang="en"`.
-
-Run these checks for every change:
+To regenerate translations with an already downloaded CTranslate2 model:
 
 ```sh
+/path/to/python scripts/generate_documentation_translations.py \
+  --model /path/to/nllb-ct2 --threads 8
+node scripts/synchronize_locale_catalogs.mjs
+node scripts/synchronize_protected_content.mjs
+node scripts/merge_translation_manifests.mjs
+npm run i18n:headings
+```
+
+Then generate the localized PDFs and validate the atomic release:
+
+```sh
+npm run whitepaper:publish
 npm run typecheck
 npm run check:i18n
 npm run build
 git diff --check
 ```
 
+The build emits one MiniSearch index and one `llms.txt`/`llms-full.txt` pair per
+locale. Localized search never loads results from another language.
+
 ## Adding an app language
 
-1. Confirm the new app locale code, native name, formatting locale, direction, and product vocabulary at a recorded app commit.
-2. Add the locale to `locales.ts`, the static locale bootstrap in `vocs.config.ts`, and the locale map in `scripts/finalize_localized_html.mjs`.
-3. Copy `messages/en.json`, translate it through all three passes, and register it in `messages.ts`.
-4. Add a static `docs/pages/<code>/index.tsx` route shell importing only that catalog.
-5. Add the code to `scripts/check_locales.mjs` and run the full check sequence above.
-6. Verify localized metadata, canonical and reciprocal `hreflang` links, browser matching, manual switching, query/hash preservation, number formatting, accessibility, and mobile/desktop layout.
-
-Only the splash page is localized in this phase. Detailed documentation and search remain English until locale-specific documentation, sidebars, and search indexes are introduced.
+1. Record the app commit and confirm its locale code, native name, formatting
+   locale, direction, and product vocabulary.
+2. Add the locale to `locales.ts`, the route/search build lists, and the static
+   splash route.
+3. Add splash, UI, navigation, and glossary entries.
+4. Generate all 36 translated documentation pages and the localized v0.8 PDF.
+5. Rebuild heading mappings and the translation manifest.
+6. Validate browser matching, manual English override, query/hash preservation,
+   RTL/LTR behavior, isolated search, metadata, sidebars, links, PDF glyphs, and
+   mobile/desktop layouts before publishing every language together.

@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Sprache",
+    "colorTheme": "Farbschema",
+    "lightMode": "Hellen Modus verwenden",
+    "darkMode": "Dunklen Modus verwenden"
+  },
+  "chrome": {
+    "search": "Suchen",
+    "closeSearchDialog": "Schließen Sie den Dialog mit der Suche",
+    "toggleDetailView": "Wechseln Sie die Detailansicht",
+    "resetSearch": "Wiederherstellung der Suche",
+    "navigate": "Navigieren",
+    "select": "Auswählen",
+    "close": "Schließen",
+    "reset": "Zurücksetzen",
+    "menu": "Speisekarte",
+    "onThisPage": "Auf dieser Seite",
+    "previous": "Vorherige",
+    "next": "Als Nächstes",
+    "copy": "Kopie",
+    "copied": "Kopiert",
+    "skipToContent": "Überspringen Sie auf Inhalt",
+    "askInChatGPT": "Fragen Sie im ChatGPT",
+    "copyPageForLlms": "Kopie-Seite für LLM",
+    "lastUpdated": "Zuletzt aktualisiert:",
+    "codeGroup": "Code-Gruppe",
+    "terminal": "Terminal",
+    "file": "Datei",
+    "noResultsFor": "Keine Ergebnisse für",
+    "top": "Vorwärts",
+    "scrollToTop": "Rollen Sie nach oben",
+    "pageNotFound": "Seite nicht gefunden",
+    "notFoundDescription": "Die Seite, die Sie gesucht haben, konnte nicht gefunden werden.",
+    "goHome": "Gehen Sie auf die Startseite",
+    "diagramScroll": "Scrollen Sie horizontal, um das gesamte Diagramm zu sehen.",
+    "diagramError": "Das Diagramm konnte nicht dargestellt werden."
+  },
+  "legal": {
+    "translationTitle": "Bequemlichkeitsübersetzung",
+    "translationNotice": "Diese Übersetzung ist zur Bequemlichkeit vorgesehen. Die englischen Bedingungen sind der Quelltext und die Kontrolle, es sei denn, die geltenden Gesetze verlangen etwas anderes.",
+    "englishSource": "Lesen Sie die englischen Begriffe"
+  },
+  "whitePaper": {
+    "translationTitle": "Über diese Übersetzung",
+    "translationNotice": "Das ist eine Übersetzung von White Paper v0.8. Die englische Quelle wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde am 8. Oktober 2026 veröffentlicht. Englisch ist der Quelltext.",
+    "englishSource": "Lesen Sie die englische Quelle",
+    "archivedEnglishOnly": "Die ersetzte V0.7 PDF ist nur in englischer Sprache verfügbar."
+  }
+}

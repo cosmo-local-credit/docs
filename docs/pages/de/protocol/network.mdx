@@ -1,0 +1,71 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Protokoll-Netzwerkarchitektur
+
+Eine CPP--kompatible Implementierung kann viele Vouchers und Pools durch optionale Registrierungen, Indexe, Zitatmodule und Applikations-Route-Entdeckung verbinden. Jeder Pool bleibt ein separater Tresor mit seiner eigenen Liquidität, Eigentümer, Proxy-Administrator, Konfiguration und Abhängigkeiten.
+
+Grassroots Economics Foundation betreibt die öffentliche App unter [cosmolocal.credit](https://cosmolocal.credit). Andere Schnittstellen und Bereitstellungen können das gleiche öffentliche Protokoll verwenden. Der Betrieb der App macht GEF nicht automatisch zum Eigentümer, Emittenten, Steward, Gebührenempfänger oder Bürgen für jeden nachstehend angegebenen Vertrag.
+
+Siehe [Konzepte und Wortschatz](/de/introduction/concepts) für die Unterscheidung zwischen verantwortlichen Rollen und technischen Befugnissen.
+
+
+## Kandidatenwege und Ausführung
+
+"MermaidDiagramm"
+label="Kandidatenroute Entdeckung und Wallet-Batch Ausführung"
+MinWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Gutschein A"] ---|aufgelistet und gehalten| PoolA["Pool A"]
+    Bridge["Generische Brückenvermögenswerte"] ---|aufgelistet und gehalten| PoolA
+    Bridge ---|aufgelistet und gehalten| PoolB["Pool B"]
+    VoucherB["Gutschein B"] ---|aufgelistet und gehalten| PoolB
+
+    App["PWA oder Routefinder"] -. discovers candidates .-> Index["Register und Indizes"]
+    App -. requests a quote .-> Router["SwapRouter: nur Zitat"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|erstellt geordnete Anrufe| WalletStart["Benutzer-Smart-Account-Wallet"]
+    WalletStart -->|Hop 1: Gutschein A| PoolA
+    PoolA -->|Brückenleistung| WalletBridge["Gleiche Brieftasche zwischen den Anrufen"]
+    WalletBridge -->|Hop 2: Brückenvermögen| PoolB
+    PoolB -->|Ausgabe von Gutschein B| WalletFinal["Gleiche Benutzerbörse"]
+
+    PoolA -->|Protokollgebühr| ProtocolRecipient["Konfigurerter Protokollempfänger"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+Ein geteilter Vermögenswert erzeugt einen **möglichen Grafikweg**, nicht eine garantierte Route. In diesem Beispiel könnte Gutschein A gegen das Brückenvermögen in Pool A ausgetauscht werden, dann könnte das Brückenvermögen gegen Gutschein B in Pool B ausgetauscht werden. Jeder Sprung hängt immer noch von der aktuellen Token-Zulassung, Pool-Limits, verfügbaren Inventar, Quote- und Gebührenkonfiguration, Oracle-Zustand, Genehmigungen, Transaktionsgrenzen und Netzwerk-Ausführung ab.
+
+`SwapRouter` ruft nur Poolquote-Funktionen über einen vorgeschlagenen Pfad hinweg an. Es hält keine Gelder, genehmigt keine Token oder führt keine Swaps durch. Eine integrierte oder kompatible App kann diese Zitatergebnisse verwenden, um geordnete Genehmigungen und Pool-Anrufe in einer unterzeichneten Smart-Account-Serie zu erstellen; dies bedeutet nicht, dass die aktuelle öffentliche App Multi-Hop-Ausführung bietet. Jeder Sprung befindet sich in der Brieftasche, bevor die Brieftasche den Zwischenvermögenswert an den nächsten Pool liefert, und der Integrator kann die Charge so konfigurieren, dass sie bei einem Versagen des Anrufs zurückkehrt.
+
+Zitate sind Schnappschüsse. Eine erfolgreiche Streckeneinschreibung kann immer noch versagen oder anders abgelöst werden, wenn sich die relevanten Zustände vor der Ausführung ändern. Die Grenzüberlastung `SwapPool.withdraw` ergänzt `minAmountOut` und `deadline` Schutz für einen einzelnen Sprung; die Integratoren müssen entscheiden, wie Grenzen über die gesamte Strecke angewendet werden.
+
+Die Poolgebühren bleiben bei der jeweiligen Pool für die spätere Einzahlung. Alle Protokollgebühren sind zusätzlich und werden während des Swaps direkt von diesem Pool an seinen konfigurierten Protokollempfänger übertragen.
+
+
+## Innenräume der Pool
+
+"MermaidDiagramm"
+label="Verpflichtungspool Abhängigkeiten und Verwaltungsbefugnisse"
+MinWidth={820}
+  chart={`flowchart TB
+    Owner["Vertragsinhaber oder<br/>Pool Steward"] -->|konfigurieren, versiegeln, sammeln, zurückziehen| Pool["SwapPool<br/>Gewölbe und Siedlung"]
+    ProxyAdmin["ERC-1967<br/>Proxy-Administrator"] -->|Verbesserung der Umsetzung| Pool
+    Dependencies["Optionale Abhängigkeiten<br/>Registry · limiter · quoter<br/>Gebührenrichtlinie · Protokollgebührencontroller<br/>Jeder hat seine eigene Regierung."] -. settlement inputs .-> Pool
+    Seal["Fünf versiegelbare Adressplätze<br/>GebührPolitik · GebührAdresse · Anmelder<br/>TokenRegistry · TokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["Benutzerbörse"] -->|Einzahlungs- oder Swap-Eingabe| Pool
+    Pool -->|Netto-Swap-Output| Wallet
+    Pool -->|Einholte Poolgebühren| FeeAddress["Konfiguriert<br/>Gebührenadresse"]
+    Pool -->|Protokollgebühr im selben Swap| ProtocolRecipient["Protokoll<br/>Empfänger"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+Das Register, der Begrenzer, der Zitat, die Gebührenpolitik und der Protokoll-Gebühren-Kontroller sind optional. Ohne Register kann jedes Token die Eintrittsprüfung durchlaufen; ohne Begrenzer sind Einlagen unbeschränkt; ohne Quote verwendet der Pool die Roh-Einheitsparität; und ohne Gebührenmodule sind die entsprechenden Gebühren null.
+
+Die fünf versiegelbaren Slots sind `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` und `tokenLimiter`. Ein Siegel verhindert, dass der derzeitige Pool-Besitzer diese Adresse durch seinen Setter ersetzt, aber es friert den internen Zustand der Abhängigkeit nicht ein. Die `protocolFeeController`-Adresse und der `feesDecoupled`-Modus fallen nicht unter diese fünf Versiegelungsbits. Die Fähigkeit des Proxy-Administrators, den Pool zu aktualisieren, ist auch getrennt von der Versiegelung.
+
+Der Vertragsinhaber kann die verfügbare Pool-Liquidität an eine gewählte Adresse abheben. Im Abkopplungsmodus werden aufgelaufene Gebühren aus diesem Weg vorbehalten; die Möglichkeit, die verbleibende Liquidität zurückzuziehen, besteht immer noch. Die Teilnehmer sollten den Eigentümer, den Stellvertreter, die Abhängigkeitscontroller, den Siegelzustand, die Gebührenempfänger und die veröffentlichten Pool-Regeln überprüfen, bevor sie sich auf einen Pool verlassen.
+
+Für die konzeptionelle Gestaltung dieser Verträge—einschließlich Curation, Bewertung, Begrenzung, Austausch und Governance—siehe das [Weißbuch](/de/white-paper).

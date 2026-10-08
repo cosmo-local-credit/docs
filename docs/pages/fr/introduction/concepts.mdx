@@ -1,0 +1,102 @@
+# Concepts et vocabulaire
+
+Cosmo-Local Credit relie une application, un protocole ouvert, des pools gérés indépendamment et les engagements du monde réel représentés par des bons. Ces couches fonctionnent ensemble, mais elles ne sont pas la même chose.
+
+Cette page définit les termes utilisés dans la documentation. Les étiquettes exactes des applications apparaissent dans les citations où l'interface utilise un nom plus court ou potentiellement ambigu.
+
+## Couches de produit et de protocole
+
+|Définition|La signification|
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** |La famille de produits: le CLC App, sa documentation et le travail plus large de partage d'engagements.|
+| **CLC App** |L'application web progressive à [cosmolocal.credit](https://cosmolocal.credit). GEF exploite cette interface et ses services de support.|
+| **Protocole de regroupement des engagements (CPP)** |Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.|
+| **Protocol v1.1.0** |La certification des contrats intelligents publics vérifiée est documentée dans le [référence au protocole](/fr/protocol/overview).|
+| **Pôle d'engagement** |Un arrangement réglementé qui régit les actifs, publie des règles et permet l'échange. **Pool** est l'abréviation ordinaire.|
+| **`SwapPool`** |Le contrat de protocole actuel qui détient l'inventaire des jetons et exécute des swaps directs. Il s'agit d'une composante technique d'un groupe d'engagements.|
+| **Le jeton de gouvernance CLC proposé** |Un projet de gouvernance future dans le livre blanc. Il ne s'agit pas d'un actif actuel App ou Protocol v1.1.0.|
+| **Proposition de réseau CLC** |Une future conception de la compensation et de la coordination au niveau du réseau. Il n'est pas le même qu'un `SwapPool` actuel.|
+
+## Des jetons, des coupons et des offrandes
+
+Un **token** est un solde ou un actif numérique en chaîne. Les mécaniciens de jetons peuvent enregistrer l'approvisionnement, les transferts, l'expiration et la combustion, mais ils ne promettent pas par eux-mêmes des biens, des services, la conversion en espèces ou le rachat.
+
+Un **voucher** est un jeton ou un enregistrement qu'un émetteur représente comme un engagement redevable dans des conditions publiées. Ces termes devraient identifier ce qui est promis, qui est responsable, où et quand il peut être présenté, les limites matérielles, ainsi que le processus d'exécution et de plainte.
+
+Une offre est l'enregistrement du catalogue des biens ou services associés à un bon. La publication d'une Offre ne prouve pas que l'offre s'est accomplie, qu'elle est disponible ou qu'elle a eu lieu.
+
+Il s'agit de quatre couches distinctes:
+
+1. le contrat symbolique et les soldes;
+2. la désignation du bon et les conditions publiées;
+3. un ou plusieurs dossiers d'offres; et
+4. le rendement réel de l'émetteur.
+
+## Rôle responsable et contrôle technique
+
+|Rôle ou autorité|Responsabilité ou pouvoir|
+| --- | --- |
+| **Émetteur** |Publie et remplit un engagement de bon. Cette responsabilité n'est pas automatiquement transférée simplement parce que la propriété du contrat change.|
+| **Réservateur** |Il contrôle le solde du bon. Le contrôle ne prouve pas l'accomplissement, la valeur en espèces ou une garantie.|
+| **fournisseur de services** |Un personnage face au public. Un prestataire de services devient émetteur lorsqu'il publie un engagement de bon.|
+| **Éleveur de piscine** |La personne responsable, la coopérative, l'agence publique, la fédération, la multisig, le service ou toute autre structure qui publie et administre les règles du Pool.|
+| **Propriétaire de piscine** |L'adresse avec les pouvoirs actuels du propriétaire `SwapPool`, y compris la configuration, la perception des frais et le retrait des liquidités disponibles.|
+| **Administrateur de proxy** |L'autorité qui peut mettre à niveau une mise en œuvre proxy du contrat. Il peut être différent du propriétaire de la piscine.|
+| **Contrôleur de dépendance** |Un propriétaire ou un écrivain contrôlant un registre, un limitateur, un citateur, un oracle, une politique de frais ou un contrôleur de frais de protocole.|
+| **Modérateur de catalogue** |Un opérateur d'application qui peut corriger, cacher ou restaurer des enregistrements de catalogue sans changer les soldes en chaîne.|
+| **Récipiendaire de la taxe** |L'adresse configurée recevant une redevance de pool ou de protocole. Ce n'est pas forcément le gestionnaire de piscine ou le propriétaire.|
+| **Supporteur ou fournisseur de liquidité** |Un participant contribuant à des actifs selon des modalités communiquées séparément. Le `SwapPool` actuel ne crée pas d'actions Pool ni de droits de remboursement automatique, de retrait, de récompense ou de gouvernance.|
+
+memberMembre de la communauté” est une langue sociale informelle. Elle ne crée pas par elle-même d'admission, de propriété, de gouvernance, de remboursement ou d'autres droits légaux.
+
+## Actions et cycle de vie
+
+|Terme de demande ou de documentation|Ce que cela signifie|
+| --- | --- |
+| **Créer ou publier un bon** |Déployer ou configurer un jeton et publier son catalogue et ses termes.|
+| **Émission ou menthe** |Créez un équilibre de jetons sous l'autorité du propriétaire ou du rédacteur configuré.|
+| **Publiez une offrande** |Ajouter un enregistrement de biens ou de services sous un bon.|
+| **Envoyez** |Transférez un solde à une autre adresse.|
+| **Réparer”** |Dans l'application actuelle, ouvrez le flux d'envoi avec l'adresse du propriétaire du jeton pré-remplie. Cela présente ou renvoie des jetons à l'émetteur; cela ne prouve pas l'accomplissement.|
+| **Remplissez** |L'émetteur fournit les biens, services, prestations ou autres prestations promis.|
+| **Décharge** |Enregistrer les unités remplies afin qu'elles ne puissent pas être présentées à nouveau, par exemple en les recevant, en les brûlant, en les annulant ou en les désactivant autrement selon les conditions publiées.|
+| **Voucher de retraite** |Cachez un bon dans le catalogue des applications. Les équilibres et l'historique restent, et un administrateur peut restaurer la liste. Ce n'est pas une combustion ou une annulation.|
+| **Dépôt ou contribution de la réserve** |Transfert d'actifs dans un `SwapPool`. Les droits au remboursement, au retrait, aux récompenses ou à la gouvernance n'existent que lorsqu'ils sont communiqués séparément.|
+| **Échange de piscine** |Échangez un actif pris en charge contre un autre par le biais d'un `SwapPool`. Il ne s'agit pas d'un remboursement par l'émetteur ou d'un prêt automatique.|
+| **Retrait de liquidité du groupe** |Le propriétaire de la piscine transfère l'inventaire disponible à une adresse sélectionnée.|
+| **Réservation des frais** |Un destinataire configuré perçoit les frais de pool accumulés.|
+
+Utiliser **swap settlement** pour les transferts en chaîne et la comptabilité des frais qui complètent un pool swap. Utilisez **présentation de rédemption**, **accomplissement** et **décharge** pour le cycle de vie séparé du bon du monde réel.
+
+## Marché, valeurs, limites et redevances
+
+Le marché de l'application est un catalogue de découvertes pour les bons, les piscines, les offres et les informations publiques. Une cotation n'est pas automatiquement un lieu d'échange, une relation avec le vendeur, une approbation, une évaluation ou une garantie.
+
+Gardez ces termes de valeur séparés:
+
+- **Prix d'offre:**le montant demandé pour un bien ou un service énuméré;
+- **valeur déclarée du bon:**une valeur représentée dans les termes publiés de l'émetteur;
+- **Taux de change ou cotation:**le paramètre de transaction produit par le cotateur configuré d'un pool;
+- **référence oracle:**les données externes utilisées par un module d'évaluation configuré; et
+- **conditions de rachat:**ce que l'émetteur promet de fournir et dans quelles conditions.
+
+L'étiquette App **“Credit limit”** fait référence au plafond de solde des jetons configuré d'un Pool: le montant maximum de ce jeton que le Pool peut détenir après un dépôt. Il ne s'agit pas d'une ligne de crédit personnelle, d'un contrôle de la capacité de l'émetteur ou d'une garantie de rachat. Les limites de roulement, de compte et de réseau proposées dans le livre blanc sont des mécanismes différents.
+
+Le Protocol v1.1.0 actuel peut facturer des frais de piscine et des frais de protocole supplémentaires. Le modèle proposé dans le Livre blanc décrit séparément un futur "rack de réseau" prélevé sur les frais de pool et les éventuels frais de routage ou de service. Ces modèles ne doivent pas être combinés pour expliquer les charges courantes ou pour calculer les recettes futures.
+
+## Protection et preuves
+
+La conservation, l'inclusion dans le registre, une limite, une réserve, la visibilité de l'application ou une transaction blockchain n'établirent pas par elles-mêmes l'approbation, la capacité de l'émetteur, l'accomplissement, une garantie ou une assurance.
+
+Toute protection devrait identifier l'obligé, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve et le processus de réclamation. Les enregistrements en chaîne peuvent afficher des adresses, des actifs, des montants, des timestamps et des événements de contrat. Le rendement, la satisfaction des émetteurs, la délibération sur la gouvernance et l'impact social exigent des informations, des rapports, des attestations ou d'autres éléments de preuve distincts.
+
+## Les mots de statut
+
+- **Courant:**vérifiés dans les documents CLC App ou Protocol v1.1.0 décrits par ces documents.
+- **En fonction du déploiement:**n'est disponible que lorsqu'un déploiement, un pool, un fournisseur, une juridiction ou une politique publiée en particulier le permettent.
+- **L'historique:**preuve ou fonctionnalité du service Sarafu Network antérieur.
+- **Proposée:**un mécanisme de conception ou de feuille de route qui n'est pas représenté comme déployé.
+
+Le [Guide de démarrage](/fr/introduction/getting-started) applique ces termes à l'application actuelle. Le [référencement au protocole](/fr/protocol/overview) documente les contrats vérifiés, tandis que le [livre blanc](/fr/white-paper) présente les conceptions et les propositions plus larges.
+
+Pour une introduction complémentaire à l'engagement, au règlement, aux flux de ressources, à l'échange et au regroupement, consultez les [jeux éducatifs Grassroots Economics](https://grassrootseconomics.org/games/). Les jeux sont des ressources d'apprentissage, pas des définitions du comportement actuel de l'application ou du protocole.
