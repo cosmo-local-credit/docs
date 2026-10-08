@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit aide les personnes et les organisations à soutenir, partager et échanger des biens et des services."
+  },
+  "controls": {
+    "language": "Langue",
+    "colorTheme": "Thème de couleur",
+    "lightMode": "Utiliser le mode clair",
+    "darkMode": "Utiliser le mode sombre"
+  },
+  "englishDocsNotice": "La documentation détaillée et la recherche sont actuellement disponibles en anglais.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit aide les personnes et les organisations à soutenir, partager et échanger des biens et des services.",
+      "Chacun peut décrire ce qu’il propose, à qui son offre s’adresse et les conditions de son utilisation. Ces offres peuvent ensuite être réunies dans un réseau de confiance. Il devient ainsi plus facile de trouver, d’échanger et de soutenir des biens et services utiles au sein d’une communauté ou entre différents lieux."
+    ],
+    "resourceLabel": "Ressources Cosmo-Local Credit",
+    "actions": {
+      "openApp": "Ouvrir l’application",
+      "about": "À propos",
+      "getStarted": "Bien démarrer",
+      "protocol": "Protocole",
+      "whitePaper": "Livre blanc"
+    },
+    "cards": [
+      {
+        "title": "Créer des bons d’échange",
+        "description": "Créez un bon d’échange pour faire connaître vos biens ou services. Ajoutez des conditions claires afin que chacun sache ce qu’il offre et comment l’utiliser."
+      },
+      {
+        "title": "Échanger par l’intermédiaire de Bassins",
+        "description": "Un Bassin d’engagements est un espace sélectionné où certains bons d’échange peuvent être échangés. La personne qui le gère choisit les bons pris en charge et publie ses règles."
+      },
+      {
+        "title": "Partager et utiliser des bons",
+        "description": "Envoyez des bons à d’autres personnes, échangez les bons pris en charge par l’intermédiaire d’un Bassin ou utilisez-les auprès de leur émetteur."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Donner aux communautés les moyens d’agir grâce à la",
+    "titleAccent": "mise en commun des engagements",
+    "lead": "La mise en commun des engagements réunit des bons sélectionnés dans des places de marché organisées où les communautés peuvent les échanger. Les bons peuvent ensuite être utilisés pour les biens ou services décrits dans leurs conditions.",
+    "networkAlt": "Illustration de communautés reliées par des bons d’échange et des Bassins",
+    "videoLabel": "Voir la mise en commun des engagements en action",
+    "videoTitle": "Voir la mise en commun des engagements en action",
+    "statistics": {
+      "vouchers": "Bons actifs uniques",
+      "pools": "Bassins d’engagements actifs uniques",
+      "users": "Utilisateurs",
+      "exchanges": "Échanges entre utilisateurs",
+      "source": "Activité historique de Sarafu Network, du 5 juillet 2023 au 20 juillet 2025.",
+      "sourceLink": "Voir les données sources."
+    }
+  },
+  "audiences": {
+    "heading": "Que souhaitez-vous faire ?",
+    "intro": "Créer ou gérer un Bassin, promouvoir des biens ou services avec un bon, échanger et utiliser des bons, ou soutenir un Bassin.",
+    "navLabel": "Explorer Cosmo-Local Credit selon votre rôle",
+    "roles": [
+      { "title": "Gestionnaires de Bassins", "description": "Je souhaite créer ou gérer un Bassin" },
+      { "title": "Créateurs de bons", "description": "Je souhaite promouvoir des biens ou services avec un bon" },
+      { "title": "Utilisateurs de bons", "description": "Je souhaite trouver, envoyer, échanger ou utiliser des bons" },
+      { "title": "Soutiens", "description": "Je souhaite soutenir un Bassin d’engagements" }
+    ]
+  },
+  "howItWorks": {
+    "label": "Comment ça marche",
+    "imageAlt": "Création et échange de bons par l’intermédiaire d’un Bassin",
+    "steps": [
+      {
+        "title": "Créez un bon",
+        "description": "Décrivez vos biens ou services et expliquez comment le bon peut être utilisé."
+      },
+      {
+        "title": "Créez un Bassin sélectionné",
+        "description": "La personne qui gère le Bassin choisit les bons échangeables et publie les règles du Bassin."
+      },
+      {
+        "title": "Envoyez ou échangez",
+        "description": "Envoyez directement des bons à d’autres personnes ou échangez des bons pris en charge par l’intermédiaire d’un Bassin."
+      },
+      {
+        "title": "Utilisez le bon",
+        "description": "Utilisez-le auprès de son émetteur pour les biens ou services décrits dans ses conditions."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Gestionnaires de Bassins",
+      "tagline": "Créez et gérez un Bassin.",
+      "description": "La personne qui gère un Bassin crée une place de marché organisée pour les bons d’échange. Elle choisit les bons pris en charge, publie les règles, limites et frais, et tient les informations à jour. Il peut s’agir d’une personne, d’une organisation ou d’un autre groupe responsable.",
+      "imageAlt": "Des mains ajoutent des céréales dans un récipient commun",
+      "cardTitle": "Créer un Bassin",
+      "items": [
+        "Décrire l’objectif du Bassin",
+        "Choisir les bons qu’il prend en charge",
+        "Publier ses règles d’échange, limites et frais",
+        "Partager le Bassin avec d’autres personnes",
+        "Tenir ses informations à jour"
+      ],
+      "cta": "Créer un Bassin"
+    },
+    {
+      "title": "Créateurs de bons",
+      "tagline": "Faites connaître vos biens ou services.",
+      "description": "Créez un bon pour ce que vous proposez et publiez des conditions claires. Lorsque vous créez un bon, vous en êtes l’émetteur et vous êtes responsable de fournir ce qu’il promet.",
+      "imageAlt": "Des personnes lèvent la main pour présenter ce qu’elles proposent",
+      "cardTitle": "Créer un bon",
+      "items": [
+        "Décrire ce que propose votre bon",
+        "Expliquer où, quand et comment il peut être utilisé",
+        "Le partager avec vos clients et votre communauté",
+        "Voir quels Bassins le prennent en charge",
+        "Honorer le bon conformément à ses conditions"
+      ],
+      "cta": "Créer un bon"
+    },
+    {
+      "title": "Utilisateurs de bons",
+      "tagline": "Trouvez des bons pour des biens et services.",
+      "description": "Un bon fonctionne un peu comme une carte-cadeau. Il représente des biens ou services proposés par son émetteur. Lisez ses conditions avant de le recevoir, de l’envoyer, de l’échanger ou de l’utiliser.",
+      "imageAlt": "Des personnes échangent des bons contre des biens et services",
+      "cardTitle": "Explorer les bons",
+      "items": [
+        "Voir ce que propose chaque bon",
+        "Lire où, quand et comment l’utiliser",
+        "Trouver les Bassins où il peut être échangé",
+        "L’envoyer à une autre personne",
+        "L’échanger ou l’utiliser auprès de son émetteur"
+      ],
+      "cta": "Explorer les bons"
+    },
+    {
+      "title": "Soutiens",
+      "tagline": "Soutenez un Bassin qui vous tient à cœur.",
+      "description": "Lisez l’objectif, les règles et les conditions d’un Bassin avant de le soutenir. Les moyens de soutien disponibles et les éventuelles récompenses dépendent des conditions de chaque Bassin.",
+      "imageAlt": "Des personnes préparent le soutien d’un projet commun",
+      "cardTitle": "Trouver un Bassin à soutenir",
+      "cardSubtitle": "Explorer les Bassins",
+      "badgesLabel": "Exemples de thèmes de Bassins",
+      "badges": ["Agriculture", "Art", "Biodiversité", "Éducation", "Jeunesse"],
+      "badgeLinkLabel": "Explorer les Bassins : {category}",
+      "items": [
+        "Comprendre l’objectif du Bassin",
+        "Lire ses règles et conditions",
+        "Choisir un Bassin à soutenir",
+        "Suivre ses nouvelles et son activité"
+      ],
+      "footer": "Chaque Bassin publie ses propres moyens de soutien et ses conditions.",
+      "cta": "Explorer les Bassins"
+    }
+  ],
+  "testimonial": {
+    "label": "Impact dans la communauté",
+    "imageAlt": "Un membre de la communauté devant des affiches d’information de Sarafu Network",
+    "quote": "« Sarafu a transformé la façon dont notre communauté commerce et s’entraide. Même dans les moments difficiles, nous pouvons poursuivre nos échanges et aider nos voisins. Les bons maintiennent la valeur en circulation au sein de notre communauté. »",
+    "name": "Joseph Kimani",
+    "role": "Responsable communautaire et propriétaire d’une entreprise locale",
+    "since": "Utilise Sarafu Network depuis 2019",
+    "badges": ["Marchés communautaires", "Projets vulnérables", "Commerce local"]
+  },
+  "features": {
+    "heading": "Pourquoi Cosmo-Local Credit ?",
+    "intro": [
+      "Les personnes et les organisations ont souvent des biens et services utiles à proposer, même lorsque l’argent est rare ou que l’échange direct est difficile. Cosmo-Local Credit facilite la description, la découverte, le soutien et l’échange de ces offres.",
+      "Les bons rendent chaque offre et ses conditions claires. Les Bassins d’engagements réunissent des bons sélectionnés selon des règles communes. Il n’est donc pas nécessaire de trouver, au même moment, quelqu’un qui souhaite exactement ce que l’on propose.",
+      "Cosmo-Local Credit est créé et maintenu par {organization}, une organisation kényane à but non lucratif qui développe des outils d’échange communautaire depuis 2010. Le projet s’appuie sur les enseignements tirés des monnaies communautaires, de Sarafu Network et de la mise en commun des engagements."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Découvrez l’origine de Cosmo-Local Credit.",
+    "cards": [
+      {
+        "title": "Places de marché organisées",
+        "description": "Chaque Bassin réunit des bons sélectionnés et publie les règles permettant de les échanger."
+      },
+      {
+        "title": "Conditions et règles claires",
+        "description": "Les créateurs de bons expliquent ce qu’ils proposent. Les gestionnaires publient les règles de chaque Bassin."
+      },
+      {
+        "title": "Accès facile",
+        "description": "Utilisez la CLC App sur un téléphone ou un ordinateur. Les codes QR et les portefeuilles papier imprimables offrent d’autres moyens de participer."
+      },
+      {
+        "title": "Ouvert et adaptable",
+        "description": "CLC est développé ouvertement afin que chacun puisse l’examiner, l’utiliser et contribuer à l’améliorer."
+      }
+    ],
+    "imageAlt": "Des personnes et des lieux reliés par des bons et des Bassins"
+  },
+  "partners": {
+    "sectionLabel": "Couverture médiatique et partenaires",
+    "mediaHeading": "Sarafu Network dans les médias",
+    "mediaLinkLabel": "Voir la couverture de {name}",
+    "partnersHeading": "Nos partenaires",
+    "partnerLinkLabel": "Visiter {name}"
+  },
+  "cta": {
+    "heading": "Prêt à explorer ?",
+    "body": "Ouvrez la CLC App pour découvrir les bons et les Bassins organisés où ils peuvent être échangés. Abonnez-vous pour recevoir les actualités et les nouvelles du projet.",
+    "openApp": "Ouvrir la CLC App",
+    "updates": "Recevoir les actualités"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Fondé sur les enseignements de Sarafu Network.",
+    "legalLabel": "Informations juridiques",
+    "terms": "Conditions d’utilisation",
+    "dataPolicy": "Politique relative aux données"
+  }
+}

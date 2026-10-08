@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit ayuda a personas y organizaciones a apoyar, compartir e intercambiar bienes y servicios."
+  },
+  "controls": {
+    "language": "Idioma",
+    "colorTheme": "Tema de color",
+    "lightMode": "Usar modo claro",
+    "darkMode": "Usar modo oscuro"
+  },
+  "englishDocsNotice": "La documentación detallada y la búsqueda están disponibles actualmente en inglés.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit ayuda a personas y organizaciones a apoyar, compartir e intercambiar bienes y servicios.",
+      "Cualquier persona puede describir qué ofrece, a quién va dirigido y las condiciones para utilizarlo. Estas ofertas pueden reunirse en una red de confianza, lo que facilita encontrar, intercambiar y apoyar bienes y servicios útiles dentro de una comunidad o entre distintos lugares."
+    ],
+    "resourceLabel": "Recursos de Cosmo-Local Credit",
+    "actions": {
+      "openApp": "Abrir la aplicación",
+      "about": "Acerca de",
+      "getStarted": "Primeros pasos",
+      "protocol": "Protocolo",
+      "whitePaper": "Libro blanco"
+    },
+    "cards": [
+      {
+        "title": "Crear vales",
+        "description": "Crea un vale para dar a conocer tus bienes o servicios. Añade condiciones claras para que las personas sepan qué ofrece y cómo utilizarlo."
+      },
+      {
+        "title": "Intercambiar mediante Fondos",
+        "description": "Un Fondo de Compromisos es un espacio seleccionado donde se intercambian determinados vales. La persona responsable decide qué vales admite y publica sus reglas."
+      },
+      {
+        "title": "Compartir y usar vales",
+        "description": "Envía vales a otras personas, intercambia vales admitidos mediante un Fondo o utilízalos con su emisor."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Fortaleciendo comunidades mediante",
+    "titleAccent": "fondos de compromisos",
+    "lead": "Los fondos de compromisos reúnen vales seleccionados en mercados gestionados donde las comunidades pueden intercambiarlos. Después, las personas pueden utilizar los vales para los bienes o servicios descritos en sus condiciones.",
+    "networkAlt": "Ilustración de comunidades conectadas mediante vales y Fondos",
+    "videoLabel": "Mira cómo funcionan los fondos de compromisos",
+    "videoTitle": "Mira cómo funcionan los fondos de compromisos",
+    "statistics": {
+      "vouchers": "Vales activos únicos",
+      "pools": "Fondos de Compromisos activos únicos",
+      "users": "Personas usuarias",
+      "exchanges": "Intercambios entre personas",
+      "source": "Actividad histórica de Sarafu Network, del 5 de julio de 2023 al 20 de julio de 2025.",
+      "sourceLink": "Ver los datos de origen."
+    }
+  },
+  "audiences": {
+    "heading": "¿Qué te gustaría hacer?",
+    "intro": "Crear o gestionar un Fondo, promover bienes o servicios con un vale, intercambiar y utilizar vales o apoyar un Fondo.",
+    "navLabel": "Explorar Cosmo-Local Credit por función",
+    "roles": [
+      { "title": "Responsables de Fondos", "description": "Quiero crear o gestionar un Fondo" },
+      { "title": "Creadores de vales", "description": "Quiero promover bienes o servicios con un vale" },
+      { "title": "Usuarios de vales", "description": "Quiero encontrar, enviar, intercambiar o utilizar vales" },
+      { "title": "Colaboradores", "description": "Quiero apoyar un Fondo de Compromisos" }
+    ]
+  },
+  "howItWorks": {
+    "label": "Cómo funciona",
+    "imageAlt": "Creación e intercambio de vales mediante un Fondo",
+    "steps": [
+      {
+        "title": "Crea un vale",
+        "description": "Describe tus bienes o servicios y explica cómo pueden utilizar el vale las personas."
+      },
+      {
+        "title": "Crea un Fondo seleccionado",
+        "description": "La persona responsable del Fondo elige los vales que se pueden intercambiar y publica las reglas del Fondo."
+      },
+      {
+        "title": "Envía o intercambia",
+        "description": "Envía vales directamente a otras personas o intercambia vales admitidos mediante un Fondo."
+      },
+      {
+        "title": "Utiliza el vale",
+        "description": "Utilízalo con su emisor para obtener los bienes o servicios descritos en sus condiciones."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Responsables de Fondos",
+      "tagline": "Crea y gestiona un Fondo.",
+      "description": "La persona responsable de un Fondo crea un mercado seleccionado de vales. Elige qué vales admite el Fondo, publica sus reglas, límites y comisiones y mantiene actualizada su información. Puede ser una persona, una organización u otro grupo responsable.",
+      "imageAlt": "Manos añadiendo grano a un recipiente compartido",
+      "cardTitle": "Crear un Fondo",
+      "items": [
+        "Describir la finalidad del Fondo",
+        "Elegir los vales que admite",
+        "Publicar sus reglas de intercambio, límites y comisiones",
+        "Compartir el Fondo con otras personas",
+        "Mantener actualizada su información"
+      ],
+      "cta": "Crear un Fondo"
+    },
+    {
+      "title": "Creadores de vales",
+      "tagline": "Promueve tus bienes o servicios.",
+      "description": "Crea un vale para lo que ofreces y publica condiciones claras. Cuando creas un vale, eres su emisor y tienes la responsabilidad de proporcionar lo que promete.",
+      "imageAlt": "Personas levantando la mano para compartir lo que ofrecen",
+      "cardTitle": "Crear un vale",
+      "items": [
+        "Describir qué ofrece el vale",
+        "Explicar dónde, cuándo y cómo puede utilizarse",
+        "Compartirlo con clientes y con tu comunidad",
+        "Ver qué Fondos lo admiten",
+        "Cumplir el vale según sus condiciones"
+      ],
+      "cta": "Crear un vale"
+    },
+    {
+      "title": "Usuarios de vales",
+      "tagline": "Encuentra vales para bienes y servicios.",
+      "description": "Un vale funciona de forma parecida a una tarjeta de regalo. Representa bienes o servicios ofrecidos por su emisor. Lee sus condiciones antes de recibirlo, enviarlo, intercambiarlo o utilizarlo.",
+      "imageAlt": "Personas intercambiando vales por bienes y servicios",
+      "cardTitle": "Explorar vales",
+      "items": [
+        "Ver qué ofrece cada vale",
+        "Leer dónde, cuándo y cómo utilizarlo",
+        "Encontrar Fondos donde pueda intercambiarse",
+        "Enviarlo a otra persona",
+        "Intercambiarlo o utilizarlo con su emisor"
+      ],
+      "cta": "Explorar vales"
+    },
+    {
+      "title": "Colaboradores",
+      "tagline": "Apoya un Fondo que te importe.",
+      "description": "Lee la finalidad, las reglas y las condiciones de un Fondo antes de apoyarlo. Los métodos de apoyo disponibles y las posibles recompensas dependen de las condiciones de cada Fondo.",
+      "imageAlt": "Personas planificando cómo apoyar un proyecto compartido",
+      "cardTitle": "Encuentra un Fondo para apoyar",
+      "cardSubtitle": "Explorar Fondos",
+      "badgesLabel": "Ejemplos de temas de Fondos",
+      "badges": ["Agricultura", "Arte", "Biodiversidad", "Educación", "Juventud"],
+      "badgeLinkLabel": "Explorar Fondos de {category}",
+      "items": [
+        "Conocer la finalidad del Fondo",
+        "Leer sus reglas y condiciones",
+        "Elegir un Fondo que quieras apoyar",
+        "Seguir sus novedades y actividad"
+      ],
+      "footer": "Cada Fondo publica sus propias opciones y condiciones de apoyo.",
+      "cta": "Explorar Fondos"
+    }
+  ],
+  "testimonial": {
+    "label": "Impacto comunitario",
+    "imageAlt": "Miembro de la comunidad ante carteles informativos de Sarafu Network",
+    "quote": "«Sarafu ha transformado la manera en que nuestra comunidad comercia y se apoya mutuamente. Incluso en tiempos difíciles podemos seguir comerciando y ayudar a nuestros vecinos. Los vales mantienen el valor circulando dentro de nuestra comunidad».",
+    "name": "Joseph Kimani",
+    "role": "Líder comunitario y propietario de un negocio local",
+    "since": "Utiliza Sarafu Network desde 2019",
+    "badges": ["Mercados comunitarios", "Proyectos vulnerables", "Comercio local"]
+  },
+  "features": {
+    "heading": "¿Por qué Cosmo-Local Credit?",
+    "intro": [
+      "Las personas y las organizaciones suelen tener bienes y servicios útiles que ofrecer, incluso cuando escasea el dinero o es difícil realizar un intercambio directo. Cosmo-Local Credit facilita describir, encontrar, apoyar e intercambiar esas ofertas.",
+      "Los vales dejan claras cada oferta y sus condiciones. Los Fondos de Compromisos reúnen vales seleccionados bajo reglas compartidas, por lo que no es necesario encontrar en ese mismo momento a alguien que quiera exactamente lo que otra persona ofrece.",
+      "Cosmo-Local Credit está creado y mantenido por {organization}, una organización keniana sin ánimo de lucro que desarrolla herramientas de intercambio comunitario desde 2010. Surge de lo aprendido con las monedas comunitarias, Sarafu Network y los fondos de compromisos."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Lee de dónde viene Cosmo-Local Credit.",
+    "cards": [
+      {
+        "title": "Mercados seleccionados",
+        "description": "Cada Fondo reúne vales seleccionados y publica las reglas para intercambiarlos."
+      },
+      {
+        "title": "Condiciones y reglas claras",
+        "description": "Quienes crean vales explican qué ofrecen. Las personas responsables publican las reglas de cada Fondo."
+      },
+      {
+        "title": "Fácil acceso",
+        "description": "Utiliza la CLC App en un teléfono o una computadora. Los códigos QR y las carteras de papel imprimibles ofrecen otras formas de participar."
+      },
+      {
+        "title": "Abierto y adaptable",
+        "description": "CLC se desarrolla de forma abierta para que otras personas puedan examinarlo, utilizarlo y ayudar a mejorarlo."
+      }
+    ],
+    "imageAlt": "Personas y lugares conectados mediante vales y Fondos"
+  },
+  "partners": {
+    "sectionLabel": "Cobertura y socios",
+    "mediaHeading": "Sarafu Network en los medios",
+    "mediaLinkLabel": "Ver la cobertura de {name}",
+    "partnersHeading": "Nuestros socios",
+    "partnerLinkLabel": "Visitar {name}"
+  },
+  "cta": {
+    "heading": "¿Listo para explorar?",
+    "body": "Abre la CLC App para explorar vales y los Fondos seleccionados donde pueden intercambiarse. Suscríbete para recibir noticias y novedades del proyecto.",
+    "openApp": "Abrir la CLC App",
+    "updates": "Recibir noticias y novedades"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Creado a partir de lo aprendido con Sarafu Network.",
+    "legalLabel": "Información legal",
+    "terms": "Términos del servicio",
+    "dataPolicy": "Política de datos"
+  }
+}

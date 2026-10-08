@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vocs dev",
-    "build": "vocs build",
+    "build": "vocs build && node scripts/finalize_localized_html.mjs",
+    "check:i18n": "node scripts/check_locales.mjs",
+    "typecheck": "tsc --noEmit",
     "preview": "vocs preview",
     "whitepaper:tex": "python3 scripts/build_white_paper_tex.py",
     "whitepaper:pdf": "python3 scripts/build_white_paper_tex.py && latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=white-paper/build white-paper/clc_white_paper.tex",

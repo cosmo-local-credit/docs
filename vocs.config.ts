@@ -1,30 +1,125 @@
 import { createElement, Fragment } from 'react'
 import { defineConfig } from 'vocs'
 
+import {
+  DEFAULT_LOCALE,
+  getSplashPath,
+  isSupportedLocale,
+  LOCALE_BY_CODE,
+  LOCALE_OPTIONS,
+  type SupportedLocale,
+} from './docs/i18n/locales'
+
+const siteUrl = 'https://docs.cosmolocal.credit'
+
+function splashLocale(path: string): SupportedLocale | null {
+  if (path === '/' || path === '') return DEFAULT_LOCALE
+  const match = path.match(/^\/([^/]+)\/?$/)
+  return match && isSupportedLocale(match[1]) ? match[1] : null
+}
+
+const localeBootstrap = `(() => {
+  const supported = ${JSON.stringify(LOCALE_OPTIONS.map((option) => option.code))};
+  const directions = ${JSON.stringify(
+    Object.fromEntries(LOCALE_OPTIONS.map((option) => [option.code, option.direction])),
+  )};
+  const rootMatch = location.pathname.match(/^\\/([^/]+)\\/?$/);
+  const routeLocale = rootMatch && supported.includes(rootMatch[1]) ? rootMatch[1] : null;
+  const setDocumentLocale = (locale) => {
+    document.documentElement.lang = locale;
+    document.documentElement.dir = directions[locale] || 'ltr';
+  };
+  const store = (locale) => {
+    setDocumentLocale(locale);
+    try { localStorage.setItem('clc.docs.locale', locale); } catch {}
+  };
+  if (routeLocale) {
+    store(routeLocale);
+    return;
+  }
+  if (location.pathname !== '/') {
+    setDocumentLocale('en');
+    return;
+  }
+  let preferred = null;
+  try {
+    const stored = localStorage.getItem('clc.docs.locale');
+    if (supported.includes(stored)) preferred = stored;
+  } catch {}
+  if (!preferred) {
+    const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    for (const tag of browserLanguages) {
+      const primary = String(tag || '').trim().split(/[-_]/)[0].toLowerCase();
+      if (supported.includes(primary)) { preferred = primary; break; }
+    }
+  }
+  preferred ||= 'en';
+  store(preferred);
+  if (preferred !== 'en') location.replace('/' + preferred + '/' + location.search + location.hash);
+})();`
+
 export default defineConfig({
+  baseUrl: siteUrl,
   title: 'Cosmo-Local Credit',
   description:
     'Documentation for the Cosmo-Local Credit progressive web app and protocol for redeemable commitments and curated Pools.',
   iconUrl: '/icons/favicon.ico',
-  head: createElement(
-    Fragment,
-    null,
-    createElement('link', {
-      rel: 'apple-touch-icon',
-      sizes: '180x180',
-      href: '/icons/apple-touch-icon.png',
-    }),
-    createElement('link', {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '96x96',
-      href: '/icons/favicon-96x96.png',
-    }),
-    createElement('link', {
-      rel: 'manifest',
-      href: '/icons/site.webmanifest',
-    }),
-  ),
+  head: ({ path }) => {
+    const locale = splashLocale(path)
+    const localeHead = locale
+      ? [
+          createElement('link', {
+            key: 'canonical',
+            rel: 'canonical',
+            href: `${siteUrl}${getSplashPath(locale)}`,
+          }),
+          ...LOCALE_OPTIONS.map((option) =>
+            createElement('link', {
+              key: `alternate-${option.code}`,
+              rel: 'alternate',
+              hrefLang: option.code,
+              href: `${siteUrl}${getSplashPath(option.code)}`,
+            }),
+          ),
+          createElement('link', {
+            key: 'alternate-default',
+            rel: 'alternate',
+            hrefLang: 'x-default',
+            href: `${siteUrl}/`,
+          }),
+          createElement('meta', {
+            key: 'og-locale',
+            property: 'og:locale',
+            content: LOCALE_BY_CODE[locale].code,
+          }),
+        ]
+      : []
+
+    return createElement(
+      Fragment,
+      null,
+      createElement('link', {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/icons/apple-touch-icon.png',
+      }),
+      createElement('link', {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '96x96',
+        href: '/icons/favicon-96x96.png',
+      }),
+      createElement('link', {
+        rel: 'manifest',
+        href: '/icons/site.webmanifest',
+      }),
+      ...localeHead,
+      createElement('script', {
+        key: 'locale-bootstrap',
+        dangerouslySetInnerHTML: { __html: localeBootstrap },
+      }),
+    )
+  },
   theme: {
     accentColor: '#10b981',
   },

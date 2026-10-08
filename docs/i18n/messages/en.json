@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit helps people and organizations support, share, and exchange goods and services."
+  },
+  "controls": {
+    "language": "Language",
+    "colorTheme": "Color theme",
+    "lightMode": "Use light mode",
+    "darkMode": "Use dark mode"
+  },
+  "englishDocsNotice": "Detailed documentation and search are currently available in English.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit helps people and organizations support, share, and exchange goods and services.",
+      "Anyone can describe what they offer, who it is for, and the conditions for using it. These offers can then be brought together in a trusted network, making it easier to find, exchange, and support useful goods and services within a community or across different places."
+    ],
+    "resourceLabel": "Cosmo-Local Credit resources",
+    "actions": {
+      "openApp": "Open App",
+      "about": "About",
+      "getStarted": "Get Started",
+      "protocol": "Protocol",
+      "whitePaper": "White Paper"
+    },
+    "cards": [
+      {
+        "title": "Create vouchers",
+        "description": "Create a voucher to promote your goods or services. Add clear terms so people know what it offers and how to use it."
+      },
+      {
+        "title": "Exchange through Pools",
+        "description": "A Commitment Pool is a curated place to exchange selected vouchers. Its Steward chooses which vouchers it supports and publishes its rules."
+      },
+      {
+        "title": "Share and use vouchers",
+        "description": "Send vouchers to other people, exchange supported vouchers through a Pool, or use them with their issuer."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Empowering communities through",
+    "titleAccent": "commitment pooling",
+    "lead": "Commitment pooling brings selected vouchers into curated marketplaces where communities can exchange them. People can then use the vouchers for the goods or services described in their terms.",
+    "networkAlt": "Illustration of communities connecting through vouchers and Pools",
+    "videoLabel": "See commitment pooling in action",
+    "videoTitle": "See commitment pooling in action",
+    "statistics": {
+      "vouchers": "Unique active vouchers",
+      "pools": "Unique active Commitment Pools",
+      "users": "Users",
+      "exchanges": "Exchanges between users",
+      "source": "Historical Sarafu Network activity, 5 July 2023 to 20 July 2025.",
+      "sourceLink": "View the source data."
+    }
+  },
+  "audiences": {
+    "heading": "What would you like to do?",
+    "intro": "Create or manage a Pool, promote goods or services with a voucher, exchange and use vouchers, or support a Pool.",
+    "navLabel": "Explore Cosmo-Local Credit by role",
+    "roles": [
+      { "title": "Pool Stewards", "description": "I want to create or manage a Pool" },
+      { "title": "Voucher creators", "description": "I want to promote goods or services with a voucher" },
+      { "title": "Voucher users", "description": "I want to find, send, exchange or use vouchers" },
+      { "title": "Supporters", "description": "I want to support a Commitment Pool" }
+    ]
+  },
+  "howItWorks": {
+    "label": "How it works",
+    "imageAlt": "Creating and exchanging vouchers through a Pool",
+    "steps": [
+      {
+        "title": "Create a voucher",
+        "description": "Describe your goods or services and explain how people can use the voucher."
+      },
+      {
+        "title": "Build a curated Pool",
+        "description": "A Pool Steward selects the vouchers people can exchange and publishes the Pool’s rules."
+      },
+      {
+        "title": "Send or exchange",
+        "description": "Send vouchers directly to other people or exchange supported vouchers through a Pool."
+      },
+      {
+        "title": "Use the voucher",
+        "description": "Use it with its issuer for the goods or services described in its terms."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Pool Stewards",
+      "tagline": "Create and manage a Pool.",
+      "description": "A Pool Steward creates a curated marketplace for vouchers. The Steward chooses which vouchers the Pool supports, publishes its rules, limits and fees, and keeps its information up to date. A Steward can be a person, organization or other accountable group.",
+      "imageAlt": "Hands adding grain to a shared bowl",
+      "cardTitle": "Create a Pool",
+      "items": [
+        "Describe the Pool’s purpose",
+        "Choose the vouchers it supports",
+        "Publish its exchange rules, limits and fees",
+        "Share the Pool with others",
+        "Keep its information up to date"
+      ],
+      "cta": "Create a Pool"
+    },
+    {
+      "title": "Voucher creators",
+      "tagline": "Promote your goods or services.",
+      "description": "Create a voucher for what you offer and publish clear terms. When you create a voucher, you are its issuer. You are responsible for providing what the voucher promises.",
+      "imageAlt": "People raising their hands to share what they offer",
+      "cardTitle": "Create a voucher",
+      "items": [
+        "Describe what your voucher offers",
+        "Explain where, when and how it can be used",
+        "Share it with customers and your community",
+        "See which Pools support it",
+        "Honor the voucher according to its terms"
+      ],
+      "cta": "Create a voucher"
+    },
+    {
+      "title": "Voucher users",
+      "tagline": "Find vouchers for goods and services.",
+      "description": "A voucher works much like a gift card. It represents goods or services offered by its issuer. Read its terms before you receive, send, exchange or use it.",
+      "imageAlt": "People exchanging vouchers for goods and services",
+      "cardTitle": "Explore vouchers",
+      "items": [
+        "See what each voucher offers",
+        "Read where, when and how to use it",
+        "Find Pools where it can be exchanged",
+        "Send it to another person",
+        "Exchange it or use it with its issuer"
+      ],
+      "cta": "Explore vouchers"
+    },
+    {
+      "title": "Supporters",
+      "tagline": "Support a Pool you care about.",
+      "description": "Read a Pool’s purpose, rules and terms before you support it. Available support methods and any rewards depend on each Pool’s terms.",
+      "imageAlt": "People planning how to support a shared project",
+      "cardTitle": "Find a Pool to support",
+      "cardSubtitle": "Explore Pools",
+      "badgesLabel": "Example Pool themes",
+      "badges": ["Agriculture", "Art", "Biodiversity", "Education", "Youth"],
+      "badgeLinkLabel": "Explore {category} Pools",
+      "items": [
+        "Learn what the Pool is for",
+        "Read its rules and terms",
+        "Choose a Pool you want to support",
+        "Follow its updates and activity"
+      ],
+      "footer": "Each Pool publishes its own support options and terms.",
+      "cta": "Explore Pools"
+    }
+  ],
+  "testimonial": {
+    "label": "Community impact",
+    "imageAlt": "Community member standing in front of Sarafu Network information posters",
+    "quote": "“Sarafu has transformed how our community trades and supports each other. Even during tough times, we can continue commerce and help our neighbors. The Vouchers keep value circulating within our community.”",
+    "name": "Joseph Kimani",
+    "role": "Community leader and local business owner",
+    "since": "Using Sarafu Network since 2019",
+    "badges": ["Community markets", "Vulnerable projects", "Local trade"]
+  },
+  "features": {
+    "heading": "Why Cosmo-Local Credit?",
+    "intro": [
+      "People and organizations often have useful goods and services to offer, even when money is scarce or direct exchange is difficult. Cosmo-Local Credit makes those offers easier to describe, find, support and exchange.",
+      "Vouchers make each offer and its conditions clear. Commitment Pools bring selected vouchers together under shared rules, so people do not have to find someone who wants exactly what they offer at the same time.",
+      "Cosmo-Local Credit is built and maintained by {organization}, a Kenyan nonprofit that has developed community exchange tools since 2010. It grows from lessons learned through community currencies, Sarafu Network and commitment pooling."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Read where Cosmo-Local Credit came from.",
+    "cards": [
+      {
+        "title": "Curated marketplaces",
+        "description": "Each Pool brings selected vouchers together and publishes the rules for exchanging them."
+      },
+      {
+        "title": "Clear terms and rules",
+        "description": "Voucher creators explain what they offer. Pool Stewards publish the rules for each Pool."
+      },
+      {
+        "title": "Easy to access",
+        "description": "Use the CLC App on a phone or computer. QR codes and printable paper wallets provide additional ways to take part."
+      },
+      {
+        "title": "Open and adaptable",
+        "description": "CLC is built openly so others can inspect it, use it and help improve it."
+      }
+    ],
+    "imageAlt": "People and places connected through vouchers and Pools"
+  },
+  "partners": {
+    "sectionLabel": "Coverage and partners",
+    "mediaHeading": "Sarafu Network in the media",
+    "mediaLinkLabel": "View {name} coverage",
+    "partnersHeading": "Our partners",
+    "partnerLinkLabel": "Visit {name}"
+  },
+  "cta": {
+    "heading": "Ready to explore?",
+    "body": "Open the CLC App to explore vouchers and the curated Pools where they can be exchanged. Subscribe for project news and updates.",
+    "openApp": "Open the CLC App",
+    "updates": "Get news and updates"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Built on lessons from Sarafu Network.",
+    "legalLabel": "Legal",
+    "terms": "Terms of Service",
+    "dataPolicy": "Data Policy"
+  }
+}

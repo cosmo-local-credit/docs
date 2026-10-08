@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit huwasaidia watu na mashirika kusaidia, kushirikiana na kubadilishana bidhaa na huduma."
+  },
+  "controls": {
+    "language": "Lugha",
+    "colorTheme": "Mandhari ya rangi",
+    "lightMode": "Tumia hali ya mwanga",
+    "darkMode": "Tumia hali ya giza"
+  },
+  "englishDocsNotice": "Nyaraka za kina na huduma ya utafutaji zinapatikana kwa Kiingereza kwa sasa.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit huwasaidia watu na mashirika kusaidia, kushirikiana na kubadilishana bidhaa na huduma.",
+      "Mtu yeyote anaweza kueleza anachotoa, kimelengwa kwa nani na masharti ya kukitumia. Matoleo haya yanaweza kuunganishwa katika mtandao wa kuaminika, na kufanya iwe rahisi kupata, kubadilishana na kusaidia bidhaa na huduma muhimu ndani ya jumuiya au kati ya maeneo tofauti."
+    ],
+    "resourceLabel": "Rasilimali za Cosmo-Local Credit",
+    "actions": {
+      "openApp": "Fungua programu",
+      "about": "Kuhusu",
+      "getStarted": "Anza",
+      "protocol": "Itifaki",
+      "whitePaper": "Waraka mkuu"
+    },
+    "cards": [
+      {
+        "title": "Tengeneza vocha",
+        "description": "Tengeneza vocha ili kutangaza bidhaa au huduma zako. Weka masharti yaliyo wazi ili watu wajue inatoa nini na jinsi ya kuitumia."
+      },
+      {
+        "title": "Badilishana kupitia Vikundi",
+        "description": "Kikundi cha Ahadi ni mahali paliporatibiwa pa kubadilishana vocha zilizochaguliwa. Msimamizi huchagua vocha zinazokubaliwa na kuchapisha kanuni zake."
+      },
+      {
+        "title": "Shiriki na utumie vocha",
+        "description": "Tuma vocha kwa watu wengine, badilishana vocha zinazokubaliwa kupitia Kikundi au uzitumie kwa mtoaji wake."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Kuwezesha jumuiya kupitia",
+    "titleAccent": "kuunganisha ahadi",
+    "lead": "Kuunganisha ahadi hukusanya vocha zilizochaguliwa katika masoko yaliyoratibiwa ambako jumuiya zinaweza kuzibadilishana. Kisha watu wanaweza kutumia vocha kupata bidhaa au huduma zilizoelezwa katika masharti yake.",
+    "networkAlt": "Mchoro wa jumuiya zinazounganishwa kupitia vocha na Vikundi",
+    "videoLabel": "Tazama kuunganisha ahadi kunavyofanya kazi",
+    "videoTitle": "Tazama kuunganisha ahadi kunavyofanya kazi",
+    "statistics": {
+      "vouchers": "Vocha hai za kipekee",
+      "pools": "Vikundi vya Ahadi hai vya kipekee",
+      "users": "Watumiaji",
+      "exchanges": "Mabadilishano kati ya watumiaji",
+      "source": "Shughuli za kihistoria za Sarafu Network, 5 Julai 2023 hadi 20 Julai 2025.",
+      "sourceLink": "Tazama data ya chanzo."
+    }
+  },
+  "audiences": {
+    "heading": "Ungependa kufanya nini?",
+    "intro": "Tengeneza au simamia Kikundi, tangaza bidhaa au huduma kwa vocha, badilishana na utumie vocha au saidia Kikundi.",
+    "navLabel": "Chunguza Cosmo-Local Credit kulingana na jukumu",
+    "roles": [
+      { "title": "Wasimamizi wa Vikundi", "description": "Nataka kutengeneza au kusimamia Kikundi" },
+      { "title": "Watengenezaji wa vocha", "description": "Nataka kutangaza bidhaa au huduma kwa vocha" },
+      { "title": "Watumiaji wa vocha", "description": "Nataka kupata, kutuma, kubadilishana au kutumia vocha" },
+      { "title": "Wasaidizi", "description": "Nataka kusaidia Kikundi cha Ahadi" }
+    ]
+  },
+  "howItWorks": {
+    "label": "Jinsi inavyofanya kazi",
+    "imageAlt": "Kutengeneza na kubadilishana vocha kupitia Kikundi",
+    "steps": [
+      {
+        "title": "Tengeneza vocha",
+        "description": "Eleza bidhaa au huduma zako na jinsi watu wanavyoweza kutumia vocha."
+      },
+      {
+        "title": "Jenga Kikundi kilichoratibiwa",
+        "description": "Msimamizi wa Kikundi huchagua vocha ambazo watu wanaweza kubadilishana na kuchapisha kanuni za Kikundi."
+      },
+      {
+        "title": "Tuma au badilishana",
+        "description": "Tuma vocha moja kwa moja kwa watu wengine au badilishana vocha zinazokubaliwa kupitia Kikundi."
+      },
+      {
+        "title": "Tumia vocha",
+        "description": "Itumie kwa mtoaji wake kupata bidhaa au huduma zilizoelezwa katika masharti yake."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Wasimamizi wa Vikundi",
+      "tagline": "Tengeneza na usimamie Kikundi.",
+      "description": "Msimamizi wa Kikundi hutengeneza soko lililoratibiwa la vocha. Huchagua vocha zinazokubaliwa na Kikundi, huchapisha kanuni, mipaka na ada, na huhakikisha taarifa zinasasishwa. Msimamizi anaweza kuwa mtu, shirika au kikundi kingine kinachowajibika.",
+      "imageAlt": "Mikono ikiweka nafaka katika bakuli la pamoja",
+      "cardTitle": "Tengeneza Kikundi",
+      "items": [
+        "Eleza madhumuni ya Kikundi",
+        "Chagua vocha kinazokubali",
+        "Chapisha kanuni za ubadilishanaji, mipaka na ada",
+        "Shiriki Kikundi na wengine",
+        "Sasisha taarifa zake"
+      ],
+      "cta": "Tengeneza Kikundi"
+    },
+    {
+      "title": "Watengenezaji wa vocha",
+      "tagline": "Tangaza bidhaa au huduma zako.",
+      "description": "Tengeneza vocha ya kile unachotoa na uchapishe masharti yaliyo wazi. Unapotengeneza vocha, wewe ndiye mtoaji wake na unawajibika kutoa kile ambacho vocha inaahidi.",
+      "imageAlt": "Watu wakiinua mikono ili kushiriki wanachotoa",
+      "cardTitle": "Tengeneza vocha",
+      "items": [
+        "Eleza vocha yako inatoa nini",
+        "Eleza mahali, wakati na jinsi inavyoweza kutumiwa",
+        "Ishiriki na wateja na jumuiya yako",
+        "Ona Vikundi vinavyoikubali",
+        "Timiza ahadi ya vocha kulingana na masharti yake"
+      ],
+      "cta": "Tengeneza vocha"
+    },
+    {
+      "title": "Watumiaji wa vocha",
+      "tagline": "Pata vocha za bidhaa na huduma.",
+      "description": "Vocha hufanya kazi kama kadi ya zawadi. Inawakilisha bidhaa au huduma zinazotolewa na mtoaji wake. Soma masharti yake kabla ya kuipokea, kuituma, kuibadilishana au kuitumia.",
+      "imageAlt": "Watu wakibadilishana vocha kwa bidhaa na huduma",
+      "cardTitle": "Chunguza vocha",
+      "items": [
+        "Ona kila vocha inatoa nini",
+        "Soma mahali, wakati na jinsi ya kuitumia",
+        "Pata Vikundi ambako inaweza kubadilishwa",
+        "Itume kwa mtu mwingine",
+        "Ibadilishe au uitumie kwa mtoaji wake"
+      ],
+      "cta": "Chunguza vocha"
+    },
+    {
+      "title": "Wasaidizi",
+      "tagline": "Saidia Kikundi unachokijali.",
+      "description": "Soma madhumuni, kanuni na masharti ya Kikundi kabla ya kukisaidia. Njia za usaidizi zinazopatikana na zawadi zozote hutegemea masharti ya kila Kikundi.",
+      "imageAlt": "Watu wakipanga jinsi ya kusaidia mradi wa pamoja",
+      "cardTitle": "Pata Kikundi cha kusaidia",
+      "cardSubtitle": "Chunguza Vikundi",
+      "badgesLabel": "Mifano ya mada za Vikundi",
+      "badges": ["Kilimo", "Sanaa", "Bioanuwai", "Elimu", "Vijana"],
+      "badgeLinkLabel": "Chunguza Vikundi vya {category}",
+      "items": [
+        "Jifunze madhumuni ya Kikundi",
+        "Soma kanuni na masharti yake",
+        "Chagua Kikundi unachotaka kusaidia",
+        "Fuatilia habari na shughuli zake"
+      ],
+      "footer": "Kila Kikundi huchapisha njia na masharti yake ya usaidizi.",
+      "cta": "Chunguza Vikundi"
+    }
+  ],
+  "testimonial": {
+    "label": "Athari kwa jumuiya",
+    "imageAlt": "Mwanajumuiya akiwa mbele ya mabango ya taarifa ya Sarafu Network",
+    "quote": "“Sarafu imebadilisha jinsi jumuiya yetu inavyofanya biashara na kusaidiana. Hata wakati wa changamoto, tunaweza kuendelea kufanya biashara na kuwasaidia majirani zetu. Vocha huendeleza mzunguko wa thamani ndani ya jumuiya yetu.”",
+    "name": "Joseph Kimani",
+    "role": "Kiongozi wa jumuiya na mmiliki wa biashara ya eneo",
+    "since": "Anatumia Sarafu Network tangu 2019",
+    "badges": ["Masoko ya jumuiya", "Miradi iliyo hatarini", "Biashara ya eneo"]
+  },
+  "features": {
+    "heading": "Kwa nini Cosmo-Local Credit?",
+    "intro": [
+      "Mara nyingi watu na mashirika wana bidhaa na huduma muhimu za kutoa, hata wakati pesa ni chache au ubadilishanaji wa moja kwa moja ni mgumu. Cosmo-Local Credit hurahisisha kueleza, kupata, kusaidia na kubadilishana matoleo hayo.",
+      "Vocha huweka wazi kila toleo na masharti yake. Vikundi vya Ahadi hukusanya vocha zilizochaguliwa chini ya kanuni za pamoja, hivyo watu hawahitaji kumpata wakati huohuo mtu anayetaka hasa kile wanachotoa.",
+      "Cosmo-Local Credit hujengwa na kudumishwa na {organization}, shirika lisilo la faida la Kenya ambalo limekuwa likitengeneza zana za ubadilishanaji wa jumuiya tangu 2010. Inakua kutokana na mafunzo ya sarafu za jumuiya, Sarafu Network na kuunganisha ahadi."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Soma kuhusu chimbuko la Cosmo-Local Credit.",
+    "cards": [
+      {
+        "title": "Masoko yaliyoratibiwa",
+        "description": "Kila Kikundi hukusanya vocha zilizochaguliwa na kuchapisha kanuni za kuzibadilishana."
+      },
+      {
+        "title": "Masharti na kanuni zilizo wazi",
+        "description": "Watengenezaji wa vocha hueleza wanachotoa. Wasimamizi huchapisha kanuni za kila Kikundi."
+      },
+      {
+        "title": "Rahisi kufikia",
+        "description": "Tumia CLC App kwenye simu au kompyuta. Misimbo ya QR na pochi za karatasi zinazoweza kuchapishwa hutoa njia nyingine za kushiriki."
+      },
+      {
+        "title": "Wazi na inayoweza kubadilishwa",
+        "description": "CLC hujengwa kwa uwazi ili wengine waweze kuikagua, kuitumia na kusaidia kuiboresha."
+      }
+    ],
+    "imageAlt": "Watu na maeneo yaliyounganishwa kupitia vocha na Vikundi"
+  },
+  "partners": {
+    "sectionLabel": "Habari na washirika",
+    "mediaHeading": "Sarafu Network kwenye vyombo vya habari",
+    "mediaLinkLabel": "Tazama habari ya {name}",
+    "partnersHeading": "Washirika wetu",
+    "partnerLinkLabel": "Tembelea {name}"
+  },
+  "cta": {
+    "heading": "Uko tayari kuchunguza?",
+    "body": "Fungua CLC App ili kuchunguza vocha na Vikundi vilivyoratibiwa ambako zinaweza kubadilishwa. Jiandikishe kupata habari na masasisho ya mradi.",
+    "openApp": "Fungua CLC App",
+    "updates": "Pata habari na masasisho"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Imejengwa kutokana na mafunzo ya Sarafu Network.",
+    "legalLabel": "Kisheria",
+    "terms": "Masharti ya Huduma",
+    "dataPolicy": "Sera ya Data"
+  }
+}

@@ -24,6 +24,26 @@ body:has(.about-page) {
     linear-gradient(135deg, var(--about-background), rgb(251 219 153 / 8%));
 }
 
+.about-page :is(h1, h2, h3, p, a, li, dt, dd, blockquote) {
+  overflow-wrap: anywhere;
+}
+
+:lang(ar) .about-page {
+  font-family: Tahoma, Arial, system-ui, sans-serif;
+}
+
+:lang(ar) .about-page :is(h1, h2) {
+  font-family: Tahoma, Arial, system-ui, sans-serif;
+}
+
+:lang(dz) .about-page {
+  font-family: 'Noto Sans Tibetan', 'Microsoft Himalaya', Jomolhari, system-ui, sans-serif;
+}
+
+:lang(dz) .about-page :is(h1, h2) {
+  font-family: 'Noto Serif Tibetan', 'Noto Sans Tibetan', 'Microsoft Himalaya', Jomolhari, serif;
+}
+
 :root.dark .about-page {
   --about-deep-green: #5fc0b8;
   --about-earth-green: #c8cf6c;
@@ -125,6 +145,19 @@ body:has(.about-page) {
   flex-wrap: wrap;
   gap: 0.9rem;
   margin-block: 1.75rem;
+}
+
+.about-english-notice {
+  width: fit-content;
+  max-width: 100%;
+  margin: -0.65rem 0 1.75rem;
+  padding: 0.65rem 0.85rem;
+  border-inline-start: 3px solid var(--about-gold);
+  border-radius: 0.35rem;
+  color: var(--about-muted);
+  background: color-mix(in srgb, var(--about-surface) 82%, transparent);
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 .about-overview__button {
@@ -320,7 +353,7 @@ body:has(.about-page) {
   .about-network-frame {
     position: absolute;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     transform: translateY(-21.048%);
   }
 }
@@ -483,7 +516,7 @@ body:has(.about-page) {
   position: absolute;
   z-index: 2;
   top: 50%;
-  right: -1.04rem;
+  inset-inline-end: -1.04rem;
   color: var(--about-gold);
   font-size: 1.5rem;
   transform: translate(50%, -50%);
@@ -491,10 +524,23 @@ body:has(.about-page) {
 
 .about-step-card--2 .about-step-arrow {
   top: auto;
-  right: auto;
   bottom: -1.1rem;
-  left: -0.8rem;
+  inset-inline: auto auto;
+  inset-inline-start: -0.8rem;
   transform: rotate(135deg);
+}
+
+[dir='rtl'] .about-button__arrow {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .about-step-arrow {
+  transform: translate(-50%, -50%) scaleX(-1);
+}
+
+[dir='rtl'] .about-step-card--2 .about-step-arrow {
+  transform: rotate(45deg);
 }
 
 .about-role-section {
@@ -591,14 +637,14 @@ body:has(.about-page) {
 
 .about-action-card li {
   position: relative;
-  padding-left: 1.15rem;
+  padding-inline-start: 1.15rem;
   line-height: 1.5;
 }
 
 .about-action-card li::before {
   position: absolute;
   top: 0.62em;
-  left: 0;
+  inset-inline-start: 0;
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 50%;
@@ -669,6 +715,10 @@ body:has(.about-page) {
 
 .about-button:hover {
   transform: translateY(-2px);
+}
+
+.about-button__arrow {
+  margin-inline-start: 0.3em;
 }
 
 .about-button--primary {
@@ -996,8 +1046,7 @@ body:has(.about-page) .vocs_Layout_headerSpacer {
     width: 280px !important;
     flex: 0 1 auto !important;
     justify-content: flex-start !important;
-    margin-right: auto !important;
-    margin-left: 0 !important;
+    margin-inline: 0 auto !important;
   }
 
   body:has(.about-page) .vocs_DesktopTopNav_section,
@@ -1006,7 +1055,7 @@ body:has(.about-page) .vocs_Layout_headerSpacer {
     flex: 0 0 auto !important;
     gap: 1.5rem !important;
     align-items: center !important;
-    margin-left: 0 !important;
+    margin-inline-start: 0 !important;
     visibility: visible !important;
   }
 }

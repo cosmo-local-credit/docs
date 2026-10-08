@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit aiuta persone e organizzazioni a sostenere, condividere e scambiare beni e servizi."
+  },
+  "controls": {
+    "language": "Lingua",
+    "colorTheme": "Tema colore",
+    "lightMode": "Usa modalità chiara",
+    "darkMode": "Usa modalità scura"
+  },
+  "englishDocsNotice": "La documentazione dettagliata e la ricerca sono attualmente disponibili in inglese.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit aiuta persone e organizzazioni a sostenere, condividere e scambiare beni e servizi.",
+      "Chiunque può descrivere cosa offre, a chi è destinato e le condizioni per utilizzarlo. Queste offerte possono essere riunite in una rete fidata, rendendo più facile trovare, scambiare e sostenere beni e servizi utili all’interno di una comunità o tra luoghi diversi."
+    ],
+    "resourceLabel": "Risorse di Cosmo-Local Credit",
+    "actions": {
+      "openApp": "Apri l’app",
+      "about": "Informazioni",
+      "getStarted": "Per iniziare",
+      "protocol": "Protocollo",
+      "whitePaper": "Libro bianco"
+    },
+    "cards": [
+      {
+        "title": "Crea buoni",
+        "description": "Crea un buono per promuovere i tuoi beni o servizi. Aggiungi condizioni chiare affinché le persone sappiano cosa offre e come utilizzarlo."
+      },
+      {
+        "title": "Scambia tramite i Fondi",
+        "description": "Un Fondo di Impegni è uno spazio curato in cui scambiare buoni selezionati. Il responsabile sceglie quali buoni supportare e pubblica le regole."
+      },
+      {
+        "title": "Condividi e usa i buoni",
+        "description": "Invia buoni ad altre persone, scambia i buoni supportati tramite un Fondo oppure usali presso il loro emittente."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Rafforzare le comunità attraverso la",
+    "titleAccent": "messa in comune degli impegni",
+    "lead": "La messa in comune degli impegni riunisce buoni selezionati in mercati curati dove le comunità possono scambiarli. Le persone possono poi utilizzare i buoni per i beni o servizi descritti nelle relative condizioni.",
+    "networkAlt": "Illustrazione di comunità collegate attraverso buoni e Fondi",
+    "videoLabel": "Guarda la messa in comune degli impegni in azione",
+    "videoTitle": "Guarda la messa in comune degli impegni in azione",
+    "statistics": {
+      "vouchers": "Buoni attivi unici",
+      "pools": "Fondi di Impegni attivi unici",
+      "users": "Utenti",
+      "exchanges": "Scambi tra utenti",
+      "source": "Attività storica di Sarafu Network, dal 5 luglio 2023 al 20 luglio 2025.",
+      "sourceLink": "Vedi i dati di origine."
+    }
+  },
+  "audiences": {
+    "heading": "Cosa vorresti fare?",
+    "intro": "Creare o gestire un Fondo, promuovere beni o servizi con un buono, scambiare e utilizzare buoni oppure sostenere un Fondo.",
+    "navLabel": "Esplora Cosmo-Local Credit per ruolo",
+    "roles": [
+      { "title": "Responsabili dei Fondi", "description": "Voglio creare o gestire un Fondo" },
+      { "title": "Creatori di buoni", "description": "Voglio promuovere beni o servizi con un buono" },
+      { "title": "Utenti dei buoni", "description": "Voglio trovare, inviare, scambiare o utilizzare buoni" },
+      { "title": "Sostenitori", "description": "Voglio sostenere un Fondo di Impegni" }
+    ]
+  },
+  "howItWorks": {
+    "label": "Come funziona",
+    "imageAlt": "Creazione e scambio di buoni tramite un Fondo",
+    "steps": [
+      {
+        "title": "Crea un buono",
+        "description": "Descrivi i tuoi beni o servizi e spiega come le persone possono utilizzare il buono."
+      },
+      {
+        "title": "Crea un Fondo curato",
+        "description": "Il responsabile del Fondo seleziona i buoni che le persone possono scambiare e pubblica le regole del Fondo."
+      },
+      {
+        "title": "Invia o scambia",
+        "description": "Invia buoni direttamente ad altre persone oppure scambia buoni supportati tramite un Fondo."
+      },
+      {
+        "title": "Usa il buono",
+        "description": "Usalo presso il suo emittente per i beni o servizi descritti nelle condizioni."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Responsabili dei Fondi",
+      "tagline": "Crea e gestisci un Fondo.",
+      "description": "Il responsabile di un Fondo crea un mercato curato per i buoni. Sceglie quali buoni supportare, pubblica regole, limiti e commissioni e mantiene aggiornate le informazioni. Può essere una persona, un’organizzazione o un altro gruppo responsabile.",
+      "imageAlt": "Mani che aggiungono cereali a un recipiente condiviso",
+      "cardTitle": "Crea un Fondo",
+      "items": [
+        "Descrivi lo scopo del Fondo",
+        "Scegli i buoni che supporta",
+        "Pubblica regole di scambio, limiti e commissioni",
+        "Condividi il Fondo con altre persone",
+        "Mantieni aggiornate le informazioni"
+      ],
+      "cta": "Crea un Fondo"
+    },
+    {
+      "title": "Creatori di buoni",
+      "tagline": "Promuovi i tuoi beni o servizi.",
+      "description": "Crea un buono per ciò che offri e pubblica condizioni chiare. Quando crei un buono, sei il suo emittente e hai la responsabilità di fornire ciò che promette.",
+      "imageAlt": "Persone che alzano la mano per condividere ciò che offrono",
+      "cardTitle": "Crea un buono",
+      "items": [
+        "Descrivi cosa offre il tuo buono",
+        "Spiega dove, quando e come può essere utilizzato",
+        "Condividilo con clienti e comunità",
+        "Scopri quali Fondi lo supportano",
+        "Onora il buono secondo le sue condizioni"
+      ],
+      "cta": "Crea un buono"
+    },
+    {
+      "title": "Utenti dei buoni",
+      "tagline": "Trova buoni per beni e servizi.",
+      "description": "Un buono funziona in modo simile a una carta regalo. Rappresenta beni o servizi offerti dal suo emittente. Leggi le condizioni prima di riceverlo, inviarlo, scambiarlo o utilizzarlo.",
+      "imageAlt": "Persone che scambiano buoni con beni e servizi",
+      "cardTitle": "Esplora i buoni",
+      "items": [
+        "Scopri cosa offre ogni buono",
+        "Leggi dove, quando e come utilizzarlo",
+        "Trova i Fondi in cui può essere scambiato",
+        "Invialo a un’altra persona",
+        "Scambialo o usalo presso il suo emittente"
+      ],
+      "cta": "Esplora i buoni"
+    },
+    {
+      "title": "Sostenitori",
+      "tagline": "Sostieni un Fondo che ti sta a cuore.",
+      "description": "Leggi lo scopo, le regole e le condizioni di un Fondo prima di sostenerlo. I metodi di sostegno disponibili e gli eventuali premi dipendono dalle condizioni di ogni Fondo.",
+      "imageAlt": "Persone che pianificano come sostenere un progetto condiviso",
+      "cardTitle": "Trova un Fondo da sostenere",
+      "cardSubtitle": "Esplora i Fondi",
+      "badgesLabel": "Esempi di temi dei Fondi",
+      "badges": ["Agricoltura", "Arte", "Biodiversità", "Istruzione", "Giovani"],
+      "badgeLinkLabel": "Esplora i Fondi: {category}",
+      "items": [
+        "Scopri a cosa serve il Fondo",
+        "Leggi regole e condizioni",
+        "Scegli un Fondo da sostenere",
+        "Segui aggiornamenti e attività"
+      ],
+      "footer": "Ogni Fondo pubblica le proprie opzioni e condizioni di sostegno.",
+      "cta": "Esplora i Fondi"
+    }
+  ],
+  "testimonial": {
+    "label": "Impatto sulla comunità",
+    "imageAlt": "Membro della comunità davanti ai pannelli informativi di Sarafu Network",
+    "quote": "«Sarafu ha trasformato il modo in cui la nostra comunità commercia e si sostiene a vicenda. Anche nei momenti difficili possiamo continuare a commerciare e aiutare i nostri vicini. I buoni mantengono il valore in circolazione nella nostra comunità.»",
+    "name": "Joseph Kimani",
+    "role": "Leader della comunità e titolare di un’attività locale",
+    "since": "Usa Sarafu Network dal 2019",
+    "badges": ["Mercati comunitari", "Progetti vulnerabili", "Commercio locale"]
+  },
+  "features": {
+    "heading": "Perché Cosmo-Local Credit?",
+    "intro": [
+      "Persone e organizzazioni spesso hanno beni e servizi utili da offrire, anche quando il denaro scarseggia o lo scambio diretto è difficile. Cosmo-Local Credit rende più semplice descrivere, trovare, sostenere e scambiare queste offerte.",
+      "I buoni rendono chiare ogni offerta e le sue condizioni. I Fondi di Impegni riuniscono buoni selezionati secondo regole condivise, così non è necessario trovare nello stesso momento qualcuno che desideri esattamente ciò che viene offerto.",
+      "Cosmo-Local Credit è sviluppato e mantenuto da {organization}, un’organizzazione non profit keniota che sviluppa strumenti di scambio comunitario dal 2010. Nasce dalle lezioni apprese con le valute comunitarie, Sarafu Network e la messa in comune degli impegni."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Scopri le origini di Cosmo-Local Credit.",
+    "cards": [
+      {
+        "title": "Mercati curati",
+        "description": "Ogni Fondo riunisce buoni selezionati e pubblica le regole per scambiarli."
+      },
+      {
+        "title": "Condizioni e regole chiare",
+        "description": "I creatori di buoni spiegano cosa offrono. I responsabili pubblicano le regole di ogni Fondo."
+      },
+      {
+        "title": "Facile da usare",
+        "description": "Usa la CLC App su telefono o computer. I codici QR e i portafogli cartacei stampabili offrono altri modi per partecipare."
+      },
+      {
+        "title": "Aperto e adattabile",
+        "description": "CLC è sviluppato apertamente affinché altri possano esaminarlo, utilizzarlo e contribuire a migliorarlo."
+      }
+    ],
+    "imageAlt": "Persone e luoghi collegati attraverso buoni e Fondi"
+  },
+  "partners": {
+    "sectionLabel": "Copertura e partner",
+    "mediaHeading": "Sarafu Network nei media",
+    "mediaLinkLabel": "Vedi il servizio di {name}",
+    "partnersHeading": "I nostri partner",
+    "partnerLinkLabel": "Visita {name}"
+  },
+  "cta": {
+    "heading": "Vuoi esplorare?",
+    "body": "Apri la CLC App per esplorare i buoni e i Fondi curati in cui possono essere scambiati. Iscriviti per ricevere notizie e aggiornamenti sul progetto.",
+    "openApp": "Apri la CLC App",
+    "updates": "Ricevi notizie e aggiornamenti"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Nato dalle lezioni di Sarafu Network.",
+    "legalLabel": "Informazioni legali",
+    "terms": "Termini di servizio",
+    "dataPolicy": "Informativa sui dati"
+  }
+}

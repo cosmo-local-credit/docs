@@ -1,0 +1,213 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit hilft Menschen und Organisationen, Waren und Dienstleistungen zu unterstützen, zu teilen und auszutauschen."
+  },
+  "controls": {
+    "language": "Sprache",
+    "colorTheme": "Farbschema",
+    "lightMode": "Hellen Modus verwenden",
+    "darkMode": "Dunklen Modus verwenden"
+  },
+  "englishDocsNotice": "Ausführliche Dokumentation und Suche sind derzeit auf Englisch verfügbar.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit hilft Menschen und Organisationen, Waren und Dienstleistungen zu unterstützen, zu teilen und auszutauschen.",
+      "Alle können beschreiben, was sie anbieten, für wen es gedacht ist und unter welchen Bedingungen es genutzt werden kann. Diese Angebote lassen sich dann in einem vertrauenswürdigen Netzwerk zusammenführen. So werden nützliche Waren und Dienstleistungen innerhalb einer Gemeinschaft oder über verschiedene Orte hinweg leichter auffindbar, austauschbar und unterstützbar."
+    ],
+    "resourceLabel": "Ressourcen zu Cosmo-Local Credit",
+    "actions": {
+      "openApp": "App öffnen",
+      "about": "Über CLC",
+      "getStarted": "Erste Schritte",
+      "protocol": "Protokoll",
+      "whitePaper": "Whitepaper"
+    },
+    "cards": [
+      {
+        "title": "Gutscheine erstellen",
+        "description": "Erstellen Sie einen Gutschein, um Ihre Waren oder Dienstleistungen bekannt zu machen. Legen Sie klare Bedingungen fest, damit verständlich ist, was er bietet und wie er genutzt werden kann."
+      },
+      {
+        "title": "Über Fonds tauschen",
+        "description": "Ein Commitment-Fonds ist ein kuratierter Ort, an dem ausgewählte Gutscheine getauscht werden können. Die verantwortliche Person wählt die unterstützten Gutscheine aus und veröffentlicht die Regeln."
+      },
+      {
+        "title": "Gutscheine teilen und nutzen",
+        "description": "Senden Sie Gutscheine an andere, tauschen Sie unterstützte Gutscheine über einen Fonds oder nutzen Sie sie beim jeweiligen Herausgeber."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Gemeinschaften stärken durch",
+    "titleAccent": "Commitment Pooling",
+    "lead": "Commitment Pooling bringt ausgewählte Gutscheine in kuratierten Marktplätzen zusammen, auf denen Gemeinschaften sie tauschen können. Anschließend können die Gutscheine für die in ihren Bedingungen beschriebenen Waren oder Dienstleistungen genutzt werden.",
+    "networkAlt": "Illustration von Gemeinschaften, die durch Gutscheine und Fonds verbunden sind",
+    "videoLabel": "Commitment Pooling in Aktion ansehen",
+    "videoTitle": "Commitment Pooling in Aktion ansehen",
+    "statistics": {
+      "vouchers": "Eindeutige aktive Gutscheine",
+      "pools": "Eindeutige aktive Commitment-Fonds",
+      "users": "Nutzerinnen und Nutzer",
+      "exchanges": "Tauschvorgänge zwischen Nutzenden",
+      "source": "Historische Aktivität im Sarafu Network, 5. Juli 2023 bis 20. Juli 2025.",
+      "sourceLink": "Quelldaten ansehen."
+    }
+  },
+  "audiences": {
+    "heading": "Was möchten Sie tun?",
+    "intro": "Einen Fonds erstellen oder verwalten, Waren oder Dienstleistungen mit einem Gutschein bekannt machen, Gutscheine tauschen und nutzen oder einen Fonds unterstützen.",
+    "navLabel": "Cosmo-Local Credit nach Rolle erkunden",
+    "roles": [
+      { "title": "Fonds-Verantwortliche", "description": "Ich möchte einen Fonds erstellen oder verwalten" },
+      { "title": "Gutschein-Erstellende", "description": "Ich möchte Waren oder Dienstleistungen mit einem Gutschein bekannt machen" },
+      { "title": "Gutschein-Nutzende", "description": "Ich möchte Gutscheine finden, senden, tauschen oder nutzen" },
+      { "title": "Unterstützende", "description": "Ich möchte einen Commitment-Fonds unterstützen" }
+    ]
+  },
+  "howItWorks": {
+    "label": "So funktioniert es",
+    "imageAlt": "Gutscheine über einen Fonds erstellen und tauschen",
+    "steps": [
+      {
+        "title": "Gutschein erstellen",
+        "description": "Beschreiben Sie Ihre Waren oder Dienstleistungen und erklären Sie, wie der Gutschein genutzt werden kann."
+      },
+      {
+        "title": "Kuratierten Fonds aufbauen",
+        "description": "Die Fonds-Verantwortlichen wählen die Gutscheine aus, die getauscht werden können, und veröffentlichen die Regeln des Fonds."
+      },
+      {
+        "title": "Senden oder tauschen",
+        "description": "Senden Sie Gutscheine direkt an andere oder tauschen Sie unterstützte Gutscheine über einen Fonds."
+      },
+      {
+        "title": "Gutschein nutzen",
+        "description": "Nutzen Sie ihn beim Herausgeber für die Waren oder Dienstleistungen, die in den Bedingungen beschrieben sind."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Fonds-Verantwortliche",
+      "tagline": "Einen Fonds erstellen und verwalten.",
+      "description": "Fonds-Verantwortliche schaffen einen kuratierten Marktplatz für Gutscheine. Sie wählen die vom Fonds unterstützten Gutscheine aus, veröffentlichen Regeln, Grenzen und Gebühren und halten die Informationen aktuell. Verantwortlich kann eine Person, eine Organisation oder eine andere rechenschaftspflichtige Gruppe sein.",
+      "imageAlt": "Hände geben Getreide in eine gemeinsame Schale",
+      "cardTitle": "Fonds erstellen",
+      "items": [
+        "Den Zweck des Fonds beschreiben",
+        "Die unterstützten Gutscheine auswählen",
+        "Tauschregeln, Grenzen und Gebühren veröffentlichen",
+        "Den Fonds mit anderen teilen",
+        "Die Informationen aktuell halten"
+      ],
+      "cta": "Fonds erstellen"
+    },
+    {
+      "title": "Gutschein-Erstellende",
+      "tagline": "Waren oder Dienstleistungen bekannt machen.",
+      "description": "Erstellen Sie einen Gutschein für Ihr Angebot und veröffentlichen Sie klare Bedingungen. Wer einen Gutschein erstellt, ist dessen Herausgeber und dafür verantwortlich, das Versprechen des Gutscheins einzulösen.",
+      "imageAlt": "Menschen heben die Hände, um ihre Angebote zu teilen",
+      "cardTitle": "Gutschein erstellen",
+      "items": [
+        "Beschreiben, was der Gutschein bietet",
+        "Erklären, wo, wann und wie er genutzt werden kann",
+        "Den Gutschein mit Kundschaft und Gemeinschaft teilen",
+        "Prüfen, welche Fonds ihn unterstützen",
+        "Den Gutschein gemäß seinen Bedingungen einlösen"
+      ],
+      "cta": "Gutschein erstellen"
+    },
+    {
+      "title": "Gutschein-Nutzende",
+      "tagline": "Gutscheine für Waren und Dienstleistungen finden.",
+      "description": "Ein Gutschein funktioniert ähnlich wie eine Geschenkkarte. Er steht für Waren oder Dienstleistungen seines Herausgebers. Lesen Sie die Bedingungen, bevor Sie ihn empfangen, senden, tauschen oder nutzen.",
+      "imageAlt": "Menschen tauschen Gutscheine gegen Waren und Dienstleistungen",
+      "cardTitle": "Gutscheine erkunden",
+      "items": [
+        "Sehen, was jeder Gutschein bietet",
+        "Lesen, wo, wann und wie er genutzt werden kann",
+        "Fonds finden, in denen er getauscht werden kann",
+        "Ihn an eine andere Person senden",
+        "Ihn tauschen oder beim Herausgeber nutzen"
+      ],
+      "cta": "Gutscheine erkunden"
+    },
+    {
+      "title": "Unterstützende",
+      "tagline": "Einen Fonds unterstützen, der Ihnen wichtig ist.",
+      "description": "Lesen Sie Zweck, Regeln und Bedingungen eines Fonds, bevor Sie ihn unterstützen. Verfügbare Unterstützungsmöglichkeiten und mögliche Belohnungen hängen von den Bedingungen des jeweiligen Fonds ab.",
+      "imageAlt": "Menschen planen die Unterstützung eines gemeinsamen Projekts",
+      "cardTitle": "Einen Fonds zum Unterstützen finden",
+      "cardSubtitle": "Fonds erkunden",
+      "badgesLabel": "Beispiele für Fonds-Themen",
+      "badges": ["Landwirtschaft", "Kunst", "Biodiversität", "Bildung", "Jugend"],
+      "badgeLinkLabel": "{category}-Fonds erkunden",
+      "items": [
+        "Erfahren, wofür der Fonds da ist",
+        "Regeln und Bedingungen lesen",
+        "Einen Fonds auswählen, den Sie unterstützen möchten",
+        "Aktuelles und Aktivitäten verfolgen"
+      ],
+      "footer": "Jeder Fonds veröffentlicht seine eigenen Unterstützungsmöglichkeiten und Bedingungen.",
+      "cta": "Fonds erkunden"
+    }
+  ],
+  "testimonial": {
+    "label": "Wirkung in der Gemeinschaft",
+    "imageAlt": "Mitglied der Gemeinschaft vor Informationstafeln des Sarafu Network",
+    "quote": "„Sarafu hat verändert, wie unsere Gemeinschaft handelt und sich gegenseitig unterstützt. Selbst in schwierigen Zeiten können wir weiter Handel treiben und unseren Nachbarn helfen. Die Gutscheine halten den Wert in unserer Gemeinschaft im Umlauf.“",
+    "name": "Joseph Kimani",
+    "role": "Gemeindeleiter und lokaler Unternehmer",
+    "since": "Nutzt Sarafu Network seit 2019",
+    "badges": ["Gemeinschaftsmärkte", "Gefährdete Projekte", "Lokaler Handel"]
+  },
+  "features": {
+    "heading": "Warum Cosmo-Local Credit?",
+    "intro": [
+      "Menschen und Organisationen können oft nützliche Waren und Dienstleistungen anbieten, auch wenn Geld knapp oder ein direkter Tausch schwierig ist. Cosmo-Local Credit macht diese Angebote leichter beschreibbar, auffindbar, unterstützbar und tauschbar.",
+      "Gutscheine machen jedes Angebot und seine Bedingungen klar. Commitment-Fonds bringen ausgewählte Gutscheine unter gemeinsamen Regeln zusammen. So muss niemand genau zur gleichen Zeit eine Person finden, die das eigene Angebot haben möchte.",
+      "Cosmo-Local Credit wird von {organization} entwickelt und gepflegt, einer kenianischen gemeinnützigen Organisation, die seit 2010 Werkzeuge für gemeinschaftlichen Austausch entwickelt. Es baut auf Erfahrungen mit Gemeinschaftswährungen, Sarafu Network und Commitment Pooling auf."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Lesen Sie, woher Cosmo-Local Credit kommt.",
+    "cards": [
+      {
+        "title": "Kuratierte Marktplätze",
+        "description": "Jeder Fonds bringt ausgewählte Gutscheine zusammen und veröffentlicht die Regeln für ihren Tausch."
+      },
+      {
+        "title": "Klare Bedingungen und Regeln",
+        "description": "Gutschein-Erstellende erklären ihr Angebot. Fonds-Verantwortliche veröffentlichen die Regeln jedes Fonds."
+      },
+      {
+        "title": "Einfacher Zugang",
+        "description": "Nutzen Sie die CLC App auf einem Telefon oder Computer. QR-Codes und druckbare Papier-Wallets bieten weitere Möglichkeiten zur Teilnahme."
+      },
+      {
+        "title": "Offen und anpassbar",
+        "description": "CLC wird offen entwickelt, damit andere es prüfen, nutzen und verbessern können."
+      }
+    ],
+    "imageAlt": "Menschen und Orte, die durch Gutscheine und Fonds verbunden sind"
+  },
+  "partners": {
+    "sectionLabel": "Medienberichte und Partner",
+    "mediaHeading": "Sarafu Network in den Medien",
+    "mediaLinkLabel": "Bericht von {name} ansehen",
+    "partnersHeading": "Unsere Partner",
+    "partnerLinkLabel": "{name} besuchen"
+  },
+  "cta": {
+    "heading": "Bereit zum Erkunden?",
+    "body": "Öffnen Sie die CLC App, um Gutscheine und die kuratierten Fonds zu erkunden, in denen sie getauscht werden können. Abonnieren Sie Neuigkeiten und Projekt-Updates.",
+    "openApp": "CLC App öffnen",
+    "updates": "Neuigkeiten erhalten"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Aufgebaut auf den Erfahrungen aus Sarafu Network.",
+    "legalLabel": "Rechtliches",
+    "terms": "Nutzungsbedingungen",
+    "dataPolicy": "Datenschutzrichtlinie"
+  }
+}
