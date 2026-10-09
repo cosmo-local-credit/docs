@@ -7,7 +7,7 @@ import GithubSlugger from 'github-slugger'
 const root = resolve(import.meta.dirname, '..')
 const pages = resolve(root, 'docs/pages')
 const output = resolve(root, 'docs/i18n/heading-map.json')
-const locales = ['en', 'fr']
+const locales = ['en', 'fr', 'es']
 const routes = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
   '/protocol/overview', '/protocol/smart-contracts', '/protocol/network', '/governance/mechanics',

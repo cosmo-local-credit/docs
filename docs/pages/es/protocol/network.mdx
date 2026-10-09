@@ -1,0 +1,75 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Arquitectura de red de protocolo
+
+Una implementación compatible con CPP- puede conectar muchos vales y fondos a través de registros opcionales, índices, módulos de cotización y descubrimiento de rutas a nivel de aplicación. Cada Fondo sigue siendo una bóveda separada con su propia liquidez, propietario, administrador de proxy, configuración y dependencias.
+
+Grassroots Economics Foundation opera la aplicación pública en [cosmolocal.credit](https://cosmolocal.credit) Otras interfaces y implementaciones pueden utilizar el mismo protocolo público. El funcionamiento de la aplicación no hace automáticamente de GEF el propietario, emisor, administrador, beneficiario de honorarios o garante de cada contrato que se muestra a continuación.
+
+Veamos . [Conceptos y vocabulario](/es/introduction/concepts) para la separación entre funciones responsables y competencias técnicas.
+
+
+## Rutas y ejecución de los candidatos
+
+<MermaidDiagram
+  scrollMessage="Desplázate horizontalmente para ver el diagrama completo."
+  errorMessage="No se pudo mostrar el diagrama"
+  label="Descubrimiento de rutas candidatas y ejecución por lotes desde la cartera"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["El vale A"] ---|listados y mantenidos| PoolA["Pozo A"]
+    Bridge["Activo de puente genérico"] ---|listados y mantenidos| PoolA
+    Bridge ---|listados y mantenidos| PoolB["Cuenca B"]
+    VoucherB["Bonos B"] ---|listados y mantenidos| PoolB
+
+    App["PWA o buscador de rutas"] -. discovers candidates .-> Index["Registros e índices"]
+    App -. requests a quote .-> Router["SwapRouter: sólo para cotización"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|construye llamadas ordenadas| WalletStart["Cartera de cuenta inteligente del usuario"]
+    WalletStart -->|Salto 1: vale A| PoolA
+    PoolA -->|salida del puente| WalletBridge["La misma billetera entre llamadas"]
+    WalletBridge -->|Hop 2: activo del puente| PoolB
+    PoolB -->|Fuente de salida del vale B| WalletFinal["La misma billetera de usuario"]
+
+    PoolA -->|tarifa del protocolo| ProtocolRecipient["Recipiente del protocolo configurado"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+Un activo compartido crea un **posible trayectoria del gráfico**, no una ruta garantizada. En este ejemplo, el vale A podría ser intercambiado por el activo puente en el grupo A, luego el activo puente podría ser intercambiado por el vale B en el grupo B. Cada salto sigue dependiendo de la admisión actual de tokens, los límites del Fondo, el inventario disponible, la configuración de cotizaciones y tarifas, el estado del oráculo, las aprobaciones, los límites de transacciones y la ejecución de la red.
+
+`SwapRouter` solo llama a las funciones de cotización Fondo a través de un camino propuesto. No tiene fondos, no aprueba tokens ni ejecuta swaps. Una aplicación integradora o compatible podrá utilizar esos resultados de cotización para construir las aprobaciones ordenadas y las llamadas de grupo en un lote firmado de cuentas inteligentes; Esto no significa que la aplicación pública actual ofrezca la ejecución multi-hop. Cada salto se coloca en la cartera antes de que esa cartera entregue el activo intermedio a la siguiente Fondo, y el integrador puede configurar el lote para revertirse cuando una llamada falla.
+
+Las citas son instantáneas. Una cotización de ruta exitosa aún puede fallar o resolverse de manera diferente si el estado relevante cambia antes de la ejecución. La sobrecarga limitada `SwapPool.withdraw` añade protección `minAmountOut` y `deadline` para un salto individual; los integradores deben decidir cómo aplicar los límites a lo largo de toda la ruta.
+
+Las tasas de la reserva permanecen en la reserva correspondiente para su cobro posterior. Cualquier tarifa de protocolo es adicional y se transfiere directamente de dicho grupo a su destinatario de protocolo configurado durante el intercambio.
+
+
+## Internos del Fondo
+
+<MermaidDiagram
+  scrollMessage="Desplázate horizontalmente para ver el diagrama completo."
+  errorMessage="No se pudo mostrar el diagrama"
+  label="Dependencias y facultades administrativas del Fondo de Compromisos"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Propietario del contrato o<br/>Responsable del Fondo"] -->|Configurar, sellar, recoger, retirar| Pool["SwapPool<br/>bóveda y asentamiento"]
+    ProxyAdmin["ERC-1967<br/>administrador de proxy"] -->|implementación de la actualización| Pool
+    Dependencies["Dependencias opcionales<br/>registry · limiter · quoter<br/>política de tarifas · controlador de tarifas del protocolo<br/>cada uno con su propio gobierno"] -. settlement inputs .-> Pool
+    Seal["Cinco espacios de direcciones sellables<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["Cartera del usuario"] -->|entrada de depósito o swap| Pool
+    Pool -->|salida neta de swap| Wallet
+    Pool -->|Las tasas del Fondo cobradas| FeeAddress["Configuración<br/>dirección de la tarifa"]
+    Pool -->|tarifa de protocolo en el mismo swap| ProtocolRecipient["Protocolo<br/>el destinatario"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+El registro, el limitador, la cotización, la política de tarifas y el controlador de tarifas de protocolo son opcionales. Sin registro, cualquier token pasa la verificación de admisión; sin límite, los depósitos no tienen límite; sin cotización, el grupo utiliza la paridad de unidad en bruto; y sin módulos de tarifas, las tarifas correspondientes son cero.
+
+Las cinco ranuras sellables son `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` y `tokenLimiter`. Un sello impide que el actual propietario del Fondo reemplace esa dirección a través de su setter, pero no congela el estado interno de la dependencia. La dirección `protocolFeeController` y el modo `feesDecoupled` no están cubiertos por esos cinco bits de sello. La capacidad del administrador proxy para actualizar el Fondo también está separada del sellado.
+
+El titular del contrato puede retirar la liquidez disponible de la Reserva a una dirección elegida. En el modo de tarifas desacopladas, las tarifas acumuladas se reservarán a partir de esa ruta; el poder de retirar la liquidez restante todavía existe. Los participantes deben inspeccionar al propietario, al administrador proxy, a los controladores de dependencias, al estado del sello, a los beneficiarios de las tarifas y a las reglas publicadas del grupo antes de confiar en un grupo.
+
+Para el diseño conceptual detrás de estos contratos, incluida la curaduría, la valoración, la limitación, el intercambio y la gobernanza, [Libro blanco](/es/white-paper).

@@ -1,0 +1,5 @@
+## **18. Conclusión**
+
+Cosmo-Local Credit conecta una aplicación actual y la fundación Protocol v1.1.0 con un diseño más amplio propuesto para Fondos de Compromisos gobernado de forma independiente. Los swaps directos actuales del Fondo, los componentes de cotización y límite y los registros públicos de transacciones pueden apoyar el intercambio responsable, pero no demuestran el cumplimiento del emisor, no crean derechos de contribuyente ni garantizan valor, liquidez, redención, seguro, estatus legal o protección contra pérdidas.
+
+Las propuestas de rotación de ejecución, compensación, activos de gobernanza, compensación de redes, programas de liquidez y protecciones compartidas descritas en este documento requerirían una implementación, financiación, gobernanza y términos publicados separados. El diseño tiene como objetivo ampliar la interoperabilidad manteniendo al mismo tiempo el rendimiento de los emisores, la gobernanza del grupo y la rendición de cuentas en el mundo real con las partes identificadas.

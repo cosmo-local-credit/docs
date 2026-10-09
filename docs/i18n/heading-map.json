@@ -19,6 +19,16 @@
       "4-créer-ou-évaluer-un-bassin-dengagements",
       "5-utilisez-laction-correcte",
       "capacités-actuelles-dépendantes-du-déploiement-et-proposées"
+    ],
+    "es": [
+      "primeros-pasos",
+      "comience-con-la-aplicación-actual",
+      "1-explora-el-mercado",
+      "2-crear-o-acceder-a-una-cuenta-y-cartera",
+      "3-crear-un-vale",
+      "4-crear-o-evaluar-un-fondo-de-compromisos",
+      "5-utilice-la-acción-correcta",
+      "capacidades-actuales-dependientes-del-despliegue-y-propuestas"
     ]
   },
   "/introduction/concepts": {
@@ -41,6 +51,16 @@
       "marché-valeurs-limites-et-frais",
       "protection-et-preuves",
       "paroles-de-statut"
+    ],
+    "es": [
+      "conceptos-y-vocabulario",
+      "capas-de-producto-y-protocolo",
+      "tokens-vales-y-ofertas",
+      "funciones-responsables-y-control-técnico",
+      "acciones-y-ciclo-de-vida",
+      "mercado-valores-límites-y-tarifas",
+      "protecciones-y-pruebas",
+      "palabras-de-estado"
     ]
   },
   "/introduction/example": {
@@ -65,6 +85,17 @@
       "6-lémetteur-enregistre-lexécution-et-la-décharge",
       "les-responsabilités-en-un-coup-dœil",
       "accords-de-crédit-futurs"
+    ],
+    "es": [
+      "ejemplo-práctico-de-vale",
+      "1-un-emisor-publica-un-compromiso",
+      "2-un-responsable-del-fondo-admite-el-vale",
+      "3-un-participante-contribuye-al-inventario",
+      "4-un-titular-hace-un-cambio-de-fondo",
+      "5-el-titular-presenta-el-vale",
+      "6-los-registros-de-cumplimiento-y-descarga-del-emisor",
+      "responsabilidades-en-un-vistazo",
+      "arreglos-futuros-de-crédito"
     ]
   },
   "/introduction/history": {
@@ -77,6 +108,11 @@
       "histoire",
       "de-lhistorique-sarafu-network-à-cosmo-local-credit",
       "apprendre-davantage-de-léconomie-de-base"
+    ],
+    "es": [
+      "la-historia",
+      "desde-el-histórico-sarafu-network-a-cosmo-local-credit",
+      "aprender-más-de-la-economía-de-base"
     ]
   },
   "/protocol/overview": {
@@ -89,6 +125,11 @@
       "protocole",
       "modèle-de-déploiement",
       "carte-des-composants"
+    ],
+    "es": [
+      "protocolo",
+      "modelo-de-despliegue",
+      "mapa-de-componentes"
     ]
   },
   "/protocol/smart-contracts": {
@@ -115,6 +156,18 @@
       "modules-dévaluation",
       "politique-et-limites-des-redevances",
       "contrôleur-des-frais-de-protocole"
+    ],
+    "es": [
+      "los-contratos-inteligentes",
+      "bonos-giftabletoken",
+      "fondo-de-compromisos-swappool",
+      "composición-y-dependencias-opcionales",
+      "saldo-de-intercambio",
+      "calculo-de-las-tarifas-adicionales",
+      "poderes-de-titularidad-y-actualización",
+      "modulos-de-evaluación",
+      "política-de-tarifas-y-límites",
+      "controlador-de-las-tarifas-de-protocolo"
     ]
   },
   "/protocol/network": {
@@ -127,6 +180,11 @@
       "architecture-du-réseau-du-protocole",
       "les-lignes-candidates-et-leur-exécution",
       "intérieur-du-bassin"
+    ],
+    "es": [
+      "arquitectura-de-red-de-protocolo",
+      "rutas-y-ejecución-de-los-candidatos",
+      "internos-del-fondo"
     ]
   },
   "/governance/mechanics": {
@@ -143,6 +201,13 @@
       "structures-de-gouvernance-responsables",
       "options-de-gouvernance-technique",
       "action-de-linterface-et-état-en-chaîne"
+    ],
+    "es": [
+      "mecanismos-de-gobernanza",
+      "responsabilidad-por-función",
+      "estructuras-de-gobernanza-responsables",
+      "opciones-de-gobernanza-técnica",
+      "acción-de-interfaz-y-estado-en-cadena"
     ]
   },
   "/governance/terms": {
@@ -205,6 +270,36 @@
       "24-modifications-apportées-aux-présentes-conditions",
       "25-conditions-générales",
       "26-communiqué"
+    ],
+    "es": [
+      "cosmo-local-credit-términos-de-servicio",
+      "notificaciones-importantes",
+      "1-definiciones",
+      "2-acceptación-y-alcance",
+      "3-eligibilidad-y-autoridad",
+      "4-cuentas-billeteras-y-seguridad",
+      "5-el-papel-y-las-limitaciones-de-gef",
+      "6-su-responsabilidad-legal-y-reglamentaria",
+      "7-tokens-y-vales-en-general",
+      "8-creación-o-emisión-de-un-token-o-vale",
+      "9-presentación-de-la-redención-cumplimiento-y-descarga",
+      "10-creación-y-explotación-de-un-fondo",
+      "11-utilizar-o-contribuir-a-un-fondo",
+      "12-los-intercambios-las-cotizaciones-las-tarifas-y-el-enrutamiento",
+      "13-productos-futuros-de-crédito-o-préstamo",
+      "14-tarifas-impuestos-y-servicios-de-pago-de-terceros",
+      "15-conducta-prohibida",
+      "16-contenido-y-anuncios-públicos",
+      "17-datos-y-registros-electrónicos",
+      "18-cambios-de-servicio-suspensión-y-terminación",
+      "19-los-riesgos-no-hay-asesoramiento-profesional",
+      "20-garantias-y-exenciones-de-responsabilidad",
+      "21-limitación-de-la-responsabilidad",
+      "22-indemnización",
+      "23-disputas",
+      "24-cambios-en-los-presentes-términos",
+      "25-términos-generales",
+      "26-contacto"
     ]
   },
   "/white-paper": {
@@ -235,6 +330,20 @@
       "flux-direct-actuel-dun-bassin",
       "proposition-de-conception-plus-large",
       "carte-du-lecteur"
+    ],
+    "es": [
+      "cosmo-local-credit-clc",
+      "una-red-para-la-red-de-crédito-la-coordinación-de-los-compromisos-y-la-financiación-de-una-economía-cosmo-local-saludable",
+      "cómo-leer-este-periódico",
+      "abstracto",
+      "despliegue-actual",
+      "el-linaje-histórico",
+      "modelo-de-diseño",
+      "valores-y-principios-de-diseño",
+      "flujos-actuales-y-propuestos",
+      "corriente-directo-flujo-del-fondo",
+      "proyecto-más-amplio-propuesto",
+      "mapa-del-lector"
     ]
   },
   "/white-paper/executive-summary": {
@@ -243,6 +352,9 @@
     ],
     "fr": [
       "résumé-exécutif"
+    ],
+    "es": [
+      "resumen-ejecutivo"
     ]
   },
   "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
@@ -259,6 +371,13 @@
       "12-cest-quoi-un-bassin-dengagements-",
       "13-logique-actuelle-déchange-direct",
       "14-utilisation-plus-large"
+    ],
+    "es": [
+      "1-protocolo-de-agrupación-de-compromisos-cpp-el-núcleo-primitivo",
+      "11-qué-es-un-compromiso",
+      "12-qué-es-un-fondo-de-compromisos",
+      "13-lógica-de-intercambio-directo-actual",
+      "14-uso-más-amplio"
     ]
   },
   "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
@@ -267,6 +386,9 @@
     ],
     "fr": [
       "2-le-passage-de-lactif-à-la-fiducie"
+    ],
+    "es": [
+      "2-el-cambio-de-contabilidad-del-activo-al-fideicomiso"
     ]
   },
   "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
@@ -275,6 +397,9 @@
     ],
     "fr": [
       "3-activité-de-remplissage-de-décharge-et-déchange"
+    ],
+    "es": [
+      "3-actividad-de-cumplimiento-descarga-y-intercambio"
     ]
   },
   "/white-paper/chapter-04-reusable-forward-style-collateral": {
@@ -285,6 +410,10 @@
     "fr": [
       "4-garantie-à-terme-réutilisable",
       "41-boucle-de-crédit-du-producteur"
+    ],
+    "es": [
+      "4-las-garantías-de-tipo-a-plazo-reutilizables",
+      "41-ciclo-de-crédito-del-productor"
     ]
   },
   "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
@@ -305,6 +434,15 @@
       "53-modèle-proposé-de-redevance-réseau-et-de-redevance-de-service",
       "531-récettes-éligibles-en-espèces-et-en-nature",
       "54-programmes-de-liquidité-proposés"
+    ],
+    "es": [
+      "5-de-fondos-aislados-a-una-red-federada",
+      "51-medidas-separadas-de-intercambio-y-cumplimiento",
+      "52-servicios-de-enrutamiento-y-reequilibrio-propuestos",
+      "521-confederación-y-interoperabilidad",
+      "53-modelo-propuesto-de-red-y-tarifa-de-servicio",
+      "531-recibos-en-efectivo-elegibles-y-en-especie",
+      "54-programas-de-liquidez-propuestos"
     ]
   },
   "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
@@ -315,6 +453,10 @@
     "fr": [
       "6-liquidité-et-gouvernance-proposées-au-niveau-du-réseau",
       "61-contrôles-à-la-baisse-et-faculté"
+    ],
+    "es": [
+      "6-proposición-de-liquidez-y-gobernanza-a-nivel-de-red",
+      "61-los-controles-a-la-baja-y-la-opcionalidad"
     ]
   },
   "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
@@ -343,6 +485,19 @@
       "732-sclc-budget-et-contrôles-extérieurs-facultatifs-de-flotteur",
       "733-bassins-de-portefeuille-et-attestations",
       "74-proposition-de-cascade-et-budgets"
+    ],
+    "es": [
+      "7-propososos-activos-de-administración-y-gobernanza-clc",
+      "71-propósito",
+      "72-modelo-de-gestión-de-activos-propuesto",
+      "721-suministro-y-asignación-ilustrativos",
+      "722-estadios-de-disponibilidad-y-dotación",
+      "723-programa-propuesto-para-la-siembra-de-impacto",
+      "73-voto-propuesto-incentivos-y-acceso-a-los-honorarios",
+      "731-el-cumplimiento-de-las-tarifas-de-servicio-y-la-elección-del-perfil",
+      "732-presupuesto-sclc-y-controles-opcionales-de-flotación-externa",
+      "733-poles-y-certificados-de-cartera",
+      "74-cascada-y-presupuestos-propuestos"
     ]
   },
   "/white-paper/chapter-08-technical-scope-growth": {
@@ -357,6 +512,12 @@
       "81-normes-proposées-pour-le-service-sur-route-et-sdk",
       "811-spécification-minimale-de-compatibilité-de-la-confédération",
       "82-autorisation-vérification-et-sortie"
+    ],
+    "es": [
+      "8-ámbito-de-aplicación-técnico-y-crecimiento",
+      "81-normas-propuestas-de-servicio-de-rutas-y-sdk",
+      "811-especificación-mínima-de-compatibilidad-con-la-confederación",
+      "82-licencia-verificación-y-salida"
     ]
   },
   "/white-paper/chapter-09-economics-for-lps": {
@@ -371,6 +532,12 @@
       "91-sources-de-recettes-proposées",
       "92-les-mathématiques-illustratives-du-prélèvement",
       "93-droits-de-programme-de-liquidité"
+    ],
+    "es": [
+      "9-economía-propuesta-para-los-programas-de-liquidez",
+      "91-fuentes-de-ingresos-propuestas",
+      "92-matemáticas-ilustrativas-de-rake",
+      "93-los-derechos-del-programa-de-liquidez"
     ]
   },
   "/white-paper/chapter-10-comprehensive-risk-framework": {
@@ -401,6 +568,20 @@
       "108-risque-de-dépôt-et-de-gestion-des-clés",
       "109-réputation-et-risque-social",
       "1010-risque-de-concentration-et-de-fragmentation"
+    ],
+    "es": [
+      "10-marco-integral-de-riesgos",
+      "101-protocolo-y-riesgo-de-contratos-inteligentes",
+      "102-riesgo-económico-y-de-mercado",
+      "103-riesgo-del-emisor-y-del-vale",
+      "104-el-riesgo-de-presentación-y-cumplimiento-de-la-redención",
+      "105-riesgo-de-gobernanza",
+      "106-riesgo-legal-y-de-cumplimiento",
+      "1061-posicionamiento-legal-y-tratamiento-de-los-tokens-propuestos",
+      "107-riesgo-de-enrutamiento-y-riesgo-entre-dominios",
+      "108-riesgo-de-custodia-y-gestión-de-llaves",
+      "109-reputación-y-riesgo-social",
+      "1010-riesgo-de-concentración-y-fragmentación"
     ]
   },
   "/white-paper/chapter-11-governance-mechanics": {
@@ -419,6 +600,14 @@
       "113-cadre-du-garant",
       "114-garnitures-anti-capture",
       "115-procédure-de-fourche-et-de-sortie"
+    ],
+    "es": [
+      "11-mecanismos-de-gobernanza",
+      "111-gestión-de-los-tipos-de-cambio-y-de-los-límites",
+      "112-libro-de-trabajo-de-los-fondos-de-seguros-propuesto",
+      "113-marco-de-garantía",
+      "114-barreras-de-protección-contra-capturas",
+      "115-procedimiento-de-forja-y-salida"
     ]
   },
   "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
@@ -427,6 +616,9 @@
     ],
     "fr": [
       "12-fiche-descriptive-du-programme-de-liquidité-proposé-aperçu-non-contraignant"
+    ],
+    "es": [
+      "12-plan-de-plazo-del-programa-de-liquidez-propuesto-esbozo-no-vinculante"
     ]
   },
   "/white-paper/chapter-13-jargon-plain-language-glossary": {
@@ -435,6 +627,9 @@
     ],
     "fr": [
       "13-glossaire-en-langage-simple"
+    ],
+    "es": [
+      "13-glosario-en-lenguaje-simple"
     ]
   },
   "/white-paper/chapter-14-kpis-health-indicators": {
@@ -443,6 +638,9 @@
     ],
     "fr": [
       "14-indicateurs-clés-de-performance-et-indicateurs-de-santé-proposés"
+    ],
+    "es": [
+      "14-indicadores-clave-y-indicadores-de-salud-propuestos"
     ]
   },
   "/white-paper/chapter-15-roadmap-indicative": {
@@ -455,6 +653,11 @@
       "15-feuille-de-route-indicative",
       "151-fondation-actuelle",
       "152-les-jalons-proposés"
+    ],
+    "es": [
+      "15-mapa-de-ruta-indicativo",
+      "151-fundamento-actual",
+      "152-los-hitos-propuestos"
     ]
   },
   "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
@@ -463,6 +666,9 @@
     ],
     "fr": [
       "16-modèle-dévaluation-proposé"
+    ],
+    "es": [
+      "16-modelo-de-evaluación-propuesto"
     ]
   },
   "/white-paper/chapter-17-legal-compliance-note": {
@@ -479,6 +685,13 @@
       "172-divulgations-de-groupes",
       "173-actions-et-obligations",
       "174-protection-preuves-et-lois-locales"
+    ],
+    "es": [
+      "17-nota-legal-y-de-cumplimiento",
+      "171-información-sobre-los-vales-y-las-ofertas",
+      "172-las-divulgaciones-del-grupo",
+      "173-acciones-y-obligaciones",
+      "174-protecciones-pruebas-y-leyes-locales"
     ]
   },
   "/white-paper/chapter-18-conclusion": {
@@ -487,6 +700,9 @@
     ],
     "fr": [
       "18-conclusion"
+    ],
+    "es": [
+      "18-conclusión"
     ]
   },
   "/white-paper/appendix-a-math-box": {
@@ -503,6 +719,13 @@
       "mesures-dexécution-fondées-sur-la-cohorte",
       "mesures-de-vitesse-distinctes",
       "revenus-de-réseau-proposés"
+    ],
+    "es": [
+      "modelo-de-medición-y-tarifa-propuesto",
+      "definiciones-de-eventos-y-existencias",
+      "medidas-de-cumplimiento-basadas-en-cohortes",
+      "medidas-de-velocidad-distintas",
+      "ingresos-de-la-red-propuestos"
     ]
   },
   "/white-paper/appendix-b-fee-waterfall": {
@@ -511,6 +734,9 @@
     ],
     "fr": [
       "b-illustration-de-la-future-cascade-des-frais"
+    ],
+    "es": [
+      "b-en-el-falta-de-agua-de-las-tarifas-futuras-ilustrativa"
     ]
   },
   "/white-paper/appendix-c-kpi-definitions": {
@@ -519,6 +745,9 @@
     ],
     "fr": [
       "c-définition-proposée-des-indicateurs-clés"
+    ],
+    "es": [
+      "en-el-caso-de-los-estados-miembros-las-definiciones-propuestas-de-kpi"
     ]
   },
   "/white-paper/appendix-d-launch-parameters": {
@@ -527,6 +756,9 @@
     ],
     "fr": [
       "d-paramètres-de-lancement-proposés"
+    ],
+    "es": [
+      "d-parámetros-de-lanzamiento-propuestos"
     ]
   },
   "/white-paper/appendix-e-worked-example": {
@@ -535,6 +767,9 @@
     ],
     "fr": [
       "e-exemple-détaillé--prélèvement-de-réseau-proposé"
+    ],
+    "es": [
+      "ejemplo-de-trabajo--rake-de-red-propuesto"
     ]
   },
   "/white-paper/appendix-f-dataroom-checklist": {
@@ -543,6 +778,9 @@
     ],
     "fr": [
       "f-liste-de-contrôle-de-la-salle-de-données"
+    ],
+    "es": [
+      "lista-de-verificación-de-la-sala-de-datos"
     ]
   },
   "/white-paper/archive": {
@@ -553,6 +791,10 @@
     "fr": [
       "archive-du-livre-blanc",
       "version-remplacée"
+    ],
+    "es": [
+      "archivo-del-libro-blanco",
+      "versión-superada"
     ]
   }
 }

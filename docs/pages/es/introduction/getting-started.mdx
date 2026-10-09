@@ -1,0 +1,74 @@
+# Primeros pasos
+
+Cosmo-Local Credit (CLC) es una aplicación web progresiva para crear, descubrir, mantener, transferir y intercambiar activos digitales, incluidos los vales canjeables, a través de Fondos de Compromisos gobernado de forma independiente. El CLC App está disponible en: [cosmolocal.credit](https://cosmolocal.credit).
+
+[Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) opera la aplicación y la infraestructura de apoyo. A menos que GEF acepte expresamente otro papel para una Oferta o transacción particular, no es el emisor de un vale creado por el usuario, el Responsable del Fondo de un grupo creado por el usuario, un custodio, prestamista, prestatario, garante, asegurador o redentor. Los emisores son responsables de sus compromisos de vales y Responsables de Fondos son responsables de sus reglas de fondo.
+
+Leer [Conceptos y vocabulario](/es/introduction/concepts) para las capas exactas de productos, funciones, acciones, valores, tarifas y términos de estado utilizados en estos documentos.
+
+Antes de crear una cuenta o realizar una transacción, lea la siguiente información: [Términos de servicio](/es/governance/terms) En particular:
+
+- Debe tener al menos 18 años, haber alcanzado la edad de mayoría de edad que le corresponda y tener capacidad contractual.
+- Usted es responsable de confirmar que su cuenta, vale, fondo o transacción es legal en todas las jurisdicciones pertinentes.
+- Las credenciales de la billetera deben estar protegidas. Es posible que GEF no pueda recuperar una cartera perdida o revertir una transacción autorizada.
+- Las transacciones y registros de blockchain pública pueden ser visibles, permanentes e irreversibles.
+- Una cotización en la aplicación no es un respaldo GEF ni una garantía de redención, valor, liquidez, convertibilidad o liquidación.
+
+## Comience con la aplicación actual
+
+### 1. Explora el mercado
+
+Abierto [cosmolocal.credit](https://cosmolocal.credit) para explorar el público **Mercado**, el catálogo de descubrimientos de la aplicación. Revisar el emisor responsable, los bienes o servicios prometidos, la ubicación, la disponibilidad y los términos publicados. Una cotización en el mercado no es automáticamente un lugar de intercambio, relación con el vendedor, valoración independiente, aval o garantía.
+
+### 2. Crear o acceder a una cuenta y cartera
+
+La aplicación utiliza una cuenta para el acceso al perfil y sesión y una billetera para la autorización de blockchain. Proteja su llave de acceso, material de bolso de papel, información de recuperación, dispositivos y cualquier otra credencial. Revise cada activo, cantidad, dirección, fondo, tarifa y autorización antes de confirmar una transacción.
+
+### 3. Crear un vale
+
+Un vale combina varias capas distintas:
+
+1. mecánicas y balances de contratos simbólicos;
+2. la designación del vale del emisor y los términos publicados;
+3. uno o más registros de ofertas de bienes o servicios asociados; y
+4. el cumplimiento real del emisor.
+
+La creación o acuñación de un token no demuestra por sí solo que existe una Oferta, que el emisor tiene capacidad o que GEF garantiza el canje.
+
+### 4. Crear o evaluar un Fondo de Compromisos
+
+Un Fondo de Compromisos es un arreglo regido. Su contrato actual `SwapPool` puede mantener un inventario de tokens apoyados y ejecutar swaps directos. Antes de utilizar o contribuir a uno, revisar:
+
+- el responsable Responsable del Fondo y el actual titular del contrato;
+- el administrador de proxy y los controladores de dependencias configuradas;
+- vales admitidos y otros activos respaldados;
+- métodos de cambio o de cotización;
+- La aplicación es **“Límite de crédito”**, que es un límite del saldo de la bolsa de tokens en lugar de un crédito personal;
+- Tarifas de grupo y de protocolo;
+- el inventario disponible y el poder de retiro de liquidez del propietario del Fondo; y
+- las condiciones de contribución, garantía, reserva o seguro publicadas por separado.
+
+Un depósito transfiere activos al `SwapPool`. Protocol v1.1.0 no acuña tokens de Fondo-share ni otorga automáticamente al depositante derechos de reembolso, retiro, recompensa o gobernanza.
+
+### 5. Utilice la acción correcta
+
+- **Envía** transfiere un saldo simbólico a otra dirección.
+- **Intercambio de Fondos** intercambiará un activo apoyado por otro a través de un `SwapPool`. La liquidación de swaps en cadena no demuestra el cumplimiento del emisor.
+- **“Canjear”** abre el flujo de envío con la dirección del titular del token preemplada. Presentará o devolverá el vale al emisor; el reembolso completado también requiere el rendimiento prometido del emisor y un registro de descarga que impida la reutilización.
+- **“Retirar vale”** Esconde la lista del catálogo. No quema los saldos, no cancela el vale ni extingue las obligaciones pendientes del emisor.
+- **Retiro de liquidez del grupo** permite al propietario del Fondo transferir el inventario disponible.
+- **Recaudación de las tarifas** Envía las tasas acumuladas del grupo al destinatario configurado.
+
+Veamos el [ejemplos prácticos de vales](/es/introduction/example) durante todo el ciclo de vida.
+
+## Capacidades actuales, dependientes del despliegue y propuestas
+
+La aplicación actual proporciona un mercado y flujos soportados para cuentas, billeteras, vales, ofertas, fondos, transferencias, swaps directos de fondo y registros relacionados. La disponibilidad depende de la implementación activa, el activo, la configuración del grupo, el dispositivo, la red, la elegibilidad, el proveedor, la jurisdicción y los términos publicados.
+
+Los servicios de pago, los métodos de apoyo, las recompensas, las garantías, los acuerdos de contribución y otras integraciones de proveedores dependen del despliegue. Las partes responsables, los honorarios, los límites, la elegibilidad y las condiciones legales deben revelarse cuando se ofrezcan.
+
+Protocol v1.1.0 proporciona la ejecución directa del Fondo y una cotización exclusiva de `SwapRouter`. La ejecución multi-hop, HTLC o el enrutamiento de garantía, la compensación por lotes, el seguro compartido, los activos de gobernanza propuestos, los programas de liquidez de la red y las vías de pago reguladas siguen siendo propuestos o dependientes de la implementación a menos que una implementación específica los identifique como activos.
+
+Cualquier préstamo futuro u otro producto de crédito requiere que se presenten por separado los términos suplementarios y de la transacción. Una transferencia ordinaria, depósito de fondo, swap de fondo, presentación de canje, cumplimiento o descarga no es automáticamente un préstamo, anticipo o reembolso.
+
+A continuación, lea el [Presentación general del protocolo](/es/protocol/overview), el [Mecánica de gobierno](/es/governance/mechanics), o el más amplio [Libro blanco](/es/white-paper).

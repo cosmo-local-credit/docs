@@ -39,7 +39,7 @@ LANGUAGE_CODES = {
     "uk": "ukr_Cyrl",
 }
 APP_BASELINE = "32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1"
-TRANSLATION_DATE = "8 October 2026"
+TRANSLATION_DATE = "9 October 2026"
 UNCHANGED_NAMES = [
     "Cosmo-Local Credit",
     "CLC App",
@@ -60,6 +60,34 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "es": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "“Redeem”": "“Canjear”",
+        "“Retire voucher”": "“Retirar vale”",
+        "“Credit limit”": "“Límite de crédito”",
+        "“Credit limits”": "“Límites de crédito”",
+        "You": "Usted",
+        "Convenience translation": "Primera traducción para revisión",
+        "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.": (
+            "Esta traducción se ofrece para facilitar la lectura. Las Condiciones en inglés "
+            "son el texto original y prevalecen, salvo que la legislación aplicable exija lo contrario."
+        ),
+        "Read the English Terms": "Leer las Condiciones en inglés",
+        "About this translation": "Acerca de esta traducción",
+        "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.": (
+            "Esta es una primera traducción del Libro Blanco v0.8 (White Paper v0.8) "
+            "preparada para revisión. El texto original en inglés se publicó el 30 de "
+            "septiembre de 2026. Esta traducción se preparó el 9 de octubre de 2026. "
+            "El inglés es el texto original."
+        ),
+        "Read the English source": "Leer el texto original en inglés",
+        "The superseded v0.7 PDF is available in English only.": (
+            "El PDF de la versión v0.7, ya sustituida, solo está disponible en inglés."
+        ),
+        "Email: `info@grassecon.org`": "Correo electrónico: `info@grassecon.org`",
+        "Version 0.7 PDF": "PDF de la versión 0.7",
+        "SDK requirements.": "Requisitos del SDK.",
+    },
     "fr": {
         "Email: `info@grassecon.org`": "Adresse électronique : `info@grassecon.org`",
         "Version 0.7 PDF": "PDF de la version 0.7",
@@ -350,6 +378,55 @@ def restore_text(value: str, protected: list[Protected]) -> str:
 
 
 def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale == "es":
+        def pool_term(match: re.Match[str]) -> str:
+            term = "Fondos" if match.group(0).lower().endswith("s") else "Fondo"
+            return term if match.group(0)[0].isupper() else term.lower()
+
+        value = re.sub(r"\bpools?\b", pool_term, value, flags=re.IGNORECASE)
+        value = re.sub(r"(?<!CLC )\bApp\b", "aplicación", value)
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "protocolo", value)
+        value = value.replace("¿ Qué es eso ?", "").replace("¿Qué es eso?", "")
+        value = value.replace("cosmolocal.crédito", "cosmolocal.credit")
+        value = value.replace("Redeem”", "“Canjear”")
+        value = value.replace("Buchón de jubilación”", "“Retirar vale”")
+        value = value.replace("Limite de crédito”", "“Límite de crédito”")
+        value = value.replace("Taxa", "Tasa")
+        value = value.replace("rayo de la red", "comisión de red")
+        value = value.replace("racha de red", "comisión de red")
+        value = value.replace("Rastreado de red", "Comisión de red")
+        value = value.replace("red de lotes", "compensación por lotes")
+        value = re.sub(r"\bde las piscinas\b", "de los Fondos", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bde la piscina\b", "del Fondo", value, flags=re.IGNORECASE)
+        value = re.sub(r"\ba las piscinas\b", "a los Fondos", value, flags=re.IGNORECASE)
+        value = re.sub(r"\ba la piscina\b", "al Fondo", value, flags=re.IGNORECASE)
+        value = re.sub(r"\blas piscinas\b", "los Fondos", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bla piscina\b", "el Fondo", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bunas piscinas\b", "unos Fondos", value, flags=re.IGNORECASE)
+        value = re.sub(r"\buna piscina\b", "un Fondo", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpiscinas\b", "Fondos", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpiscina\b", "Fondo", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bmicro\s+Fondos\b", "microfondos", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bcupones\b", "vales", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bcupón\b", "vale", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bofrendas\b", "Ofertas", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bofrenda\b", "Oferta", value, flags=re.IGNORECASE)
+        if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+            value = re.sub(
+                r"\b(?:bonos|cupones|vouchers?)\b",
+                "vales",
+                value,
+                flags=re.IGNORECASE,
+            )
+        elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+            value = re.sub(
+                r"\b(?:bono|cupón|voucher)\b",
+                "vale",
+                value,
+                flags=re.IGNORECASE,
+            )
+        return value
+
     if locale != "fr":
         return value
 
@@ -512,6 +589,16 @@ class MarkdownTemplate:
             if line.startswith("import ") or line.startswith("export "):
                 output.append(line.replace("../../components/", "../../../components/"))
                 continue
+            if re.fullmatch(r"\s*<[A-Z][A-Za-z0-9]*", line):
+                output.append(line)
+                continue
+            property_match = re.fullmatch(r'(\s*[A-Za-z][A-Za-z0-9]*=")([^"]+)("\s*)', line)
+            if property_match:
+                output.append(
+                    f"{property_match.group(1)}{self.marker(property_match.group(2))}"
+                    f"{property_match.group(3)}"
+                )
+                continue
             if "chart={`" in line:
                 in_chart = True
                 output.append(line)
@@ -580,6 +667,11 @@ def translate_segments(
     chunk_counts: list[int] = []
     for segment in segments:
         manual = MANUAL_TRANSLATIONS.get(locale, {}).get(segment)
+        if manual is None and re.fullmatch(
+            r"[A-Za-z][A-Za-z0-9]*(?:\s*[·|]\s*[A-Za-z][A-Za-z0-9]*)+",
+            segment,
+        ):
+            manual = segment
         if manual is not None:
             protected_segments.append(([manual], []))
             chunk_counts.append(0)
@@ -623,12 +715,29 @@ def translate_segments(
                 )
             )
         except ValueError:
-            # A beam can occasionally paraphrase away an opaque glossary token.
-            # Retry only that unit greedily before failing the complete locale.
-            retry_chunks = translator.translate_many(
-                source_chunks, "en", locale, beam_size=1
+            # A smaller model can paraphrase away an opaque token. Translate only
+            # the natural-language spans around those tokens, then reassemble the
+            # unit so contract names and identifiers cannot be lost.
+            retry_source = " ".join(source_chunks)
+            retry_parts = re.split(r"(XxOpaque\d{4}Xx)", retry_source)
+            natural_parts = [
+                part
+                for part in retry_parts
+                if not re.fullmatch(r"XxOpaque\d{4}Xx", part)
+                and re.search(r"[A-Za-z]", part)
+            ]
+            retry_translated = iter(
+                translator.translate_many(
+                    natural_parts, "en", locale, beam_size=1
+                )
             )
-            retry_value = " ".join(retry_chunks)
+            retry_value = "".join(
+                part
+                if re.fullmatch(r"XxOpaque\d{4}Xx", part)
+                or not re.search(r"[A-Za-z]", part)
+                else next(retry_translated)
+                for part in retry_parts
+            )
             try:
                 translated.append(
                     normalize_translation(
@@ -790,6 +899,7 @@ def main() -> None:
     manifest: dict[str, object] = {
         "sourceAppCommit": APP_BASELINE,
         "translationPublicationDate": TRANSLATION_DATE,
+        "status": "first-draft-review",
         "reviewProcess": [
             translation_method,
             "clarity normalization with complete-line context and the clc-app glossary",
@@ -847,6 +957,11 @@ def main() -> None:
             translated_segments = all_translated[start:end]
             review = review_scores(all_scores[start:end])
             translated = template.render(translated_segments)
+            translated = re.sub(
+                r"\*\*\s*([^*\n]*?\S)\s*\*\*",
+                lambda match: f"**{match.group(1)}**",
+                translated,
+            )
             translated = localize_links(translated, locale, routes)
 
             if source_path == PAGES / "protocol/network.mdx":
@@ -863,7 +978,7 @@ def main() -> None:
                 legal = ui["legal"]
                 notice = (
                     f"> **{legal['translationTitle']}.** {legal['translationNotice']} "
-                    f'<a data-english-source="true" href="/governance/terms" hreflang="en">'
+                    f'<a data-english-source="true" href="/governance/terms" hrefLang="en">'
                     f"{legal['englishSource']}</a>."
                 )
                 translated = insert_notice(translated, notice)
@@ -871,11 +986,16 @@ def main() -> None:
                 paper = ui["whitePaper"]
                 notice = (
                     f"> **{paper['translationTitle']}.** {paper['translationNotice']} "
-                    f'<a data-english-source="true" href="{route}" hreflang="en">'
+                    f'<a data-english-source="true" href="{route}" hrefLang="en">'
                     f"{paper['englishSource']}</a>."
                 )
                 translated = insert_notice(translated, notice)
-                if route == "/white-paper":
+                localized_pdf = (
+                    ROOT
+                    / "docs/public/white-paper"
+                    / f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf"
+                )
+                if route == "/white-paper" and localized_pdf.exists():
                     translated = translated.replace(
                         "Cosmo-Local-Credit-CLC-White-Paper-v8.pdf",
                         f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf",

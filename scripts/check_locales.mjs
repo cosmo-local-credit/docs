@@ -9,8 +9,8 @@ const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const publicPaper = join(root, 'docs/public/white-paper')
 const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const documentationLocales = ['en', 'fr']
-const localizedLocales = ['fr']
+const documentationLocales = ['en', 'fr', 'es']
+const localizedLocales = ['fr', 'es']
 const splashLocalizedLocales = locales.slice(1)
 const appBaseline = '32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1'
 const protectedNames = [
@@ -115,22 +115,38 @@ for (const [term, translations] of Object.entries(glossary.terms)) {
   }
 }
 
-const manifest = readJson(join(i18n, 'translation-manifest.fr.json'))
-if (manifest.sourceAppCommit !== appBaseline) errors.push('Translation manifest app baseline is stale')
-if (manifest.translationPublicationDate !== '9 October 2026') errors.push('Translation publication date is incorrect')
+const manifests = Object.fromEntries(
+  localizedLocales.map((locale) => [
+    locale,
+    readJson(join(i18n, `translation-manifest.${locale}.json`)),
+  ]),
+)
+for (const [locale, manifest] of Object.entries(manifests)) {
+  if (manifest.sourceAppCommit !== appBaseline) {
+    errors.push(`${locale}: translation manifest app baseline is stale`)
+  }
+  if (manifest.translationPublicationDate !== '9 October 2026') {
+    errors.push(`${locale}: translation publication date is incorrect`)
+  }
+  if (manifest.status !== 'first-draft-review') {
+    errors.push(`${locale}: translation manifest must identify the review status`)
+  }
+}
 
 const sources = englishSources()
 if (sources.length !== 36) errors.push(`Expected 36 English documentation pages, found ${sources.length}`)
 for (const source of sources) {
   const route = routeFor(source)
   const english = readFileSync(source, 'utf8')
-  const entry = manifest.pages?.[route]
-  if (!entry) {
-    errors.push(`${route}: missing manifest entry`)
-    continue
-  }
-  if (entry.sourceSha256 !== sha256(english)) errors.push(`${route}: English source hash is stale`)
   for (const locale of localizedLocales) {
+    const entry = manifests[locale].pages?.[route]
+    if (!entry) {
+      errors.push(`${route}: missing ${locale} manifest entry`)
+      continue
+    }
+    if (entry.sourceSha256 !== sha256(english)) {
+      errors.push(`${route}: ${locale} English source hash is stale`)
+    }
     const translatedPath = localeSource(locale, source)
     if (!existsSync(translatedPath)) {
       errors.push(`${route}: missing ${locale} source`)
@@ -217,4 +233,4 @@ if (errors.length) {
   process.exit(1)
 }
 
-console.log(`Validated ${locales.length} splash routes, ${sources.length * documentationLocales.length} English/French documentation routes, catalogs, hashes, links, Terms, TeX, and PDFs.`)
+console.log(`Validated ${locales.length} splash routes, ${sources.length * documentationLocales.length} English/French/Spanish documentation routes, catalogs, hashes, links, Terms, TeX, and PDFs.`)

@@ -1,0 +1,73 @@
+# Ejemplo práctico de vale
+
+Este ejemplo sigue a un vale de emisión a través de un swap de fondo, presentación de redención, cumplimiento y descarga. En él se ilustran los roles que se desempeñan; no es una promesa de que un vale, Fondo, ruta o resultado particular estarán disponibles.
+
+Para las definiciones utilizadas aquí, véase [Conceptos y vocabulario](/es/introduction/concepts).
+
+## 1. Un emisor publica un compromiso
+
+Imagínese que una cocina comunitaria crea un vale de comida digital. Antes de emitirlo, la cocina publica la información que el titular necesita para tomar una decisión informada:
+
+- la identidad y los datos de contacto de la cocina;
+- la comida u otra oferta representada por un vale;
+- el suministro, la unidad, el valor declarado y la capacidad de funcionamiento de la cocina;
+- dónde y en qué horas se puede presentar;
+- cualquier fecha de vencimiento, proceso de reserva, tarifas, impuestos o restricciones de transferencia; y
+- cómo funcionan la presentación, el cumplimiento, las quejas, los reembolsos, las sustituciones y otros recursos.
+
+La cocina es el emisor. Debe mantener esta información exacta, evitar emitir más allá de su capacidad razonable y honrar los vales de acuerdo con las condiciones en que los titulares los adquirieron. La creación del token o la publicación de la Oferta no demuestran esa capacidad ni hacen de GEF el emisor.
+
+## 2. Un Responsable del Fondo admite el vale
+
+Un sistema de seguridad alimentaria Fondo de Compromisos revisa la cocina, sus términos de vale y el propósito del Fondo. Si se admite, el Responsable del Fondo publicará las normas aplicables, incluyendo:
+
+- quien es responsable del Fondo;
+- el propietario actual de `SwapPool`, el administrador de proxy y los controladores de dependencia del material;
+- activos aceptados;
+- métodos de cambio o de cotización;
+- Capas de balance de tokens, denominadas **“Límites de crédito”** en la aplicación;
+- Tarifas de grupo y de protocolo;
+- las competencias de inventario y de retiro de liquidez; y
+- cualquier acuerdo de garantía, reserva o apoyo financiado por separado.
+
+La admisión significa que las reglas configuradas del Fondo permiten el vale. No demuestra capacidad de cumplimiento, no establece valor en efectivo ni crea seguro.
+
+## 3. Un participante contribuye al inventario
+
+Un patrocinador transfiere vales de comida u otro activo apoyado en el `SwapPool` bajo los términos publicados aplicables. Ese depósito aumenta el inventario disponible.
+
+La transferencia no crea automáticamente una participación en el grupo, un reclamo de reembolso, un derecho de retiro, una recompensa o un poder de gobernanza. Cualquier derecho de este tipo debe provenir de un acuerdo revelado por separado.
+
+## 4. Un titular hace un cambio de Fondo
+
+Un titular intercambia un activo apoyado por vales de comida a través del Fondo. La cotización mostrada es un parámetro de transacción producido por el cotizador configurado, no prueba del valor en efectivo del vale o del rendimiento de la cocina.
+
+El swap directo de Fondo se liquida en cadena mediante la transferencia de la entrada, salida, tarifa de Fondo y cualquier tarifa adicional de protocolo. No es automáticamente un préstamo, el rescate del emisor, o el cumplimiento del mundo real.
+
+## 5. El titular presenta el vale
+
+En la aplicación actual, elegir **“Canjear”** abre el flujo de envío ordinario con la dirección del propietario del token preemplada. La devolución del vale constituirá una prueba de presentación al emisor; no demuestra por sí mismo que la cocina suministró una comida.
+
+La cocina verifica la presentación y proporciona la comida prometida según sus términos publicados.
+
+## 6. Los registros de cumplimiento y descarga del emisor
+
+Después de proporcionar la comida, el emisor registra las unidades cumplidas para que no puedan presentarse dos veces. Dependiendo del proceso publicado, esto puede implicar recibir, quemar, cancelar o de otra manera desactivar el vale devuelto.
+
+Si la cocina no cumple su compromiso, el titular utilizará el proceso de reclamación o recurso publicado por el emisor y cualquier derecho disponible en virtud de la legislación aplicable. Ni GEF ni Responsable del Fondo se convierte en el redentor simplemente porque la aplicación mostró el vale o el Fondo habilitó un swap.
+
+La elección **“Retirar vale”** en la aplicación es diferente: oculta la lista del catálogo mientras permanecen los balances y el historial, y un administrador puede restaurarlo. No es cumplimiento, descarga, quema o cancelación.
+
+## Responsabilidades en un vistazo
+
+- **El emisor:** Describe y cumple el vale y registra la descarga.
+- **Responsable del Fondo:** publicará y administrará las normas, tarifas, tarifas, límites, controles y cualquier garantía expresamente asumida.
+- **Titular:** revisa el emisor, los términos del vale, las reglas del grupo, la cotización, la autorización de la billetera y la legislación aplicable.
+- **Controladores técnicos:** ejercer únicamente las competencias de contrato, dependencia, actualización, catálogo o tarifa que se les hayan asignado.
+- **GEF:** operará el CLC App y la infraestructura de apoyo, sujeto a las [Términos de servicio](/es/governance/terms) En el caso de los Estados miembros; no asume automáticamente las demás funciones.
+
+## Arreglos futuros de crédito
+
+Un futuro grupo o otra parte responsable podría ofrecer una transacción por separado como anticipo reembolsable, transacción garantizada u otro producto de crédito. Dicho producto requeriría que se presentaran por separado los términos suplementarios y de la transacción que identificaran a las partes, los importes, las fechas de vencimiento, las tarifas o intereses, el tratamiento colateral, la cesión, el incumplimiento, las medidas correctivas y la evidencia de descarga.
+
+Un envío ordinario, un depósito de fondo, un swap de fondo, la presentación de vales, el cumplimiento o la descarga no crean dichas obligaciones por sí solos.

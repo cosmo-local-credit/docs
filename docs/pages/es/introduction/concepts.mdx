@@ -1,0 +1,102 @@
+# Conceptos y vocabulario
+
+Cosmo-Local Credit conecta una aplicación, un protocolo abierto, Fondos gobernadas de forma independiente y los compromisos del mundo real representados por vales. Estas capas funcionan juntas, pero no son lo mismo.
+
+Esta página define los términos utilizados en toda la documentación. Las etiquetas exactas de las aplicaciones aparecen en las citas donde la interfaz utiliza un nombre más corto o potencialmente ambiguo.
+
+## Capas de producto y protocolo
+
+| Término | Significado |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | La familia de productos: el CLC App, su documentación y el trabajo más amplio de compromiso compartido. |
+| **CLC App** | La aplicación web progresiva en [cosmolocal.credit](https://cosmolocal.credit) GEF opera esta interfaz y sus servicios de apoyo. |
+| **Protocolo de agrupación de compromisos (CPP)** | El modelo reutilizable de curación, valoración, limitación, intercambio y gobernanza responsable. |
+| **Protocol v1.1.0** | La publicación verificada del contrato inteligente público documentada en el [Referencia al protocolo](/es/protocol/overview). |
+| **Fondo de Compromisos** | Un acuerdo gobernado que selecciona activos, publica reglas y permite el intercambio. **Fondo** es la forma abreviada habitual. |
+| **`SwapPool`** | El contrato actual del Protocolo que mantiene el inventario de tokens y ejecuta intercambios directos. Es un componente técnico de un Fondo de Compromisos. |
+| **Se propone el token de gobernanza CLC** | Un diseño de gobernanza futuro en el Libro Blanco. No es un activo actual de aplicación o Protocol v1.1.0. |
+| **Propósito de red CLC propuesto** | Un futuro diseño de compensación y coordinación a nivel de red. No es lo mismo que una `SwapPool` actual. |
+
+## Tokens, vales y Ofertas
+
+En el caso A **símbolo** es un saldo en cadena o un activo digital. Las mecánicas de tokens pueden registrar el suministro, las transferencias, el vencimiento y la quema, pero por sí mismas no prometen bienes, servicios, conversión de efectivo o redención.
+
+En el caso A **el vale** es un token o registro que un emisor representa como un compromiso canjeable en términos publicados. Estos términos deben identificar lo que se promete, quién es responsable, dónde y cuándo se puede presentar, los límites materiales y el proceso de cumplimiento y reclamación.
+
+Una **La Oferta** es el registro de catálogo de los bienes o servicios asociados con un vale. La publicación de una Oferta no hace monedas, prueba la disponibilidad o muestra que se ha cumplido.
+
+Estas son cuatro capas separadas:
+
+1. el contrato simbólico y los saldos;
+2. la designación del vale y los términos publicados;
+3. uno o más registros de ofertas; y
+4. el rendimiento del emisor en el mundo real.
+
+## Funciones responsables y control técnico
+
+| Función o autoridad | Responsabilidad o poder |
+| --- | --- |
+| **Emitente** | Publica y cumple un compromiso de vale. Esta responsabilidad no se transfiere automáticamente simplemente por el cambio de titularidad del contrato. |
+| **Titular** | Controla el saldo de los vales. El control no demuestra cumplimiento, valor en efectivo o garantía. |
+| **Proveedor de servicios** | Un personaje de cara pública. Un proveedor de servicios se convierte en emisor cuando publica un compromiso de vale. |
+| **Responsable del Fondo** | La persona responsable, cooperativa, agencia pública, federación, multisig, servicio u otra estructura que publica y administra las reglas del Fondo. |
+| **Propietario del Fondo** | La dirección con los poderes actuales del propietario de `SwapPool`, incluida la configuración, la cobranza de tarifas y la retirada de liquidez disponible. |
+| **Administrador de proxy** | La autoridad que puede actualizar la ejecución de un contrato por encargo. Puede diferir del propietario del Fondo. |
+| **Controlador de dependencia** | Un propietario o escritor que controla un registro, limitador, citador, oráculo, política de tarifas o controlador de protocolos. |
+| **Moderador de catálogo** | Un operador de aplicación que puede corregir, ocultar o restaurar registros de catálogo sin cambiar los saldos en la cadena. |
+| **Recipiente de las tarifas** | La dirección configurada que recibe una cuota de fondo o protocolo. No es necesariamente el Responsable del Fondo o el propietario. |
+| **Proveedor o proveedor de liquidez** | Un participante que contribuye con activos en términos comunicados por separado. La actual `SwapPool` no crea acciones de Fondo ni derechos de reembolso automático, retiro, recompensa o gobernanza. |
+
+memberMiembro de la Comunidad” es un lenguaje social informal. Por sí solo no crea admisión, propiedad, gobierno, reembolso u otros derechos legales.
+
+## Acciones y ciclo de vida
+
+| Término de aplicación o documentación | Lo que significa |
+| --- | --- |
+| **Creación o publicación de un vale** | Despliegue o configure un token y publique su registro de catálogo y términos. |
+| **Emisión o menta** | Crear el balance de tokens bajo la autoridad del propietario o escritor configurado. |
+| **Publica una oferta** | Añadir un registro de bienes o servicios debajo de un vale. |
+| **Envía** | Transfiere un saldo token a otra dirección. |
+| **“Canjear”** | En la aplicación actual, abra el flujo de envío con la dirección del propietario del token preemplada. Esto presenta o devuelve tokens al emisor; no demuestra el cumplimiento. |
+| **El cumplimiento** | El emisor proporciona los bienes, servicios, beneficios u otro rendimiento prometidos. |
+| **Descarga** | Registro de unidades cumplidas para que no puedan ser presentadas de nuevo, por ejemplo, recibiendo, quemando, cancelando o desactivando de otra manera en los términos publicados. |
+| **“Retirar vale”** | Esconda un vale del catálogo de aplicaciones. Los balances y el historial permanecen, y un administrador puede restaurar la lista. No es una quema o cancelación. |
+| **Depósito o contribución del grupo** | Transferir activos en un `SwapPool`. Los derechos a reembolso, retiro, recompensas o gobernanza sólo existen cuando se divulgan por separado. |
+| **Intercambio de Fondos** | Cambiar un activo apoyado por otro a través de un `SwapPool`. Esto no es el cumplimiento del emisor ni automáticamente un préstamo. |
+| **Retiro de liquidez del grupo** | El propietario del Fondo transfiere el inventario disponible a una dirección seleccionada. |
+| **Recaudación de las tarifas** | Un destinatario configurado recauda las tasas acumuladas del Fondo. |
+
+Use **liquidación del intercambio** para las transferencias en cadena y la contabilización de comisiones que completan un intercambio mediante un Fondo. Use **presentación para el canje**, **cumplimiento** y **baja** para el ciclo de vida separado del vale en el mundo real.
+
+## Mercado, valores, límites y tarifas
+
+La aplicación es **Mercado** es un catálogo de descubrimientos para vales, Fondos, ofertas e información pública. Una cotización no es automáticamente un lugar de intercambio, relación con el vendedor, aprobación, valoración o garantía.
+
+Mantenga estos términos de valor separados:
+
+- **Precio de oferta:** el importe solicitado por un bien o servicio enumerado;
+- **valor declarado del comprobante:** un valor representado en los términos publicados por el emisor;
+- **Tasa de cambio del grupo o cotización:** el parámetro de transacción producido por el cotizador configurado de un grupo;
+- **referencia del oráculo:** los datos externos utilizados por un módulo de valoración configurado; y
+- **condiciones de reembolso:** lo que el emisor promete proporcionar y en qué condiciones.
+
+La etiqueta de la aplicación **“Límite de crédito”** se refiere al límite de saldo de tokens configurado de un grupo: el importe máximo de ese token que el grupo puede mantener después de un depósito. No se trata de una línea de crédito personal, una verificación de la capacidad del emisor o una garantía de redención. Los límites de movilidad, de contabilidad y de red propuestos en el Libro Blanco son mecanismos diferentes.
+
+El actual Protocol v1.1.0 puede cobrar una **comisión del Fondo** y otra **comisión del protocolo** adicional. El modelo propuesto en el Libro Blanco describe por separado una futura **comisión de red** tomada de las comisiones de los Fondos, además de posibles comisiones de enrutamiento o de servicio. Estos modelos no deben combinarse al explicar los cargos actuales ni al calcular ingresos futuros.
+
+## Protecciones y pruebas
+
+La curaduría, la inclusión en el registro, un límite, una reserva, la visibilidad de las aplicaciones o una transacción de cadena de bloques no establecen por sí mismos el respaldo, la capacidad del emisor, el cumplimiento, una garantía o un seguro.
+
+Cualquier protección debe identificar a la parte obligada, el evento cubierto, la financiación, el límite máximo, las exclusiones, la duración, la evidencia y el proceso de reclamación. Los registros en cadena pueden mostrar direcciones, activos, cantidades, sellos de tiempo y eventos de contrato. El rendimiento, la satisfacción, la deliberación en materia de gobernanza y el impacto social de los emisores requieren revelaciones, informes, certificaciones u otras pruebas separadas.
+
+## Palabras de estado
+
+- **Corriente:** verificadas en el CLC App o Protocol v1.1.0 descrito en estos documentos.
+- **Dependiente del despliegue:** Disponible únicamente cuando lo permita una implementación, un grupo, un proveedor, una jurisdicción o una política publicada en particular.
+- **Históricos:** evidencia o funcionalidad del servicio anterior Sarafu Network.
+- **Se propone:** un mecanismo de diseño o hoja de ruta que no esté representado como implementado.
+
+El [Guía para comenzar](/es/introduction/getting-started) aplica estos términos a la aplicación actual. El [Referencia al protocolo](/es/protocol/overview) documentan los contratos verificados, mientras que el [Libro blanco](/es/white-paper) presenta el diseño y las propuestas más amplias.
+
+Para obtener una introducción complementaria y práctica de los compromisos, la liquidación, los flujos de recursos, el intercambio y la agrupación, explore la [Grassroots Economía juegos educativos](https://grassrootseconomics.org/games/) Los juegos son recursos de aprendizaje, no definiciones del comportamiento actual de la aplicación o el protocolo.
