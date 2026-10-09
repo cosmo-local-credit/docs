@@ -1,5 +1,6 @@
 import {
   DEFAULT_LOCALE,
+  hasLocalizedDocumentation,
   isSupportedLocale,
   type SupportedLocale,
 } from './locales'
@@ -66,6 +67,7 @@ export function localizedPath(pathname: string, locale: SupportedLocale): string
   const source = englishPath(pathname)
   if (locale === DEFAULT_LOCALE) return source
   if (source === '/') return `/${locale}/`
+  if (!hasLocalizedDocumentation(locale)) return source
   return `/${locale}${source}`
 }
 

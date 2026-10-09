@@ -1,25 +1,25 @@
-## **Il y en a 13. Glossaire en langage clair**
+## **13. Glossaire en langage simple**
 
-- **Cosmo-Local Credit (CLC):**La famille de produits, y compris le CLC App, la documentation et un travail plus large de partage d'engagements.
-- **CLC App:**L'application web progressive exploitée par GEF à `cosmolocal.credit`.
-- **Protocole de regroupement des engagements (CPP):**Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.
-- **Protocol v1.1.0:**L'annonce vérifiée des contrats intelligents.
-- **Pôle d'engagement:**Un arrangement réglementé qui admet les actifs soutenus et publie les règles de change.
-- **`SwapPool`:**Le coffre-fort des jetons et le contrat d'échange direct.
-- **Marque de dépôt:**Un solde en chaîne ou un actif numérique. La mécanique des jetons à elle seule ne crée pas une promesse redevable.
-- **Voucher:**Un jeton ou un enregistrement représenté par un émetteur en tant qu'engagement redevable dans des conditions publiées.
-- **L'offrande:**Registre de catalogue des biens ou services associés à un bon.
-- **Émetteur:**La partie responsable de la publication et de l'accomplissement d'un engagement de bon.
-- **Éleveur de piscine:**La structure responsable qui publie et administre les règles de Pool.
-- **Taux de change ou cotation:**Un paramètre de transaction produit par un cotateur configuré; non preuve de trésorerie ou de valeur de rachat.
-- **Cap de équilibre des jetons de pool:** Le maximum `Limiter` actuel pour un jeton détenu par un pool. L'application peut l'étiqueter **“Limit de crédit.”**
-- **Échange de piscine:**Un échange direct d'actifs via un `SwapPool`.
-- **Swap settlement:**Les transferts en chaîne et la comptabilisation des frais complétant un échange de pool.
-- **Présentation du remboursement:**Retour ou autre présentation d'unités de bon à l'émetteur.
-- **Réalisé:**L'émetteur fournit le bien, le service, le bénéfice ou toute autre performance promis.
-- **Décharge:**Un enregistrement empêchant de présenter à nouveau les unités remplies.
-- **Routeur d'exécution proposé:**Des futurs logiciels qui autorisent et exécutent des itinéraires. Seules les citations actuelles `SwapRouter`.
-- **Proposition de réseau CLC:**Un futur accord de compensation et de coordination budgétaire au niveau du réseau.
-- **Le jeton de gouvernance CLC proposé:**Une conception de gouvernance future, pas une App actuelle ou un actif Protocol v1.1.0.
-- **Rackage de réseau:**Une part proposée des frais du pool transférée à un futur budget du réseau.
-- **Garantie ou assurance:**Une protection qui ne s'applique que lorsqu'une partie identifiée l'assume expressément, le finance et la publie.
+- **Cosmo-Local Credit (CLC):** La famille de produits, y compris le CLC App, la documentation et un travail plus large de mise en commun des engagements.
+- **CLC App:** L'application Web progressive exploitée par GEF à `cosmolocal.credit`.
+- **Protocole de mise en commun des engagements (CPP):** Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.
+- **Protocol v1.1.0:** La version publique vérifiée des contrats intelligents.
+- **Bassin d’engagements:** Un arrangement réglementé qui admet les actifs pris en charge et publie les règles de change.
+- **`SwapPool`:** Le coffre-fort actuel et le contrat de change direct.
+- **Le jeton:** Un solde en chaîne ou un actif numérique. La mécanique des jetons à elle seule ne crée pas une promesse rédemptible.
+- **Le bon d’échange:** Un jeton ou un enregistrement représenté par un émetteur comme un engagement remboursable selon des conditions publiées.
+- **Offre:** Un enregistrement de catalogue de biens ou de services associés à un bon d’échange.
+- **Émetteur:** La partie responsable de la publication et de l'exécution d'un engagement de bon d’échange.
+- **Gestionnaire de Bassin:** La structure responsable qui publie et administre les règles du bassin.
+- **Taux de change ou devis:** Paramètre de transaction produit par un devis configuré; pas une preuve de liquidité ou de valeur de rachat.
+- **Plafond du solde des jetons du bassin:** Le maximum actuel de `Limiter` pour un jeton détenu par un bassin. L'application peut le marquer **“ Limite de crédit.”**
+- **Échange de fonds:** Un échange direct d'actifs à travers un `SwapPool`.
+- **Règlement d'échange:** Les transferts en chaîne et la comptabilisation des frais lors de l'achèvement d'un échange de bassin.
+- **Présentation du remboursement:** Retourner ou présenter autrement des unités de bon d’échange à l'émetteur.
+- **Exécution:** L'émetteur fournit le bien, le service, le bénéfice ou une autre prestation promis.
+- **Décharge:** Un enregistrement empêchant que les unités remplies soient présentées à nouveau.
+- **Routeur d'exécution proposé:** Un logiciel futur qui autorise et exécute les itinéraires. L'actuel `SwapRouter` ne fait que des citations.
+- **Bassins de réseau CLC proposés:** Un futur accord de compensation et de coordination budgétaire au niveau du réseau.
+- **Le jeton de gouvernance CLC proposé:** Une conception de gouvernance future, pas une application actuelle ou un actif Protocol v1.1.0.
+- **Prélèvement de réseau :** Une part proposée des frais de Bassin transférée vers un futur budget du réseau.
+- **Garantie ou assurance:** Une protection qui ne s'applique que lorsqu'une partie identifiée l'assume expressément, la finance et la publie.

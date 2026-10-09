@@ -1,6 +1,10 @@
 import { Fragment, type CSSProperties, type ReactNode } from 'react'
 
-import { LOCALE_BY_CODE, type SupportedLocale } from '../i18n/locales'
+import {
+  hasLocalizedDocumentation,
+  LOCALE_BY_CODE,
+  type SupportedLocale,
+} from '../i18n/locales'
 import type { SplashMessages } from '../i18n/messages'
 import { localizedPath } from '../i18n/routes'
 
@@ -263,6 +267,10 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
   const numberFormatter = new Intl.NumberFormat(LOCALE_BY_CODE[locale].intlLocale)
   const supportSection = messages.sections[3]
   const docsPath = (path: string) => localizedPath(path, locale)
+  const hasTranslatedDocs = hasLocalizedDocumentation(locale)
+  const englishDocsLink = hasTranslatedDocs
+    ? {}
+    : { 'data-english-source': 'true', hrefLang: 'en' }
 
   return (
     <main className="about-page">
@@ -306,22 +314,29 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
             <a
               className="about-button about-button--secondary about-overview__button"
               href={docsPath('/introduction/getting-started')}
+              {...englishDocsLink}
             >
               {messages.overview.actions.getStarted}
             </a>
             <a
               className="about-button about-button--secondary about-overview__button"
               href={docsPath('/protocol/overview')}
+              {...englishDocsLink}
             >
               {messages.overview.actions.protocol}
             </a>
             <a
               className="about-button about-button--secondary about-overview__button"
               href={docsPath('/white-paper')}
+              {...englishDocsLink}
             >
               {messages.overview.actions.whitePaper}
             </a>
           </nav>
+
+          {!hasTranslatedDocs ? (
+            <p className="about-overview__language-notice">{messages.englishDocsNotice}</p>
+          ) : null}
 
           <div className="about-overview__feature-grid">
             {messages.overview.cards.map((card) => (

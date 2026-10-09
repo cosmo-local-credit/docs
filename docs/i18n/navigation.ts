@@ -1,31 +1,26 @@
-import ar from './navigation/ar.json'
-import de from './navigation/de.json'
-import dz from './navigation/dz.json'
 import en from './navigation/en.json'
-import es from './navigation/es.json'
 import fr from './navigation/fr.json'
-import it from './navigation/it.json'
-import pt from './navigation/pt.json'
-import sr from './navigation/sr.json'
-import sw from './navigation/sw.json'
-import uk from './navigation/uk.json'
-import { LOCALE_OPTIONS, type SupportedLocale } from './locales'
+import {
+  DOCUMENTATION_LOCALES,
+  hasLocalizedDocumentation,
+  type SupportedLocale,
+} from './locales'
 import { localizedPath } from './routes'
 
 type NavigationMessages = typeof en
 
 export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
+  ar: en,
+  de: en,
+  dz: en,
   en,
-  ar,
-  de,
-  dz,
-  es,
+  es: en,
   fr,
-  it,
-  pt,
-  sr,
-  sw,
-  uk,
+  it: en,
+  pt: en,
+  sr: en,
+  sw: en,
+  uk: en,
 }
 
 const whitePaperItems = [
@@ -63,8 +58,9 @@ export type SidebarItem = {
 }
 
 export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
-  const messages = navigationMessages[locale]
-  const link = (path: string) => localizedPath(path, locale)
+  const documentationLocale = hasLocalizedDocumentation(locale) ? locale : 'en'
+  const messages = navigationMessages[documentationLocale]
+  const link = (path: string) => localizedPath(path, documentationLocale)
   return [
     {
       text: messages.groups.introduction,
@@ -102,7 +98,7 @@ export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
 }
 
 export const localizedSidebars = Object.fromEntries(
-  LOCALE_OPTIONS.map(({ code }) => [
+  DOCUMENTATION_LOCALES.map((code) => [
     code === 'en' ? '/' : `/${code}/`,
     sidebarForLocale(code),
   ]),

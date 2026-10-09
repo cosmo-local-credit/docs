@@ -1,7 +1,12 @@
 import { createElement, Fragment } from 'react'
 import { defineConfig } from 'vocs'
 
-import { LOCALE_BY_CODE, LOCALE_OPTIONS } from './docs/i18n/locales'
+import {
+  DOCUMENTATION_LOCALES,
+  hasLocalizedDocumentation,
+  LOCALE_BY_CODE,
+  LOCALE_OPTIONS,
+} from './docs/i18n/locales'
 import { splashMessages } from './docs/i18n/messages'
 import { localizedSidebars } from './docs/i18n/navigation'
 import {
@@ -15,6 +20,7 @@ import { vocsLocaleSearch } from './scripts/vocsLocaleSearch'
 
 const siteUrl = 'https://docs.cosmolocal.credit'
 const localeCodes = LOCALE_OPTIONS.map(({ code }) => code)
+const documentationLocaleCodes = [...DOCUMENTATION_LOCALES]
 const localeDirections = Object.fromEntries(
   LOCALE_OPTIONS.map(({ code, direction }) => [code, direction]),
 )
@@ -22,6 +28,7 @@ const knownPaths = ['/', ...DOCUMENTATION_PATHS]
 
 const localeBootstrap = `(() => {
   const supported = ${JSON.stringify(localeCodes)};
+  const documentationLocales = ${JSON.stringify(documentationLocaleCodes)};
   const directions = ${JSON.stringify(localeDirections)};
   const knownPaths = new Set(${JSON.stringify(knownPaths)});
   const parts = location.pathname.split('/');
@@ -33,7 +40,13 @@ const localeBootstrap = `(() => {
     document.documentElement.dir = directions[locale] || 'ltr';
   };
   setDocumentLocale(routeLocale);
-  if (routeLocale !== 'en' || !knownPaths.has(normalizedPath)) return;
+  if (routeLocale !== 'en') {
+    if (normalizedPath !== '/' && !documentationLocales.includes(routeLocale)) {
+      location.replace(normalizedPath + location.search + location.hash);
+    }
+    return;
+  }
+  if (!knownPaths.has(normalizedPath)) return;
   try {
     if (sessionStorage.getItem('clc.docs.englishSource') === normalizedPath) return;
   } catch {}
@@ -51,6 +64,7 @@ const localeBootstrap = `(() => {
   }
   preferred ||= 'en';
   if (preferred === 'en') return;
+  if (normalizedPath !== '/' && !documentationLocales.includes(preferred)) return;
   const destination = '/' + preferred + (normalizedPath === '/' ? '/' : normalizedPath);
   location.replace(destination + location.search + location.hash);
 })();`
@@ -65,7 +79,9 @@ export default defineConfig({
     const locale = routeLocale(path)
     const sourcePath = englishPath(path)
     const isPublicRoute = isKnownDocumentationPath(path)
-    const metadata = splashMessages[locale].metadata
+    const metadataLocale = sourcePath === '/' || hasLocalizedDocumentation(locale) ? locale : 'en'
+    const alternateLocales = sourcePath === '/' ? localeCodes : documentationLocaleCodes
+    const metadata = splashMessages[metadataLocale].metadata
 
     return createElement(
       Fragment,
@@ -86,11 +102,11 @@ export default defineConfig({
         ? createElement('link', {
             key: 'canonical',
             rel: 'canonical',
-            href: `${siteUrl}${localizedPath(sourcePath, locale)}`,
+            href: `${siteUrl}${localizedPath(sourcePath, metadataLocale)}`,
           })
         : null,
       ...(isPublicRoute
-        ? LOCALE_OPTIONS.map(({ code }) =>
+        ? alternateLocales.map((code) =>
             createElement('link', {
               key: `alternate-${code}`,
               rel: 'alternate',

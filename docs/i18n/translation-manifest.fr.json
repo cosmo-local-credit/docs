@@ -1,6 +1,7 @@
 {
   "sourceAppCommit": "32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1",
-  "translationPublicationDate": "8 October 2026",
+  "translationPublicationDate": "9 October 2026",
+  "status": "first-draft-review",
   "reviewProcess": [
     "semantic NLLB translation with protected technical tokens",
     "clarity normalization with complete-line context and the clc-app glossary",
@@ -12,11 +13,11 @@
       "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",
       "locales": {
         "fr": {
-          "sha256": "ea212887b9152f12e303968fb47be35a3d1a0a1bfcca15d254e00169642faa11",
+          "sha256": "ddac812ea427b1c6e349a916da9afab24d9011c376a4e0a0d37e215c06a51ddd",
           "review": {
-            "units": 112,
-            "meanBackTranslationSimilarity": 0.7349,
-            "unitsBelow0_35": 8
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.674,
+            "unitsBelow0_35": 21
           }
         }
       }
@@ -26,11 +27,11 @@
       "sourceSha256": "fdadea998896654637ce3dcafe25e2b52331e9761337420d1fc48ec6cc2f9b73",
       "locales": {
         "fr": {
-          "sha256": "ed980b04c43d57a3dd517c8a19a6901f43f38fddce5aecb37571ce6ecd2d438e",
+          "sha256": "b01575ac7c26cc6ff1d867d377661ec748830478c0de15422c35b0c4934fe976",
           "review": {
-            "units": 50,
-            "meanBackTranslationSimilarity": 0.6933,
-            "unitsBelow0_35": 6
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.7031,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -40,11 +41,11 @@
       "sourceSha256": "0994bc3095975e850382f00f7f1f2bbba3263a2ea12155596633fae0e58f3e13",
       "locales": {
         "fr": {
-          "sha256": "eac00f9770c6179094e6e52c4b0d80b12fadd1132b13ff4b03f3eccfc1b95b83",
+          "sha256": "1928dca02e7460cc6076a730e7a9c94ca19e9dabd81b112126ef73fa3113e386",
           "review": {
-            "units": 53,
-            "meanBackTranslationSimilarity": 0.6573,
-            "unitsBelow0_35": 6
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6607,
+            "unitsBelow0_35": 8
           }
         }
       }
@@ -54,11 +55,11 @@
       "sourceSha256": "2ac38e29d8d93d2b10534d715d285105bfb96cdcbe4334f88668d3be3c8ec456",
       "locales": {
         "fr": {
-          "sha256": "29c85fffc605668f1a9c4768e830317254db39dc89399dc2ae9acdc764848a72",
+          "sha256": "7a405538aa09bcae75354f6b9f2a4399e76681d1fdf4d0a1a8db5c24b475685f",
           "review": {
-            "units": 21,
-            "meanBackTranslationSimilarity": 0.711,
-            "unitsBelow0_35": 2
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7391,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -68,11 +69,11 @@
       "sourceSha256": "b7a0b29963a5e0aa8d02a74659a66fc29883daf88311e98c40b85eadd424b768",
       "locales": {
         "fr": {
-          "sha256": "029d9d7e472eb70ff1d5695601efe4339671878b2ac62367589ae68be78b8bc3",
+          "sha256": "ff5ca931adcc3ab211ab517fb0d0f73e6d68d63ebb73e46dd943973a33d2129d",
           "review": {
-            "units": 66,
-            "meanBackTranslationSimilarity": 0.7035,
-            "unitsBelow0_35": 5
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5995,
+            "unitsBelow0_35": 13
           }
         }
       }
@@ -82,11 +83,11 @@
       "sourceSha256": "3d72a446f706e4f2fbaf7671ac6efbc178eaef1351c1199ba17e1e768eedcabd",
       "locales": {
         "fr": {
-          "sha256": "af01481f0dc56cc2a888007568d95fb6031e0b9f872ca81fbdeec297709a53e6",
+          "sha256": "549d4c33d80e642f96cc5e1a414b6625282b639f50b196b7a6a4c5657ca7edbc",
           "review": {
-            "units": 27,
-            "meanBackTranslationSimilarity": 0.6953,
-            "unitsBelow0_35": 3
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6626,
+            "unitsBelow0_35": 8
           }
         }
       }
@@ -96,11 +97,11 @@
       "sourceSha256": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
       "locales": {
         "fr": {
-          "sha256": "7c19442c1726ae898fec49ad433a5b1fe1f0f3c34d97c01350901dd8a1ae9343",
+          "sha256": "4b6bf8c20fd4cd6cc1cbdbfb3139c4257c65a1fb0ba6096b33d1ad2f8dc937c7",
           "review": {
-            "units": 75,
-            "meanBackTranslationSimilarity": 0.6744,
-            "unitsBelow0_35": 13
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.6813,
+            "unitsBelow0_35": 8
           }
         }
       }
@@ -110,11 +111,11 @@
       "sourceSha256": "71bc7b63c36a963a64249f174ebeef2b7dcf01718ddc75dd11a33f0fea74fa0b",
       "locales": {
         "fr": {
-          "sha256": "363d5e136bde1860ae33a7c6d3e11fa18e050ba74597f3d1b2b57caf5deb475e",
+          "sha256": "61da7bb761d98f8974750309366f19bfa1af58beeb05e03251e1b555dc5507d0",
           "review": {
-            "units": 32,
-            "meanBackTranslationSimilarity": 0.6764,
-            "unitsBelow0_35": 6
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.627,
+            "unitsBelow0_35": 9
           }
         }
       }
@@ -124,11 +125,11 @@
       "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
       "locales": {
         "fr": {
-          "sha256": "ae780c5ad4f5bc5b4286f4a555a56bdb8320c5e70cc502a614beecd6c1ee7ce2",
+          "sha256": "a95de18ece64561fc982114e6c13ac7aa43d61a60fa5fa4679d3092db4fdcd37",
           "review": {
-            "units": 287,
-            "meanBackTranslationSimilarity": 0.6578,
-            "unitsBelow0_35": 48
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6595,
+            "unitsBelow0_35": 56
           }
         }
       }
@@ -138,11 +139,11 @@
       "sourceSha256": "68aaa14dee4d6ffe41c62a9e91038dcfa9b19466a9f91e81d09c515a989b22e1",
       "locales": {
         "fr": {
-          "sha256": "1d251bb32bece8c8ce20b9c538080d3eb22f3bf2adb75b0e3ccef3c3de424b57",
+          "sha256": "f528323366944e82538dcfd7aef481ef0c817fbf85863982adb31bc297f0f254",
           "review": {
             "units": 35,
-            "meanBackTranslationSimilarity": 0.7471,
-            "unitsBelow0_35": 1
+            "meanBackTranslationSimilarity": 0.7026,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -152,10 +153,10 @@
       "sourceSha256": "fa9a48e49a90c70f7f49e9281d023b4341786e42cb2af9d76405d261522682ab",
       "locales": {
         "fr": {
-          "sha256": "c6f869325e704166d8c108f05d25407cd6a73ee42b357a7039ffa5d887030768",
+          "sha256": "193ea46736e8ff566ddf3b82725ed9da7096b2c9e9a37a4f2024334a917a506d",
           "review": {
             "units": 20,
-            "meanBackTranslationSimilarity": 0.6708,
+            "meanBackTranslationSimilarity": 0.6694,
             "unitsBelow0_35": 1
           }
         }
@@ -166,11 +167,11 @@
       "sourceSha256": "59d07455a39371abab65dba41b23f095cf9e8261dc22bb45ceeaf9a2fb0217e0",
       "locales": {
         "fr": {
-          "sha256": "7da7c987df54eb4a49504fd1b100b815e22afc1a4da982b575dd636ab4b9d173",
+          "sha256": "b55aa3be77b2d89da9843bf609016b6b34c7c8229dc6726d39c86222bff856e8",
           "review": {
             "units": 62,
-            "meanBackTranslationSimilarity": 0.6937,
-            "unitsBelow0_35": 4
+            "meanBackTranslationSimilarity": 0.6811,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -180,11 +181,11 @@
       "sourceSha256": "acaa9d25a8c839862ce294fadc6b5da5a9bedbf936b5e701807344ae073e2702",
       "locales": {
         "fr": {
-          "sha256": "0992cb60a00a4fbd2ee0aa89fb97fe2cff51aa7c6ac10f07c8b04b068cda65ac",
+          "sha256": "8e813c03574dc591c078de8e61775d8762a51afff5203f9b4ef9a4b76232c53b",
           "review": {
             "units": 37,
-            "meanBackTranslationSimilarity": 0.7349,
-            "unitsBelow0_35": 1
+            "meanBackTranslationSimilarity": 0.6838,
+            "unitsBelow0_35": 3
           }
         }
       }
@@ -194,11 +195,11 @@
       "sourceSha256": "4e02677fe9440238090e987e50194bc8e40dce9d23d4a53b52b6264564457b20",
       "locales": {
         "fr": {
-          "sha256": "f67ea9040bcefb88f33a4be3dcc72dee0bcce865bdcf0436b2e3d3f93874d7a4",
+          "sha256": "5aee2cc273a16aa90037c9ec0afea46f44761cf09299554a7c2a6bb8c22cf845",
           "review": {
             "units": 21,
-            "meanBackTranslationSimilarity": 0.7598,
-            "unitsBelow0_35": 1
+            "meanBackTranslationSimilarity": 0.6781,
+            "unitsBelow0_35": 3
           }
         }
       }
@@ -208,11 +209,11 @@
       "sourceSha256": "41266b0f7db652f9ae317f7e813b6c0807425257aa2fa35c219bf270278a1d5a",
       "locales": {
         "fr": {
-          "sha256": "13d8a0be660671e4c79ea1d0431cf396c360529520d25dce7ac64e535b5483f1",
+          "sha256": "115de1c0a8ee5507b1259eeb08d26bd4c257e5b937589a5d9c51f45ab3aaf403",
           "review": {
-            "units": 21,
-            "meanBackTranslationSimilarity": 0.711,
-            "unitsBelow0_35": 1
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5701,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -222,11 +223,11 @@
       "sourceSha256": "09db774f7da51b4e506e56d3c4f3fa8d57f41a8464d04b747e9c3afab74563bd",
       "locales": {
         "fr": {
-          "sha256": "7689c7882e797860c6666c3599c57190ef6dd87f66cfacc4617a4c438cdaa50c",
+          "sha256": "8e90724bf13a523a3313ae0db0dd44257a9e3a153a914748c0515b69751dc0ac",
           "review": {
-            "units": 6,
-            "meanBackTranslationSimilarity": 0.8149,
-            "unitsBelow0_35": 0
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.6983,
+            "unitsBelow0_35": 2
           }
         }
       }
@@ -236,11 +237,11 @@
       "sourceSha256": "0e4b229ba74085a5b6d3e6c6eb0ff28ec915a149a5ff93f0c773c465fad117b2",
       "locales": {
         "fr": {
-          "sha256": "1c2b92056e9b84b0f0bd2d4d7c5c8dd726a9422625080a9a23541415cbbb348d",
+          "sha256": "8a6f1e3322d015974f392ed9541662ea84fd718e9f5981cdf4a04ac41ffafbe7",
           "review": {
-            "units": 47,
-            "meanBackTranslationSimilarity": 0.6648,
-            "unitsBelow0_35": 5
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6421,
+            "unitsBelow0_35": 9
           }
         }
       }
@@ -250,10 +251,10 @@
       "sourceSha256": "c871445b6898d231add895759a3cb0e44b48322bafceb00bff34cd31a6f7e0d1",
       "locales": {
         "fr": {
-          "sha256": "9db1df87113fab1a100e1457c2677d5bb2c60e22687fcb3da81a3810983070b4",
+          "sha256": "2bd42236321b0b778be26ec465dbc7e98e8f2f2852a59ecab02a600045ac422d",
           "review": {
-            "units": 14,
-            "meanBackTranslationSimilarity": 0.563,
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6627,
             "unitsBelow0_35": 2
           }
         }
@@ -264,11 +265,11 @@
       "sourceSha256": "58fdabb006332f145aac02bc8650b3ec918d15b86f7161fc5c1a3dda0e808ecf",
       "locales": {
         "fr": {
-          "sha256": "9ce4389eb1334f16ce7b907236c573f3c17d4c8b5235a294c6a79871fd7ec4ff",
+          "sha256": "865a030031e53158e010ef07b8987b1f21f938c741e33699e0b7f2e9d42dcd51",
           "review": {
-            "units": 13,
-            "meanBackTranslationSimilarity": 0.6395,
-            "unitsBelow0_35": 2
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5636,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -278,11 +279,11 @@
       "sourceSha256": "7c38d458f3959ccc1fa62383b4cfcc2b393acaf779e9324aa2c1a2452526762f",
       "locales": {
         "fr": {
-          "sha256": "abc944e70277d6736b229f89b799873a895f60963298963ffc1dd7637c7e4816",
+          "sha256": "7b3181f6d69fe5e0d2fedd38b4a72f4c38965281c32dc134f1b2575880af1500",
           "review": {
             "units": 24,
-            "meanBackTranslationSimilarity": 0.6963,
-            "unitsBelow0_35": 2
+            "meanBackTranslationSimilarity": 0.7118,
+            "unitsBelow0_35": 1
           }
         }
       }
@@ -292,11 +293,11 @@
       "sourceSha256": "2aa539c5faaaee42f5f5e9e5aa3ee306137de2ea7bddcea116033da4d7fdba03",
       "locales": {
         "fr": {
-          "sha256": "f966ac5ffbc73576fc30221be1fc45bd8b9a515716f1694919e9d60b796d3120",
+          "sha256": "967ebd50fb9ab9fe62cd2e4f524e0f8b2c5b8fd637232b61c7ff05ee1168a24c",
           "review": {
-            "units": 75,
-            "meanBackTranslationSimilarity": 0.6929,
-            "unitsBelow0_35": 7
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6606,
+            "unitsBelow0_35": 11
           }
         }
       }
@@ -306,11 +307,11 @@
       "sourceSha256": "9409d6d33de56e1327ac7e7a031e9113c60b86677708fa767d9bc8ba274f0b5a",
       "locales": {
         "fr": {
-          "sha256": "dc70aa09d78d1425e5b17f107dfad85979ea7ad6b2450faa44f62e0278927218",
+          "sha256": "4ca0e5e03493c8da653307e5efe7c6c33fb651ee6a3ad081507fe60843f62a3a",
           "review": {
-            "units": 10,
-            "meanBackTranslationSimilarity": 0.6482,
-            "unitsBelow0_35": 2
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6597,
+            "unitsBelow0_35": 3
           }
         }
       }
@@ -320,11 +321,11 @@
       "sourceSha256": "afa23f7d2400ac459ecceb8730be0db943a917362f9507f29c7bef4d86f0b98e",
       "locales": {
         "fr": {
-          "sha256": "3289e3ccf42966c6aed3d9fdcc7412cbc04bb16540017cbe3c4efcf90109d480",
+          "sha256": "1a2fe142ee3ff095c3d830c6f097f587743a9d16e2b8993aebc9529c7c150bea",
           "review": {
-            "units": 111,
-            "meanBackTranslationSimilarity": 0.7261,
-            "unitsBelow0_35": 8
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6903,
+            "unitsBelow0_35": 15
           }
         }
       }
@@ -334,11 +335,11 @@
       "sourceSha256": "1fd06beb840c9478cd8f8f13424017e9376bfaead7e2e8b1218e210733c1e97c",
       "locales": {
         "fr": {
-          "sha256": "50ff4c1ca83ed54d329fbd14d0979aba7014f0be7b45dfea7a4972808d7ee839",
+          "sha256": "e9fc55bef125f9b3a22852dceadd7846570cfdf9abd3647eec2687c7ac845973",
           "review": {
-            "units": 53,
-            "meanBackTranslationSimilarity": 0.709,
-            "unitsBelow0_35": 4
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.7059,
+            "unitsBelow0_35": 3
           }
         }
       }
@@ -348,11 +349,11 @@
       "sourceSha256": "f1ea77a9368d3173ae695b18d835732575902ef01824f6d9a6aefdc02a6548af",
       "locales": {
         "fr": {
-          "sha256": "9531a914bf288e2955ee050d76be37615feeec6094cc6b0012e74ca59ccb3600",
+          "sha256": "116ce9bcc07d0729d8d7b19a095b08a45f87c6cb84cf8bbec2fee22097bdeda8",
           "review": {
-            "units": 25,
-            "meanBackTranslationSimilarity": 0.764,
-            "unitsBelow0_35": 1
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.7015,
+            "unitsBelow0_35": 2
           }
         }
       }
@@ -362,11 +363,11 @@
       "sourceSha256": "4f57b19c37b50133e0d264f6f69fbd7c0bb0d0b32f054c77873e0a32d48dab4f",
       "locales": {
         "fr": {
-          "sha256": "17c122e7869e21b25bdc911f83d0fa4782a49c12801423ac4fc4b2859a2a381b",
+          "sha256": "3a7eec08b0d2cdc4b38a35df9a8513f8cbd1dc5077cf35d39f290876f69244a4",
           "review": {
             "units": 122,
-            "meanBackTranslationSimilarity": 0.7595,
-            "unitsBelow0_35": 9
+            "meanBackTranslationSimilarity": 0.6249,
+            "unitsBelow0_35": 12
           }
         }
       }
@@ -376,11 +377,11 @@
       "sourceSha256": "f87ef6a26094bb70583c5790eb92b71c4af3fe3a91bbad560d7042b2691fe186",
       "locales": {
         "fr": {
-          "sha256": "2d231a92b85eb4558c9ec0c136e837f505a65b215a649df4f3df223ba3960da1",
+          "sha256": "d0c8ef0b10edbd6c65050248e576d8eccc35e106bbb8c0a0b80e5c61d211af25",
           "review": {
             "units": 130,
-            "meanBackTranslationSimilarity": 0.6944,
-            "unitsBelow0_35": 9
+            "meanBackTranslationSimilarity": 0.6306,
+            "unitsBelow0_35": 25
           }
         }
       }
@@ -390,11 +391,11 @@
       "sourceSha256": "81aee555189a51b1f491830ce251e85467eac9cc9522cbbd08ec4d54d3a787df",
       "locales": {
         "fr": {
-          "sha256": "8ddf200c2a225218f35e28511df6e99b12f2395c60eb726e742b84312b81e74f",
+          "sha256": "5d6daff5e5e602d28ec2ddf438857d1f705dffcc327aff2ee72d4a4d91ce20f7",
           "review": {
             "units": 19,
-            "meanBackTranslationSimilarity": 0.7012,
-            "unitsBelow0_35": 3
+            "meanBackTranslationSimilarity": 0.5741,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -404,11 +405,11 @@
       "sourceSha256": "e2493eaf44740497efa7e8ba72f298059328dbe7009d8191f1ab95619cb723ea",
       "locales": {
         "fr": {
-          "sha256": "cb2dc7f5583c4131e282cb746b835a7fe5a7a3decf747b712a7d71a03cb9c889",
+          "sha256": "a6adc61de38f26193f609f94c8e6bb935fb5fb9cb04f8a1855778d28876e0f27",
           "review": {
-            "units": 46,
-            "meanBackTranslationSimilarity": 0.7655,
-            "unitsBelow0_35": 3
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.7354,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -418,11 +419,11 @@
       "sourceSha256": "a596d4aa3b3065a7722e09a78caa2cb2c6d394cfe66918106ee95eca17986f20",
       "locales": {
         "fr": {
-          "sha256": "b9e60b0a182855dc4baf8d5a19c7d9dfa56f1bb587892a3973bde9f2b0c1ec9d",
+          "sha256": "8f07973e5e1effe4deffa44063ed9db24eb3eeb2bea04d2485e232e313b833bc",
           "review": {
-            "units": 21,
-            "meanBackTranslationSimilarity": 0.6725,
-            "unitsBelow0_35": 1
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5987,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -432,11 +433,11 @@
       "sourceSha256": "ed23216a7d040415f9e3300ce56f27c0ddd34adef4fd805f5723f23d20b10ce2",
       "locales": {
         "fr": {
-          "sha256": "3107b00e906aaa6af3a33340dcd29ade4f11bb684be8da640162076d6b9344ba",
+          "sha256": "d532ddbb71cf4d548238bad598fb8a74df84c81d4f5405f7d60dd5e8f59bbf88",
           "review": {
             "units": 16,
-            "meanBackTranslationSimilarity": 0.7635,
-            "unitsBelow0_35": 2
+            "meanBackTranslationSimilarity": 0.7643,
+            "unitsBelow0_35": 0
           }
         }
       }
@@ -446,11 +447,11 @@
       "sourceSha256": "b1871b0243b1ca167d2ac0a3d48f0da744d2870b2127acfac921a458a5070715",
       "locales": {
         "fr": {
-          "sha256": "c9954a87324f6c82dc2b99fd974628a25e4147591eff2952e773b34867c562e7",
+          "sha256": "411dceedd0dcac6de55dff58ed43846e04582499954c1f68f278ab7103d68c09",
           "review": {
             "units": 15,
-            "meanBackTranslationSimilarity": 0.6033,
-            "unitsBelow0_35": 3
+            "meanBackTranslationSimilarity": 0.5491,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -460,10 +461,10 @@
       "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
       "locales": {
         "fr": {
-          "sha256": "f8f0ecf937bb8ba42290c967aa1eb8b52c43edabbc2d0201c87b56bcd01b1b33",
+          "sha256": "4f39eddd6b91135aed2c019762294e93b50987ac5f06ace2011a067c03985ca4",
           "review": {
-            "units": 34,
-            "meanBackTranslationSimilarity": 0.6184,
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6528,
             "unitsBelow0_35": 6
           }
         }
@@ -474,11 +475,11 @@
       "sourceSha256": "aef3272b5bcd43b58fc0a4222167366fc66766fcabba97bd5e9d909955587558",
       "locales": {
         "fr": {
-          "sha256": "15de1498fcf9d1af8f6eb99ac87d5342b747dff5cd29ebd6cd70f2cf8ff01e3b",
+          "sha256": "4b2ff1e4c2219ed291eb65f1fd5de2eb7b29ac1c80863f38b5e773ab07690540",
           "review": {
             "units": 3,
-            "meanBackTranslationSimilarity": 0.3387,
-            "unitsBelow0_35": 2
+            "meanBackTranslationSimilarity": 0.639,
+            "unitsBelow0_35": 1
           }
         }
       }
@@ -488,11 +489,11 @@
       "sourceSha256": "0bfd50439332f9b8fea7865944d61d7e4ca4f009acbc92edc017df0111b7ec57",
       "locales": {
         "fr": {
-          "sha256": "2df98c06cc5cd40d4796adcbd25901b5ea2412d08f463a9a22e3b51cf054e822",
+          "sha256": "be1dac81f5c97b4bde09ae6012364a50aa89e0fe10f19ac92ae20e776a84ce82",
           "review": {
-            "units": 25,
-            "meanBackTranslationSimilarity": 0.6925,
-            "unitsBelow0_35": 3
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6706,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -502,11 +503,11 @@
       "sourceSha256": "784327ca9c7cb86015d46a953b9233a0d215648f51110e14f1de6b5eb43f7c34",
       "locales": {
         "fr": {
-          "sha256": "d69307aca2866ff7cea244fe67fc492fcea498888104bcc1705c7f900b90cf44",
+          "sha256": "af18e8cdf6d395eabc85a69e68d8e055020067564e0b0e4cc6f5100d0c8e5ef4",
           "review": {
-            "units": 93,
-            "meanBackTranslationSimilarity": 0.726,
-            "unitsBelow0_35": 9
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6805,
+            "unitsBelow0_35": 18
           }
         }
       }

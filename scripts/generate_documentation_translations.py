@@ -59,6 +59,18 @@ UNCHANGED_NAMES = [
     "OpenZeppelin",
     "MiniSearch",
 ]
+MANUAL_TRANSLATIONS = {
+    "fr": {
+        "Email: `info@grassecon.org`": "Adresse électronique : `info@grassecon.org`",
+        "Version 0.7 PDF": "PDF de la version 0.7",
+        "SDK requirements.": "Exigences du SDK.",
+        "Current Protocol v1.1.0 Pool fees, additional protocol fees, and Pool token-balance caps remain governed by the deployed contracts and configuration, not these proposed values.": (
+            "Les frais actuels des Bassins dans Protocol v1.1.0, les frais de protocole "
+            "supplémentaires et les plafonds de solde de jetons des Bassins restent régis "
+            "par les contrats déployés et leur configuration, et non par les valeurs proposées ici."
+        ),
+    }
+}
 
 
 @dataclass
@@ -68,7 +80,7 @@ class Protected:
     replacement: str
 
 
-class Translator:
+class NllbTranslator:
     def __init__(self, model: Path, threads: int) -> None:
         self.engine = ctranslate2.Translator(
             str(model),
@@ -82,7 +94,7 @@ class Translator:
         )
 
     def translate_many(
-        self, texts: list[str], source: str, target: str, beam_size: int = 2
+        self, texts: list[str], source: str, target: str, beam_size: int = 4
     ) -> list[str]:
         if not texts:
             return []
@@ -106,6 +118,133 @@ class Translator:
         ]
         translations = dict(zip(unique_texts, translated_unique, strict=True))
         return [translations[text] for text in texts]
+
+
+class MarianPairTranslator:
+    """Translate one locale with dedicated forward and backward Marian models."""
+
+    def __init__(
+        self, forward_model: Path, backward_model: Path, locale: str, threads: int
+    ) -> None:
+        self.locale = locale
+        self.forward = ctranslate2.Translator(
+            str(forward_model),
+            device="cpu",
+            compute_type="int8",
+            inter_threads=1,
+            intra_threads=threads,
+        )
+        self.backward = ctranslate2.Translator(
+            str(backward_model),
+            device="cpu",
+            compute_type="int8",
+            inter_threads=1,
+            intra_threads=threads,
+        )
+        self.forward_source = spm.SentencePieceProcessor(
+            model_file=str(forward_model / "source.spm")
+        )
+        self.forward_target = spm.SentencePieceProcessor(
+            model_file=str(forward_model / "target.spm")
+        )
+        self.backward_source = spm.SentencePieceProcessor(
+            model_file=str(backward_model / "source.spm")
+        )
+        self.backward_target = spm.SentencePieceProcessor(
+            model_file=str(backward_model / "target.spm")
+        )
+        # split_long only needs a source tokenizer with an encode method.
+        self.tokenizer = self.forward_source
+
+    def translate_many(
+        self, texts: list[str], source: str, target: str, beam_size: int = 4
+    ) -> list[str]:
+        if not texts:
+            return []
+        if source == "en" and target == self.locale:
+            engine = self.forward
+            source_tokenizer = self.forward_source
+            target_tokenizer = self.forward_target
+        elif source == self.locale and target == "en":
+            engine = self.backward
+            source_tokenizer = self.backward_source
+            target_tokenizer = self.backward_target
+        else:
+            raise ValueError(f"Unsupported Marian direction: {source} -> {target}")
+
+        unique_texts = list(dict.fromkeys(texts))
+        tokenized = [
+            source_tokenizer.encode(text, out_type=str) + ["</s>"]
+            for text in unique_texts
+        ]
+        results = engine.translate_batch(
+            tokenized,
+            beam_size=beam_size,
+            max_batch_size=256,
+            batch_type="tokens",
+            max_decoding_length=512,
+            replace_unknowns=True,
+        )
+        translated_unique = [
+            target_tokenizer.decode(result.hypotheses[0]).strip()
+            for result in results
+        ]
+        translations = dict(zip(unique_texts, translated_unique, strict=True))
+        return [translations[text] for text in texts]
+
+
+class CachedTranslator:
+    def __init__(
+        self,
+        translator: NllbTranslator | MarianPairTranslator,
+        path: Path,
+        batch_size: int = 128,
+    ) -> None:
+        self.translator = translator
+        self.tokenizer = translator.tokenizer
+        self.path = path
+        self.batch_size = batch_size
+        self.cache: dict[str, str] = (
+            json.loads(path.read_text()) if path.exists() else {}
+        )
+
+    @staticmethod
+    def key(text: str, source: str, target: str, beam_size: int) -> str:
+        return digest(
+            json.dumps(
+                [source, target, beam_size, text],
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
+        )
+
+    def translate_many(
+        self, texts: list[str], source: str, target: str, beam_size: int = 4
+    ) -> list[str]:
+        unique_texts = list(dict.fromkeys(texts))
+        missing = [
+            text
+            for text in unique_texts
+            if self.key(text, source, target, beam_size) not in self.cache
+        ]
+        for start in range(0, len(missing), self.batch_size):
+            batch = missing[start : start + self.batch_size]
+            translated = self.translator.translate_many(
+                batch, source, target, beam_size=beam_size
+            )
+            for text, result in zip(batch, translated, strict=True):
+                self.cache[self.key(text, source, target, beam_size)] = result
+            self.path.write_text(
+                json.dumps(self.cache, ensure_ascii=False, separators=(",", ":"))
+            )
+            print(
+                f"cached {source}->{target} batch "
+                f"{min(start + len(batch), len(missing))}/{len(missing)}",
+                flush=True,
+            )
+        return [
+            self.cache[self.key(text, source, target, beam_size)] for text in texts
+        ]
 
 
 def digest(value: str) -> str:
@@ -135,8 +274,6 @@ def protect_text(
     app_glossary: dict[str, dict[str, str]],
 ) -> tuple[str, list[Protected]]:
     protected: list[Protected] = []
-    value = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", value)
-    value = re.sub(r"__(.+?)__", r"<strong>\1</strong>", value)
 
     def store(
         source: str,
@@ -150,34 +287,40 @@ def protect_text(
         return token
 
     for name in sorted(UNCHANGED_NAMES, key=len, reverse=True):
-        if name in value:
-            token = re.sub(r"[^A-Za-z]+", "", name) + "NameProtected"
-            value = value.replace(name, store(name, name, token))
+        pattern = rf"(?<![\w]){re.escape(name)}(?![\w])"
+        value = re.sub(
+            pattern,
+            lambda match: store(match.group(0), match.group(0)),
+            value,
+        )
 
-    glossary = {
-        **{source: translations[locale] for source, translations in app_glossary.items()},
-        **canonical_terms,
-    }
+    # Multi-word canonical concepts are safe to protect as complete units. Single
+    # words need sentence context so French articles, contractions and agreement
+    # remain grammatical; those are normalized after translation instead.
+    glossary = canonical_terms
     for source, replacement in sorted(glossary.items(), key=lambda item: len(item[0]), reverse=True):
         pattern = rf"(?<![\w]){re.escape(source)}(?![\w])"
         value = re.sub(
             pattern,
             lambda match, target=replacement: store(match.group(0), target),
             value,
+            flags=re.IGNORECASE,
         )
 
     patterns = [
-        r"<strong>[^<\n]*(?:=|≈|−|≤|≥)[^<\n]*</strong>",
+        r"\*\*[^*\n]*(?:=|≈|−|≤|≥)[^*\n]*\*\*",
+        r"__",
         r"`[^`\n]+`",
         r"(?<=\])\([^\n)]*\)",
         r"https?://[^\s)>]+",
         r"mailto:[^\s)>]+",
-        r"<(?!/?(?:strong|em)\b)[^>]+>",
+        r"<[^>]+>",
         r"\$[^$\n]+\$",
         r"\\\([^\n]+?\\\)",
         r"\{[^{}\n]+\}",
         r"\b0x[a-fA-F0-9]+\b",
         r"\b\d+(?:\.\d+)+(?:-[A-Za-z0-9.]+)?\b",
+        r"\b[a-z]+(?:[A-Z][A-Za-z0-9]*)+\b",
         r"(?!XxOpaque\d{4}Xx)\b[A-Z][A-Z0-9-]{1,}\b",
     ]
     for pattern in patterns:
@@ -192,6 +335,8 @@ def restore_text(value: str, protected: list[Protected]) -> str:
             token_pattern = re.escape(item.token[:-2]) + r"Xx?"
         token_match = re.search(token_pattern, value, flags=re.IGNORECASE)
         if not token_match:
+            if item.replacement in value:
+                continue
             raise ValueError(
                 f"Translation dropped protected token {item.token}: {item.source}; output={value!r}"
             )
@@ -201,11 +346,56 @@ def restore_text(value: str, protected: list[Protected]) -> str:
             value,
             flags=re.IGNORECASE,
         )
-    return value.replace("<strong>", "**").replace("</strong>", "**")
+    return value
+
+
+def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale != "fr":
+        return value
+
+    def pool_term(match: re.Match[str]) -> str:
+        term = "Bassins" if match.group(0).lower().endswith("s") else "Bassin"
+        return term if match.group(0)[0].isupper() else term.lower()
+
+    value = re.sub(r"\bpools?\b", pool_term, value, flags=re.IGNORECASE)
+    value = re.sub(r"(?<!CLC )\bApp\b", "application", value)
+    value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "protocole", value)
+
+    if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+        value = re.sub(
+            r"\b(?:bons d'achat|bons|coupons)\b(?!\s+d['’]échange)",
+            "bons d’échange",
+            value,
+            flags=re.IGNORECASE,
+        )
+    elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+        value = re.sub(
+            r"\b(?:bon d'achat|bon|coupon)\b(?!\s+d['’]échange)",
+            "bon d’échange",
+            value,
+            flags=re.IGNORECASE,
+        )
+    if re.search(r"\bhops?\b", source, flags=re.IGNORECASE):
+        value = re.sub(
+            r"\bsauts?\b",
+            lambda match: "étapes" if match.group(0).lower().endswith("s") else "étape",
+            value,
+            flags=re.IGNORECASE,
+        )
+    if re.search(r"\brake\b", source, flags=re.IGNORECASE):
+        value = re.sub(
+            r"\b(?:râteau|rake)(?:\s+de)?\s+réseau\b",
+            "prélèvement de réseau",
+            value,
+            flags=re.IGNORECASE,
+        )
+        value = re.sub(r"\b(?:râteau|rake)\b", "prélèvement", value, flags=re.IGNORECASE)
+    value = re.sub(r"bons? d'échange", lambda match: match.group(0).replace("'", "’"), value)
+    return value
 
 
 def split_long(value: str, tokenizer: spm.SentencePieceProcessor) -> list[str]:
-    pieces = re.split(r"(?<=[.!?。؟])\s+", value)
+    pieces = re.split(r"(?<=[.!?。؟;])\s+", value)
     if len(pieces) > 1:
         return [piece for piece in pieces if piece]
     if len(tokenizer.encode(value, out_type=str)) <= 420:
@@ -233,13 +423,55 @@ class MarkdownTemplate:
     def marker(self, value: str) -> str:
         if not value.strip():
             return value
+        whitespace = re.fullmatch(r"(\s*)(.*?)(\s*)", value, flags=re.DOTALL)
+        if whitespace and (whitespace.group(1) or whitespace.group(3)):
+            return (
+                whitespace.group(1)
+                + self.marker(whitespace.group(2))
+                + whitespace.group(3)
+            )
         if "<br/>" in value:
             return "<br/>".join(self.marker(part) for part in value.split("<br/>"))
+        if re.search(r"<a\s+[^>]*>.*?</a>", value):
+            output: list[str] = []
+            offset = 0
+            for match in re.finditer(r"(<a\s+[^>]*>)(.*?)(</a>)", value):
+                output.append(self.marker(value[offset : match.start()]))
+                output.append(
+                    f"{match.group(1)}{self.marker(match.group(2))}{match.group(3)}"
+                )
+                offset = match.end()
+            output.append(self.marker(value[offset:]))
+            return "".join(output)
+        if re.search(r"!?\[[^\]]*\]\([^)]*\)", value):
+            output: list[str] = []
+            offset = 0
+            for match in re.finditer(r"(!?)\[([^\]]*)\]\(([^)]*)\)", value):
+                output.append(self.marker(value[offset : match.start()]))
+                output.append(
+                    f"{match.group(1)}[{self.marker(match.group(2))}]({match.group(3)})"
+                )
+                offset = match.end()
+            output.append(self.marker(value[offset:]))
+            return "".join(output)
+        if re.search(r"\*\*.+?\*\*", value):
+            output: list[str] = []
+            offset = 0
+            for match in re.finditer(r"\*\*(.+?)\*\*", value):
+                output.append(self.marker(value[offset : match.start()]))
+                output.append(f"**{self.marker(match.group(1))}**")
+                offset = match.end()
+            output.append(self.marker(value[offset:]))
+            return "".join(output)
         bold = re.fullmatch(r"(\s*)\*\*(.+?)\*\*(\s*)", value)
         if bold:
+            content = bold.group(2)
+            number = re.match(r"^(\d+(?:\.\d+)*[.)]?\s+)(.+)$", content)
+            prefix = number.group(1) if number else ""
+            content = number.group(2) if number else content
             marker = f"CLCTRANSLATE{len(self.segments):05d}"
-            self.segments.append(bold.group(2))
-            return f"{bold.group(1)}**{marker}**{bold.group(3)}"
+            self.segments.append(content)
+            return f"{bold.group(1)}**{prefix}{marker}**{bold.group(3)}"
         bold_prefix = re.fullmatch(r"(\s*)\*\*(.+?)\*\*(.+)", value)
         if bold_prefix:
             label_source = bold_prefix.group(2)
@@ -249,9 +481,12 @@ class MarkdownTemplate:
             separator = re.match(r"\s*", remainder_source).group(0)  # type: ignore[union-attr]
             remainder = self.marker(remainder_source[len(separator) :])
             return f"{bold_prefix.group(1)}**{label}**{separator}{remainder}"
+        number = re.match(r"^(\s*\d+(?:\.\d+)*[.)]?\s+)(.+)$", value)
+        prefix = number.group(1) if number else ""
+        value = number.group(2) if number else value
         marker = f"CLCTRANSLATE{len(self.segments):05d}"
         self.segments.append(value)
-        return marker
+        return prefix + marker
 
     def build(self) -> str:
         if self.template is not None:
@@ -334,7 +569,7 @@ class MarkdownTemplate:
 
 
 def translate_segments(
-    translator: Translator,
+    translator: NllbTranslator | MarianPairTranslator | CachedTranslator,
     segments: list[str],
     locale: str,
     canonical_terms: dict[str, str],
@@ -344,6 +579,11 @@ def translate_segments(
     flat_chunks: list[str] = []
     chunk_counts: list[int] = []
     for segment in segments:
+        manual = MANUAL_TRANSLATIONS.get(locale, {}).get(segment)
+        if manual is not None:
+            protected_segments.append(([manual], []))
+            chunk_counts.append(0)
+            continue
         protected_value, protected = protect_text(
             segment, locale, canonical_terms, app_glossary
         )
@@ -377,9 +617,26 @@ def translate_segments(
             else source_chunks[0]
         )
         try:
-            translated.append(restore_text(value, protected))
-        except ValueError as error:
-            raise ValueError(f"source={source_segment!r}; {error}") from error
+            translated.append(
+                normalize_translation(
+                    source_segment, restore_text(value, protected), locale
+                )
+            )
+        except ValueError:
+            # A beam can occasionally paraphrase away an opaque glossary token.
+            # Retry only that unit greedily before failing the complete locale.
+            retry_chunks = translator.translate_many(
+                source_chunks, "en", locale, beam_size=1
+            )
+            retry_value = " ".join(retry_chunks)
+            try:
+                translated.append(
+                    normalize_translation(
+                        source_segment, restore_text(retry_value, protected), locale
+                    )
+                )
+            except ValueError as error:
+                raise ValueError(f"source={source_segment!r}; {error}") from error
         offset += count
 
     # Verification is a separate full back-translation pass over every unit.
@@ -495,15 +752,33 @@ def aggregate_reviews(reviews: list[dict[str, float | int]]) -> dict[str, float 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=Path, required=True)
+    parser.add_argument("--model", type=Path)
+    parser.add_argument("--forward-model", type=Path)
+    parser.add_argument("--back-model", type=Path)
     parser.add_argument("--locales", nargs="*", choices=LOCALES, default=LOCALES)
     parser.add_argument("--threads", type=int, default=10)
+    parser.add_argument("--cache", type=Path)
     parser.add_argument(
         "--manifest", type=Path, default=I18N / "translation-manifest.json"
     )
     args = parser.parse_args()
 
-    translator = Translator(args.model, args.threads)
+    if args.forward_model or args.back_model:
+        if not args.forward_model or not args.back_model or len(args.locales) != 1:
+            parser.error(
+                "--forward-model and --back-model require exactly one --locales value"
+            )
+        translator: NllbTranslator | MarianPairTranslator | CachedTranslator = MarianPairTranslator(
+            args.forward_model, args.back_model, args.locales[0], args.threads
+        )
+        translation_method = "dedicated Marian translation with protected technical tokens"
+    elif args.model:
+        translator = NllbTranslator(args.model, args.threads)
+        translation_method = "semantic NLLB translation with protected technical tokens"
+    else:
+        parser.error("provide --model or both --forward-model and --back-model")
+    if args.cache:
+        translator = CachedTranslator(translator, args.cache)
     glossary_data = json.loads((I18N / "glossary.json").read_text())
     if glossary_data["sourceAppCommit"] != APP_BASELINE:
         raise ValueError("The glossary is not synchronized to the required clc-app commit")
@@ -516,7 +791,7 @@ def main() -> None:
         "sourceAppCommit": APP_BASELINE,
         "translationPublicationDate": TRANSLATION_DATE,
         "reviewProcess": [
-            "semantic NLLB translation with protected technical tokens",
+            translation_method,
             "clarity normalization with complete-line context and the clc-app glossary",
             "unit-by-unit automated back-translation and structural verification",
         ],
@@ -544,18 +819,10 @@ def main() -> None:
             key: splash["controls"][key]
             for key in ["language", "colorTheme", "lightMode", "darkMode"]
         }
-        (I18N / f"ui/{locale}.json").write_text(
-            json.dumps(ui, ensure_ascii=False, indent=2) + "\n"
-        )
-
         nav_segments: list[str] = []
         nav_template = json_template(english_navigation, nav_segments)
         nav_translated, nav_review = translate(nav_segments)
         navigation = render_json_template(nav_template, nav_translated)
-        (I18N / f"navigation/{locale}.json").write_text(
-            json.dumps(navigation, ensure_ascii=False, indent=2) + "\n"
-        )
-
         locale_reviews: list[dict[str, float | int]] = [ui_review, nav_review]
         page_jobs: list[tuple[Path, str, MarkdownTemplate, int, int]] = []
         all_page_segments: list[str] = []
@@ -575,6 +842,7 @@ def main() -> None:
             raise ValueError(f"documentation corpus: {error}") from error
         all_scores = all_review.pop("scores")
 
+        rendered_pages: list[tuple[Path, str]] = []
         for source_path, source, template, start, end in page_jobs:
             translated_segments = all_translated[start:end]
             review = review_scores(all_scores[start:end])
@@ -618,7 +886,7 @@ def main() -> None:
             relative = source_path.relative_to(PAGES)
             destination = PAGES / locale / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_text(translated)
+            rendered_pages.append((destination, translated))
             locale_reviews.append(review)
 
             pages = manifest["pages"]
@@ -634,6 +902,17 @@ def main() -> None:
                 "sha256": digest(translated),
                 "review": review,
             }
+
+        # Write only after the full locale has translated and verified successfully.
+        (I18N / f"ui/{locale}.json").write_text(
+            json.dumps(ui, ensure_ascii=False, indent=2) + "\n"
+        )
+        (I18N / f"navigation/{locale}.json").write_text(
+            json.dumps(navigation, ensure_ascii=False, indent=2) + "\n"
+        )
+        for destination, translated in rendered_pages:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(translated)
 
         print(f"{locale}: {aggregate_reviews(locale_reviews)}", flush=True)
 

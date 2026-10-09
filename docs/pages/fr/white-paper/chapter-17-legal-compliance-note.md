@@ -1,53 +1,53 @@
-## **17 ans. Note juridique et de conformité**
+## **17. Note juridique et de conformité**
 
-CPP peut coordonner des jetons, des bons, des pools et des swaps dont le traitement juridique dépend de leur conception, de leur commercialisation, de leur utilisation, des parties responsables et de leur juridiction. Rien dans ce livre blanc ne contient de conseils juridiques, fiscaux, d'investissement, de crédit ou financiers.
+CPP peut coordonner des jetons, des bons d’échange, des bassins et des swaps dont le traitement juridique dépend de leur conception, de leur commercialisation, de leur utilisation, des parties responsables et de leur juridiction. Rien dans ce livre blanc n'est un conseil juridique, fiscal, d'investissement, de crédit ou financier.
 
-L'utilisation du CLC App est régie par les [termes de service](/fr/governance/terms). GEF exploite l'application et l'infrastructure de support. À moins que GEF n'assume expressément un autre rôle, il n'est pas émetteur, gestionnaire de pool, dépositaire, prêteur, emprunteur, courtier, garant, racheteur, conseiller, assureur ou partie aux obligations entre les participants.
+L'utilisation du CLC App est régie par la [Conditions d'utilisation](/fr/governance/terms) GEF exploite l'application et l'infrastructure de support. Sauf si GEF assume expressément un autre rôle, il n'est ni émetteur, ni Gestionnaire de Bassin, ni dépositaire, ni prêteur, ni emprunteur, ni courtier, ni garant, ni racheteur, ni conseiller, ni assureur, ni partie aux obligations entre participants.
 
-Les services de paiement dépendants du déploiement doivent identifier leur fournisseur responsable, leur juridiction, leur admissibilité, leurs frais, leurs limites, leur modèle de garde et leurs conditions. La présence d'un connecteur ne signifie pas que GEF ou un Pool exploite le service réglementé sous-jacent.
+Les services de paiement dépendants du déploiement doivent identifier leur fournisseur responsable, leurs juridictions, leur admissibilité, leurs frais, leurs limites, leur modèle de conservation et leurs conditions. La présence d'un connecteur ne signifie pas que GEF ou un bassin exploite le service réglementé sous-jacent.
 
-### **17.1 Révélation des bons et des offres**
+### **17.1 Révélations sur les coupons et les offres**
 
-Un émetteur devrait publier et tenir à jour:
+L'émetteur devrait publier et tenir à jour:
 
-- l'identité responsable et les informations de contact;
-- l'offre, l'unité, l'offre, la valeur déclarée et la capacité associées;
-- les emplacements et procédures de présentation;
-- le calendrier et la preuve de l'exécution;
-- les règles relatives à l'expiration, aux honoraires, aux taxes, aux restrictions et aux changements matériels;
-- les plaintes, les remplacements, les remboursements ou d'autres recours; et
-- la méthode de décharge qui empêche la réutilisation après remplissage.
+- l'identité et les coordonnées du responsable;
+- l'offre, l'unité, la fourniture, la valeur déclarée et la capacité associées;
+- les lieux et les procédures de présentation;
+- le calendrier d'exécution et les éléments de preuve;
+- la date d'expiration, les frais, les taxes, les restrictions et les règles relatives à la modification des matériaux;
+- les plaintes, les substitutions, les remboursements ou autres recours ; et
+- la méthode de décharge permettant d'éviter la réutilisation après l'exécution.
 
-Un contrat de jeton n'établit pas ces conditions ni ne prouve l'exécution.
+Un contrat symbolique n'établit pas ces termes ni ne prouve la performance.
 
-### **17.2 Divulgations de la base de données**
+### **17.2 Divulgations de groupes**
 
-Un gestionnaire de piscine devrait publier:
+Un Gestionnaire de Bassin devrait publier:
 
-- l'objectif du groupe et les décideurs responsables;
-- le propriétaire de `SwapPool`, l'administrateur par procuration, les responsables du contrôle des dépendances et les bénéficiaires des honoraires;
+- l'objectif du bassin et les décideurs responsables;
+- le propriétaire de `SwapPool`, l'administrateur de proxy, les contrôleurs de dépendance et les bénéficiaires de redevances;
 - les actifs admis et les règles de suspension ou de retrait;
-- les méthodes d'évaluation, les sources de devis, les frais, les plafonds du solde des jetons, l'inventaire et les pouvoirs de retrait du propriétaire;
-- droits de contribution et de sortie;
-- chaque réserve, garantie, garantie, police d'assurance et règle de répartition des pertes; et
-- les processus de gouvernance, de mise à niveau, d'urgence, de plainte, de migration et de résiliation.
+- les méthodes d'évaluation, les sources de cotation, les frais, les plafonds du solde symbolique, l'inventaire et les pouvoirs de retrait du propriétaire;
+- les droits de contribution et de sortie;
+- chaque réserve, garantie, garant, police d'assurance et règle de répartition des pertes ; et
+- processus de gouvernance, de mise à niveau, d'urgence, de plainte, de migration et de résiliation.
 
 La cotation n'est pas une approbation, une évaluation, une assurance ou une garantie de GEF.
 
 ### **17.3 Actions et obligations**
 
-Un "pool swap" ordinaire échange des actifs pris en charge dans le cadre d'une cotation et des limites de transaction affichées. La direction de l'actif ne fait pas de lui un prêt, un remboursement, un rachat par l'émetteur ou une réalisation dans le monde réel.
+Un **swap de Bassin ordinaire** échange des actifs pris en charge selon une cotation affichée et des limites de transaction. Le sens du transfert d’actifs n’en fait ni un prêt, ni un remboursement, ni une utilisation auprès de l’émetteur, ni une exécution dans le monde réel.
 
-**Présentation du remboursement**retourne ou présente des unités de bon à un émetteur. La performance promise par l'émetteur est l'accomplissement. Les enregistrements de décharge sont des unités remplies et ne peuvent donc pas être réutilisées. L'action **“Redeem”** de l'application prépare actuellement un transfert au propriétaire du jeton; ce seul transfert ne prouve pas l'accomplissement.
+La **présentation pour utilisation ** retourne ou présente des unités de bon d’échange à un émetteur. L’** exécution ** correspond à la prestation promise par l’émetteur. La ** décharge ** enregistre les unités exécutées afin qu’elles ne puissent pas être réutilisées. L’action **« Redeem »** de l’application prépare actuellement un transfert vers le propriétaire du jeton ; ce transfert ne prouve pas à lui seul l’exécution.
 
-L'action **“Retirement voucher”** de l'application est la suppression réversible du catalogue. Il ne brûle pas les soldes, n'annule pas les créances ni ne remplit les obligations.
+L’action **« Retire voucher »** de l’application retire la fiche du catalogue de façon réversible. Elle ne détruit pas les soldes, n’annule pas les créances et n’exécute pas les obligations.
 
-Un prêt futur ou un autre produit de crédit nécessiterait la présentation séparée des conditions supplémentaires et des conditions de transaction avant utilisation. Aucun envoi, contribution, dépôt de pool, swap de pool, présentation, exécution ou décharge ordinaires ne crée un prêt uniquement en raison de sa direction ou de son type d'actif.
+Un prêt futur ou un autre produit de crédit nécessiterait des conditions complémentaires et des conditions de transaction présentées séparément avant utilisation. Aucun envoi ordinaire, contribution, dépôt de bassin, échange de bassin, présentation, exécution ou décharge ne crée un prêt simplement en raison de sa direction ou de son type d'actif.
 
-### **17.4 Protection, preuve et droit local**
+### **17.4 Protection, preuves et lois locales**
 
-Une limite, une réserve, une entrée dans le registre, une liste d'applications ou une transaction blockchain ne constituent pas automatiquement une garantie ou une police d'assurance. Toute protection doit identifier la partie responsable, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve, le processus de réclamation et les modalités applicables.
+Une limite, une réserve, une entrée dans le registre, une liste d'applications ou une transaction blockchain n'est pas automatiquement une garantie ou une police d'assurance. Toute protection doit identifier la partie responsable, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve, le processus de réclamation et les conditions applicables.
 
-Les preuves de la chaîne publique peuvent montrer des adresses, des actifs, des montants, des timestamps et des événements de contrat. Elle ne prouve pas par elle-même l'identité, la capacité de l'émetteur, l'accomplissement, la satisfaction, la délibération sur la gouvernance, la décharge légale ou l'impact social.
+Les preuves de la chaîne publique peuvent montrer des adresses, des actifs, des montants, des horloges et des événements contractuels. Il ne prouve pas par lui-même l'identité, la capacité d'émetteur, l'exécution, l'exécution, la délibération en matière de gouvernance, la décharge juridique ou l'impact social.
 
-Les fonctionnalités peuvent être limitées ou indisponibles en raison de la loi, des sanctions, de l'admissibilité, de l'état du contrat, de l'inventaire, des limites, de la sécurité, de la juridiction ou des services de tiers. Les émetteurs, les gestionnaires de pool, les fournisseurs et les participants restent responsables de la détermination et du respect de la législation applicable.
+Les fonctionnalités peuvent être restreintes ou indisponibles en raison de la loi, des sanctions, de l'admissibilité, de l'état du contrat, de l'inventaire, des limites, de la sécurité, de la juridiction ou des services de tiers. Les émetteurs, Gestionnaires de Bassins, les fournisseurs et les participants restent responsables de la détermination et du respect de la législation applicable.

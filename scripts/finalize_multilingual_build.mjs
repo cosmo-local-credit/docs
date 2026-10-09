@@ -12,6 +12,7 @@ const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const siteUrl = 'https://docs.cosmolocal.credit'
 const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
+const documentationLocales = ['en', 'fr']
 const localized = new Set(locales.filter((locale) => locale !== 'en'))
 const directions = { en: 'ltr', ar: 'rtl', de: 'ltr', dz: 'ltr', es: 'ltr', fr: 'ltr', it: 'ltr', pt: 'ltr', sr: 'ltr', sw: 'ltr', uk: 'ltr' }
 const documentationPaths = [
@@ -68,13 +69,21 @@ function htmlFiles(directory) {
 }
 
 function finalizeHtml() {
-  for (const sourcePath of allPaths) {
-    for (const locale of locales) {
+  for (const locale of locales) {
+    const route = pathForLocale('/', locale)
+    const file = route === '/' ? join(dist, 'index.html') : join(dist, locale, 'index.html')
+    if (!existsSync(file)) throw new Error(`Missing prerendered splash route: ${route}`)
+  }
+  for (const sourcePath of documentationPaths) {
+    for (const locale of documentationLocales) {
       const route = pathForLocale(sourcePath, locale)
-      const file = route === '/'
-        ? join(dist, 'index.html')
-        : join(dist, route.replace(/^\//, ''), 'index.html')
+      const file = join(dist, route.replace(/^\//, ''), 'index.html')
       if (!existsSync(file)) throw new Error(`Missing prerendered route: ${route}`)
+    }
+  }
+  for (const locale of locales.filter((candidate) => !documentationLocales.includes(candidate))) {
+    for (const section of ['introduction', 'protocol', 'governance', 'white-paper']) {
+      rmSync(join(dist, locale, section), { force: true, recursive: true })
     }
   }
   for (const file of htmlFiles(dist)) {
@@ -89,9 +98,10 @@ function finalizeHtml() {
       return `<html${clean} lang="${locale}" dir="${directions[locale]}">`
     })
     html = html.replace(/<link\b(?=[^>]*\brel=(?:"(?:canonical|alternate)"|'(?:canonical|alternate)'))[^>]*>\s*/gi, '')
+    const alternateLocales = sourcePath === '/' ? locales : documentationLocales
     const links = [
       `<link rel="canonical" href="${siteUrl}${pathForLocale(sourcePath, locale)}">`,
-      ...locales.map((candidate) => `<link rel="alternate" hreflang="${candidate}" href="${siteUrl}${pathForLocale(sourcePath, candidate)}">`),
+      ...alternateLocales.map((candidate) => `<link rel="alternate" hreflang="${candidate}" href="${siteUrl}${pathForLocale(sourcePath, candidate)}">`),
       `<link rel="alternate" hreflang="x-default" href="${siteUrl}${sourcePath}">`,
     ].join('')
     html = html.replace('</head>', `${links}</head>`)
@@ -107,7 +117,7 @@ function buildSearchIndexes() {
   const complete = MiniSearch.loadJSON(readFileSync(sourceFile, 'utf8'), searchOptions)
   const records = complete.search(MiniSearch.wildcard, { combineWith: 'OR' })
 
-  for (const locale of locales) {
+  for (const locale of documentationLocales) {
     const prefix = locale === 'en' ? null : `/${locale}/`
     const selected = records
       .filter(({ href }) => {
@@ -134,7 +144,7 @@ function buildSearchIndexes() {
 function validateHeadingAnchors() {
   const mapping = JSON.parse(readFileSync(join(i18n, 'heading-map.json'), 'utf8'))
   for (const [route, localeMappings] of Object.entries(mapping)) {
-    for (const locale of locales) {
+    for (const locale of documentationLocales) {
       const pathname = pathForLocale(route, locale)
       const file = join(dist, pathname.replace(/^\//, ''), 'index.html')
       const html = readFileSync(file, 'utf8')
@@ -168,7 +178,7 @@ function titleAndSummary(markdown) {
 }
 
 async function buildLlmsFiles() {
-  for (const locale of locales) {
+  for (const locale of documentationLocales) {
     const messages = JSON.parse(readFileSync(join(i18n, `messages/${locale}.json`), 'utf8'))
     const outputDir = locale === 'en' ? dist : join(dist, locale)
     await mkdir(outputDir, { recursive: true })
@@ -199,6 +209,6 @@ validateHeadingAnchors()
 await buildLlmsFiles()
 
 const fingerprint = createHash('sha256')
-  .update(locales.map((locale) => readFileSync(join(dist, '.vocs', `search-index-${locale}.json`))).join(''))
+  .update(documentationLocales.map((locale) => readFileSync(join(dist, '.vocs', `search-index-${locale}.json`))).join(''))
   .digest('hex')
-console.log(`Finalized ${allPaths.length * locales.length} localized routes; search fingerprint ${fingerprint.slice(0, 12)}.`)
+console.log(`Finalized ${locales.length} splash routes and ${documentationPaths.length * documentationLocales.length} documentation routes; search fingerprint ${fingerprint.slice(0, 12)}.`)

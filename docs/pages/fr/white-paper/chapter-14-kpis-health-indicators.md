@@ -1,26 +1,26 @@
-## **Quatorze ans. Indicateurs clés et indicateurs de santé proposés**
+## **14. Indicateurs clés de performance et indicateurs de santé proposés**
 
-Un déploiement ne devrait publier un KPI que lorsqu'il peut définir l'événement, la source, la cohorte ou la période, l'unité, la méthode d'évaluation et le timestamp, les exclusions, la politique de correction, les preuves hors chaîne et les limitations de la qualité des données.
+Un déploiement ne devrait publier un KPI que lorsqu'il peut définir l'événement, la source, la cohorte ou la période, l'unité, la méthode d'évaluation et l'horodatage, les exclusions, la politique de correction, les preuves hors chaîne et les limites de qualité des données.
 
 Les mesures proposées comprennent:
 
-- des présentations de rachat valides;
-- taux d'exécution basé sur la cohorte;
-- l'achèvement de la décharge;
-- la latence de présentation à réalisation;
-- durée de détention de l'acquisition à la présentation;
-- les engagements éligibles en suspens dans le cadre d'une méthodologie déclarée;
-- volume d'échange de pool terminé;
-- l'inventaire de la piscine mesuré;
-- Utilisation de la bourse de jetons-équilibre;
-- taux de passage des cotes, maintenu séparément du taux d'exécution de l'itinéraire;
-- les réserves éligibles divisées par exposition couverte expressément;
-- les créances et les recouvrements du garant dans le cadre d'une politique identifiée;
-- les redevances de réseau proposées et les redevances de service effectivement reçues, sans double comptabilisation des redevances brutes du pool;
-- la détection, la prise de décision, la pause, la réparation et la fermeture des temps de gouvernance;
-- les plaintes, les litiges, les corrections et les recours; et
-- les résultats sociaux ou écologiques sont démontrés séparément.
+- les présentations de remboursement valables;
+- taux d'exécution par cohorte;
+- l'exhaustivité de la décharge;
+- le délai de présentation à l'exécution;
+- la durée de détention de l'acquisition à la présentation;
+- les engagements éligibles en cours dans le cadre d'une méthodologie définie;
+- le volume de swap de bassin effectué;
+- l'inventaire de la réserve mesuré;
+- l'utilisation du plafond de solde des jetons de bassin;
+- le taux de réussite des cotations, tenu séparément du taux d'exécution des lignes;
+- les réserves éligibles divisées par l'exposition expressément couverte;
+- les créances du garant et les recouvrements au titre d'une police identifiée;
+- les redevances proposées pour le nettoyage du réseau et les redevances pour les services effectivement perçues, sans double comptabilisation des redevances brutes pour le bassin;
+- détection de la gouvernance, décision, pause, réparation et temps de fermeture;
+- les plaintes, les litiges, les rectifications et les recours ; et
+- des résultats sociaux ou écologiques démontrés séparément.
 
-Les données des transactions en chaîne ne prouvent pas par elles-mêmes l'identité, la performance de l'émetteur, la satisfaction, la causalité, la santé communautaire ou l'impact social. Ces affirmations nécessitent leur propre méthodologie et leurs propres preuves.
+Les données relatives aux transactions sur la chaîne ne prouvent pas à elles seules l'identité, les performances de l'émetteur, l'exécution, la causalité, la santé de la communauté ou l'impact social. Ces allégations nécessitent une méthodologie et des éléments de preuve propres.
 
-Voir [annexe C](/fr/white-paper/appendix-c-kpi-definitions) pour les spécifications de mesure proposées.
+Voir aussi [Appendice C](/fr/white-paper/appendix-c-kpi-definitions) pour la spécification de mesure proposée.

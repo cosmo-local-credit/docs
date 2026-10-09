@@ -1,71 +1,71 @@
 import { MermaidDiagram } from '../../../components/MermaidDiagram'
 
-# Architecture de réseau de protocole
+# Architecture du réseau du protocole
 
-Un déploiement compatible CPP- peut connecter de nombreux bons et pools à travers des registres optionnels, des indices, des modules de devis et la découverte de routes au niveau de l'application. Chaque Pool reste un coffre-fort séparé avec sa propre liquidité, propriétaire, administrateur proxy, configuration et dépendances.
+Un déploiement compatible avec CPP peut relier de nombreux bons d’échange et Bassins au moyen de registres facultatifs, d’index, de modules de cotation et d’une recherche d’itinéraires au niveau de l’application. Chaque Bassin reste un coffre-fort distinct, avec sa propre liquidité, son propriétaire, son administrateur de proxy, sa configuration et ses dépendances.
 
-Grassroots Economics Foundation exploite l'application publique à [cosmolocal.credit](https://cosmolocal.credit). D'autres interfaces et déploiements peuvent utiliser le même protocole public. L'exploitation de l'application ne fait pas automatiquement de GEF le propriétaire, l'émetteur, le gestionnaire, le bénéficiaire des honoraires ou le garant pour chaque contrat indiqué ci-dessous.
+Grassroots Economics Foundation exploite l'application publique au [cosmolocal.credit](https://cosmolocal.credit) D'autres interfaces et déploiements peuvent utiliser le même protocole public. L'exploitation de l'application ne fait pas automatiquement de GEF le propriétaire, l'émetteur, l'administrateur, le bénéficiaire des frais ou le garant de chaque contrat indiqué ci-dessous.
 
-Voir [Concepts et vocabulaire](/fr/introduction/concepts) pour la séparation entre les rôles responsables et les pouvoirs techniques.
+Voir aussi [Concepts et vocabulaire](/fr/introduction/concepts) pour la séparation entre les rôles responsables et les pouvoirs techniques.
 
 
-## Les itinéraires des candidats et l'exécution
+## Les lignes candidates et leur exécution
 
-Le diagramme de la sirène
-label="Conduction de la route des candidats et exécution du lot de portefeuille"
-MinWidth={1040}
+<MermaidDiagram
+  label="Découverte d’itinéraires possibles et exécution par lot depuis le portefeuille"
+  minWidth={1040}
   chart={`flowchart TB
-    VoucherA["Voucher A"] ---|inscrits et détenus| PoolA["Pools A"]
-    Bridge["Actif de pont générique"] ---|inscrits et détenus| PoolA
-    Bridge ---|inscrits et détenus| PoolB["Pôle B"]
-    VoucherB["Voucher B"] ---|inscrits et détenus| PoolB
+    VoucherA["Bon d’échange A"] ---|répertorié et détenu| PoolA["Bassin A"]
+    Bridge["Actifs de liaison génériques"] ---|inscrits et détenus| PoolA
+    Bridge ---|inscrits et détenus| PoolB["Groupe B"]
+    VoucherB["Bon d’échange B"] ---|répertorié et détenu| PoolB
 
-    App["PWA ou chercheur d'itinéraire"] -. discovers candidates .-> Index["Registres et indices"]
-    App -. requests a quote .-> Router["SwapRouter: seule citation"]
+    App["PWA ou détecteur d'itinéraire"] -. discovers candidates .-> Index["Registres et indices"]
+    App -. requests a quote .-> Router["SwapRouter: cotation uniquement"]
     Router -. reads Pool quotes .-> PoolA
     Router -. reads Pool quotes .-> PoolB
 
-    App -->|crée des appels ordonnés| WalletStart["Portefeuille de compte intelligent utilisateur"]
-    WalletStart -->|HOP 1: Voucher A| PoolA
+    App -->|crée des appels commandés| WalletStart["Portefeuille de compte intelligent utilisateur"]
+    WalletStart -->|1er étape: le bon d’échange A| PoolA
     PoolA -->|sortie du pont| WalletBridge["Le même portefeuille entre les appels"]
-    WalletBridge -->|HOP 2: actif du pont| PoolB
-    PoolB -->|Sortie du bon B| WalletFinal["Le même portefeuille utilisateur"]
+    WalletBridge -->|2e étape: actif de passerelle| PoolB
+    PoolB -->|Résultats du bon d’échange B| WalletFinal["Même portefeuille d'utilisateur"]
 
-    PoolA -->|frais de protocole| ProtocolRecipient["Récepteur du protocole configuré"]
+    PoolA -->|Taxe de protocole| ProtocolRecipient["Récepteur de protocole configuré"]
     PoolB -->|protocol fee| ProtocolRecipient`}
 />
 
-Un actif partagé crée une voie graphique possible, et non une voie garantie. Dans cet exemple, le bon A pourrait être échangé contre l'actif de pont dans le groupe A, puis l'actif de pont pourrait être échangé contre le bon B dans le groupe B. Chaque saut dépend toujours de l'admission actuelle des jetons, des limites de pool, de l'inventaire disponible, de la configuration des devis et des frais, de l'état de l'oracle, des approbations, des limites de transaction et de l'exécution du réseau.
+Un actif partagé crée un **parcours possible du graphique**, ce n'est pas une route garantie. Dans cet exemple, le bon d’échange A pourrait être échangé contre l'actif pont dans le bassin A, puis l'actif pont pourrait être échangé contre le bon d’échange B dans le bassin B. Chaque étape dépend toujours de l'admission actuelle de jetons, des limites de bassin, de l'inventaire disponible, de la configuration des offres et des frais, de l'état de l'oracle, des approbations, des limites de transaction et de l'exécution du réseau.
 
-`SwapRouter` n'appelle que les fonctions de cotation Pool sur un chemin proposé. Il ne détient pas de fonds, n'approuve pas de jetons ou n'exécute pas de swaps. Un intégrateur ou une application compatible peut utiliser ces résultats de devis pour construire l'approbation ordonnée et les appels Pool dans un lot de compte intelligent signé; cela ne signifie pas que l'application publique actuelle offre une exécution multi-hop. Chaque saut s'installe dans le portefeuille avant que ce portefeuille ne fournisse l'actif intermédiaire au prochain pool, et l'intégrateur peut configurer le lot pour revenir en arrière lorsque l'appel échoue.
+`SwapRouter` n'appelle que les fonctions de citation Bassin à travers un chemin proposé. Il ne détient pas de fonds, n'approuve pas de jetons ni n'exécute de swaps. Un intégrateur ou une application compatible peut utiliser ces résultats de cotation pour construire une approbation ordonnée et des appels de bassin dans un lot de compte intelligent signé; Cela ne signifie pas que l'application publique actuelle offre une exécution multi-hop. Chaque étape s'installe dans le portefeuille avant que ce portefeuille ne fournisse l'actif intermédiaire au prochain bassin, et l'intégrateur peut configurer le lot pour inverser lorsqu'un appel échoue.
 
-Les citations sont des instantanés. Une cotation de route réussie peut toujours échouer ou se régler différemment si l'état pertinent change avant l'exécution. La surcharge limitée `SwapPool.withdraw` ajoute une protection `minAmountOut` et `deadline` pour un saut individuel; les intégrateurs doivent décider comment appliquer des limites sur toute la route.
+Les citations sont des instantanés. Un devis d'itinéraire réussi peut encore échouer ou se résoudre différemment si l'état pertinent change avant l'exécution. La surcharge limitée `SwapPool.withdraw` ajoute une protection `minAmountOut` et `deadline` pour un étape individuel; Les intégrateurs doivent décider comment appliquer les limites sur l'ensemble du parcours.
 
-Les frais de pool restent auprès du pool concerné pour la collecte ultérieure. Toute redevance de protocole est supplémentaire et est transférée directement de ce pool à son destinataire de protocole configuré au cours de l'échange.
+Les frais de bassin restent avec le bassin concerné pour le recouvrement ultérieur. Toute redevance de protocole est additionnelle et est transférée directement de ce bassin à son destinataire de protocole configuré pendant l'échange.
 
 
-## Interne de la piscine
+## Intérieur du Bassin
 
-Le diagramme de la sirène
-label="Dépendances et pouvoirs administratifs du groupe d'engagements"
-MinWidth={820}
+<MermaidDiagram
+  label="Dépendances et pouvoirs administratifs d’un Bassin d’engagements"
+  minWidth={820}
   chart={`flowchart TB
-    Owner["propriétaire du contrat ou<br/>Éleveur de piscine"] -->|configurer, sceller, collecter, retirer| Pool["SwapPool<br/>voûte et établissement"]
-    ProxyAdmin["ERC-1967<br/>administrateur proxy"] -->|mise en œuvre de la mise à niveau| Pool
-    Dependencies["Dépendances facultatives<br/>enregistrement · limitateur · cotateur<br/>politique des frais · contrôleur des frais de protocole<br/>chacun avec sa propre gouvernance"] -. settlement inputs .-> Pool
-    Seal["Cinq espaces d'adresse scellables<br/>frais Politique · frais Adresse · citateur<br/>TokenRegistry · TokenLimiter"] -. locks addresses .-> Pool
+    Owner["Propriétaire du contrat ou<br/>Gestionnaire de Bassin"] -->|configurer, sceller, recueillir, retirer| Pool["SwapPool<br/>le coffre et le règlement"]
+    ProxyAdmin["ERC-1967<br/>administrateur par procuration"] -->|mise en œuvre de la mise à niveau| Pool
+    Dependencies["Dépendances facultatives<br/>enregistrement · limitateur · cotateur<br/>Politique des redevances · contrôleur des redevances du protocole<br/>chacune avec sa propre gouvernance"] -. settlement inputs .-> Pool
+    Seal["Cinq emplacements d'adressage scellés<br/>feePolicy · feeAddress · coté<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
 
-    Wallet["Portefeuille de l'utilisateur"] -->|entrées de dépôt ou de swap| Pool
-    Pool -->|résultat net des swaps| Wallet
-    Pool -->|frais de pool collectés| FeeAddress["Configuré<br/>adresse des frais"]
-    Pool -->|frais de protocole dans le même swap| ProtocolRecipient["Le protocole<br/>le destinataire"]
+    Wallet["Portefeuille utilisateur"] -->|entrée de dépôt ou de swap| Pool
+    Pool -->|Production nette des swaps| Wallet
+    Pool -->|Frais de bassin collectés| FeeAddress["Configuré<br/>adresse de la redevance"]
+    Pool -->|Frais de protocole dans le même échange| ProtocolRecipient["Le protocole<br/>récipiendaire"]
     Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
 />
 
-Le registre, le limiteur, le quotateur, la politique des frais et le contrôleur des frais de protocole sont facultatifs. Sans registre, tout jeton passe le contrôle d'admission; sans limiteur, les dépôts sont sans limite; sans cotateur, le Pool utilise la parité unitaire brute; et sans modules de frais, les frais correspondants sont zéro.
+Le registre, le limiteur, le cotateur, la politique des frais et le contrôleur des frais de protocole sont facultatifs. Sans enregistrement, tout jeton passe le contrôle d'admission; sans limiteur, les dépôts sont sans plafond; en l'absence de cotation, le bassin utilise la parité des unités brutes; et sans modules de redevance, les redevances correspondantes sont nulles.
 
-Les cinq fentes à sceller sont `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` et `tokenLimiter`. Un sceau empêche le propriétaire actuel de la piscine de remplacer cette adresse par son régulateur, mais il ne gelera pas l'état interne de la dépendance. L'adresse `protocolFeeController` et le mode `feesDecoupled` ne sont pas couverts par ces cinq bits de scellés. La capacité de l'administrateur proxy à mettre à niveau la piscine est également séparée du scellage.
+Les cinq emplacements à sceller sont `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` et `tokenLimiter`. Un sceau empêche le propriétaire actuel du bassin de remplacer cette adresse par son setter, mais il ne congèle pas l'état interne de la dépendance. L'adresse `protocolFeeController` et le mode `feesDecoupled` ne sont pas couverts par ces cinq bits d'étanchéité. La capacité de l'administrateur proxy à mettre à niveau le Bassin est également distincte du scellement.
 
-Le titulaire du contrat peut retirer la liquidité disponible du pool à une adresse choisie. En mode frais déconnectés, les frais accumulés sont réservés à partir de cette voie; le pouvoir de retirer la liquidité restante existe toujours. Les participants devraient inspecter le propriétaire, l'administrateur par procuration, les contrôleurs de la dépendance, l'état du sceau, les bénéficiaires des honoraires et les règles publiées du pool avant de s'appuyer sur un pool.
+Le titulaire du contrat peut retirer la liquidité du bassin disponible à l'adresse choisie. Dans le mode des frais découplés, les frais accumulés sont réservés à cette voie; le pouvoir de retirer la liquidité restante existe toujours. Les participants doivent vérifier le propriétaire, l'administrateur par procuration, les contrôleurs de la dépendance, l'état du sceau, les bénéficiaires des frais et les règles publiées du bassin avant de s'appuyer sur un bassin.
 
-Pour la conception conceptuelle de ces contrats—y compris la conservation, l'évaluation, la limitation, l'échange et la gouvernance—voir le [Paper blanc](/fr/white-paper).
+Pour la conception conceptuelle de ces contrats, y compris la conservation, l'évaluation, la limitation, l'échange et la gouvernance, voir le [Le livre blanc](/fr/white-paper).

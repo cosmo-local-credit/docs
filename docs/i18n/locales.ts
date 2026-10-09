@@ -47,6 +47,17 @@ export const LOCALE_OPTIONS = [
 export type SupportedLocale = (typeof LOCALE_OPTIONS)[number]['code']
 export type LocaleDirection = (typeof LOCALE_OPTIONS)[number]['direction']
 
+// Splash pages support every app language. Detailed documentation is released
+// one reviewed language at a time.
+export const DOCUMENTATION_LOCALES = [DEFAULT_LOCALE, 'fr'] as const
+export type DocumentationLocale = (typeof DOCUMENTATION_LOCALES)[number]
+
+export function hasLocalizedDocumentation(
+  locale: SupportedLocale,
+): locale is DocumentationLocale {
+  return DOCUMENTATION_LOCALES.some((candidate) => candidate === locale)
+}
+
 export const LOCALIZED_LOCALES = LOCALE_OPTIONS.filter(
   (option): option is Exclude<(typeof LOCALE_OPTIONS)[number], { code: 'en' }> =>
     option.code !== DEFAULT_LOCALE,

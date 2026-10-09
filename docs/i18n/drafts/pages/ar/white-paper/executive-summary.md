@@ -8,7 +8,7 @@
 
 **صورة تاريخية Sarafu Network elo نشاط Celo من 5 يوليو 2023 إلى 20 يوليو 2025**
 
-**المصدر:**[داش بورد تحليلات الدوين](https://dune.com/grassrootseconomics/sarafu-network)
+**المصدر:** [داش بورد تحليلات الدوين](https://dune.com/grassrootseconomics/sarafu-network)
 
 - 26367 مستخدم
 - 285,197 تبادل بين الزملاء

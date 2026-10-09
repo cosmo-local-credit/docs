@@ -9,7 +9,9 @@ const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const publicPaper = join(root, 'docs/public/white-paper')
 const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const localizedLocales = locales.slice(1)
+const documentationLocales = ['en', 'fr']
+const localizedLocales = ['fr']
+const splashLocalizedLocales = locales.slice(1)
 const appBaseline = '32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1'
 const protectedNames = [
   'Cosmo-Local Credit', 'CLC App', 'Sarafu Network', 'Grassroots Economics Foundation',
@@ -89,33 +91,33 @@ const englishSplash = readJson(join(splashCatalogs, 'en.json'))
 const englishUi = readJson(join(i18n, 'ui/en.json'))
 const englishNavigation = readJson(join(i18n, 'navigation/en.json'))
 for (const locale of locales) {
-  for (const [folder, reference] of [
-    ['messages', englishSplash], ['ui', englishUi], ['navigation', englishNavigation],
-  ]) {
-    const candidatePath = join(i18n, folder, `${locale}.json`)
-    if (!existsSync(candidatePath)) {
-      errors.push(`${folder}/${locale}.json: missing catalog`)
-      continue
-    }
-    compareShape(reference, readJson(candidatePath), `${folder}.${locale}`)
-  }
+  const candidatePath = join(i18n, 'messages', `${locale}.json`)
+  if (!existsSync(candidatePath)) errors.push(`messages/${locale}.json: missing catalog`)
+  else compareShape(englishSplash, readJson(candidatePath), `messages.${locale}`)
   const splashRoute = locale === 'en' ? join(pages, 'index.mdx') : join(pages, locale, 'index.tsx')
   if (!existsSync(splashRoute) || !statSync(splashRoute).isFile()) errors.push(`${locale}: missing splash route`)
+}
+for (const locale of documentationLocales) {
+  for (const [folder, reference] of [['ui', englishUi], ['navigation', englishNavigation]]) {
+    const candidatePath = join(i18n, folder, `${locale}.json`)
+    if (!existsSync(candidatePath)) errors.push(`${folder}/${locale}.json: missing catalog`)
+    else compareShape(reference, readJson(candidatePath), `${folder}.${locale}`)
+  }
 }
 
 const glossary = readJson(join(i18n, 'glossary.json'))
 if (glossary.sourceAppCommit !== appBaseline) errors.push('Glossary app baseline is stale')
 for (const [term, translations] of Object.entries(glossary.terms)) {
-  for (const locale of localizedLocales) {
+  for (const locale of splashLocalizedLocales) {
     if (typeof translations[locale] !== 'string' || !translations[locale].trim()) {
       errors.push(`glossary.${term}.${locale}: missing translation`)
     }
   }
 }
 
-const manifest = readJson(join(i18n, 'translation-manifest.json'))
+const manifest = readJson(join(i18n, 'translation-manifest.fr.json'))
 if (manifest.sourceAppCommit !== appBaseline) errors.push('Translation manifest app baseline is stale')
-if (manifest.translationPublicationDate !== '8 October 2026') errors.push('Translation publication date is incorrect')
+if (manifest.translationPublicationDate !== '9 October 2026') errors.push('Translation publication date is incorrect')
 
 const sources = englishSources()
 if (sources.length !== 36) errors.push(`Expected 36 English documentation pages, found ${sources.length}`)
@@ -168,11 +170,11 @@ for (const source of sources) {
       }
     }
     if (route === '/governance/terms') {
-      if (!translated.includes('data-english-source="true"') || !translated.includes('hreflang="en"')) {
+      if (!translated.includes('data-english-source="true"') || !translated.includes('hrefLang="en"')) {
         errors.push(`${route}: ${locale} is missing the controlling-English notice`)
       }
     }
-    if (route.startsWith('/white-paper') && !translated.includes('data-english-source="true"')) {
+    if ((route === '/white-paper' || route === '/white-paper/archive') && !translated.includes('data-english-source="true"')) {
       errors.push(`${route}: ${locale} is missing the White Paper translation notice`)
     }
   }
@@ -192,14 +194,14 @@ const headingMap = readJson(join(i18n, 'heading-map.json'))
 if (Object.keys(headingMap).length !== 36) errors.push('Heading map must cover all 36 documentation pages')
 for (const [route, mapping] of Object.entries(headingMap)) {
   const count = mapping.en?.length
-  for (const locale of locales) {
+  for (const locale of documentationLocales) {
     if (!Array.isArray(mapping[locale]) || mapping[locale].length !== count) {
       errors.push(`${route}: ${locale} heading mapping differs from English`)
     }
   }
 }
 
-for (const locale of locales) {
+for (const locale of ['en']) {
   const suffix = locale === 'en' ? '' : `-${locale}`
   const pdf = join(publicPaper, `Cosmo-Local-Credit-CLC-White-Paper-v8${suffix}.pdf`)
   if (!existsSync(pdf)) errors.push(`${locale}: missing current White Paper PDF`)
@@ -215,4 +217,4 @@ if (errors.length) {
   process.exit(1)
 }
 
-console.log(`Validated ${locales.length * 37} routes, ${sources.length * localizedLocales.length} translated pages, catalogs, hashes, links, Terms, TeX, and PDFs.`)
+console.log(`Validated ${locales.length} splash routes, ${sources.length * documentationLocales.length} English/French documentation routes, catalogs, hashes, links, Terms, TeX, and PDFs.`)

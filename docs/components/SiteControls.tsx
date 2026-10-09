@@ -5,6 +5,7 @@ import '../theme-toggle.css'
 import headingMap from '../i18n/heading-map.json'
 import {
   DEFAULT_LOCALE,
+  hasLocalizedDocumentation,
   LOCALE_BY_CODE,
   LOCALE_OPTIONS,
   matchSupportedLocale,
@@ -210,7 +211,11 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
       isKnownDocumentationPath(pathname)
     ) {
       const preferred = readStoredLocale() ?? readBrowserLocale()
-      if (preferred !== DEFAULT_LOCALE) {
+      const sourcePath = englishPath(pathname)
+      if (
+        preferred !== DEFAULT_LOCALE &&
+        (sourcePath === '/' || hasLocalizedDocumentation(preferred))
+      ) {
         window.location.replace(
           `${localizedPath(pathname, preferred)}${window.location.search}${window.location.hash}`,
         )
@@ -291,9 +296,14 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
     }
     if (nextLocale === locale) return
     const pathname = window.location.pathname
-    const hash = destinationHash(pathname, locale, nextLocale)
+    const sourcePath = englishPath(pathname)
+    const hasEquivalentPage = sourcePath === '/' || hasLocalizedDocumentation(nextLocale)
+    const destination = hasEquivalentPage
+      ? localizedPath(pathname, nextLocale)
+      : localizedPath('/', nextLocale)
+    const hash = hasEquivalentPage ? destinationHash(pathname, locale, nextLocale) : ''
     window.location.replace(
-      `${localizedPath(pathname, nextLocale)}${window.location.search}${hash}`,
+      `${destination}${window.location.search}${hash}`,
     )
   }
 

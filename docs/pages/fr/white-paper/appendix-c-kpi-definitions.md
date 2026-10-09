@@ -1,36 +1,36 @@
-## C. Définitions proposées KPI
+## C. Définition proposée des indicateurs clés
 
-Ces KPI constituent une spécification de mesure proposée, et non une déclaration selon laquelle l'application ou le protocole actuel enregistre chaque événement requis.
+Ces indicateurs clés de performance forment une spécification de mesure proposée, et non une déclaration selon laquelle l'application ou le protocole actuel enregistre chaque événement requis.
 
 Chaque KPI publié doit inclure:
 
-- l'éditeur responsable et la source de données;
+- l'éditeur responsable et la source des données;
 - définition de l'événement ou de l'état;
-- période de cohorte ou de mesure;
-- unité et méthode d'évaluation;
-- le timestamp d'évaluation;
+- cohorte ou période de mesure;
+- l'unité et la méthode d'évaluation;
+- date et heure de l'évaluation;
 - les règles d'inclusion et d'exclusion;
-- traitement des dossiers partiels, contestés, expirés, inaccessibles et corrigés;
-- la preuve ou l'attestation requise hors chaîne;
-- les antécédents de révision et les limitations de la qualité des données; et
-- si le résultat est en chaîne, déclaré, attesté, vérifié indépendamment ou estimé.
+- le traitement des documents partiels, contestés, périmés, inaccessibles et corrigés;
+- la preuve ou l'attestation requise en dehors de la chaîne;
+- les antécédents de révision et les limites de la qualité des données ; et
+- si le résultat est en chaîne, déclaré, attesté, vérifié de manière indépendante ou estimé.
 
-| KPI |Définition proposée|Les éléments de preuve requis et les exclusions|
+| KPI |Définition proposée|Évidence requise et exclusions|
 | --- | --- | --- |
-| **Présentations valables** |Compte ou unités acceptées dans le processus de rachat de l'émetteur pendant une période|Identificateur de présentation, émetteur, autorisation du titulaire, montant, heure, statut; exclure les copies et les demandes invalides|
-| **Taux d'exécution** |Présentations valides remplies divisées par des présentations valides pour la même cohorte mûre|Des éléments de preuve distincts de la performance de l'émetteur; indiquer les cas ouverts, rejetés, contestés, partiels et corrigés|
-| **Completé de la décharge** |Présentations remplies avec enregistrement de décharge divisé par présentations remplies|Brûler, annuler, désactiver ou autres preuves de non réutilisation liées à l'accomplissement|
-| **La latence d'exécution** |La moyenne et le 90e percentile du temps de présentation à réalisation|Ne remplace pas le temps de conservation de l'émission à la présentation ou de l'acquisition à la présentation|
-| **Durée de conservation** |Médiane et répartition du temps entre l'acquisition et la présentation|Identifier l'événement d'acquisition et exclure les temps d'acquisition inconnus|
-| **Engagements éligibles en suspens** |Engagements de tiers admissibles restant après exclusions définies|Identification et conditions de l'émetteur; exclure l'inventaire, l'expiration, la combustion, la décharge, les essais et les jetons de non-engagement applicables de l'émetteur|
-| **Volume d'échange de piscine** |La valeur des swaps directs réalisés dans le cadre d'une méthode d'évaluation divulguée|Evénements de règlement en chaîne, unités de jetons, source de taux, temps; ne sont pas classés comme satisfaction de l'émetteur|
-| **Inventaire des piscines** |Actifs soutenus mesurés détenus par un groupe à un moment donné|Salles de contrats, réserves de redevances, actifs inaccessibles, méthode d'évaluation et pouvoirs de retrait des propriétaires|
-| **L'adéquation des réserves** |Actifs de réserve disponibles éligibles divisés par exposition couverte expressément|Politique de couverture, éligibilité des actifs, détention/contrôle, passifs, exclusions et valorisation; non fourniture totale de jetons par défaut|
-| **Utilisation limite** |Le solde des jetons de pool mesuré divisé par son plafond actuel configuré|Adresse limite, jeton, pool, timestamp, changements et périodes sans limiteur|
-| **Taux de réussite des cotations** |Réponses de devis réussies divisées par tentatives de devis valides|Résultat en cotation seulement; pas d'exécution de route|
-| **Taux d'exécution de la route** |Exécutions multi-hop terminées divisées par tentatives d'exécution valides|Applicable uniquement à un système d'exécution mis en œuvre; règles de rapport par hop et d'atomisation|
-| **Récupération du garant** |Recouvrement admissible reçu divisé par créances couvertes versées|Garant identifié, politique de réclamation, calendrier, coûts, litiges et annulations|
-| **Résultats du réseau proposés** |Réservation de réseau proposée reçue plus frais de routage/service distincts reçus|Exclure les frais bruts des piscines retenus par les piscines et évite de compter le rake deux fois|
-| **Temps de gouvernance** |Le temps de détecter, de décider, de faire une pause, de réparer et de fermer un incident|Horloges définies, organes responsables, pouvoirs d'urgence, appels et événements manquants|
+| **Présentations valables** |Nombre d'unités acceptées dans le processus de remboursement de l'émetteur au cours d'une période|Identifiant de la présentation, émetteur, autorisation du titulaire, montant, heure, statut; exclure les doublons et les demandes non valides|
+| **Taux d'exécution** |Présentations valides remplies divisées par présentations valides pour la même cohorte mature|preuve distincte du rendement de l'émetteur; déclarer les affaires ouvertes, rejetées, contestées, partielles et corrigées|
+| **Complétitude de la décharge** |Présentations remplies avec un dossier de décharge divisé par présentations remplies|Brûler, annuler, désactiver l'enregistrement ou toute autre preuve de non-réutilisation liée à l'exécution|
+| **Délais d'exécution** |Médiane et 90e percentile du temps de présentation à l'exécution|Ne pas remplacer le temps de conservation de l'émission à la présentation ou de l'acquisition à la présentation|
+| **Durée de détention** |Médiane et répartition du temps allant de l'acquisition à la présentation|Identifier l'événement d'acquisition et exclure les délais d'acquisition inconnus|
+| **Obligations éligibles en suspens** |Résidu d'engagements admissibles de tiers après exclusions définies|l'identité et les modalités de l'émetteur; exclure l'inventaire applicable des émetteurs, l'expiration, la combustion, la décharge, les tests et les jetons de non-engagement|
+| **Volume des swaps de groupe** |Valeur des swaps directs de bassin effectués dans le cadre d'une méthode d'évaluation divulguée|événements de règlement en chaîne, unités symboliques, source de taux, temps; ne sont pas classés comme l'exécution par l'émetteur|
+| **Inventaire des Bassins** |Actifs soutenus mesurés détenus par un bassin à un moment précisé|Solde contractuels, réserves de redevances, actifs inaccessibles, méthode d'évaluation et pouvoirs de rétractation du propriétaire|
+| **Adéquation des réserves** |Actifs de réserve disponibles éligibles divisés par exposition expressément couverte|Politique de couverture, éligibilité des actifs, garde/contrôle, passifs, exclusions et évaluation; Pas d'offre totale de jetons par défaut|
+| **Limite d'utilisation** |Réserve de jetons de bassin mesurée divisée par son plafond configuré actuel|Limiter adresse, jeton, bassin, horodatage, changements et périodes sans limiteur|
+| **Taux de réussite des cotations** |Réponses aux offres réussies divisées par tentatives de offres valides|Résultat de cotation uniquement; Pas d'exécution de route|
+| **Taux d'exécution des itinéraires** |Exécutions multi-hops terminées divisées par tentatives d'exécution valides|S'applique uniquement à un système d'exécution mis en œuvre; Rapport sur les règles de per-hop et d'atomisation|
+| **Recouvrement par le garant** |Récupération admissible reçue divisée par créances couvertes payées|Garant désigné, politique de réclamation, calendrier, coûts, litiges et annulations|
+| **Revenus de réseau proposés** |Réseau proposé plus frais de routage/services reçus séparément|Exclure les frais bruts de bassin retenus par les bassins et éviter de compter le prélèvement deux fois|
+| **Rapidité de la gouvernance** |Temps pour détecter, décider, faire une pause, réparer et fermer un incident|Définition des horaires, des organes responsables, des pouvoirs d'urgence, des appels et des événements manquants|
 
-Les revendications d'impact social nécessitent une méthodologie distincte. L'activité blockchain seule n'établit pas l'identité, la performance de l'émetteur, la satisfaction, la santé communautaire, la causalité ou l'impact.
+Les demandes d'impact social nécessitent une méthodologie distincte. L'activité blockchain à elle seule n'établit pas l'identité, les performances de l'émetteur, l'exécution, la santé de la communauté, la causalité ou l'impact.

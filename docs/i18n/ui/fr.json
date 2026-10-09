@@ -7,33 +7,44 @@
   },
   "chrome": {
     "search": "Recherche",
-    "menu": "Le menu",
+    "closeSearchDialog": "Fermer la boîte de dialogue de recherche",
+    "toggleDetailView": "Afficher ou masquer les détails",
+    "resetSearch": "Réinitialiser la recherche",
+    "navigate": "Naviguer",
+    "select": "Sélectionner",
+    "close": "Fermer",
+    "reset": "Réinitialiser",
+    "menu": "Menu",
     "onThisPage": "Sur cette page",
     "previous": "Précédent",
-    "next": "La prochaine .",
-    "copy": "Copié",
+    "next": "Suivant",
+    "copy": "Copier",
     "copied": "Copié",
-    "skipToContent": "Passer au contenu",
-    "askInChatGPT": "Demandez dans le ChatGPT",
-    "copyPageForLlms": "Page de copie pour les LLM",
+    "skipToContent": "Aller au contenu",
+    "askInChatGPT": "Demander à ChatGPT",
+    "copyPageForLlms": "Copier la page pour les LLM",
+    "lastUpdated": "Dernière mise à jour :",
+    "codeGroup": "Groupe de code",
+    "terminal": "Terminal",
+    "file": "Fichier",
     "noResultsFor": "Aucun résultat pour",
-    "top": "En haut",
-    "scrollToTop": "Roulez vers le haut",
+    "top": "Haut de page",
+    "scrollToTop": "Revenir en haut",
     "pageNotFound": "Page non trouvée",
-    "notFoundDescription": "La page que vous cherchiez n'a pas été trouvée.",
-    "goHome": "Allez à la page d'accueil",
+    "notFoundDescription": "La page que vous recherchez est introuvable.",
+    "goHome": "Revenir à l’accueil",
     "diagramScroll": "Faites défiler horizontalement pour voir le diagramme complet.",
-    "diagramError": "Le schéma n'a pas pu être rendu"
+    "diagramError": "Le diagramme n’a pas pu être affiché"
   },
   "legal": {
-    "translationTitle": "Traduction de commodité",
-    "translationNotice": "Cette traduction est fournie pour votre commodité. Les termes en anglais sont le texte source et le contrôle, sauf si la loi applicable l'exige autrement.",
-    "englishSource": "Lisez les termes en anglais"
+    "translationTitle": "Traduction fournie à titre pratique",
+    "translationNotice": "Cette traduction est fournie à titre pratique. La version anglaise des Conditions constitue le texte source et prévaut, sauf disposition contraire de la loi applicable.",
+    "englishSource": "Lire les Conditions en anglais"
   },
   "whitePaper": {
     "translationTitle": "À propos de cette traduction",
-    "translationNotice": "C'est une traduction de White Paper v0.8. La source anglaise a été publiée le 30 septembre 2026. Cette traduction a été publiée le 8 octobre 2026. L'anglais est le texte source.",
-    "englishSource": "Lisez la source en anglais",
-    "archivedEnglishOnly": "La version 0.7 PDF remplacée est disponible uniquement en anglais."
+    "translationNotice": "Ceci est une première traduction du Livre blanc v0.8 proposée pour relecture. Le texte source anglais a été publié le 30 septembre 2026. Cette traduction a été préparée le 9 octobre 2026. L’anglais constitue le texte source.",
+    "englishSource": "Lire la source en anglais",
+    "archivedEnglishOnly": "Le PDF de la version 0.7, désormais remplacée, est disponible uniquement en anglais."
   }
 }

@@ -5,7 +5,12 @@ import { join, resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
-const locales = ['ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
+const allLocales = ['ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
+const requestedLocales = process.argv.slice(2)
+const locales = requestedLocales.length ? requestedLocales : allLocales
+for (const locale of locales) {
+  if (!allLocales.includes(locale)) throw new Error(`Unsupported locale: ${locale}`)
+}
 const formulas = {
   'white-paper/chapter-05-from-isolated-pools-to-a-federated-network.md': [
     'τ_p = f_p · r_p',
@@ -31,7 +36,13 @@ function documentationFiles(directory) {
 for (const locale of locales) {
   for (const path of documentationFiles(join(pages, locale))) {
     let value = readFileSync(path, 'utf8')
-    value = value.replace(/(\*\*[^*\n]+\*\*)(?=\S)/g, '$1 ')
+    value = value
+      .replace(/(?<=[\p{L}\p{N})\]])(\*\*[^*\n]+\*\*)/gu, ' $1')
+      .replace(/(\*\*[^*\n]+\*\*)(?=[\p{L}\p{N}])/gu, '$1 ')
+      .replace(/(?<=[\p{L}\p{N})\]])(!?\[[^\]\n]+\]\([^)\n]+\))/gu, ' $1')
+      .replace(/(!?\[[^\]\n]+\]\([^)\n]+\))(?=[\p{L}\p{N}])/gu, '$1 ')
+      .replace(/(?<=[\p{L}\p{N})\]])(<a\b[^>]*>[^<]+<\/a>)/gu, ' $1')
+      .replace(/(<a\b[^>]*>[^<]+<\/a>)(?=[\p{L}\p{N}])/gu, '$1 ')
     value = value.replace(/[ \t]+$/gm, '')
     writeFileSync(path, value)
   }

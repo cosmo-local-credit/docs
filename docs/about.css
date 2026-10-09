@@ -152,6 +152,14 @@ body:has(.about-page) {
   padding-inline: 1.5rem;
 }
 
+.about-overview__language-notice {
+  color: var(--about-muted);
+  font-size: 0.9rem;
+  margin: 0.85rem auto 0;
+  max-width: 42rem;
+  text-align: center;
+}
+
 .about-overview__feature-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

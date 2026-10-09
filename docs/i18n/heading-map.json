@@ -1,1 +1,558 @@
-{}
+{
+  "/introduction/getting-started": {
+    "en": [
+      "getting-started",
+      "start-with-the-current-app",
+      "1-browse-the-market",
+      "2-create-or-access-an-account-and-wallet",
+      "3-create-a-voucher",
+      "4-create-or-assess-a-commitment-pool",
+      "5-use-the-correct-action",
+      "current-deployment-dependent-and-proposed-capabilities"
+    ],
+    "fr": [
+      "bien-démarrer",
+      "commencez-avec-lapplication-actuelle",
+      "1-parcourez-le-marché",
+      "2-créer-ou-accéder-à-un-compte-et-à-un-portefeuille",
+      "3-créer-un-bon-déchange",
+      "4-créer-ou-évaluer-un-bassin-dengagements",
+      "5-utilisez-laction-correcte",
+      "capacités-actuelles-dépendantes-du-déploiement-et-proposées"
+    ]
+  },
+  "/introduction/concepts": {
+    "en": [
+      "concepts-and-vocabulary",
+      "product-and-protocol-layers",
+      "tokens-vouchers-and-offerings",
+      "accountable-roles-and-technical-control",
+      "actions-and-lifecycle",
+      "market-values-limits-and-fees",
+      "protections-and-evidence",
+      "status-words"
+    ],
+    "fr": [
+      "concepts-et-vocabulaire",
+      "les-couches-de-produits-et-de-protocoles",
+      "des-jetons-des-bons-déchange-et-des-offrandes",
+      "rôles-de-responsabilité-et-contrôle-technique",
+      "actions-et-cycle-de-vie",
+      "marché-valeurs-limites-et-frais",
+      "protection-et-preuves",
+      "paroles-de-statut"
+    ]
+  },
+  "/introduction/example": {
+    "en": [
+      "practical-voucher-example",
+      "1-an-issuer-publishes-a-commitment",
+      "2-a-pool-steward-admits-the-voucher",
+      "3-a-participant-contributes-inventory",
+      "4-a-holder-makes-a-pool-swap",
+      "5-the-holder-presents-the-voucher",
+      "6-the-issuer-records-fulfillment-and-discharge",
+      "responsibilities-at-a-glance",
+      "future-credit-arrangements"
+    ],
+    "fr": [
+      "exemple-pratique-de-bon-déchange",
+      "1-un-émetteur-publie-un-engagement",
+      "2-un-gestionnaire-de-bassin-admet-le-bon-déchange",
+      "3-un-participant-apporte-un-inventaire",
+      "4-un-détenteur-effectue-un-échange-de-bassin",
+      "5-le-titulaire-présente-le-bon-déchange",
+      "6-lémetteur-enregistre-lexécution-et-la-décharge",
+      "les-responsabilités-en-un-coup-dœil",
+      "accords-de-crédit-futurs"
+    ]
+  },
+  "/introduction/history": {
+    "en": [
+      "history",
+      "from-the-historic-sarafu-network-to-cosmo-local-credit",
+      "further-learning-from-grassroots-economics"
+    ],
+    "fr": [
+      "histoire",
+      "de-lhistorique-sarafu-network-à-cosmo-local-credit",
+      "apprendre-davantage-de-léconomie-de-base"
+    ]
+  },
+  "/protocol/overview": {
+    "en": [
+      "protocol",
+      "deployment-pattern",
+      "component-map"
+    ],
+    "fr": [
+      "protocole",
+      "modèle-de-déploiement",
+      "carte-des-composants"
+    ]
+  },
+  "/protocol/smart-contracts": {
+    "en": [
+      "smart-contracts",
+      "voucher-giftabletoken",
+      "commitment-pool-swappool",
+      "composition-and-optional-dependencies",
+      "swap-settlement",
+      "additive-fee-calculation",
+      "owner-and-upgrade-powers",
+      "valuation-modules",
+      "fee-policy-and-limits",
+      "protocol-fee-controller"
+    ],
+    "fr": [
+      "contrats-intelligents",
+      "bon-déchange-giftabletoken",
+      "bassin-dengagements-swappool",
+      "composition-et-dépendances-facultatives",
+      "règlement-sur-le-swap",
+      "calcul-de-la-redevance-additive",
+      "pouvoirs-de-propriétaire-et-de-mise-à-niveau",
+      "modules-dévaluation",
+      "politique-et-limites-des-redevances",
+      "contrôleur-des-frais-de-protocole"
+    ]
+  },
+  "/protocol/network": {
+    "en": [
+      "protocol-network-architecture",
+      "candidate-routes-and-execution",
+      "pool-internals"
+    ],
+    "fr": [
+      "architecture-du-réseau-du-protocole",
+      "les-lignes-candidates-et-leur-exécution",
+      "intérieur-du-bassin"
+    ]
+  },
+  "/governance/mechanics": {
+    "en": [
+      "governance-mechanics",
+      "responsibility-by-role",
+      "accountable-governance-structures",
+      "technical-governance-options",
+      "interface-action-and-on-chain-state"
+    ],
+    "fr": [
+      "mécanismes-de-gouvernance",
+      "responsabilité-par-rôle",
+      "structures-de-gouvernance-responsables",
+      "options-de-gouvernance-technique",
+      "action-de-linterface-et-état-en-chaîne"
+    ]
+  },
+  "/governance/terms": {
+    "en": [
+      "cosmo-local-credit-terms-of-service",
+      "important-notices",
+      "1-definitions",
+      "2-acceptance-and-scope",
+      "3-eligibility-and-authority",
+      "4-accounts-wallets-and-security",
+      "5-gefs-role-and-limitations",
+      "6-your-legal-and-regulatory-responsibility",
+      "7-tokens-and-vouchers-generally",
+      "8-creating-or-issuing-a-token-or-voucher",
+      "9-redemption-presentment-fulfillment-and-discharge",
+      "10-creating-and-operating-a-pool",
+      "11-using-or-contributing-to-a-pool",
+      "12-swaps-quotes-fees-and-routing",
+      "13-future-credit-or-loan-products",
+      "14-fees-taxes-and-third-party-payment-services",
+      "15-prohibited-conduct",
+      "16-content-and-public-listings",
+      "17-data-and-electronic-records",
+      "18-service-changes-suspension-and-termination",
+      "19-risks-no-professional-advice",
+      "20-warranties-and-disclaimers",
+      "21-limitation-of-liability",
+      "22-indemnity",
+      "23-disputes",
+      "24-changes-to-these-terms",
+      "25-general-terms",
+      "26-contact"
+    ],
+    "fr": [
+      "conditions-dutilisation-de-cosmo-local-credit",
+      "avis-importants",
+      "1-définitions",
+      "2-acceptation-et-portée",
+      "3-éligibilité-et-autorité",
+      "4-comptes-portefeuilles-et-titres",
+      "5-rôle-et-limites-de-gef",
+      "6-votre-responsabilité-légale-et-réglementaire",
+      "7-les-jetons-et-les-bons-déchange-généralement",
+      "8-création-ou-émission-dun-jeton-ou-dun-bon-déchange",
+      "9-présentation-exécution-et-décharge-du-remboursement",
+      "10-création-et-exploitation-dune-réserve",
+      "11-utilisation-ou-contribution-à-un-bassin",
+      "12-les-échanges-les-cotations-les-frais-et-le-routage",
+      "13-produits-de-crédit-ou-de-prêt-à-terme",
+      "14-frais-taxes-et-services-de-paiement-fournis-par-des-tiers",
+      "15-comportement-interdit",
+      "16-contenu-et-annonces-publiques",
+      "17-données-et-enregistrements-électroniques",
+      "18-modification-du-service-suspension-et-résiliation",
+      "19-les-risques-pas-de-conseils-professionnels",
+      "20-garanties-et-exclusions-de-responsabilité",
+      "21-limitation-de-la-responsabilité",
+      "22-indemnité",
+      "23-les-litiges",
+      "24-modifications-apportées-aux-présentes-conditions",
+      "25-conditions-générales",
+      "26-communiqué"
+    ]
+  },
+  "/white-paper": {
+    "en": [
+      "cosmo-local-credit-clc",
+      "a-network-for-routing-credit-coordinating-commitments-and-financing-a-healthy-cosmo-local-economy",
+      "how-to-read-this-paper",
+      "abstract",
+      "current-deployment",
+      "historical-lineage",
+      "design-model",
+      "values-and-design-principles",
+      "current-and-proposed-flows",
+      "current-direct-pool-flow",
+      "wider-proposed-design",
+      "reader-map"
+    ],
+    "fr": [
+      "cosmo-local-credit-clc",
+      "un-réseau-pour-la-répartition-des-crédits-la-coordination-des-engagements-et-le-financement-dune-économie-cosmolocale-saine",
+      "comment-lire-cet-article-",
+      "résumé",
+      "déploiement-actuel",
+      "lignée-historique",
+      "modèle-de-conception",
+      "valeurs-et-principes-de-conception",
+      "flux-actuel-et-projeté",
+      "flux-direct-actuel-dun-bassin",
+      "proposition-de-conception-plus-large",
+      "carte-du-lecteur"
+    ]
+  },
+  "/white-paper/executive-summary": {
+    "en": [
+      "executive-summary"
+    ],
+    "fr": [
+      "résumé-exécutif"
+    ]
+  },
+  "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
+    "en": [
+      "1-commitment-pooling-protocol-cpp-the-core-primitive",
+      "11-what-is-a-commitment",
+      "12-what-is-a-commitment-pool",
+      "13-current-direct-swap-logic",
+      "14-wider-use"
+    ],
+    "fr": [
+      "1-protocole-de-mise-en-commun-des-engagements-cpp-le-principe-primitif",
+      "11-cest-quoi-un-engagement-",
+      "12-cest-quoi-un-bassin-dengagements-",
+      "13-logique-actuelle-déchange-direct",
+      "14-utilisation-plus-large"
+    ]
+  },
+  "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
+    "en": [
+      "2-the-accounting-shift-from-assets-to-trust"
+    ],
+    "fr": [
+      "2-le-passage-de-lactif-à-la-fiducie"
+    ]
+  },
+  "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
+    "en": [
+      "3-fulfillment-discharge-and-exchange-activity"
+    ],
+    "fr": [
+      "3-activité-de-remplissage-de-décharge-et-déchange"
+    ]
+  },
+  "/white-paper/chapter-04-reusable-forward-style-collateral": {
+    "en": [
+      "4-reusable-forward-style-collateral",
+      "41-producer-credit-loop"
+    ],
+    "fr": [
+      "4-garantie-à-terme-réutilisable",
+      "41-boucle-de-crédit-du-producteur"
+    ]
+  },
+  "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
+    "en": [
+      "5-from-isolated-pools-to-a-federated-network",
+      "51-separate-exchange-and-fulfillment-measures",
+      "52-proposed-routing-and-rebalancing-services",
+      "521-confederation-and-interoperability",
+      "53-proposed-network-rake-and-service-fee-model",
+      "531-cash-eligible-and-in-kind-receipts",
+      "54-proposed-liquidity-programs"
+    ],
+    "fr": [
+      "5-des-bassins-isolés-à-un-réseau-fédéré",
+      "51-mesures-déchange-et-dexécution-distinctes",
+      "52-services-de-routage-et-de-rééquilibrage-proposés",
+      "521-confédération-et-interopérabilité",
+      "53-modèle-proposé-de-redevance-réseau-et-de-redevance-de-service",
+      "531-récettes-éligibles-en-espèces-et-en-nature",
+      "54-programmes-de-liquidité-proposés"
+    ]
+  },
+  "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
+    "en": [
+      "6-proposed-network-level-liquidity-and-governance",
+      "61-downside-controls-and-optionality"
+    ],
+    "fr": [
+      "6-liquidité-et-gouvernance-proposées-au-niveau-du-réseau",
+      "61-contrôles-à-la-baisse-et-faculté"
+    ]
+  },
+  "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
+    "en": [
+      "7-proposed-clc-stewardship-and-governance-assets",
+      "71-purpose",
+      "72-proposed-governance-asset-model",
+      "721-illustrative-supply-and-allocation",
+      "722-availability-and-endowment-stages",
+      "723-proposed-impact-seeding-program",
+      "73-proposed-voting-incentives-and-fee-access",
+      "731-service-fee-enforcement-and-profile-choice",
+      "732-sclc-budget-and-optional-external-float-controls",
+      "733-portfolio-pools-and-attestations",
+      "74-proposed-waterfall-and-budgets"
+    ],
+    "fr": [
+      "7-actifs-de-gestion-et-de-gouvernance-proposés-clc",
+      "71-objectif",
+      "72-modèle-de-gouvernance-actif-proposé",
+      "721-loffre-et-lallocation-illustratives",
+      "722-étapes-de-disponibilité-et-de-dotation",
+      "723-programme-proposé-de-semis-dimpact",
+      "73-proposition-de-vote-dincitations-et-daccès-à-la-redevance",
+      "731-exécution-des-frais-de-service-et-choix-du-profil",
+      "732-sclc-budget-et-contrôles-extérieurs-facultatifs-de-flotteur",
+      "733-bassins-de-portefeuille-et-attestations",
+      "74-proposition-de-cascade-et-budgets"
+    ]
+  },
+  "/white-paper/chapter-08-technical-scope-growth": {
+    "en": [
+      "8-technical-scope-and-growth",
+      "81-proposed-route-service-and-sdk-norms",
+      "811-minimum-confederation-compatibility-specification",
+      "82-licensing-verification-and-exit"
+    ],
+    "fr": [
+      "8-portée-technique-et-croissance",
+      "81-normes-proposées-pour-le-service-sur-route-et-sdk",
+      "811-spécification-minimale-de-compatibilité-de-la-confédération",
+      "82-autorisation-vérification-et-sortie"
+    ]
+  },
+  "/white-paper/chapter-09-economics-for-lps": {
+    "en": [
+      "9-proposed-economics-for-liquidity-programs",
+      "91-proposed-revenue-sources",
+      "92-illustrative-rake-math",
+      "93-liquidity-program-rights"
+    ],
+    "fr": [
+      "9-économie-proposée-pour-les-programmes-de-liquidité",
+      "91-sources-de-recettes-proposées",
+      "92-les-mathématiques-illustratives-du-prélèvement",
+      "93-droits-de-programme-de-liquidité"
+    ]
+  },
+  "/white-paper/chapter-10-comprehensive-risk-framework": {
+    "en": [
+      "10-comprehensive-risk-framework",
+      "101-protocol-and-smart-contract-risk",
+      "102-economic-and-market-risk",
+      "103-issuer-and-voucher-risk",
+      "104-redemption-presentment-and-fulfillment-risk",
+      "105-governance-risk",
+      "106-legal-and-compliance-risk",
+      "1061-legal-positioning-and-proposed-token-treatment",
+      "107-routing-and-cross-domain-risk",
+      "108-custody-and-key-management-risk",
+      "109-reputation-and-social-risk",
+      "1010-concentration-and-fragmentation-risk"
+    ],
+    "fr": [
+      "10-cadre-global-des-risques",
+      "101-protocole-et-risque-lié-aux-contrats-intelligents",
+      "102-risque-économique-et-de-marché",
+      "103-risque-de-lémetteur-et-du-bon-déchange",
+      "104-risque-de-remboursement-et-de-réalisation",
+      "105-risque-de-gouvernance",
+      "106-risque-juridique-et-de-conformité",
+      "1061-le-positionnement-juridique-et-le-traitement-proposé-des-jetons",
+      "107-risque-de-routage-et-risque-interdomaine",
+      "108-risque-de-dépôt-et-de-gestion-des-clés",
+      "109-réputation-et-risque-social",
+      "1010-risque-de-concentration-et-de-fragmentation"
+    ]
+  },
+  "/white-paper/chapter-11-governance-mechanics": {
+    "en": [
+      "11-governance-mechanics",
+      "111-exchange-rate-and-limit-governance",
+      "112-proposed-insurance-fund-runbook",
+      "113-guarantor-framework",
+      "114-anti-capture-guardrails",
+      "115-fork-and-exit-procedure"
+    ],
+    "fr": [
+      "11-mécanismes-de-gouvernance",
+      "111-gouvernance-des-taux-de-change-et-des-limites",
+      "112-compte-rendu-proposé-des-fonds-dassurance",
+      "113-cadre-du-garant",
+      "114-garnitures-anti-capture",
+      "115-procédure-de-fourche-et-de-sortie"
+    ]
+  },
+  "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
+    "en": [
+      "12-proposed-liquidity-program-term-sheet-non-binding-outline"
+    ],
+    "fr": [
+      "12-fiche-descriptive-du-programme-de-liquidité-proposé-aperçu-non-contraignant"
+    ]
+  },
+  "/white-paper/chapter-13-jargon-plain-language-glossary": {
+    "en": [
+      "13-plain-language-glossary"
+    ],
+    "fr": [
+      "13-glossaire-en-langage-simple"
+    ]
+  },
+  "/white-paper/chapter-14-kpis-health-indicators": {
+    "en": [
+      "14-proposed-kpis-and-health-indicators"
+    ],
+    "fr": [
+      "14-indicateurs-clés-de-performance-et-indicateurs-de-santé-proposés"
+    ]
+  },
+  "/white-paper/chapter-15-roadmap-indicative": {
+    "en": [
+      "15-roadmap-indicative",
+      "151-current-foundation",
+      "152-proposed-milestones"
+    ],
+    "fr": [
+      "15-feuille-de-route-indicative",
+      "151-fondation-actuelle",
+      "152-les-jalons-proposés"
+    ]
+  },
+  "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
+    "en": [
+      "16-proposed-evaluation-template"
+    ],
+    "fr": [
+      "16-modèle-dévaluation-proposé"
+    ]
+  },
+  "/white-paper/chapter-17-legal-compliance-note": {
+    "en": [
+      "17-legal-and-compliance-note",
+      "171-voucher-and-offering-disclosures",
+      "172-pool-disclosures",
+      "173-actions-and-obligations",
+      "174-protections-evidence-and-local-law"
+    ],
+    "fr": [
+      "17-note-juridique-et-de-conformité",
+      "171-révélations-sur-les-coupons-et-les-offres",
+      "172-divulgations-de-groupes",
+      "173-actions-et-obligations",
+      "174-protection-preuves-et-lois-locales"
+    ]
+  },
+  "/white-paper/chapter-18-conclusion": {
+    "en": [
+      "18-conclusion"
+    ],
+    "fr": [
+      "18-conclusion"
+    ]
+  },
+  "/white-paper/appendix-a-math-box": {
+    "en": [
+      "a-proposed-measurement-and-fee-model",
+      "event-and-stock-definitions",
+      "cohort-based-fulfillment-measures",
+      "distinct-velocity-measures",
+      "proposed-network-revenue"
+    ],
+    "fr": [
+      "a-modèle-proposé-de-mesure-et-de-frais",
+      "définitions-des-événements-et-des-stocks",
+      "mesures-dexécution-fondées-sur-la-cohorte",
+      "mesures-de-vitesse-distinctes",
+      "revenus-de-réseau-proposés"
+    ]
+  },
+  "/white-paper/appendix-b-fee-waterfall": {
+    "en": [
+      "b-illustrative-future-fee-waterfall"
+    ],
+    "fr": [
+      "b-illustration-de-la-future-cascade-des-frais"
+    ]
+  },
+  "/white-paper/appendix-c-kpi-definitions": {
+    "en": [
+      "c-proposed-kpi-definitions"
+    ],
+    "fr": [
+      "c-définition-proposée-des-indicateurs-clés"
+    ]
+  },
+  "/white-paper/appendix-d-launch-parameters": {
+    "en": [
+      "d-proposed-launch-parameters"
+    ],
+    "fr": [
+      "d-paramètres-de-lancement-proposés"
+    ]
+  },
+  "/white-paper/appendix-e-worked-example": {
+    "en": [
+      "e-worked-example--proposed-network-rake"
+    ],
+    "fr": [
+      "e-exemple-détaillé--prélèvement-de-réseau-proposé"
+    ]
+  },
+  "/white-paper/appendix-f-dataroom-checklist": {
+    "en": [
+      "f-dataroom-checklist"
+    ],
+    "fr": [
+      "f-liste-de-contrôle-de-la-salle-de-données"
+    ]
+  },
+  "/white-paper/archive": {
+    "en": [
+      "white-paper-archive",
+      "superseded-version"
+    ],
+    "fr": [
+      "archive-du-livre-blanc",
+      "version-remplacée"
+    ]
+  }
+}

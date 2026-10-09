@@ -1,113 +1,113 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **À propos de cette traduction.** C'est une traduction de White Paper v0.8. La source anglaise a été publiée le 30 septembre 2026. Cette traduction a été publiée le 8 octobre 2026. L'anglais est le texte source. <a data-english-source="true" href="/white-paper" hreflang="en">Lisez la source en anglais</a>.
+> **À propos de cette traduction.** Ceci est une première traduction du Livre blanc v0.8 (White Paper v0.8) proposée pour relecture. Le texte source anglais a été publié le 30 septembre 2026. Cette traduction a été préparée le 9 octobre 2026. L’anglais constitue le texte source. <a data-english-source="true" href="/white-paper" hrefLang="en">Lire le texte source anglais</a>.
 
-## Un réseau pour la mise en route du crédit, la coordination des engagements et le financement d'une économie cosmo-locale saine
+## Un réseau pour la répartition des crédits, la coordination des engagements et le financement d'une économie cosmolocale saine
 
-**La version:** 0.8
+**La version suivante:** 0.8
 
-**Date de dépôt:**30 septembre 2026
+**Date à laquelle:** 30 Septembre 2026
 
-**Les auteurs:**William O. Ruddick et Mohamed Sohail
+**Les auteurs:** William O. Ruddick et Mohamed Sohail
 
-**Contacts:**[info@grassecon.org](mailto:info@grassecon.org)
+**Contact :** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Télécharger:**<a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fr.pdf">CLC White Paper v0.8 PDF</a>
+**Télécharger :** <a data-english-source="true" href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf" hrefLang="en">Livre blanc CLC v0.8 en anglais (PDF)</a>
 
-**Publiation:**Publication publique en version définitive. Le présent document ne constitue pas un conseil d'investissement et ne constitue pas une offre de vente ni une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures peuvent réviser les modèles décrits ici.
+**Publié par:** La version finale est publiée. Le présent document ne constitue pas un avis d'investissement et ne constitue pas une offre de vente ou une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures peuvent réviser les modèles décrits ici.
 
-## Comment lire ce papier
+## Comment lire cet article ?
 
-Ce papier combine quatre types de matériaux. Le statut s'applique partout, même lorsqu'un chapitre ne le répète pas.
+Cet article combine quatre types de matériaux. Le statut s'applique dans l'ensemble, même lorsqu'un chapitre ne le répète pas.
 
-|Le statut|La signification|
+|Statut officiel|La signification|
 | --- | --- |
-| **Courant** |Comportement vérifié dans les contrats CLC App ou les contrats publics Protocol v1.1.0. La [référence au protocole](/fr/protocol/overview) est la source factuelle de ces contrats.|
-| **En fonction du déploiement** |Une capacité qui n'existe que lorsqu'un groupe, un fournisseur, une juridiction, un organisme de gouvernance ou une politique publiée en permettent la possibilité.|
-| **L'historique** |La preuve ou la fonctionnalité du service Sarafu Network antérieur. Il n'y a pas d'adoption ou de preuve actuelle CLC qu'un utilisateur, un actif, un enregistrement ou une obligation a migré.|
-| **Proposée** |Une conception, un modèle économique, un mécanisme de gouvernance ou un élément de la feuille de route qui n'est pas représenté comme déployé.|
+| **Courant** |Comportement vérifié dans les contrats CLC App ou Protocol v1.1.0 publics. Le [Référence au protocole](/fr/protocol/overview) est la source factuelle de ces contrats.|
+| **Selon le déploiement** |Une capacité qui n'existe que lorsqu'un bassin, un fournisseur, une juridiction, un organisme de gouvernance ou une politique publiée le permettent.|
+| **Historique** |Evidence ou fonctionnalité du service Sarafu Network antérieur. Il ne s'agit pas d'une adoption actuelle de CLC ou d'une preuve qu'un utilisateur, un actif, un enregistrement ou une obligation a migré.|
+| **Proposé** |Une conception, un modèle économique, un mécanisme de gouvernance ou un élément de feuille de route qui n'est pas représenté comme déployé.|
 
-Le Protocol v1.1.0 actuel comprend l'exécution directe de `SwapPool`, la conservation facultative, l'évaluation, les plafonds de solde des jetons de pool, les frais de pool, une redevance de protocole supplémentaire et un `SwapRouter` à cotation seulement. L'exécution multi-hop, le HTLC ou le routage en escrow, la mise en réseau par lots, l'assurance partagée, le jeton de gouvernance CLC proposé, le pool de réseau CLC proposé, les mécanismes de paiement-crédit et les programmes de liquidité réseau sont proposés ou dépendent du déploiement.
+L'actuel Protocol v1.1.0 comprend l'exécution directe de `SwapPool`, la conservation optionnelle, l'évaluation, les plafonds du solde des jetons de bassin, les frais de bassin, une redevance de protocole supplémentaire et un `SwapRouter` uniquement pour les offres. L'exécution multi-hop, le routage HTLC ou de l'escrow, la compensation par lots, l'assurance partagée, le jeton de gouvernance CLC proposé, le bassin de réseau CLC proposé, les mécanismes de crédits de frais et les programmes de liquidité du réseau sont proposés ou dépendants du déploiement.
 
-**Le public visé:**Constructeurs et administrateurs de piscines, ingénieurs et auditeurs de protocoles, financiers de liquidité et de mandats, concepteurs de gouvernance et réviseurs juridiques ou de conformité.
+**Audience prévue:** Créateurs de bassins et administrateurs, ingénieurs et auditeurs de protocoles, bailleurs de fonds de liquidités et de mandats, concepteurs de gouvernance et examinateurs juridiques ou de conformité.
 
 ## Résumé
 
-Cosmo-Local Credit est une famille de produits construite autour du protocole de mise en commun des engagements (CPP)**. CPP décrit comment les Pools d'engagement gérés indépendamment peuvent régir les engagements redevables, publier les méthodes et les limites des taux de change, conserver l'inventaire et permettre un échange responsable.
+Cosmo-Local Credit est une famille de produits construite autour du **Protocole de mise en commun des engagements (CPP)** CPP décrit comment Bassins d’engagements géré de manière indépendante peut organiser des engagements remboursables, publier des méthodes et des limites de taux de change, tenir un inventaire et permettre un échange responsable.
 
-Un ensemble d'engagements est l'arrangement régi. Un Protocol v1.1.0 actuel **`SwapPool`** est un composant de contrat: un coffret de jetons et un moteur d'échange direct. Un déploiement peut connecter ce contrat à des registres, des citations, des plafonds de solde des jetons Pool, des politiques de frais et d'autres services.
+À **Bassin d’engagements ** est l'arrangement régie. Un courant Protocol v1.1.0 **`SwapPool`** est un composant du contrat: un coffre-fort symbolique et un moteur d'échange direct. Un déploiement peut connecter ce contrat à des registres, des cotations, des plafonds de solde des jetons de bassin, des politiques de redevance et d'autres services.
 
-Cosmo-local signifie partager des normes ouvertes, des logiciels et des connaissances à l'échelle mondiale tout en maintenant l'émission, la réalisation, la gouvernance et la responsabilité dans le monde réel locales. L'émetteur reste responsable de son bon. Un gestionnaire de la piscine reste responsable des règles de la piscine et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne garantissent automatiquement un bon, un pool, une valeur, une route, une position de liquidité ou un résultat.
+Cosmo-local signifie partager des normes ouvertes, des logiciels et des connaissances à l'échelle mondiale tout en gardant l'émission, l'exécution, la gouvernance et la responsabilité dans le monde réel locaux. L'émetteur reste responsable de son bon d’échange. Un Gestionnaire de Bassin reste responsable des règles du bassin et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne garantissent automatiquement un bon d’échange, un bassin, une valeur, une route, une position de liquidité ou un résultat.
 
 ## Déploiement actuel
 
-GEF exploite le CLC App à [cosmolocal.credit](https://cosmolocal.credit). Il fournit un accès au compte et au portefeuille, un catalogue public du marché et des interfaces pris en charge pour les jetons, les bons, les offres, les pools d'engagement, les transferts et les échanges directs de pools. La disponibilité dépend de l'interface, des contrats, de l'inventaire, des limites et des frais configurés, de l'état du réseau, de l'admissibilité, des fournisseurs, de la compétence et des conditions publiées de l'émetteur ou du pool.
+GEF exploite le CLC App au [cosmolocal.credit](https://cosmolocal.credit) Il fournit un accès au compte et au portefeuille, un catalogue public du marché et des interfaces prises en charge pour les jetons, les bons d’échange, les offres, Bassins d’engagements, les transferts et les swaps directs de bassin. La disponibilité dépend de l'interface, des contrats, de l'inventaire, des limites et des frais configurés, de l'état du réseau, de l'admissibilité, des fournisseurs, de la juridiction et des conditions publiées de l'émetteur ou du bassin.
 
-L'exploitation de l'interface ne fait pas par elle-même de GEF un émetteur, un gestionnaire de pool, un dépositaire, un prêteur, un emprunteur, un courtier, un garant, un racheteur, un conseiller, un assureur ou une partie des obligations entre les participants. L'utilisation de l'application est régie par les [Termes de service](/fr/governance/terms).
+L'exploitation de l'interface ne fait pas d'elle-même de GEF un émetteur, de Gestionnaire de Bassin un dépositaire, un prêteur, un emprunteur, un courtier, un garant, un racheteur, un conseiller, un assureur ou une partie à des obligations entre participants. L'utilisation de l'application est régie par le [Conditions d'utilisation](/fr/governance/terms).
 
-Protocol v1.1.0 sépare les rôles responsables du contrôle technique. Un gestionnaire de pool, le propriétaire de `SwapPool`, l'administrateur de proxy, le contrôleur de dépendance, le modérateur de catalogue et le bénéficiaire des frais peuvent être des parties différentes. Voir [Concepts et vocabulaire](/fr/introduction/concepts) pour la terminologie partagée.
+Protocol v1.1.0 sépare les rôles responsables du contrôle technique. Un propriétaire Gestionnaire de Bassin, un propriétaire `SwapPool`, un administrateur de proxy, un contrôleur de dépendance, un modérateur de catalogue et un bénéficiaire de frais peuvent être des parties différentes. Voir aussi [Concepts et vocabulaire](/fr/introduction/concepts) pour la terminologie partagée.
 
 ## Lignée historique
 
-Le Sarafu Network historique a précédé le CLC App et a fourni des preuves sur les monnaies communautaires et le regroupement d'engagements. Sa transition de service à Cosmo-Local Credit n'a pas transféré chaque compte historique, portefeuille, jeton, bon, pool, solde, rapport, participant ou obligation.
+L'historique Sarafu Network a précédé le CLC App et a fourni des preuves sur les monnaies communautaires et le regroupement des engagements. Sa transition vers le service Cosmo-Local Credit n'a pas transféré chaque compte historique, portefeuille, jeton, bon d’échange, bassin, solde, rapport, participant ou obligation.
 
-Les statistiques historiques de ce document utilisent un ensemble de données de Sarafu daté et cohérent. Ce ne sont pas des chiffres d'utilisation CLC actuels. Voir [Résumé exécutif](/fr/white-paper/executive-summary) pour la source et la période de mesure.
+Les métriques historiques de cet article utilisent un ensemble de données Sarafu daté et cohérent en interne. Il ne s'agit pas des chiffres d'utilisation actuels de CLC. Voir le [Résumé exécutif](/fr/white-paper/executive-summary) pour la période de source et de mesure.
 
 ## Modèle de conception
 
 CPP utilise quatre fonctions générales:
 
-- **La conservation:**décider quels bons ou autres actifs sont admis.
-- **Évaluation:**publier la méthode utilisée pour produire les taux de change ou les cotations du Pool.
-- **Limitation:**appliquer les plafonds de solde des jetons du groupe ou d'autres contrôles de risque mis en œuvre séparément.
-- **Échange:**détenir un inventaire et exécuter des swaps de pool en fonction des frais et limites communiqués.
+- **La sélection:** décider quels bons d’échange ou autres actifs sont admis.
+- **Une évaluation:** publier la méthode utilisée pour produire les taux de change ou les cotations de bassin.
+- **Limitation de l'utilisation:** appliquer les plafonds actuels du solde des jetons de bassin ou d'autres contrôles des risques mis en œuvre séparément.
+- **Échange:** détenir un inventaire et exécuter des swaps de bassin dans le cadre de frais et limites divulgués.
 
-Un déploiement ne peut ajouter de services de routage, de surveillance, de soutien à la liquidité, de garanties, de réserves, d'assurance ou de gouvernance que dans le cadre de politiques publiées séparément. L'inscription, la conservation, une limite, une réserve ou un enregistrement de blockchain ne déterminent pas par eux-mêmes la capacité de l'émetteur, l'accomplissement, l'approbation, une garantie ou une assurance.
+Un déploiement peut ajouter des services de routage, de surveillance, de soutien à la liquidité, de garanties, de réserves, d'assurance ou de gouvernance uniquement dans le cadre de politiques publiées séparément. La liste, la conservation, une limite, une réserve ou un enregistrement de chaîne de blocs n'établit pas en soi la capacité d'émetteur, l'exécution, l'approbation, une garantie ou une assurance.
 
-## Les valeurs et les principes de conception
+## Valeurs et principes de conception
 
-- **Prendre soin des gens:**soutenir le bien-être individuel et collectif.
-- **Prendre soin de l'environnement:**réduire les dommages écologiques et soutenir les pratiques régénératrices.
-- **L'équité:**promouvoir un accès sécurisé et équitable aux ressources, aux connaissances et aux soins.
-- **La réciprocité:**Partager le risque, le coût, la responsabilité et l'excédent selon les règles communiquées.
-- **La non-dominance:**résister à un contrôle concentré sur les personnes, les données, les finances, les connaissances et les ressources matérielles.
-- **La résilience:**aider les collectivités à se préparer et à s'adapter aux perturbations économiques, politiques et climatiques.
-- **Responsabilité locale:**maintenir la conformité et la responsabilité légales avec les parties identifiées dans le monde réel.
-- **La fourchette:**permettre aux communautés et déploiements compatibles de quitter les registres ou services partagés sans effacer les soldes ou obligations en vigueur.
+- **Prendre soin des personnes:** soutenir le bien-être individuel et collectif.
+- **Prendre soin de l'environnement:** réduire les dommages écologiques et soutenir les pratiques de régénération.
+- **L'équité:** promouvoir un accès sûr et équitable aux ressources, aux connaissances et aux soins.
+- **Réciprocité:** partager le risque, le coût, la responsabilité et l'excédent conformément aux règles divulguées.
+- **La non-dominance** résister au contrôle concentré des personnes, des données, des finances, des connaissances et des ressources matérielles.
+- **La résilience:** aider les communautés à se préparer et à s'adapter aux perturbations économiques, politiques et climatiques.
+- **Responsabilité locale:** maintenir l'exécution du monde réel et la responsabilité légale avec les parties identifiées.
+- **Pourfait:** permettre aux communautés et aux déploiements compatibles de quitter les registres ou les services partagés sans effacer les soldes ou les obligations valides.
 
-La couche numérique est l'infrastructure de mémoire partagée et de coordination. Elle ne remplace pas les relations, les performances des émetteurs, la gouvernance locale ou la responsabilité juridique.
+La couche numérique est la mémoire partagée et l'infrastructure de coordination. Il ne remplace pas les relations, les performances des émetteurs, la gouvernance locale ou la responsabilité juridique.
 
-## Fluxes actuels et proposés
+## Flux actuel et projeté
 
-### Flux direct de la piscine
+### Flux direct actuel d’un Bassin
 
-1. Un titulaire examine un bon, son émetteur, ses conditions et les offres associées.
-2. Un pool admet les actifs soutenus et publie sa configuration et les autorités compétentes.
-3. Le détenteur obtient une cotation et autorise un échange direct.
-4. `SwapPool` effectue le règlement des swaps en chaîne et comptabilise les frais de pool et de protocole.
-5. Si le titulaire choisit plus tard **“Redeem”** dans l'application, l'application prépare un transfert au propriétaire du jeton en tant que présentation de rachat.
-6. L'émetteur effectue séparément l'exécution promise et enregistre la décharge de sorte que les unités remplies ne peuvent pas être réutilisées.
+1. Un détenteur examine un bon d’échange, son émetteur, ses conditions et les offres associées.
+2. Un bassin admet les actifs pris en charge et publie sa configuration et ses autorités responsables.
+3. Le détenteur obtient un devis et autorise un échange direct de bassin.
+4. `SwapPool` effectue le règlement des swaps en chaîne et tient compte des frais de bassin et de protocole.
+5. Si le Titulaire choisit ensuite **« Redeem »** dans l’application, celle-ci prépare un transfert vers le propriétaire du jeton à titre de présentation pour utilisation.
+6. L'émetteur effectue séparément l'exécution promise et enregistre l'écoulement afin que les unités exécutées ne puissent pas être réutilisées.
 
-Prendre l'inventaire d'une piscine est un échange. Il s'agit d'un remboursement uniquement si ce groupe a assumé séparément le rôle d'émetteur et remplit les conditions du bon applicable.
+Prendre l'inventaire d'un Bassin est un échange. Il s'agit d'un remboursement uniquement si ce bassin a assumé séparément le rôle d'émetteur et remplit les conditions du bon d’échange applicable.
 
-### Conception plus large proposée
+### Proposition de conception plus large
 
-La conception proposée explore le routage d'exécution, le netting, les services partagés, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun d'eux nécessiterait la mise en œuvre, les parties responsables, les règles adoptées, le financement, les contrôles et la divulgation publique avant qu'il puisse être appliqué.
+La conception proposée explore le routage d'exécution, la compensation, les services partagés, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun d'entre eux nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des divulgations publiques avant de pouvoir s'appliquer.
 
-Le modèle de redevance proposé peut utiliser un rake réseau tiré des redevances du pool et des redevances de routage ou de service distinctes. Cette proposition est différente de Protocol v1.1.0, où une redevance de protocole facultative est ajoutée à la redevance de pool.
+Le modèle de redevance proposé peut utiliser un ramassage de réseau tiré des redevances de bassin et des redevances de routage ou de service distinctes. Cette proposition est distincte de la proposition Protocol v1.1.0, dans laquelle une redevance de protocole facultative s'ajoute à la redevance de bassin.
 
-Les partisans ou fournisseurs de liquidités ne reçoivent aucun droit automatique d'actions, de remboursement, de retrait, de récompense ou de gouvernance de la bourse actuelle `SwapPool`. Tout programme actuel ou futur doit indiquer séparément le type de transfert, la partie responsable, les droits de contrôle, de récupération ou de retrait, les pertes, les récompenses, les honoraires et les droits de gouvernance.
+Les partisans ou les fournisseurs de liquidités ne reçoivent aucun droit automatique d'actions de bassin, de remboursement, de retrait, de récompense ou de gouvernance de l'actuel `SwapPool`. Tout programme actuel ou futur doit indiquer séparément le type de transfert, la partie responsable, le contrôle, les droits de récupération ou de retrait, les pertes, les récompenses, les frais et les droits de gouvernance.
 
 ## Carte du lecteur
 
-- Terminologie actuelle et cycle de vie de l'action: [Concepts et vocabulaire](/fr/introduction/concepts)
-- Contrats déployés vérifiés: [Protocol v1.1.0](/fr/protocol/overview)
-- Les preuves historiques: [Résumé exécutif](/fr/white-paper/executive-summary)
-- Confédération et interoperabilité: chapitres 5, 8 et 11
-- Garanties proposées et limites d'assurance: chapitres 10 et 11
+- Terminologie actuelle et cycle de vie de l'action:[Concepts et vocabulaire](/fr/introduction/concepts)
+- Contrats déployés vérifiés:[Protocol v1.1.0](/fr/protocol/overview)
+- Des preuves historiques:[Résumé exécutif](/fr/white-paper/executive-summary)
+- Confédération et interopérabilité: chapitres 5, 8 et 11
+- Garanties et limites d'assurance proposées: chapitres 10 et 11
 - Modèles de liquidité et de redevances proposés: chapitres 7, 9 et 12
 - Cadre de mesure proposé: chapitre 14 et appendices A–C
-- La feuille de route proposée: chapitre 15
+- Proposition de feuille de route: chapitre 15
 - Considérations juridiques et de conformité: chapitre 17
 
-[Anciennes versions du livre blanc](/fr/white-paper/archive) ne sont conservées que comme publications historiques clairement remplacées.
+[Les versions précédentes du livre blanc](/fr/white-paper/archive) sont conservés uniquement comme des publications historiques clairement dépassées.
