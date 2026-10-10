@@ -6,12 +6,14 @@ This file tracks the one-language-at-a-time rollout of the public documentation.
 The implementation details, commands, file conventions, and translation tooling
 remain in the [documentation localization guide](docs/i18n/README.md).
 
-English is the source text. The original eleven-language set already has a
-translated splash page. Dutch and Hindi were detected later in `clc-app`; their
-splash pages and full documentation are included in the remaining rollout.
-Detailed documentation is released only after all 36 pages, the navigation,
-the site interface, and the locale manifest are complete and the reviewable web
-draft has been accepted.
+English is the source text. All thirteen current `clc-app` languages now have a
+translated splash page and a complete 36-page documentation set. Dutch and
+Hindi were detected after the original eleven-language splash rollout.
+Detailed documentation is normally released only after all 36 pages, the
+navigation, the site interface, and the locale manifest are complete and the
+reviewable web draft has been accepted. The current uninterrupted batch is the
+explicit exception: each complete, validated draft is wired for review before
+the combined handoff.
 
 ## Rollout status
 
@@ -26,24 +28,27 @@ draft has been accepted.
 | 3 | German (`de`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 4 | Ukrainian (`uk`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 5 | Serbian (`sr`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 6 | Arabic (`ar`) | Complete | In progress | Pending | Pending | Pending | Deferred |
-| 7 | Dzongkha (`dz`) | Complete | Queued | Pending | Pending | Pending | Deferred |
-| 8 | Dutch (`nl`) | Queued | Queued | Pending | Pending | Pending | Deferred |
-| 9 | Hindi (`hi`) | Queued | Queued | Pending | Pending | Pending | Deferred |
+| 6 | Arabic (`ar`) | Complete | Complete | Batch review pending | Complete | Pending companion app work | Deferred |
+| 7 | Dzongkha (`dz`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Deferred |
+| 8 | Dutch (`nl`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Deferred |
+| 9 | Hindi (`hi`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Deferred |
 
-Only one queued language is active at a time. Do not begin the next language
-until the current web draft passes validation and is accepted for release.
+Only one queued language is normally active at a time. Each web draft must pass
+its validation gate before work starts on the next language. Arabic, Dzongkha,
+Dutch, and Hindi were completed as one uninterrupted batch at the user's
+request. All four are now wired into the review build; user acceptance and
+deployment remain pending.
 
 ## Translation and app baselines
 
-- The existing documentation glossary and released translation manifests use
-  `clc-app` commit `32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1` as their translation baseline.
+- The documentation glossary and translation manifests use `clc-app`
+  `origin/develop` commit `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd`
+  as their current synchronization baseline.
 - `clc-app` `origin/develop` was last audited at
-  `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` on 10 October 2026.
-- The committed registry at that audit includes Dutch (`nl`). A separate local
-  `clc-app` branch, `feat/hindi-language`, also contains uncommitted Hindi
-  (`hi`) work. Hindi terminology will be synchronized from a committed app
-  revision before its docs draft is released.
+  `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd` on 10 October 2026.
+- That committed registry contains all thirteen current app languages,
+  including Dutch (`nl`) and Hindi (`hi`). The docs registry now represents the
+  same thirteen locale codes and metadata values.
 - The current app catalog entries for Voucher, Pool, Market, Issuer, Redeem,
   Send, Swap, and Wallet agreed with the existing docs glossary where those
   locales were already represented.
@@ -64,8 +69,8 @@ until the current web draft passes validation and is accepted for release.
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Ukrainian reviewed. The docs preserve the app terms `Ваучер`, `Пул`, `Емітент`, `Ринок`, `Погасити`, `Надіслати`, `Обміняти`, `Гаманець`, and `Кредитний ліміт`; `Пул зобов’язань` and `Куратор Пулу` follow the established splash glossary. |
 | 10 October 2026 | `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` | Serbian reviewed. The docs use the established Serbian splash terms `Ваучер`, `Тржница`, `Тржница обавеза`, `Управник Тржнице`, `Издавалац`, `Тржиште`, `Искористи`, `Пошаљи`, `Размена`, `Новчаник`, and `Кредитни лимит`. The app catalog mixes `Тржница` with `пул`, Ekavian with Ijekavian forms, and Cyrillic with the Latin label `Povuci vaučer`; the docs consistently use Serbian Cyrillic and the splash glossary. |
 | 10 October 2026 | `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` | Arabic reviewed. Locale metadata remains `ar`, RTL, with `ar-u-nu-arab` number formatting. The docs preserve the app terms `قسيمة`, `الصندوق`, `السوق`, `الجهة المصدرة`, `استرداد`, `سحب القسيمة من التداول`, `إرسال`, `مبادلة`, `المحفظة`, and `حد الائتمان`; `صندوق الالتزامات` and `مشرف الصندوق` follow the established splash glossary. |
-| 10 October 2026 | `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` | Dutch (`nl`) is present in the committed app locale registry and catalog but was absent from the original docs rollout. It is now queued for a splash page and complete documentation pass. |
-| 10 October 2026 | Local `feat/hindi-language` work based on `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` | Hindi (`hi`) is present in the app working registry and a new catalog, but is not yet part of the audited `origin/develop` commit. It is queued after Dutch; its exact terminology and baseline commit must be re-audited once the app work is committed. |
+| 10 October 2026 | `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd` | Dutch (`nl`) is present in the committed app locale registry and catalog. The docs use `Fonds`, `Fondsen`, `Waardebon`, `Waardebonnen`, `Markt`, `Uitgever`, `Inwisselen`, `Waardebon buiten gebruik stellen`, `Verzenden`, `Ruilen`, `Portemonnee`, `Kredietlimiet`, and `Aanbod`; `Commitmentfonds` and `Fondsbeheerder` cover concepts without exact app labels. |
+| 10 October 2026 | `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd` | Hindi (`hi`) is now committed on `origin/develop`. The app terms are `पूल`, `वाउचर`, `बाज़ार`, `जारीकर्ता`, `भुनाएँ`, `रिटायर वाउचर`, `भेजें`, `अदला-बदली`, `वॉलेट`, `क्रेडिट सीमा`, and `ऑफ़र`; the docs glossary adds `प्रतिबद्धता पूल` and `पूल प्रबंधक` for concepts without exact app labels. |
 
 ## Repeatable language workflow
 
@@ -83,8 +88,9 @@ For every language:
    navigation, and previous/next controls.
 5. Run the checks documented below, then provide local preview links for the
    splash page, Getting Started, Concepts, Terms, Protocol, and White Paper.
-6. Wait for acceptance before adding the language to the released documentation
-   set or starting another language.
+6. Normally wait for acceptance before starting another language. For the
+   current explicitly authorized batch, record the review as pending, complete
+   the validation gate, and continue to the next queued language.
 7. Release the docs before enabling that locale's deep-documentation links in
    `clc-app`. Keep each language in its own commit or pull request.
 
@@ -171,73 +177,75 @@ For every language:
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
-### 6. Arabic (`ar`) — current draft
+### 6. Arabic (`ar`)
 
 - [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Refresh or replace the existing non-public Arabic draft.
-- [ ] Review RTL layout, Arabic-Indic display numbers, logical-direction styles,
+- [x] Refresh or replace the existing non-public Arabic draft.
+- [x] Review RTL layout, Arabic-Indic display numbers, logical-direction styles,
       and LTR isolation for code, formulas, addresses, symbols, and URLs.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Arabic navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation, including RTL mobile layouts.
-- [ ] Provide the review URLs and record user acceptance.
-- [ ] Add Arabic to the released documentation set and commit the language.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Arabic navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass automated validation and the production build; include final RTL
+      desktop/mobile inspection in the batch visual review.
+- [ ] Provide the batch review URLs and record user acceptance.
+- [x] Add Arabic to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Arabic routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 7. Dzongkha (`dz`)
 
-- [ ] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Review Tibetan-script terminology, native display digits, the `other`
+- [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
+- [x] Review Tibetan-script terminology, native display digits, the `other`
       plural category, line breaking, platform-font fallback, and glyph coverage.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Dzongkha navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Dzongkha navigation, UI/search text, metadata, and notices.
+- [x] Complete a first-draft priority-page clarity pass; native-language review
+      is still required before publication-quality approval.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass automated validation and rendered desktop/mobile smoke inspection.
 - [ ] Provide the review URLs and record user acceptance.
-- [ ] Add Dzongkha to the released documentation set and commit the language.
+- [x] Add Dzongkha to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Dzongkha routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 8. Dutch (`nl`)
 
-- [ ] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Add Dutch to the docs locale registry, splash catalogs, browser matching,
+- [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
+- [x] Add Dutch to the docs locale registry, splash catalogs, browser matching,
       metadata, and the reusable language selector.
-- [ ] Review natural Dutch terminology for Voucher, Commitment Pool, Pool
+- [x] Review natural Dutch terminology for Voucher, Commitment Pool, Pool
       Steward, Market, Issuer, Redeem, Send, Swap, Wallet, and Credit limit.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Dutch navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Dutch navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass automated validation and rendered-route smoke inspection.
 - [ ] Provide the review URLs and record user acceptance.
-- [ ] Add Dutch to the released documentation set and commit the language.
+- [x] Add Dutch to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Dutch routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 9. Hindi (`hi`)
 
-- [ ] Confirm that the app's Hindi work is committed and record the exact
+- [x] Confirm that the app's Hindi work is committed and record the exact
       `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Add Hindi to the docs locale registry, splash catalogs, browser matching,
+- [x] Add Hindi to the docs locale registry, splash catalogs, browser matching,
       metadata, and the reusable language selector.
-- [ ] Review Devanagari terminology, natural action labels, plural handling,
+- [x] Review Devanagari terminology, natural action labels, plural handling,
       number formatting, font fallback, line breaking, and technical-token
       isolation.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Hindi navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Hindi navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass automated validation and rendered desktop/mobile smoke inspection.
 - [ ] Provide the review URLs and record user acceptance.
-- [ ] Add Hindi to the released documentation set and commit the language.
+- [x] Add Hindi to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Hindi routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.

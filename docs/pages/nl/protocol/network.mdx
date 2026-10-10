@@ -1,0 +1,75 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Protocolnetwerkarchitectuur
+
+Een CPP- compatibele implementatie kan veel waardebonnen en fondsen verbinden via optionele registers, indexen, quote modules en routeontdekking op applicatieniveau.
+
+Grassroots Economics Foundation exploiteert de openbare app op [cosmolocal.credit](https://cosmolocal.credit). Andere interfaces en implementaties kunnen hetzelfde openbaar protocol gebruiken. Het bedienen van de App maakt GEF niet automatisch eigenaar, uitgever, beheerder, ontvanger of borg voor elk contract dat hieronder wordt weergegeven.
+
+Zie je dat ? [Begrippen en woordenschat](/nl/introduction/concepts) voor de scheiding tussen verantwoordelijke functies en technische bevoegdheden.
+
+
+## Voorwaarden en uitvoering van de kandidaten
+
+<MermaidDiagram
+  scrollMessage="Scroll horizontaal om het volledige diagram te bekijken."
+  errorMessage="Het diagram kon niet worden weergegeven"
+  label="Het ontdekken van de route van kandidaten en het uitvoeren van wallet-batches"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["waardebon A"] ---|op de lijst staan en worden gehouden| PoolA["Fonds A"]
+    Bridge["Generieke brugsactiviteiten"] ---|op de lijst staan en worden gehouden| PoolA
+    Bridge ---|op de lijst staan en worden gehouden| PoolB["Fonds B"]
+    VoucherB["waardebon B"] ---|op de lijst staan en worden gehouden| PoolB
+
+    App["PWA of routefinder"] -. discovers candidates .-> Index["Registries en indexen"]
+    App -. requests a quote .-> Router["SwapRouter: uitsluitend citaat"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|bouwt geordende oproepen| WalletStart["Smart-account portemonnee van gebruikers"]
+    WalletStart -->|hop 1: waardebon A| PoolA
+    PoolA -->|brug-uitgang| WalletBridge["Dezelfde portemonnee tussen telefoontjes"]
+    WalletBridge -->|hop 2: brug actief| PoolB
+    PoolB -->|Uitgang van waardebon B| WalletFinal["Dezelfde gebruikersportemonnee"]
+
+    PoolA -->|protocolvergoeding| ProtocolRecipient["Geconfigureerd protocolontvanger"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+Een gedeeld actief creëert een **mogelijke grafiekpad** In dit voorbeeld zou waardebon A kunnen worden uitgewisseld voor het bruggenactief in Fonds A, dan kan het bruggeactief worden uitgerekend voor waardebon B in Fonds B. Elke hop hangt nog steeds af van de huidige toelating van tokens, Fonds limieten, beschikbare inventaris, offertes en kostenconfiguratie, oracle staat, goedkeuringen, transactie grenzen en netwerk uitvoering.
+
+`SwapRouter` roept alleen Fonds quote-functies op over een voorgestelde pad. Het houdt geen fondsen, goedkeurt tokens of uitvoert swaps. Een integrator of compatibele app kan die quote-resultaten gebruiken om bestelde goedkeuring en Fonds-oproepen in een ondertekende smart-account batch te bouwen; dit betekent niet dat de huidige openbare App multi-hop-uitvoering biedt. Elke hop settelt zich in de Wallet voordat die Wallet het tussenliggende asset aan de volgende Fonds levert, en de integrator kan de batch configureren om terug te keren wanneer een call faalt.
+
+Een succesvolle route quote kan nog steeds mislukken of anders worden geregeld als de relevante staat verandert voordat ze wordt uitgevoerd.`SwapPool.withdraw` overbelasting toevoegt`minAmountOut` en`deadline` De integratieprocedure is gebaseerd op de volgende criteria:
+
+De vergoeding voor de fonds blijft bij de betreffende fonds voor latere inzameling.
+
+
+## Poolinterieur
+
+<MermaidDiagram
+  scrollMessage="Scroll horizontaal om het volledige diagram te bekijken."
+  errorMessage="Het diagram kon niet worden weergegeven"
+  label="Commitmentfonds afhankelijkheden en administratieve bevoegdheden"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["De contractuele eigenaar of<br/>Fondsbeheerder"] -->|Configuren, afzegelen, verzamelen, intrekken| Pool["SwapPool<br/>kluis en nederzetting"]
+    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|implementatie van upgrades| Pool
+    Dependencies["Facultatieve afhankelijkheden<br/>registry · limiter · quoter<br/>vergoedingsbeleid · protocolvervoerder van de vergoedingen<br/>elk met zijn eigen bestuur"] -. settlement inputs .-> Pool
+    Seal["Vijf verzegelbare adresslots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["Gebruikersportefeuille"] -->|deposito- of swap-invoer| Pool
+    Pool -->|netto swap output| Wallet
+    Pool -->|verzamelde Poolvergoedingen| FeeAddress["Gecontroleerd<br/>tariefadres"]
+    Pool -->|protocolvergoeding in dezelfde swap| ProtocolRecipient["protocol<br/>ontvanger"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+Het register, limiter, quoter, fee policy en protocol-fee controller zijn optioneel.
+
+De vijf verzegelbare slots zijn:`feePolicy`, `feeAddress`, `quoter`, `tokenRegistry`, en`tokenLimiter`Een zegel voorkomt dat de huidige Fonds-eigenaar dit adres via zijn setter vervangt, maar het bevriezt niet de interne staat van de afhankelijkheid.`protocolFeeController`adres en`feesDecoupled`De mogelijkheid van de proxy-administrator om het Fonds te upgraden is ook gescheiden van het verzegelen.
+
+De contracthouder kan de beschikbare liquiditeit van het Fonds naar een gekozen adres intrekken. In de afgekoppelde kostenmodus worden opgelopen vergoedingen uit dat pad gereserveerd; de bevoegdheid om de resterende liquiditeit te intrekken bestaat nog steeds. Deelnemers moeten de eigenaar, gevolmachtigde beheerder, afhankelijkheidsbeheerders, zegelstaat, ontvangers van vergoedingsrechten en gepubliceerde Poolregels inspecteren voordat ze zich vertrouwen op een Fonds.
+
+Voor het conceptuele ontwerp achter deze contracten, met inbegrip van curatie, waardering, beperking, uitwisseling en governance [Witboek](/nl/white-paper).

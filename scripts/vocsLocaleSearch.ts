@@ -23,7 +23,7 @@ export function vocsLocaleSearch(): Plugin {
         return `
 const localeFromPath = () => {
   const locale = location.pathname.split('/')[1]
-  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar'])}.includes(locale) ? locale : 'en'
+  return ${JSON.stringify(['ar', 'dz', 'de', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw'])}.includes(locale) ? locale : 'en'
 }
 export const getSearchIndex = async () => {
   const locale = localeFromPath()
@@ -44,7 +44,7 @@ import MiniSearch from 'minisearch'
 ${renamed}
 const localeFromPath = () => {
   const locale = location.pathname.split('/')[1]
-  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar'])}.includes(locale) ? locale : 'en'
+  return ${JSON.stringify(['ar', 'dz', 'de', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw'])}.includes(locale) ? locale : 'en'
 }
 const options = {
   fields: ['title', 'titles', 'text'],
@@ -56,7 +56,7 @@ export const getSearchIndex = async () => {
   const prefix = locale === 'en' ? null : '/' + locale + '/'
   const records = complete.search(MiniSearch.wildcard, { combineWith: 'OR' })
     .filter(({ href }) => {
-      const localized = /^\\/(?:ar|de|dz|es|fr|it|pt|sr|sw|uk)(?:\\/|#)/.test(href)
+      const localized = /^\\/(?:ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)(?:\\/|#)/.test(href)
       return prefix ? href.startsWith(prefix) : !localized
     })
     .map(({ id, href, html, isPage, text, title, titles }) => ({

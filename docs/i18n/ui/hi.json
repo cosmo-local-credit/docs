@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "भाषा",
+    "colorTheme": "रंग थीम",
+    "lightMode": "हल्का मोड इस्तेमाल करें",
+    "darkMode": "गहरा मोड इस्तेमाल करें"
+  },
+  "chrome": {
+    "search": "खोजें",
+    "closeSearchDialog": "खोज विंडो बंद करें",
+    "toggleDetailView": "विस्तृत दृश्य बदलें",
+    "resetSearch": "खोज साफ़ करें",
+    "navigate": "नेविगेट करें",
+    "select": "चुनें",
+    "close": "बंद करें",
+    "reset": "रीसेट करें",
+    "menu": "मेन्यू",
+    "onThisPage": "इस पेज पर",
+    "previous": "पिछला",
+    "next": "अगला",
+    "copy": "कॉपी करें",
+    "copied": "कॉपी हो गया",
+    "skipToContent": "मुख्य सामग्री पर जाएँ",
+    "askInChatGPT": "ChatGPT से पूछें",
+    "copyPageForLlms": "LLM के लिए पेज कॉपी करें",
+    "lastUpdated": "अंतिम अपडेट:",
+    "codeGroup": "कोड समूह",
+    "terminal": "टर्मिनल",
+    "file": "फ़ाइल",
+    "noResultsFor": "कोई परिणाम नहीं",
+    "top": "ऊपर",
+    "scrollToTop": "ऊपर जाएँ",
+    "pageNotFound": "पेज नहीं मिला",
+    "notFoundDescription": "आप जिस पेज को खोज रहे थे वह नहीं मिला।",
+    "goHome": "मुखपृष्ठ पर जाएँ",
+    "diagramScroll": "पूरा आरेख देखने के लिए दाएँ-बाएँ स्क्रॉल करें।",
+    "diagramError": "आरेख प्रदर्शित नहीं किया जा सका"
+  },
+  "legal": {
+    "translationTitle": "सुविधा के लिए अनुवाद",
+    "translationNotice": "यह अनुवाद सुविधा के लिए दिया गया है। अंग्रेज़ी शर्तें मूल पाठ हैं और लागू कानून में अन्यथा आवश्यक न होने तक वही मान्य होंगी।",
+    "englishSource": "अंग्रेज़ी शर्तें पढ़ें"
+  },
+  "whitePaper": {
+    "translationTitle": "इस अनुवाद के बारे में",
+    "translationNotice": "यह White Paper v0.8 का अनुवाद है। अंग्रेज़ी मूल पाठ 30 सितंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 10 अक्टूबर 2026 को प्रकाशित हुआ। अंग्रेज़ी मूल पाठ है।",
+    "englishSource": "अंग्रेज़ी मूल पाठ पढ़ें",
+    "archivedEnglishOnly": "पुराना v0.7 PDF केवल अंग्रेज़ी में उपलब्ध है।"
+  }
+}

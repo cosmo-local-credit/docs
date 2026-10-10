@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit helpt mensen en organisaties goederen en diensten te ondersteunen, te delen en uit te wisselen."
+  },
+  "controls": {
+    "language": "Taal",
+    "search": "Zoeken",
+    "colorTheme": "Kleurthema",
+    "lightMode": "Lichte modus gebruiken",
+    "darkMode": "Donkere modus gebruiken"
+  },
+  "englishDocsNotice": "De uitgebreide documentatie en zoekfunctie zijn momenteel beschikbaar in het Engels.",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit helpt mensen en organisaties goederen en diensten te ondersteunen, te delen en uit te wisselen.",
+      "Iedereen kan beschrijven wat die aanbiedt, voor wie het bedoeld is en onder welke voorwaarden het kan worden gebruikt. Deze aanbiedingen kunnen vervolgens in een betrouwbaar netwerk worden samengebracht. Zo wordt het eenvoudiger om nuttige goederen en diensten binnen een gemeenschap of tussen verschillende plaatsen te vinden, uit te wisselen en te ondersteunen."
+    ],
+    "resourceLabel": "Informatie over Cosmo-Local Credit",
+    "actions": {
+      "openApp": "App openen",
+      "about": "Over CLC",
+      "getStarted": "Aan de slag",
+      "protocol": "Protocol",
+      "whitePaper": "White Paper"
+    },
+    "cards": [
+      {
+        "title": "Waardebonnen maken",
+        "description": "Maak een waardebon om je goederen of diensten onder de aandacht te brengen. Voeg duidelijke voorwaarden toe, zodat mensen weten wat de waardebon biedt en hoe ze die kunnen gebruiken."
+      },
+      {
+        "title": "Uitwisselen via Fondsen",
+        "description": "Een Commitmentfonds is een zorgvuldig samengestelde plek waar geselecteerde waardebonnen kunnen worden uitgewisseld. De Fondsbeheerder kiest welke waardebonnen worden ondersteund en publiceert de regels."
+      },
+      {
+        "title": "Waardebonnen delen en gebruiken",
+        "description": "Stuur waardebonnen naar anderen, wissel ondersteunde waardebonnen uit via een Fonds of gebruik ze bij hun Uitgever."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Gemeenschappen versterken door",
+    "titleAccent": "toezeggingen te bundelen",
+    "lead": "Door toezeggingen te bundelen, komen geselecteerde waardebonnen samen in zorgvuldig samengestelde marktplaatsen waar gemeenschappen ze kunnen uitwisselen. Mensen kunnen de waardebonnen daarna gebruiken voor de goederen of diensten die in de voorwaarden zijn beschreven.",
+    "networkAlt": "Illustratie van gemeenschappen die via waardebonnen en Fondsen met elkaar verbonden zijn",
+    "videoLabel": "Bekijk hoe het bundelen van toezeggingen werkt",
+    "videoTitle": "Bekijk hoe het bundelen van toezeggingen werkt",
+    "statistics": {
+      "vouchers": "Unieke actieve waardebonnen",
+      "pools": "Unieke actieve Commitmentfondsen",
+      "users": "Gebruikers",
+      "exchanges": "Uitwisselingen tussen gebruikers",
+      "source": "Historische activiteit van Sarafu Network, van 5 juli 2023 tot en met 20 juli 2025.",
+      "sourceLink": "Brongegevens bekijken."
+    }
+  },
+  "audiences": {
+    "heading": "Wat wil je doen?",
+    "intro": "Maak of beheer een Fonds, breng goederen of diensten onder de aandacht met een waardebon, wissel waardebonnen uit en gebruik ze, of ondersteun een Fonds.",
+    "navLabel": "Ontdek Cosmo-Local Credit per rol",
+    "roles": [
+      { "title": "Fondsbeheerders", "description": "Ik wil een Fonds maken of beheren" },
+      { "title": "Makers van waardebonnen", "description": "Ik wil goederen of diensten onder de aandacht brengen met een waardebon" },
+      { "title": "Gebruikers van waardebonnen", "description": "Ik wil waardebonnen vinden, verzenden, uitwisselen of gebruiken" },
+      { "title": "Ondersteuners", "description": "Ik wil een Commitmentfonds ondersteunen" }
+    ]
+  },
+  "howItWorks": {
+    "label": "Zo werkt het",
+    "imageAlt": "Waardebonnen maken en uitwisselen via een Fonds",
+    "steps": [
+      {
+        "title": "Maak een waardebon",
+        "description": "Beschrijf je goederen of diensten en leg uit hoe mensen de waardebon kunnen gebruiken."
+      },
+      {
+        "title": "Bouw een zorgvuldig samengesteld Fonds",
+        "description": "Een Fondsbeheerder selecteert de waardebonnen die mensen kunnen uitwisselen en publiceert de regels van het Fonds."
+      },
+      {
+        "title": "Verzend of wissel uit",
+        "description": "Stuur waardebonnen rechtstreeks naar anderen of wissel ondersteunde waardebonnen uit via een Fonds."
+      },
+      {
+        "title": "Gebruik de waardebon",
+        "description": "Gebruik de waardebon bij de Uitgever voor de goederen of diensten die in de voorwaarden zijn beschreven."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Fondsbeheerders",
+      "tagline": "Maak en beheer een Fonds.",
+      "description": "Een Fondsbeheerder maakt een zorgvuldig samengestelde marktplaats voor waardebonnen. De beheerder kiest welke waardebonnen het Fonds ondersteunt, publiceert de regels, limieten en kosten en houdt de informatie actueel. Een Fondsbeheerder kan een persoon, organisatie of andere verantwoordelijke groep zijn.",
+      "imageAlt": "Handen die graan aan een gezamenlijke schaal toevoegen",
+      "cardTitle": "Maak een Fonds",
+      "items": [
+        "Beschrijf het doel van het Fonds",
+        "Kies de waardebonnen die het Fonds ondersteunt",
+        "Publiceer de regels, limieten en kosten voor uitwisselingen",
+        "Deel het Fonds met anderen",
+        "Houd de informatie actueel"
+      ],
+      "cta": "Fonds maken"
+    },
+    {
+      "title": "Makers van waardebonnen",
+      "tagline": "Breng je goederen of diensten onder de aandacht.",
+      "description": "Maak een waardebon voor wat je aanbiedt en publiceer duidelijke voorwaarden. Als je een waardebon maakt, ben je de Uitgever ervan. Je bent verantwoordelijk voor wat de waardebon belooft.",
+      "imageAlt": "Mensen steken hun hand op om te delen wat ze aanbieden",
+      "cardTitle": "Maak een waardebon",
+      "items": [
+        "Beschrijf wat je waardebon biedt",
+        "Leg uit waar, wanneer en hoe de waardebon kan worden gebruikt",
+        "Deel de waardebon met klanten en je gemeenschap",
+        "Bekijk welke Fondsen de waardebon ondersteunen",
+        "Kom de belofte van de waardebon na volgens de voorwaarden"
+      ],
+      "cta": "Waardebon maken"
+    },
+    {
+      "title": "Gebruikers van waardebonnen",
+      "tagline": "Vind waardebonnen voor goederen en diensten.",
+      "description": "Een waardebon werkt ongeveer als een cadeaubon. De waardebon staat voor goederen of diensten die de Uitgever aanbiedt. Lees de voorwaarden voordat je de waardebon ontvangt, verzendt, uitwisselt of gebruikt.",
+      "imageAlt": "Mensen wisselen waardebonnen uit voor goederen en diensten",
+      "cardTitle": "Ontdek waardebonnen",
+      "items": [
+        "Bekijk wat elke waardebon biedt",
+        "Lees waar, wanneer en hoe je de waardebon kunt gebruiken",
+        "Vind Fondsen waar de waardebon kan worden uitgewisseld",
+        "Stuur de waardebon naar iemand anders",
+        "Wissel de waardebon uit of gebruik die bij de Uitgever"
+      ],
+      "cta": "Waardebonnen ontdekken"
+    },
+    {
+      "title": "Ondersteuners",
+      "tagline": "Ondersteun een Fonds dat je belangrijk vindt.",
+      "description": "Lees het doel, de regels en de voorwaarden van een Fonds voordat je het ondersteunt. De beschikbare manieren om steun te bieden en eventuele beloningen hangen af van de voorwaarden van elk Fonds.",
+      "imageAlt": "Mensen bespreken hoe ze een gezamenlijk project kunnen ondersteunen",
+      "cardTitle": "Vind een Fonds om te ondersteunen",
+      "cardSubtitle": "Ontdek Fondsen",
+      "badgesLabel": "Voorbeelden van Fonds-thema’s",
+      "badges": ["Landbouw", "Kunst", "Biodiversiteit", "Onderwijs", "Jeugd"],
+      "badgeLinkLabel": "Ontdek Fondsen rond {category}",
+      "items": [
+        "Ontdek waarvoor het Fonds bestaat",
+        "Lees de regels en voorwaarden",
+        "Kies een Fonds dat je wilt ondersteunen",
+        "Volg de updates en activiteiten"
+      ],
+      "footer": "Elk Fonds publiceert zijn eigen ondersteuningsmogelijkheden en voorwaarden.",
+      "cta": "Fondsen ontdekken"
+    }
+  ],
+  "testimonial": {
+    "label": "Effect op de gemeenschap",
+    "imageAlt": "Een lid van de gemeenschap staat voor informatieposters van Sarafu Network",
+    "quote": "“Sarafu heeft veranderd hoe onze gemeenschap handelt en elkaar ondersteunt. Zelfs in moeilijke tijden kunnen we blijven handelen en onze buren helpen. De waardebonnen houden waarde binnen onze gemeenschap in omloop.”",
+    "name": "Joseph Kimani",
+    "role": "Gemeenschapsleider en lokale ondernemer",
+    "since": "Gebruikt Sarafu Network sinds 2019",
+    "badges": ["Gemeenschapsmarkten", "Projecten voor kwetsbare groepen", "Lokale handel"]
+  },
+  "features": {
+    "heading": "Waarom Cosmo-Local Credit?",
+    "intro": [
+      "Mensen en organisaties hebben vaak nuttige goederen en diensten aan te bieden, zelfs wanneer geld schaars is of rechtstreeks uitwisselen moeilijk is. Cosmo-Local Credit maakt deze aanbiedingen eenvoudiger te beschrijven, te vinden, te ondersteunen en uit te wisselen.",
+      "Waardebonnen maken elke aanbieding en de bijbehorende voorwaarden duidelijk. Commitmentfondsen brengen geselecteerde waardebonnen samen onder gedeelde regels, zodat mensen niet op hetzelfde moment iemand hoeven te vinden die precies wil wat zij aanbieden.",
+      "Cosmo-Local Credit wordt gebouwd en onderhouden door {organization}, een Keniaanse non-profitorganisatie die sinds 2010 hulpmiddelen voor gemeenschapsuitwisseling ontwikkelt. Het bouwt voort op lessen uit gemeenschapsmunten, Sarafu Network en het bundelen van toezeggingen."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Lees waar Cosmo-Local Credit vandaan komt.",
+    "cards": [
+      {
+        "title": "Zorgvuldig samengestelde marktplaatsen",
+        "description": "Elk Fonds brengt geselecteerde waardebonnen samen en publiceert de regels voor het uitwisselen ervan."
+      },
+      {
+        "title": "Duidelijke voorwaarden en regels",
+        "description": "Makers van waardebonnen leggen uit wat zij aanbieden. Fondsbeheerders publiceren de regels van elk Fonds."
+      },
+      {
+        "title": "Gemakkelijk toegankelijk",
+        "description": "Gebruik de CLC App op een telefoon of computer. QR-codes en afdrukbare papieren portemonnees bieden extra manieren om deel te nemen."
+      },
+      {
+        "title": "Open en aanpasbaar",
+        "description": "CLC wordt open ontwikkeld, zodat anderen het kunnen bekijken, gebruiken en helpen verbeteren."
+      }
+    ],
+    "imageAlt": "Mensen en plaatsen die via waardebonnen en Fondsen met elkaar verbonden zijn"
+  },
+  "partners": {
+    "sectionLabel": "Media-aandacht en partners",
+    "mediaHeading": "Sarafu Network in de media",
+    "mediaLinkLabel": "Bekijk de berichtgeving van {name}",
+    "partnersHeading": "Onze partners",
+    "partnerLinkLabel": "Bezoek {name}"
+  },
+  "cta": {
+    "heading": "Klaar om te ontdekken?",
+    "body": "Open de CLC App om waardebonnen te ontdekken en de zorgvuldig samengestelde Fondsen waar ze kunnen worden uitgewisseld. Meld je aan voor nieuws en updates over het project.",
+    "openApp": "CLC App openen",
+    "updates": "Nieuws en updates ontvangen"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Gebouwd op lessen uit Sarafu Network.",
+    "legalLabel": "Juridisch",
+    "terms": "Gebruiksvoorwaarden",
+    "dataPolicy": "Gegevensbeleid"
+  }
+}

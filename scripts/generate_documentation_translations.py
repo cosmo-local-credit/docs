@@ -40,10 +40,11 @@ LANGUAGE_CODES = {
     "sw": "swh_Latn",
     "uk": "ukr_Cyrl",
 }
-APP_BASELINE = "32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1"
+APP_BASELINE = "0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd"
 TRANSLATION_DATES = {
     "ar": "10 October 2026",
     "de": "10 October 2026",
+    "dz": "10 October 2026",
     "fr": "9 October 2026",
     "hi": "10 October 2026",
     "es": "9 October 2026",
@@ -1030,7 +1031,9 @@ class NllbTranslator:
             beam_size=beam_size,
             max_batch_size=256,
             batch_type="tokens",
-            max_decoding_length=512 if target == "dz" else 256,
+            max_decoding_length=192 if target == "dz" else 256,
+            repetition_penalty=1.2 if target == "dz" else 1.1,
+            no_repeat_ngram_size=3,
             replace_unknowns=True,
         )
         translated_unique = [
@@ -1696,6 +1699,77 @@ def normalize_translation(source: str, value: str, locale: str) -> str:
         value = re.sub(r"\bnetwork rake\b", "sehemu ya mtandao", value, flags=re.IGNORECASE)
         return value
 
+    if locale == "dz":
+        value = value.replace("ཆུ་རྫིང", "མཉམ་སྤྱོད་དངུལ་ཁུངས")
+        value = value.replace("退休券", "འཛིན་ཤོག་ལག་ལེན་ལས་བཏོན།")
+        value = value.replace("သီးခြား", "སོ་སོར་སྦེ་")
+        value = value.replace("အောက်", "འོག་ལུ་")
+        value = value.replace("အက်ཏོམ", "atomic")
+        value = value.replace("ဒီဇိုင်း", "བཟོ་བཀོད")
+        value = value.replace("မှု၊", "བྱ་བ།")
+        value = value.replace("ခြင်း၊", "བྱ་བ།")
+        value = value.replace("कर्ता", "མཁོ་སྤྲོད་མི")
+        return value
+
+    if locale == "nl":
+        def pool_term(match: re.Match[str]) -> str:
+            term = "Fondsen" if match.group(0).lower().endswith("s") else "Fonds"
+            return term if match.group(0)[0].isupper() else term.lower()
+
+        value = re.sub(r"\bpools?\b", pool_term, value, flags=re.IGNORECASE)
+        value = re.sub(r"\bzwembaden\b", "Fondsen", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bzwembad\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "protocol", value)
+        value = value.replace("cosmolocal.krediet", "cosmolocal.credit")
+        value = value.replace("Redeem”", "‘Inwisselen’")
+        value = value.replace("Retire voucher”", "‘Waardebon buiten gebruik stellen’")
+        value = value.replace("Credit limit”", "‘Kredietlimiet’")
+        value = value.replace("Credit limits”", "‘Kredietlimieten’")
+        value = re.sub(r"\bverplichtingenpool\b", "Commitmentfonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bcommitment pool\b", "Commitmentfonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpoolbeheerder\b", "Fondsbeheerder", value, flags=re.IGNORECASE)
+        if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:vouchers?|coupons?)\b", "waardebonnen", value, flags=re.IGNORECASE)
+        elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:voucher|coupon)\b", "waardebon", value, flags=re.IGNORECASE)
+        if re.search(r"\bissuer\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:emittent|uitgevende instelling)\b", "uitgever", value, flags=re.IGNORECASE)
+        if re.search(r"\bholder\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bdrager\b", "houder", value, flags=re.IGNORECASE)
+        if re.search(r"\bfulfillment\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bvervulling\b", "nakoming", value, flags=re.IGNORECASE)
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:ontlading|lozing)\b", "afboeking", value, flags=re.IGNORECASE)
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\baflossing\b", "inwisseling", value, flags=re.IGNORECASE)
+        if re.search(r"\boffering\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\boffer(?:gave|ande)\b", "aanbod", value, flags=re.IGNORECASE)
+        return value
+
+    if locale == "hi":
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "प्रोटोकॉल", value)
+        value = value.replace("Redeem”", "‘भुनाएँ’")
+        value = value.replace("Retire voucher”", "‘वाउचर रिटायर करें’")
+        value = value.replace("Credit limit”", "‘क्रेडिट सीमा’")
+        value = value.replace("Credit limits”", "‘क्रेडिट सीमाएँ’")
+        value = re.sub(r"स्विमिंग\s+पूल", "पूल", value)
+        value = re.sub(r"तैराकी\s+का\s+तालाब", "पूल", value)
+        value = re.sub(r"प्रतिबद्धता\s+समूह", "प्रतिबद्धता पूल", value)
+        value = re.sub(r"पूल\s+स्टीवर्ड", "पूल प्रबंधक", value)
+        if re.search(r"\bvoucher", source, flags=re.IGNORECASE):
+            value = re.sub(r"वाउचर|कूपन", "वाउचर", value)
+        if re.search(r"\bissuer\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"उत्सर्जक|निर्गमकर्ता", "जारीकर्ता", value)
+        if re.search(r"\bholder\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"धारक", "धारक", value)
+        if re.search(r"\bfulfillment\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"पूर्ति|परिपूर्ति", "वादे की पूर्ति", value)
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"निर्वहन|मुक्ति", "दायित्व की समाप्ति", value)
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"मोचन", "भुनाने", value)
+        return value
+
     if locale != "fr":
         return value
 
@@ -1740,17 +1814,33 @@ def normalize_translation(source: str, value: str, locale: str) -> str:
     return value
 
 
-def split_long(value: str, tokenizer: spm.SentencePieceProcessor) -> list[str]:
-    pieces = re.split(r"(?<=[.!?。؟;])\s+", value)
-    if len(pieces) > 1:
-        return [piece for piece in pieces if piece]
-    if len(tokenizer.encode(value, out_type=str)) <= 420:
-        return [value]
+def split_long(
+    value: str,
+    tokenizer: spm.SentencePieceProcessor,
+    max_tokens: int = 380,
+) -> list[str]:
+    pieces = [piece for piece in re.split(r"(?<=[.!?。؟;])\s+", value) if piece]
     chunks: list[str] = []
     current = ""
     for piece in pieces:
+        if len(tokenizer.encode(piece, out_type=str)) > max_tokens:
+            words = piece.split()
+            word_chunk = ""
+            for word in words:
+                candidate = f"{word_chunk} {word}".strip()
+                if word_chunk and len(tokenizer.encode(candidate, out_type=str)) > max_tokens:
+                    chunks.append(word_chunk)
+                    word_chunk = word
+                else:
+                    word_chunk = candidate
+            if word_chunk:
+                if current:
+                    chunks.append(current)
+                    current = ""
+                chunks.append(word_chunk)
+            continue
         candidate = f"{current} {piece}".strip()
-        if current and len(tokenizer.encode(candidate, out_type=str)) > 380:
+        if current and len(tokenizer.encode(candidate, out_type=str)) > max_tokens:
             chunks.append(current)
             current = piece
         else:
@@ -1955,7 +2045,11 @@ def translate_segments(
             )
         visible_source = re.sub(r"<[^>]+>", "", visible_source)
         chunks = (
-            split_long(protected_value, translator.tokenizer)
+            split_long(
+                protected_value,
+                translator.tokenizer,
+                max_tokens=80 if locale == "dz" else 380,
+            )
             if re.search(r"[A-Za-z]", visible_source)
             else [protected_value]
         )
@@ -1966,7 +2060,12 @@ def translate_segments(
         else:
             chunk_counts.append(0)
 
-    translated_chunks = translator.translate_many(flat_chunks, "en", locale)
+    translated_chunks = translator.translate_many(
+        flat_chunks,
+        "en",
+        locale,
+        beam_size=4,
+    )
     translated: list[str] = []
     offset = 0
     for source_segment, (source_chunks, protected), count in zip(
@@ -2168,6 +2267,7 @@ def main() -> None:
     if glossary_data["sourceAppCommit"] != APP_BASELINE:
         raise ValueError("The glossary is not synchronized to the required clc-app commit")
     app_glossary = glossary_data["terms"]
+    english_splash = json.loads((I18N / "messages/en.json").read_text())
     english_ui = json.loads((I18N / "ui/en.json").read_text())
     english_navigation = json.loads((I18N / "navigation/en.json").read_text())
     sources = english_sources()
@@ -2195,21 +2295,46 @@ def main() -> None:
                 translator, values, locale, canonical_terms, app_glossary
             )
 
-        ui_segments: list[str] = []
-        ui_template = json_template(english_ui, ui_segments)
-        ui_translated, ui_review = translate(ui_segments)
-        ui = render_json_template(ui_template, ui_translated)
-        # Reuse the app-aligned controls already reviewed for the splash page.
-        splash = json.loads((I18N / f"messages/{locale}.json").read_text())
-        ui["controls"] = {
-            key: splash["controls"][key]
-            for key in ["language", "colorTheme", "lightMode", "darkMode"]
-        }
-        nav_segments: list[str] = []
-        nav_template = json_template(english_navigation, nav_segments)
-        nav_translated, nav_review = translate(nav_segments)
-        navigation = render_json_template(nav_template, nav_translated)
-        locale_reviews: list[dict[str, float | int]] = [ui_review, nav_review]
+        splash_path = I18N / f"messages/{locale}.json"
+        splash_generated = not splash_path.exists()
+        if splash_generated:
+            splash_segments: list[str] = []
+            splash_template = json_template(english_splash, splash_segments)
+            splash_translated, splash_review = translate(splash_segments)
+            splash = render_json_template(splash_template, splash_translated)
+        else:
+            splash = json.loads(splash_path.read_text())
+            splash_review = {
+                "units": 0,
+                "meanBackTranslationSimilarity": 1.0,
+                "unitsBelow0_35": 0,
+            }
+        if locale in {"dz", "hi", "nl"}:
+            # Short interface labels need maintained catalogs. General-purpose
+            # MT lacks enough context here and can choose unrelated meanings.
+            ui = json.loads((I18N / f"ui/{locale}.json").read_text())
+            navigation = json.loads((I18N / f"navigation/{locale}.json").read_text())
+            ui_review = {"units": 0, "meanBackTranslationSimilarity": 1.0, "unitsBelow0_35": 0}
+            nav_review = {"units": 0, "meanBackTranslationSimilarity": 1.0, "unitsBelow0_35": 0}
+        else:
+            ui_segments: list[str] = []
+            ui_template = json_template(english_ui, ui_segments)
+            ui_translated, ui_review = translate(ui_segments)
+            ui = render_json_template(ui_template, ui_translated)
+            # Reuse the app-aligned controls already reviewed for the splash page.
+            ui["controls"] = {
+                key: splash["controls"][key]
+                for key in ["language", "colorTheme", "lightMode", "darkMode"]
+            }
+            nav_segments: list[str] = []
+            nav_template = json_template(english_navigation, nav_segments)
+            nav_translated, nav_review = translate(nav_segments)
+            navigation = render_json_template(nav_template, nav_translated)
+        locale_reviews: list[dict[str, float | int]] = [
+            splash_review,
+            ui_review,
+            nav_review,
+        ]
         page_jobs: list[tuple[Path, str, MarkdownTemplate, int, int]] = []
         all_page_segments: list[str] = []
         for source_path in sources:
@@ -2300,6 +2425,10 @@ def main() -> None:
             }
 
         # Write only after the full locale has translated and verified successfully.
+        if splash_generated:
+            splash_path.write_text(
+                json.dumps(splash, ensure_ascii=False, indent=2) + "\n"
+            )
         (I18N / f"ui/{locale}.json").write_text(
             json.dumps(ui, ensure_ascii=False, indent=2) + "\n"
         )

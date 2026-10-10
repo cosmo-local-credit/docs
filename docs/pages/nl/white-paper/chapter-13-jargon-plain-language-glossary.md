@@ -1,0 +1,25 @@
+## **13. Glossair in eenvoudige taal**
+
+- **Cosmo-Local Credit (CLC):** De productfamilie, met inbegrip van de CLC App, documentatie en het bredere engagement-poolingwerk.
+- **CLC App:** De progressieve web-app die wordt beheerd door GEF op `cosmolocal.credit`.
+- **protocol inzake de samenstelling van verbintenissen (CPP):** Het herbruikbare model van curatie, waardering, beperking, uitwisseling en verantwoord bestuur.
+- **Protocol v1.1.0:** De geverifieerde publieke smart-contract release.
+- **Commitmentfonds:** Een gereglementeerde regeling die ondersteunde activa toestaat en wisselkoersregels publiceert.
+- **`SwapPool`:** De huidige token vault en direct-swap contract.
+- **Teken:** Een saldo op de keten of een digitaal actief.
+- **waardebon:** Een token of record die door een uitgever wordt vertegenwoordigd als aflossbare verbintenis onder gepubliceerde voorwaarden.
+- **Aanbieding:** Een catalogusregister van goederen of diensten in verband met een waardebon.
+- **Uitgever:** De partij die verantwoordelijk is voor de publicatie en uitvoering van een voucherverbintenis.
+- **Fondsbeheerder:** De verantwoordelijke structuur die de regels van Fonds publiceert en beheert.
+- **Fonds wisselkoers of quote:** Een transactieparameter geproduceerd door een geconfigureerde quotator; geen bewijs van contant geld of terugbetalingswaarde.
+- **Fonds-token-balanscap:** De huidige maximale `Limiter` voor een token in handen van een Fonds. **“Creditslimiet.”**
+- **Fonds swap:** Een directe activauitwisseling via één `SwapPool`.
+- **Swap afwikkeling:** De overdrachten in de keten en de boekhouding van de vergoedingen die een Fonds swap voltooien.
+- **Aflossingsaanvraag:** Het teruggeven of anderszins aanbieden van waardebon-eenheden aan de uitgever.
+- **nakoming:** De uitgever levert het beloofde goed, dienst, voordeel of andere prestaties.
+- **afboeking:** Een document dat voorkomt dat voltooide eenheden opnieuw worden gepresenteerd.
+- **Voorgestelde uitvoeringsrouter:** De huidige `SwapRouter` citeert alleen.
+- **Voorgestelde netwerkpool CLC:** Een toekomstige regeling inzake clearing en begrotingscoördinatie op netwerkniveau.
+- **Voorgesteld CLC governance token:** Een toekomstige governance-ontwerp, geen huidige App of Protocol v1.1.0-actief.
+- **Netwerkraak:** Een voorgestelde aandeel van de Poolvergoedingen overgedragen aan een toekomstige netwerkbegroting.
+- **Garantie of verzekering:** Een bescherming die alleen van toepassing is wanneer een geïdentificeerde partij het uitdrukkelijk overneemt, financiert en publiceert.

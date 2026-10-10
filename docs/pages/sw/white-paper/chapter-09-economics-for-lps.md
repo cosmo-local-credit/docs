@@ -10,7 +10,7 @@ Bajeti ya mitandao ya baadaye inaweza kupokea:
 2. malipo tofauti ya njia au huduma kutoka kwa huduma za pamoja zilizotekelezwa; na
 3. mapato mengine yaliyopitishwa kwa wazi.
 
-Malipo ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Jumuiya ya Hivi sasa Protocol v1.1.0 hutumia mfano tofauti: ada ya itifaki ya hiari ni ya ziada kwa ada ya Kikundi na hutumwa moja kwa moja kwa mpokeaji wake aliyewekwa.
+Ada za jumla za Vikundi zinazobaki kwenye Vikundi si mapato ya mtandao. Protocol v1.1.0 ya sasa hutumia mfano tofauti: ada ya hiari ya itifaki huongezwa juu ya ada ya Kikundi na hutumwa moja kwa moja kwa mpokeaji aliyesanidiwa.
 
 ### **9.2 Mfano wa kihisabati wa sehemu ya mtandao**
 

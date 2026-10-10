@@ -11,10 +11,10 @@ const dist = join(root, 'docs/dist')
 const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const siteUrl = 'https://docs.cosmolocal.credit'
-const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const documentationLocales = ['en', 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar']
+const locales = ['en', 'ar', 'dz', 'de', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const documentationLocales = [...locales]
 const localized = new Set(locales.filter((locale) => locale !== 'en'))
-const directions = { en: 'ltr', ar: 'rtl', de: 'ltr', dz: 'ltr', es: 'ltr', fr: 'ltr', it: 'ltr', pt: 'ltr', sr: 'ltr', sw: 'ltr', uk: 'ltr' }
+const directions = { en: 'ltr', ar: 'rtl', dz: 'ltr', de: 'ltr', es: 'ltr', fr: 'ltr', hi: 'ltr', it: 'ltr', nl: 'ltr', pt: 'ltr', sr: 'ltr', uk: 'ltr', sw: 'ltr' }
 const documentationPaths = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
   '/protocol/overview', '/protocol/smart-contracts', '/protocol/network',
@@ -121,13 +121,13 @@ function buildSearchIndexes() {
     const prefix = locale === 'en' ? null : `/${locale}/`
     const selected = records
       .filter(({ href }) => {
-        const isLocalized = /^\/(?:ar|de|dz|es|fr|it|pt|sr|sw|uk)(?:\/|#)/.test(href)
+        const isLocalized = /^\/(?:ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
         return prefix ? href.startsWith(prefix) : !isLocalized
       })
       .map(({ id, href, html, isPage, text, title, titles }) => ({ id, href, html, isPage, text, title, titles }))
     if (!selected.length) throw new Error(`Search index for ${locale} is empty`)
     if (selected.some(({ href }) => locale === 'en'
-      ? /^\/(?:ar|de|dz|es|fr|it|pt|sr|sw|uk)(?:\/|#)/.test(href)
+      ? /^\/(?:ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
       : !href.startsWith(`/${locale}/`))) {
       throw new Error(`Search index for ${locale} contains another locale`)
     }
@@ -136,7 +136,7 @@ function buildSearchIndexes() {
     writeFileSync(join(searchDir, `search-index-${locale}.json`), JSON.stringify(index.toJSON()))
   }
 
-  if (!/^search-index-(?:en|ar|de|dz|es|fr|it|pt|sr|sw|uk)\.json$/.test(sourceName)) {
+  if (!/^search-index-(?:en|ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)\.json$/.test(sourceName)) {
     rmSync(sourceFile)
   }
 }

@@ -1,0 +1,74 @@
+# Aan de slag
+
+Cosmo-Local Credit (CLC) is een progressieve webapp voor het maken, vinden, bewaren, verzenden en uitwisselen van digitale activa, waaronder inwisselbare waardebonnen, via onafhankelijk bestuurde Commitmentfondsen. De CLC App is beschikbaar op [cosmolocal.credit](https://cosmolocal.credit).
+
+[Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) beheert de App en de ondersteunende infrastructuur. Tenzij GEF uitdrukkelijk een andere rol aanvaardt voor een specifiek Aanbod of een specifieke transactie, is GEF niet de Uitgever van een door een gebruiker gemaakte waardebon, de Fondsbeheerder van een door een gebruiker gemaakt Fonds, een bewaarder, kredietgever, kredietnemer, garant, verzekeraar of partij die de waardebon inwisselt. Uitgevers zijn verantwoordelijk voor de toezeggingen van hun waardebonnen. Fondsbeheerders zijn verantwoordelijk voor de regels van hun Fonds.
+
+Lees [Begrippen en woordenschat](/nl/introduction/concepts) voor de precieze productlagen, rollen, handelingen, waarden, kosten en statusbegrippen in deze documentatie.
+
+Lees de [Gebruiksvoorwaarden](/nl/governance/terms) voordat je een account maakt of een transactie uitvoert. Let vooral op het volgende:
+
+- Je moet ten minste 18 jaar oud zijn, de wettelijke meerderjarigheid hebben bereikt die op jou van toepassing is en bevoegd zijn om overeenkomsten aan te gaan.
+- Je bent er zelf verantwoordelijk voor dat je account, waardebon, Fonds en transactie in alle relevante rechtsgebieden wettig zijn.
+- Bescherm de toegangsgegevens van je Portemonnee. GEF kan een verloren Portemonnee mogelijk niet herstellen en een goedgekeurde transactie mogelijk niet terugdraaien.
+- Transacties en gegevens op een openbare blockchain kunnen zichtbaar, permanent en onomkeerbaar zijn.
+- Een vermelding in de App is geen goedkeuring van GEF en geen garantie voor inwisseling, waarde, liquiditeit, omzetbaarheid of uitbetaling in geld.
+
+## Begin met de huidige App
+
+### 1. Bekijk de Markt
+
+Open [cosmolocal.credit](https://cosmolocal.credit) om de openbare **Markt**, de ontdekcatalogus van de App, te verkennen. Controleer de verantwoordelijke Uitgever, de beloofde goederen of diensten, de locatie, de beschikbaarheid en de gepubliceerde voorwaarden. Een vermelding in de Markt is niet automatisch een handelsplaats, verkopersrelatie, onafhankelijke waardering, goedkeuring of garantie.
+
+### 2. Maak of open een account en Portemonnee
+
+De App gebruikt een account voor toegang tot je profiel en sessie, en een Portemonnee voor blockchainautorisatie. Bescherm je passkey, papieren-portemonneemateriaal, herstelinformatie, apparaten en andere toegangsgegevens. Controleer ieder activum, bedrag, adres, Fonds, iedere vergoeding en iedere autorisatie voordat je een transactie bevestigt.
+
+### 3. Maak een waardebon
+
+Een waardebon bestaat uit meerdere afzonderlijke lagen:
+
+1. de werking en saldi van het tokencontract;
+2. de benaming en gepubliceerde voorwaarden van de waardebon door de Uitgever;
+3. een of meer Aanbiedingen voor bijbehorende goederen of diensten; en
+4. de daadwerkelijke nakoming door de Uitgever.
+
+Het maken of uitgeven van een token bewijst op zichzelf niet dat er een Aanbieding bestaat, dat de Uitgever voldoende capaciteit heeft of dat GEF de inwisseling garandeert.
+
+### 4. Maak of beoordeel een Commitmentfonds
+
+Een Commitmentfonds is een bestuurde regeling. Het huidige `SwapPool`-contract kan een voorraad ondersteunde tokens aanhouden en rechtstreekse swaps uitvoeren. Controleer het volgende voordat je een Fonds gebruikt of eraan bijdraagt:
+
+- de verantwoordelijke Fondsbeheerder en de huidige eigenaar van het contract;
+- de proxybeheerder en de beheerders van geconfigureerde afhankelijkheden;
+- toegelaten waardebonnen en andere ondersteunde activa;
+- methoden voor wisselkoersen of offertes;
+- het App-label **‘Kredietlimiet’**, dat een bovengrens voor het tokensaldo van een Fonds is en geen persoonlijk krediet;
+- Fonds- en protocolkosten;
+- de beschikbare voorraad en de bevoegdheid van de Fondseigenaar om liquiditeit op te nemen; en
+- afzonderlijk gepubliceerde voorwaarden voor bijdragen, garanties, reserves of verzekeringen.
+
+Een storting draagt activa over aan de `SwapPool`. Protocol v1.1.0 maakt geen Fondsdeeltokens aan en geeft de storter niet automatisch recht op terugbetaling, opname, beloningen of bestuur.
+
+### 5. Gebruik de juiste handeling
+
+- **Verzenden** draagt een tokensaldo over aan een ander adres.
+- **Fondsswap** wisselt één ondersteund activum om voor een ander via één `SwapPool`. De afwikkeling van een swap op de blockchain bewijst niet dat de Uitgever zijn toezegging nakomt.
+- **‘Inwisselen’** opent de verzendstroom met het adres van de tokeneigenaar vooraf ingevuld. Hiermee wordt de waardebon aan de Uitgever aangeboden of teruggestuurd. Voltooide inwisseling vereist daarnaast de beloofde prestatie van de Uitgever en een afboekingsregistratie die hergebruik voorkomt.
+- **‘Waardebon buiten gebruik stellen’** verbergt de vermelding in de catalogus. Deze handeling verbrandt geen saldi, annuleert de waardebon niet en beëindigt de openstaande verplichtingen van de Uitgever niet.
+- **Liquiditeit uit het Fonds opnemen** laat de Fondseigenaar beschikbare voorraad overdragen.
+- **Kosten innen** stuurt opgebouwde Fondskosten naar de geconfigureerde ontvanger.
+
+Bekijk het [praktische voorbeeld van een waardebon](/nl/introduction/example) voor de volledige levenscyclus.
+
+## Huidige, implementatieafhankelijke en voorgestelde mogelijkheden
+
+De huidige App biedt een Markt en ondersteunde processen voor accounts, Portemonnees, waardebonnen, Aanbiedingen, Fondsen, overdrachten, rechtstreekse Fondsswaps en bijbehorende gegevens. De beschikbaarheid hangt af van de actieve implementatie, het activum, de Fondsconfiguratie, het apparaat, het netwerk, de geschiktheid, de aanbieder, het rechtsgebied en de gepubliceerde voorwaarden.
+
+Betalingsdiensten, ondersteuningsmethoden, beloningen, garanties, bijdrageregelingen en andere integraties met aanbieders zijn implementatieafhankelijk. Waar ze worden aangeboden, moeten de verantwoordelijke partij, kosten, limieten, geschiktheidsvoorwaarden en juridische voorwaarden worden vermeld.
+
+Protocol v1.1.0 biedt rechtstreekse uitvoering door een Fonds en een `SwapRouter` die alleen offertes geeft. Uitvoering over meerdere stappen, routing via HTLC of escrow, batchverrekening, gedeelde verzekering, voorgestelde bestuursactiva, liquiditeitsprogramma’s op netwerkniveau en gereguleerde betaalroutes blijven voorgesteld of implementatieafhankelijk, tenzij een specifieke implementatie ze als actief aanduidt.
+
+Voor ieder toekomstig lening- of ander kredietproduct zijn afzonderlijk aangeboden aanvullende voorwaarden en transactievoorwaarden nodig. Een gewone overdracht, storting in een Fonds, Fondsswap, aanbieding ter inwisseling, nakoming of afboeking is niet automatisch een lening, voorschot of terugbetaling.
+
+Lees vervolgens het [Protocoloverzicht](/nl/protocol/overview), de [bestuursmechanismen](/nl/governance/mechanics) of de uitgebreidere [White Paper](/nl/white-paper).

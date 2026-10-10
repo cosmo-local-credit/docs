@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **Over deze vertaling.** Dit is een vertaling van White Paper v0.8. De Engelse brontekst is gepubliceerd op 30 september 2026. Deze vertaling is gepubliceerd op 10 oktober 2026. Engels is de brontekst. <a data-english-source="true" href="/white-paper" hrefLang="en">Lees de Engelse brontekst</a>.
+
+## Een netwerk voor het routeren van krediet, het coördineren van toezeggingen en het financieren van een gezonde kosmo-lokale economie
+
+**Versie:** 0.8
+
+**Datum:** 30 september 2026
+
+**Auteurs:** William O. Ruddick en Mohamed Sohail
+
+**Contact:** [info@grassecon.org](mailto:info@grassecon.org)
+
+**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf">CLC White Paper v0.8 PDF</a>
+
+**Publicatie:** Definitieve openbare versie. Dit document is geen beleggingsadvies en vormt geen aanbod tot verkoop of uitnodiging tot aankoop van effecten of financiële instrumenten. Latere versies kunnen de hier beschreven ontwerpen herzien.
+
+## Hoe je deze White Paper leest
+
+Deze White Paper bevat vier soorten materiaal. De status geldt voor het hele document, ook wanneer een hoofdstuk die niet herhaalt.
+
+| Status | Betekenis |
+| --- | --- |
+| **Huidig** | Gedrag dat in de CLC App of de openbare contracten van Protocol v1.1.0 is geverifieerd. De [Protocolreferentie](/nl/protocol/overview) is de feitelijke bron voor die contracten. |
+| **Implementatieafhankelijk** | Een mogelijkheid die alleen bestaat wanneer een specifiek Fonds, een aanbieder, rechtsgebied, bestuursorgaan of gepubliceerd beleid dit mogelijk maakt. |
+| **Historisch** | Bewijs of functionaliteit van de eerdere dienst Sarafu Network. Dit is geen huidig CLC-gebruik en bewijst niet dat een gebruiker, activum, registratie of verplichting is gemigreerd. |
+| **Voorgesteld** | Een ontwerp, economisch model, bestuursmechanisme of roadmaponderdeel dat niet als geïmplementeerd wordt voorgesteld. |
+
+Het huidige Protocol v1.1.0 omvat rechtstreekse uitvoering door een `SwapPool`, optionele samenstelling en waardering, bovengrenzen voor tokensaldi van Fondsen, Fondskosten, aanvullende protocolkosten en een `SwapRouter` die alleen offertes geeft. Uitvoering over meerdere stappen, routing via HTLC of escrow, batchverrekening, gedeelde verzekering, de voorgestelde CLC-bestuurstoken, het voorgestelde CLC-netwerkfonds, mechanismen voor kostenkrediet en liquiditeitsprogramma’s op netwerkniveau zijn voorgesteld of implementatieafhankelijk.
+
+**Beoogde lezers:** bouwers en beheerders van Fondsen, protocolingenieurs en auditors, financiers van liquiditeit en mandaten, ontwerpers van bestuur en juridische of compliancebeoordelaars.
+
+## Samenvatting
+
+Cosmo-Local Credit is een productfamilie die is opgebouwd rond het **Commitment Pooling Protocol (CPP)**. CPP beschrijft hoe onafhankelijk bestuurde Commitmentfondsen inwisselbare toezeggingen kunnen samenstellen, methoden en limieten voor wisselkoersen kunnen publiceren, voorraad kunnen aanhouden en verantwoorde uitwisseling mogelijk kunnen maken.
+
+Een **Commitmentfonds ** is de bestuurde regeling. Een huidige **`SwapPool`** van Protocol v1.1.0 is één contractonderdeel: een tokenkluis en motor voor rechtstreekse swaps. Een implementatie kan dit contract verbinden met registers, quoters, bovengrenzen voor tokensaldi van Fondsen, kostenbeleid en andere diensten.
+
+Kosmo-lokaal betekent open standaarden, software en kennis wereldwijd delen, terwijl uitgifte, nakoming, bestuur en verantwoordelijkheid in de echte wereld lokaal blijven. Een Uitgever blijft verantwoordelijk voor zijn waardebon. Een Fondsbeheerder blijft verantwoordelijk voor de Fondsregels en iedere garantie die die uitdrukkelijk aanvaardt. Noch de CLC App, noch GEF garandeert automatisch een waardebon, Fonds, waarde, route, liquiditeitspositie of resultaat.
+
+## Huidige implementatie
+
+GEF beheert de CLC App op [cosmolocal.credit](https://cosmolocal.credit). De App biedt toegang tot accounts en Portemonnees, een openbare Markt-catalogus en ondersteunde interfaces voor tokens, waardebonnen, Aanbiedingen, Commitmentfondsen, overdrachten en rechtstreekse Fondsswaps. De beschikbaarheid hangt af van de interface, contracten, voorraad, geconfigureerde limieten en kosten, netwerkstatus, geschiktheid, aanbieders, het rechtsgebied en de gepubliceerde voorwaarden van de Uitgever of het Fonds.
+
+Het beheren van de interface maakt GEF op zichzelf niet tot Uitgever, Fondsbeheerder, bewaarder, kredietgever, kredietnemer, tussenpersoon, garant, partij die inwisselt, adviseur, verzekeraar of partij bij verplichtingen tussen deelnemers. Op het gebruik van de App zijn de [Gebruiksvoorwaarden](/nl/governance/terms) van toepassing.
+
+Protocol v1.1.0 scheidt verantwoordelijke rollen van technische zeggenschap. De Fondsbeheerder, eigenaar van de `SwapPool`, proxybeheerder, beheerder van afhankelijkheden, catalogusmoderator en ontvanger van kosten kunnen verschillende partijen zijn. Bekijk [Begrippen en woordenschat](/nl/introduction/concepts) voor de gedeelde terminologie.
+
+## Historische oorsprong
+
+Het historische Sarafu Network ging vooraf aan de CLC App en leverde inzichten over gemeenschapsmunten en het bundelen van toezeggingen. De overgang van de dienst naar Cosmo-Local Credit heeft niet ieder historisch account, iedere Portemonnee, token, waardebon, Fonds, saldo, rapport, deelnemer of verplichting overgedragen.
+
+Historische cijfers in deze White Paper gebruiken een gedateerde, intern samenhangende Sarafu-dataset. Het zijn geen huidige gebruikscijfers van CLC. Bekijk de [Managementsamenvatting](/nl/white-paper/executive-summary) voor de bron en meetperiode.
+
+## Ontwerpmodel
+
+CPP gebruikt vier brede functies:
+
+- **Samenstelling:** bepalen welke waardebonnen of andere activa worden toegelaten.
+- **Waardering:** de methode publiceren waarmee wisselkoersen of offertes van een Fonds worden berekend.
+- **Begrenzing:** huidige bovengrenzen voor tokensaldi van Fondsen of andere afzonderlijk geïmplementeerde risicobeheersmaatregelen toepassen.
+- **Uitwisseling:** voorraad aanhouden en Fondsswaps uitvoeren binnen bekendgemaakte kosten en grenzen.
+
+Een implementatie mag routing, monitoring, liquiditeitssteun, garanties, reserves, verzekering of bestuursdiensten alleen toevoegen onder afzonderlijk gepubliceerd beleid. Vermelding, samenstelling, een limiet, een reserve of een blockchainregistratie vormt op zichzelf geen bewijs van capaciteit van de Uitgever, nakoming, goedkeuring, garantie of verzekering.
+
+## Waarden en ontwerpprincipes
+
+- **Zorg voor mensen:** individueel en collectief welzijn ondersteunen.
+- **Zorg voor het milieu:** ecologische schade verminderen en regeneratieve werkwijzen ondersteunen.
+- **Eerlijkheid:** veilige en rechtvaardige toegang tot middelen, kennis en zorg bevorderen.
+- **Wederkerigheid:** risico, kosten, verantwoordelijkheid en overschotten delen onder bekendgemaakte regels.
+- **Geen overheersing:** geconcentreerde controle over mensen, gegevens, financiën, kennis en materiële middelen tegengaan.
+- **Veerkracht:** gemeenschappen helpen zich voor te bereiden op en aan te passen aan economische, politieke en klimaatverstoringen.
+- **Lokale verantwoordelijkheid:** nakoming in de echte wereld en juridische verantwoordelijkheid bij geïdentificeerde partijen houden.
+- **Forkbaarheid:** compatibele gemeenschappen en implementaties de mogelijkheid geven gedeelde registers of diensten te verlaten zonder geldige saldi of verplichtingen te wissen.
+
+De digitale laag is een gedeeld geheugen en coördinatie-infrastructuur. Ze vervangt geen relaties, prestaties van Uitgevers, lokaal bestuur of juridische verantwoordelijkheid.
+
+## Huidige en voorgestelde processen
+
+### Huidig rechtstreeks Fondsproces
+
+1. Een Houder beoordeelt een waardebon, de Uitgever, de voorwaarden en bijbehorende Aanbiedingen.
+2. Een Fonds laat ondersteunde activa toe en publiceert zijn configuratie en verantwoordelijke autoriteiten.
+3. De Houder ontvangt een offerte en keurt een rechtstreekse Fondsswap goed.
+4. `SwapPool` voert de swapafwikkeling op de blockchain uit en verwerkt Fonds- en protocolkosten.
+5. Als de Houder later **‘Inwisselen’** in de App kiest, bereidt de App een overdracht naar de tokeneigenaar voor als aanbieding ter inwisseling.
+6. De Uitgever komt de belofte afzonderlijk na en registreert de afboeking, zodat nagekomen eenheden niet opnieuw kunnen worden gebruikt.
+
+Voorraad uit een Fonds ontvangen is een swap. Het is alleen een inwisseling wanneer dat Fonds afzonderlijk de rol van Uitgever heeft aanvaard en de toepasselijke voorwaarden van de waardebon nakomt.
+
+### Breder voorgesteld ontwerp
+
+Het voorgestelde ontwerp onderzoekt uitvoeringsrouting, verrekening, gedeelde diensten, liquiditeitsprogramma’s op netwerkniveau, verzekeringsbeleid en bestuursactiva. Elk daarvan vereist een implementatie, verantwoordelijke partijen, vastgestelde regels, financiering, beheersmaatregelen en openbare bekendmakingen voordat het van toepassing kan zijn.
+
+Het voorgestelde kostenmodel kan een netwerkafdracht uit Fondskosten en afzonderlijke routing- of servicekosten gebruiken. Dat voorstel verschilt van Protocol v1.1.0, waarin optionele protocolkosten bovenop de Fondskosten komen.
+
+Ondersteuners of liquiditeitsverschaffers krijgen door de huidige `SwapPool` niet automatisch Fondsdeelnemingen of rechten op terugbetaling, opname, beloningen of bestuur. Ieder huidig of toekomstig programma moet het soort overdracht, de verantwoordelijke partij, zeggenschap, herstel- of opnamerechten, verliezen, beloningen, kosten en bestuursrechten afzonderlijk bekendmaken.
+
+## Leeswijzer
+
+- Huidige terminologie en levenscyclus van handelingen: [Begrippen en woordenschat](/nl/introduction/concepts)
+- Geverifieerde geïmplementeerde contracten: [Protocol v1.1.0](/nl/protocol/overview)
+- Historisch bewijs: [Managementsamenvatting](/nl/white-paper/executive-summary)
+- Confederatie en interoperabiliteit: hoofdstukken 5, 8 en 11
+- Voorgestelde garanties en verzekeringsgrenzen: hoofdstukken 10 en 11
+- Voorgestelde liquiditeits- en kostenmodellen: hoofdstukken 7, 9 en 12
+- Voorgesteld meetkader: hoofdstuk 14 en bijlagen A–C
+- Voorgestelde roadmap: hoofdstuk 15
+- Juridische en complianceoverwegingen: hoofdstuk 17
+
+[Eerdere versies van de White Paper](/nl/white-paper/archive) worden alleen als duidelijk vervangen historische publicaties bewaard.

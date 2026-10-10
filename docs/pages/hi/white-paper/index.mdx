@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **इस अनुवाद के बारे में।** यह White Paper v0.8 का अनुवाद है। मूल अंग्रेज़ी पाठ 30 सितंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 10 अक्टूबर 2026 को प्रकाशित हुआ। अंग्रेज़ी मूल पाठ है। <a data-english-source="true" href="/white-paper" hrefLang="en">मूल अंग्रेज़ी पाठ पढ़ें</a>।
+
+## क्रेडिट को route करने, प्रतिबद्धताओं का समन्वय करने और स्वस्थ kosmo-local अर्थव्यवस्था को वित्त देने का नेटवर्क
+
+**संस्करण:** 0.8
+
+**तारीख:** 30 सितंबर 2026
+
+**लेखक:** William O. Ruddick और Mohamed Sohail
+
+**संपर्क:** [info@grassecon.org](mailto:info@grassecon.org)
+
+**डाउनलोड:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf">CLC White Paper v0.8 PDF</a>
+
+**प्रकाशन:** अंतिम, संस्करणबद्ध सार्वजनिक प्रकाशन। यह दस्तावेज़ निवेश सलाह नहीं है और किसी प्रतिभूति या वित्तीय साधन को बेचने का प्रस्ताव या खरीदने का आग्रह नहीं है। बाद के संस्करण यहाँ बताए गए डिज़ाइनों में बदलाव कर सकते हैं।
+
+## इस श्वेत पत्र को कैसे पढ़ें
+
+इस श्वेत पत्र में चार तरह की सामग्री है। यह स्थिति पूरे दस्तावेज़ पर लागू होती है, भले ही हर अध्याय इसे दोहराए नहीं।
+
+| स्थिति | अर्थ |
+| --- | --- |
+| **मौजूदा** | CLC App या सार्वजनिक Protocol v1.1.0 contracts में सत्यापित व्यवहार। इन contracts के लिए [प्रोटोकॉल संदर्भ](/hi/protocol/overview) तथ्यात्मक स्रोत है। |
+| **तैनाती पर निर्भर** | ऐसी क्षमता जो केवल तब मौजूद होती है जब कोई खास Pool, provider, अधिकार क्षेत्र, governing body या प्रकाशित policy उसे संभव बनाए। |
+| **ऐतिहासिक** | पुरानी Sarafu Network सेवा का प्रमाण या कार्यक्षमता। यह CLC का मौजूदा उपयोग या यह प्रमाण नहीं कि कोई उपयोगकर्ता, संपत्ति, record या दायित्व स्थानांतरित हुआ। |
+| **प्रस्तावित** | ऐसा design, economic model, governance mechanism या roadmap item जिसे लागू हुआ नहीं बताया गया है। |
+
+मौजूदा Protocol v1.1.0 में सीधे `SwapPool` execution, वैकल्पिक चयन और मूल्यांकन, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल quote देने वाला `SwapRouter` शामिल हैं। Multi-hop execution, HTLC या escrow routing, batch netting, साझा insurance, प्रस्तावित CLC governance token, प्रस्तावित CLC Network Pool, fee-credit mechanisms और network liquidity programs प्रस्तावित या तैनाती पर निर्भर हैं।
+
+**किनके लिए:** Pool बनाने और चलाने वाले, protocol engineers और auditors, liquidity और mandate funders, governance designers तथा कानूनी या compliance reviewers।
+
+## सारांश
+
+Cosmo-Local Credit एक उत्पाद परिवार है जो **Commitment Pooling Protocol (CPP)** के आसपास बना है। CPP बताता है कि स्वतंत्र रूप से संचालित प्रतिबद्धता पूल भुनाए जा सकने वाले वादों का चयन कैसे कर सकते हैं, विनिमय दर की विधियाँ और सीमाएँ कैसे प्रकाशित कर सकते हैं, भंडार कैसे रख सकते हैं और जवाबदेह आदान-प्रदान कैसे संभव बना सकते हैं।
+
+**प्रतिबद्धता पूल ** नियमों से संचालित पूरी व्यवस्था है। मौजूदा Protocol v1.1.0 का **`SwapPool`** उसका एक contract component है: token vault और सीधे swap का engine। तैनाती उस contract को registries, quoters, Pool token-balance caps, fee policies और दूसरी services से जोड़ सकती है।
+
+Kosmo-local का अर्थ है कि खुले standards, software और knowledge को दुनिया भर में साझा किया जाए, जबकि issuing, वादा पूरा करना, governance और वास्तविक दुनिया की accountability स्थानीय रहें। जारीकर्ता अपने वाउचर के लिए ज़िम्मेदार रहता है। Pool प्रबंधक Pool के नियमों और स्पष्ट रूप से स्वीकार की गई किसी भी guarantee के लिए ज़िम्मेदार रहता है। न CLC App और न GEF अपने आप किसी voucher, Pool, value, route, liquidity position या outcome की guarantee देता है।
+
+## मौजूदा तैनाती
+
+GEF [cosmolocal.credit](https://cosmolocal.credit) पर CLC App चलाता है। यह account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, पेशकशों, प्रतिबद्धता पूलों, transfers और सीधे Pool swaps के लिए समर्थित interfaces देता है। उपलब्धता interface, contracts, inventory, configured limits और fees, network state, eligibility, providers, अधिकार क्षेत्र और जारीकर्ता या Pool की प्रकाशित शर्तों पर निर्भर करती है।
+
+सिर्फ interface चलाने से GEF जारीकर्ता, Pool प्रबंधक, संरक्षक, ऋणदाता, उधारकर्ता, broker, guarantor, वाउचर भुनाने वाला, adviser, insurer या प्रतिभागियों के बीच दायित्वों का पक्ष नहीं बनता। App के इस्तेमाल पर [सेवा की शर्तें](/hi/governance/terms) लागू होती हैं।
+
+Protocol v1.1.0 जवाबदेह भूमिकाओं को तकनीकी नियंत्रण से अलग रखता है। Pool प्रबंधक, `SwapPool` मालिक, proxy administrator, dependency controller, catalog moderator और fee recipient अलग-अलग पक्ष हो सकते हैं। साझा शब्दावली के लिए [अवधारणाएँ और शब्दावली](/hi/introduction/concepts) देखें।
+
+## ऐतिहासिक पृष्ठभूमि
+
+ऐतिहासिक Sarafu Network CLC App से पहले था और उसने सामुदायिक मुद्राओं और प्रतिबद्धताओं को एक साथ लाने के बारे में प्रमाण दिए। सेवा के Cosmo-Local Credit में बदलने से हर पुराना account, wallet, token, voucher, Pool, balance, report, participant या obligation स्थानांतरित नहीं हुआ।
+
+इस श्वेत पत्र के ऐतिहासिक आँकड़े तारीख सहित एक internally consistent Sarafu dataset से आते हैं। ये CLC के मौजूदा उपयोग के आँकड़े नहीं हैं। स्रोत और माप की अवधि के लिए [कार्यकारी सारांश](/hi/white-paper/executive-summary) देखें।
+
+## डिज़ाइन मॉडल
+
+CPP चार व्यापक कार्यों का इस्तेमाल करता है:
+
+- **चयन:** तय करना कि कौन से vouchers या दूसरी assets स्वीकार की जाएँ।
+- **मूल्यांकन:** Pool exchange rates या quotes बनाने की विधि प्रकाशित करना।
+- **सीमाएँ:** मौजूदा Pool token-balance caps या अलग से लागू दूसरी risk controls इस्तेमाल करना।
+- **आदान-प्रदान:** inventory रखना और बताई गई fees और सीमाओं के भीतर Pool swaps करना।
+
+तैनाती routing, monitoring, liquidity support, guarantees, reserves, insurance या governance services केवल अलग से प्रकाशित policies के तहत जोड़ सकती है। Listing, चयन, कोई limit, reserve या blockchain record अपने आप जारीकर्ता की क्षमता, वादा पूरा होना, मंज़ूरी, guarantee या insurance साबित नहीं करता।
+
+## मूल्य और डिज़ाइन सिद्धांत
+
+- **लोगों की देखभाल:** व्यक्तिगत और सामूहिक कल्याण का समर्थन।
+- **पर्यावरण की देखभाल:** पर्यावरणीय नुकसान कम करना और पुनर्योजी कार्यों का समर्थन।
+- **निष्पक्षता:** संसाधनों, ज्ञान और देखभाल तक सुरक्षित और न्यायसंगत पहुँच बढ़ाना।
+- **पारस्परिकता:** प्रकाशित नियमों के तहत जोखिम, लागत, ज़िम्मेदारी और अतिरिक्त लाभ साझा करना।
+- **वर्चस्व से बचाव:** लोगों, data, finance, knowledge और material resources पर केंद्रित नियंत्रण का विरोध।
+- **लचीलापन:** समुदायों को आर्थिक, राजनीतिक और climate disruptions के लिए तैयार होने और ढलने में मदद करना।
+- **स्थानीय जवाबदेही:** वास्तविक दुनिया में वादा पूरा करने और कानूनी ज़िम्मेदारी को पहचाने गए पक्षों के पास रखना।
+- **Forkability:** compatible communities और deployments को valid balances या obligations मिटाए बिना shared registries या services छोड़ने देना।
+
+Digital layer साझा memory और coordination infrastructure है। यह relationships, जारीकर्ता के काम, local governance या legal accountability की जगह नहीं लेती।
+
+## मौजूदा और प्रस्तावित प्रक्रियाएँ
+
+### मौजूदा सीधी Pool प्रक्रिया
+
+1. धारक voucher, उसके जारीकर्ता, उसकी शर्तों और उससे जुड़ी पेशकशों की जाँच करता है।
+2. Pool समर्थित assets स्वीकार करता है और अपनी configuration और ज़िम्मेदार authorities प्रकाशित करता है।
+3. धारक quote लेता है और सीधे Pool swap की अनुमति देता है।
+4. `SwapPool` blockchain पर swap settlement करता है और Pool तथा protocol fees दर्ज करता है।
+5. अगर धारक बाद में App में **‘भुनाएँ’** चुनता है, तो App token owner को हस्तांतरण तैयार करता है ताकि voucher भुनाने के लिए पेश किया जा सके।
+6. जारीकर्ता अलग से अपना वादा पूरा करता है और निस्तारण दर्ज करता है, ताकि पूरी की गई units दोबारा इस्तेमाल न हों।
+
+Pool से inventory लेना swap है। यह केवल तब voucher भुनाना है जब Pool ने अलग से जारीकर्ता की भूमिका स्वीकार की हो और लागू voucher terms पूरी करता हो।
+
+### व्यापक प्रस्तावित डिज़ाइन
+
+प्रस्तावित डिज़ाइन execution routing, netting, shared services, network liquidity programs, insurance policies और governance assets की संभावना देखता है। लागू होने से पहले हर व्यवस्था को implementation, ज़िम्मेदार पक्ष, स्वीकार किए गए rules, funding, controls और public disclosures चाहिए।
+
+प्रस्तावित fee model Pool fees से ली गई network cut और अलग routing या service fees इस्तेमाल कर सकता है। यह प्रस्ताव Protocol v1.1.0 से अलग है, जहाँ वैकल्पिक protocol fee Pool fee के ऊपर लगती है।
+
+मौजूदा `SwapPool` से समर्थकों या liquidity providers को अपने आप Pool shares, repayment, withdrawal, reward या governance rights नहीं मिलते। हर मौजूदा या भविष्य के program को transfer का प्रकार, ज़िम्मेदार पक्ष, control, recovery या withdrawal rights, losses, rewards, fees और governance rights अलग से बताने होंगे।
+
+## पढ़ने का मार्ग
+
+- मौजूदा शब्दावली और कार्रवाई का जीवनचक्र: [अवधारणाएँ और शब्दावली](/hi/introduction/concepts)
+- सत्यापित और लागू contracts: [Protocol v1.1.0](/hi/protocol/overview)
+- ऐतिहासिक प्रमाण: [कार्यकारी सारांश](/hi/white-paper/executive-summary)
+- Confederation और interoperability: अध्याय 5, 8 और 11
+- प्रस्तावित guarantees और insurance की सीमाएँ: अध्याय 10 और 11
+- प्रस्तावित liquidity और fee models: अध्याय 7, 9 और 12
+- प्रस्तावित measurement framework: अध्याय 14 और परिशिष्ट A–C
+- प्रस्तावित roadmap: अध्याय 15
+- कानूनी और compliance विचार: अध्याय 17
+
+[श्वेत पत्र के पिछले संस्करण](/hi/white-paper/archive) केवल स्पष्ट रूप से बदले गए ऐतिहासिक प्रकाशनों के रूप में रखे गए हैं।

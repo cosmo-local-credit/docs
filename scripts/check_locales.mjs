@@ -8,9 +8,13 @@ const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const publicPaper = join(root, 'docs/public/white-paper')
-const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const documentationLocales = ['en', 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar']
-const localizedLocales = ['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar']
+// Snapshot of the clc-app registry at the synchronization baseline below.
+// Keeping it here makes CI independent of the sibling repository while still
+// failing if the docs registry omits a known app language.
+const appLocaleSnapshot = ['en', 'ar', 'dz', 'de', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const locales = [...appLocaleSnapshot]
+const documentationLocales = [...appLocaleSnapshot]
+const localizedLocales = locales.filter((locale) => locale !== 'en')
 const translationDates = {
   fr: '9 October 2026',
   es: '9 October 2026',
@@ -21,9 +25,12 @@ const translationDates = {
   uk: '10 October 2026',
   sr: '10 October 2026',
   ar: '10 October 2026',
+  dz: '10 October 2026',
+  hi: '10 October 2026',
+  nl: '10 October 2026',
 }
 const splashLocalizedLocales = locales.slice(1)
-const appBaseline = '32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1'
+const appBaseline = '0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd'
 const protectedNames = [
   'Cosmo-Local Credit', 'CLC App', 'Sarafu Network', 'Grassroots Economics Foundation',
   'Protocol v1.1.0', 'White Paper v0.8', 'William O. Ruddick', 'Mohamed Sohail',
@@ -38,6 +45,19 @@ const protectedFormulas = [
 const errors = []
 const sha256 = (value) => createHash('sha256').update(value).digest('hex')
 const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'))
+
+const localeRegistrySource = readFileSync(join(i18n, 'locales.ts'), 'utf8')
+const localeOptionsSource = localeRegistrySource.slice(
+  localeRegistrySource.indexOf('export const LOCALE_OPTIONS'),
+  localeRegistrySource.indexOf('] as const') + 1,
+)
+const registryCodes = [...localeOptionsSource.matchAll(/\{\s*code:\s*'([^']+)'/g)]
+  .map((match) => match[1])
+if (registryCodes.join(',') !== appLocaleSnapshot.join(',')) {
+  errors.push(
+    `Docs locale registry (${registryCodes.join(', ')}) does not match the audited clc-app snapshot (${appLocaleSnapshot.join(', ')})`,
+  )
+}
 
 function placeholders(value) {
   return [...value.matchAll(/\{([^}]+)\}/g)].map((match) => match[1]).sort()

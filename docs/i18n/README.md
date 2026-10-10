@@ -3,16 +3,16 @@
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
 public documentation site. The synchronization baseline is `clc-app`
-`origin/develop` commit `32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1`.
+`origin/develop` commit `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd`.
 
 English is unprefixed. Localized routes use their two-letter locale prefix. The
-original Arabic, Dzongkha, German, Spanish, French, Italian, Portuguese,
-Serbian, Kiswahili, and Ukrainian splash pages are available. Dutch and Hindi
-were added to the app later and are queued for both splash and documentation
-localization. Detailed documentation is released one reviewed language at a
-time. French, Spanish, Portuguese, Italian, Kiswahili, German, Ukrainian, and
-Serbian have completed web review; Arabic is the current review draft. Stable
-English slugs are deliberately retained below each published locale prefix.
+registry contains Arabic, German, Dzongkha, Spanish, French, Hindi, Italian,
+Dutch, Portuguese, Serbian, Kiswahili, and Ukrainian. Detailed documentation is
+normally released one reviewed language at a time. French, Spanish, Portuguese,
+Italian, Kiswahili, German, Ukrainian, and Serbian have completed web review.
+Arabic, Dzongkha, Dutch, and Hindi are complete, validated web drafts awaiting
+the combined user review authorized for this batch. Stable English slugs are
+deliberately retained below each published locale prefix.
 
 ## Files
 

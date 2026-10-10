@@ -1,0 +1,102 @@
+# Begrippen en woordenschat
+
+Cosmo-Local Credit verbindt een applicatie, een open protocol, onafhankelijk bestuurde Fondsen en de werkelijke toezeggingen die waardebonnen vertegenwoordigen. Deze lagen werken samen, maar zijn niet hetzelfde.
+
+Deze pagina omschrijft de begrippen die in de documentatie worden gebruikt. Exacte labels uit de App staan tussen aanhalingstekens wanneer de interface een kortere of mogelijk dubbelzinnige naam gebruikt.
+
+## Product- en protocollagen
+
+| Begrip | Betekenis |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | De productfamilie: de CLC App, de documentatie en het bredere werk rond het bundelen van toezeggingen. |
+| **CLC App** | De progressieve webapp op [cosmolocal.credit](https://cosmolocal.credit). GEF beheert deze interface en de ondersteunende diensten. |
+| **Commitment Pooling Protocol (CPP)** | Het herbruikbare model voor samenstelling, waardering, begrenzing, uitwisseling en verantwoordelijk bestuur. |
+| **Protocol v1.1.0** | De geverifieerde openbare smart-contractrelease die in de [Protocolreferentie](/nl/protocol/overview) wordt beschreven. |
+| **Commitmentfonds ** | Een bestuurde regeling die activa samenstelt, regels publiceert en uitwisseling mogelijk maakt. ** Fonds** is de gebruikelijke verkorte naam. |
+| **`SwapPool`** | Het huidige Protocolcontract dat een tokenvoorraad aanhoudt en rechtstreekse swaps uitvoert. Het is één technisch onderdeel van een Commitmentfonds. |
+| **Voorgestelde CLC-bestuurstoken** | Een toekomstig bestuursontwerp in de White Paper. Dit is geen huidig activum van de App of Protocol v1.1.0. |
+| **Voorgesteld CLC-netwerkfonds** | Een toekomstig ontwerp voor verrekening en coördinatie op netwerkniveau. Dit is niet hetzelfde als een huidige `SwapPool`. |
+
+## Tokens, waardebonnen en Aanbiedingen
+
+Een **token** is een saldo op de blockchain of een digitaal activum. Tokenmechanismen kunnen voorraad, overdrachten, verval en verbranding registreren, maar beloven op zichzelf geen goederen, diensten, omzetting in geld of inwisseling.
+
+Een **waardebon** is een token of registratie die een Uitgever onder gepubliceerde voorwaarden als inwisselbare toezegging aanbiedt. Die voorwaarden moeten vermelden wat wordt beloofd, wie verantwoordelijk is, waar en wanneer de waardebon kan worden aangeboden, welke belangrijke beperkingen gelden en hoe nakoming en klachten worden afgehandeld.
+
+Een **Aanbieding** is de catalogusregistratie van goederen of diensten die bij een waardebon horen. Het publiceren van een Aanbieding maakt geen tokens aan, bewijst geen beschikbaarheid en toont niet aan dat nakoming heeft plaatsgevonden.
+
+Dit zijn vier afzonderlijke lagen:
+
+1. het tokencontract en de saldi;
+2. de omschrijving en gepubliceerde voorwaarden van de waardebon;
+3. een of meer Aanbiedingen; en
+4. de daadwerkelijke prestatie van de Uitgever.
+
+## Verantwoordelijke rollen en technische zeggenschap
+
+| Rol of bevoegdheid | Verantwoordelijkheid of macht |
+| --- | --- |
+| **Uitgever** | Publiceert een toezegging in de vorm van een waardebon en komt die na. Deze verantwoordelijkheid gaat niet automatisch over wanneer het eigendom van een contract verandert. |
+| **Houder** | Beheert een saldo aan waardebonnen. Zeggenschap bewijst geen nakoming, geldwaarde of garantie. |
+| **Dienstverlener** | Een publiek gerichte rol. Een dienstverlener wordt Uitgever wanneer die een toezegging in de vorm van een waardebon publiceert. |
+| **Fondsbeheerder** | De verantwoordelijke persoon, coöperatie, overheidsinstantie, federatie, multisig, dienst of andere structuur die Fondsregels publiceert en beheert. |
+| **Fondseigenaar** | Het adres met de huidige eigenaarsbevoegdheden van de `SwapPool`, waaronder configuratie, inning van kosten en opname van beschikbare liquiditeit. |
+| **Proxybeheerder** | De bevoegde partij die de implementatie van een proxycontract kan upgraden. Dit kan een andere partij zijn dan de Fondseigenaar. |
+| **Beheerder van een afhankelijkheid** | Een eigenaar of schrijver met zeggenschap over een register, limiter, quoter, oracle, kostenbeleid of beheerder van protocolkosten. |
+| **Catalogusmoderator** | Een App-beheerder die catalogusgegevens kan corrigeren, verbergen of herstellen zonder saldi op de blockchain te wijzigen. |
+| **Ontvanger van kosten** | Het geconfigureerde adres dat Fonds- of protocolkosten ontvangt. Dit is niet noodzakelijk de Fondsbeheerder of Fondseigenaar. |
+| **Ondersteuner of liquiditeitsverschaffer** | Een deelnemer die activa bijdraagt onder afzonderlijk bekendgemaakte voorwaarden. De huidige `SwapPool` maakt geen Fondsdeelnemingen aan en geeft geen automatisch recht op terugbetaling, opname, beloningen of bestuur. |
+
+‘Gemeenschapslid’ is informele sociale taal. Dit begrip geeft op zichzelf geen recht op toelating, eigendom, bestuur, terugbetaling of andere juridische rechten.
+
+## Handelingen en levenscyclus
+
+| Begrip in de App of documentatie | Betekenis |
+| --- | --- |
+| **Een waardebon maken of publiceren** | Een token implementeren of configureren en de catalogusregistratie en voorwaarden publiceren. |
+| **Uitgeven of aanmaken** | Een tokensaldo maken onder de bevoegdheid van de geconfigureerde eigenaar of schrijver. |
+| **Een Aanbieding publiceren** | Een registratie van goederen of diensten aan een waardebon toevoegen. |
+| **Verzenden** | Een tokensaldo naar een ander adres overdragen. |
+| **‘Inwisselen’** | In de huidige App de verzendstroom openen met het adres van de tokeneigenaar vooraf ingevuld. Hiermee worden tokens aan de Uitgever aangeboden of teruggestuurd; het bewijst geen nakoming. |
+| **Nakomen** | De Uitgever levert de beloofde goederen, diensten, voordelen of andere prestatie. |
+| **Afboeken** | Nagekomen eenheden registreren zodat ze niet opnieuw kunnen worden aangeboden, bijvoorbeeld door ze volgens de gepubliceerde voorwaarden te ontvangen, verbranden, annuleren of op een andere manier uit te schakelen. |
+| **‘Waardebon buiten gebruik stellen’** | Een waardebon in de App-catalogus verbergen. Saldi en geschiedenis blijven bestaan en een beheerder kan de vermelding herstellen. Het is geen verbranding of annulering. |
+| **Storting of bijdrage aan een Fonds** | Activa naar een `SwapPool` overdragen. Rechten op terugbetaling, opname, beloningen of bestuur bestaan alleen als ze afzonderlijk bekendgemaakt zijn. |
+| **Fondsswap** | Eén ondersteund activum via één `SwapPool` omwisselen voor een ander. Dit is geen nakoming door de Uitgever en ook niet automatisch een lening. |
+| **Liquiditeit uit een Fonds opnemen** | De Fondseigenaar draagt beschikbare voorraad over naar een gekozen adres. |
+| **Kosten innen** | Een geconfigureerde ontvanger int opgebouwde Fondskosten. |
+
+Gebruik **swapafwikkeling ** voor de overdrachten op de blockchain en de kostenboekhouding waarmee een Fondsswap wordt voltooid. Gebruik ** aanbieding ter inwisseling **, ** nakoming ** en ** afboeking** voor de afzonderlijke levenscyclus van een waardebon in de echte wereld.
+
+## Markt, waarden, limieten en kosten
+
+De **Markt** in de App is een ontdekcatalogus voor waardebonnen, Fondsen, Aanbiedingen en openbare informatie. Een vermelding is niet automatisch een handelsplaats, verkopersrelatie, goedkeuring, waardering of garantie.
+
+Houd deze waardebegrippen uit elkaar:
+
+- **prijs van een Aanbieding:** het bedrag dat voor een vermeld goed of een vermelde dienst wordt gevraagd;
+- **vermelde waarde van een waardebon:** een waarde die in de gepubliceerde voorwaarden van de Uitgever wordt genoemd;
+- **wisselkoers of offerte van een Fonds:** de transactieparameter die door de geconfigureerde quoter van een Fonds wordt berekend;
+- **oraclereferentie:** externe gegevens die door een geconfigureerde waarderingsmodule worden gebruikt; en
+- **inwisselvoorwaarden:** wat de Uitgever belooft te leveren en onder welke voorwaarden.
+
+Het App-label **‘Kredietlimiet’** verwijst naar de geconfigureerde bovengrens voor het tokensaldo van een Fonds: de maximale hoeveelheid van die token die het Fonds na een storting mag aanhouden. Het is geen persoonlijke kredietlijn, controle van de capaciteit van een Uitgever of garantie op inwisseling. De voorgestelde voortschrijdende limieten en limieten per account of voor het hele netwerk in de White Paper zijn andere mechanismen.
+
+Het huidige Protocol v1.1.0 kan **Fondskosten ** en aanvullende ** protocolkosten ** in rekening brengen. Het voorgestelde model in de White Paper beschrijft daarnaast een toekomstige ** netwerkafdracht** uit Fondskosten en mogelijke routing- of servicekosten. Deze modellen mogen niet worden gecombineerd bij de uitleg van huidige kosten of de berekening van toekomstige inkomsten.
+
+## Bescherming en bewijs
+
+Samenstelling, opname in een register, een limiet, een reserve, zichtbaarheid in de App of een blockchaintransactie vormen op zichzelf geen goedkeuring, bewijs van capaciteit van de Uitgever, nakoming, garantie of verzekering.
+
+Iedere bescherming moet de verplichte partij, de gedekte gebeurtenis, financiering, bovengrens, uitsluitingen, looptijd, het bewijs en de claimprocedure noemen. Gegevens op de blockchain kunnen adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Voor prestaties van de Uitgever, tevredenheid, bestuurlijk overleg en maatschappelijke impact zijn afzonderlijke bekendmakingen, verslagen, verklaringen of andere bewijzen nodig.
+
+## Statuswoorden
+
+- **Huidig:** geverifieerd in de CLC App of Protocol v1.1.0 zoals in deze documentatie beschreven.
+- **Implementatieafhankelijk:** alleen beschikbaar wanneer een specifieke implementatie, een specifiek Fonds, een aanbieder, een rechtsgebied of gepubliceerd beleid dit mogelijk maakt.
+- **Historisch:** bewijs of functionaliteit uit de eerdere dienst Sarafu Network.
+- **Voorgesteld:** een ontwerp- of roadmapmechanisme dat niet als geïmplementeerd wordt voorgesteld.
+
+De gids [Aan de slag](/nl/introduction/getting-started) past deze begrippen toe op de huidige App. De [Protocolreferentie](/nl/protocol/overview) beschrijft de geverifieerde contracten, terwijl de [White Paper](/nl/white-paper) het bredere ontwerp en de voorstellen presenteert.
+
+Bekijk voor een aanvullende speelse kennismaking met toezeggingen, afwikkeling, grondstofstromen, uitwisseling en bundeling de [educatieve spellen van Grassroots Economics](https://grassrootseconomics.org/games/). De spellen zijn leermiddelen en geen definities van het huidige gedrag van de App of het Protocol.

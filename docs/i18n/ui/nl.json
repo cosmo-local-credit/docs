@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Taal",
+    "colorTheme": "Kleurthema",
+    "lightMode": "Lichte modus gebruiken",
+    "darkMode": "Donkere modus gebruiken"
+  },
+  "chrome": {
+    "search": "Zoeken",
+    "closeSearchDialog": "Zoekvenster sluiten",
+    "toggleDetailView": "Detailweergave omschakelen",
+    "resetSearch": "Zoekopdracht wissen",
+    "navigate": "Navigeren",
+    "select": "Selecteren",
+    "close": "Sluiten",
+    "reset": "Wissen",
+    "menu": "Menu",
+    "onThisPage": "Op deze pagina",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "copy": "Kopiëren",
+    "copied": "Gekopieerd",
+    "skipToContent": "Naar inhoud gaan",
+    "askInChatGPT": "Vraag het aan ChatGPT",
+    "copyPageForLlms": "Pagina kopiëren voor LLM's",
+    "lastUpdated": "Laatst bijgewerkt:",
+    "codeGroup": "Codegroep",
+    "terminal": "Terminal",
+    "file": "Bestand",
+    "noResultsFor": "Geen resultaten voor",
+    "top": "Bovenaan",
+    "scrollToTop": "Naar boven scrollen",
+    "pageNotFound": "Pagina niet gevonden",
+    "notFoundDescription": "De gezochte pagina kon niet worden gevonden.",
+    "goHome": "Naar de startpagina",
+    "diagramScroll": "Scroll horizontaal om het volledige diagram te bekijken.",
+    "diagramError": "Het diagram kon niet worden weergegeven"
+  },
+  "legal": {
+    "translationTitle": "Vertaling voor het leesgemak",
+    "translationNotice": "Deze vertaling wordt voor het leesgemak aangeboden. De Engelse Voorwaarden zijn de brontekst en zijn bepalend, tenzij het toepasselijke recht anders vereist.",
+    "englishSource": "Lees de Engelse Voorwaarden"
+  },
+  "whitePaper": {
+    "translationTitle": "Over deze vertaling",
+    "translationNotice": "Dit is een vertaling van White Paper v0.8. De Engelse brontekst is gepubliceerd op 30 september 2026. Deze vertaling is gepubliceerd op 10 oktober 2026. Engels is de brontekst.",
+    "englishSource": "Lees de Engelse brontekst",
+    "archivedEnglishOnly": "De vervangen pdf van v0.7 is alleen in het Engels beschikbaar."
+  }
+}

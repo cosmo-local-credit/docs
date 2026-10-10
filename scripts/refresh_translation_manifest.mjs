@@ -8,7 +8,10 @@ const root = resolve(import.meta.dirname, '..')
 const locale = process.argv[2] ?? 'fr'
 const manifestPath = join(root, `docs/i18n/translation-manifest.${locale}.json`)
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'))
+const glossary = JSON.parse(readFileSync(join(root, 'docs/i18n/glossary.json'), 'utf8'))
 const sha256 = (value) => createHash('sha256').update(value).digest('hex')
+
+manifest.sourceAppCommit = glossary.sourceAppCommit
 
 for (const entry of Object.values(manifest.pages)) {
   const english = readFileSync(join(root, 'docs/pages', entry.source), 'utf8')

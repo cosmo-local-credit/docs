@@ -1,9 +1,12 @@
 import en from './navigation/en.json'
 import ar from './navigation/ar.json'
 import de from './navigation/de.json'
+import dz from './navigation/dz.json'
 import es from './navigation/es.json'
 import fr from './navigation/fr.json'
+import hi from './navigation/hi.json'
 import it from './navigation/it.json'
+import nl from './navigation/nl.json'
 import pt from './navigation/pt.json'
 import sr from './navigation/sr.json'
 import sw from './navigation/sw.json'
@@ -20,11 +23,13 @@ type NavigationMessages = typeof en
 export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   ar,
   de,
-  dz: en,
+  dz,
   en,
   es,
   fr,
+  hi,
   it,
+  nl,
   pt,
   sr,
   sw,

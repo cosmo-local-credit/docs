@@ -51,7 +51,7 @@ export type LocaleDirection = (typeof LOCALE_OPTIONS)[number]['direction']
 
 // Splash pages support every app language. Detailed documentation is released
 // one reviewed language at a time.
-export const DOCUMENTATION_LOCALES = [DEFAULT_LOCALE, 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar'] as const
+export const DOCUMENTATION_LOCALES = LOCALE_OPTIONS.map(({ code }) => code)
 export type DocumentationLocale = (typeof DOCUMENTATION_LOCALES)[number]
 
 export function hasLocalizedDocumentation(

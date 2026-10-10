@@ -1,42 +1,25 @@
 import en from './ui/en.json'
 import ar from './ui/ar.json'
 import de from './ui/de.json'
+import dz from './ui/dz.json'
 import es from './ui/es.json'
 import fr from './ui/fr.json'
+import hi from './ui/hi.json'
 import it from './ui/it.json'
+import nl from './ui/nl.json'
 import pt from './ui/pt.json'
 import sr from './ui/sr.json'
 import sw from './ui/sw.json'
 import uk from './ui/uk.json'
 import { LOCALE_OPTIONS, type SupportedLocale } from './locales'
-import { splashMessages } from './messages'
 
 export type UiMessages = typeof en
 
-function splashUi(locale: SupportedLocale): UiMessages {
-  if (locale === 'ar') return ar
-  if (locale === 'de') return de
-  if (locale === 'fr') return fr
-  if (locale === 'es') return es
-  if (locale === 'pt') return pt
-  if (locale === 'it') return it
-  if (locale === 'sr') return sr
-  if (locale === 'sw') return sw
-  if (locale === 'uk') return uk
-  if (locale === 'en') return en
-  const controls = splashMessages[locale].controls
-  return {
-    ...en,
-    controls: {
-      language: controls.language,
-      colorTheme: controls.colorTheme,
-      lightMode: controls.lightMode,
-      darkMode: controls.darkMode,
-    },
-    chrome: { ...en.chrome, search: controls.search },
-  }
-}
+const catalogs = { en, ar, de, dz, es, fr, hi, it, nl, pt, sr, sw, uk } satisfies Record<
+  SupportedLocale,
+  UiMessages
+>
 
 export const uiMessages = Object.fromEntries(
-  LOCALE_OPTIONS.map(({ code }) => [code, splashUi(code)]),
+  LOCALE_OPTIONS.map(({ code }) => [code, catalogs[code]]),
 ) as Record<SupportedLocale, UiMessages>

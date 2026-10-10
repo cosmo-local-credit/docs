@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "vocs dev",
     "build": "vocs build && node scripts/finalize_multilingual_build.mjs",
-    "check:i18n": "node scripts/check_locales.mjs",
+    "check:i18n": "node scripts/check_locales.mjs && node scripts/check_translation_quality.mjs",
     "i18n:headings": "node scripts/build_heading_map.mjs",
     "i18n:headings:check": "node scripts/build_heading_map.mjs --check",
-    "i18n:manifest": "node scripts/refresh_translation_manifest.mjs fr && node scripts/refresh_translation_manifest.mjs es && node scripts/refresh_translation_manifest.mjs pt && node scripts/refresh_translation_manifest.mjs it && node scripts/refresh_translation_manifest.mjs sw && node scripts/refresh_translation_manifest.mjs de && node scripts/refresh_translation_manifest.mjs uk && node scripts/refresh_translation_manifest.mjs sr && node scripts/refresh_translation_manifest.mjs ar",
+    "i18n:manifest": "node scripts/refresh_translation_manifest.mjs fr && node scripts/refresh_translation_manifest.mjs es && node scripts/refresh_translation_manifest.mjs pt && node scripts/refresh_translation_manifest.mjs it && node scripts/refresh_translation_manifest.mjs sw && node scripts/refresh_translation_manifest.mjs de && node scripts/refresh_translation_manifest.mjs uk && node scripts/refresh_translation_manifest.mjs sr && node scripts/refresh_translation_manifest.mjs ar && node scripts/refresh_translation_manifest.mjs dz && node scripts/refresh_translation_manifest.mjs nl && node scripts/refresh_translation_manifest.mjs hi",
     "i18n:protected": "node scripts/synchronize_protected_content.mjs",
     "i18n:catalogs": "node scripts/synchronize_locale_catalogs.mjs",
     "typecheck": "tsc --noEmit",

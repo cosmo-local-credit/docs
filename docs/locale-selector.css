@@ -137,6 +137,10 @@
   font-family: 'Noto Sans Tibetan', 'Microsoft Himalaya', Jomolhari, system-ui, sans-serif;
 }
 
+.locale-selector__option:lang(hi) {
+  font-family: 'Noto Sans Devanagari', Mangal, Kokila, system-ui, sans-serif;
+}
+
 @media (max-width: 460px) {
   .locale-selector {
     min-width: 8.25rem;

@@ -4,7 +4,9 @@ import dz from './messages/dz.json'
 import en from './messages/en.json'
 import es from './messages/es.json'
 import fr from './messages/fr.json'
+import hi from './messages/hi.json'
 import it from './messages/it.json'
+import nl from './messages/nl.json'
 import pt from './messages/pt.json'
 import sr from './messages/sr.json'
 import sw from './messages/sw.json'
@@ -22,7 +24,9 @@ export const splashMessages = {
   en,
   es,
   fr,
+  hi,
   it,
+  nl,
   pt,
   sr,
   sw,

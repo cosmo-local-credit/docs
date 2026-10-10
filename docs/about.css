@@ -44,6 +44,14 @@ body:has(.about-page) {
   font-family: 'Noto Serif Tibetan', 'Noto Sans Tibetan', 'Microsoft Himalaya', Jomolhari, serif;
 }
 
+:lang(hi) .about-page {
+  font-family: 'Noto Sans Devanagari', Mangal, Kokila, system-ui, sans-serif;
+}
+
+:lang(hi) .about-page :is(h1, h2) {
+  font-family: 'Noto Serif Devanagari', 'Noto Sans Devanagari', Mangal, Kokila, serif;
+}
+
 :root.dark .about-page {
   --about-deep-green: #5fc0b8;
   --about-earth-green: #c8cf6c;
