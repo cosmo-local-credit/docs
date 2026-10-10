@@ -5,6 +5,7 @@ import fr from './ui/fr.json'
 import it from './ui/it.json'
 import pt from './ui/pt.json'
 import sw from './ui/sw.json'
+import uk from './ui/uk.json'
 import { LOCALE_OPTIONS, type SupportedLocale } from './locales'
 import { splashMessages } from './messages'
 
@@ -17,6 +18,7 @@ function splashUi(locale: SupportedLocale): UiMessages {
   if (locale === 'pt') return pt
   if (locale === 'it') return it
   if (locale === 'sw') return sw
+  if (locale === 'uk') return uk
   if (locale === 'en') return en
   const controls = splashMessages[locale].controls
   return {

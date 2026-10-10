@@ -46,6 +46,7 @@ TRANSLATION_DATES = {
     "it": "10 October 2026",
     "pt": "10 October 2026",
     "sw": "10 October 2026",
+    "uk": "10 October 2026",
 }
 UNCHANGED_NAMES = [
     "Cosmo-Local Credit",
@@ -67,6 +68,131 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "uk": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "Introduction": "Вступ",
+        "Protocol": "Протокол",
+        "Governance": "Управління",
+        "White Paper": "Біла книга",
+        "Getting started": "Початок роботи",
+        "Concepts and vocabulary": "Поняття й термінологія",
+        "Example": "Приклад",
+        "History": "Історія",
+        "Overview": "Огляд",
+        "Smart contracts": "Смартконтракти",
+        "Network architecture": "Архітектура мережі",
+        "Governance mechanics": "Механізми управління",
+        "Terms of Service": "Умови користування",
+        "Executive summary": "Короткий виклад",
+        "Commitment Pooling Protocol (CPP)": "Протокол об’єднання зобов’язань (CPP)",
+        "The accounting shift": "Зміна підходу до обліку",
+        "Fulfillment, discharge & exchange": "Виконання, списання й обмін",
+        "Reusable forward-style collateral": "Багаторазове забезпечення форвардного типу",
+        "From isolated Pools to a federated network": "Від ізольованих Пулів до федеративної мережі",
+        "Proposed network liquidity & governance": "Пропонована ліквідність мережі й управління",
+        "Proposed governance assets": "Пропоновані активи управління",
+        "Technical scope & growth": "Технічний обсяг і розвиток",
+        "Proposed liquidity-program economics": "Пропонована економіка програми ліквідності",
+        "Comprehensive risk framework": "Комплексна система ризиків",
+        "Proposed liquidity-program term sheet": "Пропоновані умови програми ліквідності",
+        "Glossary": "Глосарій",
+        "Proposed KPI specification": "Пропонована специфікація KPI",
+        "Roadmap": "Дорожня карта",
+        "Values & evaluation template": "Шаблон цінностей і оцінювання",
+        "Legal & compliance note": "Правове застереження й відповідність вимогам",
+        "Conclusion": "Висновок",
+        "Math box": "Математичний блок",
+        "Fee waterfall": "Черговість розподілу комісій",
+        "KPI definitions": "Визначення KPI",
+        "Launch parameters": "Параметри запуску",
+        "Worked example": "Розгорнутий приклад",
+        "Dataroom checklist": "Контрольний список кімнати даних",
+        "1. Commitment Pooling Protocol (CPP)": "1. Протокол об’єднання зобов’язань (CPP)",
+        "2. The accounting shift": "2. Зміна підходу до обліку",
+        "3. Fulfillment, discharge & exchange": "3. Виконання, списання й обмін",
+        "4. Reusable forward-style collateral": "4. Багаторазове забезпечення форвардного типу",
+        "5. From isolated Pools to a federated network": "5. Від ізольованих Пулів до федеративної мережі",
+        "6. Proposed network liquidity & governance": "6. Пропонована ліквідність мережі й управління",
+        "7. Proposed governance assets": "7. Пропоновані активи управління",
+        "8. Technical scope & growth": "8. Технічний обсяг і розвиток",
+        "9. Proposed liquidity-program economics": "9. Пропонована економіка програми ліквідності",
+        "10. Comprehensive risk framework": "10. Комплексна система ризиків",
+        "11. Governance mechanics": "11. Механізми управління",
+        "12. Proposed liquidity-program term sheet": "12. Пропоновані умови програми ліквідності",
+        "13. Glossary": "13. Глосарій",
+        "14. Proposed KPI specification": "14. Пропонована специфікація KPI",
+        "15. Roadmap": "15. Дорожня карта",
+        "16. Values & evaluation template": "16. Шаблон цінностей і оцінювання",
+        "17. Legal & compliance note": "17. Правове застереження й відповідність вимогам",
+        "18. Conclusion": "18. Висновок",
+        "Appendix A. Math box": "Додаток A. Математичний блок",
+        "Appendix B. Fee waterfall": "Додаток B. Черговість розподілу комісій",
+        "Appendix C. KPI definitions": "Додаток C. Визначення KPI",
+        "Appendix D. Launch parameters": "Додаток D. Параметри запуску",
+        "Appendix E. Worked example": "Додаток E. Розгорнутий приклад",
+        "Appendix F. Dataroom checklist": "Додаток F. Контрольний список кімнати даних",
+        "Issuer": "Емітент",
+        "Holder": "Власник",
+        "Steward": "Куратор Пулу",
+        "Fulfillment": "Виконання",
+        "Discharge": "Списання",
+        "Token": "Токен",
+        "Voucher": "Ваучер",
+        "Wallet": "Гаманець",
+        "“Redeem”": "«Погасити»",
+        "“Retire voucher”": "«Вивести ваучер з обігу»",
+        "“Credit limit”": "«Кредитний ліміт»",
+        "“Credit limits”": "«Кредитні ліміти»",
+        "You": "Ви",
+        "you": "ви",
+        "User": "Користувач",
+        "Search": "Пошук",
+        "Close search dialog": "Закрити вікно пошуку",
+        "Toggle detail view": "Перемкнути докладний перегляд",
+        "Reset search": "Скинути пошук",
+        "Navigate": "Перейти",
+        "Select": "Вибрати",
+        "Close": "Закрити",
+        "Reset": "Скинути",
+        "Menu": "Меню",
+        "On this page": "На цій сторінці",
+        "Previous": "Назад",
+        "Next": "Далі",
+        "Copy": "Копіювати",
+        "Copied": "Скопійовано",
+        "Skip to content": "Перейти до вмісту",
+        "Ask in ChatGPT": "Запитати в ChatGPT",
+        "Copy page for LLMs": "Копіювати сторінку для LLM",
+        "Last updated:": "Останнє оновлення:",
+        "Code group": "Група коду",
+        "Terminal": "Термінал",
+        "File": "Файл",
+        "No results for": "Немає результатів для",
+        "Top": "На початок",
+        "Scroll to top": "Прокрутити на початок",
+        "Page not found": "Сторінку не знайдено",
+        "The page you were looking for could not be found.": "Не вдалося знайти сторінку, яку ви шукали.",
+        "Go to home page": "На головну сторінку",
+        "Scroll horizontally to view the full diagram.": "Прокрутіть горизонтально, щоб переглянути всю діаграму.",
+        "The diagram could not be rendered": "Не вдалося відобразити діаграму",
+        "Convenience translation": "Перший переклад для перевірки",
+        "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.": (
+            "Цей переклад надано для зручності. Англійські Умови є вихідним і "
+            "визначальним текстом, якщо застосовне право не вимагає іншого."
+        ),
+        "Read the English Terms": "Прочитати Умови англійською",
+        "About this translation": "Про цей переклад",
+        "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.": (
+            "Це перший переклад White Paper v0.8 для перевірки. Англійський "
+            "вихідний текст опубліковано 30 вересня 2026 року. Цей переклад "
+            "підготовлено 10 жовтня 2026 року. Англійська версія є вихідним текстом."
+        ),
+        "Read the English source": "Прочитати англійський вихідний текст",
+        "The superseded v0.7 PDF is available in English only.": "Замінена версія PDF v0.7 доступна лише англійською.",
+        "Email: `info@grassecon.org`": "Електронна пошта: `info@grassecon.org`",
+        "Version 0.7 PDF": "PDF версії 0.7",
+        "SDK requirements.": "Вимоги до SDK.",
+    },
     "de": {
         "cosmolocal.credit": "cosmolocal.credit",
         "Introduction": "Einführung",
@@ -892,6 +1018,60 @@ def restore_text(value: str, protected: list[Protected]) -> str:
 
 
 def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale == "uk":
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "Протокол", value)
+        value = value.replace("cosmolocal.кредит", "cosmolocal.credit")
+        value = value.replace("Redeem”", "«Погасити»")
+        value = value.replace("Retire voucher”", "«Вивести ваучер з обігу»")
+        value = value.replace("Credit limit”", "«Кредитний ліміт»")
+        value = value.replace("Credit limits”", "«Кредитні ліміти»")
+        value = value.replace("Я не знаю.", "")
+        value = value.replace("Це все.", "")
+        value = re.sub(r"\bбасейнами\b", "Пулами", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейнах\b", "Пулах", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейнів\b", "Пулів", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейнам\b", "Пулам", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейни\b", "Пули", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейном\b", "Пулом", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейну\b", "Пулу", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейні\b", "Пулі", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбасейн\b", "Пул", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpools\b", "Пули", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpool\b", "Пул", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bмережевий rake\b", "частка мережі", value, flags=re.IGNORECASE)
+        value = re.sub(r"\brake мережі\b", "частка мережі", value, flags=re.IGNORECASE)
+        if re.search(r"\bissuer", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bвидавцями\b", "емітентами", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bвидавців\b", "емітентів", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bвидавцю\b", "емітенту", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bвидавця\b", "емітента", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bвидавець\b", "емітент", value, flags=re.IGNORECASE)
+        if re.search(r"\bholder", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bдержателями\b", "власниками", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bдержателів\b", "власників", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bдержателю\b", "власнику", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bдержателя\b", "власника", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bдержатель\b", "власник", value, flags=re.IGNORECASE)
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bрозрядження\b", "списання", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bзвільнення\b", "списання", value, flags=re.IGNORECASE)
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bвикупу\b", "погашення", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bвикуп\b", "погашення", value, flags=re.IGNORECASE)
+            value = re.sub(
+                r"\bпрезентація для погашення\b",
+                "пред’явлення для погашення",
+                value,
+                flags=re.IGNORECASE,
+            )
+        if re.search(r"\boffering", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bпринесення\b", "пропозиція", value, flags=re.IGNORECASE)
+        if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bvouchers?\b", "ваучери", value, flags=re.IGNORECASE)
+        elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bvoucher\b", "ваучер", value, flags=re.IGNORECASE)
+        return value
+
     if locale == "de":
         def pool_term(match: re.Match[str]) -> str:
             term = "Fonds"

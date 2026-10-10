@@ -1,0 +1,69 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Архітектура мережі Протоколу
+
+Сумісне з CPP розгортання може поєднувати багато ваучерів і Пулів через необов’язкові реєстри, індекси, модулі котирування та пошук маршрутів на рівні застосунку. Кожен Пул залишається окремим сховищем із власною ліквідністю, власником, адміністратором проксі, конфігурацією та залежностями.
+
+Grassroots Economics Foundation керує публічним застосунком на [cosmolocal.credit](https://cosmolocal.credit). Інші інтерфейси й розгортання можуть використовувати той самий публічний протокол. Керування застосунком не робить GEF автоматично власником, емітентом, Куратором Пулу, отримувачем комісії або гарантом кожного показаного нижче контракту.
+
+На сторінці [Поняття й термінологія](/uk/introduction/concepts) пояснено різницю між відповідальними ролями й технічними повноваженнями.
+
+## Можливі маршрути й виконання
+
+<MermaidDiagram
+  label="Пошук можливого маршруту й пакетне виконання гаманцем"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Voucher A"] ---|listed and held| PoolA["Pool A"]
+    Bridge["Generic bridge asset"] ---|listed and held| PoolA
+    Bridge ---|listed and held| PoolB["Pool B"]
+    VoucherB["Voucher B"] ---|listed and held| PoolB
+
+    App["PWA or route finder"] -. discovers candidates .-> Index["Registries and indexes"]
+    App -. requests a quote .-> Router["SwapRouter: quote only"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|builds ordered calls| WalletStart["User smart-account wallet"]
+    WalletStart -->|hop 1: Voucher A| PoolA
+    PoolA -->|bridge output| WalletBridge["Same wallet between calls"]
+    WalletBridge -->|hop 2: bridge asset| PoolB
+    PoolB -->|Voucher B output| WalletFinal["Same user wallet"]
+
+    PoolA -->|protocol fee| ProtocolRecipient["Configured protocol recipient"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+Спільний актив створює **можливий шлях у графі**, а не гарантований маршрут. У цьому прикладі ваучер A можна було б обміняти на проміжний актив у Пулі A, а потім проміжний актив — на ваучер B у Пулі B. Кожен крок усе одно залежить від поточного допуску токенів, лімітів Пулу, доступних запасів, налаштувань котирування й комісій, стану оракула, дозволів, меж транзакції та виконання в мережі.
+
+`SwapRouter` лише викликає функції котирування Пулів уздовж запропонованого маршруту. Він не зберігає кошти, не схвалює токени й не виконує обміни. Інтегратор або сумісний застосунок може використати ці котирування, щоб побудувати впорядковані виклики схвалення й Пулів у підписаному пакеті смартоблікового запису. Це не означає, що поточний публічний застосунок пропонує багатокрокове виконання. Кожен крок розраховується на гаманець, перш ніж той самий гаманець передасть проміжний актив наступному Пулу. Інтегратор може налаштувати повернення всього пакета, якщо один із викликів не вдається.
+
+Котирування є моментальними знімками. Навіть успішно розрахований маршрут може не виконатися або розрахуватися інакше, якщо відповідний стан зміниться до виконання. Обмежена версія `SwapPool.withdraw` додає захист `minAmountOut` і `deadline` для окремого кроку. Інтегратори мають вирішити, як застосовувати межі до всього маршруту.
+
+Комісії Пулу залишаються у відповідному Пулі для подальшого збору. Протокольна комісія є додатковою й під час обміну передається безпосередньо з Пулу налаштованому отримувачу протоколу.
+
+## Внутрішня будова Пулу
+
+<MermaidDiagram
+  label="Залежності й адміністративні повноваження Пулу зобов’язань"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
+    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
+    Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
+    Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["User wallet"] -->|deposit or swap input| Pool
+    Pool -->|net swap output| Wallet
+    Pool -->|collected Pool fees| FeeAddress["Configured<br/>fee address"]
+    Pool -->|protocol fee in same swap| ProtocolRecipient["Protocol<br/>recipient"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+Реєстр, лімітер, модуль котирування, політика комісій і контролер протокольної комісії є необов’язковими. Без реєстру будь-який токен проходить перевірку допуску; без лімітера депозити не обмежені; без модуля котирування Пул використовує паритет сирих одиниць; без модулів комісій відповідні комісії дорівнюють нулю.
+
+П’ять полів, які можна зафіксувати: `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` і `tokenLimiter`. Фіксація не дає поточному власнику Пулу замінити цю адресу через setter, але не заморожує внутрішній стан залежності. Адреса `protocolFeeController` і режим `feesDecoupled` не охоплені цими п’ятьма бітами фіксації. Можливість адміністратора проксі оновити Пул також відокремлена від фіксації.
+
+Власник контракту може вивести доступну ліквідність Пулу на вибрану адресу. У режимі відокремлених комісій накопичені комісії резервуються й не виводяться цим шляхом; повноваження вивести решту ліквідності зберігається. Перш ніж покладатися на Пул, учасники мають перевірити власника, адміністратора проксі, контролерів залежностей, стан фіксації, отримувачів комісій та опубліковані правила Пулу.
+
+Концептуальний дизайн цих контрактів — кураторство, оцінювання, обмеження, обмін і управління — описано в [Білій книзі](/uk/white-paper).

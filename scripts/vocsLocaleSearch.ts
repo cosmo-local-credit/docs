@@ -23,11 +23,12 @@ export function vocsLocaleSearch(): Plugin {
         return `
 const localeFromPath = () => {
   const locale = location.pathname.split('/')[1]
-  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de'])}.includes(locale) ? locale : 'en'
+  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk'])}.includes(locale) ? locale : 'en'
 }
 export const getSearchIndex = async () => {
   const locale = localeFromPath()
-  const response = await fetch('/.vocs/search-index-' + locale + '.json')
+  const indexUrl = new URL('/.vocs/search-index-' + locale + '.json', location.origin)
+  const response = await fetch(indexUrl)
   if (!response.ok) throw new Error('Could not load the ' + locale + ' search index')
   return JSON.stringify(await response.json())
 }
@@ -43,7 +44,7 @@ import MiniSearch from 'minisearch'
 ${renamed}
 const localeFromPath = () => {
   const locale = location.pathname.split('/')[1]
-  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de'])}.includes(locale) ? locale : 'en'
+  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk'])}.includes(locale) ? locale : 'en'
 }
 const options = {
   fields: ['title', 'titles', 'text'],

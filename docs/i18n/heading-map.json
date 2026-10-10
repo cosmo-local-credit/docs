@@ -69,6 +69,16 @@
       "4-einen-commitment-fonds-erstellen-oder-prüfen",
       "5-die-passende-handlung-wählen",
       "aktuelle-bereitstellungsabhängige-und-vorgeschlagene-funktionen"
+    ],
+    "uk": [
+      "початок-роботи",
+      "почніть-із-поточного-застосунку",
+      "1-перегляньте-ринок",
+      "2-створіть-обліковий-запис-і-гаманець-або-увійдіть-до-них",
+      "3-створіть-ваучер",
+      "4-створіть-або-оцініть-пул-зобовязань",
+      "5-виберіть-правильну-дію",
+      "поточні-залежні-від-розгортання-та-пропоновані-можливості"
     ]
   },
   "/introduction/concepts": {
@@ -141,6 +151,16 @@
       "markt-werte-grenzen-und-gebühren",
       "schutz-und-nachweise",
       "statusbegriffe"
+    ],
+    "uk": [
+      "поняття-й-термінологія",
+      "рівні-продукту-й-протоколу",
+      "токени-ваучери-та-пропозиції",
+      "відповідальні-ролі-й-технічний-контроль",
+      "дії-та-життєвий-цикл",
+      "ринок-вартість-ліміти-й-комісії",
+      "захист-і-докази",
+      "статуси"
     ]
   },
   "/introduction/example": {
@@ -220,6 +240,17 @@
       "6-der-herausgeber-zeichnet-erfüllung-und-ausbuchung-auf",
       "verantwortlichkeiten-auf-einen-blick",
       "zukünftige-kreditvereinbarungen"
+    ],
+    "uk": [
+      "практичний-приклад-ваучера",
+      "1-емітент-публікує-зобовязання",
+      "2-куратор-пулу-допускає-ваучер",
+      "3-учасник-вносить-запаси",
+      "4-власник-здійснює-обмін-через-пул",
+      "5-власник-предявляє-ваучер",
+      "6-емітент-записує-виконання-та-списання",
+      "відповідальність-стисло",
+      "майбутні-кредитні-домовленості"
     ]
   },
   "/introduction/history": {
@@ -257,6 +288,11 @@
       "geschichte",
       "vom-historischen-sarafu-network-zu-cosmo-local-credit",
       "weiterführendes-material-von-grassroots-economics"
+    ],
+    "uk": [
+      "історія",
+      "від-історичної-sarafu-network-до-cosmo-local-credit",
+      "додаткові-матеріали-grassroots-economics"
     ]
   },
   "/protocol/overview": {
@@ -294,6 +330,11 @@
       "protokoll",
       "bereitstellungsmuster",
       "komponentenübersicht"
+    ],
+    "uk": [
+      "протокол",
+      "схема-розгортання",
+      "компоненти"
     ]
   },
   "/protocol/smart-contracts": {
@@ -380,6 +421,18 @@
       "bewertungsmodule",
       "gebührenpolitik-und-grenzwerte",
       "protokollgebührencontroller"
+    ],
+    "uk": [
+      "смартконтракти",
+      "ваучер-giftabletoken",
+      "пул-зобовязань-swappool",
+      "складання-та-факультативні-залежності",
+      "заплата-за-обмін",
+      "вичислення-додаткового-збору",
+      "власницькі-та-модернізовані-повноваження",
+      "модули-оцінки",
+      "політика-та-обмеження-тарифів",
+      "контролер-протокольних-зборів"
     ]
   },
   "/protocol/network": {
@@ -417,6 +470,11 @@
       "netzwerkarchitektur-des-protokolls",
       "mögliche-routen-und-ausführung",
       "innerer-aufbau-eines-fonds"
+    ],
+    "uk": [
+      "архітектура-мережі-протоколу",
+      "можливі-маршрути-й-виконання",
+      "внутрішня-будова-пулу"
     ]
   },
   "/governance/mechanics": {
@@ -468,6 +526,13 @@
       "verantwortliche-governance-strukturen",
       "technische-governance-möglichkeiten",
       "handlung-in-der-benutzeroberfläche-und-zustand-auf-der-blockchain"
+    ],
+    "uk": [
+      "механізми-управління",
+      "відповідальність-за-ролями",
+      "відповідальні-структури-управління",
+      "технічні-варіанти-управління",
+      "дія-в-інтерфейсі-та-стан-у-блокчейні"
     ]
   },
   "/governance/terms": {
@@ -680,6 +745,36 @@
       "24-änderungen-dieser-bedingungen",
       "25-allgemeine-bedingungen",
       "26-kontakt"
+    ],
+    "uk": [
+      "умови-користування-cosmo-local-credit",
+      "важливі-застереження",
+      "1-визначення",
+      "2-прийняття-та-сфера-застосування",
+      "3-право-на-користування-й-повноваження",
+      "4-облікові-записи-гаманці-й-безпека",
+      "5-роль-і-обмеження-gef",
+      "6-ваша-юридична-й-регуляторна-відповідальність",
+      "7-токени-й-ваучери-загалом",
+      "8-створення-або-випуск-токена-чи-ваучера",
+      "9-предявлення-для-погашення-виконання-та-списання",
+      "10-створення-пулу-й-керування-ним",
+      "11-використання-пулу-або-внесок-до-нього",
+      "12-обміни-котирування-комісії-та-маршрутизація",
+      "13-майбутні-кредитні-продукти-чи-позики",
+      "14-комісії-податки-та-сторонні-платіжні-сервіси",
+      "15-заборонена-поведінка",
+      "16-вміст-і-публічні-записи",
+      "17-дані-й-електронні-записи",
+      "18-зміни-сервісу-призупинення-й-припинення",
+      "19-ризики-відсутність-професійної-консультації",
+      "20-гарантії-та-застереження",
+      "21-обмеження-відповідальності",
+      "22-відшкодування",
+      "23-спори",
+      "24-зміни-до-цих-умов",
+      "25-загальні-положення",
+      "26-контактні-дані"
     ]
   },
   "/white-paper": {
@@ -780,6 +875,20 @@
       "aktueller-direkter-ablauf-über-einen-fonds",
       "weiter-gefasster-vorgeschlagener-entwurf",
       "orientierung-für-leser"
+    ],
+    "uk": [
+      "cosmo-local-credit-clc",
+      "мережа-для-маршрутизації-кредиту-координації-зобовязань-і-фінансування-здорової-космо-локальної-економіки",
+      "як-читати-цей-документ",
+      "анотація",
+      "поточне-розгортання",
+      "історичне-походження",
+      "модель-дизайну",
+      "цінності-й-принципи-дизайну",
+      "поточні-й-пропоновані-процеси",
+      "поточний-прямий-обмін-через-пул",
+      "ширший-пропонований-дизайн",
+      "навігація-для-читача"
     ]
   },
   "/white-paper/executive-summary": {
@@ -803,6 +912,9 @@
     ],
     "de": [
       "zusammenfassung"
+    ],
+    "uk": [
+      "короткий-виклад"
     ]
   },
   "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
@@ -854,6 +966,13 @@
       "12-was-ist-ein-commitment-fonds",
       "13-aktuelle-direkt-swap-logik",
       "14-weiterer-einsatz"
+    ],
+    "uk": [
+      "1-протокол-обєднання-зобовязань-cpp-основна-примітивна",
+      "11-що-таке-зобовязання",
+      "12-що-таке-пул-зобовязань",
+      "13-логіка-поточного-прямого-обміну",
+      "14-швидше-використання"
     ]
   },
   "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
@@ -877,6 +996,9 @@
     ],
     "de": [
       "2-die-rechnungslegung-verschiebt-sich-vom-vermögenswert-zum-vertrauen"
+    ],
+    "uk": [
+      "2-складання-бухгалтерського-обліку-від-активів-до-довіри"
     ]
   },
   "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
@@ -900,6 +1022,9 @@
     ],
     "de": [
       "3-erfüllung-ausbuchung-und-austausch"
+    ],
+    "uk": [
+      "3-діяльність-виконання-списання-та-обміну"
     ]
   },
   "/white-paper/chapter-04-reusable-forward-style-collateral": {
@@ -930,6 +1055,10 @@
     "de": [
       "4-wiederverwendbare-terminähnliche-sicherheiten",
       "41-erzeugerkreditierungsschleife"
+    ],
+    "uk": [
+      "4-багаторазове-забезпечення-форвардного-типу",
+      "41-кредитний-цикл-виробника"
     ]
   },
   "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
@@ -995,6 +1124,15 @@
       "53-das-vorgeschlagene-netz-rake--und-servicegebührenmodell",
       "531-zahlungsfähige-und-natürliche-einnahmen",
       "54-angebotene-liquiditätsprogramme"
+    ],
+    "uk": [
+      "5-від-ізольованих-пулів-до-федеративної-мережі",
+      "51-роздільні-заходи-обміну-та-виконання",
+      "52-пропановані-послуги-маршрутування-та-перерівноваження",
+      "521-конфедерація-та-оперативна-здатність",
+      "53-пропонована-модель-частки-мережі-та-сервісної-комісії",
+      "531-надходження-придатні-для-грошових-виплат-і-натуральні-надходження",
+      "54-пропановані-програми-ліквідності"
     ]
   },
   "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
@@ -1025,6 +1163,10 @@
     "de": [
       "6-angebotene-liquidität-und-governance-auf-netzniveau",
       "61-abwärtssteuerungen-und-optionalität"
+    ],
+    "uk": [
+      "6-пропозиція-ліквідності-і-управління-на-рівні-мережі",
+      "61-контроль-і-опціональність"
     ]
   },
   "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
@@ -1118,6 +1260,19 @@
       "732-budget-sclc-und-optionale-externe-flusskontrollen",
       "733-portfolio-fonds-und-bescheinigungen",
       "74-vorschlag-für-wasserfälle-und-haushaltspläne"
+    ],
+    "uk": [
+      "7-пропанова-clc-активів-управління-та-управління",
+      "71-мета",
+      "72-пропанована-модель-управління-активами",
+      "721-ілюстративне-постачання-та-розподіл",
+      "722-стадії-доступності-та-нагородження",
+      "723-пропанована-програма-впливу",
+      "73-пропозиція-голосування-стимули-та-доступ-до-зборів",
+      "731-виконання-зборів-за-послуги-та-вибір-профілю",
+      "732-sclc-бюджет-і-факультативні-зовнішні-контрольні-системи-плаву",
+      "733-portfolio-пули-та-атестації",
+      "74-пропозиція-водоспаду-і-бюджети"
     ]
   },
   "/white-paper/chapter-08-technical-scope-growth": {
@@ -1162,6 +1317,12 @@
       "81-vorgeschlagene-strecken--und-sdk-normen",
       "811-mindestkonföderationskompatibilitätsspezifikation",
       "82-lizenzierung-überprüfung-und-ausstieg"
+    ],
+    "uk": [
+      "8-технічний-обсяг-та-зростання",
+      "81-пропановані-норми-маршрутного-обслуговування-і-sdk",
+      "811-специфікація-мінімальної-сумісності-конфедерації",
+      "82-ліцензування-перевірка-та-вихід"
     ]
   },
   "/white-paper/chapter-09-economics-for-lps": {
@@ -1206,6 +1367,12 @@
       "91-angebotene-einnahmequellen",
       "92-illustrative-rake-mathematik",
       "93-liquiditätsprogrammrechte"
+    ],
+    "uk": [
+      "9-предлагана-економіка-для-програм-ліквідності",
+      "91-пропановані-джерела-доходів",
+      "92-приклад-розрахунку-частки-мережі",
+      "93-права-на-програми-ліквідності"
     ]
   },
   "/white-paper/chapter-10-comprehensive-risk-framework": {
@@ -1306,6 +1473,20 @@
       "108-verwahrungs--und-schlüsselverwaltungsrisiko",
       "109-reputation-und-soziales-risiko",
       "1010-konzentrations--und-fragmentierungsrisiko"
+    ],
+    "uk": [
+      "10-комплексна-система-ризиків",
+      "101-протокол-і-ризик-розумних-контрактів",
+      "102-економічні-та-ринкові-ризики",
+      "103-ризик-видавниця-та-ваучера",
+      "104-ризик-представлення-і-виконання-виплати",
+      "105-ризик-управління",
+      "106-правовий-ризик-та-ризик-відповідності",
+      "1061-правове-позиціонування-та-обробка-запропонованих-токенів",
+      "107-ризик-маршрутування-та-перетину-доменів",
+      "108-ризик-зберігання-і-управління-ключами",
+      "109-репутація-та-соціальні-ризики",
+      "1010-ризик-концентрації-та-фрагментації"
     ]
   },
   "/white-paper/chapter-11-governance-mechanics": {
@@ -1364,6 +1545,14 @@
       "113-garantienrahmen",
       "114-schutzschutzschutzschutzschrauben",
       "115-fork--und-ausgangsverfahren"
+    ],
+    "uk": [
+      "11-механізми-управління",
+      "111-обмінний-курс-та-обмеження-управління",
+      "112-пропозиційний-план-страхових-фондів",
+      "113-рамка-гарантів",
+      "114-охоронні-огради-проти-захоплення",
+      "115-процедура-виходу-і-виходу"
     ]
   },
   "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
@@ -1387,6 +1576,9 @@
     ],
     "de": [
       "12-das-vorgeschlagene-liquiditätsprogramm-durchlaufblatt-nicht-verbindliche-konzeption"
+    ],
+    "uk": [
+      "12-пропозиційний-план-терміну-програми-ліквідності-незалежний-облік"
     ]
   },
   "/white-paper/chapter-13-jargon-plain-language-glossary": {
@@ -1410,6 +1602,9 @@
     ],
     "de": [
       "13-einfaches-sprachglossar"
+    ],
+    "uk": [
+      "13-глосар-на-простому-мові"
     ]
   },
   "/white-paper/chapter-14-kpis-health-indicators": {
@@ -1433,6 +1628,9 @@
     ],
     "de": [
       "14-vorgeschlagene-kpis-und-gesundheitsindikatoren"
+    ],
+    "uk": [
+      "14-пропановані-кпі-і-показники-здоровя"
     ]
   },
   "/white-paper/chapter-15-roadmap-indicative": {
@@ -1470,6 +1668,11 @@
       "15-fahrplan-anzeige",
       "151-aktuelle-grundlagen",
       "152-vorgeschlagene-meilensteine"
+    ],
+    "uk": [
+      "15-дорожна-карта-показательна",
+      "151-сучасний-фундамент",
+      "152-пропановані-етапи"
     ]
   },
   "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
@@ -1493,6 +1696,9 @@
     ],
     "de": [
       "16-angebotene-bewertungsvorlage"
+    ],
+    "uk": [
+      "16-пропозиційний-шаблон-оцінки"
     ]
   },
   "/white-paper/chapter-17-legal-compliance-note": {
@@ -1544,6 +1750,13 @@
       "172-veröffentlichungen-des-fonds",
       "173-aktionen-und-verpflichtungen",
       "174-schutz-beweise-und-lokales-recht"
+    ],
+    "uk": [
+      "17-правовий-лист-та-запис-про-відповідність",
+      "171-розкриття-ваучерів-та-пропозицій",
+      "172-розкриття-пулів",
+      "173-акції-та-зобовязання",
+      "174-захист-докази-та-місцеве-законодавство"
     ]
   },
   "/white-paper/chapter-18-conclusion": {
@@ -1567,6 +1780,9 @@
     ],
     "de": [
       "18-fazit"
+    ],
+    "uk": [
+      "18-висновок"
     ]
   },
   "/white-paper/appendix-a-math-box": {
@@ -1618,6 +1834,13 @@
       "kohortenbasierte-erfüllungsmaßnahmen",
       "unterschiedliche-geschwindigkeitsmessungen",
       "angebotene-netzerlöse"
+    ],
+    "uk": [
+      "а-пропанована-модель-оцінки-та-плати",
+      "означення-події-та-запасу",
+      "мережа-виконання-на-основі-коортів",
+      "різні-швидкості",
+      "пропанова-доходів-від-мережі"
     ]
   },
   "/white-paper/appendix-b-fee-waterfall": {
@@ -1641,6 +1864,9 @@
     ],
     "de": [
       "b-veranschaulichendes-wasserfall-für-zukünftige-abgaben"
+    ],
+    "uk": [
+      "б-ілюстративний-водопад-майбутнього-збору"
     ]
   },
   "/white-paper/appendix-c-kpi-definitions": {
@@ -1664,6 +1890,9 @@
     ],
     "de": [
       "c-vorgeschlagene-definitionen-von-kpi"
+    ],
+    "uk": [
+      "c-запропоновані-визначення-kpi"
     ]
   },
   "/white-paper/appendix-d-launch-parameters": {
@@ -1687,6 +1916,9 @@
     ],
     "de": [
       "d-vorgeschlagene-startparameter"
+    ],
+    "uk": [
+      "д-пропановані-параметри-запуску"
     ]
   },
   "/white-paper/appendix-e-worked-example": {
@@ -1710,6 +1942,9 @@
     ],
     "de": [
       "das-ist-e-arbeitsbeispiel--vorgeschlagene-netzwerkanteil"
+    ],
+    "uk": [
+      "е-працюючий-приклад--запропонований-мережний-рейк"
     ]
   },
   "/white-paper/appendix-f-dataroom-checklist": {
@@ -1733,6 +1968,9 @@
     ],
     "de": [
       "f-checkliste-der-datenabteilung"
+    ],
+    "uk": [
+      "ф-перелік-даних"
     ]
   },
   "/white-paper/archive": {
@@ -1763,6 +2001,10 @@
     "de": [
       "weißbuch-archiv",
       "übersetzte-version"
+    ],
+    "uk": [
+      "архів-білої-книги",
+      "перевернута-версія"
     ]
   }
 }

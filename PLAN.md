@@ -21,8 +21,8 @@ reviewable web draft has been accepted.
 | — | Portuguese (`pt`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 1 | Italian (`it`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 2 | Kiswahili (`sw`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 3 | German (`de`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
-| 4 | Ukrainian (`uk`) | Complete | Queued | Pending | Pending | Pending | Deferred |
+| 3 | German (`de`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
+| 4 | Ukrainian (`uk`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
 | 5 | Serbian (`sr`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 6 | Arabic (`ar`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 7 | Dzongkha (`dz`) | Complete | Queued | Pending | Pending | Pending | Deferred |
@@ -53,6 +53,7 @@ until the current web draft passes validation and is accepted for release.
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Italian reviewed. The docs use the natural action label “Invia”; the app catalog currently uses the formal label “Invii”. Other core terms remain aligned. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Kiswahili reviewed. The docs consistently use `Kikundi`, matching the established splash glossary and the app's primary labels; older app entries using `Puli` or `Bwawa` are treated as app catalog drift. Core actions remain `Tuma`, `Komboa`, and `Badilisha`. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | German reviewed. The docs preserve the app terms `Gutschein`, `Fonds`, `Herausgeber`, `Markt`, `Einlösen`, `Senden`, `Tauschen`, `Geldbörse`, and `Kreditlimit`; `Commitment-Fonds` and `Fonds-Verantwortliche` follow the established splash glossary. |
+| 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Ukrainian reviewed. The docs preserve the app terms `Ваучер`, `Пул`, `Емітент`, `Ринок`, `Погасити`, `Надіслати`, `Обміняти`, `Гаманець`, and `Кредитний ліміт`; `Пул зобов’язань` and `Куратор Пулу` follow the established splash glossary. |
 
 ## Repeatable language workflow
 
@@ -120,23 +121,23 @@ For every language:
 - [x] Complete the priority-page clarity pass.
 - [x] Refresh the translation manifest and heading mappings.
 - [x] Pass all automated and visual validation.
-- [x] Provide the review URLs; user acceptance is pending.
-- [ ] Add German to the released documentation set and commit the language.
+- [x] Provide the review URLs and record user acceptance.
+- [x] Add German to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the German routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 4. Ukrainian (`uk`)
 
-- [ ] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Review Cyrillic terminology, plural forms, decimal formatting, and
+- [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
+- [x] Review Cyrillic terminology, plural forms, decimal formatting, and
       non-breaking-space grouping while preserving machine-readable values.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Ukrainian navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
-- [ ] Provide the review URLs and record user acceptance.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Ukrainian navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass all automated and visual validation.
+- [x] Provide the review URLs; user acceptance is pending.
 - [ ] Add Ukrainian to the released documentation set and commit the language.
 - [ ] Deploy and verify the Ukrainian routes.
 - [ ] Complete the coordinated `clc-app` link verification.
