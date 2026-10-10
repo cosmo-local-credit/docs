@@ -1,6 +1,7 @@
 import en from './navigation/en.json'
 import es from './navigation/es.json'
 import fr from './navigation/fr.json'
+import it from './navigation/it.json'
 import pt from './navigation/pt.json'
 import {
   DOCUMENTATION_LOCALES,
@@ -18,7 +19,7 @@ export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   en,
   es,
   fr,
-  it: en,
+  it,
   pt,
   sr: en,
   sw: en,

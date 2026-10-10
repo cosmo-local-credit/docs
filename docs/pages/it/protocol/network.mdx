@@ -1,0 +1,73 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Architettura della rete del protocollo
+
+Un'implementazione compatibile con CPP può collegare molti buoni e Fondi tramite registri, indici e moduli di quotazione facoltativi, oltre alla scoperta dei percorsi a livello dell'applicazione. Ogni Fondo rimane un deposito distinto con la propria liquidità, il proprio proprietario, amministratore del proxy, configurazione e dipendenze.
+
+Grassroots Economics Foundation gestisce l'app pubblica su [cosmolocal.credit](https://cosmolocal.credit). Altre interfacce e implementazioni possono usare lo stesso protocollo pubblico. La gestione dell'app non rende automaticamente GEF proprietario, emittente, Responsabile del Fondo, destinatario delle commissioni o garante di ogni contratto mostrato di seguito.
+
+Consulti [Concetti e vocabolario](/it/introduction/concepts) per distinguere i ruoli responsabili dai poteri tecnici.
+
+## Percorsi candidati ed esecuzione
+
+<MermaidDiagram
+  scrollMessage="Scorri orizzontalmente per vedere il diagramma completo."
+  errorMessage="Non è stato possibile visualizzare il diagramma"
+  label="Scoperta dei percorsi candidati ed esecuzione in un lotto del portafoglio"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Buono A"] ---|elencato e detenuto| PoolA["Fondo A"]
+    Bridge["Asset ponte generico"] ---|elencato e detenuto| PoolA
+    Bridge ---|elencato e detenuto| PoolB["Fondo B"]
+    VoucherB["Buono B"] ---|elencato e detenuto| PoolB
+
+    App["PWA o strumento di ricerca dei percorsi"] -. individua i candidati .-> Index["Registri e indici"]
+    App -. richiede una quotazione .-> Router["SwapRouter: sola quotazione"]
+    Router -. legge le quotazioni dei Fondi .-> PoolA
+    Router -. legge le quotazioni dei Fondi .-> PoolB
+
+    App -->|crea chiamate ordinate| WalletStart["Portafoglio smart account dell'utente"]
+    WalletStart -->|passaggio 1: Buono A| PoolA
+    PoolA -->|asset ponte in uscita| WalletBridge["Stesso portafoglio tra le chiamate"]
+    WalletBridge -->|passaggio 2: asset ponte| PoolB
+    PoolB -->|Buono B in uscita| WalletFinal["Stesso portafoglio dell'utente"]
+
+    PoolA -->|commissione di protocollo| ProtocolRecipient["Destinatario del protocollo configurato"]
+    PoolB -->|commissione di protocollo| ProtocolRecipient`}
+/>
+
+Un asset condiviso crea un **possibile percorso nel grafo**, non un percorso garantito. In questo esempio il Buono A potrebbe essere scambiato con l'asset ponte nel Fondo A, quindi l'asset ponte potrebbe essere scambiato con il Buono B nel Fondo B. Ogni passaggio dipende comunque dall'ammissione attuale dei token, dai limiti dei Fondi, dall'inventario disponibile, dalla configurazione di quotazioni e commissioni, dallo stato dell'oracolo, dalle approvazioni, dai limiti della transazione e dall'esecuzione sulla rete.
+
+`SwapRouter` richiama soltanto le funzioni di quotazione dei Fondi lungo un percorso proposto. Non detiene fondi, non approva token e non esegue scambi. Un integratore o un'app compatibile può usare i risultati delle quotazioni per costruire chiamate ordinate di approvazione e ai Fondi in un lotto firmato da uno smart account; ciò non significa che l'app pubblica attuale offra l'esecuzione multi-hop. Ogni passaggio viene regolato nel portafoglio prima che lo stesso portafoglio fornisca l'asset intermedio al Fondo successivo. L'integratore può configurare il lotto in modo che tutte le operazioni vengano annullate se una chiamata non riesce.
+
+Le quotazioni sono istantanee. Anche una quotazione valida per un percorso può non riuscire o produrre un risultato diverso se lo stato pertinente cambia prima dell'esecuzione. La variante vincolata di `SwapPool.withdraw` aggiunge le protezioni `minAmountOut` e `deadline` per un singolo passaggio; spetta agli integratori decidere come applicare i limiti all'intero percorso.
+
+Le commissioni del Fondo rimangono nel Fondo pertinente per essere riscosse in seguito. L'eventuale commissione di protocollo è aggiuntiva e, durante lo scambio, viene trasferita direttamente dal Fondo al destinatario del protocollo configurato.
+
+## Componenti interni del Fondo
+
+<MermaidDiagram
+  scrollMessage="Scorri orizzontalmente per vedere il diagramma completo."
+  errorMessage="Non è stato possibile visualizzare il diagramma"
+  label="Dipendenze e poteri amministrativi del Fondo di Impegni"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Proprietario del contratto o<br/>Responsabile del Fondo"] -->|configura, sigilla, riscuote, preleva| Pool["SwapPool<br/>deposito e regolamento"]
+    ProxyAdmin["Amministratore del proxy<br/>ERC-1967"] -->|aggiorna l'implementazione| Pool
+    Dependencies["Dipendenze facoltative<br/>registro · limitatore · quotatore<br/>politica delle commissioni · controller delle commissioni di protocollo<br/>ciascuno con la propria governance"] -. dati per il regolamento .-> Pool
+    Seal["Cinque indirizzi sigillabili<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. blocca gli indirizzi .-> Pool
+
+    Wallet["Portafoglio dell'utente"] -->|deposito o input dello scambio| Pool
+    Pool -->|output netto dello scambio| Wallet
+    Pool -->|commissioni del Fondo riscosse| FeeAddress["Indirizzo delle<br/>commissioni configurato"]
+    Pool -->|commissione di protocollo nello stesso scambio| ProtocolRecipient["Destinatario<br/>del protocollo"]
+    Pool -->|withdrawLiquidity| Destination["Destinatario scelto<br/>dal proprietario"]`}
+/>
+
+Il registro, il limitatore, il quotatore, la politica delle commissioni e il controller delle commissioni di protocollo sono facoltativi. Senza registro, qualsiasi token supera il controllo di ammissione; senza limitatore, i depositi non hanno un limite massimo; senza quotatore, il Fondo usa la parità delle unità grezze; senza moduli per le commissioni, le commissioni corrispondenti sono pari a zero.
+
+I cinque indirizzi sigillabili sono `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` e `tokenLimiter`. Un sigillo impedisce all'attuale proprietario del Fondo di sostituire quell'indirizzo tramite il relativo setter, ma non blocca lo stato interno della dipendenza. L'indirizzo `protocolFeeController` e la modalità `feesDecoupled` non rientrano in questi cinque sigilli. Anche la capacità dell'amministratore del proxy di aggiornare il Fondo è distinta dal sigillo.
+
+Il proprietario del contratto può prelevare la liquidità disponibile del Fondo verso un indirizzo scelto. Quando le commissioni sono separate, le commissioni accumulate sono escluse da questo percorso; il potere di prelevare la liquidità rimanente continua comunque a esistere. Prima di fare affidamento su un Fondo, i partecipanti dovrebbero verificare il proprietario, l'amministratore del proxy, i responsabili delle dipendenze, lo stato dei sigilli, i destinatari delle commissioni e le regole pubblicate del Fondo.
+
+Per il modello concettuale alla base di questi contratti, comprese curatela, valutazione, limitazione, scambio e governance, consulti il [Libro bianco](/it/white-paper).

@@ -1,0 +1,102 @@
+# Concetti e vocabolario
+
+Cosmo-Local Credit collega un'applicazione, un protocollo aperto, Fondi governati in modo indipendente e gli impegni nel mondo reale rappresentati dai buoni. Questi livelli operano insieme, ma non sono la stessa cosa.
+
+Questa pagina definisce i termini usati nella documentazione. Le etichette esatte dell'app sono racchiuse tra virgolette quando l'interfaccia usa un nome più breve o potenzialmente ambiguo.
+
+## Livelli del prodotto e del protocollo
+
+| Termine | Significato |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | La famiglia di prodotti: la CLC App, la relativa documentazione e il più ampio lavoro sulla messa in comune degli impegni. |
+| **CLC App** | L'applicazione web progressiva disponibile su [cosmolocal.credit](https://cosmolocal.credit). GEF gestisce questa interfaccia e i relativi servizi di supporto. |
+| **Protocollo di messa in comune degli impegni (CPP)** | Il modello riutilizzabile per curatela, valutazione, limitazione, scambio e governance responsabile. |
+| **Protocol v1.1.0** | La versione pubblica e verificata degli smart contract, documentata nel [riferimento del protocollo](/it/protocol/overview). |
+| **Fondo di Impegni ** | Un accordo governato che seleziona gli asset, pubblica le regole e consente gli scambi. ** Fondo** è l'abbreviazione usata normalmente. |
+| **`SwapPool`** | L'attuale contratto del protocollo che detiene l'inventario dei token ed esegue scambi diretti. È uno dei componenti tecnici di un Fondo di Impegni. |
+| **Token di governance CLC proposto** | Un futuro modello di governance descritto nel Libro bianco. Non è un asset attuale dell'app o di Protocol v1.1.0. |
+| **Fondo di rete CLC proposto** | Un futuro modello di compensazione e coordinamento a livello di rete. Non equivale a uno `SwapPool` attuale. |
+
+## Token, buoni e Offerte
+
+Un **token** è un saldo on-chain o un asset digitale. I meccanismi del token possono registrare l'offerta, i trasferimenti, la scadenza e la distruzione, ma non promettono da soli beni, servizi, conversione in denaro o riscatto.
+
+Un **buono** è un token o un record che un emittente presenta come impegno riscattabile secondo condizioni pubblicate. Tali condizioni dovrebbero indicare cosa viene promesso, chi ne è responsabile, dove e quando può essere presentato, i limiti sostanziali e il processo di adempimento e reclamo.
+
+Un'**Offerta** è il record nel catalogo relativo ai beni o servizi associati a un buono. Pubblicare un'Offerta non crea token, non dimostra la disponibilità e non prova che sia avvenuto l'adempimento.
+
+Si tratta di quattro livelli distinti:
+
+1. il contratto del token e i saldi;
+2. la denominazione del buono e le condizioni pubblicate;
+3. uno o più record di Offerta; e
+4. la prestazione dell'emittente nel mondo reale.
+
+## Ruoli responsabili e controllo tecnico
+
+| Ruolo o autorità | Responsabilità o potere |
+| --- | --- |
+| **Emittente** | Pubblica e adempie un impegno associato a un buono. Questa responsabilità non viene trasferita automaticamente solo perché cambia la proprietà del contratto. |
+| **Titolare** | Controlla il saldo di un buono. Il controllo non dimostra l'adempimento, un valore in denaro o una garanzia. |
+| **Fornitore di servizi** | Un ruolo rivolto al pubblico. Un fornitore di servizi diventa emittente quando pubblica un impegno associato a un buono. |
+| **Responsabile del Fondo** | La persona, cooperativa, agenzia pubblica, federazione, multisig, servizio o altra struttura responsabile che pubblica e amministra le regole del Fondo. |
+| **Proprietario del Fondo** | L'indirizzo che dispone degli attuali poteri del proprietario dello `SwapPool`, compresi configurazione, riscossione delle commissioni e prelievo della liquidità disponibile. |
+| **Amministratore del proxy** | L'autorità che può aggiornare l'implementazione di un contratto proxy. Può essere diversa dal proprietario del Fondo. |
+| **Responsabile di una dipendenza** | Il proprietario o l'autore che controlla un registro, un limitatore, un quotatore, un oracolo, una politica delle commissioni o un controller delle commissioni di protocollo. |
+| **Moderatore del catalogo** | Un operatore dell'app che può correggere, nascondere o ripristinare record del catalogo senza modificare i saldi on-chain. |
+| **Destinatario delle commissioni** | L'indirizzo configurato per ricevere una commissione del Fondo o del protocollo. Non coincide necessariamente con il Responsabile o il proprietario del Fondo. |
+| **Sostenitore o fornitore di liquidità** | Un partecipante che conferisce asset secondo condizioni comunicate separatamente. L'attuale `SwapPool` non crea quote del Fondo né diritti automatici di rimborso, prelievo, ricompensa o governance. |
+
+“Membro della comunità” è un'espressione sociale informale. Da sola non crea diritti di ammissione, proprietà, governance, rimborso o altri diritti legali.
+
+## Azioni e ciclo di vita
+
+| Termine dell'app o della documentazione | Significato |
+| --- | --- |
+| **Creare o pubblicare un buono** | Implementare o configurare un token e pubblicarne il record nel catalogo e le condizioni. |
+| **Emettere o coniare** | Creare un saldo di token sotto l'autorità del proprietario o dell'autore configurato. |
+| **Pubblicare un'Offerta** | Aggiungere a un buono un record relativo a beni o servizi. |
+| **Invia** | Trasferire un saldo di token a un altro indirizzo. |
+| **“Riscattare”** | Nell'app attuale, apre il flusso di invio con l'indirizzo del proprietario del token già compilato. Presenta o restituisce i token all'emittente, ma non dimostra l'adempimento. |
+| **Adempiere** | L'emittente fornisce i beni, servizi, benefici o altra prestazione promessa. |
+| **Estinzione** | Registrare le unità adempiute affinché non possano essere presentate nuovamente, per esempio ricevendole, distruggendole, annullandole o disattivandole in altro modo secondo le condizioni pubblicate. |
+| **“Ritiri il buono”** | Nascondere un buono dal catalogo dell'app. I saldi e la cronologia rimangono e un amministratore può ripristinare la voce. Non equivale a distruzione o annullamento. |
+| **Deposito o contributo al Fondo** | Trasferire asset in uno `SwapPool`. I diritti di rimborso, prelievo, ricompensa o governance esistono solo se comunicati separatamente. |
+| **Scambio tramite Fondo** | Scambiare un asset supportato con un altro tramite uno `SwapPool`. Non costituisce adempimento dell'emittente né automaticamente un prestito. |
+| **Prelievo della liquidità del Fondo** | Il proprietario del Fondo trasferisce l'inventario disponibile a un indirizzo scelto. |
+| **Riscossione delle commissioni** | Un destinatario configurato riscuote le commissioni accumulate dal Fondo. |
+
+Usi **regolamento dello scambio ** per i trasferimenti on-chain e la contabilizzazione delle commissioni che completano uno scambio tramite Fondo. Usi ** presentazione per il riscatto **, ** adempimento ** ed ** estinzione** per il distinto ciclo di vita del buono nel mondo reale.
+
+## Mercato, valori, limiti e commissioni
+
+Il **Mercato** dell'app è un catalogo per scoprire buoni, Fondi, Offerte e informazioni pubbliche. La presenza nel catalogo non costituisce automaticamente un luogo di scambio, un rapporto di vendita, un'approvazione, una valutazione o una garanzia.
+
+Questi termini relativi al valore devono rimanere distinti:
+
+- **prezzo dell'Offerta:** l'importo richiesto per un bene o servizio elencato;
+- **valore dichiarato del buono:** il valore indicato nelle condizioni pubblicate dall'emittente;
+- **tasso di cambio o quotazione del Fondo:** il parametro della transazione prodotto dal quotatore configurato del Fondo;
+- **riferimento dell'oracolo:** dati esterni usati da un modulo di valutazione configurato; e
+- **condizioni di riscatto:** ciò che l'emittente promette di fornire e a quali condizioni.
+
+L'etichetta dell'app **“Limite di credito”** indica il limite configurato al saldo di token del Fondo: la quantità massima di quel token che il Fondo può detenere dopo un deposito. Non è una linea di credito personale, un controllo sulla capacità dell'emittente o una garanzia di riscatto. I limiti progressivi, per account e a livello di rete proposti nel Libro bianco sono meccanismi diversi.
+
+L'attuale Protocol v1.1.0 può addebitare una **commissione del Fondo ** e una ** commissione di protocollo ** aggiuntiva. Il modello proposto nel Libro bianco descrive separatamente una futura ** quota di rete** prelevata dalle commissioni del Fondo e possibili commissioni di routing o di servizio. Questi modelli non devono essere combinati per spiegare gli addebiti attuali o calcolare entrate future.
+
+## Protezioni e prove
+
+La curatela, l'inclusione in un registro, un limite, una riserva, la visibilità nell'app o una transazione su blockchain non dimostrano da soli l'approvazione, la capacità dell'emittente, l'adempimento, una garanzia o un'assicurazione.
+
+Qualsiasi protezione dovrebbe identificare la parte obbligata, l'evento coperto, il finanziamento, il limite massimo, le esclusioni, la durata, le prove e il processo di richiesta. I registri on-chain possono mostrare indirizzi, asset, importi, date e ore ed eventi contrattuali. La prestazione dell'emittente, la soddisfazione, le deliberazioni di governance e l'impatto sociale richiedono informazioni, relazioni, attestazioni o altre prove separate.
+
+## Parole che indicano lo stato
+
+- **Attuale:** verificato nella CLC App o in Protocol v1.1.0 come descritto in questa documentazione.
+- **Dipendente dall'implementazione:** disponibile solo quando una determinata implementazione, un Fondo, un fornitore, una giurisdizione o una politica pubblicata lo consentono.
+- **Storico:** prova o funzionalità del precedente servizio Sarafu Network.
+- **Proposto:** modello o meccanismo della roadmap che non viene presentato come implementato.
+
+La guida [Per iniziare](/it/introduction/getting-started) applica questi termini all'app attuale. Il [riferimento del protocollo](/it/protocol/overview) documenta i contratti verificati, mentre il [Libro bianco](/it/white-paper) presenta il modello e le proposte più ampie.
+
+Per un'introduzione complementare e basata sul gioco a impegni, regolamento, flussi di risorse, scambio e pooling, esplori i [giochi educativi di Grassroots Economics](https://grassrootseconomics.org/games/). I giochi sono risorse didattiche, non definizioni del comportamento attuale dell'app o del protocollo.

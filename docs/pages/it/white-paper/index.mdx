@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **Informazioni su questa traduzione.** Questa è una prima traduzione del Libro bianco v0.8 (White Paper v0.8), preparata per la revisione. Il testo originale in inglese è stato pubblicato il 30 settembre 2026. Questa traduzione è stata preparata il 10 ottobre 2026. L'inglese è il testo originale. <a data-english-source="true" href="/white-paper" hrefLang="en">Leggi il testo originale in inglese</a>.
+
+## Una rete per instradare il credito, coordinare gli impegni e finanziare un'economia cosmo-locale sana
+
+**Versione:** 0.8
+
+**Data:** 30 settembre 2026
+
+**Autori:** William O. Ruddick e Mohamed Sohail
+
+**Contatto:** [info@grassecon.org](mailto:info@grassecon.org)
+
+**Download:** <a data-english-source="true" href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf" hrefLang="en">Libro bianco CLC v0.8 in inglese (PDF)</a>
+
+**Pubblicazione:** Pubblicazione pubblica finale e versionata. Questo documento non costituisce consulenza in materia di investimenti né un'offerta di vendita o una sollecitazione all'acquisto di titoli o strumenti finanziari. Versioni successive potranno modificare i modelli descritti qui.
+
+## Come leggere questo documento
+
+Questo documento riunisce quattro tipi di contenuto. Lo stato indicato si applica all'intero testo, anche quando un capitolo non lo ripete.
+
+| Stato | Significato |
+| --- | --- |
+| **Attuale** | Comportamento verificato nella CLC App o nei contratti pubblici di Protocol v1.1.0. Il [riferimento del protocollo](/it/protocol/overview) è la fonte fattuale per questi contratti. |
+| **Dipendente dall'implementazione** | Funzionalità disponibile soltanto quando uno specifico Fondo, fornitore, giurisdizione, organo di governance o politica pubblicata la abilita. |
+| **Storico** | Prova o funzionalità del precedente servizio Sarafu Network. Non rappresenta l'adozione attuale di CLC né dimostra che un utente, asset, record o obbligo sia migrato. |
+| **Proposto** | Modello, meccanismo economico o di governance, oppure elemento della roadmap, che non viene presentato come implementato. |
+
+L'attuale Protocol v1.1.0 comprende l'esecuzione diretta tramite `SwapPool`, curatela facoltativa, valutazione, limiti al saldo dei token del Fondo, commissioni del Fondo, una commissione di protocollo aggiuntiva e uno `SwapRouter` di sola quotazione. L'esecuzione multi-hop, il routing HTLC o tramite escrow, la compensazione in lotti, l'assicurazione condivisa, il token di governance CLC proposto, il Fondo di rete CLC proposto, i meccanismi di credito delle commissioni e i programmi di liquidità di rete sono proposti o dipendenti dall'implementazione.
+
+**Destinatari:** persone che creano e gestiscono Fondi, ingegneri e revisori del protocollo, finanziatori della liquidità e dei mandati, progettisti della governance e revisori legali o della conformità.
+
+## Sintesi
+
+Cosmo-Local Credit è una famiglia di prodotti costruita intorno al **Protocollo di messa in comune degli impegni (CPP)**. CPP descrive come Fondi di Impegni governati in modo indipendente possano selezionare impegni riscattabili, pubblicare metodi e limiti per i tassi di cambio, detenere inventario e consentire scambi responsabili.
+
+Un **Fondo di Impegni ** è l'accordo governato. Nell'attuale Protocol v1.1.0, uno **`SwapPool`** è uno dei componenti contrattuali: un deposito di token e un motore per gli scambi diretti. Un'implementazione può collegare il contratto a registri, quotatori, limiti al saldo dei token del Fondo, politiche delle commissioni e altri servizi.
+
+Cosmo-locale significa condividere standard aperti, software e conoscenza a livello globale, mantenendo locali l'emissione, l'adempimento, la governance e la responsabilità nel mondo reale. L'emittente rimane responsabile del proprio buono. Il Responsabile del Fondo rimane responsabile delle regole del Fondo e di ogni garanzia che assume espressamente. Né la CLC App né GEF garantiscono automaticamente un buono, un Fondo, un valore, un percorso, una posizione di liquidità o un risultato.
+
+## Implementazione attuale
+
+GEF gestisce la CLC App su [cosmolocal.credit](https://cosmolocal.credit). L'app offre accesso ad account e portafogli, un catalogo pubblico del Mercato e interfacce supportate per token, buoni, Offerte, Fondi di Impegni, trasferimenti e scambi diretti tramite Fondo. La disponibilità dipende dall'interfaccia, dai contratti, dall'inventario, dai limiti e dalle commissioni configurati, dallo stato della rete, dall'idoneità, dai fornitori, dalla giurisdizione e dalle condizioni pubblicate dall'emittente o dal Fondo.
+
+La gestione dell'interfaccia non rende di per sé GEF un emittente, Responsabile del Fondo, custode, prestatore, mutuatario, intermediario, garante, soggetto tenuto al riscatto, consulente, assicuratore o parte degli obblighi tra partecipanti. L'uso dell'app è regolato dai [Termini di servizio](/it/governance/terms).
+
+Protocol v1.1.0 distingue i ruoli responsabili dal controllo tecnico. Il Responsabile del Fondo, il proprietario dello `SwapPool`, l'amministratore del proxy, il responsabile di una dipendenza, il moderatore del catalogo e il destinatario delle commissioni possono essere soggetti diversi. Consulti [Concetti e vocabolario](/it/introduction/concepts) per la terminologia condivisa.
+
+## Origine storica
+
+Lo storico Sarafu Network ha preceduto la CLC App e ha fornito elementi utili sulle valute comunitarie e sulla messa in comune degli impegni. La transizione del servizio verso Cosmo-Local Credit non ha trasferito ogni account, portafoglio, token, buono, Fondo, saldo, rapporto, partecipante o obbligo storico.
+
+Le metriche storiche contenute in questo documento usano un insieme di dati Sarafu datato e internamente coerente. Non sono dati sull'uso attuale di CLC. La [Sintesi](/it/white-paper/executive-summary) riporta la fonte e il periodo di misurazione.
+
+## Modello progettuale
+
+CPP usa quattro funzioni generali:
+
+- **Curatela:** decidere quali buoni o altri asset sono ammessi.
+- **Valutazione:** pubblicare il metodo usato per produrre i tassi di cambio o le quotazioni del Fondo.
+- **Limitazione:** applicare gli attuali limiti al saldo dei token del Fondo o altri controlli del rischio implementati separatamente.
+- **Scambio:** detenere l'inventario ed eseguire scambi tramite Fondo secondo commissioni e limiti comunicati.
+
+Un'implementazione può aggiungere routing, monitoraggio, sostegno alla liquidità, garanzie, riserve, assicurazioni o servizi di governance soltanto in base a politiche pubblicate separatamente. La presenza in un elenco, la curatela, un limite, una riserva o un record su blockchain non dimostrano da soli la capacità dell'emittente, l'adempimento, un'approvazione, una garanzia o un'assicurazione.
+
+## Valori e principi di progettazione
+
+- **Cura delle persone:** sostenere il benessere individuale e collettivo.
+- **Cura dell'ambiente:** ridurre i danni ecologici e sostenere pratiche rigenerative.
+- **Equità:** promuovere un accesso sicuro ed equo a risorse, conoscenza e assistenza.
+- **Reciprocità:** condividere rischi, costi, responsabilità ed eccedenze secondo regole comunicate.
+- **Non dominio:** contrastare il controllo concentrato su persone, dati, finanza, conoscenza e risorse materiali.
+- **Resilienza:** aiutare le comunità a prepararsi e adattarsi a perturbazioni economiche, politiche e climatiche.
+- **Responsabilità locale:** mantenere l'adempimento nel mondo reale e la responsabilità legale presso soggetti identificati.
+- **Possibilità di diramazione:** consentire a comunità e implementazioni compatibili di lasciare registri o servizi condivisi senza cancellare saldi o obblighi validi.
+
+Il livello digitale è una memoria condivisa e un'infrastruttura di coordinamento. Non sostituisce le relazioni, la prestazione degli emittenti, la governance locale o la responsabilità legale.
+
+## Flussi attuali e proposti
+
+### Flusso diretto attuale tramite Fondo
+
+1. Il titolare esamina un buono, il suo emittente, le sue condizioni e le Offerte associate.
+2. Un Fondo ammette gli asset supportati e pubblica la propria configurazione e le autorità responsabili.
+3. Il titolare ottiene una quotazione e autorizza uno scambio diretto tramite Fondo.
+4. `SwapPool` esegue il regolamento dello scambio on-chain e contabilizza le commissioni del Fondo e del protocollo.
+5. Se in seguito il titolare sceglie **“Riscattare”** nell'app, l'app prepara un trasferimento al proprietario del token come presentazione per il riscatto.
+6. Separatamente, l'emittente esegue l'adempimento promesso e registra l'estinzione affinché le unità adempiute non possano essere riutilizzate.
+
+Prelevare inventario da un Fondo è uno scambio. Costituisce riscatto soltanto se quel Fondo ha assunto separatamente il ruolo di emittente e adempie le condizioni applicabili del buono.
+
+### Modello proposto più ampio
+
+Il modello proposto esplora il routing dell'esecuzione, la compensazione, i servizi condivisi, i programmi di liquidità di rete, le polizze assicurative e gli asset di governance. Ciascun elemento richiederebbe un'implementazione, soggetti responsabili, regole adottate, finanziamento, controlli e informazioni pubbliche prima di poter essere applicato.
+
+Il modello di commissioni proposto può usare una quota di rete prelevata dalle commissioni del Fondo e commissioni separate di routing o di servizio. Questa proposta è distinta da Protocol v1.1.0, nel quale un'eventuale commissione di protocollo è aggiuntiva rispetto alla commissione del Fondo.
+
+I sostenitori o fornitori di liquidità non ricevono automaticamente quote del Fondo né diritti di rimborso, prelievo, ricompensa o governance dall'attuale `SwapPool`. Qualsiasi programma attuale o futuro deve comunicare separatamente il tipo di trasferimento, la parte responsabile, il controllo, i diritti di recupero o prelievo, le perdite, le ricompense, le commissioni e i diritti di governance.
+
+## Mappa per il lettore
+
+- Terminologia attuale e ciclo di vita delle azioni: [Concetti e vocabolario](/it/introduction/concepts)
+- Contratti implementati e verificati: [Protocol v1.1.0](/it/protocol/overview)
+- Elementi storici: [Sintesi](/it/white-paper/executive-summary)
+- Confederazione e interoperabilità: Capitoli 5, 8 e 11
+- Garanzie proposte e limiti dell'assicurazione: Capitoli 10 e 11
+- Modelli proposti di liquidità e commissioni: Capitoli 7, 9 e 12
+- Quadro di misurazione proposto: Capitolo 14 e Appendici A–C
+- Tabella di marcia proposta: Capitolo 15
+- Considerazioni legali e di conformità: Capitolo 17
+
+Le [versioni precedenti del Libro bianco](/it/white-paper/archive) vengono conservate soltanto come pubblicazioni storiche chiaramente superate.

@@ -1,0 +1,5 @@
+## **18. Conclusione**
+
+Cosmo-Local Credit collega un'applicazione attuale e la fondazione Protocol v1.1.0 con un progetto più ampio proposto per Fondi di Impegni governato in modo indipendente. Gli attuali swap diretti del fondo, le componenti di quote e limiti e i registri di transazioni pubblici possono supportare uno scambio responsabile, ma non dimostrano il rispetto dell'emittente, non creano diritti di contribuente o garantiscono valore, liquidità, riscattamento, assicurazione, status giuridico o protezione dalle perdite.
+
+La proposta di routing di esecuzione, il netting, le attività di governance, il clearing di rete, i programmi di liquidità e le protezioni condivise descritte in questo documento richiederebbero un'attuazione, un finanziamento, una governance e termini pubblicati separati. La progettazione mira ad espandere l'interoperabilità mantenendo al contempo le prestazioni degli emittenti, la governance del fondo e la responsabilità nel mondo reale con le parti identificate.

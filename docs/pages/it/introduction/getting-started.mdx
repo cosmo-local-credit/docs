@@ -1,0 +1,74 @@
+# Per iniziare
+
+Cosmo-Local Credit (CLC) è un'applicazione web progressiva per creare, scoprire, detenere, trasferire e scambiare asset digitali, compresi buoni riscattabili, attraverso Fondi di Impegni governati in modo indipendente. La CLC App è disponibile su [cosmolocal.credit](https://cosmolocal.credit).
+
+La [Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) gestisce l'app e l'infrastruttura di supporto. Salvo che GEF accetti espressamente un altro ruolo per una determinata Offerta o transazione, non è l'emittente di un buono creato da un utente, il Responsabile di un Fondo creato da un utente, un custode, prestatore, mutuatario, garante, assicuratore o soggetto tenuto al riscatto. Gli emittenti sono responsabili degli impegni associati ai loro buoni; i Responsabili dei Fondi sono responsabili delle regole dei loro Fondi.
+
+Legga [Concetti e vocabolario](/it/introduction/concepts) per conoscere con precisione i livelli del prodotto, i ruoli, le azioni, i valori, le commissioni e i termini relativi allo stato usati nella documentazione.
+
+Prima di creare un account o effettuare una transazione, legga i [Termini di servizio](/it/governance/terms). In particolare:
+
+- Deve avere almeno 18 anni, avere raggiunto la maggiore età prevista dalla legge applicabile e avere capacità contrattuale.
+- È sua responsabilità verificare che l'account, il buono, il Fondo o la transazione siano leciti in ogni giurisdizione pertinente.
+- Le credenziali del portafoglio devono essere protette. GEF potrebbe non essere in grado di recuperare un portafoglio perso o annullare una transazione autorizzata.
+- Le transazioni e i registri su una blockchain pubblica possono essere visibili, permanenti e irreversibili.
+- La presenza nell'app non costituisce un'approvazione di GEF né una garanzia di riscatto, valore, liquidità, convertibilità o conversione in denaro.
+
+## Iniziare con l'app attuale
+
+### 1. Esplorare il Mercato
+
+Apra [cosmolocal.credit](https://cosmolocal.credit) per esplorare il **Mercato** pubblico, il catalogo di scoperta dell'app. Verifichi l'emittente responsabile, i beni o servizi promessi, il luogo, la disponibilità e le condizioni pubblicate. Una voce del Mercato non costituisce automaticamente un luogo di scambio, un rapporto di vendita, una valutazione indipendente, un'approvazione o una garanzia.
+
+### 2. Creare o usare un account e un portafoglio
+
+L'app usa un account per il profilo e l'accesso alla sessione e un portafoglio per autorizzare le operazioni su blockchain. Protegga la passkey, il materiale del portafoglio cartaceo, le informazioni di recupero, i dispositivi e ogni altra credenziale. Prima di confermare una transazione, controlli sempre l'asset, l'importo, l'indirizzo, il Fondo, la commissione e l'autorizzazione.
+
+### 3. Creare un buono
+
+Un buono combina diversi livelli distinti:
+
+1. i meccanismi e i saldi del contratto del token;
+2. la denominazione del buono e le condizioni pubblicate dall'emittente;
+3. uno o più record di Offerta per i beni o servizi associati; e
+4. l'adempimento dell'emittente nel mondo reale.
+
+La creazione o il conio di un token non dimostrano, da soli, che esista un'Offerta, che l'emittente abbia la capacità di adempierla o che GEF garantisca il riscatto.
+
+### 4. Creare o valutare un Fondo di Impegni
+
+Un Fondo di Impegni è un accordo governato. Il suo attuale contratto `SwapPool` può detenere un inventario di token supportati ed eseguire scambi diretti. Prima di usare o sostenere un Fondo, verifichi:
+
+- il Responsabile del Fondo e l'attuale proprietario del contratto;
+- l'amministratore del proxy e i responsabili delle dipendenze configurate;
+- i buoni ammessi e gli altri asset supportati;
+- i metodi per il tasso di cambio o la quotazione;
+- il **“Limite di credito”** dell'app, che è un limite al saldo di token del Fondo e non un credito personale;
+- le commissioni del Fondo e del protocollo;
+- l'inventario disponibile e il potere del proprietario del Fondo di prelevare liquidità; e
+- eventuali condizioni pubblicate separatamente per contributi, garanzie, riserve o assicurazioni.
+
+Un deposito trasferisce asset allo `SwapPool`. Protocol v1.1.0 non crea token che rappresentano quote del Fondo e non attribuisce automaticamente al depositante diritti di rimborso, prelievo, ricompensa o governance.
+
+### 5. Usare l'azione corretta
+
+- **Invia** trasferisce un saldo di token a un altro indirizzo.
+- **Scambio tramite Fondo** scambia un asset supportato con un altro tramite uno `SwapPool`. Il regolamento dello scambio on-chain non dimostra l'adempimento dell'emittente.
+- **“Riscattare”** apre il flusso di invio con l'indirizzo del proprietario del token già compilato. Il buono viene presentato o restituito all'emittente; il riscatto completo richiede anche la prestazione promessa dall'emittente e un record di estinzione che impedisca il riutilizzo.
+- **“Ritiri il buono”** nasconde il buono dal catalogo. Non distrugge i saldi, non annulla il buono e non estingue gli obblighi ancora esistenti dell'emittente.
+- **Prelievo della liquidità del Fondo** consente al proprietario del Fondo di trasferire l'inventario disponibile.
+- **Riscossione delle commissioni** invia le commissioni accumulate dal Fondo al destinatario configurato.
+
+Per seguire l'intero ciclo di vita, consulti l'[esempio pratico di un buono](/it/introduction/example).
+
+## Funzionalità attuali, dipendenti dall'implementazione e proposte
+
+L'app attuale offre un Mercato e flussi supportati per account, portafogli, buoni, Offerte, Fondi, trasferimenti, scambi diretti tramite Fondo e relativi registri. La disponibilità dipende dall'implementazione attiva, dall'asset, dalla configurazione del Fondo, dal dispositivo, dalla rete, dall'idoneità, dal fornitore, dalla giurisdizione e dalle condizioni pubblicate.
+
+I servizi di pagamento, i metodi di sostegno, le ricompense, le garanzie, gli accordi di contribuzione e le altre integrazioni dei fornitori dipendono dall'implementazione. Quando sono offerti, devono essere indicati la parte responsabile, le commissioni, i limiti, l'idoneità e le condizioni legali.
+
+Protocol v1.1.0 offre l'esecuzione diretta tramite Fondo e uno `SwapRouter` che produce soltanto quotazioni. L'esecuzione multi-hop, il routing HTLC o tramite escrow, la compensazione in lotti, l'assicurazione condivisa, gli asset di governance proposti, i programmi di liquidità di rete e i canali di pagamento regolamentati rimangono proposti o dipendenti dall'implementazione, salvo che una specifica implementazione li dichiari attivi.
+
+Qualsiasi futuro prestito o altro prodotto di credito richiede condizioni supplementari e condizioni della transazione presentate separatamente. Un normale trasferimento, deposito in un Fondo, scambio tramite Fondo, presentazione per il riscatto, adempimento o estinzione non costituisce automaticamente un prestito, un anticipo o un rimborso.
+
+Può proseguire con la [panoramica del protocollo](/it/protocol/overview), i [meccanismi di governance](/it/governance/mechanics) o il più ampio [Libro bianco](/it/white-paper).

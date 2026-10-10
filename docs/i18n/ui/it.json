@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Lingua",
+    "colorTheme": "Tema colore",
+    "lightMode": "Usa modalità chiara",
+    "darkMode": "Usa modalità scura"
+  },
+  "chrome": {
+    "search": "Cerca",
+    "closeSearchDialog": "Chiudi la finestra di ricerca",
+    "toggleDetailView": "Attiva o disattiva la vista dettagliata",
+    "resetSearch": "Azzera la ricerca",
+    "navigate": "Naviga",
+    "select": "Seleziona",
+    "close": "Chiudi",
+    "reset": "Azzera",
+    "menu": "Menu",
+    "onThisPage": "In questa pagina",
+    "previous": "Precedente",
+    "next": "Successivo",
+    "copy": "Copia",
+    "copied": "Copiato",
+    "skipToContent": "Vai al contenuto",
+    "askInChatGPT": "Chiedi a ChatGPT",
+    "copyPageForLlms": "Copia la pagina per gli LLM",
+    "lastUpdated": "Ultimo aggiornamento:",
+    "codeGroup": "Gruppo di codice",
+    "terminal": "Terminale",
+    "file": "File",
+    "noResultsFor": "Nessun risultato per",
+    "top": "Inizio",
+    "scrollToTop": "Torna all'inizio",
+    "pageNotFound": "Pagina non trovata",
+    "notFoundDescription": "Impossibile trovare la pagina cercata.",
+    "goHome": "Vai alla pagina iniziale",
+    "diagramScroll": "Scorri orizzontalmente per vedere il diagramma completo.",
+    "diagramError": "Non è stato possibile visualizzare il diagramma"
+  },
+  "legal": {
+    "translationTitle": "Prima traduzione per la revisione",
+    "translationNotice": "Questa traduzione è fornita per agevolare la lettura. I Termini in inglese sono il testo originale e prevalgono, salvo ove diversamente richiesto dalla legge applicabile.",
+    "englishSource": "Leggi i Termini in inglese"
+  },
+  "whitePaper": {
+    "translationTitle": "Informazioni su questa traduzione",
+    "translationNotice": "Questa è una prima traduzione del Libro bianco v0.8 (White Paper v0.8), preparata per la revisione. Il testo originale in inglese è stato pubblicato il 30 settembre 2026. Questa traduzione è stata preparata il 10 ottobre 2026. L'inglese è il testo originale.",
+    "englishSource": "Leggi il testo originale in inglese",
+    "archivedEnglishOnly": "Il PDF della versione v0.7, ormai superata, è disponibile solo in inglese."
+  }
+}

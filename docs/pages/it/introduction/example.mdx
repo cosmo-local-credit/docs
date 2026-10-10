@@ -1,0 +1,73 @@
+# Esempio pratico di buono
+
+Questo esempio segue un buono da emissione attraverso uno scambio di fondo, presentazione del riscatto, adempimento e estinzione. Essa illustra i ruoli coinvolti; non è una promessa che sarà disponibile un particolare buono, fondo, percorso o risultato.
+
+Per le definizioni utilizzate qui, vedere [Concetti e vocabolario](/it/introduction/concepts).
+
+## 1. L'emittente pubblica un impegno
+
+Immaginate che una cucina comunitaria crei un buono digitale per il pasto. Prima di emetterla, la cucina pubblica le informazioni necessarie per prendere una decisione informata:
+
+- l'identità e i dati di contatto della cucina;
+- il pasto o l'altra offerta rappresentata da un buono;
+- fornitura, unità, valore dichiarato e capacità di funzionamento della cucina;
+- dove e durante quali ore può essere presentato;
+- qualsiasi data di scadenza, procedura di prenotazione, commissioni, imposte o restrizioni di trasferimento; e
+- come funzionano la presentazione, l'adempimento, i reclami, i rimborsi, le sostituzioni e altri rimedi.
+
+La cucina è l'emittente. Essa deve mantenere queste informazioni accurate, evitare di emettere oltre la sua ragionevole capacità e onorare i buoni secondo le condizioni in cui i titolari li hanno acquisiti. La creazione del token o la pubblicazione dell'offerta non dimostra tale capacità né rende GEF l'emittente.
+
+## 2. Un Responsabile del Fondo ammette il buono
+
+Un sistema di sicurezza alimentare Fondo di Impegni riesamina la cucina, i termini del buono e lo scopo del Fondo. Se ammesso, Responsabile del Fondo pubblica le norme applicabili, tra cui:
+
+- che è responsabile del Fondo;
+- l'attuale proprietario di `SwapPool`, l'amministratore proxy e i controller di dipendenza dei materiali;
+- attività accettate;
+- metodi di cambio o di quotazione;
+- caps per il saldo dei token, denominati **“Limiti di credito”** nell'app;
+- tasse di fondo e protocollo;
+- poteri di inventario e di prelievo di liquidità; e
+- qualsiasi accordo di garanzia, riserva o sostegno finanziato separatamente.
+
+L'ammissione significa che le regole di configurazione del Fondo consentono il buono. Non dimostra la capacità di soddisfazione, non stabilisce il valore in contanti né crea un'assicurazione.
+
+## 3. Un partecipante contribuisce allo inventario
+
+Un sostenitore trasferisce i buoni del pasto o un altro bene sostenuto nella `SwapPool` secondo i termini pubblicati applicabili. Questo deposito aumenta l'inventario disponibile.
+
+Il trasferimento non crea automaticamente una quota di fondo, una richiesta di rimborso, un diritto di prelievo, una ricompensa o un potere di governance. Tale diritto deve derivare da un accordo separato.
+
+## 4. Un titolare fa uno scambio di fondo
+
+Il titolare scambia un'attività sostenuta in cambio di buoni di pasto attraverso il Fondo. La quotazione visualizzata è un parametro di transazione prodotto dal quotatore configurato, non prova del valore in contanti del buoni o delle prestazioni della cucina.
+
+L'interscambio diretto del fondo si effettua in catena trasferendo le entrate, le uscite, le tasse del fondo e le eventuali tasse di protocollo aggiuntive. Non si tratta automaticamente di un prestito, di un riscatto da parte dell'emittente o di una realizzazione.
+
+## 5. Il titolare presenta il buono
+
+Nell'app attuale, scegliere **“Riscattare”** apre il normale flusso di invio con l'indirizzo del titolare del token preempito. La restituzione del buono costituisce la prova della presentazione all'emittente; non dimostra di per sé che la cucina abbia fornito un pasto.
+
+La cucina verifica la presentazione e fornisce il pasto promesso secondo i termini pubblicati.
+
+## 6. L'emittente registra l'adempimento e lo estinzione
+
+Dopo aver fornito il pasto, l'emittente registra le unità soddisfatte in modo che non possano essere presentate due volte. A seconda del processo pubblicato, ciò può comportare la ricezione, la combustione, l'annullamento o la disabilitazione del buono restituito.
+
+Se la cucina non rispetta il suo impegno, il titolare utilizza il processo di denuncia o di rimedio pubblicato dall'emittente e qualsiasi diritto disponibile ai sensi della legge applicabile. Né GEF né Responsabile del Fondo diventa redentore solo perché l'app ha visualizzato il buono o il Fondo ha consentito uno swap.
+
+Scegliere **“Ritiri il buono”** in app è diverso: nasconde l'elenco del catalogo mentre rimangono i bilanci e la storia, e un amministratore può ripristinarlo. Non è adempimento, estinzione, bruciamento o cancellazione.
+
+## Responsabilità in un primo sguardo
+
+- **Emittente:** descrive e adempie il buono e registra la estinzione.
+- **Responsabile del Fondo:** pubblica e amministra le norme, le tariffe, le commissioni, i limiti, i controlli e qualsiasi garanzia espressamente assunta.
+- **Portatore:** valuta l'emittente, le condizioni del buono, le regole del fondo, la quotazione, l'autorizzazione del portafoglio e la legge applicabile.
+- **Controlli tecnici:** esercitare soltanto i poteri contrattuali, di dipendenza, di aggiornamento, di catalogo o di tassazione loro assegnati.
+- **GEF:** gestisce la CLC App e l'infrastruttura di supporto, [Termini di servizio](/it/governance/terms) La Commissione ha adottato una decisione . non assume automaticamente gli altri ruoli.
+
+## Arrangimenti di credito futuri
+
+Un futuro fondo o un'altra parte responsabile potrebbe offrire separatamente una transazione come anticipo rimborsabile, transazione garantita o altro prodotto creditizio. Tale prodotto richiederebbe la presentazione separata di termini supplementari e di transazione che identificino le parti, gli importi, le date di scadenza, le tasse o gli interessi, il trattamento delle garanzie, la cessione, il default, i rimedi e le prove di estinzione.
+
+L'invio ordinario, il deposito in fondo, lo swap in fondo, la presentazione di buoni, l'adempimento o il estinzione non creano tali obblighi da soli.

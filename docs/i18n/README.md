@@ -8,9 +8,9 @@ public documentation site. The synchronization baseline is `clc-app`
 English is unprefixed. Arabic, Dzongkha, German, Spanish, French, Italian,
 Portuguese, Serbian, Kiswahili, and Ukrainian use their two-letter locale prefix.
 All eleven splash pages are available. Detailed documentation is released one
-reviewed language at a time; French, Spanish, and Portuguese are the drafts
-currently under review. Stable English slugs are deliberately retained below
-each published locale prefix.
+reviewed language at a time; French, Spanish, Portuguese, and Italian are the
+drafts currently under review. Stable English slugs are deliberately retained
+below each published locale prefix.
 
 ## Files
 

@@ -12,7 +12,7 @@ const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const siteUrl = 'https://docs.cosmolocal.credit'
 const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const documentationLocales = ['en', 'fr', 'es', 'pt']
+const documentationLocales = ['en', 'fr', 'es', 'pt', 'it']
 const localized = new Set(locales.filter((locale) => locale !== 'en'))
 const directions = { en: 'ltr', ar: 'rtl', de: 'ltr', dz: 'ltr', es: 'ltr', fr: 'ltr', it: 'ltr', pt: 'ltr', sr: 'ltr', sw: 'ltr', uk: 'ltr' }
 const documentationPaths = [

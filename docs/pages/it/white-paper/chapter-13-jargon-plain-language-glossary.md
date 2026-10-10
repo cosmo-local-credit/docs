@@ -1,0 +1,25 @@
+## **13. Glossario in lingua semplice**
+
+- **Cosmo-Local Credit (CLC):** La famiglia di prodotti, compresa la CLC App, la documentazione e il più ampio lavoro di riassunzione degli impegni.
+- **CLC App:** L'app web progressiva gestita da GEF presso `cosmolocal.credit`.
+- **Protocollo di coordinamento degli impegni (CPP):** Il modello riutilizzabile di curazione, valutazione, limitazione, scambio e governance responsabile.
+- **Protocol v1.1.0:** Il rilascio del contratto intelligente pubblico verificato.
+- **Fondo di Impegni:** Un accordo governato che ammette le attività sostenute e pubblica le regole di cambio.
+- **`SwapPool`:** L'attuale token vault e il contratto di scambio diretto.
+- **Segnale:** Un saldo in catena o un'attività digitale. Solo la meccanica dei token non crea una promessa riscattabile.
+- **buono:** Un token o un record rappresentato da un emittente come impegno rimborsabile in termini pubblicati.
+- **Offerta:** Registro del catalogo delle merci o dei servizi associati a un buono.
+- **Emittente:** Parte responsabile della pubblicazione e dell'adempimento di un impegno del buono.
+- **Responsabile del Fondo:** La struttura responsabile che pubblica e amministra le regole del Fondo.
+- **tasso di cambio del fondo o quotazione:** un parametro di transazione prodotto da un quotatore configurato; non prove di denaro contante o di valore di riscatto.
+- **Cappello per il saldo dei token del fondo:** Il massimo `Limiter` attuale per un token detenuto da un fondo. L'app può etichettarlo ** Limite di credito.”**
+- **Scambio di fondo:** Uno scambio diretto di attività attraverso uno `SwapPool`.
+- **Risoluzioni di scambio:** I trasferimenti in catena e la contabilità delle commissioni che completano lo scambio di fondo.
+- **Presentazione di riscatto:** Ritorno o in altro modo presentazione delle unità del buono all'emittente.
+- **Completamento:** L'emittente fornisce il bene, il servizio, il beneficio o altre prestazioni promesse.
+- **estinzione:** Una registrazione che impedisce di presentare nuovamente le unità soddisfatte.
+- **Router di esecuzione proposto:** Futuro software che autorizza e esegue le rotte. Solo le quote attuali di `SwapRouter`.
+- **Proposto Fondo di rete CLC:** Un futuro accordo di compensazione e di coordinamento di bilancio a livello di rete.
+- **Proposto CLC token di governance:** Un progetto di governance futuro, non un asset attuale di app o Protocol v1.1.0.
+- **Rake della rete:** Una quota proposta delle commissioni del gruppo trasferita in un futuro bilancio della rete.
+- **Garanzia o assicurazione:** Una protezione che si applica solo quando una parte identificata lo assume espressamente, lo finanzi e la pubblica.
