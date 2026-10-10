@@ -14,18 +14,35 @@ PAGES_ROOT = ROOT / "docs" / "pages"
 PAGES = PAGES_ROOT / "white-paper"
 OUT_DIR = ROOT / "white-paper"
 OUT_TEX = OUT_DIR / "clc_white_paper.tex"
-LOCALES = ["en", "ar", "de", "dz", "es", "fr", "it", "pt", "sr", "sw", "uk"]
+LOCALES = ["en", "ar", "de", "dz", "es", "fr", "hi", "it", "nl", "pt", "sr", "sw", "uk"]
 POLYGLOSSIA_LANGUAGES = {
     "ar": "arabic",
     "de": "german",
     "dz": "tibetan",
     "es": "spanish",
     "fr": "french",
+    "hi": "hindi",
     "it": "italian",
+    "nl": "dutch",
     "pt": "portuguese",
     "sr": "serbian",
     "sw": "english",
     "uk": "ukrainian",
+}
+
+TRANSLATION_DATES = {
+    "es": "9 October 2026",
+    "fr": "9 October 2026",
+    "ar": "10 October 2026",
+    "de": "10 October 2026",
+    "dz": "10 October 2026",
+    "hi": "10 October 2026",
+    "it": "10 October 2026",
+    "nl": "10 October 2026",
+    "pt": "10 October 2026",
+    "sr": "10 October 2026",
+    "sw": "10 October 2026",
+    "uk": "10 October 2026",
 }
 
 DISPLAY_FORMULAS = {
@@ -42,6 +59,7 @@ DISPLAY_FORMULAS = {
     "limit_user_epoch = F_epoch × (stCLC_user / stCLC_total)": r"\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}",
     "R_required ≈ B_cash / (τ · χ)": r"R_{\mathrm{required}} \approx \frac{B_{\mathrm{cash}}}{\tau \cdot \chi}",
     "t ≈ log(R_required / R_0) / log(1 + g)": r"t \approx \frac{\log(R_{\mathrm{required}}/R_0)}{\log(1+g)}",
+    "`V_commit,t = FulfilledValue_t / AverageOutstandingEligibleCommitmentValue_t`": r"V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}",
 }
 
 ORDER = [
@@ -201,10 +219,17 @@ def normalize_formula_key(line: str) -> str:
     return re.sub(r"\s+", " ", line.strip().rstrip("."))
 
 
-def render_display_formula(line: str) -> list[str]:
+def render_display_formula(line: str, locale: str) -> list[str]:
     formula = DISPLAY_FORMULAS.get(normalize_formula_key(line))
     if not formula:
         return []
+    if locale in {"ar", "dz", "hi"}:
+        formula = re.sub(
+            r"\\mathrm\{([^{}]+)\}",
+            lambda match: rf"\text{{\latinfont {match.group(1)}}}",
+            formula,
+        )
+        formula = formula.replace(r"\text{if }", r"\text{\latinfont if }")
     return [r"\[", formula, r"\]", ""]
 
 
@@ -313,13 +338,17 @@ def close_lists(out: list[str], stack: list[tuple[int, str]], target: int = -1) 
         out.append(rf"\end{{{env}}}")
 
 
-def convert_lines(lines: list[str]) -> list[str]:
+def convert_lines(lines: list[str], locale: str) -> list[str]:
     out: list[str] = []
     stack: list[tuple[int, str]] = []
     i = 0
     while i < len(lines):
         raw = lines[i].rstrip()
+        if locale == "ar":
+            raw = raw.replace("–", "-")
         line = raw.strip()
+        if line.startswith("> "):
+            line = line[2:].lstrip()
 
         if not line:
             i += 1
@@ -346,7 +375,7 @@ def convert_lines(lines: list[str]) -> list[str]:
             i += 1
             continue
 
-        display_formula = render_display_formula(line)
+        display_formula = render_display_formula(line, locale)
         if display_formula:
             close_lists(out, stack)
             out.extend(display_formula)
@@ -530,24 +559,61 @@ def english_preamble(abstract_text: str, version: str, publication_date: str) ->
 
 def localized_preamble(locale: str, subtitle: str) -> list[str]:
     language = POLYGLOSSIA_LANGUAGES[locale]
-    main_font = "Noto Serif Tibetan" if locale == "dz" else "Noto Sans"
-    language_fonts: list[str] = []
+    language_setup = [
+        r"\usepackage{polyglossia}",
+        rf"\setdefaultlanguage{{{language}}}",
+    ]
     if locale == "ar":
-        language_fonts = [r"\newfontfamily\arabicfont[Script=Arabic]{Noto Sans Arabic}"]
-    elif locale == "dz":
-        language_fonts = [r"\newfontfamily\tibetanfont[Script=Tibetan]{Noto Serif Tibetan}"]
+        language_setup = [
+            r"\usepackage[bidi=basic]{babel}",
+            r"\babelprovide[main,import]{arabic}",
+            r"\babelprovide[import]{english}",
+            r"\babelfont[english]{rm}{Noto Sans}",
+        ]
+    font_setup = [
+        r"\setmainfont{Noto Sans}",
+        r"\setsansfont{Noto Sans}",
+        r"\setmonofont{Noto Sans Mono}",
+    ]
+    language_fonts: list[str] = []
+    complex_script = {
+        "ar": ("Noto Sans Arabic", "Arabic", "arabic"),
+        "dz": ("Noto Serif Tibetan", "Tibetan", "tibetan"),
+        "hi": ("Noto Sans Devanagari", "Devanagari", "devanagari"),
+    }.get(locale)
+    if complex_script:
+        script_font, script, family = complex_script
+        font_setup = [
+            r'\directlua{luaotfload.add_fallback("clclatin", {"name:Noto Sans:mode=harf"})}',
+            r'\directlua{luaotfload.add_fallback("clclatinmono", {"name:Noto Sans Mono:mode=harf"})}',
+            rf"\setmainfont[Script={script},RawFeature={{fallback=clclatin}}]{{{script_font}}}",
+            rf"\setsansfont[Script={script},RawFeature={{fallback=clclatin}}]{{{script_font}}}",
+            rf"\setmonofont[Script={script},RawFeature={{fallback=clclatinmono}}]{{{script_font}}}",
+        ]
+        language_fonts = [
+            rf"\newfontfamily\{family}font[Script={script},RawFeature={{fallback=clclatin}}]{{{script_font}}}",
+            rf"\newfontfamily\{family}fontsf[Script={script},RawFeature={{fallback=clclatin}}]{{{script_font}}}",
+            rf"\newfontfamily\{family}fonttt[Script={script},RawFeature={{fallback=clclatinmono}}]{{{script_font}}}",
+            r"\newfontfamily\latinfont{Noto Sans}",
+        ]
     elif locale in {"sr", "uk"}:
         language_fonts = [r"\newfontfamily\cyrillicfont[Script=Cyrillic]{Noto Sans}"]
 
     column_alignment = r"\raggedleft" if locale == "ar" else r"\raggedright"
+    if locale == "ar":
+        title_name = r"\foreignlanguage{english}{Cosmo-Local Credit (CLC)}"
+    elif locale == "dz":
+        # Tibetan font metrics extend far above the Latin baseline. Add explicit
+        # cover space so the title's upper glyphs stay inside the page margin.
+        title_name = r"\vspace*{0.85in}Cosmo-Local Credit (CLC)"
+    else:
+        title_name = "Cosmo-Local Credit (CLC)"
     return [
         r"\documentclass[11pt]{article}",
         "",
         r"\usepackage{fontspec}",
         r"\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}",
-        rf"\setmainfont{{{main_font}}}",
-        r"\setsansfont{Noto Sans}",
-        r"\setmonofont{Noto Sans Mono}",
+        *font_setup,
         r"\usepackage[margin=1in]{geometry}",
         r"\usepackage{amsmath,amssymb}",
         r"\usepackage{booktabs}",
@@ -557,14 +623,14 @@ def localized_preamble(locale: str, subtitle: str) -> list[str]:
         r"\usepackage{graphicx}",
         r"\usepackage{caption}",
         r"\usepackage{enumitem}",
+        r"\usepackage{ragged2e}",
         r"\usepackage{hyperref}",
         r"\usepackage{url}",
-        r"\usepackage{polyglossia}",
-        rf"\setdefaultlanguage{{{language}}}",
+        *language_setup,
         *language_fonts,
         rf"\newcolumntype{{P}}[1]{{>{{{column_alignment}\arraybackslash}}p{{#1}}}}",
         r"\captionsetup{font=small,labelfont=bf}",
-        r"\setlength{\emergencystretch}{2em}",
+        r"\setlength{\emergencystretch}{6em}",
         r"\hypersetup{",
         r"  unicode=true,",
         r"  colorlinks=true,",
@@ -576,14 +642,17 @@ def localized_preamble(locale: str, subtitle: str) -> list[str]:
         r"  pdfauthor={William O. Ruddick and Mohamed Sohail}",
         r"}",
         "",
-        r"\title{Cosmo-Local Credit (CLC)\\" + render_inline(subtitle) + "}",
+        rf"\title{{{title_name}\\" + render_inline(subtitle) + "}",
         r"\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}",
-        r"\date{White Paper v0.8 --- 8 October 2026}",
+        rf"\date{{White Paper v0.8 translation: {TRANSLATION_DATES[locale]}}}",
         "",
         r"\begin{document}",
         r"\maketitle",
+        *([r"\newpage"] if locale == "dz" else []),
         r"\tableofcontents",
         r"\newpage",
+        r"\sloppy",
+        r"\RaggedLeft" if locale == "ar" else r"\RaggedRight",
         "",
     ]
 
@@ -613,10 +682,10 @@ def build(locale: str = "en") -> str:
         pages_dir = PAGES_ROOT / locale / "white-paper"
         front_lines, subtitle = localized_index(pages_dir)
         out = localized_preamble(locale, subtitle)
-    out.extend(convert_lines(front_lines))
+    out.extend(convert_lines(front_lines, locale))
     for filename in ORDER:
         source = normalize_source((pages_dir / filename).read_text(encoding="utf-8"))
-        out.extend(convert_lines(source.splitlines()))
+        out.extend(convert_lines(source.splitlines(), locale))
         out.append("")
     out.append(r"\end{document}")
     return "\n".join(out) + "\n"

@@ -1,0 +1,1555 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{polyglossia}
+\setdefaultlanguage{french}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{6em}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdflang={fr},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC)\\Un réseau pour la répartition des crédits, la coordination des engagements et le financement d'une économie cosmolocale saine}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{White Paper v0.8 translation: 9 October 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\sloppy
+\RaggedRight
+
+\textbf{À propos de cette traduction.} Ceci est une traduction du Livre blanc v0.8 (White Paper v0.8). Le texte source anglais a été publié le 30 septembre 2026. Cette traduction a été publiée le 9 octobre 2026. L'anglais constitue le texte source. \href{https://docs.cosmolocal.credit/white-paper}{Lire le texte source anglais}.
+
+\textbf{La version suivante:} 0.8
+
+\textbf{Date à laquelle:} 30 Septembre 2026
+
+\textbf{Les auteurs:} William O. Ruddick et Mohamed Sohail
+
+\textbf{Contact :} \href{mailto:info@grassecon.org}{info@grassecon.org}
+
+\textbf{Télécharger :} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fr.pdf}{Livre blanc CLC v0.8 en français (PDF)}
+
+\textbf{Publié par:} La version finale est publiée. Le présent document ne constitue pas un avis d'investissement et ne constitue pas une offre de vente ou une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures peuvent réviser les modèles décrits ici.
+
+\section*{Comment lire cet article ?}
+\addcontentsline{toc}{section}{Comment lire cet article ?}
+
+Cet article combine quatre types de matériaux. Le statut s'applique dans l'ensemble, même lorsqu'un chapitre ne le répète pas.
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+Statut officiel & La signification \\
+\midrule
+\endhead
+\textbf{Courant} & Comportement vérifié dans les contrats CLC App ou Protocol v1.1.0 publics. Le \href{https://docs.cosmolocal.credit/fr/protocol/overview}{Référence au protocole} est la source factuelle de ces contrats. \\
+\textbf{Selon le déploiement} & Une capacité qui n'existe que lorsqu'un bassin, un fournisseur, une juridiction, un organisme de gouvernance ou une politique publiée le permettent. \\
+\textbf{Historique} & Evidence ou fonctionnalité du service Sarafu Network antérieur. Il ne s'agit pas d'une adoption actuelle de CLC ou d'une preuve qu'un utilisateur, un actif, un enregistrement ou une obligation a migré. \\
+\textbf{Proposé} & Une conception, un modèle économique, un mécanisme de gouvernance ou un élément de feuille de route qui n'est pas représenté comme déployé. \\
+\bottomrule
+\end{longtable}
+
+L'actuel Protocol v1.1.0 comprend l'exécution directe de \texttt{SwapPool}, la conservation optionnelle, l'évaluation, les plafonds du solde des jetons de bassin, les frais de bassin, une redevance de protocole supplémentaire et un \texttt{SwapRouter} uniquement pour les offres. L'exécution multi-hop, le routage HTLC ou de l'escrow, la compensation par lots, l'assurance partagée, le jeton de gouvernance CLC proposé, le bassin de réseau CLC proposé, les mécanismes de crédits de frais et les programmes de liquidité du réseau sont proposés ou dépendants du déploiement.
+
+\textbf{Audience prévue:} Créateurs de bassins et administrateurs, ingénieurs et auditeurs de protocoles, bailleurs de fonds de liquidités et de mandats, concepteurs de gouvernance et examinateurs juridiques ou de conformité.
+
+\section*{Résumé}
+\addcontentsline{toc}{section}{Résumé}
+
+Cosmo-Local Credit est une famille de produits construite autour du \textbf{Protocole de mise en commun des engagements (CPP)} CPP décrit comment Bassins d'engagements géré de manière indépendante peut organiser des engagements remboursables, publier des méthodes et des limites de taux de change, tenir un inventaire et permettre un échange responsable.
+
+À \textbf{Bassin d'engagements } est l'arrangement régie. Un courant Protocol v1.1.0 \textbf{\texttt{SwapPool}} est un composant du contrat: un coffre-fort symbolique et un moteur d'échange direct. Un déploiement peut connecter ce contrat à des registres, des cotations, des plafonds de solde des jetons de bassin, des politiques de redevance et d'autres services.
+
+Cosmo-local signifie partager des normes ouvertes, des logiciels et des connaissances à l'échelle mondiale tout en gardant l'émission, l'exécution, la gouvernance et la responsabilité dans le monde réel locaux. L'émetteur reste responsable de son bon d'échange. Un Gestionnaire de Bassin reste responsable des règles du bassin et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne garantissent automatiquement un bon d'échange, un bassin, une valeur, une route, une position de liquidité ou un résultat.
+
+\section*{Déploiement actuel}
+\addcontentsline{toc}{section}{Déploiement actuel}
+
+GEF exploite le CLC App au \href{https://cosmolocal.credit}{cosmolocal.credit} Il fournit un accès au compte et au portefeuille, un catalogue public du marché et des interfaces prises en charge pour les jetons, les bons d'échange, les offres, Bassins d'engagements, les transferts et les swaps directs de bassin. La disponibilité dépend de l'interface, des contrats, de l'inventaire, des limites et des frais configurés, de l'état du réseau, de l'admissibilité, des fournisseurs, de la juridiction et des conditions publiées de l'émetteur ou du bassin.
+
+L'exploitation de l'interface ne fait pas d'elle-même de GEF un émetteur, de Gestionnaire de Bassin un dépositaire, un prêteur, un emprunteur, un courtier, un garant, un racheteur, un conseiller, un assureur ou une partie à des obligations entre participants. L'utilisation de l'application est régie par le \href{https://docs.cosmolocal.credit/fr/governance/terms}{Conditions d'utilisation}.
+
+Protocol v1.1.0 sépare les rôles responsables du contrôle technique. Un propriétaire Gestionnaire de Bassin, un propriétaire \texttt{SwapPool}, un administrateur de proxy, un contrôleur de dépendance, un modérateur de catalogue et un bénéficiaire de frais peuvent être des parties différentes. Voir aussi \href{https://docs.cosmolocal.credit/fr/introduction/concepts}{Concepts et vocabulaire} pour la terminologie partagée.
+
+\section*{Lignée historique}
+\addcontentsline{toc}{section}{Lignée historique}
+
+L'historique Sarafu Network a précédé le CLC App et a fourni des preuves sur les monnaies communautaires et le regroupement des engagements. Sa transition vers le service Cosmo-Local Credit n'a pas transféré chaque compte historique, portefeuille, jeton, bon d'échange, bassin, solde, rapport, participant ou obligation.
+
+Les métriques historiques de cet article utilisent un ensemble de données Sarafu daté et cohérent en interne. Il ne s'agit pas des chiffres d'utilisation actuels de CLC. Voir le \href{https://docs.cosmolocal.credit/fr/white-paper/executive-summary}{Résumé exécutif} pour la période de source et de mesure.
+
+\section*{Modèle de conception}
+\addcontentsline{toc}{section}{Modèle de conception}
+
+CPP utilise quatre fonctions générales:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{La sélection:} décider quels bons d'échange ou autres actifs sont admis.
+\item \textbf{Une évaluation:} publier la méthode utilisée pour produire les taux de change ou les cotations de bassin.
+\item \textbf{Limitation de l'utilisation:} appliquer les plafonds actuels du solde des jetons de bassin ou d'autres contrôles des risques mis en œuvre séparément.
+\item \textbf{Échange:} détenir un inventaire et exécuter des swaps de bassin dans le cadre de frais et limites divulgués.
+\end{itemize}
+Un déploiement peut ajouter des services de routage, de surveillance, de soutien à la liquidité, de garanties, de réserves, d'assurance ou de gouvernance uniquement dans le cadre de politiques publiées séparément. La liste, la conservation, une limite, une réserve ou un enregistrement de chaîne de blocs n'établit pas en soi la capacité d'émetteur, l'exécution, l'approbation, une garantie ou une assurance.
+
+\section*{Valeurs et principes de conception}
+\addcontentsline{toc}{section}{Valeurs et principes de conception}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Prendre soin des personnes:} soutenir le bien-être individuel et collectif.
+\item \textbf{Prendre soin de l'environnement:} réduire les dommages écologiques et soutenir les pratiques de régénération.
+\item \textbf{L'équité:} promouvoir un accès sûr et équitable aux ressources, aux connaissances et aux soins.
+\item \textbf{Réciprocité:} partager le risque, le coût, la responsabilité et l'excédent conformément aux règles divulguées.
+\item \textbf{La non-dominance} résister au contrôle concentré des personnes, des données, des finances, des connaissances et des ressources matérielles.
+\item \textbf{La résilience:} aider les communautés à se préparer et à s'adapter aux perturbations économiques, politiques et climatiques.
+\item \textbf{Responsabilité locale:} maintenir l'exécution du monde réel et la responsabilité légale avec les parties identifiées.
+\item \textbf{Pourfait:} permettre aux communautés et aux déploiements compatibles de quitter les registres ou les services partagés sans effacer les soldes ou les obligations valides.
+\end{itemize}
+La couche numérique est la mémoire partagée et l'infrastructure de coordination. Il ne remplace pas les relations, les performances des émetteurs, la gouvernance locale ou la responsabilité juridique.
+
+\section*{Flux actuel et projeté}
+\addcontentsline{toc}{section}{Flux actuel et projeté}
+
+\subsection*{Flux direct actuel d'un Bassin}
+\addcontentsline{toc}{subsection}{Flux direct actuel d'un Bassin}
+
+\begin{enumerate}[leftmargin=*]
+\item Un détenteur examine un bon d'échange, son émetteur, ses conditions et les offres associées.
+\item Un bassin admet les actifs pris en charge et publie sa configuration et ses autorités responsables.
+\item Le détenteur obtient un devis et autorise un échange direct de bassin.
+\item \texttt{SwapPool} effectue le règlement des swaps en chaîne et tient compte des frais de bassin et de protocole.
+\item Si le Titulaire choisit ensuite \textbf{« Redeem »} dans l'application, celle-ci prépare un transfert vers le propriétaire du jeton à titre de présentation pour utilisation.
+\item L'émetteur effectue séparément l'exécution promise et enregistre l'écoulement afin que les unités exécutées ne puissent pas être réutilisées.
+\end{enumerate}
+Prendre l'inventaire d'un Bassin est un échange. Il s'agit d'un remboursement uniquement si ce bassin a assumé séparément le rôle d'émetteur et remplit les conditions du bon d'échange applicable.
+
+\subsection*{Proposition de conception plus large}
+\addcontentsline{toc}{subsection}{Proposition de conception plus large}
+
+La conception proposée explore le routage d'exécution, la compensation, les services partagés, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun d'entre eux nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des divulgations publiques avant de pouvoir s'appliquer.
+
+Le modèle de redevance proposé peut utiliser un ramassage de réseau tiré des redevances de bassin et des redevances de routage ou de service distinctes. Cette proposition est distincte de la proposition Protocol v1.1.0, dans laquelle une redevance de protocole facultative s'ajoute à la redevance de bassin.
+
+Les partisans ou les fournisseurs de liquidités ne reçoivent aucun droit automatique d'actions de bassin, de remboursement, de retrait, de récompense ou de gouvernance de l'actuel \texttt{SwapPool}. Tout programme actuel ou futur doit indiquer séparément le type de transfert, la partie responsable, le contrôle, les droits de récupération ou de retrait, les pertes, les récompenses, les frais et les droits de gouvernance.
+
+\section*{Carte du lecteur}
+\addcontentsline{toc}{section}{Carte du lecteur}
+
+\begin{itemize}[leftmargin=*]
+\item Terminologie actuelle et cycle de vie de l'action:\href{https://docs.cosmolocal.credit/fr/introduction/concepts}{Concepts et vocabulaire}
+\item Contrats déployés vérifiés:\href{https://docs.cosmolocal.credit/fr/protocol/overview}{Protocol v1.1.0}
+\item Des preuves historiques:\href{https://docs.cosmolocal.credit/fr/white-paper/executive-summary}{Résumé exécutif}
+\item Confédération et interopérabilité: chapitres 5, 8 et 11
+\item Garanties et limites d'assurance proposées: chapitres 10 et 11
+\item Modèles de liquidité et de redevances proposés: chapitres 7, 9 et 12
+\item Cadre de mesure proposé: chapitre 14 et appendices A--C
+\item Proposition de feuille de route: chapitre 15
+\item Considérations juridiques et de conformité: chapitre 17
+\end{itemize}
+\href{https://docs.cosmolocal.credit/fr/white-paper/archive}{Les versions précédentes du livre blanc} sont conservés uniquement comme des publications historiques clairement dépassées.
+
+\section*{Résumé exécutif}
+\addcontentsline{toc}{section}{Résumé exécutif}
+
+Le \textbf{Protocole de mise en commun des engagements (CPP)} décrit comment Bassins d'engagements, géré de manière indépendante, peut organiser des engagements remboursables, publier des méthodes et des limites de taux de change, tenir un inventaire et permettre un échange responsable. Les émetteurs restent responsables de leurs engagements en matière de bons. Gestionnaires de Bassins reste responsable des règles du bassin et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne sont un garant universel.
+
+Protocol v1.1.0 fournit les éléments constitutifs actuels de l'échange direct: \texttt{GiftableToken}, \texttt{SwapPool}, des registres optionnels et des modules d'évaluation, des plafonds de solde des jetons de bassin, des frais de bassin, une redevance de protocole supplémentaire et un \texttt{SwapRouter} à cotation uniquement. Les contrats actuels n'enregistrent pas l'exécution dans le monde réel, ne créent pas d'actions de fournisseur de liquidités automatiques, n'exécutent pas de routes multi-hop ou ne fournissent pas de réserves universelles, de garanties ou d'assurances.
+
+L'historique \textbf{Sarafu Network} ont utilisé des concepts de regroupement d'engagements entre les monnaies communautaires, les groupes d'épargne, les systèmes d'aide mutuelle et les engagements de production. Son service est ensuite passé au CLC App. Ce n'était pas une représentation que chaque compte historique, portefeuille, jeton, bon d'échange, bassin, solde, rapport, participant ou obligation a migré.
+
+\subsection*{Historique Sarafu Network instantané  Activité Celo du 5 juillet 2023 au 20 juillet 2025}
+\addcontentsline{toc}{subsection}{Historique Sarafu Network instantané  Activité Celo du 5 juillet 2023 au 20 juillet 2025}
+
+\textbf{Nom de l'entreprise:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Panneau d'analyse de Dune}
+
+\begin{itemize}[leftmargin=*]
+\item 26 367 utilisateurs
+\item 285 197 échanges entre pairs
+\item 188 activité unique Bassins d'engagements
+\item 745 bons d'échange actifs uniques
+\item \$320,692 Volume des échanges dans le bassin
+\item 899 rapports publiés (\href{https://sarafu.network/reports}{archives des rapports historiques})
+\end{itemize}
+Ces chiffres sont des preuves historiques, pas des chiffres actuels d'utilisation de CLC.
+
+La conception CLC plus large proposée explore comment les réseaux compatibles pourraient:
+
+\begin{enumerate}[leftmargin=*]
+\item découvrir et coter des chemins à travers des bassins gérés de manière indépendante;
+\item coordonner les services de réseau responsables sans dépasser la responsabilité locale;
+\item soutenir des mandats de liquidité, des garanties, des réserves ou des polices d'assurance financés séparément;
+\item mesurer les swaps de bassin séparément de la présentation, de l'exécution et de la décharge des bons ; et
+\item Utiliser un réseau proposé et des frais de service pour financer les services partagés adoptés.
+\end{enumerate}
+La proposition prévoit un \textbf{le jeton de gouvernance CLC proposé } et une \textbf{ Réservoir de réseau CLC proposé} Il ne fait pas partie de l'application actuelle ou de Protocol v1.1.0.
+
+Dans le cadre du modèle proposé, les participants à la liquidité et à la gouvernance ne pourraient agir que par le biais de programmes adoptés séparément avec l'éligibilité, les risques, les contrôles, les droits de transfert, les conditions de recouvrement et les règles relatives aux frais publiés. Les dépôts ordinaires ne créent aucun droit automatique de participation, de remboursement, de retrait, de récompense ou de gouvernance.
+
+L'objectif commun est le suivant:
+
+Augmenter l'échange responsable et l'exécution des engagements du monde réel tout en préservant les soins, l'équité, la responsabilité locale et la résilience.
+
+L'anti-capture et la sortie crédible restent des objectifs de conception de base. Les contrôles proposés comprennent une gouvernance à retard de temps, des seuils d'approbation multiples, une délégation transparente, des règles de conflit, un examen des incidents et un processus documenté de "fork-and-migrate". Ces contrôles réduiraient certains risques de gouvernance, mais ne pourraient pas éliminer les pertes ni garantir les résultats.
+
+
+\section*{1. Protocole de mise en commun des engagements (CPP): le principe primitif}
+\addcontentsline{toc}{section}{1. Protocole de mise en commun des engagements (CPP): le principe primitif}
+
+\textbf{Le modèle mental:} Un Bassin d'engagements est un arrangement réglementé pour l'admission de bons d'échange ou d'autres actifs, la publication de règles d'échange, la tenue d'inventaire et la possibilité de swaps. Les détenteurs présentent plus tard des bons d'échange à leurs émetteurs pour la réalisation du monde réel. L'échange en bassin et l'exécution par l'émetteur sont des cycles de vie distincts.
+
+CPP coordonne la valeur à travers des engagements clairement décrits. Le modèle est examiné dans \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{L'économie de base: réflexion et pratique}.
+
+\subsection*{1.1 C'est quoi un engagement ?}
+\addcontentsline{toc}{subsection}{1.1 C'est quoi un engagement ?}
+
+Un engagement est la promesse d'une partie identifiée d'une livraison future, par exemple de nourriture, de transport, de main-d'œuvre, de stockage ou d'un autre bien, service, avantage ou performance légitime. À \textbf{bon d'échange de crédit} est un jeton ou un enregistrement représenté comme cet engagement selon des conditions publiées.
+
+Le contrat de jeton enregistre la mécanique numérique. Les termes du bon d'échange identifient l'émetteur, l'offre, la capacité, le lieu, le moment, les restrictions, la présentation, l'exécution, les plaintes et le processus de décharge.
+
+\subsection*{1.2 C'est quoi un Bassin d'engagements ?}
+\addcontentsline{toc}{subsection}{1.2 C'est quoi un Bassin d'engagements ?}
+
+Un Bassin d'engagements est l'arrangement réglementé. Elle peut être gérée par un individu, une coopérative, un groupe communautaire, une agence publique, une fédération, un multisig, un opérateur de services ou une autre structure responsable.
+
+Les rôles et les pouvoirs pertinents comprennent:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Gestionnaire de Bassin:} publie et administre les règles du bassin et toute garantie expressément assumée;
+\item \textbf{Propriétaire du Bassin:} détient les pouvoirs actuels de propriétaire de \texttt{SwapPool};
+\item \textbf{administrateur par procuration:} peut mettre à niveau une mise en œuvre par procuration;
+\item \textbf{contrôleurs de dépendance:} régir les registres configurés, les cotations, les limitateurs ou les composantes de redevance;
+\item \textbf{localisateur ou opérateur:} peut découvrir des offres ou, dans une mise en œuvre future, exécuter un parcours autorisé séparément ; et
+\item \textbf{le garant:} n'assume une obligation définie que par le biais de conditions publiées et financées.
+\end{itemize}
+CPP groupes Les fonctions de bassin sont divisées en quatre concepts:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{La sélection:} admettre des jetons ou des bons d'échange pris en charge.
+\item \textbf{Une évaluation:} publier la méthode utilisée pour un taux de change ou une cotation.
+\item \textbf{Limitation de l'utilisation:} appliquer les plafonds actuels du solde des jetons de bassin ou d'autres contrôles mis en œuvre séparément.
+\item \textbf{Échange:} détenir des stocks, exécuter des swaps, comptabiliser les frais et émettre des enregistrements de transactions.
+\end{itemize}
+Protocol v1.1.0 met en œuvre ces fonctions par l'intermédiaire de \texttt{SwapPool} et des dépendances optionnelles. Son \texttt{Limiter} actuel limite un solde symbolique dans un bassin; il ne prévoit pas de limites régulières de swap, par compte ou pour l'ensemble du réseau. Son \texttt{SwapRouter} actuel calcule les cotations multipools; Il n'exécute pas d'échanges.
+
+La conception plus large proposée de CPP peut ajouter des limites déroulantes, des contrôles de compte, des routeurs d'exécution, des chemins HTLC ou de dépôt en caution et une compensation par lots. Ce sont des composants proposés, pas des descriptions du limitateur actuel ou du routeur.
+
+\subsection*{1.3 Logique actuelle d'échange direct}
+\addcontentsline{toc}{subsection}{1.3 Logique actuelle d'échange direct}
+
+Un échange de bassin direct en cours:
+
+\begin{enumerate}[leftmargin=*]
+\item vérifie le registre facultatif pour les jetons d'entrée et de sortie;
+\item mesure les entrées reçues;
+\item obtient une cotation auprès de l'indicateur de cotation configuré ou applique la parité des unités brutes;
+\item vérifie le solde de jetons de bassin obtenu par rapport au limiteur facultatif;
+\item Calcule la redevance de bassin et toute redevance de protocole supplémentaire;
+\item vérifie l'inventaire des produits disponibles;
+\item transférer les frais de protocole et de sortie et comptabiliser les frais de bassin ; et
+\item émet des événements d'échange.
+\end{enumerate}
+La cotation est un paramètre de transaction, et non une preuve de la capacité de l'émetteur, de la valeur de rachat, de la juste valeur, de la convertibilité en espèces ou d'une garantie.
+
+\subsection*{1.4 Utilisation plus large}
+\addcontentsline{toc}{subsection}{1.4 Utilisation plus large}
+
+Bassins d'engagements peut soutenir l'échange communautaire, la production, l'aide mutuelle, les programmes publics et d'autres structures responsables. Un produit de crédit documenté séparément pourrait utiliser un bon d'échange comme garantie ou un instrument de remboursement, mais il nécessiterait des conditions supplémentaires et spécifiques à la transaction. Un envoi ordinaire, un dépôt de bassin, un échange de bassin, une présentation de remboursement, une exécution ou une décharge ne constituent pas automatiquement un prêt ou un remboursement.
+
+CPP est destiné à un échange responsable et à des enregistrements de transactions vérifiables, et non à un décalage spéculatif. Les enregistrements en chaîne ne prouvent toujours pas l'exécution du monde réel ou l'impact social.
+
+
+\section*{2. Le passage de l'actif à la fiducie}
+\addcontentsline{toc}{section}{2. Le passage de l'actif à la fiducie}
+
+La finance traditionnelle commence par \textbf{Actifs - Passifs = Titres propres} CPP redéfinit cela pour une économie d'engagement:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Capacité d'accueil:} la quantité d'engagements d'un émetteur qu'un bassin ou un réseau est toujours prêt à accepter.
+\item \textbf{Les engagements restants:} a fait des promesses qui restent non tenues et qui sont détenues par d'autres.
+\item \textbf{Capacité d'exécution:} la capacité démontrée de l'émetteur à s'acquitter de ces promesses.
+\end{itemize}
+\subsection*{Illustre la relation engagement-capacité:}
+\addcontentsline{toc}{subsection}{Illustre la relation engagement-capacité:}
+
+Capacité d'acceptation - engagements restants = capacité d'acceptation restante
+
+Cette identité conceptuelle peut éclairer les limites de risque du bassin: une émission illimitée n'implique pas une acceptation illimitée. Il ne s'agit pas d'une identité de bilan ou d'une déclaration selon laquelle chaque bon d'échange est légalement une dette ou un prêt.
+
+\textbf{Exemple:} Un transporteur émet 100 voyages en bons d'échange. Un Bassin accepte au plus 40 trajets à la fois. Si 15 trajets acceptés restent impayés, le bassin a la capacité d'accepter jusqu'à 25 trajets supplémentaires dans le cadre de cette politique. Le calcul ne crée pas lui-même un prêt ou une garantie d'exécution.
+
+
+
+\section*{3. Activité de remplissage, de décharge et d'échange}
+\addcontentsline{toc}{section}{3. Activité de remplissage, de décharge et d'échange}
+
+Une modification de swap de bassin qui adresse les actifs détenus. L'exécution du bon d'échange se produit lorsque l'émetteur remplit l'engagement publié. La décharge enregistre les unités remplies afin qu'elles ne puissent pas être présentées à nouveau. Ces événements ne doivent pas être regroupés en une seule utilisation du terme "établissement".
+
+Le cadre de mesure proposé utilise des enregistrements distincts pour:
+
+\begin{itemize}[leftmargin=*]
+\item le volume de swap de bassin effectué;
+\item les présentations de remboursement valables;
+\item l'exécution confirmée par l'émetteur;
+\item décharge;
+\item les engagements éligibles en suspens ; et
+\item l'inventaire mesuré du Bassin.
+\end{itemize}
+Une vitesse de décharge d'engagement proposée permet de comparer la valeur accomplie au cours d'une période avec la valeur moyenne des engagements éligibles en cours, mais uniquement si les deux utilisent la même méthode d'évaluation divulguée. L'offre de jetons n'est pas un dénominateur suffisant: elle peut inclure l'inventaire de l'émetteur, des unités expirées ou inaccessibles, des tests et des soldes qui ne représentent pas un engagement de tiers en suspens.
+
+Un ratio swap-activité de bassin séparé permet de comparer la valeur de swap de bassin complétée avec l'inventaire de bassin mesuré. Il décrit l'activité d'échange, pas l'exécution par l'émetteur.
+
+La liquidité peut améliorer la disponibilité des stocks et faciliter les échanges. Il ne garantit pas que les émetteurs exécuteront leurs obligations, que les contributeurs récupéreront leurs actifs ou qu'une cotation de bassin représente un remboursement ou une valeur en espèces. Tous les droits de fournisseur de liquidités nécessitent des conditions publiées séparément.
+
+Voir aussi \href{https://docs.cosmolocal.credit/fr/white-paper/appendix-a-math-box}{Appendice A} pour les définitions et \href{https://docs.cosmolocal.credit/fr/white-paper/appendix-c-kpi-definitions}{Appendice C} pour la spécification de mesure proposée.
+
+
+\section*{4. Garantie à terme réutilisable}
+\addcontentsline{toc}{section}{4. Garantie à terme réutilisable}
+
+Une facilité de crédit documentée séparément pourrait accepter des bons d'échange transférables et fongibles comme garantie ou comme instrument de remboursement. Si c' est le cas:
+
+\begin{itemize}[leftmargin=*]
+\item L'admission en bassin pourrait rendre la garantie plus découverte;
+\item des options de présentation et d'exécution légales supplémentaires pourraient soutenir le remboursement;
+\item les limites, l'inventaire, la valorisation, la liquidité, le rendement de l'émetteur et les risques de défaillance demeureraient ; et
+\item Il n'y aurait aucune garantie de route, de réalisation, de remboursement, de valeur ou de récupération.
+\end{itemize}
+\subsection*{4.1 Boucle de crédit du producteur}
+\addcontentsline{toc}{subsection}{4.1 Boucle de crédit du producteur}
+
+Un futur service compatible CLC- ne pourrait soutenir le crédit aux producteurs que lorsque les parties établissent une facilité distincte et présentent expressément l'opération comme une avance remboursable. Ses conditions d'opération permettraient d'identifier le créancier et le débiteur et d'indiquer:
+
+\begin{itemize}[leftmargin=*]
+\item les montants d'avance et de remboursement;
+\item les dates d'échéance, les intérêts, les frais et l'utilisation autorisée des garanties;
+\item la cession et tout changement de créancier ou de titulaire de créance;
+\item la manière dont l'exécution des bons est évaluée et prouvée pour la comptabilisation des remboursements;
+\item le remboursement partiel, les montants restants, le défaut de paiement et la décharge ; et
+\item les recours disponibles en vertu du droit applicable.
+\end{itemize}
+Un flux illustratif est le suivant:
+
+\begin{enumerate}[leftmargin=*]
+\item Un producteur ou un fournisseur de services émet un bon d'échange qui représente un engagement pour la production future, comme dix trajets en taxi, 50 kilos de maïs ou dix heures de travail.
+\item Un Gestionnaire de Bassin admet ce bon d'échange et publie la méthode de taux de change, les limites, les frais, les règles d'inventaire et toute protection expressément assurée.
+\item Un prêteur ou un programme de liquidité fournit séparément une avance aux termes d'une transaction écrite et accepte les bons d'échange du producteur comme garantie ou instrument de remboursement convenu.
+\item Les détenteurs peuvent transférer les bons d'échange, les échanger via des bassins compatibles ou les présenter à l'émetteur.
+\item L'exécution confirmée par l'émetteur satisfait à l'engagement du bon d'échange. Il ne réduit le solde de crédit séparé que dans la mesure, à la valeur et sur la base des éléments de preuve spécifiés dans les conditions de crédit.
+\item Les dossiers distinguent l'exécution des bons de crédit de la comptabilité du crédit et identifient tout remboursement partiel, montant restant, cession, défaut ou décharge.
+\end{enumerate}
+Cette structure pourrait permettre le remboursement convenu en nature tout en conservant des registres distincts pour le bon d'échange et les obligations de crédit. Il ne résulte pas d'un transfert ordinaire, d'un dépôt, d'un échange de fonds, d'une présentation de remboursement, d'une exécution ou d'une décharge.
+
+\textbf{Exemple illustratif:} Un producteur reçoit une avance de 1 000 \$ selon des conditions indiquant que l'exécution confirmé des bons d'échange de maïs spécifiés est crédité sur le montant du remboursement en utilisant une méthode d'évaluation indiquée. Le prêteur n'applique un crédit qu'après avoir reçu les preuves exigées par ces conditions. Si les conditions de crédit ne permettent pas ce lien, l'acquisition, le transfert, l'échange, la présentation ou l'exécution du bon n'affectent pas l'avance.
+
+
+\section*{5. Des bassins isolés à un réseau fédéré}
+\addcontentsline{toc}{section}{5. Des bassins isolés à un réseau fédéré}
+
+L'actuel Protocol v1.1.0 prend en charge l'exécution directe par l'intermédiaire d'un \texttt{SwapPool} et fournit un \texttt{SwapRouter} à devis uniquement. Il n'exécute pas les routes multi-hop, les HTLC, les routes d'entiercement, la compensation par lots ou la compensation entre réseaux.
+
+Ce chapitre propose comment les bassins indépendants pourraient se coordonner sans renoncer à leurs propres règles d'admission, d'évaluation, de limite, de redevance, d'inventaire, d'autorisation et de gouvernance.
+
+\subsection*{5.1 Mesures d'échange et d'exécution distinctes}
+\addcontentsline{toc}{subsection}{5.1 Mesures d'échange et d'exécution distinctes}
+
+La Fédération pourrait améliorer l'accès à l'inventaire, mais elle ne ferait pas fusionner le bon d'échange et échanger les cycles de vie. Toute mise en œuvre permettrait de mesurer ces événements séparément:
+
+\begin{enumerate}[leftmargin=*]
+\item un itinéraire est indiqué;
+\item un ou plusieurs swaps de bassin sont exécutés et réglés en chaîne;
+\item un détenteur présente des parts de bon d'échange à l'émetteur;
+\item l'émetteur remplit l'engagement ; et
+\item les unités remplies sont déchargées.
+\end{enumerate}
+Plus d'itinéraires cités ou exécutés ne prouvent pas plus d'exécution. Les rapports indiquent la cohorte, la période, les actifs, la méthode d'évaluation et l'horodatage, les exclusions, les corrections et les éléments de preuve hors chaîne requis par l'appendice C.
+
+\textbf{Route illustrée:} Une école détient des bons d'échange de maïs mais a besoin de bons d'échange de transport. Un service d'itinéraire identifie les inventaires de bassin compatibles. L'exécution ne réussirait que si chaque étape autorisé séparément restait dans ses limites de quotas, ses limites, ses frais, son inventaire et sa politique. Les swaps qui en résultent ne prouvent pas que l'un ou l'autre émetteur a plus tard rempli ses engagements en matière de bons d'échange.
+
+\subsection*{5.2 Services de routage et de rééquilibrage proposés}
+\addcontentsline{toc}{subsection}{5.2 Services de routage et de rééquilibrage proposés}
+
+Un futur service de liaison pourrait soutenir deux activités distinctes.
+
+\textbf{Exécution initiée par le participant.} Compte tenu des actifs d'entrée et de sortie, d'un montant et des contraintes des utilisateurs, le service pourrait identifier un chemin et préparer l'exécution. Chaque étape aurait sa propre Bassin responsable, son devis, son autorisation, ses frais, ses limites, son inventaire et son reçu. Les lots atomiques, les HTLC et l'accréditation sont des choix d'exécution futurs possibles, pas le comportement actuel du protocole.
+
+\textbf{Rééquilibrage du Bassin.} Gestionnaires de Bassins pourrait publier des objectifs d'inventaire, des contreparties autorisées, des catégories d'actifs, des limites d'écart de cotation et des limites par période. Un service responsable pourrait rechercher des cycles ou des chaînes compatibles et exécuter uniquement les intentions autorisées.
+
+Le rééquilibrage serait une option. Un bassin pourrait autoriser les itinéraires des participants tout en refusant le rééquilibrage à l'extérieur, ou il pourrait autoriser uniquement des actifs, des contreparties et des montants sélectionnés. Chaque étape exécuté produirait un reçu, et toute redevance de service serait divulguée séparément des frais de bassin et de protocole.
+
+\subsubsection*{5.2.1 Confédération et interopérabilité}
+
+Des déploiements indépendants pourraient exploiter leurs propres registres, interfaces, services de routage et profils de politiques tout en choisissant des normes de données et de réception compatibles. L'exécution interprofessionnelle resterait dépendante du déploiement.
+
+Un profil compatible devrait:
+
+\begin{itemize}[leftmargin=*]
+\item identifier les racines de son registre, les opérateurs de services, les contrôleurs et les termes applicables;
+\item communiquer les contreparties autorisées et refusées, les actifs, les adaptateurs et les itinéraires;
+\item appliquer l'autorisation, les limites, les frais et les contraintes d'inventaire de chaque groupe participant;
+\item préserver les preuves de l'offre à la réception ; et
+\item permettre aux bassins qui fonctionnent autrement de quitter ou de sélectionner un autre registre sans effacer les soldes ou les obligations de l'émetteur.
+\end{itemize}
+La compatibilité peut augmenter les voies d'échange disponibles et réduire la dépendance à l'égard d'un registre ou d'un opérateur. Il ne rend pas le réseau, CLC App, GEF ou un autre bassin responsable de l'exécution par un émetteur.
+
+\subsection*{5.3 Modèle proposé de redevance réseau et de redevance de service}
+\addcontentsline{toc}{subsection}{5.3 Modèle proposé de redevance réseau et de redevance de service}
+
+L'actuel Protocol v1.1.0 facture une redevance de bassin et, lorsqu'il est configuré, une redevance de protocole supplémentaire sur un échange direct de bassin. Ces frais courants restent distincts.
+
+Un programme futur pourrait recevoir séparément:
+
+\begin{enumerate}[leftmargin=*]
+\item un \textbf{prélèvement de réseau}, défini comme une part déclarée des frais de Bassin perçus par les Bassins participants ; et
+\item à \textbf{frais d'itinéraire ou de service}, facturés pour un service futur identifié.
+\end{enumerate}
+Le prélèvement de réseau proposé n'est pas un pourcentage supplémentaire appliqué à l'intégralité du montant du swap après calcul de la redevance de bassin. Pour le groupe \texttt{p}:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+où \texttt{f\_p} est le taux de redevance de bassin et \texttt{r\_p} est la part proposée de cette redevance de bassin allouée au programme de réseau.
+
+Pour une période déterminée:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Frais bruts pour le bassin} sont la somme des frais de bassin effectivement perçus pour chaque bassin;
+\item \textbf{les reçus de réseau} sont les parts déclarées de ces honoraires perçus;
+\item \textbf{les reçus des frais de service} sont des frais de routage ou de service perçus séparément ; et
+\item \textbf{les reçus des frais de programme} des recettes de réseau égales plus des recettes de frais de service.
+\end{itemize}
+Aucune catégorie n'est comptée deux fois. Les redevances de protocole actuelles ne sont pas incluses à moins qu'une politique adoptée séparément ne réoriente légalement les recettes réelles des redevances de protocole dans le futur programme.
+
+Pour une approximation agrégée, calculer:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{Q\_swap} est la valeur des swaps de bassin exécutés pour la cohorte et la période définies ; et
+\item \texttt{$\tau$} est le taux effectif du prélèvement de réseau proposé et des frais de service identifiés séparément sur cette valeur de swap exécutée.
+\end{itemize}
+Alors:
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+C'est une approximation analytique, pas une promesse de revenus. Chaque entrée nécessite une cohorte, une période, une unité, un calendrier d'évaluation, des exclusions et une politique de correction.
+
+\subsubsection*{5.3.1 Récettes éligibles en espèces et en nature}
+
+Les redevances peuvent être versées sous forme d'actifs fongibles éligibles à la liquidité ou sous forme de bons d'échange et d'autres actifs en nature. Les reçus en nature ne peuvent pas automatiquement payer les dépenses en espèces ou les créances de couverture. Tout échange ou conversion nécessiterait une autorisation, un inventaire disponible, des lieux divulgués, des limites et une exécution effective.
+
+La part réalisée des recettes de redevances qui est éligible à l'encaissement après les restrictions imposées par la politique, les conversions manquées et le glissement est \texttt{$\chi$}. Les reçus utilisables en espèces sont les suivants:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+L'analyse du budget et du rendement net utiliserait \texttt{F\_cash} réalisé, et non les frais bruts cotés ou la valeur nominale de l'inventaire en nature. Un programme futur déclarerait séparément les frais bruts de bassin, les recettes de réseau, les frais de service, la composition des actifs, les résultats de conversion et les recettes utilisables en espèces.
+
+\subsection*{5.4 Programmes de liquidité proposés}
+\addcontentsline{toc}{subsection}{5.4 Programmes de liquidité proposés}
+
+Un futur programme de liquidité documenté séparément pourrait allouer des actifs à des bassins désignés ou à des services de routage. Les contrats actuels \texttt{SwapPool} ne frappent pas d'actions de bassin ni ne créent automatiquement de droits de remboursement, de retrait, de récompense, de gouvernance ou de bénéfice.
+
+N'importe quel programme publierait:
+
+\begin{itemize}[leftmargin=*]
+\item l'entité responsable et le participant Gestionnaires de Bassins;
+\item les actifs versés et la question de savoir si le transfert est remboursable, rétractable, offert ou doté;
+\item les dispositions relatives à la garde et au contrôle technique;
+\item les utilisations autorisées, les limites, les blocages, les portes de retrait et la répartition des pertes;
+\item l'admissibilité à une redevance ou à une incitation et si le montant peut être égal à zéro;
+\item les déclarations, les conflits, les plaintes et les recours ; et
+\item la migration, la résiliation et le traitement des actifs et obligations restants.
+\end{itemize}
+Les risques importants comprennent des stocks difficiles à échanger ou à satisfaire, une faible éligibilité des liquidités, le non-respect des émetteurs, les défaillances des contrats ou des fournisseurs, les changements de gouvernance et les restrictions à la sortie. Les limites, les réserves, les reçus et les tableaux de bord peuvent réduire ou révéler certains risques; Ils n'éliminent pas les pertes.
+
+Pour une métrique analytique ex post, indiquer:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{$\phi$} est la fraction réalisée des recettes des frais de programme allouées en vertu des conditions adoptées par le programme ; et
+\item \texttt{K} être la valeur mesurée des actifs couverts par le programme selon une méthode spécifiée.
+\end{itemize}
+Alors:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
+\]
+
+Cette métrique décrit le flux de redevances réalisé par actif de programme mesuré. Ce n'est pas APY, une prévision, un dividende, ou un rendement garanti. Les rapports tiendront séparés le volume des swaps, la présentation des remboursements, l'exécution par l'émetteur, la décharge, la durée de détention, les pertes, les retraits et les reçus de frais.
+
+
+\section*{6. Liquidité et gouvernance proposées au niveau du réseau}
+\addcontentsline{toc}{section}{6. Liquidité et gouvernance proposées au niveau du réseau}
+
+L'expérience du projet historique Sarafu Network a motivé la recherche sur deux questions de conception plus larges:
+
+\begin{enumerate}[leftmargin=*]
+\item comment les bassins indépendants pourraient coordonner les services de liquidité et d'acheminement ; et
+\item comment les services partagés pourraient rester responsables à mesure que la participation augmente.
+\end{enumerate}
+Une conception CLC proposée introduit un \textbf{Réservoir de réseau CLC proposé } Il s'agit d'un accord de compensation et de coordination budgétaire au niveau du réseau et d'un \textbf{ le jeton de gouvernance CLC proposé} Il n'existe ni dans l'application actuelle ni dans Protocol v1.1.0. D'autres déploiements pourraient utiliser des coopératives, des agences publiques, des fédérations, des multisigs, des opérateurs de services ou d'autres structures responsables sans adopter aucune des deux propositions.
+
+\subsection*{6.1 Contrôles à la baisse et faculté}
+\addcontentsline{toc}{subsection}{6.1 Contrôles à la baisse et faculté}
+
+L'actuel Protocol v1.1.0 peut appliquer des plafonds de solde des jetons de bassin et des contrôles d'inventaire. Ces contrôles restreignent certaines actions contractuelles; ils n'empêchent pas la non-exécution de l'émetteur, la perte de valeur, la perte de clé, l'échec du contrat ou toute autre perte.
+
+Un déploiement futur pourrait ajouter des disjoncteurs, des timelocks, des réserves, des garanties ou des assurances. Toute protection nécessiterait une partie responsable identifiée, l'événement couvert, le financement, le plafond, les exclusions, la durée, les preuves, le processus de réclamation et les conditions applicables.
+
+La gouvernance proposée devrait maintenir les pouvoirs de registre et de service restreints et révisibles. Les actions ordinaires peuvent utiliser des procédures de préavis, de retard, de publication des motifs, d'appel et de correction. Les actions d'urgence devraient produire des enregistrements d'incidents et expirer ou faire l'objet d'un réexamen dans le cadre d'une politique adoptée.
+
+La découverte d'une route compatible pourrait permettre plus d'échanges entre les Bassins. L'exécution multi-hop et la mise en réseau nécessiteraient un logiciel supplémentaire, une autorisation, des limites, un traitement des défaillances et une gouvernance. Un plus grand nombre d'échanges cotés ou exécutés ne prouverait pas en soi la réalisation d'un bon d'échange ou l'impact social.
+
+
+\section*{7. Actifs de gestion et de gouvernance proposés CLC}
+\addcontentsline{toc}{section}{7. Actifs de gestion et de gouvernance proposés CLC}
+
+Ce chapitre présente un modèle optionnel de gouvernance et de coordination de la liquidité à l'avenir. Le jeton de gouvernance proposé CLC, stCLC, sCLC, le coffre de gouvernance, le fonds d'assurance, Waterfall, les jauges, les mandats, les fenêtres de crédit de redevance et les programmes de marché extérieur ne font pas partie du CLC App ou du Protocol v1.1.0 actuel. Chacun nécessiterait une mise en œuvre, un opérateur responsable, une politique et des conditions publiées, un examen de la sécurité et l'approbation légale applicable.
+
+CPP ne nécessite pas ce modèle de jeton. Les déploiements compatibles pourraient plutôt utiliser des coopératives, des agences publiques, des fédérations, des multisigs, des services ou d'autres structures responsables.
+
+\subsection*{7.1 Objectif}
+\addcontentsline{toc}{subsection}{7.1 Objectif}
+
+Si elle est adoptée, la couche de gouvernance proposée pourrait:
+
+\begin{itemize}[leftmargin=*]
+\item coordonner les registres partagés et les services d'itinéraire;
+\item répartir les mandats de liquidité approuvés entre les bassins gérés de manière indépendante;
+\item gérer un programme de couverture financière facultatif, dont la portée est expressément déterminée;
+\item maintenir une infrastructure et une observabilité communes;
+\item reconnaître les contributeurs en vertu des règles d'éligibilité et de lutte contre les jeux publiées ; et
+\item préserver l'examen, l'appel, la transparence et une sortie crédible à mesure que la participation augmente.
+\end{itemize}
+\subsection*{7.2 Modèle de gouvernance-actif proposé}
+\addcontentsline{toc}{subsection}{7.2 Modèle de gouvernance-actif proposé}
+
+Le projet contient trois actifs proposés distincts:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Le jeton de gouvernance CLC proposé:} un actif de base de gouvernance transférable conformément aux règles d'émission, de dépôt, de vote et de conformité adoptées.
+\item \textbf{stCLC:} un reçu de dépôt de vote non transférable frappé lorsque le jeton de gouvernance CLC proposé est verrouillé. Il représenterait un pouvoir de gouvernance limité dans le temps et pourrait permettre une délégation divulguée.
+\item \textbf{sCLC:} un actif d'autorisation ou d'incitation émis dans le cadre d'une police. Il pourrait soutenir un accès à des crédits à frais plafonnés ou des incitations à la liquidité et à l'acheminement approuvées et pourrait expirer ou être brûlé à la fin de l'époque.
+\end{enumerate}
+Ni stCLC ni sCLC ne seraient des capitaux propres, un dividende, une créance résiduelle, une promesse de rendement ou un bon d'échange communautaire. Une politique adoptée pourrait fixer à zéro l'émission de sCLC et l'accès au crédit à frais à n'importe quelle époque.
+
+Les limites de gouvernance, les durées minimales, les délais de refroidissement, la délégation, les plafonds de concentration et les seuils d'action critique seraient publiés avant leur utilisation. Les jetons de gouvernance CLC déverrouillés proposés ne voteraient pas en vertu de cette conception.
+
+\subsubsection*{7.2.1 L'offre et l'allocation illustratives}
+
+Le total illustratif proposé de la fourniture de jetons de gouvernance CLC est \textbf{500,000,000} Il s'agit d'un paramètre de conception, pas d'une émission, d'une offre, d'une évaluation ou d'une promesse de liquidité.
+
+Une allocation illustrative est la suivante:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% --- Grassroots Economics Foundation:} est fixé de manière permanente, non transférable et lié à un multisig GEF identifié conformément aux règles de signataire et de rotation publiées.
+\item \textbf{15\% --- équipe principale et premiers partenaires:} Il s'agit d'une décision de la Cour de justice de la République fédérale d'Allemagne, de la Cour de justice de la République fédérale d'Allemagne, de la Cour de justice de la République fédérale d'Allemagne et de la Cour de justice de la République fédérale d'Allemagne.
+\item \textbf{30\% --- dons privés:} la reconnaissance des premiers contributeurs qui fournissent des liquidités de réseau approuvées, avec une période d'acquisition fixée par la politique de 24 mois.
+\item \textbf{40\% --- Réserve de liquidités publiques} Il est tenu dans un coffre-fort de gouvernance temporaire pour les programmes optionnels de marché extérieur et d'accessibilité.
+\end{itemize}
+Dans le cadre des contrôles illustratifs des liquidités publiques:
+
+\begin{itemize}[leftmargin=*]
+\item pas plus de 10\% de l'offre totale serait active simultanément sur des sites externes;
+\item chaque déploiement expirerait au bout de 90 jours, à moins d'être renouvelé selon le processus adopté;
+\item les positions de liquidité et les tokens de position demeureraient sous un contrôle de gouvernance déclaré ; et
+\item les jetons de gouvernance CLC proposés utilisés dans les positions de liquidité ne voteraient pas à moins qu'ils ne soient verrouillés selon les mêmes règles que les autres jetons de vote.
+\end{itemize}
+Un lancement futur pourrait commencer par une multisig et une transition divulguées uniquement après des étapes de durcissement approuvées séparément, telles que des audits indépendants, une surveillance, des carnets d'incidents et des procédures de test de pause et de fork. Chaque paramètre adopté et chaque processus de modification sera publié séparément.
+
+\subsubsection*{7.2.2 Étapes de disponibilité et de dotation}
+
+Un futur programme de dotation pourrait utiliser des fenêtres de contribution par étapes et une valeur de référence publiée pour l'apport et la budgétisation. Cette référence ne serait pas une promesse de prix de marché, d'appréciation, de remboursement ou de sortie.
+
+Les conditions de cotisation indiquent si les actifs sont donnés, dotés, retirés ou remboursables; qui les contrôle; leur utilisation autorisée; les serrures; répartition des pertes; les déclarations; et les conditions de sortie. Les contributions importantes pourraient faire l'objet de plafonds de vote ou d'une diminution du poids de la gouvernance.
+
+Toute liquidité sur le marché extérieur nécessiterait une décision distincte identifiant les sites, les opérateurs responsables, les actifs, les plafonds, le calendrier, les conflits, les contrôles des risques, la déclaration et la résiliation. La politique ne vise pas ou ne garantit pas un prix.
+
+\subsubsection*{7.2.3 Programme proposé de semis d'impact}
+
+Un programme futur pourrait allouer une partie de la réserve de gouvernance aux contributeurs qui placent des actifs dans des Bassins d'engagements désignés et améliorent de manière mesurable l'accès aux échanges et la conformité des émetteurs confirmés.
+
+Une politique d'éligibilité adoptée devrait:
+
+\begin{enumerate}[leftmargin=*]
+\item identifier les bassins approuvés, les actifs, la durée minimale et les conditions de confinement;
+\item définir la contribution productive à l'aide de la preuve d'échange exécutée et de la présentation, de l'exécution et de la décharge attestée séparément;
+\item mesurer la contribution marginale plutôt que la valeur totale isolée;
+\item exclure les activités de lavage circulaire et de lavage à l'auto-détail;
+\item appliquer des plafonds de pourcentage et des rendements décroissants ; et
+\item fournir une fenêtre d'observation, de contestation et de correction avant l'allocation finale.
+\end{enumerate}
+Toute subvention resterait soumise aux conditions publiées du programme, à l'acquisition, à l'éligibilité, à la conformité et aux règles de perte.
+
+\subsection*{7.3 Proposition de vote, d'incitations et d'accès à la redevance}
+\addcontentsline{toc}{subsection}{7.3 Proposition de vote, d'incitations et d'accès à la redevance}
+
+Dans le cadre de cette conception, les détenteurs de stCLC pourraient voter sur les bassins éligibles, les mandats de services routiers, les budgets partagés ou d'autres propositions adoptées. Un système d'indicateur sélectionné pourrait traduire les votes en incitations limitées sCLC pour les opérateurs de liquidité ou de routage éligibles.
+
+La politique de mesure permettrait de séparer les swaps exécutés de l'exécution par l'émetteur. Il ne récompenserait pas les itinéraires cotés mais non exécutés, les présentations non résolues, le self-dealing ou la valeur totale verrouillée sans preuve d'activité utile.
+
+Un processus de gouvernance adopté pourrait également publier un budget de crédits de redevances pour l'époque. Les détenteurs admissibles de stCLC pourraient recevoir des swaps limités et limités dans le temps de sCLC autorisés par des bassins détenteurs de redevances désignés dans des actifs ou des programmes cotés. Il s'agirait d'un accès à l'inventaire disponible réglementé par la politique, et non d'un revenu passif ou de la propriété du bassin de détention de redevances.
+
+\subsubsection*{7.3.1 Exécution des frais de service et choix du profil}
+
+Un futur profil de registre pourrait exiger que les bassins ou les services d'itinérance participants utilisent un adaptateur de tarification ou un crochet compatibles. Le profil peut refuser la découverte, le routage ou le support du programme lorsque le reçu requis ne prouve pas la perception des frais.
+
+Des noms tels que \textbf{PoolFactory } ou \textbf{ FeeHook} décrivent de possibles modules futurs ; ce ne sont pas des contrats de Protocol v1.1.0. Toute mise en œuvre publierait le code, les adresses, les contrôleurs, les destinataires, les taux, les transactions admissibles, la gestion des défaillances et l'état de l'audit.
+
+L'exécution serait spécifique au profil. Un bassin exclu par un profil pourrait continuer à fonctionner localement ou rejoindre un autre registre compatible si ses contrats et ses dépendances restaient fonctionnels. Les clients devraient exposer les profils disponibles et indiquer les frais applicables avant l'autorisation.
+
+\subsubsection*{7.3.2 sCLC Budget et contrôles extérieurs facultatifs de flotteur}
+
+Après que le financement ait adopté des budgets de priorité plus élevée, un processus futur pourrait publier un budget de crédits de redevances pour l'époque \texttt{F\_epoch}, y compris zéro. Une politique peut attribuer une limite de participant proportionnelle au pouvoir de vote stCLC:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+Chaque fenêtre resterait soumise aux listes d'autorisations, aux plafonds, à l'inventaire, à l'admissibilité, aux règles relatives aux incidents et à la législation applicable.
+
+Une politique distincte pourrait autoriser une acquisition limitée et pondérée dans le temps du jeton de gouvernance CLC proposé uniquement pour réduire une surface d'attaque de gouvernance externe mesurée. Elle exigerait:
+
+\begin{itemize}[leftmargin=*]
+\item un déclencheur publié basé sur le flot externe sur une période déterminée;
+\item une part maximale des honoraires réalisés, éligibles et du volume du lieu;
+\item l'exécution pondérée dans le temps sans annonce précise du calendrier;
+\item un arrêt automatique lorsque les seuils de couverture ou d'exploitation adoptés ne sont pas respectés;
+\item le retrait ou le placement des jetons acquis dans un compte non déclaré ; et
+\item une déclaration explicite selon laquelle le programme ne vise pas ou ne garantit pas un prix et n'affecte pas l'exécution par l'émetteur.
+\end{itemize}
+La police pourrait rester désactivée indéfiniment.
+
+\subsubsection*{7.3.3 Bassins de portefeuille et attestations}
+
+À \textbf{Fonds de portefeuille} serait un Bassin d'engagements ordinaire organisé autour d'un domaine de mission ou de service. Son Gestionnaire de Bassin pourrait être un individu, une coopérative, un groupe communautaire, une agence publique, une fédération, un multisig, un opérateur de services ou une autre structure responsable.
+
+Le soutien pourrait être fourni par:
+
+\begin{enumerate}[leftmargin=*]
+\item les contributions directes au titre des conditions publiées par le bassin;
+\item des mandats de liquidité à durée déterminée approuvés dans le cadre du processus de gouvernance adopté; ou à
+\item L'accès dirigé par sCLC à un budget post-Waterfall limité lorsque ce mécanisme est activé.
+\end{enumerate}
+Les bassins de portefeuille demeureraient indépendants et pourraient utiliser des registres partagés ou indépendants.
+
+Les certifications pourraient informer de l'admission ou du traitement des risques, mais ne créeraient pas de droit à des honoraires, à des bénéfices ou à des actifs résiduels. Un déploiement pourrait utiliser:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{attestations liées au registre} d'un vérificateur identifié appliquant une méthode publiée; ou à
+\item \textbf{Bon de service de vérification} représentant un engagement remboursable d'effectuer une vérification ou une évaluation déclarée.
+\end{itemize}
+Le bassin indiquerait comment une attestation affecte l'admission, les méthodes de change, les limites ou l'éligibilité et comment les erreurs, l'expiration, les conflits et les appels sont traités.
+
+\subsection*{7.4 Proposition de cascade et budgets}
+\addcontentsline{toc}{subsection}{7.4 Proposition de cascade et budgets}
+
+La cascade proposée n'allouerait que des recettes éligibles réalisées dans le cadre d'un processus de gouvernance adopté. Il convient de distinguer:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{les actifs éligibles en espèces (\texttt{E\_cash}):} les actifs fungibles cotés qui peuvent être utilisés ou convertis en vertu de la politique pour les obligations libellées en espèces ; et
+\item \textbf{les actifs en nature (\texttt{E\_kind}):} les bons d'échange ou autres actifs susceptibles de soutenir l'échange au sein du réseau, mais qui ne sont pas comptabilisés pour la couverture ou les obligations opérationnelles libellées en espèces, à moins qu'ils ne soient effectivement convertis.
+\end{itemize}
+Une politique de conversion permettrait d'identifier les opérateurs autorisés, les actifs, les lieux, les sources de prix, les fenêtres temporelles, les limites de glissement, les plafonds, les conflits, les enregistrements et les procédures d'incident. La conversion des titres de trésorerie ne déterminerait pas l'obligation d'un émetteur de déposer un bon d'échange ou la méthode de taux de change d'un bassin.
+
+Un ordre de priorité illustratif est le suivant:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Objectif de couverture financée:} constituer toute réserve adoptée ou tout fonds d'assurance proposé à l'égard de son objectif dévoilé pour les événements couverts définis.
+\item \textbf{Opérations de base:} financer un budget plafonné et divulgué pour le travail juridique, l'éducation, les communications, les infrastructures, les vérifications et l'observabilité.
+\item \textbf{Mandats de liquidité:} allouer des actifs approuvés à des fins de bassin ou de service de route énoncées dans le cadre de l'examen des plafonds et du coucher du soleil.
+\item \textbf{Contrôle de flotteur externe facultatif:} le fonds uniquement lorsque ses seuils de déclenchement et de priorité plus élevée publiés sont respectés; dans le cas contraire, attribuer zéro.
+\item \textbf{Budget proposé pour les crédits de redevance:} attribuer tout résidu approuvé à des bassins détenteurs de redevances désignés et publier \texttt{F\_epoch}, qui peut être égal à zéro.
+\end{enumerate}
+Les décisions budgétaires pourraient tenir compte de l'exécution confirmé, de l'exposition couverte, des réserves éligibles, de l'utilisation limitée, des itinéraires exécutés, de la concentration, des incidents et des performances des garants. Chaque mesure suivrait les règles de preuve et de cohorte de l'appendice C.
+
+Un éventuel flux de contributeurs serait:
+
+\begin{enumerate}[leftmargin=*]
+\item les contributeurs transfèrent des actifs éligibles en vertu de conditions de dotation ou de programme adoptées séparément;
+\item les participants éligibles reçoivent et, le cas échéant, verrouillent les jetons de gouvernance CLC proposés pour obtenir stCLC;
+\item les recettes de prélèvement ou de frais de service admissibles réalisées entrent dans la cascade;
+\item les fonds Waterfall ont adopté des priorités dans l'ordre ; et
+\item Seule une politique post-Waterfall activée émet sCLC ou ouvre une fenêtre de crédit de frais avec plafond.
+\end{enumerate}
+Aucune mesure ne crée des droits de propriété, de remboursement, de retrait, de couverture, de récompense ou de gouvernance au-delà de ceux expressément énoncés dans les conditions applicables.
+
+
+\section*{8. Portée technique et croissance}
+\addcontentsline{toc}{section}{8. Portée technique et croissance}
+
+Ce chapitre décrit les travaux facultatifs ou proposés. Il ne s'agit pas d'une liste de caractéristiques dont la présence est garantie dans l'actuel CLC App ou Protocol v1.1.0.
+
+Les domaines de travail possibles sont les suivants:
+
+\begin{itemize}[leftmargin=*]
+\item l'acheminement de l'exécution à travers des bassins compatibles, avec enregistrement, devis, limite, frais et découverte d'inventaire;
+\item les adaptateurs de dépôt à durée déterminée ou HTLC pour l'exécution interdomaine lorsque le règlement atomique n'est pas disponible;
+\item des interfaces et des outils stratégiques pour les petits groupes ou les groupes personnels;
+\item des registres vérifiables pour les bons d'échange, les bassins, les méthodes de change, les limites, les contrôleurs et les redevances;
+\item les connecteurs de prestataires de paiement spécifiques au déploiement, les flux de paiement et les contrôles d'éligibilité;
+\item des connexions d'actifs fungibles à des plates-formes de liquidité externes pour le rééquilibrage et la liquidité de paiement ; et
+\item conversion de trésorerie plafonnée par la politique pour la couverture adoptée, les coûts d'exploitation ou les mandats de liquidité.
+\end{itemize}
+Les prix du marché extérieur ne détermineraient pas ce qu'un émetteur doit en termes de bons. Un bassin pourrait utiliser une référence externe protégée pour un actif fongible, mais sa méthode de taux de change publiée, ses limites, ses frais et son inventaire régiraient ses cotations.
+
+\subsection*{8.1 Normes proposées pour le service sur route et SDK}
+\addcontentsline{toc}{subsection}{8.1 Normes proposées pour le service sur route et SDK}
+
+\textbf{Découverte.} Un service d'itinéraire proposé interrogerait des registres identifiés pour l'admission d'actifs, les méthodes de taux de change, les limites, les frais, l'inventaire, les incidents et les informations sur le contrôleur. Les enregistrements en cache incluent les limites de fraîcheur et les identifiants de source.
+
+\textbf{Les profils des réseaux.} Un client peut prendre en charge plus d'une racine de registre ou un profil de politique. Il indiquerait au participant le profil, les contreparties, les adaptateurs, les contraintes et les opérateurs de services responsables utilisés par un devis. Une route à profil croisé devrait satisfaire à toutes les conditions de étape applicables.
+
+\textbf{Politique du parcours.} Un exploitant responsable pourrait exclure les dépendances ou les contreparties dangereuses et appliquer des plafonds au niveau de la route, des exigences de fraîcheur et des critères sanitaires. Ces signaux soutiendraient une décision; ils ne garantiraient pas l'exécution ou la protection contre la perte.
+
+\textbf{Frais et limites.} Un devis détaillerait les frais de bassin, les frais de protocole actuels supplémentaires et les frais de routage ou de service proposés séparément. L'exécution rejetterait les offres expirées ou les limites dépassées.
+
+\textbf{Atomicité et récupération.} L'exécution multi-hop serait atomique si possible. Lorsqu'il utilisait des HTLC ou des dépôts, le service divulguait les délais, les voies d'interruption, les contrôleurs responsables, les procédures d'incident et les risques résiduels.
+
+\textbf{Proposition de mise en réseau et de rééquilibrage des lots.} Un service opt-in pourrait recueillir des intentions de rééquilibrage et rechercher des cycles ou des chaînes compatibles. Ce serait:
+
+\begin{enumerate}[leftmargin=*]
+\item publier un reçu lisible par machine indiquant les cycles exécutés, les actifs, les montants, les dates d'évaluation et les honoraires;
+\item appliquer les plafonds par période et les politiques de contrepartie adoptés;
+\item rejeter toute activité qui enfreint l'autorisation, les limites ou l'inventaire disponible de tout groupe participant ; et
+\item conserver les entrées et les reçus déterministes pour l'examen et le traitement des litiges.
+\end{enumerate}
+\textbf{Exigences du SDK.} Un SDK pour les itinéraires exécutés fournirait une cartographie déterministe du devis à la réception, des vérifications invariantes par étape, des codes de défaillance compréhensibles et des journaux faciles à vérifier. L'actuel Protocol v1.1.0 \texttt{SwapRouter} fournit uniquement des cotations; Il n'exécute pas ces lignes proposées.
+
+\subsubsection*{8.1.1 Spécification minimale de compatibilité de la confédération}
+
+Un écosystème de bassin cherchant un routage interprofil publierait des informations lisibles par machine pour:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Les racines du registre:} identifiants pour les actifs, les bassins, les méthodes de taux de change, les limites et les politiques de redevance, ou une racine qui les résout de manière déterministe.
+\item \textbf{Les reçus:} le profil, les actifs entrants et sortants, les montants, la source de cotation et l'horodatage, l'instantané des limites, les frais, le résultat de l'inventaire et le résultat de l'exécution pour chaque étape.
+\item \textbf{Signaux opérationnels:} les informations relatives à la fraîcheur concernant l'inventaire, les limites d'utilisation, les incidents et toute réalisation attestée séparément ou toute protection financée.
+\item \textbf{Des contraintes politiques:} les contreparties autorisées ou refusées, les catégories d'actifs, les adaptateurs et toute exigence d'acompte.
+\item \textbf{Codes de défaillance:} explications déterministes pour le rejet, l'expiration, la limite, l'inventaire, la politique, la dépendance ou les défaillances occasionnelles.
+\end{enumerate}
+Un profil pourrait ajouter des services de couverture, de conformité, d'arbitrage ou d'autres services sans en faire des exigences de compatibilité CPP de base. Chaque service facultatif devrait identifier sa partie responsable, son autorité, sa portée et ses modalités.
+
+\subsection*{8.2 Autorisation, vérification et sortie}
+\addcontentsline{toc}{subsection}{8.2 Autorisation, vérification et sortie}
+
+Les contrats Protocol v1.1.0 sont compatibles avec EVM-. Les contrats dans le répertoire \texttt{src} du référentiel de protocoles sont publiés sous AGPL-3.0, à l'exception des composants tiers non modifiés identifiés qui conservent leurs propres termes. Les sources publiées, les ABI et les instructions de déploiement appuient l'examen indépendant, mais ne prouvent pas à elles seules un audit, un déploiement sûr ou une conformité légale.
+
+Chaque déploiement révélerait séparément sa version de code, la provenance de la construction, les adresses, les pouvoirs du contrôleur et de la mise à niveau, l'état de l'audit, les miroirs du registre et toute protection contre le verrouillage temporel ou la pause.
+
+Une proposition \textbf{Kit de fourchette} pourraient inclure:
+
+\begin{enumerate}[leftmargin=*]
+\item les scripts de déploiement déterministiques;
+\item les outils de capture instantanée et d'exportation du registre;
+\item un processus documenté permettant de repenser les services de routage, les SDK et les interfaces vers une nouvelle racine de registre;
+\item une liste de contrôle Gestionnaire de Bassin pour quitter en toute sécurité un registre partagé ; et
+\item une liste de contrôle de migration pour les bons d'échange en cours, y compris les avis de l'émetteur, les délais de présentation et d'exécution, l'accès continu aux dossiers et les recours.
+\end{enumerate}
+Les fourches compatibles peuvent améliorer la résilience lorsque les communautés, les coopératives, les agences publiques, les fédérations, les multinationales ou les opérateurs de services ont besoin d'une gouvernance différente. La continuité réelle dépend toujours de la propriété du contrat, des clés, des dépendances, des interfaces, de l'infrastructure, des obligations légales et des services de tiers.
+
+
+\section*{9. Économie proposée pour les programmes de liquidité}
+\addcontentsline{toc}{section}{9. Économie proposée pour les programmes de liquidité}
+
+Ce chapitre décrit un futur modèle adopté séparément. Il ne s'agit pas d'une fonctionnalité actuelle de l'application, d'une offre, d'un retour promis ou d'un droit créé par un dépôt dans \texttt{SwapPool}.
+
+\subsection*{9.1 Sources de recettes proposées}
+\addcontentsline{toc}{subsection}{9.1 Sources de recettes proposées}
+
+Un futur budget du réseau pourrait recevoir:
+
+\begin{enumerate}[leftmargin=*]
+\item un \textbf{prélèvement de réseau} correspondant à une part des frais perçus par les Bassins participants ;
+\item des frais d'acheminement ou de service distincts des services partagés mis en œuvre ; et
+\item autres recettes expressément adoptées et reçues.
+\end{enumerate}
+Les frais bruts de bassin retenus par Bassins ne sont pas des recettes de réseau. L'actuel Protocol v1.1.0 utilise un modèle différent: une redevance de protocole optionnelle est supplémentaire à la redevance de bassin et est envoyée directement à son destinataire configuré.
+
+\subsection*{9.2 Les mathématiques illustratives du prélèvement}
+\addcontentsline{toc}{subsection}{9.2 Les mathématiques illustratives du prélèvement}
+
+Si un bassin participant facture une redevance de bassin de 2.00\% et qu'un prélèvement de réseau adopté reçoit 20\% de cette redevance de bassin, le taux effectif proposé pour le prélèvement de réseau sur la valeur acheminée est le suivant:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Si 25\% des actifs de prélèvement et de frais de service reçus sont éligibles et convertibles pour une utilisation déclarée libellée en espèces après frais, la part utilisable en espèces du prélèvement de 40 bps est d'environ 10 bps.
+
+Les recettes du réseau proposées sont les suivantes:
+
+\texttt{network\_rake\_received + routing\_or\_service\_fees\_received}
+
+Ne pas ajouter les frais bruts de bassin au prélèvement du réseau: le prélèvement est un transfert de ces frais et serait autrement compté deux fois.
+
+\subsection*{9.3 Droits de programme de liquidité}
+\addcontentsline{toc}{subsection}{9.3 Droits de programme de liquidité}
+
+Un programme adopté séparément pourrait financer l'inventaire du bassin, les services de routage, la surveillance ou d'autres mandats. Ses termes devraient indiquer:
+
+\begin{itemize}[leftmargin=*]
+\item si un transfert est un don, une dotation, un prêt, une contribution récupérable ou un achat;
+\item la garde et le contrôle;
+\item les règles relatives au retrait, au remboursement, aux pertes et à la priorité;
+\item l'admissibilité à des honoraires et à des récompenses;
+\item les droits de gouvernance;
+\item les méthodes d'évaluation et de déclaration ; et
+\item la suspension, la résiliation et les recours.
+\end{itemize}
+L'actuel \texttt{SwapPool} ne crée aucun jeton de parts de Bassin ou droit de contributeur automatique. Toute mesure ex post doit être basée sur les recettes et les pertes réalisées, ne doit pas être présentée comme un rendement promis, et peut être nulle ou négative.
+
+
+\section*{10. Cadre global des risques}
+\addcontentsline{toc}{section}{10. Cadre global des risques}
+
+Ce cadre proposé distingue dix catégories de risques. Pour chaque catégorie, il identifie les indicateurs possibles, les contrôles, les tests de résistance et un appétit au risque indicatif. Ce sont des recommandations de conception, pas des affirmations selon lesquelles chaque contrôle est déployé, efficace ou suffisant. Les limites, les réserves, les garanties, la surveillance, la couverture et la gouvernance ne peuvent éliminer les pertes.
+
+\subsection*{10.1 Protocole et risque lié aux contrats intelligents}
+\addcontentsline{toc}{subsection}{10.1 Protocole et risque lié aux contrats intelligents}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} des erreurs de contrat, des erreurs de mise à niveau, des défaillances de dépendance et des limites ou frais mal configurés.
+\item \textbf{Indicateurs:} les résultats de l'audit, les mouvements d'inventaire inexpliqués, les défaillances invariantes et les retours inhabituels.
+\item \textbf{Contrôles possibles:} des audits indépendants; les rôles privilégiés minimaux; les contrôleurs par procuration et les contrôleurs de dépendance divulgués; les mises à niveau dans des délais déterminés; la surveillance de la chaîne; les pauses d'incident avec autorisation et critères publiés; et un parcours de migration éprouvé.
+\item \textbf{Tests de résistance:} les cotations non disponibles ou les dépendances à la limite, les déficits d'inventaire, les contrats suspendus et le trafic éclatant.
+\item \textbf{Appétit pour le risque:} faible avant la mise à l'échelle des obligations en souffrance ou du volume des swaps.
+\end{itemize}
+\subsection*{10.2 Risque économique et de marché}
+\addcontentsline{toc}{subsection}{10.2 Risque économique et de marché}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} l'inventaire mince, les flux unilatéraux, les retraits rapides et les références de prix manipulées ou obsolètes.
+\item \textbf{Indicateurs:} l'utilisation élevée du plafond du solde des jetons de bassin, l'élargissement des différences de cotation, les rejets fréquents des limites et l'inventaire concentré.
+\item \textbf{Contrôles possibles:} les plafonds du solde actuel des jetons de bassin; les limites mobiles ou de compte proposées; réserves adoptées séparément; des références de prix protégées; l'exclusion des itinéraires; et des frais ou limites pour les incidents limités dans le temps.
+\item \textbf{Tests de résistance:} des mouvements importants des prix de référence, des hausses de présentation, des demandes de retrait et des pannes de sources de données.
+\item \textbf{Appétit pour le risque:} modérée dans les limites des paramètres publiés et de la capacité à supporter les pertes financée.
+\end{itemize}
+\subsection*{10.3 Risque de l'émetteur et du bon d'échange}
+\addcontentsline{toc}{subsection}{10.3 Risque de l'émetteur et du bon d'échange}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} l'émission dépassant la capacité d'exécution, le défaut de l'émetteur, des conditions trompeuses et des fenêtres de disponibilité ou de présentation mal spécifiées.
+\item \textbf{Indicateurs:} la baisse des taux d'exécution confirmés, le vieillissement des bons d'échange en souffrance, les plaintes non résolues et l'exposition concentrée à un seul émetteur.
+\item \textbf{Contrôles possibles:} la diligence raisonnable de l'émetteur; les conditions du bon d'échange et de l'offre sont claires; les limites d'émission ou d'admission; les obligations ou garanties financées de manière indépendante; les rapports de cohorte; et l'examen du registre responsable.
+\item \textbf{Tests de résistance:} l'insolvabilité de l'émetteur, les chocs de production régionaux, les créances contrefaites et les retards prolongés dans l'exécution.
+\item \textbf{Appétit pour le risque:} inférieure à mesure que la concentration de l'émetteur ou de l'offre augmente.
+\end{itemize}
+\subsection*{10.4 Risque de remboursement et de réalisation}
+\addcontentsline{toc}{subsection}{10.4 Risque de remboursement et de réalisation}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} présentation invalide ou en double, capacité d'émetteur insuffisante, ruptures de stocks, défaillances logistiques et manquants enregistrements de décharge.
+\item \textbf{Indicateurs:} la latence de la demande à l'exécution, les présentations infructueuses ou contestées, les ruptures de stock, les arriérés de billets et les unités exécutées sans décharge.
+\item \textbf{Contrôles possibles:} les procédures de présentation et d'exécution publiées; les informations relatives à la capacité; plusieurs lieux d'exécution, le cas échéant; les normes de preuve; les voies de plainte et de recours; et des enregistrements séparant la présentation, l'exécution et la décharge.
+\item \textbf{Tests de résistance:} deux à quatre fois le volume de présentation, les pannes d'installation, les défaillances des fournisseurs et les tentatives d'utilisation en double.
+\item \textbf{Appétit pour le risque:} faible lorsqu'il s'agit de biens essentiels, de participants vulnérables ou de longues fenêtres d'exécution.
+\end{itemize}
+\subsection*{10.5 Risque de gouvernance}
+\addcontentsline{toc}{subsection}{10.5 Risque de gouvernance}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} Capture de l'intendant ou du contrôleur, changements de paramètres précipités, conflits d'intérêts, pouvoirs techniques cachés et appels faibles.
+\item \textbf{Indicateurs:} L'autorité concentrée, les actions d'urgence fréquentes, les changements de politique inexpliqués et les annulations répétées.
+\item \textbf{Contrôles possibles:} les informations sur les rôles et les pouvoirs; les seuils d'approbation proportionnels; les timelocks; les conflits et les règles de récusation; les enregistrements publics des modifications; les recours; les couchers de soleil automatiques à énergie d'urgence; et la forcabilité.
+\item \textbf{Tests de résistance:} propositions contradictoires, perte de signataires, tentatives de corruption et capture par accumulation ou contrôle délégué.
+\item \textbf{Appétit pour le risque:} faible pour les actions affectant les méthodes de valeur, les retraits, les racines du registre, la couverture ou les pouvoirs d'urgence.
+\end{itemize}
+Pour un déploiement futur du jeton de gouvernance CLC proposé, le test de capture comprendrait l'accumulation suivie de tentatives de réorientation des budgets, d'affaiblissement des normes de registre, d'approbation des mandats des parties liées ou de vidage de la couverture financée. Les mesures de sauvegarde possibles comprennent des blocages de gouvernance, des seuils plus élevés pour les actions critiques, des délais d'exécution, une délégation transparente et un suivi de la concentration, un processus d'incident et une procédure crédible de "fork and exit". Aucune n'est représentée comme déployée simplement en apparaissant ici.
+
+\subsection*{10.6 Risque juridique et de conformité}
+\addcontentsline{toc}{subsection}{10.6 Risque juridique et de conformité}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} un bon d'échange, un service, une promotion ou un actif de gouvernance bénéficiant d'un traitement réglementaire inattendu; les défaillances en matière de protection des consommateurs; l'exposition au blanchiment d'argent ou aux sanctions; et les restrictions transfrontalières.
+\item \textbf{Indicateurs:} les signaux de juridiction, les enquêtes des régulateurs, les plaintes, les correspondances avec des parties restreintes et la divergence entre le comportement annoncé et le comportement réel.
+\item \textbf{Contrôles possibles:} l'examen par catégorie et par juridiction; des informations précises; les interfaces géoconfinées; des contrôles proportionnés de l'éligibilité ou de l'attestation; les contrôles de promotion; les enregistrements de l'autorité et de l'acceptation; et détermine les parties responsables.
+\item \textbf{Tests de résistance:} une restriction de compétence, la résiliation du fournisseur, une reclassement obligatoire et une ordonnance de mise en pause d'une caractéristique ou d'une classe d'actifs.
+\item \textbf{Appétit pour le risque:} faible; limiter ou mettre en pause une activité non soutenue.
+\end{itemize}
+\subsubsection*{10.6.1 Le positionnement juridique et le traitement proposé des jetons}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Infrastructure vérifiable:} Les contrats Protocol v1.1.0 sont compatibles avec EVM- et leur source est publiée dans le cadre des licences et des exceptions de tiers identifiées dans le référentiel du protocole. La publication permet l'examen mais ne prouve pas en elle-même un audit, un déploiement sécurisé ou une conformité légale. Chaque déploiement doit divulguer sa version de code, la provenance de la construction, les adresses, les pouvoirs du contrôleur et l'état de l'audit.
+\item \textbf{Position du jeton proposée:} Dans cette conception, le jeton de gouvernance CLC proposé coordonnerait la gouvernance et l'accès à la politique. Il ne créerait pas de dividendes, de partage des bénéfices, de droits résiduels, ni de garantie de valeur ou de liquidité.
+\item \textbf{Actifs proposés connexes:} une politique mise en œuvre séparément pourrait permettre de verrouiller le jeton de gouvernance CLC proposé à stCLC et pourrait autoriser sCLC à portée d'époque. Les termes adoptés devraient définir leurs droits exacts, leurs limites, leur date d'expiration, leur transférabilité et leur traitement.
+\item \textbf{Pour les communications:} les matériaux pour tout déploiement proposé de jetons de gouvernance CLC, stCLC ou sCLC ne devraient pas promettre de profit, d'appréciation, de revenu passif ou d'accès garanti.
+\item \textbf{Contrôles de compétence:} un déploiement pourrait nécessiter des barrières géographiques à l'interface, des attestations pour les classes restreintes, des limites de promotion, une revue spécifique à un actif ou des contrôles qui mettent en pause une fonctionnalité proposée.
+\item \textbf{Avis du participant:} les termes adoptés expliqueraient quand l'accès peut être réduit ou désactivé pour des raisons juridiques, opérationnelles ou de risque et si une compensation ou un recours peut s'appliquer.
+\end{enumerate}
+\subsection*{10.7 Risque de routage et risque interdomaine}
+\addcontentsline{toc}{subsection}{10.7 Risque de routage et risque interdomaine}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} l'exécution partielle, les hops bloqués, les exploits de ponts ou d'escrows, les cotations obsolètes, l'inflation de trajectoire et l'avancée des changements de valeur annoncés.
+\item \textbf{Indicateurs:} les taux d'expiration des itinéraires, les arriérés d'escrow, les écarts entre les cotations et l'exécution, les étapes répétés inutiles et les incidents de ponts.
+\item \textbf{Contrôles possibles:} l'exécution atomique, le cas échéant; des délais conservateurs HTLC ou des délais d'accréditation; la voie et les politiques des contreparties; les plafonds au niveau de la route; la cartographie déterministe de la cotation à la réception; et des opérateurs de services responsables.
+\item \textbf{Tests de résistance:} Un arrêt du pont, une réorganisation de la chaîne, une interruption de la dépendance, et un étape raté dans un itinéraire multi-étape proposé.
+\item \textbf{Appétit pour le risque:} faible à modéré uniquement pour les dépendances identifiées et surveillées.
+\end{itemize}
+\subsection*{10.8 Risque de dépôt et de gestion des clés}
+\addcontentsline{toc}{subsection}{10.8 Risque de dépôt et de gestion des clés}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} les clés perdues ou compromises, la collusion des signataires et une autorité de récupération ou d'administrateur peu claire.
+\item \textbf{Indicateurs:} Signatures anormales, changements de contrôleur, rotations manquées et retraits inhabituels.
+\item \textbf{Contrôles possibles:} l'autorisation à signes multiples ou à seuil; les clés matérielles; la séparation des rôles; la rotation des signataires; les inventaires du contrôleur public; les limites de retrait surveillées; et des procédures de récupération testées.
+\item \textbf{Appétit pour le risque:} Il est bas.
+\end{itemize}
+\subsection*{10.9 Réputation et risque social}
+\addcontentsline{toc}{subsection}{10.9 Réputation et risque social}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} des allégations trompeuses, des incitations nuisibles, des plaintes inaccessibles, des expériences de satisfaction médiocres, des manquements à la vie privée et des protections qui favorisent les initiés.
+\item \textbf{Indicateurs:} les plaintes par cohorte, les litiges non résolus, les tendances des performances des émetteurs, la concentration des bénéfices ou des pertes et les commentaires de la communauté.
+\item \textbf{Contrôles possibles:} les informations communiquées dans un langage simple; les voies de traitement des griefs et de correction; les éléments de preuve accessibles; une déclaration transparente; l'examen des incidents; et des sanctions proportionnées pour fausse présentation.
+\item \textbf{Appétit pour le risque:} Il s'agit d'un programme d'action en faveur de l'égalité des chances dans les pays en voie de développement.
+\end{itemize}
+\subsection*{10.10 Risque de concentration et de fragmentation}
+\addcontentsline{toc}{subsection}{10.10 Risque de concentration et de fragmentation}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Des menaces:} dépendance à l'égard d'un petit nombre d'émetteurs, de bassins, de contrôleurs, de fournisseurs, de réseaux ou de fourches incompatibles.
+\item \textbf{Indicateurs:} les mesures de concentration par émetteur, par groupe, par inventaire, par contrôleur ou par prestataire de services; les défaillances des routes entre groupes; et dépendances critiques uniques.
+\item \textbf{Contrôles possibles:} les seuils de concentration publiés; plusieurs opérateurs responsables; les normes compatibles; les registres indépendants; les procédures de sortie testées; et l'interopérabilité sûre.
+\item \textbf{Tests de résistance:} perte de l'émetteur, du bassin, de l'opérateur, du fournisseur ou de la racine du registre le plus important.
+\item \textbf{Appétit pour le risque:} déploiement spécifique et divulgué, avec des limites plus strictes pour les services essentiels ou les dépendances irremplaçables.
+\end{itemize}
+
+\section*{11. Mécanismes de gouvernance}
+\addcontentsline{toc}{section}{11. Mécanismes de gouvernance}
+
+Ce chapitre propose un modèle de gouvernance. Il ne représente pas que l'actuel CLC App utilise le vote par jeton de gouvernance, les timelocks, l'assurance partagée, un processus de réclamation ou tous les contrôles décrits ci-dessous. Chaque déploiement devrait identifier ses véritables décideurs, autorités, contrats, processus et politiques.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Les valeurs constitutionnelles:} le souci des personnes, le souci de l'environnement, l'équité, la réciprocité, la non-dominance et la résilience.
+\item \textbf{Types de propositions} les modifications des redevances, des limites et des indices; les mandats de liquidité; Liste des groupes et suppressions; les décisions de couverture facultatives; et des garde-corps de paramètres.
+\item \textbf{Procédure responsable:} prise $\to$ évaluation $\to$ évaluation des risques $\to$ approbation $\to$ délai d'exécution le cas échéant $\to$ exécution. L'approbation peut provenir d'administrateurs, de coopératives, d'agences publiques, de fédérations, de plusieurs instances, d'un vote en chaîne ou d'une autre structure dévoilée et responsable.
+\item \textbf{seuils d'homologation:} paramétrisé par classe d'action, avec des seuils plus élevés pour les changements d'indice de valeur, les pouvoirs d'urgence et d'autres actions critiques.
+\item \textbf{La délégation:} la délégation facultative avec des mandats publics, la divulgation des conflits et le rappel.
+\item \textbf{Détecteurs de circuits:} des pauses d'urgence avec des critères établis, des opérateurs autorisés, des conditions de reprise et des autopsies requises.
+\item \textbf{La transparence:} les modifications et les flux publiés, avec des éléments de preuve distincts pour le règlement des swaps, l'exécution par l'émetteur, les réserves, l'utilisation des limites, le routage et les garants.
+\end{itemize}
+\textbf{Gouvernance du registre.} Un déploiement CPP-compatible peut maintenir des registres de découverte pour les bons d'échange, les jetons et les Bassins. Les contrôles autorisés peuvent ajouter, mettre à jour, suspendre ou supprimer des entrées de registre via le processus de gouvernance divulgué du déploiement. La suppression du registre affecte la découverte et l'acheminement à travers ce registre; il n'efface pas par lui-même un jeton, ne modifie pas le solde d'un détenteur, n'exécute pas l'obligation d'un émetteur ni ne désactive un contrat fonctionnel.
+
+Les règles du registre publiées devraient rendre le statut conditionnel et peuvent identifier des manquements répétés, des fraudes ou des fausses déclarations, un comportement contractuel non sûr ou une violation persistante des principes publiés comme motifs de suspension ou de suppression. Dans la mesure du possible, la procédure devrait prévoir un préavis, une possibilité de recours et une voie d'appel. L'évacuation d'urgence devrait nécessiter un rapport d'incident public et un examen automatique ou un coucher du soleil.
+
+\textbf{Des annonces interdites.} Dans le cadre de ce modèle, un registre n'admettrait pas:
+
+\begin{enumerate}[leftmargin=*]
+\item les instruments qui financent ou incitent directement à la destruction écologique au-delà des limites convenues, à la violence ou à l'armement, à l'extraction forcée ou à l'abus systémique; ou à
+\item une catégorie de bons qui manque de conditions claires de présentation et d'exécution, de responsabilité et de voies de recours.
+\end{enumerate}
+La liste interdite serait modifiée, vérifiable publiquement et modifiable uniquement au moyen du seuil et du délai d'action critique adoptés, illustrés par Q3 + T3 à l'appendice D.
+
+\subsection*{11.1 Gouvernance des taux de change et des limites}
+\addcontentsline{toc}{subsection}{11.1 Gouvernance des taux de change et des limites}
+
+\textbf{Les changements sont temporaires.} Un déploiement suivant ce modèle ne modifierait les méthodes de taux de change et ne mettrait en œuvre séparément les paramètres limites qu'après un délai public. Une voie d'urgence utiliserait un processus d'autorisation divulgué séparément et inclurait un coucher du soleil ou un examen automatique.
+
+\textbf{Les seuils d'approbation.} Le modèle propose des seuils d'approbation plus élevés pour les modifications de la base de l'indice de valeur et les modifications des niveaux limites globaux, des seuils intermédiaires pour les modifications de tiers spécifiques à la bassin et des seuils standard pour les modifications de frais de routine.
+
+\textbf{Des informations publiées.} Un déploiement participant publierait, pour chaque bassin, les variables d'index en chaîne, les sources ou médians oracles, la cadence de mise à jour, les fenêtres de limite et les plafonds, ainsi que les modes de défaillance ou les constantes de sécurité.
+
+\textbf{Critères de pause d'urgence.} Un déploiement participatif prédéclarait des conditions telles qu'une panne d'oracle, une utilisation à haute limite combinée à des défaillances de réalisation ou une défaillance invariante, ainsi que des vérifications de CV et des exigences d'examen post-incident.
+
+\subsection*{Exemple de flux public d'indexation pour une réserve et un bon d'échange}
+\addcontentsline{toc}{subsection}{Exemple de flux public d'indexation pour une réserve et un bon d'échange}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Le symbole:} par exemple \texttt{Maize\_50kg@IssuerY}.
+\item \textbf{Unité de référence:} Unité d'indice (IUX).
+\item \textbf{Valeur publiée:} 30.000 IUX.
+\item \textbf{Nom de l'entreprise:} médiane des sources identifiées, telles qu'une enquête sur le marché local, le bulletin du ministère et la base de déploiement.
+\item \textbf{Cadence de mise à jour:} Tous les jours à 18h00 EAT, avec un délai de 24 heures.
+\item \textbf{Mode de défaillance:} congeler à la dernière valeur valide, appliquer une politique de limite divulguée et faire une pause après une interruption de 72 heures.
+\item \textbf{Le raisonnement:} des notes publiées et un enregistrement des modifications par rapport à la mise à jour précédente.
+\item \textbf{Les signataires:} les adresses multi-signales et le seuil d'approbation communiqués.
+\end{itemize}
+\subsection*{11.2 Compte-rendu proposé des fonds d'assurance}
+\addcontentsline{toc}{subsection}{11.2 Compte-rendu proposé des fonds d'assurance}
+
+\textbf{Design facultatif uniquement.} Ce répertoire s'applique uniquement à un déploiement qui a expressément adopté et financé un fonds d'assurance et publié les événements couverts, les demandeurs admissibles, l'entité responsable, les actifs, les limites, les exclusions, les exigences de preuve, le processus et les modalités. Ni l'actuel CLC App ni l'actuel GEF ne fournissent une couverture simplement parce que ce dessin apparaît dans le livre blanc.
+
+\textbf{Des déclencheurs possibles.} Une politique adoptée pourrait couvrir un défaut d'exécution d'un émetteur défini, un déficit de réserves de bassin ou une perte de pont ou d'entiercement. Un incident technique n'est pas automatiquement admissible; la politique appliquée contrôlerait.
+
+\textbf{Une évaluation.} L'organisme responsable réconcilierait les reçus de transaction, les soldes d'inventaire, les obligations de garantie, les enregistrements de remboursement et de présentation, les réponses de l'émetteur et d'autres preuves requises, puis publierait un enregistrement des incidents conforme à la vie privée et à la loi.
+
+\textbf{Illustre cascade de perte.} Lorsque chaque couche existe et s'applique légalement, une police pourrait utiliser: (1) des obligations d'émetteur responsable ou des participations de garant $\to$ (2) des réserves au niveau du bassin $\to$ (3) un fonds d'assurance réseau proposé $\to$ (4) une réduction temporaire à une demande de couverture facultative, uniquement lorsque des conditions préexistantes et la loi applicable l'autorisent expressément $\to$ (5) une récupération légale pour fraude ou abus avérés.
+
+Un ajustement de couverture ne réduit pas l'engagement de bon d'échange sous-jacent d'un émetteur ni ne modifie un solde sur la chaîne, à moins que des conditions préalablement valides et la législation applicable n'autorisent expressément ce résultat et que le consentement du titulaire requis soit obtenu.
+
+\textbf{Limites et exclusions.} La couverture publiée définirait les plafonds, les présentations éligibles, les éléments de preuve, les fenêtres de réclamation, les itinéraires ou événements exclus, les restrictions géographiques et le traitement des réserves épuisées. Un paiement pourrait être de zéro une fois les limites applicables atteintes.
+
+\textbf{Calendrier de récupération illustratif.} Si elle est adoptée et publiée:
+
+\begin{enumerate}[leftmargin=*]
+\item les créances tireraient d'abord de l'émetteur ou du garant responsable, puis des réserves de bassin applicables, puis du fonds d'assurance réseau proposé;
+\item toute réduction à une demande de couverture facultative serait limitée à ce que permettent les conditions de couverture préexistantes et la législation applicable, jusqu'au plafond de l'incident publié;
+\item un plan de redressement pourrait appliquer une part déterminée de la valeur récupérée pour une période déterminée, après laquelle tout déficit restant couvert deviendrait une perte enregistrée avec un post-mortem public ; et
+\item Chaque décision produirait un reçu avec l'incident ID, les réclamations et les bons d'échange affectés, la décision, le plan de redressement et la fenêtre d'appel.
+\end{enumerate}
+\subsection*{11.3 Cadre du garant}
+\addcontentsline{toc}{subsection}{11.3 Cadre du garant}
+
+Cette section distingue la responsabilité de l'émetteur, les protections optionnelles de bassin et les garanties de tiers. Les bassins peuvent rivaliser sur la conservation, les conditions et les protections expressément offertes sans impliquer que le CLC App, CPP, GEF, ou tout autre réseau plus large garantit automatiquement un bon d'échange.
+
+\subsection*{Responsabilité initiale de l'émetteur}
+\addcontentsline{toc}{subsection}{Responsabilité initiale de l'émetteur}
+
+\begin{itemize}[leftmargin=*]
+\item Chaque bon d'échange est avant tout la responsabilité de son émetteur. L'émetteur s'engage à fournir le bien, le service ou l'équivalent en espèces déclaré conformément aux conditions publiées.
+\item Les émetteurs publieraient qui peut présenter le bon d'échange, ce que signifie l'exécution, où et quand il est disponible, quelles preuves sont requises et quels recours sont applicables.
+\item Si un émetteur ne remplit pas ses obligations, il est le principal responsable. Les protections de bassin ou de réseau ne s'appliquent que lorsqu'elles sont adoptées, financées et communiquées séparément.
+\end{itemize}
+\subsection*{Protection optionnelle du bassin}
+\addcontentsline{toc}{subsection}{Protection optionnelle du bassin}
+
+Un Gestionnaire de Bassin peut choisir d'ajouter une protection étroitement définie aux bons d'échange admis. Il n'est pas automatique et il faudrait identifier la partie responsable, le financement, les événements éligibles, les plafonds, les fenêtres, les éléments de preuve, les exclusions et les recours dans les métadonnées du bassin et les conditions applicables.
+
+Les types de protection illustratifs comprennent:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Couverture des actifs de réserve:} après non-respect par l'émetteur vérifié, l'entité responsable du bassin paie un montant défini dans un actif de réserve désigné, sous réserve de son plafond publié et des réserves financées disponibles.
+\item \textbf{Fenêtre de remplacement:} après un événement de qualification, le bassin offre une voie de swap limitée dans le temps vers l'actif antérieur ou un autre actif approuvé, sous réserve de plafonds et d'inventaire. Il s'agit d'une protection de liquidité dépendante des stocks, pas d'une promesse selon laquelle chaque swap est réversible.
+\item \textbf{Exécution alternative:} la partie responsable organise un fournisseur de remplacement agréé dans le cadre d'un plafond de quantité ou de valeur publié.
+\item \textbf{Protection par bande de taux de change:} pour les catégories de bons sélectionnés, un bassin n'offre que l'ajustement de couverture ou le recours au swap-back indiqué dans ses conditions préexistantes. Cela ne réduit pas l'obligation sous-jacente de l'émetteur en matière de bons.
+\end{enumerate}
+\subsection*{Sources de financement possibles}
+\addcontentsline{toc}{subsection}{Sources de financement possibles}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Obligation de l'émetteur} garantie placée par l'émetteur ou détenue dans une réserve divulguée et disponible après un événement couvert vérifié.
+\item \textbf{Réserve de Bassin:} les actifs contrôlés par l'entité responsable du bassin et affectés aux protections qu'elle annonce.
+\item \textbf{Obligation de tiers garant:} garantie déposée par un garant externe identifié pour des émetteurs, des catégories de bons ou des événements indiqués.
+\end{itemize}
+La participation du garant respecterait les critères d'éligibilité publiés, la taille des obligations, les limites de concentration, l'autorité de décision et les règles d'exécution légales.
+
+\subsection*{Procédure de réclamation}
+\addcontentsline{toc}{subsection}{Procédure de réclamation}
+
+Une politique adoptée définirait les déclencheurs auditables, tels qu'un délai d'exécution manqué après la présentation d'un remboursement valide, une insolvabilité vérifiée de l'émetteur, une défaillance d'un pont couvert ou d'une caution ou un état d'incident déclaré officiellement. Elle définirait également:
+
+\begin{itemize}[leftmargin=*]
+\item la manière dont un participant ouvre une réclamation et fournit les preuves de présentation et d'exécution requises;
+\item qui vérifie les conditions du bon d'échange, les réponses de l'émetteur et les dossiers techniques;
+\item les fenêtres de décision et de recours ; et
+\item la voie de paiement autorisée, les actifs, les plafonds et le reçu.
+\end{itemize}
+Les recouvrements provenant d'émetteurs, d'arbitrage ou d'exécution légale permettraient de reconstituer les obligations ou réserves applicables conformément à la politique publiée avant d'être utilisés pour l'accès proposé aux swaps du réseau CLC.
+
+\subsection*{Divulgation obligatoire}
+\addcontentsline{toc}{subsection}{Divulgation obligatoire}
+
+Pour chaque catégorie de bassin et de bon d'échange couvert couverte, la partie responsable publierait:
+
+\begin{itemize}[leftmargin=*]
+\item si un garant est absent, facultatif ou requis;
+\item la taille des obligations ou des réserves et les plafonds de concentration;
+\item les types de protection, les actifs, les plafonds, les fenêtres et les exclusions;
+\item les délais de présentation, d'exécution, de réclamation et d'appel ; et
+\item une déclaration claire de qui garantit quoi et de ce qui n'est pas garanti.
+\end{itemize}
+\textbf{Principe de conservation.} Gestionnaires de Bassins et les structures juridiques ou de gouvernance responsables sont responsables des protections qu'ils annoncent. Un déploiement CPP-compatible peut fournir des normes, des registres ou des politiques partagées optionnelles, mais ni CLC ni GEF ne garantissent automatiquement des bons d'échange ou des Bassins.
+
+\subsection*{11.4 Garnitures anti-capture}
+\addcontentsline{toc}{subsection}{11.4 Garnitures anti-capture}
+
+Dans le cadre de ce modèle, les actions critiques suivantes nécessiteraient le niveau d'approbation le plus élevé adopté et un délai plus long:
+
+\begin{enumerate}[leftmargin=*]
+\item modifier la cascade de redevances proposée, y compris sa couverture et les priorités des opérations de base;
+\item modifier les racines du registre canonique;
+\item modifier la portée de la couverture, les plafonds de revendications ou l'autorité de décision;
+\item l'élargissement des pouvoirs de pause d'urgence; ou à
+\item L'objectif est d'améliorer l'efficacité et la transparence de la politique de l'Union en ce qui concerne la protection des consommateurs.
+\end{enumerate}
+\subsection*{11.5 Procédure de fourche et de sortie}
+\addcontentsline{toc}{subsection}{11.5 Procédure de fourche et de sortie}
+
+Si la gouvernance était capturée ou si les valeurs dérivaient de manière significative, les communautés, Gestionnaires de Bassins et les opérateurs pourraient chercher à sortir en bifurquant la couche de gouvernance du réseau. La continuité des bassins et des bons d'échange sous-jacents dépendrait des contrats déployés, des clés, des interfaces, de l'infrastructure, des services fournis par des tiers et des obligations applicables.
+
+Un processus de sortie pourrait:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Publiez un instantané:} Exporter les registres, les bons d'échange, les valeurs, les limites et les politiques de redevance sélectionnés, puis publier un hachage d'instantané signé.
+\item \textbf{Redéploiement des services de gouvernance:} déployer de nouvelles racines de registre, de nouveaux services d'itinéraire et tout module de redevance ou de couverture adopté dans le cadre d'une nouvelle structure responsable.
+\item \textbf{Réenregistrer:} permettre à Gestionnaires de Bassins de choisir de s'inscrire en enregistrant leurs adresses de bassin sous la nouvelle racine sans que les titulaires soient tenus de migrer des bons d'échange fonctionnels.
+\item \textbf{Renvoyer les clients:} ajouter la nouvelle racine en tant que profil de réseau sélectionnable dans les SDK et les interfaces, avec toute modification par défaut effectuée dans le cadre du processus de gouvernance divulgué.
+\item \textbf{Gérer une période de pont:} maintenir des itinéraires compatibles là où ils sont sûrs et refuser les itinéraires qui violent les règles du nouveau profil.
+\end{enumerate}
+L'objectif de conception est que la sortie d'un registre canonique ne désactive pas les bassins locaux fonctionnels. La continuité réelle reste dépendante du déploiement; La fédération est une couche de découverte et de coordination opt-in.
+
+
+\section*{12. Fiche descriptive du programme de liquidité proposé (aperçu non contraignant)}
+\addcontentsline{toc}{section}{12. Fiche descriptive du programme de liquidité proposé (aperçu non contraignant)}
+
+Ceci est une liste de contrôle illustrative pour un programme futur, documenté séparément. Il ne s'agit pas d'une offre, d'une fonctionnalité actuelle de l'application ou d'une promesse de liquidité, d'accès, d'assurance, de rendement, de valeur ou de sortie.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Contributions éligibles:} stablecoins, jetons de réserve, ou bons d'échange communautaires approuvés, comme indiqué par le programme.
+\item \textbf{Localisation:} le réseau Bassins d'engagements désigné ou le réseau CLC proposé dans le cadre d'un mandat adopté séparément.
+\item \textbf{Fermeture et sortie:} termes spécifiques au programme, tels que les périodes de 30 à 90 jours et les portes ouvertes sous pression.
+\item \textbf{Crédit de redevance par police:} un mécanisme ex post facultatif dans le cadre de plafonds et de fenêtres publiés, et non un rendement promis.
+\item \textbf{Partage des risques:} toute réduction à une demande de couverture facultative doit être expressément autorisée par des conditions préexistantes et par la législation applicable. Elle ne modifie pas en elle-même l'engagement d'un émetteur en matière de bons ou le solde de la chaîne.
+\item \textbf{Rapporté par:} des tableaux de bord périodiques et des attestations couvrant l'état de la réserve, l'inventaire, les limites, les frais et les réserves de couverture financées.
+\item \textbf{Les alliances:} les contraintes relatives à l'utilisation des produits, les contrôles d'oracle, les niveaux de limite, les règles relatives aux conflits et les mesures correctives.
+\item \textbf{Éligibilité éventuelle du jeton proposé:} les contributeurs qui lancent des bassins désignés pourraient être admissibles à des subventions de jetons de gouvernance CLC proposés sur la base d'un accès mesuré au bassin-swap et d'une satisfaction confirmée de l'émetteur, sous réserve des conditions adoptées, des règles anti-jeux et des plafonds de politique.
+\end{itemize}
+
+
+\section*{13. Glossaire en langage simple}
+\addcontentsline{toc}{section}{13. Glossaire en langage simple}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cosmo-Local Credit (CLC):} La famille de produits, y compris le CLC App, la documentation et un travail plus large de mise en commun des engagements.
+\item \textbf{CLC App:} L'application Web progressive exploitée par GEF à \texttt{cosmolocal.credit}.
+\item \textbf{Protocole de mise en commun des engagements (CPP):} Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.
+\item \textbf{Protocol v1.1.0:} La version publique vérifiée des contrats intelligents.
+\item \textbf{Bassin d'engagements:} Un arrangement réglementé qui admet les actifs pris en charge et publie les règles de change.
+\item \textbf{\texttt{SwapPool}:} Le coffre-fort actuel et le contrat de change direct.
+\item \textbf{Le jeton:} Un solde en chaîne ou un actif numérique. La mécanique des jetons à elle seule ne crée pas une promesse rédemptible.
+\item \textbf{Le bon d'échange:} Un jeton ou un enregistrement représenté par un émetteur comme un engagement remboursable selon des conditions publiées.
+\item \textbf{Offre:} Un enregistrement de catalogue de biens ou de services associés à un bon d'échange.
+\item \textbf{Émetteur:} La partie responsable de la publication et de l'exécution d'un engagement de bon d'échange.
+\item \textbf{Gestionnaire de Bassin:} La structure responsable qui publie et administre les règles du bassin.
+\item \textbf{Taux de change ou devis:} Paramètre de transaction produit par un devis configuré; pas une preuve de liquidité ou de valeur de rachat.
+\item \textbf{Plafond du solde des jetons du bassin:} Le maximum actuel de \texttt{Limiter} pour un jeton détenu par un bassin. L'application peut le marquer \textbf{`` Limite de crédit.''}
+\item \textbf{Échange de fonds:} Un échange direct d'actifs à travers un \texttt{SwapPool}.
+\item \textbf{Règlement d'échange:} Les transferts en chaîne et la comptabilisation des frais lors de l'achèvement d'un échange de bassin.
+\item \textbf{Présentation du remboursement:} Retourner ou présenter autrement des unités de bon d'échange à l'émetteur.
+\item \textbf{Exécution:} L'émetteur fournit le bien, le service, le bénéfice ou une autre prestation promis.
+\item \textbf{Décharge:} Un enregistrement empêchant que les unités remplies soient présentées à nouveau.
+\item \textbf{Routeur d'exécution proposé:} Un logiciel futur qui autorise et exécute les itinéraires. L'actuel \texttt{SwapRouter} ne fait que des citations.
+\item \textbf{Bassins de réseau CLC proposés:} Un futur accord de compensation et de coordination budgétaire au niveau du réseau.
+\item \textbf{Le jeton de gouvernance CLC proposé:} Une conception de gouvernance future, pas une application actuelle ou un actif Protocol v1.1.0.
+\item \textbf{Prélèvement de réseau :} Une part proposée des frais de Bassin transférée vers un futur budget du réseau.
+\item \textbf{Garantie ou assurance:} Une protection qui ne s'applique que lorsqu'une partie identifiée l'assume expressément, la finance et la publie.
+\end{itemize}
+
+\section*{14. Indicateurs clés de performance et indicateurs de santé proposés}
+\addcontentsline{toc}{section}{14. Indicateurs clés de performance et indicateurs de santé proposés}
+
+Un déploiement ne devrait publier un KPI que lorsqu'il peut définir l'événement, la source, la cohorte ou la période, l'unité, la méthode d'évaluation et l'horodatage, les exclusions, la politique de correction, les preuves hors chaîne et les limites de qualité des données.
+
+Les mesures proposées comprennent:
+
+\begin{itemize}[leftmargin=*]
+\item les présentations de remboursement valables;
+\item taux d'exécution par cohorte;
+\item l'exhaustivité de la décharge;
+\item le délai de présentation à l'exécution;
+\item la durée de détention de l'acquisition à la présentation;
+\item les engagements éligibles en cours dans le cadre d'une méthodologie définie;
+\item le volume de swap de bassin effectué;
+\item l'inventaire de la réserve mesuré;
+\item l'utilisation du plafond de solde des jetons de bassin;
+\item le taux de réussite des cotations, tenu séparément du taux d'exécution des lignes;
+\item les réserves éligibles divisées par l'exposition expressément couverte;
+\item les créances du garant et les recouvrements au titre d'une police identifiée;
+\item les redevances proposées pour le nettoyage du réseau et les redevances pour les services effectivement perçues, sans double comptabilisation des redevances brutes pour le bassin;
+\item détection de la gouvernance, décision, pause, réparation et temps de fermeture;
+\item les plaintes, les litiges, les rectifications et les recours ; et
+\item des résultats sociaux ou écologiques démontrés séparément.
+\end{itemize}
+Les données relatives aux transactions sur la chaîne ne prouvent pas à elles seules l'identité, les performances de l'émetteur, l'exécution, la causalité, la santé de la communauté ou l'impact social. Ces allégations nécessitent une méthodologie et des éléments de preuve propres.
+
+Voir aussi \href{https://docs.cosmolocal.credit/fr/white-paper/appendix-c-kpi-definitions}{Appendice C} pour la spécification de mesure proposée.
+
+
+\section*{15. Feuille de route (indicative)}
+\addcontentsline{toc}{section}{15. Feuille de route (indicative)}
+
+\subsection*{15.1 Fondation actuelle}
+\addcontentsline{toc}{subsection}{15.1 Fondation actuelle}
+
+GEF exploite le CLC App à \texttt{cosmolocal.credit} sur Gnosis Chain. L'application fournit un accès aux comptes et aux portefeuilles pris en charge, un catalogue public du marché et des interfaces pour les jetons, les bons d'échange, les offres, Bassins d'engagements, les transferts et les échanges directs de bassin.
+
+Protocol v1.1.0 fournit le fondement du contrat actuel: \texttt{GiftableToken}, exécution directe de \texttt{SwapPool}, registres optionnels, modules d'évaluation, plafonds de solde des jetons de bassin, frais de bassin, frais de protocole supplémentaires et un \texttt{SwapRouter} à cotation uniquement. La disponibilité dépend toujours de l'interface, des contrats déployés, de l'inventaire, de la configuration, de l'état du réseau, de l'éligibilité, des fournisseurs, de la juridiction et des conditions publiées de l'émetteur ou du bassin.
+
+\subsection*{15.2 Les jalons proposés}
+\addcontentsline{toc}{subsection}{15.2 Les jalons proposés}
+
+Ces jalons nommés sont des directions de conception, pas des numéros de sortie, des dates de livraison ou des engagements qu'une fonctionnalité lancera.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Fondation pour la gouvernance:} le jeton de gouvernance CLC proposé; le projet de bassin réseau CLC; adaptateurs de tarification; le quorum, le délai et les fondements de la gouvernance.
+\item \textbf{Routage et observabilité:} les API du routeur SDK et du registre; les tableaux de bord de santé; un cadre proposé pour la politique d'assurance; les intentions de rééquilibrage opt-in; prototype de mise en réseau par lots.
+\item \textbf{Outils de risque interdomaine:} HTLC ou le routage de dépôt en caution; les modules de garant régis séparément; les préréglages des limites déroulantes, des comptes et des niveaux.
+\item \textbf{Accès réglementé:} les services de paiement de tiers spécifiques au déploiement; les micro-bassins personnels; détection du service de conformité; des audits effectués par des tiers sur les catégories de bons.
+\end{itemize}
+Tout service de paiement serait fourni par des tiers identifiés séparément selon la juridiction, l'admissibilité, les frais, les limites et les conditions applicables. Les contrats CLC App et Protocol v1.1.0 ne fonctionnent pas eux-mêmes sur des rails fiduciaires.
+
+L'exécution multi-hop, l'assurance partagée, le jeton de gouvernance CLC proposé et le bassin de réseau CLC proposé, la compensation par lots, les micro-bassins personnels et les services de paiement réglementés restent proposés ou dépendants du déploiement jusqu'à ce qu'une mise en œuvre et ses conditions réglementaires les identifient comme actifs.
+
+
+\section*{16. Modèle d'évaluation proposé}
+\addcontentsline{toc}{section}{16. Modèle d'évaluation proposé}
+
+Ce modèle peut être adapté par un registre, un bassin ou un programme de liquidité future. Il ne s'agit pas d'une norme ou d'une garantie d'inscription universelle en vigueur.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Faits observés:} l'identité et l'historique de l'émetteur, les conditions du bon d'échange, les offres, la preuve de la capacité, la configuration du bassin, les contrôleurs, l'inventaire, les limites, les réserves, les garants, les incidents et les obligations non résolues.
+\item \textbf{Objet et parties concernées:} le bénéfice prévu, les risques, les conflits, les effets écologiques et sociaux, et qui porte la perte ou la responsabilité.
+\item \textbf{Une évaluation:} Le prix d'offre, la valeur indiquée sur le bon d'échange, la méthode du taux de change, la référence à l'oracle, les unités, les horodatages et les raisons de toute divergence.
+\item \textbf{Les limites:} l'éligibilité, les utilisations interdites, la concentration, les plafonds du solde des jetons, les pauses, les restrictions géographiques ou juridiques et les déclencheurs de révision.
+\item \textbf{Protégés:} la partie obligée identifiée, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve, la procédure de réclamation et les voies de recours.
+\item \textbf{Décision:} approuver, réviser, rejeter, mettre en pause ou intensifier pour un examen humain; identifier le décideur, les raisons, les conditions, la date d'examen et le processus d'appel ou de correction.
+\end{enumerate}
+La sortie ne doit pas décrire la conservation, les limites, les réserves ou la vérification comme une approbation, une capacité d'émetteur, une assurance ou une exécution garantie, à moins que la partie responsable n'ait expressément établi cette protection.
+
+
+\section*{17. Note juridique et de conformité}
+\addcontentsline{toc}{section}{17. Note juridique et de conformité}
+
+CPP peut coordonner des jetons, des bons d'échange, des bassins et des swaps dont le traitement juridique dépend de leur conception, de leur commercialisation, de leur utilisation, des parties responsables et de leur juridiction. Rien dans ce livre blanc n'est un conseil juridique, fiscal, d'investissement, de crédit ou financier.
+
+L'utilisation du CLC App est régie par la \href{https://docs.cosmolocal.credit/fr/governance/terms}{Conditions d'utilisation} GEF exploite l'application et l'infrastructure de support. Sauf si GEF assume expressément un autre rôle, il n'est ni émetteur, ni Gestionnaire de Bassin, ni dépositaire, ni prêteur, ni emprunteur, ni courtier, ni garant, ni racheteur, ni conseiller, ni assureur, ni partie aux obligations entre participants.
+
+Les services de paiement dépendants du déploiement doivent identifier leur fournisseur responsable, leurs juridictions, leur admissibilité, leurs frais, leurs limites, leur modèle de conservation et leurs conditions. La présence d'un connecteur ne signifie pas que GEF ou un bassin exploite le service réglementé sous-jacent.
+
+\subsection*{17.1 Révélations sur les coupons et les offres}
+\addcontentsline{toc}{subsection}{17.1 Révélations sur les coupons et les offres}
+
+L'émetteur devrait publier et tenir à jour:
+
+\begin{itemize}[leftmargin=*]
+\item l'identité et les coordonnées du responsable;
+\item l'offre, l'unité, la fourniture, la valeur déclarée et la capacité associées;
+\item les lieux et les procédures de présentation;
+\item le calendrier d'exécution et les éléments de preuve;
+\item la date d'expiration, les frais, les taxes, les restrictions et les règles relatives à la modification des matériaux;
+\item les plaintes, les substitutions, les remboursements ou autres recours ; et
+\item la méthode de décharge permettant d'éviter la réutilisation après l'exécution.
+\end{itemize}
+Un contrat symbolique n'établit pas ces termes ni ne prouve la performance.
+
+\subsection*{17.2 Divulgations de groupes}
+\addcontentsline{toc}{subsection}{17.2 Divulgations de groupes}
+
+Un Gestionnaire de Bassin devrait publier:
+
+\begin{itemize}[leftmargin=*]
+\item l'objectif du bassin et les décideurs responsables;
+\item le propriétaire de \texttt{SwapPool}, l'administrateur de proxy, les contrôleurs de dépendance et les bénéficiaires de redevances;
+\item les actifs admis et les règles de suspension ou de retrait;
+\item les méthodes d'évaluation, les sources de cotation, les frais, les plafonds du solde symbolique, l'inventaire et les pouvoirs de retrait du propriétaire;
+\item les droits de contribution et de sortie;
+\item chaque réserve, garantie, garant, police d'assurance et règle de répartition des pertes ; et
+\item processus de gouvernance, de mise à niveau, d'urgence, de plainte, de migration et de résiliation.
+\end{itemize}
+La cotation n'est pas une approbation, une évaluation, une assurance ou une garantie de GEF.
+
+\subsection*{17.3 Actions et obligations}
+\addcontentsline{toc}{subsection}{17.3 Actions et obligations}
+
+Un \textbf{swap de Bassin ordinaire} échange des actifs pris en charge selon une cotation affichée et des limites de transaction. Le sens du transfert d'actifs n'en fait ni un prêt, ni un remboursement, ni une utilisation auprès de l'émetteur, ni une exécution dans le monde réel.
+
+La \textbf{présentation pour utilisation } retourne ou présente des unités de bon d'échange à un émetteur. L'\textbf{ exécution } correspond à la prestation promise par l'émetteur. La \textbf{ décharge } enregistre les unités exécutées afin qu'elles ne puissent pas être réutilisées. L'action \textbf{« Redeem »} de l'application prépare actuellement un transfert vers le propriétaire du jeton ; ce transfert ne prouve pas à lui seul l'exécution.
+
+L'action \textbf{« Retire voucher »} de l'application retire la fiche du catalogue de façon réversible. Elle ne détruit pas les soldes, n'annule pas les créances et n'exécute pas les obligations.
+
+Un prêt futur ou un autre produit de crédit nécessiterait des conditions complémentaires et des conditions de transaction présentées séparément avant utilisation. Aucun envoi ordinaire, contribution, dépôt de bassin, échange de bassin, présentation, exécution ou décharge ne crée un prêt simplement en raison de sa direction ou de son type d'actif.
+
+\subsection*{17.4 Protection, preuves et lois locales}
+\addcontentsline{toc}{subsection}{17.4 Protection, preuves et lois locales}
+
+Une limite, une réserve, une entrée dans le registre, une liste d'applications ou une transaction blockchain n'est pas automatiquement une garantie ou une police d'assurance. Toute protection doit identifier la partie responsable, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve, le processus de réclamation et les conditions applicables.
+
+Les preuves de la chaîne publique peuvent montrer des adresses, des actifs, des montants, des horloges et des événements contractuels. Il ne prouve pas par lui-même l'identité, la capacité d'émetteur, l'exécution, l'exécution, la délibération en matière de gouvernance, la décharge juridique ou l'impact social.
+
+Les fonctionnalités peuvent être restreintes ou indisponibles en raison de la loi, des sanctions, de l'admissibilité, de l'état du contrat, de l'inventaire, des limites, de la sécurité, de la juridiction ou des services de tiers. Les émetteurs, Gestionnaires de Bassins, les fournisseurs et les participants restent responsables de la détermination et du respect de la législation applicable.
+
+
+\section*{18. Conclusion}
+\addcontentsline{toc}{section}{18. Conclusion}
+
+Cosmo-Local Credit relie une application actuelle et la fondation Protocol v1.1.0 à une conception proposée plus large pour Bassins d'engagements gérée de manière indépendante. Les échanges directs actuels, les composantes de cotation et de limite et les enregistrements de transactions publiques peuvent soutenir l'échange responsable, mais ils ne prouvent pas l'exécution de l'émetteur, ne créent pas de droits de contributeur ou ne garantissent pas la valeur, la liquidité, le remboursement, l'assurance, le statut juridique ou la protection contre les pertes.
+
+Le routage d'exécution proposé, la compensation, les actifs de gouvernance, la compensation du réseau, les programmes de liquidité et les protections partagées décrits dans le présent document nécessiteraient une mise en œuvre, un financement, une gouvernance et des conditions publiées séparées. La conception vise à élargir l'interopérabilité tout en maintenant les performances des émetteurs, la gouvernance du bassin et la responsabilité réelle avec les parties identifiées.
+
+
+\section*{A. Modèle proposé de mesure et de frais}
+\addcontentsline{toc}{section}{A. Modèle proposé de mesure et de frais}
+
+Cette annexe définit un cadre de mesure proposé. Protocol v1.1.0 n'enregistre pas l'exécution par l'émetteur, la décharge réelle ou tous les champs de données requis ci-dessous.
+
+\subsection*{Définitions des événements et des stocks}
+\addcontentsline{toc}{subsection}{Définitions des événements et des stocks}
+
+Pour la classe de bons \emph{j}, la cohorte ou la période \emph{t}, et une méthode d'évaluation divulguée \emph{m}:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{O\_\{j,t,m\}}: valeur des engagements éligibles en cours à la limite de mesure.
+\item \texttt{X\_\{j,t,m\}}: valeur des swaps effectués au cours de la période.
+\item \texttt{P\_\{j,t\}}: unités présentées validement à l'émetteur pour le remboursement.
+\item \texttt{F\_\{j,t\}}: unités présentées avec preuve séparée de conformité de l'émetteur.
+\item \texttt{G\_\{j,t\}}: unités remplies avec un enregistrement de décharge empêchant la réutilisation.
+\end{itemize}
+\texttt{O} ne peut être déduit uniquement de l'offre de jetons. Une politique de mesure doit identifier l'émetteur responsable et exclure, le cas échéant, l'inventaire détenu par l'émetteur, les unités brûlées, les unités expirées, les unités déchargées, les soldes d'essai, les soldes inaccessibles et les jetons dont les conditions ne créent pas d'engagement de tiers en suspens.
+
+Chaque mesure évaluée doit publier l'unité, la source, la méthode d'évaluation, l'horodatage et le traitement des taux de change divergents. Un transfert en chaîne peut prendre en charge \texttt{X} ou des preuves de présentation. il ne détermine pas par lui-même \texttt{F} ou \texttt{G}.
+
+\subsection*{Mesures d'exécution fondées sur la cohorte}
+\addcontentsline{toc}{subsection}{Mesures d'exécution fondées sur la cohorte}
+
+Pour une cohorte de présentations de remboursement valables:
+
+\texttt{FulfillmentRate = FulfilledPresentments / ValidPresentments}
+
+\texttt{DischargeCompleteness = DischargedFulfillments / FulfilledPresentments}
+
+Utilisez la même cohorte fermée ou mature dans chaque numérateur et dénominateur. Rapport rejeté, retiré, expiré, contesté, partiellement rempli, corrigé et présentations encore ouvertes séparément.
+
+\texttt{FulfillmentLatency = median(t\_fulfilled - t\_presented)}
+
+\texttt{HoldingDuration = median(t\_presented - t\_acquired)}
+
+La latence d'exécution mesure le service de l'émetteur après la présentation. La durée de détention est une mesure distincte et ne doit pas être qualifiée de latence de remboursement.
+
+\subsection*{Mesures de vitesse distinctes}
+\addcontentsline{toc}{subsection}{Mesures de vitesse distinctes}
+
+Une vitesse d'engagement-décharge proposée ne peut être calculée que lorsque \texttt{O} et la valeur accomplie utilisent la même méthode d'évaluation:
+
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
+
+Une mesure de l'activité de swap de bassin est distincte:
+
+\texttt{V\_swap,t = PoolSwapValue\_t / AverageMeasuredPoolInventoryValue\_t}
+
+Aucune des deux valeurs ne prouve l'impact social, la capacité d'émetteur, la rentabilité ou la convertibilité en espèces.
+
+\subsection*{Revenus de réseau proposés}
+\addcontentsline{toc}{subsection}{Revenus de réseau proposés}
+
+Pour:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{PF\_t} être les frais bruts de bassin générés au cours de la période;
+\item \texttt{NR\_t} est le prélèvement de réseau proposé réellement reçu en tant que part divulguée de ces frais de bassin;
+\item \texttt{RF\_t} sont des frais d'acheminement ou de service proposés distincts réellement perçus ; et
+\item \texttt{$\chi$\_t} est la part mesurée des recettes reçues qui est éligible et convertible pour une utilisation déclarée libellée en espèces après les coûts et les contraintes politiques.
+\end{itemize}
+Du point de vue du budget du réseau proposé:
+
+\texttt{ProposedNetworkRevenue\_t = NR\_t + RF\_t}
+
+\texttt{CashUsableNetworkRevenue\_t = $\chi$\_t $\times$ (NR\_t + RF\_t)}
+
+Ne pas ajouter \texttt{PF\_t} à \texttt{NR\_t}: le prélèvement est un transfert des frais bruts de bassin et serait autrement compté deux fois. L'actuel Protocol v1.1.0 supporte plutôt une redevance de protocole supplémentaire; ses recettes doivent être déclarées séparément de ce modèle proposé.
+
+
+\section*{B. Illustration de la future cascade des frais}
+\addcontentsline{toc}{section}{B. Illustration de la future cascade des frais}
+
+Il s'agit d'un projet proposé pour un déploiement futur. Elle ne s'applique que si elle est mise en œuvre, financée et adoptée au moyen de conditions de gouvernance et de conditions de participation publiées. Il ne décrit pas une redevance actuelle Protocol v1.1.0, un droit de contributeur, une réserve, une garantie ou un arrangement d'assurance.
+
+Que \texttt{F\_in} soit le chiffre d'affaires réellement perçu par le budget du réseau proposé au cours d'une période: le chiffre d'affaires du réseau proposé, les frais d'acheminement ou de service distincts et tout autre chiffre d'affaires expressément désigné. Les frais bruts de bassin qui restent avec les bassins ne sont pas inclus.
+
+Les actifs à revenu doivent être classés comme suit:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{E\_cash}: actifs éligibles à une utilisation déclarée libellée en espèces dans le cadre de la politique adoptée; ou à
+\item \texttt{E\_kind}: bons d'échange en nature ou autres actifs qui ne sont pas considérés comme convertibles en espèces.
+\end{itemize}
+Toute politique de conversion nécessiterait des listes d'allocations d'actifs et de lieux, des autorités responsables, des sources de prix, des limites de glissement, des rapports et des contrôles légaux applicables.
+
+Une cascade proposée pourrait appliquer les recettes reçues dans l'ordre suivant:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Objectif de réserves couvertes:} financer un objectif de réserve ou d'assurance adopté sur la base uniquement d'expositions couvertes définies, d'actifs éligibles, d'exclusions et de règles relatives aux créances.
+\item \textbf{Opérations de base:} financer un budget d'exploitation précisé et plafonné.
+\item \textbf{Mandats de liquidité:} les programmes de bassin ou d'acheminement approuvés par le fonds et gérés séparément.
+\item \textbf{Résidu du budget:} répartir tout montant restant entre les opérations, les programmes de liquidité et un tampon supplémentaire au titre des plafonds publiés.
+\end{enumerate}
+Un objectif de réserves n'est pas en soi une garantie. Toute assurance ou garantie doit identifier la partie obligée, l'événement couvert, le financement, le plafond, les exclusions, la durée, les preuves, le processus de réclamation et la répartition des pertes.
+
+\textbf{Garde-fou :} Les allocations de cette cascade sont destinées aux services de couverture, d'exploitation et de liquidité adoptés. Elles ne doivent pas être conçues ou exécutées comme des opérations de soutien des prix.
+
+Dans le cadre du modèle proposé, tous les jetons de gouvernance CLC proposés acquis par le biais d'un programme de liquidité externe activé séparément seraient retirés ou placés dans un évier non votant. Ce mécanisme n'est pas déployé.
+
+
+\section*{C. Définition proposée des indicateurs clés}
+\addcontentsline{toc}{section}{C. Définition proposée des indicateurs clés}
+
+Ces indicateurs clés de performance forment une spécification de mesure proposée, et non une déclaration selon laquelle l'application ou le protocole actuel enregistre chaque événement requis.
+
+Chaque KPI publié doit inclure:
+
+\begin{itemize}[leftmargin=*]
+\item l'éditeur responsable et la source des données;
+\item définition de l'événement ou de l'état;
+\item cohorte ou période de mesure;
+\item l'unité et la méthode d'évaluation;
+\item date et heure de l'évaluation;
+\item les règles d'inclusion et d'exclusion;
+\item le traitement des documents partiels, contestés, périmés, inaccessibles et corrigés;
+\item la preuve ou l'attestation requise en dehors de la chaîne;
+\item les antécédents de révision et les limites de la qualité des données ; et
+\item si le résultat est en chaîne, déclaré, attesté, vérifié de manière indépendante ou estimé.
+\end{itemize}
+\begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
+\toprule
+KPI & Définition proposée & Évidence requise et exclusions \\
+\midrule
+\endhead
+\textbf{Présentations valables} & Nombre d'unités acceptées dans le processus de remboursement de l'émetteur au cours d'une période & Identifiant de la présentation, émetteur, autorisation du titulaire, montant, heure, statut; exclure les doublons et les demandes non valides \\
+\textbf{Taux d'exécution} & Présentations valides remplies divisées par présentations valides pour la même cohorte mature & preuve distincte du rendement de l'émetteur; déclarer les affaires ouvertes, rejetées, contestées, partielles et corrigées \\
+\textbf{Complétitude de la décharge} & Présentations remplies avec un dossier de décharge divisé par présentations remplies & Brûler, annuler, désactiver l'enregistrement ou toute autre preuve de non-réutilisation liée à l'exécution \\
+\textbf{Délais d'exécution} & Médiane et 90e percentile du temps de présentation à l'exécution & Ne pas remplacer le temps de conservation de l'émission à la présentation ou de l'acquisition à la présentation \\
+\textbf{Durée de détention} & Médiane et répartition du temps allant de l'acquisition à la présentation & Identifier l'événement d'acquisition et exclure les délais d'acquisition inconnus \\
+\textbf{Obligations éligibles en suspens} & Résidu d'engagements admissibles de tiers après exclusions définies & l'identité et les modalités de l'émetteur; exclure l'inventaire applicable des émetteurs, l'expiration, la combustion, la décharge, les tests et les jetons de non-engagement \\
+\textbf{Volume des swaps de groupe} & Valeur des swaps directs de bassin effectués dans le cadre d'une méthode d'évaluation divulguée & événements de règlement en chaîne, unités symboliques, source de taux, temps; ne sont pas classés comme l'exécution par l'émetteur \\
+\textbf{Inventaire des Bassins} & Actifs soutenus mesurés détenus par un bassin à un moment précisé & Solde contractuels, réserves de redevances, actifs inaccessibles, méthode d'évaluation et pouvoirs de rétractation du propriétaire \\
+\textbf{Adéquation des réserves} & Actifs de réserve disponibles éligibles divisés par exposition expressément couverte & Politique de couverture, éligibilité des actifs, garde/contrôle, passifs, exclusions et évaluation; Pas d'offre totale de jetons par défaut \\
+\textbf{Limite d'utilisation} & Réserve de jetons de bassin mesurée divisée par son plafond configuré actuel & Limiter adresse, jeton, bassin, horodatage, changements et périodes sans limiteur \\
+\textbf{Taux de réussite des cotations} & Réponses aux offres réussies divisées par tentatives de offres valides & Résultat de cotation uniquement; Pas d'exécution de route \\
+\textbf{Taux d'exécution des itinéraires} & Exécutions multi-hops terminées divisées par tentatives d'exécution valides & S'applique uniquement à un système d'exécution mis en œuvre; Rapport sur les règles de per-hop et d'atomisation \\
+\textbf{Recouvrement par le garant} & Récupération admissible reçue divisée par créances couvertes payées & Garant désigné, politique de réclamation, calendrier, coûts, litiges et annulations \\
+\textbf{Revenus de réseau proposés} & Réseau proposé plus frais de routage/services reçus séparément & Exclure les frais bruts de bassin retenus par les bassins et éviter de compter le prélèvement deux fois \\
+\textbf{Rapidité de la gouvernance} & Temps pour détecter, décider, faire une pause, réparer et fermer un incident & Définition des horaires, des organes responsables, des pouvoirs d'urgence, des appels et des événements manquants \\
+\bottomrule
+\end{longtable}
+
+Les demandes d'impact social nécessitent une méthodologie distincte. L'activité blockchain à elle seule n'établit pas l'identité, les performances de l'émetteur, l'exécution, la santé de la communauté, la causalité ou l'impact.
+
+
+\section*{D. Paramètres de lancement proposés}
+\addcontentsline{toc}{section}{D. Paramètres de lancement proposés}
+
+Chaque valeur ci-dessous est illustrative. Il ne s'agit pas d'une application par défaut actuelle, d'un réglage Protocol v1.1.0, d'une garantie, d'une offre ou d'un engagement de livraison. Un déploiement futur devrait adopter, appliquer, surveiller et publier ses paramètres réels.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Les niveaux de quorum pour le jeton de gouvernance CLC proposé:}
+\begin{itemize}[leftmargin=*]
+\item Q1 routine: quorum d'au moins 4\% et approbation de plus de 50\%.
+\item Q2 sensible: quorum d'au moins 10\% et approbation d'au moins 60\%.
+\item Q3 critique: quorum d'au moins 20\% et approbation d'au moins 66.7\%.
+\end{itemize}
+\item \textbf{Délais proposés:}
+\begin{itemize}[leftmargin=*]
+\item T1: 48 heures pour les actions Q1.
+\item T2: 7 jours pour les actions Q2.
+\item T3: 30 jours pour les actions Q3.
+\end{itemize}
+\item \textbf{La cadence de l' époque:} 7 jours, y compris tout vote adopté, publication du budget et fenêtres sCLC proposées.
+\item \textbf{Pause d'urgence:} immédiatement par l'intermédiaire d'une autorité d'urgence désignée, dont l'expiration intervient au bout de 72 heures, à moins qu'elle ne soit ratifiée dans le cadre du processus adopté.
+\item \textbf{Proposition de grattage du réseau:} 20\% des frais de bassin participants par défaut, limités par la police.
+\item \textbf{Caractéristiques de la gamme des frais de bassin:} 0\%--20\%, publié par chaque bassin participant.
+\item \textbf{Plafond proposé pour les frais de routage ou de service:} 20 bps par route.
+\item \textbf{Taux de raquettes proposé:} \texttt{rake\_rate\_p = pool\_fee\_p $\times$ rake\_share\_p}.
+\item \textbf{Éligibilité des recettes:} classer les actifs reçus comme éligibles en espèces \texttt{E\_cash} ou en nature \texttt{E\_kind} selon une méthode publiée.
+\item \textbf{Contrôles de conversion:} les listes des actifs et des lieux d'accès, les autorités responsables, les sources de prix, les délais, les limites de glissement, les plafonds et les rapports.
+\item \textbf{Élargissement budgétaire:} publie un projet de budget d'accès aux redevances uniquement après que les objectifs de réserve couverte et d'exploitation adoptés ont été atteints; le budget peut être de zéro.
+\item \textbf{Les voies à risque:} n'exposent pas une catégorie d'actifs au risque d'une autre catégorie sans consentement explicite et éclairé conformément à la législation applicable.
+\item \textbf{Limites de roulement et de compte proposées:} refuser toute activité non approuvée entre classes et appliquer des plafonds adoptés.
+\item \textbf{Réduction facultative de la couverture:} uniquement lorsque des conditions de couverture préexistantes, un consentement requis et la législation applicable l'autorisent; elle ne réduit pas à elle seule l'engagement d'un émetteur en matière de bons ou le solde de la chaîne.
+\item \textbf{Contrôles de liquidité externe, s'ils sont activés séparément:} publier l'étendue du lieu, la méthode de mesure, les déclencheurs, les plafonds de dépenses et de volume, les contrôles d'exécution, les arrêts d'urgence et les reçus. Ne présentez pas le programme comme un support de prix symbolique.
+\end{itemize}
+Les frais actuels des Bassins dans Protocol v1.1.0, les frais de protocole supplémentaires et les plafonds de solde de jetons des Bassins restent régis par les contrats déployés et leur configuration, et non par les valeurs proposées ici.
+
+
+\section*{E. Exemple détaillé --- prélèvement de réseau proposé}
+\addcontentsline{toc}{section}{E. Exemple détaillé --- prélèvement de réseau proposé}
+
+Cet exemple illustre le modèle de prélèvement proposé. Il ne s'agit pas du calcul des frais de protocole supplémentaires utilisé par Protocol v1.1.0.
+
+Prenons le cas suivant:
+
+\begin{itemize}[leftmargin=*]
+\item un bassin participant facture une redevance de bassin de 2.00\%;
+\item la mise en réseau proposée reçoit 20\% de cette redevance de bassin ; et
+\item 25\% du prélèvement reçu est éligible et convertible pour une utilisation déclarée libellée en espèces après frais.
+\end{itemize}
+Le taux effectif proposé de mise en réseau sur la valeur acheminée est le suivant:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+La part utilisable en espèces dans le cadre du facteur d'éligibilité supposé de 25\% est la suivante:
+
+\texttt{cash\_usable\_rate = 40 bps $\times$ 25\% = 10 bps}
+
+Si un budget de réseau proposé a une exigence mensuelle en espèces de 150 000 \$ et aucun autre revenu, la valeur illustrative acheminée requise à un taux utilisable en espèces de 10 bps est la suivante:
+
+\texttt{required\_routed\_value = \$150,000 / 0.001 = \$150,000,000 per month}
+
+Ce calcul n'inclut pas les frais bruts de bassin retenus par Bassins. Ajouter ces frais au prélèvement du réseau doublerait la source du prélèvement.
+
+Une analyse budgétaire réelle devrait également publier:
+
+\begin{itemize}[leftmargin=*]
+\item les recettes réelles pour le prélèvement et les frais de service;
+\item l'éligibilité des actifs et les coûts de conversion;
+\item participation au bassin et portée des itinéraires;
+\item les objectifs de réserve et d'exploitation adoptés;
+\item les pertes, les litiges, les corrections et les actifs indisponibles ; et
+\item des scénarios de sensibilité plutôt que de la croissance ou des rendements promis.
+\end{itemize}
+Tout budget proposé pour un programme d'accès à la redevance ou de liquidité resterait en aval de ses priorités adoptées et pourrait être de zéro.
+
+
+\section*{F. Liste de contrôle de la salle de données}
+\addcontentsline{toc}{section}{F. Liste de contrôle de la salle de données}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Indice historique Sarafu Network}
+\begin{itemize}[leftmargin=*]
+\item Archiver le volume de swap daté, les définitions d'utilisateurs actifs et d'actifs, les incidents, les présentations de remboursement, les bons d'échange de vieillissement, l'exécution confirmée, la décharge, les mesures de durée de détention, les périodes, les exclusions et la méthodologie séparément des métriques actuelles Cosmo-Local Credit.
+\item Préserver le \href{https://dune.com/grassrootseconomics/sarafu-network}{tableau de bord historique de Dune Analytics}.
+\end{itemize}
+\item \textbf{Proposition de preuve d'exécution des redevances, si elle est mise en œuvre}
+\begin{itemize}[leftmargin=*]
+\item Démontrer que tout hachoir de frais et tout portage de registre sont intégrés dans le chemin de transaction exécuté plutôt que d'être appliqués uniquement par une interface.
+\item Fournir des tests démontrant que le service d'exécution applicable rejette un hop dont la réception ne prouve pas la perception de redevances au titre de la politique adoptée.
+\item Publier les vecteurs de test, les cas de défaillance, les actifs éligibles et les bassins conformes liés à une version de registre identifiée.
+\item Lier les données applicables \href{https://software.grassecon.org}{description du logiciel}.
+\end{itemize}
+\item \textbf{Garant et paquet de couverture}
+\begin{itemize}[leftmargin=*]
+\item Publier l'éligibilité, les parties responsables, le financement, les plafonds, les primes le cas échéant, les facteurs déclencheurs, les éléments de preuve, les exclusions, l'autorité de décision et des exemples de litige et d'appel.
+\item Incluez un échantillon de certificats et d'informations de bassin qui distinguent la responsabilité de l'émetteur de toute protection de bassin ou garantie offerte expressément par un tiers.
+\item Préserver le \href{https://sarafu.network/reports}{L'archivage historique des rapports Sarafu Network} et à \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{présentation de l'année d'examen historique} comme preuve de lignée, et non comme preuve de la couverture ou de l'adoption actuelle de CLC.
+\end{itemize}
+\item \textbf{Paquet juridique et de conformité}
+\begin{itemize}[leftmargin=*]
+\item Stratégie de compétence des documents, catégories de bons, polices d'équivalent en espèces, KYC ou options d'attestation, géo-fençage, divulgation des informations sur les consommateurs, contrôles des ventes erronées, et la distinction entre un swap de bassin ordinaire et un produit de crédit express.
+\item Lier l'efficacité \href{https://docs.cosmolocal.credit/fr/governance/terms}{Cosmo-Local Credit Conditions de service} et préserver les versions remplacées par des enregistrements contrôlés.
+\end{itemize}
+\item \textbf{Le renforcement de la gouvernance}
+\begin{itemize}[leftmargin=*]
+\item Fournir des procédures de conflit d'intérêts et de récusation, des dossiers de décision et d'appel, des sanctions, des procédures de suppression du registre, des limites de puissance d'urgence et des exemples de changements de taux de change et de limites à durée déterminée.
+\end{itemize}
+\item \textbf{Source et emballage d'assurance}
+\begin{itemize}[leftmargin=*]
+\item Publier l'inventaire des sources et des licences, les adresses et les versions déployées, les rapports d'audit disponibles, les invariants, la provenance de la compilation, les pouvoirs de l'administrateur, les contacts sur les incidents et les tableaux de bord de surveillance.
+\item Lier les données applicables \href{https://github.com/grassrootseconomics}{Réservoirs d'économie de base}.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

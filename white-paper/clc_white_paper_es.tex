@@ -1,0 +1,1554 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{polyglossia}
+\setdefaultlanguage{spanish}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{6em}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdflang={es},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC)\\Una red para la red de crédito, la coordinación de los compromisos y la financiación de una economía cosmo-local saludable}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{White Paper v0.8 translation: 9 October 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\sloppy
+\RaggedRight
+
+\textbf{Acerca de esta traducción.} Esta es una traducción del Libro Blanco v0.8 (White Paper v0.8). El texto original en inglés se publicó el 30 de septiembre de 2026. Esta traducción se publicó el 9 de octubre de 2026. El inglés es el texto original. \href{https://docs.cosmolocal.credit/white-paper}{Leer el texto original en inglés}.
+
+\textbf{Versión:} 0.8
+
+\textbf{Fecha:} 30 Septiembre 2026
+
+\textbf{Los autores:} William O. Ruddick y Mohamed Sohail
+
+\textbf{Contacto:} \href{mailto:info@grassecon.org}{info@grassecon.org}
+
+\textbf{Descargar:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-es.pdf}{Libro Blanco CLC v0.8 en español (PDF)}
+
+\textbf{Publicación:} Publicación pública en versión final. Este documento no es asesoramiento sobre inversiones y no constituye una oferta de venta ni una solicitud de compra de ningún tipo de valor o instrumento financiero. Las versiones posteriores pueden revisar los diseños descritos aquí.
+
+\section*{Cómo leer este periódico}
+\addcontentsline{toc}{section}{Cómo leer este periódico}
+
+Este documento combina cuatro tipos de material. El estatus se aplica en todas partes, incluso cuando un capítulo no lo repite.
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+El estado & Significado \\
+\midrule
+\endhead
+\textbf{Corriente} & Comportamiento verificado en los contratos CLC App o en los contratos públicos Protocol v1.1.0. El \href{https://docs.cosmolocal.credit/es/protocol/overview}{Referencia al protocolo} es la fuente factual de dichos contratos. \\
+\textbf{Dependiente del despliegue} & Capacidad que sólo existe cuando un grupo, proveedor, jurisdicción, órgano de gobernanza o política publicada lo permita. \\
+\textbf{Histórica} & Evidencia o funcionalidad del servicio anterior Sarafu Network. No es la adopción o prueba actual de CLC que un usuario, activo, registro o obligación haya migrado. \\
+\textbf{Proposición} & Un diseño, un modelo económico, un mecanismo de gobernanza o un elemento de la hoja de ruta que no se representa como implementado. \\
+\bottomrule
+\end{longtable}
+
+El Protocol v1.1.0 actual incluye la ejecución directa de \texttt{SwapPool}, la curaduría opcional, la valoración, los límites máximos del balance de tokens del Fondo, las tarifas del Fondo, una tarifa adicional del protocolo y una sola cotización de \texttt{SwapRouter}. Se proponen o dependen del despliegue la ejecución multi-hop, el HTLC o el enrutamiento de garantías, la rede de lotes, el seguro compartido, el token de gobernanza CLC propuesto, el fondo de red CLC propuesto, los mecanismos de crédito por honorarios y los programas de liquidez de la red.
+
+\textbf{Público previsto:} Constructores de Fondos y administradores, ingenieros de protocolos y auditores, financiadores de liquidez y mandatos, diseñadores de gobernanza y revisores legales o de cumplimiento.
+
+\section*{Abstracto}
+\addcontentsline{toc}{section}{Abstracto}
+
+Cosmo-Local Credit es una familia de productos construida en torno a \textbf{Protocolo de agrupación de compromisos (CPP)} CPP describe cómo Fondos de Compromisos, gobernada de forma independiente, puede gestionar los compromisos canjeables, publicar los métodos y límites de los tipos de cambio, mantener inventarios y permitir un intercambio responsable.
+
+Un \textbf{Fondo de Compromisos} es el acuerdo gobernado. Un \texttt{SwapPool} del actual \textbf{Protocol v1.1.0} es uno de sus componentes contractuales: una bóveda de tokens y un motor de intercambio directo. Una implementación puede conectar ese contrato a registros, cotizadores, límites del saldo de tokens del Fondo, políticas de comisiones y otros servicios.
+
+Cosmo-local significa compartir estándares abiertos, software y conocimientos a nivel mundial, manteniendo la emisión, el cumplimiento, la gobernanza y la rendición de cuentas del mundo real locales. El emisor seguirá siendo responsable de su vale. Un Responsable del Fondo sigue siendo responsable de las normas del grupo y de cualquier garantía que asuma expresamente. Ni el CLC App ni el GEF garantizan automáticamente un vale, Fondo, valor, ruta, posición de liquidez o resultado.
+
+\section*{Despliegue actual}
+\addcontentsline{toc}{section}{Despliegue actual}
+
+GEF opera el CLC App en \href{https://cosmolocal.credit}{cosmolocal.credit} Proporciona acceso a cuentas y carteras, un catálogo público del mercado y interfaces compatibles para tokens, vales, Ofertas, Fondos de Compromisos, transferencias y swaps directos de Fondo. La disponibilidad depende de la interfaz, los contratos, el inventario, los límites y tarifas configurados, el estado de la red, la elegibilidad, los proveedores, la jurisdicción y los términos publicados del emisor o del grupo.
+
+El funcionamiento de la interfaz no hace que GEF sea un emisor, Responsable del Fondo, custodio, prestamista, prestatario, corredor, garante, redentor, asesor, asegurador o parte de las obligaciones entre los participantes. El uso de la aplicación se rige por el \href{https://docs.cosmolocal.credit/es/governance/terms}{Términos de servicio}.
+
+Protocol v1.1.0 separa las funciones responsables del control técnico. Un propietario de Responsable del Fondo, \texttt{SwapPool}, administrador de proxy, controlador de dependencias, moderador de catálogo y destinatario de la tarifa pueden ser partes diferentes. Veamos . \href{https://docs.cosmolocal.credit/es/introduction/concepts}{Conceptos y vocabulario} para la terminología compartida.
+
+\section*{El linaje histórico}
+\addcontentsline{toc}{section}{El linaje histórico}
+
+El histórico Sarafu Network precedió al CLC App y proporcionó pruebas sobre las monedas comunitarias y la agrupación de compromisos. Su transición de servicio a Cosmo-Local Credit no transfirió todas las cuentas históricas, billetera, token, vale, fondo, saldo, informe, participante o obligación.
+
+Las métricas históricas de este documento utilizan un conjunto de datos de Sarafu datado e internamente coherente. No son las cifras actuales de uso de CLC. Veamos el \href{https://docs.cosmolocal.credit/es/white-paper/executive-summary}{Resumen ejecutivo} para la fuente y el período de medición.
+
+\section*{Modelo de diseño}
+\addcontentsline{toc}{section}{Modelo de diseño}
+
+CPP utiliza cuatro funciones generales:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cuidadores:} decidir qué vales u otros activos son admitidos.
+\item \textbf{Valoración:} publicará el método utilizado para la elaboración de los tipos de cambio o cotizaciones del grupo.
+\item \textbf{Limitación:} aplicar los límites máximos actuales del saldo de tokens del grupo o otros controles de riesgo implementados por separado.
+\item \textbf{Intercambio:} mantener un inventario y ejecutar intercambios de grupo bajo tarifas y límites revelados.
+\end{itemize}
+Un despliegue podrá añadir servicios de enrutamiento, monitoreo, apoyo a la liquidez, garantías, reservas, seguros o gobernanza únicamente en el marco de políticas publicadas por separado. La cotización, la curaduría, un límite, una reserva o un registro de cadena de bloques no establecen por sí mismos la capacidad del emisor, el cumplimiento, la aprobación, una garantía o un seguro.
+
+\section*{Valores y principios de diseño}
+\addcontentsline{toc}{section}{Valores y principios de diseño}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cuidado con las personas:} apoyar el bienestar individual y colectivo.
+\item \textbf{Cuidado del medio ambiente:} reducir los daños ecológicos y apoyar las prácticas regenerativas.
+\item \textbf{La equidad:} promover un acceso seguro y equitativo a los recursos, el conocimiento y la atención.
+\item \textbf{Reciprocidad:} compartir el riesgo, el coste, la responsabilidad y el excedente en virtud de las normas divulgadas.
+\item \textbf{No dominación:} resistir el control concentrado sobre las personas, los datos, las finanzas, el conocimiento y los recursos materiales.
+\item \textbf{Resistencia:} ayudar a las comunidades a prepararse y adaptarse a las perturbaciones económicas, políticas y climáticas.
+\item \textbf{Responsabilidad local:} mantener el cumplimiento real y la responsabilidad legal con las partes identificadas.
+\item \textbf{Forcabilidad:} permitir que las comunidades y las implementaciones compatibles abandonen registros o servicios compartidos sin borrar los saldos o obligaciones válidos.
+\end{itemize}
+La capa digital es la memoria compartida y la infraestructura de coordinación. No sustituye las relaciones, el rendimiento de los emisores, la gobernanza local o la rendición de cuentas legal.
+
+\section*{Flujos actuales y propuestos}
+\addcontentsline{toc}{section}{Flujos actuales y propuestos}
+
+\subsection*{Corriente directo Flujo del Fondo}
+\addcontentsline{toc}{subsection}{Corriente directo Flujo del Fondo}
+
+\begin{enumerate}[leftmargin=*]
+\item Un titular revisa un vale, su emisor, sus términos y las Ofertas asociadas.
+\item Un grupo admite activos apoyados y publica su configuración y las autoridades responsables.
+\item El titular obtiene una cotización y autoriza un cambio directo de Fondo.
+\item \texttt{SwapPool} realiza la liquidación de swaps en cadena y cuenta las tasas de fondo y de protocolo.
+\item Si el titular opta posteriormente \textbf{``Canjear''} En la aplicación, la aplicación prepara una transferencia al propietario del token como presentación de redención.
+\item El emisor realiza por separado el cumplimiento prometido y registra la descarga, por lo que las unidades cumplidas no pueden ser reutilizadas.
+\end{enumerate}
+Tomar inventario de un Fondo es un intercambio. Es redentor únicamente si ese grupo ha asumido por separado el papel de emisor y cumple las condiciones del vale aplicables.
+
+\subsection*{Proyecto más amplio propuesto}
+\addcontentsline{toc}{subsection}{Proyecto más amplio propuesto}
+
+El diseño propuesto explora el enrutamiento de ejecución, la compensación, los servicios compartidos, los programas de liquidez de red, las pólizas de seguro y los activos de gobernanza. Cada uno requeriría una aplicación, partes responsables, normas adoptadas, financiación, controles y divulgación pública antes de que pudiera aplicarse.
+
+El modelo de tarifas propuesto puede utilizar una comisión de red tomada de las tarifas del grupo y de las tarifas de enrutamiento o de servicio separadas. Dicha propuesta es distinta de la de Protocol v1.1.0, en la que una tarifa de protocolo opcional se suma a la tarifa del grupo.
+
+Los patrocinadores o proveedores de liquidez no reciben derechos automáticos de acciones, reembolsos, retiros, recompensas o gobernanza de la \texttt{SwapPool} actual. Cualquier programa actual o futuro debe revelar por separado el tipo de transferencia, la parte responsable, los derechos de control, recuperación o retirada, pérdidas, recompensas, honorarios y derechos de gobernanza.
+
+\section*{Mapa del lector}
+\addcontentsline{toc}{section}{Mapa del lector}
+
+\begin{itemize}[leftmargin=*]
+\item Terminología actual y ciclo de vida de la acción: \href{https://docs.cosmolocal.credit/es/introduction/concepts}{Conceptos y vocabulario}
+\item Los contratos implementados verificados: \href{https://docs.cosmolocal.credit/es/protocol/overview}{Protocol v1.1.0}
+\item Pruebas históricas: \href{https://docs.cosmolocal.credit/es/white-paper/executive-summary}{Resumen ejecutivo}
+\item Confederación y interoperabilidad: capítulos 5, 8 y 11
+\item Propuestas de garantías y límites de seguros: Capítulos 10 y 11
+\item Modelos de liquidez y tasas propuestos: capítulos 7, 9 y 12
+\item Marco de medición propuesto: Capítulo 14 y apéndices A--C
+\item Plan de ruta propuesto: Capítulo 15
+\item Considerancias legales y de conformidad: Capítulo 17
+\end{itemize}
+\href{https://docs.cosmolocal.credit/es/white-paper/archive}{Anteriores versiones del Libro Blanco} Se conservan únicamente como publicaciones históricas claramente sustituidas.
+
+\section*{Resumen ejecutivo}
+\addcontentsline{toc}{section}{Resumen ejecutivo}
+
+El \textbf{Protocolo de agrupación de compromisos (CPP)} describe cómo Fondos de Compromisos, gobernada de forma independiente, puede gestionar los compromisos canjeables, publicar los métodos y límites de los tipos de cambio, mantener inventarios y permitir un intercambio responsable. Los emisores siguen siendo responsables de sus compromisos de vales. Responsables de Fondos sigue siendo responsable de las normas del grupo y de cualquier garantía que asuman expresamente. Ni el CLC App ni el GEF son un garante universal.
+
+Protocol v1.1.0 proporciona los bloques de construcción actuales de intercambio directo: \texttt{GiftableToken}, \texttt{SwapPool}, registros y módulos de valoración opcionales, límites máximos de balance de tokens de fondo, tarifas de fondo, una tarifa adicional de protocolo y una cotización exclusiva de \texttt{SwapRouter}. Los contratos actuales no registran el cumplimiento en el mundo real, no crean acciones automáticas de proveedores de liquidez, no ejecutan rutas multi-hop ni proporcionan reservas universales, garantías o seguros.
+
+El histórico \textbf{Sarafu Network} utilizaron los conceptos de participación de compromisos en las monedas comunitarias, los grupos de ahorro, los sistemas de ayuda mutua y los compromisos de producción. Su servicio pasó más tarde al CLC App. Esta no fue una representación de que todas las cuentas históricas, billetera, token, vale, Fondo, saldo, informe, participante o obligación migraron.
+
+\textbf{Instantánea histórica de Sarafu Network --- Actividad de Celo desde el 5 de julio de 2023 hasta el 20 de julio de 2025}
+
+\textbf{Fuente:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Tabla de control de análisis de Dune}
+
+\begin{itemize}[leftmargin=*]
+\item 26.367 usuarios
+\item 285.197 intercambios entre pares
+\item 188 exclusivo activo Fondos de Compromisos
+\item 745 vales activos únicos
+\item \$320.692 volumen de intercambios de Fondos
+\item 899 los informes publicados (\href{https://sarafu.network/reports}{archivo de informes históricos})
+\end{itemize}
+Estas cifras son evidencia histórica, no cifras actuales de uso de CLC.
+
+El diseño más amplio propuesto de CLC explora cómo las redes compatibles podrían:
+
+\begin{enumerate}[leftmargin=*]
+\item descubrir y citar rutas a través de Fondos autónomas;
+\item coordinar servicios de red responsables sin que se imponga la responsabilidad local;
+\item apoyar los mandatos de liquidez, garantías, reservas o pólizas de seguros financiados por separado;
+\item medir los swaps de grupo por separado de la presentación, cumplimiento y descarga de los vales; y
+\item utilizar las tarifas de red y los servicios propuestos para financiar los servicios compartidos adoptados.
+\end{enumerate}
+La propuesta incluye un \textbf{token de gobernanza CLC propuesto} y un \textbf{Fondo de Red CLC propuesto}. Ninguno de los dos forma parte de la aplicación actual ni de Protocol v1.1.0.
+
+Bajo el modelo propuesto, los participantes en la liquidez y la gobernanza solo podrían actuar a través de programas adoptados por separado con elegibilidad, riesgos, controles, derechos de transferencia, términos de recuperación y reglas de tarifas publicadas. Los depósitos ordinarios de la Reserva no crean derechos automáticos de participación, reembolso, retiro, recompensa o gobierno.
+
+El objetivo común es:
+
+Aumentar el intercambio responsable y el cumplimiento de los compromisos del mundo real al tiempo que se preserva el cuidado, la equidad, la responsabilidad local y la resiliencia.
+
+La lucha contra la captura y la salida creíble siguen siendo los objetivos centrales del diseño. Los controles propuestos incluyen la gobernanza retrasada en el tiempo, los umbrales de aprobación múltiple, la delegación transparente, las reglas de conflicto, la revisión de incidentes y un proceso documentado de forja y migración. Estos controles reducirían los riesgos de gobernanza seleccionados, pero no eliminarían las pérdidas ni garantizarían los resultados.
+
+
+\section*{1. Protocolo de agrupación de compromisos (CPP): el núcleo primitivo}
+\addcontentsline{toc}{section}{1. Protocolo de agrupación de compromisos (CPP): el núcleo primitivo}
+
+\textbf{Modelo mental:} Un Fondo de Compromisos es un acuerdo regulado para admitir vales u otros activos, publicar reglas de intercambio, mantener inventario y permitir swaps. Los titulares luego presentan vales a sus emisores para su cumplimiento en el mundo real. El intercambio de fondos y el cumplimiento del emisor son ciclos de vida separados.
+
+CPP coordina el valor a través de compromisos claramente descritos. El modelo se analiza en \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{Economía de base: reflexión y práctica}.
+
+\subsection*{1.1 ¿Qué es un compromiso?}
+\addcontentsline{toc}{subsection}{1.1 ¿Qué es un compromiso?}
+
+Un compromiso es la promesa de una parte identificada de entrega futura, por ejemplo, alimentos, transporte, mano de obra, almacenamiento u otro bien, servicio, beneficio u rendimiento legal. En el caso A \textbf{el vale} es un token o registro representado como ese compromiso en términos publicados.
+
+El contrato de tokens registra mecánica digital. Los términos del vale identifican al emisor, la oferta, la capacidad, el lugar, el momento, las restricciones, la presentación, el cumplimiento, las quejas y el proceso de descarga.
+
+\subsection*{1.2 ¿Qué es un Fondo de Compromisos?}
+\addcontentsline{toc}{subsection}{1.2 ¿Qué es un Fondo de Compromisos?}
+
+Un Fondo de Compromisos es el arreglo regido. Puede ser administrada por un individuo, cooperativa, grupo comunitario, agencia pública, federación, multisig, operador de servicios u otra estructura responsable.
+
+Las funciones y autoridades pertinentes incluyen:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Responsable del Fondo:} publicará y administrará las normas del grupo y cualquier garantía expresamente asumida;
+\item \textbf{Propietario del Fondo:} posee los poderes actuales de titular de \texttt{SwapPool};
+\item \textbf{administrador proxy:} puede actualizar una implementación proxied;
+\item \textbf{controladores de dependencias:} regir registros, cotizaciones, limitadores o componentes de tarifas configurados;
+\item \textbf{buscador o operador de ruta:} podrá descubrir cotizaciones o, en una futura aplicación, ejecutar una ruta autorizada por separado; y
+\item \textbf{garantía:} asume una obligación definida únicamente a través de términos publicados y financiados.
+\end{itemize}
+Grupos CPP Las funciones del grupo se dividen en cuatro conceptos:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cuidadores:} admitir tokens o vales apoyados.
+\item \textbf{Valoración:} publicará el método utilizado para un tipo de cambio o cotización.
+\item \textbf{Limitación:} aplicar límites máximos actuales de saldo de tokens del grupo o otros controles implementados por separado.
+\item \textbf{Intercambio:} mantener inventario, ejecutar swaps, contabilizar tarifas y emitir registros de transacciones.
+\end{itemize}
+Protocol v1.1.0 implementa estas funciones a través de \texttt{SwapPool} y dependencias opcionales. Su actual \texttt{Limiter} cubre un saldo de tokens en un Fondo; no dispone de límites de swap en circulación, por cuenta o en toda la red. Su actual \texttt{SwapRouter} calcula cotizaciones de múltiples Fondos; no ejecuta swaps.
+
+El diseño más amplio propuesto de CPP puede añadir límites de movimiento, controles de cuentas, enrutadores de ejecución, caminos HTLC o escrow y redes de lotes. Se trata de componentes propuestos, no de descripciones del limitador o del enrutador actual.
+
+\subsection*{1.3 Lógica de intercambio directo actual}
+\addcontentsline{toc}{subsection}{1.3 Lógica de intercambio directo actual}
+
+Un swap directo de Fondo actual:
+
+\begin{enumerate}[leftmargin=*]
+\item revisa el registro opcional de los tokens de entrada y salida;
+\item medir las entradas recibidas;
+\item obtiene una cotización del indicador de cotización configurado o aplica la paridad de unidad en bruto;
+\item comprueba el saldo de los tokens de Fondo resultantes frente al limitador opcional;
+\item calculará la cuota del grupo y cualquier cuota adicional del protocolo;
+\item revisa el inventario de productos disponibles;
+\item transfiere la tarifa del protocolo y la salida y las cuentas de la tarifa del grupo; y
+\item emite eventos de intercambio.
+\end{enumerate}
+La cotización es un parámetro de transacción, no prueba de la capacidad del emisor, el valor de redención, el valor razonable, la convertibilidad en efectivo o una garantía.
+
+\subsection*{1.4 Uso más amplio}
+\addcontentsline{toc}{subsection}{1.4 Uso más amplio}
+
+Fondos de Compromisos puede apoyar el intercambio comunitario, la producción, la ayuda mutua, los programas públicos y otras estructuras responsables. Un producto de crédito documentado por separado podría utilizar un vale como garantía o instrumento de reembolso, pero requeriría términos complementarios y específicos de la transacción. Un envío ordinario, un depósito de fondo, un swap de fondo, una presentación de canje, cumplimiento o descarga no son automáticamente un préstamo o un reembolso.
+
+CPP está destinado a registros de transacciones de intercambio responsables y auditables, no a operaciones especulativas. Los registros en cadena todavía no prueban el cumplimiento del mundo real o el impacto social.
+
+
+\section*{2. El cambio de contabilidad: del activo al fideicomiso}
+\addcontentsline{toc}{section}{2. El cambio de contabilidad: del activo al fideicomiso}
+
+Las finanzas tradicionales comienzan con \textbf{Activos - pasivos = capital propio} CPP reformula esto para una economía de compromiso:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Capacidad de aceptación:} cuánto de los compromisos de un emisor está todavía dispuesto a aceptar un grupo o una red.
+\item \textbf{Los compromisos pendientes:} promesas que no se cumplen y son mantenidas por otros.
+\item \textbf{Capacidad de ejecución:} la capacidad comprobada del emisor para cumplir dichas promesas.
+\end{itemize}
+\subsection*{Relación ilustrativa entre compromiso y capacidad:}
+\addcontentsline{toc}{subsection}{Relación ilustrativa entre compromiso y capacidad:}
+
+Capacidad de aceptación - compromisos pendientes = capacidad de aceptación restante
+
+Esta identidad conceptual puede informar los límites de riesgo del grupo: una emisión ilimitada no implica una aceptación ilimitada. No es una identidad de balance ni una declaración de que cada vale es legalmente una deuda o un préstamo.
+
+\textbf{Ejemplo:} Un transportista emite 100100 viajes'' en vales. un Fondo acepta un máximo de 40 paseos a la vez. Si 15 viajes aceptados siguen pendientes, el grupo tiene la capacidad de aceptar hasta 25 viajes adicionales en virtud de dicha política. El cálculo no crea en sí mismo un préstamo ni un cumplimiento de la garantía.
+
+
+
+\section*{3. Actividad de cumplimiento, descarga y intercambio}
+\addcontentsline{toc}{section}{3. Actividad de cumplimiento, descarga y intercambio}
+
+Cambios de swap de fondo que abordan los activos de tenencia. El cumplimiento del vale se produce cuando el emisor cumple el compromiso publicado. La descarga registra las unidades cumplidas para que no puedan ser presentadas de nuevo. Estos acontecimientos no se pueden desglosar en un solo uso de la solución.
+
+El marco de medición propuesto utiliza registros separados para:
+
+\begin{itemize}[leftmargin=*]
+\item volumen de swap de fondo completado;
+\item presentaciones de rescate válidas;
+\item cumplimiento confirmado por el emisor;
+\item la descarga;
+\item los compromisos subvencionables pendientes; y
+\item el inventario del Fondo medido.
+\end{itemize}
+Una velocidad de descarga del compromiso propuesta puede comparar el valor cumplido durante un período con el valor promedio del compromiso subvencionable pendiente, pero sólo cuando ambos utilizan el mismo método de valoración divulgado. El suministro de tokens no es un denominador suficiente: puede incluir el inventario de los emisores, unidades vencidas o inaccesibles, pruebas y saldos que no representan un compromiso pendiente de terceros.
+
+Una relación de swap-actividad separada del fondo puede comparar el valor del swap completado del fondo con el inventario del fondo medido. Describe la actividad de intercambio, no el cumplimiento del emisor.
+
+La liquidez puede mejorar la disponibilidad de inventarios y facilitar los intercambios. No garantiza que los emisores se desempeñen, que los contribuyentes recuperen los activos o que una cotización de grupo represente el reembolso o el valor en efectivo. Los derechos de proveedor de liquidez requieren términos publicados por separado.
+
+Veamos . \href{https://docs.cosmolocal.credit/es/white-paper/appendix-a-math-box}{Apéndice A} para las definiciones y \href{https://docs.cosmolocal.credit/es/white-paper/appendix-c-kpi-definitions}{Apéndice C} para la especificación de medición propuesta.
+
+
+\section*{4. Las garantías de tipo a plazo reutilizables}
+\addcontentsline{toc}{section}{4. Las garantías de tipo a plazo reutilizables}
+
+Una entidad de crédito documentada por separado puede aceptar vales transferibles como garantía o como instrumento de reembolso. Si lo hizo:
+
+\begin{itemize}[leftmargin=*]
+\item La admisión de la reserva podría hacer que la garantía sea más descubrible;
+\item las opciones adicionales de presentación y cumplimiento legales podrían apoyar el reembolso;
+\item permanecerían los límites, el inventario, la valoración, la liquidez, el rendimiento del emisor y los riesgos de incumplimiento; y
+\item No se garantizaría ninguna ruta, cumplimiento, reembolso, valor o recuperación.
+\end{itemize}
+\subsection*{4.1 Ciclo de crédito del productor}
+\addcontentsline{toc}{subsection}{4.1 Ciclo de crédito del productor}
+
+Un futuro servicio compatible con CLC- solo podría apoyar el crédito al productor cuando las partes establezcan una facilidad distinta y presenten expresamente la transacción como un anticipo reembolsable. Sus términos de transacción identificarían al acreedor y al deudor y indicarían:
+
+\begin{itemize}[leftmargin=*]
+\item los importes del anticipo y del reembolso;
+\item las fechas de vencimiento, los intereses, las tarifas y el uso permitido de las garantías;
+\item cesión y cualquier cambio en el acreedor o titular del crédito;
+\item la forma en que se valora y acredita el cumplimiento del vale para la contabilidad del reembolso;
+\item el reembolso parcial, los importes restantes, el incumplimiento y la gestión; y
+\item los recursos disponibles en virtud de la legislación aplicable.
+\end{itemize}
+Un flujo ilustrativo es:
+
+\begin{enumerate}[leftmargin=*]
+\item Un productor o proveedor de servicios emite un vale que representa un compromiso con la producción futura, como diez viajes en taxi, 50 kilogramos de maíz o diez horas de trabajo.
+\item Un Responsable del Fondo admite que el comprobante y publica el método de cambio, los límites, las tarifas, las reglas de inventario y cualquier protección expresamente asumida del grupo.
+\item Un prestamista o un programa de liquidez proporciona por separado un anticipo en términos de transacción por escrito y acepta los vales del productor como garantía o como instrumento de reembolso acordado.
+\item Los titulares podrán transferir los vales, intercambiarlos a través de Fondos compatibles o presentarlos al emisor.
+\item El cumplimiento confirmado por el emisor satisface el compromiso del vale. Reducirá el saldo de crédito separado únicamente en la medida en que se especifique el valor y la evidencia en los términos del crédito.
+\item Los registros distinguen el cumplimiento del vale de la contabilidad de crédito e identifican cualquier reembolso parcial, cantidad restante, cesión, incumplimiento o descarga.
+\end{enumerate}
+Esta estructura podría permitir el reembolso acordado en especie, al tiempo que se conservarían registros separados para los bonos y las obligaciones de crédito. No surge de una transferencia ordinaria, depósito, swap de fondo, presentación de rescate, cumplimiento o descarga.
+
+\textbf{Ejemplo ilustrativo:} Un productor recibe un anticipo de 1.000 dólares en condiciones que indican que el cumplimiento confirmado de los vales de maíz especificados se acredita contra el importe del reembolso utilizando un método de valoración declarado. El prestamista solo aplicará un crédito después de haber recibido las pruebas exigidas por dichos términos. Si las condiciones del crédito no hacen esa conexión, la adquisición, transferencia, intercambio, presentación o cumplimiento del vale no afectan al anticipo.
+
+
+\section*{5. De Fondos aislados a una red federada}
+\addcontentsline{toc}{section}{5. De Fondos aislados a una red federada}
+
+El Protocol v1.1.0 actual admite la ejecución directa a través de un \texttt{SwapPool} y proporciona una cita sólo \texttt{SwapRouter}. No ejecuta rutas multi-hop, HTLC, rutas de depósito de garantía, compensación por lotes o compensación entre redes.
+
+Este capítulo propone cómo las Fondos gobernadas de forma independiente podrían coordinarse sin renunciar a sus propias reglas de admisión, valoración, límite, tarifa, inventario, autorización y gobernanza.
+
+\subsection*{5.1 Medidas separadas de intercambio y cumplimiento}
+\addcontentsline{toc}{subsection}{5.1 Medidas separadas de intercambio y cumplimiento}
+
+La Federación podría mejorar el acceso al inventario, pero no fusionaría los vales y intercambiaría ciclos de vida. Cualquier aplicación mediría estos acontecimientos por separado:
+
+\begin{enumerate}[leftmargin=*]
+\item se menciona una ruta;
+\item una o más operaciones de swap de fondo se ejecutarán y se liquidarán en cadena;
+\item un titular presente a la emisora unidades de vale;
+\item el emisor cumple el compromiso; y
+\item las unidades cumplidas se descargan.
+\end{enumerate}
+Más rutas citadas o ejecutadas no demuestran mayor cumplimiento. Los informes indicarían la cohorte, el período, los activos, el método de valoración y el sello de tiempo, las exclusiones, las correcciones y las pruebas fuera de la cadena requeridas en el apéndice C.
+
+\textbf{Rutas ilustrativas:} Una escuela tiene vales de maíz pero necesita vales de transporte. Un servicio de rutas identifica los inventarios del Fondo compatibles. La ejecución sólo tendría éxito si cada salto autorizado por separado permaneciera dentro de sus límites de cotización, límites, tarifas, inventario y política. Los swaps resultantes no demostrarían que ninguno de los emisores cumpliera posteriormente sus compromisos en materia de vales.
+
+\subsection*{5.2 Servicios de enrutamiento y reequilibrio propuestos}
+\addcontentsline{toc}{subsection}{5.2 Servicios de enrutamiento y reequilibrio propuestos}
+
+Un futuro servicio de rutas podría apoyar dos actividades distintas.
+
+\textbf{La ejecución iniciada por el participante.} Teniendo en cuenta los activos de entrada y salida, una cantidad y las restricciones del usuario, el servicio podría identificar un camino y preparar la ejecución. Cada salto tendría su propia Fondo responsable, cotización, autorización, tarifas, límites, inventario y recibo. Los lotes atómicos, los HTLC y la custodia son posibles opciones de ejecución futuras, no el comportamiento actual del Protocolo.
+
+\textbf{El reequilibrio del Fondo.} Responsables de Fondos podría publicar objetivos de inventario, contrapartes permitidas, clases de activos, límites de desviación de cotizaciones y límites por período. Un servicio responsable podría buscar ciclos o cadenas compatibles y ejecutar solo las intenciones autorizadas.
+
+El reequilibrio sería opt-in. Un grupo podría permitir rutas a los participantes mientras se niega el reequilibrio de salida, o podría permitir solo activos seleccionados, contrapartes y cantidades. Cada salto ejecutado produciría un recibo, y cualquier tarifa de servicio se revelaría por separado de las tarifas de Fondo y protocolo.
+
+\subsubsection*{5.2.1 Confederación y interoperabilidad}
+
+Las implementaciones independientes podrían operar sus propios registros, interfaces, servicios de rutas y perfiles de políticas al mismo tiempo que escogieran estándares de datos y recepción compatibles. La ejecución transversal seguiría dependiendo del despliegue.
+
+Un perfil compatible:
+
+\begin{itemize}[leftmargin=*]
+\item identificar sus raíces de registro, operadores de servicios, responsables del tratamiento y términos aplicables;
+\item divulgar las contrapartes, activos, adaptadores y rutas permitidas y rechazadas;
+\item aplicar las autorizaciones, límites, tarifas y restricciones de inventario de cada grupo participante;
+\item preservar las pruebas de cotización a recepción por punto; y
+\item permitir que los grupos funcionales de otra manera abandonen o seleccionen otro registro sin borrar los saldos o las obligaciones del emisor.
+\end{itemize}
+La compatibilidad puede aumentar las vías de intercambio disponibles y reducir la dependencia de un registro o operador. No responsabiliza a la red, CLC App, GEF ni a otro grupo por el cumplimiento de un emisor.
+
+\subsection*{5.3 Modelo propuesto de red y tarifa de servicio}
+\addcontentsline{toc}{subsection}{5.3 Modelo propuesto de red y tarifa de servicio}
+
+La Protocol v1.1.0 actual cobra una cuota de fondo y, cuando se configura, una cuota adicional de protocolo en un swap directo de fondo. Las tasas actuales siguen siendo distintas.
+
+Un programa futuro podría recibir por separado:
+
+\begin{enumerate}[leftmargin=*]
+\item de un \textbf{comisión de red}, definido como una cuota declarada de las tasas del grupo cobradas por los grupos participantes; y
+\item de un \textbf{tarifas de enrutamiento o servicio}, cobrado por un servicio futuro identificado.
+\end{enumerate}
+El pago de red propuesto no es un porcentaje adicional aplicado al importe total del swap después de haber contado ya la cuota del grupo. Para el grupo \texttt{p}:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+donde \texttt{f\_p} es la tasa de la cuota de fondo y \texttt{r\_p} es la proporción propuesta de dicha cuota de fondo asignada al programa de red.
+
+Para un período medido:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Comisiones brutas del Fondo} son la suma de las tasas reales recogidas por cada grupo;
+\item \textbf{recibos de reloj de red} son las cuotas declaradas de las tasas cobradas;
+\item \textbf{recibos de honorarios de servicio} se cobran por separado las tarifas de enrutamiento o de servicio; y
+\item \textbf{recibos de los honorarios del programa} recibos iguales de reloj de red más recibos de honorarios de servicio.
+\end{itemize}
+Ninguna categoría se cuenta dos veces. Las tarifas actuales del Protocolo no se incluyen a menos que una política adoptada por separado redirige legalmente los recibos reales de las tarifas del Protocolo al programa futuro.
+
+Para una aproximación agregada, permita:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{Q\_swap} será el valor de los swaps de grupo ejecutados para la cohorte y el período definidos; y
+\item \texttt{$\tau$} será la tasa efectiva de la cuota de red propuesta y las tarifas de servicio separadamente identificadas sobre ese valor de swap ejecutado.
+\end{itemize}
+Entonces:
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+Esta es una aproximación analítica, no una promesa de ingresos. Cada entrada requiere una cohorte, período, unidad, sello de tiempo de valoración, exclusiones y políticas de corrección establecidas.
+
+\subsubsection*{5.3.1 Recibos en efectivo elegibles y en especie}
+
+Las tarifas pueden llegar en activos fúngicos elegibles en efectivo o en vales y otros activos en especie. Los recibos en especie no pueden pagar automáticamente los gastos en efectivo o los reclamos de cobertura. Cualquier intercambio o conversión requeriría autoridad, inventario disponible, lugares revelados, límites y ejecución real.
+
+Que \texttt{$\chi$} sea la parte realzada de los ingresos por honorarios que sea admisible en efectivo después de las restricciones de las políticas, las conversiones fallidas y el deslizamiento. Los recibos en efectivo son:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+El análisis presupuestario y de equilibrio de ruptura utilizarían \texttt{F\_cash} realizado, no las tarifas brutas cotizadas ni el valor nominal del inventario en especie. Un futuro programa informaría por separado de los honorarios brutos del grupo, de los ingresos de la red, de los honorarios de servicios, de la composición de los activos, de los resultados de la conversión y de los ingresos utilizables en efectivo.
+
+\subsection*{5.4 Programas de liquidez propuestos}
+\addcontentsline{toc}{subsection}{5.4 Programas de liquidez propuestos}
+
+Un futuro programa de liquidez, documentado por separado, podría asignar activos a Fondos designados o servicios de enrutamiento. Los contratos actuales de \texttt{SwapPool} no acuñan acciones de Fondo ni crean automáticamente derechos de reembolso, retiro, recompensa, gobernanza o beneficio.
+
+Cualquier programa publicaría:
+
+\begin{itemize}[leftmargin=*]
+\item la entidad responsable y el participante Responsables de Fondos;
+\item los activos aportados y si la transferencia es reembolsable, retribuible, donada o dotada;
+\item los acuerdos de custodia y control técnico;
+\item los usos permitidos, los límites, los bloqueos, las puertas de retiro y la asignación de pérdidas;
+\item la elegibilidad de las tarifas o incentivos y si el importe puede ser cero;
+\item la presentación de informes, los conflictos, las quejas y los recursos; y
+\item la migración, la terminación y el tratamiento de los activos y obligaciones restantes.
+\end{itemize}
+Los riesgos materiales incluyen inventarios que son difíciles de intercambiar o cumplir, baja elegibilidad en efectivo, incumplimiento del emisor, fallas de contratos o proveedores, cambios en la gobernanza y restricciones a la salida. Los límites, las reservas, los recibos y los paneles de control pueden reducir o revelar algunos riesgos; no eliminan las pérdidas.
+
+Para una métrica analítica ex-post, permita:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{$\phi$} será la fracción realizada de los ingresos por honorarios del programa asignados en virtud de los términos adoptados por el programa; y
+\item \texttt{K} será el valor medido de los activos cubiertos por el programa según un método indicado.
+\end{itemize}
+Entonces:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
+\]
+
+Esta métrica describe el flujo de honorarios realizado por activo del programa medido. No es APY, un pronóstico, un dividendo o un rendimiento garantizado. Los informes mantendrían separados el volumen de swap, la presentación de la redención, el cumplimiento del emisor, la descarga, la duración del mantenimiento, las pérdidas, los retiros y los recibos de tarifas.
+
+
+\section*{6. Proposición de liquidez y gobernanza a nivel de red}
+\addcontentsline{toc}{section}{6. Proposición de liquidez y gobernanza a nivel de red}
+
+La experiencia del histórico Sarafu Network motivó la investigación en dos cuestiones de diseño más amplias:
+
+\begin{enumerate}[leftmargin=*]
+\item la forma en que los grupos administrados de forma independiente podrían coordinar los servicios de liquidez y de enrutamiento; y
+\item cómo los servicios compartidos podrían seguir siendo responsables a medida que crezca la participación.
+\end{enumerate}
+Un diseño CLC propuesto presenta un \textbf{Fondo de Red CLC propuesto} como acuerdo de compensación y coordinación presupuestaria a escala de red, además de un \textbf{token de gobernanza CLC propuesto}. Ninguno existe en la aplicación actual ni en Protocol v1.1.0. Otras implementaciones podrían usar cooperativas, organismos públicos, federaciones, multisigs, operadores de servicios u otras estructuras responsables sin adoptar ninguna de estas propuestas.
+
+\subsection*{6.1 Los controles a la baja y la opcionalidad}
+\addcontentsline{toc}{subsection}{6.1 Los controles a la baja y la opcionalidad}
+
+En la actualidad, Protocol v1.1.0 puede aplicar límites máximos de balance de tokens de Fondo y controles de inventario. Estos controles limitan las acciones contractuales seleccionadas; no impiden el incumplimiento del emisor, la pérdida de valor, la pérdida de claves, el incumplimiento del contrato o cualquier otra pérdida.
+
+Un futuro despliegue podría agregar interruptores de circuito, bloqueos de tiempo, reservas, garantías o seguros. Cualquier protección requeriría una parte responsable identificada, el evento cubierto, la financiación, el límite, las exclusiones, la duración, la evidencia, el proceso de reclamación y los términos aplicables.
+
+La gobernanza propuesta debe mantener estrechos y revisables los poderes de registro y de servicio. Las acciones ordinarias pueden utilizar procesos de notificación, retraso, publicación de motivos, apelación y corrección. Las acciones de emergencia deben producir registros de incidentes y caducar o recibir una revisión en virtud de una política adoptada.
+
+El descubrimiento de rutas compatibles podría hacer posible más intercambios entre los Fondos. La ejecución y la red multi-hop requerirían software adicional, autorización, límites, manejo de fallas y gobernanza. Las operaciones de swap más cotizadas o ejecutadas por sí mismas no demostrarían el cumplimiento de los bonos ni el impacto social.
+
+
+\section*{7. Propososos activos de administración y gobernanza CLC}
+\addcontentsline{toc}{section}{7. Propososos activos de administración y gobernanza CLC}
+
+En este capítulo se presenta un diseño opcional de gobernanza futura y de coordinación de liquidez. El token de gobernanza CLC propuesto, stCLC, sCLC, bóveda de gobernanza, fondo de seguros, cascada de agua, indicadores, mandatos, ventanas de crédito y programas de mercado externo no forman parte del actual CLC App o Protocol v1.1.0. Cada uno requeriría una implementación, un operador responsable, políticas y términos publicados, revisión de seguridad y aprobación legal aplicable.
+
+CPP no requiere este modelo de token. En cambio, los despliegues compatibles podrían utilizar cooperativas, agencias públicas, federaciones, multisigas, servicios u otras estructuras responsables.
+
+\subsection*{7.1 Propósito}
+\addcontentsline{toc}{subsection}{7.1 Propósito}
+
+Si se adopta, la capa de gobernanza propuesta podría:
+
+\begin{itemize}[leftmargin=*]
+\item coordinar los registros compartidos y los servicios de rutas;
+\item asignar los mandatos de liquidez aprobados a los grupos autónomos;
+\item administrar un programa de cobertura financiado opcional, con un alcance expreso;
+\item mantener una infraestructura y observabilidad comunes;
+\item reconocer a los contribuyentes en virtud de las normas publicadas sobre elegibilidad y lucha contra el juego; y
+\item preservar la revisión, la apelación, la transparencia y la salida creíble a medida que crece la participación.
+\end{itemize}
+\subsection*{7.2 Modelo de gestión de activos propuesto}
+\addcontentsline{toc}{subsection}{7.2 Modelo de gestión de activos propuesto}
+
+El diseño contiene tres activos propuestos distintos:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Se propone el token de gobernanza CLC:} un activo transferible de base de gobernanza conforme a las normas de emisión, custodia, votación y cumplimiento adoptadas.
+\item \textbf{stCLC:} un recibo de garantía de voto no transferible acuñado cuando se bloquee el token de gobernanza CLC propuesto. Representaría un poder de gobernanza limitado en el tiempo y podría permitir la delegación revelada.
+\item \textbf{sCLC:} un activo de autorización o de incentivo emitido en virtud de la póliza. Podría apoyar un acceso limitado a los créditos de pago o incentivos de liquidez y de enrutamiento aprobados y podría expirar o quemarse al final de la época.
+\end{enumerate}
+Ni stCLC ni sCLC constituirían capital propio, dividendo, reclamo residual, promesa de rendimiento o vale comunitario. Una política adoptada podría fijar a cero en cualquier época la emisión de sCLC y el acceso al crédito por honorarios.
+
+Se publicarán antes de su uso los bloqueos de gobernanza, las duradas mínimas, las reducciones, la delegación, los límites máximos de concentración y los umbrales de acción crítica. Los tokens de gobernanza CLC propuestos desbloqueados no votarían bajo este diseño.
+
+\subsubsection*{7.2.1 Suministro y asignación ilustrativos}
+
+El total ilustrativo propuesto de la oferta de tokens de gobierno CLC es \textbf{500,000,000} Este es un parámetro de diseño, no una emisión actual, oferta, valoración o promesa de liquidez.
+
+Una asignación ilustrativa es la siguiente:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% --- Grassroots Economics Foundation:} permanentemente apostado, no transferible y vinculado a un multisig identificado GEF en virtud de las reglas publicadas de firma y rotación.
+\item \textbf{15\% --- equipo central y socios iniciales:} las inversiones realizadas durante un período de 24 meses establecido en el marco de las políticas y con reglas de votación y transferencia comunicadas con anticipación.
+\item \textbf{30\%  donaciones privadas:} el reconocimiento de los contribuyentes iniciales que proporcionan liquidez de red aprobada, con una atribución de 24 meses por política establecida.
+\item \textbf{40\%  Reserva de liquidez pública:} se mantiene en una bóveda de gobernanza bloqueada en el tiempo para programas opcionales de mercado externo y accesibilidad.
+\end{itemize}
+En el marco de los controles ilustrativos de liquidez pública:
+
+\begin{itemize}[leftmargin=*]
+\item no más del 10\% del suministro total estaría activo en lugares externos a la vez;
+\item cada despliegue expiraría después de 90 días a menos que se renueve mediante el proceso adoptado;
+\item las posiciones de liquidez y los tokens de posiciones permanecerían bajo control de gobernanza divulgado; y
+\item los tokens de gobernanza CLC propuestos utilizados en posiciones de liquidez no votarían a menos que estén bloqueados bajo las mismas reglas que otros tokens de voto.
+\end{itemize}
+Un futuro lanzamiento podría comenzar con una multisig revelada y la transición solo después de que se aprueben separadamente los hitos de endurecimiento, como auditorías independientes, monitoreo, libretas de ejecución de incidentes y procedimientos de pausa y tenedor probados. Cada parámetro adoptado y cada proceso de cambio se publicarán por separado.
+
+\subsubsection*{7.2.2 Estadios de disponibilidad y dotación}
+
+Un futuro programa de donaciones podría utilizar ventanas de contribución escalonadas y un valor de referencia publicado para la ingesta y el presupuesto. Esta referencia no sería una promesa de precio de mercado, apreciación, reembolso o salida.
+
+Los términos de la contribución indicarían si los activos son donados, dotados, retirables o reembolsables; Quien los controla; su uso permitido; cerraduras; la asignación de pérdidas; la presentación de informes; y las condiciones de salida. Las grandes contribuciones podrían enfrentarse a límites de voto o a una disminución del peso de la gobernanza.
+
+Cualquier liquidez en el mercado externo requeriría una decisión separada que identifique los lugares, los operadores responsables, los activos, los límites máximos, el calendario, los conflictos, los controles de riesgos, la presentación de informes y la terminación. La política no fijaría ni garantizaría un precio.
+
+\subsubsection*{7.2.3 Programa propuesto para la siembra de impacto}
+
+Un futuro programa podría asignar parte de la bóveda de gobierno a los contribuyentes que coloquen activos en el Fondos de Compromisos designado y mejoren de manera medible el acceso a los intercambios y el cumplimiento confirmado por los emisores.
+
+Una política de elegibilidad adoptada:
+
+\begin{enumerate}[leftmargin=*]
+\item Identificar las reservas, los activos, la duración mínima y los términos de bloqueo aprobados;
+\item definir la contribución productiva utilizando pruebas de intercambio ejecutado y la presentación, cumplimiento y descarga evidenciadas por separado;
+\item medir la contribución marginal en lugar del valor total bloqueado por sí solo;
+\item excluyen las actividades de lavado circular y de auto-negociación;
+\item aplicar límites máximos por entidad y rendimientos decrecientes; y
+\item proporcionar una ventana de observación, disputa y corrección antes de la asignación final.
+\end{enumerate}
+Cualquier subvención seguiría sujeta a los términos publicados del programa, a las reglas de adquisición, elegibilidad, cumplimiento y pérdida.
+
+\subsection*{7.3 Voto propuesto, incentivos y acceso a los honorarios}
+\addcontentsline{toc}{subsection}{7.3 Voto propuesto, incentivos y acceso a los honorarios}
+
+En virtud de este diseño, los titulares de stCLC podían votar sobre las Fondos elegibles, los mandatos de servicio de rutas, los presupuestos compartidos u otras propuestas adoptadas. Un sistema de calificación seleccionado podría traducir los votos en incentivos limitados sCLC para los operadores de liquidez o de enrutamiento elegibles.
+
+La política de medición mantendría separados los swaps ejecutados y el cumplimiento del emisor. No recompensaría las rutas citadas sino no ejecutadas, presentaciones no resueltas, auto-negociación o valor total bloqueado sin evidencia de actividad útil.
+
+Un proceso de gobernanza adoptado también podría publicar un presupuesto de créditos por tasas de época. Los titulares elegibles de stCLC podrían recibir sCLC autorizando swaps limitados y limitados a tiempo de Fondos de retención de cuotas designados en activos o programas autorizados. Se trata de un acceso garantizado a los inventarios disponibles, no de un ingreso pasivo o de la propiedad del grupo de retención de cuotas.
+
+\subsubsection*{7.3.1 El cumplimiento de las tarifas de servicio y la elección del perfil}
+
+Un futuro perfil de registro podría requerir que los Fondos o servicios de ruta participantes utilicen un adaptador o gancho de tarifa compatible. El perfil puede rechazar el descubrimiento, el enrutamiento o el soporte del programa cuando el recibo requerido no demuestra la recaudación de tarifas.
+
+Nombres como \textbf{PoolFactory} o \textbf{FeeHook} describen posibles módulos futuros; no son contratos de Protocol v1.1.0. Cualquier implementación tendría que revelar el código, las direcciones, los controladores, los destinatarios, las comisiones, las transacciones elegibles, el tratamiento de los fallos y el estado de auditoría.
+
+La aplicación sería específica del perfil. Un grupo excluido por un perfil podría continuar operando localmente o unirse a otro registro compatible si sus contratos y dependencias seguían funcionando. Los clientes deben exponer los perfiles disponibles y mostrar las tarifas aplicables antes de la autorización.
+
+\subsubsection*{7.3.2 Presupuesto sCLC y controles opcionales de flotación externa}
+
+Después de que se adopten presupuestos de mayor prioridad para la financiación, un proceso futuro podría publicar un presupuesto de crédito por honorarios de la época \texttt{F\_epoch}, incluido cero. Una política puede asignar un límite de participantes en proporción al poder de voto de stCLC:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+Cada ventana seguiría siendo sujeta a listados de permisos, límites, inventario, elegibilidad, reglas de incidentes y legislación aplicable.
+
+Una política independiente podría autorizar una adquisición limitada y ponderada en el tiempo del token de gobernanza CLC propuesto sólo para reducir una superficie de ataque de gobernanza externa medida. Esto requeriría:
+
+\begin{itemize}[leftmargin=*]
+\item un desencadenante publicado basado en flotación externa durante un período determinado;
+\item una cuota máxima de las tarifas realizadas y subvencionables y el volumen de los lugares de celebración;
+\item la ejecución ponderada por el tiempo sin un anuncio exacto de la fecha;
+\item una parada automática cuando no se cumplan los umbrales de cobertura o de operación adoptados;
+\item el retiro o la colocación de tokens adquiridos en una cuenta no votante divulgada; y
+\item una declaración explícita de que el programa no tiene como objetivo ni garantiza un precio y no afecta el cumplimiento del emisor.
+\end{itemize}
+La póliza podría permanecer desactivada indefinidamente.
+
+\subsubsection*{7.3.3 Poles y certificados de cartera}
+
+En el caso A \textbf{Puente de cartera} sería un Fondo de Compromisos ordinario organizado en torno a un dominio de misión o servicio. Su Responsable del Fondo podría ser un individuo, cooperativa, grupo comunitario, agencia pública, federación, multisig, operador de servicios u otra estructura responsable.
+
+El apoyo podría ocurrir a través de:
+
+\begin{enumerate}[leftmargin=*]
+\item contribuciones directas en virtud de los términos publicados por el grupo;
+\item los mandatos de liquidez limitados en el tiempo aprobados a través del proceso de gobernanza adoptado; o
+\item Acceso dirigido sCLC a un presupuesto limitado después de la caída de agua cuando dicho mecanismo esté habilitado.
+\end{enumerate}
+Los Portfolio Fondos seguirían siendo gobernados de forma independiente y podrían utilizar registros compartidos o independientes.
+
+Las certificaciones podrían informar sobre la admisión o el tratamiento del riesgo, pero no crearían derecho a honorarios, ganancias o activos residuales. Un despliegue puede utilizar:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Certificaciones vinculadas al registro} de un verificador identificado que aplique un método publicado; o
+\item \textbf{vales de servicio de verificación} que represente un compromiso reembolsable para realizar una auditoría o evaluación declarada.
+\end{itemize}
+El grupo revelaría cómo un certificado afecta la admisión, los métodos de cambio, los límites o la elegibilidad y cómo se manejan los errores, la expiración, los conflictos y las apelaciones.
+
+\subsection*{7.4 Cascada y presupuestos propuestos}
+\addcontentsline{toc}{subsection}{7.4 Cascada y presupuestos propuestos}
+
+La propuesta de Waterfall asignaría sólo recibos elegibles realizados en el marco de un proceso de gobernanza adoptado. Se distinguiría:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{activos elegibles en efectivo (\texttt{E\_cash}):} activos fungibles autorizados que puedan utilizarse o convertirse en virtud de la póliza de obligaciones denominadas en efectivo; y
+\item \textbf{activos en especie (\texttt{E\_kind}):} vales u otros activos que puedan apoyar el intercambio dentro de la red, pero que no se incluyen en la cobertura denominada en efectivo o en las obligaciones operativas, a menos que se conviertan efectivamente.
+\end{itemize}
+Una política de conversión identificaría a los operadores autorizados, activos, lugares, fuentes de precios, ventanas de tiempo, límites de deslizamiento, límites máximos, conflictos, registros y procedimientos de incidentes. La conversión del Tesoro no determinaría la obligación de amortización de un emisor ni el método de cambio de un grupo.
+
+Un orden de prioridad ilustrativo es:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Objetivo de cobertura financiada:} construir cualquier reserva adoptada o fondo de seguros propuesto en función de su objetivo revelado para eventos cubiertos definidos.
+\item \textbf{Operaciones centrales:} Financiar un presupuesto limitado y revelado para el trabajo legal, la educación, las comunicaciones, la infraestructura, las auditorías y la observabilidad.
+\item \textbf{Mandatos de liquidez:} asignar los activos aprobados a las finalidades establecidas en el Fondo o en el servicio de rutas en el marco de la revisión de límites máximos y de la puesta de sol.
+\item \textbf{Control de flotabilidad externa opcional:} el fondo únicamente cuando se cumplan los umbrales de trigger publicados y de prioridad superior; en caso contrario se asignará cero.
+\item \textbf{Presupuesto de créditos de honorarios propuesto:} se asignará el resto aprobado a los grupos de retención de cuotas designados y se publicará \texttt{F\_epoch}, que puede ser cero.
+\end{enumerate}
+Las decisiones presupuestarias podrían tener en cuenta el cumplimiento confirmado, la exposición cubierta, las reservas elegibles, el límite de utilización, las rutas ejecutadas, la concentración, los incidentes y el desempeño del garante. Cada métrica seguiría las reglas de evidencia y cohorte del apéndice C.
+
+Un posible flujo de contribuyentes sería:
+
+\begin{enumerate}[leftmargin=*]
+\item los contribuyentes transferirán activos elegibles en virtud de condiciones de dotación o de programa adoptadas por separado;
+\item los participantes elegibles reciben y, en su caso, bloquean los tokens de gobernanza CLC propuestos para obtener stCLC;
+\item los recibos de gancho elegibles o de honorarios de servicio realizados entran en la cascada;
+\item los fondos de las cascadas adoptaron las prioridades en orden; y
+\item Sólo una póliza después de Waterfall habilitada emite sCLC o abre una ventana de crédito de honorarios limitada.
+\end{enumerate}
+Ningún paso crea derechos de propiedad, reembolso, retirada, cobertura, recompensa o gobierno más allá de los expresamente establecidos en los términos aplicables.
+
+
+\section*{8. Ámbito de aplicación técnico y crecimiento}
+\addcontentsline{toc}{section}{8. Ámbito de aplicación técnico y crecimiento}
+
+Este capítulo describe el trabajo opcional o propuesto. No se trata de una lista de características garantizadas para estar presentes en el actual CLC App o Protocol v1.1.0.
+
+Las áreas de trabajo posibles incluyen:
+
+\begin{itemize}[leftmargin=*]
+\item enrutamiento de ejecución a través de Fondos compatibles, con registro, cotización, límite, tarifa y descubrimiento de inventario;
+\item los adaptadores de escrow o HTLC bloqueados en el tiempo para la ejecución transfronteriza cuando no esté disponible la liquidación atómica;
+\item interfaces y herramientas de política para Fondos pequeñas o personales;
+\item registros auditables de vales, fondos, métodos de cambio, límites, controladores y tarifas;
+\item los conectores de proveedores de pagos específicos de la implementación, los flujos de pago y los controles de elegibilidad;
+\item las conexiones de activos fungibles con centros externos de liquidez para el reequilibrio y la liquidez de pagos; y
+\item la conversión de tesorería cubierta por políticas para la cobertura adoptada, los costes operativos o los mandatos de liquidez.
+\end{itemize}
+Los precios del mercado exterior no determinan lo que debe un emisor en virtud de los términos de los vales. Un grupo podría utilizar una referencia externa protegida para un activo fungible, pero su método de cambio publicado, límites, tarifas e inventario regirían sus cotizaciones.
+
+\subsection*{8.1 Normas propuestas de servicio de rutas y SDK}
+\addcontentsline{toc}{subsection}{8.1 Normas propuestas de servicio de rutas y SDK}
+
+\textbf{El descubrimiento.} Un servicio de ruta propuesto buscaría registros identificados para la admisión de activos, métodos de cambio, límites, tarifas, inventario, incidentes e información del controlador. Los registros almacenados en caché incluirían límites de frescura y identificadores de fuente.
+
+\textbf{Perfiles de la red.} Un cliente podría soportar más de un perfil de raíz o política de registro. Indicaría al participante qué perfil, contrapartes, adaptadores, restricciones y operadores de servicios responsables utiliza una cotización. Una ruta transversal tendría que satisfacer todas las condiciones aplicables para el salto.
+
+\textbf{La política del camino.} Un operador responsable podría excluir dependencias o contrapartes no seguras y aplicar límites a nivel de ruta, requisitos de frescura y criterios de salud. Estas señales apoyarían una decisión; no garantizarían el cumplimiento ni la protección contra la pérdida.
+
+\textbf{Tarifas y límites.} Una cotización detallaría las tarifas del grupo, cualquier tarifa adicional actual del Protocolo y cualquier tarifa de enrutamiento o servicio propuesta por separado. La ejecución rechazaría las cotizaciones vencidas o los límites incumplidos.
+
+\textbf{Atomicidad y recuperación.} La ejecución multi-hop sería atómica cuando sea posible. En caso de que utilizara HTLC o escrow, el servicio revelaría tiempos de espera, trayectorias de interrupción, controladores responsables, procedimientos de incidentes y riesgos residuales.
+
+\textbf{Proposición de compensación por lotes y reequilibrio.} Un servicio de opt-in puede recopilar intenciones de reequilibrio y buscar ciclos o cadenas compatibles. Eso sería:
+
+\begin{enumerate}[leftmargin=*]
+\item publicar un recibo legible por máquina que identifique los ciclos ejecutados, los activos, los importes, los sellos de tiempo de valoración y las tarifas;
+\item hacer cumplir los límites máximos adoptados por período y las políticas de contraparte;
+\item rechazar actividades que violan las autorizaciones, los límites o el inventario disponible de cualquier grupo participante; y
+\item preservar las entradas y recibos deterministas para la revisión y el manejo de disputas.
+\end{enumerate}
+\textbf{Requisitos del SDK.} Un SDK para rutas ejecutadas proporcionaría un mapeo determinista de cotización a recibo, controles de invariantes por espera, códigos de fallas comprensibles y registros amigables con la auditoría. El Protocol v1.1.0 \texttt{SwapRouter} actual sólo proporciona cotizaciones; no ejecuta estas rutas propuestas.
+
+\subsubsection*{8.1.1 Especificación mínima de compatibilidad con la confederación}
+
+Un ecosistema Fondo que busque un enrutamiento transversal publicaría información legible por máquina para:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Raíces del registro:} Identificadores de activos, Fondos, métodos de tipo de cambio, límites y políticas de tarifas, o una raíz que los resuelva deterministicamente.
+\item \textbf{Los recibos:} el perfil, los activos entrantes y salientes, los importes, la fuente de cotización y el sello de tiempo, la instantánea límite, las tarifas, el resultado del inventario y el resultado de ejecución de cada salto.
+\item \textbf{Las señales de funcionamiento:} información limitada a la actualidad sobre el inventario, la utilización limitada, los incidentes y cualquier cumplimiento o protección financiada comprobada por separado.
+\item \textbf{Las restricciones políticas:} las contrapartes permitidas o rechazadas, las clases de activos, los adaptadores y los requisitos de custodia.
+\item \textbf{Códigos de fallas:} explicaciones deterministas para el rechazo, la expiración, el límite, el inventario, la política, la dependencia o los fallos incidentales.
+\end{enumerate}
+Un perfil podría agregar cobertura, cumplimiento, arbitraje u otros servicios sin que sean requisitos para la compatibilidad básica de CPP. Cada servicio opcional identificaría a su parte responsable, autoridad, alcance y términos.
+
+\subsection*{8.2 Licencia, verificación y salida}
+\addcontentsline{toc}{subsection}{8.2 Licencia, verificación y salida}
+
+Los contratos de Protocol v1.1.0 son compatibles con EVM-. Los contratos en el directorio \texttt{src} del repositorio del Protocolo se publican bajo AGPL-3.0, a excepción de los componentes de terceros no modificados identificados que conservan sus propios términos. Las instrucciones de origen, ABI y despliegue publicadas apoyan una revisión independiente, pero por sí mismas no demuestran una auditoría, un despliegue seguro o un cumplimiento legal.
+
+Cada implementación revelaría por separado su versión de código, la procedencia de la construcción, las direcciones, los poderes de controlador y actualización, el estado de auditoría, los espejos del registro y cualquier protección de bloqueo temporal o pausa.
+
+Una propuesta \textbf{kit de tenedor} podrían incluir:
+
+\begin{enumerate}[leftmargin=*]
+\item los scripts de despliegue determinista;
+\item imágenes instantáneas del registro y herramientas de exportación;
+\item un proceso documentado para redireccionar los servicios de ruta, los SDK y las interfaces a una nueva raíz de registro;
+\item una lista de verificación Responsable del Fondo para salir de un registro compartido de forma segura; y
+\item una lista de verificación de migración de los vales pendientes, incluidos los avisos del emisor, los plazos de presentación y cumplimiento, el acceso continuo a los registros y los recursos.
+\end{enumerate}
+Las bifurcaciones compatibles pueden mejorar la resiliencia cuando las comunidades, cooperativas, agencias públicas, federaciones, multisigas o operadores de servicios necesitan una gobernanza diferente. La continuidad real sigue dependiendo de la propiedad del contrato, las claves, las dependencias, las interfaces, la infraestructura, las obligaciones legales y los servicios de terceros.
+
+
+\section*{9. Economía propuesta para los programas de liquidez}
+\addcontentsline{toc}{section}{9. Economía propuesta para los programas de liquidez}
+
+Este capítulo describe un modelo futuro adoptado por separado. No es una función actual de la aplicación, una oferta, una devolución prometida o un derecho creado depositando en \texttt{SwapPool}.
+
+\subsection*{9.1 Fuentes de ingresos propuestas}
+\addcontentsline{toc}{subsection}{9.1 Fuentes de ingresos propuestas}
+
+Un futuro presupuesto de la red podría recibir:
+
+\begin{enumerate}[leftmargin=*]
+\item una revelada \textbf{comisión de red} tomadas como parte de las tasas cobradas por las Comisiones participantes;
+\item las tarifas de enrutamiento o de servicio separadas de los servicios compartidos implementados; y
+\item otros ingresos recibidos expresamente adoptados.
+\end{enumerate}
+Los honorarios brutos de los grupos retenidos por los grupos no son ingresos de la red. El actual Protocol v1.1.0 utiliza un modelo diferente: una tarifa de protocolo opcional se suma a la tarifa del grupo y se envía directamente a su destinatario configurado.
+
+\subsection*{9.2 Matemáticas ilustrativas de rake}
+\addcontentsline{toc}{subsection}{9.2 Matemáticas ilustrativas de rake}
+
+Si un grupo participante cobra una cuota de grupo de 2.00\% y un grupo de redes adoptado recibe el 20\% de dicha cuota de grupo, la tasa efectiva de grupo de redes propuesta sobre el valor enrutado será:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Si el 25\% de los activos de rake y de honorarios de servicio recibidos son elegibles y convertibles para un uso denominado en efectivo declarado después de los costos, la cuota utilizable en efectivo del rake de 40 bps es de aproximadamente 10 bps.
+
+Los ingresos de la red propuestos son:
+
+\texttt{network\_rake\_received + routing\_or\_service\_fees\_received}
+
+No agregue las tasas brutas de Fondo al rake de la red: el rake es una transferencia de esas tasas y de lo contrario se contaría dos veces.
+
+\subsection*{9.3 Los derechos del programa de liquidez}
+\addcontentsline{toc}{subsection}{9.3 Los derechos del programa de liquidez}
+
+Un programa adoptado por separado podría financiar el inventario del Fondo, los servicios de enrutamiento, el monitoreo u otros mandatos. Sus términos deberán revelar:
+
+\begin{itemize}[leftmargin=*]
+\item si una transferencia es un regalo, una donación, un préstamo, una contribución recuperable o una compra;
+\item la custodia y el control;
+\item Reglas de retiro, reembolso, pérdida y prioridad;
+\item la elegibilidad de los honorarios y de las recompensas;
+\item derechos de gobernanza;
+\item métodos de valoración y presentación de informes; y
+\item Suspensión, terminación y remedios.
+\end{itemize}
+El actual \texttt{SwapPool} no crea ningún token de fondo-share o derecho de contribuyente automático. Cualquier métrica ex post debe basarse en los ingresos y pérdidas realizados, no debe presentarse como rendimiento prometido y puede ser cero o negativo.
+
+
+\section*{10. Marco integral de riesgos}
+\addcontentsline{toc}{section}{10. Marco integral de riesgos}
+
+Este marco propuesto separa diez categorías de riesgo. Para cada categoría se identifican posibles indicadores, controles, pruebas de estrés y un apetito indicativo por el riesgo. Estas son recomendaciones de diseño, no afirmaciones de que todos los controles están desplegados, efectivos o suficientes. Los límites, las reservas, las garantías, el seguimiento, la cobertura y la gobernanza no pueden eliminar las pérdidas.
+
+\subsection*{10.1 Protocolo y riesgo de contratos inteligentes}
+\addcontentsline{toc}{subsection}{10.1 Protocolo y riesgo de contratos inteligentes}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} los errores de contratación, los errores de actualización, las fallas de dependencia y los límites o tarifas mal configurados.
+\item \textbf{Indicadores:} resultados de auditoría, movimientos de inventario inexplicables, fallas invariantes y retrocesos inusuales.
+\item \textbf{Posibles controles:} auditorías independientes; roles privilegiados mínimos; los controladores de proxy y de dependencia divulgados; actualizaciones marcadas en el tiempo; el seguimiento en cadena; las pausas de incidentes con autoridad y criterios publicados; y un camino de migración probado.
+\item \textbf{Pruebas de estrés:} las dependencias de cotizaciones o límites no disponibles, las carencias de inventario, los contratos interrumpidos y el tráfico estallado.
+\item \textbf{El apetito por el riesgo:} bajo antes de escalar las obligaciones pendientes o el volumen de swap.
+\end{itemize}
+\subsection*{10.2 Riesgo económico y de mercado}
+\addcontentsline{toc}{subsection}{10.2 Riesgo económico y de mercado}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} el inventario delgado, los flujos unilaterales, las retiradas rápidas y las referencias de precios manipuladas o obsoletas.
+\item \textbf{Indicadores:} La utilización de los tokens en el balance de la bolsa es elevada, las diferencias de cotizaciones se amplían, los límites se rechazan con frecuencia y el inventario se concentra.
+\item \textbf{Posibles controles:} los límites máximos actuales del saldo de tokens del grupo; los límites de circulación o de cuenta propuestos; las reservas adoptadas por separado; las referencias de precios protegidas; exclusiones de rutas; tarifas o límites por incidentes limitados en el tiempo.
+\item \textbf{Pruebas de estrés:} grandes movimientos de precios de referencia, aumentos de la presentación, solicitudes de retirada y interrupciones de las fuentes de datos.
+\item \textbf{El apetito por el riesgo:} moderarse únicamente dentro de los parámetros publicados y de la capacidad de soporte de pérdidas financiada.
+\end{itemize}
+\subsection*{10.3 Riesgo del emisor y del vale}
+\addcontentsline{toc}{subsection}{10.3 Riesgo del emisor y del vale}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} la emisión que exceda la capacidad de cumplimiento, el incumplimiento del emisor, los términos engañosos y las ventanas de disponibilidad o presentación poco especificadas.
+\item \textbf{Indicadores:} la disminución de las tasas de cumplimiento confirmadas, el envejecimiento de los vales pendientes, las quejas no resueltas y la exposición concentrada a un emisor.
+\item \textbf{Posibles controles:} la debida diligencia del emisor; comprobantes claros y condiciones de la oferta; límites de emisión o admisión; los bonos o garantías financiados de forma independiente; la presentación de informes de cohortes; y una revisión responsable del registro.
+\item \textbf{Pruebas de estrés:} insolvencia del emisor, choques regionales de producción, reclamaciones falsificadas y retrasos prolongados en el cumplimiento.
+\item \textbf{El apetito por el riesgo:} A medida que aumenta la concentración del emisor o de la oferta.
+\end{itemize}
+\subsection*{10.4 El riesgo de presentación y cumplimiento de la redención}
+\addcontentsline{toc}{subsection}{10.4 El riesgo de presentación y cumplimiento de la redención}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} la presentación no válida o duplicada, la capacidad insuficiente de los emisores, las existencias, las fallas logísticas y la falta de registros de descarga.
+\item \textbf{Indicadores:} retraso en el cumplimiento de las solicitudes, presentaciones fallidas o controvertidas, existencias, atrasos de boletos y unidades cumplidas sin descarga.
+\item \textbf{Posibles controles:} los procedimientos de presentación y cumplimiento publicados; divulgación de la capacidad; los lugares de cumplimiento múltiple cuando sea lícito; normas de pruebas; las vías de reclamación y recurso; y registros que separan la presentación, el cumplimiento y la descarga.
+\item \textbf{Pruebas de estrés:} dos a cuatro veces el volumen de presentación, las interrupciones de las instalaciones, las fallas de los proveedores y los intentos de uso duplicado.
+\item \textbf{El apetito por el riesgo:} bajo cuando se trate de bienes esenciales, participantes vulnerables o ventanas de cumplimiento largas.
+\end{itemize}
+\subsection*{10.5 Riesgo de gobernanza}
+\addcontentsline{toc}{subsection}{10.5 Riesgo de gobernanza}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} Captura de administrador o controlador, cambios de parámetros apresurados, conflictos de intereses, poderes técnicos ocultos y llamadas débiles.
+\item \textbf{Indicadores:} la autoridad concentrada, las acciones de emergencia frecuentes, los cambios inexplicables de las políticas y las reiteradas interrupciones.
+\item \textbf{Posibles controles:} las divulgaciones sobre el papel y el poder; los umbrales de aprobación proporcionales; los plazos; los conflictos y las reglas de rechazo; registros públicos de cambios; apelaciones; puestas de sol automáticas de energía de emergencia; y la forjabilidad.
+\item \textbf{Pruebas de estrés:} las propuestas adversarias, la pérdida de los signatarios, los intentos de soborno y la captura mediante acumulación o control delegado.
+\item \textbf{El apetito por el riesgo:} bajo para las acciones que afecten a los métodos de valor, a las retiradas, a las raíces del registro, a la cobertura o a los poderes de emergencia.
+\end{itemize}
+Para una futura implementación del token de gobernanza CLC propuesto, la prueba de captura incluirá acumulación seguida de intentos de redirigir presupuestos, debilitar los estándares de registro, aprobar mandatos de partes relacionadas o agotar la cobertura financiada. Las posibles salvaguardias incluyen bloqueos de gobernanza, umbrales más altos para las acciones críticas, retraso en la ejecución, seguimiento transparente de la delegación y la concentración, un proceso de incidencia y un procedimiento creíble de salida y salida. Ninguno está representado como desplegado simplemente apareciendo aquí.
+
+\subsection*{10.6 Riesgo legal y de cumplimiento}
+\addcontentsline{toc}{subsection}{10.6 Riesgo legal y de cumplimiento}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} un vale, servicio, promoción o activo de gobernanza que reciba un tratamiento regulatorio inesperado; fallas en la protección de los consumidores; el blanqueo de capitales o la exposición a sanciones; y restricciones transfronterizas.
+\item \textbf{Indicadores:} las banderas de jurisdicción, las consultas de los reguladores, las quejas, los partidos restringidos y la divergencia entre el comportamiento anunciado y el actual.
+\item \textbf{Posibles controles:} la revisión por clase y jurisdicción; las divulgaciones precisas; las interfaces geofendadas; controles proporcionales de elegibilidad o de acreditación; los controles de promoción; registros de autoridad y aceptación; y las partes responsables claras.
+\item \textbf{Pruebas de estrés:} una restricción jurisdiccional, la terminación del proveedor, la reclasificación obligatoria y una orden de pausa de una característica o clase de activos.
+\item \textbf{El apetito por el riesgo:} bajo; restringir o detener la actividad no apoyada.
+\end{itemize}
+\subsubsection*{10.6.1 Posicionamiento legal y tratamiento de los tokens propuestos}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Infraestructura verificable:} Los contratos Protocol v1.1.0 son compatibles con EVM- y su origen se publicará bajo las licencias y las excepciones de terceros identificadas en el repositorio del Protocolo. La publicación permite la revisión, pero no demuestra en sí misma una auditoría, un despliegue seguro o el cumplimiento legal. Cada despliegue debe revelar su versión de código, la procedencia de la base, las direcciones, los poderes del controlador y el estado de auditoría.
+\item \textbf{Posición del símbolo propuesto:} En este diseño, el token de gobernanza CLC propuesto coordinaría la gobernanza y el acceso a políticas. No crearía dividendos, participación en las ganancias, derechos residuales ni garantía de valor ni liquidez.
+\item \textbf{Activos propuestos relacionados:} una política implementada por separado podría permitir bloquear el token de gobernanza CLC propuesto para acuñar stCLC y podría autorizar el sCLC a escala de época. Los términos adoptados tendrían que definir exactamente sus derechos, límites, caducidad, transferenciabilidad y tratamiento.
+\item \textbf{Comunicaciones:} los materiales para cualquier implantación de tokens de gobernanza CLC, stCLC o sCLC propuestos no deben prometer ganancias, apreciación, ingresos pasivos o acceso garantizado.
+\item \textbf{Los controles de la jurisdicción:} una implementación puede requerir geofencing de interfaz, certificaciones para clases restringidas, límites de promoción, revisión específica de activos o controles que detengan una característica propuesta.
+\item \textbf{Notificación de los participantes:} Las condiciones adoptadas explicarán cuándo el acceso puede ser reducido o desactivado por razones legales, operativas o de riesgo y si se aplica alguna compensación o recurso.
+\end{enumerate}
+\subsection*{10.7 Riesgo de enrutamiento y riesgo entre dominios}
+\addcontentsline{toc}{subsection}{10.7 Riesgo de enrutamiento y riesgo entre dominios}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} la ejecución parcial, los saltos obstruidos, las explotaciones de puente o escrow, las cotizaciones obsoletas, la inflación de la trayectoria y la ejecución anticipada de los cambios de valor anunciados.
+\item \textbf{Indicadores:} las tasas de vencimiento de las rutas, los atrasos de garantía, las diferencias entre cotizaciones y ejecución, los saltos innecesarios repetidos y los incidentes de puente.
+\item \textbf{Posibles controles:} la ejecución atómica, cuando esté disponible; los periodos conservadores HTLC o los periodos de custodia; las políticas de trayectoria y de contraparte; los límites máximos a nivel de ruta; cartografía determinista de cotización a recibo; y operadores de servicios responsables.
+\item \textbf{Pruebas de estrés:} una parada de puente, reorganización de la cadena, interrupción de dependencia, y un salto fallido en una ruta multi-salto propuesta.
+\item \textbf{El apetito por el riesgo:} de baja a moderada únicamente para las dependencias identificadas y controladas.
+\end{itemize}
+\subsection*{10.8 Riesgo de custodia y gestión de llaves}
+\addcontentsline{toc}{subsection}{10.8 Riesgo de custodia y gestión de llaves}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} las claves perdidas o comprometidas, la colusión de los firmantes y la recuperación o autoridad del administrador poco claros.
+\item \textbf{Indicadores:} firmas anómalas, cambios en el controlador, rotaciones fallidas y retiradas inusuales.
+\item \textbf{Posibles controles:} la autorización de múltiples siglos o de umbral; llaves con soporte de hardware; la separación de roles; la rotación del signo; inventarios de los controladores públicos; los límites de retirada controlados; y procedimientos de recuperación probados.
+\item \textbf{El apetito por el riesgo:} Bajo.
+\end{itemize}
+\subsection*{10.9 Reputación y riesgo social}
+\addcontentsline{toc}{subsection}{10.9 Reputación y riesgo social}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} reclamos engañosos, incentivos dañinos, quejas inaccesibles, malas experiencias de cumplimiento, fallas en la privacidad y protecciones que favorecen a los privilegiados.
+\item \textbf{Indicadores:} las quejas por cohorte, las disputas no resueltas, las tendencias de rendimiento de los emisores, la concentración de beneficios o pérdidas y la retroalimentación de la comunidad.
+\item \textbf{Posibles controles:} las revelaciones en lenguaje sencillo; las vías de reclamación y corrección; pruebas accesibles; la información transparente; la revisión de los incidentes; y sanciones proporcionales por falsas declaraciones.
+\item \textbf{El apetito por el riesgo:} En la actualidad, el número de personas afectadas es bajo, con especial atención a las comunidades afectadas y a los participantes vulnerables.
+\end{itemize}
+\subsection*{10.10 Riesgo de concentración y fragmentación}
+\addcontentsline{toc}{subsection}{10.10 Riesgo de concentración y fragmentación}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Las amenazas:} la dependencia de un pequeño número de emisores, grupos de datos, controladores, proveedores, redes o horquillas incompatibles.
+\item \textbf{Indicadores:} medidas de concentración por emisor, grupo, inventario, controlador o proveedor de servicios; fallas de ruta entre grupos; y dependencias individuales críticas.
+\item \textbf{Posibles controles:} los umbrales de concentración publicados; múltiples operadores responsables; normas compatibles; registros independientes; procedimientos de salida probados; y una interoperabilidad segura.
+\item \textbf{Pruebas de estrés:} pérdida del mayor emisor, grupo, operador, proveedor o raíz de registro.
+\item \textbf{El apetito por el riesgo:} el despliegue específico y divulgado, con límites más estrictos para los servicios esenciales o las dependencias irremplazables.
+\end{itemize}
+
+\section*{11. Mecanismos de gobernanza}
+\addcontentsline{toc}{section}{11. Mecanismos de gobernanza}
+
+Este capítulo propone una plantilla de gobernanza. No representa que el actual CLC App utilice la votación de tokens de gobernanza, los plazos, el seguro compartido, un proceso de reclamaciones o cualquier control descrito a continuación. Cada despliegue tendría que identificar a sus tomadores de decisiones, autoridades, contratos, procesos y políticas reales.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Valores constitucionales:} la protección de las personas, el cuidado del medio ambiente, la equidad, la reciprocidad, la no dominación y la resiliencia.
+\item \textbf{Tipos de propuestas:} cambios en las tarifas, límites y índices; mandatos de liquidez; Las inscripciones y las retiradas de los Fondos; las decisiones de cobertura opcional; y barandillas de parámetros.
+\item \textbf{Proceso responsable:} ingesta $\to$ evaluación $\to$ revisión del riesgo $\to$ aprobación $\to$ plazos cuando proceda $\to$ ejecución. La aprobación puede provenir de administradores, cooperativas, agencias públicas, federaciones, multisigas, votación en cadena u otra estructura divulgada y responsable.
+\item \textbf{Los umbrales de aprobación:} Parámetros por clase de acción, con umbrales más altos para cambios en el índice de valor, poderes de emergencia y otras acciones críticas.
+\item \textbf{Delegación:} la delegación facultativa con mandatos públicos, la divulgación de conflictos y la retirada.
+\item \textbf{Los interruptores de circuito:} Pausas de emergencia con criterios establecidos, operadores autorizados, condiciones de reanudación y post mortem requeridos.
+\item \textbf{Transparencia:} los cambios y flujos publicados, con pruebas separadas para la liquidación de swaps, el cumplimiento de los emisores, las reservas, la utilización de límites, el enrutamiento y los garantes.
+\end{itemize}
+\textbf{Gestión del registro.} Una implementación compatible con CPP- puede mantener registros de descubrimiento de vales, tokens y Fondos. Los controles autorizados pueden agregar, actualizar, suspender o eliminar las entradas del registro a través del proceso de gobernanza revelado de la implementación. La eliminación del registro afectará el descubrimiento y el enrutamiento a través de dicho registro; no borrará por sí mismo un token, no alterará el saldo de un titular, no cumplirá la obligación de un emisor ni deshabilitará un contrato de otra manera funcional.
+
+Las normas de registro publicadas deben hacer que el estado sea condicional y pueden identificar repetidas incumplimientos, fraude o tergiversación, comportamiento contractual inseguro o violación persistente de los principios publicados como motivos para la suspensión o eliminación. Cuando sea factible, el proceso debe proporcionar un aviso, una oportunidad de recurso y una vía de recurso. La remoción de emergencia debe requerir un informe público de incidente y una revisión automática o la puesta de sol.
+
+\textbf{Las listas están prohibidas.} En este modelo, un registro no admitiría:
+
+\begin{enumerate}[leftmargin=*]
+\item instrumentos que financien o incentiven directamente la destrucción ecológica más allá de los límites acordados, la violencia o la utilización de armas, la extracción coercitiva o el abuso sistémico; o
+\item una clase de vales que carece de términos claros de presentación y cumplimiento, responsabilidad y vías de reparación.
+\end{enumerate}
+La lista prohibida sería versionada, auditable al público y cambiable únicamente a través del umbral de acción crítica adoptado y del bloqueo temporal, ilustrado como Q3 + T3 en el apéndice D.
+
+\subsection*{11.1 Gestión de los tipos de cambio y de los límites}
+\addcontentsline{toc}{subsection}{11.1 Gestión de los tipos de cambio y de los límites}
+
+\textbf{Cambios bloqueados en el tiempo.} Una implementación siguiendo esta plantilla cambiaría los métodos de tipos de cambio y los parámetros límite implementados por separado solo después de un bloqueo de tiempo público. Un camino de emergencia utilizaría un proceso de autorización revelado por separado e incluiría una puesta de sol automática o una revisión.
+
+\textbf{Los umbrales de aprobación.} La plantilla propone umbrales de aprobación más elevados para los cambios en la base del índice de valor y los cambios globales en el nivel límite, umbrales intermedios para los cambios de terceros específicos del grupo y umbrales estándar para los cambios rutinarios en las tarifas.
+
+\textbf{Feeds publicados.} Una implementación participante publicaría, para cada grupo, las variables del índice en cadena, las fuentes o medianas del oráculo, la cadencia de actualización, las ventanas y tapas límite y los modos de falla o constantes seguras.
+
+\textbf{Criterio de pausa de emergencia.} Un despliegue participante declararía de antemano condiciones tales como una interrupción del oráculo, una utilización de alto límite combinada con fallos de cumplimiento o un fallo invariante, junto con controles de currículum y requisitos de revisión posterior al incidente.
+
+\subsection*{Ejemplo de alimentación pública de índices para un Fondo y un vale}
+\addcontentsline{toc}{subsection}{Ejemplo de alimentación pública de índices para un Fondo y un vale}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Símbolo:} por ejemplo, \texttt{Maize\_50kg@IssuerY}.
+\item \textbf{Unidad de referencia:} Unidad de índice (IUX).
+\item \textbf{Valor publicado:} 30.000 IUX.
+\item \textbf{Fuente:} Mediano de fuentes identificadas, como una encuesta de mercado local, boletín del ministerio y línea de base de despliegue.
+\item \textbf{Cadencia de actualización:} Diariamente a las 18:00 horas EAT, con un bloqueo horario de 24 horas.
+\item \textbf{Modo de falla:} congelar en el último valor válido, aplicar una política de límite revelada y hacer una pausa después de una interrupción de 72 horas.
+\item \textbf{Racionalización:} las notas publicadas y un registro de los cambios de la actualización anterior.
+\item \textbf{Los firmantes:} las direcciones multisig y el umbral de aprobación reveladas.
+\end{itemize}
+\subsection*{11.2 Libro de trabajo de los fondos de seguros propuesto}
+\addcontentsline{toc}{subsection}{11.2 Libro de trabajo de los fondos de seguros propuesto}
+
+\textbf{Sólo diseño opcional.} El presente manual se aplica únicamente a un despliegue que haya adoptado y financiado expresamente un fondo de seguros y haya publicado los eventos cubiertos, los solicitantes elegibles, la entidad responsable, los activos, los límites, las exclusiones, los requisitos de evidencia, el proceso y los términos de gobierno. Ni la actual CLC App ni la GEF proporcionan cobertura simplemente porque este diseño figura en el Libro Blanco.
+
+\textbf{Posibles desencadenantes.} Una política adoptada podría cubrir la falta de cumplimiento de un emisor definido, un déficit de reserva del grupo o una pérdida de puente o garantía. Un incidente técnico no se califica automáticamente; la política aplicable controlaría.
+
+\textbf{La evaluación.} El organismo responsable conciliaría los recibos de transacciones, los saldos de inventario, los bonos de garantía, los registros de presentación de la redención, las respuestas de los emisores y otras pruebas requeridas, y luego publicaría un registro de incidentes coherente con la privacidad y la ley.
+
+\textbf{Una cascada de pérdida ilustrativa.} Cuando cada capa exista y se aplique legalmente, una póliza podría utilizar: (1) bonos de emisor responsable o participaciones de garantía $\to$ (2) reservas a nivel de fondo $\to$ (3) un fondo de seguro de red propuesto $\to$ (4) una reducción temporal a un reclamo de cobertura opcional, solo cuando las condiciones preexistentes y la ley aplicable lo autoricen expresamente $\to$ (5) recuperación legal por fraude o abuso comprobado.
+
+Un ajuste de cobertura no reducirá el compromiso subyacente de un emisor con el vale ni alterará un saldo en cadena a menos que las condiciones preexistentes válidas y la legislación aplicable lo permitan expresamente y que se obtenga el consentimiento del titular requerido.
+
+\textbf{Los límites y las exclusiones.} La cobertura publicada definiría límites máximos, presentaciones elegibles, pruebas, ventanas de reclamación, rutas o eventos excluidos, restricciones geográficas y el tratamiento de las reservas agotadas. Un pago podría ser cero después de que se alcancen los límites aplicables.
+
+\textbf{Un calendario de recuperación ilustrativo.} Si se adopta y se publica:
+
+\begin{enumerate}[leftmargin=*]
+\item los créditos se obtendrían primero del emisor o garantía responsable, luego de las reservas del grupo aplicables, y luego del fondo de seguros de red propuesto;
+\item cualquier reducción a una reclamación de cobertura opcional se limitaría a lo que permitan las condiciones de cobertura preexistentes y la legislación aplicable, hasta el límite máximo de incidencia publicado;
+\item un plan de recuperación podría aplicar una proporción declarada del valor recuperado durante un período determinado, después de lo cual cualquier déficit cubierto restante se convertiría en una pérdida registrada con una post mortem pública; y
+\item cada decisión presentaría un recibo con el incidente ID, las reclamaciones y vales afectados, la decisión, el plan de recuperación y la ventana de recurso.
+\end{enumerate}
+\subsection*{11.3 Marco de garantía}
+\addcontentsline{toc}{subsection}{11.3 Marco de garantía}
+
+En esta sección se distingue la responsabilidad del emisor, las protecciones opcionales del grupo y las garantías de terceros. los Fondos pueden competir en la curación, los términos y las protecciones expresamente ofrecidas sin implicar que el CLC App, CPP, GEF o cualquier red más amplia garantice automáticamente un vale.
+
+\subsection*{Responsabilidad del emisor de referencia}
+\addcontentsline{toc}{subsection}{Responsabilidad del emisor de referencia}
+
+\begin{itemize}[leftmargin=*]
+\item Cada vale es, ante todo, responsabilidad de su emisor. El emisor se compromete a proporcionar el bien, servicio o equivalente en efectivo legal declarado en sus términos publicados.
+\item Los emisores publicarían quién puede presentar el vale, qué significa cumplimiento, dónde y cuándo está disponible, qué pruebas se requieren y qué remedios se aplican.
+\item Si un emisor no cumple, el emisor es el principal responsable. Las protecciones del Fondo o de la red solo se aplicarán cuando se adopten, financien y divulguen por separado.
+\end{itemize}
+\subsection*{Protecciones opcionales de los Fondos}
+\addcontentsline{toc}{subsection}{Protecciones opcionales de los Fondos}
+
+Un Responsable del Fondo podrá optar por añadir una protección estrechamente definida a los vales admitidos. No es automático y necesitaría identificar a la parte responsable, la financiación, los eventos elegibles, los límites máximos, las ventanas, la evidencia, las exclusiones y los recursos en los metadatos del grupo y en los términos aplicables.
+
+Los tipos de protección ilustrativos incluyen:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Cobertura de activos de reserva:} Tras la no cumplimiento verificado por el emisor, la entidad responsable del grupo pagará un importe definido en un activo de reserva designado, sujeto a su límite máximo publicado y a las reservas financiadas disponibles.
+\item \textbf{Ventana de cambio hacia atrás:} Después de un evento de calificación, el grupo ofrece una vía de swap limitada en el tiempo hacia el activo previo o otro activo aprobado, sujeto a límites máximos e inventario. Esta es una protección de liquidez dependiente del inventario, no una promesa de que cada swap es reversible.
+\item \textbf{Cumplimiento alternativo} la parte responsable organizará un proveedor de sustituto autorizado dentro de un límite de cantidad o valor publicado.
+\item \textbf{Protección por banda de cambio:} En el caso de las categorías de vales seleccionadas, un grupo solo ofrece el ajuste de cobertura o el remedio de swap-back indicado en sus términos preexistentes. Esto no reduce la obligación subyacente del emisor de vales.
+\end{enumerate}
+\subsection*{Fuentes de financiación posibles}
+\addcontentsline{toc}{subsection}{Fuentes de financiación posibles}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Obligación del emisor:} las garantías depositadas por el emisor o mantenidas en una reserva divulgada y disponibles después de un evento cubierto verificado.
+\item \textbf{Reserva del Fondo:} activos controlados por la entidad responsable del grupo y asignados a las protecciones que anuncia.
+\item \textbf{Obligaciones de garantía de terceros:} garantía depositada por un garante externo identificado para emisores, clases de vales o eventos declarados.
+\end{itemize}
+La participación del garante seguiría los criterios publicados de elegibilidad, el tamaño de los bonos, los límites de concentración, la autoridad de decisión y las normas de aplicación legal.
+
+\subsection*{Proceso de reclamaciones}
+\addcontentsline{toc}{subsection}{Proceso de reclamaciones}
+
+Una política adoptada definiría los factores desencadenantes auditables, como un plazo de cumplimiento que no se cumpla después de la presentación de la redención válida, la insolvencia verificada del emisor, un puente cubierto o un incumplimiento de las garantías o un estado de incidencia declarado formalmente. También definiría:
+
+\begin{itemize}[leftmargin=*]
+\item la forma en que un participante abre un reclamo y proporciona las pruebas de presentación y cumplimiento requeridas;
+\item que verifique los términos de los bonos, las respuestas de los emisores y los registros técnicos;
+\item las ventanas de decisión y recurso; y
+\item el camino de pago autorizado, los activos, los límites máximos y el recibo.
+\end{itemize}
+Los ingresos de la recuperación de los emisores, el arbitraje o la aplicación de la ley reponerían los bonos o reservas aplicables de acuerdo con la política publicada antes de ser utilizados para el acceso de intercambio de la red CLC.
+
+\subsection*{Las divulgaciones necesarias}
+\addcontentsline{toc}{subsection}{Las divulgaciones necesarias}
+
+Para cada clase de Fondos y vales cubiertos, la parte responsable publicaría:
+
+\begin{itemize}[leftmargin=*]
+\item si un garante está ausente, facultativo o requerido;
+\item el tamaño de los bonos o las reservas y los límites máximos de concentración;
+\item los tipos de protección, los activos, los límites, las ventanas y las exclusiones;
+\item los plazos de presentación, cumplimiento, reclamación y recurso; y
+\item Una declaración en lenguaje sencillo de quién garantiza qué y qué no está garantizado.
+\end{itemize}
+\textbf{Principio de curación.} Responsables de Fondos y las estructuras jurídicas o de gobernanza responsables son responsables de las protecciones que anuncian. Una implementación compatible con CPP- puede proporcionar estándares, registros o políticas compartidas opcionales, pero ni CLC ni GEF garantizan automáticamente vales o Fondos.
+
+\subsection*{11.4 Barreras de protección contra capturas}
+\addcontentsline{toc}{subsection}{11.4 Barreras de protección contra capturas}
+
+En el marco de esta plantilla, las siguientes acciones críticas requerirían el nivel de aprobación más alto adoptado y un largo plazo:
+
+\begin{enumerate}[leftmargin=*]
+\item modificar la cascada de honorarios propuesta, incluida su cobertura y las prioridades de las operaciones centrales;
+\item cambios en las raíces del registro canónico;
+\item cambios en el alcance de la cobertura, en los límites máximos de las reclamaciones o en la autoridad de decisión;
+\item ampliar las facultades de pausa de emergencia; o
+\item debilitar la forcabilidad, la transparencia o los compromisos de soberanía de la Comunidad establecidos en el presente documento.
+\end{enumerate}
+\subsection*{11.5 Procedimiento de forja y salida}
+\addcontentsline{toc}{subsection}{11.5 Procedimiento de forja y salida}
+
+Si se captura la gobernanza o los valores se derivan sustancialmente, las comunidades, Responsables de Fondos, y los operadores podrían buscar salir forjando la capa de gobernanza de red. La continuidad de los fondos y vales subyacentes dependería de los contratos, claves, interfaces, infraestructura, servicios de terceros y obligaciones aplicables.
+
+Un proceso de salida podría:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Publicar una instantánea:} exportar los registros, vales, valores, límites y políticas de tarifas seleccionados, y luego publicar un hash de instantánea firmado.
+\item \textbf{Redistribución de servicios de gobernanza:} desplegar nuevas raíces de registro, servicios de rutas y cualquier módulo de tarifas o cobertura adoptado en virtud de una nueva estructura responsable.
+\item \textbf{Registro de nuevo:} permitir que Responsables de Fondos se inscriba registrando sus direcciones de grupo bajo la nueva raíz sin exigir que los titulares migren vales funcionales de otro modo.
+\item \textbf{Clientes de nueva designación:} añadir la nueva raíz como perfil de red seleccionable en SDKs e interfaces, con cualquier cambio predeterminado realizado a través del proceso de gobernanza divulgado.
+\item \textbf{Gestionar un período de puente:} mantener rutas compatibles cuando sean seguras y negar rutas que violan las reglas del nuevo perfil.
+\end{enumerate}
+El objetivo del diseño es que dejar un registro canónico no deshabilite los Fondos locales de otra manera funcionales. La continuidad real sigue dependiendo del despliegue; La federación es una capa de descubrimiento y coordinación opt-in.
+
+
+\section*{12. Plan de plazo del programa de liquidez propuesto (esbozo no vinculante)}
+\addcontentsline{toc}{section}{12. Plan de plazo del programa de liquidez propuesto (esbozo no vinculante)}
+
+Esta es una lista de verificación ilustrativa para un programa futuro, documentado por separado. No es una oferta, una característica actual de la aplicación, o una promesa de liquidez, acceso, seguro, retorno, valor o salida.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Contribuciones elegibles:} monedas estables, tokens de reserva o vales comunitarios aprobados, según lo indique el programa.
+\item \textbf{Colocación:} designado Fondos de Compromisos o el conjunto de redes CLC propuesto en virtud de un mandato adoptado por separado.
+\item \textbf{Encierro y salida:} términos específicos del programa, tales como períodos de 30--90 días y puertas reveladas bajo estrés.
+\item \textbf{Crédito de tasas fijadas en las políticas:} un mecanismo opcional ex post bajo fichas y ventanas publicadas, no una devolución prometida.
+\item \textbf{Compartición de riesgos:} cualquier reducción a un reclamo de cobertura opcional deberá estar expresamente autorizada por las condiciones preexistentes y la legislación aplicable. No cambia en sí mismo el compromiso de un emisor con el vale ni el saldo en cadena.
+\item \textbf{Información:} tablas de control y certificados periódicos que cubran la salud del Fondo, el inventario, los límites, las tarifas y cualquier reserva de cobertura financiada.
+\item \textbf{Los convenios:} las restricciones de uso de los recursos, los controles del oráculo, los niveles límite, las reglas de conflicto y los recursos.
+\item \textbf{Posible elegibilidad del token propuesto:} los contribuyentes que se hayan designado como Fondos podrían calificar para obtener las subvenciones de tokens de gobernanza CLC propuestas en virtud del acceso medido al Fondo-swap y el cumplimiento confirmado por el emisor, sujeto a las condiciones adoptadas, a las normas antijuegos y a los límites máximos de política.
+\end{itemize}
+
+
+\section*{13. Glosario en lenguaje simple}
+\addcontentsline{toc}{section}{13. Glosario en lenguaje simple}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cosmo-Local Credit (CLC):} La familia de productos, incluida la CLC App, la documentación y el trabajo más amplio de asociación de compromisos.
+\item \textbf{CLC App:} La aplicación web progresiva operada por GEF en \texttt{cosmolocal.credit}.
+\item \textbf{Protocolo de unión de compromisos (CPP):} El modelo reutilizable de curación, valoración, limitación, intercambio y gobernanza responsable.
+\item \textbf{Protocol v1.1.0:} La verificación pública de los contratos inteligentes.
+\item \textbf{Fondo de Compromisos:} Un acuerdo regulado que admite activos respaldados y publica reglas de cambio.
+\item \textbf{\texttt{SwapPool}:} La bóveda de tokens actual y el contrato de intercambio directo.
+\item \textbf{El símbolo:} Un saldo en cadena o un activo digital. La mecánica de tokens por sí sola no crea una promesa redimible.
+\item \textbf{El vale:} Un token o registro representado por un emisor como un compromiso canjeable en términos publicados.
+\item \textbf{Oferta:} Registro de catálogo de los bienes o servicios asociados con un vale.
+\item \textbf{El emisor:} Parte responsable de la publicación y cumplimiento de un compromiso de vale.
+\item \textbf{Responsable del Fondo:} La estructura responsable que publica y administra las reglas de Fondo.
+\item \textbf{Tasa de cambio del grupo o cotización:} Un parámetro de transacción producido por un indicador de cotización configurado; no prueba de efectivo o de valor de redención.
+\item \textbf{Límite del saldo de tokens del Fondo:} El máximo actual de \texttt{Limiter} para un token mantenido por un Fondo. La aplicación puede llamarlo \textbf{``Límite de crédito''}.
+\item \textbf{Intercambio de cuentas:} Un intercambio directo de activos a través de un \texttt{SwapPool}.
+\item \textbf{Saldo de intercambio:} Las transferencias en cadena y la contabilidad de cuotas completando un swap de fondo.
+\item \textbf{Presentación de rescate:} Retorno o presentación de unidades de vale al emisor.
+\item \textbf{Cumplimiento:} El emisor proporciona el bien, servicio, beneficio u otro rendimiento prometido.
+\item \textbf{Descarga:} Un registro que impida que las unidades cumplidas vuelvan a presentarse.
+\item \textbf{Router de ejecución propuesto:} Futuro software que autorizaría y ejecutaría rutas. Sólo las cotizaciones actuales de \texttt{SwapRouter}.
+\item \textbf{El grupo de redes CLC propuesto:} Un futuro acuerdo de compensación y coordinación presupuestaria a nivel de red.
+\item \textbf{Se propone el token de gobernanza CLC:} Un diseño de gobernanza futuro, no un activo actual de la aplicación o Protocol v1.1.0.
+\item \textbf{Comisión de red:} Una parte propuesta de las tarifas del grupo transferidas a un futuro presupuesto de la red.
+\item \textbf{Garantias o seguros:} Una protección que sólo se aplica cuando una parte identificada la asume expresamente, la financie y la publique.
+\end{itemize}
+
+\section*{14. Indicadores clave y indicadores de salud propuestos}
+\addcontentsline{toc}{section}{14. Indicadores clave y indicadores de salud propuestos}
+
+Un despliegue debe publicar un KPI solo cuando pueda definir el evento, la fuente, la cohorte o el período, la unidad, el método de valoración y el sello de tiempo, las exclusiones, la política de corrección, la evidencia fuera de la cadena y las limitaciones de la calidad de los datos.
+
+Las medidas propuestas incluyen:
+
+\begin{itemize}[leftmargin=*]
+\item presentaciones de rescate válidas;
+\item tasa de cumplimiento basada en cohortes;
+\item la totalidad del descargo;
+\item latencia de presentación a cumplimiento;
+\item duración de la tenencia desde la adquisición hasta la presentación;
+\item los compromisos subvencionables pendientes en virtud de una metodología establecida;
+\item volumen de swap de fondo completado;
+\item el inventario medido del Fondo;
+\item Utilización de la captación de balance de tokens de grupo;
+\item tasa de pasa de cotización, mantenida separada de la tasa de ejecución de la ruta;
+\item las reservas elegibles divididas por exposiciones expresamente cubiertas;
+\item los créditos del garante y las recuperaciones en virtud de una póliza identificada;
+\item las tasas de red y de servicio realmente recibidas propuestas, sin las tasas brutas del grupo de contabilidad doble;
+\item los tiempos de detección, decisión, pausa, reparación y cierre de la gobernanza;
+\item las quejas, disputas, correcciones y recursos; y
+\item Los resultados sociales o ecológicos se evidenciaron por separado.
+\end{itemize}
+Los datos de las transacciones en cadena no demuestran por sí mismos la identidad, el rendimiento del emisor, la satisfacción, la causalidad, la salud de la comunidad o el impacto social. Estas alegaciones requieren su propia metodología y pruebas.
+
+Veamos . \href{https://docs.cosmolocal.credit/es/white-paper/appendix-c-kpi-definitions}{Apéndice C} para la especificación de medición propuesta.
+
+
+\section*{15. Mapa de ruta (indicativo)}
+\addcontentsline{toc}{section}{15. Mapa de ruta (indicativo)}
+
+\subsection*{15.1 Fundamento actual}
+\addcontentsline{toc}{subsection}{15.1 Fundamento actual}
+
+GEF opera el CLC App en \texttt{cosmolocal.credit} en Gnosis Chain. La aplicación proporciona acceso a cuentas y billeteras compatibles, un catálogo de mercado público e interfaces para tokens, vales, Ofertas, Fondos de Compromisos, transferencias y swaps directos de Fondo.
+
+Protocol v1.1.0 proporciona la base del contrato actual: \texttt{GiftableToken}, ejecución directa de \texttt{SwapPool}, registros opcionales, módulos de valoración, límites máximos del balance de tokens de la bolsa, tarifas de la bolsa, una tarifa adicional del protocolo y una cotización exclusiva de \texttt{SwapRouter}. La disponibilidad sigue dependiendo de la interfaz, los contratos implementados, el inventario, la configuración, el estado de la red, la elegibilidad, los proveedores, la jurisdicción y los términos publicados del emisor o del grupo.
+
+\subsection*{15.2 Los hitos propuestos}
+\addcontentsline{toc}{subsection}{15.2 Los hitos propuestos}
+
+Estos hitos nombrados son instrucciones de diseño, no números de lanzamiento, fechas de entrega o compromisos que lanzará una característica.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Fundación de gobernanza:} el token de gobernanza CLC propuesto; el conjunto de redes CLC propuesto; adaptadores de tarifas; el quórum, el plazo y las bases de gobernanza.
+\item \textbf{Enrutamiento y observabilidad:} El enrutador SDK y las API de registro; tablas de control de salud; un marco de política de seguros propuesto; las intenciones de reequilibrio opt-in; prototipo de redes de lotes.
+\item \textbf{Herramientas de riesgo entre dominios:} HTLC o en trayectoria de garantía; módulos de garantía regulados por separado; fijación preestablecida de los límites de movimiento, cuenta y niveles.
+\item \textbf{Acceso regulado:} los servicios de pago de terceros específicos de la implementación; microfondos personales; el descubrimiento del servicio de cumplimiento; auditorías de terceros de las clases de vales.
+\end{itemize}
+Cualquier servicio de pago sería proporcionado por terceros identificados por separado en virtud de la jurisdicción, la elegibilidad, las tarifas, los límites y los términos aplicables. Los contratos CLC App y Protocol v1.1.0 no operan por sí mismos en vía fiduciaria.
+
+La ejecución multi-hop, el seguro compartido, el token de gobernanza CLC propuesto y el fondo de red CLC propuesto, la compensación por lotes, los micro-fondos personales y los servicios de pago regulados siguen siendo propuestos o dependientes del despliegue hasta que una implementación y sus términos de gobierno los identifiquen como activos.
+
+
+\section*{16. Modelo de evaluación propuesto}
+\addcontentsline{toc}{section}{16. Modelo de evaluación propuesto}
+
+Un registro, un grupo o un futuro programa de liquidez pueden adaptar esta plantilla. No es una norma o garantía de cotización universal actual.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Hechos observados:} Identidad y historial del emisor, términos del vale, Ofertas, pruebas de capacidad, configuración del grupo, controladores, inventario, límites, reservas, garantías, incidentes y obligaciones no resueltas.
+\item \textbf{Finalidad y partes afectadas:} el beneficio previsto, los riesgos, los conflictos, los efectos ecológicos y sociales, y quien tiene la pérdida o la responsabilidad.
+\item \textbf{Valoración:} Precio de oferta, valor declarado del vale, método de tipo de cambio del grupo, referencia del oráculo, unidades, sellos de tiempo y razones de cualquier divergencia.
+\item \textbf{Los límites:} la elegibilidad, los usos prohibidos, la concentración, los límites máximos del saldo de tokens, las pausas, las restricciones geográficas o legales y los factores desencadenantes de la revisión.
+\item \textbf{Protecciones:} la parte obligada identificada, el evento cubierto, la financiación, el límite máximo, las exclusiones, la duración, la evidencia, el proceso de reclamación y los recursos.
+\item \textbf{Decisión:} aprobar, revisar, rechazar, pausar o intensificar para su revisión por humanos; Identificar el responsable de la toma de decisiones, las razones, las condiciones, la fecha de revisión y el proceso de recurso o corrección.
+\end{enumerate}
+La producción no debe describir la custodia, los límites, las reservas o la verificación como aval, capacidad de emisor, seguro o cumplimiento garantizado a menos que la parte responsable haya establecido expresamente esa protección.
+
+
+\section*{17. Nota legal y de cumplimiento}
+\addcontentsline{toc}{section}{17. Nota legal y de cumplimiento}
+
+CPP puede coordinar tokens, vales, Fondos y swaps cuyo tratamiento legal depende de su diseño, comercialización, uso, partes responsables y jurisdicción. Nada en este Libro Blanco es asesoramiento jurídico, fiscal, de inversión, de crédito o financiero.
+
+El uso de la CLC App se rige por el \href{https://docs.cosmolocal.credit/es/governance/terms}{Términos de servicio} GEF opera la aplicación y la infraestructura de soporte. A menos que GEF asuma expresamente otro papel, no es emisor, Responsable del Fondo, custodio, prestamista, prestatario, corredor, garante, redentor, asesor, asegurador o parte en las obligaciones entre los participantes.
+
+Los servicios de pago dependientes del despliegue deberán identificar a su proveedor responsable, jurisdicciones, elegibilidad, tarifas, límites, modelo de custodia y condiciones. La presencia de un conector no significa que GEF o un grupo explote el servicio regulado subyacente.
+
+\subsection*{17.1 Información sobre los vales y las ofertas}
+\addcontentsline{toc}{subsection}{17.1 Información sobre los vales y las ofertas}
+
+Un emisor debe publicar y mantener al día:
+
+\begin{itemize}[leftmargin=*]
+\item la identidad responsable y la información de contacto;
+\item la oferta, la unidad, el suministro, el valor declarado y la capacidad asociados;
+\item los lugares y procedimientos de presentación;
+\item el calendario y las pruebas de cumplimiento;
+\item las normas de vencimiento, tasas, impuestos, restricciones y cambios materiales;
+\item las quejas, sustituciones, reembolsos u otros recursos; y
+\item el método de descarga que impida la reutilización después del cumplimiento.
+\end{itemize}
+Un contrato simbólico no establece estos términos ni prueba el rendimiento.
+
+\subsection*{17.2 Las divulgaciones del grupo}
+\addcontentsline{toc}{subsection}{17.2 Las divulgaciones del grupo}
+
+Un Responsable del Fondo debe publicar:
+
+\begin{itemize}[leftmargin=*]
+\item la finalidad del grupo y los responsables responsables en la toma de decisiones;
+\item el propietario de \texttt{SwapPool}, el administrador proxy, los controladores de dependencias y los beneficiarios de las tarifas;
+\item los activos admitidos y las reglas de suspensión o retirada;
+\item los métodos de valoración, las fuentes de cotización, las tarifas, los límites máximos del saldo de los tokens, el inventario y las facultades de retiro del titular;
+\item derechos de contribución y de salida;
+\item cada reserva, garantía, garantía, póliza de seguro y regla de asignación de pérdidas; y
+\item los procesos de gobernanza, actualización, emergencia, reclamación, migración y terminación.
+\end{itemize}
+La cotización no es una aprobación, valoración, seguro o garantía de GEF.
+
+\subsection*{17.3 Acciones y obligaciones}
+\addcontentsline{toc}{subsection}{17.3 Acciones y obligaciones}
+
+Un hombre ordinario \textbf{Intercambio de Fondos} los intercambios de activos apoyados en función de una cotización y límites de transacción mostrados. La dirección de los activos no lo convierte en un préstamo, pago, redención del emisor o cumplimiento real.
+
+La \textbf{presentación para el canje} devuelve o presenta unidades de un vale a su emisor. El \textbf{cumplimiento} es la prestación prometida por el emisor. La \textbf{baja} registra las unidades cumplidas para impedir que vuelvan a utilizarse. La acción \textbf{``Canjear''} de la Aplicación prepara actualmente una transferencia al propietario del token; esa transferencia por sí sola no demuestra el cumplimiento.
+
+La aplicación es \textbf{``Retirar vale''} La acción es la eliminación de catálogo reversible. No quema los saldos, no cancela las reclamaciones ni cumple con las obligaciones.
+
+Un préstamo futuro u otro producto de crédito requeriría que se presentaran por separado los términos suplementarios y de la transacción antes de su uso. Ningún envío ordinario, contribución, depósito de grupo, swap de grupo, presentación, cumplimiento o descarga crea un préstamo simplemente debido a su dirección o tipo de activo.
+
+\subsection*{17.4 Protecciones, pruebas y leyes locales}
+\addcontentsline{toc}{subsection}{17.4 Protecciones, pruebas y leyes locales}
+
+Un límite, una reserva, una entrada en el registro, una lista de aplicaciones o una transacción de cadena de bloques no son automáticamente una póliza de garantía o seguro. Cualquier protección debe identificar a la parte responsable, el evento cubierto, la financiación, el límite, las exclusiones, la duración, la evidencia, el proceso de reclamación y las condiciones aplicables.
+
+La evidencia de la cadena pública puede mostrar direcciones, activos, cantidades, sellos de tiempo y eventos contractuales. Por sí solo no demuestra la identidad, la capacidad de emisor, el cumplimiento, la satisfacción, la deliberación de gobernanza, la descarga legal o el impacto social.
+
+Las características pueden estar restringidas o no disponibles debido a la ley, sanciones, elegibilidad, estado del contrato, inventario, límites, seguridad, jurisdicción o servicios de terceros. Los emisores, Responsables de Fondos, los proveedores y los participantes siguen siendo responsables de determinar y cumplir la legislación aplicable.
+
+
+\section*{18. Conclusión}
+\addcontentsline{toc}{section}{18. Conclusión}
+
+Cosmo-Local Credit conecta una aplicación actual y la fundación Protocol v1.1.0 con un diseño más amplio propuesto para Fondos de Compromisos gobernado de forma independiente. Los swaps directos actuales del Fondo, los componentes de cotización y límite y los registros públicos de transacciones pueden apoyar el intercambio responsable, pero no demuestran el cumplimiento del emisor, no crean derechos de contribuyente ni garantizan valor, liquidez, redención, seguro, estatus legal o protección contra pérdidas.
+
+Las propuestas de rotación de ejecución, compensación, activos de gobernanza, compensación de redes, programas de liquidez y protecciones compartidas descritas en este documento requerirían una implementación, financiación, gobernanza y términos publicados separados. El diseño tiene como objetivo ampliar la interoperabilidad manteniendo al mismo tiempo el rendimiento de los emisores, la gobernanza del grupo y la rendición de cuentas en el mundo real con las partes identificadas.
+
+
+\section*{Modelo de medición y tarifa propuesto}
+\addcontentsline{toc}{section}{Modelo de medición y tarifa propuesto}
+
+Este apéndice define un marco de medición propuesto. Protocol v1.1.0 no registra el cumplimiento del emisor, la descarga en el mundo real o todos los campos de datos requeridos a continuación.
+
+\subsection*{Definiciones de eventos y existencias}
+\addcontentsline{toc}{subsection}{Definiciones de eventos y existencias}
+
+Para la clase de vales \emph{j}, cohorte o período \emph{t}, y un método de valoración divulgado \emph{m}:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{O\_\{j,t,m\}}: valor de los compromisos subvencionables pendientes en el límite de medición.
+\item \texttt{X\_\{j,t,m\}}: valor de los swaps completados en el grupo durante el período.
+\item \texttt{P\_\{j,t\}}: unidades presentadas válidamente al emisor para su redención.
+\item \texttt{F\_\{j,t\}}: unidades presentadas con cumplimiento por emisor comprobado por separado.
+\item \texttt{G\_\{j,t\}}: unidades cumplidas con un registro de descarga que impide su reutilización.
+\end{itemize}
+\texttt{O} no puede deducirse únicamente del suministro de tokens. Una política de medición deberá identificar al emisor responsable y excluir, según corresponda, el inventario mantenido por el emisor, las unidades quemadas, las unidades caducadas, las unidades descargadas, los saldos de ensayo, los saldos inaccesibles y los tokens cuyos términos no crean un compromiso pendiente de terceros.
+
+Cada medida valorada deberá publicar la unidad, la fuente, el método de valoración, el sello de tiempo y el tratamiento de los tipos de cambio divergentes del grupo. Una transferencia en cadena puede apoyar \texttt{X} o pruebas de presentación; no establece por sí solo \texttt{F} ni \texttt{G}.
+
+\subsection*{Medidas de cumplimiento basadas en cohortes}
+\addcontentsline{toc}{subsection}{Medidas de cumplimiento basadas en cohortes}
+
+Para una cohorte de presentaciones de rescate válidas:
+
+\texttt{FulfillmentRate = FulfilledPresentments / ValidPresentments}
+
+\texttt{DischargeCompleteness = DischargedFulfillments / FulfilledPresentments}
+
+Utilice la misma cohorte cerrada o madura en cada numerador y denominador. Informe rechazado, retirado, caducado, impugnado, parcialmente cumplido, corregido y presentaciones todavía abiertas por separado.
+
+\texttt{FulfillmentLatency = median(t\_fulfilled - t\_presented)}
+
+\texttt{HoldingDuration = median(t\_presented - t\_acquired)}
+
+Las medidas de latencia de cumplimiento del servicio del emisor después de la presentación. La duración de retención es una medida separada y no debe etiquetarse como latencia de redención.
+
+\subsection*{Medidas de velocidad distintas}
+\addcontentsline{toc}{subsection}{Medidas de velocidad distintas}
+
+La velocidad de descarga del compromiso propuesta solo podrá calcularse cuando \texttt{O} y el valor cumplido utilicen el mismo método de valoración:
+
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
+
+Una medida de actividad de swap de grupo es separada:
+
+\texttt{V\_swap,t = PoolSwapValue\_t / AverageMeasuredPoolInventoryValue\_t}
+
+Ningún valor demuestra el impacto social, la capacidad del emisor, la rentabilidad o la convertibilidad en efectivo.
+
+\subsection*{Ingresos de la red propuestos}
+\addcontentsline{toc}{subsection}{Ingresos de la red propuestos}
+
+Deje que:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{PF\_t} serán los honorarios brutos del grupo generados durante el período;
+\item \texttt{NR\_t} será el rake de red propuesto recibido efectivamente como parte divulgada de las tasas del grupo;
+\item \texttt{RF\_t} se proponen tarifas de enrutamiento o de servicio recibidas por separado; y
+\item \texttt{$\chi$\_t} será la cuota medida de los ingresos recibidos que sea elegible y convertible para un uso denominado en efectivo declarado después de los costes y las limitaciones políticas.
+\end{itemize}
+Desde la perspectiva presupuestaria de la red propuesta:
+
+\texttt{ProposedNetworkRevenue\_t = NR\_t + RF\_t}
+
+\texttt{CashUsableNetworkRevenue\_t = $\chi$\_t $\times$ (NR\_t + RF\_t)}
+
+No agregue \texttt{PF\_t} a \texttt{NR\_t}: el rake es una transferencia de las tarifas brutas del Fondo y de lo contrario se contaría dos veces. En cambio, el actual Protocol v1.1.0 soporta una tarifa de protocolo adicional; sus ingresos deberán declararse por separado del modelo de rake propuesto.
+
+
+\section*{B. En el Falta de agua de las tarifas futuras ilustrativa}
+\addcontentsline{toc}{section}{B. En el Falta de agua de las tarifas futuras ilustrativa}
+
+Este es un diseño propuesto para un futuro despliegue. Sólo se aplicará si se implementa, financia y adopta a través de términos publicados de gobernanza y de participación. No describe una cuota Protocol v1.1.0 actual, derecho de contribuyente, reserva, garantía o acuerdo de seguro.
+
+Que \texttt{F\_in} sea el ingreso realmente recibido por el presupuesto de red propuesto durante una época: el rake de red propuesto, las tarifas separadas de enrutamiento o servicios, y cualquier otro ingreso expresamente designado. No se incluyen los honorarios brutos de los Fondos que permanecen con los Fondos.
+
+Los activos de ingresos deben clasificarse como:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{E\_cash}: activos elegibles para un uso denominado en efectivo declarado en virtud de la política adoptada; o
+\item \texttt{E\_kind}: vales en especie u otros activos que no se consideran convertibles en efectivo.
+\end{itemize}
+Cualquier política de conversión requeriría autorizadores de activos y lugares, autoridades responsables, fuentes de precios, límites de deslizamiento, notificación y controles legales aplicables.
+
+Una cascada propuesta podría aplicar los ingresos recibidos en este orden:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Objetivo de reserva cubierta:} un objetivo de reserva o seguro adoptado basado únicamente en exposiciones cubiertas definidas, activos elegibles, exclusiones y reglas de reclamación.
+\item \textbf{Operaciones centrales:} financiar un presupuesto operativo limitado y revelado.
+\item \textbf{Mandatos de liquidez:} los programas de fondo o de enrutamiento aprobados por el fondo y regidos por separado.
+\item \textbf{Presupuesto restante:} asignar el importe restante entre las operaciones, los programas de liquidez y un amortiguador adicional en función de los límites máximos publicados.
+\end{enumerate}
+Un objetivo de reserva no es en sí mismo una garantía. Cualquier seguro o garantía debe identificar al obligado, el evento cubierto, la financiación, el límite, las exclusiones, la duración, la evidencia, el proceso de reclamación y la asignación de pérdidas.
+
+\textbf{Rel de vigilancia:} Las asignaciones de las cataratas están destinadas a la cobertura, las operaciones y los servicios de liquidez adoptados. No deben ser enmarcadas ni ejecutadas como operaciones de apoyo a precios.
+
+Bajo el modelo propuesto, cualquier token de gobernanza CLC propuesto adquirido a través de un programa de liquidez externa habilitado por separado sería retirado o colocado en un lavabo no de votación divulgado. Este mecanismo no está desplegado.
+
+
+\section*{En el caso de los Estados miembros. Las definiciones propuestas de KPI}
+\addcontentsline{toc}{section}{En el caso de los Estados miembros. Las definiciones propuestas de KPI}
+
+Estos KPIs forman una especificación de medición propuesta, no una declaración de que la aplicación o protocolo actual registra cada evento requerido.
+
+Cada KPI publicado deberá incluir:
+
+\begin{itemize}[leftmargin=*]
+\item el editor responsable y la fuente de datos;
+\item definición de evento o estado;
+\item la cohorte o el período de medición;
+\item unidad y método de valoración;
+\item sello de tiempo de valoración;
+\item las normas de inclusión y exclusión;
+\item el tratamiento de registros parciales, controvertidos, expirados, inaccesibles y corregidos;
+\item pruebas o certificaciones exigidas fuera de la cadena;
+\item el historial de revisión y las limitaciones de la calidad de los datos; y
+\item si el resultado es en cadena, informado, certificado, verificado de forma independiente o estimado.
+\end{itemize}
+\begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
+\toprule
+KPI & Definición propuesta & Pruebas y exclusiones requeridas \\
+\midrule
+\endhead
+\textbf{Presentaciones válidas} & Cuentas o unidades aceptadas en el proceso de redención del emisor durante un período & Identificador de presentación, emisor, autorización del titular, cantidad, tiempo, estado; excluir duplicados y solicitudes inválidas \\
+\textbf{Tasa de cumplimiento} & Presentaciones válidas cumplidas divididas por presentaciones válidas para la misma cohorte madura & pruebas separadas del desempeño del emisor; Informe de casos abiertos, rechazados, impugnados, parciales y corregidos \\
+\textbf{Completidad de la descarga} & Presentaciones cumplidas con registro de descarga dividido por presentaciones cumplidas & Quema, cancelación, registro de inhabilitación u otra prueba de no reutilización vinculada al cumplimiento \\
+\textbf{Latencia de cumplimiento} & Mediana y 90o percentil del tiempo de presentación hasta cumplimiento & No sustituya el tiempo de retención entre emisión y presentación o adquisición y presentación \\
+\textbf{Duración de la retención} & Mediano y distribución del tiempo desde la adquisición hasta la presentación & Identificar el evento de adquisición y excluir los tiempos de adquisición desconocidos \\
+\textbf{Compromisiones subvencionables pendientes} & Los compromisos de terceros elegibles restantes después de las exclusiones definidas & Identidad y condiciones del emisor; excluir el inventario aplicable de los emisores, los tokens de vencimiento, combustión, descarga, pruebas y no compromiso \\
+\textbf{Volumen de intercambios de Fondos} & Valor de los swaps directos completados en el marco de un método de valoración divulgado & Eventos de liquidación en cadena, unidades de tokens, fuente de tasa, tiempo; no se clasifican como cumplimiento del emisor \\
+\textbf{Inventario de los Fondos} & Activos soportados medidos mantenidos por un grupo en un momento determinado & Saldos contractuales, reservas de honorarios, activos inaccesibles, método de valoración y facultades de retiro del titular \\
+\textbf{Adecuación de las reservas} & Activos de reserva disponibles elegibles divididos por exposiciones expresamente cubiertas & Política de cobertura, elegibilidad de los activos, custodia/control, pasivos, exclusiones y valoración; no el suministro total de tokens por defecto \\
+\textbf{Utilización límite} & Saldo de tokens del Fondo medido dividido por su límite configurado actual & Dirección Limiter, token, fondo, timestamp, cambios y períodos sin límite \\
+\textbf{Tasa de aprobación de las cotizaciones} & Respuestas de citas exitosas divididas por intentos de citas válidos & Resultado sólo por cotización; No ejecución de la ruta \\
+\textbf{Rate de ejecución de la ruta} & Ejecuciones completadas multi-hop divididas por intentos de ejecución válidos & Se aplicará únicamente a un sistema de ejecución implementado; Informe sobre las reglas de per-hop y de atomicidad \\
+\textbf{Recuperación del garante} & Recuperación admisible recibida dividida por créditos cubiertos pagados & Garante identificado, política de reclamación, calendario, costes, disputas y amortizaciones \\
+\textbf{Ingresos de la red propuestos} & Rastreamiento de red propuesto recibido más tarifas de enrutamiento/servicio separadas recibidas & Excluir los honorarios brutos de los Fondos retenidos por los Fondos y evitar contar el rake dos veces \\
+\textbf{La puntualidad de la gobernanza} & Tiempo para detectar, decidir, pausar, reparar y cerrar un incidente & Horarios definidos, organismos responsables, poderes de emergencia, apelaciones y eventos perdidos \\
+\bottomrule
+\end{longtable}
+
+Las reclamaciones de impacto social requieren una metodología separada. La actividad Blockchain por sí sola no establece la identidad, el rendimiento del emisor, la satisfacción, la salud de la comunidad, la causalidad o el impacto.
+
+
+\section*{D. Parámetros de lanzamiento propuestos}
+\addcontentsline{toc}{section}{D. Parámetros de lanzamiento propuestos}
+
+Cada valor de abajo es ilustrativo. No se trata de una aplicación actual por defecto, configuración Protocol v1.1.0, garantía, oferta o compromiso de entrega. Una futura implementación tendría que adoptar, hacer cumplir, monitorear y publicar sus parámetros reales.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Los niveles de quórum para el token de gobernanza CLC propuesto:}
+\begin{itemize}[leftmargin=*]
+\item Q1 rutina: al menos un quórum del 4\% y más del 50\% de aprobación.
+\item Q2 sensible: al menos un quórum del 10\% y al menos un 60\% de aprobación.
+\item Q3 crítico: al menos un quórum del 20\% y al menos una aprobación del 66.7\%.
+\end{itemize}
+\item \textbf{Los plazos propuestos:}
+\begin{itemize}[leftmargin=*]
+\item T1: 48 horas para las acciones Q1.
+\item T2: 7 días para las acciones Q2.
+\item T3: 30 días para las acciones Q3.
+\end{itemize}
+\item \textbf{Cadencia de la época:} 7 días, incluidas las votaciones adoptadas, la publicación del presupuesto y las ventanas sCLC propuestas.
+\item \textbf{Pausa de emergencia:} inmediatamente a través de una autoridad de emergencia identificada, que expira después de 72 horas a menos que se ratifique en virtud del proceso adoptado.
+\item \textbf{Comisión de red propuesto:} 20\% de los honorarios del grupo de participantes por incumplimiento, limitados por la póliza.
+\item \textbf{Rango de tarifas del grupo ilustrativo:} 0\%--20\%, publicado por cada grupo participante.
+\item \textbf{El límite propuesto de las tarifas de enrutamiento o de servicio:} 20 bps por ruta.
+\item \textbf{Rate de raqueo de red propuesto:} \texttt{rake\_rate\_p = pool\_fee\_p $\times$ rake\_share\_p}.
+\item \textbf{Eligibilidad de los ingresos:} clasificar los activos recibidos como \texttt{E\_cash} elegibles en efectivo o en especie \texttt{E\_kind} según un método publicado.
+\item \textbf{Los controles de conversión:} las autoridades responsables, las fuentes de precios, las ventanas de tiempo, los límites de deslizamiento, los límites máximos y la presentación de informes.
+\item \textbf{Aceptación presupuestaria:} publicar un presupuesto propuesto de acceso a las tarifas solo después de que se cumplan los objetivos de reserva cubierta y de explotación adoptados; el presupuesto puede ser cero.
+\item \textbf{Líneas de riesgo:} no exponer a una clase de activos al riesgo de otra clase sin una opción explícita e informada en virtud de la legislación aplicable.
+\item \textbf{Límites de movilidad y de cuenta propuestos:} denegar la actividad interclase no aprobada y aplicar límites máximos adoptados.
+\item \textbf{Reducción opcional de la cobertura:} únicamente cuando las condiciones de cobertura preexistentes, el consentimiento requerido y la legislación aplicable lo autoricen; no reducirá por sí solo el compromiso de un emisor con el vale o un saldo en cadena.
+\item \textbf{Los controles externos de liquidez, si están habilitados por separado:} publicar el alcance del lugar, el método de medición, los desencadenantes, los límites de gasto y volumen, los controles de ejecución, las paradas de emergencia y los recibos. No presente el programa como un precio simbólico de apoyo.
+\end{itemize}
+Las tarifas de fondo Protocol v1.1.0 actuales, las tarifas de protocolo adicionales y los límites máximos de balance de tokens de fondo siguen estando regulados por los contratos y la configuración implementados, no por estos valores propuestos.
+
+
+\section*{Ejemplo de trabajo --- Rake de red propuesto}
+\addcontentsline{toc}{section}{Ejemplo de trabajo --- Rake de red propuesto}
+
+Este ejemplo ilustra el modelo de rake propuesto. No se trata del cálculo adicional de la tarifa de protocolo utilizado por Protocol v1.1.0.
+
+Supongamos:
+
+\begin{itemize}[leftmargin=*]
+\item un grupo participante cobra una cuota del grupo 2.00\%;
+\item el rake de red propuesto recibirá el 20\% de dicha tarifa de grupo; y
+\item El 25\% del rake recibido es elegible y convertible para un uso denominado en efectivo declarado después de los costes.
+\end{itemize}
+La tasa efectiva propuesta de retrocesión de la red sobre el valor enrutado es:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+La parte utilizable en efectivo bajo el factor de elegibilidad del 25\% asumido es:
+
+\texttt{cash\_usable\_rate = 40 bps $\times$ 25\% = 10 bps}
+
+Si un presupuesto de red propuesto tiene un requisito mensual denominado en efectivo de \$150,000 y ningún otro ingreso, el valor enrutado ilustrativo requerido a una tasa utilizable en efectivo de 10 bps es:
+
+\texttt{required\_routed\_value = \$150,000 / 0.001 = \$150,000,000 per month}
+
+Este cálculo no incluye los honorarios brutos del grupo retenidos por los grupos. Agregar esas tarifas al rake de la red duplicaría la fuente del rake.
+
+Un análisis presupuestario real también debería publicar:
+
+\begin{itemize}[leftmargin=*]
+\item recibos reales de pago y de honorarios de servicio;
+\item la elegibilidad de los activos y los costes de conversión;
+\item Participación en grupos y alcance de las rutas;
+\item los objetivos de reserva y de explotación adoptados;
+\item pérdidas, disputas, correcciones y activos no disponibles; y
+\item los escenarios de sensibilidad en lugar de crecimiento o rendimientos prometidos.
+\end{itemize}
+Cualquier presupuesto propuesto para el acceso a las tarifas o el programa de liquidez seguiría siendo inferior a las prioridades adoptadas y podría ser cero.
+
+
+\section*{Lista de verificación de la sala de datos}
+\addcontentsline{toc}{section}{Lista de verificación de la sala de datos}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Prueba histórica Sarafu Network}
+\begin{itemize}[leftmargin=*]
+\item El volumen de swap, las definiciones de usuario activo y de activos, los incidentes, las presentaciones de canje, los vales de envejecimiento, el cumplimiento confirmado, la descarga, las medidas de duración de la retención, los períodos, las exclusiones y la metodología separados de las métricas actuales de Cosmo-Local Credit.
+\item Preservación de los \href{https://dune.com/grassrootseconomics/sarafu-network}{tablero de control histórico de Dune Analytics}.
+\end{itemize}
+\item \textbf{Pruebas propuestas de ejecución de las tarifas, si se aplican}
+\begin{itemize}[leftmargin=*]
+\item Demostrar que cualquier gancho de tarifa y cerradura de registro están integrados en el camino de transacción ejecutado en lugar de ser aplicados solo por una interfaz.
+\item Proporcionar pruebas que demuestren que el servicio de ejecución aplicable rechaza un salto cuya recepción no demuestre la recaudación de tarifas en virtud de la política adoptada.
+\item Publicar vectores de prueba, casos de fallas, activos elegibles y Fondos compatibles vinculados a una versión de registro identificada.
+\item Enlazar los correspondientes \href{https://software.grassecon.org}{Descripción del software}.
+\end{itemize}
+\item \textbf{Garantia y paquete de cobertura}
+\begin{itemize}[leftmargin=*]
+\item Publicar la elegibilidad, las partes responsables, la financiación, los límites máximos, las primas, en su caso, los factores desencadenantes, las pruebas, las exclusiones, la autoridad de decisión y los ejemplos de disputas y recursos.
+\item Incluir ejemplos de vales y divulgaciones del grupo que distinguan la responsabilidad del emisor de cualquier protección del grupo o garantía de terceros que se ofrezca expresamente.
+\item Preservación de los \href{https://sarafu.network/reports}{historial Sarafu Network archivos de informes} y \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{Presentación histórica del año en examen} como prueba de linaje, no como prueba de la cobertura o adopción actual de CLC.
+\end{itemize}
+\item \textbf{Paquete legal y de cumplimiento}
+\begin{itemize}[leftmargin=*]
+\item Estrategia de jurisdicción de documentos, clases de vales, políticas de equivalencia en efectivo, KYC o opciones de certificación, geofencing, divulgación de información al consumidor, controles de venta errónea, y la distinción entre un swap de fondo ordinario y un producto de crédito expreso.
+\item Enlazar el efectivo \href{https://docs.cosmolocal.credit/es/governance/terms}{Cosmo-Local Credit Términos de servicio} y preservar versiones sustituidas a través de registros controlados.
+\end{itemize}
+\item \textbf{El endurecimiento de la gobernanza}
+\begin{itemize}[leftmargin=*]
+\item Proporcionar procedimientos de conflicto de intereses y de recusa, registros de decisiones y de recursos, sanciones, debido proceso de eliminación del registro, límites de potencia de emergencia y ejemplos de cambios de tipo de cambio y de límites fijados en el tiempo.
+\end{itemize}
+\item \textbf{Fuente y paquete de garantía}
+\begin{itemize}[leftmargin=*]
+\item Publicar el inventario de fuentes y licencias, las direcciones y versiones desplegadas, los informes de auditoría disponibles, las invariantes, la procedencia de la construcción, los poderes del administrador, los contactos de incidentes y los paneles de monitoreo.
+\item Enlazar los correspondientes \href{https://github.com/grassrootseconomics}{Repositorios de economía de base}.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

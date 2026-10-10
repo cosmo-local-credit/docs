@@ -198,7 +198,7 @@ Under the proposed model, liquidity and governance participants could act only t
 
 The shared objective is:
 
-> Increase accountable exchange and the fulfillment of real-world commitments while preserving care, fairness, local responsibility, and resilience.
+Increase accountable exchange and the fulfillment of real-world commitments while preserving care, fairness, local responsibility, and resilience.
 
 Anti-capture and credible exit remain core design goals. Proposed controls include time-delayed governance, multiple approval thresholds, transparent delegation, conflict rules, incident review, and a documented fork-and-migrate process. These controls would reduce selected governance risks but could not eliminate loss or guarantee outcomes.
 
@@ -1321,7 +1321,9 @@ Fulfillment latency measures issuer service after presentment. Holding duration 
 
 A proposed commitment-discharge velocity may be calculated only where \texttt{O} and fulfilled value use the same valuation method:
 
-\texttt{V\_commit,t = FulfilledValue\_t / AverageOutstandingEligibleCommitmentValue\_t}
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
 
 A Pool swap-activity measure is separate:
 

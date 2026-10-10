@@ -1,0 +1,1554 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{6em}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdflang={sw},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC)\\Mtandao wa kuelekeza mikopo, kuratibu ahadi na kufadhili uchumi wenye afya wa kimataifa na kieneo}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{White Paper v0.8 translation: 10 October 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\sloppy
+\RaggedRight
+
+\textbf{Toleo:} 0.8
+
+\textbf{Tarehe:} 30 Septemba 2026
+
+\textbf{Waandishi:} William O. Ruddick na Mohamed Sohail
+
+\textbf{Mawasiliano:} \href{mailto:info@grassecon.org}{info@grassecon.org}
+
+\textbf{Pakua:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-sw.pdf}{PDF ya CLC White Paper v0.8 kwa Kiswahili}
+
+\textbf{Kuhusu tafsiri hii.} Hii ni tafsiri ya Waraka Mweupe v0.8. Maandishi asili ya Kiingereza yalichapishwa tarehe 30 Septemba 2026. Tafsiri hii ilichapishwa tarehe 10 Oktoba 2026. Kiingereza ndicho chanzo cha maandishi. \href{https://docs.cosmolocal.credit/white-paper}{Soma chanzo cha Kiingereza}.
+
+\textbf{Uchapishaji:} Toleo la mwisho la umma lenye nambari ya toleo. Waraka huu si ushauri wa uwekezaji na si ofa ya kuuza wala ombi la kununua dhamana au chombo chochote cha kifedha. Matoleo ya baadaye yanaweza kurekebisha miundo inayoelezwa hapa.
+
+\section*{Jinsi ya kusoma waraka huu}
+\addcontentsline{toc}{section}{Jinsi ya kusoma waraka huu}
+
+Waraka huu unaunganisha aina nne za taarifa. Hali hizi hutumika katika waraka mzima, hata kama sura fulani haizirudii.
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+Hali & Maana \\
+\midrule
+\endhead
+\textbf{Ya sasa} & Tabia iliyothibitishwa katika CLC App au mikataba ya umma ya Protocol v1.1.0. \href{https://docs.cosmolocal.credit/sw/protocol/overview}{Marejeleo ya Itifaki} ndiyo chanzo cha ukweli kuhusu mikataba hiyo. \\
+\textbf{Inategemea utekelezaji} & Uwezo unaopatikana tu pale Kikundi, mtoa huduma, mamlaka, chombo cha utawala au sera iliyochapishwa inaporuhusu. \\
+\textbf{Ya kihistoria} & Ushahidi au utendaji kutoka huduma ya awali ya Sarafu Network. Si matumizi ya sasa ya CLC wala uthibitisho kuwa mtumiaji, mali, rekodi au wajibu ulihamishwa. \\
+\textbf{Inayopendekezwa} & Muundo, mfumo wa kiuchumi, utaratibu wa utawala au hatua ya baadaye ambayo haijaelezwa kuwa imetekelezwa. \\
+\bottomrule
+\end{longtable}
+
+Protocol v1.1.0 ya sasa ina utekelezaji wa moja kwa moja wa \texttt{SwapPool}, uratibu wa hiari, uthamini, mipaka ya salio la tokeni la Kikundi, ada za Kikundi, ada ya ziada ya itifaki na \texttt{SwapRouter} ya kutoa makadirio pekee. Utekelezaji wa hatua nyingi, uelekezaji wa HTLC au escrow, ulinganishaji wa kundi, bima ya pamoja, tokeni ya utawala ya CLC inayopendekezwa, Kikundi cha Mtandao wa CLC kinachopendekezwa, mifumo ya mikopo ya ada na mipango ya ukwasi wa mtandao ni mapendekezo au hutegemea utekelezaji.
+
+\textbf{Walengwa:} wajenzi na Wasimamizi wa Vikundi, wahandisi na wakaguzi wa itifaki, wafadhili wa ukwasi na mamlaka, wabunifu wa utawala na wakaguzi wa sheria au uzingatiaji.
+
+\section*{Muhtasari}
+\addcontentsline{toc}{section}{Muhtasari}
+
+Cosmo-Local Credit ni familia ya bidhaa iliyojengwa kuzunguka \textbf{Itifaki ya Kuunganisha Ahadi (CPP)}. CPP inaeleza jinsi Vikundi vya Ahadi vinavyosimamiwa kwa kujitegemea vinavyoweza kuchagua ahadi zinazoweza kukombolewa, kuchapisha mbinu na mipaka ya viwango vya ubadilishaji, kuhifadhi mali na kuwezesha ubadilishaji wenye uwajibikaji.
+
+\textbf{Kikundi cha Ahadi } ni mpangilio unaosimamiwa. \textbf{\texttt{SwapPool}} ya sasa ya Protocol v1.1.0 ni sehemu moja ya mkataba: hifadhi ya tokeni na injini ya ubadilishaji wa moja kwa moja. Utekelezaji unaweza kuunganisha mkataba huo na rejesta, quoter, mipaka ya salio la tokeni la Kikundi, sera za ada na huduma nyingine.
+
+Cosmo-local humaanisha kushiriki viwango wazi, programu na maarifa duniani huku utoaji, utekelezaji, utawala na uwajibikaji wa ulimwengu halisi vikibaki katika ngazi ya eneo. Mtoaji hubaki kuwajibika kwa vocha yake. Msimamizi wa Kikundi hubaki kuwajibika kwa kanuni za Kikundi na dhamana yoyote anayoikubali wazi. CLC App wala GEF haitoi moja kwa moja dhamana kwa vocha, Kikundi, thamani, njia, nafasi ya ukwasi au matokeo.
+
+\section*{Utekelezaji wa sasa}
+\addcontentsline{toc}{section}{Utekelezaji wa sasa}
+
+GEF huendesha CLC App kwenye \href{https://cosmolocal.credit}{cosmolocal.credit}. Programu hutoa ufikiaji wa akaunti na Mkoba, katalogi ya Soko la umma na violeshura vinavyosaidia tokeni, vocha, Matoleo, Vikundi vya Ahadi, uhamishaji na ubadilishaji wa moja kwa moja kupitia Kikundi. Upatikanaji hutegemea kiolesura, mikataba, mali zilizopo, mipaka na ada zilizosanidiwa, hali ya mtandao, ustahiki, watoa huduma, mamlaka na masharti yaliyochapishwa ya Mtoaji au Kikundi.
+
+Kuendesha kiolesura pekee hakufanyi GEF kuwa Mtoaji, Msimamizi wa Kikundi, mtunza mali, mkopeshaji, mkopaji, dalali, mdhamini, mkombozi, mshauri, mtoa bima au upande wa wajibu kati ya washiriki. Matumizi ya programu yanaongozwa na \href{https://docs.cosmolocal.credit/sw/governance/terms}{Masharti ya Huduma}.
+
+Protocol v1.1.0 hutenganisha majukumu yenye uwajibikaji na udhibiti wa kiufundi. Msimamizi wa Kikundi, mmiliki wa \texttt{SwapPool}, msimamizi wa proksi, mdhibiti wa kitegemezi, msimamizi wa katalogi na mpokeaji wa ada wanaweza kuwa wahusika tofauti. Angalia \href{https://docs.cosmolocal.credit/sw/introduction/concepts}{Dhana na msamiati} kwa msamiati unaotumiwa pamoja.
+
+\section*{Historia}
+\addcontentsline{toc}{section}{Historia}
+
+Sarafu Network ya kihistoria ilitangulia CLC App na ilitoa ushahidi kuhusu sarafu za jamii na kuunganisha ahadi. Mpito wa huduma hiyo kwenda Cosmo-Local Credit haukuhamisha kila akaunti, Mkoba, tokeni, vocha, Kikundi, salio, ripoti, mshiriki au wajibu wa kihistoria.
+
+Takwimu za kihistoria katika waraka huu zinatumia mkusanyiko wa data wa Sarafu wenye tarehe na unaolingana ndani yake. Si takwimu za matumizi ya sasa ya CLC. Angalia \href{https://docs.cosmolocal.credit/sw/white-paper/executive-summary}{Muhtasari mkuu} kwa chanzo na kipindi cha vipimo.
+
+\section*{Mfumo wa muundo}
+\addcontentsline{toc}{section}{Mfumo wa muundo}
+
+CPP hutumia kazi nne pana:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Uratibu:} kuamua vocha au mali nyingine zinazokubaliwa.
+\item \textbf{Uthamini:} kuchapisha mbinu ya kutoa viwango au makadirio ya ubadilishaji wa Kikundi.
+\item \textbf{Uwekaji mipaka:} kutumia mipaka ya sasa ya salio la tokeni la Kikundi au vidhibiti vingine vya hatari vinavyotekelezwa kando.
+\item \textbf{Ubadilishaji:} kuhifadhi mali na kutekeleza ubadilishaji kupitia Kikundi chini ya ada na mipaka iliyowekwa wazi.
+\end{itemize}
+Utekelezaji unaweza kuongeza uelekezaji, ufuatiliaji, msaada wa ukwasi, dhamana, akiba, bima au huduma za utawala tu chini ya sera zilizochapishwa kando. Kuorodhesha, kuratibu, kuweka kikomo, kuweka akiba au kuwepo kwa rekodi ya blockchain pekee hakuthibitishi uwezo wa Mtoaji, utekelezaji, idhini, dhamana au bima.
+
+\section*{Maadili na kanuni za muundo}
+\addcontentsline{toc}{section}{Maadili na kanuni za muundo}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Kujali watu:} kusaidia ustawi wa mtu binafsi na wa pamoja.
+\item \textbf{Kujali mazingira:} kupunguza madhara ya kiikolojia na kusaidia utendaji unaorejesha mazingira.
+\item \textbf{Haki:} kuendeleza ufikiaji salama na wa usawa wa rasilimali, maarifa na huduma.
+\item \textbf{Kusaidiana:} kugawana hatari, gharama, wajibu na ziada chini ya kanuni zilizowekwa wazi.
+\item \textbf{Kuzuia utawala uliokithiri:} kupinga udhibiti uliolimbikizwa juu ya watu, data, fedha, maarifa na rasilimali.
+\item \textbf{Ustahimilivu:} kusaidia jamii kujiandaa na kukabiliana na misukosuko ya kiuchumi, kisiasa na tabianchi.
+\item \textbf{Uwajibikaji wa eneo:} kuweka utekelezaji wa ulimwengu halisi na wajibu wa kisheria kwa wahusika wanaotambulika.
+\item \textbf{Uwezo wa kugawanyika:} kuruhusu jamii na utekelezaji unaolingana kuondoka kwenye rejesta au huduma za pamoja bila kufuta salio au wajibu halali.
+\end{itemize}
+Safu ya kidijitali ni kumbukumbu ya pamoja na miundombinu ya uratibu. Haibadilishi mahusiano, utekelezaji wa Mtoaji, utawala wa eneo au uwajibikaji wa kisheria.
+
+\section*{Mitiririko ya sasa na inayopendekezwa}
+\addcontentsline{toc}{section}{Mitiririko ya sasa na inayopendekezwa}
+
+\subsection*{Mtiririko wa sasa wa moja kwa moja kupitia Kikundi}
+\addcontentsline{toc}{subsection}{Mtiririko wa sasa wa moja kwa moja kupitia Kikundi}
+
+\begin{enumerate}[leftmargin=*]
+\item Mmiliki hukagua vocha, Mtoaji wake, masharti yake na Matoleo yanayohusiana.
+\item Kikundi hukubali mali zinazosaidiwa na kuchapisha usanidi na mamlaka zinazowajibika.
+\item Mmiliki hupata makadirio na kuidhinisha ubadilishaji wa moja kwa moja kupitia Kikundi.
+\item \texttt{SwapPool} hukamilisha ubadilishaji kwenye blockchain na kuhesabu ada za Kikundi na za itifaki.
+\item Mmiliki akichagua \textbf{``Komboa''} baadaye katika programu, programu huandaa uhamishaji kwenda kwa mmiliki wa tokeni kama uwasilishaji kwa ukombozi.
+\item Mtoaji hutekeleza kando ahadi yake na kurekodi ukomo ili vitengo vilivyotekelezwa visitumiwe tena.
+\end{enumerate}
+Kuchukua mali kutoka Kikundi ni ubadilishaji. Ni ukombozi tu ikiwa Kikundi hicho kimekubali kando jukumu la Mtoaji na kinatekeleza masharti husika ya vocha.
+
+\subsection*{Muundo mpana unaopendekezwa}
+\addcontentsline{toc}{subsection}{Muundo mpana unaopendekezwa}
+
+Muundo unaopendekezwa unachunguza uelekezaji wa utekelezaji, ulinganishaji, huduma za pamoja, mipango ya ukwasi wa mtandao, sera za bima na rasilimali za utawala. Kila kipengele kitahitaji utekelezaji, wahusika wanaowajibika, kanuni zilizopitishwa, ufadhili, vidhibiti na taarifa za umma kabla ya kutumika.
+
+Mfumo wa ada unaopendekezwa unaweza kutumia sehemu ya mtandao inayotolewa kwenye ada za Kikundi na ada tofauti za uelekezaji au huduma. Pendekezo hilo ni tofauti na Protocol v1.1.0, ambapo ada ya hiari ya itifaki huongezwa juu ya ada ya Kikundi.
+
+Wasaidizi au watoa ukwasi hawapati moja kwa moja hisa za Kikundi, malipo, haki ya kutoa mali, zawadi au haki za utawala kutoka \texttt{SwapPool} ya sasa. Mpango wowote wa sasa au wa baadaye lazima ueleze kando aina ya uhamishaji, mhusika anayewajibika, udhibiti, haki za urejeshaji au utoaji, hasara, zawadi, ada na haki za utawala.
+
+\section*{Mwongozo wa msomaji}
+\addcontentsline{toc}{section}{Mwongozo wa msomaji}
+
+\begin{itemize}[leftmargin=*]
+\item Msamiati wa sasa na mzunguko wa vitendo: \href{https://docs.cosmolocal.credit/sw/introduction/concepts}{Dhana na msamiati}
+\item Mikataba iliyothibitishwa: \href{https://docs.cosmolocal.credit/sw/protocol/overview}{Protocol v1.1.0}
+\item Ushahidi wa kihistoria: \href{https://docs.cosmolocal.credit/sw/white-paper/executive-summary}{Muhtasari mkuu}
+\item Shirikisho na ushirikiano wa mifumo: Sura ya 5, 8 na 11
+\item Mipaka ya dhamana na bima inayopendekezwa: Sura ya 10 na 11
+\item Mifumo ya ukwasi na ada inayopendekezwa: Sura ya 7, 9 na 12
+\item Mfumo wa vipimo unaopendekezwa: Sura ya 14 na Viambatisho A--C
+\item Mpango wa utekelezaji unaopendekezwa: Sura ya 15
+\item Masuala ya kisheria na uzingatiaji: Sura ya 17
+\end{itemize}
+\href{https://docs.cosmolocal.credit/sw/white-paper/archive}{Matoleo ya awali ya Waraka Mweupe} yamehifadhiwa tu kama machapisho ya kihistoria yaliyopitwa na wakati.
+
+\section*{Muhtasari mkuu}
+\addcontentsline{toc}{section}{Muhtasari mkuu}
+
+Waziri Mkuu \textbf{Itifaki ya Kuunganisha Ahadi (CPP)} inaelezea jinsi Vikundi vya Ahadi inayoongozwa kwa kujitegemea inaweza kutunza ahadi zinazoweza kufutwa, kuchapisha njia na mipaka ya kiwango cha ubadilishaji, kuhifadhi hesabu, na kuwezesha kubadilishana kwa hesabu. Watangazaji wanaendelea kuwajibika kwa ahadi zao za vocha. Wasimamizi wa Vikundi huendelea kuwajibika kwa sheria za Kikundi na dhamana yoyote wanayochukua wazi. Wala CLC App wala GEF ni mdhamini wa kimataifa.
+
+Protocol v1.1.0 hutoa sasa moja kwa moja swap blocks: \texttt{GiftableToken}, \texttt{SwapPool}, kumbukumbu chaguo-msingi na moduli za tathmini, kikundi tokens-walio caps, kikundi ada, ziada itifaki ada, na quote tu \texttt{SwapRouter}. Mikataba ya sasa haina rekodi ya utekelezaji wa ulimwengu halisi, kuunda hisa za mtoaji wa umaarufu wa moja kwa moja, kutekeleza njia nyingi za hop, au kutoa hifadhi ya kimataifa, dhamana, au bima.
+
+Historia \textbf{Sarafu Network} matumizi ya dhana za ushirikiano wa ahadi katika sarafu za jamii, makundi ya akiba, mifumo ya misaada ya pamoja, na ahadi za uzalishaji. Huduma yake baadaye kuhamishwa kwa CLC App. Hii haikuwa uwakilishi kwamba kila akaunti ya kihistoria, mkoba, ishara, vocha, Kikundi, usawa, ripoti, mshiriki, au wajibu kuhamia.
+
+\textbf{Picha ya kihistoria ya Sarafu Network --- Shughuli za Celo kuanzia 5 Julai 2023 hadi 20 Julai 2025}
+
+\textbf{Chanzo:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics dashibodi}
+
+\begin{itemize}[leftmargin=*]
+\item Watumiaji 26,367
+\item 285,197 kubadilishana kwa watu kwa watu
+\item 188 kipekee Active Vikundi vya Ahadi
+\item 745 vocha za kipekee za kazi
+\item \$320,692 Jumla ya kubadilishana kikundi
+\item 899 ripoti zilizochapishwa (\href{https://sarafu.network/reports}{kumbukumbu ya ripoti za kihistoria})
+\end{itemize}
+Takwimu hizi ni ushahidi wa kihistoria, si sasa CLC takwimu matumizi.
+
+Kubuni zaidi iliyopendekezwa CLC inachunguza jinsi mitandao sambamba inaweza:
+
+\begin{enumerate}[leftmargin=*]
+\item kugundua na kutaja njia za kuvuka Visiwa vya kujitegemea;
+\item kuhariri huduma za mtandao zenye uwajibikaji bila kuzingatia uwajibikaji wa ndani;
+\item Kuunga mkono mipango ya upungufu wa fedha, dhamana, akiba, au sera za bima zilizofadhiliwa kwa njia tofauti;
+\item kipimo kikundi swaps tofauti na vocha kuwasilisha, kutimiza, na discharge; na
+\item kutumia mapato yaliyopendekezwa ya mtandao na ada ya huduma ili kufadhili huduma za pamoja zilizopendekezwa.
+\end{enumerate}
+Mpango huo unajumuisha \textbf{iliyopendekezwa CLC utawala ishara } na a \textbf{ Iliyopendekezwa CLC Jumuiya ya Mtandao}. . Wala ni sehemu ya sasa programu au Protocol v1.1.0.
+
+Chini ya mtindo uliopendekezwa, washiriki wa upungufu wa fedha na utawala wangeweza kutenda tu kupitia mipango iliyopitishwa kwa kipekee na upendeleo uliochapishwa, hatari, udhibiti, haki za uhamisho, masharti ya upatikanaji, na sheria za ada. Amana ya kawaida Kikundi kutoa hakuna sehemu ya moja kwa moja, malipo, uondoaji, tuzo, au utawala haki.
+
+Lengo la pamoja ni:
+
+Ongeza kubadilishana kwa uwajibikaji na kutimiza ahadi za ulimwengu halisi huku ukihifadhi utunzaji, haki, uwajibikaji wa ndani, na uvumilivu.
+
+Kuzuia kukamata na kuondoka kwa kuaminika bado ni malengo ya msingi ya kubuni. Udhibiti uliopendekezwa ni pamoja na utawala wa kucheleweshwa kwa muda, mipaka ya idhini nyingi, uwakilishi wa uwazi, sheria za migogoro, tathmini ya matukio, na mchakato uliothibitishwa wa kufungua na kuhamia. Udhibiti huu ungepunguza hatari zilizochaguliwa za utawala lakini haungeweza kuondoa hasara au kuhakikisha matokeo.
+
+
+\section*{1. Itifaki ya Kuunganisha Ahadi (CPP): msingi mkuu}
+\addcontentsline{toc}{section}{1. Itifaki ya Kuunganisha Ahadi (CPP): msingi mkuu}
+
+\textbf{Mfano wa akili:} Kikundi cha Ahadi ni mpangilio wa kudhibitiwa kwa kukubali vocha au mali nyingine, kuchapisha sheria za kubadilishana, kuhifadhi hisa, na kuwezesha swaps. Baada ya muda, wamiliki huwasilisha vocha kwa watangazaji wao kwa ajili ya kutimiza mahitaji yao katika ulimwengu halisi. Kubadilishana fedha na kukamilika kwa wachapishaji ni mizunguko tofauti ya maisha.
+
+CPP huunganisha thamani kupitia ahadi zilizoelezwa wazi. Mfano huu ni kujadiliwa katika \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{Uchumi wa Msingi: Kutafakari na Mazoezi}.
+
+\subsection*{1.1 Ahadi ni nini?}
+\addcontentsline{toc}{subsection}{1.1 Ahadi ni nini?}
+
+Ushirikiano ni ahadi ya chama kinachojulikana ya utoaji wa baadaye---kwa mfano chakula, usafirishaji, kazi, uhifadhi, au bidhaa nyingine halali, huduma, faida, au utendaji. A \textbf{vocha} ni ishara au rekodi iliyowakilishwa kama ahadi hiyo kwa masharti yaliyochapishwa.
+
+Mikataba ya ishara kurekodi mitambo digital. Masharti ya vocha huamua mtoaji, Utoaji, uwezo, mahali, wakati, vizuizi, uwasilishaji, utekelezaji, malalamiko, na mchakato wa ukomo.
+
+\subsection*{1.2 Kikundi cha Ahadi ni nini?}
+\addcontentsline{toc}{subsection}{1.2 Kikundi cha Ahadi ni nini?}
+
+Kikundi cha Ahadi ni mpangilio uliowekwa. Inaweza kusimamiwa na mtu binafsi, ushirika, kikundi cha jamii, shirika la umma, shirikisho, multisig, operator wa huduma, au muundo mwingine unaohusika.
+
+Majukumu na mamlaka husika ni:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Msimamizi wa Kikundi:} kuchapisha na kusimamia sheria za Kikundi na dhamana yoyote iliyochukuliwa wazi;
+\item \textbf{Mmiliki wa Kikundi:} ana mamlaka ya sasa ya mmiliki wa \texttt{SwapPool};
+\item \textbf{Msimamizi wa proxy:} inaweza kuboresha utekelezaji wa proxied;
+\item \textbf{Wasimamizi wa utegemezi:} kudhibiti kumbukumbu zilizopangwa, quoters, limiters, au vipengele vya ada;
+\item \textbf{Mtafutaji wa njia au operator:} wanaweza kugundua quotes au, katika utekelezaji wa baadaye, kutekeleza tofauti ruhusa njia; na
+\item \textbf{mdhamini:} inachukua wajibu uliofafanuliwa tu kupitia masharti yaliyochapishwa, yaliyofadhiliwa.
+\end{itemize}
+CPP makundi Kikundi kazi katika dhana nne:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Msaidizi:} kukubali ishara au vocha mkono.
+\item \textbf{Tathmini:} kuchapisha njia inayotumiwa kwa kiwango cha ubadilishaji au nukuu.
+\item \textbf{Mipaka:} kutumia mipaka ya sasa ya usawa wa tokeni za Kikundi au udhibiti mwingine uliowekwa tofauti.
+\item \textbf{Kubadilishana:} kuweka hisa, kutekeleza swaps, akaunti kwa ajili ya ada, na kutoa rekodi za shughuli.
+\end{itemize}
+Protocol v1.1.0 kutekeleza kazi hizi kupitia \texttt{SwapPool} na dependencies optional. \texttt{Limiter} yake ya sasa caps upweke wa ishara katika Kikundi; haitoi mipaka ya rolling, kwa kila akaunti, au mtandao wote swap. \texttt{SwapRouter} yake ya sasa huhesabu quotes za kikundi nyingi; haina kutekeleza swaps.
+
+Ubunifu mpana uliopendekezwa wa CPP unaweza kuongeza mipaka ya rolling, udhibiti wa akaunti, routers za utekelezaji, HTLC au njia za usimamizi, na mtandao wa kundi. Hizi ni vipengele iliyopendekezwa, si maelezo ya limiter ya sasa au router.
+
+\subsection*{1.3 Utendaji wa sasa wa ubadilishaji wa moja kwa moja}
+\addcontentsline{toc}{subsection}{1.3 Utendaji wa sasa wa ubadilishaji wa moja kwa moja}
+
+Sasa moja kwa moja Kikundi swap:
+
+\begin{enumerate}[leftmargin=*]
+\item inachunguza rejista ya hiari ya ishara za kuingia na kutoka;
+\item kipimo cha mapato yaliyopokea;
+\item hupata nukuu kutoka kwa quoter iliyowekwa au hutumia parity ya kitengo cha ghafi;
+\item inachunguza usawa wa ishara ya kikundi inayotokea dhidi ya limiter ya hiari;
+\item Hesabu ada ya Kikundi na ada yoyote ya ziada ya itifaki;
+\item inachunguza hesabu ya pato inayopatikana;
+\item kuhamisha ada ya mkataba na pato na akaunti za ada ya Kikundi; na
+\item hutoa matukio swap.
+\end{enumerate}
+Taarifa ni kipimo cha shughuli, si uthibitisho wa uwezo wa mtoaji, thamani ya ukombozi, thamani ya haki, cash convertibility, au dhamana.
+
+\subsection*{1.4 Matumizi makubwa zaidi}
+\addcontentsline{toc}{subsection}{1.4 Matumizi makubwa zaidi}
+
+Vikundi vya Ahadi inaweza kusaidia kubadilishana kwa jamii, uzalishaji, misaada ya pamoja, mipango ya umma, na miundo mingine ya uwajibikaji. Bidhaa ya mkopo iliyosajiliwa tofauti inaweza kutumia vocha kama dhamana au chombo cha malipo, lakini itahitaji masharti ya ziada na maalum ya shughuli. Kutuma kwa kawaida, amana ya Jumla, kubadilishana Jumla, uwasilishaji wa fidia, kutimiza, au malipo sio mkopo au malipo ya moja kwa moja.
+
+CPP ni lengo la kubadilishana akaunti na rekodi za shughuli auditable, si speculative churn. Rekodi za mfululizo bado hazithibitishi utekelezaji wa ulimwengu halisi au athari za kijamii.
+
+
+\section*{2. Mabadiliko ya uhasibu: kutoka kwa mali hadi uaminifu}
+\addcontentsline{toc}{section}{2. Mabadiliko ya uhasibu: kutoka kwa mali hadi uaminifu}
+
+Fedha za jadi huanza na \textbf{Mali - Dhima = Sharia}. . CPP reframes hii kwa ajili ya uchumi wa ahadi:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Uwezo wa kukubali:} ni kiasi gani cha ahadi za mtoaji ambazo kundi au mtandao bado uko tayari kukubali.
+\item \textbf{Mikopo iliyobaki:} alitoa ahadi ambazo hazikutimizwa na wengine wakazifanya.
+\item \textbf{Uwezo wa kutimiza:} uwezo uliothibitishwa wa mtoaji kutimiza ahadi hizo.
+\end{itemize}
+\subsection*{Mfano wa uhusiano wa ahadi-uwezo:}
+\addcontentsline{toc}{subsection}{Mfano wa uhusiano wa ahadi-uwezo:}
+
+Uwezo wa kukubali - ahadi zilizopo = uwezo wa kukubali uliobaki
+
+Utambulisho huu wa dhana unaweza kuelezea mipaka ya hatari ya Kikundi: kutolewa bila kikomo hakumaanishi kukubalika bila kikomo. Si kitambulisho cha usawa au taarifa kwamba kila vocha ni kisheria deni au mkopo.
+
+\textbf{Mfano:} Usafirishaji hutoa 100100 safari'' katika vocha. Kikundi inakubali safari 40 kwa wakati mmoja. Ikiwa safari 15 zilizokubaliwa bado hazijatekelezwa, Hifadhi ina uwezo wa kukubali hadi safari 25 za ziada chini ya sera hiyo. Hesabu yenyewe haitoi mkopo au dhamana ya kutimiza.
+
+
+
+\section*{3. Utekelezaji, ukomo na ubadilishaji}
+\addcontentsline{toc}{section}{3. Utekelezaji, ukomo na ubadilishaji}
+
+Mabadiliko ya mkusanyiko swap ambayo hushughulikia mali kushikilia. utekelezaji wa vocha hufanyika wakati mtoaji hutimiza ahadi iliyochapishwa. Utoaji huorodhesha vitengo vilivyokamilika ili wasiweze kuwasilishwa tena. Matukio haya hayapaswi kuanguka katika matumizi moja ya settlement.
+
+Mfumo uliopendekezwa wa kipimo hutumia rekodi tofauti kwa:
+
+\begin{itemize}[leftmargin=*]
+\item Jumla kamili ya kubadilishana kikundi;
+\item maonyesho halali ya ukombozi;
+\item utekelezaji uliothibitishwa wa mtoaji;
+\item ukomo;
+\item mikopo inayostahili kutolewa; na
+\item kupima kikundi hesabu.
+\end{itemize}
+Hatua iliyopendekezwa ya ukomo kwa ahadi inaweza kulinganisha thamani iliyokamilika wakati wa kipindi na wastani wa thamani ya ahadi inayostahiki, lakini tu wakati wote hutumia njia ile ile ya kukadiria iliyotolewa. Utoaji wa tokeni sio jina la kutosha: inaweza kujumuisha hesabu ya mtoaji, vitengo vilivyopita au visivyoweza kupatikana, vipimo, na mikopo ambayo haiwakilishi ahadi ya mtu wa tatu.
+
+Kiwango tofauti cha shughuli za kubadilishana kikundi inaweza kulinganisha thamani ya kubadilishana kikundi kamili na hesabu ya kikundi iliyokadiriwa. Inaelezea shughuli za kubadilishana, si utekelezaji wa mtoaji.
+
+Liquidity inaweza kuboresha upatikanaji wa hisa na kufanya kubadilishana rahisi. Haitahakikisha kwamba wachapishaji watatimiza, kwamba wachangiaji watarudisha mali, au kwamba nukuu ya kikundi inawakilisha ukombozi au thamani ya fedha. Haki yoyote ya mtoaji wa umaarufu inahitaji masharti tofauti yaliyochapishwa.
+
+Tazama \href{https://docs.cosmolocal.credit/sw/white-paper/appendix-a-math-box}{Kiambatisho A} kwa ajili ya ufafanuzi na \href{https://docs.cosmolocal.credit/sw/white-paper/appendix-c-kpi-definitions}{Kiambatisho C} kwa ajili ya specification kupimwa iliyopendekezwa.
+
+
+\section*{4. Dhamana inayoweza kutumiwa tena}
+\addcontentsline{toc}{section}{4. Dhamana inayoweza kutumiwa tena}
+
+Msaada wa mkopo ulioorodheshwa tofauti unaweza kukubali vocha zinazoweza kuhamishwa kama dhamana au kama chombo cha malipo. Ikiwa ilikuwa hivyo:
+
+\begin{itemize}[leftmargin=*]
+\item Uingizaji kikundi inaweza kufanya dhamana zaidi kupatikana;
+\item chaguzi za ziada za uwasilishaji halali na utekelezaji zinaweza kusaidia malipo;
+\item mipaka, hesabu, tathmini, umaarufu, utendaji wa mtoaji, na hatari za kutofaulu zitabaki; na
+\item hakuna njia, utekelezaji, malipo, thamani, au ahueni itakuwa uhakika.
+\end{itemize}
+\subsection*{4.1 Mzunguko wa mkopo wa wazalishaji}
+\addcontentsline{toc}{subsection}{4.1 Mzunguko wa mkopo wa wazalishaji}
+
+Huduma ya baadaye ya CLC- inayolingana inaweza kusaidia mkopo wa wazalishaji tu wakati pande huanzisha kituo tofauti na kutoa wazi shughuli kama malipo ya awali. Masharti yake ya shughuli itakuwa kutambua mkopo na deni na taarifa:
+
+\begin{itemize}[leftmargin=*]
+\item kiasi cha malipo ya mapema na malipo;
+\item tarehe za kuisha, riba, ada, na matumizi yanayoruhusiwa ya dhamana;
+\item uhamisho na mabadiliko yoyote katika mkopo au mmiliki wa madai;
+\item jinsi utekelezaji wa vocha unavyotathminiwa na kuthibitishwa kwa uhasibu wa malipo;
+\item malipo ya sehemu, kiasi kilichobaki, kutofaulu, na malipo; na
+\item njia za kurekebisha zinazopatikana chini ya sheria inayotumika.
+\end{itemize}
+Mtiririko wa kielelezo ni:
+
+\begin{enumerate}[leftmargin=*]
+\item Mzalishaji au mtoaji wa huduma hutoa hati ya malipo inayoonyesha ahadi ya kutekeleza mradi wa wakati ujao, kama vile safari kumi za teksi, kilogramu 50 za mahindi, au saa kumi za kazi.
+\item A Msimamizi wa Kikundi anakubali kwamba vocha na kuchapisha Kikundi ya kiwango cha kubadilishana, mipaka, ada, sheria za hisa, na ulinzi wowote kwa wazi kudhani.
+\item Mpangaji au mpango wa upungufu wa fedha hutoa malipo ya mapema kwa njia ya maandishi chini ya masharti ya shughuli na inakubali vocha za mtengenezaji kama dhamana au chombo cha malipo kilichokubaliwa.
+\item Wamiliki wanaweza kuhamisha vocha, kubadilishana yao kupitia Vikundi sambamba, au kuwasilisha kwa mtoaji.
+\item utekelezaji uliothibitishwa na mtoaji unakidhi ahadi ya vocha. Inapunguza kiasi cha mkopo tofauti tu kwa kiwango, kwa thamani, na kwa uthibitisho ulioainishwa katika masharti ya mkopo.
+\item Rekodi hutofautisha utekelezaji wa vocha na uhasibu wa mkopo na kutambua malipo yoyote ya sehemu, kiasi kilichobaki, uhamisho, kutofaulu, au ukomo.
+\end{enumerate}
+Muundo huu unaweza kuruhusu kurudishwa kwa makubaliano ya kiasi wakati wa kuhifadhi rekodi tofauti kwa vocha na wajibu wa mkopo. Haitokezi kutoka kwa uhamisho wa kawaida, amana, kubadilishana kikundi, uwasilishaji wa fidia, kutimiza, au discharge.
+
+\textbf{Mfano wa mfano:} Mzalishaji hupokea malipo ya mapema ya dola 1,000 chini ya masharti ya kwamba kutimizwa kwa vyeti vilivyotajwa vya mahindi kunathibitishwa dhidi ya kiasi cha malipo kwa kutumia mbinu iliyotajwa ya kutathmini. Mtoaji wa mkopo hutumia mkopo tu baada ya kupokea uthibitisho unaotakiwa na masharti hayo. Ikiwa masharti ya mkopo hayafanyi uhusiano huo, ununuzi, uhamisho, kubadilishana, kuwasilisha, au kutimiza vocha haiathiri malipo ya mapema.
+
+
+\section*{5. Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa}
+\addcontentsline{toc}{section}{5. Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa}
+
+Sasa Protocol v1.1.0 inasaidia utekelezaji wa moja kwa moja kupitia \texttt{SwapPool} na hutoa quote tu \texttt{SwapRouter}. Haitekelezi njia nyingi, HTLCs, njia za usimamizi, kuunganisha makundi, au kuunganisha mtandao.
+
+Sura hii inapendekeza jinsi kujitegemea kutawala Vikundi inaweza kuhariri bila kutoa yao wenyewe uandikishaji, tathmini, kikomo, ada, hesabu, idhini, na utawala sheria.
+
+\subsection*{5.1 Hatua tofauti za kubadilishana na kutimiza}
+\addcontentsline{toc}{subsection}{5.1 Hatua tofauti za kubadilishana na kutimiza}
+
+Shirikisho inaweza kuboresha upatikanaji wa hisa, lakini itakuwa si kuunganisha vocha na kubadilishana mizunguko ya maisha. Utekelezaji wowote ungepima matukio haya tofauti:
+
+\begin{enumerate}[leftmargin=*]
+\item njia imeorodheshwa;
+\item moja au zaidi ya kikundi swaps kutekeleza na kutatua juu ya mlolongo;
+\item mmiliki huwasilisha vipande vya vocha kwa mtoaji;
+\item mtoaji hutimiza ahadi; na
+\item Vituo vilivyokamilika vinatupwa.
+\end{enumerate}
+Njia nyingi zilizotajwa au zilizofanywa hazithibitishi kutimizwa zaidi. Ripoti itaonyesha kundi, kipindi, mali, mbinu ya thamani na muhuri wa muda, uondoaji, marekebisho, na ushahidi nje ya mlolongo required na nyongeza C.
+
+\textbf{Njia ya kielelezo:} Shule ina vocha za mahindi lakini inahitaji vocha za usafirishaji. Huduma ya njia huamua hesabu zinazofaa za Kikundi. Utekelezaji ungekuwa na mafanikio tu kama kila hop iliyoidhinishwa tofauti ingebaki ndani ya mipaka yake ya nukuu, mipaka, ada, hesabu, na sera. Swaps zilizosababishwa hazingethibitisha kwamba yeyote kati ya watangazaji baadaye alitimiza ahadi zake za vocha.
+
+\subsection*{5.2 Huduma zinazopendekezwa za kuelekeza na kusawazisha upya}
+\addcontentsline{toc}{subsection}{5.2 Huduma zinazopendekezwa za kuelekeza na kusawazisha upya}
+
+Huduma ya njia ya wakati ujao inaweza kusaidia shughuli mbili tofauti.
+
+\textbf{Utekelezaji ulioanzishwa na mshiriki.} Kwa kuzingatia mali za kuingia na kutoka, kiasi, na vizuizi vya watumiaji, huduma inaweza kutambua njia na kuandaa utekelezaji. Kila hop ingekuwa na Kikundi chake mwenyewe kuwajibika, quote, idhini, ada, mipaka, hesabu, na risiti. Atomic batches, HTLCs, na escrow ni uwezekano wa uchaguzi ujao utekelezaji, si tabia ya sasa itifaki.
+
+\textbf{Kuchagua Kikundi kusawazisha tena.} Wasimamizi wa Vikundi inaweza kuchapisha malengo ya hesabu, idhini za wapinzani, madarasa ya mali, mipaka ya kupotoka kwa quotes, na mipaka ya kila kipindi. Huduma inayohusika inaweza kutafuta mizunguko au minyororo inayolingana na kutekeleza tu makusudi yaliyoidhinishwa.
+
+Kuwa na usawaziko kungekuwa sawa. Kikundi inaweza kuruhusu njia washiriki wakati kukataa outbound rebalancing, au inaweza kuruhusu tu mali zilizochaguliwa, wapinzani, na kiasi. Kila hop kutekelezwa kuzalisha risiti, na ada yoyote ya huduma itakuwa kufunuliwa tofauti na Jumla na itifaki ada.
+
+\subsubsection*{5.2.1 Shirikisho na ushirikiano wa mifumo}
+
+Utekelezaji wa kujitegemea unaweza kuendesha rejista zao wenyewe, viungo, huduma za njia, na maelezo ya sera wakati wa kuchagua data zinazofaa na viwango vya kupokea. Utekelezaji mbalimbali ungeendelea kutegemea utekelezaji.
+
+Profaili inayolingana ingekuwa:
+
+\begin{itemize}[leftmargin=*]
+\item kutambua mizizi yake ya rejista, watendaji wa huduma, wasimamizi, na maneno yanayotumika;
+\item kufichua idhini na kukataliwa kwa wapinzani, mali, adapters, na njia;
+\item hutumia ruhusa, mipaka, ada, na vizuizi vya hesabu ya kila Kikundi kinachoshiriki;
+\item kuhifadhi uthibitisho wa quote-to-receipt per-hop; na
+\item kuruhusu Vikundi vinginevyo kazi kuondoka au kuchagua rejista nyingine bila kufuta mikopo au wajibu wa mtoaji.
+\end{itemize}
+Upatano unaweza kuongeza njia za kubadilishana zinazopatikana na kupunguza utegemezi kwa rejista moja au operator. Haitafanya mtandao, CLC App, GEF, au Kikundi nyingine kuwajibika kwa utekelezaji wa mtoaji.
+
+\subsection*{5.3 Mfano uliopendekezwa wa upungufu wa mtandao na ada ya huduma}
+\addcontentsline{toc}{subsection}{5.3 Mfano uliopendekezwa wa upungufu wa mtandao na ada ya huduma}
+
+Sasa Protocol v1.1.0 inachukua ada ya Kikundi na, wakati imewekwa, ada ya itifaki ya ziada kwenye kubadilishana moja kwa moja kwa Kikundi. Mshahara huo unaendelea kutofautiana.
+
+Programu ya wakati ujao inaweza kupokea tofauti:
+
+\begin{enumerate}[leftmargin=*]
+\item A \textbf{Rake mtandao}, iliyofafanuliwa kama sehemu iliyoainishwa ya ada za Kikundi zilizokusanywa za Kikundi cha Washiriki; na
+\item A \textbf{ada ya usafirishaji au huduma}, kulipwa kwa ajili ya huduma ya baadaye kujulikana.
+\end{enumerate}
+Rake ya mtandao iliyopendekezwa sio asilimia ya ziada inayotumika kwa kiasi kamili cha swap baada ya tayari kuhesabu ada ya Kikundi. Kwa Kikundi \texttt{p}:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+ambapo \texttt{f\_p} ni kiwango cha ada ya Kikundi na \texttt{r\_p} ni sehemu iliyopendekezwa ya ada hiyo ya Kikundi iliyogawanywa kwa mpango wa mtandao.
+
+Kwa kipindi kilichopimwa:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Malipo ya Jumla} ni jumla ya ada halisi zilizopokelewa za kila Kikundi;
+\item \textbf{mapato kwa ajili ya mitandao} ni sehemu zilizotajwa za ada hizo zilizopokelewa;
+\item \textbf{risiti za ada ya huduma} ni malipo ya njia au huduma zilizopangwa kwa njia tofauti; na
+\item \textbf{mapato ya ada ya programu} mapato ya usawa wa mtandao pamoja na mapato ya ada ya huduma.
+\end{itemize}
+Hakuna jamii inayohesabiwa mara mbili. Malipo ya sasa ya mkataba hayajumuishiwi isipokuwa sera iliyopitishwa kwa kipekee ielekeze kisheria mapato halisi ya mapato ya mkataba kwenye mpango wa baadaye.
+
+Kwa makadirio ya jumla, hebu:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{Q\_swap} ni thamani ya kukamilika Kikundi swaps kwa ajili ya cohort na kipindi maalum; na
+\item \texttt{$\tau$} ni kiwango cha ufanisi cha kuongezeka kwa mtandao uliopendekezwa na ada za huduma zilizoainishwa tofauti juu ya thamani ya swap iliyofanywa.
+\end{itemize}
+Kisha:
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+Hii ni makadirio ya uchambuzi, si ahadi ya mapato. Kila input inahitaji cohort iliyotangazwa, kipindi, kitengo, thamani muda stempu, uondoaji, na marekebisho sera.
+
+\subsubsection*{5.3.1 Malipo yanayoweza kulipwa kwa fedha na mapato ya aina}
+
+Malipo yanaweza kufika katika mali zinazoweza kulipwa kwa fedha au katika vocha na mali nyingine za asili. Malipo ya asili hayawezi kulipia gharama za fedha au madai ya bima. Kila kubadilishana au kubadilishana kungehitaji mamlaka, hesabu inayopatikana, maeneo yaliyofunuliwa, mipaka, na utekelezaji halisi.
+
+Hebu \texttt{$\chi$} kuwa sehemu iliyotekelezwa ya mapato ya ada ambayo ni cash-eligible baada ya mapungufu ya sera, conversions kushindwa, na slippage. Malipo yanayoweza kutumiwa kwa fedha ni:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+Uchambuzi wa bajeti na kusawazisha utatumia realized \texttt{F\_cash}, si jumla ya ada zilizoorodheshwa au nywila ya hesabu ya asili. Programu ya siku zijazo ingeripoti mapato ya mkusanyiko wa jumla, mapato ya mitandao, mapato ya huduma, muundo wa mali, matokeo ya uongofu, na mapato ya matumizi ya fedha tofauti.
+
+\subsection*{5.4 Mipango ya upungufu wa fedha iliyopendekezwa}
+\addcontentsline{toc}{subsection}{5.4 Mipango ya upungufu wa fedha iliyopendekezwa}
+
+Programu ya baadaye ya upungufu wa fedha, iliyoandikwa tofauti, inaweza kugawa mali kwa Vikundi zilizoainishwa au huduma za kuelekeza. Mikataba ya sasa ya \texttt{SwapPool} haitoi hisa za Kikundi au kuunda haki za kurudisha, kujiondoa, thawabu, utawala, au faida.
+
+Programu yoyote ingechapisha:
+
+\begin{itemize}[leftmargin=*]
+\item taasisi inayowajibika na kushirikiana Wasimamizi wa Vikundi;
+\item mali zilizochangia na ikiwa uhamisho huo ni wa kurudishwa, unaweza kufutwa, umetolewa, au umetolewa;
+\item mipangilio ya ulinzi na udhibiti wa kiufundi;
+\item matumizi yanayoruhusiwa, mipaka, kufuli, milango ya kujiondoa, na usambazaji wa hasara;
+\item usawa wa ada au motisha na ikiwa kiasi kinaweza kuwa sifuri;
+\item kuripoti, migogoro, malalamiko, na suluhisho; na
+\item uhamiaji, kumalizika, na matibabu ya mali zilizobaki na wajibu.
+\end{itemize}
+Hatari za kimsingi ni pamoja na hesabu ambayo ni vigumu kubadilishana au kutimiza, upendeleo mdogo wa fedha, kutotimiza kwa mtoaji, kutofaulu kwa mkataba au mtoaji, mabadiliko ya utawala, na vizuizi vya kuondoka. Mipaka, hifadhi, risiti, na dashibodi zinaweza kupunguza au kufunua hatari fulani; hawaondoi hasara.
+
+Kwa kipimo cha uchambuzi ex-post, hebu:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{$\phi$} ni sehemu iliyotekelezwa ya mapato ya ada ya programu iliyogawanywa chini ya masharti yaliyopitishwa ya programu; na
+\item \texttt{K} ni thamani ya kipimo cha mali zinazohusika na mpango chini ya njia moja iliyothibitishwa.
+\end{itemize}
+Kisha:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
+\]
+
+Metric hii inaelezea realized ada mtiririko kwa kipimo programu mali. Si APY, utabiri, dividend, au kurudi uhakika. Ripoti itaweka tofauti kiasi cha kubadilishana, uwasilishaji wa fidia, utekelezaji wa mtoaji, ukomo, muda wa uhifadhi, hasara, uondoaji, na mapato ya ada.
+
+
+\section*{6. Ukwasi na utawala unaopendekezwa katika kiwango cha mtandao}
+\addcontentsline{toc}{section}{6. Ukwasi na utawala unaopendekezwa katika kiwango cha mtandao}
+
+Uzoefu kutoka kihistoria Sarafu Network kuhamasisha utafiti katika maswali mawili ya kubuni pana:
+
+\begin{enumerate}[leftmargin=*]
+\item jinsi Vikundi zinazoongozwa kwa kujitegemea zinaweza kuhariri huduma za upungufu wa fedha na njia; na
+\item jinsi huduma za pamoja zinaweza kuendelea kuwajibika wakati ushiriki unapoongezeka.
+\end{enumerate}
+Mpango mmoja uliopendekezwa wa CLC huanzisha \textbf{Iliyopendekezwa CLC Jumuiya ya Mtandao } kama mpangilio wa upimaji wa kiwango cha mtandao na uratibu wa bajeti na \textbf{ iliyopendekezwa CLC utawala ishara}. . Hakuna katika sasa programu au Protocol v1.1.0. Mifumo mingine inaweza kutumia ushirika, mashirika ya umma, shirikisho, mashirika mengi, waendeshaji wa huduma, au miundo mingine inayohusika bila kupitisha pendekezo lolote.
+
+\subsection*{6.1 Udhibiti wa chini na upendeleo}
+\addcontentsline{toc}{subsection}{6.1 Udhibiti wa chini na upendeleo}
+
+Hivi sasa Protocol v1.1.0 inaweza kutumia vikundi tokeni balance caps na hesabu ukaguzi. Udhibiti huu huzuia hatua zilizochaguliwa za mikataba; Hazizuia kutofanya kazi kwa mtoaji, upotezaji wa thamani, upotezaji wa ufunguo, kutofaulu kwa mkataba, au upotezaji mwingine wowote.
+
+Wakati ujao wa kutekeleza utaratibu huo ungeweza kuongeza vivunjaji vya mzunguko, vizuizi vya wakati, akiba, dhamana, au bima. Ulinzi wowote unahitaji mtu aliyehusika, tukio lililofunikwa, fedha, kikomo, uondoaji, muda, ushahidi, mchakato wa madai, na masharti yanayotumika.
+
+Utawala uliopendekezwa unapaswa kuweka mamlaka ya usajili na huduma nyembamba na inaweza kuchunguzwa. Hatua za kawaida zaweza kutumia utaratibu wa kutoa taarifa, kuchelewesha, kuchapisha sababu, kukata rufani, na kurekebisha. Hatua za dharura zinapaswa kutoa rekodi za matukio na kuisha au kupokea ukaguzi chini ya sera iliyopitishwa.
+
+Ugunduzi wa njia sambamba inaweza kufanya kubadilishana zaidi iwezekanavyo katika Vikundi. Utekelezaji wa hop nyingi na mtandao utahitaji programu ya ziada, idhini, mipaka, usimamizi wa kasoro, na utawala. Zaidi quoted au kutekelezwa swaps si yenyewe kuthibitisha vocha kutimiza au athari ya kijamii.
+
+
+\section*{7. Rasilimali za utawala za CLC zinazopendekezwa}
+\addcontentsline{toc}{section}{7. Rasilimali za utawala za CLC zinazopendekezwa}
+
+Sura hii inatoa muundo mmoja wa upendeleo wa utawala wa baadaye na uratibu wa uratibu wa upungufu wa fedha. Ilipendekezwa CLC utawala ishara, stCLC, sCLC, utawala vault, mfuko wa bima, Waterfall, gauges, mandates, ada-ukopeshaji windows, na programu ya soko la nje si sehemu ya sasa CLC App au Protocol v1.1.0. Kila moja itahitaji utekelezaji, mendeshaji anayehusika, sera na masharti yaliyochapishwa, ukaguzi wa usalama, na idhini ya kisheria inayotumika.
+
+CPP hauhitaji mfano huu ishara. Kupitisha sambamba inaweza badala ya kutumia makampuni, mashirika ya umma, shirikisho, multisigs, huduma, au miundo mingine ya kuwajibika.
+
+\subsection*{7.1 Kusudi}
+\addcontentsline{toc}{subsection}{7.1 Kusudi}
+
+Ikiwa itapitishwa, safu ya utawala iliyopendekezwa inaweza:
+
+\begin{itemize}[leftmargin=*]
+\item kuhariri rekodi za pamoja na huduma za njia;
+\item kusambaza amri za upungufu wa fedha zilizokubaliwa kwa Vikundi zilizotawaliwa kwa uhuru;
+\item kusimamia mpango wa ufadhili, uliowekwa wazi, wa ufadhili wa ufadhili;
+\item kudumisha miundombinu na uchunguzi wa kawaida;
+\item kutambua wachangiaji kulingana na sheria zilizochapishwa za upendeleo na kupambana na michezo ya kubahatisha; na
+\item kudumisha ukaguzi, rufaa, uwazi, na kuondoka kwa kuaminika wakati ushiriki unapoongezeka.
+\end{itemize}
+\subsection*{7.2 Mfano uliopendekezwa wa udhibiti wa mali}
+\addcontentsline{toc}{subsection}{7.2 Mfano uliopendekezwa wa udhibiti wa mali}
+
+Mpangilio unajumuisha mali tatu tofauti zilizopendekezwa:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Ilipendekezwa CLC utawala ishara:} mali ya msingi ya utawala inayoweza kuhamishwa chini ya sheria zilizopitishwa za kutolewa, kuhifadhi, kupiga kura, na kufuata.
+\item \textbf{stCLC:} risiti isiyoweza kuhamishwa ya upendeleo wa kura iliyochapishwa wakati ishara iliyopendekezwa ya utawala wa CLC imefungwa. Itawakilisha mamlaka ya utawala yenye mipaka ya muda na inaweza kuruhusu utume uliofunuliwa.
+\item \textbf{sCLC:} idhini ya kihistoria au mali ya motisha iliyotolewa chini ya sera. Inaweza kusaidia upungufu wa ufikiaji wa malipo ya mkopo au vichocheo vilivyokubaliwa vya upungufu na njia na inaweza kumalizika au kuchomwa mwishoni mwa kipindi.
+\end{enumerate}
+Wala stCLC wala sCLC itakuwa equity, dividend, madai ya mabaki, ahadi ya kurudi, au vocha ya jamii. Sera iliyopitishwa inaweza kuweka kutolewa kwa sCLC na upatikanaji wa malipo ya mikopo kwa sifuri katika enzi yoyote.
+
+Kufungwa kwa utawala, vipindi vya chini vya muda, vipimo vya baridi, uwakilishi, vizuizi vya mkusanyiko, na vizuizi vya hatua muhimu vitachapishwa kabla ya matumizi. Unlocked pendekezo CLC utawala tokens si kupiga kura chini ya muundo huu.
+
+\subsubsection*{7.2.1 Utoaji na usambazaji wa mfano}
+
+Kwa mfano jumla iliyopendekezwa CLC usimamizi-token ugavi ni \textbf{500,000,000}. . Hii ni muundo parameter, si kutolewa kwa sasa, kutoa, thamani, au ahadi ya umaarufu.
+
+Ugawaji wa mfano ni:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% --- Grassroots Economics Foundation:} kudumu bet, isiyoweza kuhamishwa, na kushikamana na GEF multisig iliyotambuliwa chini ya sheria za saini na mzunguko zilizochapishwa.
+\item \textbf{15\% --- timu ya msingi na washirika wa mapema:} kuwekeza wakati wa mgongo uliowekwa wa sera na kipindi cha uwekezaji wa mstari wa miezi 24, na sheria za kupiga kura na uhamisho zinafunuliwa mapema.
+\item \textbf{30\% --- misaada ya kibinafsi:} kutambuliwa kwa wachangiaji wa mapema ambao hutoa upungufu wa mtandao ulioidhinishwa, na uwekezaji wa sera ya miezi 24.
+\item \textbf{40\% --- Hifadhi ya fedha za umma:} hufanyika katika chombo cha utawala kilichofungwa kwa wakati kwa ajili ya programu za soko la nje na upatikanaji.
+\end{itemize}
+Chini ya mifumo ya kudhibiti fedha za umma:
+
+\begin{itemize}[leftmargin=*]
+\item si zaidi ya 10\% ya jumla ya usambazaji itakuwa hai katika maeneo ya nje kwa wakati mmoja;
+\item kila utekelezaji utaisha baada ya siku 90 isipokuwa upya kupitia mchakato uliopitishwa;
+\item nafasi za upungufu wa fedha na ishara yoyote ya nafasi ingebaki chini ya udhibiti wa utawala wa kufunua; na
+\item iliyopendekezwa CLC tokens utawala kutumika katika nafasi liquidity si kupiga kura isipokuwa kufungwa chini ya sheria sawa na tokens nyingine kupiga kura.
+\end{itemize}
+Uzinduzi wa baadaye unaweza kuanza na multisig iliyofunuliwa na mpito tu baada ya hatua za kuimarisha zilizoidhinishwa tofauti, kama vile ukaguzi wa kujitegemea, ufuatiliaji, vitabu vya kutekeleza matukio, na vipimo vya kupumzika na mifumo ya fork. Kila kipimo kilichopitishwa na mchakato wa mabadiliko utachapishwa tofauti.
+
+\subsubsection*{7.2.2 Hatua za upatikanaji na utoaji}
+
+Programu ya fedha ya baadaye inaweza kutumia madirisha ya michango ya hatua kwa hatua na thamani ya rejea iliyochapishwa kwa ajili ya matumizi na bajeti. Ufafanuzi huo haungekuwa ahadi ya bei ya soko, thamani, malipo, au kuondoka.
+
+Masharti ya mchango yataonyesha ikiwa mali zinatolewa, zinatolewa, zinaweza kuondolewa, au zinaweza kurudishwa; anayewaongoza; matumizi yao yaliyoruhusiwa; vifungo; usambazaji wa hasara; kuripoti; na hali ya kuondoka. Michango mikubwa inaweza kukabiliwa na vizuizi vya kupiga kura au kupungua kwa uzito wa utawala.
+
+Liquidity yoyote ya soko la nje ingehitaji uamuzi wa kipekee wa kutambua maeneo, watendaji wanaohusika, mali, kikomo, wakati, migogoro, udhibiti wa hatari, kuripoti, na kukomesha. Sera hiyo haingekuwa na lengo au hakikisho la bei.
+
+\subsubsection*{7.2.3 Programu iliyopendekezwa ya kupanda kwa athari}
+
+Programu ya siku zijazo inaweza kugawa sehemu ya ukuta wa utawala kwa washiriki ambao huweka mali katika Vikundi vya Ahadi iliyoainishwa na kuboresha kwa kiasi kikubwa upatikanaji wa kubadilishana na utekelezaji uliothibitishwa wa mtoaji.
+
+Sera ya upendeleo iliyopitishwa ingekuwa:
+
+\begin{enumerate}[leftmargin=*]
+\item kutambua Vikundi iliyokubaliwa, mali, muda wa chini, na muda wa kufungwa;
+\item kuamua mchango wa uzalishaji kwa kutumia uthibitisho wa kubadilishana uliotekelezwa na uwasilishaji, utekelezaji, na ukomo kwa uthibitisho tofauti;
+\item kupima mchango wa kikomo badala ya thamani ya jumla iliyofungwa peke yake;
+\item kutoondoa shughuli za kuosha za kujitegemea na za mzunguko;
+\item hutumia mipaka ya kila chombo na mapato ya kupungua; na
+\item kutoa uchunguzi, mabishano, na marekebisho kabla ya ugawaji wa mwisho.
+\end{enumerate}
+Utoaji wowote ungeendelea kuwa chini ya masharti ya programu iliyochapishwa, utoaji, uhalali, kufuata, na sheria za hasara.
+
+\subsection*{7.3 Mpango wa kupiga kura, vichocheo, na upatikanaji wa ada}
+\addcontentsline{toc}{subsection}{7.3 Mpango wa kupiga kura, vichocheo, na upatikanaji wa ada}
+
+Chini ya muundo huu, wamiliki wa stCLC wangeweza kupiga kura juu ya Hifadhi zinazofaa, amri za huduma za njia, bajeti za pamoja, au mapendekezo mengine yaliyopitishwa. Mfumo wa kipimo cha kupima unaweza kutafsiri kura katika ndogo sCLC motisha kwa liquidity halali au njia waendeshaji.
+
+Sera ya upimaji itaweka swaps kutekelezwa na mtoaji kutimiza tofauti. Itakuwa si thawabu zilizotajwa lakini barabara kutekelezwa, mawasilisho kutatuliwa, self-dealing, au thamani ya jumla kufungwa bila ushahidi wa shughuli muhimu.
+
+Utaratibu wa utawala uliopitishwa pia ungeweza kuchapisha bajeti ya malipo ya wakati. Wenye uwezo wa stCLC wanaweza kupokea sCLC kuruhusu capped, muda mdogo swaps kutoka maalum ada Holding Vikundi katika mali au programu allocated. Hii ingekuwa ufikiaji wa sera kwa hisa zilizopo, sio mapato ya pasifu au umiliki wa Kikundi cha Malipo ya Malipo.
+
+\subsubsection*{7.3.1 Utekelezaji wa ada ya huduma na uchaguzi wa wasifu}
+
+Profaili ya rejista ya siku zijazo inaweza kuhitaji Vikundi kushiriki au huduma ya njia kutumia adapter ya ada ya sambamba au hook. Profaili inaweza kukataa ugunduzi, njia, au msaada wa programu wakati risiti inayohitajika haionyeshi ushuru.
+
+Majina kama vile \textbf{PoolFactory } au \textbf{ FeeHook} kuelezea moduli zinazowezekana za baadaye; si mikataba ya Protocol v1.1.0. Utekelezaji wowote ungefunua nambari, anwani, wasimamizi, wapokeaji, viwango, shughuli zinazofaa, usimamizi wa makosa, na hali ya ukaguzi.
+
+Utekelezaji itakuwa profile maalum. Kikundi kilichoondolewa na wasifu mmoja kinaweza kuendelea kufanya kazi ndani ya nchi au kujiunga na rejista nyingine inayolingana ikiwa mikataba na utegemezi wake utaendelea kufanya kazi. Wateja wanapaswa kufunua wasifu unaopatikana na kuonyesha ada zinazotumika kabla ya idhini.
+
+\subsubsection*{7.3.2 sCLC bajeti na udhibiti wa float ya nje ya hiari}
+
+Baada ya fedha kupitishwa bajeti za kipaumbele zaidi, mchakato ujao inaweza kuchapisha bajeti ya mshahara-ukopeshaji wakati \texttt{F\_epoch}, ikiwa ni pamoja na sifuri. Sera inaweza kuamua kikomo cha washiriki kwa uwiano wa uwezo wa kupiga kura wa stCLC:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+Kila dirisha lingebaki chini ya orodha za ruhusa, vizuizi, hesabu, upendeleo, sheria za tukio, na sheria inayotumika.
+
+Sera tofauti ingeweza kuruhusu upungufu wa kikomo, wakati uzito wa upatikanaji wa CLC utawala ishara iliyopendekezwa tu ili kupunguza kipimo nje utawala-shambulio uso. Ingehitaji:
+
+\begin{itemize}[leftmargin=*]
+\item kichocheo kilichochapishwa kulingana na float ya nje kwa kipindi fulani;
+\item sehemu ya juu ya ada zilizotekelezwa, zinazoweza kukubaliwa na kiasi cha mahali pa tukio;
+\item Utekelezaji wa wakati uliopimwa na hakuna tangazo la wakati halisi;
+\item kuacha moja kwa moja wakati ufikiaji uliopitishwa au viwango vya uendeshaji havikutekelezwa;
+\item kuondoa au kuweka alama zilizopatikana kwenye akaunti isiyo ya kupiga kura iliyofunuliwa; na
+\item Taarifa wazi kwamba mpango haujalenga au kuhakikisha bei na hauathiri utekelezaji wa mtoaji.
+\end{itemize}
+Sera hiyo inaweza kubaki hai kwa muda usiojulikana.
+
+\subsubsection*{7.3.3 Vifurushi na vyeti vya mkopo}
+
+A \textbf{Portfolio Kikundi} itakuwa kawaida Kikundi cha Ahadi curated karibu na utume au huduma uwanja. Msimamizi wa Kikundi yake inaweza kuwa mtu binafsi, ushirikiano, kundi la jamii, wakala wa umma, shirikisho, multisig, operator huduma, au nyingine accountable muundo.
+
+Msaada unaweza kutokea kupitia:
+
+\begin{enumerate}[leftmargin=*]
+\item michango ya moja kwa moja chini ya masharti yaliyochapishwa ya Kikundi;
+\item miadi ya upungufu wa fedha kwa muda iliyoidhinishwa kupitia mchakato wa utawala uliopitishwa; au
+\item Ufikiaji wa sCLC kwa bajeti ndogo baada ya Waterfall wakati utaratibu huo unapowezeshwa.
+\end{enumerate}
+Portfolio Vikundi itaendelea kudhibitiwa kwa kujitegemea na inaweza kutumia kumbukumbu za pamoja au huru.
+
+Vyeti vinaweza kuelezea uandikishaji au matibabu ya hatari lakini havitakuwa na haki ya kulipa ada, faida, au mali zilizobaki. Kupitisha inaweza kutumia:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{uthibitisho uliofungwa kwenye rejista} kutoka kwa mthibitishaji aliyepatikana akitumia njia iliyochapishwa; au
+\item \textbf{vocha ya huduma ya uthibitisho} ambayo inawakilisha ahadi inayoweza kulipwa ili kufanya ukaguzi au tathmini iliyoainishwa.
+\end{itemize}
+Kikundi hicho kitafunua jinsi uthibitisho unavyoathiri uandikishaji, njia za kiwango cha ubadilishaji, mipaka, au upendeleo na jinsi makosa, kumalizika, migogoro, na rufaa hushughulikiwa.
+
+\subsection*{7.4 Mgawanyo wa bajeti unaopendekezwa}
+\addcontentsline{toc}{subsection}{7.4 Mgawanyo wa bajeti unaopendekezwa}
+
+Mlipuko wa maji uliopendekezwa utatoza tu mapato yaliyotekelezwa, yanayoweza kukubaliwa chini ya mchakato wa utawala uliopitishwa. Itatofautisha:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Mali zinazostahili fedha (\texttt{E\_cash}):} mali zilizoorodheshwa ambazo zinaweza kutumiwa au kubadilishwa chini ya sera kwa ajili ya dhamana za fedha; na
+\item \textbf{Mali za asili (\texttt{E\_kind}):} vocha au mali nyingine ambazo zinaweza kusaidia kubadilishana kwenye mtandao lakini hazihesabiwi kwa ufikiaji wa fedha au wajibu wa uendeshaji isipokuwa zimegeuzwa kweli.
+\end{itemize}
+Sera ya uongofu ingeweza kutambua waendeshaji walioidhinishwa, mali, maeneo, vyanzo vya bei, madirisha ya wakati, mipaka ya kuteleza, mipaka, migogoro, rekodi, na taratibu za matukio. Ubadilishaji wa hazina haitaamua dhamana ya vocha ya mtoaji au njia ya kiwango cha kubadilishana cha Kikundi.
+
+Mfano wa utaratibu wa kipaumbele:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Lengo la chanjo ya fedha:} kujenga hifadhi yoyote iliyopitishwa au mfuko wa bima uliopendekezwa kwa lengo lake lililofunuliwa kwa matukio yaliyofafanuliwa yaliyofunikwa.
+\item \textbf{Kazi za msingi:} fedha za bajeti iliyowekwa kikomo kwa ajili ya kazi za kisheria, elimu, mawasiliano, miundombinu, ukaguzi, na uchunguzi.
+\item \textbf{Amri za upatikanaji wa fedha:} kugawa mali zilizokubaliwa kwa madhumuni yaliyoainishwa ya Hifadhi au huduma ya njia chini ya vizuizi vya kikomo na ukaguzi wa jua.
+\item \textbf{Udhibiti wa nje wa kuelea:} fedha tu wakati wake kuchapishwa trigger na vilele vya kipaumbele ya juu ni kukidhi; vinginevyo hutoa sifuri.
+\item \textbf{Bajeti iliyopendekezwa ya ada ya mkopo:} kugawa mabaki yoyote yaliyokubaliwa kwa Vikundi zilizochaguliwa zilizo na ada na kuchapisha \texttt{F\_epoch}, ambayo inaweza kuwa sifuri.
+\end{enumerate}
+Maamuzi ya bajeti yanaweza kuzingatia utekelezaji uliothibitishwa, mfiduo uliofunikwa, hifadhi zinazofaa, kikomo cha matumizi, njia zilizotekelezwa, mkusanyiko, matukio, na utendaji wa mdhamini. Kila kipimo ingekuwa kufuata ushahidi na kanuni cohort katika nyongeza C.
+
+Mtiririko wa mchangiaji uwezekano itakuwa:
+
+\begin{enumerate}[leftmargin=*]
+\item wafadhili huhamisha mali zinazofaa chini ya udhamini au mipangilio ya programu iliyoidhinishwa tofauti;
+\item Washiriki wanaostahiki wanapokea na, ikiwa inaruhusiwa, kufunga tokeni za utawala zinazotolewa CLC ili kupata stCLC;
+\item vipokeaji vilivyokamilishwa vya mikokoteni inayostahiki au malipo ya huduma huingia kwenye majivu;
+\item fedha za Waterfall zilichukua priorities kwa utaratibu; na
+\item tu sera iliyoamilishwa baada ya Waterfall inatoa sCLC au hufungua dirisha la mkopo wa ada iliyofungwa.
+\end{enumerate}
+Hakuna hatua inajenga haki ya umiliki, malipo, kujiondoa, chanjo, tuzo, au utawala zaidi ya wale waziwazi ilivyoelezwa katika masharti husika.
+
+
+\section*{8. Ufikiaji wa kiufundi na ukuaji}
+\addcontentsline{toc}{section}{8. Ufikiaji wa kiufundi na ukuaji}
+
+Sura hii inafafanua kazi ya hiari au inayopendekezwa. Si orodha ya vipengele kuhakikisha kuwa iko katika sasa CLC App au Protocol v1.1.0.
+
+Sehemu zinazowezekana za kazi ni:
+
+\begin{itemize}[leftmargin=*]
+\item utekelezaji wa utaratibu wa kupelekwa kwenye Vikundi zinazofaa, na usajili, nukuu, kikomo, ada, na ugunduzi wa hesabu;
+\item wakati uliowekwa amana au HTLC adapters kwa ajili ya utekelezaji cross-domain ambapo settlement atomic ni haipatikani;
+\item interfaces na zana za sera kwa kikundi ndogo au binafsi;
+\item kumbukumbu za kufuatilia kwa vocha, Vikundi, njia za kiwango cha ubadilishaji, mipaka, wasimamizi, na ada;
+\item viunganisho vya mtoa huduma wa malipo maalum kwa utekelezaji, mtiririko wa malipo, na udhibiti wa uhalali;
+\item uhusiano wa mali ya fungible na vituo vya nje vya usawa wa fedha kwa ajili ya kusawazisha upya na usawa wa malipo; na
+\item kubadilishana fedha za kifedha zinazohusika na sera kwa ajili ya ulinzi wa kupitishwa, gharama za uendeshaji, au amri za upungufu wa fedha.
+\end{itemize}
+Bei za soko la nje haziwezi kuamua ni kiasi gani cha mkopo wa mtoaji chini ya masharti ya vocha. Hifadhi inaweza kutumia marejeleo ya nje ya ulinzi kwa mali ya fungible, lakini njia yake ya kiwango cha ubadilishaji iliyochapishwa, mipaka, ada, na hesabu itaongoza nukuu zake.
+
+\subsection*{8.1 Vipimo vinavyopendekezwa vya huduma ya njia na SDK}
+\addcontentsline{toc}{subsection}{8.1 Vipimo vinavyopendekezwa vya huduma ya njia na SDK}
+
+\textbf{Ugunduzi.} Huduma ya njia iliyopendekezwa ingeuliza kumbukumbu zilizochaguliwa kwa uandikishaji wa mali, njia za kiwango cha ubadilishaji, mipaka, ada, hesabu, matukio, na habari ya mtawala. Rekodi zilizohifadhiwa zingetia ndani mipaka ya utulivu na vitambulisho vya chanzo.
+
+\textbf{Profaili za mtandao.} Mteja anaweza kusaidia zaidi ya moja registry mizizi au sera profile. Itasema mshiriki ambayo profile, washirika, adapters, vizuizi, na watendaji wa huduma responsible quote inatumia. Njia ya msalaba inapaswa kukidhi hali zote za hop zinazotumika.
+
+\textbf{Sera ya njia.} Mendeshaji anayehusika anaweza kuondoa utegemezi usio salama au washirika na kutumia vizuizi vya kiwango cha njia, mahitaji ya usafi, na vigezo vya afya. Ishara hizo zingeunga mkono uamuzi; Hazingehakikisha utekelezaji au ulinzi dhidi ya hasara.
+
+\textbf{Ada na mipaka.} Taarifa itaorodhesha ada za Kikundi, ada yoyote ya ziada ya Protokolo ya sasa, na ada yoyote ya njia au huduma iliyopendekezwa tofauti. Utekelezaji huo ungekataa ofa zilizokwisha kutimizwa au mipaka iliyovunjwa.
+
+\textbf{Atomicity na kupona.} Kuuawa kwa watu wengi kungekuwa kiatomati iwezekanavyo. Ikiwa ilitumia HTLCs au escrow, huduma hiyo ingefunua timeouts, njia za kuvunja, wasimamizi wanaohusika, taratibu za tukio, na hatari zilizobaki.
+
+\textbf{Tumependekeza mkusanyiko wa kundi na kusawazisha.} Huduma ya opt-in inaweza kukusanya nia ya kusawazisha tena na kutafuta mizunguko au minyororo inayolingana. Ingekuwa:
+
+\begin{enumerate}[leftmargin=*]
+\item kuchapisha risiti inayoweza kusomwa kwa mashine inayoonyesha mizunguko iliyofanywa, mali, kiasi, vitambaa vya wakati wa kukadiria, na ada;
+\item kutekeleza mipaka iliyopitishwa kwa kipindi na sera za mpinzani;
+\item kukataa shughuli yoyote inayovunja idhini, mipaka, au hesabu inayopatikana ya Kikundi chochote cha washiriki; na
+\item kuhifadhi vituo vya kuamua na mapato kwa ajili ya ukaguzi na utatuzi wa mizozo.
+\end{enumerate}
+\textbf{Mahitaji ya SDK.} SDK kwa njia kutekelezwa itatoa deterministic quote-to-receipt ramani, per-hop checks invariant, inaeleweka kasoro codes, na audit-kirafiki rekodi. Protocol v1.1.0 ya sasa \texttt{SwapRouter} hutoa nukuu tu; haina kutekeleza njia hizi zilizopendekezwa.
+
+\subsubsection*{8.1.1 Maelezo ya chini ya utangamano wa muungano}
+
+Ecosystem ya kikundi ambayo inatafuta njia ya kuelekeza juu ya wasifu itachapisha habari inayoweza kusomwa na mashine kwa:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Mizizi ya rejista:} identifiers kwa mali, Vikundi, mbinu za kiwango cha ubadilishaji, mipaka, na sera ya ada, au mizizi moja ambayo deterministically kutatua yao.
+\item \textbf{Mapokezi:} profile, mali ndani na nje, kiasi, quote chanzo na muda stempu, kikomo snapshot, ada, matokeo ya hisa, na matokeo ya utekelezaji kwa kila hop.
+\item \textbf{Ishara za kazi:} habari ya upya kuhusu hesabu, matumizi ya kikomo, matukio, na utekelezaji wowote ulioonyeshwa tofauti au ulinzi wa kifedha.
+\item \textbf{Vikwazo vya sera:} walioruhusiwa au walikataa wapinzani, madarasa ya mali, adapters, na mahitaji yoyote ya usimamizi.
+\item \textbf{Nambari za kutofaulu:} ufafanuzi deterministic kwa kukataliwa, kumalizika, kikomo, hesabu, sera, utegemezi, au matukio ya kutofaulu.
+\end{enumerate}
+Profaili inaweza kuongeza ufikiaji, kufuata, usuluhishi, au huduma nyingine bila kuwa mahitaji ya msingi CPP utangamano. Kila huduma ya hiari ingeonyesha mtu anayehusika, mamlaka yake, wigo wake, na masharti yake.
+
+\subsection*{8.2 Utoaji ruhusa, uthibitisho, na kuondoka}
+\addcontentsline{toc}{subsection}{8.2 Utoaji ruhusa, uthibitisho, na kuondoka}
+
+Protocol v1.1.0 mikataba ni EVM- sambamba. Mikataba katika rekodi ya \texttt{src} ya hifadhidata ya Mkataba huchapishwa chini ya AGPL-3.0 isipokuwa kwa vipengele vya tatu vilivyotambuliwa bila kubadilishwa ambavyo vinahifadhi masharti yao wenyewe. Chanzo kilichochapishwa, ABIs, na maelekezo ya utekelezaji huunga mkono ukaguzi wa kujitegemea lakini hazionyeshi wenyewe ukaguzi, utekelezaji salama, au kufuata kisheria.
+
+Kila utekelezaji utafunua tofauti toleo lake la msimbo, kujenga asili, anwani, mtawala na uwezo wa kuboresha, hali ya ukaguzi, vioo vya rejista, na ulinzi wowote wa timelock au pause.
+
+A iliyopendekezwa \textbf{Fork kit} inaweza kutia ndani:
+
+\begin{enumerate}[leftmargin=*]
+\item maandishi ya utekelezaji wa deterministic;
+\item picha ya haraka ya rejista na zana za kuuza nje;
+\item mchakato uliothibitishwa wa kurudisha huduma za njia, SDKs, na viungo kwa mizizi mpya ya rejista;
+\item orodha ya kuangalia ya Msimamizi wa Kikundi kwa kuondoka rejista ya pamoja kwa usalama; na
+\item orodha ya kuangalia uhamiaji kwa vocha bado, ikiwa ni pamoja na matangazo ya mtoaji, tarehe za kuwasilisha na kutimiza, ufikiaji wa kuendelea kwa rekodi, na kurekebisha.
+\end{enumerate}
+Vifurushi vinavyolingana vinaweza kuboresha uvumilivu wakati jamii, ushirika, mashirika ya umma, shirikisho, mashirika mengi, au waendeshaji wa huduma wanahitaji utawala tofauti. Utaratibu halisi bado unategemea umiliki wa mkataba, funguo, utegemezi, viungo, miundombinu, majukumu ya kisheria, na huduma za mtu wa tatu.
+
+
+\section*{9. Uchumi unaopendekezwa wa mipango ya ukwasi}
+\addcontentsline{toc}{section}{9. Uchumi unaopendekezwa wa mipango ya ukwasi}
+
+Sura hii inaelezea mfano wa wakati ujao, uliochukuliwa kando. Si huduma ya sasa ya programu, ofa, ahadi ya kurudi, au haki iliyoundwa kwa kuweka katika \texttt{SwapPool}.
+
+\subsection*{9.1 Chanzo cha mapato kilichopendekezwa}
+\addcontentsline{toc}{subsection}{9.1 Chanzo cha mapato kilichopendekezwa}
+
+Bajeti ya mitandao ya baadaye inaweza kupokea:
+
+\begin{enumerate}[leftmargin=*]
+\item a kufunuliwa \textbf{Rake mtandao} kuchukuliwa kama sehemu ya ada zilizopokelewa na Vikundi kushiriki;
+\item malipo tofauti ya njia au huduma kutoka kwa huduma za pamoja zilizotekelezwa; na
+\item mapato mengine yaliyopitishwa kwa wazi.
+\end{enumerate}
+Ada za jumla za Vikundi zinazobaki kwenye Vikundi si mapato ya mtandao. Protocol v1.1.0 ya sasa hutumia mfano tofauti: ada ya hiari ya itifaki huongezwa juu ya ada ya Kikundi na hutumwa moja kwa moja kwa mpokeaji aliyesanidiwa.
+
+\subsection*{9.2 Mfano wa kihisabati wa sehemu ya mtandao}
+\addcontentsline{toc}{subsection}{9.2 Mfano wa kihisabati wa sehemu ya mtandao}
+
+Ikiwa Jumuiya inayoshiriki inatoza ada ya Jumuiya ya 2.00\% na jumuiya iliyopitishwa ya mtandao hupokea 20\% ya ada hiyo ya Jumuiya, kiwango cha kweli cha jumuiya ya mtandao kilichopendekezwa juu ya thamani iliyoelekezwa ni:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Ikiwa 25\% ya rasilimali zilizopokelewa na rasilimali za ada ya huduma zinastahili na zinaweza kubadilishwa kwa matumizi yaliyoainishwa kwa pesa baada ya gharama, sehemu ya fedha inayoweza kutumiwa ya rasilimali ya 40 bps ni karibu 10 bps.
+
+Mapendekezo ya mapato ya mtandao ni:
+
+\texttt{network\_rake\_received + routing\_or\_service\_fees\_received}
+
+Usiongeze ada ya Jumla ya Gross kwenye mtandao wa rake: rake ni uhamisho kutoka kwa ada hizo na vinginevyo ingehesabiwa mara mbili.
+
+\subsection*{9.3 Haki za programu ya upungufu wa fedha}
+\addcontentsline{toc}{subsection}{9.3 Haki za programu ya upungufu wa fedha}
+
+Programu iliyopitishwa kwa njia tofauti inaweza kutegemeza rekodi za Hifadhi, huduma za kuelekeza, ufuatiliaji, au amri nyingine. Masharti yake yatahitaji kufunua:
+
+\begin{itemize}[leftmargin=*]
+\item ikiwa uhamisho ni zawadi, zawadi, mkopo, mchango unaoweza kurudishwa, au ununuzi;
+\item utunzaji na udhibiti;
+\item sheria za kujiondoa, kurudisha, hasara, na vipaumbele;
+\item usawa wa ada na tuzo;
+\item haki za utawala;
+\item mbinu za kupima na kutoa ripoti; na
+\item kusimamishwa, kumalizika, na kurekebishwa.
+\end{itemize}
+Sasa \texttt{SwapPool} haina kuunda kikundi-shared ishara au moja kwa moja mchangiaji haki. Kiwango chochote cha ex-post kinapaswa kutegemea mapato na hasara zilizopatikana, haipaswi kuwasilishwa kama pato lililoahidiwa, na inaweza kuwa sifuri au hasi.
+
+
+\section*{10. Mfumo mpana wa hatari}
+\addcontentsline{toc}{section}{10. Mfumo mpana wa hatari}
+
+Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, inaonyesha viashiria vinavyowezekana, udhibiti, vipimo vya mkazo, na hamu ya kuonyesha hatari. Hizi ni mapendekezo ya kubuni, si madai kwamba kila udhibiti ni kutekelezwa, ufanisi, au kutosha. Mipaka, hifadhi, dhamana, ufuatiliaji, chanjo, na utawala haziwezi kuondoa hasara.
+
+\subsection*{10.1 Hatari za itifaki na mikataba mahiri}
+\addcontentsline{toc}{subsection}{10.1 Hatari za itifaki na mikataba mahiri}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} makosa ya mikataba, makosa ya kuboresha, kushindwa kwa utegemezi, na kikomo au ada zilizowekwa vibaya.
+\item \textbf{Viashiria:} matokeo ya ukaguzi, harakati zisizoeleweka za hesabu, kushindwa kwa kutofautiana, na kurudi kwa kawaida.
+\item \textbf{Udhibiti unaowezekana:} ukaguzi wa kujitegemea; majukumu ya chini ya heshima; watendaji wa idhini na watendaji wa udhamini waliofunuliwa; maboresho yaliyopangwa kwa wakati; ufuatiliaji kwenye mlolongo; mapumziko ya tukio na mamlaka na vigezo vilivyochapishwa; na njia ya uhamiaji iliyojaribiwa.
+\item \textbf{Uchunguzi wa mkazo:} kutopatikana quote au kikomo kutegemea, upungufu wa hisa, mikataba paused, na burst trafiki.
+\item \textbf{Tamaa ya kuchukua hatari:} kiwango cha chini kabla ya kupanua wajibu uliopo au kiasi cha swap.
+\end{itemize}
+\subsection*{10.2 Hatari za kiuchumi na za soko}
+\addcontentsline{toc}{subsection}{10.2 Hatari za kiuchumi na za soko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} hesabu nyembamba, mtiririko wa upande mmoja, uondoaji wa haraka, na kumbukumbu za bei zilizobadilishwa au zilizopitwa na wakati.
+\item \textbf{Viashiria:} kikundi high tokeni-salio matumizi, kupanua quotation tofauti, mara nyingi kikomo kukataliwa, na mkusanyiko wa hisa.
+\item \textbf{Udhibiti unaowezekana:} current kikundi token balance caps; mipaka iliyopendekezwa ya rolling au akaunti; Hifadhi zilizochaguliwa tofauti; kumbukumbu za bei zilizohifadhiwa; uondoaji wa njia; na ada au mipaka ya tukio ya muda mdogo.
+\item \textbf{Uchunguzi wa mkazo:} mabadiliko makubwa ya bei ya rejea, kuongezeka kwa uwasilishaji, maombi ya kujiondoa, na kukatika kwa vyanzo vya data.
+\item \textbf{Tamaa ya kuchukua hatari:} kiasi tu ndani ya vigezo vya kuchapishwa na uwezo wa kubeba hasara wa fedha.
+\end{itemize}
+\subsection*{10.3 Hatari ya mtoaji na vocha}
+\addcontentsline{toc}{subsection}{10.3 Hatari ya mtoaji na vocha}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} kutolewa zaidi ya uwezo wa kutimiza, kutofaulu kwa mtoaji, masharti ya udanganyifu, na madirisha mabaya ya upatikanaji au uwasilishaji.
+\item \textbf{Viashiria:} kupungua kwa viwango vya utekelezaji vilivyothibitishwa, kupungua kwa vocha zilizopotea, malalamiko yasiyotatuliwa, na mfiduo mkali kwa mtoaji mmoja.
+\item \textbf{Udhibiti unaowezekana:} utunzaji sahihi wa mtoaji; vocha wazi na masharti ya kutoa; mipaka ya utoaji au uandikishaji; dhamana au dhamana zilizofadhiliwa kwa kujitegemea; kuripoti kwa kundi; na ukaguzi wa rejista ya kuwajibika.
+\item \textbf{Uchunguzi wa mkazo:} kutofaulu kwa mtoaji, mshtuko wa uzalishaji wa kikanda, madai ya bandia, na kuchelewa kwa muda mrefu kwa kutimiza.
+\item \textbf{Tamaa ya kuchukua hatari:} chini kama mtoaji au kutoa huongezeka ushirikiano.
+\end{itemize}
+\subsection*{10.4 Hatari za uwasilishaji kwa ukombozi na utekelezaji}
+\addcontentsline{toc}{subsection}{10.4 Hatari za uwasilishaji kwa ukombozi na utekelezaji}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} Uwasilishaji usiofaa au wa duplicate, uwezo wa ukomo wa kutosha, upungufu wa hisa, kasoro za vifaa, na kumbukumbu za ukomo.
+\item \textbf{Viashiria:} latency ya ombi la kutimizwa, mawasilisho yaliyoshindwa au yaliyohojiwa, akiba, backlogs za tiketi, na vitengo vilivyokamilika ambavyo havina malipo.
+\item \textbf{Udhibiti unaowezekana:} utaratibu wa uwasilishaji na utekelezaji uliochapishwa; taarifa za uwezo; maeneo ya kutimiza mengi ambapo ni halali; viwango vya ushahidi; njia za malalamiko na suluhisho; na rekodi za kutenganisha kuwasilisha, kutimiza, na ukomo.
+\item \textbf{Uchunguzi wa mkazo:} mara mbili hadi nne ya kiasi cha uwasilishaji, kukatika kwa vifaa, kasoro za wasambazaji, na majaribio ya matumizi ya mara mbili.
+\item \textbf{Tamaa ya kuchukua hatari:} chini ambapo bidhaa muhimu, washiriki dhaifu, au madirisha marefu ya kutimiza ni kuhusika.
+\end{itemize}
+\subsection*{10.5 Hatari ya utawala}
+\addcontentsline{toc}{subsection}{10.5 Hatari ya utawala}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} Steward au controller kukamata, haraka mabadiliko parameter, migogoro ya maslahi, nguvu za kiufundi siri, na rufaa dhaifu.
+\item \textbf{Viashiria:} mamlaka ya kuzingatia, hatua za dharura mara kwa mara, mabadiliko ya sera zisizoeleweka, na overrides mara kwa mara.
+\item \textbf{Udhibiti unaowezekana:} ufafanuzi wa jukumu na nguvu; mipaka ya idhini ya usawa; vipindi vya muda; migogoro na sheria za kukataa; rekodi za mabadiliko ya umma; rufaa; Mashariki ya jua yenye nguvu ya dharura ya moja kwa moja; na forkability.
+\item \textbf{Uchunguzi wa mkazo:} mapendekezo ya upinzani, kupoteza saini, majaribio ya kupokea rushwa, na kukamata kwa njia ya mkusanyiko au udhibiti uliopendekezwa.
+\item \textbf{Tamaa ya kuchukua hatari:} chini kwa hatua zinazoathiri mbinu za thamani, uondoaji, mizizi ya rejista, wigo, au mamlaka ya dharura.
+\end{itemize}
+Kwa kupelekwa baadaye kwa ishara ya utawala iliyopendekezwa ya CLC, mtihani wa kukamata utajumuisha mkusanyiko uliofuatwa na majaribio ya kuelekeza bajeti, kudhoofisha viwango vya rejista, kupitisha amri za vyama vinavyohusiana, au kukomesha chanjo ya fedha. Ulinzi wa uwezekano ni pamoja na kufuli kwa utawala, mipaka ya juu kwa ajili ya hatua muhimu, kuchelewesha utekelezaji, uhamisho wa uhamisho wa uhamisho na ushirikiano, mchakato wa tukio, na utaratibu wa kuaminika wa kuondoka. Hakuna moja ambayo inawakilishwa kwa kuonekana tu hapa.
+
+\subsection*{10.6 Hatari za kisheria na uzingatiaji}
+\addcontentsline{toc}{subsection}{10.6 Hatari za kisheria na uzingatiaji}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} vocha, huduma, kukuza, au mali ya utawala ambayo hupokea matibabu ya kisheria yasiyotarajiwa; kushindwa kwa ulinzi wa watumiaji; kupoteza fedha au kuathiriwa na vikwazo; na vizuizi vya mpakani.
+\item \textbf{Viashiria:} bendera za mamlaka, uchunguzi wa wasimamizi, malalamiko, mechi za vyama vilivyozuiliwa, na kutofautiana kati ya tabia iliyotangazwa na tabia halisi.
+\item \textbf{Udhibiti unaowezekana:} ukaguzi kwa darasa na mamlaka; taarifa sahihi; interfaces geofused; vipimo vya usawa au uthibitisho vinavyolingana; udhibiti wa kukuza; rekodi za mamlaka na kukubalika; na washirika wazi waliojibika.
+\item \textbf{Uchunguzi wa mkazo:} kizuizi cha mamlaka, kukomesha mtoa huduma, upya wa lazima, na agizo la kusimamisha huduma au darasa la mali.
+\item \textbf{Tamaa ya kuchukua hatari:} chini; kupunguza au kusimamisha shughuli zisizoungwa mkono.
+\end{itemize}
+\subsubsection*{10.6.1 Mahali pa kisheria na matumizi ya tokeni inayopendekezwa}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Miundombinu inayoweza kuthibitishwa:} Protocol v1.1.0 mikataba ni EVM-compatible na chanzo chao ni kuchapishwa chini ya leseni na watu wa tatu isipokuwa zilizoainishwa katika hifadhidata ya itifaki. Uchapishaji huwezesha ukaguzi lakini hauwezi kuthibitisha ukaguzi, utekelezaji salama, au kutii sheria. Kila utekelezaji unapaswa kufichua toleo lake la msimbo, utengenezaji wa asili, anwani, mamlaka ya mdhibiti, na hali ya ukaguzi.
+\item \textbf{Msimamo wa ishara iliyopendekezwa:} katika muundo huu, iliyopendekezwa CLC utawala ishara ingekuwa kuhariri utawala na sera walengwa upatikanaji. Haitaunda dividends, ushiriki wa faida, haki za ziada, au dhamana ya thamani au umaarufu.
+\item \textbf{Mali zinazopendekezwa zinazohusiana:} sera kutekelezwa tofauti inaweza kuruhusu kufunga CLC utawala ishara iliyopendekezwa kwa mint stCLC na inaweza kuruhusu wakati scope sCLC. Masharti yaliyopitishwa yatahitaji kufafanua haki, mipaka, mwisho, uhamisho, na matibabu yao kwa usahihi.
+\item \textbf{Mawasiliano:} nyenzo yoyote kwa pendekezo yoyote CLC utawala-tokeni, stCLC, au sCLC utekelezaji haipaswi ahadi ya faida, thamani, mapato yasiyofaa, au ufikiaji uhakika.
+\item \textbf{Udhibiti wa mamlaka:} utekelezaji unaweza kuhitaji interface geofencing, vyeti kwa ajili ya madarasa mdogo, mipaka ya kukuza, tathmini maalum ya mali, au udhibiti kwamba pause kipengele iliyopendekezwa.
+\item \textbf{Ujumbe wa mshiriki:} masharti yaliyochaguliwa yataelezea wakati ufikiaji unaweza kupunguzwa au kulemazwa kwa sababu za kisheria, za uendeshaji, au hatari na ikiwa fidia yoyote au suluhisho linatumika.
+\end{enumerate}
+\subsection*{10.7 Hatari za uelekezaji na ukamilishaji wa hatua nyingi}
+\addcontentsline{toc}{subsection}{10.7 Hatari za uelekezaji na ukamilishaji wa hatua nyingi}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} utekelezaji wa sehemu, hops stuck, bridge au escrow exploits, quotes ya zamani, trajectory inflation, na mbele ya mabadiliko ya thamani alitangaza.
+\item \textbf{Viashiria:} viwango vya njia ya kukamilika, backlogs escrow, quotation-to-execution tofauti, mara kwa mara hops zisizo za lazima, na matukio daraja.
+\item \textbf{Udhibiti unaowezekana:} utekelezaji wa atomiki ikiwa inapatikana; HTLC ya kiasi cha muda au muda wa kuweka akiba; njia na sera za wapinzani; vizuizi vya kiwango cha njia; deterministic quote-to-receipt mapping; na waendeshaji wa huduma wanaohusika.
+\item \textbf{Uchunguzi wa mkazo:} kusimamishwa kwa daraja, urekebishaji wa mnyororo, kukatika kwa utegemezi, na hop moja iliyoshindwa katika njia iliyopendekezwa ya hop nyingi.
+\item \textbf{Tamaa ya kuchukua hatari:} chini kwa wastani tu kwa ajili ya dependencies kutambuliwa na kufuatiliwa.
+\end{itemize}
+\subsection*{10.8 Hatari ya ulinzi na usimamizi wa ufunguo}
+\addcontentsline{toc}{subsection}{10.8 Hatari ya ulinzi na usimamizi wa ufunguo}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} waliopotea au kuhatarishwa funguo, saini collusion, na haijulikani ahueni au msimamizi mamlaka.
+\item \textbf{Viashiria:} saini zisizo za kawaida, mabadiliko ya controller, rotations kushindwa, na kuondoa zisizo za kawaida.
+\item \textbf{Udhibiti unaowezekana:} ruhusa ya multiplesig au threshold; funguo zilizotegemezwa na vifaa; kutenganisha majukumu; kugeuka kwa saini; hesabu za wasimamizi wa umma; vizuizi vinavyodhibitiwa vya kujiondoa; na utaratibu uliojaribiwa wa kupona.
+\item \textbf{Tamaa ya kuchukua hatari:} chini.
+\end{itemize}
+\subsection*{10.9 Sifa na hatari ya kijamii}
+\addcontentsline{toc}{subsection}{10.9 Sifa na hatari ya kijamii}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} madai ya udanganyifu, vichocheo vyenye madhara, malalamiko yasiyoweza kupatikana, uzoefu mbaya wa kutimiza, kushindwa kwa faragha, na ulinzi unaopendelea wa ndani.
+\item \textbf{Viashiria:} malalamiko kwa kundi, migogoro isiyotatuliwa, mwenendo wa utendaji wa watangazaji, mkusanyiko wa faida au hasara, na maoni ya jamii.
+\item \textbf{Udhibiti unaowezekana:} taarifa za lugha rahisi; njia za malalamiko na marekebisho; ushahidi unaopatikana; kuripoti kwa uwazi; ukaguzi wa tukio; na vikwazo vinavyopatana na kiasi kwa ajili ya taarifa zisizo za kweli.
+\item \textbf{Tamaa ya kuchukua hatari:} chini, na huduma maalum kwa jamii zilizoathiriwa na washiriki walio hatarini.
+\end{itemize}
+\subsection*{10.10 Hatari ya mkusanyiko na kugawanyika}
+\addcontentsline{toc}{subsection}{10.10 Hatari ya mkusanyiko na kugawanyika}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Tisho:} kutegemea idadi ndogo ya wachapishaji, Vikundi, wasimamizi, watoa huduma, mitandao, au forks zisizo sambamba.
+\item \textbf{Viashiria:} hatua za mkusanyiko na mtoaji, kundi, hisa, mtawala, au mtoa huduma; kushindwa kwa njia kati ya makundi; na utegemezi binafsi muhimu.
+\item \textbf{Udhibiti unaowezekana:} Viwango vya mkusanyiko vilivyochapishwa; waendeshaji wengi wenye uwajibikaji; viwango vinavyolingana; kumbukumbu huru; utaratibu uliojaribiwa wa kuondoka; na ushirikiano salama.
+\item \textbf{Uchunguzi wa mkazo:} hasara ya mtoaji mkubwa zaidi, Kikundi, operator, mtoa huduma, au mizizi ya rejista.
+\item \textbf{Tamaa ya kuchukua hatari:} maalum ya utekelezaji na kufunuliwa, na mipaka kali kwa ajili ya huduma muhimu au dependencies irreplaceable.
+\end{itemize}
+
+\section*{11. Taratibu za utawala}
+\addcontentsline{toc}{section}{11. Taratibu za utawala}
+
+Sura hii inapendekeza template ya utawala. Haimaanishi kwamba CLC App ya sasa hutumia kupiga kura kwa ishara za utawala, nyakati za wakati, bima ya pamoja, mchakato wa madai, au udhibiti wowote ulioelezwa hapa chini. Kila utekelezaji utahitaji kutambua watunga maamuzi halisi, mamlaka, mikataba, michakato, na sera zake.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Maadili ya Katiba:} kuhangaikia watu, kuhangaikia mazingira, haki, upatanisho, kutokuwa na udhibiti, na uvumilivu.
+\item \textbf{Aina za mapendekezo:} mabadiliko ya ada, kikomo, na faharisi; amri za upungufu wa fedha; kuorodheshwa kwa makundi na kuondolewa; maamuzi ya ufungaji wa hiari; na parameter walinzi.
+\item \textbf{Utaratibu unaohusika:} utumiaji $\to$ tathmini $\to$ tathmini ya hatari $\to$ idhini $\to$ muda ambapo inafaa $\to$ utekelezaji. Kibali kinaweza kutoka kwa wasimamizi, ushirika, mashirika ya umma, shirikisho, mashirika mengi, kupiga kura kwenye mnyororo, au muundo mwingine uliofunuliwa na unaohusika.
+\item \textbf{Viwango vya idhini:} parameterized na darasa la hatua, na viwango vya juu kwa ajili ya mabadiliko ya faharisi ya thamani, nguvu za dharura, na hatua nyingine muhimu.
+\item \textbf{Ujumbe:} Ujumbe wa hiari na mamlaka ya umma, utangazaji wa migogoro, na kurejesha.
+\item \textbf{Kuvunja mizunguko:} mapumziko ya dharura na vigezo vilivyoainishwa, waendeshaji walioidhinishwa, hali za kuanza upya, na uchunguzi wa baada ya kifo unaohitajika.
+\item \textbf{Uwazi:} mabadiliko na mtiririko uliochapishwa, pamoja na ushahidi wa kipekee wa ufumbuzi wa swap, utekelezaji wa mtoaji, akiba, matumizi ya kikomo, njia, na wadhamini.
+\end{itemize}
+\textbf{Utawala wa rejista.} CPP- sambamba utekelezaji inaweza kudumisha kumbukumbu ugunduzi kwa vocha, tokens, na Vikundi. Udhibiti ulioruhusiwa unaweza kuongeza, kusasisha, kusimamisha, au kuondoa kuingia kwa rejista kupitia mchakato wa utawala wa utekelezaji uliofunuliwa. Kuondoa rejista huathiri ugunduzi na njia kupitia rejista hiyo; haina kufuta ishara yenyewe, kubadilisha akiba ya mmiliki, kutimiza wajibu wa mtoaji, au kulemaza mkataba mwingine wa kazi.
+
+Kanuni za rejista zilizochapishwa zinapaswa kufanya hali iwe ya masharti na zinaweza kutambua kutotimiza mara kwa mara, udanganyifu au utoaji wa uwongo, tabia isiyo salama ya mkataba, au ukiukaji wa kudumu wa kanuni zilizochapishwa kama sababu za kusimamishwa au kuondolewa. Ikiwezekana, utaratibu huo unapaswa kutoa taarifa, fursa ya kurekebisha, na njia ya kukata rufaa. Uhamisho wa dharura unapaswa kuhitaji ripoti ya tukio la umma na ukaguzi wa moja kwa moja au kutua kwa jua.
+
+\textbf{Maonyesho yaliyokatazwa.} Chini ya template hii, rejista haingekubali:
+
+\begin{enumerate}[leftmargin=*]
+\item vyombo vinavyofadhiliwa moja kwa moja au kuhamasisha uharibifu wa mazingira zaidi ya mipaka iliyokubaliwa, vurugu au silaha, uchimbaji wa kulazimishwa, au unyanyasaji wa mfumo; au
+\item darasa vocha ambayo haina wazi mawasilisho na utekelezaji masharti, uwajibikaji, na kurekebisha njia.
+\end{enumerate}
+Orodha marufuku itakuwa versioned, umma auditable, na inaweza kubadilishwa tu kwa njia ya kupitishwa mgomo wa hatua muhimu na muda lock, iliyoonyeshwa kama Q3 + T3 katika nyongeza D.
+
+\subsection*{11.1 Utawala wa kiwango cha ubadilishaji na kikomo}
+\addcontentsline{toc}{subsection}{11.1 Utawala wa kiwango cha ubadilishaji na kikomo}
+
+\textbf{Mabadiliko yaliyofungwa kwa wakati.} Kuanzishwa kufuatia template hii kubadilisha mbinu za kiwango cha ubadilishaji na kutekeleza kipekee mipaka parameter tu baada ya muda wa umma lock. Njia ya dharura ingetumia utaratibu wa ruhusa uliofunuliwa tofauti na kuingiza jua au ukaguzi wa moja kwa moja.
+
+\textbf{Viwango vya idhini.} Template inapendekeza viwango vya juu vya idhini kwa mabadiliko ya msingi wa faharisi ya thamani na mabadiliko ya kiwango cha kikomo cha kimataifa, viwango vya kati kwa mabadiliko ya mtu wa tatu maalum kwa Kikundi, na viwango vya kawaida kwa mabadiliko ya kawaida ya ada.
+
+\textbf{Matangazo yaliyochapishwa.} Utekelezaji wa ushiriki unapaswa kuchapisha, kwa kila Kikundi, tofauti za faharisi kwenye mlolongo, vyanzo au wastani wa oracle, updates cadence, kikomo windows na caps, na mode kasoro au salama constants.
+
+\textbf{Kanuni za mapumziko ya dharura.} Utekelezaji wa ushiriki ungetangaza kabla ya hali kama vile kukatika kwa oracle, matumizi ya kikomo cha juu pamoja na kutofaulu kutimiza, au kutofaulu kwa kutokuwa na mabadiliko, pamoja na ukaguzi wa resume na mahitaji ya ukaguzi wa baada ya tukio.
+
+\subsection*{Mfano wa kulisha index ya umma kwa kikundi moja na vocha}
+\addcontentsline{toc}{subsection}{Mfano wa kulisha index ya umma kwa kikundi moja na vocha}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Ishara:} kwa mfano, \texttt{Maize\_50kg@IssuerY}.
+\item \textbf{Kitengo cha kumbukumbu:} Index Unit (IUX).
+\item \textbf{Thamani iliyochapishwa:} 30.000 IUX.
+\item \textbf{Chanzo:} wastani wa vyanzo vilivyochaguliwa, kama vile utafiti wa soko la ndani, jarida la wizara, na msingi wa utekelezaji.
+\item \textbf{Updates mzunguko:} kila siku saa 18:00 EAT, kwa muda wa saa 24.
+\item \textbf{Hali ya kutofaulu:} kufungia kwenye thamani ya mwisho halali, kutumia sera ya kikomo iliyofunuliwa, na kupumzika baada ya kukatika kwa masaa 72.
+\item \textbf{Sababu:} maelezo yaliyochapishwa na rekodi ya mabadiliko kutoka kwa sasisho la awali.
+\item \textbf{Waandishi:} anwani za multisig zilizofunuliwa na kizingiti cha idhini.
+\end{itemize}
+\subsection*{11.2 Kusudi la mfuko wa fedha za bima}
+\addcontentsline{toc}{subsection}{11.2 Kusudi la mfuko wa fedha za bima}
+
+\textbf{Ubunifu wa hiari tu.} Kitabu hiki kinatumika tu kwa utekelezaji ambao kwa wazi imechukua na kufadhili mfuko wa bima na kuchapisha matukio yaliyofunikwa, waombaji wanaostahiki, taasisi inayowajibika, mali, mipaka, uondoaji, mahitaji ya ushahidi, mchakato, na masharti ya utawala. Wala sasa CLC App wala GEF hutoa chanjo kwa sababu tu muundo huu ni katika kitabu nyeupe.
+
+\textbf{Vitu vinavyoweza kuchochea.} Sera iliyopitishwa inaweza kufunika kutotimiza kwa mtoaji aliyefafanuliwa, upungufu wa akiba ya Kikundi, au kupoteza daraja au amana. Matukio ya kiufundi hayafai kiotomatiki; sera husika ingekuwa na udhibiti.
+
+\textbf{Tathmini.} Mamlaka inayowajibika ingepatanisha risiti za shughuli, mikopo ya hisa, hati za mdhamini, rekodi za uwasilishaji wa fidia, majibu ya mtoaji, na ushahidi mwingine unaohitajika, na kisha kuchapisha rekodi ya tukio sambamba na faragha na sheria.
+
+\textbf{Mlipuko wa maji unaonyesha hasara.} Ambapo kila safu ipo na inatumika kisheria, sera inaweza kutumia: (1) dhamana za mtoaji anayehusika au hisa za mdhamini $\to$ (2) Hifadhi za kiwango cha kikundi $\to$ (3) mfuko wa bima ya mtandao iliyopendekezwa $\to$ (4) upungufu wa muda wa madai ya bima ya hiari, tu wakati masharti yaliyopo na sheria inayotumika inaruhusu kwa wazi $\to$ (5) upatikanaji wa kisheria kwa udanganyifu uliothibitishwa au unyanyasaji.
+
+Marekebisho ya chanjo hayapunguzi dhamana ya dhamana ya msingi ya mtoaji au kubadilisha akiba kwenye mnyororo isipokuwa masharti ya halali na sheria inayotumika inaruhusu wazi matokeo hayo na idhini yoyote inayohitajika ya mmiliki hupatikana.
+
+\textbf{Mipaka na uondoaji.} Ufikiaji uliochapishwa ungefafanua mipaka, mawasilisho yanayostahiki, ushahidi, madirisha ya madai, njia au matukio yaliyoondolewa, vizuizi vya kijiografia, na matibabu ya hifadhi zilizopunguzwa. Malipo yanaweza kuwa sifuri baada ya mipaka husika kufikiwa.
+
+\textbf{Muda wa kupona unaonyesha waziwazi.} Ikiwa imepitishwa na kuchapishwa:
+
+\begin{enumerate}[leftmargin=*]
+\item madai yatatolewa kwanza kutoka kwa mtoaji anayehusika au dhamana ya dhamana, kisha kutoka kwa akiba inayofaa ya Kikundi, kisha kutoka kwa mfuko wa bima ya mtandao uliopendekezwa;
+\item Kupunguza yoyote kwa madai ya chanjo ya hiari itakuwa mdogo kwa yale ambayo masharti ya chanjo iliyopo tayari na sheria inayotumika inaruhusu, hadi kiwango cha juu cha tukio kilichochapishwa;
+\item Mpango wa kupona unaweza kutumia sehemu iliyoainishwa ya thamani iliyorudishwa kwa kipindi kilichoainishwa, baada ya hapo upungufu wowote uliobaki uliofunikwa utakuwa hasara iliyoorodheshwa na uchunguzi wa umma baada ya kufa; na
+\item kila uamuzi utazalisha risiti na tukio ID, madai na vocha walioathiriwa, uamuzi, mpango wa kupona, na windo la rufaa.
+\end{enumerate}
+\subsection*{11.3 Mfumo wa udhamini}
+\addcontentsline{toc}{subsection}{11.3 Mfumo wa udhamini}
+
+Sehemu hii inatofautisha jukumu la mtoaji, ulinzi wa Hifadhi ya hiari, na dhamana za mtu wa tatu. Vikundi wanaweza kushindana juu ya utunzaji, masharti, na ulinzi zinazotolewa wazi bila maana kwamba CLC App, CPP, GEF, au mtandao wowote pana moja kwa moja kuhakikisha vocha.
+
+\subsection*{Wajibu wa mtoaji wa msingi}
+\addcontentsline{toc}{subsection}{Wajibu wa mtoaji wa msingi}
+
+\begin{itemize}[leftmargin=*]
+\item Kila vocha ni wajibu wa kwanza na wa kwanza wa mtoaji wake. Mtoaji anajitolea kutoa bidhaa, huduma, au fedha ya kisheria kulingana na masharti yake yaliyochapishwa.
+\item Watangazaji wangechapisha ni nani anayeweza kuwasilisha vocha hiyo, ni nini maana ya kutimizwa, inapatikana wapi na wakati gani, ni uthibitisho gani unaohitajika, na ni njia gani za kurekebisha zinazotumika.
+\item Ikiwa mtoaji anashindwa kutimiza, mtoaji ndiye anayewajibika zaidi. Ulinzi wa kikundi au mtandao hutumika tu wakati unapokubaliwa, kufadhiliwa, na kufunuliwa tofauti.
+\end{itemize}
+\subsection*{Ulinzi wa Hifadhi ya Hifadhi}
+\addcontentsline{toc}{subsection}{Ulinzi wa Hifadhi ya Hifadhi}
+
+Msimamizi wa Kikundi anaweza kuchagua kuongeza ulinzi uliofafanuliwa kwa ufupi kwa vocha zilizoidhinishwa. Si moja kwa moja na ingehitaji kutambua mshiriki anayehusika, fedha, hafla zinazofaa, mipaka, madirisha, ushahidi, uondoaji, na njia za kurekebisha katika metadata ya Kikundi na masharti yanayotumika.
+
+Aina za ulinzi zinazoelezea ni:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Ufunikaji wa mali ya hifadhi:} baada ya kukosa kukamilika kwa mtoaji kuthibitishwa, taasisi inayowajibika ya Kikundi hulipa kiasi maalum katika mali ya hifadhi iliyoainishwa, chini ya kiwango chake cha juu kilichochapishwa na hifadhi zilizopo.
+\item \textbf{Swap-back dirisha:} Baada ya tukio la kuhitimu, Kikundi hutoa njia ya muda mdogo ya kubadilishana katika mali iliyopitishwa hapo awali au nyingine, chini ya mipaka na hesabu. Hii ni ulinzi wa upatikanaji wa fedha kulingana na hesabu, si ahadi kwamba kila swap ni reversible.
+\item \textbf{utekelezaji wa mbadala:} mshiriki anayehusika huandaa mtoaji wa badala aliyeidhinishwa ndani ya kikomo cha idadi au thamani iliyochapishwa.
+\item \textbf{Ulinzi wa kiwango cha kiwango cha ubadilishaji:} kwa ajili ya vikundi vya vocha zilizochaguliwa, Kikundi hutoa tu marekebisho ya chanjo au suluhisho la swap-back iliyoonyeshwa katika masharti yake yaliyopo awali. Hii haina kupunguza dhamana ya msingi ya vocha ya mtoaji.
+\end{enumerate}
+\subsection*{Chanzo kinachowezekana cha fedha}
+\addcontentsline{toc}{subsection}{Chanzo kinachowezekana cha fedha}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bonasi ya mtoaji:} dhamana zilizowekwa na mtoaji au zilizohifadhiwa katika hifadhi iliyofunuliwa na zinapatikana baada ya tukio lililopangwa lililothibitishwa.
+\item \textbf{Hifadhi ya Kikundi:} mali zinazodhibitiwa na taasisi inayowajibika ya Kikundi na zilizotengwa kwa ulinzi unaotangaza.
+\item \textbf{Bodi ya mdhamini wa tatu:} dhamana zilizowekwa na mdhamini wa nje aliyejulikana kwa wachapishaji waliotajwa, vikundi vya vocha, au hafla.
+\end{itemize}
+Ushirikiano wa mdhamini utafuata vigezo vya uhalali vilivyochapishwa, saizi ya dhamana, mipaka ya mkusanyiko, mamlaka ya uamuzi, na sheria za utekelezaji wa sheria.
+
+\subsection*{Mchakato wa madai}
+\addcontentsline{toc}{subsection}{Mchakato wa madai}
+
+Sera iliyopitishwa ingefafanua vichocheo vinavyoweza kudhibitiwa, kama vile tarehe ya kukamilika ya utekelezaji iliyofutwa baada ya kuwasilisha fidia halali, ulipuaji wa mtoaji uliothibitishwa, daraja lililofunikwa au kutofaulu kwa amana, au hali ya tukio iliyotangazwa rasmi. Pia itafafanua:
+
+\begin{itemize}[leftmargin=*]
+\item jinsi mshiriki anavyofungua madai na kutoa ushahidi unaohitajika wa uwasilishaji na utekelezaji;
+\item anayethibitisha masharti ya vocha, majibu ya mtoaji, na rekodi za kiufundi;
+\item nafasi ya uamuzi na rufaa; na
+\item njia ya malipo ya ruhusa, mali, caps, na risiti.
+\end{itemize}
+Mapato ya upatikanaji kutoka kwa wachapishaji, usuluhishi, au utekelezaji wa kisheria wangejaza tena bonds au hifadhi zinazotumika kulingana na sera iliyochapishwa kabla ya kutumika kwa upatikanaji uliopendekezwa wa CLC Network Kikundi swap.
+
+\subsection*{Maelezo yanayohitajika}
+\addcontentsline{toc}{subsection}{Maelezo yanayohitajika}
+
+Kwa kila kundi la kikundi na vocha zilizofunikwa, chama kinachohusika kitatangaza:
+
+\begin{itemize}[leftmargin=*]
+\item ikiwa mdhamini hayupo, ni lazima au inahitajika;
+\item ukubwa wa dhamana au akiba na mipaka ya mkusanyiko;
+\item aina za ulinzi, mali, vizuizi, madirisha, na uondoaji;
+\item miadi ya kuwasilisha, kutimiza, madai, na rufaa; na
+\item taarifa ya lugha rahisi ya nani anathibitisha nini na nini si uhakika.
+\end{itemize}
+\textbf{Kanuni ya utunzaji.} Wasimamizi wa Vikundi na taasisi zinazohusika za kisheria au utawala ni wajibu kwa ajili ya ulinzi wao matangazo. CPP- sambamba utekelezaji inaweza kutoa viwango, kumbukumbu, au optional kushiriki sera, lakini wala CLC wala GEF moja kwa moja kuhakikisha vocha au Vikundi.
+
+\subsection*{11.4 Vituo vya kulinda dhidi ya kukamata}
+\addcontentsline{toc}{subsection}{11.4 Vituo vya kulinda dhidi ya kukamata}
+
+Chini ya template hii, zifuatazo zitakuwa hatua muhimu zinazohitaji kiwango cha juu zaidi cha kupitishwa na muda mrefu:
+
+\begin{enumerate}[leftmargin=*]
+\item kubadilisha majivu ya ada iliyopendekezwa, pamoja na chanjo yake na vipaumbele vya shughuli za msingi;
+\item kubadilisha mizizi ya kumbukumbu ya Kanoni;
+\item kubadilisha wigo wa wigo, mipaka ya madai, au mamlaka ya uamuzi;
+\item kupanua uwezo wa mapumziko ya dharura; au
+\item kudhoofisha uhalali, uwazi, au wajibu wa enzi kuu Kikundi zilizotajwa katika karatasi hii.
+\end{enumerate}
+\subsection*{11.5 Utaratibu wa Fork na Kutoka}
+\addcontentsline{toc}{subsection}{11.5 Utaratibu wa Fork na Kutoka}
+
+Kama utawala ulifanyika au maadili drifted kwa kiasi kikubwa, jamii, Wasimamizi wa Vikundi, na watendaji wangeweza kutafuta kuondoka kwa forking safu ya utawala wa mtandao. Utaratibu wa Vikundi na vocha msingi itategemea mikataba kutekelezwa, funguo, viungo, miundombinu, huduma za mtu wa tatu, na wajibu husika.
+
+Mchakato wa kuondoka unaweza:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Chapisha picha ya haraka:} kuhamisha kumbukumbu zilizochaguliwa, vocha, thamani, mipaka, na sera ya ada, kisha kuchapisha saini snapshot hash.
+\item \textbf{Kuweka upya huduma za utawala:} kupeleka mizizi mpya ya rejista, huduma za njia, na ada yoyote ya kupitishwa au moduli za ufungaji chini ya muundo mpya wa uwajibikaji.
+\item \textbf{Kujiandikisha tena:} kuruhusu Wasimamizi wa Vikundi kujiunga kwa kusajili anwani zao za Kikundi chini ya mizizi mpya bila kuhitaji wamiliki kuhamia vocha vinginevyo kazi.
+\item \textbf{Wateja wa kurudisha:} Ongeza mizizi mpya kama wasifu wa mtandao unaoweza kuchaguliwa katika SDKs na viungo, na mabadiliko yoyote ya default yaliyofanywa kupitia mchakato wa utawala uliofunuliwa.
+\item \textbf{Usimamizi wa kipindi cha daraja:} kudumisha njia zinazofaa mahali salama na kukataa njia ambazo zinakiuka sheria za wasifu mpya.
+\end{enumerate}
+Lengo la kubuni ni kwamba kuondoka registry canonical haina kulemaza vinginevyo kazi Vikundi ndani. Utaratibu halisi bado unategemea utekelezaji; shirikisho ni opt-in ugunduzi na ushirikiano safu.
+
+
+\section*{12. Muhtasari wa masharti ya mpango wa ukwasi unaopendekezwa (hauwajibishi)}
+\addcontentsline{toc}{section}{12. Muhtasari wa masharti ya mpango wa ukwasi unaopendekezwa (hauwajibishi)}
+
+Hii ni orodha ya kuangalia kwa ajili ya programu ya wakati ujao, iliyoandikwa kwa njia tofauti. Ni si kutoa, kipengele cha sasa programu, au ahadi ya umaarufu, upatikanaji, bima, kurudi, thamani, au kuondoka.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Msaada unaostahiki:} stablecoins, kuhifadhi tokens, au kupitishwa jamii vocha, kama ilivyoainishwa na programu.
+\item \textbf{Mahali:} imeainishwa Vikundi vya Ahadi au Jumuiya iliyopendekezwa ya Mtandao wa CLC chini ya mamlaka iliyopitishwa kwa njia tofauti.
+\item \textbf{Kufungwa na kutoka:} masharti maalum ya programu, kama vile rolling 30--90 siku vipindi na kufunuliwa milango chini ya mkazo.
+\item \textbf{Malipo ya malipo ya sera:} utaratibu wa hiari wa baada ya kuchapishwa chini ya vizuizi na madirisha yaliyochapishwa, sio kurudi kuliahidiwa.
+\item \textbf{Kushiriki hatari:} upungufu wowote kwa madai ya chanjo ya hiari lazima iwe inaruhusiwa wazi na masharti yaliyopo na sheria inayotumika. Siyo yenyewe hubadilisha dhamana ya vocha ya mtoaji au salio kwenye mlolongo.
+\item \textbf{Ripoti:} Vipande vya kudhibiti na vyeti vya mara kwa mara vinavyohusu afya ya Hifadhi, hesabu, mipaka, ada, na akiba yoyote ya chanjo iliyofadhiliwa.
+\item \textbf{Maagano:} vizuizi vya matumizi ya mapato, udhibiti wa Oracle, viwango vya kikomo, sheria za migogoro, na suluhisho.
+\item \textbf{Uwezekano wa kukubaliwa kwa ishara iliyopendekezwa:} wafanyabiashara ambao huzalisha Vikundi zilizoainishwa wanaweza kuwa na haki ya kupata mikopo iliyopendekezwa ya CLC ya ishara za utawala kulingana na ufikiaji wa kikundi-swap uliopimwa na utekelezaji uliothibitishwa wa mtoaji, chini ya masharti yaliyopitishwa, sheria za kupambana na michezo ya kubahatisha, na vizuizi vya sera.
+\end{itemize}
+
+
+\section*{13. Faharasa ya lugha rahisi}
+\addcontentsline{toc}{section}{13. Faharasa ya lugha rahisi}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cosmo-Local Credit (CLC):} Familia ya bidhaa, ikiwa ni pamoja na CLC App, hati, na kazi pana ya kuunganisha ahadi.
+\item \textbf{CLC App:} Programu ya maendeleo ya mtandao inayotumiwa na GEF katika \texttt{cosmolocal.credit}.
+\item \textbf{itifaki ya Kuunganisha Wajibu (CPP):} Mfano unaoweza kutumiwa tena wa utunzaji, thamani, upungufu, kubadilishana, na utawala wenye uwajibikaji.
+\item \textbf{Protocol v1.1.0:} Verified umma smart mkataba kutolewa.
+\item \textbf{Kikundi cha Ahadi:} Mpango uliotawaliwa ambao unakubali mali zilizofadhiliwa na kuchapisha sheria za kubadilishana.
+\item \textbf{\texttt{SwapPool}:} Hifadhi ya sasa ya ishara na mkataba wa kubadilishana moja kwa moja.
+\item \textbf{Ishara:} Msaada katika mlolongo au mali ya digital. Uhandisi wa ishara peke yake hauwezi kutoa ahadi inayoweza kukombolewa.
+\item \textbf{vocha:} Ishara au rekodi iliyowakilishwa na mtoaji kama ahadi inayoweza kufutwa chini ya masharti yaliyochapishwa.
+\item \textbf{Utoaji:} Rekodi ya orodha ya bidhaa au huduma zinazohusiana na vocha.
+\item \textbf{Mtoaji:} Mshiriki anayehusika na kuchapisha na kutimiza ahadi ya vocha.
+\item \textbf{Msimamizi wa Kikundi:} Muundo wa kuwajibika ambao huchapisha na kusimamia sheria Kikundi.
+\item \textbf{Kiwango cha kubadilishana fedha au nukuu:} Kiwango cha shughuli zinazozalishwa na quoter iliyowekwa; si uthibitisho wa fedha au thamani ya fidia.
+\item \textbf{Kiwango cha juu cha usawa wa ishara za kikundi:} Maximum ya sasa ya \texttt{Limiter} kwa ishara inayomilikiwa na Kikundi. Programu inaweza kuweka lebo yake \textbf{``Kipimo cha mkopo.''}
+\item \textbf{Kubadilishana kikundi:} Kubadilishana moja kwa moja mali kupitia moja \texttt{SwapPool}.
+\item \textbf{Malipo ya kubadilishana:} Uhamisho juu ya mlolongo na uhasibu wa ada kukamilisha Kikundi swap.
+\item \textbf{Utoaji wa fidia:} Kurudisha au kuwasilisha kwa njia nyingine vipande vya vocha kwa mtoaji.
+\item \textbf{utekelezaji:} Mtoaji hutoa bidhaa, huduma, faida, au utendaji mwingine ulioahidiwa.
+\item \textbf{Utoaji:} Rekodi ambayo inazuia vipande vilivyokamilika kutolewa tena.
+\item \textbf{Mpangilio wa utekelezaji router:} Programu ya wakati ujao ambayo ingeidhinisha na kutekeleza njia. sasa \texttt{SwapRouter} quotes tu.
+\item \textbf{Tumependekeza CLC Network Kikundi:} Mpango wa baadaye wa upimaji na uratibu wa bajeti kwa kiwango cha mtandao.
+\item \textbf{Ilipendekezwa CLC utawala ishara:} Ubunifu wa utawala wa baadaye, si programu ya sasa au mali ya Protocol v1.1.0.
+\item \textbf{Mtandao Rack:} Sehemu iliyopendekezwa ya ada za Jumuiya iliyohamishwa kwenye bajeti ya mtandao ya baadaye.
+\item \textbf{Udhamini au bima:} Ulinzi ambao unatumika tu wakati mtu anayejulikana anapochukua kwa wazi, anafadhili, na kuchapisha.
+\end{itemize}
+
+\section*{14. KPI zilizopendekezwa na viashiria vya afya}
+\addcontentsline{toc}{section}{14. KPI zilizopendekezwa na viashiria vya afya}
+
+Uanzishaji unapaswa kuchapisha KPI tu wakati inaweza kuamua tukio, chanzo, cohort au kipindi, kitengo, mbinu ya tathmini na muda, uondoaji, sera ya marekebisho, ushahidi nje ya mlolongo, na mipaka ya ubora wa data.
+
+Mipango iliyopendekezwa ni:
+
+\begin{itemize}[leftmargin=*]
+\item maonyesho halali ya ukombozi;
+\item kiwango cha kutimiza kulingana na kundi;
+\item utoaji kamili;
+\item latency ya uwasilishaji hadi utekelezaji;
+\item muda wa uhifadhi wa ununuzi hadi uwasilishaji;
+\item mikopo inayostahiki chini ya mbinu iliyoainishwa;
+\item Jumla kamili ya kubadilishana kikundi;
+\item hesabu ya kikundi iliyokadiriwa;
+\item Matumizi ya mkusanyiko wa ishara za usawa;
+\item kiwango cha kupitisha nukuu, kilichowekwa kando na kiwango cha utekelezaji wa njia;
+\item Hifadhi zinazofaa zilizogawanywa kwa mfiduo uliofunikwa wazi;
+\item madai ya mdhamini na upatikanaji chini ya sera iliyotambuliwa;
+\item mapato yaliyopendekezwa ya mtandao na ada za huduma zilizopokelewa kweli, bila malipo ya jumla ya Jumuiya ya Jumuiya;
+\item wakati wa kugundua utawala, uamuzi, kupumzika, kurekebisha, na kufunga;
+\item malalamiko, mabishano, marekebisho, na njia za kurekebisha; na
+\item Matokeo ya kijamii au kiekolojia yaliothibitishwa tofauti.
+\end{itemize}
+Takwimu za shughuli kwenye mlolongo hazionyeshi utambulisho, utendaji wa mtoaji, kuridhika, kisababishi, afya ya jamii, au athari za kijamii. Maneno hayo yanahitaji mbinu na ushahidi wao wenyewe.
+
+Tazama \href{https://docs.cosmolocal.credit/sw/white-paper/appendix-c-kpi-definitions}{Kiambatisho C} kwa ajili ya specification kupimwa iliyopendekezwa.
+
+
+\section*{15. Mpango wa utekelezaji (wa kuonyesha mwelekeo)}
+\addcontentsline{toc}{section}{15. Mpango wa utekelezaji (wa kuonyesha mwelekeo)}
+
+\subsection*{15.1 Msingi wa sasa}
+\addcontentsline{toc}{subsection}{15.1 Msingi wa sasa}
+
+GEF inafanya kazi CLC App katika \texttt{cosmolocal.credit} kwenye Gnosis Chain. Programu hutoa akaunti inayoungwa mkono na ufikiaji wa mkoba, orodha ya soko ya umma, na kiolesura kwa ishara, vocha, Matoleo, Vikundi vya Ahadi, uhamisho, na kubadilishana moja kwa moja Kikundi.
+
+Protocol v1.1.0 hutoa msingi wa mkataba wa sasa: \texttt{GiftableToken}, utekelezaji wa moja kwa moja wa \texttt{SwapPool}, rejista za hiari, moduli za tathmini, mipaka ya usawa wa tokeni ya kikundi, ada za kikundi, ada ya itifaki ya ziada, na nukuu tu ya \texttt{SwapRouter}. Upatikanaji bado inategemea interface, mikataba kutekelezwa, hesabu, usanidi, hali ya mtandao, upendeleo, watoa huduma, mamlaka, na kuchapishwa mtoaji au Kikundi masharti.
+
+\subsection*{15.2 Hatua zinazopendekezwa}
+\addcontentsline{toc}{subsection}{15.2 Hatua zinazopendekezwa}
+
+Hatua hizo zilizotajwa ni maagizo ya kubuni, si nambari za kutolewa, tarehe za kutolewa, au ahadi ambazo kipengele kitazindua.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Shirika la Utawala:} iliyopendekezwa CLC ishara ya utawala; CLC Network Kikundi iliyopendekezwa; Adapter za ada; quorum, muda, na utawala misingi.
+\item \textbf{Routing \& Observability:} Router SDK na APIs rejista; madarasa ya afya; mfumo uliopendekezwa wa sera ya bima; nia ya kuchagua kusawazisha tena; prototyping kwa makundi ya wavu.
+\item \textbf{Vifaa vya Hatari ya Wilaya:} HTLC au njia ya amana; moduli za mdhamini zilizotawaliwa tofauti; rolling, akaunti, na viwango vya kikomo kuweka awali.
+\item \textbf{Ufikiaji unaodhibitiwa:} Huduma za malipo za mtu wa tatu zinazohusiana na utekelezaji; Hifadhi ndogo za kibinafsi; ugunduzi wa huduma ya kufuata; majaribio ya mtu wa tatu ya madarasa ya vocha.
+\end{itemize}
+Huduma yoyote ya malipo itatolewa na watu wa tatu walioainishwa tofauti chini ya mamlaka husika, upendeleo, ada, mipaka, na masharti. CLC App na Protocol v1.1.0 mikataba wenyewe si kazi fiat reli.
+
+Utekelezaji wa hop nyingi, bima ya pamoja, ishara iliyopendekezwa ya utawala wa CLC na Jumuiya iliyopendekezwa ya Mtandao wa CLC, kuunganisha makundi, mikusanyo mikubwa ya kibinafsi, na huduma za malipo zinazosimamiwa huendelea kupendekezwa au inategemea utekelezaji hadi utekelezaji na masharti yake ya utawala yatakapotambua kuwa hai.
+
+
+\section*{16. Mfano uliopendekezwa wa tathmini}
+\addcontentsline{toc}{section}{16. Mfano uliopendekezwa wa tathmini}
+
+Programu ya rejista, kikundi, au ya baadaye ya upungufu inaweza kubadilisha templeti hii. Si kiwango cha sasa cha orodha ya ulimwengu au dhamana.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Mambo yaliyotambuliwa:} utambulisho na historia ya mtoaji, masharti ya vocha, Matangazo, ushahidi wa uwezo, usanidi wa Kikundi, wasimamizi, hesabu, mipaka, hifadhi, watetezi, matukio, na wajibu usioweza kutatuliwa.
+\item \textbf{Kusudi na wahusika walioathiriwa:} manufaa yaliyotarajiwa, hatari, migogoro, athari za kiikolojia na kijamii, na ambaye hubeba hasara au jukumu.
+\item \textbf{Tathmini:} Bei ya kutoa, thamani ya vocha iliyoonyeshwa, Njia ya kiwango cha kubadilishana cha kikundi, kumbukumbu ya Oracle, vitengo, vitambaa vya wakati, na sababu za kutofautiana yoyote.
+\item \textbf{Mipaka:} Eligibility, matumizi marufuku, ushirikiano, kikomo cha usawa wa ishara, mapumziko, vizuizi vya kijiografia au kisheria, na vichocheo vya mapitio.
+\item \textbf{Ulinzi:} mtu aliyejibika, tukio lililofunikwa, ufadhili, kikomo, uondoaji, muda, ushahidi, mchakato wa madai, na njia za kurekebisha.
+\item \textbf{Uamuzi:} kuidhinisha, kurekebisha, kukataa, kuacha, au kuongezeka kwa ajili ya ukaguzi wa kibinadamu; kutambua mtengenezaji wa uamuzi, sababu, hali, tarehe ya ukaguzi, na rufaa au utaratibu wa marekebisho.
+\end{enumerate}
+Matokeo haipaswi kuelezea utunzaji, mipaka, akiba, au uthibitisho kama uthibitisho, uwezo wa mtoaji, bima, au kukidhi uhakika isipokuwa chama kinachohusika kimethibitisha ulinzi huo.
+
+
+\section*{17. Dokezo la kisheria na uzingatiaji}
+\addcontentsline{toc}{section}{17. Dokezo la kisheria na uzingatiaji}
+
+CPP inaweza kuratibu tokens, vocha, Vikundi, na swaps ambao matibabu ya kisheria inategemea kubuni yao, masoko, matumizi, vyama responsible, na mamlaka. Hakuna chochote katika kitabu hiki nyeupe ni kisheria, kodi, uwekezaji, mkopo, au ushauri wa kifedha.
+
+Matumizi ya CLC App inatawaliwa na \href{https://docs.cosmolocal.credit/sw/governance/terms}{Masharti ya Huduma}. . GEF huendesha programu na miundombinu ya kusaidia. Isipokuwa GEF huchukua jukumu jingine, sio mtoaji, Msimamizi wa Kikundi, mlinzi, mkopeshaji, mkopeshaji, broker, mdhamini, mkombozi, mshauri, bima, au mshiriki wa majukumu kati ya washiriki.
+
+Huduma za malipo zinazotegemea utekelezaji lazima ziangalie mtoaji wao anayewajibika, mamlaka, uhalali, ada, mipaka, mtindo wa uhifadhi, na masharti. Kuwapo kwa kiunganishi hakumaanishi kwamba GEF au Kikundi inafanya kazi huduma ya chini ya udhibiti.
+
+\subsection*{17.1 Ufafanuzi wa vocha na Ofa}
+\addcontentsline{toc}{subsection}{17.1 Ufafanuzi wa vocha na Ofa}
+
+Mtoaji anapaswa kuchapisha na kuweka updated:
+
+\begin{itemize}[leftmargin=*]
+\item taarifa za utambulisho na mawasiliano;
+\item Utoaji unaohusiana, kitengo, usambazaji, thamani iliyotangazwa, na uwezo;
+\item maeneo na taratibu za uwasilishaji;
+\item wakati na ushahidi wa kutimiza;
+\item sheria za kuisha, ada, kodi, vizuizi, na mabadiliko ya nyenzo;
+\item malalamiko, ubadilishaji, marejesho, au marekebisho mengine; na
+\item njia ya ukomo kuzuia matumizi tena baada ya kukamilika.
+\end{itemize}
+Mkataba wa ishara si kuanzisha masharti haya au kuthibitisha utendaji.
+
+\subsection*{17.2 Kufunuliwa kwa hazina}
+\addcontentsline{toc}{subsection}{17.2 Kufunuliwa kwa hazina}
+
+Msimamizi wa Kikundi inapaswa kuchapisha:
+
+\begin{itemize}[leftmargin=*]
+\item madhumuni ya Kikundi na watumiaji wa maamuzi wanaohusika;
+\item mmiliki wa \texttt{SwapPool}, msimamizi wa proxy, wasimamizi wa utegemezi, na wapokeaji wa ada;
+\item mali zilizoruhusiwa na sheria za kusimamishwa au kuondolewa;
+\item mbinu za kukadiria, vyanzo vya nukuu, ada, kikomo cha usawa wa ishara, hesabu, na mamlaka ya kuondoa wamiliki;
+\item uwekezaji na haki za kuondoka;
+\item kila hifadhi, dhamana, mdhamini, sera ya bima, na sheria ya usambazaji wa hasara; na
+\item utawala, upgrading, dharura, malalamiko, uhamiaji, na kumaliza michakato.
+\end{itemize}
+Kuorodheshwa si kupitishwa, thamani, bima, au dhamana na GEF.
+
+\subsection*{17.3 Hatua na majukumu}
+\addcontentsline{toc}{subsection}{17.3 Hatua na majukumu}
+
+Mtu wa kawaida \textbf{Kubadilishana kikundi} kubadilishana mali zilizofadhiliwa chini ya ofa iliyoonyeshwa na mipaka ya shughuli. Mwongozo wa mali haufanyi iwe mkopo, malipo, ukombozi kutoka kwa mtoaji, au kutimiza katika ulimwengu wa kweli.
+
+\textbf{Utoaji wa ukombozi } kurudisha au kuwasilisha vipande vya vocha kwa mtoaji. \textbf{ Utekelezaji } ni utendaji ahadi ya mtoaji. \textbf{ Ukomo } rekodi zilizokamilika vitengo hivyo hawawezi kutumika tena. Programu ya \textbf{``Komboa''} hatua kwa sasa inatayarisha uhamisho kwa mmiliki wa ishara; uhamisho huo peke yake hauonyeshi kutimizwa.
+
+Programu ya \textbf{``Staafisha vocha''} hatua ni reversible catalog unlisting. Hatumii pesa, hatumii pesa, wala hatumii pesa hizo.
+
+Mkopo wa baadaye au bidhaa nyingine ya mkopo itahitaji masharti ya ziada na shughuli zilizowasilishwa tofauti kabla ya matumizi. Hakuna kutuma kawaida, mchango, kikundi amana, kikundi swap, kuwasilisha, kutimiza, au discharge inajenga mkopo kwa sababu tu ya mwelekeo wake au aina ya mali.
+
+\subsection*{17.4 Ulinzi, uthibitisho, na sheria za mitaa}
+\addcontentsline{toc}{subsection}{17.4 Ulinzi, uthibitisho, na sheria za mitaa}
+
+Kiwango, hifadhi, kuingia kwenye rejista, orodha ya programu, au shughuli za blockchain sio dhamana au sera ya bima moja kwa moja. Ulinzi wowote lazima ueleze mtu anayewajibika, tukio linalohusika, fedha, kikomo, uondoaji, muda, ushahidi, mchakato wa madai, na masharti yanayotumika.
+
+Ushahidi wa mlolongo wa umma unaweza kuonyesha anwani, mali, kiasi, vitambaa vya wakati, na matukio ya mkataba. Siyo yenyewe kuthibitisha utambulisho, uwezo wa kutoa, utekelezaji, kuridhika, ushauri wa utawala, idhini ya kisheria, au athari za kijamii.
+
+Vipengele inaweza kuwa mdogo au haipatikani kwa sababu ya sheria, vikwazo, upendeleo, hali ya mkataba, hesabu, mipaka, usalama, mamlaka, au huduma za mtu wa tatu. Watangazaji, Wasimamizi wa Vikundi, watoa huduma, na washiriki wanaendelea kuwajibika kwa kuamua na kufuata sheria inayotumika.
+
+
+\section*{18. Hitimisho}
+\addcontentsline{toc}{section}{18. Hitimisho}
+
+Cosmo-Local Credit unaunganisha maombi ya sasa na msingi wa Protocol v1.1.0 na kubuni pana iliyopendekezwa kwa Vikundi vya Ahadi inayoongozwa kwa kujitegemea. Swaps za sasa za moja kwa moja za Kikundi, sehemu za punguzo na kikomo, na rekodi za shughuli za umma zinaweza kusaidia kubadilishana kwa uwajibikaji, lakini hazionyeshi utekelezaji wa mtoaji, kuunda haki za mchango, au dhamana ya thamani, umaarufu, ukombozi, bima, hali ya kisheria, au ulinzi dhidi ya hasara.
+
+Utaratibu wa utekelezaji uliopendekezwa wa utekelezaji, mkusanyiko, mali za utawala, ufafanuzi wa mtandao, mipango ya upungufu wa fedha, na ulinzi wa pamoja ulioelezwa katika karatasi hii utahitaji utekelezaji tofauti, fedha, utawala, na masharti yaliyochapishwa. Ubunifu una lengo la kupanua ushirikiano wakati wa kudumisha utendaji wa mtoaji, utawala wa Kikundi, na uwajibikaji wa ulimwengu halisi na vyama vilivyochaguliwa.
+
+
+\section*{A. Mfano uliopendekezwa wa kipimo na ada}
+\addcontentsline{toc}{section}{A. Mfano uliopendekezwa wa kipimo na ada}
+
+Kiambatisho hiki kinafafanua mfumo wa kupima uliopendekezwa. Protocol v1.1.0 haina kurekodi utekelezaji wa mtoaji, ukomo kwa ulimwengu halisi, au kila uwanja wa data unaohitajika hapa chini.
+
+\subsection*{Maelezo ya tukio na hisa}
+\addcontentsline{toc}{subsection}{Maelezo ya tukio na hisa}
+
+Kwa ajili ya kitambulisho darasa \emph{j}, cohort au kipindi \emph{t}, na kueleza utaratibu wa thamani \emph{m}:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{O\_\{j,t,m\}}: thamani ya mikopo inayostahiki iliyobaki kwenye kikomo cha kipimo.
+\item \texttt{X\_\{j,t,m\}}: thamani ya swaps za mkusanyiko zilizokamilishwa katika kipindi hicho.
+\item \texttt{P\_\{j,t\}}: Pointi zilizotolewa kwa halali kwa mtoaji kwa ajili ya fidia.
+\item \texttt{F\_\{j,t\}}: vifurushi vilivyowasilishwa na utekelezaji wa mtoaji uliothibitishwa tofauti.
+\item \texttt{G\_\{j,t\}}: vifaa vilivyokamilika na rekodi ya ukomo kuzuia matumizi tena.
+\end{itemize}
+\texttt{O} haiwezi kuhitimishwa kutoka tokeni ugavi peke yake. Sera ya upimaji lazima itambue mtoaji anayewajibika na itoe, kama inavyotumika, hesabu inayomilikiwa na mtoaji, vitengo vilivyochomwa, vitengo vilivyoisha, vitengo vilivyoondolewa, mizani ya majaribio, mizani isiyoweza kupatikana, na ishara ambazo masharti yake hayafanyi ahadi ya mtu wa tatu.
+
+Kila kipimo thamani lazima kuchapisha kitengo, chanzo, mbinu ya thamani, timestamp, na matibabu ya viwango vya kubadilishana kikundi tofauti. Uhamisho kwenye mnyororo unaweza kusaidia \texttt{X} au ushahidi wa uwasilishaji; haina mwenyewe kuanzisha \texttt{F} au \texttt{G}.
+
+\subsection*{Hatua za utekelezaji kwa msingi wa vikundi}
+\addcontentsline{toc}{subsection}{Hatua za utekelezaji kwa msingi wa vikundi}
+
+Kwa kundi la maonyesho ya ukombozi halali:
+
+\texttt{FulfillmentRate = FulfilledPresentments / ValidPresentments}
+
+\texttt{DischargeCompleteness = DischargedFulfillments / FulfilledPresentments}
+
+Matumizi sawa kufungwa au kukomaa cohort katika kila numerator na denominator. Ripoti kukataliwa, kuondolewa, kumalizika, kujadiliwa, sehemu kukamilika, kurekebishwa, na bado wazi mawasilisho tofauti.
+
+\texttt{FulfillmentLatency = median(t\_fulfilled - t\_presented)}
+
+\texttt{HoldingDuration = median(t\_presented - t\_acquired)}
+
+utekelezaji latency vipimo huduma issuer baada ya uwasilishaji. Muda wa kuhifadhi ni kipimo tofauti na haipaswi kutambuliwa kama latency ya ukombozi.
+
+\subsection*{Vipimo tofauti vya kasi}
+\addcontentsline{toc}{subsection}{Vipimo tofauti vya kasi}
+
+Kasi iliyopendekezwa ya ukomo kwa ahadi inaweza kuhesabiwa tu wakati \texttt{O} na thamani iliyokamilika hutumia njia ile ile ya kutathmini:
+
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
+
+Hatua ya shughuli za kubadilishana kikundi ni tofauti:
+
+\texttt{V\_swap,t = PoolSwapValue\_t / AverageMeasuredPoolInventoryValue\_t}
+
+Hakuna thamani yoyote kuthibitisha athari ya kijamii, uwezo wa mtoaji, faida, au cash convertibility.
+
+\subsection*{Mapendekezo ya mapato ya mtandao}
+\addcontentsline{toc}{subsection}{Mapendekezo ya mapato ya mtandao}
+
+Hebu:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{PF\_t} ni jumla ya ada za mkusanyiko zinazozalishwa wakati wa kipindi;
+\item \texttt{NR\_t} ni mapendekezo ya mtandao rake kweli kupokea kama sehemu kufunuliwa ya hizo Kikundi ada;
+\item \texttt{RF\_t} separate mapendekezo ya njia au huduma ada kweli kulipwa; na
+\item \texttt{$\chi$\_t} ni sehemu ya kipimo cha mapato yaliyopokelewa ambayo ni halali na inaweza kubadilishwa kwa matumizi yaliyotajwa ya fedha baada ya gharama na vizuizi vya sera.
+\end{itemize}
+Kutokana na mapendekezo ya bajeti ya mtandao:
+
+\texttt{ProposedNetworkRevenue\_t = NR\_t + RF\_t}
+
+\texttt{CashUsableNetworkRevenue\_t = $\chi$\_t $\times$ (NR\_t + RF\_t)}
+
+Usiongeze \texttt{PF\_t} kwa \texttt{NR\_t}: rake ni uhamisho kutoka ada ya kikundi ya jumla na vinginevyo ingehesabiwa mara mbili. Sasa Protocol v1.1.0 badala yake inasaidia ada ya mkataba wa ziada; mapato yake lazima yatangazwe tofauti na mtindo huu uliopendekezwa wa rake.
+
+
+\section*{B. Mgawanyo wa ada unaopendekezwa}
+\addcontentsline{toc}{section}{B. Mgawanyo wa ada unaopendekezwa}
+
+Huu ni mpango uliopendekezwa kwa ajili ya utekelezaji wa baadaye. Inatumika tu ikiwa imeanzishwa, imefadhiliwa, na kupitishwa kupitia utawala uliochapishwa na masharti ya washiriki. Haelezi ada ya sasa ya Protocol v1.1.0, haki ya mchango, hifadhi, dhamana, au mpango wa bima.
+
+Hebu \texttt{F\_in} kuwa mapato halisi yaliyopatikana na bajeti ya mtandao iliyopendekezwa katika kipindi: mapato ya mtandao iliyopendekezwa, njia tofauti au ada ya huduma, na mapato mengine yoyote yaliyoainishwa wazi. Gross Kikundi ada ambayo inabaki na Vikundi si pamoja na.
+
+Mali za mapato zinapaswa kuorodheshwa kama:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{E\_cash}: mali zinazostahili matumizi ya fedha zilizotajwa chini ya sera iliyopitishwa; au
+\item \texttt{E\_kind}: vocha za asili au mali zingine ambazo hazizingatiwi kama cash-convertible.
+\end{itemize}
+Sera yoyote ya uongofu itahitaji wahalalishaji wa mali na nafasi, mamlaka zinazohusika, vyanzo vya bei, mipaka ya kuteleza, kuripoti, na udhibiti halali wa kisheria.
+
+Mlipuko uliopendekezwa unaweza kutumia mapato yaliyopokelewa katika utaratibu huu:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Lengo la hifadhi iliyofunikwa:} uwekezaji wa akiba au dhamana ya bima iliyopitishwa kulingana tu na uwekezaji uliofafanuliwa uliofunikwa, mali zinazofaa, uondoaji, na sheria za madai.
+\item \textbf{Kazi za msingi:} kuandaa bajeti ya utendaji iliyofunuliwa na iliyo na kikomo.
+\item \textbf{Amri za upatikanaji wa fedha:} fedha zilizopitishwa, tofauti-tofauti kuongozwa Kikundi au programu za njia.
+\item \textbf{Bajeti iliyobaki:} kugawa kiasi chochote kilichobaki kati ya shughuli, mipango ya upungufu wa fedha, na buffer ya ziada chini ya mipaka iliyochapishwa.
+\end{enumerate}
+Lengo la hifadhi si dhamana yenyewe. Kila bima au dhamana lazima ieleze mshirika, tukio lililofunikwa, fedha, kikomo, uondoaji, muda, ushahidi, mchakato wa madai, na usambazaji wa hasara.
+
+\textbf{Rangi ya ulinzi:} Ugawaji wa maji ya maporomoko ya maji ni kwa ajili ya ufikiaji wa kupitishwa, shughuli, na huduma za upungufu. Haipaswi kuundwa au kutekelezwa kama shughuli za msaada wa bei.
+
+Chini ya mtindo uliopendekezwa, ishara yoyote ya utawala wa CLC iliyopendekezwa inayopatikana kupitia mpango wa fedha za nje ulioamilishwa kwa njia tofauti itaachwa au kuwekwa katika sinki isiyo na kupiga kura iliyotolewa wazi. Mfumo huu haujatumiwa.
+
+
+\section*{C. Ufafanuzi unaopendekezwa wa KPI}
+\addcontentsline{toc}{section}{C. Ufafanuzi unaopendekezwa wa KPI}
+
+KPI hizi huunda ufafanuzi wa kipimo uliopendekezwa, sio taarifa kwamba programu ya sasa au itifaki huorodhesha kila tukio linalohitajika.
+
+Kila KPI iliyochapishwa lazima iwe na:
+
+\begin{itemize}[leftmargin=*]
+\item Mchapishaji anayehusika na chanzo cha data;
+\item ufafanuzi wa tukio au hali;
+\item cohorts au kipindi cha kipimo;
+\item kitengo na utaratibu wa tathmini;
+\item muda wa kutathmini;
+\item sheria za kuingizwa na kutoingizwa;
+\item usindikaji wa rekodi za sehemu, zilizoshutumiwa, zilizokwisha, zisizoweza kupatikana, na zilizorekebishwa;
+\item uthibitisho au uthibitisho unaohitajika nje ya mnyororo;
+\item historia ya marekebisho na upungufu wa ubora wa data; na
+\item ikiwa matokeo ni juu ya mnyororo, kuripotiwa, kuthibitishwa, kuthibitishwa kwa kujitegemea, au kukadiriwa.
+\end{itemize}
+\begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
+\toprule
+KPI & Ufafanuzi uliopendekezwa & Uthibitisho na uondoaji unaohitajika \\
+\midrule
+\endhead
+\textbf{Mawasilisho ya halali} & Idadi au vitengo vilivyokubaliwa katika mchakato wa ukombozi wa mtoaji wakati wa kipindi & Kitambulisho cha uwasilishaji, mtoaji, idhini ya mmiliki, kiasi, wakati, hali; kutofautisha nakala duplicate na maombi batili \\
+\textbf{Kiwango cha utekelezaji} & Mawasilisho sahihi yaliyokamilika yaliyogawanywa na mawasilisho sahihi kwa kundi moja la watu wakomavu & Uthibitisho tofauti wa utendaji wa mtoaji; kuripoti kesi zilizofunguliwa, zilizokataliwa, zilizotetewa, za sehemu, na zilizorekebishwa \\
+\textbf{Ukamilifu wa ukomo} & Mawasilisho yaliyokamilishwa na rekodi ya ukomo kwa amana iliyogawanywa na mawasilisho yaliyokamilishwa & Kuteketezwa, kufutwa, rekodi ya kulemaza, au ushahidi mwingine wa kutotumia tena unaohusishwa na utekelezaji \\
+\textbf{Utaratibu wa kutimiza} & Kati na asilimia 90 ya muda wa uwasilishaji hadi utekelezaji & Usibadilishe muda wa kuhifadhi kutoka kutolewa hadi kuwasilishwa au ununuzi hadi kuwasilishwa \\
+\textbf{Muda wa kuhifadhi} & Wastani na usambazaji wa muda wa ununuzi hadi uwasilishaji & Tambua tukio la upatikanaji na uondoe nyakati zisizojulikana za upatikanaji \\
+\textbf{Mikopo inayostahiki bado} & Mikopo ya mtu wa tatu inayostahiki iliyobaki baada ya uondoaji uliofafanuliwa & Utambulisho wa mtoaji na masharti; Kutoondoa hesabu inayotumika ya watoaji, kukamilika, kuchomwa, ukomo, majaribio, na ishara za kutojiunga \\
+\textbf{Kiasi cha kubadilishana kikundi} & Thamani ya mikopo ya moja kwa moja ya mkusanyiko iliyomalizika chini ya njia moja ya kukadiria iliyotolewa & Matukio ya mahesabu kwenye mlolongo, vitengo vya ishara, chanzo cha kiwango, wakati; si kuorodhesha kama utekelezaji wa mtoaji \\
+\textbf{Hifadhi ya Vikundi} & Mali zilizotegemezwa kwa kipimo zilizoshikiliwa na Kikundi kwa wakati maalum & Malipo ya mikataba, mikopo ya ada, mali zisizoweza kupatikana, njia ya kutathmini, na mamlaka ya kuondoa mali \\
+\textbf{Ufanisi wa hifadhi} & Mali za hifadhi zinazostahiki, zinazopatikana, zilizogawanywa kwa uwekezaji uliofunikwa wazi & Sera ya ulinzi, uhalali wa mali, ulinzi / udhibiti, dhamana, uondoaji, na thamani; si jumla ya kutoa tokeni kwa default \\
+\textbf{Utekelezaji wa kikomo} & Measured Kikundi token balance divided by its current configured cap & Limiter anwani, ishara, kikundi, timestamp, mabadiliko, na vipindi bila kikomo \\
+\textbf{Kiwango cha kupitisha nukuu} & Majibu mafanikio ya nukuu kugawanywa na majaribio halali nukuu & Matokeo ya quote tu; si utekelezaji wa njia \\
+\textbf{Kiwango cha utekelezaji wa njia} & Kukamilika multi-hop utekelezaji kugawanywa na halali utekelezaji majaribio & Inatumika tu kwa mfumo wa utekelezaji uliotekelezwa; ripoti kwa hop na sheria atomicity \\
+\textbf{Uokoaji wa mdhamini} & Malipo yanayopokelewa yanayostahiki kugawanywa kwa madai yaliyofunikwa yaliyolipwa & Wapewa dhamana waliotambuliwa, sera ya madai, wakati, gharama, migogoro, na ufutaji \\
+\textbf{Mapendekezo ya mapato ya mtandao} & Rake ya mtandao iliyopendekezwa iliyopokelewa pamoja na ada tofauti za njia/huduma zilizopokelewa & Kutoondoa jumla ya ada za kikundi zilizohifadhiwa na Vikundi na kuepuka kuhesabu rake mara mbili \\
+\textbf{Utaratibu wa utawala} & Wakati wa kugundua, kuamua, kupumzika, kurekebisha, na kufunga tukio & Saa zilizofafanuliwa, vyombo vinavyohusika, mamlaka ya dharura, rufaa, na matukio yaliyopotea \\
+\bottomrule
+\end{longtable}
+
+Rekodi za athari za kijamii zinahitaji mbinu tofauti. Shughuli ya blockchain peke yake haitoi utambulisho, utendaji wa mtoaji, kuridhika, afya ya jamii, kisababishi, au athari.
+
+
+\section*{D. Vipimo vinavyopendekezwa vya uzinduzi}
+\addcontentsline{toc}{section}{D. Vipimo vinavyopendekezwa vya uzinduzi}
+
+Kila thamani hapa chini ni mfano. Sio default ya sasa ya programu, usanidi wa Protocol v1.1.0, dhamana, ofa, au ahadi ya utoaji. Utekelezaji wa baadaye utahitaji kupitisha, kutekeleza, kufuatilia, na kuchapisha vigezo vyake halisi.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Viwango Quorum kwa CLC utawala ishara iliyopendekezwa:}
+\begin{itemize}[leftmargin=*]
+\item Q1 kawaida: angalau 4\% quorum na zaidi ya 50\% idhini.
+\item Q2 sensitive: angalau 10\% quorum na angalau 60\% idhini.
+\item Q3 muhimu: angalau 20\% quorum na angalau 66.7\% idhini.
+\end{itemize}
+\item \textbf{Muda uliopendekezwa:}
+\begin{itemize}[leftmargin=*]
+\item T1: masaa 48 kwa shughuli za Q1.
+\item T2: Siku 7 kwa shughuli za Q2.
+\item T3: Siku 30 kwa shughuli za Q3.
+\end{itemize}
+\item \textbf{Kipindi cha Epoch:} 7 siku, ikiwa ni pamoja na upigaji kura wowote uliopitishwa, uchapishaji wa bajeti, na pendekezo la windows sCLC.
+\item \textbf{Kupumzika kwa dharura:} mara moja kupitia mamlaka ya dharura iliyotambuliwa, ikiisha baada ya masaa 72 isipokuwa imetekelezwa chini ya utaratibu uliopitishwa.
+\item \textbf{Mapendekezo ya mtandao rake:} 20\% ya ada ya kushiriki katika Kikundi kwa kutofaulu, iliyozuiliwa na sera.
+\item \textbf{Maelezo ya kiwango cha ada ya kikundi:} 0\%--20\%, iliyochapishwa na kila Kikundi cha washiriki.
+\item \textbf{Kiwango cha juu cha malipo ya njia au huduma iliyopendekezwa:} 20 bps kwa njia.
+\item \textbf{Kiwango cha kuongezeka kwa mtandao kilichopendekezwa:} \texttt{rake\_rate\_p = pool\_fee\_p $\times$ rake\_share\_p}.
+\item \textbf{Ufanisi wa mapato:} kuorodhesha mali zilizopokelewa kama cash-eligible \texttt{E\_cash} au in-kind \texttt{E\_kind} kulingana na mbinu iliyochapishwa.
+\item \textbf{Udhibiti wa uongofu:} Wasimamizi wa mali na nafasi, mamlaka zinazowajibika, vyanzo vya bei, windows za wakati, mipaka ya kuteleza, mipaka, na kuripoti.
+\item \textbf{Malipo ya bajeti:} kuchapisha bajeti iliyopendekezwa ya upatikanaji wa ada tu baada ya mikopo ya kuhifadhiwa iliyoidhinishwa na malengo ya uendeshaji kukamilika; bajeti inaweza kuwa sifuri.
+\item \textbf{Njia za hatari:} kutoweka darasa moja la mali kwa hatari ya darasa lingine bila kuamua kwa wazi na kwa habari chini ya sheria inayotumika.
+\item \textbf{Mipaka iliyopendekezwa ya rolling na akaunti:} kukataa shughuli zisizoidhinishwa kati ya darasa na kutumia mipaka iliyopitishwa.
+\item \textbf{Kupunguzwa kwa ufunguo wa uchaguzi:} tu wakati masharti ya chanjo yaliyopo tayari, idhini inayohitajika, na sheria inayotumika inaruhusu; haina kupunguza kwa yenyewe dhamana ya vocha ya mtoaji au salio kwenye mlolongo.
+\item \textbf{Udhibiti wa kasi ya nje, ikiwa imewezeshwa tofauti:} kuchapisha eneo la mahali, njia ya kipimo, vichocheo, matumizi na kiasi kikomo, udhibiti wa utekelezaji, kuacha dharura, na risiti. Usionyeshe programu hiyo kuwa msaada wa bei ya ishara.
+\end{itemize}
+Gharama za sasa za Protocol v1.1.0 Kikundi, ada za ziada za itifaki, na kikomo cha usawa wa tokeni za Kikundi zinaendelea kuongozwa na mikataba na usanidi uliotumika, sio thamani hizi zilizopendekezwa.
+
+
+\section*{E. Mfano uliofafanuliwa --- sehemu ya mtandao inayopendekezwa}
+\addcontentsline{toc}{section}{E. Mfano uliofafanuliwa --- sehemu ya mtandao inayopendekezwa}
+
+Mfano huu unaonyesha mfano uliopendekezwa. Siyo mahesabu ya ziada ya malipo ya itifaki kutumika na Protocol v1.1.0.
+
+Tuseme:
+
+\begin{itemize}[leftmargin=*]
+\item Jumuiya inayoshiriki inadai ada ya Jumuiya ya 2.00\%;
+\item Rake ya mtandao iliyopendekezwa hupokea 20\% ya ada hiyo ya Kikundi; na
+\item 25\% ya rake iliyopokelewa ni halali na inaweza kubadilishwa kwa matumizi yaliyotajwa ya fedha baada ya gharama.
+\end{itemize}
+Kiwango cha ufanisi kilichopendekezwa cha upungufu wa mtandao juu ya thamani ya njia ni:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Sehemu inayoweza kutumiwa kwa fedha chini ya kiwango cha 25\% cha upendeleo ni:
+
+\texttt{cash\_usable\_rate = 40 bps $\times$ 25\% = 10 bps}
+
+Ikiwa bajeti ya mtandao iliyopendekezwa ina mahitaji ya fedha ya kila mwezi ya \$ 150,000 na hakuna mapato mengine, thamani ya kuelezea inayohitajika kwa kiwango cha matumizi ya fedha ya 10 bps ni:
+
+\texttt{required\_routed\_value = \$150,000 / 0.001 = \$150,000,000 per month}
+
+Hesabu hii haijumuishi ushuru wa jumla wa Kikundi uliohifadhiwa na Vikundi. Kuongezea ada hizo kwenye mtandao wa kukimbia kungehesabu mara mbili chanzo cha kukimbia.
+
+Uchambuzi halisi wa bajeti utahitaji pia kuchapisha:
+
+\begin{itemize}[leftmargin=*]
+\item mapato halisi ya rake na ada ya huduma;
+\item Eligibility ya mali na gharama za uongofu;
+\item Ushirikiano wa kundi na wigo wa njia;
+\item mikopo iliyopitishwa ya hifadhi na shughuli;
+\item hasara, mizozo, marekebisho, na mali isiyopatikana; na
+\item matukio ya unyeti badala ya kuahidi ukuaji au faida.
+\end{itemize}
+Bajeti yoyote iliyopendekezwa ya programu ya upatikanaji wa ada au upungufu wa fedha ingebaki chini ya vipaumbele vyake vilivyopitishwa na inaweza kuwa sifuri.
+
+
+\section*{F. Orodha ya ukaguzi wa chumba cha data}
+\addcontentsline{toc}{section}{F. Orodha ya ukaguzi wa chumba cha data}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Ushahidi wa kihistoria Sarafu Network}
+\begin{itemize}[leftmargin=*]
+\item Archive tarehe swap kiasi, mtumiaji wa kazi na mali ufafanuzi, matukio, fidia mawasilisho, kuzeeka vocha, kuthibitishwa utekelezaji, discharge, kudumisha muda wa hatua, vipindi, exclusions, na mbinu tofauti na sasa Cosmo-Local Credit metrics.
+\item Kuhifadhi \href{https://dune.com/grassrootseconomics/sarafu-network}{kihistoria Dune Analytics dashibodi}.
+\end{itemize}
+\item \textbf{Uthibitisho uliopendekezwa wa utekelezaji wa ada, ikiwa unatekelezwa}
+\begin{itemize}[leftmargin=*]
+\item Kuonyesha kwamba yoyote ya ada hook na rejista gating ni kujumuishwa katika kutekelezwa shughuli njia badala ya kulazimishwa tu na interface.
+\item Kutoa vipimo kuonyesha kwamba huduma ya utekelezaji husika hukataa hop ambayo kupokea kwake hakuthibitishi ushuru chini ya sera iliyopitishwa.
+\item Kuchapisha vipimo vya majaribio, kesi za kutofaulu, mali zinazofaa, na Vikundi zinazofuata zilizounganishwa na toleo la rejista iliyojulikana.
+\item Kuunganisha muhimu \href{https://software.grassecon.org}{Maelezo ya programu}.
+\end{itemize}
+\item \textbf{Msaidizi na mfuko wa chanjo}
+\begin{itemize}[leftmargin=*]
+\item Kuchapisha uhalali, wahusika waliojibika, ufadhili, mipaka, malipo, inapohitajika, vichocheo, ushahidi, uondoaji, mamlaka ya uamuzi, na mifano ya mabishano na rufaa.
+\item Ni pamoja na sampuli vocha na kikundi disclosures ambayo kutofautisha uwajibikaji wa mtoaji kutoka kwa yoyote maalum inayotolewa kikundi ulinzi au udhamini wa mtu wa tatu.
+\item Kuhifadhi \href{https://sarafu.network/reports}{historia Sarafu Network ripoti kumbukumbu} na \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{utoaji wa historia ya mwaka katika mapitio} kama ushahidi wa ukoo, si ushahidi wa sasa CLC chanjo au kupitishwa.
+\end{itemize}
+\item \textbf{Kifurushi cha kisheria na kufuata}
+\begin{itemize}[leftmargin=*]
+\item Hati mkakati wa mamlaka, vikundi vya vocha, sera ya fedha sawa, KYC au chaguzi za uthibitisho, geofencing, utangazaji wa watumiaji, udhibiti wa kuuza vibaya, na tofauti kati ya kawaida Kikundi swap na bidhaa ya mkopo wazi.
+\item Kuunganisha ufanisi \href{https://docs.cosmolocal.credit/sw/governance/terms}{Cosmo-Local Credit Masharti ya huduma} na kuhifadhi matoleo ya kubadilishwa kupitia rekodi za kudhibitiwa.
+\end{itemize}
+\item \textbf{Kuimarisha utawala}
+\begin{itemize}[leftmargin=*]
+\item Kutoa utaratibu wa mgongano wa maslahi na kukataa, rekodi za uamuzi na rufaa, vikwazo, utaratibu sahihi wa kuondoa rejista, mipaka ya nguvu ya dharura, na mifano ya mabadiliko ya kiwango cha ubadilishaji na mipaka iliyowekwa kwa wakati.
+\end{itemize}
+\item \textbf{Chanzo na pakiti ya uhakikisho}
+\begin{itemize}[leftmargin=*]
+\item Kuchapisha orodha ya chanzo na leseni, anwani na matoleo yaliyotumiwa, ripoti za ukaguzi zinazopatikana, kutofautiana, chanzo cha kujenga, mamlaka ya msimamizi, mawasiliano ya tukio, na dashibodi za ufuatiliaji.
+\item Kuunganisha muhimu \href{https://github.com/grassrootseconomics}{Grassroots Economics repositories}.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,1557 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{6em}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdflang={de},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC)\\Ein Netzwerk für Kreditrouting, die Koordination von Verpflichtungen und die Finanzierung einer gesunden kosmo-lokalen Wirtschaft}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{White Paper v0.8 translation: 10 October 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\sloppy
+\RaggedRight
+
+\textbf{Über diese Übersetzung.} Dies ist eine Übersetzung des White Paper v0.8. Der englische Ausgangstext wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde am 10. Oktober 2026 veröffentlicht. Englisch ist der Ausgangstext. \href{https://docs.cosmolocal.credit/white-paper}{Englischen Ausgangstext lesen}.
+
+\textbf{Version:} 0.8
+
+\textbf{Datum:} 30. September 2026
+
+\textbf{Autoren:} William O. Ruddick und Mohamed Sohail
+
+\textbf{Kontakt:} \href{mailto:info@grassecon.org}{info@grassecon.org}
+
+\textbf{Download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-de.pdf}{CLC White Paper v0.8 (PDF, Deutsch)}
+
+\textbf{Veröffentlichung:} Finale, versionierte öffentliche Ausgabe. Dieses Dokument ist keine Anlageberatung und stellt weder ein Verkaufsangebot noch eine Aufforderung zum Kauf eines Wertpapiers oder Finanzinstruments dar. Spätere Versionen können die hier beschriebenen Entwürfe überarbeiten.
+
+\section*{Hinweise zum Lesen}
+\addcontentsline{toc}{section}{Hinweise zum Lesen}
+
+Dieses Whitepaper verbindet vier Arten von Inhalten. Der jeweilige Status gilt für das gesamte Dokument, auch wenn ein Kapitel ihn nicht erneut nennt.
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+Status & Bedeutung \\
+\midrule
+\endhead
+\textbf{Aktuell} & Verhalten, das in der CLC App oder in den öffentlichen Verträgen von Protocol v1.1.0 geprüft wurde. Die \href{https://docs.cosmolocal.credit/de/protocol/overview}{Protokollreferenz} ist die sachliche Quelle für diese Verträge. \\
+\textbf{Bereitstellungsabhängig} & Eine Funktion, die nur vorhanden ist, wenn ein bestimmter Fonds, Anbieter, eine Rechtsordnung, Governance-Struktur oder veröffentlichte Regel sie ermöglicht. \\
+\textbf{Historisch} & Nachweise oder Funktionen des früheren Dienstes Sarafu Network. Sie sind weder aktuelle CLC-Nutzungszahlen noch ein Beleg dafür, dass ein Nutzer, Vermögenswert, Datensatz oder eine Verpflichtung migriert wurde. \\
+\textbf{Vorgeschlagen} & Ein Entwurf, Wirtschaftsmodell, Governance-Mechanismus oder Roadmap-Punkt, der nicht als bereitgestellt dargestellt wird. \\
+\bottomrule
+\end{longtable}
+
+Protocol v1.1.0 umfasst die direkte Ausführung über \texttt{SwapPool}, optionale Kuratierung und Bewertung, Obergrenzen für Token-Salden eines Fonds, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen \texttt{SwapRouter}, der nur Kursangebote erstellt. Mehrstufige Ausführung, HTLC- oder Escrow-Routing, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme sind vorgeschlagen oder bereitstellungsabhängig.
+
+\textbf{Zielgruppe:} Entwickler und Verantwortliche von Fonds, Protokollentwickler und Prüfer, Geldgeber für Liquidität und Mandate, Gestalter von Governance sowie Fachleute für Recht und Compliance.
+
+\section*{Kurzfassung}
+\addcontentsline{toc}{section}{Kurzfassung}
+
+Cosmo-Local Credit ist eine Produktfamilie rund um das \textbf{Commitment Pooling Protocol (CPP)}. CPP beschreibt, wie unabhängig verwaltete Commitment-Fonds einlösbare Verpflichtungen kuratieren, Methoden für Wechselkurse und Grenzen veröffentlichen, Bestände halten und verantwortlichen Tausch ermöglichen können.
+
+Ein \textbf{Commitment-Fonds } ist die verwaltete Vereinbarung. Ein aktueller \textbf{\texttt{SwapPool}} von Protocol v1.1.0 ist eine Vertragskomponente: ein Token-Tresor und eine Engine für direkte Tausche. Eine Bereitstellung kann diesen Vertrag mit Registern, Quotern, Obergrenzen für Fonds-Token-Salden, Gebührenregeln und weiteren Diensten verbinden.
+
+Kosmo-lokal bedeutet, offene Standards, Software und Wissen weltweit zu teilen, während Ausgabe, Erfüllung, Governance und reale Verantwortlichkeit lokal bleiben. Ein Herausgeber bleibt für seinen Gutschein verantwortlich. Eine Fonds-Verantwortliche bleibt für die Fondsregeln und jede ausdrücklich übernommene Garantie verantwortlich. Weder die CLC App noch GEF garantieren automatisch einen Gutschein, Fonds, Wert, eine Route, Liquiditätsposition oder ein Ergebnis.
+
+\section*{Aktuelle Bereitstellung}
+\addcontentsline{toc}{section}{Aktuelle Bereitstellung}
+
+GEF betreibt die CLC App unter \href{https://cosmolocal.credit}{cosmolocal.credit}. Sie bietet Zugang zu Konto und Geldbörse, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Commitment-Fonds, Übertragungen und direkte Fonds-Tausche. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
+
+Der Betrieb der Benutzeroberfläche macht GEF nicht automatisch zum Herausgeber, zur Fonds-Verantwortlichen, zum Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garanten, zur Einlösestelle, zum Berater, Versicherer oder zur Partei von Verpflichtungen zwischen Teilnehmern. Die Nutzung der App unterliegt den \href{https://docs.cosmolocal.credit/de/governance/terms}{Nutzungsbedingungen}.
+
+Protocol v1.1.0 trennt verantwortliche Rollen von technischer Kontrolle. Fonds-Verantwortliche, \texttt{SwapPool}-Eigentümer, Proxy-Administrator, Kontrolleure von Abhängigkeiten, Katalogmoderator und Gebührenempfänger können verschiedene Parteien sein. Gemeinsame Begriffe finden Sie unter \href{https://docs.cosmolocal.credit/de/introduction/concepts}{Konzepte und Begriffe}.
+
+\section*{Historische Herkunft}
+\addcontentsline{toc}{section}{Historische Herkunft}
+
+Das historische Sarafu Network ging der CLC App voraus und lieferte Erkenntnisse zu Gemeinschaftswährungen und Commitment Pooling. Der Übergang des Dienstes zu Cosmo-Local Credit übertrug nicht automatisch jedes historische Konto, jede Geldbörse, jeden Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder jede Verpflichtung.
+
+Historische Kennzahlen in diesem Whitepaper stammen aus einem datierten, in sich konsistenten Sarafu-Datensatz. Sie sind keine aktuellen Nutzungszahlen von CLC. Quelle und Messzeitraum finden Sie in der \href{https://docs.cosmolocal.credit/de/white-paper/executive-summary}{Zusammenfassung}.
+
+\section*{Entwurfsmodell}
+\addcontentsline{toc}{section}{Entwurfsmodell}
+
+CPP erfüllt vier übergeordnete Funktionen:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Kuratierung:} entscheiden, welche Gutscheine oder anderen Vermögenswerte zugelassen werden.
+\item \textbf{Bewertung:} die Methode veröffentlichen, mit der Wechselkurse oder Kursangebote eines Fonds erzeugt werden.
+\item \textbf{Begrenzung:} aktuelle Obergrenzen für Fonds-Token-Salden oder andere gesondert implementierte Risikokontrollen anwenden.
+\item \textbf{Tausch:} Bestände halten und Fonds-Tausche mit offengelegten Gebühren und Grenzen ausführen.
+\end{itemize}
+Eine Bereitstellung kann Routing, Überwachung, Liquiditätsunterstützung, Garantien, Reserven, Versicherungen oder Governance-Dienste nur auf Grundlage gesondert veröffentlichter Regeln ergänzen. Auflistung, Kuratierung, eine Grenze, Reserve oder Blockchain-Aufzeichnung begründet für sich allein weder Leistungsfähigkeit des Herausgebers noch Erfüllung, Empfehlung, Garantie oder Versicherung.
+
+\section*{Werte und Gestaltungsprinzipien}
+\addcontentsline{toc}{section}{Werte und Gestaltungsprinzipien}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Fürsorge für Menschen:} individuelles und gemeinschaftliches Wohlergehen unterstützen.
+\item \textbf{Fürsorge für die Umwelt:} ökologische Schäden verringern und regenerative Praxis fördern.
+\item \textbf{Fairness:} sicheren und gerechten Zugang zu Ressourcen, Wissen und Fürsorge fördern.
+\item \textbf{Gegenseitigkeit:} Risiken, Kosten, Verantwortung und Überschüsse nach offengelegten Regeln teilen.
+\item \textbf{Nicht-Dominanz:} konzentrierter Kontrolle über Menschen, Daten, Finanzen, Wissen und materielle Ressourcen entgegenwirken.
+\item \textbf{Widerstandsfähigkeit:} Gemeinschaften helfen, sich auf wirtschaftliche, politische und klimatische Störungen vorzubereiten und daran anzupassen.
+\item \textbf{Lokale Verantwortlichkeit:} reale Erfüllung und rechtliche Verantwortung bei klar benannten Parteien belassen.
+\item \textbf{Abspaltbarkeit:} kompatiblen Gemeinschaften und Bereitstellungen ermöglichen, gemeinsame Register oder Dienste zu verlassen, ohne gültige Salden oder Verpflichtungen zu löschen.
+\end{itemize}
+Die digitale Ebene dient als gemeinsames Gedächtnis und Koordinationsinfrastruktur. Sie ersetzt weder Beziehungen noch die Leistung von Herausgebern, lokale Governance oder rechtliche Verantwortlichkeit.
+
+\section*{Aktuelle und vorgeschlagene Abläufe}
+\addcontentsline{toc}{section}{Aktuelle und vorgeschlagene Abläufe}
+
+\subsection*{Aktueller direkter Ablauf über einen Fonds}
+\addcontentsline{toc}{subsection}{Aktueller direkter Ablauf über einen Fonds}
+
+\begin{enumerate}[leftmargin=*]
+\item Ein Inhaber prüft einen Gutschein, seinen Herausgeber, seine Bedingungen und die zugehörigen Angebote.
+\item Ein Fonds lässt unterstützte Vermögenswerte zu und veröffentlicht seine Konfiguration und verantwortlichen Stellen.
+\item Der Inhaber holt ein Kursangebot ein und autorisiert einen direkten Fonds-Tausch.
+\item \texttt{SwapPool} führt die Tauschabwicklung auf der Blockchain aus und verbucht Fonds- und Protokollgebühren.
+\item Wählt der Inhaber später in der App \textbf{„Einlösen``}, bereitet die App als Vorlage zur Einlösung eine Übertragung an den Token-Eigentümer vor.
+\item Der Herausgeber erbringt gesondert die versprochene Leistung und zeichnet die Ausbuchung auf, damit erfüllte Einheiten nicht erneut verwendet werden können.
+\end{enumerate}
+Bestände aus einem Fonds zu erhalten, ist ein Tausch. Es handelt sich nur dann um eine Einlösung, wenn der Fonds gesondert die Rolle des Herausgebers übernommen hat und die geltenden Gutscheinbedingungen erfüllt.
+
+\subsection*{Weiter gefasster vorgeschlagener Entwurf}
+\addcontentsline{toc}{subsection}{Weiter gefasster vorgeschlagener Entwurf}
+
+Der vorgeschlagene Entwurf untersucht Ausführungsrouting, Verrechnung, gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungsregeln und Governance-Vermögenswerte. Jeder dieser Bausteine benötigt eine Implementierung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen, bevor er angewendet werden kann.
+
+Das vorgeschlagene Gebührenmodell kann einen Netzwerkanteil aus Fondsgebühren sowie getrennte Routing- oder Servicegebühren vorsehen. Dieser Vorschlag unterscheidet sich von Protocol v1.1.0, bei dem eine optionale Protokollgebühr zusätzlich zur Fondsgebühr erhoben wird.
+
+Unterstützer oder Liquiditätsanbieter erhalten durch den aktuellen \texttt{SwapPool} nicht automatisch Fondsanteile oder Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance. Jedes aktuelle oder zukünftige Programm muss die Art der Übertragung, verantwortliche Partei, Kontrolle, Rückforderungs- oder Abhebungsrechte, Verluste, Belohnungen, Gebühren und Governance-Rechte gesondert offenlegen.
+
+\section*{Orientierung für Leser}
+\addcontentsline{toc}{section}{Orientierung für Leser}
+
+\begin{itemize}[leftmargin=*]
+\item Aktuelle Begriffe und Handlungsabläufe: \href{https://docs.cosmolocal.credit/de/introduction/concepts}{Konzepte und Begriffe}
+\item Geprüfte bereitgestellte Verträge: \href{https://docs.cosmolocal.credit/de/protocol/overview}{Protocol v1.1.0}
+\item Historische Nachweise: \href{https://docs.cosmolocal.credit/de/white-paper/executive-summary}{Zusammenfassung}
+\item Föderation und Interoperabilität: Kapitel 5, 8 und 11
+\item Vorgeschlagene Grenzen von Garantien und Versicherungen: Kapitel 10 und 11
+\item Vorgeschlagene Liquiditäts- und Gebührenmodelle: Kapitel 7, 9 und 12
+\item Vorgeschlagener Messrahmen: Kapitel 14 und Anhänge A--C
+\item Vorgeschlagene Roadmap: Kapitel 15
+\item Rechtliche und Compliance-Erwägungen: Kapitel 17
+\end{itemize}
+\href{https://docs.cosmolocal.credit/de/white-paper/archive}{Frühere Versionen des Whitepapers} werden ausschließlich als eindeutig überholte historische Veröffentlichungen aufbewahrt.
+
+\section*{Zusammenfassung}
+\addcontentsline{toc}{section}{Zusammenfassung}
+
+Die \textbf{Commitment Pooling Protokoll (CPP)} beschreibt, wie unabhängig regierte Commitment-Fonds einlösbare Verpflichtungen kuratieren, Wechselkursmethoden und -grenzen veröffentlichen, Bestandsaufzeichnungen führen und einen verantwortungsvollen Austausch ermöglichen kann. Die Emittenten sind weiterhin für ihre Gutscheinsverpflichtungen verantwortlich. Fonds-Verantwortliche bleibt für die Fonds-Regelungen und alle garantierten Bestimmungen, die sie ausdrücklich übernehmen, verantwortlich. Weder die CLC App noch die GEF sind ein universeller Garant.
+
+Protocol v1.1.0 bietet aktuelle Bausteine für den direkten Austausch: \texttt{GiftableToken}, \texttt{SwapPool}, optionale Register und Bewertungsmodule, Fonds-Token-Balance-Caps, Fonds-Gebühren, eine zusätzliche Protokollgebühr und nur ein Zitat \texttt{SwapRouter}. Die derzeitigen Verträge erfassen keine realisierte Erfüllung, erstellen keine automatischen Liquiditätsanbieter-Aktien, führen Multi-Hop-Ruten durch oder bieten keine universellen Reserven, Garantien oder Versicherungen.
+
+Die historische \textbf{Sarafu Network} Gebrauch von Konzepten der Verpflichtungsherstellung in gemeinschaftlichen Währungen, Spargruppen, gegenseitigen Beihilferegelungen und Produktionsverpflichtungen. Sein Service wechselte später zum CLC App. Dies war keine Darstellung, dass jedes historische Konto, Brieftasche, Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder Verpflichtung migrierte.
+
+\subsection*{Historisches Sarafu Network-Snapshot --- Celo-Aktivität vom 5. Juli 2023 bis zum 20. Juli 2025}
+\addcontentsline{toc}{subsection}{Historisches Sarafu Network-Snapshot --- Celo-Aktivität vom 5. Juli 2023 bis zum 20. Juli 2025}
+
+\textbf{Quelle:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics-Dashboard}
+
+\begin{itemize}[leftmargin=*]
+\item 26.367 Benutzer
+\item 285.197 Peer-to-Peer-Austausch
+\item 188 einzigartige aktive Commitment-Fonds
+\item 745 einzigartige aktive Gutscheine
+\item Volumen der Fonds-Swaps von \$320.692
+\item 899 veröffentlichte Berichte (\href{https://sarafu.network/reports}{historische Berichte Archive})
+\end{itemize}
+Diese Zahlen sind historische Beweise, nicht aktuelle CLC-Nutzungszahlen.
+
+Im weiteren vorgeschlagenen Design von CLC wird untersucht, wie kompatible Netzwerke:
+
+\begin{enumerate}[leftmargin=*]
+\item Entdecken und zitieren Sie Wege über unabhängig regierte Fonds;
+\item koordinieren verantwortungsbewusste Netzdienste, ohne die örtliche Verantwortung zu übernehmen;
+\item Unterstützung von separat finanzierten Liquiditätsmandaten, Garantien, Reserven oder Versicherungspolicies;
+\item die Fonds-Swaps getrennt von der Vorlage, Erfüllung und Ausbuchung von Gutscheinen zu messen; und
+\item die Verwendung einer vorgeschlagenen Netzwerkanteil- und Dienstleistungsgebühren zur Finanzierung der angenommenen geteilten Dienstleistungen.
+\end{enumerate}
+Der Entwurf umfasst einen \textbf{vorgeschlagenen CLC-Governance-Token } und einen \textbf{ vorgeschlagenen CLC-Netzwerkfonds}. Beide sind weder Teil der aktuellen App noch von Protocol v1.1.0.
+
+Im Rahmen des vorgeschlagenen Modells konnten die Teilnehmer an Liquidität und Governance nur durch getrennte Programme mit veröffentlichter Förderfähigkeit, Risiken, Kontrollen, Übertragungsrechten, Rückforderungsbedingungen und Gebührenregeln handeln. Normal Fonds-Einlagen erzeugen keine automatischen Anteile, Rückzahlungen, Auszahlungen, Belohnungen oder Governance-Rechte.
+
+Das gemeinsame Ziel ist:
+
+Erhöhung des verantwortungsvollen Austauschs und der Erfüllung von Verpflichtungen in der realen Welt, wobei Pflege, Gerechtigkeit, lokale Verantwortung und Widerstandsfähigkeit gewahrt werden.
+
+Die Festnahmeverhütung und der glaubwürdige Ausstieg bleiben die Kernziele des Entwurfs. Die vorgeschlagenen Kontrollen umfassen zeitverzögerte Governance, mehrere Genehmigungsschwellen, transparente Delegationen, Konfliktregeln, Vorfallüberprüfung und einen dokumentierten Fork-and-Migrate-Prozess. Diese Kontrollen würden gewählte Risiken für die Governance reduzieren, aber keine Verluste oder Garantieergebnisse beseitigen.
+
+
+\section*{1. Verpflichtungspartnerprotokoll (CPP): das primitive Kern}
+\addcontentsline{toc}{section}{1. Verpflichtungspartnerprotokoll (CPP): das primitive Kern}
+
+\textbf{Geistiges Modell:} Eine Commitment-Fonds ist eine geregelte Regelung für die Zulassung von Gutscheinen oder anderen Vermögenswerten, die Veröffentlichung von Börsenregeln, das Inventarhalten und die Bereitstellung von Swaps. Die Inhaber stellen ihren Emittenten später Gutscheine zur Realisierung vor. Der Fonds-Austausch und die Abwicklung durch die Emittenten sind getrennte Lebenszyklen.
+
+CPP koordiniert den Wert durch klar beschriebene Verpflichtungen. Das Modell wird in \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{Grundwirtschaft: Nachdenken und Praxis}.
+
+\subsection*{1.1 Was ist eine Verpflichtung?}
+\addcontentsline{toc}{subsection}{1.1 Was ist eine Verpflichtung?}
+
+Eine Verpflichtung ist das Versprechen einer identifizierten Partei einer zukünftigen Lieferung, z.B. Lebensmittel, Transport, Arbeit, Lagerung oder ein anderes gesetzliches Gut, Dienstleistung, Nutzen oder Leistung. Die A \textbf{Gutschein} ist ein Zeichen oder eine Aufzeichnung, die als diese Verpflichtung in veröffentlichten Begriffen dargestellt wird.
+
+Der Token-Vertrag erfasst die digitale Mechanik. Die Bedingungen des Gutscheins identifizieren den Emittenten, das Angebot, die Kapazität, den Ort, den Zeitpunkt, die Beschränkungen, die Darstellung, die Erfüllung, die Beschwerden und den Entlastungsprozess.
+
+\subsection*{1.2 Was ist ein Commitment-Fonds?}
+\addcontentsline{toc}{subsection}{1.2 Was ist ein Commitment-Fonds?}
+
+Eine Commitment-Fonds ist die geregelte Regelung. Sie kann von einem Einzelnen, einer Genossenschaft, einer Gemeindegruppe, einer öffentlichen Agentur, einer Föderation, einem Multisig, einem Dienstleistungsbetreiber oder einer anderen verantwortungsvollen Struktur geleitet werden.
+
+Zu den einschlägigen Aufgaben und Behörden gehören:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Fonds-Verantwortliche Person:} veröffentlicht und verwaltet die Regeln des Fonds und alle ausdrücklich übernommenen Garantien;
+\item \textbf{Poolbesitzer:} besitzt die aktuellen Eigentümerbefugnisse von \texttt{SwapPool};
+\item \textbf{Proxy-Administrator:} kann eine proxied-Implementierung aktualisieren;
+\item \textbf{Abhängigkeitscontroller:} Regeln konfigurierte Registrierungen, Zitaten, Begrenzungen oder Gebührenkomponenten;
+\item \textbf{Streckesucher oder -betreiber:} kann Zitate entdecken oder in einer künftigen Umsetzung eine separat zugelassenen Route durchführen; und
+\item \textbf{Garantierer:} übernimmt eine definierte Verpflichtung nur durch veröffentlichte, finanzierte Bedingungen.
+\end{itemize}
+CPP Gruppen Fonds-Funktionen sind in vier Konzepte unterteilt:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Die Kuration:} Akzeptieren Sie unterstützte Token oder Gutscheine.
+\item \textbf{Bewertung:} die für einen Wechselkurs oder ein Angebot verwendete Methode veröffentlichen.
+\item \textbf{Einschränkung:} die gegenwärtigen Token-Gleichgewichtsgrenzwerte des Fonds oder andere separat eingeführte Kontrollen anzuwenden.
+\item \textbf{Umtausch:} Inventar halten, Swaps ausführen, Gebühren berechnen und Transaktionsunterlagen ausstellen.
+\end{itemize}
+Protocol v1.1.0 implementiert diese Funktionen durch \texttt{SwapPool} und optionale Abhängigkeiten. Sein aktueller \texttt{Limiter} begrenzt ein Token-Guthaben in einem Fonds; es enthält keine rolling-, pro-Konto- oder netzweiten Swap-Limits. Sein aktueller \texttt{SwapRouter} berechnet Kotierungen für mehrere Fonds; es führt keine Swaps durch.
+
+Das breitere vorgeschlagene CPP-Design kann Rolllimits, Konto-Kontrollen, Ausführungsroutern, HTLC oder Escrow-Wege und Charge-Netzungen hinzufügen. Es handelt sich hierbei um vorgeschlagene Komponenten, nicht um Beschreibungen des aktuellen Limiters oder Routers.
+
+\subsection*{1.3 Aktuelle Direkt-Swap-Logik}
+\addcontentsline{toc}{subsection}{1.3 Aktuelle Direkt-Swap-Logik}
+
+Ein aktueller direkter Fonds-Swap:
+
+\begin{enumerate}[leftmargin=*]
+\item prüft das optionale Register für die Eingabe- und Ausgabe-Token;
+\item Messungen der erhaltenen Eingabe;
+\item erhält ein Angebot aus dem konfigurierten Angebot oder wendet Roh-Einheitsparität an;
+\item überprüft den resultierenden Fonds-Token-Guthaben gegenüber dem optionalen Limiter;
+\item berechnet die Poolgebühr und alle zusätzlichen Protokollgebühren;
+\item Kontrollen des verfügbaren Output-Inventars;
+\item überträgt die Protokollgebühr und die Ausgabe sowie die Rechnung für die Poolgebühr; und
+\item Emission von Swap-Events.
+\end{enumerate}
+Das Angebot ist ein Transaktionsparameter, kein Nachweis der Emittentenkapazität, des Rückkaufswerts, des realen Werts, der Bargeldkonvertierbarkeit oder einer Garantie.
+
+\subsection*{1.4 Weiterer Einsatz}
+\addcontentsline{toc}{subsection}{1.4 Weiterer Einsatz}
+
+Commitment-Fonds kann den gemeinschaftlichen Austausch, die Produktion, die gegenseitige Hilfe, öffentliche Programme und andere verantwortungsvolle Strukturen unterstützen. Ein separat dokumentiertes Kreditprodukt könnte einen Gutschein als Sicherheit oder als Rückzahlungsinstrument verwenden, erfordert jedoch ergänzende und transaktionsspezifische Bedingungen. Ein gewöhnlicher Versand, eine Fonds-Einzahlung, ein Fonds-Swap, eine Rückzahlungsvorlage, eine Erfüllung oder eine Abgabe sind nicht automatisch ein Darlehen oder eine Rückzahlung.
+
+CPP ist für verantwortungsbewusste Börsen- und auditierbare Transaktionsunterlagen bestimmt, nicht für spekulative Churn. Die Aufzeichnungen auf der Kette beweisen immer noch keine reale Erfüllung oder soziale Wirkung.
+
+
+\section*{2. Die Rechnungslegung verschiebt sich: vom Vermögenswert zum Vertrauen}
+\addcontentsline{toc}{section}{2. Die Rechnungslegung verschiebt sich: vom Vermögenswert zum Vertrauen}
+
+Traditionelle Finanzierungen beginnen mit \textbf{Vermögenswerte - Verbindlichkeiten = Eigenkapital}. CPP überträgt diese Betrachtung auf eine Wirtschaft der Verpflichtungen:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Annahmefähigkeit:} wie viel von den Verpflichtungen eines Emittenten ein Fonds oder ein Netzwerk noch akzeptieren möchte.
+\item \textbf{Ausstehende Verpflichtungen:} Verheißungen, die nicht erfüllt werden und von anderen gehalten werden.
+\item \textbf{Leistungskapazität:} die nachgewiesene Fähigkeit des Emittenten, diese Versprechen zu erfüllen.
+\end{itemize}
+\subsection*{Illustrative Beziehung zwischen Verpflichtung und Kapazität:}
+\addcontentsline{toc}{subsection}{Illustrative Beziehung zwischen Verpflichtung und Kapazität:}
+
+Akzeptanzfähigkeit - Ausstehende Verpflichtungen = verbleibende Akzeptanzfähigkeit
+
+Diese konzeptionelle Identität kann die Risikogrenzen des Fonds informieren: Unbegrenzte Emission bedeutet nicht unbegrenzte Akzeptanz. Es handelt sich nicht um eine Bilanzidentität oder eine Erklärung, dass jeder Gutschein rechtlich eine Schuld oder ein Darlehen ist.
+
+\textbf{Beispiel:} Ein Transporteur gibt 100100 Fahrten'' in Vouchern aus. Ein Fonds akzeptiert maximal 40 Fahrten gleichzeitig. Wenn 15 akzeptierte Fahrten noch ausstehen, hat der Fonds die Kapazität, bis zu 25 weitere Fahrten im Rahmen dieser Politik zu akzeptieren. Die Berechnung selbst erzeugt keine Darlehen- oder Garantieerfüllung.
+
+
+
+\section*{3. Erfüllung, Ausbuchung und Austausch}
+\addcontentsline{toc}{section}{3. Erfüllung, Ausbuchung und Austausch}
+
+Eine Fonds-Swap-Veränderung, die sich auf Holding-Vermögenswerte bezieht. Die Erfüllung des Gutscheins erfolgt, wenn der Emittent die veröffentlichte Verpflichtung erfüllt. Die Ausbuchung erfasst die ausgefüllten Einheiten, so dass sie nicht erneut vorgestellt werden können. Diese Ereignisse dürfen nicht in eine Verwendung von settlement zusammenfallen.''
+
+Der vorgeschlagene Messrahmen verwendet separate Aufzeichnungen für:
+
+\begin{itemize}[leftmargin=*]
+\item abgeschlossenes Fonds-Swap-Volumen;
+\item gültige Erlösungsvorlagen;
+\item bestätigte Erfüllung durch den Emittenten;
+\item Ausbuchung;
+\item ausstehende förderfähige Verpflichtungen; und
+\item gemessene Fonds-Inventar.
+\end{itemize}
+Eine vorgeschlagene Verpflichtungsentlastungsgeschwindigkeit kann den ausgefüllten Wert während eines Zeitraums mit dem durchschnittlichen ausstehenden berechtigten Verpflichtungswert vergleichen, jedoch nur wenn beide die gleiche offenkundigte Bewertungsmethode verwenden. Das Tokenangebot ist kein ausreichender Nenner: Es kann Emittenteninventar, abgelaufene oder nicht zugängliche Einheiten, Tests und Salden umfassen, die kein ausstehendes Verpflichtungssystem von Dritten darstellen.
+
+Ein separates Fonds-Swap-Aktivitätsverhältnis kann den abgeschlossenen Fonds-Swap-Wert mit dem gemessenen Fonds-Inventar vergleichen. Es beschreibt die Börsenaktivität, nicht die Erfüllung des Emittenten.
+
+Liquidität kann die Verfügbarkeit von Inventaren verbessern und den Austausch erleichtern. Sie garantiert nicht, dass die Emittenten ihre Leistung erzielen, dass die Beitragsgeber ihre Vermögenswerte zurückerlangen oder dass ein Fonds-Zitat ein Erlösungs- oder Barwert darstellt. Für alle Rechte des Liquiditätsanbieters sind separate veröffentlichte Bedingungen erforderlich.
+
+Siehst du ? \href{https://docs.cosmolocal.credit/de/white-paper/appendix-a-math-box}{Anhang A} für Definitionen und \href{https://docs.cosmolocal.credit/de/white-paper/appendix-c-kpi-definitions}{Anhang C} für die vorgeschlagene Messspezifikation.
+
+
+\section*{4. Wiederverwendbare terminähnliche Sicherheiten}
+\addcontentsline{toc}{section}{4. Wiederverwendbare terminähnliche Sicherheiten}
+
+Eine separat dokumentierte Kreditfazilität kann fungible, übertragbare Gutscheine als Sicherheit oder als Rückzahlungsinstrument akzeptieren. Wenn es so ist:
+
+\begin{itemize}[leftmargin=*]
+\item Die Zulassung des Fonds könnte die Sicherheiten erleichtern;
+\item zusätzliche rechtmäßige Vorlage- und Erfüllungsmöglichkeiten könnten die Rückzahlung unterstützen;
+\item Grenzwerte, Bestand, Bewertung, Liquidität, Emittent-Performance und Ausfallrisiken bleiben; und
+\item keine Route, Erfüllung, Rückzahlung, Wert oder Rückgewinnung garantiert werden.
+\end{itemize}
+\subsection*{4.1 Erzeugerkreditierungsschleife}
+\addcontentsline{toc}{subsection}{4.1 Erzeugerkreditierungsschleife}
+
+Eine zukünftige CLC--kompatible Dienstleistung könnte nur dann den Erzeugerkredit unterstützen, wenn die Parteien eine eigene Einrichtung einrichten und die Transaktion ausdrücklich als erstattungsfähige Vorauszahlung darstellen. Die Transaktionsbedingungen würden den Gläubiger und Schuldner identifizieren und erklären:
+
+\begin{itemize}[leftmargin=*]
+\item die Vorauszahlungen und Rückzahlungsbeträge;
+\item Fälligkeitsdaten, Zinsen, Gebühren und zulässige Sicherheiten;
+\item Übertragung und jede Änderung des Gläubigers oder des Anspruchsnehmers;
+\item wie die Erfüllung der Gutscheine für die Rückzahlungsrechnungslegung bewertet und nachgewiesen wird;
+\item teilweise Rückzahlung, Restbeträge, Zahlungsunfähigkeit und Ausbuchung; und
+\item verfügbare Rechtsmittel nach geltendem Recht.
+\end{itemize}
+Ein illustrativer Fluss ist:
+
+\begin{enumerate}[leftmargin=*]
+\item Ein Produzent oder Dienstleister gibt einen Gutschein aus, der eine Verpflichtung zur zukünftigen Produktion darstellt, z. B. zehn Taxifahrten, 50 Kilogramm Mais oder zehn Arbeitsstunden.
+\item Eine Fonds-Verantwortliche Person erkennt diesen Gutschein an und veröffentlicht die Wechselkursmethode, die Grenzen, die Gebühren, die Bestandsregeln und den ausdrücklich angenommenen Schutz des Fonds.
+\item Ein Kreditgeber oder Liquiditätsprogramm stellt einen Vorschuss unter schriftlichen Transaktionsbedingungen separat vor und akzeptiert die Gutscheine des Herstellers als Sicherheit oder als vereinbartes Rückzahlungsinstrument.
+\item Die Inhaber können die Gutscheine übertragen, durch kompatible Fonds austauschen oder dem Emittenten vorlegen.
+\item Die bestätigte Erfüllung durch den Emittenten erfüllt die Gutscheinverpflichtung. Sie reduziert den separaten Kreditsaldo nur insofern, wie der Wert und die in den Kreditbedingungen angegebenen Beweise zu berücksichtigen sind.
+\item Die Aufzeichnungen unterscheiden die Erfüllung der Gutscheine von der Kreditrechnungslegung und identifizieren jegliche teilweise Rückzahlung, Restbetrag, Übertragung, Ausfall oder Ausbuchung.
+\end{enumerate}
+Diese Struktur könnte eine vereinbarte Rückzahlung in Art ermöglichen und gleichzeitig separate Aufzeichnungen für das Gutschein und die Kreditverpflichtungen aufbewahren. Er entsteht nicht aus einer gewöhnlichen Übertragung, Einzahlung, Fonds-Swap, Erlösungserbringung, Erfüllung oder Ausbuchung.
+
+\textbf{Ein Beispiel:} Ein Erzeuger erhält einen Vorauszahlungssatz von 1.000 Dollar unter Bedingungen, in denen festgestellt wird, daß die bestätigte Erfüllung der angegebenen Mais-Gutscheine mit dem Rückzahlungsbetrag nach der angegebenen Bewertungsmethode gutgeschrieben wird. Der Kreditgeber wendet einen Kredit erst nach Erhalt des nach diesen Bedingungen erforderlichen Nachweises an. Wenn die Kreditbedingungen diese Verbindung nicht herstellen, wirkt sich der Erwerb, die Übertragung, der Austausch, die Darstellung oder die Erfüllung des Gutscheins nicht auf den Vorschuss aus.
+
+
+\section*{5. Von isolierten Fonds zu einem föderierten Netzwerk}
+\addcontentsline{toc}{section}{5. Von isolierten Fonds zu einem föderierten Netzwerk}
+
+Der aktuelle Protocol v1.1.0 unterstützt die direkte Ausführung durch einen \texttt{SwapPool} und bietet nur ein Zitat \texttt{SwapRouter}. Es führt keine Multi-Hop-Routes, HTLCs, Escrow-Routes, Charge-Netting oder Cross-Network Clearing durch.
+
+Dieses Kapitel schlägt vor, wie unabhängig regierte Fonds sich koordinieren könnten, ohne ihre eigenen Zulassungs-, Bewertungs-, Begrenzungs-, Gebühren-, Inventar-, Zulassungs- und Governance-Regeln aufzugeben.
+
+\subsection*{5.1 Einzelne Austausch- und Erfüllungsmaßnahmen}
+\addcontentsline{toc}{subsection}{5.1 Einzelne Austausch- und Erfüllungsmaßnahmen}
+
+Die Föderation könnte den Zugang zum Inventar verbessern, aber sie würde den Gutschein nicht verschmelzen und Lebenszyklen austauschen. Jede Implementierung würde diese Ereignisse separat messen:
+
+\begin{enumerate}[leftmargin=*]
+\item eine Strecke angegeben;
+\item ein oder mehrere Fonds-Swaps werden in der Kette ausgeführt und abgewickelt;
+\item ein Inhaber stellt dem Emittenten Gutscheine vor;
+\item der Emittent erfüllt die Verpflichtung; und
+\item Erfüllte Einheiten werden entladen.
+\end{enumerate}
+Mehr zitierte oder ausgeführte Routen beweisen keine größere Erfüllung. In den Berichten würden die Kohorte, die Periode, die Vermögenswerte, die Bewertungsmethode und das Zeitstempel, die Ausschlüsse, Korrekturen und die außerhalb der Kette erforderlichen Beweise angegeben.
+
+\textbf{Veranschaulichender Weg:} Eine Schule hat Mais-Gutscheine, braucht aber Transportgutscheine. Ein Route-Service identifiziert kompatible Fonds-Inventare. Die Ausführung würde nur erfolgreich sein, wenn jeder separat genehmigte Hop innerhalb seiner Quotegrenzen, Grenzen, Gebühren, Bestand und Politik blieb. Die daraus resultierenden Swaps würden nicht nachweisen, dass einer der beiden Emittenten später seine Gutscheinsverpflichtungen erfüllt habe.
+
+\subsection*{5.2 Angebotene Routing- und Rebalancing-Dienste}
+\addcontentsline{toc}{subsection}{5.2 Angebotene Routing- und Rebalancing-Dienste}
+
+Ein zukünftiger Streckendienst könnte zwei verschiedene Tätigkeiten unterstützen.
+
+\textbf{Die von den Teilnehmern initiierte Hinrichtung.} Angesichts der Eingangs- und Ausgangsaktiva, einer Menge und der Einschränkungen der Nutzer könnte der Dienst einen Weg identifizieren und die Ausführung vorbereiten. Jeder Hop hätte seinen eigenen verantwortlichen Fonds, Angebot, Zulassung, Gebühren, Limits, Bestand und Quittung. Atombatches, HTLCs und Treuhand sind mögliche zukünftige Ausführungsmöglichkeiten, nicht das aktuelle Protokollverhalten.
+
+\textbf{Opt-in Fonds-Wiederausgleich.} Fonds-Verantwortliche könnte Bestandsziele, zulässige Gegenparteien, Anlageklassen, Quote-Abweichungsgrenzen und Periodegrenzen veröffentlichen. Ein verantwortungsbewusster Dienst könnte nach kompatiblen Zyklen oder Ketten suchen und nur die zugelassenen Absichten ausführen.
+
+Eine Neuausgewogenheit wäre ein Opt-in. Ein Fonds könnte Teilnehmerrouten zulassen, während er sich einer ausgehenden Rebalanzierung weigert, oder es könnte nur ausgewählte Vermögenswerte, Gegenparteien und Beträge zulassen. Jeder ausgeführte Sprung würde eine Quittung erzeugen, und alle Dienstleistungsgebühren würden getrennt von Fonds- und Protokollgebühren bekannt gegeben.
+
+\subsubsection*{5.2.1 Konföderation und Interoperabilität}
+
+Unabhängige Bereitstellungen könnten ihre eigenen Register, Schnittstellen, Routendienste und Richtlinienprofile betreiben und gleichzeitig kompatible Daten- und Empfangsstandards auswählen. Die Profilübergreifende Ausführung würde weiterhin vom Einsatz abhängig bleiben.
+
+Ein kompatibles Profil würde:
+
+\begin{itemize}[leftmargin=*]
+\item die Kennzeichnung der Registerwurzeln, der Dienstleistungsbetreiber, der Verantwortlichen und der anwendbaren Begriffe;
+\item Erlaubte und verweigerte Gegenparteien, Vermögenswerte, Adapter und Routen offenzulegen;
+\item die Genehmigungen, Begrenzungen, Gebühren und Bestandsbeschränkungen jedes teilnehmenden Fonds anwenden;
+\item die Beweise für die Einreichung von Zitat-zu-Empfangsbestätigungen pro Shop aufbewahren; und
+\item gestatten, dass ansonsten funktionsfähige Fonds ein anderes Register verlassen oder auswählen können, ohne die Salden oder die Verpflichtungen des Emittenten zu löschen.
+\end{itemize}
+Die Kompatibilität kann die verfügbaren Austauschwege erhöhen und die Abhängigkeit von einem Register oder einem Betreiber reduzieren. Sie macht das Netzwerk, CLC App, GEF oder einen anderen Fonds nicht für die Erfüllung eines Emittenten verantwortlich.
+
+\subsection*{5.3 Das vorgeschlagene Netz-Rake- und Servicegebührenmodell}
+\addcontentsline{toc}{subsection}{5.3 Das vorgeschlagene Netz-Rake- und Servicegebührenmodell}
+
+Der aktuelle Protocol v1.1.0 erhebt eine Poolgebühr und, wenn sie konfiguriert ist, eine zusätzliche Protokollgebühr für einen direkten Fonds-Swap. Diese aktuellen Gebühren bleiben unterschiedlich.
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+\begin{enumerate}[leftmargin=*]
+\item a) \textbf{Netzwerkanteil}, definiert als angegebener Anteil der von den teilnehmenden Fonds erhobenen Poolgebühren; und
+\item a) \textbf{Routing- oder Servicegebühr}, für eine identifizierte zukünftige Dienstleistung berechnet.
+\end{enumerate}
+Das vorgeschlagene Netz-Rake ist kein zusätzlicher Prozentsatz, der auf den vollen Swapbetrag angewendet wird, nachdem bereits die Poolgebühr gezählt wurde. Für Fonds \texttt{p}:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+wo \texttt{f\_p} der Fonds-Gebührsatz ist und \texttt{r\_p} der vorgeschlagene Anteil dieser Fonds-Gebühr ist, der dem Netzwerkprogramm zugewiesen wird.
+
+Für einen gemessenen Zeitraum:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Brutto-Poolgebühren} sind die Summe der tatsächlich erhobenen Poolgebühren für jeden Fonds;
+\item \textbf{Einnahmen für Netzwerkanteil} sind die angegebenen Anteile der erhobenen Gebühren;
+\item \textbf{Dienstleistungsgebührenrechnungen} die Routing- oder Servicegebühren werden separat erhoben; und
+\item \textbf{Einnahmen für die Programmgebühren} Gleiche Netzkosten und Dienstleistungsgebühren.
+\end{itemize}
+Keine Kategorie wird zweimal gezählt. Die aktuellen Protokollgebühren werden nicht berücksichtigt, es sei denn, eine gesondert verabschiedete Politik verweist rechtmäßig die tatsächlichen Protokollgebühren in das zukünftige Programm um.
+
+Bei einer aggregierten Annäherung:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{Q\_swap} ist der Wert der ausgeführten Fonds-Swaps für die definierte Kohorte und Periode; und
+\item \texttt{$\tau$} ist der Effektivsatz des vorgeschlagenen Netzwerkracks und separat identifizierte Servicegebühren über den ausgeführten Swapwert.
+\end{itemize}
+Dann:
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+Das ist eine analytische Annäherung, nicht ein Versprechen von Einnahmen. Jeder Eintrag erfordert eine angegebene Kohorte, Periode, Einheit, Bewertungszeitstempel, Ausschlüsse und Korrekturpolitik.
+
+\subsubsection*{5.3.1 Zahlungsfähige und natürliche Einnahmen}
+
+Die Gebühren können in barwertfähigen fungierbaren Vermögenswerten oder in Gutscheinen und anderen Sachverhältnissen entstehen. In natürlichen Quittungen können nicht automatisch Barkosten oder Deckungsansprüche bezahlt werden. Jeder Austausch oder Umwandlung würde Autorität, verfügbare Bestände, offengelegte Orte, Grenzen und tatsächliche Ausführung erfordern.
+
+\texttt{$\chi$} ist der realisierte Anteil an Gebühreneinnahmen, der nach Richtlinienbeschränkungen, fehlgeschlagenen Umrechnungen und Schlupf in Bargeld berechtigt ist. Die für Bargeld verwendbaren Quittungen sind:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+Bei der Haushalts- und Ausgleichsanalyse würden realisierte \texttt{F\_cash} verwendet, nicht die Bruttoanbietergebühren oder der Nennwert des Inventars in der Art. Ein zukünftiges Programm würde Brutto-Fonds-Gebühren, Netzkosten, Dienstleistungsgebühren, Vermögenszusammensetzung, Umrechnungsergebnisse und nutzbare Einnahmen separat melden.
+
+\subsection*{5.4 Angebotene Liquiditätsprogramme}
+\addcontentsline{toc}{subsection}{5.4 Angebotene Liquiditätsprogramme}
+
+Ein zukünftig separat dokumentiertes Liquiditätsprogramm könnte Vermögenswerte für bestimmte Fonds oder Routing-Dienstleistungen vergeben. Aktuelle \texttt{SwapPool}-Verträge entwerfen keine Fonds-Aktien oder erzeugen automatisch Rückzahlungs-, Auszahlungs-, Vergütungs-, Governance- oder Gewinnrechte.
+
+Jedes Programm würde veröffentlichen:
+
+\begin{itemize}[leftmargin=*]
+\item die verantwortliche Stelle und die beteiligte Fonds-Verantwortliche;
+\item die gezahlten Vermögenswerte und die Frage, ob die Übertragung zurückzahlbar, zurückgezogen, gespendet oder vergeben ist;
+\item Aufbewahrungs- und technische Kontrollregelungen;
+\item zulässige Verwendungszwecke, Grenzwerte, Verriegelungen, Rückzugsportarten und Verlustzuweisung;
+\item Gebühren- oder Anreizberechtigung und ob der Betrag Null sein kann;
+\item Berichterstattung, Konflikte, Beschwerden und Rechtsmittel; und
+\item die Migration, die Beendigung und die Behandlung der verbleibenden Vermögenswerte und Pflichten.
+\end{itemize}
+Zu den wesentlichen Risiken gehören ein Inventar, das schwer auszutauschen oder zu erfüllen ist, eine geringe Cash-Eligibilität, eine Nichterfüllung des Emittenten, Vertrags- oder Anbieterversagen, Governance-Änderungen und Ausstiegsbeschränkungen. Grenzwerte, Reserven, Quittungen und Dashboards können einige Risiken reduzieren oder aufdecken; Sie eliminieren keinen Verlust.
+
+Für eine ex-post-analytische Metrik:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{$\phi$} ist der realisierte Bruchteil der im Rahmen der festgelegten Bedingungen des Programms zugewiesenen Programmgebühreneinnahmen; und
+\item \texttt{K} ist der gemessene Wert der im Programm erfassten Vermögenswerte nach einer angegebenen Methode.
+\end{itemize}
+Dann:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
+\]
+
+Diese Metrik beschreibt den realisierten Gebührenfluss pro gemessenen Programmvermögenswert. Es handelt sich nicht um APY, eine Prognose, eine Dividende oder eine garantierte Rendite. In den Berichten werden das Swap-Volumen, die Erlösungserbringung, die Erfüllung des Emittenten, die Ausbuchung, die Aufbewahrungsdauer, Verluste, Auszahlungen und Gebühreneinnahmen getrennt gehalten.
+
+
+\section*{6. Angebotene Liquidität und Governance auf Netzniveau}
+\addcontentsline{toc}{section}{6. Angebotene Liquidität und Governance auf Netzniveau}
+
+Die Erfahrungen aus dem historischen Sarafu Network haben die Forschung zu zwei weiteren Designfragen motiviert:
+
+\begin{enumerate}[leftmargin=*]
+\item wie unabhängig regierte Fonds Liquiditäts- und Routingdienste koordinieren könnten; und
+\item Wie gemeinsam genutzte Dienstleistungen mit zunehmender Beteiligung weiterhin verantwortlich bleiben können.
+\end{enumerate}
+Ein vorgeschlagener CLC-Entwurf beschreibt einen \textbf{vorgeschlagenen CLC-Netzwerkfonds } für Verrechnung und Finanzkoordination auf Netzwerkebene sowie einen \textbf{ vorgeschlagenen CLC-Governance-Token}. Beide existieren weder in der aktuellen App noch in Protocol v1.1.0. Andere Bereitstellungen könnten Genossenschaften, öffentliche Stellen, Verbände, Multisigs, Dienstbetreiber oder andere verantwortliche Strukturen einsetzen, ohne einen der beiden Vorschläge zu übernehmen.
+
+\subsection*{6.1 Abwärtssteuerungen und Optionalität}
+\addcontentsline{toc}{subsection}{6.1 Abwärtssteuerungen und Optionalität}
+
+Aktuelle Protocol v1.1.0 können Fonds-Token-Balance-Caps und Bestandsprüfungen anwenden. Diese Kontrollen beschränken ausgewählte Vertragsmaßnahmen; sie verhindern nicht, dass der Emittent nicht nachkommt, Wertverlust, Schlüsselverlust, Vertragsversagen oder alle anderen Verluste verursacht werden.
+
+Bei einem zukünftigen Einsatz könnten Schaltplätze, Zeitversperrungen, Reserven, Garantien oder Versicherungen hinzugefügt werden. Für jeden Schutz bedarf es einer identifizierten Verantwortlichen, einem erfassten Ereignis, einer Finanzierung, einer Höchstgrenze, einer Ausgrenzung, einer Dauer, eines Beweises, eines Anspruchsverfahrens und der anwendbaren Bedingungen.
+
+Die vorgeschlagene Governance sollte die Registrierungs- und Dienstleistungsbefugnisse eingeschränkt und überprüfbar halten. Für gewöhnliche Maßnahmen können Benachrichtigung, Verzögerung, Veröffentlichung von Gründen, Berufung und Korrekturverfahren verwendet werden. Notfallmaßnahmen sollten Aufzeichnungen über Vorfälle erstellen und im Rahmen einer verabschiedeten Politik ablaufen oder überprüft werden.
+
+Kompatible Routenentdeckung könnte mehr Austausch zwischen Fonds ermöglichen. Multi-Hop-Ausführung und Netting erfordern zusätzliche Software, Berechtigung, Grenzen, Fehlerbewältigung und Governance. Mehr notierte oder ausgeführte Swaps würden an sich weder die Erfüllung des Gutscheins noch die soziale Wirkung beweisen.
+
+
+\section*{7. Angebotene CLC Stewardship- und Governance-Aktiva}
+\addcontentsline{toc}{section}{7. Angebotene CLC Stewardship- und Governance-Aktiva}
+
+Dieses Kapitel präsentiert eine optionale Gestaltung der zukünftigen Governance und der Liquiditätskoordination. Die vorgeschlagenen Governance-Token CLC, stCLC, sCLC, Governance Vault, Versicherungsfonds, Waterfall, Messgeräte, Mandate, Gebühren- und Kreditfenster und Programme für den externen Markt sind nicht Teil der aktuellen CLC App oder Protocol v1.1.0. Jeder würde eine Implementierung, einen verantwortungsvollen Betreiber, veröffentlichte Richtlinien und Bedingungen, eine Sicherheitsüberprüfung und eine anwendbare gesetzliche Genehmigung erfordern.
+
+CPP erfordert dieses Token-Modell nicht. Kompatible Bereitstellungen könnten stattdessen Genossenschaften, öffentliche Agenturen, Verbände, Multisgesellschaften, Dienstleistungen oder andere verantwortungsbewusste Strukturen verwenden.
+
+\subsection*{7.1 Zweck}
+\addcontentsline{toc}{subsection}{7.1 Zweck}
+
+Bei Annahme könnte die vorgeschlagene Governance-Schicht:
+
+\begin{itemize}[leftmargin=*]
+\item koordiniert gemeinsame Register und Routendienste;
+\item die Zuteilung zugelassener Liquiditätsmandate für unabhängig regierte Fonds;
+\item die Verwaltung eines optionalen, ausdrücklich beschränkten, finanzierten Abdeckungsprogramms;
+\item Aufrechterhaltung einer gemeinsamen Infrastruktur und Beobachtbarkeit;
+\item die Beiträge gemäß den veröffentlichten Förderungs- und Spielverhütungsvorschriften anerkennen; und
+\item Erhaltung der Überprüfung, der Anziehungskraft, der Transparenz und des glaubwürdigen Austritts, wenn die Beteiligung zunimmt.
+\end{itemize}
+\subsection*{7.2 Das vorgeschlagene Governance-Asset-Modell}
+\addcontentsline{toc}{subsection}{7.2 Das vorgeschlagene Governance-Asset-Modell}
+
+Der Entwurf enthält drei verschiedene vorgeschlagene Vermögenswerte:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Das vorgeschlagene CLC Governance-Token:} ein übertragbarer Basis-Governance-Aktiv gemäß den angenommenen Emissions-, Aufbewahrungs-, Abstimmungs- und Compliance-Regeln.
+\item \textbf{stCLC:} eine nicht übertragbare Stimmverwahrungsrechnung, die beim Sperren des vorgeschlagenen CLC Governance-Token geprägt ist. Es würde eine zeitlich begrenzte Regierungsbefugnis darstellen und eine offensichtliche Delegation ermöglichen.
+\item \textbf{sCLC:} ein im Rahmen der Politik ausgestelltes Zeitaltervermächtigungs- oder Anreizvermögen. Es könnte einen begrenzten Zugang zu Gebühren und Krediten oder genehmigte Liquiditäts- und Routing-Anreize unterstützen und könnte am Ende der Epoche ablaufen oder verbrannt werden.
+\end{enumerate}
+Weder stCLC noch sCLC wären Eigenkapital, Dividenden, Restansprüche, Renditionsversprechen oder Gemeinschaftsgutscheine. Eine verabschiedete Politik könnte die Emission von sCLC und den Zugang zu Gebühren und Krediten in jeder Epoche auf Null setzen.
+
+Governance-Lock-ups, Mindestdauer, Abkühlung, Delegation, Konzentrationsgrenzwerte und Schwellenwerte für kritische Maßnahmen würden vor der Verwendung veröffentlicht. Unverschlossene vorgeschlagene CLC Governance-Token stimmen nach diesem Entwurf nicht ab.
+
+\subsubsection*{7.2.1 Illustrative Versorgung und Zuteilung}
+
+Der beispielhafte Gesamtbestand des vorgeschlagenen CLC-Governance-Tokens beträgt \textbf{500,000,000}. Dies ist ein Entwurfsparameter, keine aktuelle Ausgabe, kein Angebot, keine Bewertung und kein Liquiditätsversprechen.
+
+Eine beispielhafte Zuordnung ist:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% --- Grassroots Economics Foundation:} dauerhaft betrieben, nicht übertragbar und an ein identifiziertes GEF-Multisig gemäß den veröffentlichten Unterzeichner- und Rotationsregeln gebunden.
+\item \textbf{15\% --- Kernteam und frühe Partner:} während einer von der Politik festgelegten Klippe und einer 24-monatigen linearen Vermögensbereitschaft, wobei die Abstimmungs- und Übertragungsregeln im Voraus bekannt gegeben werden.
+\item \textbf{30\%  private Stipendien:} die Anerkennung von Frühbeiträgen, die eine genehmigte Netzliquidität bereitstellen, mit einer Laufzeit von 24 Monaten.
+\item \textbf{40\%  öffentliche Liquiditätsreserve:} in einem zeitlich eingeschlossenen Governance-Vault für optionale Programme für den externen Markt und für die Zugänglichkeit.
+\end{itemize}
+Im Rahmen der illustrativen öffentlichen Liquiditätskontrollen:
+
+\begin{itemize}[leftmargin=*]
+\item nicht mehr als 10\% des gesamten Angebots sind auf externen Orten gleichzeitig aktiv;
+\item jeder Einsatz würde nach 90 Tagen ablaufen, es sei denn, er wird durch den angenommenen Prozess erneuert;
+\item Liquiditätspositionen und Positionstoken würden weiterhin unter offensichtlicher Governance-Kontrolle stehen; und
+\item die vorgeschlagenen CLC Governance Tokens, die in Liquiditätspositionen verwendet werden, würden nicht stimmen, es sei denn, sie sind nach den gleichen Regeln wie andere Stimmtokens gesperrt.
+\end{itemize}
+Ein zukünftiger Start könnte erst mit einem offenbarten Multisig und einem Übergang beginnen, wenn separat genehmigte Verstärkungs Meilensteine wie unabhängige Audits, Überwachung, Vorfallrunbooks und getestete Pause- und Gabelverfahren genehmigt wurden. Jeder angenommenen Parameter und jeder Änderungsprozess werden separat veröffentlicht.
+
+\subsubsection*{7.2.2 Verfügbarkeits- und Bewilligungsstufen}
+
+Für ein zukünftiges Stipendierungsprogramm könnten schrittweise Beitragsfenster und ein veröffentlichtes Referenzwert für die Einnahme und die Haushaltslegung verwendet werden. Dieser Hinweis wäre kein Versprechen über Marktpreise, Wertschätzung, Rückzahlung oder Ausstieg.
+
+Die Beitragsbedingungen würden angeben, ob Vermögenswerte gespendet, vergeben, zurückgezogen oder zurückgezahlt werden können. wer sie kontrolliert; ihre zulässige Verwendung; Schließungen; Verlustzuweisung; Berichterstattung; und Ausgangsbedingungen. Große Beiträge könnten mit Abstimmungsbeschränkungen oder abnehmenden Steuerungsgewicht konfrontiert sein.
+
+Jede Liquidität auf dem Außenmarkt würde eine separate Entscheidung erfordern, die Orte, verantwortliche Betreiber, Vermögenswerte, Höchstgrenzen, Zeitpläne, Konflikte, Risikokontrollen, Berichterstattung und Kündigung identifiziert. Die Politik würde weder einen Preis zielen noch garantieren.
+
+\subsubsection*{7.2.3 Vorschlag für ein Programm zur Einwirkungssätung}
+
+Ein zukünftiges Programm könnte einen Teil des Governance-Vaults an Beiträge vergeben, die Vermögenswerte in den bezeichneten Commitment-Fonds platzieren und den Zugang zu Börsen und die Erfüllung durch die bestätigten Emittenten messbar verbessern.
+
+Eine verabschiedete Förderungspolitik würde:
+
+\begin{enumerate}[leftmargin=*]
+\item Identifizierung der zugelassenen Fonds, der Vermögenswerte, der Mindestdauer und der Sperrbedingungen;
+\item Definition des produktiven Beitrags unter Verwendung von Beweismitteln für ausgefüllte Swaps und separat nachgewiesener Vorlage, Erfüllung und Ausbuchung;
+\item einen Grenzbeitrag zu messen, anstatt den allein eingeschlossenen Gesamtwert;
+\item die selbstvertriebene und kreisförmige Waschaktivität ausschließen;
+\item die Höchstgrenzen pro Entität und die abnehmenden Renditen anzuwenden; und
+\item vor der endgültigen Zuweisung ein Beobachtungs-, Streit- und Korrekturfenster bereitstellen.
+\end{enumerate}
+Alle Zuschüsse unterliegen weiterhin den veröffentlichten Bestimmungen des Programms, den Bestimmungen über Vergabe, Berechtigung, Einhaltung und Verlust.
+
+\subsection*{7.3 Vorschläge zur Abstimmung, Anreize und Zugang zu Gebühren}
+\addcontentsline{toc}{subsection}{7.3 Vorschläge zur Abstimmung, Anreize und Zugang zu Gebühren}
+
+Im Rahmen dieses Entwurfs konnten die Inhaber von stCLC über zulässige Fonds, Mandate für Streckendienste, gemeinsame Budgets oder andere angenommenen Vorschläge abstimmen. Ein kuratiertes Messsystem könnte die Stimmen in begrenzte sCLC-Anreize für berechtigte Liquiditäts- oder Routingbetreiber umsetzen.
+
+Die Bewertungspolitik würde die ausgeführten Swaps und die Erfüllung durch den Emittenten getrennt halten. Es würde nicht zitierte, sondern unerledigte Routen, ungelöste Präsentationen, Selbstverhandlungen oder den Gesamtwert belohnen, der ohne Beweis für nützliche Aktivität gesperrt ist.
+
+Ein angenommenes Governance-Prozess könnte auch einen Epochen-Gebühren-Kredit-Haushalt veröffentlichen. Berechtigte Inhaber von stCLC erhalten möglicherweise sCLC mit einer Begrenzung von Zeitbegrenzten-Swaps von benannten Gebührenhalterpools in genehmigte Vermögenswerte oder Programme. Dies wäre ein beleidigter Zugang zu verfügbaren Bestandteilen, nicht passives Einkommen oder Eigentum an der Gebührenhalter-Fonds.
+
+\subsubsection*{7.3.1 Durchsetzung der Dienstleistungsgebühren und Profilwahl}
+
+Ein zukünftiges Registerprofil könnte erfordern, dass die teilnehmenden Fonds oder Routendienste einen kompatiblen Gebührenadapter oder -haken verwenden. Das Profil kann Entdeckungs-, Routing- oder Programmunterstützung ablehnen, wenn die erforderliche Quittung keine Gebührenerhebung nachweist.
+
+Namen wie: \textbf{PoolFactory } oder \textbf{ FeeHook} mögliche zukünftige Module beschreiben; Es handelt sich nicht um Protocol v1.1.0-Verträge. Jede Implementierung würde den Code, Adressen, Verantwortlichen, Empfängern, Tarifen, zulässigen Transaktionen, Fehlerbewältigung und Auditstatus offenlegen.
+
+Die Vollstreckung wäre profiliert. Ein von einem Profil ausgeschlossener Fonds könnte weiterhin lokal tätig sein oder sich einem anderen kompatiblen Register anschließen, wenn seine Verträge und Abhängigkeiten funktionsfähig bleiben. Die Kunden sollten vor der Genehmigung die verfügbaren Profile und die geltenden Gebühren anzeigen.
+
+\subsubsection*{7.3.2 Budget sCLC und optionale externe Flusskontrollen}
+
+Nach der Annahme von Finanzierungsbudgets mit höherer Priorität könnte ein zukünftiger Prozess einen Epoche-Gebühren-Kreditbudget \texttt{F\_epoch}, einschließlich Null, veröffentlichen. Eine Politik kann eine Teilnehmergrenze im Verhältnis zur Stimmgewalt von stCLC festlegen:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+Jedes Fenster unterliegt weiterhin Erlaubnislisten, Grenzwerte, Bestand, Förderfähigkeit, Vorfallregeln und anwendbarem Recht.
+
+Eine getrennte Politik könnte eine begrenzte, zeitgewichtete Übernahme des vorgeschlagenen Governance-Token CLC nur zur Verringerung einer gemessenen externen Governance-Angriffsfläche zulassen. Es würde erfordern:
+
+\begin{itemize}[leftmargin=*]
+\item eine veröffentlichte Auslösung, die auf externer Schwingung über einen bestimmten Zeitraum basiert;
+\item ein Höchstanteil der realisierten, förderfähigen Gebühren und des Veranstaltungsortvolumens;
+\item Zeitgewichtete Ausführung ohne genaue Zeitankündigung;
+\item ein automatischer Stopp, wenn die angenommenen Abdeckungs- oder Betriebsschwellen nicht eingehalten werden;
+\item Entzug oder Platzierung von erworbenen Token auf einem offengelegten nicht stimmenden Konto; und
+\item eine ausdrückliche Erklärung, dass das Programm keinen Preis zielt oder garantiert und die Erfüllung des Emittenten nicht beeinträchtigt.
+\end{itemize}
+Die Politik könnte auf unbestimmte Zeit invalidiert bleiben.
+
+\subsubsection*{7.3.3 Portfolio-Fonds und Bescheinigungen}
+
+Die A \textbf{Portfolio Fonds} würde ein gewöhnliches Commitment-Fonds sein, das um eine Mission oder eine Dienstleistungszone gekürt wird. Sein Fonds-Verantwortliche Person könnte ein Individuum, eine Genossenschaft, eine Gemeindegruppe, eine öffentliche Agentur, eine Föderation, ein Multisig, ein Dienstleistungsbetreiber oder eine andere verantwortungsvolle Struktur sein.
+
+Die Unterstützung kann durch:
+
+\begin{enumerate}[leftmargin=*]
+\item unmittelbare Beiträge gemäß den veröffentlichten Bedingungen des Fonds;
+\item zeitlich begrenzte Liquiditätsmandate, die durch den übernommenen Governance-Prozess genehmigt wurden; oder
+\item sCLC gerichteter Zugang zu einem begrenzten Haushalt nach Wasserfall, wenn dieser Mechanismus aktiviert ist.
+\end{enumerate}
+Portfolio-Fonds würden weiterhin unabhängig regiert werden und können gemeinsame oder unabhängige Register verwenden.
+
+Zertifizierungen könnten die Zulassung oder die Risikobereitschaft informieren, würden aber kein Anspruch auf Gebühren, Gewinn oder Restvermögen erzeugen. Eine Bereitstellung könnte:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{registrierte Bescheinigungen} von einem identifizierten Prüfer, der eine veröffentlichte Methode anwendet; oder
+\item \textbf{Gutscheine für den Überprüfungsdienst} die eine einlösbare Verpflichtung zur Durchführung einer angegebenen Prüfung oder Bewertung darstellt.
+\end{itemize}
+Der Fonds würde offenlegen, wie eine Bescheinigung die Zulassung, die Wechselkursmethoden, die Grenzen oder die Zulassungsfähigkeit beeinflusst und wie Fehler, Ablaufzeiten, Konflikte und Beschwerden behandelt werden.
+
+\subsection*{7.4 Vorschlag für Wasserfälle und Haushaltspläne}
+\addcontentsline{toc}{subsection}{7.4 Vorschlag für Wasserfälle und Haushaltspläne}
+
+Der vorgeschlagene Wasserfall würde nur realisierte, förderfähige Einnahmen im Rahmen eines übernommenen Governance-Prozesses vergeben. Es würde unterscheiden:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cash-eligible Vermögenswerte (\texttt{E\_cash}):} gelistete fungible Vermögenswerte, die im Rahmen einer Politik für bargeldbezeichnete Verbindlichkeiten verwendet oder umgewandelt werden können; und
+\item \textbf{Sachgüter (\texttt{E\_kind}):} Gutscheine oder sonstige Vermögenswerte, die den Network-Austausch unterstützen können, aber nicht für Bargelddeckungen oder Betriebsverpflichtungen gelten, es sei denn, sie werden tatsächlich umgerechnet.
+\end{itemize}
+Eine Umrechnungspolitik würde autorisierte Betreiber, Vermögenswerte, Veranstaltungsorte, Preisquellen, Zeitfenster, Gleitgrenzen, Höchstgrenzen, Konflikte, Aufzeichnungen und Vorfälle identifizieren. Die Treasury-Konvertierung würde weder die Gutscheinsverpflichtung eines Emittenten noch die Wechselkursmethode eines Fonds bestimmen.
+
+Eine illustrative Prioritätsordnung ist:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Ziel der finanzierten Deckung:} alle angenommenen Reserven oder vorgeschlagenen Versicherungsfonds zu ihrem offengelegten Ziel für definierte gedeckte Ereignisse aufbauen.
+\item \textbf{Kernbetrieb:} Finanzieren Sie einen begrenzten und offensichtlichen Haushalt für Rechtsarbeit, Bildung, Kommunikation, Infrastruktur, Audits und Beobachtbarkeit.
+\item \textbf{Liquiditätsmandate:} die zugelassenen Vermögenswerte für die angegebenen Zwecke des Fonds- oder Route-Service unter der Überprüfung von Höchstgrenzen und Sonnenuntergang zuzuweisen.
+\item \textbf{Wahlmäßige externe Schwimmenregelung:} Fonds nur dann, wenn die veröffentlichten Auslöser- und Prioritätsschwellen erfüllt sind; anderweitig Null zuweisen.
+\item \textbf{Der vorgeschlagene Gebühren-Kredit-Haushalt:} alle genehmigten Restbeträge an benannte Gebührenhaltende Fonds zuweisen und \texttt{F\_epoch} zu veröffentlichen, die Null sein kann.
+\end{enumerate}
+Bei Haushaltsentscheidungen könnten die bestätigte Erfüllung, die abgedeckte Exposition, die zulässigen Reserven, die Begrenzung der Nutzung, die ausgeführten Routen, die Konzentration, die Vorfälle und die Leistung des Bürgers berücksichtigt werden. Jede Metrik folgt den Beweis- und Kohortenregeln in Anlage C.
+
+Eine mögliche Beitragströmung wäre:
+
+\begin{enumerate}[leftmargin=*]
+\item die Beitragsgeber übertragen berechtigte Vermögenswerte nach getrennt erlassenen Bewilligungs- oder Programmbedingungen;
+\item die teilnehmenden Teilnehmer erhalten und schließen, wenn zulässig, die vorgeschlagenen CLC-Governance-Token, um stCLC zu erhalten;
+\item realisierte zulässige Rake- oder Servicegebührenrechnungen kommen in den Wasserfall ein;
+\item die Waterfall-Fonds haben die Prioritäten in der Reihenfolge festgelegt; und
+\item nur eine aktivierte Post-Waterfall-Politik gibt sCLC aus oder öffnet ein begrenztes Gebührenkreditfenster.
+\end{enumerate}
+Kein Schritt schafft Eigentums-, Rückzahlungs-, Rücktritts-, Abdeckungs-, Belohnungs- oder Governance-Rechte, die über die in den geltenden Bedingungen ausdrücklich genannten hinausgehen.
+
+
+\section*{8. Technischer Umfang und Wachstum}
+\addcontentsline{toc}{section}{8. Technischer Umfang und Wachstum}
+
+Dieses Kapitel beschreibt freiwillige oder vorgeschlagene Arbeiten. Es handelt sich nicht um eine Liste von Merkmalen, die in der aktuellen CLC App oder Protocol v1.1.0 garantiert vorhanden sind.
+
+Zu den möglichen Arbeitsbereichen gehören:
+
+\begin{itemize}[leftmargin=*]
+\item Ausführungsrouting über kompatible Fonds hinweg mit Registrierung, Angebot, Begrenzung, Gebühr und Inventarentdeckung
+\item Zeitverbindlich eingeschlossene Aufbewahrungs- oder HTLC-Adapter für die interdomainübergreifende Ausführung, wenn keine atomare Abwicklung verfügbar ist;
+\item Schnittstellen und politische Instrumente für kleine oder persönliche Fonds;
+\item Überprüfbare Register für Gutscheine, Fonds, Wechselkursmethoden, Limits, Verantwortliche und Gebühren;
+\item Bereitstellungsspezifische Zahlungsanbieter-Konnektoren, Checkout-Flows und Förderfähigkeitskontrollen;
+\item Verbindungen zu fungierbaren Vermögenswerten mit externen Liquiditätsanlagen zur Wiederausgleichs- und Zahlungsliquidität; und
+\item die politische Konversion von Finanzmitteln für übernommene Abdeckungen, Betriebskosten oder Liquiditätsmandate.
+\end{itemize}
+Die Preise auf dem Außenmarkt würden nicht bestimmen, was ein Emittent im Rahmen von Gutscheinen schuldet. Ein Fonds könnte eine geschützte externe Referenz für ein fungibles Vermögenswert verwenden, aber seine veröffentlichte Wechselkursmethode, Grenzen, Gebühren und Inventar würden seine Angebote regeln.
+
+\subsection*{8.1 vorgeschlagene Strecken- und SDK-Normen}
+\addcontentsline{toc}{subsection}{8.1 vorgeschlagene Strecken- und SDK-Normen}
+
+\textbf{Die Entdeckung.} Ein vorgeschlagener Routendienst würde identifizierte Register für die Aufnahme von Vermögenswerten, Wechselkursmethoden, Grenzen, Gebühren, Bestand, Vorfälle und Daten des Controllers abfragen. Cached-Aufzeichnungen würden Frischheitsgrenzen und Quell-Identifikatoren enthalten.
+
+\textbf{Netzwerkprofile.} Ein Client kann mehr als ein Registerroot- oder Richtlinienprofil unterstützen. Es würde dem Teilnehmer mitteilen, welches Profil, Gegenparteien, Adapter, Einschränkungen und verantwortungsbewusste Dienstleister ein Angebot verwendet. Eine Profilübergreifende Strecke müsse alle geltenden Bedingungen für den Hop erfüllen.
+
+\textbf{Die Pfadpolitik.} Ein verantwortungsbewusster Betreiber könnte unsichere Abhängigkeiten oder Gegenparteien ausschließen und Grenzwerte für die Strecke, die Anforderungen an die Frische und die Gesundheitskriterien anwenden. Diese Signale würden eine Entscheidung unterstützen. Sie garantieren weder Erfüllung noch Schutz vor Verlust.
+
+\textbf{Gebühren und Grenzen.} Ein Angebot würde die Poolgebühren, alle zusätzlichen aktuellen Protokollgebühren und alle separat vorgeschlagenen Routing- oder Servicegebühren auflösen. Die Vollstreckung würde verfallene Angebote oder verletzte Grenzen ablehnen.
+
+\textbf{Atomität und Wiederherstellung.} Multi-Hop-Ausführung wäre Atom, wenn möglich. Wenn sie HTLCs oder Treuhänder verwendet hat, würde der Dienst Zeiträume, Abbrechungswege, verantwortliche Controller, Vorfallverfahren und Restrisiken offenlegen.
+
+\textbf{Angebotene Partie-Vernetzung und Neuausgewogenheit.} Ein Opt-In-Dienst kann Absichten zur Wiedergewogenheit sammeln und nach kompatiblen Zyklen oder Ketten suchen. Es würde:
+
+\begin{enumerate}[leftmargin=*]
+\item eine maschinenlesbare Quittung veröffentlichen, in der ausgeführte Zyklen, Vermögenswerte, Beträge, Bewertungszeiten und Gebühren identifiziert werden;
+\item Durchsetzung der festgelegten Periodengrenzen und der Gegenparteienpolitik;
+\item eine Tätigkeit ablehnen, die gegen die Genehmigung, die Grenzen oder die verfügbaren Bestände des teilnehmenden Fonds verstößt; und
+\item Erhalt der deterministischen Eingaben und Einnahmen für die Überprüfung und die Bearbeitung von Streitigkeiten.
+\end{enumerate}
+\textbf{SDK-Anforderungen.} Eine SDK für ausgeführte Strecken würde eine deterministische Quote-to-Receipt-Mapping, pro-Hop-Invariante-Kontrollen, verständliche Fehlercodes und auditierungsfreundliche Logs bereitstellen. Der aktuelle Protocol v1.1.0 \texttt{SwapRouter} enthält nur Zitate; es führt diese vorgeschlagenen Strecken nicht durch.
+
+\subsubsection*{8.1.1 Mindestkonföderationskompatibilitätsspezifikation}
+
+Ein Fonds-Ökosystem, das eine Profilübertragung anstrebt, würde maschinenlesbare Informationen für:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Registerwurzeln:} Identifikatoren für Vermögenswerte, Fonds, Wechselkursmethoden, Grenzen und Gebührenrichtlinien oder eine Wurzel, die sie deterministisch löst.
+\item \textbf{Einnahmen:} das Profil, die eingegangenen und ausgehenden Vermögenswerte, die Beträge, die Quotenquelle und das Zeitstempel, die Grenzbilder, die Gebühren, das Inventarergebnis und die Ausführungsergebnisse für jeden Sprung.
+\item \textbf{Betriebssignale:} Frischheitsbegrenzte Informationen über Bestand, Einsatzbegrenzung, Vorfälle und jegliche separat nachgewiesene Erfüllung oder finanzierten Schutz.
+\item \textbf{Richtlinienbeschränkungen:} zulässige oder verweigerte Gegenparteien, Anlageklassen, Adapter und alle Treuhandverpflichtungen.
+\item \textbf{Ausfallcode:} Deterministische Erklärungen für Ablehnung, Ablauf, Begrenzung, Bestand, Politik, Abhängigkeit oder Zwischenfälle.
+\end{enumerate}
+Ein Profil könnte Abdeckung, Compliance, Schiedsverfahren oder andere Dienstleistungen hinzufügen, ohne sie zu Anforderungen für die grundlegende Kompatibilität von CPP zu machen. Jeder optionelle Dienst würde seine Verantwortliche, seine Autorität, seinen Umfang und seine Bedingungen identifizieren.
+
+\subsection*{8.2 Lizenzierung, Überprüfung und Ausstieg}
+\addcontentsline{toc}{subsection}{8.2 Lizenzierung, Überprüfung und Ausstieg}
+
+Protocol v1.1.0-Verträge sind EVM--kompatibel. Verträge im \texttt{src}-Verzeichnis des Protokollrepositoriums werden unter AGPL-3.0 veröffentlicht, mit Ausnahme der identifizierten unmodifizierten Drittanbieterkomponenten, die ihre eigenen Bedingungen behalten. Veröffentlichte Quell-, ABI- und Einsatzleitungen unterstützen eine unabhängige Überprüfung, beweisen jedoch nicht alleine eine Prüfung, eine sichere Bereitstellung oder die gesetzliche Einhaltung.
+
+Jede Bereitstellung würde ihre Codeversion, die Herkunft des Builds, Adressen, Controller- und Upgrade-Möglichkeiten, den Auditstatus, die Registrierspiegel sowie alle Schutzvorkehrungen zur Zeitversperrung oder Pause gesondert offenlegen.
+
+Eine vorgeschlagene \textbf{Gabelgerät} könnten Folgendes umfassen:
+
+\begin{enumerate}[leftmargin=*]
+\item Deterministische Bereitstellungsschriften;
+\item Registry-Snapshot und Exportwerkzeuge;
+\item ein dokumentierter Prozess zur Wiederverweisung von Route-Dienstleistungen, SDKs und Schnittstellen auf eine neue Registerroot;
+\item eine Fonds-Verantwortliche Person-Checkliste für das sichere Verlassen eines geteilten Registers; und
+\item eine Migrations-Checkliste für ausstehende Gutscheine, einschließlich Emittentenbenachrichtigungen, Vorlage- und Erfüllungsfristen, weiterhin Zugang zu Aufzeichnungen und Rechtsmittel.
+\end{enumerate}
+Kompatible Gabeln können die Widerstandsfähigkeit verbessern, wenn Gemeinschaften, Genossenschaften, öffentliche Stellen, Verbände, Multisigs oder Dienstleistungsbetreiber eine andere Governance benötigen. Die tatsächliche Kontinuität hängt immer noch vom Vertragseigentum, den Schlüsseln, den Abhängigkeiten, den Schnittstellen, der Infrastruktur, den gesetzlichen Verpflichtungen und den Dienstleistungen Dritter ab.
+
+
+\section*{9. Angebotene Ökonomie für Liquiditätsprogramme}
+\addcontentsline{toc}{section}{9. Angebotene Ökonomie für Liquiditätsprogramme}
+
+Dieses Kapitel beschreibt ein zukünftiges, separat angenommenes Modell. Es handelt sich nicht um eine aktuelle App-Funktion, ein Angebot, eine versprochene Rückgabe oder ein Recht, das durch Einzahlung in \texttt{SwapPool} erzeugt wird.
+
+\subsection*{9.1 Angebotene Einnahmequellen}
+\addcontentsline{toc}{subsection}{9.1 Angebotene Einnahmequellen}
+
+Ein zukünftiger Netzebudget könnte Folgendes erhalten:
+
+\begin{enumerate}[leftmargin=*]
+\item eine offenbarte \textbf{Netzwerkanteil} als Anteil der von den teilnehmenden Fonds erhobenen Gebühren genommen;
+\item getrennte Routing- oder Servicegebühren für implementierte geteilte Dienste; und
+\item sonstige ausdrücklich erlassene Einnahmen.
+\end{enumerate}
+Brutto-Fonds-Gebühren, die von Fonds aufbewahrt werden, sind keine Einnahmen aus dem Netzwerk. Der aktuelle Protocol v1.1.0 verwendet ein anderes Modell: Eine optionale Protokollgebühr ergänzt die Poolgebühr und wird direkt an den konfigurierten Empfänger gesendet.
+
+\subsection*{9.2 Illustrative Rake Mathematik}
+\addcontentsline{toc}{subsection}{9.2 Illustrative Rake Mathematik}
+
+Wird ein teilnehmender Fonds eine Poolgebühr von 2.00\% berechnen und erhält ein angenommenes Netzwerkanteil 20\% dieser Poolgebühr, beträgt der vorgeschlagene wirksame Netzwerkanteil-Rate auf den geleiteten Wert:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Wenn 25\% der erhaltenen Rake- und Servicegebührenwerte für eine angegebene Bargeldnutzung nach Kosten berechtigt und konvertierbar sind, beträgt der bargeldnutzbare Anteil des 40-Bps-Rake ungefähr 10 Bps.
+
+Die vorgeschlagenen Einnahmen aus dem Netz sind:
+
+\texttt{network\_rake\_received + routing\_or\_service\_fees\_received}
+
+Hinzufügen Sie nicht Brutto-Fonds-Gebühren zum Netzwerkanteil: Der Rake ist eine Übertragung aus diesen Gebühren und würde sonst zweimal gezählt werden.
+
+\subsection*{9.3 Liquiditätsprogrammrechte}
+\addcontentsline{toc}{subsection}{9.3 Liquiditätsprogrammrechte}
+
+Ein separat verabschiedetes Programm könnte das Inventar des Fonds, die Routingdienste, die Überwachung oder andere Mandate finanzieren. Die Bedingungen müssen Folgendes offenlegen:
+
+\begin{itemize}[leftmargin=*]
+\item ob eine Übertragung ein Geschenk, eine Stiftung, ein Darlehen, ein erstattungsfähiger Beitrag oder ein Kauf ist;
+\item Aufbewahrung und Kontrolle;
+\item Auszahlungs-, Rückzahlungs-, Verlust- und Prioritätsregeln;
+\item Gebühren- und Prämienberechtigung;
+\item Regierungsrechte;
+\item Bewertungs- und Berichtsmethoden; und
+\item Aussetzung, Beendigung und Rechtsbehelf.
+\end{itemize}
+Die aktuelle \texttt{SwapPool} erzeugt kein Fonds-Share-Token oder automatisches Beitrittsrecht. Alle Ex-post-Metriken müssen auf realisierten Einnahmen und Verlusten basieren, dürfen nicht als versprochener Rendite dargestellt werden und können null oder negativ sein.
+
+
+\section*{10. Umfassender Risikorahmen}
+\addcontentsline{toc}{section}{10. Umfassender Risikorahmen}
+
+Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kategorie werden mögliche Indikatoren, Kontrollen, Stressprüfungen und ein indikativer Risikobereitschaft identifiziert. Es handelt sich hierbei um Entwurfsempfehlungen, nicht um Ansprüche, dass jede Kontrolle eingesetzt, wirksam oder ausreichend ist. Grenzen, Reserven, Garantien, Überwachung, Abdeckung und Governance können keinen Verlust beseitigen.
+
+\subsection*{10.1 Protokoll- und Smart-Contract-Risiko}
+\addcontentsline{toc}{subsection}{10.1 Protokoll- und Smart-Contract-Risiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Vertragsfehler, Upgrade-Fehler, Abhängigkeitsfehler und falsch konfigurierte Limits oder Gebühren.
+\item \textbf{Indikatoren:} Prüfungsergebnisse, unerklärliche Bestandsbewegungen, unveränderliche Ausfälle und ungewöhnliche Rückschläge.
+\item \textbf{Mögliche Kontrollen:} unabhängige Prüfungen; minimale privilegierte Rollen; offenbarte Stellvertreter und Abhängigkeitscontroller; zeitlich festgelegte Upgrades; Überwachung in der Kette; Inzidenzpausen mit veröffentlichtem Recht und Kriterien; und einen bewährten Migrationsweg.
+\item \textbf{Stressuntersuchungen:} Nicht verfügbare Quote- oder Limit-Abhängigkeiten, Lagermangel, Pausen von Verträgen und Ausbrüche des Verkehrs.
+\item \textbf{Risikobereitschaft:} niedrig vor der Skalierung der ausstehenden Verbindlichkeiten oder des Swapvolumens.
+\end{itemize}
+\subsection*{10.2 Wirtschafts- und Marktrisiken}
+\addcontentsline{toc}{subsection}{10.2 Wirtschafts- und Marktrisiken}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Schwache Bestände, einseitige Flüsse, schnelle Abhebungen und manipulierte oder veraltete Preisreferenzen.
+\item \textbf{Indikatoren:} Eine hohe Auslastung des Fonds-Token-Bilanzkapitals, die Erweiterung der Quoteunterschiede, häufige Begrenzungsverweigerung und ein konzentriertes Inventar.
+\item \textbf{Mögliche Kontrollen:} die aktuellen Token-Gleichgewichtsdeckungen des Fonds; vorgeschlagene Roll- oder Kontobegrenzungen; getrennte Reserven; geschützte Preisreferenzen; Streckenausschlüsse; und zeitlich begrenzte Vorfallgebühren oder -begrenzungen.
+\item \textbf{Stressuntersuchungen:} große Referenzpreisbewegungen, Vorlageanstiege, Rücktrittsanfragen und Ausfälle der Datenquellen.
+\item \textbf{Risikobereitschaft:} nur innerhalb der veröffentlichten Parameter und der finanzierten Verlustbeitragskapazität.
+\end{itemize}
+\subsection*{10.3 Aussteller- und Gutscheinsrisiko}
+\addcontentsline{toc}{subsection}{10.3 Aussteller- und Gutscheinsrisiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Ausgabe über die Erfüllungskapazität hinaus, Verzug des Emittenten, irreführende Bedingungen und schlecht spezifizierte Verfügbarkeits- oder Präsentationsfenster.
+\item \textbf{Indikatoren:} Rückgang der bestätigten Erfüllungsraten, veraltete ausstehende Gutscheine, ungelöste Beschwerden und konzentrierte Exposition gegenüber einem Emittenten.
+\item \textbf{Mögliche Kontrollen:} die due diligence des Emittenten; Klarer Gutschein und Angebotsbedingungen; Ausstellungs- oder Zulassungsbeschränkungen; unabhängig finanzierte Anleihen oder Garantien; Kohortenberichterstattung; und eine verantwortungsvolle Registrierung.
+\item \textbf{Stressuntersuchungen:} die Insolvenz des Emittenten, regionale Produktionsschläge, gefälschte Ansprüche und längere Erfüllungsverzögerungen.
+\item \textbf{Risikobereitschaft:} die Konzentration des Emittenten oder des Angebots zunimmt.
+\end{itemize}
+\subsection*{10.4 Rückzahlungs- und Erfüllungsrisiko}
+\addcontentsline{toc}{subsection}{10.4 Rückzahlungs- und Erfüllungsrisiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} ungültige oder doppelte Darstellung, unzureichende Emittentenkapazität, Auslagerungen, logistische Störungen und fehlende Entlastungsunterlagen.
+\item \textbf{Indikatoren:} Verzögerung bei der Erfüllung von Anfragen, fehlgeschlagenen oder bestrittenen Vorlagen, Vorräte, Fahrkartenrückstände und ausgefüllte Einheiten ohne Ausbuchung.
+\item \textbf{Mögliche Kontrollen:} veröffentlichte Vorlage- und Erfüllungsverfahren; Angaben über die Kapazität; mehrere Erfüllungsorte, soweit dies rechtmäßig ist; Beweisstandards; Beschwerde- und Abhilfemaßnahmen; und Aufzeichnungen zwischen Vorlage, Erfüllung und Ausbuchung.
+\item \textbf{Stressuntersuchungen:} Zwei- bis vierfaches Präsentationsvolumen, Ausfälle der Anlage, Versagen der Lieferanten und Versuche der doppelten Nutzung.
+\item \textbf{Risikobereitschaft:} niedrig, wenn es um wesentliche Güter, anfällige Teilnehmer oder lange Erfüllungsfenster geht.
+\end{itemize}
+\subsection*{10.5 Regierungsrisiko}
+\addcontentsline{toc}{subsection}{10.5 Regierungsrisiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Steward oder Controller erfassen, beschleunigte Parameteränderungen, Interessenkonflikte, versteckte technische Kräfte und schwache Anrufe.
+\item \textbf{Indikatoren:} Konzentrierte Autorität, häufige Notfallmaßnahmen, unerklärliche Politikänderungen und wiederholte Überprüfungen.
+\item \textbf{Mögliche Kontrollen:} Angaben über die Rolle und die Macht; Verhältnismäßige Genehmigungsschwellen; Zeiträume; Konflikte und Ablehnungsregeln; öffentliche Wechselunterlagen; Beschwerden; automatische Sonnenuntergänge mit Notstrom; und Gabelbarkeit.
+\item \textbf{Stressuntersuchungen:} Gegenwärtige Vorschläge, Unterzeichnerverlust, Bestechungsversuche und Übernahme durch Akkumulation oder delegierte Kontrolle.
+\item \textbf{Risikobereitschaft:} niedrig für Maßnahmen, die Wertmethoden, Auszahlungen, Registerwurzeln, Abdeckung oder Notfallbefugnisse betreffen.
+\end{itemize}
+Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC würde der Capture-Test eine Akkumulation umfassen, gefolgt von Versuchen, Budgets zu umleiten, Registrierungsstandards zu schwächen, Mandate verwandter Parteien zu genehmigen oder die finanzierte Abdeckung zu entlasten. Zu den möglichen Schutzmaßnahmen gehören Governance-Locks-ups, höhere Schwellenwerte für kritische Maßnahmen, verzögerte Ausführung, transparente Delegations- und Konzentrationsüberwachung, ein Vorfallprozess und ein glaubwürdiges Fork-and-Exit-Verfahren. Keiner wird als eingesetzt dargestellt, indem er nur hier erscheint.
+
+\subsection*{10.6 Rechtliche und Konformitätsrisiken}
+\addcontentsline{toc}{subsection}{10.6 Rechtliche und Konformitätsrisiken}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} ein Gutschein, eine Dienstleistung, eine Beförderung oder ein Governance-Aktiv, das eine unerwartete regulatorische Behandlung erhält; Verbraucherschutzfehler; Geldwäsche oder Sanktionen; und grenzüberschreitende Einschränkungen.
+\item \textbf{Indikatoren:} Jurisdiktionsflaggen, Anfragen der Regulierungsbehörden, Beschwerden, Übereinstimmungen mit beschränkten Parteien und Abweichungen zwischen dem angekündigten und dem tatsächlichen Verhalten.
+\item \textbf{Mögliche Kontrollen:} Überprüfung nach Klasse und Gerichtsbarkeit; genaue Angaben; Geofasierte Schnittstellen; Verhältnismäßige Zulassungs- oder Zulassungsprüfungen; Beförderungskontrollen; Aufzeichnungen über Befugnis und Akzeptanz; und klare Verantwortliche.
+\item \textbf{Stressuntersuchungen:} eine Zuständigkeitsbeschränkung, die Kündigung des Anbieters, die zwingende Neuklassifizierung und eine Aufforderung zur Pause einer Merkmal- oder Anlageklasse.
+\item \textbf{Risikobereitschaft:} niedrig; Ununterstützte Aktivitäten zu beschränken oder zu unterbrechen.
+\end{itemize}
+\subsubsection*{10.6.1 Rechtliche Positionierung und vorgeschlagene Tokenbehandlung}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Überprüfbare Infrastruktur:} Protocol v1.1.0-Verträge sind EVM--kompatibel und ihre Quelle wird unter den im Protokollrepository festgelegten Lizenzen und Ausnahmen von Dritten veröffentlicht. Die Veröffentlichung ermöglicht eine Überprüfung, beweist jedoch nicht selbst eine Prüfung, einen sicheren Einsatz oder die gesetzliche Einhaltung. Jede Bereitstellung sollte ihre Codeversion, die Herkunft des Builds, Adressen, die Befugnisse des Controllers und den Status des Audits offenlegen.
+\item \textbf{Angestellte Token-Haltung:} In diesem Entwurf würde das vorgeschlagene Governance-Token CLC Governance- und Policy-gated-Access koordinieren. Es würde keine Dividenden, keine Gewinnteilung, keine Restrechte oder eine Gewährleistung für den Wert oder die Liquidität schaffen.
+\item \textbf{Verwandte vorgeschlagene Vermögenswerte:} Eine gesondert umgesetzte Politik könnte es ermöglichen, das vorgeschlagene CLC Governance-Token auf stCLC zu sperren und könnte ermächtigen, dass die Epoche sCLC erfasst wird. In den angenommenen Bedingungen müssten ihre Rechte, ihre Grenzen, ihr Ablauf, ihre Übertragbarkeit und ihre Behandlung genau festgelegt werden.
+\item \textbf{Mitteilungen:} die Materialien für einen vorgeschlagenen CLC Governance-Token, stCLC oder sCLC-Einsatz dürfen keinen Gewinn, eine Wertschätzung, ein passives Einkommen oder einen garantierten Zugang versprechen.
+\item \textbf{Kontrolle der Zuständigkeit:} eine Bereitstellung erfordert möglicherweise ein Geofencing der Schnittstelle, Zertifizierungen für eingeschränkte Klassen, Beförderungslimits, asset-spezifische Überprüfung oder Kontrollen, die ein vorgeschlagenes Feature pausieren.
+\item \textbf{Mitteilung der Teilnehmer:} Die Kommission ist der Auffassung, daß die Kommission in der Lage sein wird, die erforderlichen Maßnahmen zu ergreifen, um zu gewährleisten, dass die Mitgliedstaaten die erforderlichen Maßnahmen treffen.
+\end{enumerate}
+\subsection*{10.7 Routing- und Cross-Domain-Risiko}
+\addcontentsline{toc}{subsection}{10.7 Routing- und Cross-Domain-Risiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Teilweise Ausführung, festgehaltenen Hops, Bridge- oder Escrow-Exploits, veraltete Zitate, Inflation und Vorlauf der angekündigten Werteänderungen.
+\item \textbf{Indikatoren:} die Verfallraten der Strecke, die Verzögerungen, die Quote-to-Exécution-Unterschiede, wiederholte unnötige Sprünge und Brückenvorfälle.
+\item \textbf{Mögliche Kontrollen:} Atomische Ausführung, soweit verfügbar; konservative HTLC oder Treuhandzeiträume; Pfad- und Gegenparteienpolitik; Grenzwerte für den Fahrweg; Deterministische Quote-to-Receipt-Mapping; und verantwortungsbewusste Dienstleister.
+\item \textbf{Stressuntersuchungen:} Ein Brückenstop, eine Kettenreorganisation, Abhängigkeitsunterbrechung und ein gescheiterter Sprung in einer vorgeschlagenen Multi-Hop Route.
+\item \textbf{Risikobereitschaft:} nur bei identifizierten und überwachten Abhängigkeiten niedrig bis mäßig.
+\end{itemize}
+\subsection*{10.8 Verwahrungs- und Schlüsselverwaltungsrisiko}
+\addcontentsline{toc}{subsection}{10.8 Verwahrungs- und Schlüsselverwaltungsrisiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Verlorene oder kompromittierte Schlüssel, Unterzeichner-Kollusion und unklare Wiederherstellungs- oder Verwaltungsbefugnis.
+\item \textbf{Indikatoren:} Abweichende Signaturen, Steuerungsänderungen, fehlgeschlagene Rotationen und ungewöhnliche Auszahlungen.
+\item \textbf{Mögliche Kontrollen:} Mehrfach- oder Schwellenberechtigung; Hardware-gestützte Schlüssel; Funktionstrennung; die Signatur-Rotation; Verzeichnisse der öffentlichen Kontrolleure; überwachte Entzugsgrenzen; und getesteten Wiederherstellungsverfahren.
+\item \textbf{Risikobereitschaft:} Niedrig.
+\end{itemize}
+\subsection*{10.9 Reputation und soziales Risiko}
+\addcontentsline{toc}{subsection}{10.9 Reputation und soziales Risiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Irreführende Ansprüche, schädliche Anreize, unzugängliche Beschwerden, schlechte Erlebnisse der Erfüllung, Privatsphäreversagen und Schutzvorteile für Insider.
+\item \textbf{Indikatoren:} Beschwerden nach Kohorten, ungelöste Streitigkeiten, Entwicklung der Leistung der Emittenten, Konzentration von Vorteilen oder Verlusten und Feedback der Gemeinschaft.
+\item \textbf{Mögliche Kontrollen:} die Offenlegung in einfacher Sprache; Beschwerde- und Korrekturwege; zugängliche Beweise; Transparente Berichterstattung; Überprüfung der Vorfälle; und verhältnismäßige Sanktionen für Fehlberichte.
+\item \textbf{Risikobereitschaft:} Die Kommission hat die Kommission mit dem Vorschlag für eine Verordnung (EG) Nr. 1271/2006 zur Änderung der Verordnung (EG) Nr. 1305/2006 zur Änderung der Verordnung (EG) Nr. 1408/71 in Kraft gesetzt.
+\end{itemize}
+\subsection*{10.10 Konzentrations- und Fragmentierungsrisiko}
+\addcontentsline{toc}{subsection}{10.10 Konzentrations- und Fragmentierungsrisiko}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedrohungen:} Abhängigkeit von einer kleinen Anzahl von Emittenten, Fonds, Verantwortlichen, Anbietern, Netzwerken oder nicht kompatiblen Gabeln.
+\item \textbf{Indikatoren:} Konzentrationsmaßnahmen durch Emittenten, Fonds, Bestand, Verantwortliche oder Dienstleister; Streckenausfälle zwischen Clustern; und kritischen einzelnen Abhängigkeiten.
+\item \textbf{Mögliche Kontrollen:} veröffentlichte Konzentrationsschwellen; mehrere verantwortliche Betreiber; kompatible Normen; unabhängige Register; getestete Ausstiegsverfahren; und sichere Interoperabilität.
+\item \textbf{Stressuntersuchungen:} Verlust des größten Emittenten, des Fonds, des Betreibers, des Anbieters oder der Registerwurzel.
+\item \textbf{Risikobereitschaft:} Einsatzspezifisch und offensichtlich, mit strengeren Grenzen für wesentliche Dienstleistungen oder unersetzliche Abhängigkeiten.
+\end{itemize}
+
+\section*{11. Governance-Mechanismen}
+\addcontentsline{toc}{section}{11. Governance-Mechanismen}
+
+Dieses Kapitel schlägt eine Governance-Vorlage vor. Es stellt nicht dar, dass die aktuelle CLC App governance-token-voting, timelocks, geteilte versicherung, einen anspruchsprozess oder jede nachstehend beschriebene kontrolle verwendet. Jeder Einsatz muss seine tatsächlichen Entscheidungsträger, Behörden, Verträge, Prozesse und Politiken identifizieren.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Verfassungswerte:} Für die Menschen sorgen, für die Umwelt sorgen, Gerechtigkeit, Gegenseitigkeit, Nicht-Dominance und Widerstandsfähigkeit.
+\item \textbf{Typen von Vorschlägen:} Änderungen der Gebühren, der Grenzwerte und der Indizes; Liquiditätsmandate; Auflistungen und Entfernungen von Fonds; Wahlrechtliche Abdeckungsentscheidungen; und Parameterschutzschutze.
+\item \textbf{Rechenschaftspflichtiger Prozess:} Einnahme $\to$ Bewertung $\to$ Risikoüberprüfung $\to$ Zulassung $\to$ Zeitverbindung gegebenenfalls $\to$ Ausführung. Die Genehmigung kann von Verwaltern, Genossenschaften, öffentlichen Stellen, Verbänden, Multisigs, auf der Kette abgestimmten Abstimmungen oder einer anderen offengelegten und rechenschaftspflichtigen Struktur erfolgen.
+\item \textbf{Genehmigungsschwellen:} die nach Aktionsklasse parametriert sind, wobei höhere Schwellenwerte für Veränderungen des Wertindex, Notfallbefugnisse und andere kritische Maßnahmen gelten.
+\item \textbf{Delegation:} Wahlrechtliche Delegierung mit öffentlichen Mandaten, Konfliktveröffentlichungen und Rückruf.
+\item \textbf{Streckenschalter:} Notfallpausen mit festgelegten Kriterien, autorisierten Betreibern, Wiederholungsbedingungen und erforderlichen Post-Mortems.
+\item \textbf{Transparenz:} veröffentlichte Änderungen und Flüsse mit separaten Nachweisen für die Swap-Abwicklung, die Erfüllung durch den Emittenten, die Reserven, die Grenznutzung, die Routing und die Bürgen.
+\end{itemize}
+\textbf{Registrierungsführung.} Eine CPP--kompatible Bereitstellung kann Entdeckungsregister für Gutscheine, Token und Fonds aufbewahren. Berechtigte Kontrollen können Registrierungselemente durch den offenbarten Governance-Prozess des Einsatzes hinzufügen, aktualisieren, suspendieren oder entfernen. Die Entfernung des Registers beeinflusst die Entdeckung und das Routen durch dieses Register; es löscht nicht von selbst ein Token, ändert den Saldo eines Inhabers, erfüllt die Verpflichtung eines Emittenten nicht oder deaktiviert einen ansonsten funktionalen Vertrag nicht.
+
+Veröffentlichte Registrierungsregeln sollten den Status bedingungsmäßig gestalten und wiederholte Nichterfüllung, Betrug oder falsche Darstellung, unsicheres Vertragsverhalten oder anhaltendes Verstoß gegen veröffentlichte Grundsätze als Gründe für die Aussetzung oder Entfernung feststellen können. Gegebenenfalls sollte das Verfahren eine Benachrichtigung, eine Möglichkeit zur Rechtsbehelfung und einen Beschwerdeweg bieten. Für die Notfallentfernung sollte ein öffentlicher Vorfallbericht sowie eine automatische Überprüfung oder Sonnenuntergang erforderlich sein.
+
+\textbf{Verbotene Auflistungen.} Unter dieser Vorlage würde ein Register nicht zugeben:
+
+\begin{enumerate}[leftmargin=*]
+\item Instrumente, die die ökologische Zerstörung über die vereinbarten Grenzen hinaus direkt finanzieren oder fördern, Gewalt oder Waffenverwertung, Zwangsgewinnung oder systemische Missbrauch; oder
+\item eine Gutscheinklasse, die keine klaren Vorlage- und Erfüllungsbedingungen, Rechenschaftspflicht und Abhilfemaßnahmen enthält.
+\end{enumerate}
+Die verbotene Liste würde nur durch die angenommenen kritischen Maßnahmen-Schwelle und -Zeit eingeschränkt, die in Anlage D als Q3 + T3 dargestellt sind, versionisiert, öffentlich überprüfbar und veränderbar sein.
+
+\subsection*{11.1 Wechselkurs- und Grenzregelung}
+\addcontentsline{toc}{subsection}{11.1 Wechselkurs- und Grenzregelung}
+
+\textbf{Zeitverschiebungen.} Eine Einführung nach dieser Vorlage würde die Wechselkursmethoden ändern und die Grenzparameter nur nach einer öffentlichen Zeitversperrung separat implementieren. Ein Notweg würde einen separat offengelegten Zulassungsprozess verwenden und einen automatischen Sonnenuntergang oder eine Überprüfung umfassen.
+
+\textbf{Genehmigungsschwellen.} Die Vorlage schlägt höhere Zulassungsschwellen für Änderungen der Wertindexbasis und Änderungen der globalen Grenzstufe, Zwischenschwellen für Änderungen von Fonds-spezifischen Drittanbietern und Standardschwellen für routinemäßige Gebührenänderungen vor.
+
+\textbf{Veröffentlichtes Feed.} Eine teilnehmende Bereitstellung würde für jeden Fonds die Indexvariablen in der Kette, die Orakelquellen oder -mediane, die Aktualisierungskadenz, die Grenzfenster und -Kappen sowie die Ausfallmodi oder sichere Konstanten veröffentlichen.
+
+\textbf{Notfallpausenkriterien.} Ein teilnehmender Einsatz würde Bedingungen wie einen Oracle-Ausfall, eine hohe Grenznutzung in Kombination mit Ausfällen bei der Erfüllung oder einem invarianten Ausfall, zusammen mit Erfolgsuntersuchungen und Anforderungen für die Überprüfung nach dem Vorfall, vorher erklären.
+
+\subsection*{Beispiel öffentlicher Index-Feed für einen Fonds und einen Gutschein}
+\addcontentsline{toc}{subsection}{Beispiel öffentlicher Index-Feed für einen Fonds und einen Gutschein}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Symbol:} beispielsweise \texttt{Maize\_50kg@IssuerY}.
+\item \textbf{Referenzinheit:} Index-Einheit (IUX).
+\item \textbf{Veröffentlichter Wert:} 30.000 IUX.
+\item \textbf{Quelle:} Median der identifizierten Quellen, wie z. B. eine lokale Marktumfrage, das Ministeriumblatt und die Einsatzbasis.
+\item \textbf{Aktualisierungsrate:} täglich um 18:00 Uhr EAT, mit einer 24-Stunden-Zeitsperre.
+\item \textbf{Ausfallmodus:} einfrieren bei dem letzten gültigen Wert, eine offenbarte Grenzrichtlinie anwenden und nach einem 72-stündigen Ausfall pausieren.
+\item \textbf{Die Begründung:} veröffentlichte Notizen und eine Änderungsaufzeichnung der vorherigen Aktualisierung.
+\item \textbf{Unterzeichner:} offenbarte Multisig-Adressen und Genehmigungsschwelle.
+\end{itemize}
+\subsection*{11.2 Das vorgeschlagene Versicherungsfondslaufbuch}
+\addcontentsline{toc}{subsection}{11.2 Das vorgeschlagene Versicherungsfondslaufbuch}
+
+\textbf{Nur optionales Design.} Dieses Runbook gilt nur für eine Bereitstellung, die ausdrücklich einen Versicherungsfonds angenommen und finanziert hat und die abgedeckten Ereignisse, berechtigte Antragsteller, verantwortliche Stelle, Vermögenswerte, Grenzen, Ausschlüsse, Beweisvorgaben, Verfahren und Regelungsbedingungen veröffentlicht hat. Weder die aktuelle CLC App noch GEF bieten eine Abdeckung, nur weil dieses Design im Weißbuch erscheint.
+
+\textbf{Wahrscheinliche Auslöser.} Eine verabschiedete Politik könnte die Nichterfüllung definierter Emittenten, einen Fonds-Reservenmangel oder einen Verlust durch Brücken- oder Treuhandvergütung abdecken. Ein technischer Vorfall qualifiziert sich nicht automatisch. die anwendbare Politik kontrollieren würde.
+
+\textbf{Beurteilung.} Die zuständige Stelle würde Transaktionsergebnisse, Bestandsguthaben, Bürgschaftsanleihen, Aufzeichnungen über die Einreichung von Erlösungen, Antworten der Emittenten und andere erforderliche Beweise vereinbaren und dann eine mit der Privatsphäre und dem Recht übereinstimmende Vorfallsaufzeichnung veröffentlichen.
+
+\textbf{Illustrativer Verlust Wasserfall.} Wenn jede Schicht existiert und rechtmäßig gilt, könnte eine Politik: (1) verantwortliche Emittenten-Anleihen oder Bürgschaftsanteile $\to$ (2) Fonds-Level-Reserven $\to$ (3) ein vorgeschlagener Netzversicherungsfonds $\to$ (4) eine vorübergehende Reduktion auf einen optionalen Deckungsanspruch verwenden, nur wenn die vorhandenen Bedingungen und das anwendbare Recht dies ausdrücklich zulassen $\to$ (5) rechtmäßige Rückforderung für nachgewiesene Betrug oder Missbrauch.
+
+Eine Berichtigung der Abdeckung reduziert nicht die zugrunde liegende Gutschriftverpflichtung eines Emittenten oder ändert einen Überschuss auf der Kette, es sei denn, gültige vorhandene Bedingungen und das anwendbare Recht erlauben dieses Ergebnis ausdrücklich und die erforderliche Einwilligung des Inhabers wird erhalten.
+
+\textbf{Grenzen und Ausgrenzungen.} Die veröffentlichte Berichterstattung würde Höchstwerte, zulässige Vorlagen, Beweise, Anspruchsfenster, ausgeschlossenen Strecken oder Ereignissen, geografische Beschränkungen und die Behandlung erschöpfter Reserven definieren. Eine Auszahlung könnte nach Erreichen der geltenden Grenzen null sein.
+
+\textbf{Ein illustrativer Erholungsplan.} Bei Annahme und Veröffentlichung:
+
+\begin{enumerate}[leftmargin=*]
+\item Ansprüche würden zunächst vom zuständigen Emittenten oder Bürgschaftsanleihen, anschließend aus den geltenden Poolreserven und anschließend aus dem vorgeschlagenen Netzversicherungsfonds stammen;
+\item jede Verringerung auf einen optionalen Deckungsanspruch würde auf die vorherigen Deckungsbedingungen und das anwendbare Recht beschränkt sein, bis zu der veröffentlichten Vorfallobergrenze;
+\item Ein Rückgewinnungsplan könnte einen angegebenen Anteil des zurückgewinnten Werts für einen angegebenen Zeitraum anwenden, danach würde ein verbleibender gedeckter Mangel zu einem registrierten Verlust bei einem öffentlichen Post-Mortem werden; und
+\item jede Entscheidung würde eine Quittung mit dem Vorfall ID, betroffenen Ansprüchen und Gutscheinen, Entscheidung, Erholungsplan und Beschwerdefenster ergeben.
+\end{enumerate}
+\subsection*{11.3 Garantienrahmen}
+\addcontentsline{toc}{subsection}{11.3 Garantienrahmen}
+
+Dieser Abschnitt unterscheidet zwischen der Emittentenverantwortung, optionalen Fonds-Schutzmaßnahmen und Garantien von Dritten. Fonds können sich auf Kurations-, Bedingungen- und ausdrücklich angebotene Schutzbedingungen bewerben, ohne dass das CLC App, CPP, GEF oder ein breiteres Netzwerk automatisch einen Gutschein garantiert.
+
+\subsection*{Die Ausgangsverantwortung des Emittenten}
+\addcontentsline{toc}{subsection}{Die Ausgangsverantwortung des Emittenten}
+
+\begin{itemize}[leftmargin=*]
+\item Jeder Gutschein liegt in erster Linie in der Verantwortung des Emittenten. Der Emittent verpflichtet sich, das angegebene Gut, die angegebene Dienstleistung oder das gesetzliche Bargeldäquivalent gemäß seinen veröffentlichten Bedingungen zu liefern.
+\item Die Emittenten würden veröffentlichen, wer den Gutschein vorlegen kann, was die Erfüllung bedeutet, wo und wann er verfügbar ist, welche Beweise erforderlich sind und welche Rechtsmittel gelten.
+\item Wenn ein Emittent nicht erfüllt, ist der Emittent die Hauptverantwortliche. Fonds- oder Netzschutzmaßnahmen gelten nur, wenn sie getrennt angenommen, finanziert und bekannt gegeben werden.
+\end{itemize}
+\subsection*{Optional Fonds-Schutze}
+\addcontentsline{toc}{subsection}{Optional Fonds-Schutze}
+
+Ein Fonds-Verantwortliche Person kann sich entscheiden, den zugelassenen Gutscheinen einen eng definierten Schutz hinzuzufügen. Es ist nicht automatisch und müsste die verantwortliche Partei, die Finanzierung, die zulässigen Veranstaltungen, die Höchstgrenzen, die Fenster, die Beweise, die Ausschlüsse und die Rechtsmittel in den Metadaten des Fonds und den anwendbaren Bedingungen identifizieren.
+
+Beispiele für Schutztypen sind:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Abdeckung von Reservevermögen:} nach einer verifizierten Nichtverfüllung durch den Emittenten zahlt das zuständige Poolunternehmen einen festgelegten Betrag in einem bezeichneten Reservevermögen, wobei die veröffentlichte Obergrenze und die verfügbaren finanzierten Reserven berücksichtigt werden.
+\item \textbf{Schaltfenster:} Nach einem Qualifikationsereignis bietet der Fonds einen zeitlich begrenzten Swapweg in das vorherige oder ein anderes genehmigte Vermögenswert an, unter Berücksichtigung von Obergrenzen und Bestandsauflagen. Dies ist ein lagerabhängiger Liquiditätsschutz, nicht ein Versprechen, dass jeder Swap reversibel ist.
+\item \textbf{Alternative Erfüllung} die zuständige Partei organisiert einen zugelassenen Ersatzdienstleister innerhalb einer veröffentlichten Menge- oder Wertobergrenze.
+\item \textbf{Schutz des Wechselkursbands:} für ausgewählte Gutscheinklassen bietet ein Fonds nur die Berichtigung der Abdeckung oder die Rückzahlungsregelung an, die in seinen vorhandenen Bedingungen angegeben ist. Dies verringert die zugrunde liegende Gutscheinverpflichtung des Emittenten nicht.
+\end{enumerate}
+\subsection*{Mögliche Finanzierungsquellen}
+\addcontentsline{toc}{subsection}{Mögliche Finanzierungsquellen}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Schuldverschreibung des Emittenten} Sicherheiten, die vom Emittenten hinterlegt oder in einer offensichtlichen Reserve gehalten werden und nach einem überprüften geschützten Ereignis verfügbar sind.
+\item \textbf{Poolreserve:} Vermögenswerte, die von der zuständigen Fonds-Einheit kontrolliert werden und den von ihr angekündigten Schutzmaßnahmen zugeteilt werden.
+\item \textbf{Schuldverschreibung durch Drittanbieter} Sicherheiten, die von einem identifizierten externen Bürgen für angegebene Emittenten, Gutscheinklassen oder Ereignisse abgewickelt wurden.
+\end{itemize}
+Die Beteiligung der Bürgschaft würde den veröffentlichten Förderkriterien, der Anleihungsgröße, den Konzentrationsgrenzen, der Entscheidungsbefugnis und den rechtmäßigen Durchsetzungsbestimmungen entsprechen.
+
+\subsection*{Anspruchsverfahren}
+\addcontentsline{toc}{subsection}{Anspruchsverfahren}
+
+Eine verabschiedete Politik würde überprüfbare Auslöser definieren, wie z. B. eine nach einer gültigen Rückzahlung vorgelegten Frist für die Erfüllung, eine verifizierte Insolvenz des Emittenten, eine abgedeckte Brücke oder ein Verwahrungsversagen oder ein offiziell deklarierter Vorfallzustand. Es würde auch definieren:
+
+\begin{itemize}[leftmargin=*]
+\item die Art und Weise, wie ein Teilnehmer einen Anspruch eröffnet und die erforderlichen Vorlage- und Erfüllungsnachweise vorlegt;
+\item wer die Bedingungen des Gutscheins, die Antworten der Emittenten und die technischen Aufzeichnungen überprüft;
+\item die Entscheidung und die Beschwerdefenster; und
+\item der zugelassenen Auszahlungsweg, die Vermögenswerte, die Höchstmengen und die Quittung.
+\end{itemize}
+Die Einnahmen aus Emittenten, Schiedsverfahren oder rechtlicher Durchsetzung würden die geltenden Anleihen oder Reserven gemäß der veröffentlichten Richtlinie nachfüllen, bevor sie für den vorgeschlagenen CLC Network Fonds-Swap-Zugriff verwendet werden.
+
+\subsection*{Erforderliche Angaben}
+\addcontentsline{toc}{subsection}{Erforderliche Angaben}
+
+Für jede abgedeckte Fonds- und Voucherklasse veröffentlicht die zuständige Partei:
+
+\begin{itemize}[leftmargin=*]
+\item ob ein Bürger abwesend, optional oder notwendig ist;
+\item Anleihen- oder Reservegrößen und Konzentrationsdeckungen;
+\item die Schutztypen, Vermögenswerte, Kappen, Fenster und Ausschlüsse;
+\item Fristen für Vorlage, Erfüllung, Anspruch und Beschwerde; und
+\item Ein klares Statement darüber, wer was garantiert und was nicht.
+\end{itemize}
+\textbf{Kurationsprinzip.} Fonds-Verantwortliche und die zuständigen Rechts- oder Verwaltungsstrukturen sind für die von ihnen angekündigten Schutzmaßnahmen verantwortlich. Eine CPP--kompatible Implementierung kann Normen, Registrierungen oder optional geteilte Richtlinien bereitstellen, aber weder CLC noch GEF garantieren automatisch Gutscheine oder Fonds.
+
+\subsection*{11.4 Schutzschutzschutzschutzschrauben}
+\addcontentsline{toc}{subsection}{11.4 Schutzschutzschutzschutzschrauben}
+
+Nach dieser Vorlage sind folgende kritische Maßnahmen erforderlich, die die höchste genehmigungsstufe und eine lange zeitliche Frist erfordern:
+
+\begin{enumerate}[leftmargin=*]
+\item Änderung des vorgeschlagenen Gebührenwasserwassers, einschließlich seiner Abdeckung und der Prioritäten der Kernbetriebe;
+\item Änderung der Wurzeln des kanonischen Registers;
+\item Änderung des Deckungsbereichs, der Anspruchsobergrenzen oder der Entscheidungsbefugnis;
+\item die Erweiterung der Notfallpausenbefugnisse; oder
+\item die in diesem Papier festgelegten Verpflichtungen zur Forkabilität, Transparenz oder Fonds-Souveränität zu schwächen.
+\end{enumerate}
+\subsection*{11.5 Fork- und Ausgangsverfahren}
+\addcontentsline{toc}{subsection}{11.5 Fork- und Ausgangsverfahren}
+
+Wenn die Governance erfasst oder die Werte wesentlich gedreht werden, könnten Gemeinschaften, Fonds-Verantwortliche und Betreiber versuchen, die Netzwerk-Governance-Schicht zu entfernen. Die Kontinuität der zugrunde liegenden Fonds und Gutscheine würde von den eingesetzten Verträgen, Schlüsseln, Schnittstellen, Infrastrukturen, Dienstleistungen Dritter und den geltenden Verpflichtungen abhängen.
+
+Ein Ausgangsprozess könnte:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Veröffentlichen Sie einen Schnappschuss:} Exportieren Sie die ausgewählten Register, Gutscheine, Werte, Grenzwerte und Gebührenrichtlinien und veröffentlichen Sie dann einen signierten Snapshot-Hash.
+\item \textbf{Umverteilung von Governance-Dienstleistungen:} neue Registerwurzeln, Routendienste und alle angenommenen Gebühren- oder Abdeckungsmodule unter einer neuen verantwortungsvollen Struktur einrichten.
+\item \textbf{Neuanmeldung:} erlauben Fonds-Verantwortliche, sich zu entscheiden, indem sie ihre Fonds-Adressen unter der neuen Wurzel registrieren, ohne dass die Inhaber ansonsten funktionelle Gutscheine migrieren müssen.
+\item \textbf{Wiederverleihungskunden:} die neue Root als auswählbares Netzwerkprofil in SDKs und Schnittstellen hinzufügen, wobei alle Standardänderungen im Rahmen des offenbarten Governance-Prozesses vorgenommen werden.
+\item \textbf{Verwalten Sie eine Brückenzeit:} bei der Sicherung kompatibler Routen und bei der Verweigerung von Routen, die gegen die Regeln des neuen Profils verstoßen.
+\end{enumerate}
+Das Entwurfsziel ist, dass das Verlassen eines kanonischen Registers die ansonsten funktionsfähigen lokalen Fonds nicht deaktiviert. Die tatsächliche Kontinuität bleibt vom Einsatz abhängig; Die Föderation ist eine Opt-in-Entdeckungs- und Koordinationsschicht.
+
+
+\section*{12. Das vorgeschlagene Liquiditätsprogramm-Durchlaufblatt (nicht verbindliche Konzeption)}
+\addcontentsline{toc}{section}{12. Das vorgeschlagene Liquiditätsprogramm-Durchlaufblatt (nicht verbindliche Konzeption)}
+
+Dies ist eine illustrative Checkliste für ein zukünftiges, separat dokumentiertes Programm. Es ist kein Angebot, ein aktuelles App-Feature oder ein Versprechen über Liquidität, Zugang, Versicherung, Rendite, Wert oder Ausstieg.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Berechtigte Beiträge:} Stablecoins, Reserve-Token oder anerkannte Community-Gutscheine, wie im Programm angegeben.
+\item \textbf{Verbringung:} für Commitment-Fonds oder den vorgeschlagenen CLC-Netzwerkpool im Rahmen eines gesondert erlassenen Mandats bestimmt.
+\item \textbf{Verstopfung und Ausfahrt:} Programmspezifische Begriffe, wie z. B. rollende 30--90-Tage-Perioden und offenbarte Toren unter Stress.
+\item \textbf{Vergütungsgebühren:} ein optionaler Mechanismus nach der Veröffentlichung unter veröffentlichten Deckungen und Fenstern, nicht eine versprochene Rendite.
+\item \textbf{Risikoteilung:} jede Reduzierung zu einem optionalen Deckungsanspruch muss ausdrücklich durch vorhandene Bedingungen und anwendbares Recht genehmigt werden. Sie ändert selbst weder die Gutscheinsverpflichtung eines Emittenten noch das Kontingent in der Kette.
+\item \textbf{Berichterstattung:} periodische Dashboards und Bescheinigungen über die Gesundheit des Fonds, die Bestandsaufnahme, die Grenzwerte, die Gebühren und alle finanzierten Deckungsreserven.
+\item \textbf{Verträge:} Einschränkungen in Bezug auf die Verwendung von Erträgen, Orakelkontrollen, Grenzstufen, Konfliktregeln und Rechtsmittel.
+\item \textbf{mögliche Berechtigung für vorgeschlagene Token:} Beitragsgeber, die ausgewählte Fonds erzeugen, könnten sich für gewerbliche vorgeschlagene CLC-Governance-Token-Zuschüsse aufgrund von gemessenen Fonds-Swap-Zugangs und bestätigter Emittentenverfügbarkeit qualifizieren, vorbehaltlich der angenommenen Bedingungen, von Spielverletzungsvorschriften und von Richtlinienobergrenzen.
+\end{itemize}
+
+
+\section*{13. Einfaches Sprachglossar}
+\addcontentsline{toc}{section}{13. Einfaches Sprachglossar}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cosmo-Local Credit (CLC):} Die Produktfamilie, einschließlich der CLC App, die Dokumentation und die breitere Verpflichtungsabteilung.
+\item \textbf{CLC App:} Die progressive Web-App, die von GEF bei \texttt{cosmolocal.credit} betrieben wird.
+\item \textbf{Protokoll über die Zusammensetzung der Verpflichtungen (CPP):} Das wiederverwendbare Modell von Curation, Bewertung, Beschränkung, Austausch und verantwortungsbewusster Governance.
+\item \textbf{Protocol v1.1.0:} Die bestätigte öffentliche Veröffentlichung des Smart-Contract.
+\item \textbf{Commitment-Fonds:} Eine geregelte Vereinbarung, die geförderte Vermögenswerte einräumt und die Börsenregeln veröffentlicht.
+\item \textbf{\texttt{SwapPool}:} Der jetzige Token-Vault und der direkte Austauschvertrag.
+\item \textbf{Das Zeichen:} Ein Bilanz in der Kette oder ein digitales Vermögen. Die Token-Mechanik allein schafft kein einlösbares Versprechen.
+\item \textbf{Gutschein:} Ein Token oder eine Aufzeichnung, die von einem Emittenten als ein einlösbares Engagement unter veröffentlichten Bedingungen dargestellt wird.
+\item \textbf{Das Angebot:} Ein Katalogbuch für Waren oder Dienstleistungen, die mit einem Gutschein verbunden sind.
+\item \textbf{Aussteller:} Die für die Veröffentlichung und Erfüllung eines Gutscheinsverpflichtens zuständige Partei.
+\item \textbf{Fonds-Verantwortliche Person:} Die verantwortliche Struktur, die Fonds-Regeln veröffentlicht und verwaltet.
+\item \textbf{Fonds Wechselkurs oder Quote:} Ein Transaktionsparameter, der durch einen konfigurierten Anbieter erzeugt wird; kein Beweis für Bargeld oder Rückzahlungswert.
+\item \textbf{Fonds-Token-Gleichgewichtsdeckung:} Der aktuelle Maximum \texttt{Limiter} für ein Token, das von einem Fonds gehalten wird. Die App kann sie markieren \textbf{ Kreditbegrenzung.''}
+\item \textbf{Fonds-Swap:} Ein direkter Anlagenaustausch über einen \texttt{SwapPool}.
+\item \textbf{Swap-Abwicklung:} Die Überweisungen in der Kette und die Rechnungslegung der Gebühren, die einen Fonds-Swap abschließen.
+\item \textbf{Erlösungsvorlage:} Rückgabe oder sonstige Vorlage von Gutscheineinheiten an den Emittenten.
+\item \textbf{Erfüllung:} Der Emittent liefert das versprochene Gut, die versprochene Dienstleistung, die versprochene Leistung oder eine andere Leistung.
+\item \textbf{Ausbuchung:} Eine Aufzeichnung, die verhindert, dass ausgefüllte Einheiten erneut vorgestellt werden.
+\item \textbf{Angebotene Ausführungsrouter:} Zukunftssoftware, die Routen autorisieren und ausführen würde. Nur die aktuellen Zitate von \texttt{SwapRouter}.
+\item \textbf{Der vorgeschlagene Netzwerkpool CLC:} Eine zukünftige Regelung zur Clearing und zur Koordinierung des Budgets auf Ebene des Netzes.
+\item \textbf{Das vorgeschlagene CLC Governance-Token:} Ein zukünftiges Governance-Design, nicht ein aktuelles App- oder Protocol v1.1.0-Asset.
+\item \textbf{Netzwerkanteil:} Ein vorgeschlagener Anteil der Poolgebühren, der auf einen zukünftigen Netzbudget übertragen wird.
+\item \textbf{Garantie oder Versicherung:} Ein Schutz, der nur dann gilt, wenn eine identifizierte Partei es ausdrücklich übernimmt, finanziert und veröffentlicht.
+\end{itemize}
+
+\section*{14. vorgeschlagene KPIs und Gesundheitsindikatoren}
+\addcontentsline{toc}{section}{14. vorgeschlagene KPIs und Gesundheitsindikatoren}
+
+Eine Bereitstellung sollte eine KPI nur dann veröffentlichen, wenn sie das Ereignis, die Quelle, die Kohorte oder den Zeitraum, die Einheit, die Bewertungsmethode und das Zeitstempel, die Ausschlüsse, die Korrekturpolitik, die außerhalb der Kette vorhandenen Beweise und die Datenqualitätsbeschränkungen definieren kann.
+
+Zu den vorgeschlagenen Maßnahmen gehören:
+
+\begin{itemize}[leftmargin=*]
+\item gültige Erlösungsvorlagen;
+\item Kohortenbasierte Erfüllungsrate;
+\item Vollständigkeit der Ausbuchung;
+\item Verzögerung von Vorlage zu Erfüllung;
+\item Dauer des Bestands von Erwerb bis zur Einreichung;
+\item ausstehende förderfähige Verpflichtungen nach einer angegebenen Methodik;
+\item abgeschlossenes Fonds-Swap-Volumen;
+\item gemessenes Fonds-Inventar;
+\item Nutzung der Fonds-Token-Balance-Cap;
+\item die Quotepassrate, getrennt von der Streckenausführungsrate gehalten;
+\item berechtigte Reserven aufgeteilt nach ausdrücklich gedeckten Risikopositionen;
+\item Gewährleistungsansprüche und Rückerstattungen im Rahmen einer identifizierten Politik;
+\item die tatsächlich eingegangenen vorgeschlagenen Netzergebühren und Dienstleistungsgebühren, ohne doppelte Bruttogebühren des Fonds;
+\item die Zeiten der Erkennung, Entscheidung, Pause, Reparatur und Schließung der Governance;
+\item Beschwerden, Streitigkeiten, Berichtigungen und Rechtsmittel; und
+\item Die Kommission hat im Rahmen des Berichts über die Auswirkungen der Maßnahmen auf die Umwelt und die Gesundheit der Bevölkerung
+\end{itemize}
+Die Daten über Transaktionen in der Kette beweisen nicht von selbst Identität, Leistung des Emittenten, Zufriedenheit, Kausalität, Gesundheit der Gemeinschaft oder soziale Auswirkungen. Diese Behauptungen erfordern ihre eigene Methodik und Beweise.
+
+Siehst du ? \href{https://docs.cosmolocal.credit/de/white-paper/appendix-c-kpi-definitions}{Anhang C} für die vorgeschlagene Messspezifikation.
+
+
+\section*{15. Fahrplan (Anzeige)}
+\addcontentsline{toc}{section}{15. Fahrplan (Anzeige)}
+
+\subsection*{15.1 Aktuelle Grundlagen}
+\addcontentsline{toc}{subsection}{15.1 Aktuelle Grundlagen}
+
+GEF betreibt die CLC App bei \texttt{cosmolocal.credit} auf der Gnosis Chain. Die App bietet Zugang zu unterstützten Konten und Geldbörsen, einen öffentlichen Marktkatalog und Schnittstellen für Token, Gutscheine, Angebote, Commitment-Fonds, Überweisungen und direkte Fonds-Swaps.
+
+Protocol v1.1.0 stellt die derzeitige Vertragsgrundlage dar: \texttt{GiftableToken}, direkte Ausführung von \texttt{SwapPool}, optionale Registrierungen, Bewertungsmodule, Fonds-Token-Balance-Caps, Fonds-Gebühren, eine zusätzliche Protokollgebühr und nur ein Zitat \texttt{SwapRouter}. Die Verfügbarkeit hängt immer noch von der Schnittstelle, den implementierten Verträgen, dem Inventar, der Konfiguration, dem Netzwerkstatus, der Berechtigung, den Anbietern, der Gerichtsbarkeit und den veröffentlichten Emittenten- oder Poolbedingungen ab.
+
+\subsection*{15.2 vorgeschlagene Meilensteine}
+\addcontentsline{toc}{subsection}{15.2 vorgeschlagene Meilensteine}
+
+Diese genannten Meilensteine sind Entwurfsanweisungen, nicht Veröffentlichungsnummern, Liefertermine oder Verpflichtungen, die ein Feature starten wird.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Die Stiftung Governance:} der vorgeschlagene Governance-Token CLC; der vorgeschlagene CLC-Netzwerkpool; Gebührenadapter; Die Kommission hat in ihrem Bericht eine Reihe von Vorschlägen vorgelegt, mit denen sie sich auf die Erörterungen der Kommission und der Kommission bezieht.
+\item \textbf{Routing \& Beobachtbarkeit} Router SDK und Register-API; Gesundheitsdashboards; einen vorgeschlagenen Rahmen für die Versicherungspolitik; die Absichten für die Wiederaufnahme des Gleichgewichts; Prototypen für das Batchnetzen.
+\item \textbf{Cross-Domain-Risiko-Tools:} HTLC oder Treuhandverweisung; getrennte Bürgschaftsmodule; Roll-, Konto- und Stufengrenzvoranschläge.
+\item \textbf{Regulierter Zugang:} die bereitstellungsspezifischen Zahlungsdienste Dritter; persönliche Mikro-Fonds; die Entdeckung des Compliance-Service; Prüfungen der Gutscheinklassen durch Dritte.
+\end{itemize}
+Jeder Zahlungsdienst würde von separat identifizierten Dritten unter der geltenden Gerichtsbarkeit, Berechtigung, Gebühren, Grenzen und Bedingungen erbracht werden. Die CLC App- und Protocol v1.1.0-Verträge betreiben selbst keine Fiat-Schienen.
+
+Die Multi-Hop-Ausführung, die geteilte Versicherung, das vorgeschlagene CLC Governance-Token und der vorgeschlagene CLC Network Fonds, das Batch-Netting, die persönlichen Mikro-Fonds und die regulierten Zahlungsdienste bleiben vorgeschlagen oder deployment-abhängig, bis eine Implementierung und ihre Regelungsbedingungen sie als aktiv identifizieren.
+
+
+\section*{16. Angebotene Bewertungsvorlage}
+\addcontentsline{toc}{section}{16. Angebotene Bewertungsvorlage}
+
+Ein Register, Fonds oder ein zukünftiges Liquiditätsprogramm kann diese Vorlage anpassen. Es handelt sich nicht um einen aktuellen universellen Anmeldestandard oder eine Garantie.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Beobachtete Fakten:} Identität und Geschichte des Emittenten, Gutscheinbedingungen, Angebote, Kapazitätsnachweis, Poolkonfiguration, Verantwortliche, Bestand, Grenzen, Reserven, Bürgschaften, Vorfälle und ungelöste Verpflichtungen.
+\item \textbf{Zweck und betroffene Parteien:} die beabsichtigten Vorteile, Risiken, Konflikte, ökologische und soziale Auswirkungen und wer Verlust oder Verantwortung trägt.
+\item \textbf{Bewertung:} Angebotspreis, Gutschein angegeben Wert, Fonds-Kursmethode, Oracle-Referenz, Einheiten, Zeitstempel und Gründe für jegliche Abweichung.
+\item \textbf{Grenzen:} Anspruchsberechtigung, verbotene Verwendungen, Konzentration, Token-Gleichgewichtsgrenzwerte, Pausen, geografische oder rechtliche Beschränkungen und Auslöser für Überprüfungen.
+\item \textbf{Schutz:} Identifizierte verpflichtete Partei, abgedeckte Ereignis, Finanzierung, Obergrenze, Ausschlüsse, Dauer, Beweise, Anspruchsprozess und Rechtsmittel.
+\item \textbf{Entscheidung:} Genehmigung, Überprüfung, Ablehnung, Pause oder Eskalation für menschliche Überprüfung; die Entscheidungsträger, die Gründe, die Bedingungen, das Datum der Überprüfung sowie das Beschwerde- oder Korrekturverfahren zu identifizieren.
+\end{enumerate}
+Die Ausgabe sollte die Aufbewahrung, die Grenzwerte, die Reserven oder die Überprüfung nicht als Bestätigung, die Ausstellerkapazität, die Versicherung oder die garantierte Erfüllung beschreiben, es sei denn, die zuständige Partei hat diesen Schutz ausdrücklich festgestellt.
+
+
+\section*{17. Rechtliche und Konformitätsnachweise}
+\addcontentsline{toc}{section}{17. Rechtliche und Konformitätsnachweise}
+
+CPP kann Token, Gutscheine, Fonds und Swaps koordinieren, deren rechtliche Behandlung von ihrer Gestaltung, Vermarktung, Verwendung, Verantwortlichen und Gerichtsbarkeit abhängt. Nichts in diesem Weißbuch ist rechtliche, steuerliche, Investitions-, Kredit- oder Finanzberatung.
+
+Die Nutzung der CLC App unterliegt den \href{https://docs.cosmolocal.credit/de/governance/terms}{Nutzungsbedingungen}. GEF betreibt die App und die unterstützende Infrastruktur. Sofern GEF nicht ausdrücklich eine andere Rolle übernimmt, ist GEF weder Herausgeber noch Fonds-Verantwortliche, Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garant, Einlösestelle, Berater, Versicherer oder Partei von Verpflichtungen zwischen Teilnehmern.
+
+Beim Einsatz abhängige Zahlungsdienste müssen der verantwortliche Anbieter, die Gerichtsbarkeit, die Berechtigung, die Gebühren, die Grenzen, das Modell der Aufbewahrung und die Bedingungen identifiziert werden. Die Anwesenheit eines Anschlusses bedeutet nicht, dass GEF oder ein Fonds den zugrunde liegenden regulierten Dienst betreibt.
+
+\subsection*{17.1 Gutscheine und Angebote}
+\addcontentsline{toc}{subsection}{17.1 Gutscheine und Angebote}
+
+Ein Emittent sollte Folgendes veröffentlichen und auf dem neuesten Stand halten:
+
+\begin{itemize}[leftmargin=*]
+\item Verantwortliche Identität und Kontaktinformationen;
+\item das zugehörige Angebot, die Einheit, die Versorgung, der angegebene Wert und die Kapazität;
+\item Standorte und Verfahren der Darstellung;
+\item Zeitpunkt und Nachweis der Erfüllung;
+\item Verfall, Gebühren, Steuern, Einschränkungen und Regeln für die Änderung von Materialien;
+\item Beschwerden, Ersetzungen, Erstattungen oder sonstige Rechtsmittel; und
+\item die Entladungsmethode, die eine Wiederverwendung nach der Verfüllung verhindert.
+\end{itemize}
+Ein Token-Vertrag legt diese Bedingungen nicht fest oder beweist die Leistung nicht.
+
+\subsection*{17.2 Veröffentlichungen des Fonds}
+\addcontentsline{toc}{subsection}{17.2 Veröffentlichungen des Fonds}
+
+Eine Fonds-Verantwortliche Person sollte Folgendes veröffentlichen:
+
+\begin{itemize}[leftmargin=*]
+\item Zweck des Fonds und verantwortliche Entscheidungsträger;
+\item der Eigentümer von \texttt{SwapPool}, der Proxy-Administrator, die Abhängigkeitscontroller und die Gebührenempfänger;
+\item die zugelassenen Vermögenswerte und die Aussetzung oder Entfernung von Vorschriften;
+\item Bewertungsmethoden, Zitatquellen, Gebühren, Token-Balanz-Obergrenzen, Inventar- und Eigentümer-Abweichungsbefugnisse;
+\item Beiträge und Ausstiegsrechte;
+\item jede Reserve, Garantie, Bürgschaft, Versicherungspolice und Verlustzuweisungsregelung; und
+\item Regierungsführung, Upgrade, Notfälle, Beschwerden, Migration und Beendigungsprozesse.
+\end{itemize}
+Die Anmeldung ist keine Genehmigung, Bewertung, Versicherung oder Garantie von GEF.
+
+\subsection*{17.3 Aktionen und Verpflichtungen}
+\addcontentsline{toc}{subsection}{17.3 Aktionen und Verpflichtungen}
+
+Ein gewöhnlicher \textbf{Fonds swap} Börsen unterstützte Vermögenswerte unter einer angezeigten Quote und Transaktionsgrenzen. Die Vermögensverwaltung macht es nicht zu einem Darlehen, zur Rückzahlung, zur Rückzahlung durch den Emittenten oder zur Realisierung.
+
+\textbf{Erlösungsvorlage } Rückgabe oder Darstellung von Gutscheineinheiten an einen Emittenten. \textbf{ Erfüllung } ist die vom Emittenten versprochene Leistung. \textbf{ Ausbuchung } die Aufzeichnungen erfüllte Einheiten, so dass sie nicht wiederverwendbar sind. Die App ist \textbf{„Einlösen``} die Aktion zurzeit eine Übertragung an den Tokeninhaber vorbereitet; Diese Übertragung allein beweist keine Erfüllung.
+
+Die App ist \textbf{„Gutschein stilllegen``} Die Aktion ist reversibel Katalog-Entfernung. Sie verbrennt keine Salden, annulliert keine Ansprüche oder entrichtet keine Verpflichtungen.
+
+Für ein zukünftiges Darlehen oder ein anderes Kreditprodukt sind zusätzliche und Transaktionsbedingungen vor Verwendung getrennt vorzulegen. Ein gewöhnlicher Versand, Beitrag, Fonds-Einzahlung, Fonds-Swap, Darstellung, Erfüllung oder Ausbuchung erzeugt kein Darlehen nur aufgrund seiner Richtung oder Art des Vermögenswerts.
+
+\subsection*{17.4 Schutz, Beweise und lokales Recht}
+\addcontentsline{toc}{subsection}{17.4 Schutz, Beweise und lokales Recht}
+
+Ein Limit, eine Reserve, eine Registrierung, eine App-Liste oder eine Blockchain-Transaktion sind nicht automatisch eine Garantie oder eine Versicherungspolice. Jeder Schutz muss seine verantwortliche Partei, das abgedeckte Ereignis, die Finanzierung, die Höchstgrenze, die Ausschlüsse, die Dauer, die Beweise, das Anspruchsprozess und die anwendbaren Bedingungen identifizieren.
+
+Beweise aus der öffentlichen Kette können Adressen, Vermögenswerte, Beträge, Zeitstempel und Verträge zeigen. Sie beweist nicht an sich Identität, Emittentenkapazität, Erfüllung, Zufriedenheit, Governance-Deberierung, gesetzliche Ausbuchung oder soziale Auswirkungen.
+
+Funktionen können aufgrund von Gesetzen, Sanktionen, Förderfähigkeit, Vertragszustand, Bestand, Grenzen, Sicherheit, Gerichtsbarkeit oder Dienstleistungen von Drittanbietern eingeschränkt oder nicht verfügbar sein. Emittenten, Fonds-Verantwortliche, Anbieter und Teilnehmer sind weiterhin für die Bestimmung und Einhaltung des geltenden Rechts verantwortlich.
+
+
+\section*{18. Fazit}
+\addcontentsline{toc}{section}{18. Fazit}
+
+Cosmo-Local Credit verbindet eine aktuelle Anwendung und Protocol v1.1.0-Stiftung mit einem breiteren vorgeschlagenen Entwurf für unabhängig regiertes Commitment-Fonds. Aktuelle Direkt-Fonds-Swaps, Angebot- und Grenzkomponenten und öffentliche Transaktionsunterlagen können einen verantwortungsvollen Austausch unterstützen, beweisen jedoch nicht die Erfüllung durch den Emittenten, schaffen keine Beitragsrechte oder garantieren Wert, Liquidität, Rückzahlung, Versicherung, Rechtsstatus oder Schutz vor Verlusten.
+
+Die in diesem Papier beschriebenen vorgeschlagenen Ausführungsrouting, Netting, Governance Assets, Network Clearing, Liquiditätsprogramme und geteilten Schutzmaßnahmen erfordern eine separate Umsetzung, Finanzierung, Governance und veröffentlichte Bedingungen. Die Konstruktion zielt darauf ab, die Interoperabilität zu erweitern und gleichzeitig die Leistung der Emittenten, die Fonds-Governance und die Rechenschaftspflicht mit den identifizierten Parteien zu gewährleisten.
+
+
+\section*{A.  Das vorgeschlagene Mess- und Gebührenmodell}
+\addcontentsline{toc}{section}{A.  Das vorgeschlagene Mess- und Gebührenmodell}
+
+Dieser Anhang definiert einen vorgeschlagenen Messrahmen. Protocol v1.1.0 erfasst nicht die Erfüllung des Emittenten, die reale Ausbuchung oder jedes nachstehend erforderliche Datenfeld.
+
+\subsection*{Definitionen von Ereignissen und Bestand}
+\addcontentsline{toc}{subsection}{Definitionen von Ereignissen und Bestand}
+
+Für die Gutscheinklasse \emph{j}, Kohorte oder Periode \emph{t} und eine offensichtliche Bewertungsmethode \emph{m}:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{O\_\{j,t,m\}}: Wert der ausstehenden förderfähigen Verpflichtungen an der Messgrenze.
+\item \texttt{X\_\{j,t,m\}}: Wert der im Zeitraum abgeschlossenen Fonds-Swaps.
+\item \texttt{P\_\{j,t\}}: Einheiten, die dem Emittenten gültig zur Rückzahlung vorgelegt werden.
+\item \texttt{F\_\{j,t\}}: präsentierte Einheiten mit separat nachgewiesener Emittentenverwirklichung.
+\item \texttt{G\_\{j,t\}}: ausgefüllte Einheiten mit einem Entladungsregister, der eine Wiederverwendung verhindert.
+\end{itemize}
+\texttt{O} kann nicht allein aus dem Tokenangebot abgeleitet werden. Eine Messrichtlinie muss den verantwortlichen Emittenten identifizieren und gegebenenfalls das Emittenten-Inventar, verbrannte Einheiten, verfallene Einheiten, entlassenen Einheiten, Prüfguthaben, nicht zugängliche Salden und Token ausschließen, deren Bedingungen keine ausstehende Verpflichtung von Dritten erzeugen.
+
+Jede bewertete Maßnahme muss die Einheit, die Quelle, die Bewertungsmethode, den Zeitstempel und die Behandlung divergenter Poolkurse veröffentlichen. Eine Übertragung auf der Kette kann \texttt{X} oder Beweise für die Vorlage unterstützen; es stellt nicht allein \texttt{F} oder \texttt{G} fest.
+
+\subsection*{Kohortenbasierte Erfüllungsmaßnahmen}
+\addcontentsline{toc}{subsection}{Kohortenbasierte Erfüllungsmaßnahmen}
+
+Für eine Kohorte von gültigen Erlösungsvorlagen:
+
+\texttt{FulfillmentRate = FulfilledPresentments / ValidPresentments}
+
+\texttt{DischargeCompleteness = DischargedFulfillments / FulfilledPresentments}
+
+Verwenden Sie die gleiche geschlossene oder reife Kohorte in jedem Zähler und Nenner. Berichte, die abgelehnt, zurückgezogen, ausgelaufen, bestritten, teilweise erfüllt, korrigiert und noch offen sind.
+
+\texttt{FulfillmentLatency = median(t\_fulfilled - t\_presented)}
+
+\texttt{HoldingDuration = median(t\_presented - t\_acquired)}
+
+Erfüllungslatenz misst den Emittentendienst nach der Präsentation. Die Aufbewahrungsdauer ist eine separate Maßnahme und darf nicht als Rückzahlungslatenz bezeichnet werden.
+
+\subsection*{Unterschiedliche Geschwindigkeitsmessungen}
+\addcontentsline{toc}{subsection}{Unterschiedliche Geschwindigkeitsmessungen}
+
+Eine vorgeschlagene Verpflichtungsentlastungsgeschwindigkeit darf nur berechnet werden, wenn \texttt{O} und erfüllter Wert dieselbe Bewertungsmethode verwenden:
+
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
+
+Eine Fonds-Swap-Aktivitätsmaßnahme ist getrennt:
+
+\texttt{V\_swap,t = PoolSwapValue\_t / AverageMeasuredPoolInventoryValue\_t}
+
+Kein der beiden Werte beweist soziale Auswirkungen, Emittentenkapazität, Rentabilität oder Cash Convertibility.
+
+\subsection*{Angebotene Netzerlöse}
+\addcontentsline{toc}{subsection}{Angebotene Netzerlöse}
+
+Lassen Sie:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{PF\_t} sind Brutto-Polargebühren, die während des Zeitraums entstanden sind;
+\item \texttt{NR\_t} ist das vorgeschlagene Netzwerkanteil, das tatsächlich als offenbarter Anteil dieser Fonds-Gebühren erhalten wurde;
+\item \texttt{RF\_t} sind getrennt vorgeschlagene Routing- oder Servicegebühren, die tatsächlich erhoben wurden; und
+\item \texttt{$\chi$\_t} ist der gemessene Anteil der eingegangenen Einnahmen, der für eine angegebene Verwendung in Bargelddenomination nach Kosten und politischen Einschränkungen berechtigt und konvertierbar ist.
+\end{itemize}
+Aus dem vorgeschlagenen Netzbudget:
+
+\texttt{ProposedNetworkRevenue\_t = NR\_t + RF\_t}
+
+\texttt{CashUsableNetworkRevenue\_t = $\chi$\_t $\times$ (NR\_t + RF\_t)}
+
+Fügen Sie \texttt{PF\_t} nicht zu \texttt{NR\_t} hinzu: Der Rake ist eine Übertragung von Brutto-Fonds-Gebühren und würde sonst zweimal gezählt werden. Der aktuelle Protocol v1.1.0 unterstützt stattdessen eine zusätzliche Protokollgebühr; seine Einnahmen müssen getrennt von diesem vorgeschlagenen Rake-Modell gemeldet werden.
+
+
+\section*{B. Veranschaulichendes Wasserfall für zukünftige Abgaben}
+\addcontentsline{toc}{section}{B. Veranschaulichendes Wasserfall für zukünftige Abgaben}
+
+Dies ist ein vorgeschlagener Entwurf für einen zukünftigen Einsatz. Sie gilt nur, wenn sie durch veröffentlichte Governance- und Teilnehmerbedingungen umgesetzt, finanziert und angenommen wird. Es beschreibt keine aktuelle Protocol v1.1.0-Gebühr, Beitrittsrecht, Reserve, Garantie oder Versicherungsvereinbarung.
+
+\texttt{F\_in} ist der tatsächlich vom vorgeschlagenen Netzebudget während einer Epoche erhaltene Umsatz: der vorgeschlagene Netzeinsatz, getrennte Routing- oder Dienstleistungsgebühren und alle anderen ausdrücklich festgelegten Einnahmen. Brutto-Fonds-Gebühren, die bei Fonds bleiben, sind nicht inbegriffen.
+
+Einnahmenvermögen müssen als:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{E\_cash}: Vermögenswerte, die im Rahmen der angenommenen Politik für eine angegebene Verwendung in Bargelddenomination berechtigt sind; oder
+\item \texttt{E\_kind}: Sachgutscheine oder andere Vermögenswerte, die nicht als bargeldveränderbar behandelt werden.
+\end{itemize}
+Bei jeder Umrechnungspolitik müssten Vermögens- und Veranstaltungsortberechtigte, zuständige Behörden, Preisquellen, Rutschgrenzen, Berichterstattung und anwendbare rechtliche Kontrollen erforderlich sein.
+
+Für einen vorgeschlagenen Wasserfall könnten die eingegangenen Einnahmen in dieser Reihenfolge gelten:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Ziel der abgedeckten Reserve:} ein angenommenes Reserve- oder Versicherungsziel zu finanzieren, das nur auf definierten gedeckten Risikopositionen, förderfähigen Vermögenswerten, Ausschlüssen und Anspruchsregeln beruht.
+\item \textbf{Kernbetrieb:} Finanzierung eines offensichtlichen, begrenzten Betriebsbudgets.
+\item \textbf{Liquiditätsmandate:} Fonds genehmigte, separat geregelte Fonds- oder Routingprogramme.
+\item \textbf{Resthaushalt:} alle verbleibenden Beträge unter Operationen, Liquiditätsprogrammen und einem zusätzlichen Puffer unter veröffentlichten Obergrenzen zuzuordnen.
+\end{enumerate}
+Ein Reservenziel ist an sich keine Garantie. Bei jeder Versicherung oder Garantie muss die verpflichtete Partei, das abgedeckte Ereignis, die Finanzierung, die Höchstgrenze, die Ausschlüsse, die Dauer, die Beweise, das Anspruchsprozess und die Verlustverteilung angegeben werden.
+
+\textbf{Schutzzug:} Die Wasserfallzuweisungen sind für die angenommenen Abdeckungen, Operationen und Liquiditätsdienste bestimmt. Sie dürfen nicht als Preisunterstützungstransaktionen gestaltet oder ausgeführt werden.
+
+Im Rahmen des vorgeschlagenen Modells würden alle vorgeschlagenen CLC Governance-Token, die durch ein separat aktiviertes externes Liquiditätsprogramm erworben wurden, zurückgezogen oder in einen offengelegten Nicht-Stimmungsbecken platziert. Dieser Mechanismus ist nicht eingesetzt.
+
+
+\section*{C. vorgeschlagene Definitionen von KPI}
+\addcontentsline{toc}{section}{C. vorgeschlagene Definitionen von KPI}
+
+Diese KPIs bilden eine vorgeschlagene Messspezifikation, nicht eine Aussage, dass die aktuelle App oder das aktuelle Protokoll jedes erforderliche Ereignis aufzeichnet.
+
+Jedes veröffentlichte KPI muss Folgendes enthalten:
+
+\begin{itemize}[leftmargin=*]
+\item verantwortlicher Verleger und Datenquelle;
+\item Definition von Ereignissen oder Zuständen;
+\item Kohorten- oder Messzeit;
+\item Einheit und Bewertungsmethode;
+\item Bewertungszeitstempel;
+\item Einbeziehungs- und Ausschlussvorschriften;
+\item Behandlung von teilweisen, streitigen, abgelaufenen, nicht zugänglichen und korrigierten Aufzeichnungen;
+\item erforderliche Beweise oder Zertifizierungen außerhalb der Kette;
+\item Revisionsgeschichte und Datenqualitätsbeschränkungen; und
+\item ob das Ergebnis in der Kette, gemeldet, bestätigt, unabhängig überprüft oder geschätzt ist.
+\end{itemize}
+\begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
+\toprule
+KPI & vorgeschlagene Definition & Erforderliche Beweise und Ausschlüsse \\
+\midrule
+\endhead
+\textbf{Gültige Darstellungen} & Anzahl oder Einheiten, die während eines Zeitraums in den Rückzahlungsprozess des Emittenten aufgenommen wurden & Vorlage-Identifikator, Emittent, Genehmigung des Inhabers, Höhe, Uhrzeit, Status; Duplikate und ungültige Anträge auszuschließen \\
+\textbf{Erfüllungsrate} & Erfüllte gültige Präsentationen geteilt durch gültige Präsentationen für die gleiche reife Kohorte & getrennte Beweise für die Leistung der Emittenten; Bericht über geöffnete, abgelehnte, streitige, teilweise und korrigierte Fälle \\
+\textbf{Vollständigkeit der Ausbuchung} & Erfüllte Vorträge mit Entlastungsregister unterteilt durch erfüllte Vorträge & Verbrennung, Stornierung, Deaktivierung oder andere Beweise für die Nichtwiederverwendung, die mit der Erfüllung verbunden sind \\
+\textbf{Erfüllungslatenz} & Median und 90er Perzentil der Vorlage-zu-Erfüllungszeit & Ersetzen Sie nicht die Aufbewahrungszeit von Emission bis Vorlage oder von Erwerb bis Vorlage \\
+\textbf{Aufbewahrungsdauer} & Median und Verteilung der Zeit vom Erwerb bis zur Vorlage & Identifizieren Sie das Akquisitionsereignis und ausschließen Sie unbekannte Akquisitionszeiten \\
+\textbf{Ausstehende förderfähige Verpflichtungen} & Berechtigte Verpflichtungen von Dritten, die nach definierten Ausschlüssen verbleiben & Identität und Bedingungen des Emittenten die einschlägigen Emittenteninventar, Ablauf, Verbrennung, Ausbuchung, Tests und Nichtverpflichtungs-Token ausschließen \\
+\textbf{Volumen des Fonds-Swaps} & Wert der abgeschlossenen direkten Fonds-Swaps unter einer offengelegten Bewertungsmethode & Veranstaltungen für die Zahlung in der Kette, Token-Einheiten, Kursquelle, Zeit; nicht als Emittentenverfüllung eingestuft werden \\
+\textbf{Inventar der Fonds} & Bewertete gestützte Vermögenswerte, die ein Fonds zu einem bestimmten Zeitpunkt hält & Vertragssalden, Gebührenvorbehalt, nicht zugängliche Vermögenswerte, Bewertungsmethode und Auszahlungsbefugnisse des Eigentümers \\
+\textbf{Reserven angemessen} & Berechtigte verfügbare Reservenwerte aufgeteilt nach ausdrücklich gedeckten Risikopositionen & die Abdeckungspolitik, die Anspruchsfähigkeit von Vermögenswerten, die Aufbewahrung/Kontrolle, die Verbindlichkeiten, die Ausschlüsse und die Bewertung; nicht die gesamte Tokenversorgung standardmäßig \\
+\textbf{Einsatzbegrenzung} & Messbares Fonds-Token-Guthaben geteilt durch seine aktuell konfigurierte Grenzwerte & Limiter Adresse, Token, Fonds, Zeitstempel, Änderungen und Perioden ohne Begrenzung \\
+\textbf{Quotepass-Rate} & Erfolgreiche Quoteantworten geteilt durch gültige Quoteversuche & Ergebnis nur mit Zitat; keine Streckenausführung \\
+\textbf{Durchführungsrate der Strecke} & Vollständige Multi-Hop-Ausführungen aufgeteilt nach gültigen Ausführungsversuchen & Nur für ein implementiertes Ausführungssystem anwendbar; Berichterstattung über die Regeln für den Prozentsatz und die Atomität \\
+\textbf{Rückgewinnung des Garantiers} & Berechtigte Rückforderung, geteilt nach gezahlten abgedeckten Forderungen & Identifizierter Bürger, Anspruchspolitik, Zeitplan, Kosten, Streitigkeiten und Abschreibungen \\
+\textbf{Angebotene Netzerlöse} & Erhaltene vorgeschlagene Netz-Rake plus erhaltene separate Routing-/Service-Gebühren & Die Brutto-Poolgebühren, die von Fonds aufbewahrt werden, sind ausgeschlossen und die Rake nicht zweimal gezählt wird. \\
+\textbf{Zeitmäßigkeit der Governance} & Zeit, einen Vorfall zu erkennen, zu entscheiden, zu pausieren, zu reparieren und zu schließen & Definition der Uhrzeiten, zuständige Stellen, Notfallbefugnisse, Beschwerden und fehlende Ereignisse \\
+\bottomrule
+\end{longtable}
+
+Die Ansprüche auf soziale Auswirkungen erfordern eine separate Methodik. Die Blockchain-Aktivität allein stellt keine Identität, die Leistung des Emittenten, die Zufriedenheit, die Gesundheit der Gemeinschaft, die Kausalität oder die Auswirkungen fest.
+
+
+\section*{D. vorgeschlagene Startparameter}
+\addcontentsline{toc}{section}{D. vorgeschlagene Startparameter}
+
+Jeder Wert unten ist illustrativ. Es handelt sich nicht um eine aktuelle Standard-App, Protocol v1.1.0-Einstellung, Garantie, Angebot oder Lieferverpflichtung. Eine zukünftige Implementierung müsse ihre tatsächlichen Parameter annehmen, durchsetzen, überwachen und veröffentlichen.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Quorum-Levels für das vorgeschlagene Governance-Token CLC:}
+\begin{itemize}[leftmargin=*]
+\item Q1 Routine: mindestens 4\% Quorum und mehr als 50\% Zustimmung.
+\item Q2 empfindlich: mindestens 10\% Quorum und mindestens 60\% Zustimmung.
+\item Q3 kritisch: mindestens 20\% Quorum und mindestens 66.7\% Genehmigung.
+\end{itemize}
+\item \textbf{Angestellte Fristen:}
+\begin{itemize}[leftmargin=*]
+\item T1: 48 Stunden für Q1-Aktionen.
+\item T2: 7 Tage für Q2-Aktionen.
+\item T3: 30 Tage für Q3-Aktionen.
+\end{itemize}
+\item \textbf{Epochen-Kadenz:} 7 Tag, einschließlich der angenommenen Abstimmungen, der Veröffentlichung des Haushaltsplans und der vorgeschlagenen sCLC-Fenster.
+\item \textbf{Notfallpause:} unmittelbar durch eine identifizierte Notfallbehörde, die nach 72 Stunden abläuft, es sei denn, sie wurde nach dem angenommenen Verfahren ratifiziert.
+\item \textbf{Angebotene Netzwerkanteil:} 20\% der Teilnehmergebühren des Fonds nach Verzug, begrenzt durch die Politik.
+\item \textbf{Erläuterungsbereich der Poolgebühren:} 0\%--20\%, von jedem teilnehmenden Fonds veröffentlicht.
+\item \textbf{Angebotene Routing- oder Servicegebührenobergrenze:} 20 Bps pro Strecke.
+\item \textbf{vorgeschlagene Netz-Rake-Rate:} \texttt{rake\_rate\_p = pool\_fee\_p $\times$ rake\_share\_p}.
+\item \textbf{Einkommensberechtigung:} die erhaltenen Vermögenswerte nach einer veröffentlichten Methode als cash-eligible \texttt{E\_cash} oder in-kind \texttt{E\_kind} klassifizieren.
+\item \textbf{Konversionssteuerungen:} Vermögens- und Veranstaltungsortberechtigte, zuständige Behörden, Preisquellen, Zeitfenster, Gleitgrenzwerte, Obergrenzen und Berichterstattung.
+\item \textbf{Haushaltsmittel:} einen vorgeschlagenen Gebührenzugangsbudget erst nach Erfüllung der angenommenen Absicherungs- und Betriebsziele veröffentlichen; Das Budget kann Null sein.
+\item \textbf{Risikogänge:} eine Asset-Klasse nicht dem Risiko einer anderen Klasse aussetzen, ohne ausdrücklich und informiert nach geltendem Recht zu entscheiden.
+\item \textbf{vorgeschlagene Roll- und Kontogrenzen:} die nicht genehmigte Klassenübergreifende Tätigkeit zu verweigern und die angenommenen Höchstgrenzen anzuwenden.
+\item \textbf{Optionaler Abdeckungsreduzierung:} nur dann, wenn bereits bestehende Deckungsbedingungen, die erforderliche Einwilligung und das anwendbare Recht dies erlauben; es reduziert nicht allein die Gutscheinsverpflichtung eines Emittenten oder einen Überschuss auf der Kette.
+\item \textbf{Externe Liquiditätskontrollen, wenn sie separat aktiviert sind:} Veröffentlichen Sie den Umfang des Veranstaltungsortes, die Messmethode, die Auslöser, die Ausgaben- und Volumenobergrenzen, die Ausführungskontrollen, die Notfallstopps und die Quittungen. Präsentieren Sie das Programm nicht als Zeichenpreisunterstützung.
+\end{itemize}
+Aktuelle Protocol v1.1.0 Poolgebühren, zusätzliche Protokollgebühren und Token-Gleichgewichtsobergrenzen für Fonds bleiben von den bereitgestellten Verträgen und der Konfiguration geregelt, nicht von diesen vorgeschlagenen Werten.
+
+
+\section*{Das ist E. Arbeitsbeispiel --- vorgeschlagene Netzwerkanteil}
+\addcontentsline{toc}{section}{Das ist E. Arbeitsbeispiel --- vorgeschlagene Netzwerkanteil}
+
+Dieses Beispiel illustriert das vorgeschlagene Rake-Modell. Es handelt sich nicht um die von Protocol v1.1.0 verwendete zusätzliche Protokollgebührberechnung.
+
+Nehmen wir an:
+
+\begin{itemize}[leftmargin=*]
+\item ein teilnehmender Fonds erhebt eine Poolgebühr von 2.00\%;
+\item der vorgeschlagene Netz-Rake erhält 20\% dieser Poolgebühr; und
+\item 25\% des empfangenen Racks sind berechtigt und konvertierbar für eine angegebene Bargeldnutzung nach Kosten.
+\end{itemize}
+Die vorgeschlagene wirksame Netz-Rake-Rate auf den geleiteten Wert beträgt:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Der verfügbare Teil des voraussichtlichen Förderungsfaktors von 25\% beträgt:
+
+\texttt{cash\_usable\_rate = 40 bps $\times$ 25\% = 10 bps}
+
+Wenn ein vorgeschlagener Netzbudget einen monatlichen Bargeldbedarf von 150.000 US-Dollar und keine anderen Einnahmen aufweist, beträgt der beispielhafte Routed-Wert bei einem Bargeldnutzungssatz von 10 Bps:
+
+\texttt{required\_routed\_value = \$150,000 / 0.001 = \$150,000,000 per month}
+
+Diese Berechnung umfasst nicht die Bruttogebühren des Fonds, die von Fonds aufbewahrt werden. Wenn man diese Gebühren dem Netzwerkanteil hinzufügt, wird die Rake-Quelle verdoppelt.
+
+Eine reale Haushaltsanalyse müsse auch Folgendes veröffentlichen:
+
+\begin{itemize}[leftmargin=*]
+\item tatsächliche Rake- und Servicegebührenrechnungen;
+\item Anspruchsberechtigung der Vermögenswerte und Umwandlungskosten;
+\item Teilnahme an einem Fonds und Umfang der Strecken;
+\item angenommenen Reserven- und Betriebsziele;
+\item Verluste, Streitigkeiten, Berichtigungen und nicht verfügbare Vermögenswerte; und
+\item Es handelt sich um Szenarien von Sensibilität und nicht um versprochenes Wachstum oder Renditen.
+\end{itemize}
+Jeder vorgeschlagene Gebührenzugang- oder Liquiditätsprogrammbudget bleibt nach den angenommenen Prioritäten und könnte null betragen.
+
+
+\section*{F. Checkliste der Datenabteilung}
+\addcontentsline{toc}{section}{F. Checkliste der Datenabteilung}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Historische Beweise Sarafu Network}
+\begin{itemize}[leftmargin=*]
+\item Archiv datiert Swapvolumen, Definitionen von aktiven Benutzern und Vermögenswerten, Zwischenfälle, Erlösungsvorlagen, Alterungsgutscheine, bestätigte Erfüllung, Ausbuchung, Halterungsdauermaßnahmen, Perioden, Ausschlüsse und Methodik getrennt von aktuellen Cosmo-Local Credit-Metriken.
+\item Erhalt der \href{https://dune.com/grassrootseconomics/sarafu-network}{historische Dune Analytics-Dashboard}.
+\end{itemize}
+\item \textbf{Angebotene Beweise für die Erfüllung von Gebühren, wenn sie umgesetzt werden}
+\begin{itemize}[leftmargin=*]
+\item Zeigen Sie, dass alle Gebührenhaken und Registry-Gates in den ausgeführten Transaktionsweg integriert sind und nicht nur durch eine Schnittstelle durchgesetzt werden.
+\item Stellen Sie Prüfungen vor, die zeigen, dass der anwendbare Vollstreckungsdienst einen Hop ablehnt, dessen Empfang die Erhebung der Gebühren im Rahmen der angenommenen Politik nicht beweist.
+\item Veröffentlichen Sie Testvektoren, Ausfallfälle, berechtigte Assets und konforme Fonds, die an eine identifizierte Registrierungsversion gebunden sind.
+\item Verknüpfung der einschlägigen \href{https://software.grassecon.org}{Softwarebeschreibung}.
+\end{itemize}
+\item \textbf{Garantierer und Abdeckungspaket}
+\begin{itemize}[leftmargin=*]
+\item Veröffentlichen Sie Anspruchsberechtigung, Verantwortliche, Finanzierung, Höchstgrenzen, gegebenenfalls Prämien, Auslöser, Beweise, Ausschlüsse, Entscheidungsbefugnis sowie Beispiele für Streitigkeiten und Beschwerden.
+\item Einbeziehen Sie Stichprobe-Gutschein und Fonds-Offenlegungen, die die Haftung des Emittenten von einem ausdrücklich angebotenen Fonds-Schutz oder einer Garantie von Dritten unterscheiden.
+\item Erhalt der \href{https://sarafu.network/reports}{historische Sarafu Network Berichte Archiv} und \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{Vorlage des historischen Jahres in der Überprüfung} als Nachweis der Abstammung, nicht als Nachweis der aktuellen Abdeckung oder Adoption von CLC.
+\end{itemize}
+\item \textbf{Rechts- und Konformitätspaket}
+\begin{itemize}[leftmargin=*]
+\item Dokumentation der Gerichtsbarkeitsstrategie, Gutscheinklassen, Cash-equivalent-Politiken, KYC oder Attestationsoptionen, Geofencing, Verbraucherinformationen, Fehlverkaufskontrollen und die Unterscheidung zwischen einem gewöhnlichen Fonds-Swap und einem Express-Credit-Produkt.
+\item Verknüpfen Sie die effektiven \href{https://docs.cosmolocal.credit/de/governance/terms}{Cosmo-Local Credit Nutzungsbedingungen} und ersetzte Versionen durch kontrollierte Aufzeichnungen bewahren.
+\end{itemize}
+\item \textbf{Stärkung der Regierungsführung}
+\begin{itemize}[leftmargin=*]
+\item Angabe von Interessenkonflikt- und Widerrufsverfahren, Beschluß- und Berufungsunterlagen, Sanktionen, angemessenen Verfahren zur Entfernung der Registrierung, Notstandsbeschränkungen sowie Beispiele für zeitlich festgelegte Wechselkurse und Grenzänderungen.
+\end{itemize}
+\item \textbf{Quelle und Garantiepaket}
+\begin{itemize}[leftmargin=*]
+\item Veröffentlichen Sie den Quell- und Lizenzbestand, die eingesetzten Adressen und Versionen, die verfügbaren Prüfberichte, Invarianten, die Herkunft des Builds, die Befugnisse des Administrators, die Kontakte zu Vorfällen und die Monitoring-Dashboards.
+\item Verknüpfung der einschlägigen \href{https://github.com/grassrootseconomics}{Grassroots Economics Repositories}.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,1555 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont{Noto Sans Mono}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{polyglossia}
+\setdefaultlanguage{dutch}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{6em}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdflang={nl},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC)\\Een netwerk voor het routeren van krediet, het coördineren van toezeggingen en het financieren van een gezonde kosmo-lokale economie}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{White Paper v0.8 translation: 10 October 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\sloppy
+\RaggedRight
+
+\textbf{Over deze vertaling.} Dit is een vertaling van White Paper v0.8. De Engelse brontekst is gepubliceerd op 30 september 2026. Deze vertaling is gepubliceerd op 10 oktober 2026. Engels is de brontekst. \href{https://docs.cosmolocal.credit/white-paper}{Lees de Engelse brontekst}.
+
+\textbf{Versie:} 0.8
+
+\textbf{Datum:} 30 september 2026
+
+\textbf{Auteurs:} William O. Ruddick en Mohamed Sohail
+
+\textbf{Contact:} \href{mailto:info@grassecon.org}{info@grassecon.org}
+
+\textbf{Download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-nl.pdf}{CLC White Paper v0.8 (PDF, Nederlands)}
+
+\textbf{Publicatie:} Definitieve openbare versie. Dit document is geen beleggingsadvies en vormt geen aanbod tot verkoop of uitnodiging tot aankoop van effecten of financiële instrumenten. Latere versies kunnen de hier beschreven ontwerpen herzien.
+
+\section*{Hoe je deze White Paper leest}
+\addcontentsline{toc}{section}{Hoe je deze White Paper leest}
+
+Deze White Paper bevat vier soorten materiaal. De status geldt voor het hele document, ook wanneer een hoofdstuk die niet herhaalt.
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+Status & Betekenis \\
+\midrule
+\endhead
+\textbf{Huidig} & Gedrag dat in de CLC App of de openbare contracten van Protocol v1.1.0 is geverifieerd. De \href{https://docs.cosmolocal.credit/nl/protocol/overview}{Protocolreferentie} is de feitelijke bron voor die contracten. \\
+\textbf{Implementatieafhankelijk} & Een mogelijkheid die alleen bestaat wanneer een specifiek Fonds, een aanbieder, rechtsgebied, bestuursorgaan of gepubliceerd beleid dit mogelijk maakt. \\
+\textbf{Historisch} & Bewijs of functionaliteit van de eerdere dienst Sarafu Network. Dit is geen huidig CLC-gebruik en bewijst niet dat een gebruiker, activum, registratie of verplichting is gemigreerd. \\
+\textbf{Voorgesteld} & Een ontwerp, economisch model, bestuursmechanisme of roadmaponderdeel dat niet als geïmplementeerd wordt voorgesteld. \\
+\bottomrule
+\end{longtable}
+
+Het huidige Protocol v1.1.0 omvat rechtstreekse uitvoering door een \texttt{SwapPool}, optionele samenstelling en waardering, bovengrenzen voor tokensaldi van Fondsen, Fondskosten, aanvullende protocolkosten en een \texttt{SwapRouter} die alleen offertes geeft. Uitvoering over meerdere stappen, routing via HTLC of escrow, batchverrekening, gedeelde verzekering, de voorgestelde CLC-bestuurstoken, het voorgestelde CLC-netwerkfonds, mechanismen voor kostenkrediet en liquiditeitsprogramma's op netwerkniveau zijn voorgesteld of implementatieafhankelijk.
+
+\textbf{Beoogde lezers:} bouwers en beheerders van Fondsen, protocolingenieurs en auditors, financiers van liquiditeit en mandaten, ontwerpers van bestuur en juridische of compliancebeoordelaars.
+
+\section*{Samenvatting}
+\addcontentsline{toc}{section}{Samenvatting}
+
+Cosmo-Local Credit is een productfamilie die is opgebouwd rond het \textbf{Commitment Pooling Protocol (CPP)}. CPP beschrijft hoe onafhankelijk bestuurde Commitmentfondsen inwisselbare toezeggingen kunnen samenstellen, methoden en limieten voor wisselkoersen kunnen publiceren, voorraad kunnen aanhouden en verantwoorde uitwisseling mogelijk kunnen maken.
+
+Een \textbf{Commitmentfonds } is de bestuurde regeling. Een huidige \textbf{\texttt{SwapPool}} van Protocol v1.1.0 is één contractonderdeel: een tokenkluis en motor voor rechtstreekse swaps. Een implementatie kan dit contract verbinden met registers, quoters, bovengrenzen voor tokensaldi van Fondsen, kostenbeleid en andere diensten.
+
+Kosmo-lokaal betekent open standaarden, software en kennis wereldwijd delen, terwijl uitgifte, nakoming, bestuur en verantwoordelijkheid in de echte wereld lokaal blijven. Een Uitgever blijft verantwoordelijk voor zijn waardebon. Een Fondsbeheerder blijft verantwoordelijk voor de Fondsregels en iedere garantie die die uitdrukkelijk aanvaardt. Noch de CLC App, noch GEF garandeert automatisch een waardebon, Fonds, waarde, route, liquiditeitspositie of resultaat.
+
+\section*{Huidige implementatie}
+\addcontentsline{toc}{section}{Huidige implementatie}
+
+GEF beheert de CLC App op \href{https://cosmolocal.credit}{cosmolocal.credit}. De App biedt toegang tot accounts en Portemonnees, een openbare Markt-catalogus en ondersteunde interfaces voor tokens, waardebonnen, Aanbiedingen, Commitmentfondsen, overdrachten en rechtstreekse Fondsswaps. De beschikbaarheid hangt af van de interface, contracten, voorraad, geconfigureerde limieten en kosten, netwerkstatus, geschiktheid, aanbieders, het rechtsgebied en de gepubliceerde voorwaarden van de Uitgever of het Fonds.
+
+Het beheren van de interface maakt GEF op zichzelf niet tot Uitgever, Fondsbeheerder, bewaarder, kredietgever, kredietnemer, tussenpersoon, garant, partij die inwisselt, adviseur, verzekeraar of partij bij verplichtingen tussen deelnemers. Op het gebruik van de App zijn de \href{https://docs.cosmolocal.credit/nl/governance/terms}{Gebruiksvoorwaarden} van toepassing.
+
+Protocol v1.1.0 scheidt verantwoordelijke rollen van technische zeggenschap. De Fondsbeheerder, eigenaar van de \texttt{SwapPool}, proxybeheerder, beheerder van afhankelijkheden, catalogusmoderator en ontvanger van kosten kunnen verschillende partijen zijn. Bekijk \href{https://docs.cosmolocal.credit/nl/introduction/concepts}{Begrippen en woordenschat} voor de gedeelde terminologie.
+
+\section*{Historische oorsprong}
+\addcontentsline{toc}{section}{Historische oorsprong}
+
+Het historische Sarafu Network ging vooraf aan de CLC App en leverde inzichten over gemeenschapsmunten en het bundelen van toezeggingen. De overgang van de dienst naar Cosmo-Local Credit heeft niet ieder historisch account, iedere Portemonnee, token, waardebon, Fonds, saldo, rapport, deelnemer of verplichting overgedragen.
+
+Historische cijfers in deze White Paper gebruiken een gedateerde, intern samenhangende Sarafu-dataset. Het zijn geen huidige gebruikscijfers van CLC. Bekijk de \href{https://docs.cosmolocal.credit/nl/white-paper/executive-summary}{Managementsamenvatting} voor de bron en meetperiode.
+
+\section*{Ontwerpmodel}
+\addcontentsline{toc}{section}{Ontwerpmodel}
+
+CPP gebruikt vier brede functies:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Samenstelling:} bepalen welke waardebonnen of andere activa worden toegelaten.
+\item \textbf{Waardering:} de methode publiceren waarmee wisselkoersen of offertes van een Fonds worden berekend.
+\item \textbf{Begrenzing:} huidige bovengrenzen voor tokensaldi van Fondsen of andere afzonderlijk geïmplementeerde risicobeheersmaatregelen toepassen.
+\item \textbf{Uitwisseling:} voorraad aanhouden en Fondsswaps uitvoeren binnen bekendgemaakte kosten en grenzen.
+\end{itemize}
+Een implementatie mag routing, monitoring, liquiditeitssteun, garanties, reserves, verzekering of bestuursdiensten alleen toevoegen onder afzonderlijk gepubliceerd beleid. Vermelding, samenstelling, een limiet, een reserve of een blockchainregistratie vormt op zichzelf geen bewijs van capaciteit van de Uitgever, nakoming, goedkeuring, garantie of verzekering.
+
+\section*{Waarden en ontwerpprincipes}
+\addcontentsline{toc}{section}{Waarden en ontwerpprincipes}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Zorg voor mensen:} individueel en collectief welzijn ondersteunen.
+\item \textbf{Zorg voor het milieu:} ecologische schade verminderen en regeneratieve werkwijzen ondersteunen.
+\item \textbf{Eerlijkheid:} veilige en rechtvaardige toegang tot middelen, kennis en zorg bevorderen.
+\item \textbf{Wederkerigheid:} risico, kosten, verantwoordelijkheid en overschotten delen onder bekendgemaakte regels.
+\item \textbf{Geen overheersing:} geconcentreerde controle over mensen, gegevens, financiën, kennis en materiële middelen tegengaan.
+\item \textbf{Veerkracht:} gemeenschappen helpen zich voor te bereiden op en aan te passen aan economische, politieke en klimaatverstoringen.
+\item \textbf{Lokale verantwoordelijkheid:} nakoming in de echte wereld en juridische verantwoordelijkheid bij geïdentificeerde partijen houden.
+\item \textbf{Forkbaarheid:} compatibele gemeenschappen en implementaties de mogelijkheid geven gedeelde registers of diensten te verlaten zonder geldige saldi of verplichtingen te wissen.
+\end{itemize}
+De digitale laag is een gedeeld geheugen en coördinatie-infrastructuur. Ze vervangt geen relaties, prestaties van Uitgevers, lokaal bestuur of juridische verantwoordelijkheid.
+
+\section*{Huidige en voorgestelde processen}
+\addcontentsline{toc}{section}{Huidige en voorgestelde processen}
+
+\subsection*{Huidig rechtstreeks Fondsproces}
+\addcontentsline{toc}{subsection}{Huidig rechtstreeks Fondsproces}
+
+\begin{enumerate}[leftmargin=*]
+\item Een Houder beoordeelt een waardebon, de Uitgever, de voorwaarden en bijbehorende Aanbiedingen.
+\item Een Fonds laat ondersteunde activa toe en publiceert zijn configuratie en verantwoordelijke autoriteiten.
+\item De Houder ontvangt een offerte en keurt een rechtstreekse Fondsswap goed.
+\item \texttt{SwapPool} voert de swapafwikkeling op de blockchain uit en verwerkt Fonds- en protocolkosten.
+\item Als de Houder later \textbf{`Inwisselen'} in de App kiest, bereidt de App een overdracht naar de tokeneigenaar voor als aanbieding ter inwisseling.
+\item De Uitgever komt de belofte afzonderlijk na en registreert de afboeking, zodat nagekomen eenheden niet opnieuw kunnen worden gebruikt.
+\end{enumerate}
+Voorraad uit een Fonds ontvangen is een swap. Het is alleen een inwisseling wanneer dat Fonds afzonderlijk de rol van Uitgever heeft aanvaard en de toepasselijke voorwaarden van de waardebon nakomt.
+
+\subsection*{Breder voorgesteld ontwerp}
+\addcontentsline{toc}{subsection}{Breder voorgesteld ontwerp}
+
+Het voorgestelde ontwerp onderzoekt uitvoeringsrouting, verrekening, gedeelde diensten, liquiditeitsprogramma's op netwerkniveau, verzekeringsbeleid en bestuursactiva. Elk daarvan vereist een implementatie, verantwoordelijke partijen, vastgestelde regels, financiering, beheersmaatregelen en openbare bekendmakingen voordat het van toepassing kan zijn.
+
+Het voorgestelde kostenmodel kan een netwerkafdracht uit Fondskosten en afzonderlijke routing- of servicekosten gebruiken. Dat voorstel verschilt van Protocol v1.1.0, waarin optionele protocolkosten bovenop de Fondskosten komen.
+
+Ondersteuners of liquiditeitsverschaffers krijgen door de huidige \texttt{SwapPool} niet automatisch Fondsdeelnemingen of rechten op terugbetaling, opname, beloningen of bestuur. Ieder huidig of toekomstig programma moet het soort overdracht, de verantwoordelijke partij, zeggenschap, herstel- of opnamerechten, verliezen, beloningen, kosten en bestuursrechten afzonderlijk bekendmaken.
+
+\section*{Leeswijzer}
+\addcontentsline{toc}{section}{Leeswijzer}
+
+\begin{itemize}[leftmargin=*]
+\item Huidige terminologie en levenscyclus van handelingen: \href{https://docs.cosmolocal.credit/nl/introduction/concepts}{Begrippen en woordenschat}
+\item Geverifieerde geïmplementeerde contracten: \href{https://docs.cosmolocal.credit/nl/protocol/overview}{Protocol v1.1.0}
+\item Historisch bewijs: \href{https://docs.cosmolocal.credit/nl/white-paper/executive-summary}{Managementsamenvatting}
+\item Confederatie en interoperabiliteit: hoofdstukken 5, 8 en 11
+\item Voorgestelde garanties en verzekeringsgrenzen: hoofdstukken 10 en 11
+\item Voorgestelde liquiditeits- en kostenmodellen: hoofdstukken 7, 9 en 12
+\item Voorgesteld meetkader: hoofdstuk 14 en bijlagen A--C
+\item Voorgestelde roadmap: hoofdstuk 15
+\item Juridische en complianceoverwegingen: hoofdstuk 17
+\end{itemize}
+\href{https://docs.cosmolocal.credit/nl/white-paper/archive}{Eerdere versies van de White Paper} worden alleen als duidelijk vervangen historische publicaties bewaard.
+
+\section*{Uitvoerende samenvatting}
+\addcontentsline{toc}{section}{Uitvoerende samenvatting}
+
+Het \textbf{Commitment Pooling Protocol (CPP)} beschrijft hoe onafhankelijk bestuurde Commitmentfondsen inwisselbare toezeggingen kunnen samenstellen, methoden en limieten voor wisselkoersen kunnen publiceren, voorraad kunnen aanhouden en verantwoorde uitwisseling mogelijk kunnen maken. Uitgevers blijven verantwoordelijk voor de toezeggingen van hun waardebonnen. Fondsbeheerders blijven verantwoordelijk voor de Fondsregels en iedere garantie die zij uitdrukkelijk aanvaarden. Noch de CLC App, noch GEF is een universele garant.
+
+Protocol v1.1.0 de huidige bouwstenen voor directe swap:\texttt{GiftableToken}, \texttt{SwapPool}, optionele registers en waarderingsmodules, fonds-token-balansloopslag, poolvergoedingen, een extra protocolvergoeding en een quote-only\texttt{SwapRouter}De huidige contracten bevatten geen realistische nakoming, creëren geen automatische liquiditeitsleverantondelen, voeren niet meer dan een paar routes uit of bieden geen universele reserves, garanties of verzekeringen.
+
+De historische \textbf{Sarafu Network} het gebruikte commitment-pooling concepten in gemeenschapsmunten, spaargroepen, wederzijdse steunsystemen en productieverplichtingen. De dienst is later overgegaan naar de CLC App. Dit was geen afbeelding dat elke historische rekening, portemonnee, token, waardebon, fonds, saldo, verslag, deelnemer of verplichting migreerde.
+
+\subsection*{Historische Sarafu Network snapshot --- Celo-activiteit van 5 juli 2023 tot en met 20 juli 2025}
+\addcontentsline{toc}{subsection}{Historische Sarafu Network snapshot --- Celo-activiteit van 5 juli 2023 tot en met 20 juli 2025}
+
+\textbf{Bron:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics dashboard}
+
+\begin{itemize}[leftmargin=*]
+\item 26.367 gebruikers
+\item 285.197 peer-to-peer uitwisselingen
+\item 188 unieke actieve Commitmentfondsen
+\item 745 unieke actieve waardebonnen
+\item \$320,692 Fonds swap volume
+\item 899 gepubliceerde verslagen (\href{https://sarafu.network/reports}{archief van historische verslagen})
+\end{itemize}
+Deze cijfers zijn historisch bewijs, niet actuele CLC-gebruikscijfers.
+
+Het breeder voorgestelde ontwerp CLC onderzoekt hoe compatibele netwerken:
+
+\begin{enumerate}[leftmargin=*]
+\item het ontdekken en citeren van paden over onafhankelijk beheerde Fondsen;
+\item verantwoord netwerkdiensten coördineren zonder overheersende lokale verantwoordelijkheid;
+\item ondersteuning van afzonderlijk gefinancierde liquiditeitsmandaten, garanties, reserves of verzekeringen;
+\item de fonds swaps afzonderlijk met het aanbieden, vervullen en ontlenen van vouchers te meten; en
+\item gebruik maken van een voorgestelde netwerkrek en dienstverleningskosten om geaccepteerde gedeelde diensten te financieren.
+\end{enumerate}
+Het voorstel omvat een \textbf{voorgestelde CLC governance token } en a \textbf{ voorgestelde CLC netwerkpool}. Geen deel uitmaakt van de huidige App of Protocol v1.1.0.
+
+Volgens het voorgestelde model kunnen deelnemers aan liquiditeit en governance alleen handelen via afzonderlijk goedgekeurde programma's met gepubliceerde in aanmerking komendheid, risico's, controles, overdrachtsrechten, terugbetalingsvoorwaarden en kostenregels.
+
+De gemeenschappelijke doelstelling is:
+
+Verhoog verantwoordelijke uitwisseling en de nakoming van realistische verplichtingen met behoud van zorg, eerlijkheid, lokale verantwoordelijkheid en veerkracht.
+
+Anti-capture en geloofwaardige exit blijven de kerndoelstellingen van het ontwerp. De voorgestelde controles omvatten vertraagde governance, meerdere goedkeuringsdrempels, transparante delegatie, conflictregels, incidentbeoordeling en een gedocumenteerd fork-and-migrate proces. Deze controles zouden geselecteerde governance risico's verminderen, maar konden verlies of garantie uitkomsten niet elimineren.
+
+
+\section*{1. protocol voor het bundelen van verbintenissen (CPP): de primitieve kern}
+\addcontentsline{toc}{section}{1. protocol voor het bundelen van verbintenissen (CPP): de primitieve kern}
+
+\textbf{Geestesmodel:} Een Commitmentfonds is een gereglementeerde regeling voor de toelating van waardebonnen of andere activa, het publiceren van ruilregels, het houden van inventaris en het mogelijk maken van swaps.
+
+CPP coördineert de waarde door middel van duidelijk beschreven verplichtingen. \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{Grassroots Economie: Reflectie en praktijk}.
+
+\subsection*{1.1 Wat is een verbintenis?}
+\addcontentsline{toc}{subsection}{1.1 Wat is een verbintenis?}
+
+Een verbintenis is de belofte van een geïdentificeerde partij van toekomstige levering, bijvoorbeeld voedsel, vervoer, arbeid, opslag of een ander wettelijk goed, dienstverlening, voordeel of prestatie. \textbf{waardebon} is een symbool of een record dat in gepubliceerde termen wordt weergegeven als die verbintenis.
+
+Het token contract registreert digitale mechanismen. De vouchervoorwaarden identificeren de uitgever, aanbod, capaciteit, plaats, tijdstip, beperkingen, presentatie, nakoming, klachten en ontlastingsproces.
+
+\subsection*{1.2 Wat is een Commitmentfonds?}
+\addcontentsline{toc}{subsection}{1.2 Wat is een Commitmentfonds?}
+
+Een Commitmentfonds is de gereglementeerde regeling. Het kan worden beheerd door een individu, coöperatie, gemeenschapsgroep, overheidsinstantie, federatie, multisig, dienstverlener of een andere verantwoordelijke structuur.
+
+Betreffende taken en bevoegdheden zijn onder meer:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Fondsbeheerder:} publiceert en beheert de Poolregels en elke uitdrukkelijk aangenomen garantie;
+\item \textbf{Bezitter van Fonds:} heeft de huidige bevoegdheden als eigenaar van \texttt{SwapPool};
+\item \textbf{proxy-administrator:} kan een proxy-implementatie upgraden;
+\item \textbf{afhankelijkheidsbeheerders:} het regelen van geconfigureerde registers, quota's, limiters of tariefcomponenten;
+\item \textbf{routefinder of -operator:} kan aanbiedingen ontdekken of, in een toekomstige uitvoering, een afzonderlijk goedgekeurde route uitvoeren; en
+\item \textbf{waarnemer:} neemt alleen een gedefinieerde verplichting op zich door middel van gepubliceerde, gefinancierde voorwaarden.
+\end{itemize}
+CPP groepen Poolfuncties in vier concepten:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Verzorging:} toelaten ondersteunde tokens of waardebonnen.
+\item \textbf{Evaluatie:} de voor een wisselkoers of quotatie gebruikte methode publiceren.
+\item \textbf{Beperking:} het toepassen van huidige tokenbalansgrens of andere afzonderlijk ingevoerd controles.
+\item \textbf{Uitwisseling:} het houden van inventaris, uitvoeren van swaps, rekening houden met vergoedingen en transactiegegegevens opstellen.
+\end{itemize}
+Protocol v1.1.0 Deze functies worden door middel van \texttt{SwapPool} De huidige \texttt{Limiter} De marktdeelnemer heeft een rekening met de markten van een andere bank, maar is niet verplicht om de markte te vergroten.\texttt{SwapRouter} berekent quotes voor meerpools; het voert geen swaps uit.
+
+Het bredere voorgestelde CPP-ontwerp kan voortschrijdende limieten, accountcontroles, uitvoeringsrouters, paden via HTLC of escrow en batchverrekening toevoegen. Dit zijn voorgestelde onderdelen en geen beschrijvingen van de huidige limiter of router.
+
+\subsection*{1.3 Logiek van de huidige directe swap}
+\addcontentsline{toc}{subsection}{1.3 Logiek van de huidige directe swap}
+
+Een huidige directe Fonds swap:
+
+\begin{enumerate}[leftmargin=*]
+\item controleert het optionele register voor de input- en outputtokens;
+\item meet de ontvangen input;
+\item een offerte verkrijgt van de geconfigureerde quotator of gebruikmaakt van grond-eenheidspariteit;
+\item controleert het resulterende saldo van de Fonds-token tegen de optionele limiter;
+\item berekent de Poolvergoeding en eventuele aanvullende protocollen;
+\item controleert de beschikbare productievoorraad;
+\item overdraagt de protocolvergoeding en -uitgang, alsmede de rekeningen voor het Poolvergoed; en
+\item uitzendt swap-evenementen.
+\end{enumerate}
+Het aanbod is een transactieparameter, geen bewijs van de emittentcapaciteit, terugbetalingskosten, reële waarde, cash convertibiliteit of garantie.
+
+\subsection*{1.4 Breder gebruik}
+\addcontentsline{toc}{subsection}{1.4 Breder gebruik}
+
+Commitmentfondsen kan gemeenschapsruil, productie, wederzijdse hulp, openbare programma's en andere verantwoordingsplichtige structuren ondersteunen. Een afzonderlijk gedocumenteerd kredietproduct zou een waardebon als zekerheid of terugbetalingsinstrument kunnen gebruiken, maar het zou aanvullende en transactie-specifieke voorwaarden vereisen.
+
+CPP is bedoeld voor verantwoord uitwisselings- en controleerbare transactiegegegevens, niet speculatieve churn.
+
+
+\section*{2. De boekhoudverschuiving: van activa naar vertrouwen}
+\addcontentsline{toc}{section}{2. De boekhoudverschuiving: van activa naar vertrouwen}
+
+Traditionele financiering begint met: \textbf{Vermogensmiddelen - Passiva = eigen vermogen} CPP herformuleert dit voor een verbintenisseconomie:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Aanvaardingscapaciteit:} hoeveel van de verbintenissen van een uitgever een fonds of netwerk nog steeds bereid is te aanvaarden.
+\item \textbf{Uitgetrokken verplichtingen:} Ze hebben beloofd dat ze niet zouden kunnen volbrengen en door anderen gehouden worden.
+\item \textbf{Vervullingscapaciteit:} het bewezen vermogen van de uitgever om deze beloften te vervullen.
+\end{itemize}
+\subsection*{Illustratieve relatie tussen verbintenis en capaciteit:}
+\addcontentsline{toc}{subsection}{Illustratieve relatie tussen verbintenis en capaciteit:}
+
+Aanvaardingskapaciteit - uitstaande verbintenissen = overgebleven aanvaardingscapaciteit
+
+Deze conceptuele identiteit kan Fonds risico limieten informeren: onbeperkte uitgifte impliceert geen onbeperkt aanvaarding.
+
+\textbf{Voorbeeld:} Een vervoerder geeft 100100 ritten uit in waardebonnen. Een fonds accepteert maximaal 40 ritten tegelijk. Als 15 aanvaarde ritten nog niet zijn goedgekeurd, heeft de fonds de capaciteit om tot 25 extra ritten onder dat beleid te accepteren. De berekening zelf creëert geen lening of garantie van nakoming.
+
+
+
+\section*{3. nakoming, afboeking en uitwisselingsactiviteit}
+\addcontentsline{toc}{section}{3. nakoming, afboeking en uitwisselingsactiviteit}
+
+Een Fonds swap verandert die betrekking heeft op houdermiddelen. De nakoming van vouchers vindt plaats wanneer de uitgever de gepubliceerde verplichting nakomt. De afgifte registreert de voltooide eenheden zodat ze niet opnieuw kunnen worden gepresenteerd. Deze gebeurtenissen mogen niet worden samengesteld in één gebruik van ``settlement.''
+
+Het voorgestelde meetraamwerk maakt gebruik van afzonderlijke gegevens voor:
+
+\begin{itemize}[leftmargin=*]
+\item voltooide fonds swapvolume;
+\item geldige presentaties van terugbetalingen;
+\item bevestigde nakoming door de uitgever;
+\item afboeking;
+\item uitgaande in aanmerking komende verplichtingen; en
+\item gemeten Fonds voorraad.
+\end{itemize}
+Een voorgestelde commitment-discharge-snelheid kan de vervuld waarde gedurende een periode vergelijken met de gemiddelde in aanmerking komende uitbetalingswaarde, maar alleen als beide dezelfde geopenbaarde waarderingsmethode gebruiken. Tokenvoorziening is geen voldoende noemer: het kan een inventaris van de uitgever, vervallen of ontoegankelijke eenheden, tests en saldo's omvatten die geen uitbetalingen van een derde partij vertegenwoordigen.
+
+Een aparte Fonds swap-activiteitsverhouding kan de voltooide waarde van Fonds swaps vergelijken met het gemeten Fonds inventaris.
+
+Liquiditeit kan de beschikbaarheid van inventarissen verbeteren en beurzen vergemakkelijken. Het garandeert niet dat emittenten zullen presteren, dat bijdragers activa zullen terugvinden of dat een fonds quotation inwisseling of contante waarde vertegenwoordigt. Alle rechten van liquiditeitsproviders vereisen aparte gepubliceerde voorwaarden.
+
+Zie je dat ? \href{https://docs.cosmolocal.credit/nl/white-paper/appendix-a-math-box}{Aanhangsel A} voor definities en \href{https://docs.cosmolocal.credit/nl/white-paper/appendix-c-kpi-definitions}{Aanhangsel C} voor de voorgestelde meetspecificatie.
+
+
+\section*{4. Herbruikbare forward-style zekerheden}
+\addcontentsline{toc}{section}{4. Herbruikbare forward-style zekerheden}
+
+Een afzonderlijk gedocumenteerde kredietfaciliteit kan fungieuze, overdraagbare waardebonnen accepteren als zekerheid of als terugbetalingsinstrument.
+
+\begin{itemize}[leftmargin=*]
+\item De toelating van het fonds zou de zekerheid meer te ontdekken kunnen maken;
+\item aanvullende wettelijke presentatie- en vervullingsmogelijkheden zouden de terugbetaling kunnen ondersteunen;
+\item de limieten, het inventaris, de waardering, de liquiditeit, de prestaties van de uitgever en de risico's op verzuim blijven bestaan; en
+\item er zou geen route, nakoming, terugbetaling, waarde of herstel worden gegarandeerd.
+\end{itemize}
+\subsection*{4.1 Producentenkredietloop}
+\addcontentsline{toc}{subsection}{4.1 Producentenkredietloop}
+
+Een toekomstige CLC--compatibele dienst zou producentenkrediet alleen kunnen ondersteunen wanneer de partijen een afzonderlijke faciliteit oprichten en de transactie uitdrukkelijk als terugbetaalbare voorschot presenteren.
+
+\begin{itemize}[leftmargin=*]
+\item de voorschot- en terugbetalingsbedragen;
+\item vervaldatums, rente, honoraria en toegestane gebruik van collateral;
+\item overdracht en eventuele wijziging van de schuldeiser of claimhouder;
+\item hoe de naleving van de waardebon wordt gewaardeerd en aangetoond voor terugbetalingsaccounts;
+\item gedeeltelijke terugbetaling, resterende bedragen, verzuim en ontlasting; en
+\item beschikbare rechtsmiddelen krachtens het toepasselijke recht.
+\end{itemize}
+Een illustratie is:
+
+\begin{enumerate}[leftmargin=*]
+\item Een producent of dienstverlener geeft een waardebon uit die een verbintenis tot toekomstige productie vertegenwoordigt, zoals tien taxi ritten, 50 kilogram maïs of tien arbeidstijden.
+\item Een Fondsbeheerder aanvaardt dat en publiceert de wisselkoersmethode, limieten, vergoedingen, inventarisregels en elke uitdrukkelijk aangenomen bescherming van de Fonds.
+\item Een kredietverstrekker of liquiditeitsprogramma verstrekt afzonderlijk een voorschot op basis van schriftelijke transactievoorwaarden en aanvaardt de producentenbonnen als zekerheid of als overeengekomen terugbetalingsinstrument.
+\item De houders kunnen de waardebonnen overdragen, via compatibele Fondsen uitwisselen of aan de uitgever presenteren.
+\item De bevestigde naleving door de uitgever voldoet aan de voucherverbintenis en vermindert alleen het afzonderlijke kredietbalans voor zover, op de waarde en op basis van het bewijs dat in de kredietvoorwaarden is aangegeven.
+\item De documenten onderscheiden de nakoming van de waardebon van de kredietrekening en identificeren eventuele gedeeltelijke terugbetaling, resterend bedrag, overdracht, faillissement of kwijting.
+\end{enumerate}
+Deze structuur kan een afgesproken terugbetaling in natura mogelijk maken, met behoud van afzonderlijke gegevens over de waardebon- en kredietverplichtingen.
+
+\textbf{Een voorbeeld:} Een producent ontvangt een voorschot van \$1.000 onder voorwaarden waarin staat dat de bevestigde nakoming van bepaalde maïsvouchers wordt gecrediteerd tegen het terugbetalingsbedrag met behulp van een aangegeven waarderingsmethode.
+
+
+\section*{5. Van geïsoleerde Fondsen tot een federaal netwerk}
+\addcontentsline{toc}{section}{5. Van geïsoleerde Fondsen tot een federaal netwerk}
+
+Stroom Protocol v1.1.0 ondersteunt directe uitvoering via een \texttt{SwapPool} en bevat slechts een citaat \texttt{SwapRouter}. Het voert geen meervoudige routes, HTLC's, escrow routes of lotnetten uit of cross-network clearing.
+
+In dit hoofdstuk wordt voorgesteld hoe onafhankelijk geregeerde Fondsen zich kunnen coördineren zonder hun eigen toelating, waardering, limiet, vergoeding, inventarisatie, machtiging en governance-regels op te geven.
+
+\subsection*{5.1 Afzonderlijke uitwisselings- en vervullingsmaatregelen}
+\addcontentsline{toc}{subsection}{5.1 Afzonderlijke uitwisselings- en vervullingsmaatregelen}
+
+De Federatie zou de toegang tot inventaris kunnen verbeteren, maar zij zou de waardebon niet samenvoegen en levenscycli niet uitwisselen.
+
+\begin{enumerate}[leftmargin=*]
+\item een route wordt aangegeven;
+\item een of meer Fonds-swaps uitvoeren en afwikkelen in de keten;
+\item een houder aan de uitgever waardebon-eenheden presenteert;
+\item de uitgever voldoet aan de verbintenis; en
+\item voltooide eenheden worden afgevoerd.
+\end{enumerate}
+Meer genoteerde of uitgevoerde routes bewijzen niet meer voldoening. In de verslagen zou worden vermeld welke cohorte, periode, activa, waarderingsmethode en tijdstempel, uitsluitingen, correcties en bewijsmateriaal buiten de keten die in aanhangsel C vereist zijn.
+
+\textbf{Illustratieve route:} Een school heeft maïsvouchers, maar heeft transportvoucher nodig. Een routedienst identificeert compatibele Poolvoorraad. De uitvoering zou alleen succesvol zijn als elke afzonderlijk gemachtigde hop binnen de quotalimieten, limieten, kosten, voorraad en beleid bleef.
+
+\subsection*{5.2 Voorgestelde routing- en rebalanceringsdiensten}
+\addcontentsline{toc}{subsection}{5.2 Voorgestelde routing- en rebalanceringsdiensten}
+
+Een toekomstige routedienst zou twee verschillende activiteiten kunnen ondersteunen.
+
+\textbf{Een door de deelnemer geïnitieerde executie.} Gezien input en output assets, een bedrag en gebruikersbeperkingen, zou de dienst een pad kunnen identificeren en uitvoering kunnen voorbereiden. Elke hop zou zijn eigen verantwoordelijke fonds, quote, autorisatie, vergoedingen, limieten, inventaris en ontvangst hebben.
+
+\textbf{Opt-in Fonds herbalanseren.} Fondsbeheerders kon inventarisdoelstellingen publiceren, toegestane tegenpartijen, activaclassen, quoted-deviation limits en per periode limieten.
+
+Een fonds zou deelnemende routes kunnen toestaan terwijl hij de uitgaande rebalancing weigert, of het kan alleen geselecteerde activa, tegenpartijen en bedragen mogelijk maken.
+
+\subsubsection*{5.2.1 Confederatie en interoperabiliteit}
+
+Onafhankelijke implementaties zouden hun eigen registers, interfaces, routediensten en beleidsprofielen kunnen beheren terwijl ze compatibele gegevens- en ontvangstnormen kiezen.
+
+Een compatibel profiel zou:
+
+\begin{itemize}[leftmargin=*]
+\item het identificeren van de registerwortels, dienstverleners, verwerkers en toepasselijke termen;
+\item het openbaar maken van toegestane en afgewezen tegenpartijen, activa, adapters en routes;
+\item de vergunningen, beperkingen, kosten en inventarisbeperkingen van elke deelnemende Fonds toepassen;
+\item het bewaren van aanmeldingsbewijzen per hop; en
+\item het mogelijk maken dat andersfunctioneel functionele fondsen een ander register kunnen verlaten of selecteren zonder de saldo's of verplichtingen van de uitgever te wissen.
+\end{itemize}
+De compatibiliteit kan de beschikbare uitwisselingsroutes vergroten en de afhankelijkheid van één register of een operator verminderen.CLC App, GEF, of een andere Fonds die verantwoordelijk is voor de nakoming van een uitgever.
+
+\subsection*{5.3 Voorstel voor een model van netwerkrak en dienstverlening}
+\addcontentsline{toc}{subsection}{5.3 Voorstel voor een model van netwerkrak en dienstverlening}
+
+De huidige Protocol v1.1.0 vraagt een Poolvergoeding en, wanneer geconfigureerd, een aanvullende Protocolvergoed voor een directe Poolswap.
+
+Een toekomstig programma kan afzonderlijk ontvangen:
+
+\begin{enumerate}[leftmargin=*]
+\item (a) \textbf{netwerkrak}, gedefinieerd als een aangegeven aandeel van de verzamelde Poolvergoedingen van de deelnemende Fondsen; en
+\item (a) \textbf{routing- of servicegeld}, voor een geïdentificeerde toekomstige dienst.
+\end{enumerate}
+De voorgestelde netwerkrak is geen extra percentage dat wordt toegepast op het volledige swapbedrag nadat de Poolvergoeding reeds is geteld.\texttt{p}:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+waar \texttt{f\_p} is het Fonds-fee tarief en \texttt{r\_p} is het voorgestelde aandeel van die Poolvergoeding dat wordt toegewezen aan het netwerkopprogramma.
+
+Voor een gemeten periode:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bruto Poolvergoedingen} is de som van de daadwerkelijk verzamelde Poolvergoedingen voor elke fonds;
+\item \textbf{ontvangsten voor netwerkraken} zijn de aangegeven aandelen van deze verzamelde heffingen;
+\item \textbf{ontvangsten van de dienstverleningskosten} er worden afzonderlijk routing- of servicegeld geheven; en
+\item \textbf{ontvangsten van de programmafgifte} gelijke ontvangsten voor netwerkkosten plus ontvangsten van de servicegeld.
+\end{itemize}
+Geen enkele categorie wordt tweemaal geteld; de lopende protocollen zijn niet inbegrepen, tenzij een afzonderlijk goedgekeurd beleid de daadwerkelijke ontvangsten van de protocolling rechtmatig omleidt naar het toekomstige programma.
+
+Voor een geaggregeerde benadering:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{Q\_swap} is de waarde van uitgevoerde Fonds swaps voor de gedefinieerde cohorte en periode; en
+\item \texttt{$\tau$} is het effectieve tarief van de voorgestelde netwerkrak en afzonderlijk geïdentificeerde servicegeld ten opzichte van die uitgevoerde swapwaarde.
+\end{itemize}
+En dan:
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+Dit is een analytische benadering, geen belofte van inkomsten. Elke input vereist een opgegeven cohort, periode, eenheid, waarderingstijdstempel, uitsluitingen en correctiebeleid.
+
+\subsubsection*{5.3.1 In aanmerking komende ontvangsten in contanten en in natura}
+
+De kosten kunnen komen in cash-eligible fungiebele activa of in waardebonnen en andere in natura activa. In natura ontvangsten kunnen niet automatisch betalen contante uitgaven of dekking claims. Elke uitwisseling of conversie zou autoriteit, beschikbare inventaris, openbaar gemaakte locaties, limieten en daadwerkelijke uitvoering vereisen.
+
+Laat \texttt{$\chi$} het gerealiseerde aandeel van de ontvangsten van honoraria zijn dat cash-eligibel is na beleidsbeperkingen, mislukte omschakelingen en slip.
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+De begroting en de break-even analyse zouden realiseerde \texttt{F\_cash} In een toekomstig programma zouden de bruto-poolvergoedingen, netwerkrekeningen, servicekosten, activacompositie, omrekeningsresultaten en contante ontvangsten apart worden vermeld.
+
+\subsection*{5.4 Voorgestelde liquiditeitsprogramma's}
+\addcontentsline{toc}{subsection}{5.4 Voorgestelde liquiditeitsprogramma's}
+
+Een toekomstig, afzonderlijk gedocumenteerd liquiditeitsprogramma zou activa kunnen toewijzen aan aangewezen fondsen of routingdiensten.\texttt{SwapPool} de contracten maken geen aandelen van Fonds of creëren automatisch terugbetaling, intrekking, beloning, governance of winstrechten.
+
+Elk programma zou publiceren:
+
+\begin{itemize}[leftmargin=*]
+\item de verantwoordelijke entiteit en deelnemende Fondsbeheerders;
+\item bijdragen en of de overdracht terugbetaalbaar, onttrekkbaar, gespend of geschonken is;
+\item bewakings- en technisch-controlemaatregelen;
+\item toegestane toepassingen, beperkingen, vergrendelingen, terugtrekkingspoorten en verliesallocatie;
+\item de in aanmerking komendheid van een vergoeding of stimulans en of het bedrag nul kan zijn;
+\item verslaggeving, conflicten, klachten en rechtsmiddelen; en
+\item migratie, beëindiging en behandeling van resterende activa en verplichtingen.
+\end{itemize}
+Materiële risico's omvatten inventaris die moeilijk te ruilen of uit te voeren is, lage cash-eligibility, niet-prestatie van de uitgever, contract- of leveranciersfalen, veranderingen in governance en beperkingen op exit. Limits, reserves, ontvangsten en dashboards kunnen sommige risico' s verminderen of onthullen; ze elimineren geen verlies.
+
+Voor een ex-post analytische metric:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{$\phi$} is het gerealiseerde deel van de ontvangsten van programmavergoedingen die zijn toegewezen op grond van de door het programma goedgekeurde voorwaarden; en
+\item \texttt{K} is de gemeten waarde van activa die onder het programma vallen volgens één aangegeven methode.
+\end{itemize}
+En dan:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
+\]
+
+Deze metric beschrijft gerealiseerde kostenvloei per gemeten programma-actief. Het is niet APY, een prognose, een dividend of een gegarandeerd rendement. Rapporten zouden het swapvolume, de terugbetalingsaanbieding, de nakoming van de uitgever, de afgifte, de houdingsduur, verliezen, onttrekkingen en ontvangsten van honoraria gescheiden houden.
+
+
+\section*{6. Voorgestelde liquiditeit en governance op netwerkniveau}
+\addcontentsline{toc}{section}{6. Voorgestelde liquiditeit en governance op netwerkniveau}
+
+De ervaring van de historische Sarafu Network motiveerde onderzoek naar twee bredere ontwerpvragen:
+
+\begin{enumerate}[leftmargin=*]
+\item hoe onafhankelijk beheerde fondsen liquiditeits- en routingdiensten konden coördineren; en
+\item Hoe gedeelde diensten aansprakelijk kunnen blijven als de participatie toeneemt.
+\end{enumerate}
+Een voorgestelde CLC-ontwerp introduceert een \textbf{voorgestelde CLC netwerkpool } als een nettoverzekerings- en begrotingscoördinatieovereenkomst op netwerkniveau en \textbf{ voorgestelde CLC governance token}. Geen van beide bestaat in de huidige App of Protocol v1.1.0. Andere implementaties kunnen gebruik maken van coöperaties, overheidsinstanties, federaties, multinationals, dienstverleners of andere verantwoordingsplichtige structuren zonder dat elk voorstel wordt aangenomen.
+
+\subsection*{6.1 Downside-controles en optionaliteit}
+\addcontentsline{toc}{subsection}{6.1 Downside-controles en optionaliteit}
+
+De huidige Protocol v1.1.0 kan Fonds token-balans caps en voorraadcontroles toepassen. Deze controles beperken geselecteerde contractuele acties; ze voorkomen niet dat de uitgever niet presteert, waardeverlies, sleutelverlies of elk ander verlies.
+
+Een toekomstige implementatie zou circuitsonderbrekers, timelocks, reserves, garanties of verzekeringen kunnen toevoegen. Elke bescherming zou een geïdentificeerde verantwoordelijke partij nodig hebben, gedekte gebeurtenis, financiering, maximum, uitsluitingen, duur, bewijs, claimsproces en toepasselijke voorwaarden.
+
+De voorgestelde governance moet de register- en dienstbevoegdheden beperkt en herzienbaar houden. Normale acties kunnen gebruik maken van kennisgeving, vertraging, reden publicatie, beroep en correctieprocessen.
+
+Een compatibele routeontdekking zou meer uitwisselingen mogelijk kunnen maken tussen Fondsen. Multi-hop-uitvoering en netting vereisen extra software, autorisatie, limieten, foutbeheersing en governance. Meer genoteerde of uitgevoerde swaps zouden op zich niet bewijzen dat de waardebon volstaat of sociale impact heeft.
+
+
+\section*{7. Voorgestelde beheer- en governance activa CLC}
+\addcontentsline{toc}{section}{7. Voorgestelde beheer- en governance activa CLC}
+
+Dit hoofdstuk presenteert één optioneel toekomstig ontwerp voor bestuur en liquiditeitscoördinatie. De voorgestelde CLC-bestuurstoken, \texttt{stCLC}, \texttt{sCLC}, bestuurskluis, verzekeringsfonds, Waterfall, gauges, mandaten, vensters voor kostenkrediet en programma's voor externe markten maken geen deel uit van de huidige CLC App of Protocol v1.1.0. Voor ieder onderdeel zijn een implementatie, verantwoordelijke beheerder, gepubliceerd beleid en voorwaarden, veiligheidsbeoordeling en toepasselijke juridische goedkeuring nodig.
+
+CPP vereist dit tokenmodel niet. Compatibele implementaties kunnen in plaats daarvan gebruik maken van coöperaties, publieke instanties, federaties, multisigs, diensten of andere verantwoordingsplichtige structuren.
+
+\subsection*{7.1 Doel}
+\addcontentsline{toc}{subsection}{7.1 Doel}
+
+Indien aangenomen, kan de voorgestelde beheerslaag:
+
+\begin{itemize}[leftmargin=*]
+\item coördineren van gedeelde registers en routediensten;
+\item de toekenning van goedgekeurde liquiditeitsmandaten aan onafhankelijk beheerde fondsen;
+\item het beheer van een optionele, uitdrukkelijk doelgerichte, gefinancierde dekkingsplan;
+\item het onderhouden van een gemeenschappelijke infrastructuur en waarneming;
+\item bijdragers onder de gepubliceerde regels inzake in aanmerking komendheid en anti-gaming erkennen; en
+\item het behoud van herziening, aantrekkingskracht, transparantie en een geloofwaardige uittreding naarmate deelname toeneemt.
+\end{itemize}
+\subsection*{7.2 Voorgestelde governance-actiefmodel}
+\addcontentsline{toc}{subsection}{7.2 Voorgestelde governance-actiefmodel}
+
+Het ontwerp bevat drie verschillende voorgestelde activa:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Voorgesteld CLC governance token:} een overdraagbaar basisbeheersingsactief op grond van de aangenomen regels inzake uitgifte, bewaring, stemming en naleving.
+\item \textbf{stCLC:} een niet-overdraagbaar votescrow ontvangstbewijs dat wordt getekend wanneer de voorgestelde CLC governance token is gesloten.
+\item \textbf{sCLC:} een in het kader van het beleid uitgegeven, op tijdstip afhankelijke vergunning of prikkenactiviteit die een beperkte toegang tot tariefkrediet of goedgekeurde liquiditeits- en routingincentiven kan ondersteunen en aan het einde van de periode uitsterft of verbrand kan worden.
+\end{enumerate}
+Noch \texttt{stCLC}, noch \texttt{sCLC} zou een aandeel, dividend, resterende aanspraak, rendementsbelofte of gemeenschapswaardebon zijn. Vastgesteld beleid kan de uitgifte van \texttt{sCLC} en toegang tot kostenkrediet in iedere epoch op nul zetten.
+
+Voor gebruik zouden governance locks, minimumduur, cooldowns, delegatie, concentratie caps en kritische actie drempels worden gepubliceerd. Onblokkeerde voorgestelde CLC governance tokens zouden niet stemmen onder dit ontwerp.
+
+\subsubsection*{7.2.1 Illustratie van het aanbod en de toewijzing}
+
+De illustratieve totale voorgestelde aanbod van CLC governance-tokens is \textbf{500,000,000} Dit is een ontwerpparameter, geen lopende uitgifte, aanbod, waardering of belofte van liquiditeit.
+
+Een illustratie van de toewijzing is:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% --- Grassroots Economics Foundation:} blijvend inzetbaar, niet overdraagbaar en gebonden aan een geïdentificeerde GEF multisig volgens gepubliceerde handtekening- en rotatieregels.
+\item \textbf{15\% --- kernteam en vroege partners:} wordt ingezet tijdens een door het beleid vastgestelde klif en lineaire verwervingsperiode van 24 maanden, waarbij de stemmings- en overdrachtsregels vooraf worden bekendgemaakt.
+\item \textbf{30\%  particuliere beleggingen:} erkenning van vroegtijdige inschrijvers die goedgekeurde liquiditeit in het netwerk leveren, met een beleidstermijn van 24 maanden.
+\item \textbf{40\%  Openbare liquiditeitsreserve:} worden gehouden in een governance vault die op tijd is afgesloten voor optionele programma's voor de externe markt en toegankelijkheid.
+\end{itemize}
+Onder de illustratieve openbare liquiditeitscontroles:
+
+\begin{itemize}[leftmargin=*]
+\item niet meer dan 10\% van het totale aanbod zou tegelijkertijd actief zijn op externe locaties;
+\item elke inzet zou na 90 dagen verstrijken, tenzij zij door het goedgekeurde proces wordt verlengd;
+\item liquiditeitsposities en eventuele positie tokens blijven onder openbaar bestuurskontrole; en
+\item voorgestelde CLC governance tokens die in liquiditeitsposities worden gebruikt, zouden niet stemmen tenzij ze volgens dezelfde regels als andere stemtokens zijn gesloten.
+\end{itemize}
+Een toekomstige lancering zou kunnen beginnen met een onthulde multisig en de overgang pas na afzonderlijk goedgekeurde verhardingsmilieven, zoals onafhankelijke audits, monitoring, incidentrunbooks en getest pauze- en forkprocedures.
+
+\subsubsection*{7.2.2 Beschikbaarheid en toewijzingsfasen}
+
+In een toekomstig endowmentprogramma zouden geleidelijke bijdragevensters en een gepubliceerde referentiewaarde kunnen worden gebruikt voor inname en budgettering.
+
+De voorwaarden voor de bijdrage zouden vermelden of activa worden gedoneerd, geschonken, teruggetrokken of terugbetaald; wie ze beheert; hun toegestane gebruik; lock-ups; verliestoewijzing; rapportage; en uitgangsvoorwaarden. Grote bijdragen kunnen worden geconfronteerd met stemloof of afnemend governance gewicht.
+
+Voor elke liquiditeit op de externe markt zou een afzonderlijke beslissing nodig zijn om plaatsen, verantwoordelijke exploitanten, activa, maxima, timing, conflicten, risicocontroles, rapportage en beëindiging te identificeren.
+
+\subsubsection*{7.2.3 Voorgestelde programma voor impactseeding}
+
+Een toekomstig programma zou een deel van de governance vault kunnen toewijzen aan bijdragers die activa plaatsen in aangewezen Commitmentfondsen en de toegang tot beurzen meetbaar verbeteren.
+
+Een goedgekeurd beleidsbeleid zou:
+
+\begin{enumerate}[leftmargin=*]
+\item het identificeren van goedgekeurde fondsen, activa, minimale duur en opsluitingsvoorwaarden;
+\item de productieve bijdrage te bepalen met behulp van bewijsmateriaal voor uitgevoerde swaps en afzonderlijk aangetoond aanbieding, nakoming en kwijting;
+\item de marginale bijdrage in plaats van alleen gesloten totale waarde meten;
+\item zelfhandelende en circulaire wasactiviteiten uitsluiten;
+\item per entiteit maximumpercentages en afnemende rendementen toepassen; en
+\item een waarnemings-, geschillen- en correctievenster verstrekken vóór de definitieve toewijzing.
+\end{enumerate}
+Elke subsidie blijft onderworpen aan de gepubliceerde voorwaarden, verwerving, in aanmerking komendheid, naleving en verliesregels van het programma.
+
+\subsection*{7.3 Voorgestelde stemming, prikkels en toegang tot tarieven}
+\addcontentsline{toc}{subsection}{7.3 Voorgestelde stemming, prikkels en toegang tot tarieven}
+
+In dit ontwerp kunnen houders van \texttt{stCLC} stemmen over in aanmerking komende Fondsen, mandaten voor routingdiensten, gedeelde budgetten of andere vastgestelde voorstellen. Een samengesteld gaugesysteem kan stemmen omzetten in begrensde \texttt{sCLC}-prikkels voor in aanmerking komende liquiditeits- of routingbeheerders.
+
+Het metingsbeleid houdt de uitgevoerde swaps en de nakoming door de uitgever gescheiden; het beloont niet geciteerde, maar niet-uitgevoerde routes, onopgeloste presentaties, self-dealing of totale waarde zonder bewijs van nuttige activiteit.
+
+Een goedgekeurd bestuursproces zou ook een tijdvak-belastingkredietbegroting kunnen publiceren.stCLCde houders kunnen ontvangensCLChet toestaan van gelimiteerde, tijdelijk beperkte swaps van aangewezen fonds met vergoeding in gelisted activa of programma's. Dit zou beleidsgericht toegang tot beschikbare voorraad zijn, niet passief inkomen of eigendom van de fonds met betaling.
+
+\subsubsection*{7.3.1 Handhaving van de kosten en profielkeuze}
+
+Een toekomstig registerprofiel kan vereisen dat deelnemende Fondsen of routediensten een compatibele kostenadapter of hook gebruiken. Het profiel kan de ontdekking, routing of programmaondersteuning weigeren wanneer het verlangde ontvangstbewijs geen vergoeding bewijst.
+
+Names zoals: \textbf{PoolFactory } of \textbf{ FeeHook} de mogelijkheid om toekomstige modules te beschrijven; het zijn geen Protocol v1.1.0-contracten.
+
+Een Fonds dat door één profiel wordt uitgesloten, kan op lokaal niveau blijven opereren of zich aansluiten bij een ander compatibel register indien de contracten en afhankelijkheden ervan functionelen.
+
+\subsubsection*{7.3.2 sCLC begroting en optionele externe vlootcontroles}
+
+Na de financiering van hogere prioritaire begrotingen zou een toekomstig proces een tijdvak-\texttt{F\_epoch} Een beleid kan een deelnemersgrenze toewijzen in verhouding tot destCLCstemrecht:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+Elk venster blijft onderworpen aan toelatenlijsten, caps, inventarisatie, in aanmerking komendheid, incidentenregels en toepasselijk recht.
+
+Een afzonderlijk beleid zou een beperkte, tijdgewaardeerde verwerving van de voorgestelde CLC governance token kunnen toestaan alleen om een gemeten oppervlak van aanval op externe governance te verminderen.
+
+\begin{itemize}[leftmargin=*]
+\item een gepubliceerde trigger op basis van externe float gedurende een bepaalde periode;
+\item een maximaal aandeel van de gerealiseerde, in aanmerking komende vergoedingen en het aantal plaatsen;
+\item tijdgewaardeerde uitvoering zonder exacte timing aankondiging;
+\item een automatische stop wanneer niet aan de vastgestelde dekking- of exploitatiedrempels is voldaan;
+\item het pensioen nemen of plaatsen van verkregen tokens in een openbaar gemaakte niet-stemmenrekening; en
+\item een uitdrukkelijke verklaring dat het programma geen prijs richt of garandeert en de nakoming door de uitgever niet beïnvloedt.
+\end{itemize}
+Het beleid kan voor onbepaalde tijd uitgeschakeld blijven.
+
+\subsubsection*{7.3.3 Portfolio Fondsen en attestaties}
+
+Een \textbf{portfoliofonds} zou een gewoon Commitmentfonds zijn dat rond een missie of dienstendomein is samengesteld. De Fondsbeheerder kan een persoon, coöperatie, gemeenschapsgroep, overheidsinstantie, federatie, multisig, dienstverlener of andere verantwoordelijke structuur zijn.
+
+Ondersteuning kan plaatsvinden via:
+
+\begin{enumerate}[leftmargin=*]
+\item rechtstreekse bijdragen in het kader van de gepubliceerde voorwaarden van de Fonds;
+\item tijdelijk beperkte liquiditeitsmandaten die zijn goedgekeurd in het kader van het aangenomen bestuursproces; of
+\item sCLC-gerichte toegang tot een beperkte begroting na Waterfall wanneer dit mechanisme is ingeschakeld.
+\end{enumerate}
+Portfolio Fondsen blijven onafhankelijk beheerd en kunnen gedeelde of onafhankelijke registers gebruiken.
+
+Certificaties kunnen de toelating of risicobehandelingen informeren, maar zouden geen recht op vergoedingen, winst of resterende activa creëren.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{registergebonden attestaties} van een geïdentificeerde verificateur die een gepubliceerde methode aanwendt; of
+\item \textbf{waardebonnen voor verificatiediensten} een terugbetaalbare verbintenis tot het uitvoeren van een aangegeven audit of beoordeling.
+\end{itemize}
+De Fonds zou onthullen hoe een certificaat de toelating, wisselkoersmethoden, limieten of in aanmerking komendheid beïnvloedt en hoe fouten, vervaldatum, conflicten en beroepen worden behandeld.
+
+\subsection*{7.4 Voorgestelde waterval en begrotingen}
+\addcontentsline{toc}{subsection}{7.4 Voorgestelde waterval en begrotingen}
+
+De voorgestelde waterval zou alleen gerealiseerde, in aanmerking komende ontvangsten onder een goedgekeurd bestuursproces toekennen.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{cash-eligible activa (\texttt{E\_cash}):} gelisted fungible assets die kunnen worden gebruikt of omgezet in het kader van een polis voor geldverplichtingen; en
+\item \textbf{in natura activa (\texttt{E\_kind}):} waardebonnen of andere activa die de beurs in het netwerk kunnen ondersteunen, maar niet worden berekend voor geldverdeelde dekking of operationele verplichtingen tenzij deze daadwerkelijk zijn omgezet.
+\end{itemize}
+Een omrekeningsbeleid zou gemachtigde exploitanten, activa, locaties, prijsbronnen, tijdvensters, slippoints, caps, conflicten, records en incidentprocedures identificeren.
+
+Een illustratie van de prioritaire volgorde is:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Financieringsdoelstelling:} het opbouwen van een aangenomen reserve of voorgestelde verzekeringsfonds naar zijn openbaar gemaakte doelstelling voor gedefinieerde gedekte gebeurtenissen.
+\item \textbf{Kernbedrijven:} het financieren van een beperkte, openbaar gemaakte begroting voor juridisch werk, onderwijs, communicatie, infrastructuur, audits en waarneming.
+\item \textbf{Liquiditeitsmandaten:} goedgekeurde activa toewijzen aan de aangegeven Fonds- of routedienstdoeleinden in het kader van grenswaarden en zonsondergangsevaluatie.
+\item \textbf{Optieve externe drijvende bediening:} het fonds alleen indien aan de gepubliceerde trigger- en prioriteitsdrempels is voldaan; anders wordt nul toegewezen.
+\item \textbf{Voorstel voor een vergoedingsplan:} alle goedgekeurde overblijfselen toe te wijzen aan aangewezen fondsen voor het houden van vergoedingen en \texttt{F\_epoch} publiceren, wat nul kan zijn.
+\end{enumerate}
+Bij begrotingsbeslissingen kan worden gekeken naar bevestigde nakoming, gedekte blootstelling, in aanmerking komende reserves, limietgebruik, uitgevoerde routes, concentratie, incidenten en prestaties van garanties.
+
+Een mogelijke bijdrageflow zou zijn:
+
+\begin{enumerate}[leftmargin=*]
+\item bijdragegevers overdragen in aanmerking komende activa op basis van afzonderlijk vastgestelde toewijzings- of programmavoorwaarden;
+\item de deelnemers die in aanmerking komen, ontvangen en indien toegestaan, een voorgestelde lockCLCgovernance tokens om te verkrijgenstCLC;
+\item gerealiseerde in aanmerking komende rake- of dienstverleningskosten komen de waterval binnen;
+\item de Waterfallfondsen hebben prioriteiten vastgesteld in volgorde; en
+\item Alleen een geactiveerd beleid na Waterfall geeft sCLC uit of opent een beperkt venster van tarieven-credit.
+\end{enumerate}
+Geen enkele stap creëert eigendomsrechten, terugbetaling, intrekking, dekking, beloning of bestuursrecht buiten de uitdrukkelijk in de toepasselijke voorwaarden vermelde.
+
+
+\section*{8. Technische reikwijdte en groei}
+\addcontentsline{toc}{section}{8. Technische reikwijdte en groei}
+
+Dit hoofdstuk beschrijft optie- of voorgestelde werkzaamheden.CLC App of Protocol v1.1.0.
+
+Mogelijke werkgebieden zijn:
+
+\begin{itemize}[leftmargin=*]
+\item executie routing tussen compatibele fondsen, met registry, quote, limiet, vergoeding en inventaris ontdekking;
+\item tijelocked escrow- of HTLC-adapters voor cross-domain uitvoering wanneer geen atoomverzekering beschikbaar is;
+\item interfaces en beleidsinstrumenten voor kleine of persoonlijke Fondsen;
+\item controleerbare registers voor bonen, fondsen, wisselkoersmethoden, limieten, beheerders en vergoedingen;
+\item de connectoren van de betalingsdienstaanbieder die specifiek zijn voor de implementatie, de kassaflossingen en de controles op de in aanmerking komendheid;
+\item verbindingen met fungieel vermogen tot externe liquiditeitsinstellingen voor herbalansering en betalingsliquiditeit; en
+\item de door het beleid gedekte schatkistconversie voor aangenomen dekking, operationele kosten of liquiditeitsmandaten.
+\end{itemize}
+Een fonds zou een beschermde externe referentie voor een fungieel actief kunnen gebruiken, maar de gepubliceerde wisselkoersmethode, limieten, vergoedingen en inventaris zouden zijn quotaties bepalen.
+
+\subsection*{8.1 Voorgestelde routenservice- en SDK normen}
+\addcontentsline{toc}{subsection}{8.1 Voorgestelde routenservice- en SDK normen}
+
+\textbf{Ontdek.} Een voorgestelde routedienst zou geïdentificeerde registers vragen voor de toelating van activa, wisselkoersmethoden, limieten, kosten, inventaris, incidenten en controllerinformatie.
+
+\textbf{Netwerkprofielen.} Een klant kan meer dan één registerroot of beleidsprofiel ondersteunen. Het zou de deelnemer vertellen welk profiel, tegenpartijen, adapters, beperkingen en verantwoordelijke dienstverleners een offerte gebruikt.
+
+\textbf{Het padbeleid.} Een verantwoordelijke exploitant zou onveilige afhankelijkheden of tegenpartijen kunnen uitsluiten en grenswaarden op het niveau van de route, vereisten voor versheid en gezondheidscriteria kunnen toepassen.
+
+\textbf{Vergoedingen en beperkingen.} Een offerte zou de Fonds-kosten, eventuele aanvullende lopende Protocolkosten en alle afzonderlijk voorgestelde routing- of servicekosten uiteenzetten.
+
+\textbf{Atomiciteit en herstel.} Als het gebruik maakt van HTLC's of escrow, zou de dienst timeouts, abortuspaden, verantwoordelijke controllers, incidentprocedures en residuele risico's onthullen.
+
+\textbf{Voorstel voor een netting en een herbalansering van de partijen.} Een opt-in dienst kan de intenties van herbalans verzamelen en op zoek gaan naar compatibele cycli of ketens.
+
+\begin{enumerate}[leftmargin=*]
+\item een machineleesbaar ontvangstbewijs publiceren waarin uitgevoerde cycli, activa, bedragen, waarderingstijden en vergoedingen worden geïdentificeerd;
+\item het handhaven van de vastgestelde maximumpercentages en het beleid van de tegenpartij;
+\item een activiteit verwerpen die in strijd is met de toestemming, beperkingen of beschikbare inventaris van de deelnemende Fonds; en
+\item het behoud van deterministische gegevens en ontvangsten voor beoordeling en geschillenbeslechting.
+\end{enumerate}
+\textbf{SDK-vereisten.} Een SDK voor uitgevoerde routes zou een deterministische koppeling tussen offerte en ontvangstbewijs, invariante controles per stap, begrijpelijke foutcodes en auditvriendelijke logboeken bieden. De huidige \texttt{SwapRouter} van Protocol v1.1.0 geeft alleen offertes en voert deze voorgestelde routes niet uit.
+
+\subsubsection*{8.1.1 Minimaal vereenvoudigingscompatibiliteitsspecificatie}
+
+Een Fonds-ecosysteem dat cross-profiel routing zoekt, zou machineleesbare informatie publiceren voor:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Registerwortels:} Identificatoren voor activa, fondsen, wisselkoersmethoden, limieten en tariefbeleid of een wortel die deze deterministisch oplost.
+\item \textbf{Beroep:} het profiel, de activa binnen en buiten, de bedragen, de bron van aanbiedingen en het tijdstempel, de limiet-opname, de vergoedingen, het inventarisresultaat en het uitvoeringsresultat voor elke sprong.
+\item \textbf{Bewerkingssignalen:} versheidsgegrensde informatie over inventaris, beperkte benutting, incidenten en eventuele afzonderlijk bewezen nakoming of gefinancierde bescherming.
+\item \textbf{Beleidsbeperkingen:} toegestane of afgewezen tegenpartijen, activaclassen, adapters en eventuele escrowvereisten.
+\item \textbf{Codes voor storingen:} deterministische verklaringen voor afwijzing, verstrijking, beperking, inventarisatie, beleid, afhankelijkheid of incidenten.
+\end{enumerate}
+Een profiel kan dekking, naleving, arbitrage of andere diensten toevoegen zonder dat ze vereisten maken voor de basis CPP-compatibiliteit.
+
+\subsection*{8.2 Vergunning, verificatie en exit}
+\addcontentsline{toc}{subsection}{8.2 Vergunning, verificatie en exit}
+
+De contracten van Protocol v1.1.0 zijn EVM-compatibel. Contracten in de map \texttt{src} van de Protocolrepository zijn gepubliceerd onder AGPL-3.0, behalve geïdentificeerde ongewijzigde onderdelen van derden die hun eigen voorwaarden behouden. Gepubliceerde broncode, ABI's en implementatie-instructies ondersteunen onafhankelijke beoordeling, maar bewijzen op zichzelf geen audit, veilige implementatie of naleving van de wet.
+
+Elke implementatie zou haar codeversie, de bouw afkomst, adressen, controller- en upgradebevoegdheden, auditstatus, registerspiegels en eventuele tijdslok- of pauzebeschermingen afzonderlijk bekendmaken.
+
+Een voorgestelde \textbf{gavenpakket} zou kunnen omvatten:
+
+\begin{enumerate}[leftmargin=*]
+\item deterministische deployment scripts;
+\item instantiebeslag van het register en exportinstrumenten;
+\item een gedocumenteerd proces om routediensten, SDK's en interfaces terug te wijzen naar een nieuwe registerwortel;
+\item een Fondsbeheerder checklist voor het veilig verlaten van een gedeeld register; en
+\item een migratiecontrolelijst voor uitstaande waardebonnen, met inbegrip van kennisgevingen van de uitgever, presentatie- en nakomingstermijnen, voortgezette toegang tot gegevens en rechtsmiddelen.
+\end{enumerate}
+Compatibele gaven kunnen de veerkracht verbeteren wanneer gemeenschappen, coöperaties, overheidsinstanties, federaties, multinationals of dienstverleners een ander bestuur nodig hebben.
+
+
+\section*{9. Voorgestelde economie voor liquiditeitsprogramma's}
+\addcontentsline{toc}{section}{9. Voorgestelde economie voor liquiditeitsprogramma's}
+
+Dit hoofdstuk beschrijft een toekomstig, afzonderlijk aangenomen model. het is geen huidige app-functie, een aanbod, een beloofde terugkeer of een recht dat wordt gecreëerd door in \texttt{SwapPool} te deponeren.
+
+\subsection*{9.1 Voorgestelde inkomstenbronnen}
+\addcontentsline{toc}{subsection}{9.1 Voorgestelde inkomstenbronnen}
+
+Een toekomstige netwerkbegroting kan:
+
+\begin{enumerate}[leftmargin=*]
+\item een onthuld \textbf{netwerkrak} als aandeel van de verzamelde vergoedingen van de deelnemende Fondsen;
+\item afzonderlijke routing- of servicekosten van geïmplementeerde gedeelde diensten; en
+\item andere uitdrukkelijk aangenomen, ontvangen inkomsten.
+\end{enumerate}
+De huidige Protocol v1.1.0 maakt gebruik van een ander model: een optionele protocollenvergoeding is aanvullend op de Poolvergoede en wordt rechtstreeks naar de geconfigureerde ontvanger verzonden.
+
+\subsection*{9.2 Illustratieve rake wiskunde}
+\addcontentsline{toc}{subsection}{9.2 Illustratieve rake wiskunde}
+
+Indien een deelnemende Fonds een poolvergoeding van 2.00\% in rekening brengt en een geadopteerde netwerkrak 20\% van die Poolvergoede ontvangt, is het voorgestelde effectieve netwerkrake-tarief op de geleidelijke waarde:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Indien 25\% van de ontvangen rake- en dienstverleningsactiviteiten in aanmerking komen en converteerbaar zijn voor een aangegeven gebruik in contant valuta na kosten, bedraagt het contante deel van de 40-bps rake ongeveer 10 bps.
+
+De voorgestelde inkomsten uit het netwerk zijn:
+
+\texttt{network\_rake\_received + routing\_or\_service\_fees\_received}
+
+Voeg niet de bruto Fonds-heffingen toe aan het netwerk rake: de rake is een overdracht van die heffingen en zou anders tweemaal worden geteld.
+
+\subsection*{9.3 Liquiditeitsprogrammarechten}
+\addcontentsline{toc}{subsection}{9.3 Liquiditeitsprogrammarechten}
+
+Een programma dat afzonderlijk wordt aangenomen, kan de financiering van Fonds-inventarisatie, routingdiensten, monitoring of andere opdrachten uitvoeren.
+
+\begin{itemize}[leftmargin=*]
+\item of een overdracht een geschenk, endowment, lening, terugvorderbare bijdrage of aankoop is;
+\item de voogdij en controle;
+\item de regels voor terugtrekking, terugbetaling, verlies en prioriteit;
+\item de in aanmerking komende vergoeding en beloning;
+\item bestuursrechten;
+\item beoordelings- en rapportagemethoden; en
+\item opschorting, beëindiging en rechtsmiddelen.
+\end{itemize}
+De huidige \texttt{SwapPool} creëert geen Fonds-share token of automatische contributeursrecht.
+
+
+\section*{10. Uitgebreid risico-kader}
+\addcontentsline{toc}{section}{10. Uitgebreid risico-kader}
+
+Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie identificeert het mogelijke indicatoren, controles, stress tests en een indicatieve risicobereidheid. Dit zijn ontwerprecommendaties, niet beweringen dat elke controle is ingezet, effectief of voldoende.
+
+\subsection*{10.1 protocol- en smartcontractrisico}
+\addcontentsline{toc}{subsection}{10.1 protocol- en smartcontractrisico}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} contractfouten, upgraderings fouten, afhankelijkheidsfouten en verkeerd geconfigureerde limieten of kosten.
+\item \textbf{Indicatoren:} auditresultaten, onverklaarbare inventarisbewegingen, invariante storingen en ongebruikelijke terugvallen.
+\item \textbf{Mogelijke controles:} onafhankelijke audits; minimale bevoorrechte rollen; openbaar gemaakte proxy- en afhankelijkheidsbeheerders; tijdelijk vastgestelde upgrades; monitoring op de keten; incidentpauzes met gepubliceerde autoriteit en criteria; en een getest migratiepad.
+\item \textbf{Stressonderzoek:} niet beschikbare quote- of limietafhankelijkheden, inventaris tekortkomingen, onderbroken contracten en uitbarsting van het verkeer.
+\item \textbf{Gevaarsheten:} laag voordat de uitstaande verplichtingen of het swapvolume worden geschrapt.
+\end{itemize}
+\subsection*{10.2 Economisch en marktrisico}
+\addcontentsline{toc}{subsection}{10.2 Economisch en marktrisico}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} een dunne inventaris, eenzijdige stromen, snelle onttrekkingen en gemanipuleerde of verouderde prijsreferenties.
+\item \textbf{Indicatoren:} Een hoge gebruik van de fonds-token-balancecap, toenemende quoteverschillen, frequente afwijzingen van limieten en een geconcentreerde inventaris.
+\item \textbf{Mogelijke controles:} lopende toekenningsbalansplafonds; voorgestelde rolling- of accountlimieten; afzonderlijk vastgestelde reserves; bewaakte prijsreferenties; routes uitsluitingen; en tijdsbeperkte incidentiekosten of -limieten.
+\item \textbf{Stressonderzoek:} grote referentieprijsbewegingen, presentatieverhogingen, terugtrekkingsverzoeken en uitval van gegevensbronnen.
+\item \textbf{Gevaarsheten:} slechts binnen de gepubliceerde parameters en de gefinancierde vermogen om verlies te dragen.
+\end{itemize}
+\subsection*{10.3 Risico van uitgever en waardebon}
+\addcontentsline{toc}{subsection}{10.3 Risico van uitgever en waardebon}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} uitgifte buiten de capaciteit van nakoming, afwijking van de uitgever, misleidende voorwaarden en slecht gespecificeerde beschikbaarheid of presentatievensters.
+\item \textbf{Indicatoren:} een daling van de bevestigde vervullingspercentages, veroudering van uitstaande waardebonnen, onopgeloste klachten en geconcentreerde blootstelling aan één uitgever.
+\item \textbf{Mogelijke controles:} de due diligence van de uitgever; duidelijke waardebon- en aanbiedingsvoorwaarden; limieten voor emissies of toelatingen; onafhankelijk gefinancierde obligaties of garanties; cohortsrapportage; en een verantwoord registeronderzoek.
+\item \textbf{Stressonderzoek:} insolventie van de uitgever, regionale productieschokken, vervalste aanspraken en langdurige vertraging op uitvoering.
+\item \textbf{Gevaarsheten:} de concentratie van de uitgever of het aanbod stijgt.
+\end{itemize}
+\subsection*{10.4 Risico van terugbetaling en nakoming}
+\addcontentsline{toc}{subsection}{10.4 Risico van terugbetaling en nakoming}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} niet geldig of dupliceerd aanbieden, onvoldoende emittentcapaciteit, stockouts, logistieke storingen en ontbrekende ontslaggegevens.
+\item \textbf{Indicatoren:} latentie bij het uitvoeren van verzoeken, mislukte of betwiste aanbiedingen, stockouts, achterstand in kaartjes en voltooide eenheden die geen afgifte hebben.
+\item \textbf{Mogelijke controles:} gepubliceerde procedures voor indiening en nakoming; capaciteitsinformatie; meerdere plaatsen van nakoming waar wettelijk toegestaan is; bewijsnormen; klachten- en rechtsmiddelenpaden; en gegevens die presentatie, nakoming en afgifte scheiden.
+\item \textbf{Stressonderzoek:} twee tot vier keer zo'n presentatievolume, uitval van installaties, storingen bij leveranciers en pogingen tot dubbele gebruik.
+\item \textbf{Gevaarsheten:} laag waar essentiële goederen, kwetsbare deelnemers of lange vervullingsvensters betrokken zijn.
+\end{itemize}
+\subsection*{10.5 Governance-risico}
+\addcontentsline{toc}{subsection}{10.5 Governance-risico}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} Steward of controller vangen, spoedige parameterwijzigingen, belangenconflicten, verborgen technische krachten en zwakke oproepen.
+\item \textbf{Indicatoren:} geconcentreerde bevoegdheid, veelvuldige noodmaatregelen, onverklaarde beleidswijzigingen en herhaalde uitzonderingen.
+\item \textbf{Mogelijke controles:} informatie over de rol en het vermogen; proportioneel goedkeuringsdrempels; tijden; conflicten en afwijzingsregels; publieke wijzigingengegevens; beroep; automatische zonsondergangen met noodenergie; en gavenbaarheid.
+\item \textbf{Stressonderzoek:} tegenstrijdige voorstellen, verlies van ondertekenaars, pogingen tot omkoping en vangst door middel van accumulatie of gedelegeerde controle.
+\item \textbf{Gevaarsheten:} laag voor acties met betrekking tot waardemethoden, intrekkingen, registerwortels, dekking of noodbevoegdheden.
+\end{itemize}
+Voor een toekomstige implementatie van de voorgestelde CLC governance token, zou de vangsttest een accumulatie omvatten die wordt gevolgd door pogingen om budgets te heroriënteren, registernormen te verzwakken, mandaat van gerelateerde partijen goed te keuren of gefinancierde dekking uit te voeren.
+
+\subsection*{10.6 Juridisch en conformiteitsrisico}
+\addcontentsline{toc}{subsection}{10.6 Juridisch en conformiteitsrisico}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} een waardebon, dienstverlening, promotie- of governance-actief dat onverwachte regelgevende behandeling ontvangt; mislukkingen met betrekking tot consumentenbescherming; blootstelling aan witwassen van geld of sancties; en grensoverschrijdende beperkingen.
+\item \textbf{Indicatoren:} de vlaggen van jurisdictie, regelgevende enquêtes, klachten, overeenkomsten tussen beperkte partijen en verschillen tussen het geadverteerde en het daadwerkelijke gedrag.
+\item \textbf{Mogelijke controles:} beoordeling per klasse en rechtsgebied; nauwkeurige openbaarmakingen; geofficialiseerde interfaces; evenredige in aanmerking komings- of attestatiecontroles; promotiecontrole; registers van autoriteit en aanvaarding; en duidelijke verantwoordelijke partijen.
+\item \textbf{Stressonderzoek:} een rechtsbeperking, beëindiging van de dienstverlener, verplichte reclassificatie en een bevel om een functie of activaclasse te stoppen.
+\item \textbf{Gevaarsheten:} laag; niet-ondersteunde activiteiten beperken of onderbreken.
+\end{itemize}
+\subsubsection*{10.6.1 Juridische positionering en behandeling van de voorgestelde tokens}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Verifieerbare infrastructuur:} de contracten van Protocol v1.1.0 zijn EVM-compatibel. Hun broncode is gepubliceerd onder de licenties en uitzonderingen voor derden die in de Protocolrepository worden genoemd. Publicatie maakt beoordeling mogelijk, maar bewijst op zichzelf geen audit, veilige implementatie of naleving van de wet. Iedere implementatie moet de codeversie, herkomst van de build, adressen, bevoegdheden van beheerders en auditstatus bekendmaken.
+\item \textbf{Voorgestelde symbool houding:} In dit ontwerp zou de voorgestelde CLC governance token governance en beleidsgericht toegang coördineren. Het zou geen dividenden, winstdeling, resterende rechten of een waarde- of liquiditeitsgarantie creëren.
+\item \textbf{Gerelateerde voorgestelde activa:} afzonderlijk geïmplementeerd beleid kan toestaan dat de voorgestelde CLC-bestuurstoken wordt vergrendeld om \texttt{stCLC} aan te maken, en kan \texttt{sCLC} met een geldigheid per epoch toestaan. De vastgestelde voorwaarden moeten de precieze rechten, limieten, vervaldatum, overdraagbaarheid en behandeling ervan omschrijven.
+\item \textbf{Verzendingen:} materialen voor alle voorgesteldeCLCgovernance-token,stCLCofsCLCDe inzet moet geen winst, waardeverhoging, passief inkomen of gegarandeerde toegang beloven.
+\item \textbf{Jurisdictiecontroles:} een implementatie kan geofencing van interfaces, certificeringen voor beperkte klassen, promotielimieten, asset-specifieke beoordeling of controles vereisen die een voorgestelde functie onderbreken.
+\item \textbf{Kennisgeving van de deelnemer} In het kader van de nieuwe richtlijnen moet worden uitgegaan van de bepalingen die zijn aangenomen om uit te leggen wanneer toegang kan worden beperkt of uitgeschakeld om juridische, operationele of risicovertuigende redenen en of een schadevergoeding of rechtsmiddel van toepassing is.
+\end{enumerate}
+\subsection*{10.7 Routing- en cross-domainrisico}
+\addcontentsline{toc}{subsection}{10.7 Routing- en cross-domainrisico}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} gedeeltelijke uitvoering, geblokkeerde hops, brug- of escrow exploits, verouderde quotes, inflatie en vooruitgang van aangekondigde waardeveranderingen.
+\item \textbf{Indicatoren:} de vervaltarieven van de route, het achterlaten van de escrow, de verschillen tussen quotes en uitvoering, herhaalde onnodige hoppen en brugincidenten.
+\item \textbf{Mogelijke controles:} de uitvoering van het programma, indien beschikbaar; conservatieve HTLC of escrow timeouts; pad- en tegenpartijbeleid; route level caps; deterministische quote-to-receipt mapping; en verantwoordelijke dienstverleners.
+\item \textbf{Stressonderzoek:} Een brugstop, ketenreorganisatie, afhankelijkheidsonderbreking en een mislukte sprong in een voorgestelde multi-hop route.
+\item \textbf{Gevaarsheten:} laag tot matig alleen voor geïdentificeerde en gemonitorde afhankelijkheden.
+\end{itemize}
+\subsection*{10.8 Risico van bewaring en sleutelbeheer}
+\addcontentsline{toc}{subsection}{10.8 Risico van bewaring en sleutelbeheer}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} verloren of gecompromitteerde sleutels, handtekeningsklousule en onduidelijk herstel- of beheerdersautoriteit.
+\item \textbf{Indicatoren:} Anomale signaturen, controllerveranderingen, mislukte rotaties en ongebruikelijke onttrekkingen.
+\item \textbf{Mogelijke controles:} multisig- of drempelvergunning; hardware ondersteunde sleutels; rolseparatie; ondertekenaarrotatie; openbare controllervoorraad; gecontroleerde onttrekkingslimieten; en geteste herstelprocedures.
+\item \textbf{Gevaarsheten:} laag.
+\end{itemize}
+\subsection*{10.9 Reputatie en sociaal risico}
+\addcontentsline{toc}{subsection}{10.9 Reputatie en sociaal risico}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} misleidende claims, schadelijke prikkels, ontoegankelijke klachten, slechte ervaringen met het vervullen van de eisen, gebreken aan privacy en bescherming ten gunste van insiders.
+\item \textbf{Indicatoren:} klachten per kohort, onopgeloste geschillen, prestatietendenzen van de emittenten, concentratie van winst- of verliezen en feedback van de gemeenschap.
+\item \textbf{Mogelijke controles:} duidelijke openbaarmakingen; klachten en correctiepaden; toegankelijk bewijsmateriaal; transparante rapportage; incidentbeoordeling; en evenredige sancties voor onjuiste verklaringen.
+\item \textbf{Gevaarsheten:} de betrokken gemeenschappen en kwetsbare deelnemers met bijzondere zorg.
+\end{itemize}
+\subsection*{10.10 Risico van concentratie en fragmentatie}
+\addcontentsline{toc}{subsection}{10.10 Risico van concentratie en fragmentatie}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bedreigingen} afhankelijkheid van een klein aantal emittenten, fondsen, beheerders, aanbieders, netwerken of onverenigbare gaven.
+\item \textbf{Indicatoren:} concentratiemaatregelen door uitgever, fonds, inventaris, verwerkingsverantwoordelijke of dienstverlener; mislukkingen van routes tussen clusters en kritische afhankelijkheden.
+\item \textbf{Mogelijke controles:} gepubliceerde concentratiedrempels; meerdere verantwoordelijke exploitanten; verenigbare normen; onafhankelijke registers; geteste exitprocedures; en veilige interoperabiliteit.
+\item \textbf{Stressonderzoek:} verlies van de grootste uitgever, fonds, exploitant, aanbieder of registerwortel.
+\item \textbf{Gevaarsheten:} specifieke en openbaar gemaakte toepassingen, met strengere beperkingen voor essentiële diensten of onvervangbare afhankelijkheden.
+\end{itemize}
+
+\section*{11. Bestuurmechanismen}
+\addcontentsline{toc}{section}{11. Bestuurmechanismen}
+
+Dit hoofdstuk stelt een governance template voor. Het vertegenwoordigt niet dat de huidige CLC App gebruik maakt van governance-token voting, timelocks, gedeelde verzekering, een claimsproces of elke controle die hieronder wordt beschreven.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Grondwaarden:} zorg voor mensen, zorg voor het milieu, eerlijkheid, wederkerigheid, geen overheersing en veerkracht.
+\item \textbf{Soorten voorstellen:} Veranderingen van tarieven, limieten en indices; liquiditeitsmandaten; poollijsten en verwijderingen; optionele dekkingbesluiten; en parameterbewaking.
+\item \textbf{Verantwoordelijk proces:} het gebruik $\to$ evaluatie $\to$ risicobeoordeling $\to$ goedkeuring $\to$ tijdelijke afsluiting indien nodig $\to$ uitvoering. De goedkeuring kan komen van beheerders, coöperaties, overheidsinstanties, federaties, multisigs, stemmingen in de keten of een andere openbaar gemaakte en verantwoordbare structuur.
+\item \textbf{Goedkeuringsdrempels:} met hogere drempels voor wijzigingen in de waardeindex, noodkrachten en andere kritische acties.
+\item \textbf{Delegatie:} facultatieve delegatie met openbare opdrachten, openbaarmaking van conflicten en terugroeping.
+\item \textbf{Circuitbrekers:} noodpauzes met vastgestelde criteria, gemachtigde exploitanten, hervatingsvoorwaarden en vereiste post-mortems.
+\item \textbf{transparantie:} gepubliceerde wijzigingen en stromen, met afzonderlijk bewijs voor swap-afwikkeling, nakoming door de uitgever, reserves, gebruik van limiet, routing en garanties.
+\end{itemize}
+\textbf{Registry governance.} Een CPP--compatibele implementatie kan ontdekkingsregisters bijhouden voor waardebonnen, tokens en fondsen. Geautoriseerde controles kunnen registeringen toevoegen, updaten, opschorten of verwijderen via het openbaar gemaakte governanceproces van de implementatie.
+
+Publiceerde registratievoorschriften moeten de status voorwaardelijk maken en kunnen herhaalde niet-nakoming, fraude of onjuiste voorstelling, onveilige contractgedrag of aanhoudende schending van gepubliceerde beginselen identificeren als redenen voor opschorting of verwijdering.
+
+\textbf{Verbiedde vermeldingen.} Onder deze template zou een register niet toelaten:
+
+\begin{enumerate}[leftmargin=*]
+\item instrumenten die rechtstreeks ecologische vernietiging buiten de overeengekomen grenzen financieren of stimuleren, geweld of wapenvorming, dwangwinning of systemisch misbruik; of
+\item een voucherklasse die gebrek heeft aan duidelijke voorwaarden voor presentatie en nakoming, aansprakelijkheid en remedies.
+\end{enumerate}
+De verbodlijst zou alleen worden verwerkt, openbaar kunnen worden gecontroleerd en kan worden gewijzigd door de vastgestelde kritische actie drempel en tijdslimiet, zoals hieronder wordt geïllustreerd:Q3 + T3in aanhangsel D.
+
+\subsection*{11.1 Beurs- en limietbeheersing}
+\addcontentsline{toc}{subsection}{11.1 Beurs- en limietbeheersing}
+
+\textbf{Tijdvervangende veranderingen.} Een implementatie op basis van deze sjabloon zou de wisselkoersmethoden wijzigen en alleen na een publieke tijdslok afzonderlijk grensparameters implementeeren.
+
+\textbf{Goedkeuringsdrempels.} De template stelt hogere goedkeuringsgrenzen voor veranderingen in de waardeindexbasis en wereldwijde wijzigingen van de grensniveaus, tussentijdse drempelwaarden voor Fonds-specifieke wijzigingen door derden en standaarddrempwaarden voor routinematige wijzigingen in vergoedingen.
+
+\textbf{Gepubliceerde feeds.} Een deelnemende implementatie zou voor elke Fonds de indexvariabelen op de keten, oracle-bronnen of medianen, update cadentie, limietvensters en caps en storingsmodus of veilige constanten publiceren.
+
+\textbf{Criteria voor noodpauze.} Een deelnemende implementatie zou vooraf voorwaarden zoals een oracle-uitbreking, hoge gebruiksgrenzen in combinatie met niet-nakoming of een invariantfalen, samen met hervatingscontroles en eisen voor beoordeling na het incident verklaren.
+
+\subsection*{Voorbeeld van een openbare index feed voor één fonds en waardebon}
+\addcontentsline{toc}{subsection}{Voorbeeld van een openbare index feed voor één fonds en waardebon}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Symbool:} bijvoorbeeld \texttt{Maize\_50kg@IssuerY}.
+\item \textbf{Referentienheid:} Indice-eenheid (IUX).
+\item \textbf{Publiceerde waarde:} 30.000 IUX.
+\item \textbf{Bron:} de mediaan van geïdentificeerde bronnen, zoals een lokale marktonderzoek, het ministeriële bulletin en de basislijn voor inzet.
+\item \textbf{Update cadentie:} dagelijks om 18:00 uur EAT, met een 24-uurs tijdslok.
+\item \textbf{Verwijderingsmodus:} bevriezen bij de laatste geldige waarde, een aangegeven limietbeleid toepassen en pauzeren na een uitbreking van 72 uur.
+\item \textbf{Rationale:} gepubliceerde notities en een verslag van wijzigingen uit de eerdere update.
+\item \textbf{Ondertekenaars:} openbaar gemaakte multisig-adressen en goedkeuringsgrenzen.
+\end{itemize}
+\subsection*{11.2 Aanbevolen verzekeringsfonds runbook}
+\addcontentsline{toc}{subsection}{11.2 Aanbevolen verzekeringsfonds runbook}
+
+\textbf{Alleen optionele ontwerp.} Dit runbook is alleen van toepassing op een inzet die uitdrukkelijk een verzekeringsfonds heeft aangenomen en gefinancierd en de gedekte gebeurtenissen, in aanmerking komende eisers, verantwoordelijke entiteit, activa, limieten, uitsluitingen, bewijsvereisten, proces en regelgeving heeft gepubliceerd.CLC App noch GEF Het is de bedoeling van het Parlement dat deze richtlijn een nieuwe en doeltreffende oplossing voor de problemen van de landbouw vormt.
+
+\textbf{Mogelijke triggers.} Een aangenomen beleid kan betrekking hebben op een niet-nakoming van de gedefinieerde emittenten, een tekort aan poolreserven of een brug- of escrowverlies.
+
+\textbf{Beoordeling.} Het verantwoordelijke orgaan zou transactiekosten, inventarisbalansen, garantieobligaties, inzendingsrecords, de antwoorden van de uitgever en andere vereiste bewijsstukken samenstellen en vervolgens een incidentrecord publiceren dat in overeenstemming is met privacy en recht.
+
+\textbf{Illustratieve verlies waterval.} Wanneer elke laag bestaat en rechtmatig van toepassing is, kan een beleid: (1) aansprakelijke obligaties van uitgevende instellingen of garantiepartijen $\to$ (2) reserves op poolniveau $\to$ (3) een voorgestelde netwerkverzekeringsfonds $\to$ (4) een tijdelijke verlaging tot een optionele dekkingsaanvraag, alleen indien de reeds bestaande voorwaarden en het toepasselijk recht dit uitdrukkelijk toestaan $\to$ (5) rechtmatige terugvordering voor bewezen fraude of misbruik.
+
+Een dekkingsaanpassing vermindert de onderliggende voucherverbintenis van een uitgever niet of verandert een saldo in de keten, tenzij geldige reeds bestaande voorwaarden en toepasselijke wetgeving dat uitdrukkelijk toestaan en de vereiste toestemming van de houder wordt verkregen.
+
+\textbf{Beperkingen en uitsluitingen.} De gepubliceerde dekking zou caps, in aanmerking komende presentaties, bewijsmateriaal, claims-vensters, uitgesloten routes of gebeurtenissen, geografische beperkingen en de behandeling van uitgeputte reserves definiëren.
+
+\textbf{Illustratief herstel schema.} Indien vastgesteld en gepubliceerd:
+
+\begin{enumerate}[leftmargin=*]
+\item de aanspraken zouden eerst afkomstig zijn van de verantwoordelijke uitgever of garantieobligatie, dan uit de toepasselijke poolreserves en vervolgens uit het voorgestelde netwerkverzekeringsfonds;
+\item een verlaging van de aansprakelijkheid op optionele dekking zou beperkt zijn tot wat reeds bestaande dekkingvoorwaarden en toepasselijk recht toestaan, tot het gepubliceerde incident cap;
+\item een herstelplan zou voor een bepaalde periode een aangegeven aandeel van de teruggevonden waarde kunnen toepassen, waarna elk overgebleven gedekte tekort een geregistreerd verlies bij een openbare post-mortem zou worden; en
+\item bij elke beslissing een ontvangstbewijs met het incident ID, de aangetaste vorderingen en bonen, de beslissing, het herstelplan en het klachtvenster.
+\end{enumerate}
+\subsection*{11.3 Garantie-kader}
+\addcontentsline{toc}{subsection}{11.3 Garantie-kader}
+
+In dit artikel worden onderscheid gemaakt tussen de verantwoordelijkheid van de uitgever, de optionele bescherming van het Fonds en garanties van derden.CLC App, CPP, GEF, of een breeder netwerk dat automatisch een waardebon garandeert.
+
+\subsection*{Baseline-verantwoordelijkheid van de uitgever}
+\addcontentsline{toc}{subsection}{Baseline-verantwoordelijkheid van de uitgever}
+
+\begin{itemize}[leftmargin=*]
+\item Elke waardebon is in de eerste plaats de verantwoordelijkheid van zijn uitgever.De uitgever verbindt zich ertoe het aangegeven goed, dienst of legaal contant-equivalent te leveren volgens zijn gepubliceerde voorwaarden.
+\item De uitgevers zouden bekendmaken wie de waardebon mag indienen, wat de nakoming betekent, waar en wanneer het beschikbaar is, welke bewijsstukken nodig zijn en welke rechtsmiddelen van toepassing zijn.
+\item Als een uitgever niet voldoet, is de uitgever de belangrijkste verantwoordelijke partij. Fonds- of netwerkbescherming geldt alleen wanneer deze afzonderlijk wordt aangenomen, gefinancierd en bekendgemaakt.
+\end{itemize}
+\subsection*{Optioneel Poolbescherming}
+\addcontentsline{toc}{subsection}{Optioneel Poolbescherming}
+
+Een Fondsbeheerder kan ervoor kiezen een beperkt gedefinieerde bescherming toe te voegen aan toegelaten waardebonnen. Het is niet automatisch en zou de verantwoordelijke partij, financiering, in aanmerking komende evenementen, caps, vensters, bewijsmateriaal, uitsluitingen en rechtsmiddelen moeten identificeren in Fonds metadata en toepasselijke voorwaarden.
+
+Illustratieve beschermingssoorten zijn:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Bescherming van reserve-activa:} na niet-nakoming door de geverifieerde uitgever betaalt de verantwoordelijke Poolentiteit een vast bedrag in een aangewezen reserveactief, afhankelijk van zijn gepubliceerde maximum en beschikbare gefinancierde reserves.
+\item \textbf{Swap-back venster:} na een in aanmerking komende gebeurtenis biedt de fonds een tijdelijk beperkt swappad naar het voorafgaande of andere goedgekeurde actief, onder voorbehoud van caps en inventaris. Dit is een liquiditeitsbescherming die afhankelijk is van inventaris, niet een belofte dat elke swap omkeerbaar is.
+\item \textbf{Alternatieve nakoming:} de verantwoordelijke partij organiseert een goedgekeurde vervangende leverancier binnen een gepubliceerde hoeveelheid- of waardeheffing.
+\item \textbf{Beveiliging van de wisselkoersband:} voor geselecteerde voucherklassen biedt een Fonds alleen de in zijn reeds bestaande voorwaarden vermelde dekkingsaanpassing of swap-back remedy aan.
+\end{enumerate}
+\subsection*{Mogelijke financieringsbronnen}
+\addcontentsline{toc}{subsection}{Mogelijke financieringsbronnen}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Bond van de uitgever:} zekerheid die door de uitgever is geplaatst of in een openbaar gemaakte reserve wordt gehouden en beschikbaar is na een geverifieerd gedekte gebeurtenis.
+\item \textbf{Poolreservaat:} activa die worden gecontroleerd door de verantwoordelijke Fonds-entiteit en toegewezen zijn aan de beschermingen die zij adverteert.
+\item \textbf{Bonds van een derde waarnemer:} zekerheid die door een geïdentificeerde externe borg wordt geplaatst voor vermelde emittenten, voucherklassen of evenementen.
+\end{itemize}
+De garantieparticipatie zou voldoen aan gepubliceerde in aanmerking komingscriteria, obligatiesomvang, concentratielimieten, besluitnemingsverantwoordelijkheid en wettig handhavingsregels.
+
+\subsection*{Vorderingenprocedure}
+\addcontentsline{toc}{subsection}{Vorderingenprocedure}
+
+Een aangenomen beleid zou auditierbare triggers definiëren, zoals een na de geldige terugbetalingsvoorlegging overschreden vervullingstermijn, geverifieerde insolventie van de uitgever, een gedekte brug of niet-verzekering of een formeel aangekondigde incidentstatus.
+
+\begin{itemize}[leftmargin=*]
+\item de wijze waarop een deelnemer een vordering opent en het vereiste bewijsmateriaal voor indiening en nakoming verstrekt;
+\item die de voorwaarden van de waardebon, de antwoorden van de uitgever en de technische gegevens controleert;
+\item de beslissings- en beroepvensters; en
+\item het geautoriseerde betaalpad, activa, caps en ontvangstbewijs.
+\end{itemize}
+De opbrengst van uitgiften, arbitrage of wettig handhaving zou de toepasselijke obligaties of reserves volgens het gepubliceerde beleid opnieuw invullen voordat deze worden gebruikt voor de voorgestelde toegang tot CLC Network Fonds swap.
+
+\subsection*{Vereiste openbaarmakingen}
+\addcontentsline{toc}{subsection}{Vereiste openbaarmakingen}
+
+Voor elke gedekte fonds- en voucherklasse zou de verantwoordelijke partij:
+
+\begin{itemize}[leftmargin=*]
+\item of een borg afwezig is, opsioneel of verplicht;
+\item de obligatie- of reservegrens en concentratiekappen;
+\item de beschermingssoorten, activa, caps, ramen en uitsluitingen;
+\item de deadlines voor indiening, nakoming, aanspraak en beroep; en
+\item Een duidelijke verklaring van wie waarborgt wat en wat niet.
+\end{itemize}
+\textbf{Curatiebeginsel.} FondsbeheerdersDe verantwoordelijke juridische of bestuursstructuren zijn aansprakelijk voor de bescherming die zij adverteren.CPP-compatibele implementatie kan standaarden, registers of optionele gedeelde beleidslijnen bieden, maar geen van beideCLCnoch GEF automatisch garandeert waardebonnen of fondsen.
+
+\subsection*{11.4 Beveiliging tegen vangst}
+\addcontentsline{toc}{subsection}{11.4 Beveiliging tegen vangst}
+
+In het kader van dit model zijn de volgende kritieke acties die een vastgestelde hoogste goedkeuringsniveau en een lange termijn vereisen:
+
+\begin{enumerate}[leftmargin=*]
+\item het veranderen van de voorgestelde kostenwaterval, met inbegrip van de dekking en de prioriteiten van de kernoperaties;
+\item het wijzigen van de wortels van het canonische register;
+\item veranderende dekkingskader, claims caps of besluitnemingsinstantie;
+\item het uitbreiden van de bevoegdheden voor noodpauzes; of
+\item het verzwakken van de in dit document vermelde verbintenissen inzake forkability, transparantie of poolsoevereiniteit.
+\end{enumerate}
+\subsection*{11.5 Procedure voor vork en uitgang}
+\addcontentsline{toc}{subsection}{11.5 Procedure voor vork en uitgang}
+
+Als de governance wordt vastgelegd of de waarden aanzienlijk afdrijven, kunnen gemeenschappen, Fondsbeheerders en exploitanten proberen te vertrekken door de netwerkgovernance-laag af te sluiten.
+
+Een exitproces kan:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Publiceer een snapshot:} het exporteren van de geselecteerde registers, waardebonnen, waarden, limieten en tarievenbeleid en vervolgens een ondertekende snapshot-hash publiceren.
+\item \textbf{Herinzetten van governance-diensten:} nieuwe registerroots, routediensten en geaccepteerde vergoedings- of dekkingmodules inzetten onder een nieuwe verantwoordingsplichtige structuur.
+\item \textbf{Herregistratie:} laat Fondsbeheerders zich inschrijven door hun Fonds-adressen te registreren onder de nieuwe root zonder dat houders anderszins functionele waardebonnen moeten migreren.
+\item \textbf{Herstellen van cliënten:} het toevoegen van de nieuwe root als een selectioneel netwerkprofiel in SDK's en interfaces, met eventuele standaardwijzigingen door middel van het openbaar gemaakte governance-proces.
+\item \textbf{Beheer van een brugperiode:} compatibele routes waar ze veilig zijn te handhaven en routes die in strijd zijn met de regels van het nieuwe profiel te ontkennen.
+\end{enumerate}
+De ontwerpdoelstelling is dat het verlaten van een canoniek register niet anders functionele lokale fondsen uitschakelt.
+
+
+\section*{12. Voorgestelde liquiditeitsprogramma-term sheet (niet bindend schema)}
+\addcontentsline{toc}{section}{12. Voorgestelde liquiditeitsprogramma-term sheet (niet bindend schema)}
+
+Dit is een illustratieve checklist voor een toekomstig, afzonderlijk gedocumenteerd programma. Het is geen aanbod, een huidige app-functie of een belofte van liquiditeit, toegang, verzekering, rendement, waarde of exit.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{In aanmerking komende bijdragen:} stablecoins, reserve tokens of goedgekeurde community waardebonnen, zoals bepaald in het programma.
+\item \textbf{Plaats:} aangewezenCommitmentfondsenof de voorgesteldeCLCNetwerkpool onder een afzonderlijk vastgestelde mandaat.
+\item \textbf{Vergrendeling en uitgang:} programma-specifieke voorwaarden, zoals rollende perioden van 30--90 dagen en geopenbaarde poorten onder stress.
+\item \textbf{Beleidskrediet:} een optionele ex post-mechanisme onder gepubliceerde caps en vensters, geen beloofde terugkeer.
+\item \textbf{Risicodeling:} een verlaging tot een optionele dekkingskrediet moet uitdrukkelijk worden toegestaan door bestaande voorwaarden en toepasselijk recht.
+\item \textbf{Rapportage:} periodieke dashboards en attestaties met betrekking tot de gezondheid van het Fonds, voorraad, limieten, vergoedingen en eventuele gefinancierde dekkingreserves.
+\item \textbf{Verbondenheden:} de beperking van het gebruik van middelen, oracle-controles, grensniveaus, conflictenregels en rechtsmiddelen.
+\item \textbf{Mogelijke in aanmerking komendheid van de voorgestelde token:} bijdragers die een aangewezen fonds hebben ingezet, kunnen in aanmerking komen voor toegevoegde voorgestelde CLC governance-token subsidies op basis van gemeten toegang tot Fonds-swap en bevestigde voldoening van de uitgever, onder voorbehoud van aangenomen voorwaarden, anti-gaming-regels en beleidsgrens.
+\end{itemize}
+
+
+\section*{13. Glossair in eenvoudige taal}
+\addcontentsline{toc}{section}{13. Glossair in eenvoudige taal}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cosmo-Local Credit (CLC):} De productfamilie, met inbegrip van de CLC App, documentatie en het bredere engagement-poolingwerk.
+\item \textbf{CLC App:} De progressieve web-app die wordt beheerd door GEF op \texttt{cosmolocal.credit}.
+\item \textbf{protocol inzake de samenstelling van verbintenissen (CPP):} Het herbruikbare model van curatie, waardering, beperking, uitwisseling en verantwoord bestuur.
+\item \textbf{Protocol v1.1.0:} De geverifieerde publieke smart-contract release.
+\item \textbf{Commitmentfonds:} Een gereglementeerde regeling die ondersteunde activa toestaat en wisselkoersregels publiceert.
+\item \textbf{\texttt{SwapPool}:} De huidige token vault en direct-swap contract.
+\item \textbf{Teken:} Een saldo op de keten of een digitaal actief.
+\item \textbf{waardebon:} Een token of record die door een uitgever wordt vertegenwoordigd als aflossbare verbintenis onder gepubliceerde voorwaarden.
+\item \textbf{Aanbieding:} Een catalogusregister van goederen of diensten in verband met een waardebon.
+\item \textbf{Uitgever:} De partij die verantwoordelijk is voor de publicatie en uitvoering van een voucherverbintenis.
+\item \textbf{Fondsbeheerder:} De verantwoordelijke structuur die de regels van Fonds publiceert en beheert.
+\item \textbf{Fonds wisselkoers of quote:} Een transactieparameter geproduceerd door een geconfigureerde quotator; geen bewijs van contant geld of terugbetalingswaarde.
+\item \textbf{Fonds-token-balanscap:} De huidige maximale \texttt{Limiter} voor een token in handen van een Fonds. \textbf{``Creditslimiet.''}
+\item \textbf{Fonds swap:} Een directe activauitwisseling via één \texttt{SwapPool}.
+\item \textbf{Swap afwikkeling:} De overdrachten in de keten en de boekhouding van de vergoedingen die een Fonds swap voltooien.
+\item \textbf{Aflossingsaanvraag:} Het teruggeven of anderszins aanbieden van waardebon-eenheden aan de uitgever.
+\item \textbf{nakoming:} De uitgever levert het beloofde goed, dienst, voordeel of andere prestaties.
+\item \textbf{afboeking:} Een document dat voorkomt dat voltooide eenheden opnieuw worden gepresenteerd.
+\item \textbf{Voorgestelde uitvoeringsrouter:} De huidige \texttt{SwapRouter} citeert alleen.
+\item \textbf{Voorgestelde netwerkpool CLC:} Een toekomstige regeling inzake clearing en begrotingscoördinatie op netwerkniveau.
+\item \textbf{Voorgesteld CLC governance token:} Een toekomstige governance-ontwerp, geen huidige App of Protocol v1.1.0-actief.
+\item \textbf{Netwerkraak:} Een voorgestelde aandeel van de Poolvergoedingen overgedragen aan een toekomstige netwerkbegroting.
+\item \textbf{Garantie of verzekering:} Een bescherming die alleen van toepassing is wanneer een geïdentificeerde partij het uitdrukkelijk overneemt, financiert en publiceert.
+\end{itemize}
+
+\section*{14. Voorgestelde KPI's en gezondheidsindicatoren}
+\addcontentsline{toc}{section}{14. Voorgestelde KPI's en gezondheidsindicatoren}
+
+Een implementatie dient een KPI alleen te publiceren wanneer zij de gebeurtenis, bron, cohorte of periode, eenheid, waarderingsmethode en tijdstempel, uitsluitingen, correctiebeleid, bewijsmateriaal buiten de keten en gegevenskwaliteitsbeperkingen kan definiëren.
+
+De voorgestelde maatregelen zijn onder meer:
+
+\begin{itemize}[leftmargin=*]
+\item geldige presentaties van terugbetalingen;
+\item cohortgebaseerd vervullingspercentage;
+\item volledige afboeking;
+\item latentie van presentatie tot nakoming;
+\item duur van het houden tot aan de verwerving;
+\item uitgaande in aanmerking komende verbintenissen op grond van een genoemde methodologie;
+\item voltooide fonds swapvolume;
+\item gemeten Fonds-inventaris;
+\item het gebruik van pooltoken-balanscap;
+\item de quote pass rate, gescheiden van de route uitvoeringsrate;
+\item in aanmerking komende reserves gedeeld naar uitdrukkelijk gedekte blootstellingen;
+\item aanspraken van de borg en terugvorderingen in het kader van een geïdentificeerd beleid;
+\item de voorgestelde netwerkkosten en daadwerkelijk ontvangen dienstverleningskosten, zonder dubbele berekening van bruto Poolkosten;
+\item de tijd van detectie, besluitvorming, pauze, reparatie en sluiting van governance;
+\item klachten, geschillen, correcties en rechtsmiddelen; en
+\item In de eerste plaats is er sprake van sociale of ecologische uitkomsten.
+\end{itemize}
+De transactiegegevens op de keten bewijzen niet per se identiteit, prestaties van de uitgever, tevredenheid, oorzakelijke samenhang, gezondheid van de gemeenschap of sociale impact.
+
+Zie je dat ? \href{https://docs.cosmolocal.credit/nl/white-paper/appendix-c-kpi-definitions}{Aanhangsel C} voor de voorgestelde meetspecificatie.
+
+
+\section*{15. Routekaart (indicatief)}
+\addcontentsline{toc}{section}{15. Routekaart (indicatief)}
+
+\subsection*{15.1 Tegenwoordige basis}
+\addcontentsline{toc}{subsection}{15.1 Tegenwoordige basis}
+
+GEF beheert de CLC App op \texttt{cosmolocal.credit} op Gnosis Chain. De App biedt ondersteunde toegang tot accounts en Portemonnees, een openbare Markt-catalogus en interfaces voor tokens, waardebonnen, Aanbiedingen, Commitmentfondsen, overdrachten en rechtstreekse Fondsswaps.
+
+Protocol v1.1.0 de huidige contractbasis vormt:\texttt{GiftableToken}, direct\texttt{SwapPool}uitvoering, optionele registers, waarderingsmodules, fonds token-balans caps, fonds kosten, een extra protocolvergoeding en alleen quote\texttt{SwapRouter}De beschikbaarheid hangt nog steeds af van de interface, de ingezette contracten, inventarisatie, configuratie, netwerkstatus, in aanmerking komendheid, aanbieders, rechtsmacht en gepubliceerde voorwaarden voor de uitgever of Fonds.
+
+\subsection*{15.2 Voorgestelde mijlpalen}
+\addcontentsline{toc}{subsection}{15.2 Voorgestelde mijlpalen}
+
+Deze benamde mijlpalen zijn ontwerprichtlijnen, niet releasenummers, leveringsdatums of verplichtingen die een functie zal lanceren.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Stichting Governance:} voorgesteldeCLCgovernance token; voorgesteldCLCNetwerkpool; kostenadapters; kworum, tijdsverbod en governance fundamenten.
+\item \textbf{Routing \& Observability:} Router SDK en register-API's; gezondheids dashboards; een voorgestelde kader voor het verzekeringsbeleid; de intenties van opt-in om te herbalanseren; prototype voor batchnetten.
+\item \textbf{Cross-Domain Risk Tools:} HTLC of escrow routing; afzonderlijk gereglementeerde garantiemodules; rolling, account en tiered limit presets.
+\item \textbf{Gereguleerde toegang:} de implementatie-specifieke betalingsdiensten van derden; persoonlijke micro-fondsen; het ontdekken van nalevingsdiensten; audits van voucherklassen door derden.
+\end{itemize}
+De betalingsdiensten worden door afzonderlijk geïdentificeerde derden geleverd, onder de toepasselijke rechtsmacht, in aanmerking komendheid, kosten, limieten en voorwaarden.CLC App en Protocol v1.1.0 De contracten werken niet zelf op fiat-rails.
+
+Uitvoering over meerdere stappen, gedeelde verzekering, de voorgestelde CLC-bestuurstoken en het voorgestelde CLC-netwerkfonds, batchverrekening, persoonlijke microfondsen en gereguleerde betaaldiensten blijven voorgesteld of implementatieafhankelijk totdat een implementatie en de bijbehorende regels ze als actief aanduiden.
+
+
+\section*{16. Voorgestelde evaluatiemontaal}
+\addcontentsline{toc}{section}{16. Voorgestelde evaluatiemontaal}
+
+Een register, fonds of toekomstig liquiditeitsprogramma kan deze sjabloon aanpassen.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Geobserveerde feiten:} de identiteit en geschiedenis van de uitgever, de voorwaarden van de waardebon, aanbiedingen, capaciteitsbewijzen, poolconfiguratie, beheerders, inventaris, limieten, reserves, garanties, incidenten en onopgeloste verplichtingen.
+\item \textbf{Doel en betrokken partijen:} de beoogde voordelen, risico's, conflicten, ecologische en sociale gevolgen en wie het verlies of de verantwoordelijkheid draagt.
+\item \textbf{Evaluatie:} Aanbodprijs, waarde van de waardebon, wisselkoersmethode Fonds, oracle-referentie, eenheden, tijdstempels en redenen voor eventuele afwijkingen.
+\item \textbf{Grenzen:} in aanmerking komendheid, verboden toepassingen, concentratie, token-balansgrens, pauze, geografische of wettelijke beperkingen en herzieningsactiviteiten.
+\item \textbf{Bescherming:} geïdentificeerde verplichtingspartner, gedekte gebeurtenis, financiering, maximum, uitsluitingen, duur, bewijsmateriaal, claimproces en rechtsmiddelen.
+\item \textbf{Besluit:} goedkeuring, herziening, afwijzing, onderbreking of escalatie voor menselijke beoordeling; identificatie van de besluitnemer, redenen, voorwaarden, datum van beoordeling en beroep of correctieproces.
+\end{enumerate}
+In de output mogen conservatie, limieten, reserves of verificaties niet worden beschreven als goedkeuring, emittentcapaciteit, verzekering of gegarandeerde nakoming, tenzij de verantwoordelijke partij die bescherming uitdrukkelijk heeft vastgesteld.
+
+
+\section*{17. Juridische en nalevingsbrief}
+\addcontentsline{toc}{section}{17. Juridische en nalevingsbrief}
+
+CPP kan tokens, waardebonnen, fondsen en swaps coördineren waarvan de juridische behandeling afhangt van hun ontwerp, marketing, gebruik, verantwoordelijke partijen en rechtsmacht.
+
+Het gebruik van de CLC App wordt geregeld door: \href{https://docs.cosmolocal.credit/nl/governance/terms}{Voorwaarden van de dienstverlening}. GEF de App en de ondersteunende infrastructuur exploiteert.GEF uitdrukkelijk een andere rol overneemt, is geen uitgever;Fondsbeheerder, bewaarder, kredietverstrekker, leningnemer, makelaar, borg, aflossingspersoon, adviseur, verzekeraar of partij bij verplichtingen tussen deelnemers.
+
+Betalingsdiensten die afhankelijk zijn van de inzet moeten hun verantwoordelijke aanbieder, jurisdictie, in aanmerking komendheid, vergoedingen, limieten, bewaarmodel en voorwaarden identificeren. De aanwezigheid van een connector betekent niet dat GEF of een Fonds de onderliggende gereglementeerde dienst exploiteert.
+
+\subsection*{17.1 Informatie over vouchers en aanbiedingen}
+\addcontentsline{toc}{subsection}{17.1 Informatie over vouchers en aanbiedingen}
+
+Een uitgever dient te publiceren en bij te houden:
+
+\begin{itemize}[leftmargin=*]
+\item verantwoordelijke identiteit en contactgegevens;
+\item de bijbehorende aanbieding, eenheid, levering, aangegeven waarde en capaciteit;
+\item locaties en procedures voor presentatie;
+\item tijdstip en bewijs van de nakoming;
+\item verval, honoraria, belastingen, beperkingen en materiële veranderingsregels;
+\item klachten, vervangingen, restituties of andere rechtsmiddelen; en
+\item de ontladingsmethode die het hergebruik na nakoming voorkomt.
+\end{itemize}
+Een tokencontract stelt deze voorwaarden niet vast of bewijst de uitvoering.
+
+\subsection*{17.2 Openbaarmaking van de fondsen}
+\addcontentsline{toc}{subsection}{17.2 Openbaarmaking van de fondsen}
+
+Een Fondsbeheerder dient te publiceren:
+
+\begin{itemize}[leftmargin=*]
+\item het doel van de Fonds en verantwoordelijke besluitnemers;
+\item de eigenaar van \texttt{SwapPool}, proxy-administrator, afhankelijkheidsbeheerders en ontvangers van vergoedingen;
+\item toegelaten activa en regels voor opschorting of verwijdering;
+\item waarderingsmethoden, aanbiedingsbronnen, vergoedingen, token-balans caps, inventaris en terugtrekkingsbevoegdheden voor eigenaren;
+\item bijdrage- en exitrechten;
+\item elke reserve, garantie, borg, verzekering en verliesverdelingregel; en
+\item het beheer, upgraden, noodgevallen, klachten, migratie en beëindigingsprocessen.
+\end{itemize}
+De notering is geen bevestiging, waardering, verzekering of garantie van GEF.
+
+\subsection*{17.3 Acties en verplichtingen}
+\addcontentsline{toc}{subsection}{17.3 Acties en verplichtingen}
+
+Een gewone. \textbf{Fonds swap} de beurs ondersteunde activa onder een weergegeven offerte- en transactiegrens. De vermogensrichting maakt het niet tot een lening, terugbetaling, inwisseling door de uitgever of realisatie in de echte wereld.
+
+\textbf{Aflossingsaanvraag } retourneert of presenteert waardebon-eenheden aan een uitgever. \textbf{ nakoming } is de beloofde prestatie van de uitgever. \textbf{ afboeking } De applicatie heeft de mogelijkheid om gebruik te maken van de gegevens die zijn verstrekt. \textbf{`Inwisselen'} de actie bereidt momenteel een overdracht aan de token-eigenaar voor; alleen deze overdracht bewijst geen nakoming.
+
+De App's \textbf{Retirement waardebon''} Het is een terugkeerbare catalogusontwikkeling die geen saldo verbrandt, vorderingen annulert of verplichtingen afhandelt.
+
+Een toekomstige lening of ander kredietproduct zou voorafgaand aan het gebruik afzonderlijk gepresenteerde aanvullende en transactievoorwaarden vereisen.
+
+\subsection*{17.4 Bescherming, bewijsmateriaal en lokaal recht}
+\addcontentsline{toc}{subsection}{17.4 Bescherming, bewijsmateriaal en lokaal recht}
+
+Een limiet, reserve, registerinvoer, app-lening of blockchain-transactie is niet automatisch een garantie of verzekeringspolis. Elke bescherming moet de verantwoordelijke partij, het gedekte evenement, de financiering, het maximum, uitsluitingen, duur, bewijsmateriaal, claimsproces en toepasselijke voorwaarden identificeren.
+
+Bewijs uit de openbare keten kan adressen, activa, bedragen, tijdstempels en contractuele gebeurtenissen tonen. Het bewijst op zich niet identiteit, emittentcapaciteit, voldoening, tevredenheid, bestuursoverleg, juridische ontslag of sociale impact.
+
+Functies kunnen beperkt of niet beschikbaar zijn vanwege de wet, sancties, in aanmerking komendheid, contractstatus, inventaris, beperkingen, beveiliging, rechtsmacht of diensten van derden. Uitgevers, Fondsbeheerders, aanbieders en deelnemers blijven verantwoordelijk voor het bepalen en naleven van toepasselijke wetgeving.
+
+
+\section*{18. Conclusies}
+\addcontentsline{toc}{section}{18. Conclusies}
+
+Cosmo-Local Credit verbindt een huidige toepassing en Protocol v1.1.0 Stichting met een breder ontwerp voor onafhankelijk beheerCommitmentfondsen. De huidige directe fonds swaps, de quote- en limietcomponenten en de openbare transactiegegevens kunnen een verantwoord uitwisseling ondersteunen, maar zij bewijzen niet dat de uitgever voldoet aan zijn verplichtingen, geen bijdragerechten creëren of waarde, liquiditeit, terugbetaling, verzekering, wettelijke status of bescherming tegen verlies garanderen.
+
+De voorgestelde uitvoering routing, netting, governance assets, net clearing, liquiditeitsprogramma's en gedeelde bescherming die in dit document worden beschreven, vereisen afzonderlijke implementatie, financiering, bestuur en gepubliceerde voorwaarden.
+
+
+\section*{A. Voorgestelde meet- en vergoedingsmodel}
+\addcontentsline{toc}{section}{A. Voorgestelde meet- en vergoedingsmodel}
+
+Protocol v1.1.0 registreert niet de nakoming van de emittenten, real-world discharge of elk hieronder vereiste gegevensveld.
+
+\subsection*{De definities van gebeurtenis en voorraad}
+\addcontentsline{toc}{subsection}{De definities van gebeurtenis en voorraad}
+
+Voor voucherklasse \emph{j}, cohorte of periode \emph{t} en een aangegeven waarderingsmethode \emph{m}:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{O\_\{j,t,m\}}: waarde van uitlopende in aanmerking komende verplichtingen bij de meetgrens.
+\item \texttt{X\_\{j,t,m\}}: waarde van voltooide Fonds swaps gedurende de periode.
+\item \texttt{P\_\{j,t\}}: eenheden die geldig aan de uitgever worden gepresenteerd voor terugbetaling.
+\item \texttt{F\_\{j,t\}}: gepresenteerde eenheden met afzonderlijk aangetoonde voldoening van de uitgever.
+\item \texttt{G\_\{j,t\}}: voltooide eenheden met een ontladingsregister die hergebruik voorkomt.
+\end{itemize}
+\texttt{O} kan niet alleen afgeleid worden uit het aanbod van tokens. Een meetbeleid moet de verantwoordelijke uitgever identificeren en, indien van toepassing, de door de emittente gehouden inventaris, verbrandde eenheden, vervallen eenheden en afgevuurde eenheden uitvoeren, testbalansen, ontoegankelijke saldo's en tokens waarvan de voorwaarden geen uitstaande verplichting van derden creëren.
+
+Iedere gewaardeerde maatstaf moet de eenheid, bron, waarderingsmethode, tijdstempel en behandeling van uiteenlopende Fondswisselkoersen publiceren. Een overdracht op de blockchain kan bewijs voor \texttt{X} of een aanbieding ter inwisseling ondersteunen, maar stelt op zichzelf \texttt{F} of \texttt{G} niet vast.
+
+\subsection*{Cohortgebaseerde vervullingsmaatregelen}
+\addcontentsline{toc}{subsection}{Cohortgebaseerde vervullingsmaatregelen}
+
+Voor een cohorte van geldige terugbetalingsaanbiedingen:
+
+\texttt{FulfillmentRate = FulfilledPresentments / ValidPresentments}
+
+\texttt{DischargeCompleteness = DischargedFulfillments / FulfilledPresentments}
+
+Gebruik dezelfde gesloten of rijpe cohorte in elke teller en noemer. Rapport afgekeurd, ingetrokken, verlopen, betwist, gedeeltelijk volbracht, gecorrigeerd en nog open presentaties apart.
+
+\texttt{FulfillmentLatency = median(t\_fulfilled - t\_presented)}
+
+\texttt{HoldingDuration = median(t\_presented - t\_acquired)}
+
+De latentie van nakoming meet de uitgevende dienst na presentatie.
+
+\subsection*{Verschillende snelheidsmetingen}
+\addcontentsline{toc}{subsection}{Verschillende snelheidsmetingen}
+
+Een voorgestelde snelheid van verbintenisontlading mag alleen worden berekend wanneer \texttt{O} en de vervuld waarde dezelfde waarderingsmethode gebruiken:
+
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
+
+Een Fonds swap-activiteitsmaatregel is afzonderlijk:
+
+\texttt{V\_swap,t = PoolSwapValue\_t / AverageMeasuredPoolInventoryValue\_t}
+
+Beide waarden bewijzen geen maatschappelijke impact, vermogen van de uitgever, winstgevendheid of cash convertibility.
+
+\subsection*{Voorgestelde inkomsten uit het netwerk}
+\addcontentsline{toc}{subsection}{Voorgestelde inkomsten uit het netwerk}
+
+Laat:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{PF\_t} zijn bruto Poolvergoedingen die tijdens de periode worden gegenereerd;
+\item \texttt{NR\_t} is de voorgestelde netwerkrak die daadwerkelijk werd ontvangen als een openbaar deel van deze Poolvergoedingen;
+\item \texttt{RF\_t} zijn afzonderlijk voorgestelde routing- of servicegeld die daadwerkelijk zijn ontvangen; en
+\item \texttt{$\chi$\_t} is het gemeten aandeel van de ontvangen inkomsten dat in aanmerking komt en converteerbaar is voor een aangegeven gebruik in contant valuta na kosten en beleidsbeperkingen.
+\end{itemize}
+Uit het voorgestelde netwerkbegrotingsperspectief:
+
+\texttt{ProposedNetworkRevenue\_t = NR\_t + RF\_t}
+
+\texttt{CashUsableNetworkRevenue\_t = $\chi$\_t $\times$ (NR\_t + RF\_t)}
+
+Niet toevoegen \texttt{PF\_t} aan \texttt{NR\_t} De kosten van de vergoeding worden in het algemeen niet meer dan een halfjaar berekend.Protocol v1.1.0 de ontvangsten daarvan moeten afzonderlijk worden gerapporteerd van dit voorgestelde rake-model.
+
+
+\section*{B. Illustratieve waterval voor toekomstige vergoedingen}
+\addcontentsline{toc}{section}{B. Illustratieve waterval voor toekomstige vergoedingen}
+
+Dit is een voorgestelde ontwerp voor een toekomstige implementatie. Het geldt alleen als het wordt geïmplementeerd, gefinancierd en aangenomen door middel van gepubliceerde governance- en deelnemerstermijnen.Protocol v1.1.0 een vergoeding, bijdrage recht, reserve, garantie of verzekeringsovereenkomst.
+
+Laten \texttt{F\_in} de inkomsten zijn die daadwerkelijk worden ontvangen door het voorgestelde netwerkbegroting gedurende een tijdperk: de voorgestelde netrack, afzonderlijke routing- of servicegeld en andere uitdrukkelijk aangewezen inkomsten.
+
+De inkomsten van activa moeten worden geclassificeerd als:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{E\_cash}: activa die in aanmerking komen voor een aangegeven gebruik in contant valuta op grond van het aangenomen beleid; of
+\item \texttt{E\_kind}: in natura verstrekte waardebonnen of andere activa die niet als cash-convertible worden behandeld.
+\end{itemize}
+Voor elk conversiebeleid zouden vergunningen voor activa en plaatsen, verantwoordelijke autoriteiten, prijsbronnen, lippingslimieten, rapportage en toepasselijke wettelijke controles nodig zijn.
+
+Een voorgestelde waterval kan de ontvangen inkomsten in deze volgorde toepassen:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Doelstelling van de gedekte reserves:} een vastgestelde reserve- of verzekeringsdoelstelling te financieren die uitsluitend gebaseerd is op gedefinieerde gedekte blootstellingen, in aanmerking komende activa, uitsluitingen en claimsregels.
+\item \textbf{Kernbedrijven:} het financieren van een openbaar gemaakte, beperkte exploitatiebegroting.
+\item \textbf{Liquiditeitsmandaten:} het fonds goedgekeurd, afzonderlijk geregeld Fonds- of routingprogramma's.
+\item \textbf{Overige begroting:} het resterende bedrag onder operaties, liquiditeitsprogramma's en een extra buffer onder gepubliceerde maximumten toewijzen.
+\end{enumerate}
+Een reserve-doelstelling is op zich geen garantie; elke verzekering of garantie moet de verplichtingspartner, het gedekte evenement, de financiering, het maximum, de uitsluitingen, de duur, het bewijsmateriaal, het claimsproces en de verliezenverdeling identificeren.
+
+\textbf{Bewakingsrail:} De watervaltoewijzingen zijn bestemd voor de aanvaarde dekking, operaties en liquiditeitsdiensten; zij mogen niet worden ingericht of uitgevoerd als prijsondersteunende operaties.
+
+In het kader van het voorgestelde model zouden alle voorgestelde CLC governance tokens die via een apart geactiveerd externe liquiditeitsprogramma zijn verkregen, worden ingetrokken of geplaatst in een vrijgegeven niet-stemmenbank.
+
+
+\section*{C. Voorgestelde definities KPI}
+\addcontentsline{toc}{section}{C. Voorgestelde definities KPI}
+
+Deze KPI's vormen een voorgestelde meetspecificatie, niet een verklaring dat de huidige App of protocol elke vereiste gebeurtenis registreert.
+
+Elke gepubliceerde KPI moet bevatten:
+
+\begin{itemize}[leftmargin=*]
+\item verantwoordelijke uitgever en gegevensbron;
+\item gebeurtenis- of staatdefinitie;
+\item cohorten- of meetperiode;
+\item eenheid en waarderingsmethode;
+\item tijdstempel van de waardering;
+\item de regels inzake opneming en uitsluiting;
+\item de behandeling van gedeeltelijke, betwiste, vervallen, ontoegankelijke en gecorrigeerde gegevens;
+\item vereiste bewijs of attestatie buiten de keten;
+\item de geschiedenis van herziening en beperkingen op het gebied van gegevenskwaliteit;
+\item of het resultaat on-chain, gerapporteerd, geattesteerd, onafhankelijk gecontroleerd of geschat is.
+\end{itemize}
+\begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
+\toprule
+KPI & Voorgestelde definitie & Vereiste bewijsstukken en uitsluitingen \\
+\midrule
+\endhead
+\textbf{Gebruikelijke presentaties} & Het bedrag of de eenheden die zijn aanvaard in het terugbetalingsproces van de uitgever gedurende een periode & Identificatie van de presentatie, uitgever, houdersautoriteit, bedrag, tijdstip, status; uitsluiting van duplicaten en ongeldige verzoeken \\
+\textbf{Vervullingspercentage} & Voltooide geldige presentaties gedeeld door geldige présentaties voor dezelfde rijpe cohorte & Afzonderlijke bewijsmateriaal voor de prestaties van de uitgever; melding van open, afgewezen, betwiste, gedeeltelijke en gecorrigeerde gevallen \\
+\textbf{Voltooiing van de afboeking} & Voltooide presentaties met een ontlastingsregister verdeeld door voltooide présentaties & Branden, annuleren, uitschakelen of ander bewijs van niet-hergebruik in verband met de nakoming \\
+\textbf{Vervullingslatentie} & Median en 90e percentiel van presentatie tot nakoming & Geen vervanging van de houdingstijd uitgifte tot aanbieding of verwerving tot aanbieding \\
+\textbf{Behoudstermijn} & Median en verdeling van de tijd tussen verwerving en aanbieding & Identificatie van de overname en uitsluiting van onbekende overnametijden \\
+\textbf{Uitgetrokken in aanmerking komende verplichtingen} & In aanmerking komende verplichtingen van derden die na gedefinieerde uitsluitingen blijven bestaan & Identiteit en voorwaarden van de uitgever; geldende inventarie, vervaldatum, verbranding, afboeking, tests en niet-verbintenis tokens van de uitgever worden uitgesloten \\
+\textbf{Fonds swapvolume} & Value van voltooide directe fonds swaps onder één openbaar gemaakte waarderingsmethode & Vergaderingen op de keten, token-eenheden, koersbron, tijd; niet als nakoming door een uitgever worden geclassificeerd \\
+\textbf{Inventaris van Fondsen} & Gemeten ondersteunde activa die op een bepaald tijdstip in handen zijn van een Fonds & Contractsaldo's, reserveringen voor tarieven, ontoegankelijke activa, waarderingsmethode en terugtrekkingsbevoegdheden van eigenaars \\
+\textbf{Voldoende reserve} & In aanmerking komende, beschikbare reservesvermogens gedeeld naar uitdrukkelijk gedekte blootstellingen & Beleid inzake dekking, in aanmerking komend vermogen, bewaring/controle, passiva, uitsluitingen en waardering; niet totale toekeningsvoorziening op standaardbasis \\
+\textbf{Beperkte gebruik} & Gemeten Fonds-tokenbalans gedeeld door zijn huidige geconfigureerde maximum & Limiter adres, token, fonds, tijdstempel, wijzigingen en perioden zonder limieter \\
+\textbf{Quote pass rate} & Succesvolle offertes gedeeld door geldige offertes & Het resultaat is uitsluitend quote; geen route-uitvoering \\
+\textbf{Rate van route-uitvoering} & Voltooide multi-hop-uitvoeringen gedeeld door geldige uitvoerpogingen & Alleen van toepassing op een geïmplementeerd uitvoeringssysteem; rapportage per hop en atomiciteitsregels \\
+\textbf{Terugtrekking van de waarnemer} & In aanmerking komende terugbetaling gedeeld door betaalde gedekte vorderingen & Geïdentificeerde borg, claimbeleid, tijdschema, kosten, geschillen en afschrijvingen \\
+\textbf{Voorgestelde inkomsten uit het netwerk} & Ontvangen voorgestelde netwerkrack plus ontvangen afzonderlijke routing-/servicevergoedingen & Excludeer de bruto- Poolvergoedingen die door Fondsen worden vastgehouden en vermijd het twee keer tellen van de rake \\
+\textbf{Tijdmatigheid van het bestuur} & Tijd om een incident te detecteren, beslissen, pauzeren, repareren en sluiten & Bepaalde klokken, verantwoordelijke instanties, noodbevoegdheden, beroep en ontbrekende gebeurtenissen \\
+\bottomrule
+\end{longtable}
+
+Bevordering van sociale impact vereist een aparte methodologie. Blockchain-activiteit alleen niet vast te stellen identiteit, uitgevende prestaties, tevredenheid, gemeenschapsgezondheid, causaliteit of impact.
+
+
+\section*{D. Voorgestelde startparameters}
+\addcontentsline{toc}{section}{D. Voorgestelde startparameters}
+
+Alle waarden hieronder zijn illustratief. Het is niet een huidige app standaard, Protocol v1.1.0 instelling, garantie, aanbod of levering verplichting.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Quorum niveaus voor de voorgestelde CLC governance token:}
+\begin{itemize}[leftmargin=*]
+\item Routine Q1: ten minste 4\% kworum en meer dan 50\% goedkeuring.
+\item Q2 gevoelig: ten minste 10\% kworum en ten minste 60\% goedkeuring.
+\item Q3kritisch: ten minste 20\% kworum en ten minste66.7\% goedkeuring.
+\end{itemize}
+\item \textbf{Voorgestelde tijden:}
+\begin{itemize}[leftmargin=*]
+\item T1: 48 uur voorQ1- de actie.
+\item T2: 7 dagen voorQ2- de actie.
+\item T3: 30 dagen voorQ3- de actie.
+\end{itemize}
+\item \textbf{Epoch cadence:} 7 dagen, met inbegrip van eventuele aangenomen stemmingen, publicatie van de begroting en voorgestelde sCLC-vensters.
+\item \textbf{Noodpauze:} onmiddellijk via een geïdentificeerde noodsituatieautoriteit, die na 72 uur afloopt tenzij deze krachtens het vastgestelde proces is geratificeerd.
+\item \textbf{Voorgestelde netwerkrak:} 20\% van de deelnemende Poolvergoedingen bij verstopping, beperkt door het beleid.
+\item \textbf{Illustratieve reeks Fonds-tarieven:} 0\%--20\%, gepubliceerd door elke deelnemende fonds.
+\item \textbf{De voorgestelde grenswaarde van de routing- of servicegeld:} 20 bps per route.
+\item \textbf{Voorgesteld netwerk-rake-tarief:} \texttt{rake\_rate\_p = pool\_fee\_p $\times$ rake\_share\_p}.
+\item \textbf{Revenue eligibility:} ontvangen activa als cash-eligibel indelen \texttt{E\_cash} of in soort \texttt{E\_kind} een gepubliceerde methode.
+\item \textbf{Beheer van de omschakeling:} vergunninghouders van activa en locaties, verantwoordelijke autoriteiten, prijsbronnen, tijdvensters, lippingslimieten, maximumpercentages en rapportage.
+\item \textbf{Financiële mogelijkheden:} een voorgestelde begroting voor toegang tot vergoedingen te publiceren pas nadat de goedgekeurde gedekte reserve- en exploitatiedoelstellingen zijn voldaan; de begroting kan nul zijn.
+\item \textbf{Rijkslijnen:} niet blootstellen aan het risico van een andere activaclasse zonder expliciete, geïnformeerde toestemming krachtens de toepasselijke wetgeving.
+\item \textbf{Voorgestelde rollings- en rekeninglimieten:} een niet-goedgekeurde activiteiten tussen de klassen ontkennen en vastgestelde maximumgrens toepassen.
+\item \textbf{Facultatieve vermindering van de dekking:} uitsluitend indien voorafgaande dekkingvoorwaarden, vereiste toestemming en toepasselijke wetgeving dit toestaan; het vermindert op zich niet de voucherverbintenis van een uitgever of een saldo aan de ketting.
+\item \textbf{Externe liquiditeitscontroles, indien afzonderlijk toegestaan:} publiceer de omvang van de locatie, meetmethode, triggers, uitgaven- en volumelimieten, uitvoeringscontroles, noodstoppen en ontvangsten.
+\end{itemize}
+De huidige Protocol v1.1.0 Poolvergoedingen, aanvullende protocollen en de fonds token-balans caps blijven onderworpen aan de ingezette contracten en configuratie, niet aan deze voorgestelde waarden.
+
+
+\section*{E. Bewerkte voorbeeld  voorgestelde netwerkrak}
+\addcontentsline{toc}{section}{E. Bewerkte voorbeeld  voorgestelde netwerkrak}
+
+Dit voorbeeld illustreert het voorgestelde rake-model.Protocol v1.1.0.
+
+Veronderstel:
+
+\begin{itemize}[leftmargin=*]
+\item een deelnemende Fonds een 2.00\% Poolvergoeding in rekening brengt;
+\item de voorgestelde netwerkraak ontvangt 20\% van die Poolvergoeding; en
+\item 25\% van het ontvangen rake is in aanmerking komend en converteerbaar voor een aangegeven gebruik in contanten na de kosten.
+\end{itemize}
+De effectieve voorgestelde netwerk-rake-tarief op de geleidelijke waarde is:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+Het gebruikbare deel in contanten onder de veronderstelde 25\%-goedkeuringsfactor is:
+
+\texttt{cash\_usable\_rate = 40 bps $\times$ 25\% = 10 bps}
+
+Als een voorgestelde netwerkbegroting een maandelijkse cash-denominatie vereiste van \$ 150.000 en geen andere inkomsten heeft, is de illustratieve routed value vereist bij een 10-bps cash-usable rate:
+
+\texttt{required\_routed\_value = \$150,000 / 0.001 = \$150,000,000 per month}
+
+Deze berekening omvat niet de door Fondsen vastgehouden bruttogeld van het Fonds.
+
+Een reële begrotingsanalyse zou ook nodig zijn om te publiceren:
+
+\begin{itemize}[leftmargin=*]
+\item daadwerkelijke ontvangsten van rake- en servicegeld;
+\item de in aanmerking komende activa en de omrekeningskosten;
+\item Poolparticipatie en route omvang;
+\item vastgestelde reserve- en exploitatiedoelstellingen;
+\item verliezen, geschillen, correcties en niet beschikbare activa; en
+\item gevoeligheidsscenario's in plaats van beloofde groei of rendementen.
+\end{itemize}
+Een voorgestelde begroting voor de toegankelijkheid van tarieven of liquiditeitsprogramma's blijft onderaan haar vastgestelde prioriteiten en kan nul zijn.
+
+
+\section*{F. Dataroom-controlelijst}
+\addcontentsline{toc}{section}{F. Dataroom-controlelijst}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Historisch bewijs Sarafu Network}
+\begin{itemize}[leftmargin=*]
+\item Archief datum swapvolume, definities van actiefgebruiker en activa, incidenten, terugbetalingsaanbiedingen, verouderingsgutschepen, bevestigde nakoming, ontslag, houdingsduurmaatregelen, perioden, uitsluitingen en methodologie los van de huidige Cosmo-Local Credit-metricen.
+\item Behoud van de \href{https://dune.com/grassrootseconomics/sarafu-network}{historisch Dune Analytics dashboard}.
+\end{itemize}
+\item \textbf{Voorgestelde bewijsmateriaal voor de tenuitvoerlegging van vergoedingen, indien uitgevoerd}
+\begin{itemize}[leftmargin=*]
+\item Toon aan dat eventuele kostenhakken en registry gating zijn geïntegreerd in het uitgevoerde transactiepad in plaats van alleen door een interface afgedwongen.
+\item Voorziening van tests die aantonen dat de toepasselijke uitvoeringsdienst een hop verwerpt waarvan de ontvangst geen bewijs is voor het innen van tarieven in het kader van het aangenomen beleid.
+\item Publiceer testvectoren, storingen, in aanmerking komende activa en overeenkomstige fondsen die zijn gekoppeld aan een geïdentificeerde registerversie.
+\item Verbind de toepasselijke \href{https://software.grassecon.org}{software beschrijving}.
+\end{itemize}
+\item \textbf{Garant en dekkingspakket}
+\begin{itemize}[leftmargin=*]
+\item Publiceer de in aanmerking komendheid, verantwoordelijke partijen, financiering, maxima, waar van toepassing premies, triggers, bewijsstukken, uitsluitingen, beslissingsinstantie en voorbeelden van geschillen en beroep.
+\item Bevat de steekproef van vouchers en poolinformatie die de verantwoordelijkheid van de uitgever onderscheidt van uitdrukkelijk aangeboden poolbescherming of garantie van derden.
+\item Behoud van de \href{https://sarafu.network/reports}{historische Sarafu Network rapporten archief} en \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{historische presentatie van het jaar in de beoordeling} als lijnbewijs, geen bewijs van de huidige dekking of adoptie van CLC.
+\end{itemize}
+\item \textbf{Wet- en nalevingspakket}
+\begin{itemize}[leftmargin=*]
+\item Document jurisdictie strategie, voucherclassen, cash-equivalent beleidslijnen, KYC of attestatieopties, geofencing, consumentenverklaringen, misverkoopcontroles en het onderscheid tussen een gewone Fonds swap en een express credit product.
+\item Link de effectieve \href{https://docs.cosmolocal.credit/nl/governance/terms}{Cosmo-Local Credit Voorwaarden van dienstverlening} en vervangende versies bewaren via gecontroleerde dossiers.
+\end{itemize}
+\item \textbf{Versterking van de governance}
+\begin{itemize}[leftmargin=*]
+\item Voorziening van procedures voor belangenconflicten en weigering, beschikkings- en beroepsposten, sancties, het proces om het register te verwijderen, noodkrachtbeperkingen en voorbeelden van tijdelijk vastgestelde wisselkoers- en grenswijzigingen.
+\end{itemize}
+\item \textbf{Bron en verzekeringspakket}
+\begin{itemize}[leftmargin=*]
+\item Publiceer de bron- en licentieinventaris, ingezette adressen en versies, beschikbare auditverslagen, invarianten, bouwontvangst, beheerdersbevoegdheden, incidentcontacten en monitoring dashboards.
+\item Verbind de toepasselijke \href{https://github.com/grassrootseconomics}{Grassroots Economics-repositories}.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

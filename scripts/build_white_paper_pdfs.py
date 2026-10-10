@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import argparse
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -12,7 +14,16 @@ ROOT = Path(__file__).resolve().parents[1]
 TEX_DIR = ROOT / "white-paper"
 PUBLIC_DIR = ROOT / "docs/public/white-paper"
 BUILD_ROOT = TEX_DIR / "build"
-LOCALES = ["en", "ar", "de", "dz", "es", "fr", "it", "pt", "sr", "sw", "uk"]
+LOCALES = ["en", "ar", "de", "dz", "es", "fr", "hi", "it", "nl", "pt", "sr", "sw", "uk"]
+SOURCE_DATE_EPOCHS = {
+    "en": "1790743564",
+    "es": "1791547200",
+    "fr": "1791547200",
+    **{
+        locale: "1791633600"
+        for locale in {"ar", "de", "dz", "hi", "it", "nl", "pt", "sr", "sw", "uk"}
+    },
+}
 
 
 def compile_pdf(locale: str) -> None:
@@ -22,9 +33,13 @@ def compile_pdf(locale: str) -> None:
     build_dir.mkdir(parents=True, exist_ok=True)
 
     engine = "-pdf" if locale == "en" else "-lualatex"
+    environment = os.environ.copy()
+    environment["SOURCE_DATE_EPOCH"] = SOURCE_DATE_EPOCHS[locale]
+    environment["FORCE_SOURCE_DATE"] = "1"
     subprocess.run(
         [
             "latexmk",
+            "-g",
             engine,
             "-interaction=nonstopmode",
             "-halt-on-error",
@@ -32,6 +47,7 @@ def compile_pdf(locale: str) -> None:
             str(source),
         ],
         cwd=ROOT,
+        env=environment,
         check=True,
     )
 
@@ -45,8 +61,12 @@ def compile_pdf(locale: str) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--locale", choices=LOCALES)
+    args = parser.parse_args()
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
-    for locale in LOCALES:
+    locales = [args.locale] if args.locale else LOCALES
+    for locale in locales:
         compile_pdf(locale)
 
 

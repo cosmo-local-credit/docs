@@ -224,6 +224,12 @@ for (const source of sources) {
     if ((route === '/white-paper' || route === '/white-paper/archive') && !translated.includes('data-english-source="true"')) {
       errors.push(`${route}: ${locale} is missing the White Paper translation notice`)
     }
+    if (route === '/white-paper') {
+      const localizedPdf = `/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-${locale}.pdf`
+      if (!translated.includes(`href="${localizedPdf}"`)) {
+        errors.push(`${route}: ${locale} is missing its localized White Paper PDF link`)
+      }
+    }
   }
 }
 
@@ -248,7 +254,7 @@ for (const [route, mapping] of Object.entries(headingMap)) {
   }
 }
 
-for (const locale of ['en']) {
+for (const locale of documentationLocales) {
   const suffix = locale === 'en' ? '' : `-${locale}`
   const pdf = join(publicPaper, `Cosmo-Local-Credit-CLC-White-Paper-v8${suffix}.pdf`)
   if (!existsSync(pdf)) errors.push(`${locale}: missing current White Paper PDF`)

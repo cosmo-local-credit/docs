@@ -20,18 +20,18 @@ the combined handoff.
 | Order | Language | Splash | Web translation | User review | Docs release | App-link verification | Localized PDF |
 | ---: | --- | --- | --- | --- | --- | --- | --- |
 | — | English (`en`) | Complete | Source | Complete | Complete | Current unprefixed links | Current source PDF |
-| — | French (`fr`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| — | Spanish (`es`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| — | Portuguese (`pt`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 1 | Italian (`it`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 2 | Kiswahili (`sw`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 3 | German (`de`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 4 | Ukrainian (`uk`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 5 | Serbian (`sr`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 6 | Arabic (`ar`) | Complete | Complete | Batch review pending | Complete | Pending companion app work | Deferred |
-| 7 | Dzongkha (`dz`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Deferred |
-| 8 | Dutch (`nl`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Deferred |
-| 9 | Hindi (`hi`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Deferred |
+| — | French (`fr`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| — | Spanish (`es`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| — | Portuguese (`pt`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| 1 | Italian (`it`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| 2 | Kiswahili (`sw`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| 3 | German (`de`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| 4 | Ukrainian (`uk`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| 5 | Serbian (`sr`) | Complete | Complete | Complete | Complete | Pending companion app work | Published and linked |
+| 6 | Arabic (`ar`) | Complete | Complete | Batch review pending | Complete | Pending companion app work | Published and linked |
+| 7 | Dzongkha (`dz`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
+| 8 | Dutch (`nl`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
+| 9 | Hindi (`hi`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
 
 Only one queued language is normally active at a time. Each web draft must pass
 its validation gate before work starts on the next language. Arabic, Dzongkha,
@@ -110,7 +110,7 @@ For every language:
 - [x] Add Italian to the released documentation set and commit the language.
 - [ ] Deploy and verify the Italian routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 2. Kiswahili (`sw`)
 
@@ -126,7 +126,7 @@ For every language:
 - [x] Add Kiswahili to the released documentation set and commit the language.
 - [ ] Deploy and verify the Kiswahili routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 3. German (`de`)
 
@@ -143,7 +143,7 @@ For every language:
 - [x] Add German to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the German routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 4. Ukrainian (`uk`)
 
@@ -159,7 +159,7 @@ For every language:
 - [x] Add Ukrainian to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Ukrainian routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 5. Serbian (`sr`)
 
@@ -175,7 +175,7 @@ For every language:
 - [x] Add Serbian to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Serbian routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 6. Arabic (`ar`)
 
@@ -193,7 +193,7 @@ For every language:
 - [x] Add Arabic to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Arabic routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 7. Dzongkha (`dz`)
 
@@ -210,7 +210,7 @@ For every language:
 - [x] Add Dzongkha to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Dzongkha routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 8. Dutch (`nl`)
 
@@ -228,7 +228,7 @@ For every language:
 - [x] Add Dutch to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Dutch routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ### 9. Hindi (`hi`)
 
@@ -248,7 +248,7 @@ For every language:
 - [x] Add Hindi to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Hindi routes.
 - [ ] Complete the coordinated `clc-app` link verification.
-- [ ] Generate and publish the localized PDF in the later PDF phase.
+- [x] Generate and publish the localized PDF.
 
 ## Validation gate
 
@@ -289,6 +289,11 @@ implementation remains owned by the `clc-app` repository.
   `/governance/terms` in English.
 - The app should use one locale-aware docs URL resolver for About, Terms, and
   future documentation links rather than adding more static URL constants.
+- At the 10 October 2026 audit of app commit
+  `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd`, the app still used the static
+  constants `PLATFORM_ABOUT_URL` and `PLATFORM_TERMS_URL` in
+  `apps/web/src/lib/legal.ts`. Locale-aware deep links therefore remain an
+  external app dependency rather than a completed docs task.
 - The app's `clc.locale` preference and the docs' `clc.docs.locale` preference
   remain independent; cross-origin storage sharing is not attempted.
 
@@ -309,14 +314,15 @@ Release order for each language:
 4. Verify About and Terms from the running app in that language.
 5. Mark the app-link verification complete in the rollout table and checklist.
 
-## Deferred localized PDF phase
+## Localized PDF phase
 
-After all remaining web drafts are reviewed, generate the twelve localized White
-Paper v0.8 PDFs one language at a time in the same order. Until each PDF passes
-inspection, its translated HTML landing page continues to link explicitly to
-the English-source PDF.
-
-For each PDF, verify extracted text, formulas, links, embedded fonts, document
-language metadata, line wrapping, RTL behavior where applicable, and the absence
-of missing glyphs. English remains identified as the source text.
+All twelve localized v0.8 TeX sources and PDFs were generated, technically
+validated, published, and linked from their localized landing pages on
+10 October 2026. The build uses reproducible timestamps, embedded fonts,
+locale-specific PDF language metadata, Arabic RTL layout, and dedicated Tibetan
+and Devanagari fonts. Build logs contain no missing-glyph warnings. Each PDF was
+checked for extracted text, formulas, links, embedded fonts, document language
+metadata, line wrapping, RTL behavior where applicable, and missing glyphs.
+Every localized publication continues to identify and link English as the
+source text.
 

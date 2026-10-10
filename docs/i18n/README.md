@@ -55,6 +55,12 @@ translation and links prominently to English. English is also the source text
 for White Paper v0.8. Localized HTML and PDFs state the English publication date
 and the translation publication date.
 
+The tracked PDF builder uses pdfLaTeX for English and LuaLaTeX for localized
+papers. Polyglossia provides most localized typesetting; Arabic uses Babel's
+LuaTeX bidi engine so RTL text and embedded LTR product names do not depend on
+the separate `luabidi` package. Builds use fixed source timestamps so generated
+PDFs are reproducible.
+
 To regenerate one translation with an already downloaded CTranslate2 model:
 
 ```sh
@@ -78,7 +84,8 @@ git diff --check
 The build emits one MiniSearch index and one `llms.txt`/`llms-full.txt` pair per
 released documentation locale. Localized search never loads results from
 another language. Before publication, generate and inspect that locale's White
-Paper PDF; a web-review draft may link explicitly to the English source PDF.
+Paper PDF. Each published localized landing page links to its localized PDF and
+retains a separate link to the controlling English source.
 
 ## Adding an app language
 
