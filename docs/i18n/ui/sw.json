@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Lugha",
+    "colorTheme": "Mandhari ya rangi",
+    "lightMode": "Tumia hali ya mwanga",
+    "darkMode": "Tumia hali ya giza"
+  },
+  "chrome": {
+    "search": "Tafuta",
+    "closeSearchDialog": "Funga dirisha la utafutaji",
+    "toggleDetailView": "Badilisha mwonekano wa maelezo",
+    "resetSearch": "Anzisha utafutaji upya",
+    "navigate": "Sogeza",
+    "select": "Chagua",
+    "close": "Funga",
+    "reset": "Anzisha upya",
+    "menu": "Menyu",
+    "onThisPage": "Katika ukurasa huu",
+    "previous": "Iliyotangulia",
+    "next": "Inayofuata",
+    "copy": "Nakili",
+    "copied": "Imenakiliwa",
+    "skipToContent": "Nenda kwenye maudhui",
+    "askInChatGPT": "Uliza katika ChatGPT",
+    "copyPageForLlms": "Nakili ukurasa kwa ajili ya LLM",
+    "lastUpdated": "Ilisasishwa mwisho:",
+    "codeGroup": "Kikundi cha msimbo",
+    "terminal": "Terminali",
+    "file": "Faili",
+    "noResultsFor": "Hakuna matokeo ya",
+    "top": "Juu",
+    "scrollToTop": "Rudi juu",
+    "pageNotFound": "Ukurasa haujapatikana",
+    "notFoundDescription": "Ukurasa uliokuwa unatafuta haujapatikana.",
+    "goHome": "Nenda kwenye ukurasa wa mwanzo",
+    "diagramScroll": "Sogeza upande kwa upande ili kuona mchoro mzima.",
+    "diagramError": "Mchoro haukuweza kuonyeshwa"
+  },
+  "legal": {
+    "translationTitle": "Tafsiri ya kwanza kwa ajili ya ukaguzi",
+    "translationNotice": "Tafsiri hii imetolewa ili kurahisisha usomaji. Masharti ya Kiingereza ndiyo maandishi asili na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo.",
+    "englishSource": "Soma Masharti ya Kiingereza"
+  },
+  "whitePaper": {
+    "translationTitle": "Kuhusu tafsiri hii",
+    "translationNotice": "Hii ni tafsiri ya kwanza ya Waraka Mweupe v0.8, iliyoandaliwa kwa ajili ya ukaguzi. Maandishi asili ya Kiingereza yalichapishwa tarehe 30 Septemba 2026. Tafsiri hii iliandaliwa tarehe 10 Oktoba 2026. Kiingereza ndicho chanzo cha maandishi.",
+    "englishSource": "Soma chanzo cha Kiingereza",
+    "archivedEnglishOnly": "PDF ya v0.7 iliyopitwa na wakati inapatikana kwa Kiingereza pekee."
+  }
+}

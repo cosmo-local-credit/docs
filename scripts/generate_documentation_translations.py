@@ -44,6 +44,7 @@ TRANSLATION_DATES = {
     "es": "9 October 2026",
     "it": "10 October 2026",
     "pt": "10 October 2026",
+    "sw": "10 October 2026",
 }
 UNCHANGED_NAMES = [
     "Cosmo-Local Credit",
@@ -65,6 +66,131 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "sw": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "Introduction": "Utangulizi",
+        "Protocol": "Itifaki",
+        "Governance": "Utawala",
+        "White Paper": "Waraka Mweupe",
+        "Getting started": "Kuanza",
+        "Concepts and vocabulary": "Dhana na msamiati",
+        "Example": "Mfano",
+        "History": "Historia",
+        "Overview": "Muhtasari",
+        "Smart contracts": "Mikataba mahiri",
+        "Network architecture": "Muundo wa mtandao",
+        "Governance mechanics": "Taratibu za utawala",
+        "Terms of Service": "Masharti ya Huduma",
+        "Executive summary": "Muhtasari mkuu",
+        "Commitment Pooling Protocol (CPP)": "Itifaki ya Kuunganisha Ahadi (CPP)",
+        "The accounting shift": "Mabadiliko ya uhasibu",
+        "Fulfillment, discharge & exchange": "Utekelezaji, ukomo na ubadilishaji",
+        "Reusable forward-style collateral": "Dhamana inayoweza kutumiwa tena",
+        "From isolated Pools to a federated network": "Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa",
+        "Proposed network liquidity & governance": "Ukwasi na utawala wa mtandao unaopendekezwa",
+        "Proposed governance assets": "Rasilimali za utawala zinazopendekezwa",
+        "Technical scope & growth": "Upeo wa kiufundi na ukuaji",
+        "Proposed liquidity-program economics": "Uchumi wa mpango wa ukwasi unaopendekezwa",
+        "Comprehensive risk framework": "Mfumo mpana wa hatari",
+        "Proposed liquidity-program term sheet": "Muhtasari wa masharti ya mpango wa ukwasi unaopendekezwa",
+        "Glossary": "Faharasa",
+        "Proposed KPI specification": "Maelezo yanayopendekezwa ya KPI",
+        "Roadmap": "Mpango wa utekelezaji",
+        "Values & evaluation template": "Kiolezo cha maadili na tathmini",
+        "Legal & compliance note": "Dokezo la kisheria na uzingatiaji",
+        "Conclusion": "Hitimisho",
+        "Math box": "Sanduku la hesabu",
+        "Fee waterfall": "Mgawanyo wa ada",
+        "KPI definitions": "Ufafanuzi wa KPI",
+        "Launch parameters": "Vigezo vya uzinduzi",
+        "Worked example": "Mfano uliofafanuliwa",
+        "Dataroom checklist": "Orodha ya ukaguzi wa chumba cha data",
+        "1. Commitment Pooling Protocol (CPP)": "1. Itifaki ya Kuunganisha Ahadi (CPP)",
+        "2. The accounting shift": "2. Mabadiliko ya uhasibu",
+        "3. Fulfillment, discharge & exchange": "3. Utekelezaji, ukomo na ubadilishaji",
+        "4. Reusable forward-style collateral": "4. Dhamana inayoweza kutumiwa tena",
+        "5. From isolated Pools to a federated network": "5. Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa",
+        "6. Proposed network liquidity & governance": "6. Ukwasi na utawala wa mtandao unaopendekezwa",
+        "7. Proposed governance assets": "7. Rasilimali za utawala zinazopendekezwa",
+        "8. Technical scope & growth": "8. Upeo wa kiufundi na ukuaji",
+        "9. Proposed liquidity-program economics": "9. Uchumi wa mpango wa ukwasi unaopendekezwa",
+        "10. Comprehensive risk framework": "10. Mfumo mpana wa hatari",
+        "11. Governance mechanics": "11. Taratibu za utawala",
+        "12. Proposed liquidity-program term sheet": "12. Muhtasari wa masharti ya mpango wa ukwasi unaopendekezwa",
+        "13. Glossary": "13. Faharasa",
+        "14. Proposed KPI specification": "14. Maelezo yanayopendekezwa ya KPI",
+        "15. Roadmap": "15. Mpango wa utekelezaji",
+        "16. Values & evaluation template": "16. Kiolezo cha maadili na tathmini",
+        "17. Legal & compliance note": "17. Dokezo la kisheria na uzingatiaji",
+        "18. Conclusion": "18. Hitimisho",
+        "Appendix A. Math box": "Kiambatisho A. Sanduku la hesabu",
+        "Appendix B. Fee waterfall": "Kiambatisho B. Mgawanyo wa ada",
+        "Appendix C. KPI definitions": "Kiambatisho C. Ufafanuzi wa KPI",
+        "Appendix D. Launch parameters": "Kiambatisho D. Vigezo vya uzinduzi",
+        "Appendix E. Worked example": "Kiambatisho E. Mfano uliofafanuliwa",
+        "Appendix F. Dataroom checklist": "Kiambatisho F. Orodha ya ukaguzi wa chumba cha data",
+        "Issuer": "Mtoaji",
+        "Holder": "Mmiliki",
+        "Steward": "Msimamizi wa Kikundi",
+        "Fulfillment": "Utekelezaji",
+        "Discharge": "Ukomo",
+        "Token": "Tokeni",
+        "Voucher": "Vocha",
+        "Wallet": "Mkoba",
+        "“Redeem”": "“Komboa”",
+        "“Retire voucher”": "“Staafisha vocha”",
+        "“Credit limit”": "“Kikomo cha mkopo”",
+        "“Credit limits”": "“Vikomo vya mkopo”",
+        "You": "Wewe",
+        "you": "wewe",
+        "User": "Mtumiaji",
+        "Search": "Tafuta",
+        "Close search dialog": "Funga dirisha la utafutaji",
+        "Toggle detail view": "Badilisha mwonekano wa maelezo",
+        "Reset search": "Anzisha utafutaji upya",
+        "Navigate": "Sogeza",
+        "Select": "Chagua",
+        "Close": "Funga",
+        "Reset": "Anzisha upya",
+        "Menu": "Menyu",
+        "On this page": "Katika ukurasa huu",
+        "Previous": "Iliyotangulia",
+        "Next": "Inayofuata",
+        "Copy": "Nakili",
+        "Copied": "Imenakiliwa",
+        "Skip to content": "Nenda kwenye maudhui",
+        "Ask in ChatGPT": "Uliza katika ChatGPT",
+        "Copy page for LLMs": "Nakili ukurasa kwa ajili ya LLM",
+        "Last updated:": "Ilisasishwa mwisho:",
+        "Code group": "Kikundi cha msimbo",
+        "Terminal": "Terminali",
+        "File": "Faili",
+        "No results for": "Hakuna matokeo ya",
+        "Top": "Juu",
+        "Scroll to top": "Rudi juu",
+        "Page not found": "Ukurasa haujapatikana",
+        "The page you were looking for could not be found.": "Ukurasa uliokuwa unatafuta haujapatikana.",
+        "Go to home page": "Nenda kwenye ukurasa wa mwanzo",
+        "Scroll horizontally to view the full diagram.": "Sogeza upande kwa upande ili kuona mchoro mzima.",
+        "The diagram could not be rendered": "Mchoro haukuweza kuonyeshwa",
+        "Convenience translation": "Tafsiri ya kwanza kwa ajili ya ukaguzi",
+        "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.": (
+            "Tafsiri hii imetolewa ili kurahisisha usomaji. Masharti ya Kiingereza ndiyo "
+            "maandishi asili na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo."
+        ),
+        "Read the English Terms": "Soma Masharti ya Kiingereza",
+        "About this translation": "Kuhusu tafsiri hii",
+        "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.": (
+            "Hii ni tafsiri ya kwanza ya Waraka Mweupe v0.8, iliyoandaliwa kwa ajili ya ukaguzi. "
+            "Maandishi asili ya Kiingereza yalichapishwa tarehe 30 Septemba 2026. Tafsiri hii "
+            "iliandaliwa tarehe 10 Oktoba 2026. Kiingereza ndicho chanzo cha maandishi."
+        ),
+        "Read the English source": "Soma chanzo cha Kiingereza",
+        "The superseded v0.7 PDF is available in English only.": "PDF ya v0.7 iliyopitwa na wakati inapatikana kwa Kiingereza pekee.",
+        "Email: `info@grassecon.org`": "Barua pepe: `info@grassecon.org`",
+        "Version 0.7 PDF": "PDF ya toleo la 0.7",
+        "SDK requirements.": "Mahitaji ya SDK.",
+    },
     "it": {
         "cosmolocal.credit": "cosmolocal.credit",
         "Introduction": "Introduzione",
@@ -860,6 +986,41 @@ def normalize_translation(source: str, value: str, locale: str) -> str:
                 value,
                 flags=re.IGNORECASE,
             )
+        return value
+
+    if locale == "sw":
+        def pool_term(match: re.Match[str]) -> str:
+            term = "Vikundi" if match.group(0).lower().endswith("s") else "Kikundi"
+            return term if match.group(0)[0].isupper() else term.lower()
+
+        value = re.sub(r"\bpools?\b", pool_term, value, flags=re.IGNORECASE)
+        value = re.sub(r"(?<!CLC )\bApp\b", "programu", value)
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "itifaki", value)
+        value = value.replace("cosmolocal.crediti", "cosmolocal.credit")
+        value = value.replace("Redeem”", "“Komboa”")
+        value = value.replace("Retire voucher”", "“Staafisha vocha”")
+        value = value.replace("Credit limit”", "“Kikomo cha mkopo”")
+        value = re.sub(r"\b(?:mabwawa|pools)\b", "Vikundi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\b(?:bwawa|dimbwi|puli|pool)\b", "Kikundi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bvikundi vya kujitolea\b", "Vikundi vya Ahadi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bkikundi cha kujitolea\b", "Kikundi cha Ahadi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bmhudumu wa kikundi\b", "Msimamizi wa Kikundi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bmsimamizi wa dimbwi\b", "Msimamizi wa Kikundi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bmsimamizi wa bwawa\b", "Msimamizi wa Kikundi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bmkoba wa fedha\b", "Mkoba", value, flags=re.IGNORECASE)
+        if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:vouchers?|kuponi)\b", "vocha", value, flags=re.IGNORECASE)
+        elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:voucher|kuponi)\b", "vocha", value, flags=re.IGNORECASE)
+        if re.search(r"\bissuer\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:mchapishaji|mtoaji wa fedha)\b", "Mtoaji", value, flags=re.IGNORECASE)
+        if re.search(r"\bfulfillment\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:utimizo|utimilifu)\b", "utekelezaji", value, flags=re.IGNORECASE)
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:kuachiliwa|kutolewa|kutokwa)\b", "ukomo", value, flags=re.IGNORECASE)
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bukombozi wa sasa\b", "uwasilishaji kwa ukombozi", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bnetwork rake\b", "sehemu ya mtandao", value, flags=re.IGNORECASE)
         return value
 
     if locale != "fr":

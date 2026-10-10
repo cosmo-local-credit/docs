@@ -1,0 +1,69 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Muundo wa mtandao wa Itifaki
+
+Utekelezaji unaolingana na CPP unaweza kuunganisha Vocha na Vikundi vingi kupitia rejesta za hiari, faharasa, moduli za makadirio na ugunduzi wa njia katika kiwango cha programu. Kila Kikundi hubaki hifadhi tofauti yenye ukwasi, mmiliki, msimamizi wa proksi, usanidi na vitegemezi vyake.
+
+Grassroots Economics Foundation huendesha programu ya umma kwenye [cosmolocal.credit](https://cosmolocal.credit). Violeshura na utekelezaji mwingine vinaweza kutumia itifaki hiyo hiyo ya umma. Kuendesha programu hakufanyi GEF moja kwa moja kuwa mmiliki, Mtoaji, Msimamizi, mpokeaji wa ada au mdhamini wa kila mkataba unaoonyeshwa hapa chini.
+
+Angalia [Dhana na msamiati](/sw/introduction/concepts) ili kuelewa tofauti kati ya majukumu yenye uwajibikaji na mamlaka za kiufundi.
+
+## Njia zinazowezekana na utekelezaji
+
+<MermaidDiagram
+  label="Ugunduzi wa njia zinazowezekana na utekelezaji wa kundi la miamala ya Mkoba"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Vocha A"] ---|imeorodheshwa na kuhifadhiwa| PoolA["Kikundi A"]
+    Bridge["Mali ya kati ya kawaida"] ---|imeorodheshwa na kuhifadhiwa| PoolA
+    Bridge ---|imeorodheshwa na kuhifadhiwa| PoolB["Kikundi B"]
+    VoucherB["Vocha B"] ---|imeorodheshwa na kuhifadhiwa| PoolB
+
+    App["PWA au kitafuta njia"] -. hugundua njia .-> Index["Rejesta na faharasa"]
+    App -. huomba makadirio .-> Router["SwapRouter: makadirio pekee"]
+    Router -. husoma makadirio ya Kikundi .-> PoolA
+    Router -. husoma makadirio ya Kikundi .-> PoolB
+
+    App -->|huunda miito kwa mpangilio| WalletStart["Mkoba wa smart-account wa mtumiaji"]
+    WalletStart -->|hatua ya 1: Vocha A| PoolA
+    PoolA -->|mali ya kati inayotoka| WalletBridge["Mkoba huohuo kati ya miito"]
+    WalletBridge -->|hatua ya 2: mali ya kati| PoolB
+    PoolB -->|Vocha B inayotoka| WalletFinal["Mkoba huohuo wa mtumiaji"]
+
+    PoolA -->|ada ya itifaki| ProtocolRecipient["Mpokeaji wa itifaki aliyesanidiwa"]
+    PoolB -->|ada ya itifaki| ProtocolRecipient`}
+/>
+
+Mali inayotumiwa pamoja huunda **njia inayowezekana kwenye grafu**, si njia yenye dhamana. Katika mfano huu, Vocha A inaweza kubadilishwa kuwa mali ya kati katika Kikundi A, kisha mali hiyo ikabadilishwa kuwa Vocha B katika Kikundi B. Kila hatua bado hutegemea kukubaliwa kwa tokeni wakati huo, mipaka ya Kikundi, mali zinazopatikana, usanidi wa makadirio na ada, hali ya oracle, idhini, mipaka ya muamala na utekelezaji wa mtandao.
+
+`SwapRouter` huita tu vitendaji vya makadirio vya Vikundi katika njia inayopendekezwa. Haihifadhi fedha, haiidhinishi tokeni wala kutekeleza ubadilishaji. Muunganishi au programu inayolingana inaweza kutumia makadirio hayo kuunda miito ya idhini na ya Kikundi kwa mpangilio ndani ya kundi lililosainiwa la smart-account; hii haimaanishi kuwa programu ya sasa ya umma hutoa utekelezaji wa hatua nyingi. Kila hatua hukamilishwa kwenda kwenye Mkoba kabla Mkoba huo haujatoa mali ya kati kwa Kikundi kinachofuata, na muunganishi anaweza kusanidi kundi lote litenguliwe ikiwa mwito mmoja utashindwa.
+
+Makadirio ni picha ya hali katika wakati fulani. Makadirio ya njia yaliyofaulu bado yanaweza kushindwa au kukamilika kwa matokeo tofauti ikiwa hali husika itabadilika kabla ya utekelezaji. Toleo lenye mipaka la `SwapPool.withdraw` huongeza ulinzi wa `minAmountOut` na `deadline` kwa hatua moja; waunganishi lazima waamue jinsi ya kutumia mipaka katika njia nzima.
+
+Ada za Kikundi hubaki katika Kikundi husika ili zikusanywe baadaye. Ada yoyote ya itifaki ni ya ziada na huhamishwa moja kwa moja kutoka Kikundi hicho kwenda kwa mpokeaji wa itifaki aliyesanidiwa wakati wa ubadilishaji.
+
+## Vipengele vya ndani vya Kikundi
+
+<MermaidDiagram
+  label="Vitegemezi vya Kikundi cha Ahadi na mamlaka za usimamizi"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Mmiliki wa mkataba au<br/>Msimamizi wa Kikundi"] -->|sanidi, funga, kusanya, toa| Pool["SwapPool<br/>hifadhi na ukamilishaji"]
+    ProxyAdmin["Msimamizi wa proksi<br/>ya ERC-1967"] -->|boresha utekelezaji| Pool
+    Dependencies["Vitegemezi vya hiari<br/>rejesta · limiter · quoter<br/>sera ya ada · kidhibiti cha ada ya itifaki<br/>kila kimoja na utawala wake"] -. taarifa za ukamilishaji .-> Pool
+    Seal["Nafasi tano zinazoweza kufungwa<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. hufunga anwani .-> Pool
+
+    Wallet["Mkoba wa mtumiaji"] -->|amana au ingizo la ubadilishaji| Pool
+    Pool -->|matokeo halisi ya ubadilishaji| Wallet
+    Pool -->|ada za Kikundi zilizokusanywa| FeeAddress["Anwani ya ada<br/>iliyosanidiwa"]
+    Pool -->|ada ya itifaki katika ubadilishaji huo| ProtocolRecipient["Mpokeaji wa<br/>itifaki"]
+    Pool -->|withdrawLiquidity| Destination["Mpokeaji aliyechaguliwa<br/>na mmiliki"]`}
+/>
+
+Rejesta, limiter, quoter, sera ya ada na kidhibiti cha ada ya itifaki ni za hiari. Bila rejesta, tokeni yoyote hupita ukaguzi wa kukubaliwa; bila limiter, amana hazina kikomo; bila quoter, Kikundi hutumia usawa wa vitengo ghafi; na bila moduli za ada, ada husika huwa sifuri.
+
+Nafasi tano zinazoweza kufungwa ni `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` na `tokenLimiter`. Kufunga nafasi humzuia mmiliki wa sasa wa Kikundi kubadilisha anwani hiyo kupitia setter yake, lakini hakufungi hali ya ndani ya kitegemezi. Anwani ya `protocolFeeController` na hali ya `feesDecoupled` hazijumuishwi katika nafasi hizo tano. Uwezo wa msimamizi wa proksi kuboresha Kikundi pia ni tofauti na kufunga nafasi.
+
+Mmiliki wa mkataba anaweza kutoa ukwasi unaopatikana wa Kikundi kwenda anwani iliyochaguliwa. Katika hali ya ada zilizotenganishwa, ada zilizokusanywa huhifadhiwa kutoka kwenye njia hiyo; mamlaka ya kutoa ukwasi uliobaki bado ipo. Washiriki wanapaswa kukagua mmiliki, msimamizi wa proksi, wadhibiti wa vitegemezi, hali ya nafasi zilizofungwa, wapokeaji wa ada na kanuni zilizochapishwa za Kikundi kabla ya kukitegemea.
+
+Kwa muundo wa dhana unaotegemeza mikataba hii—ikiwemo uratibu, uthamini, mipaka, ubadilishaji na utawala—angalia [Waraka Mweupe](/sw/white-paper).

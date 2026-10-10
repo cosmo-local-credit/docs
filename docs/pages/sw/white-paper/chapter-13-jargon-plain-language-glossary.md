@@ -1,0 +1,25 @@
+## **13. Faharasa ya lugha rahisi**
+
+- **Cosmo-Local Credit (CLC):** Familia ya bidhaa, ikiwa ni pamoja na CLC App, hati, na kazi pana ya kuunganisha ahadi.
+- **CLC App:** Programu ya maendeleo ya mtandao inayotumiwa na GEF katika `cosmolocal.credit`.
+- **itifaki ya Kuunganisha Wajibu (CPP):** Mfano unaoweza kutumiwa tena wa utunzaji, thamani, upungufu, kubadilishana, na utawala wenye uwajibikaji.
+- **Protocol v1.1.0:** Verified umma smart mkataba kutolewa.
+- **Kikundi cha Ahadi:** Mpango uliotawaliwa ambao unakubali mali zilizofadhiliwa na kuchapisha sheria za kubadilishana.
+- **`SwapPool`:** Hifadhi ya sasa ya ishara na mkataba wa kubadilishana moja kwa moja.
+- **Ishara:** Msaada katika mlolongo au mali ya digital. Uhandisi wa ishara peke yake hauwezi kutoa ahadi inayoweza kukombolewa.
+- **vocha:** Ishara au rekodi iliyowakilishwa na mtoaji kama ahadi inayoweza kufutwa chini ya masharti yaliyochapishwa.
+- **Utoaji:** Rekodi ya orodha ya bidhaa au huduma zinazohusiana na vocha.
+- **Mtoaji:** Mshiriki anayehusika na kuchapisha na kutimiza ahadi ya vocha.
+- **Msimamizi wa Kikundi:** Muundo wa kuwajibika ambao huchapisha na kusimamia sheria Kikundi.
+- **Kiwango cha kubadilishana fedha au nukuu:** Kiwango cha shughuli zinazozalishwa na quoter iliyowekwa; si uthibitisho wa fedha au thamani ya fidia.
+- **Kiwango cha juu cha usawa wa ishara za kikundi:** Maximum ya sasa ya `Limiter` kwa ishara inayomilikiwa na Kikundi. Programu inaweza kuweka lebo yake **“Kipimo cha mkopo.”**
+- **Kubadilishana kikundi:** Kubadilishana moja kwa moja mali kupitia moja `SwapPool`.
+- **Malipo ya kubadilishana:** Uhamisho juu ya mlolongo na uhasibu wa ada kukamilisha Kikundi swap.
+- **Utoaji wa fidia:** Kurudisha au kuwasilisha kwa njia nyingine vipande vya vocha kwa mtoaji.
+- **utekelezaji:** Mtoaji hutoa bidhaa, huduma, faida, au utendaji mwingine ulioahidiwa.
+- **Utoaji:** Rekodi ambayo inazuia vipande vilivyokamilika kutolewa tena.
+- **Mpangilio wa utekelezaji router:** Programu ya wakati ujao ambayo ingeidhinisha na kutekeleza njia. sasa `SwapRouter` quotes tu.
+- **Tumependekeza CLC Network Kikundi:** Mpango wa baadaye wa upimaji na uratibu wa bajeti kwa kiwango cha mtandao.
+- **Ilipendekezwa CLC utawala ishara:** Ubunifu wa utawala wa baadaye, si programu ya sasa au mali ya Protocol v1.1.0.
+- **Mtandao Rack:** Sehemu iliyopendekezwa ya ada za Jumuiya iliyohamishwa kwenye bajeti ya mtandao ya baadaye.
+- **Udhamini au bima:** Ulinzi ambao unatumika tu wakati mtu anayejulikana anapochukua kwa wazi, anafadhili, na kuchapisha.

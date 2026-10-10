@@ -19,8 +19,8 @@ reviewable web draft has been accepted.
 | — | French (`fr`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | — | Spanish (`es`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | — | Portuguese (`pt`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 1 | Italian (`it`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
-| 2 | Kiswahili (`sw`) | Complete | Queued | Pending | Pending | Pending | Deferred |
+| 1 | Italian (`it`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
+| 2 | Kiswahili (`sw`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
 | 3 | German (`de`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 4 | Ukrainian (`uk`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 5 | Serbian (`sr`) | Complete | Queued | Pending | Pending | Pending | Deferred |
@@ -51,6 +51,7 @@ until the current web draft passes validation and is accepted for release.
 | --- | --- | --- |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Locale registry unchanged; current core catalog terms remain aligned with the docs glossary. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Italian reviewed. The docs use the natural action label “Invia”; the app catalog currently uses the formal label “Invii”. Other core terms remain aligned. |
+| 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Kiswahili reviewed. The docs consistently use `Kikundi`, matching the established splash glossary and the app's primary labels; older app entries using `Puli` or `Bwawa` are treated as app catalog drift. Core actions remain `Tuma`, `Komboa`, and `Badilisha`. |
 
 ## Repeatable language workflow
 
@@ -85,22 +86,22 @@ For every language:
 - [x] Complete the priority-page clarity pass.
 - [x] Refresh the translation manifest and heading mappings.
 - [x] Pass all automated and visual validation.
-- [ ] Provide the review URLs and record user acceptance.
-- [ ] Add Italian to the released documentation set and commit the language.
+- [x] Provide the review URLs and record user acceptance.
+- [x] Add Italian to the released documentation set and commit the language.
 - [ ] Deploy and verify the Italian routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 2. Kiswahili (`sw`)
 
-- [ ] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Review natural community and economic terminology, especially whether the
+- [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
+- [x] Review natural community and economic terminology, especially whether the
       app-aligned Pool and Commitment Pool terms remain clear in longer prose.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Kiswahili navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Kiswahili navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass all automated and visual validation.
 - [ ] Provide the review URLs and record user acceptance.
 - [ ] Add Kiswahili to the released documentation set and commit the language.
 - [ ] Deploy and verify the Kiswahili routes.

@@ -9,7 +9,7 @@
     "check:i18n": "node scripts/check_locales.mjs",
     "i18n:headings": "node scripts/build_heading_map.mjs",
     "i18n:headings:check": "node scripts/build_heading_map.mjs --check",
-    "i18n:manifest": "node scripts/refresh_translation_manifest.mjs fr && node scripts/refresh_translation_manifest.mjs es && node scripts/refresh_translation_manifest.mjs pt && node scripts/refresh_translation_manifest.mjs it",
+    "i18n:manifest": "node scripts/refresh_translation_manifest.mjs fr && node scripts/refresh_translation_manifest.mjs es && node scripts/refresh_translation_manifest.mjs pt && node scripts/refresh_translation_manifest.mjs it && node scripts/refresh_translation_manifest.mjs sw",
     "i18n:protected": "node scripts/synchronize_protected_content.mjs",
     "i18n:catalogs": "node scripts/synchronize_locale_catalogs.mjs",
     "typecheck": "tsc --noEmit",

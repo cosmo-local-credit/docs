@@ -49,6 +49,16 @@
       "4-creare-o-valutare-un-fondo-di-impegni",
       "5-usare-lazione-corretta",
       "funzionalità-attuali-dipendenti-dallimplementazione-e-proposte"
+    ],
+    "sw": [
+      "kuanza",
+      "anza-na-programu-ya-sasa",
+      "1-vinjari-soko",
+      "2-unda-au-fungua-akaunti-na-mkoba",
+      "3-unda-vocha",
+      "4-unda-au-tathmini-kikundi-cha-ahadi",
+      "5-tumia-kitendo-sahihi",
+      "uwezo-wa-sasa-unaotegemea-utekelezaji-na-unaopendekezwa"
     ]
   },
   "/introduction/concepts": {
@@ -101,6 +111,16 @@
       "mercato-valori-limiti-e-commissioni",
       "protezioni-e-prove",
       "parole-che-indicano-lo-stato"
+    ],
+    "sw": [
+      "dhana-na-msamiati",
+      "vipengele-vya-bidhaa-na-itifaki",
+      "tokeni-vocha-na-matoleo",
+      "majukumu-yenye-uwajibikaji-na-udhibiti-wa-kiufundi",
+      "vitendo-na-mzunguko-wa-maisha",
+      "soko-thamani-mipaka-na-ada",
+      "ulinzi-na-ushahidi",
+      "maneno-ya-hali"
     ]
   },
   "/introduction/example": {
@@ -158,6 +178,17 @@
       "6-lemittente-registra-ladempimento-e-lo-estinzione",
       "responsabilità-in-un-primo-sguardo",
       "arrangimenti-di-credito-futuri"
+    ],
+    "sw": [
+      "mfano-wa-vitendo-wa-vocha",
+      "1-mtoaji-huchapisha-ahadi",
+      "2-msimamizi-wa-kikundi-anakubali-vocha",
+      "3-mshiriki-anachangia-mali",
+      "4-mmiliki-anabadilisha-kupitia-kikundi",
+      "5-mmiliki-anawasilisha-vocha",
+      "6-mtoaji-anarekodi-utekelezaji-na-ukomo",
+      "majukumu-kwa-muhtasari",
+      "mipango-ya-mkopo-ya-baadaye"
     ]
   },
   "/introduction/history": {
@@ -185,6 +216,11 @@
       "storia",
       "dal-storico-sarafu-network-al-cosmo-local-credit",
       "ulteriori-apprendimenti-in-economia-di-base"
+    ],
+    "sw": [
+      "historia",
+      "kutoka-sarafu-network-ya-kihistoria-hadi-cosmo-local-credit",
+      "kujifunza-zaidi-kutoka-grassroots-economics"
     ]
   },
   "/protocol/overview": {
@@ -212,6 +248,11 @@
       "protocollo",
       "modello-di-implementazione",
       "mappa-dei-componenti"
+    ],
+    "sw": [
+      "itifaki",
+      "mfumo-wa-utekelezaji",
+      "ramani-ya-vipengele"
     ]
   },
   "/protocol/smart-contracts": {
@@ -274,6 +315,18 @@
       "moduli-di-valutazione",
       "politica-delle-tasse-e-limiti",
       "controller-delle-commissioni-protocolli"
+    ],
+    "sw": [
+      "mikataba-mahiri",
+      "vocha-giftabletoken",
+      "kikundi-cha-ahadi-swappool",
+      "uundaji-na-utegemezi-wa-hiari",
+      "malipo-ya-kubadilishana",
+      "hesabu-ya-ada-ya-ziada",
+      "mamlaka-ya-wamiliki-na-kuboresha",
+      "moduli-za-kutathmini",
+      "sera-ya-ada-na-mipaka",
+      "mdhibitiji-wa-ada-ya-mkataba"
     ]
   },
   "/protocol/network": {
@@ -301,6 +354,11 @@
       "architettura-della-rete-del-protocollo",
       "percorsi-candidati-ed-esecuzione",
       "componenti-interni-del-fondo"
+    ],
+    "sw": [
+      "muundo-wa-mtandao-wa-itifaki",
+      "njia-zinazowezekana-na-utekelezaji",
+      "vipengele-vya-ndani-vya-kikundi"
     ]
   },
   "/governance/mechanics": {
@@ -338,6 +396,13 @@
       "strutture-di-governance-responsabili",
       "opzioni-di-governance-tecnica",
       "azione-dellinterfaccia-e-stato-in-catena"
+    ],
+    "sw": [
+      "taratibu-za-utawala",
+      "wajibu-kwa-kila-jukumu",
+      "miundo-ya-utawala-yenye-uwajibikaji",
+      "chaguo-za-utawala-wa-kiufundi",
+      "kitendo-cha-kiolesura-na-hali-kwenye-blockchain"
     ]
   },
   "/governance/terms": {
@@ -490,6 +555,36 @@
       "24-modifiche-alle-presenti-condizioni",
       "25-termini-generali",
       "26-contatto"
+    ],
+    "sw": [
+      "masharti-ya-huduma-ya-cosmo-local-credit",
+      "taarifa-muhimu",
+      "1-ufafanuzi",
+      "2-kukubali-na-upeo",
+      "3-ustahiki-na-mamlaka",
+      "4-akaunti-mikoba-na-usalama",
+      "5-jukumu-na-mipaka-ya-gef",
+      "6-wajibu-wako-wa-kisheria-na-udhibiti",
+      "7-tokeni-na-vocha-kwa-ujumla",
+      "8-kuunda-au-kutoa-token-au-vocha",
+      "9-uwasilishaji-kwa-ukombozi-utekelezaji-na-ukomo",
+      "10-kuunda-na-kuendesha-kikundi",
+      "11-kutumia-au-kuchangia-kikundi",
+      "12-swap-makadirio-ada-na-uelekezaji",
+      "13-mikopo-au-bidhaa-za-mkopo-za-baadaye",
+      "14-ada-kodi-na-huduma-za-malipo-ya-mtu-wa-tatu",
+      "15-mwenendo-uliokatazwa",
+      "16-maudhui-na-orodha-za-umma",
+      "17-takwimu-na-rekodi-za-elektroniki",
+      "18-mabadiliko-ya-huduma-kusimamishwa-na-kumalizika",
+      "19-hatari-hakuna-ushauri-wa-kitaalamu",
+      "20-dhamana-na-kanusho",
+      "21-kupunguza-wajibu",
+      "22-manleva",
+      "23-mabishano",
+      "24-mabadiliko-ya-masharti-haya",
+      "25-masharti-ya-jumla",
+      "26-mawasiliano"
     ]
   },
   "/white-paper": {
@@ -562,6 +657,20 @@
       "flusso-diretto-attuale-tramite-fondo",
       "modello-proposto-più-ampio",
       "mappa-per-il-lettore"
+    ],
+    "sw": [
+      "cosmo-local-credit-clc",
+      "mtandao-wa-kuelekeza-mikopo-kuratibu-ahadi-na-kufadhili-uchumi-wenye-afya-wa-kimataifa-na-kieneo",
+      "jinsi-ya-kusoma-waraka-huu",
+      "muhtasari",
+      "utekelezaji-wa-sasa",
+      "historia",
+      "mfumo-wa-muundo",
+      "maadili-na-kanuni-za-muundo",
+      "mitiririko-ya-sasa-na-inayopendekezwa",
+      "mtiririko-wa-sasa-wa-moja-kwa-moja-kupitia-kikundi",
+      "muundo-mpana-unaopendekezwa",
+      "mwongozo-wa-msomaji"
     ]
   },
   "/white-paper/executive-summary": {
@@ -579,6 +688,9 @@
     ],
     "it": [
       "sintesi"
+    ],
+    "sw": [
+      "muhtasari-mkuu"
     ]
   },
   "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
@@ -616,6 +728,13 @@
       "12-che-cosè-un-fondo-di-impegni",
       "13-logica-di-scambio-diretto-attuale",
       "14-uso-più-ampio"
+    ],
+    "sw": [
+      "1-itifaki-ya-kuunganisha-ahadi-cpp-msingi-mkuu",
+      "11-ahadi-ni-nini",
+      "12-kikundi-cha-ahadi-ni-nini",
+      "13-utendaji-wa-sasa-wa-ubadilishaji-wa-moja-kwa-moja",
+      "14-matumizi-makubwa-zaidi"
     ]
   },
   "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
@@ -633,6 +752,9 @@
     ],
     "it": [
       "2-il-cambiamento-contabile-dallattività-al-fiduciario"
+    ],
+    "sw": [
+      "2-mabadiliko-ya-uhasibu-kutoka-kwa-mali-hadi-uaminifu"
     ]
   },
   "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
@@ -650,6 +772,9 @@
     ],
     "it": [
       "3-attività-di-adempimento-estinzione-e-scambio"
+    ],
+    "sw": [
+      "3-utekelezaji-ukomo-na-ubadilishaji"
     ]
   },
   "/white-paper/chapter-04-reusable-forward-style-collateral": {
@@ -672,6 +797,10 @@
     "it": [
       "4-garanzia-riutilizzabile-di-tipo-forward",
       "41-ciclo-di-credito-del-produttore"
+    ],
+    "sw": [
+      "4-dhamana-inayoweza-kutumiwa-tena",
+      "41-mzunguko-wa-mkopo-wa-wazalishaji"
     ]
   },
   "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
@@ -719,6 +848,15 @@
       "53-modello-proposto-per-la-rete-e-per-le-tariffe-di-servizio",
       "531-ricevute-in-contanti-e-in-natura-ammissibili",
       "54-programmi-di-liquidità-proposti"
+    ],
+    "sw": [
+      "5-kutoka-vikundi-vilivyojitenga-hadi-mtandao-uliounganishwa",
+      "51-hatua-tofauti-za-kubadilishana-na-kutimiza",
+      "52-huduma-zinazopendekezwa-za-kuelekeza-na-kusawazisha-upya",
+      "521-shirikisho-na-ushirikiano-wa-mifumo",
+      "53-mfano-uliopendekezwa-wa-upungufu-wa-mtandao-na-ada-ya-huduma",
+      "531-malipo-yanayoweza-kulipwa-kwa-fedha-na-mapato-ya-aina",
+      "54-mipango-ya-upungufu-wa-fedha-iliyopendekezwa"
     ]
   },
   "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
@@ -741,6 +879,10 @@
     "it": [
       "6-proposta-di-liquidità-e-governance-a-livello-di-rete",
       "61-controlli-verso-il-basso-e-opzionalità"
+    ],
+    "sw": [
+      "6-ukwasi-na-utawala-unaopendekezwa-katika-kiwango-cha-mtandao",
+      "61-udhibiti-wa-chini-na-upendeleo"
     ]
   },
   "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
@@ -808,6 +950,19 @@
       "732-sclc-bilancio-e-controlli-facoltativi-di-flotta-esterna",
       "733-portfolio-fondi-e-attestati",
       "74-proposta-di-cascata-e-di-bilancio"
+    ],
+    "sw": [
+      "7-rasilimali-za-utawala-za-clc-zinazopendekezwa",
+      "71-kusudi",
+      "72-mfano-uliopendekezwa-wa-udhibiti-wa-mali",
+      "721-utoaji-na-usambazaji-wa-mfano",
+      "722-hatua-za-upatikanaji-na-utoaji",
+      "723-programu-iliyopendekezwa-ya-kupanda-kwa-athari",
+      "73-mpango-wa-kupiga-kura-vichocheo-na-upatikanaji-wa-ada",
+      "731-utekelezaji-wa-ada-ya-huduma-na-uchaguzi-wa-wasifu",
+      "732-sclc-bajeti-na-udhibiti-wa-float-ya-nje-ya-hiari",
+      "733-vifurushi-na-vyeti-vya-mkopo",
+      "74-mgawanyo-wa-bajeti-unaopendekezwa"
     ]
   },
   "/white-paper/chapter-08-technical-scope-growth": {
@@ -840,6 +995,12 @@
       "81-norme-proposte-per-il-servizio-di-rotta-e-sdk",
       "811-specifica-minima-di-compatibilità-con-la-confederazione",
       "82-licenza-verifica-e-uscita"
+    ],
+    "sw": [
+      "8-ufikiaji-wa-kiufundi-na-ukuaji",
+      "81-vipimo-vinavyopendekezwa-vya-huduma-ya-njia-na-sdk",
+      "811-maelezo-ya-chini-ya-utangamano-wa-muungano",
+      "82-utoaji-ruhusa-uthibitisho-na-kuondoka"
     ]
   },
   "/white-paper/chapter-09-economics-for-lps": {
@@ -872,6 +1033,12 @@
       "91-fonti-di-entrate-proposte",
       "92-matematica-grafica-illustrativa",
       "93-diritti-del-programma-di-liquidità"
+    ],
+    "sw": [
+      "9-uchumi-unaopendekezwa-wa-mipango-ya-ukwasi",
+      "91-chanzo-cha-mapato-kilichopendekezwa",
+      "92-mfano-wa-kihisabati-wa-sehemu-ya-mtandao",
+      "93-haki-za-programu-ya-upungufu-wa-fedha"
     ]
   },
   "/white-paper/chapter-10-comprehensive-risk-framework": {
@@ -944,6 +1111,20 @@
       "108-rischio-di-custodia-e-gestione-delle-chiavi",
       "109-rischio-sociale-e-reputazione",
       "1010-rischio-di-concentrazione-e-frammentazione"
+    ],
+    "sw": [
+      "10-mfumo-mpana-wa-hatari",
+      "101-hatari-za-itifaki-na-mikataba-mahiri",
+      "102-hatari-za-kiuchumi-na-za-soko",
+      "103-hatari-ya-mtoaji-na-vocha",
+      "104-hatari-za-uwasilishaji-kwa-ukombozi-na-utekelezaji",
+      "105-hatari-ya-utawala",
+      "106-hatari-za-kisheria-na-uzingatiaji",
+      "1061-mahali-pa-kisheria-na-matumizi-ya-tokeni-inayopendekezwa",
+      "107-hatari-za-uelekezaji-na-ukamilishaji-wa-hatua-nyingi",
+      "108-hatari-ya-ulinzi-na-usimamizi-wa-ufunguo",
+      "109-sifa-na-hatari-ya-kijamii",
+      "1010-hatari-ya-mkusanyiko-na-kugawanyika"
     ]
   },
   "/white-paper/chapter-11-governance-mechanics": {
@@ -986,6 +1167,14 @@
       "113-quadro-di-garanzia",
       "114-garda-anti-cattura",
       "115-procedura-per-la-forca-e-luscita"
+    ],
+    "sw": [
+      "11-taratibu-za-utawala",
+      "111-utawala-wa-kiwango-cha-ubadilishaji-na-kikomo",
+      "112-kusudi-la-mfuko-wa-fedha-za-bima",
+      "113-mfumo-wa-udhamini",
+      "114-vituo-vya-kulinda-dhidi-ya-kukamata",
+      "115-utaratibu-wa-fork-na-kutoka"
     ]
   },
   "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
@@ -1003,6 +1192,9 @@
     ],
     "it": [
       "12-scheda-terminale-del-programma-di-liquidità-proposta-conto-non-vincolante"
+    ],
+    "sw": [
+      "12-muhtasari-wa-masharti-ya-mpango-wa-ukwasi-unaopendekezwa-hauwajibishi"
     ]
   },
   "/white-paper/chapter-13-jargon-plain-language-glossary": {
@@ -1020,6 +1212,9 @@
     ],
     "it": [
       "13-glossario-in-lingua-semplice"
+    ],
+    "sw": [
+      "13-faharasa-ya-lugha-rahisi"
     ]
   },
   "/white-paper/chapter-14-kpis-health-indicators": {
@@ -1037,6 +1232,9 @@
     ],
     "it": [
       "14-i-kpi-e-gli-indicatori-di-salute-proposti"
+    ],
+    "sw": [
+      "14-kpi-zilizopendekezwa-na-viashiria-vya-afya"
     ]
   },
   "/white-paper/chapter-15-roadmap-indicative": {
@@ -1064,6 +1262,11 @@
       "15-mappa-di-marcia-indicativa",
       "151-fondamento-attuale",
       "152-pietra-miliare-proposta"
+    ],
+    "sw": [
+      "15-mpango-wa-utekelezaji-wa-kuonyesha-mwelekeo",
+      "151-msingi-wa-sasa",
+      "152-hatua-zinazopendekezwa"
     ]
   },
   "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
@@ -1081,6 +1284,9 @@
     ],
     "it": [
       "16-modello-di-valutazione-proposto"
+    ],
+    "sw": [
+      "16-mfano-uliopendekezwa-wa-tathmini"
     ]
   },
   "/white-paper/chapter-17-legal-compliance-note": {
@@ -1118,6 +1324,13 @@
       "172-divulgazioni-del-fondo",
       "173-azioni-e-obblighi",
       "174-protezioni-prove-e-leggi-locali"
+    ],
+    "sw": [
+      "17-dokezo-la-kisheria-na-uzingatiaji",
+      "171-ufafanuzi-wa-vocha-na-ofa",
+      "172-kufunuliwa-kwa-hazina",
+      "173-hatua-na-majukumu",
+      "174-ulinzi-uthibitisho-na-sheria-za-mitaa"
     ]
   },
   "/white-paper/chapter-18-conclusion": {
@@ -1135,6 +1348,9 @@
     ],
     "it": [
       "18-conclusione"
+    ],
+    "sw": [
+      "18-hitimisho"
     ]
   },
   "/white-paper/appendix-a-math-box": {
@@ -1172,6 +1388,13 @@
       "misure-di-adempimento-basate-su-coorte",
       "misure-di-velocità-distinte",
       "rivenuti-della-rete-proposti"
+    ],
+    "sw": [
+      "a-mfano-uliopendekezwa-wa-kipimo-na-ada",
+      "maelezo-ya-tukio-na-hisa",
+      "hatua-za-utekelezaji-kwa-msingi-wa-vikundi",
+      "vipimo-tofauti-vya-kasi",
+      "mapendekezo-ya-mapato-ya-mtandao"
     ]
   },
   "/white-paper/appendix-b-fee-waterfall": {
@@ -1189,6 +1412,9 @@
     ],
     "it": [
       "b-cascata-illustrativa-delle-tasse-future"
+    ],
+    "sw": [
+      "b-mgawanyo-wa-ada-unaopendekezwa"
     ]
   },
   "/white-paper/appendix-c-kpi-definitions": {
@@ -1206,6 +1432,9 @@
     ],
     "it": [
       "c-proposte-definizioni-di-kpi"
+    ],
+    "sw": [
+      "c-ufafanuzi-unaopendekezwa-wa-kpi"
     ]
   },
   "/white-paper/appendix-d-launch-parameters": {
@@ -1223,6 +1452,9 @@
     ],
     "it": [
       "d-parametri-di-lancio-proposti"
+    ],
+    "sw": [
+      "d-vipimo-vinavyopendekezwa-vya-uzinduzi"
     ]
   },
   "/white-paper/appendix-e-worked-example": {
@@ -1240,6 +1472,9 @@
     ],
     "it": [
       "--e-esempio-di-lavoro--rassegna-di-rete-proposta"
+    ],
+    "sw": [
+      "e-mfano-uliofafanuliwa--sehemu-ya-mtandao-inayopendekezwa"
     ]
   },
   "/white-paper/appendix-f-dataroom-checklist": {
@@ -1257,6 +1492,9 @@
     ],
     "it": [
       "f-lista-di-controllo-delle-stanze-dati"
+    ],
+    "sw": [
+      "f-orodha-ya-ukaguzi-wa-chumba-cha-data"
     ]
   },
   "/white-paper/archive": {
@@ -1279,6 +1517,10 @@
     "it": [
       "archivio-del-libro-bianco",
       "versione-superficiale"
+    ],
+    "sw": [
+      "kumbukumbu-ya-waraka-mweupe",
+      "toleo-lililopitwa-na-wakati"
     ]
   }
 }
