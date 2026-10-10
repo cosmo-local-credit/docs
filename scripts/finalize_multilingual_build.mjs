@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { mkdir } from 'node:fs/promises'
 import { join, relative, resolve, sep } from 'node:path'
+import { runInNewContext } from 'node:vm'
 import MiniSearch from 'minisearch'
 
 const root = resolve(import.meta.dirname, '..')
@@ -123,6 +124,61 @@ function finalizeHtml() {
   }
 }
 
+function validateLocaleBootstrap() {
+  const html = readFileSync(join(dist, 'index.html'), 'utf8')
+  const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)].map(
+    (match) => match[1],
+  )
+  const bootstrap = scripts.find((script) => script.includes('clc.docs.locale'))
+  if (!bootstrap) throw new Error('Built root page is missing the locale bootstrap script')
+
+  const cases = [
+    { languages: ['zh-TW'], expected: '/zh-Hant/' },
+    { languages: ['zh-Hant'], expected: '/zh-Hant/' },
+    { languages: ['zh-Hans-TW'], expected: '/zh/' },
+    { languages: ['zh-Hant-CN'], expected: '/zh-Hant/' },
+    { languages: ['zh-CN'], expected: '/zh/' },
+    { languages: ['tl-PH'], expected: '/fil/' },
+    { languages: ['sw-KE'], expected: '/sw/' },
+    { languages: ['ja-JP', 'zh-HK'], expected: '/zh-Hant/' },
+    { languages: ['ja-JP'], expected: null },
+    { languages: ['ar-EG'], stored: 'fr', expected: '/fr/' },
+  ]
+
+  for (const testCase of cases) {
+    let destination = null
+    const location = {
+      hash: '',
+      pathname: '/',
+      search: '',
+      replace(value) {
+        destination = value
+      },
+    }
+    runInNewContext(bootstrap, {
+      document: { documentElement: { dir: '', lang: '' } },
+      localStorage: {
+        getItem(key) {
+          return key === 'clc.docs.locale' ? (testCase.stored ?? null) : null
+        },
+      },
+      location,
+      navigator: {
+        language: testCase.languages[0] ?? '',
+        languages: testCase.languages,
+      },
+      sessionStorage: { getItem: () => null },
+    })
+    if (destination !== testCase.expected) {
+      throw new Error(
+        `Locale bootstrap routed ${testCase.languages.join(', ')} to ${destination ?? 'English'}; expected ${testCase.expected ?? 'English'}`,
+      )
+    }
+  }
+
+  console.log(`Verified locale bootstrap routing for ${cases.length} browser-language cases.`)
+}
+
 function buildSearchIndexes() {
   const searchDir = join(dist, '.vocs')
   const sourceName = readdirSync(searchDir).find((name) => /^search-index-[a-f0-9]{8}\.json$/.test(name))
@@ -221,6 +277,7 @@ async function buildLlmsFiles() {
 }
 
 finalizeHtml()
+validateLocaleBootstrap()
 buildSearchIndexes()
 validateHeadingAnchors()
 await buildLlmsFiles()

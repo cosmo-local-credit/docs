@@ -57,8 +57,32 @@ const localeBootstrap = `(() => {
   } catch {}
   if (!preferred) {
     const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    const simplifiedChineseRegions = new Set(['cn', 'sg', 'my']);
+    const traditionalChineseRegions = new Set(['tw', 'hk', 'mo']);
     for (const tag of browserLanguages) {
-      const primary = String(tag || '').trim().split(/[-_]/)[0].toLowerCase();
+      const parts = String(tag || '')
+        .trim()
+        .replace(/_/g, '-')
+        .toLowerCase()
+        .split('-')
+        .filter(Boolean);
+      const primary = parts[0];
+      if (primary === 'zh') {
+        if (parts.length === 1) { preferred = 'zh'; break; }
+        const script = parts.slice(1).find((part) => part === 'hans' || part === 'hant');
+        if (script === 'hans') { preferred = 'zh'; break; }
+        if (script === 'hant') { preferred = 'zh-Hant'; break; }
+        if (parts.some((part) => traditionalChineseRegions.has(part))) {
+          preferred = 'zh-Hant';
+          break;
+        }
+        if (parts.some((part) => simplifiedChineseRegions.has(part))) {
+          preferred = 'zh';
+          break;
+        }
+        continue;
+      }
+      if (primary === 'tl') { preferred = 'fil'; break; }
       if (supported.includes(primary)) { preferred = primary; break; }
     }
   }

@@ -84,7 +84,8 @@ function localizeInternalLinks(locale: SupportedLocale) {
     }
     if (url.origin !== window.location.origin || !isKnownDocumentationPath(url.pathname)) return
     const nextPath = localizedPath(url.pathname, locale)
-    link.setAttribute('href', `${nextPath}${url.search}${url.hash}`)
+    const nextHref = `${nextPath}${url.search}${url.hash}`
+    if (rawHref !== nextHref) link.setAttribute('href', nextHref)
   })
 }
 
@@ -92,10 +93,12 @@ function replaceExactText(root: ParentNode, source: string, target: string) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
   let node = walker.nextNode()
   while (node) {
-    if (node.textContent?.trim() === source) {
-      const leading = node.textContent.match(/^\s*/)?.[0] ?? ''
-      const trailing = node.textContent.match(/\s*$/)?.[0] ?? ''
-      node.textContent = `${leading}${target}${trailing}`
+    const current = node.textContent
+    if (current?.trim() === source) {
+      const leading = current.match(/^\s*/)?.[0] ?? ''
+      const trailing = current.match(/\s*$/)?.[0] ?? ''
+      const next = `${leading}${target}${trailing}`
+      if (current !== next) node.textContent = next
     }
     node = walker.nextNode()
   }
@@ -156,28 +159,35 @@ function localizeChrome(locale: SupportedLocale) {
     .forEach((element) => {
     const value = element.getAttribute('aria-label')
     const replacement = replacements.find(([source]) => source === value)?.[1]
-    if (replacement) element.setAttribute('aria-label', replacement)
+    if (replacement && replacement !== value) element.setAttribute('aria-label', replacement)
     })
   document.querySelectorAll<HTMLInputElement>('input[type="search"]').forEach((input) => {
-    input.lang = locale
-    input.placeholder = chrome.search
-    input.setAttribute('aria-label', chrome.search)
+    if (input.lang !== locale) input.lang = locale
+    if (input.placeholder !== chrome.search) input.placeholder = chrome.search
+    if (input.getAttribute('aria-label') !== chrome.search) {
+      input.setAttribute('aria-label', chrome.search)
+    }
   })
   document.querySelectorAll<HTMLButtonElement>('button[class*="DesktopSearch_search"]').forEach(
     (button) => {
-      button.lang = locale
+      if (button.lang !== locale) button.lang = locale
       replaceExactText(button, 'Search...', `${chrome.search}...`)
     },
   )
   document.querySelectorAll<HTMLElement>('[role="dialog"]').forEach((dialog) => {
-    if (dialog.querySelector('input[type="search"]')) dialog.lang = locale
+    if (dialog.querySelector('input[type="search"]') && dialog.lang !== locale) {
+      dialog.lang = locale
+    }
   })
 
   const noResultsPattern = /^No results for\s+[“\"]?(.*?)[”\"]?$/
   document.querySelectorAll<HTMLElement>('[role="dialog"] li').forEach((item) => {
     const value = item.textContent?.trim() ?? ''
     const match = value.match(noResultsPattern)
-    if (match) item.textContent = `${chrome.noResultsFor} “${match[1]}”`
+    if (match) {
+      const next = `${chrome.noResultsFor} “${match[1]}”`
+      if (item.textContent !== next) item.textContent = next
+    }
   })
 
   localizeInternalLinks(locale)
@@ -271,9 +281,16 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
   }, [])
 
   useEffect(() => {
-    const update = () => localizeChrome(locale)
+    let frame: number | null = null
+    const update = () => {
+      if (frame !== null) return
+      frame = window.requestAnimationFrame(() => {
+        frame = null
+        localizeChrome(locale)
+      })
+    }
     const observer = new MutationObserver(update)
-    update()
+    localizeChrome(locale)
     observer.observe(document.body, {
       attributeFilter: ['aria-label', 'placeholder'],
       attributes: true,
@@ -281,7 +298,10 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
       characterData: true,
       subtree: true,
     })
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (frame !== null) window.cancelAnimationFrame(frame)
+    }
   }, [locale])
 
   function selectTheme(nextTheme: Theme) {
