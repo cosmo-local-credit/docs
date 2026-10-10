@@ -1,0 +1,73 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# 協議網路架構
+
+相容 CPP 的部署可以透過可選的登錄檔、索引、報價模組和應用層路徑發現功能，連線多個代金券與資金池。每個資金池仍是獨立的保管庫，擁有自己的流動性、所有者、代理管理員、配置和依賴項。
+
+Grassroots Economics Foundation 在 [cosmolocal.credit](https://cosmolocal.credit) 運營公開的 CLC App。其他介面和部署也可以使用同一套公開協議。運營該應用並不會自動使 GEF 成為下圖每份合約的所有者、發行方、資金池管理者、費用接收方或擔保人。
+
+有關責任角色與技術許可權之間的區別，請參閱 [概念和術語](/zh-Hant/introduction/concepts)。
+
+## 候選路徑與執行
+
+<MermaidDiagram
+  scrollMessage="橫向滾動以檢視完整圖表。"
+  errorMessage="無法渲染圖表"
+  label="候選路徑發現與錢包批次執行"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["代金券 A"] ---|上架並持有| PoolA["資金池 A"]
+    Bridge["通用橋接資產"] ---|上架並持有| PoolA
+    Bridge ---|上架並持有| PoolB["資金池 B"]
+    VoucherB["代金券 B"] ---|上架並持有| PoolB
+
+    App["PWA 或路徑查詢器"] -. 發現候選路徑 .-> Index["登錄檔與索引"]
+    App -. 請求報價 .-> Router["SwapRouter：僅提供報價"]
+    Router -. 讀取資金池報價 .-> PoolA
+    Router -. 讀取資金池報價 .-> PoolB
+
+    App -->|構建有序呼叫| WalletStart["使用者智慧賬戶錢包"]
+    WalletStart -->|第 1 跳：代金券 A| PoolA
+    PoolA -->|橋接資產輸出| WalletBridge["呼叫之間使用同一錢包"]
+    WalletBridge -->|第 2 跳：橋接資產| PoolB
+    PoolB -->|代金券 B 輸出| WalletFinal["同一使用者錢包"]
+
+    PoolA -->|協議費| ProtocolRecipient["已配置的協議費接收方"]
+    PoolB -->|協議費| ProtocolRecipient`}
+/>
+
+共享資產可以形成一條 **可能的圖路徑**，但不保證路徑一定可用。在這個例子中，代金券 A 可以先在資金池 A 中換成橋接資產，再由橋接資產在資金池 B 中換成代金券 B。每一跳仍取決於當時的代幣准入、資金池限制、可用庫存、報價與費用配置、預言機狀態、授權、交易邊界以及網路執行情況。
+
+`SwapRouter` 只會沿擬議路徑呼叫各資金池的報價函式。它不持有資金、不批准代幣，也不執行交換。整合方或相容應用可以利用這些報價，在一筆已簽名的智慧賬戶批處理中構建有序的授權和資金池呼叫；這並不表示當前公開的 CLC App 已提供多跳執行。每一跳都會先結算到錢包，再由該錢包把中間資產提供給下一個資金池。整合方還可以把批處理配置為在某次呼叫失敗時整體回滾。
+
+報價只是某一時點的快照。如果執行前相關狀態發生變化，即使路徑報價成功，交易仍可能失敗或以不同結果結算。帶邊界引數的 `SwapPool.withdraw` 過載為單獨一跳提供 `minAmountOut` 和 `deadline` 保護；整合方必須自行決定如何對整條路徑應用邊界。
+
+資金池費用保留在相應資金池中，之後再收取。協議費如已配置，則是在資金池費用之外額外收取，並在交換過程中直接從該資金池轉給其協議費接收方。
+
+## 資金池內部結構
+
+<MermaidDiagram
+  scrollMessage="橫向滾動以檢視完整圖表。"
+  errorMessage="無法渲染圖表"
+  label="承諾資金池的依賴項與管理許可權"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["合約所有者或<br/>資金池管理者"] -->|配置、封存、收取、提取| Pool["SwapPool<br/>保管庫與結算"]
+    ProxyAdmin["ERC-1967<br/>代理管理員"] -->|升級實現| Pool
+    Dependencies["可選依賴項<br/>registry · limiter · quoter<br/>費用政策 · 協議費控制器<br/>各自擁有獨立治理"] -. 結算輸入 .-> Pool
+    Seal["五個可封存的地址槽位<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. 鎖定地址 .-> Pool
+
+    Wallet["使用者錢包"] -->|存入或交換輸入| Pool
+    Pool -->|交換淨輸出| Wallet
+    Pool -->|已收取的資金池費用| FeeAddress["已配置的<br/>費用地址"]
+    Pool -->|同一交換中的協議費| ProtocolRecipient["協議費<br/>接收方"]
+    Pool -->|withdrawLiquidity| Destination["所有者選擇的<br/>接收方"]`}
+/>
+
+登錄檔、限制器、報價器、費用政策和協議費控制器都是可選的。未配置登錄檔時，任何代幣都能透過准入檢查；未配置限制器時，存入不設上限；未配置報價器時，資金池按原始單位的一比一關係處理；未配置費用模組時，相應費用為零。
+
+五個可封存槽位是 `feePolicy`、`feeAddress`、`quoter`、`tokenRegistry` 和 `tokenLimiter`。封存會阻止當前資金池所有者透過設定函式替換該地址，但不會凍結依賴合約的內部狀態。`protocolFeeController` 地址和 `feesDecoupled` 模式不受這五個封存位控制。代理管理員升級資金池實現的許可權也獨立於封存機制。
+
+合約所有者可以把可用的資金池流動性提取到其選擇的地址。在費用解耦模式下，已累積費用會從該提取路徑中預留；所有者仍可提取其餘流動性。參與者在依賴某個資金池前，應檢查其所有者、代理管理員、依賴項控制者、封存狀態、費用接收方以及公佈的資金池規則。
+
+有關這些合約背後的概念設計，包括篩選、估值、限制、交換和治理，請參閱 [白皮書](/zh-Hant/white-paper)。

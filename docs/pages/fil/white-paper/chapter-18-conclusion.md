@@ -1,0 +1,5 @@
+## **18. Konklusyon**
+
+Pinag-uugnay ng Cosmo-Local Credit ang kasalukuyang application at pundasyon ng Protocol v1.1.0 sa mas malawak na iminungkahing disenyo para sa mga Pool ng Pangako na malayang pinamamahalaan. Maaaring suportahan ng kasalukuyang direktang palitan sa Pool, quote at limit component, at pampublikong transaction record ang may-pananagutang palitan. Ngunit hindi nila pinatutunayan ang pagtupad ng tagapag-isyu, lumilikha ng karapatan ng contributor, o ginagarantiya ang halaga, liquidity, pagtubos, insurance, legal status, o proteksiyon laban sa pagkalugi.
+
+Mangangailangan ng hiwalay na implementation, pondo, governance, at inilathalang tuntunin ang iminungkahing execution routing, netting, governance asset, network clearing, liquidity program, at shared protection na inilalarawan sa papel na ito. Layunin ng disenyo na palawakin ang interoperability habang nananatili sa mga tinukoy na partido ang performance ng tagapag-isyu, pamamahala ng Pool, at pananagutan sa totoong buhay.

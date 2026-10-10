@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Tinutulungan ng Cosmo-Local Credit ang mga tao at organisasyon na suportahan, ibahagi, at ipagpalit ang mga produkto at serbisyo."
+  },
+  "controls": {
+    "language": "Wika",
+    "search": "Maghanap",
+    "colorTheme": "Tema ng kulay",
+    "lightMode": "Gamitin ang maliwanag na tema",
+    "darkMode": "Gamitin ang madilim na tema"
+  },
+  "englishDocsNotice": "Ang detalyadong dokumentasyon at paghahanap ay kasalukuyang makukuha sa Ingles.",
+  "overview": {
+    "paragraphs": [
+      "Tinutulungan ng Cosmo-Local Credit ang mga tao at organisasyon na suportahan, ibahagi, at ipagpalit ang mga produkto at serbisyo.",
+      "Maaaring ilarawan ng sinuman ang kanilang inaalok, kung para kanino ito, at ang mga kondisyon sa paggamit nito. Maaaring pagsama-samahin ang mga alok na ito sa isang pinagkakatiwalaang network, kaya mas madaling maghanap, makipagpalitan, at sumuporta sa mga kapaki-pakinabang na produkto at serbisyo sa loob ng isang komunidad o sa iba’t ibang lugar."
+    ],
+    "resourceLabel": "Mga sanggunian ng Cosmo-Local Credit",
+    "actions": {
+      "openApp": "Buksan ang app",
+      "about": "Tungkol dito",
+      "getStarted": "Magsimula",
+      "protocol": "Protokol",
+      "whitePaper": "White Paper"
+    },
+    "cards": [
+      {
+        "title": "Gumawa ng mga voucher",
+        "description": "Gumawa ng voucher upang ipakilala ang iyong mga produkto o serbisyo. Maglagay ng malinaw na tuntunin upang malaman ng mga tao kung ano ang inaalok nito at paano ito gagamitin."
+      },
+      {
+        "title": "Makipagpalitan sa pamamagitan ng mga Pool",
+        "description": "Ang Pool ng Pangako ay isang piniling lugar para sa pagpapalitan ng mga suportadong voucher. Pinipili ng Tagapangasiwa nito ang mga voucher na sinusuportahan at inilalathala ang mga patakaran nito."
+      },
+      {
+        "title": "Ibahagi at gamitin ang mga voucher",
+        "description": "Magpadala ng mga voucher sa ibang tao, ipagpalit ang mga suportadong voucher sa pamamagitan ng isang Pool, o gamitin ang mga ito sa kanilang tagapag-isyu."
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "Pagbibigay-lakas sa mga komunidad sa pamamagitan ng",
+    "titleAccent": "pagsasama-sama ng mga pangako",
+    "lead": "Pinagsasama ng commitment pooling ang mga piniling voucher sa mga pinamamahalaang marketplace kung saan maaaring magpalitan ang mga komunidad. Pagkatapos, magagamit ng mga tao ang mga voucher para sa mga produkto o serbisyong nakasaad sa mga tuntunin nito.",
+    "networkAlt": "Larawan ng mga komunidad na nag-uugnayan sa pamamagitan ng mga voucher at Pool",
+    "videoLabel": "Tingnan kung paano gumagana ang commitment pooling",
+    "videoTitle": "Tingnan kung paano gumagana ang commitment pooling",
+    "statistics": {
+      "vouchers": "Natatanging aktibong mga voucher",
+      "pools": "Natatanging aktibong mga Pool ng Pangako",
+      "users": "Mga gumagamit",
+      "exchanges": "Mga palitan sa pagitan ng mga gumagamit",
+      "source": "Makasaysayang aktibidad ng Sarafu Network, 5 Hulyo 2023 hanggang 20 Hulyo 2025.",
+      "sourceLink": "Tingnan ang pinagmulang datos."
+    }
+  },
+  "audiences": {
+    "heading": "Ano ang gusto mong gawin?",
+    "intro": "Gumawa o mamahala ng Pool, ipakilala ang mga produkto o serbisyo gamit ang voucher, magpalitan at gumamit ng mga voucher, o sumuporta sa isang Pool.",
+    "navLabel": "Galugarin ang Cosmo-Local Credit ayon sa tungkulin",
+    "roles": [
+      { "title": "Mga Tagapangasiwa ng Pool", "description": "Gusto kong gumawa o mamahala ng Pool" },
+      { "title": "Mga gumagawa ng voucher", "description": "Gusto kong ipakilala ang mga produkto o serbisyo gamit ang voucher" },
+      { "title": "Mga gumagamit ng voucher", "description": "Gusto kong maghanap, magpadala, magpalitan, o gumamit ng mga voucher" },
+      { "title": "Mga tagasuporta", "description": "Gusto kong sumuporta sa isang Pool ng Pangako" }
+    ]
+  },
+  "howItWorks": {
+    "label": "Paano ito gumagana",
+    "imageAlt": "Paggawa at pagpapalitan ng mga voucher sa pamamagitan ng isang Pool",
+    "steps": [
+      {
+        "title": "Gumawa ng voucher",
+        "description": "Ilarawan ang iyong mga produkto o serbisyo at ipaliwanag kung paano magagamit ng mga tao ang voucher."
+      },
+      {
+        "title": "Bumuo ng pinamamahalaang Pool",
+        "description": "Pinipili ng Tagapangasiwa ng Pool ang mga voucher na maaaring ipagpalit ng mga tao at inilalathala ang mga patakaran ng Pool."
+      },
+      {
+        "title": "Magpadala o makipagpalitan",
+        "description": "Direktang magpadala ng mga voucher sa ibang tao o ipagpalit ang mga suportadong voucher sa pamamagitan ng isang Pool."
+      },
+      {
+        "title": "Gamitin ang voucher",
+        "description": "Gamitin ito sa tagapag-isyu nito para sa mga produkto o serbisyong nakasaad sa mga tuntunin nito."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Mga Tagapangasiwa ng Pool",
+      "tagline": "Gumawa at mamahala ng Pool.",
+      "description": "Gumagawa ang Tagapangasiwa ng Pool ng pinamamahalaang marketplace para sa mga voucher. Pinipili ng Tagapangasiwa kung aling mga voucher ang sinusuportahan ng Pool, inilalathala ang mga patakaran, limitasyon, at bayarin nito, at pinananatiling napapanahon ang impormasyon. Maaaring isang tao, organisasyon, o ibang may pananagutang grupo ang Tagapangasiwa.",
+      "imageAlt": "Mga kamay na naglalagay ng butil sa isang pinagsasaluhang mangkok",
+      "cardTitle": "Gumawa ng Pool",
+      "items": [
+        "Ilarawan ang layunin ng Pool",
+        "Piliin ang mga voucher na sinusuportahan nito",
+        "Ilathala ang mga patakaran sa palitan, limitasyon, at bayarin nito",
+        "Ibahagi ang Pool sa iba",
+        "Panatilihing napapanahon ang impormasyon nito"
+      ],
+      "cta": "Gumawa ng Pool"
+    },
+    {
+      "title": "Mga gumagawa ng voucher",
+      "tagline": "Ipakilala ang iyong mga produkto o serbisyo.",
+      "description": "Gumawa ng voucher para sa iyong inaalok at maglathala ng malinaw na tuntunin. Kapag gumawa ka ng voucher, ikaw ang tagapag-isyu nito. Pananagutan mong ibigay ang ipinapangako ng voucher.",
+      "imageAlt": "Mga taong nagtataas ng kamay upang ibahagi ang kanilang inaalok",
+      "cardTitle": "Gumawa ng voucher",
+      "items": [
+        "Ilarawan kung ano ang inaalok ng iyong voucher",
+        "Ipaliwanag kung saan, kailan, at paano ito magagamit",
+        "Ibahagi ito sa mga customer at sa iyong komunidad",
+        "Tingnan kung aling mga Pool ang sumusuporta rito",
+        "Tuparin ang voucher ayon sa mga tuntunin nito"
+      ],
+      "cta": "Gumawa ng voucher"
+    },
+    {
+      "title": "Mga gumagamit ng voucher",
+      "tagline": "Maghanap ng mga voucher para sa mga produkto at serbisyo.",
+      "description": "Ang voucher ay parang gift card. Kumakatawan ito sa mga produkto o serbisyong inaalok ng tagapag-isyu nito. Basahin ang mga tuntunin bago mo ito tanggapin, ipadala, ipagpalit, o gamitin.",
+      "imageAlt": "Mga taong nagpapalitan ng mga voucher para sa mga produkto at serbisyo",
+      "cardTitle": "Galugarin ang mga voucher",
+      "items": [
+        "Tingnan kung ano ang inaalok ng bawat voucher",
+        "Basahin kung saan, kailan, at paano ito gagamitin",
+        "Maghanap ng mga Pool kung saan ito maaaring ipagpalit",
+        "Ipadala ito sa ibang tao",
+        "Ipagpalit ito o gamitin sa tagapag-isyu nito"
+      ],
+      "cta": "Galugarin ang mga voucher"
+    },
+    {
+      "title": "Mga tagasuporta",
+      "tagline": "Suportahan ang Pool na mahalaga sa iyo.",
+      "description": "Basahin ang layunin, mga patakaran, at mga tuntunin ng Pool bago mo ito suportahan. Ang mga paraan ng pagsuporta at anumang gantimpala ay nakadepende sa mga tuntunin ng bawat Pool.",
+      "imageAlt": "Mga taong nagpaplano kung paano susuportahan ang isang pinagsasaluhang proyekto",
+      "cardTitle": "Maghanap ng Pool na susuportahan",
+      "cardSubtitle": "Galugarin ang mga Pool",
+      "badgesLabel": "Mga halimbawang tema ng Pool",
+      "badges": ["Agrikultura", "Sining", "Biodiversity", "Edukasyon", "Kabataan"],
+      "badgeLinkLabel": "Galugarin ang mga Pool para sa {category}",
+      "items": [
+        "Alamin kung para saan ang Pool",
+        "Basahin ang mga patakaran at tuntunin nito",
+        "Pumili ng Pool na gusto mong suportahan",
+        "Subaybayan ang mga update at aktibidad nito"
+      ],
+      "footer": "Inilalathala ng bawat Pool ang sarili nitong mga paraan ng pagsuporta at mga tuntunin.",
+      "cta": "Galugarin ang mga Pool"
+    }
+  ],
+  "testimonial": {
+    "label": "Epekto sa komunidad",
+    "imageAlt": "Miyembro ng komunidad na nakatayo sa harap ng mga poster ng impormasyon tungkol sa Sarafu Network",
+    "quote": "“Binago ng Sarafu kung paano nakikipagkalakalan at nagtutulungan ang aming komunidad. Kahit sa mahihirap na panahon, naipagpapatuloy namin ang kalakalan at natutulungan ang aming mga kapitbahay. Pinananatiling umiikot ng mga Voucher ang halaga sa loob ng aming komunidad.”",
+    "name": "Joseph Kimani",
+    "role": "Lider ng komunidad at may-ari ng lokal na negosyo",
+    "since": "Gumagamit ng Sarafu Network mula 2019",
+    "badges": ["Mga pamilihan ng komunidad", "Mga proyektong para sa mahihina", "Lokal na kalakalan"]
+  },
+  "features": {
+    "heading": "Bakit Cosmo-Local Credit?",
+    "intro": [
+      "Madalas na may kapaki-pakinabang na produkto at serbisyo ang mga tao at organisasyon, kahit kapos ang pera o mahirap ang direktang palitan. Pinapadali ng Cosmo-Local Credit na ilarawan, hanapin, suportahan, at ipagpalit ang mga alok na iyon.",
+      "Nililinaw ng mga voucher ang bawat alok at ang mga kondisyon nito. Pinagsasama ng mga Pool ng Pangako ang mga piniling voucher sa ilalim ng iisang mga patakaran, kaya hindi kailangang agad makahanap ang mga tao ng taong gusto ang mismong inaalok nila.",
+      "Ang Cosmo-Local Credit ay binuo at pinananatili ng {organization}, isang nonprofit sa Kenya na gumagawa ng mga kasangkapan para sa palitan sa komunidad mula pa noong 2010. Nagmula ito sa mga aral mula sa community currencies, Sarafu Network, at commitment pooling."
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "Basahin kung saan nagmula ang Cosmo-Local Credit.",
+    "cards": [
+      {
+        "title": "Mga pinamamahalaang marketplace",
+        "description": "Pinagsasama ng bawat Pool ang mga piniling voucher at inilalathala ang mga patakaran sa pagpapalitan ng mga ito."
+      },
+      {
+        "title": "Malinaw na mga tuntunin at patakaran",
+        "description": "Ipinapaliwanag ng mga gumagawa ng voucher ang kanilang inaalok. Inilalathala ng mga Tagapangasiwa ng Pool ang mga patakaran para sa bawat Pool."
+      },
+      {
+        "title": "Madaling ma-access",
+        "description": "Gamitin ang CLC App sa telepono o computer. Nagbibigay ang mga QR code at napi-print na paper wallet ng iba pang paraan upang makilahok."
+      },
+      {
+        "title": "Bukas at naaangkop",
+        "description": "Bukas na binuo ang CLC upang masuri, magamit, at mapahusay ito ng iba."
+      }
+    ],
+    "imageAlt": "Mga tao at lugar na konektado sa pamamagitan ng mga voucher at Pool"
+  },
+  "partners": {
+    "sectionLabel": "Media at mga partner",
+    "mediaHeading": "Sarafu Network sa media",
+    "mediaLinkLabel": "Tingnan ang ulat ng {name}",
+    "partnersHeading": "Aming mga partner",
+    "partnerLinkLabel": "Bisitahin ang {name}"
+  },
+  "cta": {
+    "heading": "Handa ka nang mag-explore?",
+    "body": "Buksan ang CLC App upang galugarin ang mga voucher at ang mga pinamamahalaang Pool kung saan maaaring ipagpalit ang mga ito. Mag-subscribe para sa balita at mga update ng proyekto.",
+    "openApp": "Buksan ang CLC App",
+    "updates": "Tumanggap ng balita at mga update"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit. Binuo mula sa mga aral ng Sarafu Network.",
+    "legalLabel": "Legal",
+    "terms": "Mga Tuntunin ng Serbisyo",
+    "dataPolicy": "Patakaran sa Data"
+  }
+}

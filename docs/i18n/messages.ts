@@ -3,6 +3,7 @@ import de from './messages/de.json'
 import dz from './messages/dz.json'
 import en from './messages/en.json'
 import es from './messages/es.json'
+import fil from './messages/fil.json'
 import fr from './messages/fr.json'
 import hi from './messages/hi.json'
 import it from './messages/it.json'
@@ -11,6 +12,8 @@ import pt from './messages/pt.json'
 import sr from './messages/sr.json'
 import sw from './messages/sw.json'
 import uk from './messages/uk.json'
+import zh from './messages/zh.json'
+import zhHant from './messages/zh-Hant.json'
 import type { SupportedLocale } from './locales'
 
 export type SplashMessages = typeof en
@@ -23,6 +26,7 @@ export const splashMessages = {
   dz,
   en,
   es,
+  fil,
   fr,
   hi,
   it,
@@ -31,4 +35,6 @@ export const splashMessages = {
   sr,
   sw,
   uk,
+  zh,
+  'zh-Hant': zhHant,
 } satisfies Record<SupportedLocale, SplashMessages>

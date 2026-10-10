@@ -141,6 +141,11 @@
   font-family: 'Noto Sans Devanagari', Mangal, Kokila, system-ui, sans-serif;
 }
 
+.locale-selector__option:lang(zh),
+.locale-selector__option:lang(zh-Hant) {
+  font-family: 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;
+}
+
 @media (max-width: 460px) {
   .locale-selector {
     min-width: 8.25rem;

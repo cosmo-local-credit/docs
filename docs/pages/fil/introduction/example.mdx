@@ -1,0 +1,73 @@
+# Praktikal na halimbawa ng voucher
+
+Sinusundan ng halimbawang ito ang isang voucher mula sa pag-isyu, palitan sa Pool, paghaharap para tubusin, pagtupad, at discharge. Ipinapakita nito ang mga tungkuling kasangkot; hindi nito ipinapangako na magiging available ang isang partikular na voucher, Pool, ruta, o resulta.
+
+Para sa mga kahulugang ginagamit dito, tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts).
+
+## 1. Naglalathala ng pangako ang tagapag-isyu
+
+Isipin na gumawa ang isang kusinang pangkomunidad ng digital na voucher para sa pagkain. Bago ito mag-isyu, naglalathala ang kusina ng impormasyong kailangan ng may hawak upang makapagpasya nang may sapat na kaalaman:
+
+- pagkakakilanlan at mga detalye sa pakikipag-ugnayan ng kusina;
+- ang pagkain o ibang Offering na kinakatawan ng isang voucher;
+- supply, yunit, nakasaad na halaga, at kakayahan ng kusinang tumupad;
+- saan at kailan maaaring iharap ang voucher;
+- petsa ng pag-expire, proseso ng pagpapareserba, bayarin, buwis, o paghihigpit sa paglilipat, kung mayroon; at
+- paano gumagana ang paghaharap, pagtupad, reklamo, refund, pagpapalit, at iba pang remedyo.
+
+Ang kusina ang tagapag-isyu. Dapat nitong panatilihing tama ang impormasyong ito, iwasang mag-isyu nang higit sa makatuwirang kakayahan nito, at tuparin ang mga voucher ayon sa mga tuntunin noong nakuha ang mga ito. Ang paggawa ng token o paglalathala ng Offering ay hindi patunay ng kakayahang iyon at hindi nito ginagawang tagapag-isyu ang GEF.
+
+## 2. Tinatanggap ng Tagapangasiwa ng Pool ang voucher
+
+Sinusuri ng isang Pool ng Pangako para sa seguridad sa pagkain ang kusina, mga tuntunin ng voucher nito, at sariling layunin ng Pool. Kapag tinanggap ang voucher, inilalathala ng Tagapangasiwa ng Pool ang mga naaangkop na tuntunin, kabilang ang:
+
+- sino ang may pananagutan sa Pool;
+- ang kasalukuyang may-ari ng `SwapPool`, proxy administrator, at mga controller ng mahahalagang dependency;
+- mga tinatanggap na asset;
+- paraan ng exchange rate o quote;
+- mga cap sa balanse ng token, na tinatawag na **“Credit limits”** sa App;
+- mga bayarin ng Pool at Protocol;
+- mga kapangyarihan sa inventory at pag-withdraw ng liquidity; at
+- anumang hiwalay na pinondohang garantiya, reserba, o kaayusan ng suporta.
+
+Ang pagtanggap ay nangangahulugang pinapayagan ng naka-configure na mga tuntunin ng Pool ang voucher. Hindi nito pinatutunayan ang kakayahang tumupad, itinatakda ang halaga sa salapi, o lumilikha ng insurance.
+
+## 3. Nag-aambag ng inventory ang isang kalahok
+
+Naglilipat ang isang supporter ng mga meal voucher o ibang suportadong asset sa `SwapPool` alinsunod sa mga inilathalang tuntunin. Dinadagdagan ng depositong iyon ang available na inventory.
+
+Hindi awtomatikong lumilikha ang paglilipat ng bahagi sa Pool, claim sa pagbabayad, karapatang mag-withdraw, gantimpala, o kapangyarihang mamahala. Ang anumang ganoong karapatan ay dapat magmula sa hiwalay at malinaw na isiniwalat na kaayusan.
+
+## 4. Nagpapalit sa Pool ang may hawak
+
+Ipinagpapalit ng may hawak ang isang suportadong asset para sa mga meal voucher sa pamamagitan ng Pool. Ang ipinapakitang quote ay parameter ng transaksyon na ginawa ng naka-configure na quoter; hindi ito patunay ng halaga ng voucher sa salapi o ng pagtupad ng kusina.
+
+Ang direktang palitan sa Pool ay nagse-settle on-chain sa pamamagitan ng paglilipat ng input, output, bayad sa Pool, at anumang karagdagang bayad sa Protocol. Hindi ito awtomatikong pautang, pagtubos ng tagapag-isyu, o aktuwal na pagtupad sa ipinangakong pagkain.
+
+## 5. Inihaharap ng may hawak ang voucher
+
+Sa kasalukuyang App, binubuksan ng pagpili sa **“Tubusin”** ang karaniwang daloy ng pagpapadala na nakalagay na ang address ng may-ari ng token. Ang pagpapadala pabalik ng voucher ay ebidensiya na iniharap ito sa tagapag-isyu; hindi nito, sa sarili lamang, pinatutunayang ibinigay ng kusina ang pagkain.
+
+Sinusuri ng kusina ang paghaharap at ibinibigay ang ipinangakong pagkain alinsunod sa mga inilathalang tuntunin nito.
+
+## 6. Itinatala ng tagapag-isyu ang pagtupad at discharge
+
+Pagkatapos ibigay ang pagkain, itinatala ng tagapag-isyu ang mga natupad na yunit upang hindi na muling maiharap ang mga ito. Depende sa inilathalang proseso, maaaring kabilang dito ang pagtanggap, pagsunog, pagkansela, o ibang paraan ng pag-disable sa ibinalik na voucher.
+
+Kung hindi tuparin ng kusina ang pangako nito, gagamitin ng may hawak ang inilathalang proseso ng reklamo o remedyo ng tagapag-isyu at anumang karapatang ibinibigay ng naaangkop na batas. Hindi nagiging tagatubos ang GEF o Tagapangasiwa ng Pool dahil lamang ipinakita ng App ang voucher o pinagana ng Pool ang palitan.
+
+Iba ang pagpili sa **“Retire voucher”** sa App: itinatago nito ang listing sa catalog habang nananatili ang mga balanse at history, at maaari itong ibalik ng administrator. Hindi ito pagtupad, discharge, pagsunog, o pagkansela.
+
+## Buod ng mga pananagutan
+
+- **Tagapag-isyu:** inilalarawan at tinutupad ang voucher at itinatala ang discharge.
+- **Tagapangasiwa ng Pool:** inilalathala at pinamamahalaan ang mga tuntunin, rate, bayarin, limitasyon, kontrol, at anumang hayagang tinanggap na garantiya ng Pool.
+- **May hawak:** sinusuri ang tagapag-isyu, mga tuntunin ng voucher at Pool, quote, awtorisasyon ng Wallet, at naaangkop na batas.
+- **Mga teknikal na controller:** ginagamit lamang ang mga kapangyarihan sa contract, dependency, upgrade, catalog, o bayad na itinalaga sa kanila.
+- **GEF:** nagpapatakbo ng CLC App at sumusuportang imprastraktura, alinsunod sa [Mga Tuntunin ng Serbisyo](/fil/governance/terms); hindi nito awtomatikong inaako ang ibang mga tungkulin.
+
+## Mga posibleng kaayusan sa credit sa hinaharap
+
+Maaaring hiwalay na mag-alok ang isang Pool o ibang responsableng partido ng transaksyon bilang advance na kailangang bayaran, secured transaction, o ibang credit product. Mangangailangan iyon ng hiwalay na supplemental at transaction terms na tumutukoy sa mga partido, halaga, due date, bayarin o interes, collateral, assignment, default, remedyo, at ebidensiya ng discharge.
+
+Ang karaniwang pagpapadala, deposito sa Pool, palitan sa Pool, paghaharap ng voucher, pagtupad, o discharge ay hindi kusang lumilikha ng mga obligasyong iyon.

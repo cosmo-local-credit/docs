@@ -6,7 +6,7 @@ import { extname, join, relative, resolve } from 'node:path'
 const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
 const requested = process.argv.slice(2)
-const locales = requested.length ? requested : ['ar', 'de', 'dz', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'sw', 'uk']
+const locales = requested.length ? requested : ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
 const errors = []
 
 function filesBelow(directory) {
@@ -76,6 +76,17 @@ function inspect(locale, path) {
     for (const [name, pattern] of unexpectedScripts) {
       if (pattern.test(value)) errors.push(`${display}: contains unexpected ${name} text`)
     }
+  }
+  if (locale === 'zh' || locale === 'zh-Hant') {
+    const unexpectedScripts = [
+      ['Arabic', /\p{Script=Arabic}/u],
+      ['Devanagari', /\p{Script=Devanagari}/u],
+      ['Tibetan', /\p{Script=Tibetan}/u],
+    ]
+    for (const [name, pattern] of unexpectedScripts) {
+      if (pattern.test(value)) errors.push(`${display}: contains unexpected ${name} text`)
+    }
+    if (/[،؛]/u.test(value)) errors.push(`${display}: contains Arabic punctuation`)
   }
 }
 

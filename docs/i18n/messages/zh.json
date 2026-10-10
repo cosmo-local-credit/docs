@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "title": "Cosmo-Local Credit",
+    "description": "Cosmo-Local Credit 帮助个人和组织支持、分享和交换商品与服务。"
+  },
+  "controls": {
+    "language": "语言",
+    "search": "搜索",
+    "colorTheme": "颜色主题",
+    "lightMode": "使用浅色模式",
+    "darkMode": "使用深色模式"
+  },
+  "englishDocsNotice": "详细文档和搜索功能目前仅提供英文版。",
+  "overview": {
+    "paragraphs": [
+      "Cosmo-Local Credit 帮助个人和组织支持、分享和交换商品与服务。",
+      "任何人都可以说明自己提供什么、面向谁以及使用条件。这些商品和服务可以汇聚到可信的网络中，让人们更容易在社区内或不同地区之间发现、交换和支持有用的商品与服务。"
+    ],
+    "resourceLabel": "Cosmo-Local Credit 资源",
+    "actions": {
+      "openApp": "打开应用",
+      "about": "关于",
+      "getStarted": "入门",
+      "protocol": "协议",
+      "whitePaper": "白皮书"
+    },
+    "cards": [
+      {
+        "title": "创建代金券",
+        "description": "创建代金券来推广您的商品或服务。写明清晰条款，让人们了解它提供什么以及如何使用。"
+      },
+      {
+        "title": "通过资金池交换",
+        "description": "承诺资金池是交换经筛选代金券的场所。资金池管理者选择它支持的代金券并公布规则。"
+      },
+      {
+        "title": "分享和使用代金券",
+        "description": "将代金券发送给他人，通过资金池交换其支持的代金券，或向发行方使用代金券。"
+      }
+    ]
+  },
+  "hero": {
+    "titleLead": "通过承诺汇聚",
+    "titleAccent": "为社区赋能",
+    "lead": "承诺汇聚把经筛选的代金券带入精选市场，供社区交换。人们随后可以按照代金券条款获取其中说明的商品或服务。",
+    "networkAlt": "社区通过代金券和资金池相互连接的插图",
+    "videoLabel": "了解承诺汇聚如何运作",
+    "videoTitle": "了解承诺汇聚如何运作",
+    "statistics": {
+      "vouchers": "唯一活跃代金券",
+      "pools": "唯一活跃承诺资金池",
+      "users": "用户",
+      "exchanges": "用户间交换",
+      "source": "Sarafu Network 的历史活动数据，2023 年 7 月 5 日至 2025 年 7 月 20 日。",
+      "sourceLink": "查看源数据。"
+    }
+  },
+  "audiences": {
+    "heading": "您想做什么？",
+    "intro": "创建或管理资金池，用代金券推广商品或服务，交换和使用代金券，或支持资金池。",
+    "navLabel": "按角色了解 Cosmo-Local Credit",
+    "roles": [
+      { "title": "资金池管理者", "description": "我想创建或管理资金池" },
+      { "title": "代金券创建者", "description": "我想用代金券推广商品或服务" },
+      { "title": "代金券用户", "description": "我想查找、发送、交换或使用代金券" },
+      { "title": "支持者", "description": "我想支持承诺资金池" }
+    ]
+  },
+  "howItWorks": {
+    "label": "如何运作",
+    "imageAlt": "通过资金池创建和交换代金券",
+    "steps": [
+      { "title": "创建代金券", "description": "说明您的商品或服务，并解释人们如何使用该代金券。" },
+      { "title": "建立精选资金池", "description": "资金池管理者选择可供人们交换的代金券，并公布资金池规则。" },
+      { "title": "发送或交换", "description": "将代金券直接发送给他人，或通过资金池交换其支持的代金券。" },
+      { "title": "使用代金券", "description": "按照条款向发行方使用代金券，获取其中说明的商品或服务。" }
+    ]
+  },
+  "sections": [
+    {
+      "title": "资金池管理者",
+      "tagline": "创建和管理资金池。",
+      "description": "资金池管理者为代金券创建一个精选市场。管理者选择资金池支持的代金券，公布规则、限制和费用，并保持信息更新。管理者可以是个人、组织或其他负责任的团体。",
+      "imageAlt": "双手向共享碗中添加谷物",
+      "cardTitle": "创建资金池",
+      "items": ["说明资金池的用途", "选择它支持的代金券", "公布交换规则、限制和费用", "与他人分享资金池", "保持信息更新"],
+      "cta": "创建资金池"
+    },
+    {
+      "title": "代金券创建者",
+      "tagline": "推广您的商品或服务。",
+      "description": "为您提供的商品或服务创建代金券，并公布清晰条款。创建代金券时，您就是它的发行方。您负责提供代金券所承诺的内容。",
+      "imageAlt": "人们举手分享自己提供的商品或服务",
+      "cardTitle": "创建代金券",
+      "items": ["说明代金券提供的内容", "说明可在何地、何时以及如何使用", "与客户和社区分享", "查看哪些资金池支持它", "按条款兑现代金券的承诺"],
+      "cta": "创建代金券"
+    },
+    {
+      "title": "代金券用户",
+      "tagline": "查找商品和服务代金券。",
+      "description": "代金券的用法很像礼品卡。它代表发行方提供的商品或服务。在接收、发送、交换或使用前，请阅读条款。",
+      "imageAlt": "人们用代金券交换商品和服务",
+      "cardTitle": "浏览代金券",
+      "items": ["查看每张代金券提供什么", "阅读可在何地、何时以及如何使用", "查找可以交换该代金券的资金池", "将它发送给他人", "交换它或向发行方使用它"],
+      "cta": "浏览代金券"
+    },
+    {
+      "title": "支持者",
+      "tagline": "支持您关心的资金池。",
+      "description": "支持资金池前，请阅读它的用途、规则和条款。可用的支持方式和任何奖励都取决于各资金池的条款。",
+      "imageAlt": "人们规划如何支持共同项目",
+      "cardTitle": "查找可支持的资金池",
+      "cardSubtitle": "浏览资金池",
+      "badgesLabel": "资金池主题示例",
+      "badges": ["农业", "艺术", "生物多样性", "教育", "青年"],
+      "badgeLinkLabel": "浏览{category}类资金池",
+      "items": ["了解资金池的用途", "阅读它的规则和条款", "选择您想支持的资金池", "关注它的更新和活动"],
+      "footer": "每个资金池都会公布自己的支持选项和条款。",
+      "cta": "浏览资金池"
+    }
+  ],
+  "testimonial": {
+    "label": "社区影响",
+    "imageAlt": "站在 Sarafu Network 信息海报前的社区成员",
+    "quote": "“Sarafu 改变了我们社区开展交易和彼此支持的方式。即使在困难时期，我们仍可以继续交易并帮助邻居。这些代金券让价值在我们的社区内持续流通。”",
+    "name": "Joseph Kimani",
+    "role": "社区领袖和当地企业主",
+    "since": "自 2019 年起使用 Sarafu Network",
+    "badges": ["社区市场", "弱势项目", "本地贸易"]
+  },
+  "features": {
+    "heading": "为什么选择 Cosmo-Local Credit？",
+    "intro": [
+      "即使现金紧缺或直接交换很困难，个人和组织往往仍有有用的商品和服务可以提供。Cosmo-Local Credit 让这些商品和服务更容易被说明、发现、支持和交换。",
+      "代金券让每项商品或服务及其条件更清晰。承诺资金池按共同规则汇聚经筛选的代金券，因此人们不必在同一时刻找到恰好需要自己所提供商品或服务的人。",
+      "Cosmo-Local Credit 由{organization}建设和维护。该机构是一家肯尼亚非营利组织，自 2010 年起一直开发社区交换工具。Cosmo-Local Credit 源于社区货币、Sarafu Network 和承诺汇聚实践中积累的经验。"
+    ],
+    "organization": "Grassroots Economics Foundation",
+    "historyLink": "了解 Cosmo-Local Credit 的起源。",
+    "cards": [
+      { "title": "精选市场", "description": "每个资金池都会汇聚经筛选的代金券，并公布交换规则。" },
+      { "title": "明确的条款和规则", "description": "代金券创建者说明他们提供什么。资金池管理者公布各资金池的规则。" },
+      { "title": "便于使用", "description": "可在手机或电脑上使用 CLC App。二维码和可打印的纸质钱包还提供了其他参与方式。" },
+      { "title": "开放且灵活", "description": "CLC 以开放方式建设，便于他人检查、使用并帮助改进。" }
+    ],
+    "imageAlt": "人们和各个地点通过代金券和资金池相互连接"
+  },
+  "partners": {
+    "sectionLabel": "媒体报道与合作伙伴",
+    "mediaHeading": "媒体中的 Sarafu Network",
+    "mediaLinkLabel": "查看{name}的报道",
+    "partnersHeading": "我们的合作伙伴",
+    "partnerLinkLabel": "访问{name}"
+  },
+  "cta": {
+    "heading": "准备好开始了吗？",
+    "body": "打开 CLC App，浏览代金券以及可以交换这些代金券的精选资金池。订阅项目新闻和更新。",
+    "openApp": "打开 CLC App",
+    "updates": "获取新闻和更新"
+  },
+  "footer": {
+    "lineage": "© 2026 Cosmo-Local Credit。建立在 Sarafu Network 的经验之上。",
+    "legalLabel": "法律信息",
+    "terms": "服务条款",
+    "dataPolicy": "数据政策"
+  }
+}

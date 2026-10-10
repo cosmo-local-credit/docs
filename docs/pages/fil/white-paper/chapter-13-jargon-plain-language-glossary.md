@@ -1,0 +1,25 @@
+## **13. Glosaryo sa simpleng wika**
+
+- **Cosmo-Local Credit (CLC):** Ang pamilya ng produkto, kabilang ang CLC App, dokumentasyon, at mas malawak na trabaho sa pag-aari ng pakikitungo.
+- **CLC App:** Ang progresibong web app na pinapatakbo ng GEF sa`cosmolocal.credit`.
+- **Protokol sa Pagsasama ng Pangako (CPP):** Ang reusable model ng curation, valuation, limitation, exchange, at responsible governance.
+- **Protocol v1.1.0:** Ang napatunayang publikong smart-contract release.
+- **Pool ng Pangako:** Ang isang pinamamahalaan na kaayusan na tumatanggap ng suportadong mga asset at nag-publish ng mga patakaran sa pagbibili.
+- **`SwapPool`:** Ang kasalukuyang token vault at direct-swap contract.
+- **Tagalog:** Isang balanse sa chain o digital asset. Token mekanika lamang ay hindi lumikha ng isang redeemable pangako.
+- **Voucher:** Isang token o record na kinakatawan ng isang tagapag-isyu bilang isang redeemable commitment sa ilalim ng nai-publish na mga tuntunin.
+- **Pag-aalok:** Katalog record para sa mga kalakal o serbisyo na nauugnay sa isang voucher.
+- **Pag-iipon:** Ang partido na may pananagutan sa pag-publish at pagpapatupad ng pangako sa voucher.
+- **Tagapangasiwa ng Pool:** Ang responsable na istraktura na nag-publish at namamahala sa mga patakaran ng Pool.
+- **Ang rate o quote ng pool:** Ang isang parameter ng transaksyon na ginawa sa pamamagitan ng isang naka-configure quoter; hindi patunay ng cash o halaga ng pagbabayad.
+- **Kapas sa balanse ng token ng pool:** Ang kasalukuyang maximum na `Limiter` para sa isang token na hawak ng isang Pool. **Credit limit.”**
+- **Pagbabago ng pool:** Isang direktang palitan ng mga asset sa pamamagitan ng isang `SwapPool`.
+- **Pagbabayad ng swap:** Ang mga transfer sa chain at accounting ng bayad na kumpleto ng pool swap.
+- **Presentasyon ng pagbabayad:** Pagbalik o iba pang pagpapakita ng mga unit ng voucher sa tagapag-isyu.
+- **Katumpayan:** Ang tagapag-isyu ay nagbibigay ng ipinangako na kalakal, serbisyo, benepisyo, o iba pang pagganap.
+- **Discharge:** Ang isang talaan na nagpapahintulot sa pagpapatupad ng mga yunit na maipresentar muli.
+- **Proposed execution router:** Ang hinaharap na software na mag-authorise at magpatupad ng mga ruta. ang kasalukuyang `SwapRouter` quote lamang.
+- **Proposed na CLC Network Pool:** Isang hinaharap na kaayusan sa pag-clearing at koordinasyon ng badyet sa antas ng network.
+- **Proposed na CLC governance token:** Isang disenyo ng pamamahala sa hinaharap, hindi isang kasalukuyang app o Protocol v1.1.0 asset.
+- **Rake ng network:** Isang iminungkahi na bahagi ng mga bayad sa Pool na nai-transfer sa isang hinaharap na badyet ng network.
+- **Garantiya o seguro:** Isang proteksyon na nakakaalam lamang kapag ang isang kinikilala na partido ay malinaw na kumukuha, nagbabayad, at nag-publish nito.

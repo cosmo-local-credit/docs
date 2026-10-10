@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Wika",
+    "colorTheme": "Tema ng kulay",
+    "lightMode": "Gamitin ang maliwanag na tema",
+    "darkMode": "Gamitin ang madilim na tema"
+  },
+  "chrome": {
+    "search": "Maghanap",
+    "closeSearchDialog": "Isara ang paghahanap",
+    "toggleDetailView": "Palitan ang detalye ng tingin",
+    "resetSearch": "I-reset ang paghahanap",
+    "navigate": "Mag-navigate",
+    "select": "Piliin",
+    "close": "Isara",
+    "reset": "I-reset",
+    "menu": "Menu",
+    "onThisPage": "Sa pahinang ito",
+    "previous": "Nakaraan",
+    "next": "Susunod",
+    "copy": "Kopyahin",
+    "copied": "Nakopya",
+    "skipToContent": "Lumaktaw sa nilalaman",
+    "askInChatGPT": "Magtanong sa ChatGPT",
+    "copyPageForLlms": "Kopyahin ang pahina para sa mga LLM",
+    "lastUpdated": "Huling na-update:",
+    "codeGroup": "Pangkat ng code",
+    "terminal": "Terminal",
+    "file": "File",
+    "noResultsFor": "Walang resulta para sa",
+    "top": "Itaas",
+    "scrollToTop": "Bumalik sa itaas",
+    "pageNotFound": "Hindi nakita ang pahina",
+    "notFoundDescription": "Hindi mahanap ang pahinang hinahanap mo.",
+    "goHome": "Pumunta sa pangunahing pahina",
+    "diagramScroll": "Mag-scroll pahalang upang makita ang buong diagram.",
+    "diagramError": "Hindi maipakita ang diagram"
+  },
+  "legal": {
+    "translationTitle": "Salin para sa kaginhawaan",
+    "translationNotice": "Ibinibigay ang saling ito para sa kaginhawaan. Ang Ingles na Mga Tuntunin ang pinagmulang teksto at siyang masusunod, maliban kung iba ang hinihingi ng naaangkop na batas.",
+    "englishSource": "Basahin ang Mga Tuntunin sa Ingles"
+  },
+  "whitePaper": {
+    "translationTitle": "Tungkol sa saling ito",
+    "translationNotice": "Salin ito ng White Paper v0.8. Inilathala ang Ingles na pinagmulan noong 30 Setyembre 2026. Inilathala ang saling ito noong 10 Oktubre 2026. Ingles ang pinagmulang teksto.",
+    "englishSource": "Basahin ang Ingles na pinagmulan",
+    "archivedEnglishOnly": "Ang pinalitang v0.7 PDF ay makukuha lamang sa Ingles."
+  }
+}

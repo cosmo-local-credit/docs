@@ -1,11 +1,12 @@
 {
-  "sourceAppCommit": "0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd",
+  "sourceAppCommit": "b4c4a496dc45232470d3874a3317912e86b466a8",
   "terms": {
     "Commitment Pool": {
       "ar": "صندوق الالتزامات",
       "de": "Commitment-Fonds",
       "dz": "ཁས་ལེན་མཉམ་སྤྱོད་དངུལ་ཁུངས།",
       "es": "Fondo de Compromisos",
+      "fil": "Pool ng Pangako",
       "fr": "Bassin d’engagements",
       "hi": "प्रतिबद्धता पूल",
       "it": "Fondo di Impegni",
@@ -13,13 +14,16 @@
       "pt": "Fundo de Compromissos",
       "sr": "Тржница обавеза",
       "sw": "Kikundi cha Ahadi",
-      "uk": "Пул зобов’язань"
+      "uk": "Пул зобов’язань",
+      "zh": "承诺资金池",
+      "zh-Hant": "承諾資金池"
     },
     "Commitment Pools": {
       "ar": "صناديق الالتزامات",
       "de": "Commitment-Fonds",
       "dz": "ཁས་ལེན་མཉམ་སྤྱོད་དངུལ་ཁུངས་ཚུ།",
       "es": "Fondos de Compromisos",
+      "fil": "mga Pool ng Pangako",
       "fr": "Bassins d’engagements",
       "hi": "प्रतिबद्धता पूल",
       "it": "Fondi di Impegni",
@@ -27,13 +31,16 @@
       "pt": "Fundos de Compromissos",
       "sr": "Тржнице обавеза",
       "sw": "Vikundi vya Ahadi",
-      "uk": "Пули зобов’язань"
+      "uk": "Пули зобов’язань",
+      "zh": "承诺资金池",
+      "zh-Hant": "承諾資金池"
     },
     "Pool Steward": {
       "ar": "مشرف الصندوق",
       "de": "Fonds-Verantwortliche Person",
       "dz": "མཉམ་སྤྱོད་དངུལ་ཁུངས་ཀྱི་འཛིན་སྐྱོང་པ།",
       "es": "Responsable del Fondo",
+      "fil": "Tagapangasiwa ng Pool",
       "fr": "Gestionnaire de Bassin",
       "hi": "पूल प्रबंधक",
       "it": "Responsabile del Fondo",
@@ -41,13 +48,16 @@
       "pt": "Gestor do Fundo",
       "sr": "Управник Тржнице",
       "sw": "Msimamizi wa Kikundi",
-      "uk": "Куратор Пулу"
+      "uk": "Куратор Пулу",
+      "zh": "资金池管理者",
+      "zh-Hant": "資金池管理者"
     },
     "Pool Stewards": {
       "ar": "مشرفو الصناديق",
       "de": "Fonds-Verantwortliche",
       "dz": "མཉམ་སྤྱོད་དངུལ་ཁུངས་ཀྱི་འཛིན་སྐྱོང་པ་ཚུ།",
       "es": "Responsables de Fondos",
+      "fil": "Mga Tagapangasiwa ng Pool",
       "fr": "Gestionnaires de Bassins",
       "hi": "पूल प्रबंधक",
       "it": "Responsabili dei Fondi",
@@ -55,16 +65,18 @@
       "pt": "Gestores de Fundos",
       "sr": "Управници Тржница",
       "sw": "Wasimamizi wa Vikundi",
-      "uk": "Куратори Пулів"
+      "uk": "Куратори Пулів",
+      "zh": "资金池管理者",
+      "zh-Hant": "資金池管理者"
     },
-    "Voucher": {"ar":"قسيمة","de":"Gutschein","dz":"འཛིན་ཤོག","es":"Vale","fr":"Bon d’échange","hi":"वाउचर","it":"Buono","nl":"Waardebon","pt":"Vale","sr":"Ваучер","sw":"Vocha","uk":"Ваучер"},
-    "Vouchers": {"ar":"القسائم","de":"Gutscheine","dz":"འཛིན་ཤོག་ཚུ།","es":"Vales","fr":"Bons d’échange","hi":"वाउचर","it":"Buoni","nl":"Waardebonnen","pt":"Vales","sr":"Ваучери","sw":"Vocha","uk":"Ваучери"},
-    "Pool": {"ar":"الصندوق","de":"Fonds","dz":"མཉམ་སྤྱོད་དངུལ་ཁུངས།","es":"Fondo","fr":"Bassin","hi":"पूल","it":"Fondo","nl":"Fonds","pt":"Fundo","sr":"Тржница","sw":"Kikundi","uk":"Пул"},
-    "Pools": {"ar":"الصناديق","de":"Fonds","dz":"མཉམ་སྤྱོད་དངུལ་ཁུངས་ཚུ།","es":"Fondos","fr":"Bassins","hi":"पूल","it":"Fondi","nl":"Fondsen","pt":"Fundos","sr":"Тржнице","sw":"Vikundi","uk":"Пули"},
-    "Market": {"ar":"السوق","de":"Markt","dz":"ཚོང་ར།","es":"Mercado","fr":"Marché","hi":"बाज़ार","it":"Mercato","nl":"Markt","pt":"Mercado","sr":"Тржиште","sw":"Soko","uk":"Ринок"},
-    "Issuer": {"ar":"الجهة المصدرة","de":"Herausgeber","dz":"གསར་བཏོན་པ།","es":"Emisor","fr":"Émetteur","hi":"जारीकर्ता","it":"Emittente","nl":"Uitgever","pt":"Emissor","sr":"Издавалац","sw":"Mtoaji","uk":"Емітент"},
-    "Redeem": {"ar":"استرداد","de":"Einlösen","dz":"བསྐྱར་ཉོ།","es":"Canjear","fr":"Utiliser","hi":"भुनाएँ","it":"Riscattare","nl":"Inwisselen","pt":"Resgatar","sr":"Искористи","sw":"Komboa","uk":"Погасити"},
-    "Send": {"ar":"إرسال","de":"Senden","dz":"གཏང་།","es":"Enviar","fr":"Envoyer","hi":"भेजें","it":"Invii","nl":"Verzenden","pt":"Enviar","sr":"Пошаљи","sw":"Tuma","uk":"Надіслати"},
-    "Swap": {"ar":"مبادلة","de":"Tauschen","dz":"བརྗེ་ལེན།","es":"Intercambiar","fr":"Échanger","hi":"अदला-बदली","it":"Scambiare","nl":"Ruilen","pt":"Trocar","sr":"Размјена","sw":"Badilisha","uk":"Обміняти"}
+    "Voucher": {"ar":"قسيمة","de":"Gutschein","dz":"འཛིན་ཤོག","es":"Vale","fil":"Voucher","fr":"Bon d’échange","hi":"वाउचर","it":"Buono","nl":"Waardebon","pt":"Vale","sr":"Ваучер","sw":"Vocha","uk":"Ваучер","zh":"代金券","zh-Hant":"代金券"},
+    "Vouchers": {"ar":"القسائم","de":"Gutscheine","dz":"འཛིན་ཤོག་ཚུ།","es":"Vales","fil":"mga voucher","fr":"Bons d’échange","hi":"वाउचर","it":"Buoni","nl":"Waardebonnen","pt":"Vales","sr":"Ваучери","sw":"Vocha","uk":"Ваучери","zh":"代金券","zh-Hant":"代金券"},
+    "Pool": {"ar":"الصندوق","de":"Fonds","dz":"མཉམ་སྤྱོད་དངུལ་ཁུངས།","es":"Fondo","fil":"Pool","fr":"Bassin","hi":"पूल","it":"Fondo","nl":"Fonds","pt":"Fundo","sr":"Тржница","sw":"Kikundi","uk":"Пул","zh":"资金池","zh-Hant":"資金池"},
+    "Pools": {"ar":"الصناديق","de":"Fonds","dz":"མཉམ་སྤྱོད་དངུལ་ཁུངས་ཚུ།","es":"Fondos","fil":"mga Pool","fr":"Bassins","hi":"पूल","it":"Fondi","nl":"Fondsen","pt":"Fundos","sr":"Тржнице","sw":"Vikundi","uk":"Пули","zh":"资金池","zh-Hant":"資金池"},
+    "Market": {"ar":"السوق","de":"Markt","dz":"ཚོང་ར།","es":"Mercado","fil":"Pamilihan","fr":"Marché","hi":"बाज़ार","it":"Mercato","nl":"Markt","pt":"Mercado","sr":"Тржиште","sw":"Soko","uk":"Ринок","zh":"市场","zh-Hant":"市場"},
+    "Issuer": {"ar":"الجهة المصدرة","de":"Herausgeber","dz":"གསར་བཏོན་པ།","es":"Emisor","fil":"tagapag-isyu","fr":"Émetteur","hi":"जारीकर्ता","it":"Emittente","nl":"Uitgever","pt":"Emissor","sr":"Издавалац","sw":"Mtoaji","uk":"Емітент","zh":"发行方","zh-Hant":"發行方"},
+    "Redeem": {"ar":"استرداد","de":"Einlösen","dz":"བསྐྱར་ཉོ།","es":"Canjear","fil":"Tubusin","fr":"Utiliser","hi":"भुनाएँ","it":"Riscattare","nl":"Inwisselen","pt":"Resgatar","sr":"Искористи","sw":"Komboa","uk":"Погасити","zh":"兑付","zh-Hant":"兌付"},
+    "Send": {"ar":"إرسال","de":"Senden","dz":"གཏང་།","es":"Enviar","fil":"Ipadala","fr":"Envoyer","hi":"भेजें","it":"Invii","nl":"Verzenden","pt":"Enviar","sr":"Пошаљи","sw":"Tuma","uk":"Надіслати","zh":"发送","zh-Hant":"傳送"},
+    "Swap": {"ar":"مبادلة","de":"Tauschen","dz":"བརྗེ་ལེན།","es":"Intercambiar","fil":"Palitan","fr":"Échanger","hi":"अदला-बदली","it":"Scambiare","nl":"Ruilen","pt":"Trocar","sr":"Размјена","sw":"Badilisha","uk":"Обміняти","zh":"兑换","zh-Hant":"兌換"}
   }
 }

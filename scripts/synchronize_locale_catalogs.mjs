@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
 const i18n = resolve(root, 'docs/i18n')
-const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
+const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
 
 for (const locale of locales) {
   const splash = JSON.parse(readFileSync(resolve(i18n, `messages/${locale}.json`), 'utf8'))

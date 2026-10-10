@@ -10,6 +10,20 @@ export const LOCALE_OPTIONS = [
     intlLocale: 'ar-u-nu-arab',
   },
   {
+    code: 'zh',
+    label: 'Chinese (Simplified)',
+    nativeLabel: '中文（简体）',
+    direction: 'ltr',
+    intlLocale: 'zh-CN',
+  },
+  {
+    code: 'zh-Hant',
+    label: 'Chinese (Traditional)',
+    nativeLabel: '中文（繁體）',
+    direction: 'ltr',
+    intlLocale: 'zh-Hant',
+  },
+  {
     code: 'dz',
     label: 'Dzongkha',
     nativeLabel: 'རྫོང་ཁ',
@@ -18,6 +32,13 @@ export const LOCALE_OPTIONS = [
   },
   { code: 'de', label: 'German', nativeLabel: 'Deutsch', direction: 'ltr', intlLocale: 'de' },
   { code: 'es', label: 'Spanish', nativeLabel: 'Español', direction: 'ltr', intlLocale: 'es' },
+  {
+    code: 'fil',
+    label: 'Filipino',
+    nativeLabel: 'Filipino',
+    direction: 'ltr',
+    intlLocale: 'fil-PH',
+  },
   { code: 'fr', label: 'French', nativeLabel: 'Français', direction: 'ltr', intlLocale: 'fr' },
   { code: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी', direction: 'ltr', intlLocale: 'hi' },
   { code: 'it', label: 'Italian', nativeLabel: 'Italiano', direction: 'ltr', intlLocale: 'it' },
@@ -75,7 +96,19 @@ export function isSupportedLocale(value: string | null | undefined): value is Su
 
 export function matchSupportedLocale(preferred: readonly string[]): SupportedLocale {
   for (const tag of preferred) {
-    const primary = tag.trim().split(/[-_]/)[0]?.toLowerCase()
+    const normalized = tag.trim().replace(/_/g, '-').toLowerCase()
+    const parts = normalized.split('-').filter(Boolean)
+    if (parts[0] === 'zh') {
+      if (parts.length === 1) return 'zh'
+      const script = parts.slice(1).find((part) => part === 'hans' || part === 'hant')
+      if (script === 'hans') return 'zh'
+      if (script === 'hant') return 'zh-Hant'
+      if (parts.some((part) => ['tw', 'hk', 'mo'].includes(part))) return 'zh-Hant'
+      if (parts.some((part) => ['cn', 'sg', 'my'].includes(part))) return 'zh'
+      continue
+    }
+    const primary = parts[0]
+    if (primary === 'tl') return 'fil'
     if (isSupportedLocale(primary)) return primary
   }
   return DEFAULT_LOCALE

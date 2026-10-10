@@ -52,6 +52,16 @@ body:has(.about-page) {
   font-family: 'Noto Serif Devanagari', 'Noto Sans Devanagari', Mangal, Kokila, serif;
 }
 
+:lang(zh) .about-page,
+:lang(zh-Hant) .about-page {
+  font-family: 'Noto Sans CJK SC', 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;
+}
+
+:lang(zh) .about-page :is(h1, h2),
+:lang(zh-Hant) .about-page :is(h1, h2) {
+  font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', 'Songti SC', serif;
+}
+
 :root.dark .about-page {
   --about-deep-green: #5fc0b8;
   --about-earth-green: #c8cf6c;

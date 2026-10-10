@@ -1,0 +1,73 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# 协议网络架构
+
+兼容 CPP 的部署可以通过可选的注册表、索引、报价模块和应用层路径发现功能，连接多个代金券与资金池。每个资金池仍是独立的保管库，拥有自己的流动性、所有者、代理管理员、配置和依赖项。
+
+Grassroots Economics Foundation 在 [cosmolocal.credit](https://cosmolocal.credit) 运营公开的 CLC App。其他界面和部署也可以使用同一套公开协议。运营该应用并不会自动使 GEF 成为下图每份合约的所有者、发行方、资金池管理者、费用接收方或担保人。
+
+有关责任角色与技术权限之间的区别，请参阅 [概念和术语](/zh/introduction/concepts)。
+
+## 候选路径与执行
+
+<MermaidDiagram
+  scrollMessage="横向滚动以查看完整图表。"
+  errorMessage="无法渲染图表"
+  label="候选路径发现与钱包批量执行"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["代金券 A"] ---|上架并持有| PoolA["资金池 A"]
+    Bridge["通用桥接资产"] ---|上架并持有| PoolA
+    Bridge ---|上架并持有| PoolB["资金池 B"]
+    VoucherB["代金券 B"] ---|上架并持有| PoolB
+
+    App["PWA 或路径查找器"] -. 发现候选路径 .-> Index["注册表与索引"]
+    App -. 请求报价 .-> Router["SwapRouter：仅提供报价"]
+    Router -. 读取资金池报价 .-> PoolA
+    Router -. 读取资金池报价 .-> PoolB
+
+    App -->|构建有序调用| WalletStart["用户智能账户钱包"]
+    WalletStart -->|第 1 跳：代金券 A| PoolA
+    PoolA -->|桥接资产输出| WalletBridge["调用之间使用同一钱包"]
+    WalletBridge -->|第 2 跳：桥接资产| PoolB
+    PoolB -->|代金券 B 输出| WalletFinal["同一用户钱包"]
+
+    PoolA -->|协议费| ProtocolRecipient["已配置的协议费接收方"]
+    PoolB -->|协议费| ProtocolRecipient`}
+/>
+
+共享资产可以形成一条 **可能的图路径**，但不保证路径一定可用。在这个例子中，代金券 A 可以先在资金池 A 中换成桥接资产，再由桥接资产在资金池 B 中换成代金券 B。每一跳仍取决于当时的代币准入、资金池限制、可用库存、报价与费用配置、预言机状态、授权、交易边界以及网络执行情况。
+
+`SwapRouter` 只会沿拟议路径调用各资金池的报价函数。它不持有资金、不批准代币，也不执行交换。集成方或兼容应用可以利用这些报价，在一笔已签名的智能账户批处理中构建有序的授权和资金池调用；这并不表示当前公开的 CLC App 已提供多跳执行。每一跳都会先结算到钱包，再由该钱包把中间资产提供给下一个资金池。集成方还可以把批处理配置为在某次调用失败时整体回滚。
+
+报价只是某一时点的快照。如果执行前相关状态发生变化，即使路径报价成功，交易仍可能失败或以不同结果结算。带边界参数的 `SwapPool.withdraw` 重载为单独一跳提供 `minAmountOut` 和 `deadline` 保护；集成方必须自行决定如何对整条路径应用边界。
+
+资金池费用保留在相应资金池中，之后再收取。协议费如已配置，则是在资金池费用之外额外收取，并在交换过程中直接从该资金池转给其协议费接收方。
+
+## 资金池内部结构
+
+<MermaidDiagram
+  scrollMessage="横向滚动以查看完整图表。"
+  errorMessage="无法渲染图表"
+  label="承诺资金池的依赖项与管理权限"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["合约所有者或<br/>资金池管理者"] -->|配置、封存、收取、提取| Pool["SwapPool<br/>保管库与结算"]
+    ProxyAdmin["ERC-1967<br/>代理管理员"] -->|升级实现| Pool
+    Dependencies["可选依赖项<br/>registry · limiter · quoter<br/>费用政策 · 协议费控制器<br/>各自拥有独立治理"] -. 结算输入 .-> Pool
+    Seal["五个可封存的地址槽位<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. 锁定地址 .-> Pool
+
+    Wallet["用户钱包"] -->|存入或交换输入| Pool
+    Pool -->|交换净输出| Wallet
+    Pool -->|已收取的资金池费用| FeeAddress["已配置的<br/>费用地址"]
+    Pool -->|同一交换中的协议费| ProtocolRecipient["协议费<br/>接收方"]
+    Pool -->|withdrawLiquidity| Destination["所有者选择的<br/>接收方"]`}
+/>
+
+注册表、限制器、报价器、费用政策和协议费控制器都是可选的。未配置注册表时，任何代币都能通过准入检查；未配置限制器时，存入不设上限；未配置报价器时，资金池按原始单位的一比一关系处理；未配置费用模块时，相应费用为零。
+
+五个可封存槽位是 `feePolicy`、`feeAddress`、`quoter`、`tokenRegistry` 和 `tokenLimiter`。封存会阻止当前资金池所有者通过设置函数替换该地址，但不会冻结依赖合约的内部状态。`protocolFeeController` 地址和 `feesDecoupled` 模式不受这五个封存位控制。代理管理员升级资金池实现的权限也独立于封存机制。
+
+合约所有者可以把可用的资金池流动性提取到其选择的地址。在费用解耦模式下，已累积费用会从该提取路径中预留；所有者仍可提取其余流动性。参与者在依赖某个资金池前，应检查其所有者、代理管理员、依赖项控制者、封存状态、费用接收方以及公布的资金池规则。
+
+有关这些合约背后的概念设计，包括筛选、估值、限制、交换和治理，请参阅 [白皮书](/zh/white-paper)。

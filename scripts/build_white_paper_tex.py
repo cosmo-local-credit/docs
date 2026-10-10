@@ -14,12 +14,13 @@ PAGES_ROOT = ROOT / "docs" / "pages"
 PAGES = PAGES_ROOT / "white-paper"
 OUT_DIR = ROOT / "white-paper"
 OUT_TEX = OUT_DIR / "clc_white_paper.tex"
-LOCALES = ["en", "ar", "de", "dz", "es", "fr", "hi", "it", "nl", "pt", "sr", "sw", "uk"]
+LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "pt", "sr", "uk", "sw"]
 POLYGLOSSIA_LANGUAGES = {
     "ar": "arabic",
     "de": "german",
     "dz": "tibetan",
     "es": "spanish",
+    "fil": "english",
     "fr": "french",
     "hi": "hindi",
     "it": "italian",
@@ -28,11 +29,14 @@ POLYGLOSSIA_LANGUAGES = {
     "sr": "serbian",
     "sw": "english",
     "uk": "ukrainian",
+    "zh": "chinese",
+    "zh-Hant": "chinese",
 }
 
 TRANSLATION_DATES = {
     "es": "9 October 2026",
     "fr": "9 October 2026",
+    "fil": "10 October 2026",
     "ar": "10 October 2026",
     "de": "10 October 2026",
     "dz": "10 October 2026",
@@ -43,6 +47,8 @@ TRANSLATION_DATES = {
     "sr": "10 October 2026",
     "sw": "10 October 2026",
     "uk": "10 October 2026",
+    "zh": "10 October 2026",
+    "zh-Hant": "10 October 2026",
 }
 
 DISPLAY_FORMULAS = {
@@ -561,7 +567,11 @@ def localized_preamble(locale: str, subtitle: str) -> list[str]:
     language = POLYGLOSSIA_LANGUAGES[locale]
     language_setup = [
         r"\usepackage{polyglossia}",
-        rf"\setdefaultlanguage{{{language}}}",
+        (
+            r"\setdefaultlanguage[variant=traditional]{chinese}"
+            if locale == "zh-Hant"
+            else rf"\setdefaultlanguage{{{language}}}"
+        ),
     ]
     if locale == "ar":
         language_setup = [
@@ -595,6 +605,19 @@ def localized_preamble(locale: str, subtitle: str) -> list[str]:
             rf"\newfontfamily\{family}fontsf[Script={script},RawFeature={{fallback=clclatin}}]{{{script_font}}}",
             rf"\newfontfamily\{family}fonttt[Script={script},RawFeature={{fallback=clclatinmono}}]{{{script_font}}}",
             r"\newfontfamily\latinfont{Noto Sans}",
+        ]
+    elif locale in {"zh", "zh-Hant"}:
+        cjk_font = "Noto Sans CJK TC" if locale == "zh-Hant" else "Noto Sans CJK SC"
+        font_setup = [
+            rf"\setmainfont{{{cjk_font}}}",
+            rf"\setsansfont{{{cjk_font}}}",
+            rf"\setmonofont{{{cjk_font}}}",
+        ]
+        language_fonts = [
+            rf"\newfontfamily\chinesefont{{{cjk_font}}}",
+            rf"\newfontfamily\cjkfont{{{cjk_font}}}",
+            rf"\newfontfamily\cjkfontsf{{{cjk_font}}}",
+            rf"\newfontfamily\cjkfonttt{{{cjk_font}}}",
         ]
     elif locale in {"sr", "uk"}:
         language_fonts = [r"\newfontfamily\cyrillicfont[Script=Cyrillic]{Noto Sans}"]
@@ -637,7 +660,7 @@ def localized_preamble(locale: str, subtitle: str) -> list[str]:
         r"  linkcolor=blue,",
         r"  citecolor=blue,",
         r"  urlcolor=blue,",
-        rf"  pdflang={{{locale}}},",
+        rf"  pdflang={{{'zh-CN' if locale == 'zh' else 'fil-PH' if locale == 'fil' else locale}}},",
         r"  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},",
         r"  pdfauthor={William O. Ruddick and Mohamed Sohail}",
         r"}",

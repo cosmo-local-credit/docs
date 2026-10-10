@@ -2,17 +2,22 @@
 
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
-public documentation site. The synchronization baseline is `clc-app`
-`origin/develop` commit `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd`.
+public documentation site. The `clc-app` `origin/develop` baseline is commit
+`0808066dae3c0063729b69085df85ba5ce12a90d`; Filipino is synchronized to the
+committed feature branch at `b4c4a496dc45232470d3874a3317912e86b466a8`.
 
 English is unprefixed. Localized routes use their two-letter locale prefix. The
-registry contains Arabic, German, Dzongkha, Spanish, French, Hindi, Italian,
-Dutch, Portuguese, Serbian, Kiswahili, and Ukrainian. Detailed documentation is
-normally released one reviewed language at a time. French, Spanish, Portuguese,
-Italian, Kiswahili, German, Ukrainian, and Serbian have completed web review.
-Arabic, Dzongkha, Dutch, and Hindi are complete, validated web drafts awaiting
-the combined user review authorized for this batch. Stable English slugs are
-deliberately retained below each published locale prefix.
+registry contains Arabic, Simplified Chinese, Traditional Chinese, German,
+Dzongkha, Spanish, French, Hindi, Italian, Dutch, Portuguese, Serbian,
+Kiswahili, Ukrainian, and Filipino. Detailed documentation is normally released one
+reviewed language at a time. French, Spanish, Portuguese, Italian, Kiswahili,
+German, Ukrainian, and Serbian have completed web review. Arabic, Dzongkha,
+Dutch, Hindi, Simplified Chinese, and Traditional Chinese are complete,
+validated web drafts awaiting the combined user review authorized for this
+batch. Filipino is a complete review draft based on the app's committed
+`origin/feat/filipino-language` branch; release waits for the app merge, docs
+review, and coordinated deployment. Stable English slugs are deliberately
+retained below each published locale prefix.
 
 ## Files
 
@@ -59,7 +64,8 @@ The tracked PDF builder uses pdfLaTeX for English and LuaLaTeX for localized
 papers. Polyglossia provides most localized typesetting; Arabic uses Babel's
 LuaTeX bidi engine so RTL text and embedded LTR product names do not depend on
 the separate `luabidi` package. Builds use fixed source timestamps so generated
-PDFs are reproducible.
+PDFs are reproducible. Simplified and Traditional Chinese use separate Noto CJK
+font variants and Chinese language metadata.
 
 To regenerate one translation with an already downloaded CTranslate2 model:
 
@@ -71,6 +77,26 @@ node scripts/synchronize_protected_content.mjs pt
 npm run i18n:manifest
 npm run i18n:headings
 ```
+
+For Filipino refinement, the generator can also read the Apache-licensed
+MADLAD-400 CTranslate2 model from the machine-local cache at
+`/home/wor/.cache/clc-translation-models/madlad400-3b-mt-ct2-int8/`. Keep that
+cache outside both repositories and never add model files to Git. Use a
+temporary output tree first so a model comparison cannot overwrite reviewed
+pages:
+
+```sh
+/path/to/python scripts/generate_documentation_translations.py \
+  --locales fil \
+  --model /home/wor/.cache/clc-translation-models/madlad400-3b-mt-ct2-int8 \
+  --model-family madlad --threads 16 --cache-batch-size 16 \
+  --cache /tmp/clc-madlad-docs-cache.json \
+  --output-pages /tmp/clc-madlad-docs-pages \
+  --manifest /tmp/clc-madlad-fil-manifest.json
+```
+
+The 3B model is CPU-intensive. Accept its output page by page only where it is
+clearer and still preserves the docs glossary and protected technical content.
 
 Validate the reviewable web draft:
 
@@ -101,3 +127,10 @@ retains a separate link to the controlling English source.
 7. Validate browser matching, manual English override, query/hash preservation,
    RTL/LTR behavior, isolated search, metadata, sidebars, links, PDF glyphs, and
    mobile/desktop layouts before publishing that language.
+
+The app's committed `origin/feat/filipino-language` branch adds Filipino (`fil`)
+with `fil-PH` formatting and `tl` browser-language alias matching. The docs
+include a complete review draft and localized PDF synchronized to commit
+`b4c4a496dc45232470d3874a3317912e86b466a8`. Filipino is not yet part of app
+`origin/develop`, so production deep links must continue to use English until
+the app merge, docs review, and coordinated release gate are complete.

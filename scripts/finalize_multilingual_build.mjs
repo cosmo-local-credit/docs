@@ -11,10 +11,10 @@ const dist = join(root, 'docs/dist')
 const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const siteUrl = 'https://docs.cosmolocal.credit'
-const locales = ['en', 'ar', 'dz', 'de', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
 const documentationLocales = [...locales]
 const localized = new Set(locales.filter((locale) => locale !== 'en'))
-const directions = { en: 'ltr', ar: 'rtl', dz: 'ltr', de: 'ltr', es: 'ltr', fr: 'ltr', hi: 'ltr', it: 'ltr', nl: 'ltr', pt: 'ltr', sr: 'ltr', uk: 'ltr', sw: 'ltr' }
+const directions = { en: 'ltr', ar: 'rtl', zh: 'ltr', 'zh-Hant': 'ltr', dz: 'ltr', de: 'ltr', es: 'ltr', fil: 'ltr', fr: 'ltr', hi: 'ltr', it: 'ltr', nl: 'ltr', pt: 'ltr', sr: 'ltr', uk: 'ltr', sw: 'ltr' }
 const documentationPaths = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
   '/protocol/overview', '/protocol/smart-contracts', '/protocol/network',
@@ -42,6 +42,20 @@ const allPaths = ['/', ...documentationPaths]
 const searchOptions = {
   fields: ['title', 'titles', 'text'],
   storeFields: ['href', 'html', 'isPage', 'text', 'title', 'titles'],
+}
+const chineseSegmenter = new Intl.Segmenter('zh-CN', { granularity: 'word' })
+
+function tokenizeChinese(value) {
+  const words = [...chineseSegmenter.segment(String(value))]
+    .filter(({ isWordLike }) => isWordLike)
+    .map(({ segment }) => segment.toLocaleLowerCase('zh-CN'))
+  const tokens = [...words]
+  for (let start = 0; start < words.length; start += 1) {
+    for (let length = 2; length <= 4 && start + length <= words.length; length += 1) {
+      tokens.push(words.slice(start, start + length).join(''))
+    }
+  }
+  return tokens
 }
 
 function pathForLocale(path, locale) {
@@ -121,22 +135,25 @@ function buildSearchIndexes() {
     const prefix = locale === 'en' ? null : `/${locale}/`
     const selected = records
       .filter(({ href }) => {
-        const isLocalized = /^\/(?:ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
+        const isLocalized = /^\/(?:ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
         return prefix ? href.startsWith(prefix) : !isLocalized
       })
       .map(({ id, href, html, isPage, text, title, titles }) => ({ id, href, html, isPage, text, title, titles }))
     if (!selected.length) throw new Error(`Search index for ${locale} is empty`)
     if (selected.some(({ href }) => locale === 'en'
-      ? /^\/(?:ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
+      ? /^\/(?:ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
       : !href.startsWith(`/${locale}/`))) {
       throw new Error(`Search index for ${locale} contains another locale`)
     }
-    const index = new MiniSearch(searchOptions)
+    const options = locale.startsWith('zh')
+      ? { ...searchOptions, tokenize: tokenizeChinese }
+      : searchOptions
+    const index = new MiniSearch(options)
     index.addAll(selected)
     writeFileSync(join(searchDir, `search-index-${locale}.json`), JSON.stringify(index.toJSON()))
   }
 
-  if (!/^search-index-(?:en|ar|dz|de|es|fr|hi|it|nl|pt|sr|uk|sw)\.json$/.test(sourceName)) {
+  if (!/^search-index-(?:en|ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)\.json$/.test(sourceName)) {
     rmSync(sourceFile)
   }
 }

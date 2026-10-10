@@ -1,0 +1,1559 @@
+\documentclass[11pt]{article}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Renderer=Harfbuzz,Ligatures=TeX}
+\setmainfont{Noto Sans CJK SC}
+\setsansfont{Noto Sans CJK SC}
+\setmonofont{Noto Sans CJK SC}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{polyglossia}
+\setdefaultlanguage{chinese}
+\newfontfamily\chinesefont{Noto Sans CJK SC}
+\newfontfamily\cjkfont{Noto Sans CJK SC}
+\newfontfamily\cjkfontsf{Noto Sans CJK SC}
+\newfontfamily\cjkfonttt{Noto Sans CJK SC}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf}
+\setlength{\emergencystretch}{6em}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdflang={zh-CN},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdfauthor={William O. Ruddick and Mohamed Sohail}
+}
+
+\title{Cosmo-Local Credit (CLC)\\一个连接信用、协调承诺并为健康的全球---地方经济提供融资的网络}
+\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
+\date{White Paper v0.8 translation: 10 October 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\sloppy
+\RaggedRight
+
+\textbf{关于本译文。} 本文是 White Paper v0.8（白皮书 v0.8）的译文。英文源文发布于 2026 年 9 月 30 日。本译文发布于 2026 年 10 月 10 日。英文是源文。 \href{https://docs.cosmolocal.credit/white-paper}{阅读英文源文}。
+
+\textbf{版本：} 0.8
+
+\textbf{日期：} 2026 年 9 月 30 日
+
+\textbf{作者：} William O. Ruddick 和 Mohamed Sohail
+
+\textbf{联系方式：} \href{mailto:info@grassecon.org}{info@grassecon.org}
+
+\textbf{下载：} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-zh.pdf}{CLC 白皮书 v0.8 简体中文 PDF}
+
+\textbf{发布状态：} 最终定版的公开出版物。本文不构成投资建议，也不构成出售任何证券或金融工具的要约，或购买它们的邀请。后续版本可能会修订本文所述设计。
+
+\section*{如何阅读本白皮书}
+\addcontentsline{toc}{section}{如何阅读本白皮书}
+
+本文包含四类材料。即使某一章没有重复说明，以下状态也适用于全文。
+
+\begin{longtable}{P{0.30\linewidth} P{0.62\linewidth}}
+\toprule
+状态 & 含义 \\
+\midrule
+\endhead
+\textbf{当前} & 已在 CLC App 或公开的 Protocol v1.1.0 合约中验证的行为。\href{https://docs.cosmolocal.credit/zh/protocol/overview}{协议参考} 是这些合约的事实依据。 \\
+\textbf{取决于部署} & 仅在某个特定资金池、提供方、司法管辖区、治理机构或公布政策启用时才存在的功能。 \\
+\textbf{历史} & 来自早期 Sarafu Network 服务的证据或功能。它不是当前 CLC 采用情况，也不证明任何用户、资产、记录或义务已迁移。 \\
+\textbf{拟议} & 尚未表述为已部署的设计、经济模型、治理机制或路线图项目。 \\
+\bottomrule
+\end{longtable}
+
+当前的 Protocol v1.1.0 包括直接 \texttt{SwapPool} 执行、可选筛选和估值、资金池代币余额上限、资金池费用、额外的协议费用，以及仅报价的 \texttt{SwapRouter}。多跳执行、HTLC 或托管路由、批量净额结算、共享保险、拟议的 CLC 治理代币、拟议的 CLC 网络资金池、费用积分机制和网络流动性计划，均属拟议或取决于部署。
+
+\textbf{预期读者：} 资金池建设者和管理者、协议工程师和审计员、流动性和授权资助方、治理设计者，以及法律或合规审查人员。
+
+\section*{摘要}
+\addcontentsline{toc}{section}{摘要}
+
+Cosmo-Local Credit 是一个围绕 \textbf{承诺汇聚协议 (CPP)} 构建的产品体系。CPP 说明独立治理的承诺资金池如何筛选可兑付承诺、公布汇率方法和限制、持有库存，并实现负责任的交换。
+
+\textbf{承诺资金池 } 是受治理的安排。当前 Protocol v1.1.0 中的 \textbf{\texttt{SwapPool}} 是其中一个合约组件：代币保管库和直接交换引擎。某项部署可以将该合约连接到注册表、报价器、资金池代币余额上限、费用政策和其他服务。
+
+全球---地方（cosmo-local）意味着在全球范围分享开放标准、软件和知识，同时将发行、履约、治理和现实世界问责保持在当地。发行方始终对其代金券负责。资金池管理者始终对资金池规则以及其明确承担的任何保证负责。CLC App 和 GEF 都不会自动保证代金券、资金池、价值、路径、流动性头寸或结果。
+
+\section*{当前部署}
+\addcontentsline{toc}{section}{当前部署}
+
+GEF 在 \href{https://cosmolocal.credit}{cosmolocal.credit} 运营 CLC App。它提供账户和钱包访问、公开市场目录，以及代币、代金券、商品或服务项目、承诺资金池、转移和直接资金池交换的受支持界面。可用性取决于界面、合约、库存、已配置限制和费用、网络状态、资格、提供方、司法管辖区和已公布的发行方或资金池条款。
+
+仅运营界面不会使 GEF 自动成为发行方、资金池管理者、托管人、贷款方、借款方、经纪人、担保人、兑付方、顾问、保险人，或参与者之间义务的当事方。应用的使用受 \href{https://docs.cosmolocal.credit/zh/governance/terms}{服务条款} 约束。
+
+Protocol v1.1.0 将负责任角色与技术控制区分开。资金池管理者、\texttt{SwapPool} 所有者、代理管理员、依赖项控制者、目录审核员和费用接收方可能是不同当事方。共享术语见 \href{https://docs.cosmolocal.credit/zh/introduction/concepts}{概念和术语}。
+
+\section*{历史源流}
+\addcontentsline{toc}{section}{历史源流}
+
+历史上的 Sarafu Network 早于 CLC App，并为社区货币和承诺汇聚提供了证据。该服务转向 Cosmo-Local Credit 并不意味着每个历史账户、钱包、代币、代金券、资金池、余额、报告、参与者或义务都已转移。
+
+本文中的历史指标使用有日期且内部一致的 Sarafu 数据集。它们不是当前 CLC 使用数据。数据源和测量期间见 \href{https://docs.cosmolocal.credit/zh/white-paper/executive-summary}{执行摘要}。
+
+\section*{设计模型}
+\addcontentsline{toc}{section}{设计模型}
+
+CPP 包含四项广义功能：
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{筛选：} 决定准入哪些代金券或其他资产。
+\item \textbf{估值：} 公布用于生成资金池汇率或报价的方法。
+\item \textbf{限制：} 应用当前资金池代币余额上限或其他单独实施的风险控制。
+\item \textbf{交换：} 持有库存，并在已披露的费用和界限下执行资金池交换。
+\end{itemize}
+部署只能在单独公布的政策下添加路由、监测、流动性支持、担保、储备、保险或治理服务。上架、筛选、限制、储备或区块链记录，都不会自动证明发行方能力、履约、认可、保证或保险。
+
+\section*{价值观和设计原则}
+\addcontentsline{toc}{section}{价值观和设计原则}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{关爱人们：} 支持个人和集体福祉。
+\item \textbf{关爱环境：} 减少生态损害，支持再生实践。
+\item \textbf{公平：} 促进安全、公平地获取资源、知识和关怀。
+\item \textbf{互惠：} 按已披露规则分担风险、成本、责任和剩余。
+\item \textbf{非支配：} 抵制对人、数据、金融、知识和物质资源的集中控制。
+\item \textbf{韧性：} 帮助社区为经济、政治和气候冲击做好准备并适应变化。
+\item \textbf{当地问责：} 让现实世界履约和法律责任由已明确的当事方承担。
+\item \textbf{可分叉性：} 允许兼容的社区和部署离开共享注册表或服务，而不擦除有效余额或义务。
+\end{itemize}
+数字层是共享记忆和协调基础设施。它不能取代人际关系、发行方履约、当地治理或法律问责。
+
+\section*{当前和拟议流程}
+\addcontentsline{toc}{section}{当前和拟议流程}
+
+\subsection*{当前的直接资金池流程}
+\addcontentsline{toc}{subsection}{当前的直接资金池流程}
+
+\begin{enumerate}[leftmargin=*]
+\item 持有人查看代金券、发行方、条款和相关商品或服务项目。
+\item 资金池准入受支持资产，并公布配置和负责机构。
+\item 持有人获取报价并授权直接资金池交换。
+\item \texttt{SwapPool} 执行链上交换结算，并记账资金池费用和协议费用。
+\item 如果持有人随后在应用中选择 \textbf{``兑付''}，应用会准备一笔发向代币所有者的转移，用作兑付出示。
+\item 发行方另行完成承诺的履约，并记录核销，使已履约单位不能被重复使用。
+\end{enumerate}
+从资金池获取库存属于交换。只有当该资金池已单独承担发行方角色，并履行适用代金券条款时，这才属于兑付。
+
+\subsection*{更广泛的拟议设计}
+\addcontentsline{toc}{subsection}{更广泛的拟议设计}
+
+拟议设计探索执行路由、净额结算、共享服务、网络流动性计划、保险政策和治理资产。每项功能都必须在具备实现、负责方、已采纳规则、资金、控制和公开披露后，才可适用。
+
+拟议费用模型可能使用从资金池费用中提取的网络分成，以及单独的路由或服务费用。该提案与 Protocol v1.1.0 不同：在当前协议中，可选的协议费用是资金池费用之外的额外费用。
+
+支持者或流动性提供者不会从当前的 \texttt{SwapPool} 自动获得资金池份额、偿还、提取、奖励或治理权利。任何当前或未来计划都必须单独披露转移类型、负责方、控制权、收回或提取权、损失、奖励、费用和治理权利。
+
+\section*{读者导航}
+\addcontentsline{toc}{section}{读者导航}
+
+\begin{itemize}[leftmargin=*]
+\item 当前术语和操作生命周期：\href{https://docs.cosmolocal.credit/zh/introduction/concepts}{概念和术语}
+\item 经验证的已部署合约：\href{https://docs.cosmolocal.credit/zh/protocol/overview}{Protocol v1.1.0}
+\item 历史证据：\href{https://docs.cosmolocal.credit/zh/white-paper/executive-summary}{执行摘要}
+\item 联邦和互操作性：第 5、8 和 11 章
+\item 拟议的担保和保险边界：第 10 和 11 章
+\item 拟议的流动性和费用模型：第 7、9 和 12 章
+\item 拟议的测量框架：第 14 章及附录 A--C
+\item 拟议的路线图：第 15 章
+\item 法律和合规考量：第 17 章
+\end{itemize}
+\href{https://docs.cosmolocal.credit/zh/white-paper/archive}{以前的白皮书版本} 仅作为已明确取代的历史出版物保留。
+
+\section*{执行摘要}
+\addcontentsline{toc}{section}{执行摘要}
+
+其他 \textbf{承诺汇聚协议 (CPP)} 描述了如何独立管理承诺资金池发行方仍然对其券承诺负责.资金池管理者它们的权利和责任,CLC App 没有 GEF 是一个普遍的担保者.
+
+Protocol v1.1.0 提供当前直接交换的构建块:\texttt{GiftableToken}, \texttt{SwapPool}附加协议费,仅提供报价\texttt{SwapRouter}现行合同不记录实际的履行,创建自动流动性提供商股份,执行多通路线,或提供普遍储备,保证或保险.
+
+历史性 \textbf{Sarafu Network} 它的服务后来转向了 CLC App. 这不是一个表示每个历史账户,钱包,代币,券商,池,余额,报告,参与者或义务迁移的表现.
+
+\subsection*{历史 Sarafu Network 快照  C2023年7月5日至2025年7 月20日间的热点活动}
+\addcontentsline{toc}{subsection}{历史 Sarafu Network 快照  C2023年7月5日至2025年7 月20日间的热点活动}
+
+\textbf{来源:} \href{https://dune.com/grassrootseconomics/sarafu-network}{云分析仪表板}
+
+\begin{itemize}[leftmargin=*]
+\item 26,367名用户
+\item 285,197个同行交易所
+\item 188 唯一的活性 承诺资金池
+\item 745 唯一的活跃券
+\item \$320,692 池交换量
+\item 899 发表的报告 (\href{https://sarafu.network/reports}{历史报告档案})
+\end{itemize}
+这些数字是历史性证据,而不是当前的CLC使用数据.
+
+更广泛的CLC设计探讨了如何兼容网络可以:
+
+\begin{enumerate}[leftmargin=*]
+\item 在独立管理的资金池中发现和引用路径;
+\item 协调负责任的网络服务,而不会重视本地责任;
+\item 支持单独资助的流动性任务,担保,储备或保险政策;
+\item 测量组交换单独与凭证提交,履行和核销;以及
+\item 使用拟议的网络和服务费用于资助采用的共享服务.
+\end{enumerate}
+该提案包括: \textbf{拟议的CLC治理代币 } 和一个 \textbf{ 拟议的CLC网络池}也不是当前应用程序或 Protocol v1.1.0 的一部分.
+
+根据拟议的模式,流动性和治理参与者只能通过单独采用已公布的资格,风险,控制,转让权,回收条款和费用规则的程序来采取行动.普通池存款不会自动创造任何股份,偿还,撤销,奖励或治理权利.
+
+共同目标是:
+
+增加负责任的交流和履行现实承诺,同时保持关心,公平,本地责任和弹性.
+
+防止捕获和可靠退出仍然是设计的核心目标.拟议的控制包括时间延迟治理,多次批准门,透明委托,冲突规则,事件审查以及文档化分叉和迁移过程.这些控制将减少选定的治理风险,但无法消除损失或保证结果.
+
+
+\section*{1. 承诺汇聚协议 (CPP)：核心机制}
+\addcontentsline{toc}{section}{1. 承诺汇聚协议 (CPP)：核心机制}
+
+\textbf{心理模型:} 一个承诺资金池是接受代金券或其他资产,发布交易规则,持有库存和允许交换的受理安排. 持有人后来向其发行方提交代金券以履约现实情况.
+
+CPP通过明确描述的承诺协调价值. \href{https://willruddick.substack.com/p/grassroots-economics-the-book-is}{基层经济:反思和实践}.
+
+\subsection*{1.1 什么是承诺？}
+\addcontentsline{toc}{subsection}{1.1 什么是承诺？}
+
+承诺是确定方对未来交付的承诺,例如食品,运输,劳动力,储存或其他合法的商品,服务,福利或业绩. \textbf{凭证} 在公布的条件下,作为该承诺所代表的标志或记录.
+
+代币合同记录数字机制.券条款确定发行者,报价,容量,地点,时间,限制,提交,履行,投诉和核销过程.
+
+\subsection*{1.2 什么是承诺资金池？}
+\addcontentsline{toc}{subsection}{1.2 什么是承诺资金池？}
+
+一个承诺资金池是管理的安排. 它可以由个人,合作社,社区团体,公共机构,联邦,多合伙人,服务运营商或其他负责结构来管理.
+
+相关的角色和当局包括:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{资金池管理者:} 发布和管理池规则以及任何明确承担的保证;
+\item \textbf{资金池所有者:} 拥有当前的 \texttt{SwapPool} 所有权;
+\item \textbf{代理管理员:} 能够升级代理执行;
+\item \textbf{依赖控制器:} 管理配置的注册表,报价表,限制表或费用组件;
+\item \textbf{路线寻找者或运营商:} 可以发现报价或在未来实施时,执行单独授权的路线;以及
+\item \textbf{担保人:} 只有通过公布,资助的条款承担定义义务.
+\end{itemize}
+CPP组 库的函数分为四个概念:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{管理人员:} 允许支持的代币或券.
+\item \textbf{估值:} 公布用于汇率或报价的方法.
+\item \textbf{限制:} 应用当前的汇总代币平衡上限或其他单独实施的控制.
+\item \textbf{交换:} 持有库存,执行交换,对费用进行会计和发行交易记录.
+\end{itemize}
+Protocol v1.1.0 通过 \texttt{SwapPool} 现在的电源 \texttt{Limiter} 现有交易所的交易所,并未提供滚动,每账户或网络范围内的交换限制.\texttt{SwapRouter} 计算多池报价;它不执行交换.
+
+广泛的建议CPP设计可能增加滚动限制,账户控制,执行路由器,HTLC它们是拟议的组件,而不是当前限制器或路由器的描述.
+
+\subsection*{1.3 当前的直接交换逻辑}
+\addcontentsline{toc}{subsection}{1.3 当前的直接交换逻辑}
+
+目前直接的池交换:
+
+\begin{enumerate}[leftmargin=*]
+\item 检查输入和输出代币的可选注册表;
+\item 测量收到的输入;
+\item 从配置的报价表中获得报价或使用原单位平衡;
+\item 检查产生的Pool代币余额与可选限制符;
+\item 计算组费和任何额外的协议费;
+\item 检查可用的输出库存;
+\item 转移协议费和输出,并对集团费的账户;以及
+\item 发出交换事件.
+\end{enumerate}
+报价是交易参数,而不是证据证明发行人能力,赎回价值,公平价值或现金可转换性.
+
+\subsection*{1.4 更广泛的使用}
+\addcontentsline{toc}{subsection}{1.4 更广泛的使用}
+
+承诺资金池可以支持社区交换,生产,互助,公共计划和其他负责任结构.一个单独记录的信用产品可能会使用券作为担保或偿还工具,但需要额外和交易特定的条款.普通发送,积分存款,积金交替,赎回呈现,履行或清算不是自动贷款或退款.
+
+CPP是用于负责任的交易和可审核的交易记录,而不是投机性转账.在链上的记录仍然没有证明现实世界履约或社会影响.
+
+
+\section*{2. 会计视角的转变：从资产转向信任}
+\addcontentsline{toc}{section}{2. 会计视角的转变：从资产转向信任}
+
+传统金融从 \textbf{资产 - 债务 = 股权}. CPP对承诺经济进行了重构:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{接受能力:} 一个集团或网络仍然愿意接受多少发行方的承诺.
+\item \textbf{目前未完成的承诺:} 他发出了未完成的承诺,
+\item \textbf{满足能力:} 发行人证明能够履行这些承诺.
+\end{itemize}
+\subsection*{说明承诺能力关系:}
+\addcontentsline{toc}{subsection}{说明承诺能力关系:}
+
+接受能力 - 未完成的承诺 =剩余的接受能力
+
+这种概念性身份可以说明库存风险限制:无限发行并不意味着无限接受.
+
+\textbf{例如：} 一家交通运输方发行了代表``100 次乘车''的代金券。某资金池按政策最多可同时接纳 40 次乘车。如果其中 15 次仍未履约，该资金池按此政策还可以接纳最多 25 次乘车。这项计算本身不会产生贷款或履约保证。
+
+
+
+\section*{3. 履约、核销与交换活动}
+\addcontentsline{toc}{section}{3. 履约、核销与交换活动}
+
+股票交易组 (Pool swap) 的变化涉及持有资产.发行人履行公布的承诺时,会发生代金券履行.核销记录已完成的单元,使其无法再次呈现.这些事件不能被分解成一次使用``结算.
+
+拟议的测量框架采用为:
+
+\begin{itemize}[leftmargin=*]
+\item 已完成的池交换量;
+\item 有效的赎回报表;
+\item 证实发行方的履行;
+\item 核销;
+\item 现有资格承诺;以及
+\item 测量池库存.
+\end{itemize}
+拟议的承诺-清算速度可以比较一个期内实现的价值与平均未偿还可资格的承诺价值,但只有当两者都使用相同的披露估值方法时.代币供应不是足够的指标:它可能包括发行方库存,过期或无法访问的单位,测试和余额不代表未偿付的第三方承诺.
+
+单独的组交换活动比率可以将完成的组交易价值与测量的组库存进行比较. 它描述了交易所活动,而不是发行人履约.
+
+流动性可以提高库存可用性，让交换更容易。它不保证发行方会履约、出资方会收回资产，也不表明资金池报价等于兑付价值或现金价值。流动性提供者的任何权利都需要单独公布的条款。
+
+查看 \href{https://docs.cosmolocal.credit/zh/white-paper/appendix-a-math-box}{附录A} 对于定义和 \href{https://docs.cosmolocal.credit/zh/white-paper/appendix-c-kpi-definitions}{附录C} 对拟议的测量规格.
+
+
+\section*{4. 可重复使用的远期式抵押品}
+\addcontentsline{toc}{section}{4. 可重复使用的远期式抵押品}
+
+单独记录的信贷机构可能会作为担保或偿还工具接受可转移的券.
+
+\begin{itemize}[leftmargin=*]
+\item 投资池的入口可以使抵押品更容易被发现;
+\item 额外的合法呈现和履行选项可能支持退款;
+\item 限制,库存,估值,流动性,发行人业绩和违约风险将继续存在;以及
+\item 没有路线,履行,偿还,价值或回收的保证.
+\end{itemize}
+\subsection*{4.1 生产商信用循环}
+\addcontentsline{toc}{subsection}{4.1 生产商信用循环}
+
+未来CLC-兼容的服务只能支持制造商信贷,只有当事人建立了单独的设施并明确将交易作为可偿还的预付款呈现出来.
+
+\begin{itemize}[leftmargin=*]
+\item 预付和偿还金额;
+\item 抵制日期,利息,费用和允许的担保使用;
+\item 转让和债权人或索赔人的任何变化;
+\item 凭证的履行如何进行估值和证明,以便进行偿还会计;
+\item 部分偿还,剩余金额,违约和清算;以及
+\item 根据适用的法律可获得的补救措施.
+\end{itemize}
+一个说明流程是:
+
+\begin{enumerate}[leftmargin=*]
+\item 一个生产商或服务提供者发出一份证明,表明承诺未来的产量,例如10次出租车行程,50公斤玉米或10个劳动小时.
+\item 一个资金池管理者承认该凭证,并公布集团的汇率方法,限制,费用,库存规则以及任何明确假设的保护.
+\item 贷款人或流动性计划根据书面交易条款单独提供预付款,并接受生产商的凭证作为担保或已达成的偿还工具.
+\item 持有者可以转让代金券,通过兼容的池进行交换或向发行人呈现.
+\item 发行人确认的履行满足了凭证承诺. 它只减少了单独的信用余额,在信贷条款中指定的程度,价值和证据上.
+\item 记录将凭证的履行与信用会计区分开来,并确定任何部分偿还,剩余金额,转让,违约或清算.
+\end{enumerate}
+这种结构可以允许同意的物质偿还,同时保留了凭证和信用义务的单独记录. 它不源于普通转让,存款,组合交换,兑付出示,履行或核销.
+
+\textbf{举个例子:} 一个生产者根据条件获得1000美元的提前,说明确认完成特定玉米券的验证会通过所述估值方法抵免偿还金额.贷款人仅在收到这些条款要求的证据后申请信用.如果信贷条款不使这种连接,购买,转让,交换,呈现或履行凭证不会影响预先.
+
+
+\section*{5. 从孤立的资金池到联合网络}
+\addcontentsline{toc}{section}{5. 从孤立的资金池到联合网络}
+
+当前 Protocol v1.1.0 支持通过一个 \texttt{SwapPool} 仅提供引用 \texttt{SwapRouter} 它不执行多期路线,HTLC,保证路线或分批网.
+
+本章提出了如何独立管理的池可以协调,而不会放弃自己的录取,估值,限制,费用,库存,授权和治理规则.
+
+\subsection*{5.1 分别衡量交换与履约}
+\addcontentsline{toc}{subsection}{5.1 分别衡量交换与履约}
+
+联邦可能会改善对库存的获取,但它不会合并代金券和交换生命周期.
+
+\begin{enumerate}[leftmargin=*]
+\item 提供航线;
+\item 一个或多个库存交换在链上执行和结算;
+\item 持有者向发行人提交券单位;
+\item 发行者履行承诺;以及
+\item 已完成的单元被放弃.
+\end{enumerate}
+报告将说明C附件所要求的队列,期期期,资产,估值方法和时间表,排除,纠正以及链外证据.
+
+\textbf{说明路线:} 一个学校持有玉米券,但需要运输券.一个航线服务识别出兼容的池袋库存.如果每个单独授权的蜂保持在报价限制,限额,费用,库存和政策范围内,执行只会成功.所产生的交换不会证明任何发行方都后来履行了凭证承诺.
+
+\subsection*{5.2 拟议的路由和重平衡服务}
+\addcontentsline{toc}{subsection}{5.2 拟议的路由和重平衡服务}
+
+未来的航线服务可能支持两个不同的活动.
+
+\textbf{参与者发起的执行.} 鉴于输入和输出资产,数量和用户限制,服务可以识别一个路径并准备执行.每个跳跃将有自己的负责池,报价,授权,费用,限额,库存和收据.原子批量,HTLC和保证是未来可能的执行选择,而不是当前协议行为.
+
+\textbf{选择池重新平衡.} 资金池管理者可以发布库存目标,允许对方,资产类别,报价偏差限制和每期限制.一个负责服务可以搜索兼容的周期或链条并仅执行授权的意图.
+
+一个集团可以允许参与者的航线,同时拒绝出发的再平衡,或者它只能选择资产,对方和金额.每次执行的跳转都会产生收据,任何服务费将与集团和协议费分开地披露.
+
+\subsubsection*{5.2.1 联邦和互操作性}
+
+独立部署可以运营自己的注册表,接口,路线服务和政策配置文件,同时选择兼容的数据和收件标准.
+
+一个兼容的个人资料:
+
+\begin{itemize}[leftmargin=*]
+\item 确定其注册基因,服务运营商,控制者以及适用的术语;
+\item 披露允许和拒绝的对方,资产,适配器和路线;
+\item 适用于每个参与池的授权,限制,费用和库存约束;
+\item 保存每次报价到收件证据;以及
+\item 允许其他功能的库离开或选择另一个注册表,而不删除余额或发行人义务.
+\end{itemize}
+互联网的互动性可以增加可用的交换路径,减少对一个注册表或运营商的依赖.CLC App, GEF 其他负责发行人履行的池.
+
+\subsection*{5.3 拟议的网络费用分成与服务费模型}
+\addcontentsline{toc}{subsection}{5.3 拟议的网络费用分成与服务费模型}
+
+当前 Protocol v1.1.0 对直接的组交换征收了组费,并在配置时还征收了一个额外的协议费.
+
+未来的项目可以单独获得:
+
+\begin{enumerate}[leftmargin=*]
+\item 一个 \textbf{网络拉克} 定义为参与池收取的池费中的所述份额;以及
+\item 一个 \textbf{路由费或服务费} 为了确定未来的服务.
+\end{enumerate}
+拟议的网络拉克不是已经计算组费后,对全部交换金额的附加百分比.对于组 \texttt{p}:
+
+\[
+\tau_p = f_p \cdot r_p
+\]
+
+在哪里 \texttt{f\_p} 是池费率和 \texttt{r\_p} 是该组费所分配给网络计划的拟议份额.
+
+在测量期间:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{总池费} 是每个集团实际收取的集团费用的总额;
+\item \textbf{网络冲击收据} 是这些收取的费用所声明的份额;
+\item \textbf{服务费收据} 是单独收取路由费或服务费;以及
+\item \textbf{项目费收据} 同等的网速收益加上服务费收益.
+\end{itemize}
+任何类别都不会被计数两次.除非通过单独的政策,否则将实际的协议费收益合法转向未来计划,目前的协议费不包括.
+
+对于总体近似,让:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{Q\_swap} 是对定义的队列和期内执行的组交换值;以及
+\item \texttt{$\tau$} 是拟议的网络拉克的有效率,以及对执行的交换价值进行了单独确定的服务费.
+\end{itemize}
+然后:
+
+\[
+F \approx \tau \cdot Q_{\mathrm{swap}}
+\]
+
+每个输入都需要一个明确的队列,周期,单位,估值时间表,排斥和纠正政策.
+
+\subsubsection*{5.3.1 符合现金条件的收入与实物收入}
+
+任何交换或转换都需要授权,可用库存,披露场所,限制和实际执行.
+
+让 \texttt{$\chi$} 是政策限制,转换失败和滑坡后现金资格的收费收益的实现份额.可使用现金的收益是:
+
+\[
+F_{\mathrm{cash}} \approx \chi \cdot F
+\]
+
+预算和破产平衡分析将使用实现的 \texttt{F\_cash},而不是总上市费用或物质库存的表值.未来的计划将单独报告集团费用,网络收益,服务费,资产组成,转换结果和可使用现金收益.
+
+\subsection*{5.4 拟议的流动性计划}
+\addcontentsline{toc}{subsection}{5.4 拟议的流动性计划}
+
+未来,单独记录的流动性计划可能将资产分配给指定池或路由服务.当前的 \texttt{SwapPool} 合同不会打印池股,也不会自动创建偿还,提款,奖励,治理或利权.
+
+任何程序都会发布:
+
+\begin{itemize}[leftmargin=*]
+\item 负责实体和参与的资金池管理者;
+\item 贡献的资产以及转让是否可偿还,可撤销,捐赠或授予;
+\item 监护和技术控制安排;
+\item 允许使用,限制,锁定,退出门和损失分配;
+\item 费用或激励金的资格,以及该金额是否可能为零;
+\item 报告,冲突,投诉和补救措施;以及
+\item 转移,终止和处理剩余资产和义务.
+\end{itemize}
+实质性风险包括难以交换或履行的库存,现金资格较低,发行方未能执行,合同或供应商失败,治理变化和退出限制.限制,储备,收据和仪表板可能会减少或揭示一些风险;它们不会消除损失.
+
+对于后期分析指标,让:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{$\phi$} 是根据该计划通过的条款分配的项目费收益的实现部分;以及
+\item \texttt{K} 是该计划所涵盖的资产在一个指定的方法下衡量的价值.
+\end{itemize}
+然后:
+
+\[
+\mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
+\]
+
+该指标描述了每项测量项目资产的履约费用流动.它不是APY,预测,股息或保证收益.报告将保持交换量,赎回表现,发行人履行,清算,持有时间,损失,提款和费用收据分开.
+
+
+\section*{6. 拟议的网络级流动性和治理}
+\addcontentsline{toc}{section}{6. 拟议的网络级流动性和治理}
+
+历史性 Sarafu Network 的经验激励了研究两个更广泛的设计问题:
+
+\begin{enumerate}[leftmargin=*]
+\item 如何独立管理的池可以协调流动性和路由服务;以及
+\item 如何随着参与的增长,共享服务可以继续承担责任.
+\end{enumerate}
+一个拟议的CLC设计引入了一个 \textbf{拟议的CLC网络池 } 作为网络级清算和预算协调安排, \textbf{ 拟议的CLC治理代币}现在的应用程序中没有 Protocol v1.1.0 其他部署可能使用合作社,公共机构,联邦,多个公司,服务运营商或其他负责结构,而没有通过任何提案.
+
+\subsection*{6.1 下行风险控制与选择权}
+\addcontentsline{toc}{subsection}{6.1 下行风险控制与选择权}
+
+目前的 Protocol v1.1.0 可以应用Pool代币平衡上限和库存检查. 这些控制限制了选定的合同行动;它们不会防止发行方不履行,损失价值,关键损失,合同失败或其他任何损失.
+
+未来的部署可能会增加断路,时间限制,储备,保证或保险.任何保护都需要确定一个负责人,涵盖事件,资金,限额,排斥,持续时间,证据,索赔程序和适用的条款.
+
+拟议的治理应保持注册和服务权限的狭窄性和可审查性.普通行动可以使用通知,延迟,理由发布,上诉和纠正过程.紧急行动应该产生事件记录,并根据采用的政策到期或接受审查.
+
+可兼容的路线发现可以使跨区块链更大的交换成为可能.多通行执行和网化需要额外的软件,授权,限制,故障处理和治理.更多的报价或执行的交换本身不会证明代金券的履行或社会影响.
+
+
+\section*{7. 拟议的 CLC 管理与治理资产}
+\addcontentsline{toc}{section}{7. 拟议的 CLC 管理与治理资产}
+
+本章介绍了未来治理和流动性协调的可选设计.CLC管理标志,stCLC, sCLC管理保险基金,水,计量表,任务,收费信贷窗口和外部市场计划不属于当前的 CLC App 或 Protocol v1.1.0 它们需要实施,负责运营商,公布的政策和条款,安全审查以及适用的法律批准.
+
+CPP不需要这个代币模型.相容的部署可以使用合作社,公共机构,联邦,多合伙企业,服务或其他负责结构.
+
+\subsection*{7.1 目的}
+\addcontentsline{toc}{subsection}{7.1 目的}
+
+如果通过,拟议的治理层可能:
+
+\begin{itemize}[leftmargin=*]
+\item 协调共享登记和航线服务;
+\item 在独立管理的池中分配批准的流动性授权;
+\item 管理可选的,明确目标的资助覆盖方案;
+\item 维护共同的基础设施和可观察性;
+\item 根据公布的资格和反博规则识别贡献者;以及
+\item 随着参与的增长,保持审查,吸引力,透明度和可靠退出.
+\end{itemize}
+\subsection*{7.2 拟议的治理资产模式}
+\addcontentsline{toc}{subsection}{7.2 拟议的治理资产模式}
+
+该设计包含三个不同的拟议资产:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{拟议的CLC治理代币:} 根据通过的发行,保管,投票和合规规则而可转移的基准治理资产.
+\item \textbf{stCLC:} 当拟议的CLC治理代币被锁定时发明的不可转移的投票托管收据.它代表了有时间限制的治理权力,并可能允许披露授权.
+\item \textbf{sCLC:} 根据政策发行的时间范围授权或激励资产. 它可能支持限额收费信贷或批准的流动性和路由激励,并且可能在期末到期或被烧毁.
+\end{enumerate}
+没有stCLC没有sCLC作为一个社会资产,可以通过政策确定sCLC任何时代的发行和收费信用访问率为零.
+
+在使用前将公布管理锁定,最低持续时间,冷却,委托,集中限和关键行动门.未锁的提议 CLC治理代币不会根据这个设计投票.
+
+\subsubsection*{7.2.1 供应与分配示例}
+
+拟议的示范总数CLC治理代币供应量为 \textbf{500,000,000} 这是一个设计参数,而不是当前的发行,报价,估值或流动性承诺.
+
+一个说明性分配是:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{15\% --- Grassroots Economics Foundation:} 根据公布的签名和旋转规则,永久性投注,不可转移,并与已识别的 GEF 多标签结合.
+\item \textbf{15\% ---核心团队和早期合作伙伴:} 在24个月的政策悬崖和线性收益期内进行投资,提前披露投票和转让规则.
+\item \textbf{30\%  private私人资助:} 认可提供经批准的网络流动性的早期贡献者,有24个月的政策授权.
+\item \textbf{40\%  public公共流动性储备:} 为可选的外部市场和可访问性计划,
+\end{itemize}
+在示范式的公共流动性控制下:
+
+\begin{itemize}[leftmargin=*]
+\item 不超过10\%的总供应同时在外部场所活动;
+\item 每次部署将在90天后过期,除非通过采用程序进行更新;
+\item 流动性仓位和任何仓位代币将继续处于公开治理控制之下;以及
+\item 在流动性立场中使用的CLC治理代币,除非与其他投票代币相同的规则下锁定,否则不会投票.
+\end{itemize}
+未来的发射只能在独立审核,监控,事件运行簿和测试暂停和叉路程序等单独批准的硬化里程碑后开始进行披露的多标签和过渡.
+
+\subsubsection*{7.2.2 可用性与基金阶段}
+
+在未来的捐赠计划中,可以使用阶段式的捐款窗户和公布的收费和预算参考值.
+
+贡献条款将说明资产是否捐赠,授予,可撤销或可以偿还;谁控制它们;其允许使用;锁定;损失分配;报告和退出条件.
+
+任何外部市场流动性都需要单独决定确定场所,负责运营商,资产,上限,时间表,冲突,风险控制,报告和终止. 该政策不会针对或保证价格.
+
+\subsubsection*{7.2.3 拟议的影响力启动计划}
+
+未来的计划可以将部分治理库分配给投资者,他们将资产放入指定承诺资金池中,并可测量地改善交易所访问和确认发行者的履行.
+
+通过的资格政策将:
+
+\begin{enumerate}[leftmargin=*]
+\item 确定批准的池,资产,最低持续时间和锁定期限;
+\item 通过执行的交换证据和单独证明的呈现,履行和清算来确定生产贡献;
+\item 衡量边际贡献而不是单独锁定的总值;
+\item 排除自行交易和循环洗衣活动;
+\item 实体均限和降低收益率;以及
+\item 在最终分配之前提供观察,争端和纠正窗口.
+\end{enumerate}
+任何拨款将依据该计划的公布条款,资产权,资格性,合规性和损失规则.
+
+\subsection*{7.3 拟议的投票、激励与费用使用权}
+\addcontentsline{toc}{subsection}{7.3 拟议的投票、激励与费用使用权}
+
+在这个设计下,stCLC通过"选"的方法,可以将投票转化为有限的sCLC资金流动性或路由运营商的激励措施.
+
+衡量政策将使执行的交换和发行人履行分开. 它不会奖励上市但未执行的路线,未解决的呈现,自动交易或没有证据证明有用活动的总值锁定.
+
+通过的治理程序也可以公布一个时代费用信用预算.stCLC持有者可能收到sCLC允许从指定收费持有池中进行限额,时间有限的转换成被列入资产或计划. 这将是政策目标的获取可用库存,而不是负收入或收费保持池的所有权.
+
+\subsubsection*{7.3.1 服务费执行与配置选择}
+
+未来的注册表可能需要参与 Pool 或路线服务使用兼容的费用适配器或. 如果所需收据不证明收取费用,则该配置文件可能会拒绝发现,路由或程序支持.
+
+名称如: \textbf{PoolFactory } 或 \textbf{ 子} 描述可能的未来模块;它们不是 Protocol v1.1.0 合同.任何实施都会披露代码,地址,控制者,接收者,关税,符合条件的交易,故障处理和审计状态.
+
+如果其合同和依赖部门继续运行,一个由一个配置文件排除的池可继续在本地运营或加入另一个兼容的注册表. 客户应在授权之前暴露现有配置文件并显示适用的费用.
+
+\subsubsection*{7.3.2 sCLC 预算与可选的外部流通量控制}
+
+通过更高优先级预算后,未来的进程可能会发布一个时代费用信用预算 \texttt{F\_epoch} 政策可能会按比例分配参与者限额stCLC投票权:
+
+\[
+\mathrm{limit}_{\mathrm{user,epoch}} = F_{\mathrm{epoch}} \times \frac{\mathrm{stCLC}_{\mathrm{user}}}{\mathrm{stCLC}_{\mathrm{total}}}
+\]
+
+每个窗口都将依据允许,限制,库存,资格,事件规则和适用的法律.
+
+单独的政策只能允许对拟议的CLC治理代币进行限额,时间权重收购,以减少测量的外部治理攻击面积.
+
+\begin{itemize}[leftmargin=*]
+\item 一个公布的触发器,基于指定的时间内外部浮动;
+\item 实现的可资格费用和场地数量的最大份额;
+\item 时间权重执行,没有准确的时间公告;
+\item 如果未达到采用的覆盖或运营门,则自动停止;
+\item 获得的代币被退休或放置在公开的非投票账户中;以及
+\item 一个明确的声明,即该计划不针对或保证价格,也不影响发行方的履行.
+\end{itemize}
+这项政策可能会无限期被禁用.
+
+\subsubsection*{7.3.3 组合资金池与证明}
+
+一个 \textbf{投资组合} 现在,我们会做一个普通的承诺资金池它们是指在一个任务或服务领域中进行的.资金池管理者公司或其他机构,包括个人,合作社,社区团体,公共机构,联邦,多支机构,服务运营商或其他负责结构.
+
+支持可以通过:
+
+\begin{enumerate}[leftmargin=*]
+\item 根据集团公布的条款进行直接贡献;
+\item 通过采用的治理程序批准的限时流动性任务;或
+\item 当该机制被启用时,sCLC指向访问水灾后限额预算.
+\end{enumerate}
+投资组合库将继续独立管理,并且可以使用共享或独立的注册表.
+
+证书可以提供录取或风险处理的信息,但不会产生收费,利或剩余资产的权利.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{登记证书} 从使用公布方法的识别验证者;或
+\item \textbf{验证服务券} 代表可偿还的承诺进行声明的审计或评估.
+\end{itemize}
+该组将披露证书如何影响录取,汇率方法,限制或资格性以及如何处理错误,过期,冲突和上诉.
+
+\subsection*{7.4 拟议的分配顺序与预算}
+\addcontentsline{toc}{subsection}{7.4 拟议的分配顺序与预算}
+
+拟议的布将仅根据通过的治理程序分配现成资格收入.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{现金资产 (\texttt{E\_cash}):} 可用于现金指数债务保险或可转换的注册复合资产;以及
+\item \textbf{实物资产 (\texttt{E\_kind}):} 抵押券或其他可能支持网络交易的资产,但除非实际转换,否则不计入现金表格覆盖或运营义务.
+\end{itemize}
+转换政策将确定授权运营商,资产,场所,价格来源,时间窗口,滑幅限制,上限,冲突,记录和事件程序.
+
+一个说明性的优先顺序是:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{资助的覆盖目标:} 建立任何已通过的储备或拟议的保险基金,以符合其披露目标的定义覆盖事件.
+\item \textbf{核心运营:} 为法律工作,教育,通信,基础设施,审计和可观察性提供限额公开预算.
+\item \textbf{流动性任务:} 根据上限和日落审查,分配批准的资产用于所述池或路线服务目的.
+\item \textbf{选择性外部浮动控制:} 只有当其公布的触发率和更高优先级门达到时,才能获得资金;否则将分配为零.
+\item \textbf{拟议的费用贷款预算:} 将任何批准的剩余额分配给指定收费持有池,并发布 \texttt{F\_epoch},这可能是零.
+\end{enumerate}
+预算决定可以考虑确认的履行,覆盖的风险,可资格储备,限度利用,执行路线,集中,事件和担保人绩效.每个指标都会遵循附件C中的证据和队列规则.
+
+可能的贡献者流量将是:
+
+\begin{enumerate}[leftmargin=*]
+\item 贡献者根据单独通过的捐赠或计划条款转移可资产;
+\item 符合条件的参与者接受,并在允许的情况下,获得拟议的锁定CLC获得的管理代币stCLC;
+\item 现实可接受的拉克或服务费收据进入布;
+\item 布基金按顺序确定优先事项;以及
+\item 只有启用Waterfall后政策发行sCLC或打开一个限额的收费信贷窗口.
+\end{enumerate}
+没有任何步骤创造出超过适用条款明确规定的所有权,偿还,撤销,覆盖,奖励或治理权利.
+
+
+\section*{8. 技术范围和增长}
+\addcontentsline{toc}{section}{8. 技术范围和增长}
+
+本章描述了可选或拟议的工作.CLC App 或 Protocol v1.1.0.
+
+可能的工作领域包括:
+
+\begin{itemize}[leftmargin=*]
+\item 在兼容的池中执行路由,包括注册表,报价,限制,费用和库存发现;
+\item 在原子结算不可的情况下,用于跨域执行的时间锁定托管或HTLC适配器;
+\item 小型或个人资金池的接口和政策工具;
+\item 可审核的凭证,汇总,汇率方法,限额,控制者和费用登记册表;
+\item 具体部署的支付提供商连接器,现金流和资格控制;
+\item 复合资产与外部流动性场所的连接,用于重新平衡和支付流动性的;以及
+\item 通过的覆盖范围,运营成本或流动性授权的政策资金转换.
+\end{itemize}
+外汇市场价格不会决定发行者根据券条款所欠的债务.一个集团可以对可置资产使用保护的外部参考,但其公布的汇率方法,限制,费用和库存将控制其报价.
+
+\subsection*{8.1 拟议的路由服务与 SDK 规范}
+\addcontentsline{toc}{subsection}{8.1 拟议的路由服务与 SDK 规范}
+
+\textbf{发现.} 拟议的路线服务将查询已识别的资产录取登记,汇率方法,限制,费用,库存,事件和控制者信息.缓存记录将包括新鲜度界限和来源标识符.
+
+\textbf{网络个人资料.} 客户端可以支持多个注册表根或政策配置文件. 它会告诉参与者哪些配置文件,对方,适配器,限制和负责任的服务运营商使用报价. 一条跨配置文件路线需要满足每个适用的跳转条件.
+
+\textbf{路径政策.} 负责运营商可以排除不安全的依赖或对方,并应用路线水平上限,新鲜度要求和健康标准. 这些信号将支持决定;它们不会保证履约或防止损失.
+
+\textbf{费用和限制.} 一项报价将列出组费,任何额外的现行协议费和任何单独提出的路由或服务费.执行将拒绝过期报价或违反限制.
+
+\textbf{原子能和恢复.} 在使用HTLC或保证时,该服务将披露时间缺失,中断路径,负责控制者,事件程序和剩余风险.
+
+\textbf{拟议的批量净化和重新平衡.} 选择服务可能会收集重新平衡意图并搜索兼容的循环或链.
+
+\begin{enumerate}[leftmargin=*]
+\item 发布可机器阅读的收据,标识执行周期,资产,金额,估值时间和费用;
+\item 执行通过的每期上限和对方政策;
+\item 拒绝违反任何参与池的授权,限制或可用库存的活动;以及
+\item 保存确定性输入和收益用于审查和争端处理.
+\end{enumerate}
+\textbf{SDK要求.} 其他SDK对于执行的路线,将提供定性报价到收件映射,每站不变检查,可理解的故障代码和审计友好的日志.Protocol v1.1.0 \texttt{SwapRouter} 只有报价,而不会执行这些路线.
+
+\subsubsection*{8.1.1 最低联盟兼容性规范}
+
+寻求跨配置路由的Pool生态系统将为:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{数据库的根源:} 资产,汇总,汇率方法,限制和费用政策的标识符或确定性解决它们的一个根.
+\item \textbf{收据:} 每次跳跃的个人资料,进出资产,金额,报价来源和时间标签,限量快照,费用,库存结果和执行结果.
+\item \textbf{运行信号:} 关于库存,限量利用,事件以及任何单独证明的履行或资助保护的新鲜信息.
+\item \textbf{政策限制:} 允许或拒绝的对方,资产类别,适配器以及任何保证金要求.
+\item \textbf{失败代码:} 拒绝,过期,限制,库存,政策,依赖性或事件故障的决定性解释.
+\end{enumerate}
+一个配置文件可以添加覆盖,合规性,仲裁或其他服务,而不会使它们成为基本CPP兼容性的要求.每个可选的服务都会确定其负责人,权威,范围和条款.
+
+\subsection*{8.2 许可,验证和退出}
+\addcontentsline{toc}{subsection}{8.2 许可,验证和退出}
+
+Protocol v1.1.0 合同是EVM-协议存储库中的合同 \texttt{src} 文件目录在AGPL-3.0除了已确定的未修改的第三方组件,这些组件保留了自己的条款. 发表的源头,ABI和部署说明支持独立审查,但本身并不能证明审计,安全部署或法律合规性.
+
+每个部署将单独披露其代码版本,构建来源,地址,控制器和升级权力,审计状态,注册表镜像以及任何时间锁定或暂停保护.
+
+拟议的 \textbf{叉子套件} 可能包括:
+
+\begin{enumerate}[leftmargin=*]
+\item 确定性部署脚本;
+\item 登记快照和出口工具;
+\item 一个为重定路线服务,SDK和接口的记录过程到一个新的注册表根;
+\item 一个资金池管理者安全离开共享注册表的检查清单;以及
+\item 一份未发行券的迁移检查清单,包括发行人通知,提交和履行截止日期,继续访问记录以及补救措施.
+\end{enumerate}
+当社区,合作社,公共机构,联邦,多业务或服务运营商需要不同的治理时,兼容的叉子可以提高弹性.实际连续性仍然取决于合同所有权,钥匙,依赖性,接口,基础设施,法律义务和第三方服务.
+
+
+\section*{9. 流动性计划的经济学建议}
+\addcontentsline{toc}{section}{9. 流动性计划的经济学建议}
+
+本章描述了未来的单独采用模型. 它不是当前应用程序功能,提供,承诺退款或通过存入 \texttt{SwapPool} 创造的权利.
+
+\subsection*{9.1 拟议的收入来源}
+\addcontentsline{toc}{subsection}{9.1 拟议的收入来源}
+
+未来的网络预算可以获得:
+
+\begin{enumerate}[leftmargin=*]
+\item 一个披露的 \textbf{网络拉克} 作为参与者池收取的费用的一部分;
+\item 与实施的共享服务分开路由费或服务费;以及
+\item 其他明确通过的收入.
+\end{enumerate}
+目前 Protocol v1.1.0 采用不同的模式:可选的协议费额外于 Pool费,直接向其配置接收者发送.
+
+\subsection*{9.2 费用分成计算示例}
+\addcontentsline{toc}{subsection}{9.2 费用分成计算示例}
+
+如果一个参与组征收了2.00\%的组费,而采用的网络接收到该组费的20\%,拟议的有效网络割率为路由值:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+如果收到的杆和服务费资产中有25\%是可接受和可转换的,以现金表格表示使用后成本,则40bps杆的现金可使用份额约为10bps.
+
+拟议的网络收入为:
+
+\texttt{network\_rake\_received + routing\_or\_service\_fees\_received}
+
+在网络杆上,不要增加"池费"的毛额费用: rake杆是从这些费用的转账,否则将被计数两次.
+
+\subsection*{9.3 流动性计划权利}
+\addcontentsline{toc}{subsection}{9.3 流动性计划权利}
+
+单独通过的计划可以资助库存,路由服务,监测或其他任务.
+
+\begin{itemize}[leftmargin=*]
+\item 转让是否是一种礼物,赠款,贷款,可收取的贡献或购买;
+\item 监护和控制;
+\item 撤销,偿还,损失和优先规则;
+\item 费用和奖励资格;
+\item 管理权;
+\item 评估和报告方法;以及
+\item 暂停,终止和补救措施.
+\end{itemize}
+目前的 \texttt{SwapPool} 没有创建 Pool-share代币或自动贡献者权利.任何后期指标必须基于实现的收益和损失,不得作为承诺收益表达,并且可能是零或负值.
+
+
+\section*{10. 综合风险框架}
+\addcontentsline{toc}{section}{10. 综合风险框架}
+
+该框架分开了十个风险类别.对于每个类别,它确定了可能的指标,控制,压力测试和指导性风险食欲. 这些是设计建议,而不是声称每种控制都部署,有效或足够.限制,储备,保证,监控,覆盖和治理不能消除损失.
+
+\subsection*{10.1 协议和智能合同风险}
+\addcontentsline{toc}{subsection}{10.1 协议和智能合同风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 合同漏洞,升级错误,依赖性故障以及错误配置的限制或费用.
+\item \textbf{指标:} 审计结果,未解释的库存流动,不变故障和异常逆转.
+\item \textbf{可能的控制:} 独立审计;最小的特权角色;披露的代理和依赖控制器;定时升级;链上监控;发布权威和标准的事件暂停;以及测试的迁移路径.
+\item \textbf{压力测试:} 不可用的报价或限制依赖性,库存缺陷,暂停合同和流量爆发.
+\item \textbf{风险的渴望:} 在扩大未偿还债务或交换交易量之前的低.
+\end{itemize}
+\subsection*{10.2 经济和市场风险}
+\addcontentsline{toc}{subsection}{10.2 经济和市场风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 稀有库存,单方面流动,快速提款以及操纵或过时的价格参考.
+\item \textbf{指标:} 股票比率利用率较高,报价差距扩大,经常拒绝限额和集中库存.
+\item \textbf{可能的控制:} 目前的库存代币余额上限;拟议的滚动或账户限制;单独通过的储备;保证价格引用;路线排除;以及有时间限制的事件费用或限制.
+\item \textbf{压力测试:} 参考价格的大幅变化,报价上,撤销请求和数据源停产.
+\item \textbf{风险的渴望:} 只有在公布的参数和资助损失承担能力范围内进行适度处理.
+\end{itemize}
+\subsection*{10.3 发行方与代金券风险}
+\addcontentsline{toc}{subsection}{10.3 发行方与代金券风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 发行能力超出,发行方违约,误导性条款以及未明确的可用性或呈现窗口.
+\item \textbf{指标:} 证实履行率的下降,未经解决的投诉和对一家发行方的集中暴露.
+\item \textbf{可能的控制:} 发行人应尽职调查;明确的凭证和报价条款;发行或录取限制;独立资助的债券或担保;队伍报告;负责任登记审查.
+\item \textbf{压力测试:} 发行方的破产性,区域生产冲击,假冒索赔和长期延迟履行.
+\item \textbf{风险的渴望:} 随着发行方或提供商的度增加,
+\end{itemize}
+\subsection*{10.4 兑付出示与履约风险}
+\addcontentsline{toc}{subsection}{10.4 兑付出示与履约风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 无效或复制的呈现,发行人容量不足,库存缺失,物流故障以及缺乏核销记录.
+\item \textbf{指标:} 要求执行延迟,未完成或有争议的呈现,库存,门票滞后以及没有核销的完成单元.
+\item \textbf{可能的控制:} 公布的提交和履行程序;能力披露;合法的多个执行场所;证据标准;投诉和补救途径;以及分离呈现,履行和处理的记录.
+\item \textbf{压力测试:} 两到四倍的呈现量,设施中断,供应商故障和重复使用尝试.
+\item \textbf{风险的渴望:} 在涉及基本货物,弱势参与者或长期的履行窗口的情况下.
+\end{itemize}
+\subsection*{10.5 治理风险}
+\addcontentsline{toc}{subsection}{10.5 治理风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 管理员或控制者捕获,急剧变化参数,利益冲突,隐藏的技术权力和弱势.
+\item \textbf{指标:} 集中权力,频繁的紧急行动,未经解释的政策变化和重复过失.
+\item \textbf{可能的控制:} 角色和权力披露;比例批准门;时间限制;冲突和拒绝规则;公开变更记录;上诉;自动应急电源日落;可叉.
+\item \textbf{压力测试:} 通过积累或授权控制,获取和的企图.
+\item \textbf{风险的渴望:} 对影响价值方法,提取,登记根源,覆盖或紧急权力的行动来说低.
+\end{itemize}
+对于未来部署拟议的CLC治理令牌,捕获测试将包括积累后尝试重定预算,削弱登记标准,批准相关方授权或耗尽资金覆盖.可能的保障措施包括治理锁定,关键行动的高门值,延迟执行,透明的委托和集中监控,事件流程以及可信的叉口退出程序.
+
+\subsection*{10.6 法律和合规性风险}
+\addcontentsline{toc}{subsection}{10.6 法律和合规性风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 获得意想不到的监管待遇,消费者保护失败,洗钱或制裁暴露以及跨境限制的券,服务,促销或治理资产.
+\item \textbf{指标:} 监管机构的查询,投诉,限制派对匹配以及广告和实际行为之间的差异.
+\item \textbf{可能的控制:} 根据类别和司法管辖范围进行审查;准确的披露;基于地质的接口;有比例的资格或认证检查;晋升管制;权威和接受记录;明确的负责人.
+\item \textbf{压力测试:} 司法管辖权限制,供应商终止,强制重新分类以及暂停特征或资产类别的命令.
+\item \textbf{风险的渴望:} 低;限制或暂停不支持的活动.
+\end{itemize}
+\subsubsection*{10.6.1 法律定位和拟议的代币处理}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{可验证的基础设施:} Protocol v1.1.0 合同是EVM-根据协议库中所述许可证和第三方例外,其来源已公布.公布可进行审查,但本身并不能证明审计,安全部署或法律合规性.每个部署应披露其代码版本,构建来源,地址,控制权和审计状态.
+\item \textbf{拟议的标志姿势:} 在这项设计中,拟议的CLC治理代币将协调治理和政策准入. 它不会创造股息,利共享,余额权利或价值或流动性保障.
+\item \textbf{相关拟议资产:} 单独实施的政策可能会允许锁定拟议的CLC管理符号到stCLC并且可能会授权时代范围的sCLC通过的条款需要确定其权利,限制,过期,可转移性和待遇.
+\item \textbf{通信:} 任何拟议材料CLC管理标志,stCLC或是sCLC部署不应承诺利,增值,被动收入或保障的访问.
+\item \textbf{管辖权控制:} 部署可能需要接口地质设置,限制类的认证,推广限制,资产特定审查或暂停拟议特征的控制.
+\item \textbf{参与者通知:} 通过的条款将解释在法律,运营或风险原因下何时可以减少或禁用访问以及是否适用于任何补偿或补救措施.
+\end{enumerate}
+\subsection*{10.7 路由和跨域风险}
+\addcontentsline{toc}{subsection}{10.7 路由和跨域风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 部分执行,悬而未决的跳跃,桥梁或保证金剥削,过时报价,通货膨胀路径以及宣布的价值变化前行.
+\item \textbf{指标:} 路线过期率,保证金滞后,报价到执行差异,重复不必要的跳跃和桥梁事件.
+\item \textbf{可能的控制:} 在可用的情况下,原子执行;保守的HTLC或保证时间;路径和对方政策;路线水平上限;定性报价到收件映射;负责任的服务运营商.
+\item \textbf{压力测试:} 一个桥停,连锁重组,依赖性中断,
+\item \textbf{风险的渴望:} 仅适用于已确定和监测的依赖性.
+\end{itemize}
+\subsection*{10.8 托管与密钥管理风险}
+\addcontentsline{toc}{subsection}{10.8 托管与密钥管理风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 丢失或被破坏的密钥,签字者勾结和不清楚的恢复或管理员权威.
+\item \textbf{指标:} 不正常的签名,控制器的变化,失败的旋转和不寻常的撤销.
+\item \textbf{可能的控制:} 多标签或门授权;硬件支持的密钥;角色分离;签名器转换;公共控制器库存;监控取消限制;以及测试回收程序.
+\item \textbf{风险的渴望:} 很低.
+\end{itemize}
+\subsection*{10.9 声誉和社会风险}
+\addcontentsline{toc}{subsection}{10.9 声誉和社会风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 错误的索赔,有害的激励措施,无法获得的投诉,不满经验,隐私失败以及有利于内部人士的保护.
+\item \textbf{指标:} 一组的投诉,未解决的争端,发行方绩效趋势,收益损失集中和社区反.
+\item \textbf{可能的控制:} 简单的披露;抱怨和纠正途径;可访问证据;透明报告;事件审查;错误陈述的适当处罚.
+\item \textbf{风险的渴望:} 特别关注受影响的社区和弱势参与者.
+\end{itemize}
+\subsection*{10.10 集中和碎片化风险}
+\addcontentsline{toc}{subsection}{10.10 集中和碎片化风险}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{威胁:} 依赖少数发行方,池,控制者,提供商,网络或不兼容的叉子.
+\item \textbf{指标:} 发行人,集团,库存,控制者或服务提供商的集中措施;集群之间的路线故障和关键单个依赖性.
+\item \textbf{可能的控制:} 已公布的度门;多个负责运营商;兼容的标准;独立注册表;经过测试的退出程序;安全互操作性.
+\item \textbf{压力测试:} 最大的发行方,集团,运营商,供应商或注册根的损失.
+\item \textbf{风险的渴望:} 具体用于部署和披露,对基本服务或不可替代的依赖性有更严格的限制.
+\end{itemize}
+
+\section*{11. 治理机制}
+\addcontentsline{toc}{section}{11. 治理机制}
+
+本章提出了治理模板.它并不代表当前的 CLC App 使用治理代币投票,时间锁定,共享保险,索赔流程或下面描述的所有控制.每个部署都需要确定其实际决策者,当局,合同,过程和政策.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{宪法价值观:} 人们的关怀,环境的关心,公平性,互惠,非主导性和弹性.
+\item \textbf{提案类型:} 费用,限额和指数变化;流动性授权;集团上市和撤销;可选的覆盖决策;参数保护.
+\item \textbf{负责的过程:} 认可可能来自管理员,合作社,公共机构,联合会,多合伙人,连锁投票或其他公开和负责任的结构.
+\item \textbf{批准门:} 按行动类进行参数,对价值指数变化,紧急权力和其他关键行动的门更高.
+\item \textbf{代表:} 提供公共任务,冲突披露和召回的可选授权.
+\item \textbf{电路打断器:} 紧急暂停,有明确的标准,授权运营商,恢复条件和必要的死后检查.
+\item \textbf{透明度:} 已公布的变化和流动,附有对交换结算,发行人履行,储备,使用限额,路由和担保人的单独证据.
+\end{itemize}
+\textbf{登记管理.} 一个CPP-兼容的部署可以维护券,代币和资金池的发现登记.授权控制器可以通过部署的披露管理过程添加,更新,暂停或删除注册表输入. 注册表的删除影响了该登录的发现和路由;它不会自行删除代币,改变持有者的余额,履行发行人的义务,或禁用其他功能合同.
+
+发布的登记规则应使状态有条件,并可能将重复不履行,欺诈或虚假陈述,不安全的合同行为或持续违反公布原则作为暂停或删除的理由.在可行的情况下,该过程应该提供通知,补救机会和上诉途径.紧急删除需要公开事件报告和自动审查或日落.
+
+\textbf{禁止列表.} 在本模板下,注册表不允许:
+
+\begin{enumerate}[leftmargin=*]
+\item 直接资助或激励超越达成的边界,暴力或武器化,强制采集或系统滥用的生态破坏工具;或
+\item 没有明确的表达和履行条款,责任和补救途径.
+\end{enumerate}
+禁止清单只能通过采用已通过的关键行动门和时间限制进行编辑,公开审计和可变化,如下说明:Q3 + T3在附件D中.
+
+\subsection*{11.1 汇率和限制治理}
+\addcontentsline{toc}{subsection}{11.1 汇率和限制治理}
+
+\textbf{时间限制的变化.} 根据本模板的部署,只有在公开时间锁定后才会改变汇率方法和单独实施限制参数.紧急路径将使用单独披露的授权过程,并包括自动日落或审查.
+
+\textbf{批准门.} 该模板提出了价值指数基因变化和全球限制级别变化的更高批准门,对于特定组的第三方变化的中期门以及常规费用变化的标准门.
+
+\textbf{发布的数据.} 一个参与的部署将为每个组发布连锁指数变量,预言源或中位数,更新序列,限制窗户和封顶以及故障模式或安全常态.
+
+\textbf{紧急暂停的标准.} 参与部署将预示诸如神器中断,高限度使用与履行故障或不变性故障等条件,以及恢复检查和事故后审查要求.
+
+\subsection*{一个池和券的公共索引料示例}
+\addcontentsline{toc}{subsection}{一个池和券的公共索引料示例}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{标志:} 例如,\texttt{Maize\_50kg@IssuerY}.
+\item \textbf{参考单位:} 指数单位 (IUX).
+\item \textbf{发布值:} 30.000 IUX.
+\item \textbf{来源:} 确定来源的中位数,例如当地市场调查,部署公告和部署基线.
+\item \textbf{更新时间:} 每天18:00 EAT,有24小时时间锁定.
+\item \textbf{失效模式:} 在最后一个有效值上结,应用披露的限制政策,并在72小时停机后暂停.
+\item \textbf{理由:} 已公布的备忘录和以前更新的变化记录.
+\item \textbf{签署者:} 披露的多标签地址和批准门.
+\end{itemize}
+\subsection*{11.2 拟议的保险基金操作手册}
+\addcontentsline{toc}{subsection}{11.2 拟议的保险基金操作手册}
+
+\textbf{只有可选的设计.} 本行本仅适用于已明确采用和资助保险基金的部署,并发布了涵盖事件,有资格的索赔者,负责人,资产,限制,排除,证据要求,程序和管理条款.CLC App 没有 GEF 仅因为该设计出现在白书中,就能提供覆盖.
+
+\textbf{可能是触发器.} 通过的政策可能涵盖定义发行人不履行,库存缺陷或桥梁或保证金损失.
+
+\textbf{评价.} 负责机构将调整交易收据,库存余额,担保人债券,赎回提交记录,发行人的响应和其他必要证据,然后发布与隐私和法律一致的事件记录.
+
+\textbf{显著的损失布.} 如果每个层都存在且合法适用,则保险可以使用: (1) 负责任发行人债券或担保人股份 $\to$ (2) 储备水平 $\to$ (3) 拟议的网络保险基金 $\to$ (4) 暂时降低到可选的覆盖索赔,只有当现有条款和适用的法律明确授权它 $\to$ (5) 对被证明的欺诈或滥用行为进行合法回收.
+
+覆盖率调整不会减少发行人的基本券承诺或改变连锁余额,除非有效的现有条款和适用的法律明确允许该结果并获得所有要求持有人同意.
+
+\textbf{限制和排除.} 发布的覆盖范围将定义上限,符合条件的呈现,证据,索赔窗口,排除路线或事件,地理限制以及处理耗尽储备.
+
+\textbf{显著的恢复时间表.} 如果通过并公布:
+
+\begin{enumerate}[leftmargin=*]
+\item 索赔首先来自负责发行者或担保人债券,然后从适用的库存储备,然后是拟议的网络保险基金;
+\item 任何降低到可选的覆盖索赔将仅限于现有覆盖条款和适用法律授权,直到公布的事件上限;
+\item 恢复计划可以在指定期内运用已确认的回收价值份额,之后任何剩余的覆盖赤字将成为公开死后的记录损失;
+\item 每个决定都会提供一个收据,其中包含事件ID,受影响的索赔和凭证,决定,恢复计划和上诉窗口.
+\end{enumerate}
+\subsection*{11.3 担保框架}
+\addcontentsline{toc}{subsection}{11.3 担保框架}
+
+根据本节,分别区分了发行人责任,可选的池保护和第三方保证.CLC App, CPP, GEF 任何更广泛的网络都会自动保证券.
+
+\subsection*{基本发行人责任}
+\addcontentsline{toc}{subsection}{基本发行人责任}
+
+\begin{itemize}[leftmargin=*]
+\item 发行者承诺根据其公布的条款提供所述商品,服务或合法的现金等价.
+\item 发行方将公布谁可以提交凭证,什么是满足意味着,在哪里和何时可用,需要哪些证据,以及适用的补救措施.
+\item 如果发行人未能履行,发行者是首要负责人. 池或网络保护只适用于单独采用,资助和披露时.
+\end{itemize}
+\subsection*{可选的池保护}
+\addcontentsline{toc}{subsection}{可选的池保护}
+
+一个资金池管理者可以选择将一个严格定义的保护添加到被录取的凭证中.它不是自动的,并且需要在库的元数据和适用条款中识别负责人,资金,有资格的活动,限额,窗户,证据,排斥和补救措施.
+
+说明性保护类型包括:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{储备资产覆盖范围:} 经验证的发行人未履行后,负责集团实体将以指定储备资产支付一笔确定的金额,但须按其公布的上限和可用资助储备.
+\item \textbf{转换窗口:} 资格化事件后,集团提供一个限时的交换途径进入此前或其他批准的资产,受限制和库存约束.这是基于库存的流动性保护,而不是承诺每个交换都是可逆的.
+\item \textbf{替代性履约:} 负责人在公布的数量或价值上限范围内安排批准的替代供应商.
+\item \textbf{汇率带保护:} 对于选定的券类别,一组只提供在其现有条款中所述的覆盖性调整或交换回收补救措施.这不会减少发行者的基本券义务.
+\end{enumerate}
+\subsection*{可能的资金来源}
+\addcontentsline{toc}{subsection}{可能的资金来源}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{发行人债券:} 发行人投放或在公开储备中持有的抵押金,并在经过验证的覆盖事件后可用.
+\item \textbf{池储备:} 由负责池组实体控制的资产,并分配给其宣传的保护.
+\item \textbf{第三方担保人债券:} 已确定的外部担保人对所述发行方,代金券类别或事件的抵押金.
+\end{itemize}
+担保人参与将遵循公布的资格标准,债券规模,集中限额,决策权和法律执法规则.
+
+\subsection*{索赔程序}
+\addcontentsline{toc}{subsection}{索赔程序}
+
+通过的一项政策将定义可审核的触发因素,例如在有效赎回提交后错过的履行期限,经过验证的发行人破产性,已覆盖的桥梁或保证券失败或正式宣布的事件情况.
+
+\begin{itemize}[leftmargin=*]
+\item 参与者如何开放索赔,并提供所需的提交和履行证据;
+\item 验证券条款,发行人回应和技术记录;
+\item 裁决和上诉窗口;
+\item 授权的支付路径,资产,上限和收据.
+\end{itemize}
+从发行方,仲裁或法律执法获得的收益将根据公布的政策重新填补适用的债券或储备,然后用于拟议的CLC网络池交换访问.
+
+\subsection*{要求披露信息}
+\addcontentsline{toc}{subsection}{要求披露信息}
+
+对于每个覆盖的池和券类,负责人将公布:
+
+\begin{itemize}[leftmargin=*]
+\item 担保人是否缺席,是自愿的或有义务的;
+\item 债券或储备规模和度上限;
+\item 保护类型,资产,盖顶,窗户和排除;
+\item 提交,履行,索赔和上诉的最后期限;以及
+\item 一个明确的声明,说明谁能保证什么以及什么不能保证.
+\end{itemize}
+\textbf{监护原则.} 资金池管理者负责法律或治理结构为他们所宣传的保护负责.CPP-兼容的部署可能提供标准,注册表或可选共享政策,但没有CLC没有 GEF 无需提供任何资金,
+
+\subsection*{11.4 防止治理俘获的保障措施}
+\addcontentsline{toc}{subsection}{11.4 防止治理俘获的保障措施}
+
+根据本模板,以下是需要采用的最高审批级别和长时间限制的关键行动:
+
+\begin{enumerate}[leftmargin=*]
+\item 改变拟议的费用布,包括其覆盖范围和核心运营优先事项;
+\item 修改法典登记库的根;
+\item 变化覆盖范围,索赔上限或决策权威;
+\item 扩大紧急暂停权限;或
+\item 削弱在本文中所述的 Pool叉性,透明度或集团主权承诺.
+\end{enumerate}
+\subsection*{11.5 分叉与退出程序}
+\addcontentsline{toc}{subsection}{11.5 分叉与退出程序}
+
+如果治理被捕获或价值大幅漂移,社区,资金池管理者和运营商可以通过断网络治理层来寻求退出.底层池和凭证的连续性将取决于部署的合同,钥匙,接口,基础设施,第三方服务以及适用的义务.
+
+退出过程可能:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{发布快照:} 输出选定的注册表,凭证,价值,限制和费用政策,然后发布签署的快照哈希.
+\item \textbf{重新部署治理服务:} 在新的负责任结构下部署新的登记根,路线服务和任何采用的费用或覆盖模块.
+\item \textbf{重新注册:} 允许资金池管理者通过在新的根下注册自己的池地址进行选择,而不需要持有者迁移其他功能代金券.
+\item \textbf{重新调用客户:} 在 SDK 和接口中添加新的根作为可选择的网络配置文件,并通过披露的治理过程进行任何默认更改.
+\item \textbf{管理一个桥梁时期:} 保持安全的兼容路线,并拒绝违反新配置规则的路线.
+\end{enumerate}
+设计的目标是,离开正规注册表不会禁用其他功能的本地池.实际连续性仍然取决于部署;联邦是一个选择发现和协调层.
+
+
+\section*{12. 拟议的流动性计划条款清单（非约束性纲要）}
+\addcontentsline{toc}{section}{12. 拟议的流动性计划条款清单（非约束性纲要）}
+
+这是一个说明性的未来,单独记录的程序检查列表. 这不是一个报价,当前的应用程序功能,或承诺流动性,访问,保险,回报,价值或退出.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{有资格的捐款:} 根据计划的规定,稳定币,储备代币或已批准的社区券.
+\item \textbf{位置:} 指定承诺资金池或是拟议的CLC网络集团根据单独通过的任务.
+\item \textbf{锁定和退出:} 项目特定的条款,如滚动30--90天时间以及压力下泄露门.
+\item \textbf{政策目标费贷款:} 在公布的封顶和窗口下,可选的后期机制,而不是承诺的回报.
+\item \textbf{分享风险:} 任何降低到可选的覆盖索赔必须根据现有条款和适用的法律明确授权.它本身不会改变发行方的凭证承诺或连锁余额.
+\item \textbf{报告:} 定期的仪表板和证书,涵盖池体健康,库存,限制,费用以及任何资助的覆盖储备.
+\item \textbf{约会:} 收益使用限制,预言控制,限量级别,冲突规则和补救措施.
+\item \textbf{拟议代币的可能资格:} 种植指定池的贡献者可能有资格获得基于测量 Pool-swap访问和证实发行方履行的权限,根据通过的条款,反博规则和政策上限而获得拟议的 CLC治理代币补贴.
+\end{itemize}
+
+
+\section*{13. 通俗术语表}
+\addcontentsline{toc}{section}{13. 通俗术语表}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Cosmo-Local Credit (CLC):} 产品家族,包括 CLC App,文档和更广泛的承诺共享工作.
+\item \textbf{CLC App:} 通过 GEF 在 \texttt{cosmolocal.credit}.
+\item \textbf{承诺汇聚协议 (CPP):} 管理,估值,限制,交换和负责任治理的可重复使用模型.
+\item \textbf{Protocol v1.1.0:} 证实公开智能合同发布.
+\item \textbf{承诺资金池:} 一个管理的安排,允许支持资产并发布交易规则.
+\item \textbf{\texttt{SwapPool}:} 现在的代币库和直接交换合同.
+\item \textbf{标志:} 单独的代币机制不能创造一个可以赎回的承诺.
+\item \textbf{凭证:} 证券或记录,由发行者以公布的条件表现为可赎回的承诺.
+\item \textbf{提供:} 有关券的商品或服务目录.
+\item \textbf{发行方:} 负责发行和履行券承诺的当事人.
+\item \textbf{资金池管理者:} 负责发布和管理池规则的结构.
+\item \textbf{汇率或报价:} 一个由配置的报价符生成的交易参数;不是现金证明或赎回值.
+\item \textbf{积分代币平衡 cap:} 目前的 \texttt{Limiter} 最大值对于一个池持有的代币.应用程序可以标签它 \textbf{``信用限额}
+\item \textbf{库存交换:} 通过一个 \texttt{SwapPool} 进行直接资产交易.
+\item \textbf{交换结算:} 在链上进行的转账和费用会计,完成 Pool swap.
+\item \textbf{报价:} 返回或以其他方式向发行人呈现券单元.
+\item \textbf{履约:} 发行者提供承诺的商品,服务,福利或其他性能.
+\item \textbf{核销:} 防止完成单位再次呈现的记录.
+\item \textbf{拟议执行路由器:} 未来的软件将授权和执行路线.目前的 \texttt{SwapRouter} 仅报价.
+\item \textbf{拟议的CLC网络池:} 未来的网络级清算和预算协调安排.
+\item \textbf{拟议的CLC治理代币:} 未来的治理设计,而不是当前的App或 Protocol v1.1.0 资产.
+\item \textbf{网络拉克:} 拟用于未来网络预算的组费用份额.
+\item \textbf{担保或保险:} 只有一个特定方明确承担,资助和公布这一保护.
+\end{itemize}
+
+\section*{14. 拟议的关键绩效指标与健康指标}
+\addcontentsline{toc}{section}{14. 拟议的关键绩效指标与健康指标}
+
+部署应仅在能够定义事件,来源,队列或时期,单位,估值方法和时间标签,排斥,纠正政策,链外证据以及数据质量限制的情况下发布KPI.
+
+建议的措施包括:
+
+\begin{itemize}[leftmargin=*]
+\item 有效的赎回报表;
+\item 基于队列的履约率;
+\item 核销完整性;
+\item 呈现到履约的延迟;
+\item 收购到提交的持有时间;
+\item 根据明确的方法,未偿还可承担的资金;
+\item 已完成的池交换量;
+\item 测量池库存;
+\item 汇总代币资产负债券利用;
+\item 报价通过率,与路线执行率保持分开;
+\item 符合条件的储备分为明确覆盖的风险;
+\item 根据确定政策的担保人索赔和回收;
+\item 拟议的网络拉克和实际收到的服务费,而无双计数的汇总费用;
+\item 管理检测,决策,暂停,维修和关闭时间;
+\item 投诉,争端,纠正和补救措施;以及
+\item 其他社会或生态问题.
+\end{itemize}
+链上交易数据本身并不证明身份,发行人业绩,满意度,因果关系,社区健康或社会影响.这些说法需要自己的方法和证据.
+
+查看 \href{https://docs.cosmolocal.credit/zh/white-paper/appendix-c-kpi-definitions}{附录C} 对拟议的测量规格.
+
+
+\section*{15. 路线图（仅供参考）}
+\addcontentsline{toc}{section}{15. 路线图（仅供参考）}
+
+\subsection*{15.1 目前的基础}
+\addcontentsline{toc}{subsection}{15.1 目前的基础}
+
+GEF 运营 CLC App 在 \texttt{cosmolocal.credit} 应用程序提供支持的账户和钱包访问,一个公共的市场目录,承诺资金池转账,直接的汇率交换.
+
+Protocol v1.1.0 提供当前合同基础:\texttt{GiftableToken} 直接\texttt{SwapPool} 执行,可选登记,估值模块,汇集令牌平衡上限,汇总费用,额外协议费用和仅提供报价\texttt{SwapRouter} 可用性仍然取决于接口,部署的合同,库存,配置,网络状态,资格,供应商,管辖权以及公布的发行者或集团条款.
+
+\subsection*{15.2 提议的里程碑}
+\addcontentsline{toc}{subsection}{15.2 提议的里程碑}
+
+这些名为的里程碑是设计指导,而不是发布号码,交付日期或功能将启动的承诺.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{治理基金会} 提议CLC管理标志;CLC网络池;费用适应器;定制,时间限制和治理基础.
+\item \textbf{路由和可观察性:} 路由器SDK和注册表API;健康仪表板;拟议的保险政策框架;选择重新平衡的意图;批量网络原型.
+\item \textbf{跨领域风险工具:} HTLC或保证路由;分别管理的担保模块;滚动,账户和级别限制预设.
+\item \textbf{监管的访问:} 部署特定的第三方支付服务;个人微池;合规服务的发现;券类第三方审计.
+\end{itemize}
+任何支付服务都将由分别确定的第三方提供,根据适用的管辖权,资格,费用,限制和条款.CLC App 其他 Protocol v1.1.0 合同本身不运行法定轨道.
+
+许多人,共同保险CLC管理标志和建议CLC网络池,批量网,个人微池和监管的支付服务将继续被提出或依赖部署,直到实施及其规范条款确定它们为活跃.
+
+
+\section*{16. 拟议的评估模板}
+\addcontentsline{toc}{section}{16. 拟议的评估模板}
+
+一个注册表,集团或未来的流动性计划可以调整本模板.
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{观察到的事实:} 发行人身份和历史,代金券条款,报价,能力证据,池组配置,控制者,库存,限制,储备,担保人,事件和未解决的义务.
+\item \textbf{目的和受影响方:} 预期的利益,风险,冲突,生态和社会影响以及承担损失或责任的人.
+\item \textbf{估值：} 商品或服务项目价格、代金券标明价值、汇率方法、预言机参考、单位、时间戳以及任何差异的原因。
+\item \textbf{边界:} 资格,禁止使用,集中性,代币平衡上限,暂停,地理或法律限制以及审查触发因素.
+\item \textbf{保护:} 确定义务当事人,涵盖的事件,资金,限额,排除,持续时间,证据,索赔程序和补救措施.
+\item \textbf{决定:} 批准,修订,拒绝,暂停或升级人类审查;确定决策者,原因,条件,审查日期以及上诉或纠正程序.
+\end{enumerate}
+产品不应将监管,限制,储备或验证描述为认可,发行人能力,保险或保证的履行,除非负责方明确确定了这种保护.
+
+
+\section*{17. 法律与合规说明}
+\addcontentsline{toc}{section}{17. 法律与合规说明}
+
+CPP 可以协调代币、代金券、资金池和交换，而这些事物的法律待遇取决于其设计、营销、使用、负责方和司法管辖区。本白皮书不构成法律、税务、投资、信贷或金融建议。
+
+CLC App 的使用受 \href{https://docs.cosmolocal.credit/zh/governance/terms}{服务条款} 约束。GEF 运营应用及配套基础设施。除非 GEF 明确承担其他角色，否则它不是发行方、资金池管理者、托管人、贷款方、借款方、经纪人、担保人、兑付方、顾问、保险人，也不是参与者之间义务的当事方。
+
+取决于部署的支付服务必须明确负责的提供方、司法管辖区、资格、费用、限制、托管模式和条款。出现连接器并不意味着 GEF 或某个资金池运营底层受监管服务。
+
+\subsection*{17.1 代金券与商品或服务项目信息披露}
+\addcontentsline{toc}{subsection}{17.1 代金券与商品或服务项目信息披露}
+
+发行者应发布并保持最新的:
+
+\begin{itemize}[leftmargin=*]
+\item 负责人身份和联系信息;
+\item 相关的报价,单位,供应,声明值和容量;
+\item 展示地点和程序;
+\item 执行时间和证据;
+\item 期限,费用,税收,限制和物质变更规则;
+\item 投诉,替代,退款或其他补救措施;以及
+\item 处理后防止重复使用的核销方法.
+\end{itemize}
+一个代币合同不确定这些条款或证明执行.
+
+\subsection*{17.2 资金池信息披露}
+\addcontentsline{toc}{subsection}{17.2 资金池信息披露}
+
+一个资金池管理者应发布:
+
+\begin{itemize}[leftmargin=*]
+\item 池的目的和负责决策者;
+\item \texttt{SwapPool} 的所有者,代理管理员,依赖控制人员和收费者;
+\item 允许的资产和暂停或移除规则;
+\item 估值方法,报价来源,费用,代币余额上限,库存和所有者撤销权;
+\item 贡献和退出权;
+\item 每个储备,保证,担保人,保险政策和亏损分配规则;以及
+\item 管理,升级,紧急情况,投诉,移民和终止流程.
+\end{itemize}
+上市不是 GEF 的认可,估值,保险或保证.
+
+\subsection*{17.3 行动和义务}
+\addcontentsline{toc}{subsection}{17.3 行动和义务}
+
+一个普通人 \textbf{池间交换} 交易所在显示的报价和交易额度下支持资产.资产指导不使其成为贷款,偿还,发行人赎回或现实履约.
+
+\textbf{兑付出示 } 是将代金券单位退回或出示给发行方。\textbf{ 履约 } 是发行方提供所承诺的给付。\textbf{ 核销 } 记录已完成的单位，使其不能再次使用。当前的\textbf{``兑付''} 操作会准备一笔发向代币所有者的转移；该转移本身不证明已履约。
+
+应用程序的 \textbf{退休券} 它不会燃烧余额,取消索赔或履行义务.
+
+未来贷款或其他信用产品需要在使用前单独提出补充和交易条款.任何普通的发送,贡献,组存款,组交换,呈现,履行或清算都不会仅因为其方向或资产类型而产生贷款.
+
+\subsection*{17.4 保护措施、证据与当地法律}
+\addcontentsline{toc}{subsection}{17.4 保护措施、证据与当地法律}
+
+限制,储备,注册登记,应用程序列表或区块链交易并不自动成为保证或保险政策.任何保护都必须确定其负责人,覆盖事件,资金,限额,排斥,持续时间,证据,索赔流程和适用的条款.
+
+公共链的证据可以显示地址,资产,金额,时间章和合同事件.它本身并不能证明身份,发行人能力,履行,满意度,治理审议,法律裁员或社会影响.
+
+由于法律,制裁,资格,合同状态,库存,限制,安全性,管辖权或第三方服务,功能可能受到限制或无法使用.发行方,资金池管理者,提供商和参与者仍然负责确定并遵守适用的法律.
+
+
+\section*{18. 结论}
+\addcontentsline{toc}{section}{18. 结论}
+
+Cosmo-Local Credit 连接当前应用程序和 Protocol v1.1.0 独立管理的更广泛的设计承诺资金池现有直接组合交换,报价和限额组件以及公开交易记录可以支持负责任的交换.
+
+在本文中描述的执行路由,净化,治理资产,网络清算,流动性计划和共享保护将需要单独实施,融资,治管和发布条款.该设计旨在扩大互操作性,同时保持发行方业绩,集团治理以及与确定各方的现实世界问责制.
+
+
+\section*{A. 拟议的衡量与费用模型}
+\addcontentsline{toc}{section}{A. 拟议的衡量与费用模型}
+
+本附件定义了拟议的测量框架.Protocol v1.1.0 不记录发行方的履行,现实世界核销或下面要求的每个数据字段.
+
+\subsection*{事件与存量定义}
+\addcontentsline{toc}{subsection}{事件与存量定义}
+
+凭证类\emph{j},队列或期 \emph{t},以及披露的估值方法 \emph{m}:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{O\_\{j,t,m\}}:在测量边界的未偿还可资格承诺值.
+\item \texttt{X\_\{j,t,m\}}:该期内完成的组交换额值.
+\item \texttt{P\_\{j,t\}}:有效向发行人提交以偿还的单位.
+\item \texttt{F\_\{j,t\}}:有单独证明的发行人满意度的呈现单位.
+\item \texttt{G\_\{j,t\}}:具有核销记录,防止重复使用的完成单元.
+\end{itemize}
+\texttt{O} 不能仅从代币供应中得出结论. 测量政策必须确定负责发行者,并将根据适用的情况排除发行人持有的库存,燃烧的单元,过期的单数,释放的单项,试验余额,不可访问的余额和代币,其条款不会产生未偿付的第三方承诺.
+
+每个估值的指标都必须公布分数,来源,估值方法,时间和对不同汇率进行处理.\texttt{X} 没有证据,\texttt{F} 或\texttt{G}.
+
+\subsection*{基于群组的履约指标}
+\addcontentsline{toc}{subsection}{基于群组的履约指标}
+
+对于有效的赎回表单的一组:
+
+\texttt{FulfillmentRate = FulfilledPresentments / ValidPresentments}
+
+\texttt{DischargeCompleteness = DischargedFulfillments / FulfilledPresentments}
+
+在每个计数器和命名器中使用相同的关闭或成熟队列. 单独报告拒绝,撤销,过期,争议,部分实现,纠正和仍然开放的表达.
+
+\texttt{FulfillmentLatency = median(t\_fulfilled - t\_presented)}
+
+\texttt{HoldingDuration = median(t\_presented - t\_acquired)}
+
+执行延迟测量发行方服务在呈现后.持有时间是单独的衡量标准,不能标记为赎回延迟.
+
+\subsection*{不同的周转速度指标}
+\addcontentsline{toc}{subsection}{不同的周转速度指标}
+
+只有在 \texttt{O} 和实现价值使用相同的估值方法时,可计算拟议的承诺核销速度:
+
+\[
+V_{\mathrm{commit},t} = \frac{\mathrm{FulfilledValue}_t}{\mathrm{AverageOutstandingEligibleCommitmentValue}_t}
+\]
+
+组交换活动措施是单独的:
+
+\texttt{V\_swap,t = PoolSwapValue\_t / AverageMeasuredPoolInventoryValue\_t}
+
+任何价值都不能证明社会影响,发行人能力,利率或现金可转换性.
+
+\subsection*{拟议的网络收入模型}
+\addcontentsline{toc}{subsection}{拟议的网络收入模型}
+
+让:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{PF\_t} 是该期内产生的汇总费用;
+\item \texttt{NR\_t} 是实际收到的该集团费用的公开份额;
+\item \texttt{RF\_t} 是单独提出的路由费或实际收到的服务费;以及
+\item \texttt{$\chi$\_t} 是经费和政策约束后可用于现金换的受收到收入的衡量份额.
+\end{itemize}
+从拟议的网络预算角度来看:
+
+\texttt{ProposedNetworkRevenue\_t = NR\_t + RF\_t}
+
+\texttt{CashUsableNetworkRevenue\_t = $\chi$\_t $\times$ (NR\_t + RF\_t)}
+
+没有添加 \texttt{PF\_t} 转移到 \texttt{NR\_t} 杆是从总积分费转移,否则将被计数两次.Protocol v1.1.0 根据该协议,该协议的收益必须与拟议的杆模型分别报告.
+
+
+\section*{B. 未来费用分配示例}
+\addcontentsline{toc}{section}{B. 未来费用分配示例}
+
+这是未来部署的拟议设计.它只适用于通过公布的治理和参与者条款实施,资助和采用时.它没有描述当前的 Protocol v1.1.0 费用,贡献权,储备,保证或保险安排.
+
+让 \texttt{F\_in} 是拟议网络预算在某个时代实际收到的收入:拟议的网络拉克,单独路由或服务费以及任何其他明确指定的收入.
+
+收入资产应归类为:
+
+\begin{itemize}[leftmargin=*]
+\item \texttt{E\_cash}:根据所采用的政策,资产符合申报现金换使用的条件;或
+\item \texttt{E\_kind}:物质券或其他资产不被视为现金可转换的资产.
+\end{itemize}
+任何转换政策都需要资产和场地许可证,负责当局,价格来源,滑幅限制,报告以及适用的法律控制.
+
+一个拟议的布可以按照下列顺序获得收入:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{覆盖储备目标:} 仅基于定义的覆盖式风险,资产符合条件,排斥和索赔规则而获得的储备或保险目标.
+\item \textbf{核心运营:} 资助公布的限额运营预算.
+\item \textbf{流动性任务:} 基金批准,分别管理的资金池或路由项目.
+\item \textbf{剩余预算:} 将其余的资金分配到运营,流动性计划和在公布的上限下额外缓冲.
+\end{enumerate}
+一个储备目标本身并不是保证. 任何保险或保证都必须标识债务人,所涵盖的事件,资金,上限,排斥,持续时间,证据,索赔程序和损失分配.
+
+\textbf{防护车:} 布拨款是用于采用的覆盖,运营和流动性服务.
+
+根据拟议的模式,任何通过单独启用的外部流动性计划获得的CLC治理代币都将被退休或放置在公布的非投票槽中.
+
+
+\section*{C. 拟议的 KPI 定义}
+\addcontentsline{toc}{section}{C. 拟议的 KPI 定义}
+
+这些关键指标构成了拟议的测量规范,而不是当前应用程序或协议记录每一个所需的事件的声明.
+
+每个公布的KPI都必须包含:
+
+\begin{itemize}[leftmargin=*]
+\item 负责的出版商和数据来源;
+\item 事件或状态的定义;
+\item 一组或测量期;
+\item 单位和估值方法;
+\item 估值时间表;
+\item 包容和排斥的规则;
+\item 部分,争议,过期,无法访问和纠正的记录处理;
+\item 需要在链外的证据或证明;
+\item 审查历史和数据质量限制;以及
+\item 结果是否在链上,报告,认证,独立验证或估计.
+\end{itemize}
+\begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
+\toprule
+KPI & 拟议的定义 & 需要的证据和排除 \\
+\midrule
+\endhead
+\textbf{有效的表达} & 在一段时间内接受发行人赎回过程中的计数或单元 & 报表标识,发行人,持有权限,数量,时间,状态;排除复制和无效的请求 \\
+\textbf{履约率} & 已填写的有效表现,分为相同成熟群体的有效呈现 & 单独的发行方绩效证据;报告开放,拒绝,争议,部分和纠正的案件 \\
+\textbf{核销完整性} & 已填写的表单,分为已填补的表现 & 燃烧,取消,禁用记录或与履行相关的其他未再使用证据 \\
+\textbf{履约延迟} & 呈现到完成时间的中位数和90个百分点 & 不取代发行到提交或收购到提交的持有时间 \\
+\textbf{持有时间} & 收购到提交时间的中位数和分布 & 确定收购事件并排除未知的收购时间 \\
+\textbf{现有资格承诺} & 已确定排除后仍然存在的可接受第三方承诺 & 发行人身份和条款;不包括适用的发行人的库存,过期,燃烧,清理,测试和非承诺代币 \\
+\textbf{资金池交换量} & 根据一个披露的估值方法完成直接组交换的价值 & 链上结算事件,代币单位,汇率来源,时间;不归类为发行人履行 \\
+\textbf{资金池库存} & 在特定时间内,一个集团所持的衡量支持资产 & 合同余额,费用保留,不可访问的资产,估值方法和所有者撤销权 \\
+\textbf{储备充足性} & 符合条件的可用储备资产,按明确覆盖的风险分为 & 覆盖政策,资产资格性,保管/控制,负债,排除和估值;不包括默认的全部代币供应 \\
+\textbf{限制利用率} & 测量的库存代币余额以其当前配置的上限分为 & Limiter地址,代币,池,时间标签,变化和无限制期限 \\
+\textbf{报价通过率} & 通过有效的报价尝试划分成功报价回复 & 仅引用结果;不执行路线 \\
+\textbf{路线执行率} & 完成的多跳执行分为有效的执行尝试 & 仅适用于实施执行系统;每次报告和原子性规则 \\
+\textbf{担保人回收} & 收到的资格回报,分为已支付的受保索赔 & 确定担保人,索赔政策,时间表,成本,争端和抵免 \\
+\textbf{拟议的网络收入} & 收到的拟议网络拉克加上收取的单独路由/服务费 & 排除池所保留的毛额费用,避免两次计数拉克 \\
+\textbf{管理及时性} & 发现,决定,暂停,修复和关闭事件的时间 & 定义时钟,负责机构,紧急权力,上诉和失踪事件 \\
+\bottomrule
+\end{longtable}
+
+区块链活动本身并不能确定身份,发行方的表现,满意度,社区健康,因果关系或影响.
+
+
+\section*{D. 拟议的启动参数}
+\addcontentsline{toc}{section}{D. 拟议的启动参数}
+
+下面的每个值都是说明性的.它不是当前应用程序默认设置,Protocol v1.1.0,保证,报价或交付承诺.未来部署需要采用,执行,监测和发布其实际参数.
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{拟议的CLC治理令牌:}
+\begin{itemize}[leftmargin=*]
+\item 常规Q1:至少有4\%的定制和超过50\%的批准.
+\item Q2敏感:至少有10\%的定制和至少60\%的批准.
+\item Q3 关键:至少有20\%的定制和至少有66.7\%的批准.
+\end{itemize}
+\item \textbf{提议的时间:}
+\begin{itemize}[leftmargin=*]
+\item T1: 48小时Q1行动.
+\item T2: 7天Q2行动.
+\item T3: 30天Q3行动.
+\end{itemize}
+\item \textbf{时代序列:} 7 包括通过的投票,预算公布以及拟议的sCLC窗口.
+\item \textbf{紧急暂停:} 立即通过已确定的紧急机构,在72小时后过期,除非根据采用的程序批准.
+\item \textbf{拟议的网络:} 违约的参与组费用20\%,政策限制.
+\item \textbf{插图的池费范围:} 0\%--20\%,由每一个参与的集团发布.
+\item \textbf{拟议的路由或服务费限额:} 20 每条路线的节点.
+\item \textbf{拟议的网络速率:} \texttt{rake\_rate\_p = pool\_fee\_p $\times$ rake\_share\_p}.
+\item \textbf{收入资格:} 归类为现金资格的收到资产 \texttt{E\_cash} 或是本物品 \texttt{E\_kind} 在公布的方法下.
+\item \textbf{转换控制:} 资产和场地许可证,负责当局,价格来源,时间窗口,滑幅限制,上限和报告.
+\item \textbf{预算资助:} 只有在已通过的覆盖储备和运营目标实现后才公布拟议的费用准入预算;预算可能为零.
+\item \textbf{风险行径:} 没有根据适用的法律明确的,知情的选择,不暴露一个资产类别于另一类风险.
+\item \textbf{拟议的滚动和账户限制:} 拒绝未经批准的跨类活动,并适用已采用的上限.
+\item \textbf{选择性降低覆盖范围:} 只有在现有覆盖条款,要求同意和适用法律授权的情况下;它本身不会减少发行方的凭证承诺或连锁余额.
+\item \textbf{如果单独启用,外部流动性控制:} 发布场地范围,测量方法,触发器,支出和体积上限,执行控制,紧急停机和收据.不要将程序作为代币价支持.
+\end{itemize}
+目前的 Protocol v1.1.0 集团费用,额外协议费用和集团代币平衡上限仍然由部署的合同和配置控制,而不是这些拟议的价值.
+
+
+\section*{E. 示例------拟议的网络费用分成}
+\addcontentsline{toc}{section}{E. 示例------拟议的网络费用分成}
+
+这个例子说明了拟议的杆模型,而不是 Protocol v1.1.0 所使用的额外协议费计算.
+
+假设:
+
+\begin{itemize}[leftmargin=*]
+\item 一个参与组征收了2.00\%的组费;
+\item 拟议的网络接收到该组费的20\%;以及
+\item 收到的料中25\%是可接受和可转换的,以现金表格表示后费用使用.
+\end{itemize}
+在路由值上,拟议的有效网络速率为:
+
+\texttt{rake\_rate = 2.00\% $\times$ 20\% = 0.40\% = 40 bps}
+
+在假设的25\%资格因素下,可使用现金部分为:
+
+\texttt{cash\_usable\_rate = 40 bps $\times$ 25\% = 10 bps}
+
+如果拟议的网络预算有15万美元的每月现金额要求,而没有其他收入,则以10bps现金可使用率所需的示范路由值为:
+
+\texttt{required\_routed\_value = \$150,000 / 0.001 = \$150,000,000 per month}
+
+这项计算不包括Pools所保留的总池费.将这些费用添加到网络料中,会增加 source料来源的两倍.
+
+实际预算分析还需要公布:
+
+\begin{itemize}[leftmargin=*]
+\item 实际的车和服务费收据;
+\item 资产资格性和转换成本;
+\item 资金池参与和航线范围;
+\item 通过了储备和运营目标;
+\item 损失,争端,纠正和不可用资产;以及
+\item 而不是承诺的增长或回报.
+\end{itemize}
+任何拟议的手续费或流动性计划预算都将继续下行其通过的优先事项,并且可能为零.
+
+
+\section*{F. 数据室检查清单}
+\addcontentsline{toc}{section}{F. 数据室检查清单}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{历史 Sarafu Network 证据}
+\begin{itemize}[leftmargin=*]
+\item 存档日期交换量,活跃用户和资产定义,事件,赎回报表,老龄化凭证,确认的履行,核销,持有时间措施,期间,排斥和方法单独与当前 Cosmo-Local Credit 指标.
+\item 保护 \href{https://dune.com/grassrootseconomics/sarafu-network}{历史 Dune Analytics 仪表板}.
+\end{itemize}
+\item \textbf{如果实施,拟议的费用执行证据}
+\begin{itemize}[leftmargin=*]
+\item 证明任何费用和注册表门将集成到执行的交易路径中,而不是仅通过接口执行.
+\item 提供测试,证明适用的执行服务拒绝收到未根据采用政策征收费的跳蛋.
+\item 发布测试向量,故障情况,符合条件的资产和与已识别的注册表版本相关联的合规池.
+\item 链接适用的 \href{https://software.grassecon.org}{软件描述}.
+\end{itemize}
+\item \textbf{担保人和覆盖包}
+\begin{itemize}[leftmargin=*]
+\item 公布资格,负责人,资金,上限,适用的费用,触发因素,证据,排斥权,决策权以及争端和上诉案例.
+\item 包含示范券和集团披露,以区分发行方的责任与任何明确提供的集团保护或第三方保证.
+\item 保护 \href{https://sarafu.network/reports}{历史 Sarafu Network 报告档案} 和 \href{https://youtu.be/5yGaP31bvs0?si=fZ-AMTEXsmVR8Ulv}{经过审查的历史年表} 作为血统证据,而不是证明当前的CLC覆盖或采用.
+\end{itemize}
+\item \textbf{法律和合规性包}
+\begin{itemize}[leftmargin=*]
+\item 文件司法管辖战略,凭证类别,现金相当性政策,KYC或证明选项,地质设定,消费者披露,销售错误的控制以及普通库存交换和快速信用产品之间的区分.
+\item 连接有效的 \href{https://docs.cosmolocal.credit/zh/governance/terms}{Cosmo-Local Credit 使用条款} 通过控制记录保存取代的版本.
+\end{itemize}
+\item \textbf{加强治理}
+\begin{itemize}[leftmargin=*]
+\item 提供利益冲突和撤销程序,决策和上诉记录,制裁,注册取消的正当程序,紧急权限限制以及时间定制汇率和限制变化的例子.
+\end{itemize}
+\item \textbf{来源和保证包}
+\begin{itemize}[leftmargin=*]
+\item 发布源和许可证库存,部署的地址和版本,可用的审计报告,不变量,构建来源,管理员权限,事件联系人以及监控仪表板.
+\item 链接适用的 \href{https://github.com/grassrootseconomics}{基层经济存储库}.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

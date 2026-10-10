@@ -1,0 +1,73 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Arkitektura ng protocol network
+
+Maaaring pag-ugnayin ng isang CPP-compatible deployment ang maraming Voucher at Pool sa pamamagitan ng opsyonal na registry, index, quote module, at pagtuklas ng ruta sa antas ng application. Nananatiling hiwalay na vault ang bawat Pool, na may sariling liquidity, may-ari, proxy administrator, configuration, at mga dependency.
+
+Pinapatakbo ng Grassroots Economics Foundation ang pampublikong App sa [cosmolocal.credit](https://cosmolocal.credit). Maaaring gamitin ng ibang interface at deployment ang parehong pampublikong protocol. Ang pagpapatakbo sa App ay hindi awtomatikong ginagawang may-ari, tagapag-isyu, Tagapangasiwa, tumatanggap ng bayarin, o guarantor ang GEF para sa bawat contract sa ibaba.
+
+Tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa pagkakaiba ng mga tungkuling may pananagutan at teknikal na kapangyarihan.
+
+## Mga posibleng ruta at pagpapatupad
+
+<MermaidDiagram
+  scrollMessage="Mag-scroll pahalang upang makita ang buong diagram."
+  errorMessage="Hindi maipakita ang diagram"
+  label="Pagtuklas ng posibleng ruta at wallet-batch execution"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Voucher A"] ---|nakalista at hawak| PoolA["Pool A"]
+    Bridge["Pangkalahatang bridge asset"] ---|nakalista at hawak| PoolA
+    Bridge ---|nakalista at hawak| PoolB["Pool B"]
+    VoucherB["Voucher B"] ---|nakalista at hawak| PoolB
+
+    App["PWA o tagahanap ng ruta"] -. tumutuklas ng mga opsyon .-> Index["Mga registry at index"]
+    App -. humihingi ng quote .-> Router["SwapRouter: quote lamang"]
+    Router -. binabasa ang mga quote ng Pool .-> PoolA
+    Router -. binabasa ang mga quote ng Pool .-> PoolB
+
+    App -->|bumubuo ng nakaayos na mga call| WalletStart["Smart-account Wallet ng gumagamit"]
+    WalletStart -->|hop 1: Voucher A| PoolA
+    PoolA -->|bridge output| WalletBridge["Parehong Wallet sa pagitan ng mga call"]
+    WalletBridge -->|hop 2: bridge asset| PoolB
+    PoolB -->|Voucher B output| WalletFinal["Parehong Wallet ng gumagamit"]
+
+    PoolA -->|bayarin ng protocol| ProtocolRecipient["Naka-configure na tatanggap ng protocol"]
+    PoolB -->|bayarin ng protocol| ProtocolRecipient`}
+/>
+
+Lumilikha ang pinagsasaluhang asset ng **posibleng graph path**, hindi garantisadong ruta. Sa halimbawang ito, maaaring ipagpalit ang Voucher A para sa bridge asset sa Pool A, pagkatapos ay ipagpalit ang bridge asset para sa Voucher B sa Pool B. Nakadepende pa rin ang bawat hop sa kasalukuyang pag-admit ng token, mga limitasyon ng Pool, available na inventory, configuration ng quote at bayarin, estado ng oracle, approval, hangganan ng transaksyon, at pagpapatupad ng network.
+
+Tumatawag lamang ang `SwapRouter` sa mga quote function ng Pool sa isang iminungkahing path. Hindi ito nagtataglay ng pondo, nag-a-approve ng token, o nagsasagawa ng palitan. Maaaring gamitin ng integrator o compatible app ang mga resulta ng quote upang bumuo ng nakaayos na approval at mga call sa Pool sa isang nilagdaang smart-account batch; hindi nito ibig sabihing may multi-hop execution ang kasalukuyang pampublikong App. Bawat hop ay nagsa-settle sa Wallet bago ibigay ng Wallet na iyon ang intermediate asset sa susunod na Pool, at maaaring i-configure ng integrator ang batch na mag-revert kapag pumalya ang isang call.
+
+Snapshot lamang ang mga quote. Maaari pa ring pumalya o mag-settle nang iba ang matagumpay na route quote kung magbabago ang kaugnay na state bago ang execution. Nagdaragdag ang bounded `SwapPool.withdraw` overload ng proteksyong `minAmountOut` at `deadline` para sa isang hop; kailangang magpasya ng integrator kung paano ilalapat ang mga bound sa buong ruta.
+
+Nananatili sa kaugnay na Pool ang mga bayarin ng Pool para kolektahin sa ibang pagkakataon. Karagdagan ang anumang bayarin ng protocol at direktang inililipat mula sa Pool patungo sa naka-configure nitong tatanggap habang nagaganap ang palitan.
+
+## Loob ng Pool
+
+<MermaidDiagram
+  scrollMessage="Mag-scroll pahalang upang makita ang buong diagram."
+  errorMessage="Hindi maipakita ang diagram"
+  label="Mga dependency ng Pool ng Pangako at kapangyarihang administratibo"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["May-ari ng contract o<br/>Tagapangasiwa ng Pool"] -->|mag-configure, mag-seal, mangolekta, mag-withdraw| Pool["SwapPool<br/>vault at settlement"]
+    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|mag-upgrade ng implementation| Pool
+    Dependencies["Opsyonal na mga dependency<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>bawat isa ay may sariling pamamahala"] -. mga input sa settlement .-> Pool
+    Seal["Limang sealable address slot<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. nagla-lock ng mga address .-> Pool
+
+    Wallet["Wallet ng gumagamit"] -->|deposit o input sa palitan| Pool
+    Pool -->|netong output ng palitan| Wallet
+    Pool -->|nakolektang bayarin ng Pool| FeeAddress["Naka-configure na<br/>fee address"]
+    Pool -->|bayarin ng protocol sa parehong palitan| ProtocolRecipient["Tatanggap ng<br/>protocol"]
+    Pool -->|withdrawLiquidity| Destination["Tatanggap na pinili<br/>ng may-ari"]`}
+/>
+
+Opsyonal ang registry, limiter, quoter, fee policy, at protocol-fee controller. Kung walang registry, pumapasa ang anumang token sa admission check; kung walang limiter, walang cap ang deposit; kung walang quoter, raw-unit parity ang ginagamit ng Pool; at kung walang fee module, zero ang kaugnay na bayarin.
+
+Ang limang sealable slot ay `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry`, at `tokenLimiter`. Pinipigilan ng seal ang kasalukuyang may-ari ng Pool na palitan ang address na iyon sa pamamagitan ng setter nito, ngunit hindi nito pine-freeze ang internal state ng dependency. Hindi sakop ng limang seal bit ang address ng `protocolFeeController` at mode na `feesDecoupled`. Hiwalay din sa sealing ang kakayahan ng proxy administrator na i-upgrade ang Pool.
+
+Maaaring i-withdraw ng may-ari ng contract ang available na liquidity ng Pool patungo sa napiling address. Sa decoupled-fee mode, hindi kasama sa landas na iyon ang naipong bayarin; nananatili ang kapangyarihang i-withdraw ang natitirang liquidity. Dapat suriin ng mga kalahok ang may-ari, proxy administrator, dependency controller, seal state, tumatanggap ng bayarin, at inilathalang patakaran ng Pool bago umasa sa isang Pool.
+
+Para sa konseptuwal na disenyo sa likod ng mga contract na ito—kabilang ang curation, valuation, limitasyon, palitan, at pamamahala—tingnan ang [White Paper](/fil/white-paper).

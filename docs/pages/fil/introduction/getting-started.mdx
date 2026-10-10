@@ -1,0 +1,74 @@
+# Magsimula
+
+Ang Cosmo-Local Credit (CLC) ay isang progressive web app para sa paggawa, paghahanap, paghawak, pagpapadala, at pagpapalitan ng mga digital asset, kabilang ang mga voucher na maaaring tubusin, sa pamamagitan ng mga Pool ng Pangako na may sariling pamamahala. Makikita ang CLC App sa [cosmolocal.credit](https://cosmolocal.credit).
+
+Pinapatakbo ng [Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) ang App at ang sumusuportang imprastraktura. Maliban kung hayagang tumanggap ang GEF ng ibang tungkulin para sa isang partikular na Offering o transaksyon, hindi ito ang tagapag-isyu ng voucher na ginawa ng gumagamit, Tagapangasiwa ng Pool na ginawa ng gumagamit, custodian, nagpapautang, umutang, guarantor, insurer, o tumutubos. Pananagutan ng mga tagapag-isyu ang kanilang mga pangako sa voucher, at pananagutan ng mga Tagapangasiwa ng Pool ang mga patakaran ng kanilang Pool.
+
+Basahin ang [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa eksaktong mga layer ng produkto, tungkulin, kilos, halaga, bayarin, at salitang tumutukoy sa katayuan na ginagamit sa dokumentasyong ito.
+
+Bago gumawa ng account o transaksyon, basahin ang [Mga Tuntunin ng Serbisyo](/fil/governance/terms). Mahalaga ang mga sumusunod:
+
+- Dapat ay hindi bababa sa 18 taong gulang ka, umabot na sa legal na edad na naaangkop sa iyo, at may kakayahang pumasok sa kontrata.
+- Pananagutan mong tiyaking legal ang iyong account, voucher, Pool, o transaksyon sa bawat kaugnay na hurisdiksiyon.
+- Dapat mong protektahan ang mga credential ng Wallet. Maaaring hindi mabawi ng GEF ang nawalang Wallet o maibalik ang isang awtorisadong transaksyon.
+- Maaaring makita ng publiko, manatili nang permanente, at hindi na maibalik ang mga transaksyon at tala sa pampublikong blockchain.
+- Ang pagkalista sa App ay hindi pag-endorso ng GEF o garantiya ng pagtubos, halaga, liquidity, convertibility, o cash-out.
+
+## Magsimula sa kasalukuyang App
+
+### 1. Tingnan ang Pamilihan
+
+Buksan ang [cosmolocal.credit](https://cosmolocal.credit) upang tingnan ang pampublikong **Pamilihan**, ang discovery catalog ng App. Suriin ang tagapag-isyu na may pananagutan, ang ipinangakong produkto o serbisyo, lokasyon, availability, at mga inilathalang tuntunin. Ang pagkakalista sa Pamilihan ay hindi awtomatikong exchange venue, ugnayan sa nagbebenta, hiwalay na valuation, pag-endorso, o garantiya.
+
+### 2. Gumawa o magbukas ng account at Wallet
+
+Gumagamit ang App ng account para sa profile at session, at ng Wallet para sa awtorisasyon sa blockchain. Protektahan ang iyong passkey, impormasyon ng paper wallet, recovery information, mga device, at iba pang credential. Suriin ang bawat asset, halaga, address, Pool, bayarin, at awtorisasyon bago kumpirmahin ang transaksyon.
+
+### 3. Gumawa ng voucher
+
+May ilang magkahiwalay na layer ang isang voucher:
+
+1. mga mekanismo at balanse ng token contract;
+2. pangalan at inilathalang tuntunin ng voucher ng tagapag-isyu;
+3. isa o higit pang tala ng Offering para sa kaugnay na mga produkto o serbisyo; at
+4. aktuwal na pagtupad ng tagapag-isyu.
+
+Ang paggawa o pag-mint ng token ay hindi, sa sarili nito, patunay na may Offering, may sapat na kakayahan ang tagapag-isyu, o ginagarantiyahan ng GEF ang pagtubos.
+
+### 4. Gumawa o magsuri ng Pool ng Pangako
+
+Ang Pool ng Pangako ay isang kaayusang may pamamahala. Maaaring maghawak ang kasalukuyang `SwapPool` contract nito ng inventory ng mga suportadong token at magsagawa ng direktang palitan. Bago gumamit o mag-ambag sa isang Pool, suriin ang:
+
+- Tagapangasiwa ng Pool na may pananagutan at ang kasalukuyang may-ari ng contract;
+- proxy administrator at mga controller ng mga naka-configure na dependency;
+- mga tinanggap na voucher at iba pang suportadong asset;
+- paraan ng exchange rate o quote;
+- **“Credit limit”** ng App, na cap sa balanse ng token ng Pool at hindi personal na credit;
+- mga bayarin ng Pool at protocol;
+- available na inventory at kapangyarihan ng may-ari ng Pool na mag-withdraw ng liquidity; at
+- anumang hiwalay na inilathalang tuntunin tungkol sa kontribusyon, garantiya, reserve, o insurance.
+
+Inililipat ng deposit ang mga asset sa `SwapPool`. Hindi nagmi-mint ang Protocol v1.1.0 ng Pool-share token at hindi nito awtomatikong binibigyan ang nagdeposito ng karapatan sa pagbabayad, withdrawal, reward, o pamamahala.
+
+### 5. Gamitin ang tamang kilos
+
+- **“Ipadala”** ay naglilipat ng balanse ng token sa ibang address.
+- **Palitan sa Pool** ay nagpapalit ng isang suportadong asset para sa isa pa sa pamamagitan ng isang `SwapPool`. Ang on-chain swap settlement ay hindi patunay na tumupad ang tagapag-isyu.
+- **“Tubusin”** ay nagbubukas ng daloy ng pagpapadala na nakalagay na ang address ng may-ari ng token. Inihaharap o ibinabalik nito ang voucher sa tagapag-isyu; kailangan din sa ganap na pagtubos ang ipinangakong pagtupad ng tagapag-isyu at isang discharge record na pumipigil sa muling paggamit.
+- **“Retire voucher”** ay nagtatago sa listing sa catalog. Hindi nito sinusunog ang mga balanse, kinakansela ang voucher, o winawakasan ang natitirang obligasyon ng tagapag-isyu.
+- **Pag-withdraw ng liquidity ng Pool** ay nagpapahintulot sa may-ari ng Pool na ilipat ang available na inventory.
+- **Pagkolekta ng bayarin** ay nagpapadala ng naipong bayarin ng Pool sa naka-configure na tatanggap.
+
+Tingnan ang [praktikal na halimbawa ng voucher](/fil/introduction/example) para sa buong lifecycle.
+
+## Kasalukuyan, nakadepende sa deployment, at iminungkahing kakayahan
+
+Ang kasalukuyang App ay may Pamilihan at mga suportadong daloy para sa mga account, Wallet, voucher, Offering, Pool, transfer, direktang palitan sa Pool, at kaugnay na mga tala. Nakadepende ang availability sa aktibong deployment, asset, configuration ng Pool, device, network, eligibility, provider, hurisdiksiyon, at inilathalang tuntunin.
+
+Nakadepende sa deployment ang mga serbisyo sa pagbabayad, paraan ng pagsuporta, reward, garantiya, kaayusan ng kontribusyon, at iba pang integration ng provider. Dapat ilahad kung sino ang may pananagutan, ang mga bayarin, limitasyon, eligibility, at legal na tuntunin kung saan iniaalok ang mga ito.
+
+Nagbibigay ang Protocol v1.1.0 ng direktang pagpapatupad sa Pool at isang `SwapRouter` na para lamang sa quote. Ang multi-hop execution, HTLC o escrow routing, batch netting, shared insurance, iminungkahing governance asset, network liquidity program, at regulated payment rail ay nananatiling iminungkahi o nakadepende sa deployment maliban kung tukoy na sinasabi ng isang deployment na aktibo ang mga ito.
+
+Ang anumang pautang o iba pang credit product sa hinaharap ay nangangailangan ng hiwalay na supplemental at transaction terms. Ang karaniwang transfer, deposit sa Pool, palitan sa Pool, redemption presentment, fulfillment, o discharge ay hindi awtomatikong pautang, advance, o pagbabayad ng utang.
+
+Susunod, basahin ang [pangkalahatang-ideya ng Protokol](/fil/protocol/overview), [mga mekanismo ng pamamahala](/fil/governance/mechanics), o ang mas malawak na [White Paper](/fil/white-paper).

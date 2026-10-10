@@ -5,7 +5,7 @@ import { join, relative, resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
-const allLocales = ['ar', 'dz', 'de', 'es', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const allLocales = ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
 const requestedLocales = process.argv.slice(2)
 const locales = requestedLocales.length ? requestedLocales : allLocales
 for (const locale of locales) {

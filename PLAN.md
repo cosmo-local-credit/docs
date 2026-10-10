@@ -6,9 +6,15 @@ This file tracks the one-language-at-a-time rollout of the public documentation.
 The implementation details, commands, file conventions, and translation tooling
 remain in the [documentation localization guide](docs/i18n/README.md).
 
-English is the source text. All thirteen current `clc-app` languages now have a
-translated splash page and a complete 36-page documentation set. Dutch and
-Hindi were detected after the original eleven-language splash rollout.
+English is the source text. All fifteen languages on `clc-app`
+`origin/develop` now have a translated splash page and a complete 36-page
+documentation set. Dutch, Hindi, Simplified Chinese, and Traditional Chinese
+were detected after the original eleven-language splash rollout. The app's
+committed `feat/filipino-language` branch adds Filipino as a sixteenth locale.
+A complete Filipino review draft is included, but production app deep links
+remain gated until that branch is merged and the documentation is reviewed and
+deployed.
+
 Detailed documentation is normally released only after all 36 pages, the
 navigation, the site interface, and the locale manifest are complete and the
 reviewable web draft has been accepted. The current uninterrupted batch is the
@@ -32,23 +38,42 @@ the combined handoff.
 | 7 | Dzongkha (`dz`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
 | 8 | Dutch (`nl`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
 | 9 | Hindi (`hi`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
+| 10 | Simplified Chinese (`zh`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
+| 11 | Traditional Chinese (`zh-Hant`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
+| 12 | Filipino (`fil`) | Complete | Complete first draft | Review pending | Review build only; app merge pending | Wait for docs release | Published and linked in review build |
 
 Only one queued language is normally active at a time. Each web draft must pass
 its validation gate before work starts on the next language. Arabic, Dzongkha,
-Dutch, and Hindi were completed as one uninterrupted batch at the user's
-request. All four are now wired into the review build; user acceptance and
-deployment remain pending.
+Dutch, Hindi, Simplified Chinese, and Traditional Chinese were completed as an
+uninterrupted batch at the user's request. They are wired into the review build;
+user acceptance and deployment remain pending. Filipino was completed from the
+catalog committed on the app's feature branch. Production release and app-link
+verification remain gated on the app branch being merged and the docs draft
+being accepted and deployed.
 
 ## Translation and app baselines
 
-- The documentation glossary and translation manifests use `clc-app`
-  `origin/develop` commit `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd`
-  as their current synchronization baseline.
+- The documentation glossary and translation manifests use `clc-app` commit
+  `b4c4a496dc45232470d3874a3317912e86b466a8` as its latest audited
+  synchronization baseline. This is the Filipino feature commit on top of the
+  `origin/develop` baseline.
 - `clc-app` `origin/develop` was last audited at
-  `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd` on 10 October 2026.
-- That committed registry contains all thirteen current app languages,
-  including Dutch (`nl`) and Hindi (`hi`). The docs registry now represents the
-  same thirteen locale codes and metadata values.
+  `0808066dae3c0063729b69085df85ba5ce12a90d` on 10 October 2026.
+- The `origin/develop` registry contains fifteen app languages, including
+  Simplified Chinese (`zh`) and Traditional Chinese (`zh-Hant`). The committed
+  Filipino feature branch contains sixteen. The docs registry represents all
+  sixteen locale codes and metadata values.
+- Chinese browser matching mirrors the app: generic `zh`, `zh-Hans`, and
+  regions CN, SG, and MY resolve to Simplified Chinese; `zh-Hant` and regions
+  TW, HK, and MO resolve to Traditional Chinese; an explicit script takes
+  precedence over a conflicting region.
+- The app's `feat/filipino-language` branch was inspected on 10 October 2026 at
+  commit `b4c4a496dc45232470d3874a3317912e86b466a8`. It defines Filipino (`fil`),
+  native label `Filipino`, LTR direction, `fil-PH` formatting, and `tl` as a
+  browser-language alias. Its catalog has 1,310 populated `msgstr` entries and
+  only the normal empty PO header entry. The feature branch is clean and
+  published as `origin/feat/filipino-language`, but is not yet merged into
+  `origin/develop`.
 - The current app catalog entries for Voucher, Pool, Market, Issuer, Redeem,
   Send, Swap, and Wallet agreed with the existing docs glossary where those
   locales were already represented.
@@ -71,6 +96,9 @@ deployment remain pending.
 | 10 October 2026 | `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` | Arabic reviewed. Locale metadata remains `ar`, RTL, with `ar-u-nu-arab` number formatting. The docs preserve the app terms `قسيمة`, `الصندوق`, `السوق`, `الجهة المصدرة`, `استرداد`, `سحب القسيمة من التداول`, `إرسال`, `مبادلة`, `المحفظة`, and `حد الائتمان`; `صندوق الالتزامات` and `مشرف الصندوق` follow the established splash glossary. |
 | 10 October 2026 | `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd` | Dutch (`nl`) is present in the committed app locale registry and catalog. The docs use `Fonds`, `Fondsen`, `Waardebon`, `Waardebonnen`, `Markt`, `Uitgever`, `Inwisselen`, `Waardebon buiten gebruik stellen`, `Verzenden`, `Ruilen`, `Portemonnee`, `Kredietlimiet`, and `Aanbod`; `Commitmentfonds` and `Fondsbeheerder` cover concepts without exact app labels. |
 | 10 October 2026 | `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd` | Hindi (`hi`) is now committed on `origin/develop`. The app terms are `पूल`, `वाउचर`, `बाज़ार`, `जारीकर्ता`, `भुनाएँ`, `रिटायर वाउचर`, `भेजें`, `अदला-बदली`, `वॉलेट`, `क्रेडिट सीमा`, and `ऑफ़र`; the docs glossary adds `प्रतिबद्धता पूल` and `पूल प्रबंधक` for concepts without exact app labels. |
+| 10 October 2026 | `0808066dae3c0063729b69085df85ba5ce12a90d` | Simplified Chinese (`zh`) is committed on `origin/develop`. The app catalog uses `代金券` (Voucher), `资金池` (Pool), `市场` (Market), `发行方` (Issuer), `兑付` (Redeem), `停用代金券` (Retire voucher), `发送` (Send), `兑换` (Swap), `钱包` (Wallet), `信用额度` (Credit limit), and `商品或服务项目` (Offerings). The docs use `承诺资金池` and `资金池管理者` for the two concepts without exact app labels. |
+| 10 October 2026 | `0808066dae3c0063729b69085df85ba5ce12a90d` | Traditional Chinese (`zh-Hant`) is committed on `origin/develop`. The app catalog uses `代金券`, `資金池`, `市場`, `發行方`, `兌付`, `停用代金券`, `傳送`, `兌換`, `錢包`, `信用額度`, and `商品或服務項目`; the docs use `承諾資金池` and `資金池管理者`. |
+| 10 October 2026 | `b4c4a496dc45232470d3874a3317912e86b466a8` on `origin/feat/filipino-language` | Filipino (`fil`) is committed with native label `Filipino`, LTR direction, `fil-PH` formatting, and `tl` browser matching. The app catalog uses `Voucher`, `Mga voucher`, `Pool`, `Mga pool`, `Pamilihan`, `Tagapag-isyu`, `Tubusin`, `Mag-retire ng voucher`, `Ipadala`, `Palitan`, `Wallet`, and `Mga alok`; `Credit limit` remains untranslated in the app. The docs add `Pool ng Pangako` and `Tagapangasiwa ng Pool` for concepts without exact app labels. |
 
 ## Repeatable language workflow
 
@@ -250,6 +278,90 @@ For every language:
 - [ ] Complete the coordinated `clc-app` link verification.
 - [x] Generate and publish the localized PDF.
 
+### 10. Simplified Chinese (`zh`)
+
+- [x] Confirm that the app's Simplified Chinese work is committed and record
+      the resulting `clc-app` commit as the new synchronization baseline.
+- [x] Re-audit the committed app catalog and approve docs glossary terms for
+      Commitment Pool and Pool Steward while preserving `代金券`, `资金池`,
+      `市场`, `发行方`, `兑付`, `停用代金券`, `发送`, `兑换`, `钱包`,
+      `信用额度`, and `商品或服务项目` where their app meanings apply.
+- [x] Add `zh` to the docs locale registry with native label `中文（简体）`, LTR
+      direction, `zh-CN` formatting, and the reusable language selector.
+- [x] Mirror the app's browser matcher for generic and Simplified Chinese tags,
+      including `zh-Hans`, CN, SG, and MY, without mapping explicit Traditional
+      Chinese tags to the Simplified route.
+- [x] Translate the splash page and all 36 documentation pages as a first draft.
+- [x] Add and review Simplified Chinese navigation, UI/search text, metadata,
+      Terms convenience notice, and White Paper source notice.
+- [x] Complete the priority-page clarity pass and review Simplified Chinese
+      terminology, punctuation, line breaking,
+      CJK font fallbacks, search tokenization, number formatting, and LTR
+      isolation for code, formulas, addresses, symbols, and URLs.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass automated validation and rendered desktop/mobile inspection in both
+      color themes, including locale-isolated Chinese search.
+- [ ] Provide the review URLs and record user acceptance.
+- [x] Add Simplified Chinese to the released documentation set; the commit
+      remains user-managed.
+- [ ] Deploy and verify `/zh/` and all `/zh/...` documentation routes.
+- [ ] Complete the coordinated `clc-app` About and Terms link verification.
+- [x] Generate, inspect, publish, and link the Simplified Chinese White Paper
+      v0.8 PDF with embedded CJK fonts and `zh-CN` PDF language metadata.
+
+### 11. Traditional Chinese (`zh-Hant`)
+
+- [x] Record committed `clc-app` baseline
+      `0808066dae3c0063729b69085df85ba5ce12a90d` and audit the app catalog.
+- [x] Add `zh-Hant` with native label `中文（繁體）`, LTR direction,
+      `zh-Hant` formatting, and the reusable language selector.
+- [x] Match `zh-Hant`, `zh-TW`, `zh-HK`, and `zh-MO`, while giving an explicit
+      Chinese script subtag precedence over region.
+- [x] Convert and review the splash page and all 36 documentation pages as a
+      first draft, preserving the app terms and locale-aware internal links.
+- [x] Add Traditional Chinese navigation, UI/search text, metadata, Terms
+      convenience notice, and White Paper source notice.
+- [x] Complete the priority-page clarity pass and review Traditional Chinese
+      terminology, punctuation, CJK font fallback, search segmentation, number
+      formatting, and technical-token isolation.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass automated validation and rendered desktop/mobile inspection in both
+      color themes, including locale-isolated Chinese search.
+- [ ] Provide the review URLs and record user acceptance.
+- [x] Add Traditional Chinese to the released documentation set; the commit
+      remains user-managed.
+- [ ] Deploy and verify `/zh-Hant/` and all `/zh-Hant/...` routes.
+- [ ] Complete the coordinated `clc-app` About and Terms link verification.
+- [x] Generate, inspect, publish, and link the Traditional Chinese White Paper
+      v0.8 PDF with embedded Traditional CJK fonts and `zh-Hant` metadata.
+
+### 12. Filipino (`fil`)
+
+- [x] Confirm the app's Filipino registry and catalog are committed on
+      `origin/feat/filipino-language` at `b4c4a496dc45232470d3874a3317912e86b466a8`.
+- [ ] Confirm the Filipino feature branch is merged into app `origin/develop`.
+- [x] Record the exact feature commit and audit the populated app catalog terms for
+      Voucher, Pool, Market, Issuer, Redeem, Retire voucher, Send, Swap, Wallet,
+      Credit limit, Offering, Commitment Pool, and Pool Steward.
+- [x] Add `fil` with native label `Filipino`, LTR direction, `fil-PH`
+      formatting, and `tl` browser-language alias matching.
+- [x] Translate the splash page and all 36 documentation pages as a complete
+      first draft, with a manual clarity pass on the key entry, lifecycle,
+      Protocol, governance, Terms, history, and White Paper pages.
+- [x] Compare the machine-local MADLAD-400 output in a temporary tree. Reject
+      replacements that corrupt protected names or technical terms, and retain
+      the clearer reviewed draft with manual corrections to the affected legal
+      and White Paper sections.
+- [x] Add Filipino navigation, UI/search text, metadata, notices, manifest,
+      heading mappings, isolated search, and locale-aware internal links.
+- [x] Pass the automated validation gate.
+- [ ] Inspect the rendered desktop/mobile review build and provide the review
+      URLs for user acceptance.
+- [ ] Release and deploy the Filipino docs before enabling localized deep links
+      from `clc-app`.
+- [x] Generate, technically inspect, publish, and link the Filipino White Paper
+      v0.8 PDF in the review build.
+
 ## Validation gate
 
 Before requesting review for a language, run:
@@ -281,8 +393,11 @@ implementation remains owned by the `clc-app` repository.
 
 - Both repositories use the same locale codes.
 - English documentation is always unprefixed; there is no `/en/` route.
-- Every supported non-English locale can link its About entry to `/{locale}/`
-  because all localized splash pages already exist.
+- Every released non-English locale can link its About entry to `/{locale}/`.
+  A newly added app locale must continue to use the unprefixed English splash
+  until its localized splash route has been deployed; Filipino remains a
+  review-only docs locale until the app feature branch is merged and the docs
+  locale is reviewed and deployed.
 - A deep link such as Terms uses `/{locale}/governance/terms` only after that
   locale's complete documentation has been deployed.
 - Before a locale's docs release, its Terms link falls back to
@@ -290,7 +405,7 @@ implementation remains owned by the `clc-app` repository.
 - The app should use one locale-aware docs URL resolver for About, Terms, and
   future documentation links rather than adding more static URL constants.
 - At the 10 October 2026 audit of app commit
-  `0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd`, the app still used the static
+  `0808066dae3c0063729b69085df85ba5ce12a90d`, the app still used the static
   constants `PLATFORM_ABOUT_URL` and `PLATFORM_TERMS_URL` in
   `apps/web/src/lib/legal.ts`. Locale-aware deep links therefore remain an
   external app dependency rather than a completed docs task.
@@ -305,6 +420,10 @@ Expected behavior:
 | French, released | `/fr/` | `/fr/governance/terms` |
 | Italian, before release | `/it/` | `/governance/terms` |
 | Italian, after release | `/it/` | `/it/governance/terms` |
+| Simplified Chinese, after release | `/zh/` | `/zh/governance/terms` |
+| Traditional Chinese, after release | `/zh-Hant/` | `/zh-Hant/governance/terms` |
+| Filipino, before release | `/` | `/governance/terms` |
+| Filipino, after release | `/fil/` | `/fil/governance/terms` |
 
 Release order for each language:
 
@@ -316,13 +435,17 @@ Release order for each language:
 
 ## Localized PDF phase
 
-All twelve localized v0.8 TeX sources and PDFs were generated, technically
-validated, published, and linked from their localized landing pages on
-10 October 2026. The build uses reproducible timestamps, embedded fonts,
-locale-specific PDF language metadata, Arabic RTL layout, and dedicated Tibetan
-and Devanagari fonts. Build logs contain no missing-glyph warnings. Each PDF was
-checked for extracted text, formulas, links, embedded fonts, document language
-metadata, line wrapping, RTL behavior where applicable, and missing glyphs.
-Every localized publication continues to identify and link English as the
-source text.
+All fifteen currently wired localized v0.8 TeX sources and PDFs were
+generated, technically validated, published, and linked from their localized
+landing pages on 10 October 2026. The build uses reproducible timestamps,
+embedded fonts, locale-specific PDF language metadata, Arabic RTL layout, and
+dedicated Tibetan and Devanagari fonts. Build logs contain no missing-glyph
+warnings. Each PDF was checked for extracted text, formulas, links, embedded
+fonts, document language metadata, line wrapping, RTL behavior where
+applicable, and missing glyphs. Every localized publication continues to
+identify and link English as the source text. Simplified and Traditional
+Chinese use separate PDFs with Simplified and Traditional Noto CJK fonts. The
+Filipino PDF is included in the review build, but it should not be treated as a
+production app-linked publication until the app feature branch is merged and
+the Filipino draft is accepted and deployed.
 

@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **Tungkol sa saling ito.** Salin ito ng White Paper v0.8. Inilathala ang English na pinagmulang teksto noong 30 Setyembre 2026. Inilathala ang saling ito noong 10 Oktubre 2026. English ang pinagmulang teksto. <a data-english-source="true" href="/white-paper" hrefLang="en">Basahin ang English na pinagmulang teksto</a>.
+
+## Isang network para sa pag-route ng credit, pag-uugnay ng mga pangako, at pagpopondo sa isang malusog na cosmo-local na ekonomiya
+
+**Bersyon:** 0.8
+
+**Petsa:** 30 Setyembre 2026
+
+**Mga may-akda:** William O. Ruddick at Mohamed Sohail
+
+**Makipag-ugnayan:** [info@grassecon.org](mailto:info@grassecon.org)
+
+**I-download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fil.pdf">CLC White Paper v0.8 PDF sa Filipino</a>
+
+**Publikasyon:** Pinal at may bersyong pampublikong publikasyon. Hindi payo sa pamumuhunan ang papel na ito at hindi ito alok na magbenta o paanyayang bumili ng anumang security o financial instrument. Maaaring baguhin ng mga susunod na bersyon ang mga disenyong inilalarawan dito.
+
+## Paano basahin ang papel na ito
+
+Pinagsasama ng papel na ito ang apat na uri ng materyal. Nalalapat ang status sa buong papel kahit hindi ito inuulit sa bawat kabanata.
+
+| Status | Kahulugan |
+| --- | --- |
+| **Kasalukuyan** | Gawi na napatunayan sa CLC App o sa pampublikong mga contract ng Protocol v1.1.0. Ang [sanggunian ng Protocol](/fil/protocol/overview) ang batayang sanggunian para sa mga contract na iyon. |
+| **Depende sa deployment** | Kakayahang umiiral lamang kapag pinagana ito ng isang partikular na Pool, provider, hurisdiksyon, governance body, o inilathalang patakaran. |
+| **Makasaysayan** | Ebidensiya o functionality mula sa naunang serbisyo ng Sarafu Network. Hindi ito kasalukuyang paggamit ng CLC o patunay na lumipat ang isang user, asset, record, o obligasyon. |
+| **Iminungkahi** | Disenyo, economic model, governance mechanism, o roadmap item na hindi ipinapakitang deployed na. |
+
+Kasama sa kasalukuyang Protocol v1.1.0 ang direktang execution sa `SwapPool`, opsyonal na curation, valuation, cap sa balanse ng token ng Pool, bayad sa Pool, karagdagang bayad sa Protocol, at `SwapRouter` na para sa quote lamang. Iminungkahi o depende sa deployment ang multi-hop execution, HTLC o escrow routing, batch netting, shared insurance, iminungkahing CLC governance token, iminungkahing CLC Network Pool, fee-credit mechanism, at network liquidity program.
+
+**Nilalayong mambabasa:** mga tagabuo at Tagapangasiwa ng Pool, protocol engineer at auditor, mga nagpopondo ng liquidity at mandato, governance designer, at legal o compliance reviewer.
+
+## Buod
+
+Ang Cosmo-Local Credit ay isang pamilya ng produkto na binuo sa paligid ng **Commitment Pooling Protocol (CPP)**. Inilalarawan ng CPP kung paano makakapag-curate ng mga pangakong maaaring tubusin, makapaglalathala ng paraan ng exchange rate at limitasyon, makapaghawak ng inventory, at makapagbigay-daan sa may-pananagutang palitan ang mga Pool ng Pangako na malayang pinamamahalaan.
+
+Ang **Pool ng Pangako** ang pinamamahalaang kaayusan. Isang contract component ang kasalukuyang **`SwapPool`** ng Protocol v1.1.0: token vault at direct-swap engine. Maaaring ikonekta ng isang deployment ang contract na iyon sa registry, quoter, cap sa balanse ng token ng Pool, fee policy, at ibang serbisyo.
+
+Ang cosmo-local ay nangangahulugang pagbabahagi ng open standard, software, at kaalaman sa buong mundo habang nananatiling lokal ang pag-isyu, pagtupad, pamamahala, at pananagutan sa totoong buhay. Nananatiling responsable ang tagapag-isyu sa voucher nito. Nananatiling responsable ang Tagapangasiwa ng Pool sa mga tuntunin ng Pool at anumang garantiya na hayagang inaako nito. Hindi awtomatikong ginagarantiya ng CLC App o GEF ang isang voucher, Pool, halaga, ruta, liquidity position, o resulta.
+
+## Kasalukuyang deployment
+
+Pinapatakbo ng GEF ang CLC App sa [cosmolocal.credit](https://cosmolocal.credit). Nagbibigay ito ng access sa account at Wallet, pampublikong catalog na Pamilihan, at mga suportadong interface para sa token, voucher, Offering, Pool ng Pangako, paglilipat, at direktang palitan sa Pool. Nakadepende ang availability sa interface, contract, inventory, naka-configure na limitasyon at bayarin, network state, eligibility, provider, hurisdiksyon, at inilathalang mga tuntunin ng tagapag-isyu o Pool.
+
+Hindi ginagawang tagapag-isyu, Tagapangasiwa ng Pool, custodian, lender, borrower, broker, guarantor, tagatubos, adviser, insurer, o partido sa obligasyon ng mga kalahok ang GEF dahil lamang pinapatakbo nito ang interface. Ang paggamit ng App ay pinamamahalaan ng [Mga Tuntunin ng Serbisyo](/fil/governance/terms).
+
+Pinaghihiwalay ng Protocol v1.1.0 ang mga tungkuling may pananagutan mula sa teknikal na kontrol. Maaaring magkakaibang partido ang Tagapangasiwa ng Pool, may-ari ng `SwapPool`, proxy administrator, dependency controller, catalog moderator, at fee recipient. Tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa iisang terminolohiyang ginagamit dito.
+
+## Makasaysayang pinagmulan
+
+Nauna sa CLC App ang makasaysayang Sarafu Network at nagbigay ito ng ebidensiya tungkol sa community currency at commitment pooling. Hindi inilipat ng pagbabago ng serbisyo tungo sa Cosmo-Local Credit ang bawat makasaysayang account, Wallet, token, voucher, Pool, balanse, report, kalahok, o obligasyon.
+
+Gumagamit ang papel na ito ng isang may-petsa at internally coherent na Sarafu dataset para sa makasaysayang metrics. Hindi ito bilang ng kasalukuyang paggamit ng CLC. Tingnan ang [Executive summary](/fil/white-paper/executive-summary) para sa source at panahon ng pagsukat.
+
+## Modelo ng disenyo
+
+Gumagamit ang CPP ng apat na malawak na function:
+
+- **Curation:** magpasya kung aling voucher o ibang asset ang tatanggapin.
+- **Valuation:** ilathala ang paraang ginagamit upang gumawa ng exchange rate o quote ng Pool.
+- **Limitation:** ilapat ang kasalukuyang cap sa balanse ng token ng Pool o ibang hiwalay na ipinatutupad na risk control.
+- **Exchange:** humawak ng inventory at magsagawa ng palitan sa Pool sa ilalim ng isiniwalat na bayarin at bound.
+
+Maaari lamang magdagdag ang isang deployment ng routing, monitoring, liquidity support, garantiya, reserba, insurance, o governance service sa ilalim ng hiwalay na inilathalang patakaran. Ang listing, curation, limitasyon, reserba, o blockchain record ay hindi, sa sarili lamang, nagpapatunay ng kakayahan ng tagapag-isyu, pagtupad, pag-endorso, garantiya, o insurance.
+
+## Mga pagpapahalaga at prinsipyo ng disenyo
+
+- **Pangangalaga sa tao:** suportahan ang kapakanan ng bawat tao at ng sama-sama.
+- **Pangangalaga sa kapaligiran:** bawasan ang pinsala sa ekolohiya at suportahan ang regenerative practice.
+- **Pagiging patas:** itaguyod ang ligtas at makatarungang access sa resources, kaalaman, at pangangalaga.
+- **Pagkakasuklian:** ibahagi ang risk, gastos, pananagutan, at surplus sa ilalim ng isiniwalat na tuntunin.
+- **Hindi pangingibabaw:** labanan ang sobrang pagkonsentra ng kontrol sa tao, data, pananalapi, kaalaman, at materyal na resources.
+- **Katatagan:** tulungan ang mga komunidad na maghanda at umangkop sa economic, political, at climate disruption.
+- **Lokal na pananagutan:** panatilihin ang pagtupad sa totoong buhay at legal na pananagutan sa mga nakikilalang partido.
+- **Forkability:** payagan ang mga compatible na komunidad at deployment na umalis sa shared registry o serbisyo nang hindi binubura ang wastong balanse o obligasyon.
+
+Ang digital layer ay shared memory at imprastraktura sa koordinasyon. Hindi nito pinapalitan ang ugnayan, pagtupad ng tagapag-isyu, lokal na pamamahala, o legal na pananagutan.
+
+## Kasalukuyan at iminungkahing mga daloy
+
+### Kasalukuyang direktang daloy sa Pool
+
+1. Sinusuri ng may hawak ang voucher, tagapag-isyu nito, mga tuntunin, at kaugnay na Offering.
+2. Tumatanggap ang Pool ng mga suportadong asset at inilalathala ang configuration at mga responsableng awtoridad nito.
+3. Kumukuha ang may hawak ng quote at inaawtorisahan ang direktang palitan sa Pool.
+4. Isinasagawa ng `SwapPool` ang on-chain swap settlement at itinatala ang bayad sa Pool at Protocol.
+5. Kung piliin ng may hawak ang **“Tubusin”** sa App, naghahanda ang App ng paglilipat sa may-ari ng token bilang paghaharap para tubusin.
+6. Hiwalay na tinutupad ng tagapag-isyu ang pangako at itinatala ang discharge upang hindi magamit muli ang mga natupad na yunit.
+
+Palitan ang pagkuha ng inventory mula sa Pool. Pagtubos lamang ito kung hiwalay na inako ng Pool ang tungkulin ng tagapag-isyu at tinutupad nito ang naaangkop na mga tuntunin ng voucher.
+
+### Mas malawak na iminungkahing disenyo
+
+Sinusuri ng iminungkahing disenyo ang execution routing, netting, shared service, network liquidity program, insurance policy, at governance asset. Mangangailangan ang bawat isa ng implementation, responsableng partido, pinagtibay na tuntunin, pondo, kontrol, at pampublikong pagsisiwalat bago ito mailapat.
+
+Maaaring gumamit ang iminungkahing fee model ng network rake mula sa Pool fees at hiwalay na routing o service fee. Iba ang panukalang iyon sa Protocol v1.1.0, kung saan karagdagan sa Pool fee ang opsyonal na protocol fee.
+
+Walang awtomatikong Pool share, repayment, withdrawal, reward, o governance right na natatanggap ang supporter o liquidity provider mula sa kasalukuyang `SwapPool`. Dapat hiwalay na isiwalat ng anumang kasalukuyan o hinaharap na programa ang uri ng paglilipat, responsableng partido, kontrol, karapatan sa pagbawi o withdrawal, pagkalugi, reward, bayarin, at governance right.
+
+## Gabay para sa mambabasa
+
+- Kasalukuyang terminolohiya at lifecycle ng mga kilos: [Mga konsepto at bokabularyo](/fil/introduction/concepts)
+- Napatunayang deployed na mga contract: [Protocol v1.1.0](/fil/protocol/overview)
+- Makasaysayang ebidensiya: [Executive summary](/fil/white-paper/executive-summary)
+- Confederation at interoperability: Kabanata 5, 8, at 11
+- Mga hangganan ng iminungkahing garantiya at insurance: Kabanata 10 at 11
+- Mga iminungkahing modelo ng liquidity at bayad: Kabanata 7, 9, at 12
+- Iminungkahing measurement framework: Kabanata 14 at Appendix A–C
+- Iminungkahing roadmap: Kabanata 15
+- Mga legal at compliance na konsiderasyon: Kabanata 17
+
+Ang [mga nakaraang bersyon ng White Paper](/fil/white-paper/archive) ay pinananatili lamang bilang malinaw na napalitang makasaysayang publikasyon.

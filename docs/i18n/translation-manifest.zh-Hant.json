@@ -1,0 +1,516 @@
+{
+  "sourceAppCommit": "b4c4a496dc45232470d3874a3317912e86b466a8",
+  "translationPublicationDate": "10 October 2026",
+  "status": "first-draft-review",
+  "reviewProcess": [
+    "semantic NLLB translation with protected technical tokens",
+    "clarity normalization with complete-line context and the clc-app glossary",
+    "unit-by-unit automated back-translation and structural verification"
+  ],
+  "pages": {
+    "/introduction/concepts": {
+      "source": "introduction/concepts.mdx",
+      "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "c8652b6a45462e562f80d7171e51c66d0c0c9bf5d04b8283ca4cc8fc5bf15e56",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6165,
+            "unitsBelow0_35": 23
+          }
+        }
+      }
+    },
+    "/introduction/example": {
+      "source": "introduction/example.mdx",
+      "sourceSha256": "fdadea998896654637ce3dcafe25e2b52331e9761337420d1fc48ec6cc2f9b73",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "1adf88126b9e9ed739a638546033b9d4cfbf8ad6db8e369d54bd66b1f860cc9d",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.5994,
+            "unitsBelow0_35": 12
+          }
+        }
+      }
+    },
+    "/introduction/getting-started": {
+      "source": "introduction/getting-started.mdx",
+      "sourceSha256": "0994bc3095975e850382f00f7f1f2bbba3263a2ea12155596633fae0e58f3e13",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "92c0e4b18ef0068a71cc1eaec69b9c0036b1f8eeb5a17d864a0771c7837171f3",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5757,
+            "unitsBelow0_35": 15
+          }
+        }
+      }
+    },
+    "/introduction/history": {
+      "source": "introduction/history.mdx",
+      "sourceSha256": "2ac38e29d8d93d2b10534d715d285105bfb96cdcbe4334f88668d3be3c8ec456",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "71231eacc3880a22e9bc090c6ce10657edbc2431b54e20152867675c13ea09ff",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6643,
+            "unitsBelow0_35": 4
+          }
+        }
+      }
+    },
+    "/protocol/network": {
+      "source": "protocol/network.mdx",
+      "sourceSha256": "b7a0b29963a5e0aa8d02a74659a66fc29883daf88311e98c40b85eadd424b768",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "56c252288b20a2f2feb7595ba52518e98349abfdca68d2aec8ab2e7ba07fcbe9",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.6314,
+            "unitsBelow0_35": 15
+          }
+        }
+      }
+    },
+    "/protocol/overview": {
+      "source": "protocol/overview.md",
+      "sourceSha256": "3d72a446f706e4f2fbaf7671ac6efbc178eaef1351c1199ba17e1e768eedcabd",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "8cf134b543281258c0d5dad5fd872ef0b96933c8412dcffa9e7939ff3e1f304f",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6061,
+            "unitsBelow0_35": 8
+          }
+        }
+      }
+    },
+    "/protocol/smart-contracts": {
+      "source": "protocol/smart-contracts.md",
+      "sourceSha256": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "9ac57aa542c9eb0debf78322870ff4a7a7e2a790e48cb10c794e3bcc26892af6",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5171,
+            "unitsBelow0_35": 22
+          }
+        }
+      }
+    },
+    "/governance/mechanics": {
+      "source": "governance/mechanics.md",
+      "sourceSha256": "71bc7b63c36a963a64249f174ebeef2b7dcf01718ddc75dd11a33f0fea74fa0b",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "687f4bf01c13ec1bdab6a56763d8001e42d8630ef99fde780c22bab4633655e3",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6226,
+            "unitsBelow0_35": 8
+          }
+        }
+      }
+    },
+    "/governance/terms": {
+      "source": "governance/terms.md",
+      "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "245348b96332d9c0b53bfd4d2bb62402119653d6ee26eebdac0fff5e12c9e894",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.5622,
+            "unitsBelow0_35": 79
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-a-math-box": {
+      "source": "white-paper/appendix-a-math-box.md",
+      "sourceSha256": "68aaa14dee4d6ffe41c62a9e91038dcfa9b19466a9f91e81d09c515a989b22e1",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "80ea5914d296be5c17a8590887871a48d5cf0a6f54faa1ef95a54ffa11097d76",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.5953,
+            "unitsBelow0_35": 5
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-b-fee-waterfall": {
+      "source": "white-paper/appendix-b-fee-waterfall.md",
+      "sourceSha256": "fa9a48e49a90c70f7f49e9281d023b4341786e42cb2af9d76405d261522682ab",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "546df4b2ff4274a5753d5a3cf6db0fda0832e9433ba829b878daf08150294637",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6171,
+            "unitsBelow0_35": 2
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-c-kpi-definitions": {
+      "source": "white-paper/appendix-c-kpi-definitions.md",
+      "sourceSha256": "59d07455a39371abab65dba41b23f095cf9e8261dc22bb45ceeaf9a2fb0217e0",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "a7689e51311864473d7fb0e339eacc71279202f8651b1bef04d6fd7cc67ecc6e",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6373,
+            "unitsBelow0_35": 6
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-d-launch-parameters": {
+      "source": "white-paper/appendix-d-launch-parameters.md",
+      "sourceSha256": "acaa9d25a8c839862ce294fadc6b5da5a9bedbf936b5e701807344ae073e2702",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "ead608f002ebee0731774f3b4520ca071f03a96ebde70651e1bb3213bd2a0e4b",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6223,
+            "unitsBelow0_35": 5
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-e-worked-example": {
+      "source": "white-paper/appendix-e-worked-example.md",
+      "sourceSha256": "4e02677fe9440238090e987e50194bc8e40dce9d23d4a53b52b6264564457b20",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "2299be15d261296798a9b91312704738f10cba9321f05cede12e655d0cdb0152",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.6261,
+            "unitsBelow0_35": 3
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-f-dataroom-checklist": {
+      "source": "white-paper/appendix-f-dataroom-checklist.md",
+      "sourceSha256": "41266b0f7db652f9ae317f7e813b6c0807425257aa2fa35c219bf270278a1d5a",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "5a4ec26fb7c76324ec826769287b4e7c145c918f47f120281a4a0a6eae78b6b2",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5782,
+            "unitsBelow0_35": 7
+          }
+        }
+      }
+    },
+    "/white-paper/archive": {
+      "source": "white-paper/archive.md",
+      "sourceSha256": "09db774f7da51b4e506e56d3c4f3fa8d57f41a8464d04b747e9c3afab74563bd",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "d0540aad169ceb9895220a8860f1da46dbbae9aa0dda366561c9c641f194d5a6",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7119,
+            "unitsBelow0_35": 1
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
+      "source": "white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive.md",
+      "sourceSha256": "0e4b229ba74085a5b6d3e6c6eb0ff28ec915a149a5ff93f0c773c465fad117b2",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "91da436f5b8e773629fbf15395ef884ab2db4688edcc6ba07a7c61fa7a7e769a",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.5481,
+            "unitsBelow0_35": 13
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
+      "source": "white-paper/chapter-02-the-accounting-shift-from-assets-to-trust.md",
+      "sourceSha256": "c871445b6898d231add895759a3cb0e44b48322bafceb00bff34cd31a6f7e0d1",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "7f80488806fb6e205883ae70ff4dc4f0480bbce3313231a35711dc6140d173c2",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5204,
+            "unitsBelow0_35": 5
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
+      "source": "white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care.md",
+      "sourceSha256": "58fdabb006332f145aac02bc8650b3ec918d15b86f7161fc5c1a3dda0e808ecf",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "7a250492bbdbc0e3e090a203e9f47eb055f941ce8c5f3cc3d5c2c1dff37f61e0",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5179,
+            "unitsBelow0_35": 6
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-04-reusable-forward-style-collateral": {
+      "source": "white-paper/chapter-04-reusable-forward-style-collateral.md",
+      "sourceSha256": "7c38d458f3959ccc1fa62383b4cfcc2b393acaf779e9324aa2c1a2452526762f",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "02ffbf1724418872b67f6bb5df274de5df14197fa357e2f8ef30adad22f2ab1f",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.611,
+            "unitsBelow0_35": 2
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
+      "source": "white-paper/chapter-05-from-isolated-pools-to-a-federated-network.md",
+      "sourceSha256": "2aa539c5faaaee42f5f5e9e5aa3ee306137de2ea7bddcea116033da4d7fdba03",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "47157772884980b029129a50349c5a55a6a7134786d0fd73a792958c7c990360",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.5547,
+            "unitsBelow0_35": 19
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
+      "source": "white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance.md",
+      "sourceSha256": "9409d6d33de56e1327ac7e7a031e9113c60b86677708fa767d9bc8ba274f0b5a",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "ba48ece3ee992e54295048b3ff0aedf8e167cd6b5f832255b39deeace903c22e",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5496,
+            "unitsBelow0_35": 5
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
+      "source": "white-paper/chapter-07-clc-stewardship-and-the-clc-token.md",
+      "sourceSha256": "afa23f7d2400ac459ecceb8730be0db943a917362f9507f29c7bef4d86f0b98e",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "5f6eaebc838a14d759c8c901ee846c97d837c69044732f3f57fa77cba88e179d",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.5912,
+            "unitsBelow0_35": 20
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-08-technical-scope-growth": {
+      "source": "white-paper/chapter-08-technical-scope-growth.md",
+      "sourceSha256": "1fd06beb840c9478cd8f8f13424017e9376bfaead7e2e8b1218e210733c1e97c",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "04b6fcdebafdb826a0f045f070bdd76bf827bc3274e36bd0133c0b06383bba2b",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6211,
+            "unitsBelow0_35": 6
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-09-economics-for-lps": {
+      "source": "white-paper/chapter-09-economics-for-lps.md",
+      "sourceSha256": "f1ea77a9368d3173ae695b18d835732575902ef01824f6d9a6aefdc02a6548af",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "3b3235f9e9e23748f1b845d118f4e2ec693155d0f78b33976bc5effeea20a9c2",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.6059,
+            "unitsBelow0_35": 4
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-10-comprehensive-risk-framework": {
+      "source": "white-paper/chapter-10-comprehensive-risk-framework.md",
+      "sourceSha256": "4f57b19c37b50133e0d264f6f69fbd7c0bb0d0b32f054c77873e0a32d48dab4f",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "29a946e2ac40fc717f6e47dd7068de452396f66a530ddaafce1409d1d595758e",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.6097,
+            "unitsBelow0_35": 22
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-11-governance-mechanics": {
+      "source": "white-paper/chapter-11-governance-mechanics.md",
+      "sourceSha256": "f87ef6a26094bb70583c5790eb92b71c4af3fe3a91bbad560d7042b2691fe186",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "3869cb4aa6c088d08c87f13ea009022aff9e40f3049442743fe75479d57c5dcd",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5498,
+            "unitsBelow0_35": 27
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
+      "source": "white-paper/chapter-12-lp-term-sheet-non-binding-outline.md",
+      "sourceSha256": "81aee555189a51b1f491830ce251e85467eac9cc9522cbbd08ec4d54d3a787df",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "f88de2511406696dff0ac7c52151f7ca8c63a1f8eece5d705b8ca0d6b2062744",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5572,
+            "unitsBelow0_35": 2
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-13-jargon-plain-language-glossary": {
+      "source": "white-paper/chapter-13-jargon-plain-language-glossary.md",
+      "sourceSha256": "e2493eaf44740497efa7e8ba72f298059328dbe7009d8191f1ab95619cb723ea",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "b7cdc041b84ee766701c68fb0b2b1d8fdf796818f601fe832f6220b357e5e236",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.5978,
+            "unitsBelow0_35": 11
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-14-kpis-health-indicators": {
+      "source": "white-paper/chapter-14-kpis-health-indicators.md",
+      "sourceSha256": "a596d4aa3b3065a7722e09a78caa2cb2c6d394cfe66918106ee95eca17986f20",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "7270193da67c473bf614ed768e4bc22cf97502412a47d84a32e120c8192f4097",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5032,
+            "unitsBelow0_35": 6
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-15-roadmap-indicative": {
+      "source": "white-paper/chapter-15-roadmap-indicative.md",
+      "sourceSha256": "ed23216a7d040415f9e3300ce56f27c0ddd34adef4fd805f5723f23d20b10ce2",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "941e2a12404611ad2265eceed45f30347cbdd815a8a3acdacb021edcca250147",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5918,
+            "unitsBelow0_35": 4
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
+      "source": "white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates.md",
+      "sourceSha256": "b1871b0243b1ca167d2ac0a3d48f0da744d2870b2127acfac921a458a5070715",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "21af2270d96a882cf308ce4c3c82b712bffbd6bf5ddd285a28ace04ca9eca1a7",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6564,
+            "unitsBelow0_35": 2
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-17-legal-compliance-note": {
+      "source": "white-paper/chapter-17-legal-compliance-note.md",
+      "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "12903fd3786f49bf8b37628b9f1e0f06b14b72e8b97a155f1bf1a5666285be64",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5597,
+            "unitsBelow0_35": 9
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-18-conclusion": {
+      "source": "white-paper/chapter-18-conclusion.md",
+      "sourceSha256": "aef3272b5bcd43b58fc0a4222167366fc66766fcabba97bd5e9d909955587558",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "82d73bb10a0d0c53fcfd886726a759901dde77eb192c157111b8c40e148b7e9d",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4891,
+            "unitsBelow0_35": 1
+          }
+        }
+      }
+    },
+    "/white-paper/executive-summary": {
+      "source": "white-paper/executive-summary.md",
+      "sourceSha256": "0bfd50439332f9b8fea7865944d61d7e4ca4f009acbc92edc017df0111b7ec57",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "7f3954058b5bf2c58258362a8f325e43f405df07a4b35110f767b8567dd585e3",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6751,
+            "unitsBelow0_35": 5
+          }
+        }
+      }
+    },
+    "/white-paper": {
+      "source": "white-paper/index.mdx",
+      "sourceSha256": "784327ca9c7cb86015d46a953b9233a0d215648f51110e14f1de6b5eb43f7c34",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "d2d18cb40b18b8ecbf31806dc8135f1c2b2723b3df76b22b486bfc809e86bf30",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6183,
+            "unitsBelow0_35": 25
+          }
+        }
+      }
+    }
+  }
+}

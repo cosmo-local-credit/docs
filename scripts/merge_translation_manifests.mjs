@@ -3,11 +3,11 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
-const locales = ['ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
+const locales = ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
 const digest = (value) => createHash('sha256').update(value).digest('hex')
 const directory = resolve(root, 'docs/i18n')
 const availableManifestFiles = readdirSync(directory)
-  .filter((name) => /^translation-manifest\.(?:all|group-[a-z]|ar|de|dz|es|fr|it|pt|sr|sw|uk)\.json$/.test(name))
+  .filter((name) => /^translation-manifest\.(?:all|group-[a-z]|ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)\.json$/.test(name))
   .sort()
 const manifestFiles = availableManifestFiles.includes('translation-manifest.all.json')
   ? ['translation-manifest.all.json']

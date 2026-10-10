@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the static documentation translations with a local NLLB model.
+"""Generate static documentation translations with a local translation model.
 
 This is a maintainer tool, not a site runtime dependency. It preserves Markdown,
 code, formulas, URLs, identifiers, and product names; applies the clc-app glossary;
@@ -24,13 +24,14 @@ import sentencepiece as spm
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ROOT / "docs/pages"
 I18N = ROOT / "docs/i18n"
-LOCALES = ["ar", "de", "dz", "es", "fr", "hi", "it", "nl", "pt", "sr", "sw", "uk"]
+LOCALES = ["ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "pt", "sr", "uk", "sw"]
 LANGUAGE_CODES = {
     "en": "eng_Latn",
     "ar": "arb_Arab",
     "de": "deu_Latn",
     "dz": "dzo_Tibt",
     "es": "spa_Latn",
+    "fil": "tgl_Latn",
     "fr": "fra_Latn",
     "hi": "hin_Deva",
     "it": "ita_Latn",
@@ -39,8 +40,10 @@ LANGUAGE_CODES = {
     "sr": "srp_Cyrl",
     "sw": "swh_Latn",
     "uk": "ukr_Cyrl",
+    "zh": "zho_Hans",
+    "zh-Hant": "zho_Hant",
 }
-APP_BASELINE = "0ce5b4e808bf0d28da5c6925fa8dbf2459c200cd"
+APP_BASELINE = "b4c4a496dc45232470d3874a3317912e86b466a8"
 TRANSLATION_DATES = {
     "ar": "10 October 2026",
     "de": "10 October 2026",
@@ -48,12 +51,15 @@ TRANSLATION_DATES = {
     "fr": "9 October 2026",
     "hi": "10 October 2026",
     "es": "9 October 2026",
+    "fil": "10 October 2026",
     "it": "10 October 2026",
     "nl": "10 October 2026",
     "pt": "10 October 2026",
     "sr": "10 October 2026",
     "sw": "10 October 2026",
     "uk": "10 October 2026",
+    "zh": "10 October 2026",
+    "zh-Hant": "10 October 2026",
 }
 UNCHANGED_NAMES = [
     "Cosmo-Local Credit",
@@ -75,6 +81,94 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "fil": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "Introduction": "Panimula",
+        "Protocol": "Protokol",
+        "Governance": "Pamamahala",
+        "White Paper": "White Paper",
+        "Getting started": "Magsimula",
+        "Concepts and vocabulary": "Mga konsepto at bokabularyo",
+        "Example": "Halimbawa",
+        "History": "Kasaysayan",
+        "Overview": "Pangkalahatang-ideya",
+        "Smart contracts": "Mga smart contract",
+        "Network architecture": "Arkitektura ng network",
+        "Governance mechanics": "Mga mekanismo ng pamamahala",
+        "Terms of Service": "Mga Tuntunin ng Serbisyo",
+        "Executive summary": "Buod",
+        "Commitment Pooling Protocol (CPP)": "Commitment Pooling Protocol (CPP)",
+        "The accounting shift": "Pagbabago sa accounting",
+        "Fulfillment, discharge & exchange": "Pagtupad, discharge at palitan",
+        "Reusable forward-style collateral": "Muling nagagamit na forward-style collateral",
+        "From isolated Pools to a federated network": "Mula sa hiwalay na mga Pool tungo sa isang pederadong network",
+        "Proposed network liquidity & governance": "Iminungkahing liquidity at pamamahala ng network",
+        "Proposed governance assets": "Iminungkahing mga asset ng pamamahala",
+        "Technical scope & growth": "Teknikal na saklaw at paglago",
+        "Proposed liquidity-program economics": "Iminungkahing ekonomiya ng programang liquidity",
+        "Comprehensive risk framework": "Komprehensibong balangkas ng panganib",
+        "Proposed liquidity-program term sheet": "Iminungkahing term sheet ng programang liquidity",
+        "Glossary": "Talasalitaan",
+        "Proposed KPI specification": "Iminungkahing espesipikasyon ng KPI",
+        "Roadmap": "Roadmap",
+        "Values & evaluation template": "Mga pagpapahalaga at template ng pagsusuri",
+        "Legal & compliance note": "Tala sa batas at pagsunod",
+        "Conclusion": "Konklusyon",
+        "Math box": "Kahon ng matematika",
+        "Fee waterfall": "Daloy ng mga bayarin",
+        "KPI definitions": "Mga depinisyon ng KPI",
+        "Launch parameters": "Mga parametro sa paglulunsad",
+        "Worked example": "Halimbawang may pagkalkula",
+        "Dataroom checklist": "Checklist ng dataroom",
+        "Issuer": "tagapag-isyu",
+        "Holder": "may hawak",
+        "Steward": "Tagapangasiwa ng Pool",
+        "Fulfillment": "pagtupad",
+        "Discharge": "discharge",
+        "Token": "token",
+        "Voucher": "Voucher",
+        "Wallet": "Wallet",
+        "“Redeem”": "“Tubusin”",
+        "“Retire voucher”": "“Retire voucher”",
+        "“Credit limit”": "“Credit limit”",
+        "“Credit limits”": "“Credit limits”",
+        "Search": "Maghanap",
+        "Close search dialog": "Isara ang paghahanap",
+        "Toggle detail view": "Palitan ang detalye ng tingin",
+        "Reset search": "I-reset ang paghahanap",
+        "Navigate": "Mag-navigate",
+        "Select": "Piliin",
+        "Close": "Isara",
+        "Reset": "I-reset",
+        "Menu": "Menu",
+        "On this page": "Sa pahinang ito",
+        "Previous": "Nakaraan",
+        "Next": "Susunod",
+        "Copy": "Kopyahin",
+        "Copied": "Nakopya",
+        "Skip to content": "Lumaktaw sa nilalaman",
+        "Ask in ChatGPT": "Magtanong sa ChatGPT",
+        "Copy page for LLMs": "Kopyahin ang pahina para sa mga LLM",
+        "Last updated:": "Huling na-update:",
+        "Code group": "Pangkat ng code",
+        "Terminal": "Terminal",
+        "File": "File",
+        "No results for": "Walang resulta para sa",
+        "Top": "Itaas",
+        "Scroll to top": "Bumalik sa itaas",
+        "Page not found": "Hindi nakita ang pahina",
+        "The page you were looking for could not be found.": "Hindi mahanap ang pahinang hinahanap mo.",
+        "Go to home page": "Pumunta sa pangunahing pahina",
+        "Scroll horizontally to view the full diagram.": "Mag-scroll pahalang upang makita ang buong diagram.",
+        "The diagram could not be rendered": "Hindi maipakita ang diagram",
+        "Convenience translation": "Salin para sa kaginhawaan",
+        "Read the English Terms": "Basahin ang Mga Tuntunin sa Ingles",
+        "About this translation": "Tungkol sa saling ito",
+        "Read the English source": "Basahin ang Ingles na pinagmulan",
+        "The superseded v0.7 PDF is available in English only.": "Ang pinalitang v0.7 PDF ay makukuha lamang sa Ingles.",
+        "Version 0.7 PDF": "Bersyon 0.7 PDF",
+        "SDK requirements.": "Mga kinakailangan ng SDK.",
+    },
     "ar": {
         "cosmolocal.credit": "cosmolocal.credit",
         "Introduction": "مقدمة",
@@ -1044,6 +1138,63 @@ class NllbTranslator:
         return [translations[text] for text in texts]
 
 
+class MadladTranslator:
+    """Translate with a local MADLAD-400 CTranslate2 model.
+
+    MADLAD uses target-language prompt tokens instead of NLLB source and target
+    prefixes. The current workflow enables it for Filipino and English so a
+    stronger Filipino draft can be compared without changing the site runtime.
+    """
+
+    LANGUAGE_TAGS = {"en": "en", "fil": "fil"}
+
+    def __init__(self, model: Path, threads: int) -> None:
+        self.engine = ctranslate2.Translator(
+            str(model),
+            device="cpu",
+            compute_type="int8",
+            inter_threads=1,
+            intra_threads=threads,
+        )
+        self.tokenizer = spm.SentencePieceProcessor(
+            model_file=str(model / "spiece.model")
+        )
+
+    def translate_many(
+        self, texts: list[str], source: str, target: str, beam_size: int = 4
+    ) -> list[str]:
+        if not texts:
+            return []
+        if source not in self.LANGUAGE_TAGS or target not in self.LANGUAGE_TAGS:
+            raise ValueError(
+                f"MADLAD translation is not configured for {source!r} -> {target!r}"
+            )
+        unique_texts = list(dict.fromkeys(texts))
+        prompt = f"<2{self.LANGUAGE_TAGS[target]}> "
+        tokenized = [
+            self.tokenizer.encode(prompt + text, out_type=str)
+            for text in unique_texts
+        ]
+        results = self.engine.translate_batch(
+            tokenized,
+            # MADLAD's greedy output is strong enough for the comparison draft
+            # and keeps a full corpus pass practical on maintainer hardware.
+            beam_size=1,
+            max_batch_size=128,
+            batch_type="tokens",
+            max_decoding_length=256,
+            repetition_penalty=1.1,
+            no_repeat_ngram_size=3,
+            replace_unknowns=True,
+        )
+        translated_unique = [
+            self.tokenizer.decode(result.hypotheses[0]).strip()
+            for result in results
+        ]
+        translations = dict(zip(unique_texts, translated_unique, strict=True))
+        return [translations[text] for text in texts]
+
+
 class MarianPairTranslator:
     """Translate one locale with dedicated forward and backward Marian models."""
 
@@ -1120,7 +1271,7 @@ class MarianPairTranslator:
 class CachedTranslator:
     def __init__(
         self,
-        translator: NllbTranslator | MarianPairTranslator,
+        translator: NllbTranslator | MadladTranslator | MarianPairTranslator,
         path: Path,
         batch_size: int = 128,
     ) -> None:
@@ -1274,6 +1425,16 @@ def restore_text(value: str, protected: list[Protected]) -> str:
 
 
 def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale == "fil":
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "Protokol", value)
+        value = value.replace("Redeem”", "Tubusin”")
+        value = re.sub(r"\btagapagbigay\b", "tagapag-isyu", value, flags=re.IGNORECASE)
+        if re.search(r"\bissuer", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bissuer\b", "tagapag-isyu", value, flags=re.IGNORECASE)
+        if re.search(r"\bholder", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bholder\b", "may hawak", value, flags=re.IGNORECASE)
+        return value
+
     if locale == "ar":
         value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "البروتوكول", value)
         value = value.replace("Redeem”", "«استرداد»")
@@ -1770,6 +1931,35 @@ def normalize_translation(source: str, value: str, locale: str) -> str:
             value = re.sub(r"मोचन", "भुनाने", value)
         return value
 
+    if locale == "zh":
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "协议", value)
+        value = value.replace("太空.信贷", "cosmolocal.credit")
+        value = value.replace("太空局部.信贷", "cosmolocal.credit")
+        value = value.replace("议定书", "协议")
+        value = value.replace("承诺结合", "承诺汇聚")
+        value = value.replace("承诺组合", "承诺汇聚")
+        value = value.replace("游泳池", "资金池")
+        value = value.replace("发行商", "发行方")
+        value = value.replace("Redeem”", "“兑付”")
+        value = value.replace("Retire voucher”", "“停用代金券”")
+        value = value.replace("Credit limit”", "“信用额度”")
+        value = value.replace("Credit limits”", "“信用额度”")
+        if re.search(r"\bvouchers?\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"优惠(?:券|票|书|证)", "代金券", value)
+        if re.search(r"\bcurrent\b", source, flags=re.IGNORECASE):
+            value = value.replace("电流", "当前")
+        if re.search(r"\bfulfillment\b", source, flags=re.IGNORECASE):
+            value = value.replace("实现", "履约")
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = value.replace("排放", "核销")
+            value = value.replace("放弃", "核销")
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = value.replace("赎金表", "兑付出示")
+            value = value.replace("赎回的介绍", "兑付出示")
+            value = value.replace("赎回表达", "兑付出示")
+            value = value.replace("回复", "兑付")
+        return value
+
     if locale != "fr":
         return value
 
@@ -2015,7 +2205,7 @@ class MarkdownTemplate:
 
 
 def translate_segments(
-    translator: NllbTranslator | MarianPairTranslator | CachedTranslator,
+    translator: NllbTranslator | MadladTranslator | MarianPairTranslator | CachedTranslator,
     segments: list[str],
     locale: str,
     canonical_terms: dict[str, str],
@@ -2230,11 +2420,34 @@ def aggregate_reviews(reviews: list[dict[str, float | int]]) -> dict[str, float 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=Path)
+    parser.add_argument(
+        "--model-family",
+        choices=["auto", "nllb", "madlad"],
+        default="auto",
+        help="Model prompt/tokenizer convention; auto detects from tokenizer files.",
+    )
     parser.add_argument("--forward-model", type=Path)
     parser.add_argument("--back-model", type=Path)
+    parser.add_argument(
+        "--output-pages",
+        type=Path,
+        default=PAGES,
+        help="Page-tree destination. Use a temporary path to compare a draft safely.",
+    )
     parser.add_argument("--locales", nargs="*", choices=LOCALES, default=LOCALES)
+    parser.add_argument(
+        "--routes",
+        nargs="*",
+        help="Optional exact English routes to translate instead of the full corpus.",
+    )
     parser.add_argument("--threads", type=int, default=10)
     parser.add_argument("--cache", type=Path)
+    parser.add_argument(
+        "--cache-batch-size",
+        type=int,
+        default=128,
+        help="Number of uncached units translated before each durable cache write.",
+    )
     parser.add_argument(
         "--manifest", type=Path, default=I18N / "translation-manifest.json"
     )
@@ -2252,17 +2465,35 @@ def main() -> None:
             parser.error(
                 "--forward-model and --back-model require exactly one --locales value"
             )
-        translator: NllbTranslator | MarianPairTranslator | CachedTranslator = MarianPairTranslator(
+        translator: NllbTranslator | MadladTranslator | MarianPairTranslator | CachedTranslator = MarianPairTranslator(
             args.forward_model, args.back_model, args.locales[0], args.threads
         )
         translation_method = "dedicated Marian translation with protected technical tokens"
     elif args.model:
-        translator = NllbTranslator(args.model, args.threads)
-        translation_method = "semantic NLLB translation with protected technical tokens"
+        model_family = args.model_family
+        if model_family == "auto":
+            model_family = "madlad" if (args.model / "spiece.model").exists() else "nllb"
+        if model_family == "madlad":
+            unsupported = set(args.locales) - {"fil"}
+            if unsupported:
+                parser.error(
+                    "this MADLAD workflow is currently configured only for Filipino"
+                )
+            translator = MadladTranslator(args.model, args.threads)
+            translation_method = (
+                "semantic MADLAD-400 translation with protected technical tokens"
+            )
+        else:
+            translator = NllbTranslator(args.model, args.threads)
+            translation_method = (
+                "semantic NLLB translation with protected technical tokens"
+            )
     else:
         parser.error("provide --model or both --forward-model and --back-model")
     if args.cache:
-        translator = CachedTranslator(translator, args.cache)
+        translator = CachedTranslator(
+            translator, args.cache, batch_size=args.cache_batch_size
+        )
     glossary_data = json.loads((I18N / "glossary.json").read_text())
     if glossary_data["sourceAppCommit"] != APP_BASELINE:
         raise ValueError("The glossary is not synchronized to the required clc-app commit")
@@ -2270,8 +2501,19 @@ def main() -> None:
     english_splash = json.loads((I18N / "messages/en.json").read_text())
     english_ui = json.loads((I18N / "ui/en.json").read_text())
     english_navigation = json.loads((I18N / "navigation/en.json").read_text())
-    sources = english_sources()
-    routes = {route_for(path) for path in sources}
+    all_sources = english_sources()
+    routes = {route_for(path) for path in all_sources}
+    sources = all_sources
+    if args.routes:
+        requested_routes = set(args.routes)
+        sources = [
+            source for source in all_sources if route_for(source) in requested_routes
+        ]
+        missing_routes = requested_routes - {route_for(source) for source in sources}
+        if missing_routes:
+            parser.error(
+                "unknown route(s): " + ", ".join(sorted(missing_routes))
+            )
     manifest: dict[str, object] = {
         "sourceAppCommit": APP_BASELINE,
         "translationPublicationDate": translation_date,
@@ -2309,7 +2551,7 @@ def main() -> None:
                 "meanBackTranslationSimilarity": 1.0,
                 "unitsBelow0_35": 0,
             }
-        if locale in {"dz", "hi", "nl"}:
+        if locale in {"dz", "fil", "hi", "nl", "zh", "zh-Hant"}:
             # Short interface labels need maintained catalogs. General-purpose
             # MT lacks enough context here and can choose unrelated meanings.
             ui = json.loads((I18N / f"ui/{locale}.json").read_text())
@@ -2405,7 +2647,7 @@ def main() -> None:
                     translated += f"\n> {paper['archivedEnglishOnly']}\n"
 
             relative = source_path.relative_to(PAGES)
-            destination = PAGES / locale / relative
+            destination = args.output_pages / locale / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             rendered_pages.append((destination, translated))
             locale_reviews.append(review)

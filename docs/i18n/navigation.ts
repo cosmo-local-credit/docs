@@ -3,6 +3,7 @@ import ar from './navigation/ar.json'
 import de from './navigation/de.json'
 import dz from './navigation/dz.json'
 import es from './navigation/es.json'
+import fil from './navigation/fil.json'
 import fr from './navigation/fr.json'
 import hi from './navigation/hi.json'
 import it from './navigation/it.json'
@@ -11,6 +12,8 @@ import pt from './navigation/pt.json'
 import sr from './navigation/sr.json'
 import sw from './navigation/sw.json'
 import uk from './navigation/uk.json'
+import zh from './navigation/zh.json'
+import zhHant from './navigation/zh-Hant.json'
 import {
   DOCUMENTATION_LOCALES,
   hasLocalizedDocumentation,
@@ -26,6 +29,7 @@ export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   dz,
   en,
   es,
+  fil,
   fr,
   hi,
   it,
@@ -34,6 +38,8 @@ export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   sr,
   sw,
   uk,
+  zh,
+  'zh-Hant': zhHant,
 }
 
 const whitePaperItems = [
