@@ -1,4 +1,5 @@
 import en from './navigation/en.json'
+import de from './navigation/de.json'
 import es from './navigation/es.json'
 import fr from './navigation/fr.json'
 import it from './navigation/it.json'
@@ -15,7 +16,7 @@ type NavigationMessages = typeof en
 
 export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   ar: en,
-  de: en,
+  de,
   dz: en,
   en,
   es,

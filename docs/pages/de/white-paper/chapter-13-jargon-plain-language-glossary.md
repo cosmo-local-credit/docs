@@ -1,0 +1,25 @@
+## **13. Einfaches Sprachglossar**
+
+- **Cosmo-Local Credit (CLC):** Die Produktfamilie, einschließlich der CLC App, die Dokumentation und die breitere Verpflichtungsabteilung.
+- **CLC App:** Die progressive Web-App, die von GEF bei `cosmolocal.credit` betrieben wird.
+- **Protokoll über die Zusammensetzung der Verpflichtungen (CPP):** Das wiederverwendbare Modell von Curation, Bewertung, Beschränkung, Austausch und verantwortungsbewusster Governance.
+- **Protocol v1.1.0:** Die bestätigte öffentliche Veröffentlichung des Smart-Contract.
+- **Commitment-Fonds:** Eine geregelte Vereinbarung, die geförderte Vermögenswerte einräumt und die Börsenregeln veröffentlicht.
+- **`SwapPool`:** Der jetzige Token-Vault und der direkte Austauschvertrag.
+- **Das Zeichen:** Ein Bilanz in der Kette oder ein digitales Vermögen. Die Token-Mechanik allein schafft kein einlösbares Versprechen.
+- **Gutschein:** Ein Token oder eine Aufzeichnung, die von einem Emittenten als ein einlösbares Engagement unter veröffentlichten Bedingungen dargestellt wird.
+- **Das Angebot:** Ein Katalogbuch für Waren oder Dienstleistungen, die mit einem Gutschein verbunden sind.
+- **Aussteller:** Die für die Veröffentlichung und Erfüllung eines Gutscheinsverpflichtens zuständige Partei.
+- **Fonds-Verantwortliche Person:** Die verantwortliche Struktur, die Fonds-Regeln veröffentlicht und verwaltet.
+- **Fonds Wechselkurs oder Quote:** Ein Transaktionsparameter, der durch einen konfigurierten Anbieter erzeugt wird; kein Beweis für Bargeld oder Rückzahlungswert.
+- **Fonds-Token-Gleichgewichtsdeckung:** Der aktuelle Maximum `Limiter` für ein Token, das von einem Fonds gehalten wird. Die App kann sie markieren ** Kreditbegrenzung.”**
+- **Fonds-Swap:** Ein direkter Anlagenaustausch über einen `SwapPool`.
+- **Swap-Abwicklung:** Die Überweisungen in der Kette und die Rechnungslegung der Gebühren, die einen Fonds-Swap abschließen.
+- **Erlösungsvorlage:** Rückgabe oder sonstige Vorlage von Gutscheineinheiten an den Emittenten.
+- **Erfüllung:** Der Emittent liefert das versprochene Gut, die versprochene Dienstleistung, die versprochene Leistung oder eine andere Leistung.
+- **Ausbuchung:** Eine Aufzeichnung, die verhindert, dass ausgefüllte Einheiten erneut vorgestellt werden.
+- **Angebotene Ausführungsrouter:** Zukunftssoftware, die Routen autorisieren und ausführen würde. Nur die aktuellen Zitate von `SwapRouter`.
+- **Der vorgeschlagene Netzwerkpool CLC:** Eine zukünftige Regelung zur Clearing und zur Koordinierung des Budgets auf Ebene des Netzes.
+- **Das vorgeschlagene CLC Governance-Token:** Ein zukünftiges Governance-Design, nicht ein aktuelles App- oder Protocol v1.1.0-Asset.
+- **Netzwerkanteil:** Ein vorgeschlagener Anteil der Poolgebühren, der auf einen zukünftigen Netzbudget übertragen wird.
+- **Garantie oder Versicherung:** Ein Schutz, der nur dann gilt, wenn eine identifizierte Partei es ausdrücklich übernimmt, finanziert und veröffentlicht.

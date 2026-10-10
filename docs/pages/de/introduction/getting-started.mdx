@@ -1,0 +1,74 @@
+# Erste Schritte
+
+Cosmo-Local Credit (CLC) ist eine progressive Web-App, mit der digitale Vermögenswerte – darunter einlösbare Gutscheine – über unabhängig verwaltete Commitment-Fonds erstellt, entdeckt, gehalten, übertragen und getauscht werden können. Die CLC App ist unter [cosmolocal.credit](https://cosmolocal.credit) verfügbar.
+
+Die [Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) betreibt die App und die unterstützende Infrastruktur. Sofern GEF für ein bestimmtes Angebot oder eine bestimmte Transaktion nicht ausdrücklich eine andere Rolle übernimmt, ist GEF weder Herausgeber eines von Nutzern erstellten Gutscheins noch Fonds-Verantwortliche eines von Nutzern erstellten Fonds. GEF ist außerdem weder Verwahrer, Kreditgeber, Kreditnehmer, Garant, Versicherer noch Einlösestelle. Herausgeber sind für ihre Gutscheinverpflichtungen verantwortlich; Fonds-Verantwortliche tragen die Verantwortung für die Regeln ihrer Fonds.
+
+Unter [Konzepte und Begriffe](/de/introduction/concepts) finden Sie die genaue Bedeutung der in dieser Dokumentation verwendeten Produktschichten, Rollen, Handlungen, Werte, Gebühren und Statusangaben.
+
+Lesen Sie vor der Erstellung eines Kontos oder einer Transaktion die [Nutzungsbedingungen](/de/governance/terms). Besonders wichtig:
+
+- Sie müssen mindestens 18 Jahre alt sein, das für Sie geltende Volljährigkeitsalter erreicht haben und geschäftsfähig sein.
+- Sie sind dafür verantwortlich, sicherzustellen, dass Ihr Konto, Ihr Gutschein, Ihr Fonds und Ihre Transaktionen in allen maßgeblichen Rechtsordnungen zulässig sind.
+- Zugangsdaten für Ihre Geldbörse müssen geschützt werden. GEF kann eine verlorene Geldbörse möglicherweise nicht wiederherstellen und eine autorisierte Transaktion nicht rückgängig machen.
+- Transaktionen und Aufzeichnungen auf einer öffentlichen Blockchain können sichtbar, dauerhaft und unumkehrbar sein.
+- Eine Auflistung in der App ist keine Empfehlung durch GEF und keine Garantie für Einlösung, Wert, Liquidität, Umtauschbarkeit oder Auszahlung.
+
+## Mit der aktuellen App beginnen
+
+### 1. Den Markt durchsuchen
+
+Öffnen Sie [cosmolocal.credit](https://cosmolocal.credit), um den öffentlichen **Markt**, den Entdeckungskatalog der App, zu durchsuchen. Prüfen Sie den verantwortlichen Herausgeber, die versprochenen Waren oder Dienstleistungen, den Ort, die Verfügbarkeit und die veröffentlichten Bedingungen. Eine Auflistung im Markt ist nicht automatisch ein Handelsplatz, eine Verkäuferbeziehung, eine unabhängige Bewertung, eine Empfehlung oder eine Garantie.
+
+### 2. Ein Konto und eine Geldbörse erstellen oder aufrufen
+
+Die App verwendet ein Konto für Profil- und Sitzungszugriff und eine Geldbörse zur Autorisierung von Blockchain-Transaktionen. Schützen Sie Ihren Passkey, Unterlagen zu Papier-Geldbörsen, Wiederherstellungsinformationen, Geräte und alle weiteren Zugangsdaten. Prüfen Sie Vermögenswert, Betrag, Adresse, Fonds, Gebühr und Autorisierung, bevor Sie eine Transaktion bestätigen.
+
+### 3. Einen Gutschein erstellen
+
+Ein Gutschein verbindet mehrere voneinander getrennte Ebenen:
+
+1. Mechanik und Salden des Token-Vertrags;
+2. Bezeichnung und veröffentlichte Bedingungen des Herausgebers;
+3. ein oder mehrere Angebote für zugehörige Waren oder Dienstleistungen; und
+4. die tatsächliche Erfüllung durch den Herausgeber.
+
+Das Erstellen oder Prägen eines Tokens beweist für sich allein weder, dass ein Angebot verfügbar ist, noch dass der Herausgeber leistungsfähig ist oder GEF die Einlösung garantiert.
+
+### 4. Einen Commitment-Fonds erstellen oder prüfen
+
+Ein Commitment-Fonds ist eine verwaltete Vereinbarung. Sein aktueller `SwapPool`-Vertrag kann Bestände unterstützter Tokens halten und direkte Tausche ausführen. Prüfen Sie vor Nutzung oder Einzahlung:
+
+- die verantwortliche Fonds-Verantwortliche und den aktuellen Vertragseigentümer;
+- den Proxy-Administrator und die Kontrolleure der konfigurierten Abhängigkeiten;
+- zugelassene Gutscheine und andere unterstützte Vermögenswerte;
+- Methoden für Wechselkurse oder Kursangebote;
+- das App-Feld **„Kreditlimit“** – eine Obergrenze für den Token-Saldo des Fonds, kein persönlicher Kredit;
+- Fonds- und Protokollgebühren;
+- verfügbare Bestände und die Befugnis des Fonds-Eigentümers, Liquidität abzuheben; und
+- gesondert veröffentlichte Bedingungen zu Beiträgen, Garantien, Reserven oder Versicherungen.
+
+Eine Einzahlung überträgt Vermögenswerte an den `SwapPool`. Protocol v1.1.0 prägt keine Fondsanteil-Tokens und gewährt Einzahlenden nicht automatisch Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance.
+
+### 5. Die passende Handlung wählen
+
+- **Senden** überträgt einen Token-Saldo an eine andere Adresse.
+- **Fonds-Tausch** tauscht einen unterstützten Vermögenswert über einen `SwapPool` gegen einen anderen. Die Abwicklung des Tauschs auf der Blockchain beweist keine Erfüllung durch den Herausgeber.
+- **„Einlösen“** öffnet den Sendevorgang mit der vorausgefüllten Adresse des Token-Eigentümers. Dadurch wird der Gutschein dem Herausgeber zur Einlösung vorgelegt oder an ihn zurückgesendet. Eine vollständige Einlösung setzt zusätzlich die versprochene Leistung des Herausgebers und eine Ausbuchung voraus, die eine erneute Verwendung verhindert.
+- **„Gutschein stilllegen“** blendet die Auflistung im Katalog aus. Dies verbrennt keine Salden, storniert den Gutschein nicht und beendet keine noch offenen Verpflichtungen des Herausgebers.
+- **Liquidität aus einem Fonds abheben** erlaubt dem Fonds-Eigentümer, verfügbare Bestände zu übertragen.
+- **Gebühren einziehen** sendet aufgelaufene Fondsgebühren an den konfigurierten Empfänger.
+
+Das [praktische Gutscheinbeispiel](/de/introduction/example) zeigt den vollständigen Lebenszyklus.
+
+## Aktuelle, bereitstellungsabhängige und vorgeschlagene Funktionen
+
+Die aktuelle App bietet einen Markt und unterstützte Abläufe für Konten, Geldbörsen, Gutscheine, Angebote, Fonds, Übertragungen, direkte Fonds-Tausche und zugehörige Aufzeichnungen. Die Verfügbarkeit hängt von der aktiven Bereitstellung, dem Vermögenswert, der Fonds-Konfiguration, dem Gerät, dem Netzwerk, der Berechtigung, dem Anbieter, der Rechtsordnung und den veröffentlichten Bedingungen ab.
+
+Zahlungsdienste, Unterstützungsmöglichkeiten, Belohnungen, Garantien, Beitragsvereinbarungen und andere Anbieterintegrationen sind bereitstellungsabhängig. Wo sie angeboten werden, müssen die verantwortliche Partei, Gebühren, Grenzen, Berechtigung und rechtlichen Bedingungen offengelegt werden.
+
+Protocol v1.1.0 ermöglicht die direkte Ausführung in einem Fonds und enthält einen `SwapRouter`, der nur Kursangebote erstellt. Mehrstufige Ausführung, HTLC- oder Escrow-Routing, gebündelte Verrechnung, gemeinsame Versicherung, vorgeschlagene Governance-Vermögenswerte, Netzwerkliquiditätsprogramme und regulierte Zahlungswege bleiben vorgeschlagen oder bereitstellungsabhängig, sofern eine konkrete Bereitstellung sie nicht ausdrücklich als aktiv ausweist.
+
+Jedes zukünftige Darlehen oder sonstige Kreditprodukt erfordert gesonderte Zusatz- und Transaktionsbedingungen. Eine gewöhnliche Übertragung, Fonds-Einzahlung, ein Fonds-Tausch, eine Vorlage zur Einlösung, eine Erfüllung oder Ausbuchung ist nicht automatisch ein Darlehen, Vorschuss oder eine Rückzahlung.
+
+Lesen Sie als Nächstes den [Protokollüberblick](/de/protocol/overview), die [Governance-Mechanismen](/de/governance/mechanics) oder das ausführlichere [Whitepaper](/de/white-paper).

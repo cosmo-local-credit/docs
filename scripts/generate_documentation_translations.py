@@ -40,6 +40,7 @@ LANGUAGE_CODES = {
 }
 APP_BASELINE = "32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1"
 TRANSLATION_DATES = {
+    "de": "10 October 2026",
     "fr": "9 October 2026",
     "es": "9 October 2026",
     "it": "10 October 2026",
@@ -66,6 +67,131 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "de": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "Introduction": "Einführung",
+        "Protocol": "Protokoll",
+        "Governance": "Governance",
+        "White Paper": "Whitepaper",
+        "Getting started": "Erste Schritte",
+        "Concepts and vocabulary": "Konzepte und Begriffe",
+        "Example": "Beispiel",
+        "History": "Geschichte",
+        "Overview": "Überblick",
+        "Smart contracts": "Smart Contracts",
+        "Network architecture": "Netzwerkarchitektur",
+        "Governance mechanics": "Governance-Mechanismen",
+        "Terms of Service": "Nutzungsbedingungen",
+        "Executive summary": "Zusammenfassung",
+        "Commitment Pooling Protocol (CPP)": "Commitment Pooling Protocol (CPP)",
+        "The accounting shift": "Der Wandel in der Bilanzierung",
+        "Fulfillment, discharge & exchange": "Erfüllung, Ausbuchung und Tausch",
+        "Reusable forward-style collateral": "Wiederverwendbare terminähnliche Sicherheiten",
+        "From isolated Pools to a federated network": "Von isolierten Fonds zu einem föderierten Netzwerk",
+        "Proposed network liquidity & governance": "Vorgeschlagene Netzwerkliquidität und Governance",
+        "Proposed governance assets": "Vorgeschlagene Governance-Vermögenswerte",
+        "Technical scope & growth": "Technischer Umfang und Wachstum",
+        "Proposed liquidity-program economics": "Vorgeschlagene Ökonomie des Liquiditätsprogramms",
+        "Comprehensive risk framework": "Umfassender Risikorahmen",
+        "Proposed liquidity-program term sheet": "Vorgeschlagene Konditionen des Liquiditätsprogramms",
+        "Glossary": "Glossar",
+        "Proposed KPI specification": "Vorgeschlagene KPI-Spezifikation",
+        "Roadmap": "Fahrplan",
+        "Values & evaluation template": "Werte- und Bewertungsvorlage",
+        "Legal & compliance note": "Rechtlicher und regulatorischer Hinweis",
+        "Conclusion": "Fazit",
+        "Math box": "Mathematischer Kasten",
+        "Fee waterfall": "Gebührenverteilung",
+        "KPI definitions": "KPI-Definitionen",
+        "Launch parameters": "Startparameter",
+        "Worked example": "Ausführliches Beispiel",
+        "Dataroom checklist": "Datenraum-Checkliste",
+        "1. Commitment Pooling Protocol (CPP)": "1. Commitment Pooling Protocol (CPP)",
+        "2. The accounting shift": "2. Der Wandel in der Bilanzierung",
+        "3. Fulfillment, discharge & exchange": "3. Erfüllung, Ausbuchung und Tausch",
+        "4. Reusable forward-style collateral": "4. Wiederverwendbare terminähnliche Sicherheiten",
+        "5. From isolated Pools to a federated network": "5. Von isolierten Fonds zu einem föderierten Netzwerk",
+        "6. Proposed network liquidity & governance": "6. Vorgeschlagene Netzwerkliquidität und Governance",
+        "7. Proposed governance assets": "7. Vorgeschlagene Governance-Vermögenswerte",
+        "8. Technical scope & growth": "8. Technischer Umfang und Wachstum",
+        "9. Proposed liquidity-program economics": "9. Vorgeschlagene Ökonomie des Liquiditätsprogramms",
+        "10. Comprehensive risk framework": "10. Umfassender Risikorahmen",
+        "11. Governance mechanics": "11. Governance-Mechanismen",
+        "12. Proposed liquidity-program term sheet": "12. Vorgeschlagene Konditionen des Liquiditätsprogramms",
+        "13. Glossary": "13. Glossar",
+        "14. Proposed KPI specification": "14. Vorgeschlagene KPI-Spezifikation",
+        "15. Roadmap": "15. Fahrplan",
+        "16. Values & evaluation template": "16. Werte- und Bewertungsvorlage",
+        "17. Legal & compliance note": "17. Rechtlicher und regulatorischer Hinweis",
+        "18. Conclusion": "18. Fazit",
+        "Appendix A. Math box": "Anhang A. Mathematischer Kasten",
+        "Appendix B. Fee waterfall": "Anhang B. Gebührenverteilung",
+        "Appendix C. KPI definitions": "Anhang C. KPI-Definitionen",
+        "Appendix D. Launch parameters": "Anhang D. Startparameter",
+        "Appendix E. Worked example": "Anhang E. Ausführliches Beispiel",
+        "Appendix F. Dataroom checklist": "Anhang F. Datenraum-Checkliste",
+        "Issuer": "Herausgeber",
+        "Holder": "Inhaber",
+        "Steward": "Fonds-Verantwortliche Person",
+        "Fulfillment": "Erfüllung",
+        "Discharge": "Ausbuchung",
+        "Token": "Token",
+        "Voucher": "Gutschein",
+        "Wallet": "Geldbörse",
+        "“Redeem”": "„Einlösen“",
+        "“Retire voucher”": "„Gutschein stilllegen“",
+        "“Credit limit”": "„Kreditlimit“",
+        "“Credit limits”": "„Kreditlimits“",
+        "You": "Sie",
+        "you": "Sie",
+        "User": "Nutzer",
+        "Search": "Suchen",
+        "Close search dialog": "Suchdialog schließen",
+        "Toggle detail view": "Detailansicht umschalten",
+        "Reset search": "Suche zurücksetzen",
+        "Navigate": "Navigieren",
+        "Select": "Auswählen",
+        "Close": "Schließen",
+        "Reset": "Zurücksetzen",
+        "Menu": "Menü",
+        "On this page": "Auf dieser Seite",
+        "Previous": "Zurück",
+        "Next": "Weiter",
+        "Copy": "Kopieren",
+        "Copied": "Kopiert",
+        "Skip to content": "Zum Inhalt springen",
+        "Ask in ChatGPT": "In ChatGPT fragen",
+        "Copy page for LLMs": "Seite für LLMs kopieren",
+        "Last updated:": "Zuletzt aktualisiert:",
+        "Code group": "Codegruppe",
+        "Terminal": "Terminal",
+        "File": "Datei",
+        "No results for": "Keine Ergebnisse für",
+        "Top": "Anfang",
+        "Scroll to top": "Nach oben scrollen",
+        "Page not found": "Seite nicht gefunden",
+        "The page you were looking for could not be found.": "Die gesuchte Seite wurde nicht gefunden.",
+        "Go to home page": "Zur Startseite",
+        "Scroll horizontally to view the full diagram.": "Horizontal scrollen, um das vollständige Diagramm anzuzeigen.",
+        "The diagram could not be rendered": "Das Diagramm konnte nicht dargestellt werden",
+        "Convenience translation": "Erste Übersetzung zur Überprüfung",
+        "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.": (
+            "Diese Übersetzung dient der leichteren Lesbarkeit. Die englischen Nutzungsbedingungen "
+            "sind der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt."
+        ),
+        "Read the English Terms": "Englische Nutzungsbedingungen lesen",
+        "About this translation": "Über diese Übersetzung",
+        "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.": (
+            "Dies ist eine erste Übersetzung des Whitepaper v0.8 zur Überprüfung. Der englische "
+            "Ausgangstext wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde "
+            "am 10. Oktober 2026 erstellt. Englisch ist der Ausgangstext."
+        ),
+        "Read the English source": "Englischen Ausgangstext lesen",
+        "The superseded v0.7 PDF is available in English only.": "Das überholte PDF der Version 0.7 ist nur auf Englisch verfügbar.",
+        "Email: `info@grassecon.org`": "E-Mail: `info@grassecon.org`",
+        "Version 0.7 PDF": "PDF der Version 0.7",
+        "SDK requirements.": "SDK-Anforderungen.",
+    },
     "sw": {
         "cosmolocal.credit": "cosmolocal.credit",
         "Introduction": "Utangulizi",
@@ -766,6 +892,51 @@ def restore_text(value: str, protected: list[Protected]) -> str:
 
 
 def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale == "de":
+        def pool_term(match: re.Match[str]) -> str:
+            term = "Fonds"
+            return term if match.group(0)[0].isupper() else term.lower()
+
+        value = re.sub(r"\bpools?\b", pool_term, value, flags=re.IGNORECASE)
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "Protokoll", value)
+        value = value.replace("cosmolocal.Kredit", "cosmolocal.credit")
+        value = value.replace("cosmolocal.credit.", "cosmolocal.credit.")
+        value = value.replace("Redeem”", "„Einlösen“")
+        value = value.replace("Retire voucher”", "„Gutschein stilllegen“")
+        value = value.replace("Credit limit”", "„Kreditlimit“")
+        value = value.replace("Credit limits”", "„Kreditlimits“")
+        value = value.replace("Das ist der Fall.", "")
+        value = value.replace("Das ist alles.", "")
+        value = value.replace("Sieben.", "")
+        value = re.sub(r"\bSchwimmbädern\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bSchwimmbäder\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bSchwimmbades\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bSchwimmbad\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bPoolen\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bPool\b", "Fonds", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bAngebotseinträge\b", "Angebote", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bAngebotsdatensätze\b", "Angebote", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bOffering records\b", "Angebote", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bNetzwerk-Rake\b", "Netzwerkanteil", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bNetzwerkrechen\b", "Netzwerkanteil", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bRake des Netzwerks\b", "Netzwerkanteil", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bInhaberinnen und Inhaber\b", "Inhaber", value, flags=re.IGNORECASE)
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bEntlastung\b", "Ausbuchung", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bEntladung\b", "Ausbuchung", value, flags=re.IGNORECASE)
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bRücknahme\b", "Einlösung", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bEinlösungsvorlage\b", "Vorlage zur Einlösung", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bVorlage für die Einlösung\b", "Vorlage zur Einlösung", value, flags=re.IGNORECASE)
+        if re.search(r"\bholder", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bHalterinnen und Halter\b", "Inhaber", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bHalter\b", "Inhaber", value, flags=re.IGNORECASE)
+        if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:Coupons|Kupons|Voucher)\b", "Gutscheine", value, flags=re.IGNORECASE)
+        elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\b(?:Coupon|Kupon|Voucher)\b", "Gutschein", value, flags=re.IGNORECASE)
+        return value
+
     if locale == "it":
         def pool_term(match: re.Match[str]) -> str:
             term = "Fondi" if match.group(0).lower().endswith("s") else "Fondo"

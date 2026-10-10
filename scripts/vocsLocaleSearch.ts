@@ -23,7 +23,7 @@ export function vocsLocaleSearch(): Plugin {
         return `
 const localeFromPath = () => {
   const locale = location.pathname.split('/')[1]
-  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw'])}.includes(locale) ? locale : 'en'
+  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de'])}.includes(locale) ? locale : 'en'
 }
 export const getSearchIndex = async () => {
   const locale = localeFromPath()
@@ -43,7 +43,7 @@ import MiniSearch from 'minisearch'
 ${renamed}
 const localeFromPath = () => {
   const locale = location.pathname.split('/')[1]
-  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw'])}.includes(locale) ? locale : 'en'
+  return ${JSON.stringify(['fr', 'es', 'pt', 'it', 'sw', 'de'])}.includes(locale) ? locale : 'en'
 }
 const options = {
   fields: ['title', 'titles', 'text'],

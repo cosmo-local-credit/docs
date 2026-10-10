@@ -59,6 +59,16 @@
       "4-unda-au-tathmini-kikundi-cha-ahadi",
       "5-tumia-kitendo-sahihi",
       "uwezo-wa-sasa-unaotegemea-utekelezaji-na-unaopendekezwa"
+    ],
+    "de": [
+      "erste-schritte",
+      "mit-der-aktuellen-app-beginnen",
+      "1-den-markt-durchsuchen",
+      "2-ein-konto-und-eine-geldbörse-erstellen-oder-aufrufen",
+      "3-einen-gutschein-erstellen",
+      "4-einen-commitment-fonds-erstellen-oder-prüfen",
+      "5-die-passende-handlung-wählen",
+      "aktuelle-bereitstellungsabhängige-und-vorgeschlagene-funktionen"
     ]
   },
   "/introduction/concepts": {
@@ -121,6 +131,16 @@
       "soko-thamani-mipaka-na-ada",
       "ulinzi-na-ushahidi",
       "maneno-ya-hali"
+    ],
+    "de": [
+      "konzepte-und-begriffe",
+      "produkt--und-protokollebenen",
+      "tokens-gutscheine-und-angebote",
+      "verantwortliche-rollen-und-technische-kontrolle",
+      "handlungen-und-lebenszyklus",
+      "markt-werte-grenzen-und-gebühren",
+      "schutz-und-nachweise",
+      "statusbegriffe"
     ]
   },
   "/introduction/example": {
@@ -189,6 +209,17 @@
       "6-mtoaji-anarekodi-utekelezaji-na-ukomo",
       "majukumu-kwa-muhtasari",
       "mipango-ya-mkopo-ya-baadaye"
+    ],
+    "de": [
+      "praktisches-gutscheinbeispiel",
+      "1-ein-herausgeber-veröffentlicht-eine-verpflichtung",
+      "2-eine-fonds-verantwortliche-lässt-den-gutschein-zu",
+      "3-ein-teilnehmer-trägt-bestände-bei",
+      "4-ein-inhaber-führt-einen-fonds-tausch-aus",
+      "5-der-inhaber-legt-den-gutschein-vor",
+      "6-der-herausgeber-zeichnet-erfüllung-und-ausbuchung-auf",
+      "verantwortlichkeiten-auf-einen-blick",
+      "zukünftige-kreditvereinbarungen"
     ]
   },
   "/introduction/history": {
@@ -221,6 +252,11 @@
       "historia",
       "kutoka-sarafu-network-ya-kihistoria-hadi-cosmo-local-credit",
       "kujifunza-zaidi-kutoka-grassroots-economics"
+    ],
+    "de": [
+      "geschichte",
+      "vom-historischen-sarafu-network-zu-cosmo-local-credit",
+      "weiterführendes-material-von-grassroots-economics"
     ]
   },
   "/protocol/overview": {
@@ -253,6 +289,11 @@
       "itifaki",
       "mfumo-wa-utekelezaji",
       "ramani-ya-vipengele"
+    ],
+    "de": [
+      "protokoll",
+      "bereitstellungsmuster",
+      "komponentenübersicht"
     ]
   },
   "/protocol/smart-contracts": {
@@ -327,6 +368,18 @@
       "moduli-za-kutathmini",
       "sera-ya-ada-na-mipaka",
       "mdhibitiji-wa-ada-ya-mkataba"
+    ],
+    "de": [
+      "smart-contracts",
+      "gutschein-giftabletoken",
+      "commitment-fonds-swappool",
+      "zusammensetzung-und-optionale-abhängigkeiten",
+      "swap-abwicklung",
+      "berechnung-der-zusatzgebühr",
+      "eigentümer--und-upgradebefugnisse",
+      "bewertungsmodule",
+      "gebührenpolitik-und-grenzwerte",
+      "protokollgebührencontroller"
     ]
   },
   "/protocol/network": {
@@ -359,6 +412,11 @@
       "muundo-wa-mtandao-wa-itifaki",
       "njia-zinazowezekana-na-utekelezaji",
       "vipengele-vya-ndani-vya-kikundi"
+    ],
+    "de": [
+      "netzwerkarchitektur-des-protokolls",
+      "mögliche-routen-und-ausführung",
+      "innerer-aufbau-eines-fonds"
     ]
   },
   "/governance/mechanics": {
@@ -403,6 +461,13 @@
       "miundo-ya-utawala-yenye-uwajibikaji",
       "chaguo-za-utawala-wa-kiufundi",
       "kitendo-cha-kiolesura-na-hali-kwenye-blockchain"
+    ],
+    "de": [
+      "governance-mechanismen",
+      "verantwortung-nach-rolle",
+      "verantwortliche-governance-strukturen",
+      "technische-governance-möglichkeiten",
+      "handlung-in-der-benutzeroberfläche-und-zustand-auf-der-blockchain"
     ]
   },
   "/governance/terms": {
@@ -585,6 +650,36 @@
       "24-mabadiliko-ya-masharti-haya",
       "25-masharti-ya-jumla",
       "26-mawasiliano"
+    ],
+    "de": [
+      "nutzungsbedingungen-von-cosmo-local-credit",
+      "wichtige-hinweise",
+      "1-definitionen",
+      "2-annahme-und-geltungsbereich",
+      "3-berechtigung-und-befugnis",
+      "4-konten-geldbörsen-und-sicherheit",
+      "5-rolle-und-grenzen-von-gef",
+      "6-ihre-gesetzliche-und-regulatorische-verantwortung",
+      "7-token-und-gutscheine-im-allgemeinen",
+      "8-erstellung-oder-ausgabe-eines-tokens-oder-gutscheins",
+      "9-erlösung-erfüllung-und-ausbuchung",
+      "10-schaffung-und-betrieb-eines-fonds",
+      "11-nutzung-oder-beitrag-zu-einem-fonds",
+      "12-swap-angebote-gebühren-und-routing",
+      "13-zukünftige-kredit--oder-darlehenprodukte",
+      "14-gebühren-steuern-und-zahlungsdienste-dritter",
+      "15-verbotenes-verhalten",
+      "16-inhalte-und-öffentliche-auflistungen",
+      "17-daten-und-elektronische-aufzeichnungen",
+      "18-serviceänderungen-aussetzung-und-beendigung",
+      "19-risiken-keine-professionelle-beratung",
+      "20-garantien-und-verzicht-auf-ansprüche",
+      "21-beschränkung-der-haftung",
+      "22-schadensersatz",
+      "23-streitigkeiten",
+      "24-änderungen-dieser-bedingungen",
+      "25-allgemeine-bedingungen",
+      "26-kontakt"
     ]
   },
   "/white-paper": {
@@ -671,6 +766,20 @@
       "mtiririko-wa-sasa-wa-moja-kwa-moja-kupitia-kikundi",
       "muundo-mpana-unaopendekezwa",
       "mwongozo-wa-msomaji"
+    ],
+    "de": [
+      "cosmo-local-credit-clc",
+      "ein-netzwerk-für-kreditrouting-die-koordination-von-verpflichtungen-und-die-finanzierung-einer-gesunden-kosmo-lokalen-wirtschaft",
+      "hinweise-zum-lesen",
+      "kurzfassung",
+      "aktuelle-bereitstellung",
+      "historische-herkunft",
+      "entwurfsmodell",
+      "werte-und-gestaltungsprinzipien",
+      "aktuelle-und-vorgeschlagene-abläufe",
+      "aktueller-direkter-ablauf-über-einen-fonds",
+      "weiter-gefasster-vorgeschlagener-entwurf",
+      "orientierung-für-leser"
     ]
   },
   "/white-paper/executive-summary": {
@@ -691,6 +800,9 @@
     ],
     "sw": [
       "muhtasari-mkuu"
+    ],
+    "de": [
+      "zusammenfassung"
     ]
   },
   "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
@@ -735,6 +847,13 @@
       "12-kikundi-cha-ahadi-ni-nini",
       "13-utendaji-wa-sasa-wa-ubadilishaji-wa-moja-kwa-moja",
       "14-matumizi-makubwa-zaidi"
+    ],
+    "de": [
+      "1-verpflichtungspartnerprotokoll-cpp-das-primitive-kern",
+      "11-was-ist-eine-verpflichtung",
+      "12-was-ist-ein-commitment-fonds",
+      "13-aktuelle-direkt-swap-logik",
+      "14-weiterer-einsatz"
     ]
   },
   "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
@@ -755,6 +874,9 @@
     ],
     "sw": [
       "2-mabadiliko-ya-uhasibu-kutoka-kwa-mali-hadi-uaminifu"
+    ],
+    "de": [
+      "2-die-rechnungslegung-verschiebt-sich-vom-vermögenswert-zum-vertrauen"
     ]
   },
   "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
@@ -775,6 +897,9 @@
     ],
     "sw": [
       "3-utekelezaji-ukomo-na-ubadilishaji"
+    ],
+    "de": [
+      "3-erfüllung-ausbuchung-und-austausch"
     ]
   },
   "/white-paper/chapter-04-reusable-forward-style-collateral": {
@@ -801,6 +926,10 @@
     "sw": [
       "4-dhamana-inayoweza-kutumiwa-tena",
       "41-mzunguko-wa-mkopo-wa-wazalishaji"
+    ],
+    "de": [
+      "4-wiederverwendbare-terminähnliche-sicherheiten",
+      "41-erzeugerkreditierungsschleife"
     ]
   },
   "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
@@ -857,6 +986,15 @@
       "53-mfano-uliopendekezwa-wa-upungufu-wa-mtandao-na-ada-ya-huduma",
       "531-malipo-yanayoweza-kulipwa-kwa-fedha-na-mapato-ya-aina",
       "54-mipango-ya-upungufu-wa-fedha-iliyopendekezwa"
+    ],
+    "de": [
+      "5-von-isolierten-fonds-zu-einem-föderierten-netzwerk",
+      "51-einzelne-austausch--und-erfüllungsmaßnahmen",
+      "52-angebotene-routing--und-rebalancing-dienste",
+      "521-konföderation-und-interoperabilität",
+      "53-das-vorgeschlagene-netz-rake--und-servicegebührenmodell",
+      "531-zahlungsfähige-und-natürliche-einnahmen",
+      "54-angebotene-liquiditätsprogramme"
     ]
   },
   "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
@@ -883,6 +1021,10 @@
     "sw": [
       "6-ukwasi-na-utawala-unaopendekezwa-katika-kiwango-cha-mtandao",
       "61-udhibiti-wa-chini-na-upendeleo"
+    ],
+    "de": [
+      "6-angebotene-liquidität-und-governance-auf-netzniveau",
+      "61-abwärtssteuerungen-und-optionalität"
     ]
   },
   "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
@@ -963,6 +1105,19 @@
       "732-sclc-bajeti-na-udhibiti-wa-float-ya-nje-ya-hiari",
       "733-vifurushi-na-vyeti-vya-mkopo",
       "74-mgawanyo-wa-bajeti-unaopendekezwa"
+    ],
+    "de": [
+      "7-angebotene-clc-stewardship--und-governance-aktiva",
+      "71-zweck",
+      "72-das-vorgeschlagene-governance-asset-modell",
+      "721-illustrative-versorgung-und-zuteilung",
+      "722-verfügbarkeits--und-bewilligungsstufen",
+      "723-vorschlag-für-ein-programm-zur-einwirkungssätung",
+      "73-vorschläge-zur-abstimmung-anreize-und-zugang-zu-gebühren",
+      "731-durchsetzung-der-dienstleistungsgebühren-und-profilwahl",
+      "732-budget-sclc-und-optionale-externe-flusskontrollen",
+      "733-portfolio-fonds-und-bescheinigungen",
+      "74-vorschlag-für-wasserfälle-und-haushaltspläne"
     ]
   },
   "/white-paper/chapter-08-technical-scope-growth": {
@@ -1001,6 +1156,12 @@
       "81-vipimo-vinavyopendekezwa-vya-huduma-ya-njia-na-sdk",
       "811-maelezo-ya-chini-ya-utangamano-wa-muungano",
       "82-utoaji-ruhusa-uthibitisho-na-kuondoka"
+    ],
+    "de": [
+      "8-technischer-umfang-und-wachstum",
+      "81-vorgeschlagene-strecken--und-sdk-normen",
+      "811-mindestkonföderationskompatibilitätsspezifikation",
+      "82-lizenzierung-überprüfung-und-ausstieg"
     ]
   },
   "/white-paper/chapter-09-economics-for-lps": {
@@ -1039,6 +1200,12 @@
       "91-chanzo-cha-mapato-kilichopendekezwa",
       "92-mfano-wa-kihisabati-wa-sehemu-ya-mtandao",
       "93-haki-za-programu-ya-upungufu-wa-fedha"
+    ],
+    "de": [
+      "9-angebotene-ökonomie-für-liquiditätsprogramme",
+      "91-angebotene-einnahmequellen",
+      "92-illustrative-rake-mathematik",
+      "93-liquiditätsprogrammrechte"
     ]
   },
   "/white-paper/chapter-10-comprehensive-risk-framework": {
@@ -1125,6 +1292,20 @@
       "108-hatari-ya-ulinzi-na-usimamizi-wa-ufunguo",
       "109-sifa-na-hatari-ya-kijamii",
       "1010-hatari-ya-mkusanyiko-na-kugawanyika"
+    ],
+    "de": [
+      "10-umfassender-risikorahmen",
+      "101-protokoll--und-smart-contract-risiko",
+      "102-wirtschafts--und-marktrisiken",
+      "103-aussteller--und-gutscheinsrisiko",
+      "104-rückzahlungs--und-erfüllungsrisiko",
+      "105-regierungsrisiko",
+      "106-rechtliche-und-konformitätsrisiken",
+      "1061-rechtliche-positionierung-und-vorgeschlagene-tokenbehandlung",
+      "107-routing--und-cross-domain-risiko",
+      "108-verwahrungs--und-schlüsselverwaltungsrisiko",
+      "109-reputation-und-soziales-risiko",
+      "1010-konzentrations--und-fragmentierungsrisiko"
     ]
   },
   "/white-paper/chapter-11-governance-mechanics": {
@@ -1175,6 +1356,14 @@
       "113-mfumo-wa-udhamini",
       "114-vituo-vya-kulinda-dhidi-ya-kukamata",
       "115-utaratibu-wa-fork-na-kutoka"
+    ],
+    "de": [
+      "11-governance-mechanismen",
+      "111-wechselkurs--und-grenzregelung",
+      "112-das-vorgeschlagene-versicherungsfondslaufbuch",
+      "113-garantienrahmen",
+      "114-schutzschutzschutzschutzschrauben",
+      "115-fork--und-ausgangsverfahren"
     ]
   },
   "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
@@ -1195,6 +1384,9 @@
     ],
     "sw": [
       "12-muhtasari-wa-masharti-ya-mpango-wa-ukwasi-unaopendekezwa-hauwajibishi"
+    ],
+    "de": [
+      "12-das-vorgeschlagene-liquiditätsprogramm-durchlaufblatt-nicht-verbindliche-konzeption"
     ]
   },
   "/white-paper/chapter-13-jargon-plain-language-glossary": {
@@ -1215,6 +1407,9 @@
     ],
     "sw": [
       "13-faharasa-ya-lugha-rahisi"
+    ],
+    "de": [
+      "13-einfaches-sprachglossar"
     ]
   },
   "/white-paper/chapter-14-kpis-health-indicators": {
@@ -1235,6 +1430,9 @@
     ],
     "sw": [
       "14-kpi-zilizopendekezwa-na-viashiria-vya-afya"
+    ],
+    "de": [
+      "14-vorgeschlagene-kpis-und-gesundheitsindikatoren"
     ]
   },
   "/white-paper/chapter-15-roadmap-indicative": {
@@ -1267,6 +1465,11 @@
       "15-mpango-wa-utekelezaji-wa-kuonyesha-mwelekeo",
       "151-msingi-wa-sasa",
       "152-hatua-zinazopendekezwa"
+    ],
+    "de": [
+      "15-fahrplan-anzeige",
+      "151-aktuelle-grundlagen",
+      "152-vorgeschlagene-meilensteine"
     ]
   },
   "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
@@ -1287,6 +1490,9 @@
     ],
     "sw": [
       "16-mfano-uliopendekezwa-wa-tathmini"
+    ],
+    "de": [
+      "16-angebotene-bewertungsvorlage"
     ]
   },
   "/white-paper/chapter-17-legal-compliance-note": {
@@ -1331,6 +1537,13 @@
       "172-kufunuliwa-kwa-hazina",
       "173-hatua-na-majukumu",
       "174-ulinzi-uthibitisho-na-sheria-za-mitaa"
+    ],
+    "de": [
+      "17-rechtliche-und-konformitätsnachweise",
+      "171-gutscheine-und-angebote",
+      "172-veröffentlichungen-des-fonds",
+      "173-aktionen-und-verpflichtungen",
+      "174-schutz-beweise-und-lokales-recht"
     ]
   },
   "/white-paper/chapter-18-conclusion": {
@@ -1351,6 +1564,9 @@
     ],
     "sw": [
       "18-hitimisho"
+    ],
+    "de": [
+      "18-fazit"
     ]
   },
   "/white-paper/appendix-a-math-box": {
@@ -1395,6 +1611,13 @@
       "hatua-za-utekelezaji-kwa-msingi-wa-vikundi",
       "vipimo-tofauti-vya-kasi",
       "mapendekezo-ya-mapato-ya-mtandao"
+    ],
+    "de": [
+      "a--das-vorgeschlagene-mess--und-gebührenmodell",
+      "definitionen-von-ereignissen-und-bestand",
+      "kohortenbasierte-erfüllungsmaßnahmen",
+      "unterschiedliche-geschwindigkeitsmessungen",
+      "angebotene-netzerlöse"
     ]
   },
   "/white-paper/appendix-b-fee-waterfall": {
@@ -1415,6 +1638,9 @@
     ],
     "sw": [
       "b-mgawanyo-wa-ada-unaopendekezwa"
+    ],
+    "de": [
+      "b-veranschaulichendes-wasserfall-für-zukünftige-abgaben"
     ]
   },
   "/white-paper/appendix-c-kpi-definitions": {
@@ -1435,6 +1661,9 @@
     ],
     "sw": [
       "c-ufafanuzi-unaopendekezwa-wa-kpi"
+    ],
+    "de": [
+      "c-vorgeschlagene-definitionen-von-kpi"
     ]
   },
   "/white-paper/appendix-d-launch-parameters": {
@@ -1455,6 +1684,9 @@
     ],
     "sw": [
       "d-vipimo-vinavyopendekezwa-vya-uzinduzi"
+    ],
+    "de": [
+      "d-vorgeschlagene-startparameter"
     ]
   },
   "/white-paper/appendix-e-worked-example": {
@@ -1475,6 +1707,9 @@
     ],
     "sw": [
       "e-mfano-uliofafanuliwa--sehemu-ya-mtandao-inayopendekezwa"
+    ],
+    "de": [
+      "das-ist-e-arbeitsbeispiel--vorgeschlagene-netzwerkanteil"
     ]
   },
   "/white-paper/appendix-f-dataroom-checklist": {
@@ -1495,6 +1730,9 @@
     ],
     "sw": [
       "f-orodha-ya-ukaguzi-wa-chumba-cha-data"
+    ],
+    "de": [
+      "f-checkliste-der-datenabteilung"
     ]
   },
   "/white-paper/archive": {
@@ -1521,6 +1759,10 @@
     "sw": [
       "kumbukumbu-ya-waraka-mweupe",
       "toleo-lililopitwa-na-wakati"
+    ],
+    "de": [
+      "weißbuch-archiv",
+      "übersetzte-version"
     ]
   }
 }

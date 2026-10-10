@@ -20,8 +20,8 @@ reviewable web draft has been accepted.
 | — | Spanish (`es`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | — | Portuguese (`pt`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 1 | Italian (`it`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 2 | Kiswahili (`sw`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
-| 3 | German (`de`) | Complete | Queued | Pending | Pending | Pending | Deferred |
+| 2 | Kiswahili (`sw`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
+| 3 | German (`de`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
 | 4 | Ukrainian (`uk`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 5 | Serbian (`sr`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 6 | Arabic (`ar`) | Complete | Queued | Pending | Pending | Pending | Deferred |
@@ -52,6 +52,7 @@ until the current web draft passes validation and is accepted for release.
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Locale registry unchanged; current core catalog terms remain aligned with the docs glossary. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Italian reviewed. The docs use the natural action label “Invia”; the app catalog currently uses the formal label “Invii”. Other core terms remain aligned. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Kiswahili reviewed. The docs consistently use `Kikundi`, matching the established splash glossary and the app's primary labels; older app entries using `Puli` or `Bwawa` are treated as app catalog drift. Core actions remain `Tuma`, `Komboa`, and `Badilisha`. |
+| 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | German reviewed. The docs preserve the app terms `Gutschein`, `Fonds`, `Herausgeber`, `Markt`, `Einlösen`, `Senden`, `Tauschen`, `Geldbörse`, and `Kreditlimit`; `Commitment-Fonds` and `Fonds-Verantwortliche` follow the established splash glossary. |
 
 ## Repeatable language workflow
 
@@ -102,24 +103,24 @@ For every language:
 - [x] Complete the priority-page clarity pass.
 - [x] Refresh the translation manifest and heading mappings.
 - [x] Pass all automated and visual validation.
-- [ ] Provide the review URLs and record user acceptance.
-- [ ] Add Kiswahili to the released documentation set and commit the language.
+- [x] Provide the review URLs and record user acceptance.
+- [x] Add Kiswahili to the released documentation set and commit the language.
 - [ ] Deploy and verify the Kiswahili routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 3. German (`de`)
 
-- [ ] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Preserve the app terms `Fonds`, `Gutschein`, and `Geldbörse`; review
+- [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
+- [x] Preserve the app terms `Fonds`, `Gutschein`, and `Geldbörse`; review
       compound words, long labels, line wrapping, and overflow.
-- [ ] Refresh or replace the existing non-public German draft and structurally
+- [x] Refresh or replace the existing non-public German draft and structurally
       verify all 36 translated pages.
-- [ ] Add and review German navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
-- [ ] Provide the review URLs and record user acceptance.
+- [x] Add and review German navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass all automated and visual validation.
+- [x] Provide the review URLs; user acceptance is pending.
 - [ ] Add German to the released documentation set and commit the language.
 - [ ] Deploy and verify the German routes.
 - [ ] Complete the coordinated `clc-app` link verification.

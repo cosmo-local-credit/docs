@@ -1,0 +1,5 @@
+## **18. Fazit**
+
+Cosmo-Local Credit verbindet eine aktuelle Anwendung und Protocol v1.1.0-Stiftung mit einem breiteren vorgeschlagenen Entwurf für unabhängig regiertes Commitment-Fonds. Aktuelle Direkt-Fonds-Swaps, Angebot- und Grenzkomponenten und öffentliche Transaktionsunterlagen können einen verantwortungsvollen Austausch unterstützen, beweisen jedoch nicht die Erfüllung durch den Emittenten, schaffen keine Beitragsrechte oder garantieren Wert, Liquidität, Rückzahlung, Versicherung, Rechtsstatus oder Schutz vor Verlusten.
+
+Die in diesem Papier beschriebenen vorgeschlagenen Ausführungsrouting, Netting, Governance Assets, Network Clearing, Liquiditätsprogramme und geteilten Schutzmaßnahmen erfordern eine separate Umsetzung, Finanzierung, Governance und veröffentlichte Bedingungen. Die Konstruktion zielt darauf ab, die Interoperabilität zu erweitern und gleichzeitig die Leistung der Emittenten, die Fonds-Governance und die Rechenschaftspflicht mit den identifizierten Parteien zu gewährleisten.

@@ -1,4 +1,5 @@
 import en from './ui/en.json'
+import de from './ui/de.json'
 import es from './ui/es.json'
 import fr from './ui/fr.json'
 import it from './ui/it.json'
@@ -10,6 +11,7 @@ import { splashMessages } from './messages'
 export type UiMessages = typeof en
 
 function splashUi(locale: SupportedLocale): UiMessages {
+  if (locale === 'de') return de
   if (locale === 'fr') return fr
   if (locale === 'es') return es
   if (locale === 'pt') return pt

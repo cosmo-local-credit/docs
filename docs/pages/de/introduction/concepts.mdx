@@ -1,0 +1,102 @@
+# Konzepte und Begriffe
+
+Cosmo-Local Credit verbindet eine Anwendung, ein offenes Protokoll, unabhängig verwaltete Fonds und die realen Verpflichtungen, für die Gutscheine stehen. Diese Ebenen arbeiten zusammen, sind aber nicht dasselbe.
+
+Diese Seite erklärt die Begriffe, die in der Dokumentation verwendet werden. Exakte Bezeichnungen aus der App stehen in Anführungszeichen, wenn die Benutzeroberfläche einen kürzeren oder möglicherweise mehrdeutigen Namen verwendet.
+
+## Produkt- und Protokollebenen
+
+| Begriff | Bedeutung |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | Die Produktfamilie: die CLC App, ihre Dokumentation und die weiterführende Arbeit zum Commitment Pooling. |
+| **CLC App** | Die progressive Web-App unter [cosmolocal.credit](https://cosmolocal.credit). GEF betreibt diese Benutzeroberfläche und die unterstützenden Dienste. |
+| **Commitment Pooling Protocol (CPP)** | Das wiederverwendbare Modell für Kuratierung, Bewertung, Begrenzung, Tausch und verantwortliche Governance. |
+| **Protocol v1.1.0** | Die geprüfte öffentliche Smart-Contract-Version, die in der [Protokollreferenz](/de/protocol/overview) dokumentiert ist. |
+| **Commitment-Fonds ** | Eine verwaltete Vereinbarung, die Vermögenswerte kuratiert, Regeln veröffentlicht und Tausch ermöglicht. ** Fonds** ist die übliche Kurzform. |
+| **`SwapPool`** | Der aktuelle Protokollvertrag, der Token-Bestände hält und direkte Tausche ausführt. Er ist eine technische Komponente eines Commitment-Fonds. |
+| **Vorgeschlagener CLC-Governance-Token** | Ein zukünftiger Governance-Entwurf im Whitepaper. Er ist kein aktueller Vermögenswert der App oder von Protocol v1.1.0. |
+| **Vorgeschlagener CLC-Netzwerkfonds** | Ein zukünftiger Entwurf für Verrechnung und Koordination auf Netzwerkebene. Er ist nicht dasselbe wie ein aktueller `SwapPool`. |
+
+## Tokens, Gutscheine und Angebote
+
+Ein **Token** ist ein Saldo auf einer Blockchain oder ein digitaler Vermögenswert. Die Token-Mechanik kann Bestand, Übertragungen, Ablauf und Verbrennung erfassen. Sie verspricht jedoch nicht von sich aus Waren, Dienstleistungen, Umwandlung in Bargeld oder Einlösung.
+
+Ein **Gutschein** ist ein Token oder Datensatz, den ein Herausgeber unter veröffentlichten Bedingungen als einlösbare Verpflichtung ausgibt. Diese Bedingungen sollten festlegen, was versprochen wird, wer verantwortlich ist, wo und wann der Gutschein vorgelegt werden kann, welche wesentlichen Grenzen gelten und wie Erfüllung und Beschwerden behandelt werden.
+
+Ein **Angebot** ist der Katalogeintrag für Waren oder Dienstleistungen, die mit einem Gutschein verbunden sind. Die Veröffentlichung eines Angebots prägt keine Tokens und beweist weder Verfügbarkeit noch Erfüllung.
+
+Es handelt sich um vier getrennte Ebenen:
+
+1. Token-Vertrag und Salden;
+2. Bezeichnung und veröffentlichte Bedingungen des Gutscheins;
+3. ein oder mehrere Angebote; und
+4. die tatsächliche Leistung des Herausgebers.
+
+## Verantwortliche Rollen und technische Kontrolle
+
+| Rolle oder Befugnis | Verantwortung oder Befugnis |
+| --- | --- |
+| **Herausgeber** | Veröffentlicht und erfüllt eine Gutscheinverpflichtung. Diese Verantwortung geht nicht automatisch über, nur weil sich das Eigentum am Vertrag ändert. |
+| **Inhaber** | Kontrolliert einen Gutschein-Saldo. Diese Kontrolle beweist weder Erfüllung noch Bargeldwert oder Garantie. |
+| **Dienstleister** | Eine öffentlich sichtbare Rolle. Ein Dienstleister wird zum Herausgeber, wenn er eine Gutscheinverpflichtung veröffentlicht. |
+| **Fonds-Verantwortliche** | Die verantwortliche Person, Genossenschaft, öffentliche Stelle, Föderation, Multisig, Dienstleistung oder sonstige Struktur, die die Fondsregeln veröffentlicht und verwaltet. |
+| **Fonds-Eigentümer** | Die Adresse mit den aktuellen Eigentümerbefugnissen des `SwapPool`, darunter Konfiguration, Gebühreneinzug und Abhebung verfügbarer Liquidität. |
+| **Proxy-Administrator** | Die Instanz, die eine über einen Proxy bereitgestellte Vertragsimplementierung aktualisieren kann. Sie kann vom Fonds-Eigentümer abweichen. |
+| **Kontrolleur einer Abhängigkeit** | Ein Eigentümer oder autorisierter Schreiber, der ein Register, einen Limiter, Quoter, ein Orakel, eine Gebührenregel oder die Protokollgebühren kontrolliert. |
+| **Katalogmoderator** | Ein App-Betreiber, der Katalogeinträge korrigieren, ausblenden oder wiederherstellen kann, ohne Salden auf der Blockchain zu ändern. |
+| **Gebührenempfänger** | Die konfigurierte Adresse, die eine Fonds- oder Protokollgebühr erhält. Sie ist nicht zwingend die Fonds-Verantwortliche oder der Eigentümer. |
+| **Unterstützer oder Liquiditätsanbieter** | Ein Teilnehmer, der Vermögenswerte zu gesondert offengelegten Bedingungen beiträgt. Der aktuelle `SwapPool` schafft keine Fondsanteile und keine automatischen Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance. |
+
+„Gemeinschaftsmitglied“ ist eine informelle soziale Bezeichnung. Sie begründet für sich allein keine Aufnahme-, Eigentums-, Governance-, Rückzahlungs- oder sonstigen Rechtsansprüche.
+
+## Handlungen und Lebenszyklus
+
+| Begriff in App oder Dokumentation | Bedeutung |
+| --- | --- |
+| **Einen Gutschein erstellen oder veröffentlichen** | Einen Token bereitstellen oder konfigurieren und seinen Katalogeintrag sowie seine Bedingungen veröffentlichen. |
+| **Ausgeben oder prägen** | Einen Token-Saldo unter der Befugnis des konfigurierten Eigentümers oder Schreibers erzeugen. |
+| **Ein Angebot veröffentlichen** | Einen Eintrag für Waren oder Dienstleistungen unter einem Gutschein hinzufügen. |
+| **Senden** | Einen Token-Saldo an eine andere Adresse übertragen. |
+| **„Einlösen“** | Öffnet in der aktuellen App den Sendevorgang mit der vorausgefüllten Adresse des Token-Eigentümers. Dadurch werden Tokens dem Herausgeber vorgelegt oder an ihn zurückgegeben; dies beweist keine Erfüllung. |
+| **Erfüllen** | Der Herausgeber erbringt die versprochenen Waren, Dienstleistungen, Vorteile oder sonstigen Leistungen. |
+| **Ausbuchen** | Erfüllte Einheiten so erfassen, dass sie nicht erneut vorgelegt werden können – etwa durch Empfang, Verbrennung, Stornierung oder eine andere Deaktivierung gemäß den veröffentlichten Bedingungen. |
+| **„Gutschein stilllegen“** | Einen Gutschein im App-Katalog ausblenden. Salden und Verlauf bleiben erhalten, und ein Administrator kann die Auflistung wiederherstellen. Es handelt sich weder um Verbrennung noch Stornierung. |
+| **Fonds-Einzahlung oder Beitrag** | Vermögenswerte an einen `SwapPool` übertragen. Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance bestehen nur, wenn sie gesondert offengelegt wurden. |
+| **Fonds-Tausch** | Einen unterstützten Vermögenswert über einen `SwapPool` gegen einen anderen tauschen. Dies ist weder die Erfüllung durch den Herausgeber noch automatisch ein Darlehen. |
+| **Liquidität aus einem Fonds abheben** | Der Fonds-Eigentümer überträgt verfügbare Bestände an eine ausgewählte Adresse. |
+| **Gebühren einziehen** | Ein konfigurierter Empfänger zieht aufgelaufene Fondsgebühren ein. |
+
+Verwenden Sie **Tauschabwicklung ** für die Übertragungen auf der Blockchain und die Gebührenverbuchung, die einen Fonds-Tausch abschließen. Verwenden Sie ** Vorlage zur Einlösung **, ** Erfüllung ** und ** Ausbuchung** für den getrennten realen Lebenszyklus eines Gutscheins.
+
+## Markt, Werte, Grenzen und Gebühren
+
+Der **Markt** der App ist ein Entdeckungskatalog für Gutscheine, Fonds, Angebote und öffentliche Informationen. Eine Auflistung ist nicht automatisch ein Handelsplatz, eine Verkäuferbeziehung, eine Empfehlung, eine Bewertung oder eine Garantie.
+
+Diese Wertbegriffe müssen getrennt bleiben:
+
+- **Angebotspreis:** der für eine aufgeführte Ware oder Dienstleistung verlangte Betrag;
+- **angegebener Gutscheinwert:** ein Wert, der in den veröffentlichten Bedingungen des Herausgebers genannt wird;
+- **Wechselkurs oder Kursangebot eines Fonds:** der Transaktionsparameter, den der konfigurierte Quoter des Fonds erzeugt;
+- **Orakel-Referenz:** externe Daten, die ein konfiguriertes Bewertungsmodul nutzt; und
+- **Einlösungsbedingungen:** was der Herausgeber unter welchen Voraussetzungen zu leisten verspricht.
+
+Die App-Bezeichnung **„Kreditlimit“** meint die konfigurierte Obergrenze für den Token-Saldo eines Fonds: den Höchstbetrag dieses Tokens, den der Fonds nach einer Einzahlung halten darf. Sie ist weder eine persönliche Kreditlinie noch eine Prüfung der Leistungsfähigkeit des Herausgebers oder eine Einlösungsgarantie. Die im Whitepaper vorgeschlagenen gleitenden, kontobezogenen und netzwerkweiten Grenzen sind andere Mechanismen.
+
+Protocol v1.1.0 kann eine **Fondsgebühr ** und zusätzlich eine ** Protokollgebühr ** erheben. Das vorgeschlagene Whitepaper-Modell beschreibt davon getrennt einen zukünftigen ** Netzwerkanteil** aus Fondsgebühren sowie mögliche Routing- oder Servicegebühren. Diese Modelle dürfen weder bei der Erklärung aktueller Kosten noch bei der Berechnung zukünftiger Einnahmen vermischt werden.
+
+## Schutz und Nachweise
+
+Kuratierung, Aufnahme in ein Register, eine Grenze, eine Reserve, Sichtbarkeit in der App oder eine Blockchain-Transaktion begründen für sich allein weder eine Empfehlung noch Leistungsfähigkeit des Herausgebers, Erfüllung, Garantie oder Versicherung.
+
+Jeder Schutzmechanismus sollte die verpflichtete Partei, das gedeckte Ereignis, die Finanzierung, den Höchstbetrag, Ausschlüsse, Laufzeit, Nachweise und das Anspruchsverfahren benennen. Aufzeichnungen auf der Blockchain können Adressen, Vermögenswerte, Beträge, Zeitstempel und Vertragsereignisse zeigen. Die Leistung eines Herausgebers, Zufriedenheit, Governance-Beratungen und soziale Wirkung benötigen getrennte Offenlegungen, Berichte, Bestätigungen oder andere Nachweise.
+
+## Statusbegriffe
+
+- **Aktuell:** in der CLC App oder in Protocol v1.1.0, wie in dieser Dokumentation beschrieben, geprüft.
+- **Bereitstellungsabhängig:** nur verfügbar, wenn eine bestimmte Bereitstellung, ein Fonds, Anbieter, eine Rechtsordnung oder veröffentlichte Regel dies ermöglicht.
+- **Historisch:** Nachweis oder Funktion des früheren Dienstes Sarafu Network.
+- **Vorgeschlagen:** ein Entwurf oder Roadmap-Mechanismus, der nicht als bereitgestellt dargestellt wird.
+
+Der Leitfaden [Erste Schritte](/de/introduction/getting-started) wendet diese Begriffe auf die aktuelle App an. Die [Protokollreferenz](/de/protocol/overview) dokumentiert die geprüften Verträge; das [Whitepaper](/de/white-paper) beschreibt den weiter gefassten Entwurf und die Vorschläge.
+
+Eine spielerische Einführung in Verpflichtungen, Abwicklung, Ressourcenflüsse, Tausch und Pooling bieten die [Lernspiele von Grassroots Economics](https://grassrootseconomics.org/games/). Die Spiele sind Lernmaterialien und keine Definition des aktuellen Verhaltens der App oder des Protokolls.

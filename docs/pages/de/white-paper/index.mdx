@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **Über diese Übersetzung.** Dies ist eine erste Übersetzung des White Paper v0.8 zur Überprüfung. Der englische Ausgangstext wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde am 10. Oktober 2026 erstellt. Englisch ist der Ausgangstext. <a data-english-source="true" href="/white-paper" hrefLang="en">Englischen Ausgangstext lesen</a>.
+
+## Ein Netzwerk für Kreditrouting, die Koordination von Verpflichtungen und die Finanzierung einer gesunden kosmo-lokalen Wirtschaft
+
+**Version:** 0.8
+
+**Datum:** 30. September 2026
+
+**Autoren:** William O. Ruddick und Mohamed Sohail
+
+**Kontakt:** [info@grassecon.org](mailto:info@grassecon.org)
+
+**Download:** <a data-english-source="true" href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf" hrefLang="en">CLC White Paper v0.8 (PDF, Englisch)</a>
+
+**Veröffentlichung:** Finale, versionierte öffentliche Ausgabe. Dieses Dokument ist keine Anlageberatung und stellt weder ein Verkaufsangebot noch eine Aufforderung zum Kauf eines Wertpapiers oder Finanzinstruments dar. Spätere Versionen können die hier beschriebenen Entwürfe überarbeiten.
+
+## Hinweise zum Lesen
+
+Dieses Whitepaper verbindet vier Arten von Inhalten. Der jeweilige Status gilt für das gesamte Dokument, auch wenn ein Kapitel ihn nicht erneut nennt.
+
+| Status | Bedeutung |
+| --- | --- |
+| **Aktuell** | Verhalten, das in der CLC App oder in den öffentlichen Verträgen von Protocol v1.1.0 geprüft wurde. Die [Protokollreferenz](/de/protocol/overview) ist die sachliche Quelle für diese Verträge. |
+| **Bereitstellungsabhängig** | Eine Funktion, die nur vorhanden ist, wenn ein bestimmter Fonds, Anbieter, eine Rechtsordnung, Governance-Struktur oder veröffentlichte Regel sie ermöglicht. |
+| **Historisch** | Nachweise oder Funktionen des früheren Dienstes Sarafu Network. Sie sind weder aktuelle CLC-Nutzungszahlen noch ein Beleg dafür, dass ein Nutzer, Vermögenswert, Datensatz oder eine Verpflichtung migriert wurde. |
+| **Vorgeschlagen** | Ein Entwurf, Wirtschaftsmodell, Governance-Mechanismus oder Roadmap-Punkt, der nicht als bereitgestellt dargestellt wird. |
+
+Protocol v1.1.0 umfasst die direkte Ausführung über `SwapPool`, optionale Kuratierung und Bewertung, Obergrenzen für Token-Salden eines Fonds, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen `SwapRouter`, der nur Kursangebote erstellt. Mehrstufige Ausführung, HTLC- oder Escrow-Routing, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme sind vorgeschlagen oder bereitstellungsabhängig.
+
+**Zielgruppe:** Entwickler und Verantwortliche von Fonds, Protokollentwickler und Prüfer, Geldgeber für Liquidität und Mandate, Gestalter von Governance sowie Fachleute für Recht und Compliance.
+
+## Kurzfassung
+
+Cosmo-Local Credit ist eine Produktfamilie rund um das **Commitment Pooling Protocol (CPP)**. CPP beschreibt, wie unabhängig verwaltete Commitment-Fonds einlösbare Verpflichtungen kuratieren, Methoden für Wechselkurse und Grenzen veröffentlichen, Bestände halten und verantwortlichen Tausch ermöglichen können.
+
+Ein **Commitment-Fonds ** ist die verwaltete Vereinbarung. Ein aktueller **`SwapPool`** von Protocol v1.1.0 ist eine Vertragskomponente: ein Token-Tresor und eine Engine für direkte Tausche. Eine Bereitstellung kann diesen Vertrag mit Registern, Quotern, Obergrenzen für Fonds-Token-Salden, Gebührenregeln und weiteren Diensten verbinden.
+
+Kosmo-lokal bedeutet, offene Standards, Software und Wissen weltweit zu teilen, während Ausgabe, Erfüllung, Governance und reale Verantwortlichkeit lokal bleiben. Ein Herausgeber bleibt für seinen Gutschein verantwortlich. Eine Fonds-Verantwortliche bleibt für die Fondsregeln und jede ausdrücklich übernommene Garantie verantwortlich. Weder die CLC App noch GEF garantieren automatisch einen Gutschein, Fonds, Wert, eine Route, Liquiditätsposition oder ein Ergebnis.
+
+## Aktuelle Bereitstellung
+
+GEF betreibt die CLC App unter [cosmolocal.credit](https://cosmolocal.credit). Sie bietet Zugang zu Konto und Geldbörse, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Commitment-Fonds, Übertragungen und direkte Fonds-Tausche. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
+
+Der Betrieb der Benutzeroberfläche macht GEF nicht automatisch zum Herausgeber, zur Fonds-Verantwortlichen, zum Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garanten, zur Einlösestelle, zum Berater, Versicherer oder zur Partei von Verpflichtungen zwischen Teilnehmern. Die Nutzung der App unterliegt den [Nutzungsbedingungen](/de/governance/terms).
+
+Protocol v1.1.0 trennt verantwortliche Rollen von technischer Kontrolle. Fonds-Verantwortliche, `SwapPool`-Eigentümer, Proxy-Administrator, Kontrolleure von Abhängigkeiten, Katalogmoderator und Gebührenempfänger können verschiedene Parteien sein. Gemeinsame Begriffe finden Sie unter [Konzepte und Begriffe](/de/introduction/concepts).
+
+## Historische Herkunft
+
+Das historische Sarafu Network ging der CLC App voraus und lieferte Erkenntnisse zu Gemeinschaftswährungen und Commitment Pooling. Der Übergang des Dienstes zu Cosmo-Local Credit übertrug nicht automatisch jedes historische Konto, jede Geldbörse, jeden Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder jede Verpflichtung.
+
+Historische Kennzahlen in diesem Whitepaper stammen aus einem datierten, in sich konsistenten Sarafu-Datensatz. Sie sind keine aktuellen Nutzungszahlen von CLC. Quelle und Messzeitraum finden Sie in der [Zusammenfassung](/de/white-paper/executive-summary).
+
+## Entwurfsmodell
+
+CPP erfüllt vier übergeordnete Funktionen:
+
+- **Kuratierung:** entscheiden, welche Gutscheine oder anderen Vermögenswerte zugelassen werden.
+- **Bewertung:** die Methode veröffentlichen, mit der Wechselkurse oder Kursangebote eines Fonds erzeugt werden.
+- **Begrenzung:** aktuelle Obergrenzen für Fonds-Token-Salden oder andere gesondert implementierte Risikokontrollen anwenden.
+- **Tausch:** Bestände halten und Fonds-Tausche mit offengelegten Gebühren und Grenzen ausführen.
+
+Eine Bereitstellung kann Routing, Überwachung, Liquiditätsunterstützung, Garantien, Reserven, Versicherungen oder Governance-Dienste nur auf Grundlage gesondert veröffentlichter Regeln ergänzen. Auflistung, Kuratierung, eine Grenze, Reserve oder Blockchain-Aufzeichnung begründet für sich allein weder Leistungsfähigkeit des Herausgebers noch Erfüllung, Empfehlung, Garantie oder Versicherung.
+
+## Werte und Gestaltungsprinzipien
+
+- **Fürsorge für Menschen:** individuelles und gemeinschaftliches Wohlergehen unterstützen.
+- **Fürsorge für die Umwelt:** ökologische Schäden verringern und regenerative Praxis fördern.
+- **Fairness:** sicheren und gerechten Zugang zu Ressourcen, Wissen und Fürsorge fördern.
+- **Gegenseitigkeit:** Risiken, Kosten, Verantwortung und Überschüsse nach offengelegten Regeln teilen.
+- **Nicht-Dominanz:** konzentrierter Kontrolle über Menschen, Daten, Finanzen, Wissen und materielle Ressourcen entgegenwirken.
+- **Widerstandsfähigkeit:** Gemeinschaften helfen, sich auf wirtschaftliche, politische und klimatische Störungen vorzubereiten und daran anzupassen.
+- **Lokale Verantwortlichkeit:** reale Erfüllung und rechtliche Verantwortung bei klar benannten Parteien belassen.
+- **Abspaltbarkeit:** kompatiblen Gemeinschaften und Bereitstellungen ermöglichen, gemeinsame Register oder Dienste zu verlassen, ohne gültige Salden oder Verpflichtungen zu löschen.
+
+Die digitale Ebene dient als gemeinsames Gedächtnis und Koordinationsinfrastruktur. Sie ersetzt weder Beziehungen noch die Leistung von Herausgebern, lokale Governance oder rechtliche Verantwortlichkeit.
+
+## Aktuelle und vorgeschlagene Abläufe
+
+### Aktueller direkter Ablauf über einen Fonds
+
+1. Ein Inhaber prüft einen Gutschein, seinen Herausgeber, seine Bedingungen und die zugehörigen Angebote.
+2. Ein Fonds lässt unterstützte Vermögenswerte zu und veröffentlicht seine Konfiguration und verantwortlichen Stellen.
+3. Der Inhaber holt ein Kursangebot ein und autorisiert einen direkten Fonds-Tausch.
+4. `SwapPool` führt die Tauschabwicklung auf der Blockchain aus und verbucht Fonds- und Protokollgebühren.
+5. Wählt der Inhaber später in der App **„Einlösen“**, bereitet die App als Vorlage zur Einlösung eine Übertragung an den Token-Eigentümer vor.
+6. Der Herausgeber erbringt gesondert die versprochene Leistung und zeichnet die Ausbuchung auf, damit erfüllte Einheiten nicht erneut verwendet werden können.
+
+Bestände aus einem Fonds zu erhalten, ist ein Tausch. Es handelt sich nur dann um eine Einlösung, wenn der Fonds gesondert die Rolle des Herausgebers übernommen hat und die geltenden Gutscheinbedingungen erfüllt.
+
+### Weiter gefasster vorgeschlagener Entwurf
+
+Der vorgeschlagene Entwurf untersucht Ausführungsrouting, Verrechnung, gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungsregeln und Governance-Vermögenswerte. Jeder dieser Bausteine benötigt eine Implementierung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen, bevor er angewendet werden kann.
+
+Das vorgeschlagene Gebührenmodell kann einen Netzwerkanteil aus Fondsgebühren sowie getrennte Routing- oder Servicegebühren vorsehen. Dieser Vorschlag unterscheidet sich von Protocol v1.1.0, bei dem eine optionale Protokollgebühr zusätzlich zur Fondsgebühr erhoben wird.
+
+Unterstützer oder Liquiditätsanbieter erhalten durch den aktuellen `SwapPool` nicht automatisch Fondsanteile oder Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance. Jedes aktuelle oder zukünftige Programm muss die Art der Übertragung, verantwortliche Partei, Kontrolle, Rückforderungs- oder Abhebungsrechte, Verluste, Belohnungen, Gebühren und Governance-Rechte gesondert offenlegen.
+
+## Orientierung für Leser
+
+- Aktuelle Begriffe und Handlungsabläufe: [Konzepte und Begriffe](/de/introduction/concepts)
+- Geprüfte bereitgestellte Verträge: [Protocol v1.1.0](/de/protocol/overview)
+- Historische Nachweise: [Zusammenfassung](/de/white-paper/executive-summary)
+- Föderation und Interoperabilität: Kapitel 5, 8 und 11
+- Vorgeschlagene Grenzen von Garantien und Versicherungen: Kapitel 10 und 11
+- Vorgeschlagene Liquiditäts- und Gebührenmodelle: Kapitel 7, 9 und 12
+- Vorgeschlagener Messrahmen: Kapitel 14 und Anhänge A–C
+- Vorgeschlagene Roadmap: Kapitel 15
+- Rechtliche und Compliance-Erwägungen: Kapitel 17
+
+[Frühere Versionen des Whitepapers](/de/white-paper/archive) werden ausschließlich als eindeutig überholte historische Veröffentlichungen aufbewahrt.

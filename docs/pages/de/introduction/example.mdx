@@ -1,0 +1,73 @@
+# Praktisches Gutscheinbeispiel
+
+Dieses Beispiel begleitet einen Gutschein von der Ausgabe über einen Fonds-Tausch, die Vorlage zur Einlösung und die Erfüllung bis zur Ausbuchung. Es veranschaulicht die beteiligten Rollen, verspricht aber nicht, dass ein bestimmter Gutschein, Fonds, eine Route oder ein Ergebnis verfügbar sein wird.
+
+Die hier verwendeten Begriffe werden unter [Konzepte und Begriffe](/de/introduction/concepts) erklärt.
+
+## 1. Ein Herausgeber veröffentlicht eine Verpflichtung
+
+Stellen Sie sich vor, eine Gemeinschaftsküche erstellt einen digitalen Essensgutschein. Vor der Ausgabe veröffentlicht die Küche die Informationen, die ein Inhaber für eine fundierte Entscheidung benötigt:
+
+- Identität und Kontaktdaten der Küche;
+- die Mahlzeit oder das andere Angebot, für das ein Gutschein steht;
+- Bestand, Einheit, angegebener Wert und Leistungsfähigkeit der Küche;
+- Ort und Zeiten, an denen der Gutschein vorgelegt werden kann;
+- Ablaufdatum, Buchungsverfahren, Gebühren, Steuern oder Übertragungsbeschränkungen; und
+- das Verfahren für Vorlage, Erfüllung, Beschwerden, Erstattungen, Ersatzleistungen und andere Abhilfen.
+
+Die Küche ist der Herausgeber. Sie muss diese Informationen richtig und aktuell halten, darf nicht über ihre vernünftigerweise zu erwartende Leistungsfähigkeit hinaus ausgeben und muss Gutscheine nach den Bedingungen erfüllen, unter denen die Inhaber sie erworben haben. Das Erstellen eines Tokens oder Veröffentlichen eines Angebots beweist diese Leistungsfähigkeit nicht und macht GEF nicht zum Herausgeber.
+
+## 2. Eine Fonds-Verantwortliche lässt den Gutschein zu
+
+Ein Commitment-Fonds für Ernährungssicherheit prüft die Küche, ihre Gutscheinbedingungen und den eigenen Zweck des Fonds. Wird der Gutschein zugelassen, veröffentlicht die Fonds-Verantwortliche die geltenden Regeln, darunter:
+
+- wer für den Fonds verantwortlich ist;
+- der aktuelle `SwapPool`-Eigentümer, Proxy-Administrator und wesentliche Kontrolleure von Abhängigkeiten;
+- zugelassene Vermögenswerte;
+- Methoden für Wechselkurse oder Kursangebote;
+- Obergrenzen für Token-Salden, in der App **„Kreditlimits“** genannt;
+- Fonds- und Protokollgebühren;
+- Befugnisse in Bezug auf Bestände und Liquiditätsabhebungen; und
+- gesondert finanzierte Garantien, Reserven oder Unterstützungsvereinbarungen.
+
+Die Zulassung bedeutet, dass der Gutschein nach den konfigurierten Fondsregeln erlaubt ist. Sie beweist keine Leistungsfähigkeit des Herausgebers, begründet keinen Bargeldwert und schafft keine Versicherung.
+
+## 3. Ein Teilnehmer trägt Bestände bei
+
+Ein Unterstützer überträgt Essensgutscheine oder einen anderen unterstützten Vermögenswert zu den veröffentlichten Bedingungen an den `SwapPool`. Diese Einzahlung erhöht die verfügbaren Bestände.
+
+Die Übertragung schafft nicht automatisch Fondsanteile oder Ansprüche auf Rückzahlung, Abhebung, Belohnung oder Governance. Solche Rechte müssen aus einer gesonderten, offengelegten Vereinbarung hervorgehen.
+
+## 4. Ein Inhaber führt einen Fonds-Tausch aus
+
+Ein Inhaber tauscht über den Fonds einen unterstützten Vermögenswert gegen Essensgutscheine. Das angezeigte Kursangebot ist ein Transaktionsparameter des konfigurierten Quoters. Es beweist weder den Bargeldwert des Gutscheins noch die Leistung der Küche.
+
+Der direkte Fonds-Tausch wird auf der Blockchain durch die Übertragung von Eingabe, Ausgabe, Fondsgebühr und einer etwaigen zusätzlichen Protokollgebühr abgewickelt. Er ist nicht automatisch ein Darlehen, eine Einlösung durch den Herausgeber oder eine reale Erfüllung.
+
+## 5. Der Inhaber legt den Gutschein vor
+
+In der aktuellen App öffnet **„Einlösen“** den gewöhnlichen Sendevorgang mit der vorausgefüllten Adresse des Token-Eigentümers. Die Rücksendung des Gutscheins belegt die Vorlage beim Herausgeber; sie beweist für sich allein nicht, dass die Küche eine Mahlzeit bereitgestellt hat.
+
+Die Küche prüft die Vorlage und stellt die versprochene Mahlzeit nach ihren veröffentlichten Bedingungen bereit.
+
+## 6. Der Herausgeber zeichnet Erfüllung und Ausbuchung auf
+
+Nach der Bereitstellung der Mahlzeit erfasst der Herausgeber die erfüllten Einheiten so, dass sie nicht zweimal vorgelegt werden können. Je nach veröffentlichtem Verfahren kann dies durch Empfang, Verbrennung, Stornierung oder eine andere Deaktivierung des zurückgegebenen Gutscheins geschehen.
+
+Erfüllt die Küche ihre Verpflichtung nicht, nutzt der Inhaber das veröffentlichte Beschwerde- oder Abhilfeverfahren des Herausgebers und seine Rechte nach anwendbarem Recht. Weder GEF noch die Fonds-Verantwortliche wird allein deshalb zur Einlösestelle, weil die App den Gutschein angezeigt oder der Fonds einen Tausch ermöglicht hat.
+
+**„Gutschein stilllegen“** in der App ist etwas anderes: Die Auflistung im Katalog wird ausgeblendet, während Salden und Verlauf bestehen bleiben; ein Administrator kann sie wiederherstellen. Dies ist weder Erfüllung noch Ausbuchung, Verbrennung oder Stornierung.
+
+## Verantwortlichkeiten auf einen Blick
+
+- **Herausgeber:** beschreibt und erfüllt den Gutschein und zeichnet die Ausbuchung auf.
+- **Fonds-Verantwortliche:** veröffentlicht und verwaltet Regeln, Kurse, Gebühren, Grenzen, Kontrollen und jede ausdrücklich übernommene Garantie des Fonds.
+- **Inhaber:** prüft Herausgeber, Gutscheinbedingungen, Fondsregeln, Kursangebot, Autorisierung der Geldbörse und anwendbares Recht.
+- **Technische Kontrolleure:** üben nur die ihnen übertragenen Befugnisse über Verträge, Abhängigkeiten, Upgrades, Kataloge oder Gebühren aus.
+- **GEF:** betreibt die CLC App und die unterstützende Infrastruktur gemäß den [Nutzungsbedingungen](/de/governance/terms); GEF übernimmt die anderen Rollen nicht automatisch.
+
+## Zukünftige Kreditvereinbarungen
+
+Ein zukünftiger Fonds oder eine andere verantwortliche Partei könnte eine Transaktion gesondert als rückzahlbaren Vorschuss, besicherte Transaktion oder anderes Kreditprodukt anbieten. Ein solches Produkt würde gesonderte Zusatz- und Transaktionsbedingungen benötigen, die Parteien, Beträge, Fälligkeiten, Gebühren oder Zinsen, Behandlung der Sicherheiten, Abtretung, Ausfall, Abhilfen und Nachweis der Ausbuchung benennen.
+
+Ein gewöhnlicher Sendevorgang, eine Fonds-Einzahlung, ein Fonds-Tausch, eine Gutscheinvorlage, Erfüllung oder Ausbuchung begründet diese Verpflichtungen nicht von selbst.

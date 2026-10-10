@@ -1,0 +1,69 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Netzwerkarchitektur des Protokolls
+
+Eine CPP-kompatible Bereitstellung kann viele Gutscheine und Fonds über optionale Register, Indizes, Kursmodule und eine Routensuche auf Anwendungsebene verbinden. Jeder Fonds bleibt ein eigener Tresor mit eigener Liquidität, eigenem Eigentümer, Proxy-Administrator, eigener Konfiguration und eigenen Abhängigkeiten.
+
+Die Grassroots Economics Foundation betreibt die öffentliche App unter [cosmolocal.credit](https://cosmolocal.credit). Andere Benutzeroberflächen und Bereitstellungen können dasselbe öffentliche Protokoll verwenden. Der Betrieb der App macht GEF nicht automatisch zum Eigentümer, Herausgeber, zur Fonds-Verantwortlichen, zum Gebührenempfänger oder Garanten für jeden unten dargestellten Vertrag.
+
+Unter [Konzepte und Begriffe](/de/introduction/concepts) wird die Trennung zwischen verantwortlichen Rollen und technischen Befugnissen erläutert.
+
+## Mögliche Routen und Ausführung
+
+<MermaidDiagram
+  label="Suche möglicher Routen und Ausführung als Wallet-Batch"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Voucher A"] ---|listed and held| PoolA["Pool A"]
+    Bridge["Generic bridge asset"] ---|listed and held| PoolA
+    Bridge ---|listed and held| PoolB["Pool B"]
+    VoucherB["Voucher B"] ---|listed and held| PoolB
+
+    App["PWA or route finder"] -. discovers candidates .-> Index["Registries and indexes"]
+    App -. requests a quote .-> Router["SwapRouter: quote only"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|builds ordered calls| WalletStart["User smart-account wallet"]
+    WalletStart -->|hop 1: Voucher A| PoolA
+    PoolA -->|bridge output| WalletBridge["Same wallet between calls"]
+    WalletBridge -->|hop 2: bridge asset| PoolB
+    PoolB -->|Voucher B output| WalletFinal["Same user wallet"]
+
+    PoolA -->|protocol fee| ProtocolRecipient["Configured protocol recipient"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+Ein gemeinsamer Vermögenswert schafft einen **möglichen Graphpfad**, keine garantierte Route. In diesem Beispiel könnte Gutschein A in Fonds A gegen den Brücken-Vermögenswert getauscht werden. Anschließend könnte dieser in Fonds B gegen Gutschein B getauscht werden. Jeder Schritt hängt weiterhin von aktueller Token-Zulassung, Fonds-Grenzen, verfügbaren Beständen, Konfiguration von Kursen und Gebühren, Orakelzustand, Genehmigungen, Transaktionsgrenzen und der Ausführung im Netzwerk ab.
+
+`SwapRouter` ruft entlang eines vorgeschlagenen Pfads lediglich die Kursfunktionen der Fonds auf. Er hält keine Gelder, genehmigt keine Tokens und führt keine Tausche aus. Eine Integration oder kompatible App kann die Kursangebote nutzen, um geordnete Genehmigungs- und Fonds-Aufrufe in einem signierten Smart-Account-Batch zu erstellen. Das bedeutet nicht, dass die aktuelle öffentliche App eine mehrstufige Ausführung anbietet. Jeder Schritt wird zunächst an die Geldbörse abgewickelt; dieselbe Geldbörse stellt dann den Zwischenwert für den nächsten Fonds bereit. Die Integration kann festlegen, dass der gesamte Batch bei einem fehlgeschlagenen Aufruf zurückgesetzt wird.
+
+Kursangebote sind Momentaufnahmen. Eine erfolgreich berechnete Route kann trotzdem fehlschlagen oder anders abgewickelt werden, wenn sich der maßgebliche Zustand vor der Ausführung ändert. Die begrenzte Variante von `SwapPool.withdraw` ergänzt für einen einzelnen Schritt den Schutz durch `minAmountOut` und `deadline`. Integrationen müssen entscheiden, wie Grenzen auf die gesamte Route angewendet werden.
+
+Fondsgebühren verbleiben zur späteren Einziehung im jeweiligen Fonds. Eine Protokollgebühr kommt zusätzlich hinzu und wird während des Tauschs direkt vom Fonds an den konfigurierten Protokollempfänger übertragen.
+
+## Innerer Aufbau eines Fonds
+
+<MermaidDiagram
+  label="Abhängigkeiten und administrative Befugnisse eines Commitment-Fonds"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
+    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
+    Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
+    Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["User wallet"] -->|deposit or swap input| Pool
+    Pool -->|net swap output| Wallet
+    Pool -->|collected Pool fees| FeeAddress["Configured<br/>fee address"]
+    Pool -->|protocol fee in same swap| ProtocolRecipient["Protocol<br/>recipient"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+Register, Limiter, Quoter, Gebührenregel und Protokollgebühren-Controller sind optional. Ohne Register besteht jedes Token die Zulassungsprüfung; ohne Limiter sind Einzahlungen unbegrenzt; ohne Quoter verwendet der Fonds Rohwertparität; ohne Gebührenmodule sind die jeweiligen Gebühren null.
+
+Die fünf versiegelbaren Felder sind `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` und `tokenLimiter`. Eine Versiegelung verhindert, dass der aktuelle Fonds-Eigentümer diese Adresse über ihren Setter ersetzt. Sie friert den internen Zustand der Abhängigkeit jedoch nicht ein. Die Adresse `protocolFeeController` und der Modus `feesDecoupled` werden von diesen fünf Versiegelungsbits nicht erfasst. Auch die Möglichkeit des Proxy-Administrators, den Fonds zu aktualisieren, ist von der Versiegelung getrennt.
+
+Der Vertragseigentümer kann verfügbare Fondsliquidität an eine gewählte Adresse abheben. Im entkoppelten Gebührenmodus sind aufgelaufene Gebühren von diesem Weg ausgenommen; die Befugnis, die übrige Liquidität abzuheben, bleibt bestehen. Teilnehmer sollten Eigentümer, Proxy-Administrator, Kontrolleure der Abhängigkeiten, Versiegelungszustand, Gebührenempfänger und veröffentlichte Fondsregeln prüfen, bevor sie sich auf einen Fonds verlassen.
+
+Den konzeptionellen Entwurf hinter diesen Verträgen – einschließlich Kuratierung, Bewertung, Begrenzung, Tausch und Governance – beschreibt das [Whitepaper](/de/white-paper).
