@@ -4,6 +4,7 @@ import es from './ui/es.json'
 import fr from './ui/fr.json'
 import it from './ui/it.json'
 import pt from './ui/pt.json'
+import sr from './ui/sr.json'
 import sw from './ui/sw.json'
 import uk from './ui/uk.json'
 import { LOCALE_OPTIONS, type SupportedLocale } from './locales'
@@ -17,6 +18,7 @@ function splashUi(locale: SupportedLocale): UiMessages {
   if (locale === 'es') return es
   if (locale === 'pt') return pt
   if (locale === 'it') return it
+  if (locale === 'sr') return sr
   if (locale === 'sw') return sw
   if (locale === 'uk') return uk
   if (locale === 'en') return en

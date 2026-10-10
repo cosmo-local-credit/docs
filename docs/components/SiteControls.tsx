@@ -274,7 +274,13 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
     const update = () => localizeChrome(locale)
     const observer = new MutationObserver(update)
     update()
-    observer.observe(document.body, { childList: true, subtree: true })
+    observer.observe(document.body, {
+      attributeFilter: ['aria-label', 'placeholder'],
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    })
     return () => observer.disconnect()
   }, [locale])
 

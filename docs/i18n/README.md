@@ -9,7 +9,7 @@ English is unprefixed. Arabic, Dzongkha, German, Spanish, French, Italian,
 Portuguese, Serbian, Kiswahili, and Ukrainian use their two-letter locale prefix.
 All eleven splash pages are available. Detailed documentation is released one
 reviewed language at a time. French, Spanish, Portuguese, Italian, Kiswahili,
-and German have completed web review; Ukrainian is the current review draft. Stable English
+German, and Ukrainian have completed web review; Serbian is the current review draft. Stable English
 slugs are deliberately retained below each published locale prefix.
 
 ## Files

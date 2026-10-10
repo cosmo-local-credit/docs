@@ -45,6 +45,7 @@ TRANSLATION_DATES = {
     "es": "9 October 2026",
     "it": "10 October 2026",
     "pt": "10 October 2026",
+    "sr": "10 October 2026",
     "sw": "10 October 2026",
     "uk": "10 October 2026",
 }
@@ -68,6 +69,131 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "sr": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "Introduction": "Увод",
+        "Protocol": "Протокол",
+        "Governance": "Управљање",
+        "White Paper": "Бела књига",
+        "Getting started": "Почетак рада",
+        "Concepts and vocabulary": "Појмови и речник",
+        "Example": "Пример",
+        "History": "Историја",
+        "Overview": "Преглед",
+        "Smart contracts": "Паметни уговори",
+        "Network architecture": "Архитектура мреже",
+        "Governance mechanics": "Механизми управљања",
+        "Terms of Service": "Услови коришћења",
+        "Executive summary": "Сажетак",
+        "Commitment Pooling Protocol (CPP)": "Протокол удруживања обавеза (CPP)",
+        "The accounting shift": "Промена рачуноводственог приступа",
+        "Fulfillment, discharge & exchange": "Испуњење, раздужење и размена",
+        "Reusable forward-style collateral": "Поново употребљиво обезбеђење налик форварду",
+        "From isolated Pools to a federated network": "Од изолованих Тржница до повезане мреже",
+        "Proposed network liquidity & governance": "Предложена ликвидност мреже и управљање",
+        "Proposed governance assets": "Предложена средства управљања",
+        "Technical scope & growth": "Технички обим и развој",
+        "Proposed liquidity-program economics": "Предложена економика програма ликвидности",
+        "Comprehensive risk framework": "Свеобухватни оквир за ризике",
+        "Proposed liquidity-program term sheet": "Предложени услови програма ликвидности",
+        "Glossary": "Речник",
+        "Proposed KPI specification": "Предложена спецификација KPI показатеља",
+        "Roadmap": "План развоја",
+        "Values & evaluation template": "Вредности и образац за процену",
+        "Legal & compliance note": "Правна напомена и усклађеност",
+        "Conclusion": "Закључак",
+        "Math box": "Математички оквир",
+        "Fee waterfall": "Редослед расподеле накнада",
+        "KPI definitions": "Дефиниције KPI показатеља",
+        "Launch parameters": "Параметри покретања",
+        "Worked example": "Разрађени пример",
+        "Dataroom checklist": "Контролна листа документације",
+        "1. Commitment Pooling Protocol (CPP)": "1. Протокол удруживања обавеза (CPP)",
+        "2. The accounting shift": "2. Промена рачуноводственог приступа",
+        "3. Fulfillment, discharge & exchange": "3. Испуњење, раздужење и размена",
+        "4. Reusable forward-style collateral": "4. Поново употребљиво обезбеђење налик форварду",
+        "5. From isolated Pools to a federated network": "5. Од изолованих Тржница до повезане мреже",
+        "6. Proposed network liquidity & governance": "6. Предложена ликвидност мреже и управљање",
+        "7. Proposed governance assets": "7. Предложена средства управљања",
+        "8. Technical scope & growth": "8. Технички обим и развој",
+        "9. Proposed liquidity-program economics": "9. Предложена економика програма ликвидности",
+        "10. Comprehensive risk framework": "10. Свеобухватни оквир за ризике",
+        "11. Governance mechanics": "11. Механизми управљања",
+        "12. Proposed liquidity-program term sheet": "12. Предложени услови програма ликвидности",
+        "13. Glossary": "13. Речник",
+        "14. Proposed KPI specification": "14. Предложена спецификација KPI показатеља",
+        "15. Roadmap": "15. План развоја",
+        "16. Values & evaluation template": "16. Вредности и образац за процену",
+        "17. Legal & compliance note": "17. Правна напомена и усклађеност",
+        "18. Conclusion": "18. Закључак",
+        "Appendix A. Math box": "Додатак A. Математички оквир",
+        "Appendix B. Fee waterfall": "Додатак B. Редослед расподеле накнада",
+        "Appendix C. KPI definitions": "Додатак C. Дефиниције KPI показатеља",
+        "Appendix D. Launch parameters": "Додатак D. Параметри покретања",
+        "Appendix E. Worked example": "Додатак E. Разрађени пример",
+        "Appendix F. Dataroom checklist": "Додатак F. Контролна листа документације",
+        "Issuer": "Издавалац",
+        "Holder": "Ималац",
+        "Steward": "Управник Тржнице",
+        "Fulfillment": "Испуњење",
+        "Discharge": "Раздужење",
+        "Token": "Токен",
+        "Voucher": "Ваучер",
+        "Wallet": "Новчаник",
+        "“Redeem”": "„Искористи“",
+        "“Retire voucher”": "„Повуци ваучер“",
+        "“Credit limit”": "„Кредитни лимит“",
+        "“Credit limits”": "„Кредитни лимити“",
+        "You": "Ви",
+        "you": "ви",
+        "User": "Корисник",
+        "Search": "Претрага",
+        "Close search dialog": "Затвори прозор претраге",
+        "Toggle detail view": "Промени приказ детаља",
+        "Reset search": "Обриши претрагу",
+        "Navigate": "Кретање",
+        "Select": "Изабери",
+        "Close": "Затвори",
+        "Reset": "Обриши",
+        "Menu": "Мени",
+        "On this page": "На овој страници",
+        "Previous": "Претходно",
+        "Next": "Следеће",
+        "Copy": "Копирај",
+        "Copied": "Копирано",
+        "Skip to content": "Пређи на садржај",
+        "Ask in ChatGPT": "Питај ChatGPT",
+        "Copy page for LLMs": "Копирај страницу за LLM",
+        "Last updated:": "Последње ажурирање:",
+        "Code group": "Група кода",
+        "Terminal": "Терминал",
+        "File": "Датотека",
+        "No results for": "Нема резултата за",
+        "Top": "Врх",
+        "Scroll to top": "Врати се на врх",
+        "Page not found": "Страница није пронађена",
+        "The page you were looking for could not be found.": "Страница коју тражите није пронађена.",
+        "Go to home page": "Иди на почетну страницу",
+        "Scroll horizontally to view the full diagram.": "Померите приказ водоравно да бисте видели цео дијаграм.",
+        "The diagram could not be rendered": "Дијаграм није могао да се прикаже",
+        "Convenience translation": "Превод ради лакшег читања",
+        "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.": (
+            "Овај превод је дат ради лакшег читања. Енглески Услови су "
+            "изворни и меродавни текст, осим ако важећи закон не захтева другачије."
+        ),
+        "Read the English Terms": "Прочитајте Услове на енглеском",
+        "About this translation": "О овом преводу",
+        "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.": (
+            "Ово је први превод White Paper v0.8 за преглед. Енглески изворни "
+            "текст објављен је 30. септембра 2026. Овај превод је припремљен "
+            "10. октобра 2026. Енглеска верзија је изворни текст."
+        ),
+        "Read the English source": "Прочитајте енглески извор",
+        "The superseded v0.7 PDF is available in English only.": "Замењени PDF верзије v0.7 доступан је само на енглеском.",
+        "Email: `info@grassecon.org`": "Е-пошта: `info@grassecon.org`",
+        "Version 0.7 PDF": "PDF верзије 0.7",
+        "SDK requirements.": "Захтеви за SDK.",
+    },
     "uk": {
         "cosmolocal.credit": "cosmolocal.credit",
         "Introduction": "Вступ",
@@ -1018,6 +1144,48 @@ def restore_text(value: str, protected: list[Protected]) -> str:
 
 
 def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale == "sr":
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "Протокол", value)
+        value = value.replace("cosmolocal.кредит", "cosmolocal.credit")
+        value = value.replace("Redeem”", "„Искористи“")
+        value = value.replace("Retire voucher”", "„Повуци ваучер“")
+        value = value.replace("Credit limit”", "„Кредитни лимит“")
+        value = value.replace("Credit limits”", "„Кредитни лимити“")
+        value = value.replace("Не знам.", "")
+        value = value.replace("То је све.", "")
+        value = re.sub(r"\bбазенима\b", "Тржницама", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбазена\b", "Тржница", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбазени\b", "Тржнице", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбазену\b", "Тржници", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбазеном\b", "Тржницом", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bбазен\b", "Тржница", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpools\b", "Тржнице", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bpool\b", "Тржница", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bмрежни rake\b", "удео мреже", value, flags=re.IGNORECASE)
+        value = re.sub(r"\brake мреже\b", "удео мреже", value, flags=re.IGNORECASE)
+        if re.search(r"\bissuer", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bиздавачима\b", "издаваоцима", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bиздавача\b", "издаваоца", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bиздавачу\b", "издаваоцу", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bиздавач\b", "издавалац", value, flags=re.IGNORECASE)
+        if re.search(r"\bholder", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bдржаоцима\b", "имаоцима", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bдржаоца\b", "имаоца", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bдржалац\b", "ималац", value, flags=re.IGNORECASE)
+        if re.search(r"\bdischarge\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bиспуштање\b", "раздужење", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bпражњење\b", "раздужење", value, flags=re.IGNORECASE)
+        if re.search(r"\bredemption\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bоткуп\b", "искоришћење", value, flags=re.IGNORECASE)
+            value = re.sub(r"\bпредстављање за искоришћење\b", "подношење ради искоришћења", value, flags=re.IGNORECASE)
+        if re.search(r"\boffering", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bпринос\b", "понуда", value, flags=re.IGNORECASE)
+        if re.search(r"\bvouchers\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bvouchers?\b", "ваучери", value, flags=re.IGNORECASE)
+        elif re.search(r"\bvoucher\b", source, flags=re.IGNORECASE):
+            value = re.sub(r"\bvoucher\b", "ваучер", value, flags=re.IGNORECASE)
+        return value
+
     if locale == "uk":
         value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "Протокол", value)
         value = value.replace("cosmolocal.кредит", "cosmolocal.credit")

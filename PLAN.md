@@ -22,8 +22,8 @@ reviewable web draft has been accepted.
 | 1 | Italian (`it`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 2 | Kiswahili (`sw`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
 | 3 | German (`de`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
-| 4 | Ukrainian (`uk`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
-| 5 | Serbian (`sr`) | Complete | Queued | Pending | Pending | Pending | Deferred |
+| 4 | Ukrainian (`uk`) | Complete | Complete | Complete | Complete | Pending companion app work | Deferred |
+| 5 | Serbian (`sr`) | Complete | Complete | Ready for review | Pending acceptance | Pending | Deferred |
 | 6 | Arabic (`ar`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 | 7 | Dzongkha (`dz`) | Complete | Queued | Pending | Pending | Pending | Deferred |
 
@@ -35,7 +35,7 @@ until the current web draft passes validation and is accepted for release.
 - The existing documentation glossary and released translation manifests use
   `clc-app` commit `32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1` as their translation baseline.
 - `clc-app` `origin/develop` was last audited at
-  `69d8196ba431ccad9b7e88b19d669d417f7c196b` on 10 October 2026.
+  `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` on 10 October 2026.
 - The locale registry had not changed at that audit. The current app catalog
   entries for Voucher, Pool, Market, Issuer, Redeem, Send, Swap, and Wallet
   agreed with the docs glossary.
@@ -54,6 +54,7 @@ until the current web draft passes validation and is accepted for release.
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Kiswahili reviewed. The docs consistently use `Kikundi`, matching the established splash glossary and the app's primary labels; older app entries using `Puli` or `Bwawa` are treated as app catalog drift. Core actions remain `Tuma`, `Komboa`, and `Badilisha`. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | German reviewed. The docs preserve the app terms `Gutschein`, `Fonds`, `Herausgeber`, `Markt`, `Einlösen`, `Senden`, `Tauschen`, `Geldbörse`, and `Kreditlimit`; `Commitment-Fonds` and `Fonds-Verantwortliche` follow the established splash glossary. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Ukrainian reviewed. The docs preserve the app terms `Ваучер`, `Пул`, `Емітент`, `Ринок`, `Погасити`, `Надіслати`, `Обміняти`, `Гаманець`, and `Кредитний ліміт`; `Пул зобов’язань` and `Куратор Пулу` follow the established splash glossary. |
+| 10 October 2026 | `e0aab634fbd6cb9c7731cef6a49244cdbd23185c` | Serbian reviewed. The docs use the established Serbian splash terms `Ваучер`, `Тржница`, `Тржница обавеза`, `Управник Тржнице`, `Издавалац`, `Тржиште`, `Искористи`, `Пошаљи`, `Размена`, `Новчаник`, and `Кредитни лимит`. The app catalog mixes `Тржница` with `пул`, Ekavian with Ijekavian forms, and Cyrillic with the Latin label `Povuci vaučer`; the docs consistently use Serbian Cyrillic and the splash glossary. |
 
 ## Repeatable language workflow
 
@@ -137,22 +138,22 @@ For every language:
 - [x] Complete the priority-page clarity pass.
 - [x] Refresh the translation manifest and heading mappings.
 - [x] Pass all automated and visual validation.
-- [x] Provide the review URLs; user acceptance is pending.
-- [ ] Add Ukrainian to the released documentation set and commit the language.
+- [x] Provide the review URLs and record user acceptance.
+- [x] Add Ukrainian to the released documentation set; the commit remains user-managed.
 - [ ] Deploy and verify the Ukrainian routes.
 - [ ] Complete the coordinated `clc-app` link verification.
 - [ ] Generate and publish the localized PDF in the later PDF phase.
 
 ### 5. Serbian (`sr`)
 
-- [ ] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
-- [ ] Review Cyrillic terminology, consistent orthography, technical labels,
+- [x] Record the current `clc-app` `origin/develop` commit and vocabulary audit.
+- [x] Review Cyrillic terminology, consistent orthography, technical labels,
       formulas, and code isolation.
-- [ ] Generate and structurally verify all 36 translated pages.
-- [ ] Add and review Serbian navigation, UI/search text, metadata, and notices.
-- [ ] Complete the priority-page clarity pass.
-- [ ] Refresh the translation manifest and heading mappings.
-- [ ] Pass all automated and visual validation.
+- [x] Generate and structurally verify all 36 translated pages.
+- [x] Add and review Serbian navigation, UI/search text, metadata, and notices.
+- [x] Complete the priority-page clarity pass.
+- [x] Refresh the translation manifest and heading mappings.
+- [x] Pass all automated and visual validation.
 - [ ] Provide the review URLs and record user acceptance.
 - [ ] Add Serbian to the released documentation set and commit the language.
 - [ ] Deploy and verify the Serbian routes.

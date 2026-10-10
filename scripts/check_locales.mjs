@@ -9,8 +9,8 @@ const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const publicPaper = join(root, 'docs/public/white-paper')
 const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const documentationLocales = ['en', 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk']
-const localizedLocales = ['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk']
+const documentationLocales = ['en', 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr']
+const localizedLocales = ['fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr']
 const translationDates = {
   fr: '9 October 2026',
   es: '9 October 2026',
@@ -19,6 +19,7 @@ const translationDates = {
   sw: '10 October 2026',
   de: '10 October 2026',
   uk: '10 October 2026',
+  sr: '10 October 2026',
 }
 const splashLocalizedLocales = locales.slice(1)
 const appBaseline = '32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1'
