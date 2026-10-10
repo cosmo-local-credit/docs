@@ -8,9 +8,9 @@ public documentation site. The synchronization baseline is `clc-app`
 English is unprefixed. Arabic, Dzongkha, German, Spanish, French, Italian,
 Portuguese, Serbian, Kiswahili, and Ukrainian use their two-letter locale prefix.
 All eleven splash pages are available. Detailed documentation is released one
-reviewed language at a time; French and Spanish are the drafts currently under
-review. Stable
-English slugs are deliberately retained below each published locale prefix.
+reviewed language at a time; French, Spanish, and Portuguese are the drafts
+currently under review. Stable English slugs are deliberately retained below
+each published locale prefix.
 
 ## Files
 
@@ -57,9 +57,9 @@ To regenerate one translation with an already downloaded CTranslate2 model:
 
 ```sh
 /path/to/python scripts/generate_documentation_translations.py \
-  --locales es --model /path/to/nllb-ct2 --threads 8 \
-  --manifest docs/i18n/translation-manifest.es.json
-node scripts/synchronize_protected_content.mjs es
+  --locales pt --model /path/to/nllb-ct2 --threads 8 \
+  --manifest docs/i18n/translation-manifest.pt.json
+node scripts/synchronize_protected_content.mjs pt
 npm run i18n:manifest
 npm run i18n:headings
 ```

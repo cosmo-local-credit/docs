@@ -37,6 +37,7 @@ for (const locale of locales) {
   for (const path of documentationFiles(join(pages, locale))) {
     let value = readFileSync(path, 'utf8')
     value = value
+      .replace(/\*\*\s*([^*\n]*?\S)\s*\*\*/gu, '**$1**')
       .replace(/(?<=[\p{L}\p{N})\]])(\*\*[^*\n]+\*\*)/gu, ' $1')
       .replace(/(\*\*[^*\n]+\*\*)(?=[\p{L}\p{N}])/gu, '$1 ')
       .replace(/(?<=[\p{L}\p{N})\]])(!?\[[^\]\n]+\]\([^)\n]+\))/gu, ' $1')

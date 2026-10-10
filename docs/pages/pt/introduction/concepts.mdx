@@ -1,0 +1,102 @@
+# Conceitos e vocabulário
+
+Cosmo-Local Credit liga uma aplicação, um protocolo aberto, Fundos governados de forma independente e os compromissos do mundo real representados por vales. Estas camadas funcionam em conjunto, mas não são a mesma coisa.
+
+Esta página define os termos utilizados na documentação. Os nomes exatos das ações da aplicação aparecem entre aspas quando a interface utiliza uma designação mais curta ou potencialmente ambígua.
+
+## Camadas do produto e do protocolo
+
+| Termo | Significado |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | A família de produtos: a CLC App, a sua documentação e o trabalho mais amplo sobre partilha de compromissos. |
+| **CLC App** | A aplicação web progressiva em [cosmolocal.credit](https://cosmolocal.credit). A GEF gere esta interface e os respetivos serviços de apoio. |
+| **Protocolo de Partilha de Compromissos (CPP)** | O modelo reutilizável de curadoria, avaliação, limitação, troca e governação responsável. |
+| **Protocol v1.1.0** | A versão verificada dos contratos inteligentes públicos, documentada na [referência do protocolo](/pt/protocol/overview). |
+| **Fundo de Compromissos** | Uma estrutura governada que seleciona ativos, publica regras e permite trocas. **Fundo** é a forma abreviada utilizada nesta documentação. |
+| **`SwapPool`** | O contrato atual do protocolo que mantém um inventário de tokens e executa trocas diretas. É um componente técnico de um Fundo de Compromissos. |
+| **Token de governação CLC proposto** | Um futuro modelo de governação descrito no Livro Branco. Não é um ativo atual da aplicação nem do Protocol v1.1.0. |
+| **Fundo de Rede CLC proposto** | Um futuro modelo de compensação e coordenação ao nível da rede. Não é o mesmo que um `SwapPool` atual. |
+
+## Tokens, vales e Ofertas
+
+Um **token** é um saldo registado em cadeia ou outro ativo digital. Os mecanismos do token podem registar a oferta, transferências, caducidade e queima, mas não prometem, por si só, bens, serviços, conversão em dinheiro ou resgate.
+
+Um **vale** é um token ou registo que um emissor apresenta como um compromisso resgatável segundo condições publicadas. Essas condições devem identificar o que é prometido, quem é responsável, onde e quando o vale pode ser apresentado, os limites relevantes e o processo de cumprimento e reclamação.
+
+Uma **Oferta** é o registo do catálogo que descreve os bens ou serviços associados a um vale. Publicar uma Oferta não cria tokens, não prova a disponibilidade e não demonstra que houve cumprimento.
+
+Estas são quatro camadas distintas:
+
+1. o contrato do token e os respetivos saldos;
+2. a designação do vale e as condições publicadas;
+3. um ou mais registos de Oferta; e
+4. o desempenho do emissor no mundo real.
+
+## Funções responsáveis e controlo técnico
+
+| Função ou autoridade | Responsabilidade ou poder |
+| --- | --- |
+| **Emissor** | Publica e cumpre o compromisso de um vale. Esta responsabilidade não é transferida automaticamente quando muda a propriedade do contrato. |
+| **Titular** | Controla o saldo de um vale. Esse controlo não prova cumprimento, valor em dinheiro ou garantia. |
+| **Prestador de serviços** | Uma função pública. Um prestador de serviços torna-se emissor quando publica o compromisso de um vale. |
+| **Gestor do Fundo** | A pessoa, cooperativa, agência pública, federação, multisig, serviço ou outra estrutura responsável que publica e administra as regras do Fundo. |
+| **Proprietário do Fundo** | O endereço com os poderes atuais de proprietário do `SwapPool`, incluindo configuração, cobrança de comissões e levantamento da liquidez disponível. |
+| **Administrador de proxy** | A autoridade que pode atualizar a implementação de um contrato proxy. Pode ser diferente do proprietário do Fundo. |
+| **Controlador de dependências** | Um proprietário ou autorização de escrita que controla um registo, limitador, cotador, oráculo, política de comissões ou controlador da comissão do protocolo. |
+| **Moderador do catálogo** | Um operador da aplicação que pode corrigir, ocultar ou restaurar registos do catálogo sem alterar os saldos em cadeia. |
+| **Destinatário de comissões** | O endereço configurado para receber uma comissão do Fundo ou do protocolo. Não é necessariamente o Gestor ou proprietário do Fundo. |
+| **Apoiante ou fornecedor de liquidez** | Um participante que contribui com ativos segundo condições divulgadas separadamente. O `SwapPool` atual não cria participações no Fundo nem direitos automáticos a reembolso, levantamento, recompensa ou governação. |
+
+“Membro da comunidade” é uma expressão social informal. Por si só, não cria admissão, propriedade, governação, reembolso ou outros direitos legais.
+
+## Ações e ciclo de vida
+
+| Termo da aplicação ou da documentação | Significado |
+| --- | --- |
+| **Criar ou publicar um vale** | Implementar ou configurar um token e publicar o seu registo no catálogo e as suas condições. |
+| **Emitir ou cunhar** | Criar um saldo de tokens sob a autoridade configurada do proprietário ou da entidade com autorização de escrita. |
+| **Publicar uma Oferta** | Adicionar o registo de um bem ou serviço associado a um vale. |
+| **Enviar** | Transferir um saldo de tokens para outro endereço. |
+| **“Resgatar”** | Na aplicação atual, abrir o fluxo de envio com o endereço do proprietário do token já preenchido. Isto apresenta ou devolve tokens ao emissor; não prova o cumprimento. |
+| **Cumprir** | O emissor fornece os bens, serviços, benefícios ou outro desempenho prometido. |
+| **Quitação** | Registar as unidades cumpridas para que não possam voltar a ser apresentadas, por exemplo, recebendo-as, queimando-as, cancelando-as ou desativando-as de outra forma segundo as condições publicadas. |
+| **“Retirar vale”** | Ocultar um vale do catálogo da aplicação. Os saldos e o histórico permanecem, e um administrador pode restaurar a listagem. Não é uma queima nem um cancelamento. |
+| **Depósito ou contribuição para o Fundo** | Transferir ativos para um `SwapPool`. Os direitos a reembolso, levantamento, recompensas ou governação só existem quando forem divulgados separadamente. |
+| **Troca no Fundo** | Trocar um ativo suportado por outro através de um `SwapPool`. Não é cumprimento pelo emissor nem, automaticamente, um empréstimo. |
+| **Levantamento de liquidez do Fundo** | O proprietário do Fundo transfere o inventário disponível para um endereço selecionado. |
+| **Cobrança de comissões** | Um destinatário configurado cobra as comissões acumuladas do Fundo. |
+
+Utilize **liquidação da troca** para as transferências em cadeia e a contabilização de comissões que concluem uma troca no Fundo. Utilize **apresentação para resgate**, **cumprimento** e **quitação** para o ciclo de vida separado do vale no mundo real.
+
+## Mercado, valores, limites e comissões
+
+O **Mercado** da aplicação é um catálogo de descoberta de vales, Fundos, Ofertas e informação pública. Uma listagem não é automaticamente um local de troca, uma relação com um vendedor, um endosso, uma avaliação ou uma garantia.
+
+Mantenha separados estes termos de valor:
+
+- **Preço da Oferta:** o montante pedido por um bem ou serviço listado;
+- **valor declarado do vale:** o valor indicado nas condições publicadas pelo emissor;
+- **taxa de câmbio ou cotação do Fundo:** o parâmetro da transação produzido pelo cotador configurado do Fundo;
+- **referência do oráculo:** dados externos utilizados por um módulo de avaliação configurado; e
+- **condições de resgate:** aquilo que o emissor promete fornecer e em que condições.
+
+O rótulo **“Limite de crédito”** da aplicação refere-se ao limite configurado para o saldo de um token no Fundo: o montante máximo desse token que o Fundo pode manter depois de um depósito. Não é uma linha de crédito pessoal, uma verificação da capacidade do emissor nem uma garantia de resgate. Os limites móveis, por conta e ao nível da rede propostos no Livro Branco são mecanismos diferentes.
+
+O Protocol v1.1.0 atual pode cobrar uma **comissão do Fundo** e uma **comissão adicional do protocolo**. O modelo proposto no Livro Branco descreve separadamente uma futura **comissão de rede**, retirada das comissões dos Fundos, e possíveis comissões de encaminhamento ou serviço. Estes modelos não devem ser combinados ao explicar os encargos atuais ou calcular receitas futuras.
+
+## Proteções e provas
+
+A curadoria, a inclusão num registo, um limite, uma reserva, a visibilidade na aplicação ou uma transação em blockchain não estabelecem, por si só, endosso, capacidade do emissor, cumprimento, garantia ou seguro.
+
+Qualquer proteção deve identificar a parte obrigada, o evento coberto, o financiamento, o limite máximo, as exclusões, a duração, as provas e o processo de reclamação. Os registos em cadeia podem mostrar endereços, ativos, montantes, datas e horas e eventos dos contratos. O desempenho do emissor, a satisfação, a deliberação de governação e o impacto social exigem divulgações, relatórios, atestados ou outras provas separadas.
+
+## Palavras de estado
+
+- **Atual:** verificado na CLC App ou no Protocol v1.1.0 descrito nesta documentação.
+- **Dependente da implementação:** disponível apenas quando uma determinada implementação, Fundo, fornecedor, jurisdição ou política publicada o permite.
+- **Histórico:** prova ou funcionalidade do serviço anterior Sarafu Network.
+- **Proposto:** um modelo ou mecanismo do roteiro que não é apresentado como implementado.
+
+O guia [Começar](/pt/introduction/getting-started) aplica estes termos à aplicação atual. A [referência do protocolo](/pt/protocol/overview) documenta os contratos verificados, enquanto o [Livro Branco](/pt/white-paper) apresenta o modelo e as propostas mais amplas.
+
+Para uma introdução complementar e lúdica aos compromissos, à liquidação, aos fluxos de recursos, à troca e à partilha, explore os [jogos educativos da Grassroots Economics](https://grassrootseconomics.org/games/). Os jogos são recursos de aprendizagem, não definições do comportamento atual da aplicação ou do protocolo.

@@ -1,0 +1,50 @@
+{
+  "controls": {
+    "language": "Idioma",
+    "colorTheme": "Tema de cores",
+    "lightMode": "Usar modo claro",
+    "darkMode": "Usar modo escuro"
+  },
+  "chrome": {
+    "search": "Pesquisa",
+    "closeSearchDialog": "Fechar caixa de diálogo de pesquisa",
+    "toggleDetailView": "Alternar vista detalhada",
+    "resetSearch": "Limpar pesquisa",
+    "navigate": "Navegar",
+    "select": "Selecionar",
+    "close": "Fechar",
+    "reset": "Repor",
+    "menu": "Menu",
+    "onThisPage": "Nesta página",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "skipToContent": "Saltar para o conteúdo",
+    "askInChatGPT": "Perguntar no ChatGPT",
+    "copyPageForLlms": "Copiar página para LLMs",
+    "lastUpdated": "Última atualização:",
+    "codeGroup": "Grupo de código",
+    "terminal": "Terminal",
+    "file": "Ficheiro",
+    "noResultsFor": "Nenhum resultado para",
+    "top": "Topo",
+    "scrollToTop": "Voltar ao topo",
+    "pageNotFound": "Página não encontrada",
+    "notFoundDescription": "Não foi possível encontrar a página que procurava.",
+    "goHome": "Ir para a página inicial",
+    "diagramScroll": "Desloque-se horizontalmente para ver o diagrama completo.",
+    "diagramError": "Não foi possível apresentar o diagrama"
+  },
+  "legal": {
+    "translationTitle": "Primeira tradução para revisão",
+    "translationNotice": "Esta tradução é fornecida para facilitar a leitura. Os Termos em inglês são o texto original e prevalecem, salvo se a lei aplicável exigir o contrário.",
+    "englishSource": "Ler os Termos em inglês"
+  },
+  "whitePaper": {
+    "translationTitle": "Sobre esta tradução",
+    "translationNotice": "Esta é uma primeira tradução do Livro Branco v0.8 (White Paper v0.8), preparada para revisão. O texto original em inglês foi publicado em 30 de setembro de 2026. Esta tradução foi preparada em 10 de outubro de 2026. O inglês é o texto original.",
+    "englishSource": "Ler o texto original em inglês",
+    "archivedEnglishOnly": "O PDF da versão v0.7, já substituída, está disponível apenas em inglês."
+  }
+}

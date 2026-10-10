@@ -1,0 +1,74 @@
+# Começar
+
+Cosmo-Local Credit (CLC) é uma aplicação web progressiva para criar, descobrir, deter, transferir e trocar ativos digitais, incluindo vales resgatáveis, através de Fundos de Compromissos governados de forma independente. A CLC App está disponível em [cosmolocal.credit](https://cosmolocal.credit).
+
+A [Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) gere a aplicação e a infraestrutura de apoio. A menos que aceite expressamente outra função numa determinada oferta ou transação, a GEF não é o emissor de um vale criado por um utilizador, o Gestor de um Fundo criado por um utilizador, um custodiante, credor, mutuário, garante, segurador ou responsável pelo resgate. Os emissores são responsáveis pelos compromissos dos seus vales, e os Gestores dos Fundos são responsáveis pelas regras dos seus Fundos.
+
+Leia [Conceitos e vocabulário](/pt/introduction/concepts) para conhecer as camadas do produto, as funções, as ações, os valores, as comissões e os termos de estado utilizados nesta documentação.
+
+Antes de criar uma conta ou efetuar uma transação, leia os [Termos de Serviço](/pt/governance/terms). Em especial:
+
+- Deve ter pelo menos 18 anos, ter atingido a maioridade legal aplicável e possuir capacidade para celebrar contratos.
+- É responsável por confirmar que a sua conta, o seu vale, o seu Fundo e as suas transações são legais em todas as jurisdições relevantes.
+- Deve proteger as credenciais da sua carteira. A GEF pode não conseguir recuperar uma carteira perdida ou reverter uma transação autorizada.
+- As transações e os registos numa blockchain pública podem ser visíveis, permanentes e irreversíveis.
+- Uma listagem na aplicação não constitui um endosso da GEF nem uma garantia de resgate, valor, liquidez, conversão ou liquidação.
+
+## Começar a utilizar a aplicação atual
+
+### 1. Explorar o Mercado
+
+Abra [cosmolocal.credit](https://cosmolocal.credit) para explorar o **Mercado** público, o catálogo de descoberta da aplicação. Consulte o emissor responsável, os bens ou serviços prometidos, a localização, a disponibilidade e as condições publicadas. Uma listagem no Mercado não é automaticamente um local de troca, uma relação com um vendedor, uma avaliação independente, um endosso ou uma garantia.
+
+### 2. Criar ou aceder a uma conta e carteira
+
+A aplicação utiliza uma conta para dar acesso ao perfil e à sessão, e uma carteira para autorizar transações em blockchain. Proteja a sua chave de acesso, os dados da carteira, as informações de recuperação, os dispositivos e quaisquer outras credenciais. Verifique cada ativo, montante, endereço, Fundo, comissão e autorização antes de confirmar uma transação.
+
+### 3. Criar um vale
+
+Um vale combina várias camadas distintas:
+
+1. o funcionamento e os saldos do contrato do token;
+2. a designação do vale pelo emissor e as condições publicadas;
+3. um ou mais registos de Oferta relativos aos bens ou serviços associados; e
+4. o cumprimento do compromisso pelo emissor no mundo real.
+
+Criar ou cunhar um token não prova, por si só, que existe uma Oferta, que o emissor tem capacidade para a cumprir ou que a GEF garante o resgate.
+
+### 4. Criar ou avaliar um Fundo de Compromissos
+
+Um Fundo de Compromissos é uma estrutura governada. O seu contrato `SwapPool` atual pode manter um inventário de tokens suportados e executar trocas diretas. Antes de utilizar um Fundo ou contribuir para ele, verifique:
+
+- o Gestor responsável e o proprietário atual do contrato;
+- o administrador de proxy e os controladores das dependências configuradas;
+- os vales admitidos e outros ativos suportados;
+- os métodos de taxa de câmbio ou de cotação;
+- o **“Limite de crédito”** apresentado pela aplicação, que é um limite para o saldo do token no Fundo e não um crédito pessoal;
+- as comissões do Fundo e do protocolo;
+- o inventário disponível e o poder do proprietário para levantar liquidez; e
+- quaisquer condições de contribuição, garantia, reserva ou seguro publicadas separadamente.
+
+Um depósito transfere ativos para o `SwapPool`. O Protocol v1.1.0 não cria automaticamente tokens de participação no Fundo nem concede ao depositante direitos a reembolso, levantamento, recompensa ou governação.
+
+### 5. Utilizar a ação correta
+
+- **Enviar** transfere um saldo de tokens para outro endereço.
+- **Troca no Fundo** troca um ativo suportado por outro através de um `SwapPool`. A liquidação da troca em cadeia não demonstra o cumprimento pelo emissor.
+- **“Resgatar”** abre o fluxo de envio com o endereço do proprietário do token já preenchido. Isto apresenta ou devolve o vale ao emissor; concluir o resgate exige também que o emissor cumpra o que prometeu e que exista um registo de quitação que impeça a reutilização.
+- **“Retirar vale”** oculta a listagem do catálogo. Não queima saldos, não cancela o vale e não extingue as obrigações pendentes do emissor.
+- **Levantamento de liquidez do Fundo** permite ao proprietário do Fundo transferir o inventário disponível.
+- **Cobrança de comissões** envia as comissões acumuladas do Fundo para o destinatário configurado.
+
+Consulte o [exemplo prático de um vale](/pt/introduction/example) para ver o ciclo de vida completo.
+
+## Capacidades atuais, dependentes da implementação e propostas
+
+A aplicação atual disponibiliza o Mercado e fluxos suportados para contas, carteiras, vales, Ofertas, Fundos, transferências, trocas diretas nos Fundos e registos relacionados. A disponibilidade depende da implementação ativa, do ativo, da configuração do Fundo, do dispositivo, da rede, da elegibilidade, do fornecedor, da jurisdição e das condições publicadas.
+
+Os serviços de pagamento, os métodos de apoio, as recompensas, as garantias, os mecanismos de contribuição e outras integrações de fornecedores dependem da implementação. A parte responsável, as comissões, os limites, a elegibilidade e as condições legais devem ser divulgados quando essas capacidades forem oferecidas.
+
+O Protocol v1.1.0 permite a execução direta nos Fundos, enquanto o `SwapRouter` apenas fornece cotações. A execução com vários saltos, o encaminhamento por HTLC ou escrow, a compensação por lotes, o seguro partilhado, os ativos de governação propostos, os programas de liquidez da rede e os acessos de pagamento regulados continuam a ser propostas ou capacidades dependentes da implementação, salvo quando uma implementação específica os identificar como ativos.
+
+Qualquer futuro empréstimo ou outro produto de crédito exige condições suplementares e condições da transação apresentadas separadamente. Uma transferência comum, um depósito num Fundo, uma troca num Fundo, uma apresentação para resgate, o cumprimento ou a quitação não constituem automaticamente um empréstimo, adiantamento ou reembolso.
+
+Em seguida, leia a [visão geral do protocolo](/pt/protocol/overview), os [mecanismos de governação](/pt/governance/mechanics) ou o [Livro Branco](/pt/white-paper) mais abrangente.

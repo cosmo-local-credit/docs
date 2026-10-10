@@ -1,0 +1,113 @@
+# **Cosmo-Local Credit (CLC)**
+
+> **Sobre esta tradução.** Esta é uma primeira tradução do Livro Branco v0.8 (White Paper v0.8), preparada para revisão. O texto original em inglês foi publicado em 30 de setembro de 2026. Esta tradução foi preparada em 10 de outubro de 2026. O inglês é o texto original. <a data-english-source="true" href="/white-paper" hrefLang="en">Ler o texto original em inglês</a>.
+
+## Uma rede de encaminhamento de crédito, coordenação de compromissos e financiamento de uma economia cosmo-local saudável
+
+**Versão:** 0.8
+
+**Data:** 30 de setembro de 2026
+
+**Autores:** William O. Ruddick e Mohamed Sohail
+
+**Contacto:** [info@grassecon.org](mailto:info@grassecon.org)
+
+**Transferir:** <a data-english-source="true" href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf" hrefLang="en">Livro Branco CLC v0.8 em inglês (PDF)</a>
+
+**Publicação:** Publicação pública final e versionada. Este documento não constitui aconselhamento de investimento nem uma oferta de venda ou solicitação de compra de qualquer valor mobiliário ou instrumento financeiro. Versões posteriores podem rever os modelos aqui descritos.
+
+## Como ler este documento
+
+Este documento combina quatro tipos de material. O estado indicado aplica-se em todo o texto, mesmo quando um capítulo não o repete.
+
+| Estado | Significado |
+| --- | --- |
+| **Atual** | Comportamento verificado na CLC App ou nos contratos públicos Protocol v1.1.0. A [referência do protocolo](/pt/protocol/overview) é a fonte factual sobre esses contratos. |
+| **Dependente da implementação** | Uma capacidade que só existe quando um determinado Fundo, fornecedor, jurisdição, órgão de governação ou política publicada a disponibiliza. |
+| **Histórico** | Prova ou funcionalidade do serviço anterior Sarafu Network. Não representa adoção atual do CLC nem prova que um utilizador, ativo, registo ou obrigação tenha migrado. |
+| **Proposto** | Um modelo, mecanismo económico ou de governação, ou elemento do roteiro, que não é apresentado como implementado. |
+
+O Protocol v1.1.0 atual inclui execução direta de `SwapPool`, curadoria opcional, avaliação, limites de saldo de tokens do fundo, taxas do fundo, uma taxa adicional de protocolo e uma taxa de cotação apenas de `SwapRouter`. A execução multi-hop, HTLC ou encaminhamento de escrow, rede de lotes, seguro compartilhado, o token de governação CLC proposto, o fundo de rede CLC proposto, mecanismos de taxa-crédito e programas de liquidez de rede são propostos ou dependentes da implementação.
+
+**Público pretendido:** Construtores e administradores de Fundos, engenheiros e auditores de protocolos, financiadores de liquidez e de mandato, designers de governação e revisores legais ou de conformidade.
+
+## Resumo
+
+Cosmo-Local Credit é uma família de produtos construída em torno do **Protocolo de Partilha de Compromissos (CPP)**. O CPP descreve como Fundos de Compromissos governados de forma independente podem selecionar compromissos resgatáveis, publicar métodos e limites para as taxas de câmbio, manter inventários e permitir trocas responsáveis.
+
+Um **Fundo de Compromissos** é a estrutura governada. Um `SwapPool` do **Protocol v1.1.0** atual é um dos seus componentes contratuais: um cofre de tokens e um mecanismo de troca direta. Uma implementação pode ligar esse contrato a registos, cotadores, limites para o saldo dos tokens no Fundo, políticas de comissões e outros serviços.
+
+Cosmo-local significa partilhar normas abertas, software e conhecimento a nível mundial, mantendo locais a emissão, o cumprimento, a governação e a responsabilidade no mundo real. O emissor continua a ser responsável pelo seu vale. O Gestor do Fundo continua a ser responsável pelas regras do Fundo e por qualquer garantia que assuma expressamente. Nem a CLC App nem a GEF garantem automaticamente um vale, Fundo, valor, rota, posição de liquidez ou resultado.
+
+## Implementação atual
+
+O GEF opera o CLC App em [cosmolocal.credit](https://cosmolocal.credit). Ele fornece acesso a contas e carteiras, um catálogo público do mercado e interfaces suportadas para tokens, vales, Ofertas, Fundos de Compromissos, transferências e swaps diretos do Fundo. A disponibilidade depende da interface, dos contratos, do inventário, dos limites e taxas configurados, do estado da rede, da elegibilidade, dos provedores, da jurisdição e dos termos publicados do emissor ou do Fundo.
+
+A operação da interface não faz da GEF, por si só, um emissor, Gestor do Fundo, custodiador, credor, mutuante, corretor, garante, redentor, consultor, segurador ou parte de obrigações entre os participantes. A utilização da Aplicação é regida pela [Termos de Serviço](/pt/governance/terms).
+
+O Protocol v1.1.0 separa as funções responsáveis do controlo técnico. O Gestor do Fundo, o proprietário do `SwapPool`, o administrador de proxy, o controlador de dependências, o moderador do catálogo e o destinatário das comissões podem ser entidades diferentes. Consulte [Conceitos e vocabulário](/pt/introduction/concepts) para conhecer a terminologia comum.
+
+## Linhagem histórica
+
+O histórico Sarafu Network precedeu o CLC App e forneceu evidências sobre moedas comunitárias e agrupamento de compromissos. A sua transição de serviço para Cosmo-Local Credit não transferiu todas as contas históricas, carteira, token, vale, fundo, saldo, relatório, participante ou obrigação.
+
+As métricas históricas neste artigo utilizam um conjunto de dados Sarafu datado e coerente internamente. Não são dados atuais de utilização do CLC. Veja o [Resumo executivo](/pt/white-paper/executive-summary) para a fonte e o período de medição.
+
+## Modelo de projeto
+
+O CPP utiliza quatro funções gerais:
+
+- **Curadoria:** Decidir quais bons ou outros activos são admitidos.
+- **Avaliação:** Publicar o método utilizado para produzir as taxas de câmbio ou as cotações do Fundo.
+- **Limitação:** Aplicar limites máximos atuais do saldo de tokens do Fundo ou outros controles de risco separadamente implementados.
+- **Intercâmbio:** manter o inventário e executar os swaps de fundo sob taxas e limites divulgados.
+
+Uma implementação só pode adicionar serviços de roteamento, monitoramento, apoio à liquidez, garantias, reservas, seguros ou governação nos termos de políticas publicadas separadamente. A listagem, a cura, um limite, uma reserva ou um registro blockchain não estabelecem por si só a capacidade de emissor, cumprimento, endosso, garantia ou seguro.
+
+## Valores e princípios de concepção
+
+- **Cuidar das pessoas:** apoiar o bem-estar individual e colectivo.
+- **Cuidados do ambiente:** reduzir os danos ecológicos e apoiar a prática regenerativa.
+- **Eqüidade:** promover um acesso seguro e equitativo aos recursos, conhecimentos e cuidados.
+- **Reciprocidade:** Partilhar o risco, o custo, a responsabilidade e o excedente nos termos das regras divulgadas.
+- **Não-dominância:** Resistir ao controlo concentrado sobre pessoas, dados, finanças, conhecimentos e recursos materiais.
+- **Resiliência:** ajudar as comunidades a se preparar e a adaptar às perturbações económicas, políticas e climáticas.
+- **Responsabilidade local:** Manter cumprimento real e responsabilidade legal com as partes identificadas.
+- **Forcabilidade:** Permitir que comunidades e implementações compatíveis deixem registos ou serviços compartilhados sem eliminar saldos ou obrigações válidos.
+
+A camada digital é a memória compartilhada e a infraestrutura de coordenação. Não substitui as relações, o desempenho dos emissores, a governação local ou a responsabilidade legal.
+
+## Fluxos atuais e propostos
+
+### atual direta Fluxo de Fundo
+
+1. Um titular revisa um vale, seu emissor, seus termos e ofertas associadas.
+2. Um Fundo admite ativos apoiados e publica a sua configuração e as autoridades responsáveis.
+3. O titular obtém uma cotação e autoriza uma troca direta do Fundo.
+4. A `SwapPool` realiza a liquidação de swaps na cadeia e contabiliza as taxas de Fundo e de protocolo.
+5. Se o titular escolher mais tarde: **“Resgatar”** na aplicação, a aplicação prepara uma transferência para o proprietário do token como apresentação de resgate.
+6. O emissor realiza separadamente o cumprimento prometido e registra a quitação, de modo que as unidades cumpridas não podem ser reutilizadas.
+
+Tirar inventário de um Fundo é uma troca. É uma resgate somente se esse Fundo tiver assumido separadamente o papel de emissor e cumprir os termos do vale aplicáveis.
+
+### Projeto mais amplo proposto
+
+O projeto proposto explora o roteamento de execução, a compensação, os serviços compartilhados, os programas de liquidez da rede, as apólices de seguro e os ativos de governação. Cada uma exigiria a aplicação, as partes responsáveis, as regras adotadas, o financiamento, os controlos e a divulgação pública antes de poder ser aplicada.
+
+O modelo de comissões proposto pode utilizar uma comissão de rede retirada das comissões do Fundo e comissões separadas de encaminhamento ou serviço. Esta proposta é diferente do Protocol v1.1.0 atual, no qual uma comissão opcional do protocolo é acrescentada à comissão do Fundo.
+
+Os apoiadores ou fornecedores de liquidez não recebem direitos automáticos de participação, reembolso, retirada, recompensa ou governação da atual `SwapPool`. Qualquer programa atual ou futuro deve divulgar separadamente o tipo de transferência, a parte responsável, os direitos de controlo, recuperação ou retirada, perdas, recompensas, taxas e direitos de governação.
+
+## Mapa do leitor
+
+- Terminologia atual e ciclo de vida da ação: [Conceitos e vocabulário](/pt/introduction/concepts)
+- Contratos implementados verificados: [Protocol v1.1.0](/pt/protocol/overview)
+- Evidências históricas: [Resumo executivo](/pt/white-paper/executive-summary)
+- Confederação e interoperabilidade: Capítulos 5, 8 e 11
+- Propostas de garantias e limites de seguro: Capítulos 10 e 11
+- Modelos de liquidez e taxas propostos: Capítulos 7, 9 e 12
+- Quadro de medição proposto: Capítulo 14 e apêndices A–C
+- Proposta de roteiro: Capítulo 15
+- Considerações jurídicas e de conformidade: Capítulo 17
+
+[Versões anteriores do Livro Branco](/pt/white-paper/archive) São conservadas apenas como publicações históricas claramente substituídas.

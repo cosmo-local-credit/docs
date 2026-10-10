@@ -9,8 +9,13 @@ const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const publicPaper = join(root, 'docs/public/white-paper')
 const locales = ['en', 'ar', 'de', 'dz', 'es', 'fr', 'it', 'pt', 'sr', 'sw', 'uk']
-const documentationLocales = ['en', 'fr', 'es']
-const localizedLocales = ['fr', 'es']
+const documentationLocales = ['en', 'fr', 'es', 'pt']
+const localizedLocales = ['fr', 'es', 'pt']
+const translationDates = {
+  fr: '9 October 2026',
+  es: '9 October 2026',
+  pt: '10 October 2026',
+}
 const splashLocalizedLocales = locales.slice(1)
 const appBaseline = '32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1'
 const protectedNames = [
@@ -125,7 +130,7 @@ for (const [locale, manifest] of Object.entries(manifests)) {
   if (manifest.sourceAppCommit !== appBaseline) {
     errors.push(`${locale}: translation manifest app baseline is stale`)
   }
-  if (manifest.translationPublicationDate !== '9 October 2026') {
+  if (manifest.translationPublicationDate !== translationDates[locale]) {
     errors.push(`${locale}: translation publication date is incorrect`)
   }
   if (manifest.status !== 'first-draft-review') {
@@ -233,4 +238,4 @@ if (errors.length) {
   process.exit(1)
 }
 
-console.log(`Validated ${locales.length} splash routes, ${sources.length * documentationLocales.length} English/French/Spanish documentation routes, catalogs, hashes, links, Terms, TeX, and PDFs.`)
+console.log(`Validated ${locales.length} splash routes, ${sources.length * documentationLocales.length} released documentation routes, catalogs, hashes, links, Terms, TeX, and PDFs.`)

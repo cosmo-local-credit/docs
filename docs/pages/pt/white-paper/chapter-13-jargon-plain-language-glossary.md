@@ -1,0 +1,25 @@
+## **13. Glossário de linguagem simples**
+
+- **Cosmo-Local Credit (CLC):** A família de produtos, incluindo o CLC App, documentação e um trabalho mais amplo de partilha de compromissos.
+- **CLC App:** A aplicação web progressiva operado por GEF em `cosmolocal.credit`.
+- **Protocolo de partilha de compromissos (CPP):** O modelo reutilizável de curadoria, avaliação, limitação, troca e governação responsável.
+- **Protocol v1.1.0:** A divulgação de contratos inteligentes públicos verificada.
+- **Fundo de Compromissos:** Um acordo regulado que admite ativos apoiados e publica regras de troca.
+- **`SwapPool`:** O atual cofre de tokens e contrato de troca direta.
+- **Marca:** Um saldo na cadeia ou um activo digital. A mecânica de tokens sozinha não cria uma promessa resgatável.
+- **vale:** Um token ou registro representado por um emissor como um compromisso reembolsável em termos publicados.
+- **Oferta:** Registo de catálogo de bens ou serviços associados a um vale.
+- **emissor:** A parte responsável pela publicação e cumprimento de um compromisso de vale.
+- **Gestor do Fundo:** A estrutura responsável que publica e administra as regras do Fundo.
+- **Taxa de câmbio ou cotação do Fundo:** Um parâmetro de transação produzido por um cotador configurado; Nenhuma prova de liquidez ou valor de resgate.
+- **O limite máximo da balança de tokens do fundo:** O máximo atual de `Limiter` para um token detido por um Fundo. A aplicação pode etiquetá-lo **“Limite de crédito.”**
+- **Intercâmbio de Fundo:** Uma troca direta de activos através de um `SwapPool`.
+- **Swap settlement:** As transferências na cadeia e a contabilidade das taxas completando uma troca de fundo.
+- **apresentação de resgate:** Retorno ou apresentação de unidades de vale ao emissor.
+- **Realização:** O emissor fornece o bem, serviço, benefício ou outro desempenho prometido.
+- **quitação:** Um registo que impede que as unidades preenchidas sejam apresentadas novamente.
+- **Roteador de execução proposto:** Software futuro que autorizaria e executaria rotas. Apenas as cotações atuais do `SwapRouter`.
+- **Proposta de Fundo de rede CLC:** Um futuro acordo de compensação e de coordenação orçamental a nível da rede.
+- **Proposto token de governação CLC:** Um projeto de governação futuro, não um ativo atual da aplicação ou do Protocol v1.1.0.
+- **comissão de rede:** Uma parte proposta das taxas do Fundo transferidas para um futuro orçamento da rede.
+- **Garantia ou seguro:** Uma proteção que só se aplica quando uma parte identificada assume, financia e publica expressamente.

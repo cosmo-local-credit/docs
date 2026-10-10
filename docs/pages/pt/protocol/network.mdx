@@ -1,0 +1,75 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Arquitetura de rede de protocolo
+
+Uma implementação compatível com o CPP pode ligar muitos vales e Fundos através de registos opcionais, índices, módulos de cotação e descoberta de rotas ao nível da aplicação. Cada Fundo permanece um cofre separado, com liquidez, proprietário, administrador de proxy, configuração e dependências próprios.
+
+A Grassroots Economics Foundation gere a aplicação pública em [cosmolocal.credit](https://cosmolocal.credit). Outras interfaces e implementações podem utilizar o mesmo protocolo público. A gestão da aplicação não torna automaticamente a GEF proprietária, emissora, gestora, destinatária de comissões ou garante de cada contrato apresentado abaixo.
+
+Consulte [Conceitos e vocabulário](/pt/introduction/concepts) para compreender a separação entre funções responsáveis e poderes técnicos.
+
+
+## Rotas candidatas e execução
+
+<MermaidDiagram
+  scrollMessage="Desloque-se horizontalmente para ver o diagrama completo."
+  errorMessage="Não foi possível apresentar o diagrama"
+  label="Descoberta de rotas candidatas e execução em lote pela carteira"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Vale A"] ---|admitido e mantido| PoolA["Fundo A"]
+    Bridge["Ativo de ponte genérico"] ---|admitido e mantido| PoolA
+    Bridge ---|admitido e mantido| PoolB["Fundo B"]
+    VoucherB["Vale B"] ---|admitido e mantido| PoolB
+
+    App["PWA ou localizador de rotas"] -. descobre candidatos .-> Index["Registos e índices"]
+    App -. pede uma cotação .-> Router["SwapRouter: apenas cotações"]
+    Router -. lê cotações dos Fundos .-> PoolA
+    Router -. lê cotações dos Fundos .-> PoolB
+
+    App -->|constrói chamadas ordenadas| WalletStart["Carteira ou conta inteligente do utilizador"]
+    WalletStart -->|Salto 1: vale A| PoolA
+    PoolA -->|saída de ponte| WalletBridge["A mesma carteira entre as chamadas"]
+    WalletBridge -->|Salto 2: ativo de ponte| PoolB
+    PoolB -->|A saída do vale B| WalletFinal["A mesma carteira do utilizador"]
+
+    PoolA -->|Comissão do protocolo| ProtocolRecipient["Destinatário configurado do protocolo"]
+    PoolB -->|Comissão do protocolo| ProtocolRecipient`}
+/>
+
+Um ativo partilhado cria um **caminho possível no grafo**, não uma rota garantida. Neste exemplo, o vale A poderia ser trocado pelo ativo de ponte no Fundo A e, depois, o ativo de ponte poderia ser trocado pelo vale B no Fundo B. Cada salto continua a depender da admissão atual dos tokens, dos limites do Fundo, do inventário disponível, da configuração das cotações e comissões, do estado do oráculo, das aprovações, dos limites da transação e da execução na rede.
+
+`SwapRouter` só convoca as funções de cotação Fundo em um caminho proposto. Não detém fundos, não aprova tokens nem executa swaps. Um integrador ou uma aplicação compatível pode utilizar esses resultados das cotações para construir a aprovação ordenada e as chamadas do Fundo num lote assinado de contas inteligentes; Isso não significa que o atual aplicação público ofereça execução multi-hop. Cada salto estabelece-se na carteira antes que a carteira forneça o ativo intermediário para a próxima Fundo, e o integrador pode configurar o lote para reverter quando uma chamada falha.
+
+As citações são instantâneas. Uma cotação de rota bem-sucedida pode ainda falhar ou se resolver de forma diferente se o estado relevante mudar antes da execução. A sobrecarga limitada de `SwapPool.withdraw` acrescenta proteção de `minAmountOut` e `deadline` para um salto individual; Os integradores devem decidir como aplicar os limites em toda a rota.
+
+As taxas do Fundo permanecem no Fundo relevante para cobrança posterior. Qualquer taxa de protocolo é adicional e é transferida diretamente a partir desse Fundo para o destinatário do protocolo configurado durante a troca.
+
+
+## Internos do Fundo
+
+<MermaidDiagram
+  scrollMessage="Desloque-se horizontalmente para ver o diagrama completo."
+  errorMessage="Não foi possível apresentar o diagrama"
+  label="Dependências e poderes administrativos de um Fundo de Compromissos"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Proprietário do contrato ou<br/>Gestor do Fundo"] -->|Configurar, selar, recolher, retirar| Pool["SwapPool<br/>cofre e liquidação"]
+    ProxyAdmin["ERC-1967<br/>administrador proxy"] -->|implementação de atualizações| Pool
+    Dependencies["Dependências opcionais<br/>registry · limiter · quoter<br/>Política de taxas · Controlador de taxas de protocolo<br/>Cada um com a sua própria governação"] -. settlement inputs .-> Pool
+    Seal["Cinco espaços de endereço selados<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["Carteira do utilizador"] -->|Entrada de depósito ou troca| Pool
+    Pool -->|Saída líquida da troca| Wallet
+    Pool -->|Taxas do Fundo cobradas| FeeAddress["Configuração<br/>endereço de taxa"]
+    Pool -->|Taxa de protocolo na mesma troca| ProtocolRecipient["Protocolo<br/>destinatário"]
+    Pool -->|withdrawLiquidity| Destination["Destinatário<br/>escolhido pelo proprietário"]`}
+/>
+
+O registo, o limitador, o quotador, a política de taxas e o controlador de taxas de protocolo são opcionais. Sem registo, qualquer token passa a verificação de admissão; Sem limite, os depósitos não têm limite; sem cotador, o Fundo utiliza a paridade de unidade bruta; e sem módulos de taxas, as taxas correspondentes são zero.
+
+Os cinco espaços selados são `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` e `tokenLimiter`. Um selo impede que o atual proprietário do Fundo substitua esse endereço através do seu setter, mas não congela o estado interno da dependência. O endereço `protocolFeeController` e o modo `feesDecoupled` não são abrangidos por esses cinco bits de vedação. A capacidade do administrador proxy para atualizar o Fundo também é separada do selamento.
+
+O titular do contrato pode retirar a liquidez disponível do Fundo para um endereço escolhido. No modo de tarifas descopladas, as tarifas acumuladas são reservadas a partir desse caminho; O poder de retirar a liquidez restante ainda existe. Os participantes devem inspecionar o proprietário, o administrador por procuração, os controladores de dependências, o estado do selo, os destinatários das taxas e as regras publicadas do Fundo antes de dependerem de um Fundo.
+
+Para o desenho conceitual por trás destes contratos—incluindo curadoria, avaliação, limitação, troca e governação—veja o [Livro Branco](/pt/white-paper).
