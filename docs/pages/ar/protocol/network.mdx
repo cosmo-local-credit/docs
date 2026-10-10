@@ -1,0 +1,73 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# بنية شبكة البروتوكول
+
+يمكن لتنفيذ متوافق مع CPP ربط العديد من القسائم والصناديق من خلال سجلات وفهارس ووحدات عروض أسعار واكتشاف مسارات على مستوى التطبيق، وكلها اختيارية. ويظل كل صندوق خزنة مستقلة لها سيولتها ومالكها ومدير وكيلها وإعداداتها ومكوناتها التابعة.
+
+تدير Grassroots Economics Foundation التطبيق العام على [cosmolocal.credit](https://cosmolocal.credit). ويمكن لواجهات وتنفيذات أخرى استخدام البروتوكول العام نفسه. ولا يجعل تشغيل التطبيق GEF تلقائيًا مالكةً أو جهة مصدرة أو مشرف صندوق أو مستلمة رسوم أو ضامنة لكل عقد يظهر أدناه.
+
+راجع [المفاهيم والمصطلحات](/ar/introduction/concepts) لفهم الفصل بين الأدوار المسؤولة والصلاحيات التقنية.
+
+## المسارات المرشحة والتنفيذ
+
+<MermaidDiagram
+  scrollMessage="مرّر أفقيًا لعرض المخطط كاملًا."
+  errorMessage="تعذر عرض المخطط"
+  label="اكتشاف المسارات المرشحة والتنفيذ المجمع للمحفظة"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Voucher A"] ---|listed and held| PoolA["Pool A"]
+    Bridge["Generic bridge asset"] ---|listed and held| PoolA
+    Bridge ---|listed and held| PoolB["Pool B"]
+    VoucherB["Voucher B"] ---|listed and held| PoolB
+
+    App["PWA or route finder"] -. discovers candidates .-> Index["Registries and indexes"]
+    App -. requests a quote .-> Router["SwapRouter: quote only"]
+    Router -. reads Pool quotes .-> PoolA
+    Router -. reads Pool quotes .-> PoolB
+
+    App -->|builds ordered calls| WalletStart["User smart-account wallet"]
+    WalletStart -->|hop 1: Voucher A| PoolA
+    PoolA -->|bridge output| WalletBridge["Same wallet between calls"]
+    WalletBridge -->|hop 2: bridge asset| PoolB
+    PoolB -->|Voucher B output| WalletFinal["Same user wallet"]
+
+    PoolA -->|protocol fee| ProtocolRecipient["Configured protocol recipient"]
+    PoolB -->|protocol fee| ProtocolRecipient`}
+/>
+
+ينشئ الأصل المشترك **مسارًا محتملًا في الرسم الشبكي**، وليس مسارًا مضمونًا. في هذا المثال، يمكن استبدال Voucher A بأصل وسيط في Pool A، ثم استبدال الأصل الوسيط بـ Voucher B في Pool B. وتظل كل خطوة معتمدة على قبول الرموز الحالي وحدود الصندوق والمخزون المتاح وإعداد عروض الأسعار والرسوم وحالة الأوراكل والموافقات وحدود المعاملة وتنفيذ الشبكة.
+
+لا يفعل `SwapRouter` سوى استدعاء دوال عرض الأسعار في الصناديق عبر مسار مقترح. فهو لا يحتفظ بالأموال ولا يوافق على الرموز ولا ينفذ المبادلات. ويمكن لمتكامل أو تطبيق متوافق استخدام هذه النتائج لبناء استدعاءات مرتبة للموافقات والصناديق ضمن حزمة موقعة من حساب ذكي؛ ولا يعني ذلك أن التطبيق العام الحالي يوفر تنفيذًا متعدد الخطوات. وتُسوّى كل خطوة إلى المحفظة قبل أن تقدم المحفظة الأصل الوسيط إلى الصندوق التالي، ويمكن للمتكامل ضبط الحزمة بحيث تتراجع إذا فشل استدعاء.
+
+عروض الأسعار لقطات لحظية. وقد يفشل مسار حصل على عرض سعر ناجح، أو تتم تسويته بصورة مختلفة، إذا تغيرت الحالة ذات الصلة قبل التنفيذ. وتضيف النسخة المحددة من `SwapPool.withdraw` حمايتي `minAmountOut` و`deadline` لكل خطوة، وعلى المتكاملين تحديد طريقة تطبيق الحدود على المسار الكامل.
+
+تبقى رسوم الصندوق لدى الصندوق المعني لتحصيلها لاحقًا. ويكون أي رسم بروتوكول إضافيًا وينتقل مباشرة من ذلك الصندوق إلى مستلم البروتوكول المضبوط أثناء المبادلة.
+
+## المكونات الداخلية للصندوق
+
+<MermaidDiagram
+  scrollMessage="مرّر أفقيًا لعرض المخطط كاملًا."
+  errorMessage="تعذر عرض المخطط"
+  label="مكونات صندوق الالتزامات التابعة والصلاحيات الإدارية"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
+    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
+    Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
+    Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+
+    Wallet["User wallet"] -->|deposit or swap input| Pool
+    Pool -->|net swap output| Wallet
+    Pool -->|collected Pool fees| FeeAddress["Configured<br/>fee address"]
+    Pool -->|protocol fee in same swap| ProtocolRecipient["Protocol<br/>recipient"]
+    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+/>
+
+السجل ومحدد الحدود وعارض الأسعار وسياسة الرسوم ومتحكم رسوم البروتوكول مكونات اختيارية. ففي غياب السجل يمر أي رمز باختبار القبول، وفي غياب محدد الحدود لا يكون للإيداعات سقف، وفي غياب عارض الأسعار يستخدم الصندوق تكافؤ الوحدات الخام، وفي غياب وحدات الرسوم تكون الرسوم المقابلة صفرًا.
+
+الخانات الخمس القابلة للإغلاق هي `feePolicy` و`feeAddress` و`quoter` و`tokenRegistry` و`tokenLimiter`. ويمنع الإغلاق مالك الصندوق الحالي من استبدال ذلك العنوان عبر دالته الضابطة، لكنه لا يجمد الحالة الداخلية للمكوّن التابع. ولا يغطي الإغلاق عنوان `protocolFeeController` أو وضع `feesDecoupled`. كما أن قدرة مدير الوكيل على ترقية الصندوق منفصلة عن الإغلاق.
+
+يستطيع مالك العقد سحب سيولة الصندوق المتاحة إلى عنوان يختاره. وفي وضع فصل الرسوم، تُحجز الرسوم المتراكمة من هذا المسار؛ لكن تظل سلطة سحب بقية السيولة قائمة. وينبغي للمشاركين فحص المالك ومدير الوكيل والمتحكمين في المكونات التابعة وحالة الإغلاق ومستلمي الرسوم وقواعد الصندوق المنشورة قبل الاعتماد على صندوق.
+
+للاطلاع على التصميم المفاهيمي وراء هذه العقود، بما فيه التنسيق والتقييم ووضع الحدود والتبادل والحوكمة، راجع [الورقة البيضاء](/ar/white-paper).

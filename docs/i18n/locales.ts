@@ -19,7 +19,9 @@ export const LOCALE_OPTIONS = [
   { code: 'de', label: 'German', nativeLabel: 'Deutsch', direction: 'ltr', intlLocale: 'de' },
   { code: 'es', label: 'Spanish', nativeLabel: 'Español', direction: 'ltr', intlLocale: 'es' },
   { code: 'fr', label: 'French', nativeLabel: 'Français', direction: 'ltr', intlLocale: 'fr' },
+  { code: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी', direction: 'ltr', intlLocale: 'hi' },
   { code: 'it', label: 'Italian', nativeLabel: 'Italiano', direction: 'ltr', intlLocale: 'it' },
+  { code: 'nl', label: 'Dutch', nativeLabel: 'Nederlands', direction: 'ltr', intlLocale: 'nl' },
   {
     code: 'pt',
     label: 'Portuguese',
@@ -49,7 +51,7 @@ export type LocaleDirection = (typeof LOCALE_OPTIONS)[number]['direction']
 
 // Splash pages support every app language. Detailed documentation is released
 // one reviewed language at a time.
-export const DOCUMENTATION_LOCALES = [DEFAULT_LOCALE, 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr'] as const
+export const DOCUMENTATION_LOCALES = [DEFAULT_LOCALE, 'fr', 'es', 'pt', 'it', 'sw', 'de', 'uk', 'sr', 'ar'] as const
 export type DocumentationLocale = (typeof DOCUMENTATION_LOCALES)[number]
 
 export function hasLocalizedDocumentation(

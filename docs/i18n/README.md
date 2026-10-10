@@ -5,12 +5,14 @@ heading mappings, app-aligned glossary, and translation review manifest for the
 public documentation site. The synchronization baseline is `clc-app`
 `origin/develop` commit `32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1`.
 
-English is unprefixed. Arabic, Dzongkha, German, Spanish, French, Italian,
-Portuguese, Serbian, Kiswahili, and Ukrainian use their two-letter locale prefix.
-All eleven splash pages are available. Detailed documentation is released one
-reviewed language at a time. French, Spanish, Portuguese, Italian, Kiswahili,
-German, and Ukrainian have completed web review; Serbian is the current review draft. Stable English
-slugs are deliberately retained below each published locale prefix.
+English is unprefixed. Localized routes use their two-letter locale prefix. The
+original Arabic, Dzongkha, German, Spanish, French, Italian, Portuguese,
+Serbian, Kiswahili, and Ukrainian splash pages are available. Dutch and Hindi
+were added to the app later and are queued for both splash and documentation
+localization. Detailed documentation is released one reviewed language at a
+time. French, Spanish, Portuguese, Italian, Kiswahili, German, Ukrainian, and
+Serbian have completed web review; Arabic is the current review draft. Stable
+English slugs are deliberately retained below each published locale prefix.
 
 ## Files
 

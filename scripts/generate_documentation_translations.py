@@ -24,7 +24,7 @@ import sentencepiece as spm
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ROOT / "docs/pages"
 I18N = ROOT / "docs/i18n"
-LOCALES = ["ar", "de", "dz", "es", "fr", "it", "pt", "sr", "sw", "uk"]
+LOCALES = ["ar", "de", "dz", "es", "fr", "hi", "it", "nl", "pt", "sr", "sw", "uk"]
 LANGUAGE_CODES = {
     "en": "eng_Latn",
     "ar": "arb_Arab",
@@ -32,7 +32,9 @@ LANGUAGE_CODES = {
     "dz": "dzo_Tibt",
     "es": "spa_Latn",
     "fr": "fra_Latn",
+    "hi": "hin_Deva",
     "it": "ita_Latn",
+    "nl": "nld_Latn",
     "pt": "por_Latn",
     "sr": "srp_Cyrl",
     "sw": "swh_Latn",
@@ -40,10 +42,13 @@ LANGUAGE_CODES = {
 }
 APP_BASELINE = "32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1"
 TRANSLATION_DATES = {
+    "ar": "10 October 2026",
     "de": "10 October 2026",
     "fr": "9 October 2026",
+    "hi": "10 October 2026",
     "es": "9 October 2026",
     "it": "10 October 2026",
+    "nl": "10 October 2026",
     "pt": "10 October 2026",
     "sr": "10 October 2026",
     "sw": "10 October 2026",
@@ -69,6 +74,128 @@ UNCHANGED_NAMES = [
     "MiniSearch",
 ]
 MANUAL_TRANSLATIONS = {
+    "ar": {
+        "cosmolocal.credit": "cosmolocal.credit",
+        "Introduction": "مقدمة",
+        "Protocol": "البروتوكول",
+        "Governance": "الحوكمة",
+        "White Paper": "الورقة البيضاء",
+        "Getting started": "البدء",
+        "Concepts and vocabulary": "المفاهيم والمصطلحات",
+        "Example": "مثال",
+        "History": "التاريخ",
+        "Overview": "نظرة عامة",
+        "Smart contracts": "العقود الذكية",
+        "Network architecture": "بنية الشبكة",
+        "Governance mechanics": "آليات الحوكمة",
+        "Terms of Service": "شروط الخدمة",
+        "Executive summary": "الملخص التنفيذي",
+        "Commitment Pooling Protocol (CPP)": "بروتوكول تجميع الالتزامات (CPP)",
+        "The accounting shift": "التحول في المحاسبة",
+        "Fulfillment, discharge & exchange": "الوفاء والإبراء والتبادل",
+        "Reusable forward-style collateral": "ضمان مستقبلي قابل لإعادة الاستخدام",
+        "From isolated Pools to a federated network": "من صناديق منفصلة إلى شبكة اتحادية",
+        "Proposed network liquidity & governance": "السيولة والحوكمة المقترحتان للشبكة",
+        "Proposed governance assets": "أصول الحوكمة المقترحة",
+        "Technical scope & growth": "النطاق التقني والنمو",
+        "Proposed liquidity-program economics": "الاقتصاديات المقترحة لبرنامج السيولة",
+        "Comprehensive risk framework": "إطار شامل للمخاطر",
+        "Proposed liquidity-program term sheet": "ورقة الشروط المقترحة لبرنامج السيولة",
+        "Glossary": "مسرد المصطلحات",
+        "Proposed KPI specification": "المواصفات المقترحة لمؤشرات الأداء",
+        "Roadmap": "خارطة الطريق",
+        "Values & evaluation template": "القيم ونموذج التقييم",
+        "Legal & compliance note": "ملاحظة قانونية ومتعلقة بالامتثال",
+        "Conclusion": "الخلاصة",
+        "Math box": "الإطار الرياضي",
+        "Fee waterfall": "تسلسل توزيع الرسوم",
+        "KPI definitions": "تعريفات مؤشرات الأداء",
+        "Launch parameters": "معايير الإطلاق",
+        "Worked example": "مثال تطبيقي",
+        "Dataroom checklist": "قائمة التحقق لغرفة البيانات",
+        "1. Commitment Pooling Protocol (CPP)": "1. بروتوكول تجميع الالتزامات (CPP)",
+        "2. The accounting shift": "2. التحول في المحاسبة",
+        "3. Fulfillment, discharge & exchange": "3. الوفاء والإبراء والتبادل",
+        "4. Reusable forward-style collateral": "4. ضمان مستقبلي قابل لإعادة الاستخدام",
+        "5. From isolated Pools to a federated network": "5. من صناديق منفصلة إلى شبكة اتحادية",
+        "6. Proposed network liquidity & governance": "6. السيولة والحوكمة المقترحتان للشبكة",
+        "7. Proposed governance assets": "7. أصول الحوكمة المقترحة",
+        "8. Technical scope & growth": "8. النطاق التقني والنمو",
+        "9. Proposed liquidity-program economics": "9. الاقتصاديات المقترحة لبرنامج السيولة",
+        "10. Comprehensive risk framework": "10. إطار شامل للمخاطر",
+        "11. Governance mechanics": "11. آليات الحوكمة",
+        "12. Proposed liquidity-program term sheet": "12. ورقة الشروط المقترحة لبرنامج السيولة",
+        "13. Glossary": "13. مسرد المصطلحات",
+        "14. Proposed KPI specification": "14. المواصفات المقترحة لمؤشرات الأداء",
+        "15. Roadmap": "15. خارطة الطريق",
+        "16. Values & evaluation template": "16. القيم ونموذج التقييم",
+        "17. Legal & compliance note": "17. ملاحظة قانونية ومتعلقة بالامتثال",
+        "18. Conclusion": "18. الخلاصة",
+        "Appendix A. Math box": "الملحق أ. الإطار الرياضي",
+        "Appendix B. Fee waterfall": "الملحق ب. تسلسل توزيع الرسوم",
+        "Appendix C. KPI definitions": "الملحق ج. تعريفات مؤشرات الأداء",
+        "Appendix D. Launch parameters": "الملحق د. معايير الإطلاق",
+        "Appendix E. Worked example": "الملحق هـ. مثال تطبيقي",
+        "Appendix F. Dataroom checklist": "الملحق و. قائمة التحقق لغرفة البيانات",
+        "Issuer": "الجهة المصدرة",
+        "Holder": "الحامل",
+        "Steward": "مشرف الصندوق",
+        "Fulfillment": "الوفاء",
+        "Discharge": "الإبراء",
+        "Token": "الرمز الرقمي",
+        "Voucher": "قسيمة",
+        "Wallet": "المحفظة",
+        "“Redeem”": "«استرداد»",
+        "“Retire voucher”": "«سحب القسيمة من التداول»",
+        "“Credit limit”": "«حد الائتمان»",
+        "“Credit limits”": "«حدود الائتمان»",
+        "Search": "بحث",
+        "Close search dialog": "إغلاق نافذة البحث",
+        "Toggle detail view": "تبديل عرض التفاصيل",
+        "Reset search": "مسح البحث",
+        "Navigate": "تنقّل",
+        "Select": "اختيار",
+        "Close": "إغلاق",
+        "Reset": "إعادة ضبط",
+        "Menu": "القائمة",
+        "On this page": "في هذه الصفحة",
+        "Previous": "السابق",
+        "Next": "التالي",
+        "Copy": "نسخ",
+        "Copied": "تم النسخ",
+        "Skip to content": "الانتقال إلى المحتوى",
+        "Ask in ChatGPT": "اسأل في ChatGPT",
+        "Copy page for LLMs": "نسخ الصفحة لنماذج اللغة",
+        "Last updated:": "آخر تحديث:",
+        "Code group": "مجموعة الشيفرة",
+        "Terminal": "الطرفية",
+        "File": "ملف",
+        "No results for": "لا توجد نتائج لـ",
+        "Top": "أعلى الصفحة",
+        "Scroll to top": "التمرير إلى أعلى الصفحة",
+        "Page not found": "الصفحة غير موجودة",
+        "The page you were looking for could not be found.": "تعذر العثور على الصفحة التي تبحث عنها.",
+        "Go to home page": "الذهاب إلى الصفحة الرئيسية",
+        "Scroll horizontally to view the full diagram.": "مرّر أفقيًا لعرض المخطط كاملًا.",
+        "The diagram could not be rendered": "تعذر عرض المخطط",
+        "Convenience translation": "ترجمة للتيسير",
+        "This translation is provided for convenience. The English Terms are the source text and control unless applicable law requires otherwise.": (
+            "تُقدَّم هذه الترجمة للتيسير. النص الإنجليزي لشروط الخدمة هو النص "
+            "المصدر والمرجع الحاكم، ما لم يقتضِ القانون المعمول به خلاف ذلك."
+        ),
+        "Read the English Terms": "اقرأ شروط الخدمة بالإنجليزية",
+        "About this translation": "حول هذه الترجمة",
+        "This is a translation of White Paper v0.8. The English source was published on 30 September 2026. This translation was published on 8 October 2026. English is the source text.": (
+            "هذه مسودة أولى مترجمة من White Paper v0.8 للمراجعة. نُشر النص "
+            "الإنجليزي المصدر في 30 سبتمبر 2026، وأُعدت هذه الترجمة في "
+            "10 أكتوبر 2026. الإنجليزية هي لغة النص المصدر."
+        ),
+        "Read the English source": "اقرأ المصدر الإنجليزي",
+        "The superseded v0.7 PDF is available in English only.": "يتوفر ملف PDF للإصدار السابق v0.7 بالإنجليزية فقط.",
+        "Email: `info@grassecon.org`": "البريد الإلكتروني: `info@grassecon.org`",
+        "Version 0.7 PDF": "ملف PDF للإصدار 0.7",
+        "SDK requirements.": "متطلبات SDK.",
+    },
     "sr": {
         "cosmolocal.credit": "cosmolocal.credit",
         "Introduction": "Увод",
@@ -1144,6 +1271,33 @@ def restore_text(value: str, protected: list[Protected]) -> str:
 
 
 def normalize_translation(source: str, value: str, locale: str) -> str:
+    if locale == "ar":
+        value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "البروتوكول", value)
+        value = value.replace("Redeem”", "«استرداد»")
+        value = value.replace("Retire voucher”", "«سحب القسيمة من التداول»")
+        value = value.replace("Credit limit”", "«حد الائتمان»")
+        value = value.replace("Credit limits”", "«حدود الائتمان»")
+        value = value.replace("لا أعرف.", "")
+        value = value.replace("هذا كل شيء.", "")
+        value = re.sub(r"بركة السباحة|حمام السباحة", "الصندوق", value)
+        value = re.sub(r"\bPools\b", "الصناديق", value, flags=re.IGNORECASE)
+        value = re.sub(r"\bPool\b", "الصندوق", value, flags=re.IGNORECASE)
+        if re.search(r"\bissuer", source, flags=re.IGNORECASE):
+            value = value.replace("المُصدر", "الجهة المصدرة")
+            value = value.replace("المصدر", "الجهة المصدرة")
+        if re.search(r"\bholder", source, flags=re.IGNORECASE):
+            value = value.replace("صاحب الرمز", "حامل الرمز")
+            value = value.replace("صاحب القسيمة", "حامل القسيمة")
+        if re.search(r"\bdischarge", source, flags=re.IGNORECASE):
+            value = value.replace("التصريف", "الإبراء")
+            value = value.replace("الإفراج", "الإبراء")
+        if re.search(r"\bredemption", source, flags=re.IGNORECASE):
+            value = value.replace("الفداء", "الاسترداد")
+        if re.search(r"\boffering", source, flags=re.IGNORECASE):
+            value = value.replace("المردود", "العرض")
+            value = value.replace("العائد", "العرض")
+        return value
+
     if locale == "sr":
         value = re.sub(r"\bProtocol\b(?! v1\.1\.0)", "Протокол", value)
         value = value.replace("cosmolocal.кредит", "cosmolocal.credit")

@@ -1,4 +1,5 @@
 import en from './navigation/en.json'
+import ar from './navigation/ar.json'
 import de from './navigation/de.json'
 import es from './navigation/es.json'
 import fr from './navigation/fr.json'
@@ -17,7 +18,7 @@ import { localizedPath } from './routes'
 type NavigationMessages = typeof en
 
 export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
-  ar: en,
+  ar,
   de,
   dz: en,
   en,
