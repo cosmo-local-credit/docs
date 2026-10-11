@@ -19,6 +19,8 @@ import {
 } from '../i18n/routes'
 import { uiMessages } from '../i18n/ui'
 import { LocaleSelector } from './LocaleSelector'
+import { MobilePageOutline } from './MobilePageOutline'
+import { MobileSiteNavigation } from './MobileSiteNavigation'
 
 type Theme = 'light' | 'dark'
 type HeadingMap = Record<string, Partial<Record<SupportedLocale, string[]>>>
@@ -196,6 +198,7 @@ function localizeChrome(locale: SupportedLocale) {
 export function SiteControls({ initialPath }: { initialPath: string }) {
   const initialLocale = routeLocale(initialPath)
   const [locale, setLocale] = useState(initialLocale)
+  const [pathname, setPathname] = useState(initialPath)
   const [theme, setTheme] = useState<Theme>()
   const [desktopTarget, setDesktopTarget] = useState<Element | null>(null)
   const messages = uiMessages[locale]
@@ -235,6 +238,39 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
 
     setDesktopTarget(document.querySelector('.vocs_DesktopTopNav'))
   }, [])
+
+  useEffect(() => {
+    let frame: number | null = null
+    let currentPathname = window.location.pathname
+
+    const update = () => {
+      frame = null
+      const nextPathname = window.location.pathname
+      if (nextPathname === currentPathname) return
+      currentPathname = nextPathname
+      const nextLocale = routeLocale(nextPathname)
+      setPathname(nextPathname)
+      setLocale(nextLocale)
+      setDocumentLocale(nextLocale)
+    }
+    const scheduleUpdate = () => {
+      if (frame !== null) return
+      frame = window.requestAnimationFrame(update)
+    }
+    const observer = new MutationObserver(scheduleUpdate)
+    observer.observe(document.body, { childList: true, subtree: true })
+    window.addEventListener('popstate', scheduleUpdate)
+
+    if (currentPathname !== initialPath) {
+      setPathname(currentPathname)
+    }
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('popstate', scheduleUpdate)
+      if (frame !== null) window.cancelAnimationFrame(frame)
+    }
+  }, [initialPath])
 
   useEffect(() => {
     const preserveEnglishSource = (event: MouseEvent) => {
@@ -333,10 +369,6 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
     )
   }
 
-  function openMobileMenu() {
-    document.querySelector<HTMLButtonElement>('.vocs_MobileTopNav_menuTrigger')?.click()
-  }
-
   function openSearch() {
     document.querySelector<HTMLButtonElement>('.vocs_MobileSearch_searchButton')?.click()
   }
@@ -346,17 +378,11 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
       <div className={className}>
         {includeMobileActions ? (
           <div className="site-controls__mobile-actions">
-            <button
-              aria-label={messages.chrome.menu}
-              aria-haspopup="dialog"
-              className="site-controls__icon-button"
-              onClick={openMobileMenu}
-              type="button"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M4 7h16M4 12h16M4 17h16" />
-              </svg>
-            </button>
+            <MobileSiteNavigation
+              label={messages.chrome.menu}
+              locale={locale}
+              pathname={pathname}
+            />
             <button
               aria-label={messages.chrome.search}
               aria-haspopup="dialog"
@@ -412,6 +438,11 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
         ? createPortal(control('site-controls site-controls--desktop'), desktopTarget)
         : null}
       {control('site-controls site-controls--mobile', true)}
+      <MobilePageOutline
+        label={messages.chrome.onThisPage}
+        locale={locale}
+        pathname={pathname}
+      />
     </>
   )
 }
