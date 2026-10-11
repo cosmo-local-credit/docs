@@ -333,37 +333,74 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
     )
   }
 
-  function control(className: string) {
+  function openMobileMenu() {
+    document.querySelector<HTMLButtonElement>('.vocs_MobileTopNav_menuTrigger')?.click()
+  }
+
+  function openSearch() {
+    document.querySelector<HTMLButtonElement>('.vocs_MobileSearch_searchButton')?.click()
+  }
+
+  function control(className: string, includeMobileActions = false) {
     return (
       <div className={className}>
-        <LocaleSelector
-          label={messages.controls.language}
-          locale={locale}
-          onLocaleChange={selectLocale}
-        />
-        <div
-          aria-label={messages.controls.colorTheme}
-          className="landing-theme-control"
-          role="group"
-        >
-          <button
-            aria-label={messages.controls.lightMode}
-            aria-pressed={theme === 'light'}
-            className="landing-theme-control__button"
-            onClick={() => selectTheme('light')}
-            type="button"
+        {includeMobileActions ? (
+          <div className="site-controls__mobile-actions">
+            <button
+              aria-label={messages.chrome.menu}
+              aria-haspopup="dialog"
+              className="site-controls__icon-button"
+              onClick={openMobileMenu}
+              type="button"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+            <button
+              aria-label={messages.chrome.search}
+              aria-haspopup="dialog"
+              className="site-controls__icon-button"
+              onClick={openSearch}
+              type="button"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="6.5" />
+                <path d="m16 16 4 4" />
+              </svg>
+            </button>
+          </div>
+        ) : null}
+        <div className="site-controls__preferences">
+          <LocaleSelector
+            label={messages.controls.language}
+            locale={locale}
+            onLocaleChange={selectLocale}
+          />
+          <div
+            aria-label={messages.controls.colorTheme}
+            className="landing-theme-control"
+            role="group"
           >
-            <span aria-hidden="true">☀</span>
-          </button>
-          <button
-            aria-label={messages.controls.darkMode}
-            aria-pressed={theme === 'dark'}
-            className="landing-theme-control__button"
-            onClick={() => selectTheme('dark')}
-            type="button"
-          >
-            <span aria-hidden="true">☾</span>
-          </button>
+            <button
+              aria-label={messages.controls.lightMode}
+              aria-pressed={theme === 'light'}
+              className="landing-theme-control__button"
+              onClick={() => selectTheme('light')}
+              type="button"
+            >
+              <span aria-hidden="true">☀</span>
+            </button>
+            <button
+              aria-label={messages.controls.darkMode}
+              aria-pressed={theme === 'dark'}
+              className="landing-theme-control__button"
+              onClick={() => selectTheme('dark')}
+              type="button"
+            >
+              <span aria-hidden="true">☾</span>
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -374,7 +411,7 @@ export function SiteControls({ initialPath }: { initialPath: string }) {
       {desktopTarget
         ? createPortal(control('site-controls site-controls--desktop'), desktopTarget)
         : null}
-      {control('site-controls site-controls--mobile')}
+      {control('site-controls site-controls--mobile', true)}
     </>
   )
 }

@@ -286,7 +286,7 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
               src="/icons/CLC-logo.svg"
               width="128"
             />
-            <div>
+            <div className="about-overview__copy">
               <h1 id="overview-title">Cosmo-Local Credit</h1>
               <div className="about-overview__description">
                 {messages.overview.paragraphs.map((paragraph) => (
@@ -324,13 +324,6 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
               {...englishDocsLink}
             >
               {messages.overview.actions.protocol}
-            </a>
-            <a
-              className="about-button about-button--secondary about-overview__button"
-              href={docsPath('/white-paper')}
-              {...englishDocsLink}
-            >
-              {messages.overview.actions.whitePaper}
             </a>
           </nav>
 

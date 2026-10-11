@@ -102,7 +102,7 @@ export default defineConfig({
   title: 'Cosmo-Local Credit',
   description:
     'Documentation for the Cosmo-Local Credit progressive web app and protocol for redeemable commitments and curated Pools.',
-  iconUrl: '/icons/favicon.ico',
+  iconUrl: '/icons/favicon.svg',
   head: ({ path }) => {
     const locale = routeLocale(path)
     const sourcePath = englishPath(path)
@@ -124,6 +124,11 @@ export default defineConfig({
         type: 'image/png',
         sizes: '96x96',
         href: '/icons/favicon-96x96.png',
+      }),
+      createElement('link', {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/icons/favicon.ico',
       }),
       createElement('link', { rel: 'manifest', href: '/icons/site.webmanifest' }),
       isPublicRoute
