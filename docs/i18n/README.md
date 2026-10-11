@@ -3,21 +3,20 @@
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
 public documentation site. The `clc-app` `origin/develop` baseline is commit
-`0808066dae3c0063729b69085df85ba5ce12a90d`; Filipino is synchronized to the
-committed feature branch at `b4c4a496dc45232470d3874a3317912e86b466a8`.
+`facf5e034dc668c2e5ded90b9dd5995690f0fb63`, which includes the merged Filipino
+and Flemish catalogs.
 
-English is unprefixed. Localized routes use their two-letter locale prefix. The
+English is unprefixed. Localized routes use their registered locale prefix. The
 registry contains Arabic, Simplified Chinese, Traditional Chinese, German,
-Dzongkha, Spanish, French, Hindi, Italian, Dutch, Portuguese, Serbian,
-Kiswahili, Ukrainian, and Filipino. Detailed documentation is normally released one
-reviewed language at a time. French, Spanish, Portuguese, Italian, Kiswahili,
-German, Ukrainian, and Serbian have completed web review. Arabic, Dzongkha,
-Dutch, Hindi, Simplified Chinese, and Traditional Chinese are complete,
-validated web drafts awaiting the combined user review authorized for this
-batch. Filipino is a complete review draft based on the app's committed
-`origin/feat/filipino-language` branch; release waits for the app merge, docs
-review, and coordinated deployment. Stable English slugs are deliberately
-retained below each published locale prefix.
+Dzongkha, Spanish, French, Hindi, Italian, Dutch, Flemish, Portuguese, Serbian,
+Kiswahili, Ukrainian, and Filipino. Detailed documentation is normally
+released one reviewed language at a time. French, Spanish, Portuguese, Italian,
+Kiswahili, German, Ukrainian, and Serbian have completed web review. Arabic,
+Dzongkha, Dutch, Hindi, Simplified Chinese, Traditional Chinese, and Filipino
+are complete, validated web drafts with outstanding review checkpoints.
+Flemish is a complete first draft based on the merged app catalog and remains
+under review. Stable English slugs are deliberately retained below each
+published locale prefix.
 
 ## Files
 
@@ -128,9 +127,9 @@ retains a separate link to the controlling English source.
    RTL/LTR behavior, isolated search, metadata, sidebars, links, PDF glyphs, and
    mobile/desktop layouts before publishing that language.
 
-The app's committed `origin/feat/filipino-language` branch adds Filipino (`fil`)
-with `fil-PH` formatting and `tl` browser-language alias matching. The docs
-include a complete review draft and localized PDF synchronized to commit
-`b4c4a496dc45232470d3874a3317912e86b466a8`. Filipino is not yet part of app
-`origin/develop`, so production deep links must continue to use English until
-the app merge, docs review, and coordinated release gate are complete.
+The app's committed `origin/develop` registry includes Filipino (`fil`) with
+`fil-PH` formatting and `tl` browser-language alias matching, and Flemish
+(`nl-BE`) with `nl-BE` formatting. Belgian Dutch browser tags map to Flemish;
+generic Dutch and non-Belgian Dutch regions map to `nl`, while West Flemish
+`vls` is not treated as `nl-BE`. Documentation deep links become eligible only
+after the corresponding docs locale has been reviewed and deployed.

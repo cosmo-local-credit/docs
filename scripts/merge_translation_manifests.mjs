@@ -3,11 +3,11 @@ import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
-const locales = ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const locales = ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
 const digest = (value) => createHash('sha256').update(value).digest('hex')
 const directory = resolve(root, 'docs/i18n')
 const availableManifestFiles = readdirSync(directory)
-  .filter((name) => /^translation-manifest\.(?:all|group-[a-z]|ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)\.json$/.test(name))
+  .filter((name) => /^translation-manifest\.(?:all|group-[a-z]|ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|nl-BE|pt|sr|uk|sw)\.json$/.test(name))
   .sort()
 const manifestFiles = availableManifestFiles.includes('translation-manifest.all.json')
   ? ['translation-manifest.all.json']
@@ -18,17 +18,25 @@ const manifests = manifestFiles.map((name) =>
 const [reference] = manifests
 const merged = {
   sourceAppCommit: reference.sourceAppCommit,
-  translationPublicationDate: reference.translationPublicationDate,
-  reviewProcess: reference.reviewProcess,
+  localeMetadata: {},
   pages: {},
 }
 
 for (const manifest of manifests) {
-  if (
-    manifest.sourceAppCommit !== merged.sourceAppCommit ||
-    manifest.translationPublicationDate !== merged.translationPublicationDate
-  ) {
-    throw new Error('Translation manifests use different source baselines or publication dates')
+  if (manifest.sourceAppCommit !== merged.sourceAppCommit) {
+    throw new Error('Translation manifests use different source baselines')
+  }
+  const manifestLocales = new Set(
+    Object.values(manifest.pages).flatMap((page) => Object.keys(page.locales)),
+  )
+  if (manifestLocales.size !== 1) {
+    throw new Error('Each source manifest must contain exactly one locale')
+  }
+  const [manifestLocale] = manifestLocales
+  merged.localeMetadata[manifestLocale] = {
+    translationPublicationDate: manifest.translationPublicationDate,
+    reviewProcess: manifest.reviewProcess,
+    status: manifest.status,
   }
   for (const [route, page] of Object.entries(manifest.pages)) {
     const current = (merged.pages[route] ??= {

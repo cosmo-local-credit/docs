@@ -82,6 +82,10 @@ const localeBootstrap = `(() => {
         }
         continue;
       }
+      if (primary === 'nl') {
+        preferred = parts.slice(1, 3).includes('be') ? 'nl-BE' : 'nl';
+        break;
+      }
       if (primary === 'tl') { preferred = 'fil'; break; }
       if (supported.includes(primary)) { preferred = primary; break; }
     }

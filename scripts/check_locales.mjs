@@ -11,7 +11,7 @@ const publicPaper = join(root, 'docs/public/white-paper')
 // Snapshot of the clc-app registry at the synchronization baseline below.
 // Keeping it here makes CI independent of the sibling repository while still
 // failing if the docs registry omits a known app language.
-const appLocaleSnapshot = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const appLocaleSnapshot = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
 const locales = [...appLocaleSnapshot]
 const documentationLocales = [...appLocaleSnapshot]
 const localizedLocales = locales.filter((locale) => locale !== 'en')
@@ -29,11 +29,12 @@ const translationDates = {
   dz: '10 October 2026',
   hi: '10 October 2026',
   nl: '10 October 2026',
+  'nl-BE': '11 October 2026',
   zh: '10 October 2026',
   'zh-Hant': '10 October 2026',
 }
 const splashLocalizedLocales = locales.slice(1)
-const appBaseline = 'b4c4a496dc45232470d3874a3317912e86b466a8'
+const appBaseline = 'facf5e034dc668c2e5ded90b9dd5995690f0fb63'
 const protectedNames = [
   'Cosmo-Local Credit', 'CLC App', 'Sarafu Network', 'Grassroots Economics Foundation',
   'Protocol v1.1.0', 'White Paper v0.8', 'William O. Ruddick', 'Mohamed Sohail',

@@ -1,0 +1,516 @@
+{
+  "sourceAppCommit": "facf5e034dc668c2e5ded90b9dd5995690f0fb63",
+  "translationPublicationDate": "11 October 2026",
+  "status": "first-draft-review",
+  "reviewProcess": [
+    "semantic adaptation from the complete Dutch documentation draft",
+    "Flemish clarity and terminology pass using the committed clc-app nl-BE catalog",
+    "structural, protected-token, link, heading, search, and build verification"
+  ],
+  "pages": {
+    "/introduction/concepts": {
+      "source": "introduction/concepts.mdx",
+      "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",
+      "locales": {
+        "nl-BE": {
+          "sha256": "2c2913430e1c81c3b2c40f64aa580e7282adb8fd15d9f32e9e2f5641d40888d8",
+          "review": {
+            "units": 150,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/introduction/example": {
+      "source": "introduction/example.mdx",
+      "sourceSha256": "fdadea998896654637ce3dcafe25e2b52331e9761337420d1fc48ec6cc2f9b73",
+      "locales": {
+        "nl-BE": {
+          "sha256": "f4f25f1fd7dec5474d8f699a84fe103045df917dfe691e0d77630b448c0c9659",
+          "review": {
+            "units": 60,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/introduction/getting-started": {
+      "source": "introduction/getting-started.mdx",
+      "sourceSha256": "0994bc3095975e850382f00f7f1f2bbba3263a2ea12155596633fae0e58f3e13",
+      "locales": {
+        "nl-BE": {
+          "sha256": "a8a31d8fc1f7b2355919836a10b6981bef7743bf3a6eae865a67e4fa4d15ba6b",
+          "review": {
+            "units": 74,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/introduction/history": {
+      "source": "introduction/history.mdx",
+      "sourceSha256": "2ac38e29d8d93d2b10534d715d285105bfb96cdcbe4334f88668d3be3c8ec456",
+      "locales": {
+        "nl-BE": {
+          "sha256": "719ccee5e32ec644236e0a6c363fb0ea43b16ea0adb7cd7620b4c816c3ed52d7",
+          "review": {
+            "units": 37,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/protocol/network": {
+      "source": "protocol/network.mdx",
+      "sourceSha256": "b7a0b29963a5e0aa8d02a74659a66fc29883daf88311e98c40b85eadd424b768",
+      "locales": {
+        "nl-BE": {
+          "sha256": "685ba91f9d44b37c15b186640caaf8d2615d5285be110d477baa42fc1bea48d0",
+          "review": {
+            "units": 72,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/protocol/overview": {
+      "source": "protocol/overview.md",
+      "sourceSha256": "3d72a446f706e4f2fbaf7671ac6efbc178eaef1351c1199ba17e1e768eedcabd",
+      "locales": {
+        "nl-BE": {
+          "sha256": "575a50f22e733c789544ec8d59490ec9af8ea36830c2481f5ac3a00ef5de217b",
+          "review": {
+            "units": 41,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/protocol/smart-contracts": {
+      "source": "protocol/smart-contracts.md",
+      "sourceSha256": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+      "locales": {
+        "nl-BE": {
+          "sha256": "84aa2ac3fa2c76eacf10e8c5cf4a4dcf8e1e5fce0bfbc02b15334c8c6b687379",
+          "review": {
+            "units": 83,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/governance/mechanics": {
+      "source": "governance/mechanics.md",
+      "sourceSha256": "71bc7b63c36a963a64249f174ebeef2b7dcf01718ddc75dd11a33f0fea74fa0b",
+      "locales": {
+        "nl-BE": {
+          "sha256": "0279e77b3ed7851a8f0f53143aa6f529430e7b05b65cd8a8042844ed079b85a0",
+          "review": {
+            "units": 39,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/governance/terms": {
+      "source": "governance/terms.md",
+      "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
+      "locales": {
+        "nl-BE": {
+          "sha256": "88f9b1571ea9b54de4eeb261d5e821be8395ad9206b4b5264799adeb85d4b0e8",
+          "review": {
+            "units": 307,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-a-math-box": {
+      "source": "white-paper/appendix-a-math-box.md",
+      "sourceSha256": "68aaa14dee4d6ffe41c62a9e91038dcfa9b19466a9f91e81d09c515a989b22e1",
+      "locales": {
+        "nl-BE": {
+          "sha256": "9d294760c3f3a0064678bd8753407e3675ef873517d1daea59763d6c8b944b9b",
+          "review": {
+            "units": 35,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-b-fee-waterfall": {
+      "source": "white-paper/appendix-b-fee-waterfall.md",
+      "sourceSha256": "fa9a48e49a90c70f7f49e9281d023b4341786e42cb2af9d76405d261522682ab",
+      "locales": {
+        "nl-BE": {
+          "sha256": "5d02cc3b925a59920f064cb7d4e8437f99469dd10b3c5c31c794b5592c9d3874",
+          "review": {
+            "units": 20,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-c-kpi-definitions": {
+      "source": "white-paper/appendix-c-kpi-definitions.md",
+      "sourceSha256": "59d07455a39371abab65dba41b23f095cf9e8261dc22bb45ceeaf9a2fb0217e0",
+      "locales": {
+        "nl-BE": {
+          "sha256": "25d731adf24b37b5ba9e2b9fc27311e89cd66889298cd73dee5935647f1de7ff",
+          "review": {
+            "units": 62,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-d-launch-parameters": {
+      "source": "white-paper/appendix-d-launch-parameters.md",
+      "sourceSha256": "acaa9d25a8c839862ce294fadc6b5da5a9bedbf936b5e701807344ae073e2702",
+      "locales": {
+        "nl-BE": {
+          "sha256": "bd08cdd322f674ae0aa56e2346091e8b0c79cfc37e1c66a323407b0762864f87",
+          "review": {
+            "units": 37,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-e-worked-example": {
+      "source": "white-paper/appendix-e-worked-example.md",
+      "sourceSha256": "4e02677fe9440238090e987e50194bc8e40dce9d23d4a53b52b6264564457b20",
+      "locales": {
+        "nl-BE": {
+          "sha256": "8e0abb58a70ce6b255cf039e8d3287c0c040bfd3cb07c8e7f9989ff4ba6c92e1",
+          "review": {
+            "units": 21,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/appendix-f-dataroom-checklist": {
+      "source": "white-paper/appendix-f-dataroom-checklist.md",
+      "sourceSha256": "41266b0f7db652f9ae317f7e813b6c0807425257aa2fa35c219bf270278a1d5a",
+      "locales": {
+        "nl-BE": {
+          "sha256": "ac9091c492d46f5bdcc3e0315445cd030f3e6ea5bf84dec22d7e56cc3fa444a3",
+          "review": {
+            "units": 33,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/archive": {
+      "source": "white-paper/archive.md",
+      "sourceSha256": "09db774f7da51b4e506e56d3c4f3fa8d57f41a8464d04b747e9c3afab74563bd",
+      "locales": {
+        "nl-BE": {
+          "sha256": "c0265fd98da20e2c1745e0bf4ff64055e586869bd598cd3c41756546975b0e27",
+          "review": {
+            "units": 9,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
+      "source": "white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive.md",
+      "sourceSha256": "0e4b229ba74085a5b6d3e6c6eb0ff28ec915a149a5ff93f0c773c465fad117b2",
+      "locales": {
+        "nl-BE": {
+          "sha256": "38f078334f78490f17bc57926976aed1e008699a3be177232a4961311064c77f",
+          "review": {
+            "units": 51,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust": {
+      "source": "white-paper/chapter-02-the-accounting-shift-from-assets-to-trust.md",
+      "sourceSha256": "c871445b6898d231add895759a3cb0e44b48322bafceb00bff34cd31a6f7e0d1",
+      "locales": {
+        "nl-BE": {
+          "sha256": "07a07b3a48a02f08cee46d0af9a4a65494767636e0f1243f87e8724f1ee002c6",
+          "review": {
+            "units": 16,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care": {
+      "source": "white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care.md",
+      "sourceSha256": "58fdabb006332f145aac02bc8650b3ec918d15b86f7161fc5c1a3dda0e808ecf",
+      "locales": {
+        "nl-BE": {
+          "sha256": "ed8a001f4f5ced89fcb99e8db4dc53c6592ea0a9bc6f06d3f6cc9456b8bc87a1",
+          "review": {
+            "units": 17,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-04-reusable-forward-style-collateral": {
+      "source": "white-paper/chapter-04-reusable-forward-style-collateral.md",
+      "sourceSha256": "7c38d458f3959ccc1fa62383b4cfcc2b393acaf779e9324aa2c1a2452526762f",
+      "locales": {
+        "nl-BE": {
+          "sha256": "347fb52db0e15f505edf112998e20950c2f6a6c2cc3087336314cdf19ba0343f",
+          "review": {
+            "units": 24,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
+      "source": "white-paper/chapter-05-from-isolated-pools-to-a-federated-network.md",
+      "sourceSha256": "2aa539c5faaaee42f5f5e9e5aa3ee306137de2ea7bddcea116033da4d7fdba03",
+      "locales": {
+        "nl-BE": {
+          "sha256": "ea5bce40fde68279ad162352f5efe49f545c609126198080a8a13c5960feafc4",
+          "review": {
+            "units": 79,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
+      "source": "white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance.md",
+      "sourceSha256": "9409d6d33de56e1327ac7e7a031e9113c60b86677708fa767d9bc8ba274f0b5a",
+      "locales": {
+        "nl-BE": {
+          "sha256": "bab17a2e3ec825407a5faed69ddd19f9c4351010125cb778f3a5b2b2f27ee49f",
+          "review": {
+            "units": 14,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-07-clc-stewardship-and-the-clc-token": {
+      "source": "white-paper/chapter-07-clc-stewardship-and-the-clc-token.md",
+      "sourceSha256": "afa23f7d2400ac459ecceb8730be0db943a917362f9507f29c7bef4d86f0b98e",
+      "locales": {
+        "nl-BE": {
+          "sha256": "8f02f92cc13230351179b959d419d4e7443dab043f66aedcb25aca885706015a",
+          "review": {
+            "units": 119,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-08-technical-scope-growth": {
+      "source": "white-paper/chapter-08-technical-scope-growth.md",
+      "sourceSha256": "1fd06beb840c9478cd8f8f13424017e9376bfaead7e2e8b1218e210733c1e97c",
+      "locales": {
+        "nl-BE": {
+          "sha256": "ce39fc492fd204005fd0783f3a8b36dc84364d61848a7e7aba13b7931c070759",
+          "review": {
+            "units": 55,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-09-economics-for-lps": {
+      "source": "white-paper/chapter-09-economics-for-lps.md",
+      "sourceSha256": "f1ea77a9368d3173ae695b18d835732575902ef01824f6d9a6aefdc02a6548af",
+      "locales": {
+        "nl-BE": {
+          "sha256": "9a450b9378f880486a7ef177b2901f793c8cb9246d3420adfa9085ea08f1a6ba",
+          "review": {
+            "units": 27,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-10-comprehensive-risk-framework": {
+      "source": "white-paper/chapter-10-comprehensive-risk-framework.md",
+      "sourceSha256": "4f57b19c37b50133e0d264f6f69fbd7c0bb0d0b32f054c77873e0a32d48dab4f",
+      "locales": {
+        "nl-BE": {
+          "sha256": "388226679247e73a266c29fd1c412c4ed367773a9b20bead5fd1c9999339a955",
+          "review": {
+            "units": 122,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-11-governance-mechanics": {
+      "source": "white-paper/chapter-11-governance-mechanics.md",
+      "sourceSha256": "f87ef6a26094bb70583c5790eb92b71c4af3fe3a91bbad560d7042b2691fe186",
+      "locales": {
+        "nl-BE": {
+          "sha256": "0b03ec958f79b765d43d2cc79f5f8101b7e9bd854fba9a0b5d8df7be8e367d3d",
+          "review": {
+            "units": 130,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-12-lp-term-sheet-non-binding-outline": {
+      "source": "white-paper/chapter-12-lp-term-sheet-non-binding-outline.md",
+      "sourceSha256": "81aee555189a51b1f491830ce251e85467eac9cc9522cbbd08ec4d54d3a787df",
+      "locales": {
+        "nl-BE": {
+          "sha256": "51796501edb754cc58887e8ab11d0f666f8beb149618c5f85487ca6b42a540b4",
+          "review": {
+            "units": 19,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-13-jargon-plain-language-glossary": {
+      "source": "white-paper/chapter-13-jargon-plain-language-glossary.md",
+      "sourceSha256": "e2493eaf44740497efa7e8ba72f298059328dbe7009d8191f1ab95619cb723ea",
+      "locales": {
+        "nl-BE": {
+          "sha256": "8b7bb427d4d6b38d0af0e4789b36eec8c6dd237cfbf6d50b10eab1168e980ca5",
+          "review": {
+            "units": 48,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-14-kpis-health-indicators": {
+      "source": "white-paper/chapter-14-kpis-health-indicators.md",
+      "sourceSha256": "a596d4aa3b3065a7722e09a78caa2cb2c6d394cfe66918106ee95eca17986f20",
+      "locales": {
+        "nl-BE": {
+          "sha256": "ce08dbde8a87ea0a4d60234bcec63e989417f4eade3b265927a93a2bb73fca4e",
+          "review": {
+            "units": 23,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-15-roadmap-indicative": {
+      "source": "white-paper/chapter-15-roadmap-indicative.md",
+      "sourceSha256": "ed23216a7d040415f9e3300ce56f27c0ddd34adef4fd805f5723f23d20b10ce2",
+      "locales": {
+        "nl-BE": {
+          "sha256": "e18d56a7752df6afd26592f4acdeaa47d41a285087d6c1eb9ae067a5a294ab3f",
+          "review": {
+            "units": 16,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates": {
+      "source": "white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates.md",
+      "sourceSha256": "b1871b0243b1ca167d2ac0a3d48f0da744d2870b2127acfac921a458a5070715",
+      "locales": {
+        "nl-BE": {
+          "sha256": "ff918385795b21d400979363c5996b8ba75a380b88987900586972f57b9953c1",
+          "review": {
+            "units": 15,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-17-legal-compliance-note": {
+      "source": "white-paper/chapter-17-legal-compliance-note.md",
+      "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
+      "locales": {
+        "nl-BE": {
+          "sha256": "b6b0e46478c28d6ca6d0c8f0be1f9f045aca344a909ab7113fdf0912dfb29a3f",
+          "review": {
+            "units": 46,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/chapter-18-conclusion": {
+      "source": "white-paper/chapter-18-conclusion.md",
+      "sourceSha256": "aef3272b5bcd43b58fc0a4222167366fc66766fcabba97bd5e9d909955587558",
+      "locales": {
+        "nl-BE": {
+          "sha256": "642d1a381f56244ee09cdc9f8c278c63406e66d49a558f3ff9dffb9a76a1e050",
+          "review": {
+            "units": 3,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper/executive-summary": {
+      "source": "white-paper/executive-summary.md",
+      "sourceSha256": "0bfd50439332f9b8fea7865944d61d7e4ca4f009acbc92edc017df0111b7ec57",
+      "locales": {
+        "nl-BE": {
+          "sha256": "70b803b2d33dc38494cbea00843c794eadf5583d6fa84a64a87c5122cd183e95",
+          "review": {
+            "units": 35,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    },
+    "/white-paper": {
+      "source": "white-paper/index.mdx",
+      "sourceSha256": "784327ca9c7cb86015d46a953b9233a0d215648f51110e14f1de6b5eb43f7c34",
+      "locales": {
+        "nl-BE": {
+          "sha256": "b9518461f9d39662b6a89c25987cc8a90d5ca28c37f23d37219c5419139cc5f0",
+          "review": {
+            "units": 115,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        }
+      }
+    }
+  }
+}

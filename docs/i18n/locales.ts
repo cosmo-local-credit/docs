@@ -44,6 +44,13 @@ export const LOCALE_OPTIONS = [
   { code: 'it', label: 'Italian', nativeLabel: 'Italiano', direction: 'ltr', intlLocale: 'it' },
   { code: 'nl', label: 'Dutch', nativeLabel: 'Nederlands', direction: 'ltr', intlLocale: 'nl' },
   {
+    code: 'nl-BE',
+    label: 'Flemish',
+    nativeLabel: 'Vlaams',
+    direction: 'ltr',
+    intlLocale: 'nl-BE',
+  },
+  {
     code: 'pt',
     label: 'Portuguese',
     nativeLabel: 'Português',
@@ -108,6 +115,7 @@ export function matchSupportedLocale(preferred: readonly string[]): SupportedLoc
       continue
     }
     const primary = parts[0]
+    if (primary === 'nl') return parts.slice(1, 3).includes('be') ? 'nl-BE' : 'nl'
     if (primary === 'tl') return 'fil'
     if (isSupportedLocale(primary)) return primary
   }

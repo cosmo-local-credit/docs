@@ -14,7 +14,7 @@ PAGES_ROOT = ROOT / "docs" / "pages"
 PAGES = PAGES_ROOT / "white-paper"
 OUT_DIR = ROOT / "white-paper"
 OUT_TEX = OUT_DIR / "clc_white_paper.tex"
-LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "pt", "sr", "uk", "sw"]
+LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
 POLYGLOSSIA_LANGUAGES = {
     "ar": "arabic",
     "de": "german",
@@ -25,6 +25,7 @@ POLYGLOSSIA_LANGUAGES = {
     "hi": "hindi",
     "it": "italian",
     "nl": "dutch",
+    "nl-BE": "dutch",
     "pt": "portuguese",
     "sr": "serbian",
     "sw": "english",
@@ -43,6 +44,7 @@ TRANSLATION_DATES = {
     "hi": "10 October 2026",
     "it": "10 October 2026",
     "nl": "10 October 2026",
+    "nl-BE": "11 October 2026",
     "pt": "10 October 2026",
     "sr": "10 October 2026",
     "sw": "10 October 2026",

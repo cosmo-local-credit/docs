@@ -12,10 +12,10 @@ const dist = join(root, 'docs/dist')
 const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const siteUrl = 'https://docs.cosmolocal.credit'
-const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
 const documentationLocales = [...locales]
 const localized = new Set(locales.filter((locale) => locale !== 'en'))
-const directions = { en: 'ltr', ar: 'rtl', zh: 'ltr', 'zh-Hant': 'ltr', dz: 'ltr', de: 'ltr', es: 'ltr', fil: 'ltr', fr: 'ltr', hi: 'ltr', it: 'ltr', nl: 'ltr', pt: 'ltr', sr: 'ltr', uk: 'ltr', sw: 'ltr' }
+const directions = { en: 'ltr', ar: 'rtl', zh: 'ltr', 'zh-Hant': 'ltr', dz: 'ltr', de: 'ltr', es: 'ltr', fil: 'ltr', fr: 'ltr', hi: 'ltr', it: 'ltr', nl: 'ltr', 'nl-BE': 'ltr', pt: 'ltr', sr: 'ltr', uk: 'ltr', sw: 'ltr' }
 const documentationPaths = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
   '/protocol/overview', '/protocol/smart-contracts', '/protocol/network',
@@ -139,6 +139,11 @@ function validateLocaleBootstrap() {
     { languages: ['zh-Hant-CN'], expected: '/zh-Hant/' },
     { languages: ['zh-CN'], expected: '/zh/' },
     { languages: ['tl-PH'], expected: '/fil/' },
+    { languages: ['nl-BE'], expected: '/nl-BE/' },
+    { languages: ['nl_BE'], expected: '/nl-BE/' },
+    { languages: ['nl-Latn-BE'], expected: '/nl-BE/' },
+    { languages: ['nl-NL'], expected: '/nl/' },
+    { languages: ['vls', 'fr-BE'], expected: '/fr/' },
     { languages: ['sw-KE'], expected: '/sw/' },
     { languages: ['ja-JP', 'zh-HK'], expected: '/zh-Hant/' },
     { languages: ['ja-JP'], expected: null },
@@ -191,13 +196,13 @@ function buildSearchIndexes() {
     const prefix = locale === 'en' ? null : `/${locale}/`
     const selected = records
       .filter(({ href }) => {
-        const isLocalized = /^\/(?:ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
+        const isLocalized = /^\/(?:ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|nl-BE|pt|sr|uk|sw)(?:\/|#)/.test(href)
         return prefix ? href.startsWith(prefix) : !isLocalized
       })
       .map(({ id, href, html, isPage, text, title, titles }) => ({ id, href, html, isPage, text, title, titles }))
     if (!selected.length) throw new Error(`Search index for ${locale} is empty`)
     if (selected.some(({ href }) => locale === 'en'
-      ? /^\/(?:ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)(?:\/|#)/.test(href)
+      ? /^\/(?:ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|nl-BE|pt|sr|uk|sw)(?:\/|#)/.test(href)
       : !href.startsWith(`/${locale}/`))) {
       throw new Error(`Search index for ${locale} contains another locale`)
     }
@@ -209,7 +214,7 @@ function buildSearchIndexes() {
     writeFileSync(join(searchDir, `search-index-${locale}.json`), JSON.stringify(index.toJSON()))
   }
 
-  if (!/^search-index-(?:en|ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|pt|sr|uk|sw)\.json$/.test(sourceName)) {
+  if (!/^search-index-(?:en|ar|zh|zh-Hant|dz|de|es|fil|fr|hi|it|nl|nl-BE|pt|sr|uk|sw)\.json$/.test(sourceName)) {
     rmSync(sourceFile)
   }
 }

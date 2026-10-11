@@ -15,7 +15,7 @@ TEX_DIR = ROOT / "white-paper"
 PUBLIC_DIR = ROOT / "docs/public/white-paper"
 BUILD_ROOT = TEX_DIR / "build"
 TEX_CACHE = BUILD_ROOT / ".texlive-cache"
-LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "pt", "sr", "uk", "sw"]
+LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
 SOURCE_DATE_EPOCHS = {
     "en": "1790743564",
     "es": "1791547200",
@@ -24,6 +24,7 @@ SOURCE_DATE_EPOCHS = {
         locale: "1791633600"
         for locale in {"ar", "zh", "zh-Hant", "dz", "de", "fil", "hi", "it", "nl", "pt", "sr", "uk", "sw"}
     },
+    "nl-BE": "1791720000",
 }
 
 

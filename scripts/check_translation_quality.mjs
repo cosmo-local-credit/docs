@@ -6,7 +6,7 @@ import { extname, join, relative, resolve } from 'node:path'
 const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
 const requested = process.argv.slice(2)
-const locales = requested.length ? requested : ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'pt', 'sr', 'uk', 'sw']
+const locales = requested.length ? requested : ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
 const errors = []
 
 function filesBelow(directory) {
@@ -59,10 +59,10 @@ function inspect(locale, path) {
     }
     if (/ཆུ་རྫིང/u.test(value)) errors.push(`${display}: contains the literal swimming-pool translation`)
   }
-  if (locale === 'nl' && /\bzwemb(?:ad|aden)\p{L}*/iu.test(value)) {
+  if ((locale === 'nl' || locale === 'nl-BE') && /\bzwemb(?:ad|aden)\p{L}*/iu.test(value)) {
     errors.push(`${display}: contains the literal swimming-pool translation`)
   }
-  if (locale === 'nl' && /\b(?:de commissie|europese unie|raad van ministers|verordening \((?:eg|eeg)\))/iu.test(value)) {
+  if ((locale === 'nl' || locale === 'nl-BE') && /\b(?:de commissie|europese unie|raad van ministers|verordening \((?:eg|eeg)\))/iu.test(value)) {
     errors.push(`${display}: contains an unrelated institutional translation hallucination`)
   }
   if (locale === 'hi') {

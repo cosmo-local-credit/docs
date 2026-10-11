@@ -120,6 +120,16 @@
       "5-gebruik-de-juiste-handeling",
       "huidige-implementatieafhankelijke-en-voorgestelde-mogelijkheden"
     ],
+    "nl-BE": [
+      "aan-de-slag",
+      "begin-met-de-huidige-app",
+      "1-bekijk-de-markt",
+      "2-maak-of-open-een-account-en-portefeuille",
+      "3-maak-een-waardebon",
+      "4-maak-of-beoordeel-een-commitmentfonds",
+      "5-gebruik-de-juiste-handeling",
+      "huidige-implementatieafhankelijke-en-voorgestelde-mogelijkheden"
+    ],
     "pt": [
       "começar",
       "começar-a-utilizar-a-aplicação-atual",
@@ -273,6 +283,16 @@
       "parole-che-indicano-lo-stato"
     ],
     "nl": [
+      "begrippen-en-woordenschat",
+      "product--en-protocollagen",
+      "tokens-waardebonnen-en-aanbiedingen",
+      "verantwoordelijke-rollen-en-technische-zeggenschap",
+      "handelingen-en-levenscyclus",
+      "markt-waarden-limieten-en-kosten",
+      "bescherming-en-bewijs",
+      "statuswoorden"
+    ],
+    "nl-BE": [
       "begrippen-en-woordenschat",
       "product--en-protocollagen",
       "tokens-waardebonnen-en-aanbiedingen",
@@ -456,6 +476,17 @@
       "verantwoordelijkheden-in-één-oogopslag",
       "toekomstige-kredietregelingen"
     ],
+    "nl-BE": [
+      "praktisch-voorbeeld-van-een-waardebon",
+      "1-een-uitgever-publiceert-een-toezegging",
+      "2-een-fondsbeheerder-laat-de-waardebon-toe",
+      "3-een-deelnemer-draagt-voorraad-bij",
+      "4-een-houder-voert-een-fondsswap-uit",
+      "5-de-houder-biedt-de-waardebon-aan",
+      "6-de-uitgever-registreert-nakoming-en-afboeking",
+      "verantwoordelijkheden-in-één-oogopslag",
+      "toekomstige-kredietregelingen"
+    ],
     "pt": [
       "exemplo-prático-de-vale",
       "1-um-emissor-publica-um-compromisso",
@@ -562,6 +593,11 @@
       "van-het-historische-sarafu-network-naar-cosmo-local-credit",
       "verder-leren-met-grassroots-economics"
     ],
+    "nl-BE": [
+      "geschiedenis",
+      "van-het-historische-sarafu-network-naar-cosmo-local-credit",
+      "verder-leren-met-grassroots-economics"
+    ],
     "pt": [
       "história",
       "do-histórico-sarafu-network-para-cosmo-local-credit",
@@ -640,6 +676,11 @@
       "mappa-dei-componenti"
     ],
     "nl": [
+      "protocol",
+      "implementatiepatroon",
+      "overzicht-van-componenten"
+    ],
+    "nl-BE": [
       "protocol",
       "implementatiepatroon",
       "overzicht-van-componenten"
@@ -810,6 +851,18 @@
       "belastingbeleid-en-limieten",
       "controleur-van-de-protocollen"
     ],
+    "nl-BE": [
+      "smart-contracts",
+      "waardebon-giftabletoken",
+      "commitmentfonds-swappool",
+      "samenstelling-en-optionele-afhankelijkheden",
+      "swapafwikkeling",
+      "additieve-kostenberekening",
+      "bevoegdheden-van-eigenaar-en-proxybeheerder",
+      "waarderingsmodules",
+      "kostenbeleid-en-limieten",
+      "beheerder-van-protocolvergoedingen"
+    ],
     "pt": [
       "contratos-inteligentes",
       "vale-giftabletoken",
@@ -920,6 +973,11 @@
       "voorwaarden-en-uitvoering-van-de-kandidaten",
       "poolinterieur"
     ],
+    "nl-BE": [
+      "protocolnetwerkarchitectuur",
+      "mogelijke-routes-en-uitvoering",
+      "interne-werking-van-een-fonds"
+    ],
     "pt": [
       "arquitetura-de-rede-de-protocolo",
       "rotas-candidatas-e-execução",
@@ -1025,6 +1083,13 @@
       "verantwoordelijke-governance-structuren",
       "opties-voor-technisch-bestuur",
       "interface-actie-en-staat-op-de-keten"
+    ],
+    "nl-BE": [
+      "governancemechanismen",
+      "verantwoordelijkheid-per-rol",
+      "verantwoordelijke-governancestructuren",
+      "technische-governanceopties",
+      "interfacehandeling-en-toestand-op-de-blockchain"
     ],
     "pt": [
       "mecanismos-de-governação",
@@ -1416,6 +1481,36 @@
       "25-algemene-voorwaarden",
       "26-contacten"
     ],
+    "nl-BE": [
+      "gebruiksvoorwaarden-van-cosmo-local-credit",
+      "belangrijke-mededelingen",
+      "1-definities",
+      "2-acceptatie-en-toepassingsgebied",
+      "3-bevoegdheid-en-bevoegdheid",
+      "4-rekeningen-portefeuilles-en-beveiliging",
+      "5-de-rol-en-beperkingen-van-gef",
+      "6-uw-wettelijke-en-regelgevende-verantwoordelijkheid",
+      "7-tokens-en-waardebonnen-in-het-algemeen",
+      "8-het-maken-of-uitgeven-van-een-token-of-waardebon",
+      "9-verlossing-nakoming-en-ontslag",
+      "10-het-creëren-en-bedienen-van-een-fonds",
+      "11-gebruik-of-bijdrage-aan-een-fonds",
+      "12-swap-offertes-vergoedingen-en-routing",
+      "13-toekomstige-krediet--of-leningsproducten",
+      "14-vergoedingen-belastingen-en-betalingsdiensten-van-derden",
+      "15-verboden-gedrag",
+      "16-inhoud-en-openbare-vermeldingen",
+      "17-gegevens-en-elektronische-gegevens",
+      "18-servicewijzigingen-opschorting-en-beëindiging",
+      "19-risicos-geen-professioneel-advies",
+      "20-garanties-en-disclaims",
+      "21-beperking-van-de-aansprakelijkheid",
+      "22-vergoeding",
+      "23-tegoedslagen",
+      "24-wijzigingen-van-deze-voorwaarden",
+      "25-algemene-voorwaarden",
+      "26-contacten"
+    ],
     "pt": [
       "termos-de-serviço-da-cosmo-local-credit",
       "avisos-importantes",
@@ -1706,6 +1801,20 @@
       "breder-voorgesteld-ontwerp",
       "leeswijzer"
     ],
+    "nl-BE": [
+      "cosmo-local-credit-clc",
+      "een-netwerk-voor-het-routeren-van-krediet-het-coördineren-van-toezeggingen-en-het-financieren-van-een-gezonde-kosmo-lokale-economie",
+      "hoe-je-deze-white-paper-leest",
+      "samenvatting",
+      "huidige-implementatie",
+      "historische-oorsprong",
+      "ontwerpmodel",
+      "waarden-en-ontwerpprincipes",
+      "huidige-en-voorgestelde-processen",
+      "huidig-rechtstreeks-fondsproces",
+      "breder-voorgesteld-ontwerp",
+      "leeswijzer"
+    ],
     "pt": [
       "cosmo-local-credit-clc",
       "uma-rede-de-encaminhamento-de-crédito-coordenação-de-compromissos-e-financiamento-de-uma-economia-cosmo-local-saudável",
@@ -1798,6 +1907,9 @@
       "sintesi"
     ],
     "nl": [
+      "uitvoerende-samenvatting"
+    ],
+    "nl-BE": [
       "uitvoerende-samenvatting"
     ],
     "pt": [
@@ -1898,6 +2010,13 @@
       "13-logiek-van-de-huidige-directe-swap",
       "14-breder-gebruik"
     ],
+    "nl-BE": [
+      "1-protocol-voor-het-bundelen-van-verbintenissen-cpp-de-primitieve-kern",
+      "11-wat-is-een-verbintenis",
+      "12-wat-is-een-commitmentfonds",
+      "13-logiek-van-de-huidige-directe-swap",
+      "14-breder-gebruik"
+    ],
     "pt": [
       "1-protocolo-de-partilha-de-compromissos-cpp-o-núcleo-primitivo",
       "11-o-que-é-um-compromisso",
@@ -1964,6 +2083,9 @@
     "nl": [
       "2-de-boekhoudverschuiving-van-activa-naar-vertrouwen"
     ],
+    "nl-BE": [
+      "2-de-boekhoudverschuiving-van-activa-naar-vertrouwen"
+    ],
     "pt": [
       "2-a-mudança-da-contabilidade-dos-ativos-à-confiança"
     ],
@@ -2012,6 +2134,9 @@
       "3-attività-di-adempimento-estinzione-e-scambio"
     ],
     "nl": [
+      "3-nakoming-afboeking-en-uitwisselingsactiviteit"
+    ],
+    "nl-BE": [
       "3-nakoming-afboeking-en-uitwisselingsactiviteit"
     ],
     "pt": [
@@ -2073,6 +2198,10 @@
       "41-ciclo-di-credito-del-produttore"
     ],
     "nl": [
+      "4-herbruikbare-forward-style-zekerheden",
+      "41-producentenkredietloop"
+    ],
+    "nl-BE": [
       "4-herbruikbare-forward-style-zekerheden",
       "41-producentenkredietloop"
     ],
@@ -2202,6 +2331,15 @@
       "531-in-aanmerking-komende-ontvangsten-in-contanten-en-in-natura",
       "54-voorgestelde-liquiditeitsprogrammas"
     ],
+    "nl-BE": [
+      "5-van-geïsoleerde-fondsen-tot-een-federaal-netwerk",
+      "51-afzonderlijke-uitwisselings--en-vervullingsmaatregelen",
+      "52-voorgestelde-routing--en-rebalanceringsdiensten",
+      "521-confederatie-en-interoperabiliteit",
+      "53-voorstel-voor-een-model-van-netwerkrak-en-dienstverlening",
+      "531-in-aanmerking-komende-ontvangsten-in-contanten-en-in-natura",
+      "54-voorgestelde-liquiditeitsprogrammas"
+    ],
     "pt": [
       "5-de-fundos-isolados-a-uma-rede-federada",
       "51-medidas-separadas-de-intercâmbio-e-de-cumprimento",
@@ -2285,6 +2423,10 @@
       "61-controlli-verso-il-basso-e-opzionalità"
     ],
     "nl": [
+      "6-voorgestelde-liquiditeit-en-governance-op-netwerkniveau",
+      "61-downside-controles-en-optionaliteit"
+    ],
+    "nl-BE": [
       "6-voorgestelde-liquiditeit-en-governance-op-netwerkniveau",
       "61-downside-controles-en-optionaliteit"
     ],
@@ -2462,6 +2604,19 @@
       "733-portfolio-fondsen-en-attestaties",
       "74-voorgestelde-waterval-en-begrotingen"
     ],
+    "nl-BE": [
+      "7-voorgestelde-beheer--en-governance-activa-clc",
+      "71-doel",
+      "72-voorgestelde-governance-actiefmodel",
+      "721-illustratie-van-het-aanbod-en-de-toewijzing",
+      "722-beschikbaarheid-en-toewijzingsfasen",
+      "723-voorgestelde-programma-voor-impactseeding",
+      "73-voorgestelde-stemming-prikkels-en-toegang-tot-tarieven",
+      "731-handhaving-van-de-kosten-en-profielkeuze",
+      "732-sclc-begroting-en-optionele-externe-vlootcontroles",
+      "733-portfolio-fondsen-en-attestaties",
+      "74-voorgestelde-waterval-en-begrotingen"
+    ],
     "pt": [
       "7-propostos-activos-de-gestão-e-governação-clc",
       "71-propósito",
@@ -2588,6 +2743,12 @@
       "811-minimaal-vereenvoudigingscompatibiliteitsspecificatie",
       "82-vergunning-verificatie-en-exit"
     ],
+    "nl-BE": [
+      "8-technische-reikwijdte-en-groei",
+      "81-voorgestelde-routenservice--en-sdk-normen",
+      "811-minimaal-vereenvoudigingscompatibiliteitsspecificatie",
+      "82-vergunning-verificatie-en-exit"
+    ],
     "pt": [
       "8-ámbito-de-aplicação-técnico-e-crescimento",
       "81-normas-propostas-de-serviço-de-rota-e-sdk",
@@ -2681,6 +2842,12 @@
       "93-diritti-del-programma-di-liquidità"
     ],
     "nl": [
+      "9-voorgestelde-economie-voor-liquiditeitsprogrammas",
+      "91-voorgestelde-inkomstenbronnen",
+      "92-illustratieve-rake-wiskunde",
+      "93-liquiditeitsprogrammarechten"
+    ],
+    "nl-BE": [
       "9-voorgestelde-economie-voor-liquiditeitsprogrammas",
       "91-voorgestelde-inkomstenbronnen",
       "92-illustratieve-rake-wiskunde",
@@ -2880,6 +3047,20 @@
       "109-reputatie-en-sociaal-risico",
       "1010-risico-van-concentratie-en-fragmentatie"
     ],
+    "nl-BE": [
+      "10-uitgebreid-risico-kader",
+      "101-protocol--en-smartcontractrisico",
+      "102-economisch-en-marktrisico",
+      "103-risico-van-uitgever-en-waardebon",
+      "104-risico-van-terugbetaling-en-nakoming",
+      "105-governance-risico",
+      "106-juridisch-en-conformiteitsrisico",
+      "1061-juridische-positionering-en-behandeling-van-de-voorgestelde-tokens",
+      "107-routing--en-cross-domainrisico",
+      "108-risico-van-bewaring-en-sleutelbeheer",
+      "109-reputatie-en-sociaal-risico",
+      "1010-risico-van-concentratie-en-fragmentatie"
+    ],
     "pt": [
       "10-quadro-abrangente-de-riscos",
       "101-protocolo-e-risco-de-contratos-inteligentes",
@@ -3034,6 +3215,14 @@
       "114-beveiliging-tegen-vangst",
       "115-procedure-voor-vork-en-uitgang"
     ],
+    "nl-BE": [
+      "11-bestuurmechanismen",
+      "111-beurs--en-limietbeheersing",
+      "112-aanbevolen-verzekeringsfonds-runbook",
+      "113-garantie-kader",
+      "114-beveiliging-tegen-vangst",
+      "115-procedure-voor-vork-en-uitgang"
+    ],
     "pt": [
       "11-mecanismos-de-governação",
       "111-governação-das-taxas-de-câmbio-e-dos-limites",
@@ -3104,6 +3293,9 @@
     "nl": [
       "12-voorgestelde-liquiditeitsprogramma-term-sheet-niet-bindend-schema"
     ],
+    "nl-BE": [
+      "12-voorgestelde-liquiditeitsprogramma-term-sheet-niet-bindend-schema"
+    ],
     "pt": [
       "12-plano-de-prazo-do-programa-de-liquidez-proposto-contacto-não-vinculativo"
     ],
@@ -3154,6 +3346,9 @@
     "nl": [
       "13-glossair-in-eenvoudige-taal"
     ],
+    "nl-BE": [
+      "13-glossair-in-eenvoudige-taal"
+    ],
     "pt": [
       "13-glossário-de-linguagem-simples"
     ],
@@ -3202,6 +3397,9 @@
       "14-i-kpi-e-gli-indicatori-di-salute-proposti"
     ],
     "nl": [
+      "14-voorgestelde-kpis-en-gezondheidsindicatoren"
+    ],
+    "nl-BE": [
       "14-voorgestelde-kpis-en-gezondheidsindicatoren"
     ],
     "pt": [
@@ -3278,6 +3476,11 @@
       "151-tegenwoordige-basis",
       "152-voorgestelde-mijlpalen"
     ],
+    "nl-BE": [
+      "15-routekaart-indicatief",
+      "151-tegenwoordige-basis",
+      "152-voorgestelde-mijlpalen"
+    ],
     "pt": [
       "15-mapa-de-estrada-indicativo",
       "151-fundamento-atual",
@@ -3334,6 +3537,9 @@
       "16-modello-di-valutazione-proposto"
     ],
     "nl": [
+      "16-voorgestelde-evaluatiemontaal"
+    ],
+    "nl-BE": [
       "16-voorgestelde-evaluatiemontaal"
     ],
     "pt": [
@@ -3434,6 +3640,13 @@
       "173-acties-en-verplichtingen",
       "174-bescherming-bewijsmateriaal-en-lokaal-recht"
     ],
+    "nl-BE": [
+      "17-juridische-en-nalevingsbrief",
+      "171-informatie-over-vouchers-en-aanbiedingen",
+      "172-openbaarmaking-van-de-fondsen",
+      "173-acties-en-verplichtingen",
+      "174-bescherming-bewijsmateriaal-en-lokaal-recht"
+    ],
     "pt": [
       "17-nota-legal-e-de-conformidade",
       "171-divulgação-dos-vales-e-das-ofertas",
@@ -3498,6 +3711,9 @@
       "18-conclusione"
     ],
     "nl": [
+      "18-conclusies"
+    ],
+    "nl-BE": [
       "18-conclusies"
     ],
     "pt": [
@@ -3598,6 +3814,13 @@
       "verschillende-snelheidsmetingen",
       "voorgestelde-inkomsten-uit-het-netwerk"
     ],
+    "nl-BE": [
+      "a-voorgestelde-meet--en-vergoedingsmodel",
+      "de-definities-van-gebeurtenis-en-voorraad",
+      "cohortgebaseerde-vervullingsmaatregelen",
+      "verschillende-snelheidsmetingen",
+      "voorgestelde-inkomsten-uit-het-netwerk"
+    ],
     "pt": [
       "a-a-modelo-de-medição-e-taxa-proposto",
       "definições-de-evento-e-estoque",
@@ -3664,6 +3887,9 @@
     "nl": [
       "b-illustratieve-waterval-voor-toekomstige-vergoedingen"
     ],
+    "nl-BE": [
+      "b-illustratieve-waterval-voor-toekomstige-vergoedingen"
+    ],
     "pt": [
       "b-cascata-ilustrativa-de-taxas-futuras"
     ],
@@ -3712,6 +3938,9 @@
       "c-proposte-definizioni-di-kpi"
     ],
     "nl": [
+      "c-voorgestelde-definities-kpi"
+    ],
+    "nl-BE": [
       "c-voorgestelde-definities-kpi"
     ],
     "pt": [
@@ -3764,6 +3993,9 @@
     "nl": [
       "d-voorgestelde-startparameters"
     ],
+    "nl-BE": [
+      "d-voorgestelde-startparameters"
+    ],
     "pt": [
       "d-parâmetros-de-lançamento-propostos"
     ],
@@ -3814,6 +4046,9 @@
     "nl": [
       "e-bewerkte-voorbeeld--voorgestelde-netwerkrak"
     ],
+    "nl-BE": [
+      "e-bewerkte-voorbeeld--voorgestelde-netwerkrak"
+    ],
     "pt": [
       "e-exemplo-de-trabalho--comissão-de-rede-proposto"
     ],
@@ -3862,6 +4097,9 @@
       "f-lista-di-controllo-delle-stanze-dati"
     ],
     "nl": [
+      "f-dataroom-controlelijst"
+    ],
+    "nl-BE": [
       "f-dataroom-controlelijst"
     ],
     "pt": [
@@ -3923,6 +4161,10 @@
       "versione-superficiale"
     ],
     "nl": [
+      "white-paper-archief",
+      "vervangen-versie"
+    ],
+    "nl-BE": [
       "white-paper-archief",
       "vervangen-versie"
     ],

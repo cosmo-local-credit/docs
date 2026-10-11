@@ -8,6 +8,7 @@ import fr from './messages/fr.json'
 import hi from './messages/hi.json'
 import it from './messages/it.json'
 import nl from './messages/nl.json'
+import nlBE from './messages/nl-BE.json'
 import pt from './messages/pt.json'
 import sr from './messages/sr.json'
 import sw from './messages/sw.json'
@@ -31,6 +32,7 @@ export const splashMessages = {
   hi,
   it,
   nl,
+  'nl-BE': nlBE,
   pt,
   sr,
   sw,

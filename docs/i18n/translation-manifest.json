@@ -1,22 +1,282 @@
 {
-  "sourceAppCommit": "32265981e7e2f7fcca9c0bb53b7aad8a1559f7f1",
-  "translationPublicationDate": "8 October 2026",
-  "reviewProcess": [
-    "semantic NLLB translation with protected technical tokens",
-    "clarity normalization with complete-line context and the clc-app glossary",
-    "unit-by-unit automated back-translation and structural verification"
-  ],
+  "sourceAppCommit": "facf5e034dc668c2e5ded90b9dd5995690f0fb63",
+  "localeMetadata": {
+    "ar": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "de": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "dz": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "es": {
+      "translationPublicationDate": "9 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "fil": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "fr": {
+      "translationPublicationDate": "9 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "hi": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "it": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "nl-BE": {
+      "translationPublicationDate": "11 October 2026",
+      "reviewProcess": [
+        "semantic adaptation from the complete Dutch documentation draft",
+        "Flemish clarity and terminology pass using the committed clc-app nl-BE catalog",
+        "structural, protected-token, link, heading, search, and build verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "nl": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "pt": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "sr": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "sw": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "uk": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "zh-Hant": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    },
+    "zh": {
+      "translationPublicationDate": "10 October 2026",
+      "reviewProcess": [
+        "semantic NLLB translation with protected technical tokens",
+        "clarity normalization with complete-line context and the clc-app glossary",
+        "unit-by-unit automated back-translation and structural verification"
+      ],
+      "status": "first-draft-review"
+    }
+  },
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
       "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",
       "locales": {
-        "fr": {
-          "sha256": "ea212887b9152f12e303968fb47be35a3d1a0a1bfcca15d254e00169642faa11",
+        "ar": {
+          "sha256": "64ee29bfa57a0c4c8a63d909311411abfcf2f3f1fe71cec885db95bcb6477c69",
           "review": {
-            "units": 112,
-            "meanBackTranslationSimilarity": 0.7349,
-            "unitsBelow0_35": 8
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6037,
+            "unitsBelow0_35": 25
+          }
+        },
+        "de": {
+          "sha256": "9dfaad3dd2e994ab55ad5af897f3e07988821412b6b2e3c9a00f61d24695c083",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6574,
+            "unitsBelow0_35": 26
+          }
+        },
+        "dz": {
+          "sha256": "81c5a200a581d2ce4c352f874cfb56504527cc77f2cb33efdf3a893eb9d0fcc1",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.4879,
+            "unitsBelow0_35": 48
+          }
+        },
+        "es": {
+          "sha256": "ecd8a72c6db21e6308171399c1efd9025ff81823b4a7ad059e8273dd77d96224",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6698,
+            "unitsBelow0_35": 24
+          }
+        },
+        "fil": {
+          "sha256": "f1bdf93f1dbf0252068f1d549eb279bc55c007fd6375cea1afc6910e6762c77d",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.7234,
+            "unitsBelow0_35": 20
+          }
+        },
+        "fr": {
+          "sha256": "ddac812ea427b1c6e349a916da9afab24d9011c376a4e0a0d37e215c06a51ddd",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.674,
+            "unitsBelow0_35": 21
+          }
+        },
+        "hi": {
+          "sha256": "9e8c5fae1daaf805e123a0ea2657880d2a58e06bc9d2e2a05e1a82cd10f03bb1",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.7893,
+            "unitsBelow0_35": 10
+          }
+        },
+        "it": {
+          "sha256": "3c79fcfa1ba3d17fc3e3d9e4a668211d3be61be378a55fe52c161e6cc0032aab",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6492,
+            "unitsBelow0_35": 29
+          }
+        },
+        "nl-BE": {
+          "sha256": "2c2913430e1c81c3b2c40f64aa580e7282adb8fd15d9f32e9e2f5641d40888d8",
+          "review": {
+            "units": 150,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "ad1884905c48c3d47f9e78aeea58a7d25b054b831cd937e2076bc245edad51a2",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6675,
+            "unitsBelow0_35": 24
+          }
+        },
+        "pt": {
+          "sha256": "a1608a7e8090b73da70cf3df5fc54c0f707b6ffaa8e7d81c3fcb1ae21ab42863",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6548,
+            "unitsBelow0_35": 24
+          }
+        },
+        "sr": {
+          "sha256": "8e8e0503b5534885e8258e078afade13972e2a75adf635dc459232cad6c7233a",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6316,
+            "unitsBelow0_35": 23
+          }
+        },
+        "sw": {
+          "sha256": "70877f89173974e067bfebf94302df47be368e3ebf1ae0bbd4479cf99b532dd3",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.58,
+            "unitsBelow0_35": 28
+          }
+        },
+        "uk": {
+          "sha256": "f23e854f5425062fa992de9f76bf9dd0d5d993d40166b4fdc472d9dc79cc0442",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6413,
+            "unitsBelow0_35": 21
+          }
+        },
+        "zh-Hant": {
+          "sha256": "c8652b6a45462e562f80d7171e51c66d0c0c9bf5d04b8283ca4cc8fc5bf15e56",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6165,
+            "unitsBelow0_35": 23
+          }
+        },
+        "zh": {
+          "sha256": "40750e84abbebe10c9b011aaebfe4dc5ba2490793b11d4255dceb6d4a803b8a9",
+          "review": {
+            "units": 150,
+            "meanBackTranslationSimilarity": 0.6165,
+            "unitsBelow0_35": 23
           }
         }
       }
@@ -25,12 +285,132 @@
       "source": "introduction/example.mdx",
       "sourceSha256": "fdadea998896654637ce3dcafe25e2b52331e9761337420d1fc48ec6cc2f9b73",
       "locales": {
-        "fr": {
-          "sha256": "ed980b04c43d57a3dd517c8a19a6901f43f38fddce5aecb37571ce6ecd2d438e",
+        "ar": {
+          "sha256": "4efab674ba894d6444784db2a594ebf383a751ddf80bd9123e5d44f8988cc494",
           "review": {
-            "units": 50,
-            "meanBackTranslationSimilarity": 0.6933,
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.6114,
+            "unitsBelow0_35": 9
+          }
+        },
+        "de": {
+          "sha256": "2cc6695e9e96f47f649ce426f1abd0dcb9ee693041f9b214ca1b0cd9b40d6772",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.6356,
+            "unitsBelow0_35": 9
+          }
+        },
+        "dz": {
+          "sha256": "2bb6e78128e13faa0cf85d40e8d4165c516d01d586029c276540b8d7a74a846c",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.483,
+            "unitsBelow0_35": 12
+          }
+        },
+        "es": {
+          "sha256": "0f495a4645cd56b626b725298726aebe37920c78d51fe82cb40547d7c92d93f3",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.6906,
+            "unitsBelow0_35": 4
+          }
+        },
+        "fil": {
+          "sha256": "d929c7a028c11cec042ea6e801214549b943af28315fd54fb0a38ec6a561c913",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.7224,
+            "unitsBelow0_35": 4
+          }
+        },
+        "fr": {
+          "sha256": "b01575ac7c26cc6ff1d867d377661ec748830478c0de15422c35b0c4934fe976",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.7031,
+            "unitsBelow0_35": 4
+          }
+        },
+        "hi": {
+          "sha256": "ae77a05670ad658ebd842d0ce39cb405083dbbc08dfa54d94d5f4934a4c1a51d",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.7763,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "16882fb715f8b39c6534a34663a73341a6433116b45a0bc818e80a14d6d501f9",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.6751,
+            "unitsBelow0_35": 5
+          }
+        },
+        "nl-BE": {
+          "sha256": "f4f25f1fd7dec5474d8f699a84fe103045df917dfe691e0d77630b448c0c9659",
+          "review": {
+            "units": 60,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "0b6dec3e7e48cb54745d4ef2cf7117bc2faed7c90b685b10725e825b053a2152",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.6841,
+            "unitsBelow0_35": 4
+          }
+        },
+        "pt": {
+          "sha256": "d992055406fd226ea057c893e29b3bf783d3ff62394a011a5daa1000fe683181",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.673,
+            "unitsBelow0_35": 7
+          }
+        },
+        "sr": {
+          "sha256": "08fbe2974f3573cb0d67c1ca8843d4dfc930376331dea9f8cd38b35fa4896d6a",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.5904,
+            "unitsBelow0_35": 9
+          }
+        },
+        "sw": {
+          "sha256": "094893a17ce45415b9d5d20b0b0e2ac4d3b9ade380c8d1b06e73a34092ab4ece",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.5829,
+            "unitsBelow0_35": 9
+          }
+        },
+        "uk": {
+          "sha256": "16fae3e7db0e1adcedb0079388a0086e765f1f8e99234819566c9c09e11fd412",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.6351,
             "unitsBelow0_35": 6
+          }
+        },
+        "zh-Hant": {
+          "sha256": "1adf88126b9e9ed739a638546033b9d4cfbf8ad6db8e369d54bd66b1f860cc9d",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.5994,
+            "unitsBelow0_35": 12
+          }
+        },
+        "zh": {
+          "sha256": "19d39456fff92eb1d2ee976556c61137783aefebfea4683cadc094d77548ecce",
+          "review": {
+            "units": 60,
+            "meanBackTranslationSimilarity": 0.5994,
+            "unitsBelow0_35": 12
           }
         }
       }
@@ -39,12 +419,132 @@
       "source": "introduction/getting-started.mdx",
       "sourceSha256": "0994bc3095975e850382f00f7f1f2bbba3263a2ea12155596633fae0e58f3e13",
       "locales": {
-        "fr": {
-          "sha256": "eac00f9770c6179094e6e52c4b0d80b12fadd1132b13ff4b03f3eccfc1b95b83",
+        "ar": {
+          "sha256": "70c264ebac7b30f8ebaabcc6c8c1022b4a9ea27eeae4299bddf512e1894b7c09",
           "review": {
-            "units": 53,
-            "meanBackTranslationSimilarity": 0.6573,
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5889,
+            "unitsBelow0_35": 13
+          }
+        },
+        "de": {
+          "sha256": "e69987d1f6de1d7dbc59e76ae7bb10a77ad9ea5a5cfc5475366e826c03ef72c2",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6715,
+            "unitsBelow0_35": 8
+          }
+        },
+        "dz": {
+          "sha256": "e06741a4bb156bb031a16d9d2ebd36c50e91d296053300682f070c7db28de38d",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.4786,
+            "unitsBelow0_35": 25
+          }
+        },
+        "es": {
+          "sha256": "cdab9cfd6de445d13f35cd5edf2362bf83fb13cf584fc735ee0657cf35792ef7",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6648,
+            "unitsBelow0_35": 10
+          }
+        },
+        "fil": {
+          "sha256": "2a732bb16879ea93c857ad96e9c185d0ebe32088f56937f4a38f6ca32f9af062",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.721,
             "unitsBelow0_35": 6
+          }
+        },
+        "fr": {
+          "sha256": "1928dca02e7460cc6076a730e7a9c94ca19e9dabd81b112126ef73fa3113e386",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6607,
+            "unitsBelow0_35": 8
+          }
+        },
+        "hi": {
+          "sha256": "bd0ddf7bed9161c41be5993ba840d2dbe49164edee6fe3ceb84967beeee06e1d",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.7538,
+            "unitsBelow0_35": 7
+          }
+        },
+        "it": {
+          "sha256": "a2f28d260a847e4ddc85261f3eeefb0a3c9f298c4acc11a411ef13a6f85ea2d1",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6438,
+            "unitsBelow0_35": 14
+          }
+        },
+        "nl-BE": {
+          "sha256": "a8a31d8fc1f7b2355919836a10b6981bef7743bf3a6eae865a67e4fa4d15ba6b",
+          "review": {
+            "units": 74,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "47e10674788fac8c517af65f74590943a7417a3a576c578b36c1e193b20daad5",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6676,
+            "unitsBelow0_35": 9
+          }
+        },
+        "pt": {
+          "sha256": "4e0bc97e8ebe897857c80d54df3715beb375b91a5810fea5548c615a2dbfdddd",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.674,
+            "unitsBelow0_35": 9
+          }
+        },
+        "sr": {
+          "sha256": "b6a35b5c5c81e9823fe1194a1d477c89018f7de98123dae7430013d9da4e81ad",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5711,
+            "unitsBelow0_35": 16
+          }
+        },
+        "sw": {
+          "sha256": "ce8cf5b3366ea5843b507a7c5a4b339ea2e998eea74f3c1f26641d580463dca2",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5512,
+            "unitsBelow0_35": 16
+          }
+        },
+        "uk": {
+          "sha256": "0991b3c210404e9bf61cc968056649e424ce0eb4cb3968c546e4b825d5897f2f",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.6117,
+            "unitsBelow0_35": 11
+          }
+        },
+        "zh-Hant": {
+          "sha256": "92c0e4b18ef0068a71cc1eaec69b9c0036b1f8eeb5a17d864a0771c7837171f3",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5757,
+            "unitsBelow0_35": 15
+          }
+        },
+        "zh": {
+          "sha256": "626c210151aede83d51b23e3c3096671e0e636213496f81273428e9b8bcdb966",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5757,
+            "unitsBelow0_35": 15
           }
         }
       }
@@ -53,12 +553,132 @@
       "source": "introduction/history.mdx",
       "sourceSha256": "2ac38e29d8d93d2b10534d715d285105bfb96cdcbe4334f88668d3be3c8ec456",
       "locales": {
-        "fr": {
-          "sha256": "29c85fffc605668f1a9c4768e830317254db39dc89399dc2ae9acdc764848a72",
+        "ar": {
+          "sha256": "3c8d074fc9e6597507be2a6376a5faae5a9c1bd6622ff7721548fa55bdc26567",
           "review": {
-            "units": 21,
-            "meanBackTranslationSimilarity": 0.711,
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7091,
+            "unitsBelow0_35": 5
+          }
+        },
+        "de": {
+          "sha256": "b056f3865351cbd01992ea48f8ae126d9247d6acd1ca07ea9bc60b3ebfef0c1e",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7094,
+            "unitsBelow0_35": 4
+          }
+        },
+        "dz": {
+          "sha256": "26aae6bd2c4f06c286753c0bc145202dbf587098433c53966ac7767f65ae23b0",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.5415,
+            "unitsBelow0_35": 8
+          }
+        },
+        "es": {
+          "sha256": "45c474e89154742e5094745ebbc658ec53d0d0cf0a6dcf0d9fbc57986efb915c",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7886,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fil": {
+          "sha256": "ccf13a74a8e7d8f6b766a7d73ea71c7ecafd28dff68f356715f0080e2ddb7a9b",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7627,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fr": {
+          "sha256": "7a405538aa09bcae75354f6b9f2a4399e76681d1fdf4d0a1a8db5c24b475685f",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7391,
+            "unitsBelow0_35": 4
+          }
+        },
+        "hi": {
+          "sha256": "a3e57b2dcc2e067ac03e9496ff7e46009a80592744477619dcd793a663058998",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7878,
             "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "640db78969fd51dedf138d66879b2177b277417346a0cd87286153161d6291ff",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7443,
+            "unitsBelow0_35": 4
+          }
+        },
+        "nl-BE": {
+          "sha256": "719ccee5e32ec644236e0a6c363fb0ea43b16ea0adb7cd7620b4c816c3ed52d7",
+          "review": {
+            "units": 37,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8ee7babc217e348c196ea9ec63309f0b0a376fb49f5fb9ac596b21e8d4f3704a",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7243,
+            "unitsBelow0_35": 7
+          }
+        },
+        "pt": {
+          "sha256": "6d6b5ca4af3aecae2c7d80a4be244c1d09605f70f37beb6d74fc3747cd974150",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7136,
+            "unitsBelow0_35": 7
+          }
+        },
+        "sr": {
+          "sha256": "198e3b4834e4915ff3d53c8be5fcdc03bd72d050a7b1d69ecb90e1f3e42c1aba",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6459,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sw": {
+          "sha256": "b7f48347c4ae52a9f8db7d63ec2ad1c0a0f44d5b64bcf272e14253bdcbe2224e",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7012,
+            "unitsBelow0_35": 4
+          }
+        },
+        "uk": {
+          "sha256": "4aac00996cb8693db95cd8f1551c09706b1e6c39929dab143918020a8d83ce0c",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7024,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh-Hant": {
+          "sha256": "71231eacc3880a22e9bc090c6ce10657edbc2431b54e20152867675c13ea09ff",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6643,
+            "unitsBelow0_35": 4
+          }
+        },
+        "zh": {
+          "sha256": "c6611dc105baab100089983ffe5d2e5e90bfb71f460c9a5c9080b8767601c261",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6643,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -67,12 +687,132 @@
       "source": "protocol/network.mdx",
       "sourceSha256": "b7a0b29963a5e0aa8d02a74659a66fc29883daf88311e98c40b85eadd424b768",
       "locales": {
-        "fr": {
-          "sha256": "029d9d7e472eb70ff1d5695601efe4339671878b2ac62367589ae68be78b8bc3",
+        "ar": {
+          "sha256": "d3aa65fa9cbe53dcedab3c9ea99bc95699ed68136a774b86c3c079fb9352333f",
           "review": {
-            "units": 66,
-            "meanBackTranslationSimilarity": 0.7035,
-            "unitsBelow0_35": 5
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.5454,
+            "unitsBelow0_35": 14
+          }
+        },
+        "de": {
+          "sha256": "ee12ede9df7304e72c6cbb24dd5a670865d8f9f6315da19447b85dcfbe2d562f",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.603,
+            "unitsBelow0_35": 23
+          }
+        },
+        "dz": {
+          "sha256": "b0cd3093b171b3ce5d7fca055af44e0c632c1e3011852584c7a0efcbb4e614bc",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.4874,
+            "unitsBelow0_35": 20
+          }
+        },
+        "es": {
+          "sha256": "80272532fb875a9aecea62a5dc30b25c1b219734a0a11892dbfe50923439802c",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5967,
+            "unitsBelow0_35": 17
+          }
+        },
+        "fil": {
+          "sha256": "b42c2743a1c5391098bd460746cc54f7cd0997d97c1597b13a4f271f021ef0fa",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.7636,
+            "unitsBelow0_35": 6
+          }
+        },
+        "fr": {
+          "sha256": "ff5ca931adcc3ab211ab517fb0d0f73e6d68d63ebb73e46dd943973a33d2129d",
+          "review": {
+            "units": 74,
+            "meanBackTranslationSimilarity": 0.5995,
+            "unitsBelow0_35": 13
+          }
+        },
+        "hi": {
+          "sha256": "e73a1efa674286dd80b6d08f63c6497164f601faa1bc30121dd5a798a9ae03b2",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.7789,
+            "unitsBelow0_35": 6
+          }
+        },
+        "it": {
+          "sha256": "fe5c0e6db683e10d9d0fca3d04cb5cc95578d7a8994b7e3214a1a7d715d6bd26",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.5855,
+            "unitsBelow0_35": 18
+          }
+        },
+        "nl-BE": {
+          "sha256": "685ba91f9d44b37c15b186640caaf8d2615d5285be110d477baa42fc1bea48d0",
+          "review": {
+            "units": 72,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "58f90c4f5aa862065979a5c3e2574fae2b1112078d3f0a772d4497e9b328cf4c",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.6009,
+            "unitsBelow0_35": 23
+          }
+        },
+        "pt": {
+          "sha256": "1f2458cddbecc837dfa971e2dfa4290117bef39d3948c899a5dd3556951c3da2",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.5996,
+            "unitsBelow0_35": 19
+          }
+        },
+        "sr": {
+          "sha256": "a4c1665ea4bb941e97f7aea3e7ec26d36601a9838f86f3cee61c76792c15ee78",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.559,
+            "unitsBelow0_35": 20
+          }
+        },
+        "sw": {
+          "sha256": "e7af12656c895eb23d42c5529df50df66de03c78ee1bbfd4b3f6d8b41bf3cafb",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.598,
+            "unitsBelow0_35": 16
+          }
+        },
+        "uk": {
+          "sha256": "0459e2496f0c71ca58cfc7ff3c396839b83468903f1b04ecc0d52d7b60d370fb",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.6001,
+            "unitsBelow0_35": 15
+          }
+        },
+        "zh-Hant": {
+          "sha256": "56c252288b20a2f2feb7595ba52518e98349abfdca68d2aec8ab2e7ba07fcbe9",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.6314,
+            "unitsBelow0_35": 15
+          }
+        },
+        "zh": {
+          "sha256": "6303252a4f8cd61d85c6e2bcbe98cfe7418a813eb23b149e3352399a808332f4",
+          "review": {
+            "units": 72,
+            "meanBackTranslationSimilarity": 0.6314,
+            "unitsBelow0_35": 15
           }
         }
       }
@@ -81,12 +821,132 @@
       "source": "protocol/overview.md",
       "sourceSha256": "3d72a446f706e4f2fbaf7671ac6efbc178eaef1351c1199ba17e1e768eedcabd",
       "locales": {
-        "fr": {
-          "sha256": "af01481f0dc56cc2a888007568d95fb6031e0b9f872ca81fbdeec297709a53e6",
+        "ar": {
+          "sha256": "f0621bc89d3206825125b75579e915db5361a25f09b0ec2721704d1c278e1b3d",
           "review": {
-            "units": 27,
-            "meanBackTranslationSimilarity": 0.6953,
-            "unitsBelow0_35": 3
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.5745,
+            "unitsBelow0_35": 9
+          }
+        },
+        "de": {
+          "sha256": "4575a6c5ed9c6c5cb0c32055c8d99f11177c4f932d7e9aec35562062eed939de",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6981,
+            "unitsBelow0_35": 8
+          }
+        },
+        "dz": {
+          "sha256": "4639ce455ebddadb9497278c160e64c97f043f8f4d86c43070c82ba64189f243",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.5671,
+            "unitsBelow0_35": 11
+          }
+        },
+        "es": {
+          "sha256": "6dd147dd487720e3b2b3ee27ef46cf33b414ee96d2f0d6c089b801ae68c57788",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6053,
+            "unitsBelow0_35": 12
+          }
+        },
+        "fil": {
+          "sha256": "6359ff0b1bffde7b733484ca2da35f7ab53ff640c16e2c0ad8d1a179a7a15be1",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.7621,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fr": {
+          "sha256": "549d4c33d80e642f96cc5e1a414b6625282b639f50b196b7a6a4c5657ca7edbc",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6626,
+            "unitsBelow0_35": 8
+          }
+        },
+        "hi": {
+          "sha256": "b09d1894ad996df65e8b8d298909fa505c1245f174d20a71b4be9625156adfc1",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.7567,
+            "unitsBelow0_35": 6
+          }
+        },
+        "it": {
+          "sha256": "07aed4c4cf8749f63877aa9f537476a4af7a48d17b5eb6bc15c546b216ace5be",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.5482,
+            "unitsBelow0_35": 16
+          }
+        },
+        "nl-BE": {
+          "sha256": "575a50f22e733c789544ec8d59490ec9af8ea36830c2481f5ac3a00ef5de217b",
+          "review": {
+            "units": 41,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "5c8024064100036715f24fdd24910a5b0a70c0ab08ed13e34066b1884efbdfcc",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.5506,
+            "unitsBelow0_35": 15
+          }
+        },
+        "pt": {
+          "sha256": "65f8747dcac13e6dee2319208e8bb60a9ddf6fc6532a9a6b4971499524f78b8b",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6039,
+            "unitsBelow0_35": 12
+          }
+        },
+        "sr": {
+          "sha256": "568efb8bfa87d4cb14b290e2bf53fd1440ce0cd9a78533519a224995d3fa020c",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.5517,
+            "unitsBelow0_35": 13
+          }
+        },
+        "sw": {
+          "sha256": "756ef63d4d3ab0d6c2ae568bbfc3efe94f4e22dbf75994b09b21d890748786da",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6477,
+            "unitsBelow0_35": 9
+          }
+        },
+        "uk": {
+          "sha256": "4fa23dea4ba4f2ae09fbdfef5d36013ac4e4e623e95c81d03c554ecbefaed4aa",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6069,
+            "unitsBelow0_35": 9
+          }
+        },
+        "zh-Hant": {
+          "sha256": "8cf134b543281258c0d5dad5fd872ef0b96933c8412dcffa9e7939ff3e1f304f",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6061,
+            "unitsBelow0_35": 8
+          }
+        },
+        "zh": {
+          "sha256": "f00e06701ce9149ca349b4d5cc97b96d12fdb110db5e4be61a47c3847715e001",
+          "review": {
+            "units": 41,
+            "meanBackTranslationSimilarity": 0.6061,
+            "unitsBelow0_35": 8
           }
         }
       }
@@ -95,12 +955,132 @@
       "source": "protocol/smart-contracts.md",
       "sourceSha256": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
       "locales": {
-        "fr": {
-          "sha256": "7c19442c1726ae898fec49ad433a5b1fe1f0f3c34d97c01350901dd8a1ae9343",
+        "ar": {
+          "sha256": "52fcd2b20d6462bd18b5523fc523904b858443fcca86c42f305a9d98021e064b",
           "review": {
-            "units": 75,
-            "meanBackTranslationSimilarity": 0.6744,
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5161,
+            "unitsBelow0_35": 21
+          }
+        },
+        "de": {
+          "sha256": "55f9e1c7f0f533356aa6f3ab3babaa68e04dc288f66a12c594903cd802a17bd5",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.6207,
+            "unitsBelow0_35": 19
+          }
+        },
+        "dz": {
+          "sha256": "3fe0e1ebaf457f1b23f7678a42a5aa2248854377cc66752cc58bdd5fa157f42b",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.46,
+            "unitsBelow0_35": 33
+          }
+        },
+        "es": {
+          "sha256": "7b00dd8343da0de65d448c9bf0be04de486d769cbdc2bfb6fe5944d87097452f",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.6358,
+            "unitsBelow0_35": 17
+          }
+        },
+        "fil": {
+          "sha256": "8f74275ec9baac55f18646b77477554a59ccca27209bea9e09f22bbba3b4f8d7",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.7064,
+            "unitsBelow0_35": 8
+          }
+        },
+        "fr": {
+          "sha256": "4b6bf8c20fd4cd6cc1cbdbfb3139c4257c65a1fb0ba6096b33d1ad2f8dc937c7",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.6813,
+            "unitsBelow0_35": 8
+          }
+        },
+        "hi": {
+          "sha256": "71f80e61ce89142ff2dac17ef5d78ba2b3c771ed9b0238d158c069a453814888",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.7506,
+            "unitsBelow0_35": 7
+          }
+        },
+        "it": {
+          "sha256": "cd7b84daa986a45e8d0e0c9a50bc22b9b2447fc656a452f6f48fdf1a462fefa3",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5781,
+            "unitsBelow0_35": 20
+          }
+        },
+        "nl-BE": {
+          "sha256": "84aa2ac3fa2c76eacf10e8c5cf4a4dcf8e1e5fce0bfbc02b15334c8c6b687379",
+          "review": {
+            "units": 83,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "7da2cca0d9a08c28e5ac46fa1dbb95a7cd622feaaf10858672181061b2bd65ff",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.6606,
+            "unitsBelow0_35": 15
+          }
+        },
+        "pt": {
+          "sha256": "63b88b936fad0892d69225a1b686f447fbd131d118ee8b836f807aa52854d1ca",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.645,
             "unitsBelow0_35": 13
+          }
+        },
+        "sr": {
+          "sha256": "f0d6beb644394c2ac9f1b1216278d14b1ceccd0a7983518f662efb30d4821c5f",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5642,
+            "unitsBelow0_35": 15
+          }
+        },
+        "sw": {
+          "sha256": "b106f730b9fcacb5140372a5f0f92fc0e66cd59202ecb3cd67ffb3421ee736d3",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.6126,
+            "unitsBelow0_35": 14
+          }
+        },
+        "uk": {
+          "sha256": "2c235d69f14ddee310082c1cef54d4368e7d0a56481224428aa76d3b3137cda4",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5359,
+            "unitsBelow0_35": 20
+          }
+        },
+        "zh-Hant": {
+          "sha256": "9ac57aa542c9eb0debf78322870ff4a7a7e2a790e48cb10c794e3bcc26892af6",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5171,
+            "unitsBelow0_35": 22
+          }
+        },
+        "zh": {
+          "sha256": "d611a83e93a449182094c76114c4de0b5883a305a83c9b9d292c01722e7a2a9e",
+          "review": {
+            "units": 83,
+            "meanBackTranslationSimilarity": 0.5171,
+            "unitsBelow0_35": 22
           }
         }
       }
@@ -109,12 +1089,132 @@
       "source": "governance/mechanics.md",
       "sourceSha256": "71bc7b63c36a963a64249f174ebeef2b7dcf01718ddc75dd11a33f0fea74fa0b",
       "locales": {
-        "fr": {
-          "sha256": "363d5e136bde1860ae33a7c6d3e11fa18e050ba74597f3d1b2b57caf5deb475e",
+        "ar": {
+          "sha256": "92890c4e14463d5894cde72f7943e995720e0bce0139b8b7afc1de86a030ae96",
           "review": {
-            "units": 32,
-            "meanBackTranslationSimilarity": 0.6764,
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.5826,
+            "unitsBelow0_35": 7
+          }
+        },
+        "de": {
+          "sha256": "2dc2127e5a8462dce904b0c2b5264322a15b3d4bb9d0bcb09b9ee22c692310bb",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6213,
+            "unitsBelow0_35": 9
+          }
+        },
+        "dz": {
+          "sha256": "117f9728d40109499afdb6b8ad87d771c58319087e68531c7359ac030b509dd9",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.3831,
+            "unitsBelow0_35": 16
+          }
+        },
+        "es": {
+          "sha256": "352a6c815d62f6ca1d35fc33c125c005512cf4d5e95b933780a7c3206447a784",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6658,
+            "unitsBelow0_35": 8
+          }
+        },
+        "fil": {
+          "sha256": "b3493b24f18db3ff71b63f685599577e14f258719eec23fd610e3096c726621c",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6735,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fr": {
+          "sha256": "61da7bb761d98f8974750309366f19bfa1af58beeb05e03251e1b555dc5507d0",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.627,
+            "unitsBelow0_35": 9
+          }
+        },
+        "hi": {
+          "sha256": "c71eaedb380286c77315cc28d4a731183bf17d54627a19c1ce21106f38c7e317",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6981,
             "unitsBelow0_35": 6
+          }
+        },
+        "it": {
+          "sha256": "989f8ac8a9134f6deae9ebebdeffefb7027ba00005aad02e6db6d764c5cee752",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6486,
+            "unitsBelow0_35": 8
+          }
+        },
+        "nl-BE": {
+          "sha256": "0279e77b3ed7851a8f0f53143aa6f529430e7b05b65cd8a8042844ed079b85a0",
+          "review": {
+            "units": 39,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "0b840f25f5feafd108b61566bd2bac34ad88e55ae268600b10c504f291d418e9",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6408,
+            "unitsBelow0_35": 9
+          }
+        },
+        "pt": {
+          "sha256": "5186f57170104f383303c63f75dface737b89a1db1288ba3398061c6fe34d1d8",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6669,
+            "unitsBelow0_35": 8
+          }
+        },
+        "sr": {
+          "sha256": "658bfb2b47e9b9aea14d383f3e106d348cd3b4565312112d513b8ccae35ad60f",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.5131,
+            "unitsBelow0_35": 11
+          }
+        },
+        "sw": {
+          "sha256": "8c5a4ec3bf47bb96c88ea301156773f2a63f96bcb1aa41f09dcf91679600d2eb",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.5784,
+            "unitsBelow0_35": 12
+          }
+        },
+        "uk": {
+          "sha256": "58f4930cbfcc8514d154bafbdf4af729f3709a5949aff6dff1a12c0ac441225b",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.599,
+            "unitsBelow0_35": 11
+          }
+        },
+        "zh-Hant": {
+          "sha256": "687f4bf01c13ec1bdab6a56763d8001e42d8630ef99fde780c22bab4633655e3",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6226,
+            "unitsBelow0_35": 8
+          }
+        },
+        "zh": {
+          "sha256": "67dfc4f847cced04afb03bb1165cfca09f55d4ea46dfe63b5267bd39111bd563",
+          "review": {
+            "units": 39,
+            "meanBackTranslationSimilarity": 0.6226,
+            "unitsBelow0_35": 8
           }
         }
       }
@@ -123,12 +1223,132 @@
       "source": "governance/terms.md",
       "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
       "locales": {
-        "fr": {
-          "sha256": "ae780c5ad4f5bc5b4286f4a555a56bdb8320c5e70cc502a614beecd6c1ee7ce2",
+        "ar": {
+          "sha256": "979b4746d257263d87b9c6e33ec17a02715ec2720506d23ba5bce8ab4201be27",
           "review": {
-            "units": 287,
-            "meanBackTranslationSimilarity": 0.6578,
-            "unitsBelow0_35": 48
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.5631,
+            "unitsBelow0_35": 84
+          }
+        },
+        "de": {
+          "sha256": "c7d09b95fe69925445e22971871714f1568a2bdd870ad54e9b0fff2ca279f8f7",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6235,
+            "unitsBelow0_35": 78
+          }
+        },
+        "dz": {
+          "sha256": "88c1a9d6507bb0aee55114c0c17ba2e6f7bce9704ff79f598cce5d5bd0d58733",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.3898,
+            "unitsBelow0_35": 138
+          }
+        },
+        "es": {
+          "sha256": "bf4fed20fbbbd28bb0a16e95e840b9140a67e38fc5d7ffe7b89eb50070057138",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6448,
+            "unitsBelow0_35": 61
+          }
+        },
+        "fil": {
+          "sha256": "1d1c3ec8c9adad916bb0aeb23f32968457e7b0ca2f491374ea885e3cfd176003",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6821,
+            "unitsBelow0_35": 61
+          }
+        },
+        "fr": {
+          "sha256": "a95de18ece64561fc982114e6c13ac7aa43d61a60fa5fa4679d3092db4fdcd37",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6595,
+            "unitsBelow0_35": 56
+          }
+        },
+        "hi": {
+          "sha256": "321eafb0177e1fe77b384b17d4b2d6c944101d54902bae326c3c1ace2e57ad01",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6973,
+            "unitsBelow0_35": 50
+          }
+        },
+        "it": {
+          "sha256": "ffed2952a013d11dab95247a57a7f33bbc31558508e765c67887472893d16b4d",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6291,
+            "unitsBelow0_35": 73
+          }
+        },
+        "nl-BE": {
+          "sha256": "88f9b1571ea9b54de4eeb261d5e821be8395ad9206b4b5264799adeb85d4b0e8",
+          "review": {
+            "units": 307,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "1545bca057a6e03f799364d14673f19c50ff585d3df1da021735506c8ca967fb",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6352,
+            "unitsBelow0_35": 68
+          }
+        },
+        "pt": {
+          "sha256": "c7dbf258b32df5ce133e9aa5439bb44dfc1bf2bd60e9c3842e5758606aa66368",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6508,
+            "unitsBelow0_35": 65
+          }
+        },
+        "sr": {
+          "sha256": "a0fb65e02c96a16ea0f51c3504d747001a51d8d67dab8bc8d262cd8b1ece0dee",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.6003,
+            "unitsBelow0_35": 73
+          }
+        },
+        "sw": {
+          "sha256": "543fb0fa9564695a4be093c1c42c2dd4000225b0a1542438f99ec5da1ca86e66",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.5648,
+            "unitsBelow0_35": 83
+          }
+        },
+        "uk": {
+          "sha256": "09e91760460b531cb39a133f624d26e213112dd1e0cf827cec557ca725953016",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.622,
+            "unitsBelow0_35": 64
+          }
+        },
+        "zh-Hant": {
+          "sha256": "245348b96332d9c0b53bfd4d2bb62402119653d6ee26eebdac0fff5e12c9e894",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.5622,
+            "unitsBelow0_35": 79
+          }
+        },
+        "zh": {
+          "sha256": "23120431d0f04bd5ce1b739d179447f49d23f00809d3ec337d5dc2d19af2c302",
+          "review": {
+            "units": 307,
+            "meanBackTranslationSimilarity": 0.5622,
+            "unitsBelow0_35": 79
           }
         }
       }
@@ -137,12 +1357,132 @@
       "source": "white-paper/appendix-a-math-box.md",
       "sourceSha256": "68aaa14dee4d6ffe41c62a9e91038dcfa9b19466a9f91e81d09c515a989b22e1",
       "locales": {
-        "fr": {
-          "sha256": "1d251bb32bece8c8ce20b9c538080d3eb22f3bf2adb75b0e3ccef3c3de424b57",
+        "ar": {
+          "sha256": "4ca7343aa64a5e74e23cb43c9f8ec9fc4050aad017b9c6eee0d9a8642f8e4862",
           "review": {
             "units": 35,
-            "meanBackTranslationSimilarity": 0.7471,
-            "unitsBelow0_35": 1
+            "meanBackTranslationSimilarity": 0.6944,
+            "unitsBelow0_35": 2
+          }
+        },
+        "de": {
+          "sha256": "2bbb5146124b876d2fab306eb94fa0ec33e165b6435849fcfc8047c1fbdc501d",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.7322,
+            "unitsBelow0_35": 3
+          }
+        },
+        "dz": {
+          "sha256": "8c85bc5384a158f665f3e9e0c1360713bb7f10cfff8f609efe4ad42f079ee30d",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6073,
+            "unitsBelow0_35": 7
+          }
+        },
+        "es": {
+          "sha256": "5a2eabf69b1bac1f019098d6286d3426914097fa4f45845a285aabc6aeaffd95",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.7225,
+            "unitsBelow0_35": 2
+          }
+        },
+        "fil": {
+          "sha256": "3f6d54eb13e893c45c1e9b42a44d7736d565f278b741bd211868885269aaa935",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.7037,
+            "unitsBelow0_35": 2
+          }
+        },
+        "fr": {
+          "sha256": "f528323366944e82538dcfd7aef481ef0c817fbf85863982adb31bc297f0f254",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.7026,
+            "unitsBelow0_35": 5
+          }
+        },
+        "hi": {
+          "sha256": "76f02ba17152157ca78fe9ac949026760ff15a5a82f8234a04292d5f01b23902",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.8073,
+            "unitsBelow0_35": 0
+          }
+        },
+        "it": {
+          "sha256": "ce7a910ea16cc919074f0c42dcb3ed64f22e2594e6615f8573c22e1bb5c8968f",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6912,
+            "unitsBelow0_35": 4
+          }
+        },
+        "nl-BE": {
+          "sha256": "9d294760c3f3a0064678bd8753407e3675ef873517d1daea59763d6c8b944b9b",
+          "review": {
+            "units": 35,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "5db85e201ad9ee29b238faa05ee09f3dc2e0c8a2c73f8a32820cd4435eab9cf4",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6852,
+            "unitsBelow0_35": 3
+          }
+        },
+        "pt": {
+          "sha256": "5cdb9c259fe2aca47a69f4d22e2d7d63f10ff4c06ecf5858f0305f14fb5d8e28",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6815,
+            "unitsBelow0_35": 5
+          }
+        },
+        "sr": {
+          "sha256": "cb8f9d1dbdfaf25d080f5f669664f7da46162dedc35a075313ec6c1814d58164",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6487,
+            "unitsBelow0_35": 6
+          }
+        },
+        "sw": {
+          "sha256": "40742fcd6cb479e76adabcda6da7b45aa4ee8ec41827e21339cc2d038c04548b",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6602,
+            "unitsBelow0_35": 4
+          }
+        },
+        "uk": {
+          "sha256": "db367555978ffe88e974d673638f350fc2f205a5a6fdf6cca6eb52e26ab30a23",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6216,
+            "unitsBelow0_35": 7
+          }
+        },
+        "zh-Hant": {
+          "sha256": "80ea5914d296be5c17a8590887871a48d5cf0a6f54faa1ef95a54ffa11097d76",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.5953,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh": {
+          "sha256": "a504294c53851826a2da7e3de09284e84bc9665747725a9a7fbf8591c84cdcf8",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.5953,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -151,12 +1491,132 @@
       "source": "white-paper/appendix-b-fee-waterfall.md",
       "sourceSha256": "fa9a48e49a90c70f7f49e9281d023b4341786e42cb2af9d76405d261522682ab",
       "locales": {
-        "fr": {
-          "sha256": "c6f869325e704166d8c108f05d25407cd6a73ee42b357a7039ffa5d887030768",
+        "ar": {
+          "sha256": "ed710f99c57856264510a178f4d6c0d65c197f1a9b9b1214ee8c2906e1ad0393",
           "review": {
             "units": 20,
-            "meanBackTranslationSimilarity": 0.6708,
+            "meanBackTranslationSimilarity": 0.671,
+            "unitsBelow0_35": 2
+          }
+        },
+        "de": {
+          "sha256": "34cf0e85c5dfa388e2417f60d8c7d15afbf1cb2c79a12156157e811537c55a17",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6081,
+            "unitsBelow0_35": 5
+          }
+        },
+        "dz": {
+          "sha256": "0d58dfb9824ffd45ae37df65d62d8da76297298ca0a0687aa4190683f74ec2a8",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.4284,
+            "unitsBelow0_35": 6
+          }
+        },
+        "es": {
+          "sha256": "252ab96da52705d16b32f47c9b9d137a0670c59f7d143fd43e325de77ebb0c0a",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6741,
             "unitsBelow0_35": 1
+          }
+        },
+        "fil": {
+          "sha256": "78b923238f4b0d97b7059a8ba8f1e657277689f16bdf33432f21d61d5649d644",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6857,
+            "unitsBelow0_35": 2
+          }
+        },
+        "fr": {
+          "sha256": "193ea46736e8ff566ddf3b82725ed9da7096b2c9e9a37a4f2024334a917a506d",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6694,
+            "unitsBelow0_35": 1
+          }
+        },
+        "hi": {
+          "sha256": "3db7fd0a2a2675c14b58f72854169a9d672b380743a90b07598446d04ab27089",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.7888,
+            "unitsBelow0_35": 0
+          }
+        },
+        "it": {
+          "sha256": "d171cce55a18b7ecbb0b04231fb84dc2addfc8cdeab295c7cfe9fc94469ba024",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6434,
+            "unitsBelow0_35": 4
+          }
+        },
+        "nl-BE": {
+          "sha256": "5d02cc3b925a59920f064cb7d4e8437f99469dd10b3c5c31c794b5592c9d3874",
+          "review": {
+            "units": 20,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "5d02cc3b925a59920f064cb7d4e8437f99469dd10b3c5c31c794b5592c9d3874",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6597,
+            "unitsBelow0_35": 2
+          }
+        },
+        "pt": {
+          "sha256": "f09b51930548d1600d066c6fcdf1a91ac7202b7830a85ac2fb7290fc5a96535a",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6135,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sr": {
+          "sha256": "b72b99ef631676ec0b1f0b3716aebae8161f5546a616ad2fb60b25ceacd0e826",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.706,
+            "unitsBelow0_35": 1
+          }
+        },
+        "sw": {
+          "sha256": "98ccf9eefea4ac40cb81ddf9ee32f01617371dba8e1f2a543ea183ee377f8b99",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.5396,
+            "unitsBelow0_35": 3
+          }
+        },
+        "uk": {
+          "sha256": "0cc82a203c6ff78d8cad07637301b4acb0689d711755c49e280e5649f5df4614",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6633,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh-Hant": {
+          "sha256": "546df4b2ff4274a5753d5a3cf6db0fda0832e9433ba829b878daf08150294637",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6171,
+            "unitsBelow0_35": 2
+          }
+        },
+        "zh": {
+          "sha256": "8587791ef82437026feef0e45c4a65d8cd0c4ce460527e219e3518b1d7de01e9",
+          "review": {
+            "units": 20,
+            "meanBackTranslationSimilarity": 0.6171,
+            "unitsBelow0_35": 2
           }
         }
       }
@@ -165,12 +1625,132 @@
       "source": "white-paper/appendix-c-kpi-definitions.md",
       "sourceSha256": "59d07455a39371abab65dba41b23f095cf9e8261dc22bb45ceeaf9a2fb0217e0",
       "locales": {
-        "fr": {
-          "sha256": "7da7c987df54eb4a49504fd1b100b815e22afc1a4da982b575dd636ab4b9d173",
+        "ar": {
+          "sha256": "c61d96bf6c67d73c1f837bd4b93230850a178c7e86540ba32143d80c36b6ec01",
           "review": {
             "units": 62,
-            "meanBackTranslationSimilarity": 0.6937,
-            "unitsBelow0_35": 4
+            "meanBackTranslationSimilarity": 0.5947,
+            "unitsBelow0_35": 12
+          }
+        },
+        "de": {
+          "sha256": "4cff7cba63f3296905da0deb7bb7f9067f6dec0e1855c7d07472f49e8e6205cc",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6433,
+            "unitsBelow0_35": 7
+          }
+        },
+        "dz": {
+          "sha256": "03c6252b5fe31b09c2ef8a07924cfa42e786d2b038cceaf20b51d5f538e30dae",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.4179,
+            "unitsBelow0_35": 26
+          }
+        },
+        "es": {
+          "sha256": "d4a3305b690ecdda42c1379fad7bc26a0139a33980a04e32e027e2e6acf5806a",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6657,
+            "unitsBelow0_35": 7
+          }
+        },
+        "fil": {
+          "sha256": "75ee6b22e8a459b0c59bb573e6556a878ae4f08d7c586488142e374c898acc0d",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6507,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fr": {
+          "sha256": "b55aa3be77b2d89da9843bf609016b6b34c7c8229dc6726d39c86222bff856e8",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6811,
+            "unitsBelow0_35": 5
+          }
+        },
+        "hi": {
+          "sha256": "7af1a9240ec8c1d94191c23526cc5590bad2e541df45e499294e7846bfd6de0c",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.7805,
+            "unitsBelow0_35": 1
+          }
+        },
+        "it": {
+          "sha256": "c61ba00081c6f0ccf2a718508863ad8429459cc8d036d37e299932d7c23c5e30",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6411,
+            "unitsBelow0_35": 6
+          }
+        },
+        "nl-BE": {
+          "sha256": "25d731adf24b37b5ba9e2b9fc27311e89cd66889298cd73dee5935647f1de7ff",
+          "review": {
+            "units": 62,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "25d731adf24b37b5ba9e2b9fc27311e89cd66889298cd73dee5935647f1de7ff",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6634,
+            "unitsBelow0_35": 6
+          }
+        },
+        "pt": {
+          "sha256": "8489c3c25eac725feab84940129a0414129657334fec67cab9dc3de3f4aa3c36",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6338,
+            "unitsBelow0_35": 11
+          }
+        },
+        "sr": {
+          "sha256": "976398049cda76b240198514ef44a0d7190bbbf54c838e86cdaf37b4c12deeed",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6296,
+            "unitsBelow0_35": 7
+          }
+        },
+        "sw": {
+          "sha256": "d2c9215f5ab58a43d5a43c9e20135a4ba896869bb055a2082772677ec3c6d0ce",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.5342,
+            "unitsBelow0_35": 11
+          }
+        },
+        "uk": {
+          "sha256": "b24c5abbfc34a3268d564f2c50202e6c9d9d57801cd3189077be16b5ee3de1f9",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6079,
+            "unitsBelow0_35": 11
+          }
+        },
+        "zh-Hant": {
+          "sha256": "a7689e51311864473d7fb0e339eacc71279202f8651b1bef04d6fd7cc67ecc6e",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6373,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh": {
+          "sha256": "0621556b521dbb05a56a43eabc0b18e714ae1e39e2300a7f99c60818350b8f91",
+          "review": {
+            "units": 62,
+            "meanBackTranslationSimilarity": 0.6373,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -179,12 +1759,132 @@
       "source": "white-paper/appendix-d-launch-parameters.md",
       "sourceSha256": "acaa9d25a8c839862ce294fadc6b5da5a9bedbf936b5e701807344ae073e2702",
       "locales": {
-        "fr": {
-          "sha256": "0992cb60a00a4fbd2ee0aa89fb97fe2cff51aa7c6ac10f07c8b04b068cda65ac",
+        "ar": {
+          "sha256": "61af948309babe8e7325c65d7aa0389cba4cdb15e29916cb61932a8cc003c201",
           "review": {
             "units": 37,
-            "meanBackTranslationSimilarity": 0.7349,
-            "unitsBelow0_35": 1
+            "meanBackTranslationSimilarity": 0.6425,
+            "unitsBelow0_35": 3
+          }
+        },
+        "de": {
+          "sha256": "e1a9f156a1890d84fe2c171a5a0604432964a7a1fbcf8b18cf890a2696a2af2f",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7105,
+            "unitsBelow0_35": 5
+          }
+        },
+        "dz": {
+          "sha256": "41c9429c5954035b99fcfd48c02edca25d5905cd3c4e79c9f36fa0a5b5b68865",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.5036,
+            "unitsBelow0_35": 11
+          }
+        },
+        "es": {
+          "sha256": "a82ac9e78f644532222cebfbacde376546545cf04cd978b79d26a4492102ecf3",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7244,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fil": {
+          "sha256": "9eb868b7ed5e3bd9eddec2ab3cf9b59d67c81198d87affd18351a5526249ec18",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.8053,
+            "unitsBelow0_35": 2
+          }
+        },
+        "fr": {
+          "sha256": "8e813c03574dc591c078de8e61775d8762a51afff5203f9b4ef9a4b76232c53b",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6838,
+            "unitsBelow0_35": 3
+          }
+        },
+        "hi": {
+          "sha256": "23e0adcb3b3c5b69f791fd8965d8519763d234afdade8bb787fdfb21ba5f1780",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7806,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "ba43567b0cf55406d3ea49a458da4665c74741636ebba4e61541585f8e6a2818",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6946,
+            "unitsBelow0_35": 3
+          }
+        },
+        "nl-BE": {
+          "sha256": "bd08cdd322f674ae0aa56e2346091e8b0c79cfc37e1c66a323407b0762864f87",
+          "review": {
+            "units": 37,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "bd08cdd322f674ae0aa56e2346091e8b0c79cfc37e1c66a323407b0762864f87",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7689,
+            "unitsBelow0_35": 4
+          }
+        },
+        "pt": {
+          "sha256": "9bb13868a804664c231d7518d159b5c07ca55ff02993eb92545831e9e94602e1",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6816,
+            "unitsBelow0_35": 5
+          }
+        },
+        "sr": {
+          "sha256": "97d32d297aef2e7dd957f5aad336b8652ce1adad30f2a7e110ec32bc617ec2d6",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.7058,
+            "unitsBelow0_35": 2
+          }
+        },
+        "sw": {
+          "sha256": "67ab517a8319c893cad8437aecd940bedf21e1afa14e7cc081a6caaf3c2f18fe",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.651,
+            "unitsBelow0_35": 3
+          }
+        },
+        "uk": {
+          "sha256": "ca6aa86bfb69245cf3150f9eba82a921d14d77bf1446591df257f7a7463de1ca",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6996,
+            "unitsBelow0_35": 3
+          }
+        },
+        "zh-Hant": {
+          "sha256": "ead608f002ebee0731774f3b4520ca071f03a96ebde70651e1bb3213bd2a0e4b",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6223,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh": {
+          "sha256": "51bfa3faf68db10584723146f12f9fc5f7e0313519ab1acb92196e0647620112",
+          "review": {
+            "units": 37,
+            "meanBackTranslationSimilarity": 0.6223,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -193,12 +1893,132 @@
       "source": "white-paper/appendix-e-worked-example.md",
       "sourceSha256": "4e02677fe9440238090e987e50194bc8e40dce9d23d4a53b52b6264564457b20",
       "locales": {
-        "fr": {
-          "sha256": "f67ea9040bcefb88f33a4be3dcc72dee0bcce865bdcf0436b2e3d3f93874d7a4",
+        "ar": {
+          "sha256": "e28cb36289e244bb190f3de3dcbb64ba328f6f3fec1387bd874bbe4264ae0cc6",
           "review": {
             "units": 21,
-            "meanBackTranslationSimilarity": 0.7598,
+            "meanBackTranslationSimilarity": 0.7312,
+            "unitsBelow0_35": 0
+          }
+        },
+        "de": {
+          "sha256": "4a6049857169ccf97f2cf87140b44ddfad733e84a0e3cdcb3bd5223a4667af1d",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7032,
+            "unitsBelow0_35": 2
+          }
+        },
+        "dz": {
+          "sha256": "917f35f6c91a8fdd4a3d23541a358da9ef096821722846df9d53409c2b222c4d",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.5562,
+            "unitsBelow0_35": 3
+          }
+        },
+        "es": {
+          "sha256": "37e9d20f884faba3c8fbb65aa088df4813344c67c43c96096a38ef26fdcf9866",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7812,
             "unitsBelow0_35": 1
+          }
+        },
+        "fil": {
+          "sha256": "20b476f56356025deb09f55522fe9f380f80506ce4acc06304d4cf4b21b10a99",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7763,
+            "unitsBelow0_35": 0
+          }
+        },
+        "fr": {
+          "sha256": "5aee2cc273a16aa90037c9ec0afea46f44761cf09299554a7c2a6bb8c22cf845",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.6781,
+            "unitsBelow0_35": 3
+          }
+        },
+        "hi": {
+          "sha256": "1b28966d85f28116e49469f742374f07a5f7417205cb1eff536806b8843c1177",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.8086,
+            "unitsBelow0_35": 1
+          }
+        },
+        "it": {
+          "sha256": "5e035b3e11207f7dc8800a31da9a6b34d57edd7a6ca5a79336f69cce6b12600e",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7124,
+            "unitsBelow0_35": 2
+          }
+        },
+        "nl-BE": {
+          "sha256": "8e0abb58a70ce6b255cf039e8d3287c0c040bfd3cb07c8e7f9989ff4ba6c92e1",
+          "review": {
+            "units": 21,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8e0abb58a70ce6b255cf039e8d3287c0c040bfd3cb07c8e7f9989ff4ba6c92e1",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.752,
+            "unitsBelow0_35": 2
+          }
+        },
+        "pt": {
+          "sha256": "2cd8fd01f1198bce3e75df2668bd2103ef6a58f028d5127fe0519c0d5ae34709",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7208,
+            "unitsBelow0_35": 1
+          }
+        },
+        "sr": {
+          "sha256": "0fc5a98ecce3bb07ade10730a9e23ec0c6f0a4b2b7195ae3b60f6226f0a37f2d",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7041,
+            "unitsBelow0_35": 2
+          }
+        },
+        "sw": {
+          "sha256": "2e8b578b01184a9e3cbdb1b12d8954e36c3b79ab8b59cf1bb073bf1b37fccb86",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.6916,
+            "unitsBelow0_35": 2
+          }
+        },
+        "uk": {
+          "sha256": "195a02282135baadae9eb2918019478c8752f870be9466bfdb339586c72b5883",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.7394,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh-Hant": {
+          "sha256": "2299be15d261296798a9b91312704738f10cba9321f05cede12e655d0cdb0152",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.6261,
+            "unitsBelow0_35": 3
+          }
+        },
+        "zh": {
+          "sha256": "a2655077676da51d43faa29ca20868aa150b305fa6496824d422a1f8b662cc3a",
+          "review": {
+            "units": 21,
+            "meanBackTranslationSimilarity": 0.6261,
+            "unitsBelow0_35": 3
           }
         }
       }
@@ -207,12 +2027,132 @@
       "source": "white-paper/appendix-f-dataroom-checklist.md",
       "sourceSha256": "41266b0f7db652f9ae317f7e813b6c0807425257aa2fa35c219bf270278a1d5a",
       "locales": {
-        "fr": {
-          "sha256": "13d8a0be660671e4c79ea1d0431cf396c360529520d25dce7ac64e535b5483f1",
+        "ar": {
+          "sha256": "6763748f305a1c5dd5e08d28a918644f3e28f2ffe8196025d7ce52bd7edf113e",
           "review": {
-            "units": 21,
-            "meanBackTranslationSimilarity": 0.711,
-            "unitsBelow0_35": 1
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5253,
+            "unitsBelow0_35": 9
+          }
+        },
+        "de": {
+          "sha256": "6c2c1a274a69e0908a093cdf240a8eeb036bf27dc0257a6efe3c666aacc5cdf5",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.6223,
+            "unitsBelow0_35": 7
+          }
+        },
+        "dz": {
+          "sha256": "c1ad09553e1e47ebf5c57f009361e023961ecc0c11acf94fffa58f56a6e153c0",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.4377,
+            "unitsBelow0_35": 8
+          }
+        },
+        "es": {
+          "sha256": "ed52fddca55b99903f6eb7bded9febcedd331cea391883be75dc39b1e5bd9a9a",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.6135,
+            "unitsBelow0_35": 6
+          }
+        },
+        "fil": {
+          "sha256": "97112b96e03444e78424c8f2ac52219aa11b66af0e74e701c9308a3bb5e235af",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.6546,
+            "unitsBelow0_35": 6
+          }
+        },
+        "fr": {
+          "sha256": "115de1c0a8ee5507b1259eeb08d26bd4c257e5b937589a5d9c51f45ab3aaf403",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5701,
+            "unitsBelow0_35": 6
+          }
+        },
+        "hi": {
+          "sha256": "2a1779817cf6a6e17d4206e1955b8fc9dd6a00dcbe4c8c2679285a0fc4cd2693",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.6666,
+            "unitsBelow0_35": 5
+          }
+        },
+        "it": {
+          "sha256": "504b64cb3d8c6d2ec99f5bd15fb4256f03745334b11b4792f25e1cfcab2e44d1",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5991,
+            "unitsBelow0_35": 7
+          }
+        },
+        "nl-BE": {
+          "sha256": "ac9091c492d46f5bdcc3e0315445cd030f3e6ea5bf84dec22d7e56cc3fa444a3",
+          "review": {
+            "units": 33,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "7a1bb5bb8bc3b54848e1e7dfbc6bbf4b73caa6baaee36e5643e113e7417a80ce",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.6435,
+            "unitsBelow0_35": 6
+          }
+        },
+        "pt": {
+          "sha256": "9b1fb056d81c15b651905032caeb5f3def04564533e576ffe6cca77851a181e0",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5986,
+            "unitsBelow0_35": 8
+          }
+        },
+        "sr": {
+          "sha256": "9352b9ca7caf6c29bb4e05f891effd9b7cc14a014689ee28edf837caace62300",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5512,
+            "unitsBelow0_35": 7
+          }
+        },
+        "sw": {
+          "sha256": "2420c1b823380555a8c6c3268b88e61ec9e59095b85969c918f824b597f06bb0",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5351,
+            "unitsBelow0_35": 9
+          }
+        },
+        "uk": {
+          "sha256": "3eeea2656939fa9435df3c5f1f12d910b5850c6c2da33bda72a422f00b8b1edd",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.546,
+            "unitsBelow0_35": 8
+          }
+        },
+        "zh-Hant": {
+          "sha256": "5a4ec26fb7c76324ec826769287b4e7c145c918f47f120281a4a0a6eae78b6b2",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5782,
+            "unitsBelow0_35": 7
+          }
+        },
+        "zh": {
+          "sha256": "c7484f24e9715b3577204cf884d8736e48fc5191df3814648f9e12ac33406951",
+          "review": {
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.5782,
+            "unitsBelow0_35": 7
           }
         }
       }
@@ -221,12 +2161,132 @@
       "source": "white-paper/archive.md",
       "sourceSha256": "09db774f7da51b4e506e56d3c4f3fa8d57f41a8464d04b747e9c3afab74563bd",
       "locales": {
-        "fr": {
-          "sha256": "7689c7882e797860c6666c3599c57190ef6dd87f66cfacc4617a4c438cdaa50c",
+        "ar": {
+          "sha256": "e1d6e00f55260e8cdcaf82249c3760142b99e5a948347bb8da0e6b0eb160f344",
           "review": {
-            "units": 6,
-            "meanBackTranslationSimilarity": 0.8149,
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7524,
             "unitsBelow0_35": 0
+          }
+        },
+        "de": {
+          "sha256": "1cc57fa09c0aa157de8b3842d94624c2271c17eca9a93bba8fdc862054c750b9",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.8012,
+            "unitsBelow0_35": 0
+          }
+        },
+        "dz": {
+          "sha256": "1655ce582bdaad537e59d987365df53937d6f018e70c17d8477de5ea5ee38acc",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.5341,
+            "unitsBelow0_35": 3
+          }
+        },
+        "es": {
+          "sha256": "34374a9fd7d66a97331c947719dc04eaab1630ad6671d153ec58b1b81e2e30f0",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7866,
+            "unitsBelow0_35": 0
+          }
+        },
+        "fil": {
+          "sha256": "ed5f458c12c552851bba44f86f27b6971f69c1437751c0d627b1549e18dc4f5b",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.8473,
+            "unitsBelow0_35": 0
+          }
+        },
+        "fr": {
+          "sha256": "8e90724bf13a523a3313ae0db0dd44257a9e3a153a914748c0515b69751dc0ac",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.6983,
+            "unitsBelow0_35": 2
+          }
+        },
+        "hi": {
+          "sha256": "f2611a8dfafde3880b25800891c1f0dc72a6ab07369a76348a0a26a14e6b36bc",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.8563,
+            "unitsBelow0_35": 0
+          }
+        },
+        "it": {
+          "sha256": "185db1dad0158379c832915cb4afd601060c3232469bd8d55f676501808993fc",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7122,
+            "unitsBelow0_35": 1
+          }
+        },
+        "nl-BE": {
+          "sha256": "c0265fd98da20e2c1745e0bf4ff64055e586869bd598cd3c41756546975b0e27",
+          "review": {
+            "units": 9,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "4db9daee30fdbf895e5f3bbf45094d8204618e6aefc0c606d9c6dd74ee785ff8",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.6025,
+            "unitsBelow0_35": 3
+          }
+        },
+        "pt": {
+          "sha256": "d4c1217fa6a9d8be805be2ab666192d872057925b7f8b1271328bf261a0d0545",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.762,
+            "unitsBelow0_35": 1
+          }
+        },
+        "sr": {
+          "sha256": "22506baff0f4fbb861a029e2e8469c47d976fd5127e75ee2d1b23692571d6173",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7674,
+            "unitsBelow0_35": 0
+          }
+        },
+        "sw": {
+          "sha256": "019356bd2bbe2d6c02f800664e564d7269b93af42fcb1ea272f353d44357dcfa",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7594,
+            "unitsBelow0_35": 0
+          }
+        },
+        "uk": {
+          "sha256": "ca9e0b71fabad4314285fa5cd3888a20ce6a09321812c0fb77174b4a7fe50032",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.683,
+            "unitsBelow0_35": 0
+          }
+        },
+        "zh-Hant": {
+          "sha256": "d0540aad169ceb9895220a8860f1da46dbbae9aa0dda366561c9c641f194d5a6",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7119,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh": {
+          "sha256": "5ebadb180f32410bb21808b9973e46002260fb6a92e7aa8c74c459dd18d99d1c",
+          "review": {
+            "units": 9,
+            "meanBackTranslationSimilarity": 0.7119,
+            "unitsBelow0_35": 1
           }
         }
       }
@@ -235,12 +2295,132 @@
       "source": "white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive.md",
       "sourceSha256": "0e4b229ba74085a5b6d3e6c6eb0ff28ec915a149a5ff93f0c773c465fad117b2",
       "locales": {
-        "fr": {
-          "sha256": "1c2b92056e9b84b0f0bd2d4d7c5c8dd726a9422625080a9a23541415cbbb348d",
+        "ar": {
+          "sha256": "d3f8fa4da885e1bb52f4a1f31d141cf906b326b72b30f1ceaf8d684d72130877",
           "review": {
-            "units": 47,
-            "meanBackTranslationSimilarity": 0.6648,
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.5879,
+            "unitsBelow0_35": 6
+          }
+        },
+        "de": {
+          "sha256": "352ca1e856eed892667dee877e4ad37b03d37e80e23fa81a17156be981355a70",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.698,
             "unitsBelow0_35": 5
+          }
+        },
+        "dz": {
+          "sha256": "374954d69633c9042061a7123c501294bfd9ddfa37533fed0122319ec5335ca4",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.457,
+            "unitsBelow0_35": 15
+          }
+        },
+        "es": {
+          "sha256": "b5db7d730adf74ebebdd63ab06b73098190c7af210dbc927941957511e528cb1",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6395,
+            "unitsBelow0_35": 7
+          }
+        },
+        "fil": {
+          "sha256": "6d4b340983c6d213b75d837ec63fc1015e2862789e6a91e8d9b0023b58bb6917",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.7381,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fr": {
+          "sha256": "8a6f1e3322d015974f392ed9541662ea84fd718e9f5981cdf4a04ac41ffafbe7",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6421,
+            "unitsBelow0_35": 9
+          }
+        },
+        "hi": {
+          "sha256": "e41cbcb07f59d49ae1755efc69222900fb60d840baff1a96adfac3e0eef595e6",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.7742,
+            "unitsBelow0_35": 4
+          }
+        },
+        "it": {
+          "sha256": "d104d36339066a43c836eb0a987cda83ead83fb073dd272cda871ce7a6c12f83",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6242,
+            "unitsBelow0_35": 10
+          }
+        },
+        "nl-BE": {
+          "sha256": "38f078334f78490f17bc57926976aed1e008699a3be177232a4961311064c77f",
+          "review": {
+            "units": 51,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "5ec0e74719ef74a34b36ebd194cbf0b60de65302b3cd377edea7666c0409a663",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6489,
+            "unitsBelow0_35": 9
+          }
+        },
+        "pt": {
+          "sha256": "048a17eff718e269c58104382640a13aba52b6dd49f91b9bc6fefb931d896f20",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6579,
+            "unitsBelow0_35": 8
+          }
+        },
+        "sr": {
+          "sha256": "f450df36ebb7429e3b934ce80bf22aa81603e08d3eb3d7e678ce5d70fad5288c",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6136,
+            "unitsBelow0_35": 8
+          }
+        },
+        "sw": {
+          "sha256": "4afde54ad0a0f33f9df89b5fc0f877c63d597637124e40cf2fb0f3fae7253299",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.5617,
+            "unitsBelow0_35": 6
+          }
+        },
+        "uk": {
+          "sha256": "98f1054d8e057206d440e2345d394ff97db887200aa4f5df492998097f8bfd8e",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.6359,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh-Hant": {
+          "sha256": "91da436f5b8e773629fbf15395ef884ab2db4688edcc6ba07a7c61fa7a7e769a",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.5481,
+            "unitsBelow0_35": 13
+          }
+        },
+        "zh": {
+          "sha256": "6add37c5a63607d7be7808e687e01735a870656281c2d0f7f4bfbe68d3e197bc",
+          "review": {
+            "units": 51,
+            "meanBackTranslationSimilarity": 0.5481,
+            "unitsBelow0_35": 13
           }
         }
       }
@@ -249,12 +2429,132 @@
       "source": "white-paper/chapter-02-the-accounting-shift-from-assets-to-trust.md",
       "sourceSha256": "c871445b6898d231add895759a3cb0e44b48322bafceb00bff34cd31a6f7e0d1",
       "locales": {
-        "fr": {
-          "sha256": "9db1df87113fab1a100e1457c2677d5bb2c60e22687fcb3da81a3810983070b4",
+        "ar": {
+          "sha256": "06d91e1bf50c9d464e38a71481987c09620f9476f2f76c1bdc876a37ecad0264",
           "review": {
-            "units": 14,
-            "meanBackTranslationSimilarity": 0.563,
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5625,
+            "unitsBelow0_35": 4
+          }
+        },
+        "de": {
+          "sha256": "37424e4141a2baa410802e8b2b87550b777e15bf45184b77b3917feb81eda7ac",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5373,
+            "unitsBelow0_35": 5
+          }
+        },
+        "dz": {
+          "sha256": "ed2130c5b1561fbad1ec31c017d71a56d424ee5a6390bb59c4f86f2699a273ef",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.4583,
+            "unitsBelow0_35": 5
+          }
+        },
+        "es": {
+          "sha256": "74a73326f0f4cf3d1282e83ecbafaede302935fd69d8aef0f4fa9994f7987173",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6968,
+            "unitsBelow0_35": 1
+          }
+        },
+        "fil": {
+          "sha256": "5033e6a5d783f8b320219683c90f77035b8b096002fce9cffc3bc6553091747a",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6036,
             "unitsBelow0_35": 2
+          }
+        },
+        "fr": {
+          "sha256": "2bd42236321b0b778be26ec465dbc7e98e8f2f2852a59ecab02a600045ac422d",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6627,
+            "unitsBelow0_35": 2
+          }
+        },
+        "hi": {
+          "sha256": "1981655025fe7cc58736f922d28074ed58b9f47418dececa6b21742fc0bbb71b",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6985,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "12a6d27bad4df5249cc06dc71becc92ab92fb5f53fd81b54413841060f329102",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6183,
+            "unitsBelow0_35": 4
+          }
+        },
+        "nl-BE": {
+          "sha256": "07a07b3a48a02f08cee46d0af9a4a65494767636e0f1243f87e8724f1ee002c6",
+          "review": {
+            "units": 16,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "07a07b3a48a02f08cee46d0af9a4a65494767636e0f1243f87e8724f1ee002c6",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5406,
+            "unitsBelow0_35": 5
+          }
+        },
+        "pt": {
+          "sha256": "be58e0b9816caeace716fc53340e86bcc0e1ce078c10a952496fcc9c797e0dd1",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5819,
+            "unitsBelow0_35": 3
+          }
+        },
+        "sr": {
+          "sha256": "c5119c5c88d7e5f67d4e26567a7f01476f48aa2dc36f2b0c19638f2dd33ccd4b",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6045,
+            "unitsBelow0_35": 3
+          }
+        },
+        "sw": {
+          "sha256": "e5366eb02e0f4371daa5c624b55e73ba4be46ac3921355dd154e53ac67ec7804",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5293,
+            "unitsBelow0_35": 4
+          }
+        },
+        "uk": {
+          "sha256": "d11bab36cfe9c1a95e503c65544eafc18f62217c38c79272d7829268582d020a",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6287,
+            "unitsBelow0_35": 3
+          }
+        },
+        "zh-Hant": {
+          "sha256": "7f80488806fb6e205883ae70ff4dc4f0480bbce3313231a35711dc6140d173c2",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5204,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh": {
+          "sha256": "b702e6819ba5be7d1ea6ed59bf2cea7bfbc4653f600897f89c23dee18273f483",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5204,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -263,12 +2563,132 @@
       "source": "white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care.md",
       "sourceSha256": "58fdabb006332f145aac02bc8650b3ec918d15b86f7161fc5c1a3dda0e808ecf",
       "locales": {
-        "fr": {
-          "sha256": "9ce4389eb1334f16ce7b907236c573f3c17d4c8b5235a294c6a79871fd7ec4ff",
+        "ar": {
+          "sha256": "65b202c6a382d705ae083584df2595c5540876842caf709b8a4499ec80274878",
           "review": {
-            "units": 13,
-            "meanBackTranslationSimilarity": 0.6395,
-            "unitsBelow0_35": 2
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.4272,
+            "unitsBelow0_35": 8
+          }
+        },
+        "de": {
+          "sha256": "f2c7097286d9b673dcffec60ff96b24d8b0e201988f223b8527a64ef57d75372",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5643,
+            "unitsBelow0_35": 6
+          }
+        },
+        "dz": {
+          "sha256": "d06c6581dddb5109c65263b6b819bb27d6e503034fda7fe6b1e542bdb6d057b3",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.3428,
+            "unitsBelow0_35": 9
+          }
+        },
+        "es": {
+          "sha256": "5b0a298f9aaf6b326b67db21d2f0f0f19d3b227d87f5f039fcd467954c7157c2",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5441,
+            "unitsBelow0_35": 4
+          }
+        },
+        "fil": {
+          "sha256": "78db536035b6ad4e6363d4f8f3a8f3a2ac47bd3e3ffb5e12d7529b6d0f355127",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.661,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fr": {
+          "sha256": "865a030031e53158e010ef07b8987b1f21f938c741e33699e0b7f2e9d42dcd51",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5636,
+            "unitsBelow0_35": 5
+          }
+        },
+        "hi": {
+          "sha256": "04a87deeb703685b5821f37ad2e7a12cd12e8b4a54761788b4504e2bc34705de",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.6516,
+            "unitsBelow0_35": 4
+          }
+        },
+        "it": {
+          "sha256": "83333c6d93a4ca555fea0697b66e530f0d13e1098e71d7bb4df560c62ade444a",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.4549,
+            "unitsBelow0_35": 7
+          }
+        },
+        "nl-BE": {
+          "sha256": "ed8a001f4f5ced89fcb99e8db4dc53c6592ea0a9bc6f06d3f6cc9456b8bc87a1",
+          "review": {
+            "units": 17,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "6a36406517fa25ee25cd578092222c28fd20e94b7a6e0b7c10fb796ef1ee7185",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.4953,
+            "unitsBelow0_35": 7
+          }
+        },
+        "pt": {
+          "sha256": "c1657dc5e4a6cb7a4b31b39d664baab738dd74052396aa98d9e6b65257358d32",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.4613,
+            "unitsBelow0_35": 8
+          }
+        },
+        "sr": {
+          "sha256": "337524a139e1012d1b40434ebae1dd4b7667e596b9774a90fb929cd6ea11f72b",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5602,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sw": {
+          "sha256": "241e9a845d0fe4eeb304f11a5aadf7de12c05903dc4ce3e64a2b8b7e28d1f2c0",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.4864,
+            "unitsBelow0_35": 7
+          }
+        },
+        "uk": {
+          "sha256": "93bb2f786b06636447a7f838219f4b95e6340c0f676b34e752f0596605fcdb1a",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.4683,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh-Hant": {
+          "sha256": "7a250492bbdbc0e3e090a203e9f47eb055f941ce8c5f3cc3d5c2c1dff37f61e0",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5179,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh": {
+          "sha256": "adf9e49ae2e6b37ef55e096d0e405b3416b54b04a0e9af552c6c7c96c0b88c58",
+          "review": {
+            "units": 17,
+            "meanBackTranslationSimilarity": 0.5179,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -277,11 +2697,131 @@
       "source": "white-paper/chapter-04-reusable-forward-style-collateral.md",
       "sourceSha256": "7c38d458f3959ccc1fa62383b4cfcc2b393acaf779e9324aa2c1a2452526762f",
       "locales": {
-        "fr": {
-          "sha256": "abc944e70277d6736b229f89b799873a895f60963298963ffc1dd7637c7e4816",
+        "ar": {
+          "sha256": "87b03ff215077bca32b397d4be2f6158246b13b4e2253c819cee6c13d96ac85e",
           "review": {
             "units": 24,
-            "meanBackTranslationSimilarity": 0.6963,
+            "meanBackTranslationSimilarity": 0.6048,
+            "unitsBelow0_35": 3
+          }
+        },
+        "de": {
+          "sha256": "9871db3f88cdcaa4efac581dfcd36e0d633de0c1d410952f922f95d0a47eff4e",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.6526,
+            "unitsBelow0_35": 4
+          }
+        },
+        "dz": {
+          "sha256": "9c824366a6213d3f2395401090598c82fa1596a629ac3ec816918dce7ccbfb23",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.4048,
+            "unitsBelow0_35": 7
+          }
+        },
+        "es": {
+          "sha256": "7d6c1534fdd88d7de5788fa32f14f59fcc147a87f5b0f036669f9221bb41cf43",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.6775,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fil": {
+          "sha256": "0052de396c590f45c661cc45ef5003516def0f4ee9e6f12d74c9514deb93f4e9",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.7176,
+            "unitsBelow0_35": 0
+          }
+        },
+        "fr": {
+          "sha256": "7b3181f6d69fe5e0d2fedd38b4a72f4c38965281c32dc134f1b2575880af1500",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.7118,
+            "unitsBelow0_35": 1
+          }
+        },
+        "hi": {
+          "sha256": "f0b79686b5ae0cc04f74be9eaf28f4215bcd4c6e9ed5cf1676ff906913b47e47",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.6579,
+            "unitsBelow0_35": 4
+          }
+        },
+        "it": {
+          "sha256": "c92827dc6d6e6cd607fdd8356e3ef7e24f42f7f7a7321220b72dbf3f9938852b",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.6981,
+            "unitsBelow0_35": 2
+          }
+        },
+        "nl-BE": {
+          "sha256": "347fb52db0e15f505edf112998e20950c2f6a6c2cc3087336314cdf19ba0343f",
+          "review": {
+            "units": 24,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "347fb52db0e15f505edf112998e20950c2f6a6c2cc3087336314cdf19ba0343f",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.6165,
+            "unitsBelow0_35": 4
+          }
+        },
+        "pt": {
+          "sha256": "01f7f221304401a70ba28bf21141980d737a7e321e0e4add4f2ee4ac3b2b9291",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.7156,
+            "unitsBelow0_35": 1
+          }
+        },
+        "sr": {
+          "sha256": "d55cef6851c1c3706e21e8333b20626812a032ddbaffb42416ab41bd3a7ce6cb",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.6112,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sw": {
+          "sha256": "955cc22430e14b9a243af1cb845f3a9017dc7df78082eaebab69b256fa33f4f9",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.5535,
+            "unitsBelow0_35": 4
+          }
+        },
+        "uk": {
+          "sha256": "719021988747a87baa44b17d38df2898f23251d12fa6cdbca4106aa40b1f1a16",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.5819,
+            "unitsBelow0_35": 4
+          }
+        },
+        "zh-Hant": {
+          "sha256": "02ffbf1724418872b67f6bb5df274de5df14197fa357e2f8ef30adad22f2ab1f",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.611,
+            "unitsBelow0_35": 2
+          }
+        },
+        "zh": {
+          "sha256": "6dbe6cd2559d580954c452e57ff756b6232c66e72d149634f8b19f9b5f323e5d",
+          "review": {
+            "units": 24,
+            "meanBackTranslationSimilarity": 0.611,
             "unitsBelow0_35": 2
           }
         }
@@ -291,12 +2831,132 @@
       "source": "white-paper/chapter-05-from-isolated-pools-to-a-federated-network.md",
       "sourceSha256": "2aa539c5faaaee42f5f5e9e5aa3ee306137de2ea7bddcea116033da4d7fdba03",
       "locales": {
-        "fr": {
-          "sha256": "f966ac5ffbc73576fc30221be1fc45bd8b9a515716f1694919e9d60b796d3120",
+        "ar": {
+          "sha256": "152e8416a7d372fa8b467dddb9eb28c7438c782d9c8b3836bdbb3c2efafe2cbd",
           "review": {
-            "units": 75,
-            "meanBackTranslationSimilarity": 0.6929,
-            "unitsBelow0_35": 7
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6084,
+            "unitsBelow0_35": 12
+          }
+        },
+        "de": {
+          "sha256": "08590d6c291df72ac93aaf9059e3aad51bbab65ff73c5cc2921b557c22c3dc82",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6396,
+            "unitsBelow0_35": 17
+          }
+        },
+        "dz": {
+          "sha256": "bd67ac6703b3b7122932fea09b6abd75273be7321b97951311c94d03704f355f",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.4387,
+            "unitsBelow0_35": 28
+          }
+        },
+        "es": {
+          "sha256": "e6d52bad7b2bd9521e0fa7de9e609d6c76d38316d1041d6e00d6a06c35dd12a7",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6679,
+            "unitsBelow0_35": 11
+          }
+        },
+        "fil": {
+          "sha256": "7018f2d5d2084b4890ba75b4f2962a83c9c51a9a8993b6973c4eb349676af158",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.7137,
+            "unitsBelow0_35": 9
+          }
+        },
+        "fr": {
+          "sha256": "967ebd50fb9ab9fe62cd2e4f524e0f8b2c5b8fd637232b61c7ff05ee1168a24c",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6606,
+            "unitsBelow0_35": 11
+          }
+        },
+        "hi": {
+          "sha256": "e024ae2d5ba0de77eccc62584fb9f77e228e2237a189e579dc2a1fdd0ae747b5",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.7038,
+            "unitsBelow0_35": 6
+          }
+        },
+        "it": {
+          "sha256": "380956d2f70bf487526567b8eae63961b8a9b2376cb129769e3b7a8fafbf8ccc",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6695,
+            "unitsBelow0_35": 13
+          }
+        },
+        "nl-BE": {
+          "sha256": "ea5bce40fde68279ad162352f5efe49f545c609126198080a8a13c5960feafc4",
+          "review": {
+            "units": 79,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "13e7bc6bc2d798a7e0b2036a8b842183abe224a7bb909cc69cf803aacc9eed97",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6617,
+            "unitsBelow0_35": 13
+          }
+        },
+        "pt": {
+          "sha256": "b395d0665f029af007a13cf260ba62b59dd00ce51280cf61be91597afcabae22",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6312,
+            "unitsBelow0_35": 13
+          }
+        },
+        "sr": {
+          "sha256": "28186e9fcbf849bc5cb84bc498877cb74a5206be64b2cdc71f023ca3ef77ee92",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.633,
+            "unitsBelow0_35": 10
+          }
+        },
+        "sw": {
+          "sha256": "63079d586356bcf2666aafd67df1f3b427d722dd8cbad30b60f718585beba2f8",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.5724,
+            "unitsBelow0_35": 18
+          }
+        },
+        "uk": {
+          "sha256": "7510db79cf6b33faf409d50f00b8e2b7739d46bcad99c94c320c32b85ac12781",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.6065,
+            "unitsBelow0_35": 17
+          }
+        },
+        "zh-Hant": {
+          "sha256": "47157772884980b029129a50349c5a55a6a7134786d0fd73a792958c7c990360",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.5547,
+            "unitsBelow0_35": 19
+          }
+        },
+        "zh": {
+          "sha256": "ab96abc8b0f04e149c034f161201821cabc338cba1af5a2b22b7b8109fb8541b",
+          "review": {
+            "units": 79,
+            "meanBackTranslationSimilarity": 0.5547,
+            "unitsBelow0_35": 19
           }
         }
       }
@@ -305,12 +2965,132 @@
       "source": "white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance.md",
       "sourceSha256": "9409d6d33de56e1327ac7e7a031e9113c60b86677708fa767d9bc8ba274f0b5a",
       "locales": {
-        "fr": {
-          "sha256": "dc70aa09d78d1425e5b17f107dfad85979ea7ad6b2450faa44f62e0278927218",
+        "ar": {
+          "sha256": "07259ae0d22a2e0bb45516c647328e17d7d9dd71fc1c77e87210ac6e20669c42",
           "review": {
-            "units": 10,
-            "meanBackTranslationSimilarity": 0.6482,
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.503,
+            "unitsBelow0_35": 4
+          }
+        },
+        "de": {
+          "sha256": "597b1ce3b765968e4ce7bb1a7bfb75f2339f3012b151d8519504bd81d02c90fb",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6104,
+            "unitsBelow0_35": 4
+          }
+        },
+        "dz": {
+          "sha256": "1d5f23b765c45500985b4cb2a045a05a2b37a0749e0288a967c3e3f1d96abe34",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.4533,
+            "unitsBelow0_35": 5
+          }
+        },
+        "es": {
+          "sha256": "f923b586da2168eaaf160518830b2ec6ad900aa13ae2bc2408069afd04293ae7",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5917,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fil": {
+          "sha256": "d39f2a5e20ae937a16de132199bc729f776a4a88935e147f36e0e8e0afaca8e6",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6369,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fr": {
+          "sha256": "4ca0e5e03493c8da653307e5efe7c6c33fb651ee6a3ad081507fe60843f62a3a",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6597,
+            "unitsBelow0_35": 3
+          }
+        },
+        "hi": {
+          "sha256": "e8d6c1e9e8845b4cb43005d9df4262c85a2faa56d19a9b54d498ef22f7667d72",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6697,
+            "unitsBelow0_35": 1
+          }
+        },
+        "it": {
+          "sha256": "6d9f4a26dc1282722b1741d539fcbecf553ccdbb598e6cea7823f5151776de35",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5943,
+            "unitsBelow0_35": 4
+          }
+        },
+        "nl-BE": {
+          "sha256": "bab17a2e3ec825407a5faed69ddd19f9c4351010125cb778f3a5b2b2f27ee49f",
+          "review": {
+            "units": 14,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "bab17a2e3ec825407a5faed69ddd19f9c4351010125cb778f3a5b2b2f27ee49f",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6894,
             "unitsBelow0_35": 2
+          }
+        },
+        "pt": {
+          "sha256": "7164b0f9dcec3ec386af21c933acc89fa896efcaa2caa7e3b332c71bff914f23",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5144,
+            "unitsBelow0_35": 6
+          }
+        },
+        "sr": {
+          "sha256": "41a15fc6fb642a10fe8cafa2f938cd420fb4d6675b0fa3f42d1a68fcacfb4d83",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5977,
+            "unitsBelow0_35": 3
+          }
+        },
+        "sw": {
+          "sha256": "2dfaff401313f9ae3e339a0f2426b8a332d81c5f420f21a0e6dc1c46d5050572",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.3995,
+            "unitsBelow0_35": 6
+          }
+        },
+        "uk": {
+          "sha256": "23fa6123887f92693412c80101ee6174655c8406afbeefb08fd458e671c151a3",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5633,
+            "unitsBelow0_35": 4
+          }
+        },
+        "zh-Hant": {
+          "sha256": "ba48ece3ee992e54295048b3ff0aedf8e167cd6b5f832255b39deeace903c22e",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5496,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh": {
+          "sha256": "a7b789cb1b8a4110063c4a6fbfee91c1b8bbd9197048e3d48157599ea45d4f9f",
+          "review": {
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.5496,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -319,12 +3099,132 @@
       "source": "white-paper/chapter-07-clc-stewardship-and-the-clc-token.md",
       "sourceSha256": "afa23f7d2400ac459ecceb8730be0db943a917362f9507f29c7bef4d86f0b98e",
       "locales": {
-        "fr": {
-          "sha256": "3289e3ccf42966c6aed3d9fdcc7412cbc04bb16540017cbe3c4efcf90109d480",
+        "ar": {
+          "sha256": "e3241c479db118fb92c7240c1bb6094a29d38ccacc1ed38efee07dd5430df2eb",
           "review": {
-            "units": 111,
-            "meanBackTranslationSimilarity": 0.7261,
-            "unitsBelow0_35": 8
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.5849,
+            "unitsBelow0_35": 17
+          }
+        },
+        "de": {
+          "sha256": "feb2919cd166f69e62f27f97fc840fa788ff37ea309471d5779f16fa838cdc4d",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6447,
+            "unitsBelow0_35": 21
+          }
+        },
+        "dz": {
+          "sha256": "6de9c4568e7649b76e823cc62ed8cc60987155d7abae1cc1a8853fa340822fb3",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.4357,
+            "unitsBelow0_35": 43
+          }
+        },
+        "es": {
+          "sha256": "36001c339516e2d3e42bb6e57a1d17455c4673acdf70bce8269b896bb3ca71f7",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.702,
+            "unitsBelow0_35": 15
+          }
+        },
+        "fil": {
+          "sha256": "a6ecb7d2cb7d6d3e3b7cc8a179c423aebd28715ec99a6da70e5cd22b456219a6",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.7336,
+            "unitsBelow0_35": 12
+          }
+        },
+        "fr": {
+          "sha256": "1a2fe142ee3ff095c3d830c6f097f587743a9d16e2b8993aebc9529c7c150bea",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6903,
+            "unitsBelow0_35": 15
+          }
+        },
+        "hi": {
+          "sha256": "54f137b01a72efb52987c311a7de07644ed8385f34423a6ed9c8a08e81a26a3b",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.7218,
+            "unitsBelow0_35": 12
+          }
+        },
+        "it": {
+          "sha256": "2a13d6a60b62ae67af31c9700a9ceae75a56db4e1d634b0b027cb40423a867b1",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6855,
+            "unitsBelow0_35": 16
+          }
+        },
+        "nl-BE": {
+          "sha256": "8f02f92cc13230351179b959d419d4e7443dab043f66aedcb25aca885706015a",
+          "review": {
+            "units": 119,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8f02f92cc13230351179b959d419d4e7443dab043f66aedcb25aca885706015a",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6906,
+            "unitsBelow0_35": 14
+          }
+        },
+        "pt": {
+          "sha256": "ce641a824b77424a5154514de3fb9416a5f78c7bb946a53bd93d96f5e66f1107",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6786,
+            "unitsBelow0_35": 20
+          }
+        },
+        "sr": {
+          "sha256": "2214b92d7c1bcff9a4b98e3f63f33e590867b8f5fb5f9d4f9d4ad43fc340dc77",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6424,
+            "unitsBelow0_35": 15
+          }
+        },
+        "sw": {
+          "sha256": "0d42f6da10438213928e369207ec4f23a941362b45fa99dc1308beadc5812fc9",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.5545,
+            "unitsBelow0_35": 20
+          }
+        },
+        "uk": {
+          "sha256": "8ee5621b0b7f1963cc63ff7df3f98a592e8c17e1bebeebe13b10700fe1b0d34b",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.6398,
+            "unitsBelow0_35": 10
+          }
+        },
+        "zh-Hant": {
+          "sha256": "5f6eaebc838a14d759c8c901ee846c97d837c69044732f3f57fa77cba88e179d",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.5912,
+            "unitsBelow0_35": 20
+          }
+        },
+        "zh": {
+          "sha256": "17e74bae66c62f1471ebe0a3ba3fc1c8a1a75e0398d97138f68ef2cb928d5484",
+          "review": {
+            "units": 119,
+            "meanBackTranslationSimilarity": 0.5912,
+            "unitsBelow0_35": 20
           }
         }
       }
@@ -333,12 +3233,132 @@
       "source": "white-paper/chapter-08-technical-scope-growth.md",
       "sourceSha256": "1fd06beb840c9478cd8f8f13424017e9376bfaead7e2e8b1218e210733c1e97c",
       "locales": {
-        "fr": {
-          "sha256": "50ff4c1ca83ed54d329fbd14d0979aba7014f0be7b45dfea7a4972808d7ee839",
+        "ar": {
+          "sha256": "948581506b8353792630085e7a295093eddc73321cfa647034329099787e3739",
           "review": {
-            "units": 53,
-            "meanBackTranslationSimilarity": 0.709,
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.629,
+            "unitsBelow0_35": 8
+          }
+        },
+        "de": {
+          "sha256": "d21393d46ba7c7983a2018ee9ee7ab506a8c6d9f6ce131717ebe909b09085fe3",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6918,
+            "unitsBelow0_35": 6
+          }
+        },
+        "dz": {
+          "sha256": "1dc0cb5931eb6c183cd6fde2934325dda4aa44a8fc6e7c3b1a465a213152c273",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.3934,
+            "unitsBelow0_35": 26
+          }
+        },
+        "es": {
+          "sha256": "20d168b1fe9b22b12691be93774d7616be3e67bd8aad356945d68c9d30506ccc",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.7089,
             "unitsBelow0_35": 4
+          }
+        },
+        "fil": {
+          "sha256": "6b455ec117dc290bb9449d2737e96e23529624c17ef21e61c9c45b35c7d77280",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.7288,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fr": {
+          "sha256": "e9fc55bef125f9b3a22852dceadd7846570cfdf9abd3647eec2687c7ac845973",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.7059,
+            "unitsBelow0_35": 3
+          }
+        },
+        "hi": {
+          "sha256": "c87ebecab6b05721f13cb8b6dde47e6bf8e982603476987b5d042180f73627fb",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.7588,
+            "unitsBelow0_35": 5
+          }
+        },
+        "it": {
+          "sha256": "ca80734768465ea362c317ec80682308daf54d13db8b02917c8f50f7c74f4d59",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.7104,
+            "unitsBelow0_35": 1
+          }
+        },
+        "nl-BE": {
+          "sha256": "ce39fc492fd204005fd0783f3a8b36dc84364d61848a7e7aba13b7931c070759",
+          "review": {
+            "units": 55,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "ce39fc492fd204005fd0783f3a8b36dc84364d61848a7e7aba13b7931c070759",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6541,
+            "unitsBelow0_35": 8
+          }
+        },
+        "pt": {
+          "sha256": "ac751fbc773995dc1d010606285cb202037672b7f2b77c311b9aa2735ef5693b",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6867,
+            "unitsBelow0_35": 9
+          }
+        },
+        "sr": {
+          "sha256": "83a49cedb688ad030b31e35af537c50413cc0cb0fa66a1ab8ca7c3c812d485f9",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.636,
+            "unitsBelow0_35": 5
+          }
+        },
+        "sw": {
+          "sha256": "6a66f3976bc70cd83631ecf73dbb357945ca9a91e86387ff0ea6b0c24455bcc1",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6246,
+            "unitsBelow0_35": 5
+          }
+        },
+        "uk": {
+          "sha256": "4b139eb64105a3dc3c98e5f6610ea53d6628caa30cf8e9cd6d026aba41fb4d56",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6383,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh-Hant": {
+          "sha256": "04b6fcdebafdb826a0f045f070bdd76bf827bc3274e36bd0133c0b06383bba2b",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6211,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh": {
+          "sha256": "9361575892ad2ed36380d16e20acfe76de3f40e3c5423b113abf9e5c0e292f94",
+          "review": {
+            "units": 55,
+            "meanBackTranslationSimilarity": 0.6211,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -347,12 +3367,132 @@
       "source": "white-paper/chapter-09-economics-for-lps.md",
       "sourceSha256": "f1ea77a9368d3173ae695b18d835732575902ef01824f6d9a6aefdc02a6548af",
       "locales": {
-        "fr": {
-          "sha256": "9531a914bf288e2955ee050d76be37615feeec6094cc6b0012e74ca59ccb3600",
+        "ar": {
+          "sha256": "1ecc444dceebf629080fff71d8c82e64cbff1e8318ac95e929a215eeb217d9e5",
           "review": {
-            "units": 25,
-            "meanBackTranslationSimilarity": 0.764,
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.6047,
+            "unitsBelow0_35": 3
+          }
+        },
+        "de": {
+          "sha256": "ba9bc14d8ba79f73cd6ff111c54f4c7e9173c7121e499502b6b9ebe69c573a82",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.705,
+            "unitsBelow0_35": 3
+          }
+        },
+        "dz": {
+          "sha256": "93d88a634de0cc823cddb7f8090c258202265394efbbec8643205cbb961dd1e0",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.4658,
+            "unitsBelow0_35": 8
+          }
+        },
+        "es": {
+          "sha256": "6b0b4c5dbfc559dac292120fa62e2676716e1d5c0a6e671f632a1bb6dfe17b29",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.7255,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fil": {
+          "sha256": "a2b296ff3f7c641f9193c605674665b353515f7338887bd19b5e6c0ef864f760",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.7802,
+            "unitsBelow0_35": 0
+          }
+        },
+        "fr": {
+          "sha256": "116ce9bcc07d0729d8d7b19a095b08a45f87c6cb84cf8bbec2fee22097bdeda8",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.7015,
+            "unitsBelow0_35": 2
+          }
+        },
+        "hi": {
+          "sha256": "a6b3d66fd5fff199db7de67068a821c8f3791739ba040ce51c677f860bdfbc66",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.7634,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "cab42811303fd18ce2b605112ab54ceaf834d50b50156121f3ee084edec795bb",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.7404,
+            "unitsBelow0_35": 2
+          }
+        },
+        "nl-BE": {
+          "sha256": "9a450b9378f880486a7ef177b2901f793c8cb9246d3420adfa9085ea08f1a6ba",
+          "review": {
+            "units": 27,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "9a450b9378f880486a7ef177b2901f793c8cb9246d3420adfa9085ea08f1a6ba",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.759,
             "unitsBelow0_35": 1
+          }
+        },
+        "pt": {
+          "sha256": "2c850c30669f65511674c4c935c6ef1a9e4c4df0f6b88339d16962473467e76c",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.6871,
+            "unitsBelow0_35": 2
+          }
+        },
+        "sr": {
+          "sha256": "674c47b4c6eedc5f377cc3e7b526cfc2dad8b0f074cb8deab74ccfcdaea38631",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.643,
+            "unitsBelow0_35": 3
+          }
+        },
+        "sw": {
+          "sha256": "d637deb02d37e944e4a6bb3bb39ae439c1c389d17a7e95fc32c60c8a91ca542f",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.551,
+            "unitsBelow0_35": 5
+          }
+        },
+        "uk": {
+          "sha256": "caa6be66f9c4816fb977ab39850712474b41f6bcce7de8a69c1336fc746e06e7",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.6385,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh-Hant": {
+          "sha256": "3b3235f9e9e23748f1b845d118f4e2ec693155d0f78b33976bc5effeea20a9c2",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.6059,
+            "unitsBelow0_35": 4
+          }
+        },
+        "zh": {
+          "sha256": "9849fbe17f733b039d14aaedb04a26988fd5231ab60f40768c9d3788fdbc6a0d",
+          "review": {
+            "units": 27,
+            "meanBackTranslationSimilarity": 0.6059,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -361,12 +3501,132 @@
       "source": "white-paper/chapter-10-comprehensive-risk-framework.md",
       "sourceSha256": "4f57b19c37b50133e0d264f6f69fbd7c0bb0d0b32f054c77873e0a32d48dab4f",
       "locales": {
-        "fr": {
-          "sha256": "17c122e7869e21b25bdc911f83d0fa4782a49c12801423ac4fc4b2859a2a381b",
+        "ar": {
+          "sha256": "bdea07a77e8b78382cad4d23bbc531623f05d7cd7353ae358a0432a9ff8a4cbe",
           "review": {
             "units": 122,
-            "meanBackTranslationSimilarity": 0.7595,
-            "unitsBelow0_35": 9
+            "meanBackTranslationSimilarity": 0.7051,
+            "unitsBelow0_35": 10
+          }
+        },
+        "de": {
+          "sha256": "958b48d72b6fb48b01fbee305c6e35198460d936e26452dc3fe80e58f0f14014",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7353,
+            "unitsBelow0_35": 11
+          }
+        },
+        "dz": {
+          "sha256": "72e67731593f7e6f7d776d5b3526541bbd8927de1db329a4566e76cd68c06a7f",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.4535,
+            "unitsBelow0_35": 46
+          }
+        },
+        "es": {
+          "sha256": "0c09d6fbce8512872df2cf59df58eb0e599f0872c4399e1e2d10663ece789928",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7144,
+            "unitsBelow0_35": 14
+          }
+        },
+        "fil": {
+          "sha256": "8fb92e2d06bdc57fd1f1ef5e53244d0da6ba5a1601c9687cd54aa596e1771c6a",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7779,
+            "unitsBelow0_35": 7
+          }
+        },
+        "fr": {
+          "sha256": "3a7eec08b0d2cdc4b38a35df9a8513f8cbd1dc5077cf35d39f290876f69244a4",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.6249,
+            "unitsBelow0_35": 12
+          }
+        },
+        "hi": {
+          "sha256": "a77c91f597eba1149e3b2a9a5054bca2399e5b1e180c346803c3eaf3e1264d6c",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7452,
+            "unitsBelow0_35": 15
+          }
+        },
+        "it": {
+          "sha256": "2236639f7012e1cc34387e6c36df76fe273b332065d99bf8af31b241c0b956d3",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.708,
+            "unitsBelow0_35": 15
+          }
+        },
+        "nl-BE": {
+          "sha256": "388226679247e73a266c29fd1c412c4ed367773a9b20bead5fd1c9999339a955",
+          "review": {
+            "units": 122,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "388226679247e73a266c29fd1c412c4ed367773a9b20bead5fd1c9999339a955",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7122,
+            "unitsBelow0_35": 25
+          }
+        },
+        "pt": {
+          "sha256": "98dfac490dc36063e9d7e04b03460f0ded303a64ace1dd1a94d60b04a58a573b",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7195,
+            "unitsBelow0_35": 17
+          }
+        },
+        "sr": {
+          "sha256": "f2e644de2c77abc8716f23f7e2696e79fecd167df488dcdf864cd6c7cabd2de7",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.7136,
+            "unitsBelow0_35": 18
+          }
+        },
+        "sw": {
+          "sha256": "288c6c99956d4eded9bb747afafee37610305c5141c352cb565167a6ddda2cd7",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.6401,
+            "unitsBelow0_35": 24
+          }
+        },
+        "uk": {
+          "sha256": "4cf7739d20f743e89fe2699f35a67b51806665d46eca9cbaf08c928c7c5a9bbc",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.6951,
+            "unitsBelow0_35": 14
+          }
+        },
+        "zh-Hant": {
+          "sha256": "29a946e2ac40fc717f6e47dd7068de452396f66a530ddaafce1409d1d595758e",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.6097,
+            "unitsBelow0_35": 22
+          }
+        },
+        "zh": {
+          "sha256": "b63885a6e746461b3939869c40f98373df8437b26fba43da858957f17278e15e",
+          "review": {
+            "units": 122,
+            "meanBackTranslationSimilarity": 0.6097,
+            "unitsBelow0_35": 22
           }
         }
       }
@@ -375,12 +3635,132 @@
       "source": "white-paper/chapter-11-governance-mechanics.md",
       "sourceSha256": "f87ef6a26094bb70583c5790eb92b71c4af3fe3a91bbad560d7042b2691fe186",
       "locales": {
-        "fr": {
-          "sha256": "2d231a92b85eb4558c9ec0c136e837f505a65b215a649df4f3df223ba3960da1",
+        "ar": {
+          "sha256": "36e13da1928a9f6e43c8bca24974ce03276fb0c661c5ba3584dd4200297eb8e9",
           "review": {
             "units": 130,
-            "meanBackTranslationSimilarity": 0.6944,
-            "unitsBelow0_35": 9
+            "meanBackTranslationSimilarity": 0.5856,
+            "unitsBelow0_35": 23
+          }
+        },
+        "de": {
+          "sha256": "5c6fec062f896ad882c8f8f39f001858591794cb2db52c83420e9eb45e74a59c",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5755,
+            "unitsBelow0_35": 31
+          }
+        },
+        "dz": {
+          "sha256": "64a29a84e6d851f1c5aae020f7fc1971f0f23e5849dd3e75d8c8a370cb686e88",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.4261,
+            "unitsBelow0_35": 51
+          }
+        },
+        "es": {
+          "sha256": "0adb36fbaf9e1f5112a5ccbf857b6c3474c100fd34d7e16cf1efb6c0cdc65d8f",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.6475,
+            "unitsBelow0_35": 20
+          }
+        },
+        "fil": {
+          "sha256": "144853ceae66d5e3dcfc2e492d30e45451efb0f608e98128a3eec488b3820d2a",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.658,
+            "unitsBelow0_35": 15
+          }
+        },
+        "fr": {
+          "sha256": "d0c8ef0b10edbd6c65050248e576d8eccc35e106bbb8c0a0b80e5c61d211af25",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.6306,
+            "unitsBelow0_35": 25
+          }
+        },
+        "hi": {
+          "sha256": "d0c2f9977e2980bf07a0e88a9d89a7e6578defb87f802c2eb6203e8708cf12c7",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.7172,
+            "unitsBelow0_35": 10
+          }
+        },
+        "it": {
+          "sha256": "8e8a00a88d21b15e372edd37fb064bfc81429441e373af6a39debfe852830545",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.6348,
+            "unitsBelow0_35": 20
+          }
+        },
+        "nl-BE": {
+          "sha256": "0b03ec958f79b765d43d2cc79f5f8101b7e9bd854fba9a0b5d8df7be8e367d3d",
+          "review": {
+            "units": 130,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "0b03ec958f79b765d43d2cc79f5f8101b7e9bd854fba9a0b5d8df7be8e367d3d",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.6442,
+            "unitsBelow0_35": 24
+          }
+        },
+        "pt": {
+          "sha256": "570b07f1b7006cdd8202f41fbf41afd78c112d9d364b89fbea9bb6b3e99b911f",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.6087,
+            "unitsBelow0_35": 25
+          }
+        },
+        "sr": {
+          "sha256": "15842dc428d45490592d553d9975b5d634f146723f27bcd8f104811240931d3f",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5728,
+            "unitsBelow0_35": 29
+          }
+        },
+        "sw": {
+          "sha256": "208bbfd251ae298f9e83ee62e760ac5880522c61552343c32c479b627f4c9c2a",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5184,
+            "unitsBelow0_35": 30
+          }
+        },
+        "uk": {
+          "sha256": "c1e7130220e173adf7bdd6dfa9c06800357f6cd29e5e5a34edb7131fa356ebca",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5936,
+            "unitsBelow0_35": 22
+          }
+        },
+        "zh-Hant": {
+          "sha256": "3869cb4aa6c088d08c87f13ea009022aff9e40f3049442743fe75479d57c5dcd",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5498,
+            "unitsBelow0_35": 27
+          }
+        },
+        "zh": {
+          "sha256": "743292a635f5861177a5463323c4b41394bb69f615533c949844793683db9339",
+          "review": {
+            "units": 130,
+            "meanBackTranslationSimilarity": 0.5498,
+            "unitsBelow0_35": 27
           }
         }
       }
@@ -389,12 +3769,132 @@
       "source": "white-paper/chapter-12-lp-term-sheet-non-binding-outline.md",
       "sourceSha256": "81aee555189a51b1f491830ce251e85467eac9cc9522cbbd08ec4d54d3a787df",
       "locales": {
-        "fr": {
-          "sha256": "8ddf200c2a225218f35e28511df6e99b12f2395c60eb726e742b84312b81e74f",
+        "ar": {
+          "sha256": "508fbe777c6180a69bd84e1b150c9f13d146214df4b9ecab11dc313b5bcf240c",
           "review": {
             "units": 19,
-            "meanBackTranslationSimilarity": 0.7012,
+            "meanBackTranslationSimilarity": 0.5538,
             "unitsBelow0_35": 3
+          }
+        },
+        "de": {
+          "sha256": "40d8679935cf150f576c9d38ac6cfdf8af93d7172bd8edd534d8bdb21e75a500",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.6353,
+            "unitsBelow0_35": 3
+          }
+        },
+        "dz": {
+          "sha256": "6083ccdd95f89a1666b00558c63d7d36af97c2b7ad28eb6b8951da1fa92e5a2a",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.4838,
+            "unitsBelow0_35": 3
+          }
+        },
+        "es": {
+          "sha256": "1afdfba92114e5923ddc6f1165e16fe28f843759754a026c23ad8e039fdd2fab",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5799,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fil": {
+          "sha256": "8184dae0bdb50a7cb371a2b363e061bd15e16694b4207cfb7cb0ff794b19223f",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.688,
+            "unitsBelow0_35": 2
+          }
+        },
+        "fr": {
+          "sha256": "5d6daff5e5e602d28ec2ddf438857d1f705dffcc327aff2ee72d4a4d91ce20f7",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5741,
+            "unitsBelow0_35": 6
+          }
+        },
+        "hi": {
+          "sha256": "0d7dff496b58c6b54cdbd931ee981ecf6a414821b5ec05fdd3f8dbefcc8b6d7e",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.6829,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "51a4e85436835210f30b9efd335a173d26e24f1ba084bbdcd4a7f571223d7a67",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5908,
+            "unitsBelow0_35": 6
+          }
+        },
+        "nl-BE": {
+          "sha256": "51796501edb754cc58887e8ab11d0f666f8beb149618c5f85487ca6b42a540b4",
+          "review": {
+            "units": 19,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "51796501edb754cc58887e8ab11d0f666f8beb149618c5f85487ca6b42a540b4",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.6036,
+            "unitsBelow0_35": 6
+          }
+        },
+        "pt": {
+          "sha256": "3a37005b0455d65dcb68ec0b787482badc25414c88ac63e48f589e2eab595869",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5856,
+            "unitsBelow0_35": 6
+          }
+        },
+        "sr": {
+          "sha256": "8e01a28e57e4efccecd22c77adaa0c0c19324fc3237051009851dc921ab57f47",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5274,
+            "unitsBelow0_35": 6
+          }
+        },
+        "sw": {
+          "sha256": "a7bff256aeae364936d5df4b9940303fa24ae3ce6992a2a12309998f2ab96a64",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.4947,
+            "unitsBelow0_35": 4
+          }
+        },
+        "uk": {
+          "sha256": "afaa43b9b894cace6cb45f85ae2daa3da8ccfd6ea353626e3814dee4245146f9",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.489,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh-Hant": {
+          "sha256": "f88de2511406696dff0ac7c52151f7ca8c63a1f8eece5d705b8ca0d6b2062744",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5572,
+            "unitsBelow0_35": 2
+          }
+        },
+        "zh": {
+          "sha256": "a3141416f360e80064f3abbf4c382c540765d2a7766f762d291d840efa748313",
+          "review": {
+            "units": 19,
+            "meanBackTranslationSimilarity": 0.5572,
+            "unitsBelow0_35": 2
           }
         }
       }
@@ -403,12 +3903,132 @@
       "source": "white-paper/chapter-13-jargon-plain-language-glossary.md",
       "sourceSha256": "e2493eaf44740497efa7e8ba72f298059328dbe7009d8191f1ab95619cb723ea",
       "locales": {
-        "fr": {
-          "sha256": "cb2dc7f5583c4131e282cb746b835a7fe5a7a3decf747b712a7d71a03cb9c889",
+        "ar": {
+          "sha256": "98512c28c6476802fb060b62158cc05dce8a9534885614d76dfbc5f887570438",
           "review": {
-            "units": 46,
-            "meanBackTranslationSimilarity": 0.7655,
-            "unitsBelow0_35": 3
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6297,
+            "unitsBelow0_35": 9
+          }
+        },
+        "de": {
+          "sha256": "3fdf6f2eb7b5bb854741739205947982f6d69a17c2bc270a64e3471926f22edb",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6645,
+            "unitsBelow0_35": 7
+          }
+        },
+        "dz": {
+          "sha256": "1d9620dfbe430d81d1d2083f09987b2576192ddf4568cc9f873c971117c66535",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.4714,
+            "unitsBelow0_35": 14
+          }
+        },
+        "es": {
+          "sha256": "62cf75a81fb4b22232cac0e3897ce760f411174f118445715a93bd62b26fee77",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6666,
+            "unitsBelow0_35": 8
+          }
+        },
+        "fil": {
+          "sha256": "72b3394819bca561e9ed5ff5f15f4580874d6525820dbdf89713e539b2e21959",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.7573,
+            "unitsBelow0_35": 5
+          }
+        },
+        "fr": {
+          "sha256": "a6adc61de38f26193f609f94c8e6bb935fb5fb9cb04f8a1855778d28876e0f27",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.7354,
+            "unitsBelow0_35": 4
+          }
+        },
+        "hi": {
+          "sha256": "5e56de7cc390a9d3bfbd21c35c57031a9b007300b11fd24b525bb0172834331c",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.8243,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "efbf3f660f6ea545dddd98fd6c644ac861c2438d218c51ad8cf0d40875924de7",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6837,
+            "unitsBelow0_35": 9
+          }
+        },
+        "nl-BE": {
+          "sha256": "8b7bb427d4d6b38d0af0e4789b36eec8c6dd237cfbf6d50b10eab1168e980ca5",
+          "review": {
+            "units": 48,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8b7bb427d4d6b38d0af0e4789b36eec8c6dd237cfbf6d50b10eab1168e980ca5",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6919,
+            "unitsBelow0_35": 6
+          }
+        },
+        "pt": {
+          "sha256": "fa1a80c5b072afe947bcef69dca44827d1f698b6816a234b87badbe38d3db2ab",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6676,
+            "unitsBelow0_35": 9
+          }
+        },
+        "sr": {
+          "sha256": "f82bfca044098d4f5b39ef2ce79699875aaf75af1c75a8f32d174772a0d9e889",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6127,
+            "unitsBelow0_35": 9
+          }
+        },
+        "sw": {
+          "sha256": "1ee9ce6100440b38f7ee230c57c8d34c38ecd890d395e9beba9306f4af8cea14",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.5896,
+            "unitsBelow0_35": 8
+          }
+        },
+        "uk": {
+          "sha256": "09d3a88bcb64dfd8f447f91b9041de579ef2225fd80c3199aa7a7817d4b92daf",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.6315,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh-Hant": {
+          "sha256": "b7cdc041b84ee766701c68fb0b2b1d8fdf796818f601fe832f6220b357e5e236",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.5978,
+            "unitsBelow0_35": 11
+          }
+        },
+        "zh": {
+          "sha256": "385db27a96b86b142c56c39874abf95f50a295b9400ea966365f5b88e032f429",
+          "review": {
+            "units": 48,
+            "meanBackTranslationSimilarity": 0.5978,
+            "unitsBelow0_35": 11
           }
         }
       }
@@ -417,12 +4037,132 @@
       "source": "white-paper/chapter-14-kpis-health-indicators.md",
       "sourceSha256": "a596d4aa3b3065a7722e09a78caa2cb2c6d394cfe66918106ee95eca17986f20",
       "locales": {
-        "fr": {
-          "sha256": "b9e60b0a182855dc4baf8d5a19c7d9dfa56f1bb587892a3973bde9f2b0c1ec9d",
+        "ar": {
+          "sha256": "4272aa7db4e75b157e19a2f59d4bf9e9c6df63ab216bd4667e8ef65c6219473a",
           "review": {
-            "units": 21,
-            "meanBackTranslationSimilarity": 0.6725,
-            "unitsBelow0_35": 1
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5423,
+            "unitsBelow0_35": 5
+          }
+        },
+        "de": {
+          "sha256": "955e18befc775e1fd60fb41ee4a10309b6ae178be84236dd9f8a97c6732cba48",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.6504,
+            "unitsBelow0_35": 6
+          }
+        },
+        "dz": {
+          "sha256": "1b7b534d57bb7eaa8fd971807e9d99442f60300a54c1f855c53e1e9e8c38c13f",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.3809,
+            "unitsBelow0_35": 13
+          }
+        },
+        "es": {
+          "sha256": "2e6bbc7bf593470ade57e264b07c4360768334b76fe089f6523e111ed6806b07",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.6339,
+            "unitsBelow0_35": 4
+          }
+        },
+        "fil": {
+          "sha256": "79200d258717e170f75410f0b86efb8bb06513350b796c7a156c0387394c4e58",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.6268,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fr": {
+          "sha256": "8f07973e5e1effe4deffa44063ed9db24eb3eeb2bea04d2485e232e313b833bc",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5987,
+            "unitsBelow0_35": 4
+          }
+        },
+        "hi": {
+          "sha256": "ac0c8da92ab16b68484491ba9eb6c37a4d096c240b0f129628cf8e0158b17266",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.742,
+            "unitsBelow0_35": 0
+          }
+        },
+        "it": {
+          "sha256": "d95ca14569d9d418123bd28e4e823e7f34b3ec003b206469077861469b3caa0a",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.6119,
+            "unitsBelow0_35": 3
+          }
+        },
+        "nl-BE": {
+          "sha256": "ce08dbde8a87ea0a4d60234bcec63e989417f4eade3b265927a93a2bb73fca4e",
+          "review": {
+            "units": 23,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8ce6c4a11076ba92ce4bdcd27b676dbb73b7966889ba277be06726f51d1795e5",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.6206,
+            "unitsBelow0_35": 6
+          }
+        },
+        "pt": {
+          "sha256": "43924edd3e3c25d2d6c7ad4e772388ec1b10f65a15b05118c687b78d7cb29a37",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5826,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sr": {
+          "sha256": "ab3662623dfccdaa3ce52775b8d1183b1caff936552491bf8b4f847ad0e37098",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5944,
+            "unitsBelow0_35": 5
+          }
+        },
+        "sw": {
+          "sha256": "0a9fcf592e048e4d25fda2aba45f57aa4a65fb57d2be7fbeb7614f7bae227bf6",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.4815,
+            "unitsBelow0_35": 8
+          }
+        },
+        "uk": {
+          "sha256": "7a2a385068e7468dd346fea11c1796baa6fd50944c901bf06586a4f5e2b61a29",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.6098,
+            "unitsBelow0_35": 2
+          }
+        },
+        "zh-Hant": {
+          "sha256": "7270193da67c473bf614ed768e4bc22cf97502412a47d84a32e120c8192f4097",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5032,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh": {
+          "sha256": "72a2bcd7188dc2e1993a32e5950488c3de4b90295cd2417cc11356d7c0e58458",
+          "review": {
+            "units": 23,
+            "meanBackTranslationSimilarity": 0.5032,
+            "unitsBelow0_35": 6
           }
         }
       }
@@ -431,12 +4171,132 @@
       "source": "white-paper/chapter-15-roadmap-indicative.md",
       "sourceSha256": "ed23216a7d040415f9e3300ce56f27c0ddd34adef4fd805f5723f23d20b10ce2",
       "locales": {
-        "fr": {
-          "sha256": "3107b00e906aaa6af3a33340dcd29ade4f11bb684be8da640162076d6b9344ba",
+        "ar": {
+          "sha256": "f114dc595ee49a68676ba40d144a3c35c46e94666a95d37b30cdf8dfeb3db3a3",
           "review": {
             "units": 16,
-            "meanBackTranslationSimilarity": 0.7635,
+            "meanBackTranslationSimilarity": 0.5445,
+            "unitsBelow0_35": 4
+          }
+        },
+        "de": {
+          "sha256": "f862c15d55824e8f832442815477654cef287ba9516fea35e7f553cec95feaf0",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.7386,
             "unitsBelow0_35": 2
+          }
+        },
+        "dz": {
+          "sha256": "b0d48d85e540bda2310354b70dba9426988a62d6d011cfd3cd3a224aa3053b25",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.4124,
+            "unitsBelow0_35": 5
+          }
+        },
+        "es": {
+          "sha256": "171135d9738ee4311d5bf41b0681d3b06ddcb62207a17c8260b3bf4acd7e4245",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.7973,
+            "unitsBelow0_35": 1
+          }
+        },
+        "fil": {
+          "sha256": "46d8d9cfef8590a7d302b89d37af68b2cf676094f79309051e32fe3e0d829df1",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6753,
+            "unitsBelow0_35": 3
+          }
+        },
+        "fr": {
+          "sha256": "d532ddbb71cf4d548238bad598fb8a74df84c81d4f5405f7d60dd5e8f59bbf88",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.7643,
+            "unitsBelow0_35": 0
+          }
+        },
+        "hi": {
+          "sha256": "f12e04a9182a7d8f0a8a107113b7acadac755fdd8da0db455d9721df3a4582b0",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.7917,
+            "unitsBelow0_35": 1
+          }
+        },
+        "it": {
+          "sha256": "066d64f253750cabc43f6e62cec019adc6aa5df7f2f10d7aa5a1b65ccd2991e4",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.728,
+            "unitsBelow0_35": 3
+          }
+        },
+        "nl-BE": {
+          "sha256": "e18d56a7752df6afd26592f4acdeaa47d41a285087d6c1eb9ae067a5a294ab3f",
+          "review": {
+            "units": 16,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8336fb1b51c80a44d71ca002824afa641c46e5b2fa0e039a1cce2fbf44b09b35",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6957,
+            "unitsBelow0_35": 3
+          }
+        },
+        "pt": {
+          "sha256": "a3dc53f8ae0889119436f555a2539de4f6a4d9db06ec3b0bf1a7e0f3606b156a",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6828,
+            "unitsBelow0_35": 3
+          }
+        },
+        "sr": {
+          "sha256": "50f0d4b9f9de52c83d6e3570a4655a28980d2f0b7e48f30e4957d0060c1007b4",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5288,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sw": {
+          "sha256": "c184344a7c7ffec5966243852f48e815b868c1ab431a0570edf279339b4e82af",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5367,
+            "unitsBelow0_35": 5
+          }
+        },
+        "uk": {
+          "sha256": "5bbe3aad1e313e924ffda8084db9b52b72326c781f6041d73bba480e260e6dac",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.6184,
+            "unitsBelow0_35": 2
+          }
+        },
+        "zh-Hant": {
+          "sha256": "941e2a12404611ad2265eceed45f30347cbdd815a8a3acdacb021edcca250147",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5918,
+            "unitsBelow0_35": 4
+          }
+        },
+        "zh": {
+          "sha256": "4fecb73621815490b50f17d7ee59b1594aa760a0298b7203c23ad5b0281a18ee",
+          "review": {
+            "units": 16,
+            "meanBackTranslationSimilarity": 0.5918,
+            "unitsBelow0_35": 4
           }
         }
       }
@@ -445,12 +4305,132 @@
       "source": "white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates.md",
       "sourceSha256": "b1871b0243b1ca167d2ac0a3d48f0da744d2870b2127acfac921a458a5070715",
       "locales": {
-        "fr": {
-          "sha256": "c9954a87324f6c82dc2b99fd974628a25e4147591eff2952e773b34867c562e7",
+        "ar": {
+          "sha256": "3bb6680c7b9f3a11626f6043ecc79b9295bea6c28801d668548812cc22df2c64",
           "review": {
             "units": 15,
-            "meanBackTranslationSimilarity": 0.6033,
+            "meanBackTranslationSimilarity": 0.6829,
+            "unitsBelow0_35": 1
+          }
+        },
+        "de": {
+          "sha256": "5f6a878285f070a9fb7dd199ecb9265a413aac2019486adffb9575ea7603095a",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6988,
             "unitsBelow0_35": 3
+          }
+        },
+        "dz": {
+          "sha256": "b90b152add7ba8230a6e21b9bdc3eb2a4ae099b61caae479f2cc148d8c2a922e",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.4205,
+            "unitsBelow0_35": 4
+          }
+        },
+        "es": {
+          "sha256": "aedb531abf9475b42d8d6bf2c384b08e41b0d52ef75d4c1b520a0642aa7d780a",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6294,
+            "unitsBelow0_35": 4
+          }
+        },
+        "fil": {
+          "sha256": "74e0a7d6fad917e180e86a7a481c747150500e97e9cb0c62dca8388f2832e3bc",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.7345,
+            "unitsBelow0_35": 2
+          }
+        },
+        "fr": {
+          "sha256": "411dceedd0dcac6de55dff58ed43846e04582499954c1f68f278ab7103d68c09",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.5491,
+            "unitsBelow0_35": 4
+          }
+        },
+        "hi": {
+          "sha256": "ef6504a7c5a408f1ee4db2e9b9bb29dd8284591d41e25285707e4ed65a76d06e",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.7255,
+            "unitsBelow0_35": 3
+          }
+        },
+        "it": {
+          "sha256": "04ecbbc07f7cfef1a6705d5e09d56d60c43dc46173db4d8ae79a6c0479edcb9c",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6262,
+            "unitsBelow0_35": 3
+          }
+        },
+        "nl-BE": {
+          "sha256": "ff918385795b21d400979363c5996b8ba75a380b88987900586972f57b9953c1",
+          "review": {
+            "units": 15,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "ff918385795b21d400979363c5996b8ba75a380b88987900586972f57b9953c1",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.5788,
+            "unitsBelow0_35": 5
+          }
+        },
+        "pt": {
+          "sha256": "bcb6f912ba015f0cf5f03e8dd7dd7b1c5ea2cfbc18c307a4d38d8c11b036fc89",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.5945,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sr": {
+          "sha256": "834b1ccc4cde490c2592bad6fee9ebc258c042992cd7c4eea60fa9905aeb5a48",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.5778,
+            "unitsBelow0_35": 4
+          }
+        },
+        "sw": {
+          "sha256": "0b17b51963cca974445543174c14c5e9237b625498dba742fda84a1cdceb5a1e",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6082,
+            "unitsBelow0_35": 4
+          }
+        },
+        "uk": {
+          "sha256": "11572cc8b6614fad39cb851125362fdeb9d023270859b690dfa612edf4d7c046",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.5638,
+            "unitsBelow0_35": 4
+          }
+        },
+        "zh-Hant": {
+          "sha256": "21af2270d96a882cf308ce4c3c82b712bffbd6bf5ddd285a28ace04ca9eca1a7",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6564,
+            "unitsBelow0_35": 2
+          }
+        },
+        "zh": {
+          "sha256": "877c96c88a5377630d99378958704f17959f8db2055b5f785d8b24874b5946a0",
+          "review": {
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.6564,
+            "unitsBelow0_35": 2
           }
         }
       }
@@ -459,12 +4439,132 @@
       "source": "white-paper/chapter-17-legal-compliance-note.md",
       "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
       "locales": {
-        "fr": {
-          "sha256": "f8f0ecf937bb8ba42290c967aa1eb8b52c43edabbc2d0201c87b56bcd01b1b33",
+        "ar": {
+          "sha256": "05e0785e1e0fab3afc6e5296a126f4e9a63cb4959371c0ea578edd04d1bb4f67",
           "review": {
-            "units": 34,
-            "meanBackTranslationSimilarity": 0.6184,
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5404,
+            "unitsBelow0_35": 12
+          }
+        },
+        "de": {
+          "sha256": "cc7a54c1828410e945431d9ce7bb353e1ab63968d98213487ec6c84189434468",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5801,
+            "unitsBelow0_35": 10
+          }
+        },
+        "dz": {
+          "sha256": "334b3fc4075ee01431b4633d48af3995b8a551b1fe4ed30c444f53a442a3cf4f",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.3716,
+            "unitsBelow0_35": 20
+          }
+        },
+        "es": {
+          "sha256": "10b084a0e8016a23e72a116cd616d3b22dba6aecffa80907aec7207b34856e4f",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6268,
+            "unitsBelow0_35": 7
+          }
+        },
+        "fil": {
+          "sha256": "d72e45c56aa4c42eab25468f9a5f7454003f6e4907dceb9a15a1710ac0a55cdb",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6506,
+            "unitsBelow0_35": 7
+          }
+        },
+        "fr": {
+          "sha256": "4f39eddd6b91135aed2c019762294e93b50987ac5f06ace2011a067c03985ca4",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6528,
             "unitsBelow0_35": 6
+          }
+        },
+        "hi": {
+          "sha256": "68b62e689bd49799e2df66514b500da7c6f42541edef5d38071ac79ebefbfd7f",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.7228,
+            "unitsBelow0_35": 4
+          }
+        },
+        "it": {
+          "sha256": "f819c4e53d832e011a2c056f4741af380f0ab895d5995ea223a361a4cf73293e",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6108,
+            "unitsBelow0_35": 7
+          }
+        },
+        "nl-BE": {
+          "sha256": "b6b0e46478c28d6ca6d0c8f0be1f9f045aca344a909ab7113fdf0912dfb29a3f",
+          "review": {
+            "units": 46,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "817306e1f24ea24d2f9d284939dbbfb56f6336ac15ec69ccfb78ecaf5368ea25",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6127,
+            "unitsBelow0_35": 9
+          }
+        },
+        "pt": {
+          "sha256": "055555f6b174ef272717e7c08889ea728512bcd63d5f476983bbb7459941fac5",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.6108,
+            "unitsBelow0_35": 9
+          }
+        },
+        "sr": {
+          "sha256": "188c5a74da12c108575fde78b1b0d1545ee086cd72a0143db9ce422bc053b124",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.528,
+            "unitsBelow0_35": 10
+          }
+        },
+        "sw": {
+          "sha256": "d8a04d6d40aa6113b718d0ea87e85cadf22352963f77dd0d34e442e38431bcff",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5416,
+            "unitsBelow0_35": 9
+          }
+        },
+        "uk": {
+          "sha256": "cfe6e6819d6742d6732b3b6ae43cf761f98a8c6ab059025c3e70c1d65d396a43",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5644,
+            "unitsBelow0_35": 7
+          }
+        },
+        "zh-Hant": {
+          "sha256": "12903fd3786f49bf8b37628b9f1e0f06b14b72e8b97a155f1bf1a5666285be64",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5597,
+            "unitsBelow0_35": 9
+          }
+        },
+        "zh": {
+          "sha256": "9ef533b76f26ec350e1c1ae3bf736f582573924d64903df994255fe4893d276d",
+          "review": {
+            "units": 46,
+            "meanBackTranslationSimilarity": 0.5597,
+            "unitsBelow0_35": 9
           }
         }
       }
@@ -473,12 +4573,132 @@
       "source": "white-paper/chapter-18-conclusion.md",
       "sourceSha256": "aef3272b5bcd43b58fc0a4222167366fc66766fcabba97bd5e9d909955587558",
       "locales": {
-        "fr": {
-          "sha256": "15de1498fcf9d1af8f6eb99ac87d5342b747dff5cd29ebd6cd70f2cf8ff01e3b",
+        "ar": {
+          "sha256": "03e19917f174c31f87679c45dcf1d8c42e5f545cd0cdd0cbb70147dfb0a85b7d",
           "review": {
             "units": 3,
-            "meanBackTranslationSimilarity": 0.3387,
+            "meanBackTranslationSimilarity": 0.2176,
             "unitsBelow0_35": 2
+          }
+        },
+        "de": {
+          "sha256": "ee5c44ee716cc08e50608a22b0bf1ea95a775f2c659ddff13c69510fb5b4e6f9",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.6042,
+            "unitsBelow0_35": 1
+          }
+        },
+        "dz": {
+          "sha256": "d6e47f556f47619d454a5c57009f7466387fb21399317ebce59640200a10205d",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.2448,
+            "unitsBelow0_35": 2
+          }
+        },
+        "es": {
+          "sha256": "499cd26f380316f6aed3181a2b1df3dd0a15c47b227467d70ed1d9e9f0f39901",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.6348,
+            "unitsBelow0_35": 1
+          }
+        },
+        "fil": {
+          "sha256": "369ab67a59d1dbb410a6619f139d21195a2d6d916752cfd34cc94ee209a90a8f",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.7101,
+            "unitsBelow0_35": 0
+          }
+        },
+        "fr": {
+          "sha256": "4b2ff1e4c2219ed291eb65f1fd5de2eb7b29ac1c80863f38b5e773ab07690540",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.639,
+            "unitsBelow0_35": 1
+          }
+        },
+        "hi": {
+          "sha256": "b05ba16ea0b9dedb8d0195d161646b796a5f93ed6bfe17e82c7a9737feeb16e8",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.5454,
+            "unitsBelow0_35": 1
+          }
+        },
+        "it": {
+          "sha256": "446c418022e2d3e817f676efc1e5ef66b33daee307386052b2986e0039a41125",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4803,
+            "unitsBelow0_35": 1
+          }
+        },
+        "nl-BE": {
+          "sha256": "642d1a381f56244ee09cdc9f8c278c63406e66d49a558f3ff9dffb9a76a1e050",
+          "review": {
+            "units": 3,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "642d1a381f56244ee09cdc9f8c278c63406e66d49a558f3ff9dffb9a76a1e050",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4608,
+            "unitsBelow0_35": 2
+          }
+        },
+        "pt": {
+          "sha256": "952285885d628fe64b9238c4532fd0886c2dba8830a5083e565cf4292074447f",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.202,
+            "unitsBelow0_35": 3
+          }
+        },
+        "sr": {
+          "sha256": "1781b2693497ebefb52cbdffbb7fced5ef463224280869447a6b1b3bac12098a",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4334,
+            "unitsBelow0_35": 2
+          }
+        },
+        "sw": {
+          "sha256": "17d2b1538f532ee5c192fa3c067b3de68aaa322c4814fe2da5b4813adc930314",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4321,
+            "unitsBelow0_35": 1
+          }
+        },
+        "uk": {
+          "sha256": "7e411602d126fbdf2da1152d18f97c1ff4a85acbee384bd48aae27f83b1e1378",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4693,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh-Hant": {
+          "sha256": "82d73bb10a0d0c53fcfd886726a759901dde77eb192c157111b8c40e148b7e9d",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4891,
+            "unitsBelow0_35": 1
+          }
+        },
+        "zh": {
+          "sha256": "5973924cb8866faa1bb626a1522b8d99fa8dae3378d33310e6b40f55d1f80fd8",
+          "review": {
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.4891,
+            "unitsBelow0_35": 1
           }
         }
       }
@@ -487,12 +4707,132 @@
       "source": "white-paper/executive-summary.md",
       "sourceSha256": "0bfd50439332f9b8fea7865944d61d7e4ca4f009acbc92edc017df0111b7ec57",
       "locales": {
-        "fr": {
-          "sha256": "2df98c06cc5cd40d4796adcbd25901b5ea2412d08f463a9a22e3b51cf054e822",
+        "ar": {
+          "sha256": "86534a9f2350398613546f457d37f54a99de1125e203c76170966c6af7e190f7",
           "review": {
-            "units": 25,
-            "meanBackTranslationSimilarity": 0.6925,
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6189,
+            "unitsBelow0_35": 5
+          }
+        },
+        "de": {
+          "sha256": "a8e597d14a2816d313d74f46638632224a2aa6b3dada093e73584e98198dbe26",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6774,
+            "unitsBelow0_35": 9
+          }
+        },
+        "dz": {
+          "sha256": "99f01de26a555a2723b6d240c020c84dd94b29ba53fa87982ed6ed1b99c46314",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.5641,
+            "unitsBelow0_35": 10
+          }
+        },
+        "es": {
+          "sha256": "8788881491af3727a87c09397a55452ef11bc0d36bdb12f23c0b31fb63e312e7",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.678,
             "unitsBelow0_35": 3
+          }
+        },
+        "fil": {
+          "sha256": "2cfe3b0fffa98e378809006add5a2a0aa3d7418d6d448e0f96af3b849f36d7b0",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.7265,
+            "unitsBelow0_35": 4
+          }
+        },
+        "fr": {
+          "sha256": "be1dac81f5c97b4bde09ae6012364a50aa89e0fe10f19ac92ae20e776a84ce82",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6706,
+            "unitsBelow0_35": 6
+          }
+        },
+        "hi": {
+          "sha256": "b7e9ba672d223edad42f36bf4a90b23a98e0f08ad72b2838833d25552968fdfd",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.772,
+            "unitsBelow0_35": 2
+          }
+        },
+        "it": {
+          "sha256": "7e8b7e35af6a26bb9d7bf69f2c62ff2e3cfd7ff3aba4e38a5b390bd09e4f1905",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6531,
+            "unitsBelow0_35": 7
+          }
+        },
+        "nl-BE": {
+          "sha256": "70b803b2d33dc38494cbea00843c794eadf5583d6fa84a64a87c5122cd183e95",
+          "review": {
+            "units": 35,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "8ef2f940918ec5539610a31ae38274f2491ad029576baa0f21b2a70cebcf6e9f",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6915,
+            "unitsBelow0_35": 6
+          }
+        },
+        "pt": {
+          "sha256": "8a08ceb180e2e126091f034964a90c2bbcc52999f66e96a17ccee911df49b4e3",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6076,
+            "unitsBelow0_35": 10
+          }
+        },
+        "sr": {
+          "sha256": "8979021dd6980b4c9617d8c3cd1c83a82cc913978425d212ef74020ca8cffe54",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6532,
+            "unitsBelow0_35": 7
+          }
+        },
+        "sw": {
+          "sha256": "efcfdf6eea3bf7432b0274ee4335ea25081701a4a831869f31fd15d8db84418e",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.5804,
+            "unitsBelow0_35": 6
+          }
+        },
+        "uk": {
+          "sha256": "ee11ebf8988f39048e4827b81b9d1c0d6aa74de8e4b43e75de87ddb141c137a1",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6269,
+            "unitsBelow0_35": 6
+          }
+        },
+        "zh-Hant": {
+          "sha256": "7f3954058b5bf2c58258362a8f325e43f405df07a4b35110f767b8567dd585e3",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6751,
+            "unitsBelow0_35": 5
+          }
+        },
+        "zh": {
+          "sha256": "5cf3f8eb084d0ce10f044554291c0e8c768dce7dc88cbfe89c712e82ca15ee3f",
+          "review": {
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6751,
+            "unitsBelow0_35": 5
           }
         }
       }
@@ -501,12 +4841,132 @@
       "source": "white-paper/index.mdx",
       "sourceSha256": "784327ca9c7cb86015d46a953b9233a0d215648f51110e14f1de6b5eb43f7c34",
       "locales": {
-        "fr": {
-          "sha256": "d69307aca2866ff7cea244fe67fc492fcea498888104bcc1705c7f900b90cf44",
+        "ar": {
+          "sha256": "1972e02987864cb7d99e0c33ec2faee55634faddbfe37cf2c69ee6e821ce6aa9",
           "review": {
-            "units": 93,
-            "meanBackTranslationSimilarity": 0.726,
-            "unitsBelow0_35": 9
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6284,
+            "unitsBelow0_35": 19
+          }
+        },
+        "de": {
+          "sha256": "5626d1a706e257e5a911f7829e6f7200e031130cc4cfd99a076e7a390ae8e412",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.677,
+            "unitsBelow0_35": 21
+          }
+        },
+        "dz": {
+          "sha256": "92d488c2c34a7e23fec0a00033072df722ecd76999a7dbcb44fcdd31ab4b9c33",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.5238,
+            "unitsBelow0_35": 29
+          }
+        },
+        "es": {
+          "sha256": "0f96de20bd1677add3b5792be609ef9fa33b0c0e1c7174080055b3371a5bdb21",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6899,
+            "unitsBelow0_35": 16
+          }
+        },
+        "fil": {
+          "sha256": "8e82cd073cebbce85e660312dccb9689eb09d9382b45a7ee66fd12260c2c3eee",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.7297,
+            "unitsBelow0_35": 12
+          }
+        },
+        "fr": {
+          "sha256": "94ff880f8030c96348d0a4596dd9d113d71e3101b7335ed86b4eb30495678d85",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6805,
+            "unitsBelow0_35": 18
+          }
+        },
+        "hi": {
+          "sha256": "ac218e2fdf5ea80a3de167db6fe80bd1df9c51a53061739bc185a11b1263eb2d",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.7914,
+            "unitsBelow0_35": 10
+          }
+        },
+        "it": {
+          "sha256": "e177cdded9a8939e39e69c1099e72187f9e7557c5f065743d9486975531d3c4c",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6424,
+            "unitsBelow0_35": 23
+          }
+        },
+        "nl-BE": {
+          "sha256": "b9518461f9d39662b6a89c25987cc8a90d5ca28c37f23d37219c5419139cc5f0",
+          "review": {
+            "units": 115,
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+          }
+        },
+        "nl": {
+          "sha256": "bb98f70e4b4a3a2159b59aca9e542e2d0f177f7f35ee3e020bef0aa740d6fdc3",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.637,
+            "unitsBelow0_35": 23
+          }
+        },
+        "pt": {
+          "sha256": "987553b3b6400084258dfe9c6d355058239a11eec62be9a92e0339914b090fc7",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6478,
+            "unitsBelow0_35": 26
+          }
+        },
+        "sr": {
+          "sha256": "35d3b66c42481c5ecab1ab53098b064ae461bc2fe0fdb601d1f00fe81360d5c2",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6701,
+            "unitsBelow0_35": 13
+          }
+        },
+        "sw": {
+          "sha256": "16c5d45835bf7dd420c2cb69aa1b7fcbeaeea8442b21262e643629bc80bb5397",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.5867,
+            "unitsBelow0_35": 24
+          }
+        },
+        "uk": {
+          "sha256": "9e6f781001609e117b7a4c2368298129935f1c8600c13ed7d09b091e3dd0bb17",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.656,
+            "unitsBelow0_35": 17
+          }
+        },
+        "zh-Hant": {
+          "sha256": "d2d18cb40b18b8ecbf31806dc8135f1c2b2723b3df76b22b486bfc809e86bf30",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6183,
+            "unitsBelow0_35": 25
+          }
+        },
+        "zh": {
+          "sha256": "75d9d9df601349033525ae1d6c0b3e969b72ca821d9a53844c7c8e377334cf38",
+          "review": {
+            "units": 115,
+            "meanBackTranslationSimilarity": 0.6183,
+            "unitsBelow0_35": 25
           }
         }
       }

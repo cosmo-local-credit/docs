@@ -24,7 +24,7 @@ import sentencepiece as spm
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ROOT / "docs/pages"
 I18N = ROOT / "docs/i18n"
-LOCALES = ["ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "pt", "sr", "uk", "sw"]
+LOCALES = ["ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
 LANGUAGE_CODES = {
     "en": "eng_Latn",
     "ar": "arb_Arab",
@@ -36,6 +36,7 @@ LANGUAGE_CODES = {
     "hi": "hin_Deva",
     "it": "ita_Latn",
     "nl": "nld_Latn",
+    "nl-BE": "nld_Latn",
     "pt": "por_Latn",
     "sr": "srp_Cyrl",
     "sw": "swh_Latn",
@@ -43,7 +44,7 @@ LANGUAGE_CODES = {
     "zh": "zho_Hans",
     "zh-Hant": "zho_Hant",
 }
-APP_BASELINE = "b4c4a496dc45232470d3874a3317912e86b466a8"
+APP_BASELINE = "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
 TRANSLATION_DATES = {
     "ar": "10 October 2026",
     "de": "10 October 2026",
@@ -54,6 +55,7 @@ TRANSLATION_DATES = {
     "fil": "10 October 2026",
     "it": "10 October 2026",
     "nl": "10 October 2026",
+    "nl-BE": "11 October 2026",
     "pt": "10 October 2026",
     "sr": "10 October 2026",
     "sw": "10 October 2026",
@@ -1872,7 +1874,7 @@ def normalize_translation(source: str, value: str, locale: str) -> str:
         value = value.replace("कर्ता", "མཁོ་སྤྲོད་མི")
         return value
 
-    if locale == "nl":
+    if locale in {"nl", "nl-BE"}:
         def pool_term(match: re.Match[str]) -> str:
             term = "Fondsen" if match.group(0).lower().endswith("s") else "Fonds"
             return term if match.group(0)[0].isupper() else term.lower()
@@ -2551,7 +2553,7 @@ def main() -> None:
                 "meanBackTranslationSimilarity": 1.0,
                 "unitsBelow0_35": 0,
             }
-        if locale in {"dz", "fil", "hi", "nl", "zh", "zh-Hant"}:
+        if locale in {"dz", "fil", "hi", "nl", "nl-BE", "zh", "zh-Hant"}:
             # Short interface labels need maintained catalogs. General-purpose
             # MT lacks enough context here and can choose unrelated meanings.
             ui = json.loads((I18N / f"ui/{locale}.json").read_text())

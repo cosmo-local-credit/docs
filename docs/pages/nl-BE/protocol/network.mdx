@@ -1,0 +1,75 @@
+import { MermaidDiagram } from '../../../components/MermaidDiagram'
+
+# Protocolnetwerkarchitectuur
+
+Een CPP-compatibele implementatie kan veel waardebonnen en Fondsen verbinden via optionele registers, indexen, offertemodules en routeontdekking op applicatieniveau. Elk Fonds blijft een afzonderlijke kluis met eigen liquiditeit, eigenaar, proxybeheerder, configuratie en afhankelijkheden.
+
+Grassroots Economics Foundation beheert de openbare App op [cosmolocal.credit](https://cosmolocal.credit). Andere interfaces en implementaties kunnen hetzelfde openbare protocol gebruiken. Het beheer van de App maakt GEF niet automatisch tot eigenaar, Uitgever, Fondsbeheerder, ontvanger van kosten of garant voor elk contract hieronder.
+
+Zie [Begrippen en woordenschat](/nl-BE/introduction/concepts) voor het onderscheid tussen verantwoordelijke rollen en technische bevoegdheden.
+
+
+## Mogelijke routes en uitvoering
+
+<MermaidDiagram
+  scrollMessage="Scroll horizontaal om het volledige diagram te bekijken."
+  errorMessage="Het diagram kon niet worden weergegeven"
+  label="Ontdekking van mogelijke routes en uitvoering als Portefeuillebatch"
+  minWidth={1040}
+  chart={`flowchart TB
+    VoucherA["Waardebon A"] ---|opgenomen en aangehouden| PoolA["Fonds A"]
+    Bridge["Algemeen brugactivum"] ---|opgenomen en aangehouden| PoolA
+    Bridge ---|opgenomen en aangehouden| PoolB["Fonds B"]
+    VoucherB["Waardebon B"] ---|opgenomen en aangehouden| PoolB
+
+    App["PWA of routezoeker"] -. ontdekt mogelijkheden .-> Index["Registers en indexen"]
+    App -. vraagt een offerte .-> Router["SwapRouter: alleen offertes"]
+    Router -. leest Fondsoffertes .-> PoolA
+    Router -. leest Fondsoffertes .-> PoolB
+
+    App -->|bouwt geordende oproepen| WalletStart["Smart-account-Portefeuille van gebruiker"]
+    WalletStart -->|stap 1: Waardebon A| PoolA
+    PoolA -->|bruguitvoer| WalletBridge["Dezelfde Portefeuille tussen oproepen"]
+    WalletBridge -->|stap 2: brugactivum| PoolB
+    PoolB -->|uitvoer Waardebon B| WalletFinal["Dezelfde Portefeuille van gebruiker"]
+
+    PoolA -->|protocolkosten| ProtocolRecipient["Ingestelde protocolontvanger"]
+    PoolB -->|protocolkosten| ProtocolRecipient`}
+/>
+
+Een gedeeld activum creëert een **mogelijk pad in de graaf**, geen gegarandeerde route. In dit voorbeeld kan Waardebon A in Fonds A worden omgewisseld voor het brugactivum, waarna dat brugactivum in Fonds B kan worden omgewisseld voor Waardebon B. Elke stap blijft afhankelijk van de huidige toelating van tokens, Fondslimieten, beschikbare voorraad, offerte- en kostenconfiguratie, oraclestatus, goedkeuringen, transactiegrenzen en netwerkuitvoering.
+
+`SwapRouter` roept alleen de offertefuncties van Fondsen aan voor een voorgesteld pad. De router bewaart geen geld, keurt geen tokens goed en voert geen swaps uit. Een integrator of compatibele app kan de offertes gebruiken om geordende goedkeurings- en Fondsoproepen te bouwen in een ondertekende smart-accountbatch. Dat betekent niet dat de huidige openbare App uitvoering over meerdere stappen aanbiedt. Elke stap wordt in de Portefeuille afgewikkeld voordat die Portefeuille het tussenliggende activum aan het volgende Fonds levert. De integrator kan de batch zo instellen dat alles wordt teruggedraaid wanneer één oproep mislukt.
+
+Offertes zijn momentopnamen. Een succesvolle routeofferte kan nog steeds mislukken of anders worden afgewikkeld wanneer relevante gegevens vóór de uitvoering veranderen. De begrensde overload van `SwapPool.withdraw` voegt voor één stap bescherming toe via `minAmountOut` en `deadline`. Integrators moeten bepalen hoe zij grenzen over de volledige route toepassen.
+
+Fondskosten blijven bij het betreffende Fonds om later te worden geïnd. Eventuele protocolkosten komen daar bovenop en worden tijdens de swap rechtstreeks vanuit dat Fonds naar de ingestelde protocolontvanger overgedragen.
+
+
+## Interne werking van een Fonds
+
+<MermaidDiagram
+  scrollMessage="Scroll horizontaal om het volledige diagram te bekijken."
+  errorMessage="Het diagram kon niet worden weergegeven"
+  label="Afhankelijkheden en administratieve bevoegdheden van een Commitmentfonds"
+  minWidth={820}
+  chart={`flowchart TB
+    Owner["Contracteigenaar of<br/>Fondsbeheerder"] -->|configureren, verzegelen, innen, opnemen| Pool["SwapPool<br/>kluis en afwikkeling"]
+    ProxyAdmin["ERC-1967<br/>proxybeheerder"] -->|implementatie upgraden| Pool
+    Dependencies["Optionele afhankelijkheden<br/>register · limiter · quoter<br/>kostenbeleid · protocolkostenbeheerder<br/>elk met eigen governance"] -. invoer voor afwikkeling .-> Pool
+    Seal["Vijf verzegelbare adresslots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. vergrendelt adressen .-> Pool
+
+    Wallet["Portefeuille van gebruiker"] -->|storting of swapinvoer| Pool
+    Pool -->|netto swapuitvoer| Wallet
+    Pool -->|geïnde Fondskosten| FeeAddress["Ingesteld<br/>kostenadres"]
+    Pool -->|protocolkosten in dezelfde swap| ProtocolRecipient["Protocol-<br/>ontvanger"]
+    Pool -->|withdrawLiquidity| Destination["Door eigenaar gekozen<br/>ontvanger"]`}
+/>
+
+Het register, de limiter, quoter, het kostenbeleid en de protocolkostenbeheerder zijn optioneel. Zonder register doorstaat elke token de toelatingscontrole. Zonder limiter zijn stortingen niet begrensd. Zonder quoter gebruikt het Fonds pariteit van ruwe eenheden. Zonder kostenmodules zijn de overeenkomstige kosten nul.
+
+De vijf verzegelbare slots zijn `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` en `tokenLimiter`. Een verzegeling voorkomt dat de huidige Fondseigenaar dat adres via de setter vervangt, maar bevriest de interne toestand van de afhankelijkheid niet. Het adres `protocolFeeController` en de modus `feesDecoupled` vallen niet onder die vijf verzegelbits. De bevoegdheid van de proxybeheerder om het Fonds te upgraden staat eveneens los van de verzegeling.
+
+De contracteigenaar kan beschikbare Fondsliquiditeit naar een gekozen adres overdragen. In de ontkoppelde kostenmodus worden opgebouwde kosten buiten dat opnamepad gehouden; de bevoegdheid om de resterende liquiditeit op te nemen blijft bestaan. Deelnemers moeten de eigenaar, proxybeheerder, beheerders van afhankelijkheden, verzegelingsstatus, kostenontvangers en gepubliceerde Fondsregels controleren voordat zij op een Fonds vertrouwen.
+
+Voor het conceptuele ontwerp achter deze contracten—waaronder samenstelling, waardering, begrenzing, uitwisseling en governance—zie de [White Paper](/nl-BE/white-paper).

@@ -8,6 +8,7 @@ import fr from './navigation/fr.json'
 import hi from './navigation/hi.json'
 import it from './navigation/it.json'
 import nl from './navigation/nl.json'
+import nlBE from './navigation/nl-BE.json'
 import pt from './navigation/pt.json'
 import sr from './navigation/sr.json'
 import sw from './navigation/sw.json'
@@ -34,6 +35,7 @@ export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   hi,
   it,
   nl,
+  'nl-BE': nlBE,
   pt,
   sr,
   sw,

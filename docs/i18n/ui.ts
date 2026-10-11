@@ -8,6 +8,7 @@ import fr from './ui/fr.json'
 import hi from './ui/hi.json'
 import it from './ui/it.json'
 import nl from './ui/nl.json'
+import nlBE from './ui/nl-BE.json'
 import pt from './ui/pt.json'
 import sr from './ui/sr.json'
 import sw from './ui/sw.json'
@@ -29,6 +30,7 @@ const catalogs = {
   hi,
   it,
   nl,
+  'nl-BE': nlBE,
   pt,
   sr,
   sw,

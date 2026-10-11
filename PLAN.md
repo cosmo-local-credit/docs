@@ -1,19 +1,16 @@
 # Multilingual documentation rollout
 
-Last updated: 10 October 2026
+Last updated: 11 October 2026
 
 This file tracks the one-language-at-a-time rollout of the public documentation.
 The implementation details, commands, file conventions, and translation tooling
 remain in the [documentation localization guide](docs/i18n/README.md).
 
-English is the source text. All fifteen languages on `clc-app`
-`origin/develop` now have a translated splash page and a complete 36-page
-documentation set. Dutch, Hindi, Simplified Chinese, and Traditional Chinese
-were detected after the original eleven-language splash rollout. The app's
-committed `feat/filipino-language` branch adds Filipino as a sixteenth locale.
-A complete Filipino review draft is included, but production app deep links
-remain gated until that branch is merged and the documentation is reviewed and
-deployed.
+English is the source text. All seventeen locales committed on `clc-app`
+`origin/develop`—English plus sixteen translated languages—are represented in
+the docs with a translated splash page and a complete 36-page documentation
+set. Dutch, Hindi, Simplified Chinese, Traditional Chinese, Filipino, and
+Flemish were detected after the original eleven-language splash rollout.
 
 Detailed documentation is normally released only after all 36 pages, the
 navigation, the site interface, and the locale manifest are complete and the
@@ -40,40 +37,44 @@ the combined handoff.
 | 9 | Hindi (`hi`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
 | 10 | Simplified Chinese (`zh`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
 | 11 | Traditional Chinese (`zh-Hant`) | Complete | Complete first draft | Batch review pending | Complete | Pending companion app work | Published and linked |
-| 12 | Filipino (`fil`) | Complete | Complete first draft | Review pending | Review build only; app merge pending | Wait for docs release | Published and linked in review build |
+| 12 | Filipino (`fil`) | Complete | Complete first draft | Review pending | Complete | Pending companion app work | Published and linked |
+| 13 | Flemish (`nl-BE`) | Complete | Complete first draft | Review pending | Review build ready | Pending docs deployment | Published and linked in review build |
 
 Only one queued language is normally active at a time. Each web draft must pass
 its validation gate before work starts on the next language. Arabic, Dzongkha,
 Dutch, Hindi, Simplified Chinese, and Traditional Chinese were completed as an
-uninterrupted batch at the user's request. They are wired into the review build;
-user acceptance and deployment remain pending. Filipino was completed from the
-catalog committed on the app's feature branch. Production release and app-link
-verification remain gated on the app branch being merged and the docs draft
-being accepted and deployed.
+uninterrupted batch at the user's request. Their routes are released, while the
+recorded user-review and companion app-link checkpoints remain pending.
+Filipino was completed from the feature catalog and has since been merged into
+app `origin/develop`; its docs review and companion app-link verification also
+remain open. Flemish was completed after its final catalog was merged. Its
+review, docs deployment, and companion app-link verification remain open.
 
 ## Translation and app baselines
 
-- The documentation glossary and translation manifests use `clc-app` commit
-  `b4c4a496dc45232470d3874a3317912e86b466a8` as its latest audited
-  synchronization baseline. This is the Filipino feature commit on top of the
-  `origin/develop` baseline.
-- `clc-app` `origin/develop` was last audited at
-  `0808066dae3c0063729b69085df85ba5ce12a90d` on 10 October 2026.
-- The `origin/develop` registry contains fifteen app languages, including
-  Simplified Chinese (`zh`) and Traditional Chinese (`zh-Hant`). The committed
-  Filipino feature branch contains sixteen. The docs registry represents all
-  sixteen locale codes and metadata values.
+- The documentation glossary and translation manifests use `clc-app`
+  `origin/develop` commit `facf5e034dc668c2e5ded90b9dd5995690f0fb63`
+  as the latest committed synchronization baseline. This commit merged the
+  Flemish feature through app pull request 245.
+- The committed `origin/develop` registry contains seventeen locales: English,
+  Arabic, German, Dzongkha, Spanish, Filipino, French, Hindi, Italian, Dutch,
+  Flemish, Portuguese, Serbian, Kiswahili, Ukrainian, Simplified Chinese, and
+  Traditional Chinese. The docs registry represents all seventeen with
+  identical locale codes and metadata.
+- Flemish (`nl-BE`) uses native label `Vlaams`, LTR direction, and `nl-BE`
+  formatting. The committed catalog has 1,330 populated `msgstr` entries, only
+  the normal empty PO header entry, and no fuzzy entries.
 - Chinese browser matching mirrors the app: generic `zh`, `zh-Hans`, and
   regions CN, SG, and MY resolve to Simplified Chinese; `zh-Hant` and regions
   TW, HK, and MO resolve to Traditional Chinese; an explicit script takes
   precedence over a conflicting region.
-- The app's `feat/filipino-language` branch was inspected on 10 October 2026 at
-  commit `b4c4a496dc45232470d3874a3317912e86b466a8`. It defines Filipino (`fil`),
-  native label `Filipino`, LTR direction, `fil-PH` formatting, and `tl` as a
-  browser-language alias. Its catalog has 1,310 populated `msgstr` entries and
-  only the normal empty PO header entry. The feature branch is clean and
-  published as `origin/feat/filipino-language`, but is not yet merged into
-  `origin/develop`.
+- Filipino (`fil`) is now committed on app `origin/develop`. It retains native
+  label `Filipino`, LTR direction, `fil-PH` formatting, and `tl` as a
+  browser-language alias.
+- The Flemish matcher maps `nl-BE`, including script-qualified and
+  underscore forms, to `nl-BE`. Generic `nl` and other Dutch regions continue
+  to map to `nl`; the separate West Flemish code `vls` is not treated as
+  Belgian Dutch. The docs browser matcher mirrors this behavior.
 - The current app catalog entries for Voucher, Pool, Market, Issuer, Redeem,
   Send, Swap, and Wallet agreed with the existing docs glossary where those
   locales were already represented.
@@ -99,6 +100,8 @@ being accepted and deployed.
 | 10 October 2026 | `0808066dae3c0063729b69085df85ba5ce12a90d` | Simplified Chinese (`zh`) is committed on `origin/develop`. The app catalog uses `代金券` (Voucher), `资金池` (Pool), `市场` (Market), `发行方` (Issuer), `兑付` (Redeem), `停用代金券` (Retire voucher), `发送` (Send), `兑换` (Swap), `钱包` (Wallet), `信用额度` (Credit limit), and `商品或服务项目` (Offerings). The docs use `承诺资金池` and `资金池管理者` for the two concepts without exact app labels. |
 | 10 October 2026 | `0808066dae3c0063729b69085df85ba5ce12a90d` | Traditional Chinese (`zh-Hant`) is committed on `origin/develop`. The app catalog uses `代金券`, `資金池`, `市場`, `發行方`, `兌付`, `停用代金券`, `傳送`, `兌換`, `錢包`, `信用額度`, and `商品或服務項目`; the docs use `承諾資金池` and `資金池管理者`. |
 | 10 October 2026 | `b4c4a496dc45232470d3874a3317912e86b466a8` on `origin/feat/filipino-language` | Filipino (`fil`) is committed with native label `Filipino`, LTR direction, `fil-PH` formatting, and `tl` browser matching. The app catalog uses `Voucher`, `Mga voucher`, `Pool`, `Mga pool`, `Pamilihan`, `Tagapag-isyu`, `Tubusin`, `Mag-retire ng voucher`, `Ipadala`, `Palitan`, `Wallet`, and `Mga alok`; `Credit limit` remains untranslated in the app. The docs add `Pool ng Pangako` and `Tagapangasiwa ng Pool` for concepts without exact app labels. |
+| 10 October 2026 | `984f17713ed97ee89bacae6103efeb9abd518f02` on `origin/develop` | Filipino was merged through app pull request 243. The committed app registry now has sixteen locales and every committed locale is represented in the docs. |
+| 11 October 2026 | `facf5e034dc668c2e5ded90b9dd5995690f0fb63` on `origin/develop` | Flemish (`nl-BE`) was merged through app pull request 245 with native label `Vlaams`, LTR direction, and `nl-BE` formatting. The committed catalog uses `Waardebon`, `Fonds`, `Markt`, `Marktplaats`, `Uitgever`, `Inwisselen`, `Waardebon buiten gebruik stellen`, `Verzenden`, `Omwisselen`, `Portefeuille`, `Kredietlimiet`, and `Aanbod`. The docs use `Commitmentfonds` and `Fondsbeheerder` for the two concepts without exact app labels. |
 
 ## Repeatable language workflow
 
@@ -339,7 +342,8 @@ For every language:
 
 - [x] Confirm the app's Filipino registry and catalog are committed on
       `origin/feat/filipino-language` at `b4c4a496dc45232470d3874a3317912e86b466a8`.
-- [ ] Confirm the Filipino feature branch is merged into app `origin/develop`.
+- [x] Confirm the Filipino feature branch is merged into app `origin/develop`
+      at `984f17713ed97ee89bacae6103efeb9abd518f02`.
 - [x] Record the exact feature commit and audit the populated app catalog terms for
       Voucher, Pool, Market, Issuer, Redeem, Retire voucher, Send, Swap, Wallet,
       Credit limit, Offering, Commitment Pool, and Pool Steward.
@@ -357,10 +361,45 @@ For every language:
 - [x] Pass the automated validation gate.
 - [ ] Inspect the rendered desktop/mobile review build and provide the review
       URLs for user acceptance.
-- [ ] Release and deploy the Filipino docs before enabling localized deep links
-      from `clc-app`.
+- [x] Release and deploy the Filipino docs.
+- [ ] Enable and verify localized Filipino deep links from `clc-app`.
 - [x] Generate, technically inspect, publish, and link the Filipino White Paper
-      v0.8 PDF in the review build.
+      v0.8 PDF.
+
+### 13. Flemish (`nl-BE`)
+
+- [x] Detect and provisionally audit the uncommitted app locale on
+      `feat/flemish-language`, based on
+      `984f17713ed97ee89bacae6103efeb9abd518f02`.
+- [x] Wait for the Flemish app work to be committed, record the exact commit,
+      and re-audit the final registry, catalog, and tests before translating.
+- [x] Confirm the committed locale metadata remains `nl-BE`, native label
+      `Vlaams`, LTR direction, and `nl-BE` formatting.
+- [x] Add Flemish to the docs locale registry, splash catalogs, metadata,
+      language selector, route generation, search indexes, `llms` output, and
+      PDF tooling.
+- [x] Mirror the app matcher so `nl-BE`, `nl-Latn-BE`, and underscore forms map
+      to Flemish, generic Dutch remains `nl`, and `vls` is not misclassified as
+      Belgian Dutch.
+- [x] Establish a Flemish glossary from the committed app catalog, including
+      `Waardebon`, `Fonds`, `Markt`, `Marktplaats`, `Uitgever`, `Inwisselen`,
+      `Verzenden`, `Omwisselen`, `Portefeuille`, `Kredietlimiet`, and `Aanbod`;
+      decide the Flemish terms for Commitment Pool and Pool Steward explicitly.
+- [x] Translate and review the splash page and all 36 documentation pages.
+      Reuse Dutch structure where helpful, but review every unit for Belgian
+      usage rather than treating Flemish as a formatting-only Dutch variant.
+- [x] Add Flemish navigation, UI/search text, metadata, Terms convenience
+      notice, White Paper source notice, heading mappings, locale manifest,
+      and locale-aware internal links.
+- [x] Complete the priority-page clarity pass and compare Dutch/Flemish action
+      vocabulary, especially `Ruilen`/`Omwisselen` and
+      `Portemonnee`/`Portefeuille`.
+- [x] Pass the complete validation gate and inspect desktop/mobile rendering,
+      both themes, search isolation, browser detection, and language switching.
+- [ ] Provide review URLs and record user acceptance before release.
+- [ ] Deploy and verify `/nl-BE/` and every localized documentation route.
+- [ ] Complete the coordinated `clc-app` About and Terms link verification.
+- [x] Generate, inspect, publish, and link the Flemish White Paper v0.8 PDF.
 
 ## Validation gate
 
@@ -395,17 +434,16 @@ implementation remains owned by the `clc-app` repository.
 - English documentation is always unprefixed; there is no `/en/` route.
 - Every released non-English locale can link its About entry to `/{locale}/`.
   A newly added app locale must continue to use the unprefixed English splash
-  until its localized splash route has been deployed; Filipino remains a
-  review-only docs locale until the app feature branch is merged and the docs
-  locale is reviewed and deployed.
+  until its localized splash route has been deployed. Flemish must continue to
+  use the English fallback until the Flemish docs are reviewed and deployed.
 - A deep link such as Terms uses `/{locale}/governance/terms` only after that
   locale's complete documentation has been deployed.
 - Before a locale's docs release, its Terms link falls back to
   `/governance/terms` in English.
 - The app should use one locale-aware docs URL resolver for About, Terms, and
   future documentation links rather than adding more static URL constants.
-- At the 10 October 2026 audit of app commit
-  `0808066dae3c0063729b69085df85ba5ce12a90d`, the app still used the static
+- At the 11 October 2026 audit of app commit
+  `facf5e034dc668c2e5ded90b9dd5995690f0fb63`, the app still used the static
   constants `PLATFORM_ABOUT_URL` and `PLATFORM_TERMS_URL` in
   `apps/web/src/lib/legal.ts`. Locale-aware deep links therefore remain an
   external app dependency rather than a completed docs task.
@@ -422,8 +460,9 @@ Expected behavior:
 | Italian, after release | `/it/` | `/it/governance/terms` |
 | Simplified Chinese, after release | `/zh/` | `/zh/governance/terms` |
 | Traditional Chinese, after release | `/zh-Hant/` | `/zh-Hant/governance/terms` |
-| Filipino, before release | `/` | `/governance/terms` |
-| Filipino, after release | `/fil/` | `/fil/governance/terms` |
+| Filipino, released | `/fil/` | `/fil/governance/terms` |
+| Flemish, before release | `/` | `/governance/terms` |
+| Flemish, after release | `/nl-BE/` | `/nl-BE/governance/terms` |
 
 Release order for each language:
 
@@ -435,9 +474,9 @@ Release order for each language:
 
 ## Localized PDF phase
 
-All fifteen currently wired localized v0.8 TeX sources and PDFs were
-generated, technically validated, published, and linked from their localized
-landing pages on 10 October 2026. The build uses reproducible timestamps,
+All sixteen currently wired localized v0.8 TeX sources and PDFs were generated,
+technically validated, published, and linked from their localized landing pages
+by 11 October 2026. The build uses reproducible timestamps,
 embedded fonts, locale-specific PDF language metadata, Arabic RTL layout, and
 dedicated Tibetan and Devanagari fonts. Build logs contain no missing-glyph
 warnings. Each PDF was checked for extracted text, formulas, links, embedded
@@ -445,7 +484,6 @@ fonts, document language metadata, line wrapping, RTL behavior where
 applicable, and missing glyphs. Every localized publication continues to
 identify and link English as the source text. Simplified and Traditional
 Chinese use separate PDFs with Simplified and Traditional Noto CJK fonts. The
-Filipino PDF is included in the review build, but it should not be treated as a
-production app-linked publication until the app feature branch is merged and
-the Filipino draft is accepted and deployed.
+Flemish PDF is linked in the review build and remains pending public deployment
+together with the Flemish web routes.
 
