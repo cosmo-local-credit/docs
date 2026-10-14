@@ -30,7 +30,7 @@
   border-radius: 50%;
   color: var(--vocs-color_text2);
   background: var(--vocs-color_background2);
-  box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
+  box-shadow: 0 6px 18px var(--clc-shadow-soft);
   cursor: pointer;
   transition:
     color 160ms ease,
@@ -68,7 +68,7 @@
   border: 1px solid var(--vocs-color_border);
   border-radius: 999px;
   background: var(--vocs-color_background2);
-  box-shadow: 0 6px 18px rgb(0 0 0 / 6%);
+  box-shadow: 0 6px 18px var(--clc-shadow-soft);
 }
 
 .landing-theme-control__button {
@@ -129,7 +129,8 @@
     width: 100%;
     justify-content: space-between;
     padding: calc(0.65rem + env(safe-area-inset-top, 0px)) clamp(1.25rem, 4vw, 2.5rem) 0.65rem;
-    background: var(--vocs-color_background);
+    background: color-mix(in srgb, var(--clc-nav) 96%, transparent);
+    backdrop-filter: blur(14px);
     box-shadow: 0 1px 0 var(--vocs-color_border);
   }
 

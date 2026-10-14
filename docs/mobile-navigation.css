@@ -16,13 +16,8 @@
   border-radius: 0.85rem;
   color: var(--vocs-color_text);
   background: var(--vocs-color_background2);
-  box-shadow: 0 18px 48px rgb(0 0 0 / 20%);
+  box-shadow: 0 18px 48px var(--clc-shadow);
   overscroll-behavior: contain;
-}
-
-:root.dark .mobile-site-navigation__panel,
-:root.dark .mobile-page-outline__panel {
-  box-shadow: 0 18px 48px rgb(0 0 0 / 50%);
 }
 
 .mobile-site-navigation__home {
@@ -183,7 +178,7 @@
   border: 1px solid var(--vocs-color_border);
   border-radius: 0.75rem;
   background: var(--vocs-color_background2);
-  box-shadow: 0 18px 48px rgb(0 0 0 / 20%);
+  box-shadow: 0 18px 48px var(--clc-shadow);
   overscroll-behavior: contain;
 }
 

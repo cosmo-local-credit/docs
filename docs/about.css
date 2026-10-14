@@ -10,18 +10,21 @@ body:has(.about-page) {
   --about-orange: #e86a2c;
   --about-warm-orange: #f79f46;
   --about-light-yellow: #fbdb99;
-  --about-background: var(--vocs-color_background);
-  --about-surface: color-mix(in srgb, var(--vocs-color_background) 92%, var(--about-light-yellow));
-  --about-surface-strong: var(--vocs-color_background2);
-  --about-border: var(--vocs-color_border);
-  --about-text: var(--vocs-color_text);
-  --about-muted: var(--vocs-color_text3);
+  --about-deep-green-text: #004844;
+  --about-earth-green-text: #6d731f;
+  --about-gold-text: #70751e;
+  --about-orange-text: #a63d10;
+  --about-background: var(--clc-page);
+  --about-surface: var(--clc-surface-raised);
+  --about-surface-strong: var(--clc-surface);
+  --about-border: var(--clc-border);
+  --about-text: var(--clc-text);
+  --about-muted: var(--clc-text-muted);
+  --about-link: var(--clc-accent-text);
   width: 100%;
   overflow: hidden;
   color: var(--about-text);
-  background:
-    radial-gradient(circle at 92% 4%, rgb(251 219 153 / 24%), transparent 25rem),
-    linear-gradient(135deg, var(--about-background), rgb(251 219 153 / 8%));
+  background: var(--about-background);
 }
 
 .about-page :is(h1, h2, h3, p, a, li, dt, dd, blockquote) {
@@ -63,16 +66,15 @@ body:has(.about-page) {
 }
 
 :root.dark .about-page {
-  --about-deep-green: #5fc0b8;
+  --about-deep-green: #70e39a;
   --about-earth-green: #c8cf6c;
   --about-gold: #cbd16b;
-  --about-orange: #f28a57;
+  --about-orange: #ffb264;
   --about-warm-orange: #ffb264;
-  --about-surface: color-mix(in srgb, var(--vocs-color_background2) 90%, #3f4218);
-  --about-surface-strong: color-mix(in srgb, var(--vocs-color_background3) 92%, #004844);
-  background:
-    radial-gradient(circle at 92% 4%, rgb(156 163 50 / 15%), transparent 25rem),
-    linear-gradient(135deg, var(--vocs-color_background), rgb(0 72 68 / 10%));
+  --about-deep-green-text: #70e39a;
+  --about-earth-green-text: #c8cf6c;
+  --about-gold-text: #cbd16b;
+  --about-orange-text: #ffb264;
 }
 
 .about-page,
@@ -121,6 +123,7 @@ body:has(.about-page) {
 .about-overview {
   padding-block: clamp(1.75rem, 4vw, 3rem) clamp(2.75rem, 6vw, 4.5rem);
   border-bottom: 1px solid color-mix(in srgb, var(--about-border) 72%, transparent);
+  background: var(--clc-surface);
 }
 
 .about-overview__intro {
@@ -189,7 +192,7 @@ body:has(.about-page) {
   border: 1px solid var(--about-border);
   border-radius: 0.75rem;
   background: var(--about-surface);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 4%);
+  box-shadow: 0 8px 24px var(--clc-shadow-soft);
 }
 
 .about-overview__feature-card h2 {
@@ -208,6 +211,9 @@ body:has(.about-page) {
 .about-hero {
   padding-top: clamp(2rem, 5vw, 4rem);
   scroll-margin-top: 1rem;
+  background:
+    radial-gradient(circle at 92% 4%, rgb(251 219 153 / 18%), transparent 25rem),
+    linear-gradient(135deg, var(--clc-page), color-mix(in srgb, var(--clc-green-soft) 55%, var(--clc-page)));
 }
 
 .about-hero__grid {
@@ -225,7 +231,7 @@ body:has(.about-page) {
 }
 
 .about-hero__content h2 span {
-  color: var(--about-gold);
+  color: var(--about-gold-text);
 }
 
 .about-hero__lead {
@@ -250,7 +256,7 @@ body:has(.about-page) {
 
 .about-video__label {
   margin-bottom: 0.65rem;
-  color: var(--about-earth-green);
+  color: var(--about-earth-green-text);
   font-weight: 700;
 }
 
@@ -260,7 +266,7 @@ body:has(.about-page) {
   border-radius: 0.75rem;
   aspect-ratio: 16 / 9;
   background: #000;
-  box-shadow: 0 12px 32px rgb(0 0 0 / 12%);
+  box-shadow: 0 12px 32px var(--clc-shadow);
 }
 
 .about-video__frame iframe {
@@ -312,19 +318,19 @@ body:has(.about-page) {
 }
 
 .about-stat--orange dd {
-  color: var(--about-orange);
+  color: var(--about-orange-text);
 }
 
 .about-stat--deep-green dd {
-  color: var(--about-deep-green);
+  color: var(--about-deep-green-text);
 }
 
 .about-stat--gold dd {
-  color: var(--about-gold);
+  color: var(--about-gold-text);
 }
 
 .about-stat--earth-green dd {
-  color: var(--about-earth-green);
+  color: var(--about-earth-green-text);
 }
 
 .about-network-graphic {
@@ -427,7 +433,7 @@ body:has(.about-page) {
   border-radius: 0.75rem;
   color: var(--about-text);
   background: var(--about-surface);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 4%);
+  box-shadow: 0 8px 24px var(--clc-shadow-soft);
   text-align: center;
   text-decoration: none;
   transition:
@@ -438,7 +444,7 @@ body:has(.about-page) {
 
 .about-role-card:hover {
   border-color: color-mix(in srgb, var(--about-role-color) 60%, var(--about-border));
-  box-shadow: 0 14px 34px rgb(0 0 0 / 10%);
+  box-shadow: 0 14px 34px var(--clc-shadow);
   transform: translateY(-3px);
 }
 
@@ -462,7 +468,7 @@ body:has(.about-page) {
 }
 
 .about-how {
-  background: color-mix(in srgb, var(--about-surface) 84%, transparent);
+  background: var(--clc-gold-soft);
 }
 
 .about-how__layout {
@@ -497,12 +503,12 @@ body:has(.about-page) {
   border: 1px solid var(--about-border);
   border-radius: 0.75rem;
   background: var(--about-surface);
-  box-shadow: 0 8px 26px rgb(0 0 0 / 4%);
+  box-shadow: 0 8px 26px var(--clc-shadow-soft);
 }
 
 .about-card-number {
   margin-bottom: 0.4rem;
-  color: var(--about-orange);
+  color: var(--about-orange-text);
   font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
   line-height: 1;
@@ -561,11 +567,11 @@ body:has(.about-page) {
 }
 
 .about-role-section .about-section-heading h2 {
-  color: var(--about-section-accent);
+  color: var(--about-section-text-accent, var(--about-section-accent));
 }
 
 :root.dark .about-role-section .about-section-heading h2 {
-  color: color-mix(in srgb, var(--about-section-accent) 55%, white);
+  color: var(--about-section-text-accent, color-mix(in srgb, var(--about-section-accent) 55%, white));
 }
 
 .about-section-tagline {
@@ -587,21 +593,29 @@ body:has(.about-page) {
 #stewards {
   --about-illustration-panel: #d8f1e8;
   --about-illustration-glow: rgb(251 219 153 / 72%);
+  --about-section-text-accent: var(--about-deep-green-text);
+  background: var(--clc-green-soft);
 }
 
 #service-providers {
   --about-illustration-panel: #f4efbd;
   --about-illustration-glow: rgb(247 159 70 / 38%);
+  --about-section-text-accent: var(--about-earth-green-text);
+  background: var(--clc-surface);
 }
 
 #voucher-users {
   --about-illustration-panel: #fbe3bd;
   --about-illustration-glow: rgb(180 226 220 / 72%);
+  --about-section-text-accent: var(--about-gold-text);
+  background: var(--clc-teal-soft);
 }
 
 #supporters {
   --about-illustration-panel: #f9d5c3;
   --about-illustration-glow: rgb(246 230 167 / 78%);
+  --about-section-text-accent: var(--about-orange-text);
+  background: var(--clc-gold-soft);
 }
 
 .about-role-visual {
@@ -619,7 +633,7 @@ body:has(.about-page) {
     radial-gradient(circle at 91% 86%, var(--about-illustration-glow) 0 4.8rem, transparent 4.9rem),
     linear-gradient(145deg, rgb(255 255 255 / 52%), transparent 58%),
     var(--about-illustration-panel);
-  box-shadow: 0 16px 42px rgb(0 0 0 / 8%);
+  box-shadow: 0 16px 42px var(--clc-shadow);
 }
 
 .about-role-visual img {
@@ -680,9 +694,9 @@ body:has(.about-page) {
 .about-badges :is(span, a) {
   display: inline-flex;
   padding: 0.27rem 0.65rem;
-  border: 1px solid color-mix(in srgb, var(--about-orange) 55%, var(--about-border));
+  border: 1px solid color-mix(in srgb, var(--about-orange-text) 55%, var(--about-border));
   border-radius: 999px;
-  color: var(--about-orange);
+  color: var(--about-orange-text);
   font-size: 0.78rem;
   line-height: 1.2;
   text-decoration: none;
@@ -694,13 +708,13 @@ body:has(.about-page) {
 }
 
 .about-badges a:hover {
-  border-color: var(--about-orange);
-  background: color-mix(in srgb, var(--about-orange) 14%, transparent);
+  border-color: var(--about-orange-text);
+  background: color-mix(in srgb, var(--about-orange-text) 14%, transparent);
   transform: translateY(-1px);
 }
 
 .about-badges a:focus-visible {
-  outline: 2px solid var(--about-orange);
+  outline: 2px solid var(--clc-focus);
   outline-offset: 2px;
 }
 
@@ -759,6 +773,7 @@ body:has(.about-page) {
   width: min(100% - 2.5rem, 44rem);
   margin-inline: auto;
   padding-block: 1rem;
+  background: var(--clc-page);
 }
 
 .about-role-separator span {
@@ -783,6 +798,10 @@ body:has(.about-page) {
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
+.about-impact {
+  background: var(--clc-surface-raised);
+}
+
 .about-impact__card > * {
   min-height: 32rem;
 }
@@ -805,7 +824,7 @@ body:has(.about-page) {
   margin-bottom: 0;
   padding: clamp(2rem, 5vw, 3.5rem);
   border-radius: 0 1rem 1rem 0;
-  background: color-mix(in srgb, var(--about-surface) 82%, var(--about-light-yellow));
+  background: color-mix(in srgb, var(--clc-surface) 82%, var(--clc-gold-soft));
 }
 
 .about-impact blockquote {
@@ -833,7 +852,7 @@ body:has(.about-page) {
 }
 
 .about-features {
-  background: color-mix(in srgb, var(--about-surface) 76%, transparent);
+  background: var(--clc-green-soft);
 }
 
 .about-features__intro {
@@ -859,7 +878,7 @@ body:has(.about-page) {
 }
 
 .about-feature-card .about-card-number {
-  color: var(--about-warm-orange);
+  color: var(--about-orange-text);
 }
 
 .about-features__visual {
@@ -912,7 +931,7 @@ body:has(.about-page) {
 
 .about-logo-link:hover {
   border-color: color-mix(in srgb, var(--about-gold) 55%, transparent);
-  box-shadow: 0 10px 28px rgb(0 0 0 / 12%);
+  box-shadow: 0 10px 28px var(--clc-shadow);
   transform: translateY(-2px);
 }
 
@@ -955,16 +974,20 @@ body:has(.about-page) {
   background: var(--about-orange);
 }
 
+.about-partners {
+  background: var(--clc-surface);
+}
+
 .about-cta {
   padding-block: clamp(2.5rem, 6vw, 4rem);
-  color: #10110a;
-  background: linear-gradient(135deg, #fbdb99, #c9cf66);
+  color: #fff;
+  background: linear-gradient(135deg, #146b34, #0c665b);
   text-align: center;
 }
 
 :root.dark .about-cta {
-  color: #f9faf7;
-  background: linear-gradient(135deg, #323819, #004844);
+  color: #f4f7f5;
+  background: linear-gradient(135deg, #12301e, #0c665b);
 }
 
 .about-cta h2 {
@@ -988,18 +1011,23 @@ body:has(.about-page) {
 }
 
 .about-cta .about-button--primary {
-  color: #fff;
-  background: #004844;
+  color: #0b1210;
+  background: #f1c56b;
 }
 
 :root.dark .about-cta .about-button--primary {
-  color: #10110a;
-  background: #cbd16b;
+  color: #0b1210;
+  background: #f1c56b;
+}
+
+.about-cta .about-button--secondary {
+  color: #fff;
+  border-color: rgb(255 255 255 / 72%);
 }
 
 .about-footer {
   border-top: 1px solid var(--about-border);
-  background: var(--about-background);
+  background: var(--clc-nav);
 }
 
 .about-footer__content {

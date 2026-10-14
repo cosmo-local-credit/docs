@@ -88,18 +88,16 @@ export function MermaidDiagram({
   }
 
   return (
-    <figure style={{ margin: '1rem 0' }}>
-      <figcaption
-        style={{ color: 'var(--vocs-color_text3)', fontSize: '0.8rem', marginBottom: '0.5rem' }}
-      >
+    <figure className="mermaid-diagram">
+      <figcaption className="mermaid-diagram__caption">
         {scrollMessage}
       </figcaption>
       <div
         ref={containerRef}
         aria-label={label}
+        className="mermaid-diagram__viewport"
         data-mermaid-diagram
         role="img"
-        style={{ overflowX: 'auto', paddingBottom: '0.5rem' }}
         tabIndex={0}
       />
     </figure>

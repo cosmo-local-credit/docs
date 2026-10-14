@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vocs dev",
     "build": "vocs build && node scripts/finalize_multilingual_build.mjs",
+    "check:theme": "node scripts/check_theme.mjs",
     "check:i18n": "node scripts/check_locales.mjs && node scripts/check_translation_quality.mjs",
     "i18n:headings": "node scripts/build_heading_map.mjs",
     "i18n:headings:check": "node scripts/build_heading_map.mjs --check",
