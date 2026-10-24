@@ -19,7 +19,9 @@ const directions = { en: 'ltr', ar: 'rtl', zh: 'ltr', 'zh-Hant': 'ltr', dz: 'ltr
 const documentationPaths = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
   '/protocol/overview', '/protocol/smart-contracts', '/protocol/network',
-  '/governance/mechanics', '/governance/terms', '/white-paper', '/white-paper/executive-summary',
+  '/governance/policies', '/governance/privacy', '/governance/data-protection',
+  '/governance/child-safeguarding', '/governance/mechanics', '/governance/terms',
+  '/white-paper', '/white-paper/executive-summary',
   '/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive',
   '/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust',
   '/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care',
@@ -39,6 +41,16 @@ const documentationPaths = [
   '/white-paper/appendix-e-worked-example', '/white-paper/appendix-f-dataroom-checklist',
   '/white-paper/archive',
 ]
+const englishOnlyDocumentationPaths = [
+  '/governance/policies',
+  '/governance/privacy',
+  '/governance/data-protection',
+  '/governance/child-safeguarding',
+]
+const englishOnlyDocumentationPathSet = new Set(englishOnlyDocumentationPaths)
+const localizedDocumentationPaths = documentationPaths.filter(
+  (path) => !englishOnlyDocumentationPathSet.has(path),
+)
 const allPaths = ['/', ...documentationPaths]
 const searchOptions = {
   fields: ['title', 'titles', 'text'],
@@ -89,12 +101,16 @@ function finalizeHtml() {
     const file = route === '/' ? join(dist, 'index.html') : join(dist, locale, 'index.html')
     if (!existsSync(file)) throw new Error(`Missing prerendered splash route: ${route}`)
   }
-  for (const sourcePath of documentationPaths) {
+  for (const sourcePath of localizedDocumentationPaths) {
     for (const locale of documentationLocales) {
       const route = pathForLocale(sourcePath, locale)
       const file = join(dist, route.replace(/^\//, ''), 'index.html')
       if (!existsSync(file)) throw new Error(`Missing prerendered route: ${route}`)
     }
+  }
+  for (const sourcePath of englishOnlyDocumentationPaths) {
+    const file = join(dist, sourcePath.replace(/^\//, ''), 'index.html')
+    if (!existsSync(file)) throw new Error(`Missing prerendered English-only route: ${sourcePath}`)
   }
   for (const locale of locales.filter((candidate) => !documentationLocales.includes(candidate))) {
     for (const section of ['introduction', 'protocol', 'governance', 'white-paper']) {
@@ -113,7 +129,11 @@ function finalizeHtml() {
       return `<html${clean} lang="${locale}" dir="${directions[locale]}">`
     })
     html = html.replace(/<link\b(?=[^>]*\brel=(?:"(?:canonical|alternate)"|'(?:canonical|alternate)'))[^>]*>\s*/gi, '')
-    const alternateLocales = sourcePath === '/' ? locales : documentationLocales
+    const alternateLocales = sourcePath === '/'
+      ? locales
+      : englishOnlyDocumentationPathSet.has(sourcePath)
+        ? ['en']
+        : documentationLocales
     const links = [
       `<link rel="canonical" href="${siteUrl}${pathForLocale(sourcePath, locale)}">`,
       ...alternateLocales.map((candidate) => `<link rel="alternate" hreflang="${candidate}" href="${siteUrl}${pathForLocale(sourcePath, candidate)}">`),
@@ -270,7 +290,8 @@ async function buildLlmsFiles() {
       `- [${messages.metadata.title}](${pathForLocale('/', locale)}): ${messages.metadata.description}`,
     ]
     const full = [`# ${messages.metadata.title}`, '', `> ${messages.metadata.description}`, '']
-    for (const route of documentationPaths) {
+    const routes = locale === 'en' ? documentationPaths : localizedDocumentationPaths
+    for (const route of routes) {
       const source = readFileSync(sourceFileForRoute(locale, route), 'utf8')
       const { title, summary } = titleAndSummary(source)
       listing.push(`- [${title}](${pathForLocale(route, locale)}): ${summary}`)
@@ -290,4 +311,5 @@ await buildLlmsFiles()
 const fingerprint = createHash('sha256')
   .update(documentationLocales.map((locale) => readFileSync(join(dist, '.vocs', `search-index-${locale}.json`))).join(''))
   .digest('hex')
-console.log(`Finalized ${locales.length} splash routes and ${documentationPaths.length * documentationLocales.length} documentation routes; search fingerprint ${fingerprint.slice(0, 12)}.`)
+const documentationRouteCount = localizedDocumentationPaths.length * documentationLocales.length + englishOnlyDocumentationPaths.length
+console.log(`Finalized ${locales.length} splash routes and ${documentationRouteCount} documentation routes; search fingerprint ${fingerprint.slice(0, 12)}.`)

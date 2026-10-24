@@ -13,6 +13,10 @@ export const DOCUMENTATION_PATHS = [
   '/protocol/overview',
   '/protocol/smart-contracts',
   '/protocol/network',
+  '/governance/policies',
+  '/governance/privacy',
+  '/governance/data-protection',
+  '/governance/child-safeguarding',
   '/governance/mechanics',
   '/governance/terms',
   '/white-paper',
@@ -44,9 +48,17 @@ export const DOCUMENTATION_PATHS = [
   '/white-paper/archive',
 ] as const
 
+export const ENGLISH_ONLY_DOCUMENTATION_PATHS = [
+  '/governance/policies',
+  '/governance/privacy',
+  '/governance/data-protection',
+  '/governance/child-safeguarding',
+] as const
+
 export type DocumentationPath = (typeof DOCUMENTATION_PATHS)[number]
 
 const DOCUMENTATION_PATH_SET = new Set<string>(['/', ...DOCUMENTATION_PATHS])
+const ENGLISH_ONLY_DOCUMENTATION_PATH_SET = new Set<string>(ENGLISH_ONLY_DOCUMENTATION_PATHS)
 
 export function routeLocale(pathname: string): SupportedLocale {
   const segment = pathname.split('/')[1]
@@ -66,6 +78,7 @@ export function isKnownDocumentationPath(pathname: string): boolean {
 export function localizedPath(pathname: string, locale: SupportedLocale): string {
   const source = englishPath(pathname)
   if (locale === DEFAULT_LOCALE) return source
+  if (ENGLISH_ONLY_DOCUMENTATION_PATH_SET.has(source)) return source
   if (source === '/') return `/${locale}/`
   if (!hasLocalizedDocumentation(locale)) return source
   return `/${locale}${source}`

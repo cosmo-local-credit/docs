@@ -1,6 +1,6 @@
 # Multilingual documentation rollout
 
-Last updated: 11 October 2026
+Last updated: 24 October 2026
 
 This file tracks the one-language-at-a-time rollout of the public documentation.
 The implementation details, commands, file conventions, and translation tooling
@@ -17,6 +17,24 @@ navigation, the site interface, and the locale manifest are complete and the
 reviewable web draft has been accepted. The current uninterrupted batch is the
 explicit exception: each complete, validated draft is wired for review before
 the combined handoff.
+
+## English policy-suite checkpoint
+
+- [x] Add English review drafts for the Policy hub, Privacy Notice, Data
+  Protection Policy, and Child Safeguarding Policy.
+- [x] Keep the four routes English-only during live review, including English
+  navigation, search, canonical metadata, and `llms` output.
+- [x] Verify the documented App visibility boundaries against `clc-app`
+  `765c94c6c19f621b6aa8211fd13e58caa8cc9d03` and `clc-core`
+  `f8c6ccf645a917c687ddbd30b64045c04a5506ea` on 24 October 2026.
+- [ ] Verify the processor, international-transfer, retention, child-safety,
+  and publication statements; obtain legal approval; then add actual publication
+  and effective dates.
+- [ ] Freeze the approved English sources before translating the four pages into
+  all sixteen non-English documentation languages.
+- [ ] After approval, add localized navigation, notices, headings, manifests,
+  search and `llms` entries, then coordinate the stable Privacy Notice URL with
+  `clc-app`.
 
 ## Rollout status
 

@@ -59,6 +59,12 @@ translation and links prominently to English. English is also the source text
 for White Paper v0.8. Localized HTML and PDFs state the English publication date
 and the translation publication date.
 
+The English Policy hub, Privacy Notice, Data Protection Policy, and Child
+Safeguarding Policy are currently review drafts. They remain outside the
+localized page trees, navigation catalogs, heading map, translation manifests,
+localized search indexes, and localized `llms` files until the English texts are
+approved, dated, and frozen.
+
 The tracked PDF builder uses pdfLaTeX for English and LuaLaTeX for localized
 papers. Polyglossia provides most localized typesetting; Arabic uses Babel's
 LuaTeX bidi engine so RTL text and embedded LTR product names do not depend on

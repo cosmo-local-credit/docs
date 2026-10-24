@@ -22,7 +22,10 @@ import {
 } from './locales'
 import { localizedPath } from './routes'
 
-type NavigationMessages = typeof en
+type NavigationMessages = {
+  groups: Record<keyof typeof en.groups, string>
+  items: Record<string, string>
+}
 
 export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   ar,
@@ -103,6 +106,14 @@ export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
     {
       text: messages.groups.governance,
       items: [
+        ...(documentationLocale === 'en'
+          ? [
+              { text: messages.items.policies, link: link('/governance/policies') },
+              { text: messages.items.privacy, link: link('/governance/privacy') },
+              { text: messages.items.dataProtection, link: link('/governance/data-protection') },
+              { text: messages.items.childSafeguarding, link: link('/governance/child-safeguarding') },
+            ]
+          : []),
         { text: messages.items.governanceMechanics, link: link('/governance/mechanics') },
         { text: messages.items.terms, link: link('/governance/terms') },
       ],

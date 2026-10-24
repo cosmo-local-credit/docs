@@ -125,6 +125,10 @@ const splashCatalogs = join(i18n, 'messages')
 const englishSplash = readJson(join(splashCatalogs, 'en.json'))
 const englishUi = readJson(join(i18n, 'ui/en.json'))
 const englishNavigation = readJson(join(i18n, 'navigation/en.json'))
+const localizedNavigation = structuredClone(englishNavigation)
+for (const key of ['policies', 'privacy', 'dataProtection', 'childSafeguarding']) {
+  delete localizedNavigation.items[key]
+}
 for (const locale of locales) {
   const candidatePath = join(i18n, 'messages', `${locale}.json`)
   if (!existsSync(candidatePath)) errors.push(`messages/${locale}.json: missing catalog`)
@@ -133,7 +137,10 @@ for (const locale of locales) {
   if (!existsSync(splashRoute) || !statSync(splashRoute).isFile()) errors.push(`${locale}: missing splash route`)
 }
 for (const locale of documentationLocales) {
-  for (const [folder, reference] of [['ui', englishUi], ['navigation', englishNavigation]]) {
+  for (const [folder, reference] of [
+    ['ui', englishUi],
+    ['navigation', locale === 'en' ? englishNavigation : localizedNavigation],
+  ]) {
     const candidatePath = join(i18n, folder, `${locale}.json`)
     if (!existsSync(candidatePath)) errors.push(`${folder}/${locale}.json: missing catalog`)
     else compareShape(reference, readJson(candidatePath), `${folder}.${locale}`)
@@ -168,9 +175,19 @@ for (const [locale, manifest] of Object.entries(manifests)) {
   }
 }
 
+const englishOnlyRoutes = new Set([
+  '/governance/policies',
+  '/governance/privacy',
+  '/governance/data-protection',
+  '/governance/child-safeguarding',
+])
 const sources = englishSources()
-if (sources.length !== 36) errors.push(`Expected 36 English documentation pages, found ${sources.length}`)
-for (const source of sources) {
+const localizedSources = sources.filter((source) => !englishOnlyRoutes.has(routeFor(source)))
+if (sources.length !== 40) errors.push(`Expected 40 English documentation pages, found ${sources.length}`)
+if (localizedSources.length !== 36) {
+  errors.push(`Expected 36 localized documentation source pages, found ${localizedSources.length}`)
+}
+for (const source of localizedSources) {
   const route = routeFor(source)
   const english = readFileSync(source, 'utf8')
   for (const locale of localizedLocales) {
@@ -247,8 +264,42 @@ for (const required of [
 }
 if (/Version 1\.0|31 October 2026|terms-v1-1/.test(terms)) errors.push('Canonical Terms retain transition-era text')
 
+for (const policy of ['policies', 'privacy', 'data-protection', 'child-safeguarding']) {
+  const policySource = readFileSync(join(pages, `governance/${policy}.md`), 'utf8')
+  for (const required of [
+    '> **Review draft — not yet effective.**',
+    '**Draft version: 1.0**',
+    '**Draft date: 24 October 2026**',
+  ]) {
+    if (!policySource.includes(required)) errors.push(`${policy}: missing ${required}`)
+  }
+  if (/\*\*(?:Publication|Effective) date:/.test(policySource)) {
+    errors.push(`${policy}: review draft must not claim a publication or effective date`)
+  }
+  for (const locale of localizedLocales) {
+    const localizedPolicy = join(pages, locale, `governance/${policy}.md`)
+    if (existsSync(localizedPolicy)) {
+      errors.push(`${policy}: ${locale} translation exists before the English review gate is complete`)
+    }
+  }
+}
+
+const privacy = readFileSync(join(pages, 'governance/privacy.md'), 'utf8')
+for (const forbidden of [
+  /Social Soil/i,
+  /USSD/i,
+  /NFC/i,
+  /private key stored/i,
+  /humanitarian exception/i,
+  /never shared/i,
+  /never transferred/i,
+  /retained? for 10 years/i,
+]) {
+  if (forbidden.test(privacy)) errors.push(`Privacy Notice contains obsolete or unsupported wording: ${forbidden}`)
+}
+
 const headingMap = readJson(join(i18n, 'heading-map.json'))
-if (Object.keys(headingMap).length !== 36) errors.push('Heading map must cover all 36 documentation pages')
+if (Object.keys(headingMap).length !== 36) errors.push('Heading map must cover all 36 localized documentation pages')
 for (const [route, mapping] of Object.entries(headingMap)) {
   const count = mapping.en?.length
   for (const locale of documentationLocales) {
@@ -274,4 +325,5 @@ if (errors.length) {
   process.exit(1)
 }
 
-console.log(`Validated ${locales.length} splash routes, ${sources.length * documentationLocales.length} released documentation routes, catalogs, hashes, links, Terms, TeX, and PDFs.`)
+const routeCount = sources.length + (localizedSources.length * localizedLocales.length)
+console.log(`Validated ${locales.length} splash routes, ${routeCount} released documentation routes, catalogs, hashes, links, Terms, English policy drafts, TeX, and PDFs.`)
