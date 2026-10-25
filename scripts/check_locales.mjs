@@ -139,7 +139,7 @@ for (const locale of locales) {
 for (const locale of documentationLocales) {
   for (const [folder, reference] of [
     ['ui', englishUi],
-    ['navigation', locale === 'en' ? englishNavigation : localizedNavigation],
+    ['navigation', ['en', 'fr'].includes(locale) ? englishNavigation : localizedNavigation],
   ]) {
     const candidatePath = join(i18n, folder, `${locale}.json`)
     if (!existsSync(candidatePath)) errors.push(`${folder}/${locale}.json: missing catalog`)
@@ -175,14 +175,15 @@ for (const [locale, manifest] of Object.entries(manifests)) {
   }
 }
 
-const englishOnlyRoutes = new Set([
+const policyRoutes = new Set([
   '/governance/policies',
   '/governance/privacy',
   '/governance/data-protection',
   '/governance/child-safeguarding',
 ])
+const policyLocales = ['fr']
 const sources = englishSources()
-const localizedSources = sources.filter((source) => !englishOnlyRoutes.has(routeFor(source)))
+const localizedSources = sources.filter((source) => !policyRoutes.has(routeFor(source)))
 if (sources.length !== 40) errors.push(`Expected 40 English documentation pages, found ${sources.length}`)
 if (localizedSources.length !== 36) {
   errors.push(`Expected 36 localized documentation source pages, found ${localizedSources.length}`)
@@ -190,66 +191,86 @@ if (localizedSources.length !== 36) {
 for (const source of localizedSources) {
   const route = routeFor(source)
   const english = readFileSync(source, 'utf8')
-  for (const locale of localizedLocales) {
-    const entry = manifests[locale].pages?.[route]
-    if (!entry) {
-      errors.push(`${route}: missing ${locale} manifest entry`)
-      continue
+  for (const locale of localizedLocales) validateTranslation(source, route, english, locale)
+}
+for (const source of sources.filter((candidate) => policyRoutes.has(routeFor(candidate)))) {
+  const route = routeFor(source)
+  const english = readFileSync(source, 'utf8')
+  for (const locale of policyLocales) validateTranslation(source, route, english, locale)
+}
+
+function validateTranslation(source, route, english, locale) {
+  const entry = manifests[locale].pages?.[route]
+  if (!entry) {
+    errors.push(`${route}: missing ${locale} manifest entry`)
+    return
+  }
+  if (entry.sourceSha256 !== sha256(english)) {
+    errors.push(`${route}: ${locale} English source hash is stale`)
+  }
+  const translatedPath = localeSource(locale, source)
+  if (!existsSync(translatedPath)) {
+    errors.push(`${route}: missing ${locale} source`)
+    return
+  }
+  const translated = readFileSync(translatedPath, 'utf8')
+  if (/CLCTRANSLATE|XxOpaque/i.test(translated)) {
+    errors.push(`${route}: ${locale} contains an unresolved translation marker`)
+  }
+  if (entry.locales?.[locale]?.sha256 !== sha256(translated)) {
+    errors.push(`${route}: ${locale} translation hash is stale`)
+  }
+  for (const name of protectedNames) {
+    if (english.includes(name) && !translated.includes(name)) {
+      errors.push(`${route}: ${locale} changed protected name ${name}`)
     }
-    if (entry.sourceSha256 !== sha256(english)) {
-      errors.push(`${route}: ${locale} English source hash is stale`)
+  }
+  for (const formula of protectedFormulas) {
+    if (english.includes(formula) && !translated.includes(formula)) {
+      errors.push(`${route}: ${locale} changed protected formula ${formula}`)
     }
-    const translatedPath = localeSource(locale, source)
-    if (!existsSync(translatedPath)) {
-      errors.push(`${route}: missing ${locale} source`)
-      continue
+  }
+  for (const url of new Set(english.match(/https?:\/\/[^\s)>"']+/g) ?? [])) {
+    if (!translated.includes(url)) errors.push(`${route}: ${locale} changed external URL ${url}`)
+  }
+  const englishCode = [...english.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
+  const translatedCode = [...translated.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
+  for (const token of new Set(englishCode)) {
+    if (!translatedCode.includes(token)) errors.push(`${route}: ${locale} changed code token ${token}`)
+  }
+  for (const match of translated.matchAll(/\]\((\/(?!\/)[^)#?]+)([^)]*)\)/g)) {
+    const target = match[1]
+    const publicAsset = target.startsWith('/about/') ||
+      (/^\/white-paper\/.+\.(?:pdf|svg|png|jpe?g)$/i.test(target))
+    const controllingEnglishPolicy = policyRoutes.has(route) && target === route
+    if (!target.startsWith(`/${locale}/`) && !publicAsset && !controllingEnglishPolicy) {
+      errors.push(`${route}: ${locale} has an unlocalized internal link ${target}`)
     }
-    const translated = readFileSync(translatedPath, 'utf8')
-    if (/CLCTRANSLATE|XxOpaque/i.test(translated)) {
-      errors.push(`${route}: ${locale} contains an unresolved translation marker`)
+  }
+  if (route === '/governance/terms') {
+    if (!translated.includes('data-english-source="true"') || !translated.includes('hrefLang="en"')) {
+      errors.push(`${route}: ${locale} is missing the controlling-English notice`)
     }
-    if (entry.locales?.[locale]?.sha256 !== sha256(translated)) {
-      errors.push(`${route}: ${locale} translation hash is stale`)
+  }
+  if (policyRoutes.has(route)) {
+    if (!translated.includes(`](${route})`)) {
+      errors.push(`${route}: ${locale} is missing the controlling-English policy notice`)
     }
-    for (const name of protectedNames) {
-      if (english.includes(name) && !translated.includes(name)) {
-        errors.push(`${route}: ${locale} changed protected name ${name}`)
-      }
+    for (const required of [
+      '**Version provisoire de la source : 1.0**',
+      '**Date du projet anglais : 24 octobre 2026**',
+      '**Date de cette traduction de travail : 25 octobre 2026**',
+    ]) {
+      if (!translated.includes(required)) errors.push(`${route}: ${locale} is missing ${required}`)
     }
-    for (const formula of protectedFormulas) {
-      if (english.includes(formula) && !translated.includes(formula)) {
-        errors.push(`${route}: ${locale} changed protected formula ${formula}`)
-      }
-    }
-    for (const url of new Set(english.match(/https?:\/\/[^\s)>"']+/g) ?? [])) {
-      if (!translated.includes(url)) errors.push(`${route}: ${locale} changed external URL ${url}`)
-    }
-    const englishCode = [...english.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
-    const translatedCode = [...translated.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
-    for (const token of new Set(englishCode)) {
-      if (!translatedCode.includes(token)) errors.push(`${route}: ${locale} changed code token ${token}`)
-    }
-    for (const match of translated.matchAll(/\]\((\/(?!\/)[^)#?]+)([^)]*)\)/g)) {
-      const target = match[1]
-      const publicAsset = target.startsWith('/about/') ||
-        (/^\/white-paper\/.+\.(?:pdf|svg|png|jpe?g)$/i.test(target))
-      if (!target.startsWith(`/${locale}/`) && !publicAsset) {
-        errors.push(`${route}: ${locale} has an unlocalized internal link ${target}`)
-      }
-    }
-    if (route === '/governance/terms') {
-      if (!translated.includes('data-english-source="true"') || !translated.includes('hrefLang="en"')) {
-        errors.push(`${route}: ${locale} is missing the controlling-English notice`)
-      }
-    }
-    if ((route === '/white-paper' || route === '/white-paper/archive') && !translated.includes('data-english-source="true"')) {
-      errors.push(`${route}: ${locale} is missing the White Paper translation notice`)
-    }
-    if (route === '/white-paper') {
-      const localizedPdf = `/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-${locale}.pdf`
-      if (!translated.includes(`href="${localizedPdf}"`)) {
-        errors.push(`${route}: ${locale} is missing its localized White Paper PDF link`)
-      }
+  }
+  if ((route === '/white-paper' || route === '/white-paper/archive') && !translated.includes('data-english-source="true"')) {
+    errors.push(`${route}: ${locale} is missing the White Paper translation notice`)
+  }
+  if (route === '/white-paper') {
+    const localizedPdf = `/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-${locale}.pdf`
+    if (!translated.includes(`href="${localizedPdf}"`)) {
+      errors.push(`${route}: ${locale} is missing its localized White Paper PDF link`)
     }
   }
 }
@@ -276,7 +297,7 @@ for (const policy of ['policies', 'privacy', 'data-protection', 'child-safeguard
   if (/\*\*(?:Publication|Effective) date:/.test(policySource)) {
     errors.push(`${policy}: review draft must not claim a publication or effective date`)
   }
-  for (const locale of localizedLocales) {
+  for (const locale of localizedLocales.filter((candidate) => !policyLocales.includes(candidate))) {
     const localizedPolicy = join(pages, locale, `governance/${policy}.md`)
     if (existsSync(localizedPolicy)) {
       errors.push(`${policy}: ${locale} translation exists before the English review gate is complete`)
@@ -299,10 +320,11 @@ for (const forbidden of [
 }
 
 const headingMap = readJson(join(i18n, 'heading-map.json'))
-if (Object.keys(headingMap).length !== 36) errors.push('Heading map must cover all 36 localized documentation pages')
+if (Object.keys(headingMap).length !== 40) errors.push('Heading map must cover all 40 English documentation pages')
 for (const [route, mapping] of Object.entries(headingMap)) {
   const count = mapping.en?.length
-  for (const locale of documentationLocales) {
+  const routeLocales = policyRoutes.has(route) ? ['en', ...policyLocales] : documentationLocales
+  for (const locale of routeLocales) {
     if (!Array.isArray(mapping[locale]) || mapping[locale].length !== count) {
       errors.push(`${route}: ${locale} heading mapping differs from English`)
     }
@@ -325,5 +347,5 @@ if (errors.length) {
   process.exit(1)
 }
 
-const routeCount = sources.length + (localizedSources.length * localizedLocales.length)
-console.log(`Validated ${locales.length} splash routes, ${routeCount} released documentation routes, catalogs, hashes, links, Terms, English policy drafts, TeX, and PDFs.`)
+const routeCount = sources.length + (localizedSources.length * localizedLocales.length) + (policyRoutes.size * policyLocales.length)
+console.log(`Validated ${locales.length} splash routes, ${routeCount} documentation routes, catalogs, hashes, links, Terms, policy drafts, TeX, and PDFs.`)

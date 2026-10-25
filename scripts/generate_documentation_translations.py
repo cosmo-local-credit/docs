@@ -1144,11 +1144,29 @@ class MadladTranslator:
     """Translate with a local MADLAD-400 CTranslate2 model.
 
     MADLAD uses target-language prompt tokens instead of NLLB source and target
-    prefixes. The current workflow enables it for Filipino and English so a
-    stronger Filipino draft can be compared without changing the site runtime.
+    prefixes. Locale variants that share a model language, such as Flemish and
+    Dutch or simplified and traditional Chinese, share the appropriate prompt.
     """
 
-    LANGUAGE_TAGS = {"en": "en", "fil": "fil"}
+    LANGUAGE_TAGS = {
+        "en": "en",
+        "ar": "ar",
+        "zh": "zh",
+        "zh-Hant": "zh",
+        "dz": "dz",
+        "de": "de",
+        "es": "es",
+        "fil": "fil",
+        "fr": "fr",
+        "hi": "hi",
+        "it": "it",
+        "nl": "nl",
+        "nl-BE": "nl",
+        "pt": "pt",
+        "sr": "sr",
+        "sw": "sw",
+        "uk": "uk",
+    }
 
     def __init__(self, model: Path, threads: int) -> None:
         self.engine = ctranslate2.Translator(
@@ -2476,10 +2494,10 @@ def main() -> None:
         if model_family == "auto":
             model_family = "madlad" if (args.model / "spiece.model").exists() else "nllb"
         if model_family == "madlad":
-            unsupported = set(args.locales) - {"fil"}
+            unsupported = set(args.locales) - set(MadladTranslator.LANGUAGE_TAGS)
             if unsupported:
                 parser.error(
-                    "this MADLAD workflow is currently configured only for Filipino"
+                    "MADLAD is not configured for: " + ", ".join(sorted(unsupported))
                 )
             translator = MadladTranslator(args.model, args.threads)
             translation_method = (
@@ -2516,17 +2534,21 @@ def main() -> None:
             parser.error(
                 "unknown route(s): " + ", ".join(sorted(missing_routes))
             )
-    manifest: dict[str, object] = {
-        "sourceAppCommit": APP_BASELINE,
-        "translationPublicationDate": translation_date,
-        "status": "first-draft-review",
-        "reviewProcess": [
-            translation_method,
-            "clarity normalization with complete-line context and the clc-app glossary",
-            "unit-by-unit automated back-translation and structural verification",
-        ],
-        "pages": {},
-    }
+    if args.routes and args.manifest.exists():
+        manifest = json.loads(args.manifest.read_text())
+        manifest["sourceAppCommit"] = APP_BASELINE
+    else:
+        manifest: dict[str, object] = {
+            "sourceAppCommit": APP_BASELINE,
+            "translationPublicationDate": translation_date,
+            "status": "first-draft-review",
+            "reviewProcess": [
+                translation_method,
+                "clarity normalization with complete-line context and the clc-app glossary",
+                "unit-by-unit automated back-translation and structural verification",
+            ],
+            "pages": {},
+        }
 
     for locale in args.locales:
         canonical_source = ["Commitment Pool", "Commitment Pools", "Pool Steward", "Pool Stewards"]
@@ -2553,9 +2575,11 @@ def main() -> None:
                 "meanBackTranslationSimilarity": 1.0,
                 "unitsBelow0_35": 0,
             }
-        if locale in {"dz", "fil", "hi", "nl", "nl-BE", "zh", "zh-Hant"}:
-            # Short interface labels need maintained catalogs. General-purpose
-            # MT lacks enough context here and can choose unrelated meanings.
+        ui_path = I18N / f"ui/{locale}.json"
+        navigation_path = I18N / f"navigation/{locale}.json"
+        if ui_path.exists() and navigation_path.exists():
+            # Existing short interface and navigation labels have already been
+            # reviewed in context. Preserve them during page-only updates.
             ui = json.loads((I18N / f"ui/{locale}.json").read_text())
             navigation = json.loads((I18N / f"navigation/{locale}.json").read_text())
             ui_review = {"units": 0, "meanBackTranslationSimilarity": 1.0, "unitsBelow0_35": 0}

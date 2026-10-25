@@ -36,6 +36,223 @@ the combined handoff.
   search and `llms` entries, then coordinate the stable Privacy Notice URL with
   `clc-app`.
 
+## Policy translation rollout
+
+The four policy pages form a separate, sequential translation release. A
+translation review draft may be prepared against the recorded English source
+hashes, but no translated policy is released until the English drafts have been
+approved, assigned actual publication and effective dates, and frozen as the
+source text. After that gate, the four pages move together for one language at
+a time:
+
+- Policy hub: `/governance/policies`
+- CLC App Privacy Notice: `/governance/privacy`
+- Data Protection Policy: `/governance/data-protection`
+- Child Safeguarding Policy: `/governance/child-safeguarding`
+
+The existing 36 translated documentation pages remain released while this work
+proceeds. A locale expands from 36 to 40 documentation pages only when all four
+policy translations for that locale have passed review and validation. Until
+then, language switching from an English policy page continues to use the
+English route.
+
+### Policy rollout order and status
+
+| Order | Language | Four-page draft | Semantic and clarity review | User review | Docs release | App Privacy link |
+| ---: | --- | --- | --- | --- | --- | --- |
+| — | English (`en`) | Prepared | Operational and legal verification pending | Pending | Review deployment pending | English URL |
+| 1 | French (`fr`) | Complete review draft | Complete | Ready | Queued | English fallback |
+| 2 | Spanish (`es`) | Queued | Queued | Queued | Queued | English fallback |
+| 3 | Portuguese (`pt`) | Queued | Queued | Queued | Queued | English fallback |
+| 4 | Italian (`it`) | Queued | Queued | Queued | Queued | English fallback |
+| 5 | Kiswahili (`sw`) | Queued | Queued | Queued | Queued | English fallback |
+| 6 | German (`de`) | Queued | Queued | Queued | Queued | English fallback |
+| 7 | Ukrainian (`uk`) | Queued | Queued | Queued | Queued | English fallback |
+| 8 | Serbian (`sr`) | Queued | Queued | Queued | Queued | English fallback |
+| 9 | Arabic (`ar`) | Queued | Queued | Queued | Queued | English fallback |
+| 10 | Dzongkha (`dz`) | Queued | Queued | Queued | Queued | English fallback |
+| 11 | Dutch (`nl`) | Queued | Queued | Queued | Queued | English fallback |
+| 12 | Hindi (`hi`) | Queued | Queued | Queued | Queued | English fallback |
+| 13 | Simplified Chinese (`zh`) | Queued | Queued | Queued | Queued | English fallback |
+| 14 | Traditional Chinese (`zh-Hant`) | Queued | Queued | Queued | Queued | English fallback |
+| 15 | Filipino (`fil`) | Queued | Queued | Queued | Queued | English fallback |
+| 16 | Flemish (`nl-BE`) | Queued | Queued | Queued | Queued | English fallback |
+
+Only one row may be marked **In progress** at a time. Do not begin the next
+language until the current language has a complete preview, passes validation,
+and is accepted for release. Use one commit or pull request per language.
+
+### Per-language policy workflow
+
+For each language:
+
+1. Recheck the current `clc-app` locale catalog and record its exact commit.
+   Reuse the established App and docs glossary without weakening distinctions
+   among profile data, public resources, exact recipient lookup, public
+   blockchain data, Issuers, and Pool Stewards.
+2. Confirm that the four English source hashes still match the frozen approved
+   version. If English changed, stop and assess every policy language already
+   released before translating further.
+3. Translate all four pages together. Preserve organization and product names,
+   email addresses, URLs, statutory citations, version numbers, publication and
+   effective dates, route paths, technical identifiers, and public/private field
+   boundaries.
+4. Apply the same three passes used elsewhere: semantic translation, natural
+   plain-language revision, and independent back-translation with technical and
+   legal verification. The English source controls unless applicable law
+   requires otherwise; every localized page must carry the convenience-
+   translation notice and a prominent English-source link.
+5. Add the four localized routes, navigation labels, heading mappings, source
+   hashes, translation-manifest entries, locale-isolated search records,
+   canonical and reciprocal `hreflang` metadata, and localized `llms` entries.
+6. Run the complete validation gate and inspect all four pages on desktop and
+   mobile in both themes. Review tables, links, long headings, email addresses,
+   statutory citations, and RTL or complex-script rendering where applicable.
+7. Provide direct preview URLs for the Policy hub, Privacy Notice, Data
+   Protection Policy, and Child Safeguarding Policy. Record requested changes
+   and user acceptance before release.
+8. Deploy and verify the four pages. Only then may `clc-app` use
+   `/{locale}/governance/privacy`; until then it must use
+   `/governance/privacy`. Record the app-link result before starting the next
+   language.
+
+### Policy language checklists
+
+#### 1. French (`fr`)
+
+- [x] Synchronize policy vocabulary with the current French app catalog at
+  `origin/develop` commit `27321a637fded39c8ac0fb1a9e4783a852a5113b`.
+- [x] Translate all four pages as a complete French review draft.
+- [x] Complete the final source comparison, clarity pass, and review of all
+  privacy-field and safeguarding distinctions.
+- [x] Add French policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the French policy suite and verify `/fr/governance/privacy` from the app.
+
+#### 2. Spanish (`es`)
+
+- [ ] Synchronize policy vocabulary with the current Spanish app catalog.
+- [ ] Translate and complete the three-pass review of all four pages.
+- [ ] Add Spanish policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Spanish policy suite and verify `/es/governance/privacy` from the app.
+
+#### 3. Portuguese (`pt`)
+
+- [ ] Synchronize policy vocabulary with the current Portuguese app catalog.
+- [ ] Translate and complete the three-pass review of all four pages.
+- [ ] Add Portuguese policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Portuguese policy suite and verify `/pt/governance/privacy` from the app.
+
+#### 4. Italian (`it`)
+
+- [ ] Synchronize policy vocabulary with the current Italian app catalog.
+- [ ] Translate and complete the three-pass review of all four pages.
+- [ ] Add Italian policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Italian policy suite and verify `/it/governance/privacy` from the app.
+
+#### 5. Kiswahili (`sw`)
+
+- [ ] Synchronize policy vocabulary with the current Kiswahili app catalog.
+- [ ] Translate and review natural privacy, safeguarding, and complaints terminology.
+- [ ] Add Kiswahili policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Kiswahili policy suite and verify `/sw/governance/privacy` from the app.
+
+#### 6. German (`de`)
+
+- [ ] Synchronize policy vocabulary with the current German app catalog.
+- [ ] Translate and review legal compounds, sentence length, and plain-language clarity.
+- [ ] Add German policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate long headings and tables, preview, and record user acceptance.
+- [ ] Release the German policy suite and verify `/de/governance/privacy` from the app.
+
+#### 7. Ukrainian (`uk`)
+
+- [ ] Synchronize policy vocabulary with the current Ukrainian app catalog.
+- [ ] Translate and review legal terminology and Cyrillic technical-token isolation.
+- [ ] Add Ukrainian policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Ukrainian policy suite and verify `/uk/governance/privacy` from the app.
+
+#### 8. Serbian (`sr`)
+
+- [ ] Synchronize policy vocabulary with the current Serbian app catalog.
+- [ ] Translate in consistent Serbian Cyrillic and review legal terminology.
+- [ ] Add Serbian policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Serbian policy suite and verify `/sr/governance/privacy` from the app.
+
+#### 9. Arabic (`ar`)
+
+- [ ] Synchronize policy vocabulary with the current Arabic app catalog.
+- [ ] Translate and review legal meaning, RTL flow, and LTR isolation for URLs,
+  emails, identifiers, citations, and blockchain addresses.
+- [ ] Add Arabic policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate RTL tables and controls, preview, and record user acceptance.
+- [ ] Release the Arabic policy suite and verify `/ar/governance/privacy` from the app.
+
+#### 10. Dzongkha (`dz`)
+
+- [ ] Synchronize policy vocabulary with the current Dzongkha app catalog.
+- [ ] Translate and review privacy and safeguarding concepts, Tibetan-script
+  glyphs, line breaking, and natural explanatory language.
+- [ ] Add Dzongkha policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate fonts and long tables, preview, and record user acceptance.
+- [ ] Release the Dzongkha policy suite and verify `/dz/governance/privacy` from the app.
+
+#### 11. Dutch (`nl`)
+
+- [ ] Synchronize policy vocabulary with the current Dutch app catalog.
+- [ ] Translate and complete the three-pass review of all four pages.
+- [ ] Add Dutch policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Dutch policy suite and verify `/nl/governance/privacy` from the app.
+
+#### 12. Hindi (`hi`)
+
+- [ ] Synchronize policy vocabulary with the current Hindi app catalog.
+- [ ] Translate and review natural legal language, Devanagari rendering, and
+  isolation of URLs, emails, identifiers, and citations.
+- [ ] Add Hindi policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate fonts and tables, preview, and record user acceptance.
+- [ ] Release the Hindi policy suite and verify `/hi/governance/privacy` from the app.
+
+#### 13. Simplified Chinese (`zh`)
+
+- [ ] Synchronize policy vocabulary with the current Simplified Chinese app catalog.
+- [ ] Translate and review legal terminology, punctuation, and field-level distinctions.
+- [ ] Add Simplified Chinese policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate CJK wrapping and search, preview, and record user acceptance.
+- [ ] Release the suite and verify `/zh/governance/privacy` from the app.
+
+#### 14. Traditional Chinese (`zh-Hant`)
+
+- [ ] Synchronize policy vocabulary with the current Traditional Chinese app catalog.
+- [ ] Translate independently from English and review Traditional Chinese legal usage.
+- [ ] Add Traditional Chinese policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate CJK wrapping and search, preview, and record user acceptance.
+- [ ] Release the suite and verify `/zh-Hant/governance/privacy` from the app.
+
+#### 15. Filipino (`fil`)
+
+- [ ] Synchronize policy vocabulary with the current Filipino app catalog.
+- [ ] Translate and review natural privacy, safeguarding, and complaints language.
+- [ ] Add Filipino policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate, preview, and record user acceptance.
+- [ ] Release the Filipino policy suite and verify `/fil/governance/privacy` from the app.
+
+#### 16. Flemish (`nl-BE`)
+
+- [ ] Synchronize policy vocabulary with the current Flemish app catalog.
+- [ ] Translate from English, using Dutch structure only where appropriate, and
+  review every unit for Belgian usage and legal clarity.
+- [ ] Add Flemish policy navigation, routes, metadata, search, manifests, and notices.
+- [ ] Validate Dutch/Flemish separation, preview, and record user acceptance.
+- [ ] Release the Flemish policy suite and verify `/nl-BE/governance/privacy` from the app.
+
 ## Rollout status
 
 | Order | Language | Splash | Web translation | User review | Docs release | App-link verification | Localized PDF |
@@ -106,6 +323,7 @@ review, docs deployment, and companion app-link verification remain open.
 
 | Date | App commit | Result |
 | --- | --- | --- |
+| 25 October 2026 | `27321a637fded39c8ac0fb1a9e4783a852a5113b` on `origin/develop` | French policy vocabulary reviewed. The current app catalog uses `Bon d’échange`, `Bassin`, `Demande`, `Catalogue`, `Portefeuille`, `Marché`, `Émetteur`, `Utiliser`, `Envoyer`, `Échanger`, `Offres`, `Publications`, and `Avis`; the French policy draft preserves those terms and the established `Gestionnaire de Bassin`. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Locale registry unchanged; current core catalog terms remain aligned with the docs glossary. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Italian reviewed. The docs use the natural action label “Invia”; the app catalog currently uses the formal label “Invii”. Other core terms remain aligned. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Kiswahili reviewed. The docs consistently use `Kikundi`, matching the established splash glossary and the app's primary labels; older app entries using `Puli` or `Bwawa` are treated as app catalog drift. Core actions remain `Tuma`, `Komboa`, and `Badilisha`. |

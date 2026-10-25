@@ -7,7 +7,85 @@
     "clarity normalization with complete-line context and the clc-app glossary",
     "unit-by-unit automated back-translation and structural verification"
   ],
+  "policyTranslationDraftDate": "25 October 2026",
+  "policySourceAppCommit": "27321a637fded39c8ac0fb1a9e4783a852a5113b",
+  "policyReviewProcess": [
+    "manual translation from the English review draft with the current French clc-app glossary",
+    "plain-language clarity and field-by-field privacy review",
+    "independent MADLAD back-translation followed by manual review of every low-confidence unit",
+    "source comparison, protected-token, heading, link, and rendered-page verification"
+  ],
+  "policyBackTranslationReview": {
+    "units": 472,
+    "meanBackTranslationSimilarity": 0.6275,
+    "unitsBelow0_35": 83,
+    "note": "All low-confidence units were reviewed manually; short labels and French word order lower the automated similarity score."
+  },
   "pages": {
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "sourceSha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340",
+      "locales": {
+        "fr": {
+          "sha256": "260e6a6e4d16f33c2bf643a255f80d761ec7d20e847791b2d13d5db1b56af594",
+          "review": {
+            "method": "manual translation, source comparison, and independent back-translation",
+            "status": "first-draft-review-complete",
+            "units": 35,
+            "meanBackTranslationSimilarity": 0.6723,
+            "unitsBelow0_35": 5
+          }
+        }
+      }
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "sourceSha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11",
+      "locales": {
+        "fr": {
+          "sha256": "8766f3e1618ae0b41969e8c6e49bf4e1af4395e33ce5440056b79c277d06f43f",
+          "review": {
+            "method": "manual translation, source comparison, and independent back-translation",
+            "status": "first-draft-review-complete",
+            "units": 173,
+            "meanBackTranslationSimilarity": 0.6146,
+            "unitsBelow0_35": 36
+          }
+        }
+      }
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "sourceSha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92",
+      "locales": {
+        "fr": {
+          "sha256": "57ba79187d5710fd38ba7444a26ad702a0efa207d68a6c9cd54bb09df715c6ae",
+          "review": {
+            "method": "manual translation, source comparison, and independent back-translation",
+            "status": "first-draft-review-complete",
+            "units": 131,
+            "meanBackTranslationSimilarity": 0.6323,
+            "unitsBelow0_35": 24
+          }
+        }
+      }
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "sourceSha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd",
+      "locales": {
+        "fr": {
+          "sha256": "2460d9a17ab6c651f79c55d2b480bcbe9ff6c5fc6e7f119a1859d61d9c268b26",
+          "review": {
+            "method": "manual translation, source comparison, and independent back-translation",
+            "status": "first-draft-review-complete",
+            "units": 133,
+            "meanBackTranslationSimilarity": 0.6278,
+            "unitsBelow0_35": 18
+          }
+        }
+      }
+    },
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
       "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",

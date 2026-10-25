@@ -4,6 +4,10 @@ import { resolve } from 'node:path'
 
 const root = resolve(import.meta.dirname, '..')
 const locales = ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
+const policyRoutes = new Set([
+  '/governance/policies', '/governance/privacy', '/governance/data-protection',
+  '/governance/child-safeguarding',
+])
 const digest = (value) => createHash('sha256').update(value).digest('hex')
 const directory = resolve(root, 'docs/i18n')
 const availableManifestFiles = readdirSync(directory)
@@ -53,17 +57,18 @@ for (const manifest of manifests) {
 
 for (const [route, page] of Object.entries(merged.pages)) {
   const present = Object.keys(page.locales).sort()
-  if (present.join(',') !== [...locales].sort().join(',')) {
+  const expected = policyRoutes.has(route) ? ['fr'] : locales
+  if (present.join(',') !== [...expected].sort().join(',')) {
     throw new Error(`${route} is missing locale manifests: ${present.join(', ')}`)
   }
-  for (const locale of locales) {
+  for (const locale of expected) {
     const translated = readFileSync(resolve(root, 'docs/pages', locale, page.source), 'utf8')
     page.locales[locale].sha256 = digest(translated)
   }
 }
 
-if (Object.keys(merged.pages).length !== 36) {
-  throw new Error(`Expected 36 documentation pages, got ${Object.keys(merged.pages).length}`)
+if (Object.keys(merged.pages).length !== 40) {
+  throw new Error(`Expected 40 documentation pages, got ${Object.keys(merged.pages).length}`)
 }
 
 writeFileSync(

@@ -41,15 +41,16 @@ const documentationPaths = [
   '/white-paper/appendix-e-worked-example', '/white-paper/appendix-f-dataroom-checklist',
   '/white-paper/archive',
 ]
-const englishOnlyDocumentationPaths = [
+const policyDocumentationPaths = [
   '/governance/policies',
   '/governance/privacy',
   '/governance/data-protection',
   '/governance/child-safeguarding',
 ]
-const englishOnlyDocumentationPathSet = new Set(englishOnlyDocumentationPaths)
-const localizedDocumentationPaths = documentationPaths.filter(
-  (path) => !englishOnlyDocumentationPathSet.has(path),
+const policyDocumentationLocales = ['en', 'fr']
+const policyDocumentationPathSet = new Set(policyDocumentationPaths)
+const coreDocumentationPaths = documentationPaths.filter(
+  (path) => !policyDocumentationPathSet.has(path),
 )
 const allPaths = ['/', ...documentationPaths]
 const searchOptions = {
@@ -101,16 +102,19 @@ function finalizeHtml() {
     const file = route === '/' ? join(dist, 'index.html') : join(dist, locale, 'index.html')
     if (!existsSync(file)) throw new Error(`Missing prerendered splash route: ${route}`)
   }
-  for (const sourcePath of localizedDocumentationPaths) {
+  for (const sourcePath of coreDocumentationPaths) {
     for (const locale of documentationLocales) {
       const route = pathForLocale(sourcePath, locale)
       const file = join(dist, route.replace(/^\//, ''), 'index.html')
       if (!existsSync(file)) throw new Error(`Missing prerendered route: ${route}`)
     }
   }
-  for (const sourcePath of englishOnlyDocumentationPaths) {
-    const file = join(dist, sourcePath.replace(/^\//, ''), 'index.html')
-    if (!existsSync(file)) throw new Error(`Missing prerendered English-only route: ${sourcePath}`)
+  for (const sourcePath of policyDocumentationPaths) {
+    for (const locale of policyDocumentationLocales) {
+      const route = pathForLocale(sourcePath, locale)
+      const file = join(dist, route.replace(/^\//, ''), 'index.html')
+      if (!existsSync(file)) throw new Error(`Missing prerendered policy route: ${route}`)
+    }
   }
   for (const locale of locales.filter((candidate) => !documentationLocales.includes(candidate))) {
     for (const section of ['introduction', 'protocol', 'governance', 'white-paper']) {
@@ -131,8 +135,8 @@ function finalizeHtml() {
     html = html.replace(/<link\b(?=[^>]*\brel=(?:"(?:canonical|alternate)"|'(?:canonical|alternate)'))[^>]*>\s*/gi, '')
     const alternateLocales = sourcePath === '/'
       ? locales
-      : englishOnlyDocumentationPathSet.has(sourcePath)
-        ? ['en']
+      : policyDocumentationPathSet.has(sourcePath)
+        ? policyDocumentationLocales
         : documentationLocales
     const links = [
       `<link rel="canonical" href="${siteUrl}${pathForLocale(sourcePath, locale)}">`,
@@ -242,11 +246,11 @@ function buildSearchIndexes() {
 function validateHeadingAnchors() {
   const mapping = JSON.parse(readFileSync(join(i18n, 'heading-map.json'), 'utf8'))
   for (const [route, localeMappings] of Object.entries(mapping)) {
-    for (const locale of documentationLocales) {
+    for (const [locale, anchors] of Object.entries(localeMappings)) {
       const pathname = pathForLocale(route, locale)
       const file = join(dist, pathname.replace(/^\//, ''), 'index.html')
       const html = readFileSync(file, 'utf8')
-      for (const anchor of localeMappings[locale]) {
+      for (const anchor of anchors) {
         if (!html.includes(`id="${anchor}"`)) {
           throw new Error(`${pathname}: built page is missing mapped heading #${anchor}`)
         }
@@ -290,7 +294,9 @@ async function buildLlmsFiles() {
       `- [${messages.metadata.title}](${pathForLocale('/', locale)}): ${messages.metadata.description}`,
     ]
     const full = [`# ${messages.metadata.title}`, '', `> ${messages.metadata.description}`, '']
-    const routes = locale === 'en' ? documentationPaths : localizedDocumentationPaths
+    const routes = policyDocumentationLocales.includes(locale)
+      ? documentationPaths
+      : coreDocumentationPaths
     for (const route of routes) {
       const source = readFileSync(sourceFileForRoute(locale, route), 'utf8')
       const { title, summary } = titleAndSummary(source)
@@ -311,5 +317,5 @@ await buildLlmsFiles()
 const fingerprint = createHash('sha256')
   .update(documentationLocales.map((locale) => readFileSync(join(dist, '.vocs', `search-index-${locale}.json`))).join(''))
   .digest('hex')
-const documentationRouteCount = localizedDocumentationPaths.length * documentationLocales.length + englishOnlyDocumentationPaths.length
+const documentationRouteCount = coreDocumentationPaths.length * documentationLocales.length + policyDocumentationPaths.length * policyDocumentationLocales.length
 console.log(`Finalized ${locales.length} splash routes and ${documentationRouteCount} documentation routes; search fingerprint ${fingerprint.slice(0, 12)}.`)

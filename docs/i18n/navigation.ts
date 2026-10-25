@@ -106,7 +106,7 @@ export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
     {
       text: messages.groups.governance,
       items: [
-        ...(documentationLocale === 'en'
+        ...(['en', 'fr'].includes(documentationLocale)
           ? [
               { text: messages.items.policies, link: link('/governance/policies') },
               { text: messages.items.privacy, link: link('/governance/privacy') },

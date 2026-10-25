@@ -10,7 +10,9 @@ const output = resolve(root, 'docs/i18n/heading-map.json')
 const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
 const routes = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
-  '/protocol/overview', '/protocol/smart-contracts', '/protocol/network', '/governance/mechanics',
+  '/protocol/overview', '/protocol/smart-contracts', '/protocol/network',
+  '/governance/policies', '/governance/privacy', '/governance/data-protection',
+  '/governance/child-safeguarding', '/governance/mechanics',
   '/governance/terms', '/white-paper', '/white-paper/executive-summary',
   '/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive',
   '/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust',
@@ -30,6 +32,10 @@ const routes = [
   '/white-paper/appendix-c-kpi-definitions', '/white-paper/appendix-d-launch-parameters',
   '/white-paper/appendix-e-worked-example', '/white-paper/appendix-f-dataroom-checklist', '/white-paper/archive',
 ]
+const policyRoutes = new Set([
+  '/governance/policies', '/governance/privacy', '/governance/data-protection',
+  '/governance/child-safeguarding',
+])
 
 function sourceFor(locale, route) {
   const prefix = locale === 'en' ? '' : `${locale}/`
@@ -69,26 +75,35 @@ function headingData(markdown) {
 
 const mapping = {}
 for (const route of routes) {
+  const routeLocales = policyRoutes.has(route) ? ['en', 'fr'] : locales
   const localeHeadings = Object.fromEntries(
-    locales.map((locale) => [locale, headingData(readFileSync(sourceFor(locale, route), 'utf8'))]),
+    routeLocales.map((locale) => [locale, headingData(readFileSync(sourceFor(locale, route), 'utf8'))]),
   )
   const englishLevels = localeHeadings.en.map(({ level }) => level).join(',')
-  for (const locale of locales.slice(1)) {
+  for (const locale of routeLocales.slice(1)) {
     const levels = localeHeadings[locale].map(({ level }) => level).join(',')
     if (levels !== englishLevels) {
       throw new Error(`${route}: ${locale} heading hierarchy differs from English`)
     }
   }
   mapping[route] = Object.fromEntries(
-    locales.map((locale) => [locale, localeHeadings[locale].map(({ slug }) => slug)]),
+    routeLocales.map((locale) => [locale, localeHeadings[locale].map(({ slug }) => slug)]),
   )
 }
 
 const serialized = `${JSON.stringify(mapping, null, 2)}\n`
 if (process.argv.includes('--check')) {
   if (readFileSync(output, 'utf8') !== serialized) throw new Error('Heading map is stale')
-  console.log(`Verified heading mappings for ${routes.length * locales.length} pages.`)
+  const pageCount = routes.reduce(
+    (count, route) => count + (policyRoutes.has(route) ? 2 : locales.length),
+    0,
+  )
+  console.log(`Verified heading mappings for ${pageCount} pages.`)
 } else {
   writeFileSync(output, serialized)
-  console.log(`Wrote heading mappings for ${routes.length * locales.length} pages.`)
+  const pageCount = routes.reduce(
+    (count, route) => count + (policyRoutes.has(route) ? 2 : locales.length),
+    0,
+  )
+  console.log(`Wrote heading mappings for ${pageCount} pages.`)
 }
