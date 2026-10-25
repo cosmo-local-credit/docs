@@ -91,6 +91,10 @@ UNCHANGED_NAMES = [
     "CLC App",
     "Sarafu Network",
     "Grassroots Economics Foundation",
+    "Data Protection Act, 2019",
+    "Children Act, 2022",
+    "Office of the Data Protection Commissioner",
+    "ODPC",
     "Joseph Kimani",
     "William O. Ruddick",
     "Mohamed Sohail",
@@ -1390,6 +1394,8 @@ def protect_text(
     locale: str,
     canonical_terms: dict[str, str],
     app_glossary: dict[str, dict[str, str]],
+    *,
+    protect_names: bool = True,
 ) -> tuple[str, list[Protected]]:
     protected: list[Protected] = []
 
@@ -1398,19 +1404,26 @@ def protect_text(
         replacement: str | None = None,
         _token_hint: str | None = None,
     ) -> str:
-        token = f"XxOpaque{len(protected):04d}Xx"
+        # MADLAD preserves compact bracketed numbers far more reliably than
+        # mixed-case word or XML sentinels.  The previous ``XxOpaque…Xx`` form
+        # was sometimes interpreted as prose, moved into adjacent words, or
+        # echoed with a translated phrase.  That produced duplicated and
+        # malformed policy sentences even when the unprotected translation was
+        # fluent.
+        token = f"〔{len(protected)}〕"
         protected.append(
             Protected(token, source, replacement if replacement is not None else source)
         )
         return token
 
-    for name in sorted(UNCHANGED_NAMES, key=len, reverse=True):
-        pattern = rf"(?<![\w]){re.escape(name)}(?![\w])"
-        value = re.sub(
-            pattern,
-            lambda match: store(match.group(0), match.group(0)),
-            value,
-        )
+    if protect_names:
+        for name in sorted(UNCHANGED_NAMES, key=len, reverse=True):
+            pattern = rf"(?<![\w]){re.escape(name)}(?![\w])"
+            value = re.sub(
+                pattern,
+                lambda match: store(match.group(0), match.group(0)),
+                value,
+            )
 
     # Multi-word canonical concepts are safe to protect as complete units. Single
     # words need sentence context so French articles, contractions and agreement
@@ -1433,13 +1446,19 @@ def protect_text(
         r"https?://[^\s)>]+",
         r"mailto:[^\s)>]+",
         r"<[^>]+>",
+        # Policy drafts keep full sentence context for better legal prose. Keep
+        # Markdown delimiters opaque so the model cannot turn links or emphasis
+        # into full-width or translated punctuation while translating a line.
+        r"(?<!\\)!\[",
+        r"(?<!\\)\[",
+        r"(?<!\\)\]",
+        r"\*\*",
         r"\$[^$\n]+\$",
         r"\\\([^\n]+?\\\)",
         r"\{[^{}\n]+\}",
         r"\b0x[a-fA-F0-9]+\b",
         r"\b\d+(?:\.\d+)+(?:-[A-Za-z0-9.]+)?\b",
         r"\b[a-z]+(?:[A-Z][A-Za-z0-9]*)+\b",
-        r"(?!XxOpaque\d{4}Xx)\b[A-Z][A-Z0-9-]{1,}\b",
     ]
     for pattern in patterns:
         value = re.sub(pattern, lambda match: store(match.group(0)), value)
@@ -1449,8 +1468,14 @@ def protect_text(
 def restore_text(value: str, protected: list[Protected]) -> str:
     for item in reversed(protected):
         token_pattern = re.escape(item.token)
-        if item.token.startswith("XxOpaque"):
-            token_pattern = re.escape(item.token[:-2]) + r"Xx?"
+        if item.token.startswith("〔"):
+            token_id = re.search(r"\d+", item.token)
+            if token_id is None:
+                raise ValueError(f"Invalid protected token: {item.token}")
+            # The model occasionally substitutes equivalent full-width square
+            # brackets.  Accept that harmless glyph variant while requiring the
+            # exact placeholder number.
+            token_pattern = rf"[〔［]\s*{token_id.group(0)}\s*[〕］]"
         token_match = re.search(token_pattern, value, flags=re.IGNORECASE)
         if not token_match:
             if item.replacement in value:
@@ -2084,8 +2109,9 @@ def split_long(
 
 
 class MarkdownTemplate:
-    def __init__(self, source: str) -> None:
+    def __init__(self, source: str, *, preserve_inline_context: bool = False) -> None:
         self.source = source
+        self.preserve_inline_context = preserve_inline_context
         self.segments: list[str] = []
         self.template: str | None = None
 
@@ -2099,6 +2125,10 @@ class MarkdownTemplate:
                 + self.marker(whitespace.group(2))
                 + whitespace.group(3)
             )
+        if self.preserve_inline_context:
+            marker = f"CLCTRANSLATE{len(self.segments):05d}"
+            self.segments.append(value)
+            return marker
         if "<br/>" in value:
             return "<br/>".join(self.marker(part) for part in value.split("<br/>"))
         if re.search(r"<a\s+[^>]*>.*?</a>", value):
@@ -2253,6 +2283,8 @@ def translate_segments(
     locale: str,
     canonical_terms: dict[str, str],
     app_glossary: dict[str, dict[str, str]],
+    *,
+    protect_names: bool = True,
 ) -> tuple[list[str], dict[str, object]]:
     protected_segments: list[tuple[list[str], list[Protected]]] = []
     flat_chunks: list[str] = []
@@ -2269,7 +2301,11 @@ def translate_segments(
             chunk_counts.append(0)
             continue
         protected_value, protected = protect_text(
-            segment, locale, canonical_terms, app_glossary
+            segment,
+            locale,
+            canonical_terms,
+            app_glossary,
+            protect_names=protect_names,
         )
         visible_source = protected_value
         for item in protected:
@@ -2320,11 +2356,11 @@ def translate_segments(
             # the natural-language spans around those tokens, then reassemble the
             # unit so contract names and identifiers cannot be lost.
             retry_source = " ".join(source_chunks)
-            retry_parts = re.split(r"(XxOpaque\d{4}Xx)", retry_source)
+            retry_parts = re.split(r"(〔\d+〕)", retry_source)
             natural_parts = [
                 part
                 for part in retry_parts
-                if not re.fullmatch(r"XxOpaque\d{4}Xx", part)
+                if not re.fullmatch(r"〔\d+〕", part)
                 and re.search(r"[A-Za-z]", part)
             ]
             retry_translated = iter(
@@ -2334,7 +2370,7 @@ def translate_segments(
             )
             retry_value = "".join(
                 part
-                if re.fullmatch(r"XxOpaque\d{4}Xx", part)
+                if re.fullmatch(r"〔\d+〕", part)
                 or not re.search(r"[A-Za-z]", part)
                 else next(retry_translated)
                 for part in retry_parts
@@ -2698,7 +2734,12 @@ def main() -> None:
 
         def translate(values: list[str]):
             return translate_segments(
-                translator, values, locale, canonical_terms, app_glossary
+                translator,
+                values,
+                locale,
+                canonical_terms,
+                app_glossary,
+                protect_names=True,
             )
 
         splash_path = I18N / f"messages/{locale}.json"
@@ -2747,7 +2788,10 @@ def main() -> None:
         all_page_segments: list[str] = []
         for source_path in sources:
             source = source_path.read_text()
-            template = MarkdownTemplate(source)
+            template = MarkdownTemplate(
+                source,
+                preserve_inline_context=args.policy_draft,
+            )
             template.build()
             start = len(all_page_segments)
             all_page_segments.extend(template.segments)

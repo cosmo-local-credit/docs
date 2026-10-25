@@ -3,8 +3,9 @@
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
 public documentation site. The `clc-app` `origin/develop` baseline is commit
-`facf5e034dc668c2e5ded90b9dd5995690f0fb63`, which includes the merged Filipino
-and Flemish catalogs.
+`92bf381e9e55deabf460b7ac4f32f92009c06151`, which includes the merged Filipino
+and Flemish catalogs and is the app baseline audited for the current policy
+translation batch.
 
 English is unprefixed. Localized routes use their registered locale prefix. The
 registry contains Arabic, Simplified Chinese, Traditional Chinese, German,

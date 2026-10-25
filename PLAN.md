@@ -70,17 +70,17 @@ the commands.
 | Order | Language | Four-page draft | Semantic and clarity review | User review | Docs release | App Privacy link |
 | ---: | --- | --- | --- | --- | --- | --- |
 | — | English (`en`) | Prepared | Operational and legal verification pending | Pending | Review deployment pending | English URL |
-| 1 | French (`fr`) | Complete review draft | Complete | Ready | Queued | English fallback |
-| 2 | Spanish (`es`) | Queued | Queued | Queued | Queued | English fallback |
-| 3 | Portuguese (`pt`) | Queued | Queued | Queued | Queued | English fallback |
-| 4 | Italian (`it`) | Queued | Queued | Queued | Queued | English fallback |
-| 5 | Kiswahili (`sw`) | Queued | Queued | Queued | Queued | English fallback |
-| 6 | German (`de`) | Queued | Queued | Queued | Queued | English fallback |
-| 7 | Ukrainian (`uk`) | Queued | Queued | Queued | Queued | English fallback |
-| 8 | Serbian (`sr`) | Queued | Queued | Queued | Queued | English fallback |
-| 9 | Arabic (`ar`) | Queued | Queued | Queued | Queued | English fallback |
-| 10 | Dzongkha (`dz`) | Queued | Queued | Queued | Queued | English fallback |
-| 11 | Dutch (`nl`) | Queued | Queued | Queued | Queued | English fallback |
+| 1 | French (`fr`) | Complete review draft | Complete | Accepted | Queued | English fallback |
+| 2 | Spanish (`es`) | Complete review draft | Complete | Accepted | Queued | English fallback |
+| 3 | Portuguese (`pt`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 4 | Italian (`it`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 5 | Kiswahili (`sw`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 6 | German (`de`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 7 | Ukrainian (`uk`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 8 | Serbian (`sr`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 9 | Arabic (`ar`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 10 | Dzongkha (`dz`) | Candidate rejected | Qualified language review required | Blocked on safe wording | Queued | English fallback |
+| 11 | Dutch (`nl`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
 | 12 | Hindi (`hi`) | Queued | Queued | Queued | Queued | English fallback |
 | 13 | Simplified Chinese (`zh`) | Queued | Queued | Queued | Queued | English fallback |
 | 14 | Traditional Chinese (`zh-Hant`) | Queued | Queued | Queued | Queued | English fallback |
@@ -137,77 +137,103 @@ For each language:
 - [x] Add French policy navigation, routes, metadata, search, manifests, and notices.
 - [x] Validate the French routes, search isolation, metadata, desktop layout,
   and mobile layout in the production build.
-- [ ] Record user acceptance.
+- [x] Record user acceptance.
 - [ ] Release the French policy suite and verify `/fr/governance/privacy` from the app.
 
 #### 2. Spanish (`es`)
 
-- [ ] Synchronize policy vocabulary with the current Spanish app catalog.
-- [ ] Translate and complete the three-pass review of all four pages.
-- [ ] Add Spanish policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Spanish app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of all four pages.
+- [x] Add Spanish policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Spanish routes for user review.
+- [x] Record user acceptance and authorization to continue the remaining policy locales.
 - [ ] Release the Spanish policy suite and verify `/es/governance/privacy` from the app.
 
 #### 3. Portuguese (`pt`)
 
-- [ ] Synchronize policy vocabulary with the current Portuguese app catalog.
-- [ ] Translate and complete the three-pass review of all four pages.
-- [ ] Add Portuguese policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the Portuguese app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of all four pages.
+- [x] Add Portuguese policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Portuguese routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Portuguese policy suite and verify `/pt/governance/privacy` from the app.
 
 #### 4. Italian (`it`)
 
-- [ ] Synchronize policy vocabulary with the current Italian app catalog.
-- [ ] Translate and complete the three-pass review of all four pages.
-- [ ] Add Italian policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the Italian app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of all four pages.
+- [x] Add Italian policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Italian routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Italian policy suite and verify `/it/governance/privacy` from the app.
 
 #### 5. Kiswahili (`sw`)
 
-- [ ] Synchronize policy vocabulary with the current Kiswahili app catalog.
-- [ ] Translate and review natural privacy, safeguarding, and complaints terminology.
-- [ ] Add Kiswahili policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Kiswahili app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of natural privacy,
+  safeguarding, and complaints terminology across all four pages.
+- [x] Add Kiswahili policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Kiswahili routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Kiswahili policy suite and verify `/sw/governance/privacy` from the app.
 
 #### 6. German (`de`)
 
-- [ ] Synchronize policy vocabulary with the current German app catalog.
-- [ ] Translate and review legal compounds, sentence length, and plain-language clarity.
-- [ ] Add German policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate long headings and tables, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current German app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of legal compounds,
+  sentence length, and plain-language clarity across all four pages.
+- [x] Add German policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate long headings and tables and prepare the German routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the German policy suite and verify `/de/governance/privacy` from the app.
 
 #### 7. Ukrainian (`uk`)
 
-- [ ] Synchronize policy vocabulary with the current Ukrainian app catalog.
-- [ ] Translate and review legal terminology and Cyrillic technical-token isolation.
-- [ ] Add Ukrainian policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Ukrainian app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of legal terminology and
+  Cyrillic technical-token isolation across all four pages.
+- [x] Add Ukrainian policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Ukrainian routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Ukrainian policy suite and verify `/uk/governance/privacy` from the app.
 
 #### 8. Serbian (`sr`)
 
-- [ ] Synchronize policy vocabulary with the current Serbian app catalog.
-- [ ] Translate in consistent Serbian Cyrillic and review legal terminology.
-- [ ] Add Serbian policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Serbian app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate in consistent Serbian Cyrillic and complete the three-pass
+  review of legal terminology across all four pages.
+- [x] Add Serbian policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Serbian routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Serbian policy suite and verify `/sr/governance/privacy` from the app.
 
 #### 9. Arabic (`ar`)
 
-- [ ] Synchronize policy vocabulary with the current Arabic app catalog.
-- [ ] Translate and review legal meaning, RTL flow, and LTR isolation for URLs,
+- [x] Synchronize policy vocabulary with the current Arabic app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of legal meaning, RTL flow,
+  and LTR isolation for URLs,
   emails, identifiers, citations, and blockchain addresses.
-- [ ] Add Arabic policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate RTL tables and controls, preview, and record user acceptance.
+- [x] Add Arabic policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate RTL tables and controls and prepare the Arabic routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Arabic policy suite and verify `/ar/governance/privacy` from the app.
 
 #### 10. Dzongkha (`dz`)
 
-- [ ] Synchronize policy vocabulary with the current Dzongkha app catalog.
+- [x] Synchronize policy vocabulary with the current Dzongkha app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [ ] Replace the rejected machine candidate with a qualified Dzongkha
+  translation. The 25 October 2026 MADLAD candidate changed protected names,
+  damaged Markdown links, and reversed a child-safeguarding instruction, so it
+  was not promoted into the repository.
 - [ ] Translate and review privacy and safeguarding concepts, Tibetan-script
   glyphs, line breaking, and natural explanatory language.
 - [ ] Add Dzongkha policy navigation, routes, metadata, search, manifests, and notices.
@@ -216,10 +242,15 @@ For each language:
 
 #### 11. Dutch (`nl`)
 
-- [ ] Synchronize policy vocabulary with the current Dutch app catalog.
-- [ ] Translate and complete the three-pass review of all four pages.
-- [ ] Add Dutch policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Dutch app catalog at
+  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+- [x] Translate and complete the three-pass review of all four pages. The
+  initial machine candidate was rewritten where it duplicated or distorted
+  legal and safeguarding language; the corrected draft was independently
+  back-translated before promotion.
+- [x] Add Dutch policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate and prepare the Dutch routes for batch review.
+- [ ] Record final batch-review acceptance.
 - [ ] Release the Dutch policy suite and verify `/nl/governance/privacy` from the app.
 
 #### 12. Hindi (`hi`)
@@ -298,10 +329,9 @@ review, docs deployment, and companion app-link verification remain open.
 
 ## Translation and app baselines
 
-- The documentation glossary and translation manifests use `clc-app`
-  `origin/develop` commit `facf5e034dc668c2e5ded90b9dd5995690f0fb63`
-  as the latest committed synchronization baseline. This commit merged the
-  Flemish feature through app pull request 245.
+- The latest policy-language audit uses `clc-app` `origin/develop` commit
+  `92bf381e9e55deabf460b7ac4f32f92009c06151`. The broader documentation
+  registry remains synchronized with all seventeen locales, including Flemish.
 - The committed `origin/develop` registry contains seventeen locales: English,
   Arabic, German, Dzongkha, Spanish, Filipino, French, Hindi, Italian, Dutch,
   Flemish, Portuguese, Serbian, Kiswahili, Ukrainian, Simplified Chinese, and
@@ -334,6 +364,14 @@ review, docs deployment, and companion app-link verification remain open.
 
 | Date | App commit | Result |
 | --- | --- | --- |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Arabic policy vocabulary reviewed. The app catalog uses `قسيمة`, `الصندوق`, `المحفظة`, `السوق`, `الجهة المصدرة`, `استرداد`, `إرسال`, `مبادلة`, `العروض`, `الطلبات`, `كتالوج`, `المنشورات`, and `التقييمات`; the policy suite preserves those terms and the established `صندوق الالتزامات` and `مشرف الصندوق`, with separate legal terms for controller, processor, privacy, and child protection. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Serbian policy vocabulary reviewed. The app catalog uses `Ваучер`, `Тржница`, `Новчаник`, `Тржиште`, `Издавалац`, `Искористи`, `Пошаљи`, `Размјена`, `Понуда`, `Потреба`, `Каталог`, `Објаве`, and `Рецензије`; the policy suite preserves those terms and the established `Тржница обавеза` and `Управник Тржнице`, while using consistent Serbian Cyrillic for legal and safeguarding concepts. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Ukrainian policy vocabulary reviewed. The app catalog uses `Ваучер`, `Пул`, `Гаманець`, `Ринок`, `Емітент`, `Погасити`, `Надіслати`, `Обміняти`, `Пропозиція`, `Потреба`, `Каталог`, `Дописи`, and `Відгуки`; the policy suite preserves those terms and the established `Пул зобов’язань` and `Куратор Пулу`, while keeping legal controller, processor, privacy, and safeguarding concepts distinct. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | German policy vocabulary reviewed. The app catalog uses `Gutschein`, `Fonds`, `Geldbörse`, `Markt`, `Herausgeber`, `Einlösen`, `Senden`, `Tauschen`, `Angebot`, `Gesuch`, `Katalog` and `Bewertung`; its `Posts` label is the unrelated word `Stellen`, so the policy suite uses the natural `Beiträge` and records that app drift. It retains the established `Commitment-Fonds` and `Fonds-Verantwortliche`, with distinct legal terms for `Verantwortlicher` and `Auftragsverarbeiter`. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Kiswahili policy vocabulary reviewed. The app catalog uses `Vocha`, `Kikundi`, `Mkoba`, `Soko`, `Mtoaji`, `Komboa`, `Tuma`, `Badilisha`, `Toleo`, `Ombi`, `Katalogi`, `Machapisho`, and `Maoni`; the policy suite preserves those terms and the established `Kikundi cha Ahadi` and `Msimamizi wa Kikundi`, with plain-language legal terms for data protection and child safeguarding. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Italian policy vocabulary reviewed. The app catalog uses `Buono`, `Fondo`, `Portafoglio`, `Mercato`, `Emittente`, `Riscattare`, `Invii`, `Scambiare`, `Offerta`, `Richiesta`, `Catalogo`, `Pubblicazione`, and `Recensione`; the policy suite preserves those nouns, uses the natural verb `Invia` where an instruction requires it, and retains the established `Fondo di Impegni` and `Responsabile del Fondo`. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Portuguese policy vocabulary reviewed. The app catalog uses `Vale`, `Fundo`, `Carteira`, `Mercado`, `Emissor`, `Resgatar`, `Enviar`, `Trocar`, `Oferta`, `Pedido`, `Catálogo`, `Publicação`, and `Avaliação`; the policy suite preserves those terms and the established `Fundo de Compromissos` and `Gestor do Fundo`. |
+| 25 October 2026 | `92bf381e9e55deabf460b7ac4f32f92009c06151` on `origin/develop` | Spanish policy vocabulary reviewed. The app catalog uses `Vale`, `Fondo`, `Billetera`, `Mercado`, `Emisor`, `Canjear`, `Enviar`, `Intercambiar`, `Oferta`, `Solicitud`, `Catálogo`, `Publicación`, and `Reseña`; the Spanish policy suite preserves those terms and the established `Fondo de Compromisos` and `Responsable del Fondo`. |
 | 25 October 2026 | `27321a637fded39c8ac0fb1a9e4783a852a5113b` on `origin/develop` | French policy vocabulary reviewed. The current app catalog uses `Bon d’échange`, `Bassin`, `Demande`, `Catalogue`, `Portefeuille`, `Marché`, `Émetteur`, `Utiliser`, `Envoyer`, `Échanger`, `Offres`, `Publications`, and `Avis`; the French policy draft preserves those terms and the established `Gestionnaire de Bassin`. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Locale registry unchanged; current core catalog terms remain aligned with the docs glossary. |
 | 10 October 2026 | `69d8196ba431ccad9b7e88b19d669d417f7c196b` | Italian reviewed. The docs use the natural action label “Invia”; the app catalog currently uses the formal label “Invii”. Other core terms remain aligned. |

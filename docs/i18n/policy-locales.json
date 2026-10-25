@@ -53,6 +53,213 @@
         "englishDraftDate": "Date du projet anglais",
         "translationDraftDate": "Date de cette traduction de travail"
       }
+    },
+    "es": {
+      "navigation": {
+        "policies": "Políticas",
+        "privacy": "Aviso de privacidad",
+        "dataProtection": "Protección de datos",
+        "childSafeguarding": "Protección de la infancia"
+      },
+      "notice": {
+        "title": "Traducción de trabajo — aún no vigente.",
+        "body": "Esta traducción al español se facilita para su revisión antes de la aprobación jurídica. El texto en inglés es el texto fuente y prevalece, salvo que el derecho aplicable exija lo contrario.",
+        "englishSource": "Leer el texto en inglés."
+      },
+      "metadata": {
+        "sourceVersion": "Versión provisional de la fuente",
+        "englishDraftDate": "Fecha del borrador en inglés",
+        "translationDraftDate": "Fecha de esta traducción de trabajo"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 de octubre de 2026",
+      "translationDraftDate": "25 de octubre de 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "pt": {
+      "navigation": {
+        "policies": "Políticas",
+        "privacy": "Aviso de privacidade",
+        "dataProtection": "Proteção de dados",
+        "childSafeguarding": "Proteção da infância"
+      },
+      "notice": {
+        "title": "Tradução de trabalho — ainda não em vigor.",
+        "body": "Esta tradução para português é disponibilizada para revisão antes da aprovação jurídica. O texto em inglês é o texto de origem e prevalece, salvo se a lei aplicável exigir o contrário.",
+        "englishSource": "Ler o texto em inglês."
+      },
+      "metadata": {
+        "sourceVersion": "Versão provisória da fonte",
+        "englishDraftDate": "Data do rascunho em inglês",
+        "translationDraftDate": "Data desta tradução de trabalho"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 de outubro de 2026",
+      "translationDraftDate": "25 de outubro de 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "it": {
+      "navigation": {
+        "policies": "Politiche",
+        "privacy": "Informativa sulla privacy",
+        "dataProtection": "Protezione dei dati",
+        "childSafeguarding": "Tutela dei minori"
+      },
+      "notice": {
+        "title": "Traduzione di lavoro — non ancora in vigore.",
+        "body": "Questa traduzione italiana è disponibile per la revisione prima dell’approvazione legale. Il testo inglese è il testo di riferimento e prevale, salvo che la legge applicabile disponga diversamente.",
+        "englishSource": "Leggi il testo inglese."
+      },
+      "metadata": {
+        "sourceVersion": "Versione provvisoria del testo di riferimento",
+        "englishDraftDate": "Data della bozza inglese",
+        "translationDraftDate": "Data di questa traduzione di lavoro"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 ottobre 2026",
+      "translationDraftDate": "25 ottobre 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "sw": {
+      "navigation": {
+        "policies": "Sera na Taarifa",
+        "privacy": "Taarifa ya Faragha",
+        "dataProtection": "Ulinzi wa Data",
+        "childSafeguarding": "Ulinzi wa Watoto"
+      },
+      "notice": {
+        "title": "Tafsiri ya kazi — bado haijaanza kutumika.",
+        "body": "Tafsiri hii ya Kiswahili imetolewa kwa ukaguzi kabla ya idhini ya kisheria. Maandishi ya Kiingereza ndiyo chanzo na ndiyo yanayotawala, isipokuwa sheria inayotumika itake vinginevyo.",
+        "englishSource": "Soma maandishi ya Kiingereza."
+      },
+      "metadata": {
+        "sourceVersion": "Toleo la rasimu ya chanzo",
+        "englishDraftDate": "Tarehe ya rasimu ya Kiingereza",
+        "translationDraftDate": "Tarehe ya tafsiri hii ya kazi"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 Oktoba 2026",
+      "translationDraftDate": "25 Oktoba 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "de": {
+      "navigation": {
+        "policies": "Richtlinien und Hinweise",
+        "privacy": "Datenschutzhinweis",
+        "dataProtection": "Datenschutz",
+        "childSafeguarding": "Kinderschutz"
+      },
+      "notice": {
+        "title": "Arbeitsübersetzung – noch nicht in Kraft.",
+        "body": "Diese deutsche Übersetzung wird vor der rechtlichen Genehmigung zur Prüfung bereitgestellt. Der englische Text ist der Ausgangstext und hat Vorrang, sofern das anwendbare Recht nichts anderes verlangt.",
+        "englishSource": "Englischen Ausgangstext lesen."
+      },
+      "metadata": {
+        "sourceVersion": "Entwurfsversion des Ausgangstextes",
+        "englishDraftDate": "Datum des englischen Entwurfs",
+        "translationDraftDate": "Datum dieser Arbeitsübersetzung"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24. Oktober 2026",
+      "translationDraftDate": "25. Oktober 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "uk": {
+      "navigation": {
+        "policies": "Політики та повідомлення",
+        "privacy": "Повідомлення про конфіденційність",
+        "dataProtection": "Захист даних",
+        "childSafeguarding": "Захист дітей"
+      },
+      "notice": {
+        "title": "Робочий переклад — ще не набрав чинності.",
+        "body": "Цей переклад українською мовою надано для перевірки до юридичного затвердження. Англійський текст є вихідним і має переважну силу, якщо застосовне законодавство не вимагає іншого.",
+        "englishSource": "Прочитати англійський текст."
+      },
+      "metadata": {
+        "sourceVersion": "Версія проєкту вихідного тексту",
+        "englishDraftDate": "Дата англійського проєкту",
+        "translationDraftDate": "Дата цього робочого перекладу"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 жовтня 2026 року",
+      "translationDraftDate": "25 жовтня 2026 року",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "sr": {
+      "navigation": {
+        "policies": "Политике и обавештења",
+        "privacy": "Обавештење о приватности",
+        "dataProtection": "Заштита података",
+        "childSafeguarding": "Заштита деце"
+      },
+      "notice": {
+        "title": "Радни превод — још није ступио на снагу.",
+        "body": "Овај превод на српски језик дат је на преглед пре правног одобрења. Енглески текст је изворни и има предност, осим ако меродавно право не захтева другачије.",
+        "englishSource": "Прочитајте енглески извор."
+      },
+      "metadata": {
+        "sourceVersion": "Верзија изворног нацрта",
+        "englishDraftDate": "Датум енглеског нацрта",
+        "translationDraftDate": "Датум овог радног превода"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24. октобар 2026.",
+      "translationDraftDate": "25. октобар 2026.",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "ar": {
+      "navigation": {
+        "policies": "السياسات والإشعارات",
+        "privacy": "إشعار الخصوصية",
+        "dataProtection": "حماية البيانات",
+        "childSafeguarding": "حماية الطفل"
+      },
+      "notice": {
+        "title": "ترجمة عمل — لم تدخل حيز النفاذ بعد.",
+        "body": "تُقدَّم هذه الترجمة العربية للمراجعة قبل الموافقة القانونية. النص الإنجليزي هو النص المصدر وتكون له الغلبة ما لم يقتضِ القانون الساري خلاف ذلك.",
+        "englishSource": "اقرأ النص الإنجليزي المصدر."
+      },
+      "metadata": {
+        "sourceVersion": "نسخة المسودة المصدر",
+        "englishDraftDate": "تاريخ المسودة الإنجليزية",
+        "translationDraftDate": "تاريخ ترجمة العمل هذه"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 أكتوبر 2026",
+      "translationDraftDate": "25 أكتوبر 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
+    },
+    "nl": {
+      "navigation": {
+        "policies": "Beleid en kennisgevingen",
+        "privacy": "Privacyverklaring",
+        "dataProtection": "Gegevensbescherming",
+        "childSafeguarding": "Kinderbescherming"
+      },
+      "notice": {
+        "title": "Werkvertaling — nog niet van kracht.",
+        "body": "Deze Nederlandse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist.",
+        "englishSource": "Lees de Engelse brontekst."
+      },
+      "metadata": {
+        "sourceVersion": "Versie van de brontekst",
+        "englishDraftDate": "Datum van het Engelse concept",
+        "translationDraftDate": "Datum van deze werkvertaling"
+      },
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 oktober 2026",
+      "translationDraftDate": "25 oktober 2026",
+      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+      "metadataSeparator": ": "
     }
   }
 }

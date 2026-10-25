@@ -511,6 +511,84 @@
           }
         }
       }
+    },
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "sourceSha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340",
+      "locales": {
+        "nl": {
+          "sha256": "90e1bc11ed677a43ee32accb240e29b53a4b65705162eff2210ddf5422411066",
+          "review": {
+            "units": 36,
+            "meanBackTranslationSimilarity": 0.7178,
+            "unitsBelow0_35": 3,
+            "method": "model draft, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "sourceSha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11",
+      "locales": {
+        "nl": {
+          "sha256": "2684b75e3b73973cca5ba8b829f2294d1a46295a63d4c99eda61bc11dc6703f1",
+          "review": {
+            "units": 174,
+            "meanBackTranslationSimilarity": 0.6551,
+            "unitsBelow0_35": 29,
+            "method": "model draft, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "sourceSha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92",
+      "locales": {
+        "nl": {
+          "sha256": "60d417d1c3e7321af1d7fb615cd16aa550fd79d010eef6c4c764e196a6a37211",
+          "review": {
+            "units": 132,
+            "meanBackTranslationSimilarity": 0.6481,
+            "unitsBelow0_35": 22,
+            "method": "model draft, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "sourceSha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd",
+      "locales": {
+        "nl": {
+          "sha256": "b4c9450a47d506f0419121f99d8a3f6ec80c2e009b9c4459986c977afe899fb0",
+          "review": {
+            "units": 134,
+            "meanBackTranslationSimilarity": 0.6682,
+            "unitsBelow0_35": 18,
+            "method": "model draft, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
     }
+  },
+  "policyTranslationDraftDate": "25 oktober 2026",
+  "policySourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+  "policyReviewProcess": [
+    "semantic MADLAD-400 translation with protected technical tokens",
+    "plain-language clarity review required before promotion",
+    "independent back-translation with every low-confidence unit recorded"
+  ],
+  "policyBackTranslationReview": {
+    "units": 476,
+    "meanBackTranslationSimilarity": 0.6616,
+    "unitsBelow0_35": 72,
+    "threshold": 0.35,
+    "lowConfidenceReport": "policy-review.nl.json"
   }
 }

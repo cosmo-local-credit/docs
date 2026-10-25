@@ -33,6 +33,45 @@ html[dir='rtl'] [class*='Footer_navigationIcon'] {
   transform: scaleX(-1);
 }
 
+/*
+ * Vocs 1.4.1 positions the desktop docs shell with physical left/right
+ * properties. Mirror those regions explicitly for RTL pages so the sidebar,
+ * article, top navigation, and outline keep the same usable widths as LTR.
+ */
+@media (min-width: 1081px) {
+  html[dir='rtl'] .vocs_DocsLayout_gutterLeft {
+    right: 0;
+    left: auto;
+  }
+
+  html[dir='rtl'] .vocs_DocsLayout_content_withSidebar {
+    margin-right: var(--vocs_DocsLayout_leftGutterWidth);
+    margin-left: 0;
+  }
+
+  html[dir='rtl'] .vocs_DocsLayout_gutterTop {
+    padding-right: calc(var(--vocs_DocsLayout_leftGutterWidth) - var(--vocs-sidebar_width));
+    padding-left: calc(var(--vocs_DocsLayout_leftGutterWidth) - var(--vocs-sidebar_width));
+  }
+
+  html[dir='rtl'] .vocs_DocsLayout_gutterTop_offsetLeftGutter {
+    padding-right: var(--vocs_DocsLayout_leftGutterWidth);
+    padding-left: 0;
+  }
+
+  html[dir='rtl'] .vocs_DocsLayout_gutterTopCurtain_withSidebar {
+    margin-right: var(--vocs_DocsLayout_leftGutterWidth);
+    margin-left: 0;
+  }
+
+  html[dir='rtl'] .vocs_DocsLayout_gutterRight {
+    right: auto;
+    left: 0;
+    padding-right: 0;
+    padding-left: var(--vocs-space_24);
+  }
+}
+
 .vocs_Content strong,
 .vocs_Content b {
   font-weight: 700;
