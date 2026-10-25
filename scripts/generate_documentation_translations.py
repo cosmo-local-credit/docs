@@ -24,6 +24,29 @@ import sentencepiece as spm
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = ROOT / "docs/pages"
 I18N = ROOT / "docs/i18n"
+POLICY_REGISTRY = json.loads((I18N / "policy-locales.json").read_text())
+POLICY_ROUTES = list(POLICY_REGISTRY["source"]["routes"])
+POLICY_CATALOG_SOURCE = {
+    "navigation": {
+        "policies": "Policies",
+        "privacy": "Privacy Notice",
+        "dataProtection": "Data Protection",
+        "childSafeguarding": "Child Safeguarding",
+    },
+    "notice": {
+        "title": "Working translation — not yet effective.",
+        "body": (
+            "This translation is provided for review before legal approval. "
+            "The English text is the source text and controls unless applicable law requires otherwise."
+        ),
+        "englishSource": "Read the English source.",
+    },
+    "metadata": {
+        "sourceVersion": "Source draft version",
+        "englishDraftDate": "English draft date",
+        "translationDraftDate": "Working translation date",
+    },
+}
 LOCALES = ["ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
 LANGUAGE_CODES = {
     "en": "eng_Latn",
@@ -2230,7 +2253,7 @@ def translate_segments(
     locale: str,
     canonical_terms: dict[str, str],
     app_glossary: dict[str, dict[str, str]],
-) -> tuple[list[str], dict[str, float | int]]:
+) -> tuple[list[str], dict[str, object]]:
     protected_segments: list[tuple[list[str], list[Protected]]] = []
     flat_chunks: list[str] = []
     chunk_counts: list[int] = []
@@ -2339,6 +2362,7 @@ def translate_segments(
         else 1.0,
         "unitsBelow0_35": sum(score < 0.35 for score in similarities),
         "scores": similarities,
+        "backTranslations": back_chunks,
     }
     return translated, review
 
@@ -2422,6 +2446,47 @@ def insert_notice(value: str, notice: str) -> str:
     return "\n".join(lines) + "\n"
 
 
+def replace_policy_preamble(
+    value: str,
+    route: str,
+    catalog: dict[str, object],
+    source_draft_date: str,
+    translation_draft_date: str,
+) -> str:
+    lines = value.splitlines()
+    quote_index = next(
+        (index for index, line in enumerate(lines) if line.startswith("> ")),
+        None,
+    )
+    if quote_index is None:
+        raise ValueError(f"{route}: translated policy is missing its draft notice")
+    metadata_indices = [
+        index
+        for index, line in enumerate(lines[quote_index + 1 :], quote_index + 1)
+        if line.startswith("**") and line.endswith("**")
+    ][:2]
+    if len(metadata_indices) != 2:
+        raise ValueError(f"{route}: translated policy is missing draft metadata")
+
+    notice = catalog["notice"]
+    metadata = catalog["metadata"]
+    separator = catalog.get("metadataSeparator", ": ")
+    replacement = [
+        (
+            f"> **{notice['title']}** {notice['body']} "
+            f"[{notice['englishSource']}]({route})"
+        ),
+        "",
+        f"**{metadata['sourceVersion']}{separator}{POLICY_REGISTRY['source']['version']}**",
+        "",
+        f"**{metadata['englishDraftDate']}{separator}{source_draft_date}**",
+        "",
+        f"**{metadata['translationDraftDate']}{separator}{translation_draft_date}**",
+    ]
+    lines[quote_index : metadata_indices[-1] + 1] = replacement
+    return "\n".join(lines) + "\n"
+
+
 def aggregate_reviews(reviews: list[dict[str, float | int]]) -> dict[str, float | int]:
     units = sum(int(review["units"]) for review in reviews)
     if not units:
@@ -2471,14 +2536,73 @@ def main() -> None:
     parser.add_argument(
         "--manifest", type=Path, default=I18N / "translation-manifest.json"
     )
+    parser.add_argument(
+        "--policy-draft",
+        action="store_true",
+        help="Prepare only the four policy pages in an isolated review workspace.",
+    )
+    parser.add_argument(
+        "--policy-workspace",
+        type=Path,
+        help="Temporary output directory for a policy translation candidate.",
+    )
+    parser.add_argument("--policy-app-commit")
+    parser.add_argument("--policy-source-draft-date")
+    parser.add_argument("--policy-translation-draft-date")
     args = parser.parse_args()
-    translation_dates = {
-        TRANSLATION_DATES.get(locale, "10 October 2026")
-        for locale in args.locales
-    }
-    if len(translation_dates) != 1:
-        parser.error("generate locales with different publication dates separately")
-    translation_date = translation_dates.pop()
+
+    if args.policy_draft:
+        if len(args.locales) != 1:
+            parser.error("--policy-draft requires exactly one --locales value")
+        if not args.policy_workspace:
+            parser.error("--policy-draft requires --policy-workspace")
+        if not args.policy_app_commit:
+            parser.error("--policy-draft requires --policy-app-commit")
+        if not args.policy_source_draft_date:
+            parser.error("--policy-draft requires --policy-source-draft-date")
+        if not args.policy_translation_draft_date:
+            parser.error("--policy-draft requires --policy-translation-draft-date")
+        if args.routes:
+            parser.error("--policy-draft selects the policy routes automatically")
+        locale = args.locales[0]
+        args.routes = POLICY_ROUTES
+        args.output_pages = args.policy_workspace / "pages"
+        args.manifest = args.policy_workspace / f"translation-manifest.{locale}.json"
+        if not args.model and not args.forward_model and not args.back_model:
+            args.model = (
+                Path.home()
+                / ".cache/clc-translation-models/madlad400-3b-mt-ct2-int8"
+            )
+            args.model_family = "madlad"
+        if not args.cache:
+            args.cache = (
+                Path.home()
+                / f".cache/clc-translation-models/policy-{locale}-translations.json"
+            )
+        translation_date = args.policy_translation_draft_date
+    else:
+        translation_dates = {
+            TRANSLATION_DATES.get(locale, "10 October 2026")
+            for locale in args.locales
+        }
+        if len(translation_dates) != 1:
+            parser.error("generate locales with different publication dates separately")
+        translation_date = translation_dates.pop()
+
+    if args.cache:
+        args.cache.parent.mkdir(parents=True, exist_ok=True)
+    if args.policy_workspace:
+        args.policy_workspace.mkdir(parents=True, exist_ok=True)
+    if args.policy_draft:
+        for route, source_entry in POLICY_REGISTRY["source"]["routes"].items():
+            actual = digest((PAGES / source_entry["source"]).read_text())
+            if actual != source_entry["sha256"]:
+                parser.error(
+                    f"{route} changed after the policy source was recorded; "
+                    "review and update policy-locales.json before translating"
+                )
+        if args.model and not args.model.exists():
+            parser.error(f"translation model does not exist: {args.model}")
 
     if args.forward_model or args.back_model:
         if not args.forward_model or not args.back_model or len(args.locales) != 1:
@@ -2549,6 +2673,22 @@ def main() -> None:
             ],
             "pages": {},
         }
+    if args.policy_draft:
+        manifest.update(
+            {
+                "sourceAppCommit": APP_BASELINE,
+                "status": "policy-translation-candidate",
+                "policyTranslationDraftDate": args.policy_translation_draft_date,
+                "policySourceAppCommit": args.policy_app_commit,
+                "policyReviewProcess": [
+                    translation_method,
+                    "plain-language clarity review required before promotion",
+                    "independent back-translation with every low-confidence unit recorded",
+                ],
+            }
+        )
+        manifest.pop("translationPublicationDate", None)
+        manifest.pop("reviewProcess", None)
 
     for locale in args.locales:
         canonical_source = ["Commitment Pool", "Commitment Pools", "Pool Steward", "Pool Stewards"]
@@ -2615,13 +2755,43 @@ def main() -> None:
                 (source_path, source, template, start, len(all_page_segments))
             )
 
+        policy_catalog_template = None
+        policy_catalog_start = len(all_page_segments)
+        if args.policy_draft:
+            policy_catalog_segments: list[str] = []
+            policy_catalog_template = json_template(
+                POLICY_CATALOG_SOURCE,
+                policy_catalog_segments,
+            )
+            all_page_segments.extend(policy_catalog_segments)
+        policy_catalog_end = len(all_page_segments)
+
         try:
             all_translated, all_review = translate(all_page_segments)
         except ValueError as error:
             raise ValueError(f"documentation corpus: {error}") from error
         all_scores = all_review.pop("scores")
+        all_back_translations = all_review.pop("backTranslations")
+
+        policy_catalog = None
+        if args.policy_draft and policy_catalog_template is not None:
+            policy_catalog = render_json_template(
+                policy_catalog_template,
+                all_translated[policy_catalog_start:policy_catalog_end],
+            )
+            policy_catalog.update(
+                {
+                    "status": "translation-candidate",
+                    "sourceDraftDate": args.policy_source_draft_date,
+                    "translationDraftDate": args.policy_translation_draft_date,
+                    "sourceAppCommit": args.policy_app_commit,
+                    "metadataSeparator": ": ",
+                }
+            )
 
         rendered_pages: list[tuple[Path, str]] = []
+        policy_page_reviews: dict[str, dict[str, float | int]] = {}
+        low_confidence_units: list[dict[str, object]] = []
         for source_path, source, template, start, end in page_jobs:
             translated_segments = all_translated[start:end]
             review = review_scores(all_scores[start:end])
@@ -2632,6 +2802,40 @@ def main() -> None:
                 translated,
             )
             translated = localize_links(translated, locale, routes)
+            route = route_for(source_path)
+
+            if args.policy_draft:
+                if policy_catalog is None:
+                    raise ValueError("policy catalog was not generated")
+                translated = replace_policy_preamble(
+                    translated,
+                    route,
+                    policy_catalog,
+                    args.policy_source_draft_date,
+                    args.policy_translation_draft_date,
+                )
+                policy_page_reviews[route] = review
+                for unit_index, (source_unit, translated_unit, back_translation, score) in enumerate(
+                    zip(
+                        template.segments,
+                        translated_segments,
+                        all_back_translations[start:end],
+                        all_scores[start:end],
+                        strict=True,
+                    )
+                ):
+                    if score < 0.35:
+                        low_confidence_units.append(
+                            {
+                                "route": route,
+                                "unit": unit_index,
+                                "score": round(score, 4),
+                                "source": source_unit,
+                                "translation": translated_unit,
+                                "backTranslation": back_translation,
+                                "reviewed": False,
+                            }
+                        )
 
             if source_path == PAGES / "protocol/network.mdx":
                 diagram_messages = ui["chrome"]
@@ -2642,7 +2846,6 @@ def main() -> None:
                     f"  errorMessage={json.dumps(diagram_messages['diagramError'], ensure_ascii=False)}\n",
                 )
 
-            route = route_for(source_path)
             if route == "/governance/terms":
                 legal = ui["legal"]
                 notice = (
@@ -2693,19 +2896,60 @@ def main() -> None:
             }
 
         # Write only after the full locale has translated and verified successfully.
-        if splash_generated:
+        if splash_generated and not args.policy_draft:
             splash_path.write_text(
                 json.dumps(splash, ensure_ascii=False, indent=2) + "\n"
             )
-        (I18N / f"ui/{locale}.json").write_text(
-            json.dumps(ui, ensure_ascii=False, indent=2) + "\n"
-        )
-        (I18N / f"navigation/{locale}.json").write_text(
-            json.dumps(navigation, ensure_ascii=False, indent=2) + "\n"
-        )
+        if not args.policy_draft:
+            (I18N / f"ui/{locale}.json").write_text(
+                json.dumps(ui, ensure_ascii=False, indent=2) + "\n"
+            )
+            (I18N / f"navigation/{locale}.json").write_text(
+                json.dumps(navigation, ensure_ascii=False, indent=2) + "\n"
+            )
         for destination, translated in rendered_pages:
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_text(translated)
+
+        if args.policy_draft:
+            if policy_catalog is None:
+                raise ValueError("policy catalog was not generated")
+            summary = aggregate_reviews(list(policy_page_reviews.values()))
+            manifest["policyBackTranslationReview"] = {
+                **summary,
+                "threshold": 0.35,
+                "lowConfidenceReport": f"policy-review.{locale}.json",
+            }
+            (args.policy_workspace / f"policy-catalog.{locale}.json").write_text(
+                json.dumps(policy_catalog, ensure_ascii=False, indent=2) + "\n"
+            )
+            (args.policy_workspace / f"policy-review.{locale}.json").write_text(
+                json.dumps(
+                    {
+                        "locale": locale,
+                        "sourceAppCommit": args.policy_app_commit,
+                        "sourceHashes": {
+                            route: POLICY_REGISTRY["source"]["routes"][route]["sha256"]
+                            for route in POLICY_ROUTES
+                        },
+                        "summary": summary,
+                        "pages": policy_page_reviews,
+                        "mandatoryReview": [
+                            "public and private field distinctions",
+                            "exact recipient lookup",
+                            "public-blockchain permanence",
+                            "lawful bases, transfers, and retention",
+                            "children and safeguarding",
+                            "complaints and reporting instructions",
+                            "complete natural-language page skim",
+                        ],
+                        "lowConfidenceUnits": low_confidence_units,
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+                + "\n"
+            )
 
         print(f"{locale}: {aggregate_reviews(locale_reviews)}", flush=True)
 

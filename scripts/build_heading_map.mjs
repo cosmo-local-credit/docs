@@ -3,6 +3,11 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import GithubSlugger from 'github-slugger'
+import {
+  policyDocumentationLocales,
+  policyRouteSet,
+  policyRoutes,
+} from './policy_registry.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const pages = resolve(root, 'docs/pages')
@@ -11,8 +16,7 @@ const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi
 const routes = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
   '/protocol/overview', '/protocol/smart-contracts', '/protocol/network',
-  '/governance/policies', '/governance/privacy', '/governance/data-protection',
-  '/governance/child-safeguarding', '/governance/mechanics',
+  ...policyRoutes, '/governance/mechanics',
   '/governance/terms', '/white-paper', '/white-paper/executive-summary',
   '/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive',
   '/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust',
@@ -32,11 +36,6 @@ const routes = [
   '/white-paper/appendix-c-kpi-definitions', '/white-paper/appendix-d-launch-parameters',
   '/white-paper/appendix-e-worked-example', '/white-paper/appendix-f-dataroom-checklist', '/white-paper/archive',
 ]
-const policyRoutes = new Set([
-  '/governance/policies', '/governance/privacy', '/governance/data-protection',
-  '/governance/child-safeguarding',
-])
-
 function sourceFor(locale, route) {
   const prefix = locale === 'en' ? '' : `${locale}/`
   const stem = route === '/white-paper' ? 'white-paper/index' : route.slice(1)
@@ -75,7 +74,7 @@ function headingData(markdown) {
 
 const mapping = {}
 for (const route of routes) {
-  const routeLocales = policyRoutes.has(route) ? ['en', 'fr'] : locales
+  const routeLocales = policyRouteSet.has(route) ? policyDocumentationLocales : locales
   const localeHeadings = Object.fromEntries(
     routeLocales.map((locale) => [locale, headingData(readFileSync(sourceFor(locale, route), 'utf8'))]),
   )
@@ -95,14 +94,14 @@ const serialized = `${JSON.stringify(mapping, null, 2)}\n`
 if (process.argv.includes('--check')) {
   if (readFileSync(output, 'utf8') !== serialized) throw new Error('Heading map is stale')
   const pageCount = routes.reduce(
-    (count, route) => count + (policyRoutes.has(route) ? 2 : locales.length),
+    (count, route) => count + (policyRouteSet.has(route) ? policyDocumentationLocales.length : locales.length),
     0,
   )
   console.log(`Verified heading mappings for ${pageCount} pages.`)
 } else {
   writeFileSync(output, serialized)
   const pageCount = routes.reduce(
-    (count, route) => count + (policyRoutes.has(route) ? 2 : locales.length),
+    (count, route) => count + (policyRouteSet.has(route) ? policyDocumentationLocales.length : locales.length),
     0,
   )
   console.log(`Wrote heading mappings for ${pageCount} pages.`)

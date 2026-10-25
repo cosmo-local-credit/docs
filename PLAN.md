@@ -1,6 +1,6 @@
 # Multilingual documentation rollout
 
-Last updated: 24 October 2026
+Last updated: 25 October 2026
 
 This file tracks the one-language-at-a-time rollout of the public documentation.
 The implementation details, commands, file conventions, and translation tooling
@@ -55,6 +55,15 @@ proceeds. A locale expands from 36 to 40 documentation pages only when all four
 policy translations for that locale have passed review and validation. Until
 then, language switching from an English policy page continues to use the
 English route.
+
+The accelerated workflow keeps `docs/i18n/policy-locales.json` as the single
+registry for policy source hashes, review-build locales, localized policy
+metadata, and navigation labels. The policy generator translates only the four
+policy pages into a temporary workspace, produces a low-confidence report, and
+reuses machine-local forward and back-translation caches. Promotion is a
+deliberate post-review step; the full site is built only once per language. See
+the [localization guide](docs/i18n/README.md#accelerated-policy-workflow) for
+the commands.
 
 ### Policy rollout order and status
 
@@ -126,7 +135,9 @@ For each language:
 - [x] Complete the final source comparison, clarity pass, and review of all
   privacy-field and safeguarding distinctions.
 - [x] Add French policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Validate the French routes, search isolation, metadata, desktop layout,
+  and mobile layout in the production build.
+- [ ] Record user acceptance.
 - [ ] Release the French policy suite and verify `/fr/governance/privacy` from the app.
 
 #### 2. Spanish (`es`)

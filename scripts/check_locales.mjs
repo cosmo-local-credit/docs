@@ -3,6 +3,13 @@
 import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { extname, join, relative, resolve } from 'node:path'
+import {
+  policyDocumentationLocales,
+  policyRegistry,
+  policyRouteSet,
+  policyRoutes,
+  policyTranslationLocales,
+} from './policy_registry.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
@@ -49,6 +56,16 @@ const protectedFormulas = [
 const errors = []
 const sha256 = (value) => createHash('sha256').update(value).digest('hex')
 const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'))
+
+if (policyDocumentationLocales[0] !== 'en') {
+  errors.push('Policy locale registry must list English first')
+}
+if (policyRoutes.length !== 4) errors.push(`Policy registry must contain four routes, found ${policyRoutes.length}`)
+for (const locale of policyDocumentationLocales) {
+  if (!documentationLocales.includes(locale)) {
+    errors.push(`Policy registry contains unsupported documentation locale ${locale}`)
+  }
+}
 
 const localeRegistrySource = readFileSync(join(i18n, 'locales.ts'), 'utf8')
 const localeOptionsSource = localeRegistrySource.slice(
@@ -125,10 +142,6 @@ const splashCatalogs = join(i18n, 'messages')
 const englishSplash = readJson(join(splashCatalogs, 'en.json'))
 const englishUi = readJson(join(i18n, 'ui/en.json'))
 const englishNavigation = readJson(join(i18n, 'navigation/en.json'))
-const localizedNavigation = structuredClone(englishNavigation)
-for (const key of ['policies', 'privacy', 'dataProtection', 'childSafeguarding']) {
-  delete localizedNavigation.items[key]
-}
 for (const locale of locales) {
   const candidatePath = join(i18n, 'messages', `${locale}.json`)
   if (!existsSync(candidatePath)) errors.push(`messages/${locale}.json: missing catalog`)
@@ -139,7 +152,7 @@ for (const locale of locales) {
 for (const locale of documentationLocales) {
   for (const [folder, reference] of [
     ['ui', englishUi],
-    ['navigation', ['en', 'fr'].includes(locale) ? englishNavigation : localizedNavigation],
+    ['navigation', englishNavigation],
   ]) {
     const candidatePath = join(i18n, folder, `${locale}.json`)
     if (!existsSync(candidatePath)) errors.push(`${folder}/${locale}.json: missing catalog`)
@@ -175,15 +188,8 @@ for (const [locale, manifest] of Object.entries(manifests)) {
   }
 }
 
-const policyRoutes = new Set([
-  '/governance/policies',
-  '/governance/privacy',
-  '/governance/data-protection',
-  '/governance/child-safeguarding',
-])
-const policyLocales = ['fr']
 const sources = englishSources()
-const localizedSources = sources.filter((source) => !policyRoutes.has(routeFor(source)))
+const localizedSources = sources.filter((source) => !policyRouteSet.has(routeFor(source)))
 if (sources.length !== 40) errors.push(`Expected 40 English documentation pages, found ${sources.length}`)
 if (localizedSources.length !== 36) {
   errors.push(`Expected 36 localized documentation source pages, found ${localizedSources.length}`)
@@ -193,10 +199,10 @@ for (const source of localizedSources) {
   const english = readFileSync(source, 'utf8')
   for (const locale of localizedLocales) validateTranslation(source, route, english, locale)
 }
-for (const source of sources.filter((candidate) => policyRoutes.has(routeFor(candidate)))) {
+for (const source of sources.filter((candidate) => policyRouteSet.has(routeFor(candidate)))) {
   const route = routeFor(source)
   const english = readFileSync(source, 'utf8')
-  for (const locale of policyLocales) validateTranslation(source, route, english, locale)
+  for (const locale of policyTranslationLocales) validateTranslation(source, route, english, locale)
 }
 
 function validateTranslation(source, route, english, locale) {
@@ -242,7 +248,7 @@ function validateTranslation(source, route, english, locale) {
     const target = match[1]
     const publicAsset = target.startsWith('/about/') ||
       (/^\/white-paper\/.+\.(?:pdf|svg|png|jpe?g)$/i.test(target))
-    const controllingEnglishPolicy = policyRoutes.has(route) && target === route
+    const controllingEnglishPolicy = policyRouteSet.has(route) && target === route
     if (!target.startsWith(`/${locale}/`) && !publicAsset && !controllingEnglishPolicy) {
       errors.push(`${route}: ${locale} has an unlocalized internal link ${target}`)
     }
@@ -252,14 +258,17 @@ function validateTranslation(source, route, english, locale) {
       errors.push(`${route}: ${locale} is missing the controlling-English notice`)
     }
   }
-  if (policyRoutes.has(route)) {
+  if (policyRouteSet.has(route)) {
+    const localePolicy = policyRegistry.locales[locale]
+    const separator = localePolicy.metadataSeparator ?? ': '
     if (!translated.includes(`](${route})`)) {
       errors.push(`${route}: ${locale} is missing the controlling-English policy notice`)
     }
     for (const required of [
-      '**Version provisoire de la source : 1.0**',
-      '**Date du projet anglais : 24 octobre 2026**',
-      '**Date de cette traduction de travail : 25 octobre 2026**',
+      `> **${localePolicy.notice.title}** ${localePolicy.notice.body} [${localePolicy.notice.englishSource}](${route})`,
+      `**${localePolicy.metadata.sourceVersion}${separator}${policyRegistry.source.version}**`,
+      `**${localePolicy.metadata.englishDraftDate}${separator}${localePolicy.sourceDraftDate}**`,
+      `**${localePolicy.metadata.translationDraftDate}${separator}${localePolicy.translationDraftDate}**`,
     ]) {
       if (!translated.includes(required)) errors.push(`${route}: ${locale} is missing ${required}`)
     }
@@ -285,8 +294,13 @@ for (const required of [
 }
 if (/Version 1\.0|31 October 2026|terms-v1-1/.test(terms)) errors.push('Canonical Terms retain transition-era text')
 
-for (const policy of ['policies', 'privacy', 'data-protection', 'child-safeguarding']) {
-  const policySource = readFileSync(join(pages, `governance/${policy}.md`), 'utf8')
+for (const route of policyRoutes) {
+  const sourceEntry = policyRegistry.source.routes[route]
+  const policy = route.split('/').at(-1)
+  const policySource = readFileSync(join(pages, sourceEntry.source), 'utf8')
+  if (sha256(policySource) !== sourceEntry.sha256) {
+    errors.push(`${policy}: English policy source changed without updating the policy registry`)
+  }
   for (const required of [
     '> **Review draft — not yet effective.**',
     '**Draft version: 1.0**',
@@ -297,7 +311,7 @@ for (const policy of ['policies', 'privacy', 'data-protection', 'child-safeguard
   if (/\*\*(?:Publication|Effective) date:/.test(policySource)) {
     errors.push(`${policy}: review draft must not claim a publication or effective date`)
   }
-  for (const locale of localizedLocales.filter((candidate) => !policyLocales.includes(candidate))) {
+  for (const locale of localizedLocales.filter((candidate) => !policyTranslationLocales.includes(candidate))) {
     const localizedPolicy = join(pages, locale, `governance/${policy}.md`)
     if (existsSync(localizedPolicy)) {
       errors.push(`${policy}: ${locale} translation exists before the English review gate is complete`)
@@ -323,7 +337,7 @@ const headingMap = readJson(join(i18n, 'heading-map.json'))
 if (Object.keys(headingMap).length !== 40) errors.push('Heading map must cover all 40 English documentation pages')
 for (const [route, mapping] of Object.entries(headingMap)) {
   const count = mapping.en?.length
-  const routeLocales = policyRoutes.has(route) ? ['en', ...policyLocales] : documentationLocales
+  const routeLocales = policyRouteSet.has(route) ? policyDocumentationLocales : documentationLocales
   for (const locale of routeLocales) {
     if (!Array.isArray(mapping[locale]) || mapping[locale].length !== count) {
       errors.push(`${route}: ${locale} heading mapping differs from English`)
@@ -347,5 +361,5 @@ if (errors.length) {
   process.exit(1)
 }
 
-const routeCount = sources.length + (localizedSources.length * localizedLocales.length) + (policyRoutes.size * policyLocales.length)
+const routeCount = sources.length + (localizedSources.length * localizedLocales.length) + (policyRouteSet.size * policyTranslationLocales.length)
 console.log(`Validated ${locales.length} splash routes, ${routeCount} documentation routes, catalogs, hashes, links, Terms, policy drafts, TeX, and PDFs.`)

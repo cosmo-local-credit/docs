@@ -4,6 +4,7 @@ import {
   isSupportedLocale,
   type SupportedLocale,
 } from './locales'
+import policyLocaleRegistry from './policy-locales.json'
 
 export const DOCUMENTATION_PATHS = [
   '/introduction/getting-started',
@@ -55,13 +56,22 @@ export const POLICY_DOCUMENTATION_PATHS = [
   '/governance/child-safeguarding',
 ] as const
 
-export const POLICY_DOCUMENTATION_LOCALES = ['en', 'fr'] as const
+export const POLICY_DOCUMENTATION_LOCALES = Object.keys(
+  policyLocaleRegistry.locales,
+) as SupportedLocale[]
 
 export type DocumentationPath = (typeof DOCUMENTATION_PATHS)[number]
 
 const DOCUMENTATION_PATH_SET = new Set<string>(['/', ...DOCUMENTATION_PATHS])
 const POLICY_DOCUMENTATION_PATH_SET = new Set<string>(POLICY_DOCUMENTATION_PATHS)
 const POLICY_DOCUMENTATION_LOCALE_SET = new Set<string>(POLICY_DOCUMENTATION_LOCALES)
+
+export function policyNavigationForLocale(locale: SupportedLocale) {
+  if (!POLICY_DOCUMENTATION_LOCALE_SET.has(locale)) return undefined
+  return policyLocaleRegistry.locales[
+    locale as keyof typeof policyLocaleRegistry.locales
+  ].navigation
+}
 
 export function routeLocale(pathname: string): SupportedLocale {
   const segment = pathname.split('/')[1]

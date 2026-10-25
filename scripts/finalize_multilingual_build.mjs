@@ -6,6 +6,11 @@ import { mkdir } from 'node:fs/promises'
 import { join, relative, resolve, sep } from 'node:path'
 import { runInNewContext } from 'node:vm'
 import MiniSearch from 'minisearch'
+import {
+  policyDocumentationLocales,
+  policyRouteSet as policyDocumentationPathSet,
+  policyRoutes as policyDocumentationPaths,
+} from './policy_registry.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const dist = join(root, 'docs/dist')
@@ -41,14 +46,6 @@ const documentationPaths = [
   '/white-paper/appendix-e-worked-example', '/white-paper/appendix-f-dataroom-checklist',
   '/white-paper/archive',
 ]
-const policyDocumentationPaths = [
-  '/governance/policies',
-  '/governance/privacy',
-  '/governance/data-protection',
-  '/governance/child-safeguarding',
-]
-const policyDocumentationLocales = ['en', 'fr']
-const policyDocumentationPathSet = new Set(policyDocumentationPaths)
 const coreDocumentationPaths = documentationPaths.filter(
   (path) => !policyDocumentationPathSet.has(path),
 )

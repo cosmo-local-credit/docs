@@ -1,13 +1,10 @@
 import { createHash } from 'node:crypto'
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { policyRouteSet, policyTranslationLocales } from './policy_registry.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const locales = ['ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
-const policyRoutes = new Set([
-  '/governance/policies', '/governance/privacy', '/governance/data-protection',
-  '/governance/child-safeguarding',
-])
 const digest = (value) => createHash('sha256').update(value).digest('hex')
 const directory = resolve(root, 'docs/i18n')
 const availableManifestFiles = readdirSync(directory)
@@ -57,7 +54,7 @@ for (const manifest of manifests) {
 
 for (const [route, page] of Object.entries(merged.pages)) {
   const present = Object.keys(page.locales).sort()
-  const expected = policyRoutes.has(route) ? ['fr'] : locales
+  const expected = policyRouteSet.has(route) ? policyTranslationLocales : locales
   if (present.join(',') !== [...expected].sort().join(',')) {
     throw new Error(`${route} is missing locale manifests: ${present.join(', ')}`)
   }

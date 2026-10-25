@@ -1,0 +1,58 @@
+{
+  "source": {
+    "version": "1.0",
+    "draftDate": "24 October 2026",
+    "routes": {
+      "/governance/policies": {
+        "source": "governance/policies.md",
+        "sha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340"
+      },
+      "/governance/privacy": {
+        "source": "governance/privacy.md",
+        "sha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11"
+      },
+      "/governance/data-protection": {
+        "source": "governance/data-protection.md",
+        "sha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92"
+      },
+      "/governance/child-safeguarding": {
+        "source": "governance/child-safeguarding.md",
+        "sha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd"
+      }
+    }
+  },
+  "locales": {
+    "en": {
+      "status": "source-review-draft",
+      "navigation": {
+        "policies": "Policies",
+        "privacy": "Privacy Notice",
+        "dataProtection": "Data Protection",
+        "childSafeguarding": "Child Safeguarding"
+      }
+    },
+    "fr": {
+      "status": "translation-review-ready",
+      "sourceDraftDate": "24 octobre 2026",
+      "translationDraftDate": "25 octobre 2026",
+      "sourceAppCommit": "27321a637fded39c8ac0fb1a9e4783a852a5113b",
+      "metadataSeparator": " : ",
+      "navigation": {
+        "policies": "Politiques",
+        "privacy": "Avis de confidentialité",
+        "dataProtection": "Protection des données",
+        "childSafeguarding": "Protection de l’enfance"
+      },
+      "notice": {
+        "title": "Traduction de travail — pas encore en vigueur.",
+        "body": "Cette traduction française est mise à disposition pour relecture avant l’approbation juridique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable.",
+        "englishSource": "Lire le texte anglais."
+      },
+      "metadata": {
+        "sourceVersion": "Version provisoire de la source",
+        "englishDraftDate": "Date du projet anglais",
+        "translationDraftDate": "Date de cette traduction de travail"
+      }
+    }
+  }
+}

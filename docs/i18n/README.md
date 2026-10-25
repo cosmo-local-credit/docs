@@ -60,10 +60,13 @@ for White Paper v0.8. Localized HTML and PDFs state the English publication date
 and the translation publication date.
 
 The English Policy hub, Privacy Notice, Data Protection Policy, and Child
-Safeguarding Policy are currently review drafts. They remain outside the
-localized page trees, navigation catalogs, heading map, translation manifests,
-localized search indexes, and localized `llms` files until the English texts are
-approved, dated, and frozen.
+Safeguarding Policy are currently review drafts. French has a complete,
+validated working translation for review. Other policy languages remain on the
+English fallback until their complete four-page candidates have passed review.
+`policy-locales.json` is the single registry for policy source hashes, localized
+draft metadata, navigation labels, and the policy locales included in review
+builds. No translated policy becomes an App destination until the English texts
+are approved, dated, frozen, and the relevant locale is deployed.
 
 The tracked PDF builder uses pdfLaTeX for English and LuaLaTeX for localized
 papers. Polyglossia provides most localized typesetting; Arabic uses Babel's
@@ -102,6 +105,60 @@ pages:
 
 The 3B model is CPU-intensive. Accept its output page by page only where it is
 clearer and still preserves the docs glossary and protected technical content.
+
+## Accelerated policy workflow
+
+Prepare exactly one language in an isolated workspace. The command translates
+the four policy pages and their policy-specific labels in one forward batch,
+performs one back-translation batch, checks the recorded English source hashes,
+and writes a candidate catalog, manifest, and low-confidence report. Replace
+the dates and App commit with the values verified for the current language.
+
+```sh
+/path/to/python \
+  scripts/generate_documentation_translations.py \
+  --policy-draft --locales es \
+  --policy-workspace /tmp/clc-policy-es \
+  --policy-app-commit <audited-clc-app-commit> \
+  --policy-source-draft-date "24 de octubre de 2026" \
+  --policy-translation-draft-date "<Spanish review date>"
+
+npm run check:policies -- es --candidate /tmp/clc-policy-es
+```
+
+Review every entry in `policy-review.es.json`, the mandatory legal and
+technical topics listed there, and all four pages for natural language. After
+manual corrections, refresh only the back-translations affected by changed
+units; the machine-local cache avoids repeating unchanged work.
+
+```sh
+/path/to/python \
+  scripts/review_policy_translation.py es \
+  --candidate /tmp/clc-policy-es
+
+npm run check:policies -- es --candidate /tmp/clc-policy-es
+```
+
+Promote only a reviewed four-page candidate. Promotion copies the pages, merges
+their manifest entries, adds the locale and its labels to the single policy
+registry, regenerates heading mappings, and runs the focused validator.
+
+```sh
+npm run policies:promote -- es \
+  --candidate /tmp/clc-policy-es --reviewed
+```
+
+Then run the full validation gate once:
+
+```sh
+npm run typecheck
+npm run check:policies -- es
+npm run check:i18n
+npm run i18n:headings:check
+npm run check:theme
+npm run build
+git diff --check
+```
 
 Validate the reviewable web draft:
 

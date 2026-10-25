@@ -20,7 +20,7 @@ import {
   hasLocalizedDocumentation,
   type SupportedLocale,
 } from './locales'
-import { localizedPath } from './routes'
+import { localizedPath, policyNavigationForLocale } from './routes'
 
 type NavigationMessages = {
   groups: Record<keyof typeof en.groups, string>
@@ -84,6 +84,7 @@ export type SidebarItem = {
 export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
   const documentationLocale = hasLocalizedDocumentation(locale) ? locale : 'en'
   const messages = navigationMessages[documentationLocale]
+  const policyMessages = policyNavigationForLocale(documentationLocale)
   const link = (path: string) => localizedPath(path, documentationLocale)
   return [
     {
@@ -106,12 +107,12 @@ export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
     {
       text: messages.groups.governance,
       items: [
-        ...(['en', 'fr'].includes(documentationLocale)
+        ...(policyMessages
           ? [
-              { text: messages.items.policies, link: link('/governance/policies') },
-              { text: messages.items.privacy, link: link('/governance/privacy') },
-              { text: messages.items.dataProtection, link: link('/governance/data-protection') },
-              { text: messages.items.childSafeguarding, link: link('/governance/child-safeguarding') },
+              { text: policyMessages.policies, link: link('/governance/policies') },
+              { text: policyMessages.privacy, link: link('/governance/privacy') },
+              { text: policyMessages.dataProtection, link: link('/governance/data-protection') },
+              { text: policyMessages.childSafeguarding, link: link('/governance/child-safeguarding') },
             ]
           : []),
         { text: messages.items.governanceMechanics, link: link('/governance/mechanics') },
