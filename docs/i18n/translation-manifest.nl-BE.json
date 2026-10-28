@@ -511,6 +511,94 @@
           }
         }
       }
+    },
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "sourceSha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340",
+      "locales": {
+        "nl-BE": {
+          "sha256": "6884d18867bbd82728ac4a9cbff20a023a95fc3aec3527c8f93e515f0d38600e",
+          "review": {
+            "units": 36,
+            "meanBackTranslationSimilarity": 0.7178,
+            "unitsBelow0_35": 3,
+            "method": "reviewed Dutch policy translation adapted unit by unit for Flemish",
+            "status": "first-draft-review-complete",
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "f20006dca642321ee8db333fc3ce6b418858ebd3"
+          }
+        }
+      }
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "sourceSha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11",
+      "locales": {
+        "nl-BE": {
+          "sha256": "c622259d9d07546e7b7b5cb24be65b2f75c4b244b48e0f1036839afd1cbf3bb2",
+          "review": {
+            "units": 174,
+            "meanBackTranslationSimilarity": 0.6551,
+            "unitsBelow0_35": 29,
+            "method": "reviewed Dutch policy translation adapted unit by unit for Flemish",
+            "status": "first-draft-review-complete",
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "f20006dca642321ee8db333fc3ce6b418858ebd3"
+          }
+        }
+      }
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "sourceSha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92",
+      "locales": {
+        "nl-BE": {
+          "sha256": "b65aed681a41dc22295a1f5a13f1263d9c6586da877a2eef2cf350a0fd3763a1",
+          "review": {
+            "units": 132,
+            "meanBackTranslationSimilarity": 0.6481,
+            "unitsBelow0_35": 22,
+            "method": "reviewed Dutch policy translation adapted unit by unit for Flemish",
+            "status": "first-draft-review-complete",
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "f20006dca642321ee8db333fc3ce6b418858ebd3"
+          }
+        }
+      }
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "sourceSha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd",
+      "locales": {
+        "nl-BE": {
+          "sha256": "974732094a9fd93ae885734c0964cf474b2d6c365436580dcd1db02c67fc43cf",
+          "review": {
+            "units": 134,
+            "meanBackTranslationSimilarity": 0.6682,
+            "unitsBelow0_35": 18,
+            "method": "reviewed Dutch policy translation adapted unit by unit for Flemish",
+            "status": "first-draft-review-complete",
+            "adaptedFromLocale": "nl",
+            "appTerminologyBaseline": "f20006dca642321ee8db333fc3ce6b418858ebd3"
+          }
+        }
+      }
     }
+  },
+  "policyTranslationDraftDate": "28 oktober 2026",
+  "policySourceAppCommit": "f20006dca642321ee8db333fc3ce6b418858ebd3",
+  "policyReviewProcess": [
+    "unit-by-unit adaptation from the reviewed Dutch policy translation",
+    "Flemish terminology review against the merged clc-app nl-BE catalog",
+    "source-hash, protected-token, link, heading, search, and build verification"
+  ],
+  "policyBackTranslationReview": {
+    "units": 476,
+    "meanBackTranslationSimilarity": 0.6616,
+    "unitsBelow0_35": 72,
+    "threshold": 0.35,
+    "lowConfidenceReport": "policy-review.nl.json",
+    "adaptedFromLocale": "nl",
+    "adaptationReview": "Every policy unit retained the reviewed Dutch meaning; locale links, notice wording, dates, and Flemish Wallet terminology were reviewed separately."
   }
 }

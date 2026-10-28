@@ -13,12 +13,31 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass
+from itertools import zip_longest
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Callable
 
 import ctranslate2
 import sentencepiece as spm
+
+
+_ZIP_SENTINEL = object()
+
+
+def strict_zip(*iterables: object):
+    """Zip iterables while retaining Python 3.10's strict length check."""
+
+    for values in zip_longest(*iterables, fillvalue=_ZIP_SENTINEL):
+        if any(value is _ZIP_SENTINEL for value in values):
+            raise ValueError("zip() arguments have different lengths")
+        yield values
+
+
+def remove_suffix(value: str, suffix: str) -> str:
+    """Return value without suffix, compatible with Python 3.8."""
+
+    return value[: -len(suffix)] if suffix and value.endswith(suffix) else value
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1163,7 +1182,7 @@ class NllbTranslator:
             self.tokenizer.decode(result.hypotheses[0][1:]).strip()
             for result in results
         ]
-        translations = dict(zip(unique_texts, translated_unique, strict=True))
+        translations = dict(strict_zip(unique_texts, translated_unique))
         return [translations[text] for text in texts]
 
 
@@ -1238,7 +1257,7 @@ class MadladTranslator:
             self.tokenizer.decode(result.hypotheses[0]).strip()
             for result in results
         ]
-        translations = dict(zip(unique_texts, translated_unique, strict=True))
+        translations = dict(strict_zip(unique_texts, translated_unique))
         return [translations[text] for text in texts]
 
 
@@ -1311,7 +1330,7 @@ class MarianPairTranslator:
             target_tokenizer.decode(result.hypotheses[0]).strip()
             for result in results
         ]
-        translations = dict(zip(unique_texts, translated_unique, strict=True))
+        translations = dict(strict_zip(unique_texts, translated_unique))
         return [translations[text] for text in texts]
 
 
@@ -1354,7 +1373,7 @@ class CachedTranslator:
             translated = self.translator.translate_many(
                 batch, source, target, beam_size=beam_size
             )
-            for text, result in zip(batch, translated, strict=True):
+            for text, result in strict_zip(batch, translated):
                 self.cache[self.key(text, source, target, beam_size)] = result
             self.path.write_text(
                 json.dumps(self.cache, ensure_ascii=False, separators=(",", ":"))
@@ -1386,7 +1405,7 @@ def english_sources() -> list[Path]:
 
 def route_for(path: Path) -> str:
     relative = path.relative_to(PAGES).with_suffix("").as_posix()
-    return "/" + (relative.removesuffix("/index") or "")
+    return "/" + (remove_suffix(relative, "/index") or "")
 
 
 def protect_text(
@@ -2175,7 +2194,7 @@ class MarkdownTemplate:
         if bold_prefix:
             label_source = bold_prefix.group(2)
             label_suffix = ":" if label_source.endswith(":") else ""
-            label = self.marker(label_source.removesuffix(":")) + label_suffix
+            label = self.marker(remove_suffix(label_source, ":")) + label_suffix
             remainder_source = bold_prefix.group(3)
             separator = re.match(r"\s*", remainder_source).group(0)  # type: ignore[union-attr]
             remainder = self.marker(remainder_source[len(separator) :])
@@ -2337,8 +2356,8 @@ def translate_segments(
     )
     translated: list[str] = []
     offset = 0
-    for source_segment, (source_chunks, protected), count in zip(
-        segments, protected_segments, chunk_counts, strict=True
+    for source_segment, (source_chunks, protected), count in strict_zip(
+        segments, protected_segments, chunk_counts
     ):
         value = (
             " ".join(translated_chunks[offset : offset + count])
@@ -2389,7 +2408,7 @@ def translate_segments(
     back_chunks = translator.translate_many(translated, locale, "en", beam_size=1)
     similarities = [
         SequenceMatcher(None, source.casefold(), back.casefold()).ratio()
-        for source, back in zip(segments, back_chunks, strict=True)
+        for source, back in strict_zip(segments, back_chunks)
     ]
     review = {
         "units": len(segments),
@@ -2496,13 +2515,16 @@ def replace_policy_preamble(
     )
     if quote_index is None:
         raise ValueError(f"{route}: translated policy is missing its draft notice")
-    metadata_indices = [
-        index
-        for index, line in enumerate(lines[quote_index + 1 :], quote_index + 1)
-        if line.startswith("**") and line.endswith("**")
-    ][:2]
-    if len(metadata_indices) != 2:
-        raise ValueError(f"{route}: translated policy is missing draft metadata")
+    first_section_index = next(
+        (
+            index
+            for index, line in enumerate(lines[quote_index + 1 :], quote_index + 1)
+            if line.startswith("## ")
+        ),
+        None,
+    )
+    if first_section_index is None:
+        raise ValueError(f"{route}: translated policy is missing its first section")
 
     notice = catalog["notice"]
     metadata = catalog["metadata"]
@@ -2519,7 +2541,11 @@ def replace_policy_preamble(
         "",
         f"**{metadata['translationDraftDate']}{separator}{translation_draft_date}**",
     ]
-    lines[quote_index : metadata_indices[-1] + 1] = replacement
+    # The English policy sources currently use either two or three metadata
+    # lines, and a translation model can alter spacing inside their bold
+    # delimiters. Replace the complete preamble up to the first H2 instead of
+    # trying to recognize translated metadata labels one by one.
+    lines[quote_index:first_section_index] = replacement + [""]
     return "\n".join(lines) + "\n"
 
 
@@ -2860,12 +2886,11 @@ def main() -> None:
                 )
                 policy_page_reviews[route] = review
                 for unit_index, (source_unit, translated_unit, back_translation, score) in enumerate(
-                    zip(
+                    strict_zip(
                         template.segments,
                         translated_segments,
                         all_back_translations[start:end],
                         all_scores[start:end],
-                        strict=True,
                     )
                 ):
                     if score < 0.35:

@@ -1,6 +1,6 @@
 # Multilingual documentation rollout
 
-Last updated: 25 October 2026
+Last updated: 28 October 2026
 
 This file tracks the one-language-at-a-time rollout of the public documentation.
 The implementation details, commands, file conventions, and translation tooling
@@ -79,13 +79,13 @@ the commands.
 | 7 | Ukrainian (`uk`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
 | 8 | Serbian (`sr`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
 | 9 | Arabic (`ar`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
-| 10 | Dzongkha (`dz`) | Candidate rejected | Qualified language review required | Blocked on safe wording | Queued | English fallback |
+| 10 | Dzongkha (`dz`) | Candidate rejected | Qualified language review required | Safe replacement pending | Queued | English fallback |
 | 11 | Dutch (`nl`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
-| 12 | Hindi (`hi`) | Queued | Queued | Queued | Queued | English fallback |
-| 13 | Simplified Chinese (`zh`) | Queued | Queued | Queued | Queued | English fallback |
+| 12 | Hindi (`hi`) | Candidate rejected | Qualified language revision required | Safe replacement pending | Queued | English fallback |
+| 13 | Simplified Chinese (`zh`) | Candidate rejected | Qualified language revision required | Safe replacement pending | Queued | English fallback |
 | 14 | Traditional Chinese (`zh-Hant`) | Queued | Queued | Queued | Queued | English fallback |
-| 15 | Filipino (`fil`) | Queued | Queued | Queued | Queued | English fallback |
-| 16 | Flemish (`nl-BE`) | Queued | Queued | Queued | Queued | English fallback |
+| 15 | Filipino (`fil`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
+| 16 | Flemish (`nl-BE`) | Complete review draft | Complete | Batch review pending | Queued | English fallback |
 
 Only one row may be marked **In progress** at a time. Do not begin the next
 language until the current language has a complete preview, passes validation,
@@ -229,11 +229,13 @@ For each language:
 #### 10. Dzongkha (`dz`)
 
 - [x] Synchronize policy vocabulary with the current Dzongkha app catalog at
-  `origin/develop` commit `92bf381e9e55deabf460b7ac4f32f92009c06151`.
+  `origin/develop` commit `f20006dca642321ee8db333fc3ce6b418858ebd3`.
 - [ ] Replace the rejected machine candidate with a qualified Dzongkha
-  translation. The 25 October 2026 MADLAD candidate changed protected names,
-  damaged Markdown links, and reversed a child-safeguarding instruction, so it
-  was not promoted into the repository.
+  translation. The second MADLAD candidate generated on 28 October 2026 also
+  duplicated headings, changed protected names, damaged Markdown and reversed
+  safeguarding meaning. Its focused structure check passed, but its 405-unit
+  back-translation review averaged 0.4012 similarity with 159 units below 0.35.
+  It was kept outside the repository.
 - [ ] Translate and review privacy and safeguarding concepts, Tibetan-script
   glyphs, line breaking, and natural explanatory language.
 - [ ] Add Dzongkha policy navigation, routes, metadata, search, manifests, and notices.
@@ -255,7 +257,13 @@ For each language:
 
 #### 12. Hindi (`hi`)
 
-- [ ] Synchronize policy vocabulary with the current Hindi app catalog.
+- [x] Synchronize policy vocabulary with the current Hindi app catalog at
+  `origin/develop` commit `f20006dca642321ee8db333fc3ce6b418858ebd3`.
+- [ ] Replace the rejected 28 October 2026 candidate. Although its focused
+  structure check passed and its 405-unit back-translation averaged 0.7044,
+  it changed passkey to password, confused signatures and legal majority,
+  corrupted resource labels, mixed scripts, omitted source sentences, and
+  damaged Markdown. It remains outside the repository.
 - [ ] Translate and review natural legal language, Devanagari rendering, and
   isolation of URLs, emails, identifiers, and citations.
 - [ ] Add Hindi policy navigation, routes, metadata, search, manifests, and notices.
@@ -264,7 +272,14 @@ For each language:
 
 #### 13. Simplified Chinese (`zh`)
 
-- [ ] Synchronize policy vocabulary with the current Simplified Chinese app catalog.
+- [x] Synchronize policy vocabulary with the current Simplified Chinese app catalog at
+  `origin/develop` commit `f20006dca642321ee8db333fc3ce6b418858ebd3`.
+- [ ] Replace the rejected 28 October 2026 candidate. Its focused structure
+  check passed, but the semantic review found that it redefined Grassroots
+  Economics Foundation, changed Kenya to China, corrupted passkey and resource
+  labels, omitted Terms language, and introduced unsafe safeguarding wording.
+  Its 405-unit back-translation averaged 0.6281 with 72 units below 0.35, so it
+  remains outside the repository.
 - [ ] Translate and review legal terminology, punctuation, and field-level distinctions.
 - [ ] Add Simplified Chinese policy navigation, routes, metadata, search, manifests, and notices.
 - [ ] Validate CJK wrapping and search, preview, and record user acceptance.
@@ -280,19 +295,32 @@ For each language:
 
 #### 15. Filipino (`fil`)
 
-- [ ] Synchronize policy vocabulary with the current Filipino app catalog.
-- [ ] Translate and review natural privacy, safeguarding, and complaints language.
-- [ ] Add Filipino policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Filipino app catalog at
+  `origin/develop` commit `f20006dca642321ee8db333fc3ce6b418858ebd3`.
+- [x] Reject the initial machine candidate after it duplicated headings,
+  changed protected names, distorted resource labels, and altered legal text.
+- [x] Rewrite and review all four pages in clear Filipino while preserving the
+  English structure, public/private distinctions, exact recipient lookup,
+  blockchain permanence, lawful bases, transfer and retention rules, child
+  safeguards, complaint channels, and app vocabulary.
+- [x] Independently back-translate all 476 aligned units and review every
+  low-confidence unit; the final review draft averages 0.6896 similarity with
+  58 units below 0.35, largely protected short terms and natural word order.
+- [x] Add Filipino policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Pass the focused four-page policy validator.
+- [ ] Preview the four routes and record user acceptance.
 - [ ] Release the Filipino policy suite and verify `/fil/governance/privacy` from the app.
 
 #### 16. Flemish (`nl-BE`)
 
-- [ ] Synchronize policy vocabulary with the current Flemish app catalog.
-- [ ] Translate from English, using Dutch structure only where appropriate, and
-  review every unit for Belgian usage and legal clarity.
-- [ ] Add Flemish policy navigation, routes, metadata, search, manifests, and notices.
-- [ ] Validate Dutch/Flemish separation, preview, and record user acceptance.
+- [x] Synchronize policy vocabulary with the current Flemish app catalog at
+  `origin/develop` commit `f20006dca642321ee8db333fc3ce6b418858ebd3`.
+- [x] Adapt all four reviewed Dutch policy pages into Flemish, review the
+  changed terminology against the app catalog, and use `Portefeuille` and
+  `Omwisselen` where the app meanings apply.
+- [x] Add Flemish policy navigation, routes, metadata, search, manifests, and notices.
+- [x] Validate Dutch/Flemish route separation and the focused four-page policy suite.
+- [ ] Preview the four routes and record user acceptance.
 - [ ] Release the Flemish policy suite and verify `/nl-BE/governance/privacy` from the app.
 
 ## Rollout status

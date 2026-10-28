@@ -511,6 +511,84 @@
           }
         }
       }
+    },
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "sourceSha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340",
+      "locales": {
+        "fil": {
+          "sha256": "c7195f788bfb7f66621292b18f85d33fd07ccf487727761a7b5f820fd4382fd6",
+          "review": {
+            "units": 36,
+            "meanBackTranslationSimilarity": 0.7495,
+            "unitsBelow0_35": 3,
+            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "sourceSha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11",
+      "locales": {
+        "fil": {
+          "sha256": "a65d3ae7e40f913bb5388e4fe0b43e9d892b66c8c44f16087a8d897c4e8b5b0c",
+          "review": {
+            "units": 174,
+            "meanBackTranslationSimilarity": 0.6889,
+            "unitsBelow0_35": 22,
+            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "sourceSha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92",
+      "locales": {
+        "fil": {
+          "sha256": "35b1d2ab7f6fe2290c7760e3e299f81364d88f66dc154d367322ab4ce6353265",
+          "review": {
+            "units": 132,
+            "meanBackTranslationSimilarity": 0.6782,
+            "unitsBelow0_35": 19,
+            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "sourceSha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd",
+      "locales": {
+        "fil": {
+          "sha256": "00db252b3dd0be720f845e567c3dcf0376b2a9b1f0c749b020428f9850376139",
+          "review": {
+            "units": 134,
+            "meanBackTranslationSimilarity": 0.6858,
+            "unitsBelow0_35": 14,
+            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
+            "status": "first-draft-review-complete"
+          }
+        }
+      }
     }
+  },
+  "policyTranslationDraftDate": "28 Oktubre 2026",
+  "policySourceAppCommit": "f20006dca642321ee8db333fc3ce6b418858ebd3",
+  "policyReviewProcess": [
+    "MADLAD-400 candidate rejected after protected-name and semantic review",
+    "manual Filipino rewrite preserving the English structure and app vocabulary",
+    "complete plain-language skim and independent back-translation of all 476 aligned units"
+  ],
+  "policyBackTranslationReview": {
+    "units": 476,
+    "meanBackTranslationSimilarity": 0.6896,
+    "unitsBelow0_35": 58,
+    "threshold": 0.35,
+    "lowConfidenceReport": "policy-review.fil.json"
   }
 }

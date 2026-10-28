@@ -50,6 +50,16 @@ def main() -> None:
         ),
     )
     parser.add_argument("--threads", type=int, default=10)
+    parser.add_argument(
+        "--cache",
+        type=Path,
+        help="Optional translation cache path; useful when reviewing a generated candidate.",
+    )
+    parser.add_argument(
+        "--include-all-units",
+        action="store_true",
+        help="Include every aligned unit in the temporary review report.",
+    )
     args = parser.parse_args()
 
     manifest_path = args.candidate / f"translation-manifest.{args.locale}.json"
@@ -89,12 +99,12 @@ def main() -> None:
         aligned.extend(
             (route, index, source, target)
             for index, (source, target) in enumerate(
-                zip(english.segments, localized.segments, strict=True)
+                translation.strict_zip(english.segments, localized.segments)
             )
         )
         route_ranges[route] = (start, len(aligned))
 
-    cache_path = (
+    cache_path = args.cache or (
         Path.home()
         / f".cache/clc-translation-models/policy-{args.locale}-review.json"
     )
@@ -112,8 +122,8 @@ def main() -> None:
     )
 
     records = []
-    for (route, index, source, target), back_translation in zip(
-        aligned, back_translations, strict=True
+    for (route, index, source, target), back_translation in translation.strict_zip(
+        aligned, back_translations
     ):
         score = SequenceMatcher(
             None, source.casefold(), back_translation.casefold()
@@ -159,6 +169,8 @@ def main() -> None:
         "mandatoryReview": previous_report.get("mandatoryReview", []),
         "lowConfidenceUnits": low_confidence,
     }
+    if args.include_all_units:
+        report["allUnits"] = records
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
 
     manifest["policyBackTranslationReview"] = {
