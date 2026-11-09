@@ -1,14 +1,14 @@
 # CLC App Privacy Notice
 
-> **Review draft — not yet effective.** This English text is available for public review before legal approval and translation. Until an approved version takes effect, it must not be treated as the App's operative Privacy Notice.
+**Version: 1.0**
 
-**Draft version: 1.0**
+**Publication date: 9 November 2026**
 
-**Draft date: 24 October 2026**
+**Effective date: 9 November 2026**
 
 This Privacy Notice explains how Grassroots Economics Foundation (**GEF**, **we**, **us**, or **our**) handles personal data when you visit or use the Cosmo-Local Credit App at `cosmolocal.credit` and the related services that GEF operates (together, the **App**).
 
-> **Read before publishing.** Your profile contact details and saved location are not automatically shown on public resources. Information you enter or copy into a Voucher, Pool, Offering, Want, Catalog, or Post can become public when you publish it. A public location can include the exact map coordinates you selected.
+> **Read before publishing.** Your private profile is not a public profile. Information you enter or copy into a Voucher, Pool, Offering, Want, Catalog, or Post can nevertheless be published through that resource. A resource's description, terms, images, tags, Wallet addresses, and exact map coordinates can be visible without signing in. Contact details on a Voucher, Pool, or Want are shown only through signed-in resource-information or contact features, but the recipient can still copy or share them.
 
 This Notice supplements the [Terms of Service](/governance/terms) and the [Data Protection Policy](/governance/data-protection).
 
@@ -35,39 +35,44 @@ It does not control how an independent Issuer, Pool Steward, third-party provide
 
 Depending on the features you use, we may collect:
 
-- your public username and public blockchain Wallet address;
+- your username and public blockchain Wallet address;
 - your name, email address, phone number, country, and preferred currency;
 - your biography, website, avatar, and saved location name and coordinates;
 - account role, status, resource limits, and account creation or update times; and
 - settings, language, notification preferences, and other choices you make.
 
-Your public username is different from your private profile name. Your profile can be used to prefill forms, but prefilling a form does not publish the field until you choose to publish the resource.
+Your username is different from your private profile name. It is used as a recipient identifier and can be returned with your Wallet address to a signed-in person who enters the exact username. Your profile can be used to prefill forms, but prefilling a form does not publish the field until you choose to publish the resource.
+
+Authorized administrators can search the account directory by name, username, email, phone number, or Wallet address and can see account identity and contact fields, role, status, resource limits, and associated resources where needed to operate, support, moderate, and secure the App. This directory is not public.
 
 ### Authentication, Wallet, and transaction data
 
-We may process Wallet addresses, signed messages, transaction authorizations, signatures, passkey credential identifiers and public-key coordinates, session identifiers, transaction requests, relayer records, and transaction status. We do not need your passkey's private key in order to verify a passkey assertion.
+We may process Wallet addresses, signed messages, transaction authorizations, signatures, passkey credential identifiers and public-key coordinates, credential state, session identifiers and roles, transaction requests, relayer records, replacement-transaction data, and transaction status. If a sign-in card is replaced, we can retain the old and new Wallet addresses, proofs of the requested change, linked passkey state, and the operational records needed to resume or verify the change.
 
-If you use a paper Wallet or another credential that you control, you are responsible for protecting its private material. A public Wallet address and public blockchain transactions are not private.
+The App stores the private material for its browser sign-in card in that browser's local storage so the browser can sign. GEF services receive signatures and signed transactions rather than that raw private key. A passkey provider protects the passkey's private key; the App and its services use the credential identifier, public-key material, challenge, and signed assertion needed to register or verify it. If you use a paper Wallet, sign-in card, passkey, or another credential, you are responsible for protecting the device and private material.
+
+Where a Voucher or Pool is controlled by a compatible multisig, we may process the multisig address, signer Wallet addresses, approval threshold, proposed transactions, confirmations, execution state, and permissions needed to display and operate multisig controls. The owner address, signer set, and threshold can be returned through public ownership inspection and can also be visible on a public blockchain.
 
 ### Device, security, and usage data
 
-We may collect technical and operational information such as IP address, browser and device information, timestamps, requested pages or endpoints, session and security events, validation errors, rate-limit information, notification subscriptions, service activity, and diagnostic records.
+We may collect technical and operational information such as IP address, browser and device information, timestamps, requested pages or endpoints, session and security events, validation errors, rate-limit information, notification subscriptions and delivery acknowledgements, service activity, and diagnostic records.
 
 ### Content and support data
 
-We process information you submit in Vouchers, Pools, Offerings, Wants, Catalogs, Posts, Reviews, images, attachments, terms, descriptions, tags, locations, contact fields, complaints, support messages, and other communications.
+We process information you submit in Vouchers, Pools, Offerings, Wants, Catalogs, Posts, Voucher and Pool Reviews, images, attachments, terms, descriptions, tags, locations, contact fields, private post-transaction messages or orders, complaints, support messages, and other communications.
 
 Do not publish another person's personal data, image, contact information, or precise location unless you have a lawful reason and any permission that is required.
 
 ## 4. What becomes public?
 
-The App has four important visibility levels.
+The App has five important visibility levels.
 
 | Visibility | What it means |
 | --- | --- |
-| Private profile and account data | Profile name, email, phone number, saved location, preferences, authentication records, and similar account information are used to operate the App and are not automatically placed in public resource responses. Authorized GEF personnel and service providers may access them when necessary for their work. |
+| Private profile and account data | Profile name, email, phone number, saved location, preferences, authentication records, and similar account information are used to operate the App and are not automatically placed in public resource responses. Authorized GEF personnel and service providers may access them when necessary for their work. Authorized administrators can also search and manage the non-public account directory. |
 | Exact recipient lookup | A signed-in user who enters your exact username or full phone number may receive your public username and Wallet address. Partial usernames do not return a user. The phone number used for the query, your private profile name, email, phone number, and saved location are not returned in the recipient result. |
-| Published App resources | Fields deliberately entered or copied into a published resource can be visible to anyone who can access the public catalog or resource. Public fields may be indexed, copied, shared, or associated with a Wallet or another resource. |
+| Public catalog and resource data | Published descriptions, terms, images, tags, Wallet and contract addresses, locations, exact coordinates, Offers, Wants, Posts, Reviews, Pool rules, and technical settings can be visible without signing in. Public fields may be indexed, copied, shared, or associated with a Wallet or another resource. |
+| Signed-in resource contact | Email, phone, website, or contact instructions deliberately added to a Voucher, Pool, or Want are removed from signed-out catalog and detail responses. A signed-in person can request the full contact-bearing Voucher or Pool record, or the contact methods selected for an active Want. The recipient can still copy, use, or share that information. Retired resources have narrower owner-or-administrator access. |
 | Public blockchain records | Wallet addresses, contracts, balances, holdings, transfers, amounts, counterparties, timestamps, signatures, and contract actions can be visible permanently through public networks and independent block explorers. GEF cannot erase or rewrite a public blockchain. |
 
 Removing a resource from the App's catalog does not remove copies already made by other people, search services, archives, independent indexers, or public blockchains.
@@ -78,21 +83,21 @@ The fields available to a resource can change as the App develops. The form show
 
 | Resource | Information that can become public |
 | --- | --- |
-| Voucher | Contract and chain identifiers; Voucher name, symbol, description, stated unit and value; Issuer or owner Wallet address; terms; contact details; location name and exact coordinates; images; tags; visual markers; and active or retired catalog status. |
-| Pool | Contract and chain identifiers; Pool name and description; owner, fee-recipient, dependency, or other technical-controller Wallet addresses; supported Vouchers; inventory or availability information; valuation method; fees, limits, rules, and other configuration; contact details; location name and exact coordinates; images; tags; and timestamps. |
+| Voucher | Public: contract and chain identifiers; Voucher name, symbol, description, stated unit and value; Issuer or owner Wallet address; terms; location name and exact coordinates; images; tags; visual markers; and active catalog status. Signed in: deliberately entered email, phone, and website. Retired records are available only to an authorized owner or administrator through the complete-information endpoint, while chain history can remain public. |
+| Pool | Public: contract and chain identifiers; Pool name and description; owner, fee-recipient, dependency, or other technical-controller Wallet addresses; supported Vouchers; inventory or availability information; valuation method; fees, limits, rules, other configuration; location name and exact coordinates; images; tags; timestamps; and, for compatible multisigs, owner, signer addresses, and approval threshold. Signed in: deliberately entered email, phone, and website. Retired records have the same narrower complete-information access as retired Vouchers. |
 | Offering | Linked Voucher details; seller or provenance Wallet address; goods or services offered; description, quantity, unit, frequency, price, and availability; location name and exact or inherited coordinates; image; tags; and timestamps. |
-| Want | Requested goods or services; description; tags; image; status and dates; location name and exact coordinates; and only the contact method deliberately selected for that Want. Public Want responses do not need to identify the creator's private profile. |
+| Want | Public: requested goods or services; description; tags; image; status and dates; location name and exact coordinates. Signed in: only the contact instructions, email, or phone deliberately selected for that active Want. Public Want responses omit those contact fields and do not identify the creator's private profile, although linked Vouchers or Pools can create an indirect association. |
 | Catalog | Catalog name, description, image, tags, owner Wallet address, listed members or resources, counts, location name and exact coordinates, and timestamps. |
-| Approved Post | Title, summary, body, host name, participant information, dates, images, captions, attachments, embedded links, tags, linked Vouchers or Pools, and exact coordinates. Draft, submitted, or rejected Posts are not public. The author's Wallet address is retained for management and accountability but is omitted from public Post responses. Linked resources or the content itself may still reveal an association. |
-| Review | Rating, comment, and any public reply by the Voucher owner. The public Review response omits the reviewer's Wallet address and redemption metadata, although the service retains information needed to verify eligibility, prevent duplicate reviews, moderate content, and enforce the review period. |
+| Published Post | Title, summary, body, host name, participant information, dates, images, captions, attachments, embedded links, tags, linked Vouchers or Pools, and exact coordinates. The author's Wallet address and workflow status are retained for management and accountability but omitted from public Post responses. Linked resources or the content itself may still reveal an association. |
+| Voucher or Pool Review | Rating, comment, and any public reply by the Voucher or Pool owner. The public Review response omits the reviewer's Wallet address and redemption or swap evidence. The service retains the reviewer address and evidence needed to verify eligibility, prevent duplicate reviews, support replies and flags, moderate content, and enforce the review period. Administrators can receive the report reason and the reported Review content when a Review is flagged. |
 
 Contact details and exact coordinates can create personal safety risks. Use a suitable public contact method and a safe public meeting place rather than a private home whenever possible.
 
 ## 6. Public blockchain information
 
-The App interacts with public blockchain networks. A transaction may disclose the Wallets involved, Token or Voucher contract, amount, time, status, and related contract events. Pool contracts can also disclose supported assets, balances, fees, limits, valuations, owners, administrators, dependencies, and other configuration.
+The App interacts with public blockchain networks. A transaction may disclose the Wallets involved, Token or Voucher contract, amount, time, status, signature, and related contract events. Pool contracts can also disclose supported assets, balances, deposits, payouts, swaps, liquidity withdrawals, fees, limits, valuations, owners, administrators, dependencies, and other configuration. Compatible multisigs can disclose signer sets, thresholds, proposals, confirmations, and executed actions.
 
-Blockchain information may be processed by network validators, node operators, indexers, Wallet software, analytics services, and anyone who reads the network. Transactions can be irreversible. Closing an App account, changing a profile, or asking GEF to delete off-chain data does not delete blockchain records.
+Blockchain information may be processed by network validators, node operators, indexers, Wallet software, analytics services, and anyone who reads the network. Transactions can be irreversible. Closing an App account, changing a profile, replacing a sign-in card, removing or retiring a catalog resource, destroying Voucher units, or asking GEF to delete off-chain data does not delete earlier blockchain records or independently indexed copies.
 
 ## 7. Why we use data and our legal grounds
 
@@ -112,7 +117,7 @@ We do not treat your decision to publish one field as consent to publish unrelat
 
 ## 8. Required and optional data
 
-The App identifies required fields in the relevant form. A Wallet address, authentication proof, name, and email are required for current account registration. Particular features can require additional transaction, contact, location, eligibility, or resource information.
+The App identifies required fields in the relevant form. Current guided account creation requires a Wallet address and authentication proof, a name, a profile image, a country and saved location, a preferred currency, and at least one email address or phone number. A username is optional. Other sign-in or account-recovery paths can create temporary system values until the user completes or corrects the profile. Particular features can require additional transaction, contact, location, eligibility, or resource information.
 
 Other profile and resource fields are optional unless the form says otherwise. If you do not provide required information, we may be unable to create an account, authenticate you, submit a transaction, publish a resource, provide support, meet a legal requirement, or make the requested feature available.
 
@@ -134,13 +139,16 @@ We receive data:
 We disclose only the information reasonably needed for the stated purpose, applicable law, or your requested public action. Recipients can include:
 
 - App visitors and users when you publish a resource or use a public blockchain;
+- signed-in App users when they request contact details you deliberately attached to an active Voucher, Pool, or Want;
 - Issuers, Pool Stewards, counterparties, and other participants needed for a transaction, redemption, complaint, or requested service;
 - infrastructure providers for hosting, databases, storage, content delivery, security, authentication, support, email, notifications, mapping, geocoding, blockchain access, indexing, transaction relaying, and monitoring;
 - independent Wallet, blockchain, payment, stablecoin, cash-ramp, or other third-party service providers you choose to use;
 - professional advisers, auditors, insurers, researchers, funders, and partners under appropriate duties and safeguards; and
 - regulators, courts, law-enforcement bodies, or other persons where disclosure is required by law or reasonably necessary to protect rights, safety, and the integrity of the service.
 
-Third-party services can collect data directly under their own privacy notices. Before publication of this Notice, GEF reviews the current provider and transfer inventory so the disclosures remain accurate.
+The production web application is delivered through Cloudflare Pages. Its current browser configuration uses MapTiler for map styles and IP-based location suggestions, ArcGIS World Geocoding for place search and reverse geocoding, and configured Gnosis Chain RPC endpoints for chain reads. Those services receive the request data needed to answer, which can include IP address, browser information, map area, search text, coordinates, or Wallet and contract queries.
+
+Other integrations are feature-dependent. When enabled and used, a notification service processes push-subscription endpoints, device state, linked Wallet addresses, delivery and click acknowledgements, and inbox state; a transaction relayer processes signed requests and transaction status; a Safe transaction service processes multisig addresses, proposals, signatures, confirmations, and execution state; and a payment or cash-ramp provider processes the phone number, Wallet address, asset, amount, provider identifier, rate, and transaction status needed for that feature. Image storage, the App API, databases, blockchain indexers, and monitoring infrastructure process the content and operational records needed for their functions. A third-party service can also collect data directly under its own privacy notice.
 
 ## 11. International processing
 

@@ -272,7 +272,7 @@ Openbare blockchain-activiteit kan een portemonnee adres, activa, bedragen, tijd
 
 GEF bewaren van informatie zolang als redelijkerwijs nodig is voor de bovenstaande doeleinden, waaronder veiligheid, fraudepreventie, bewijs van transacties, wettelijke verplichtingen, verjaringstermijnen, back-ups en geschillenbeslechting.GEF in staat om informatie te verwijderen die bij een openbaar netwerk of door derden is opgeslagen.
 
-Onder voorbehoud van de toepasselijke wetgeving, kunt u toegang, correctie, verwijdering, beperking, bezwaar, portabiliteit of andere beschikbare gegevensrechten aanvragen door contact op te nemen met `info@grassecon.org`. GEF gebruikt redelijke waarborgen, maar kan geen absolute veiligheid of vertrouwelijkheid beloven, met name voor de openbare blockchain-activiteit en informatie die u publiceert.
+Onder voorbehoud van de toepasselijke wetgeving, kunt u toegang, correctie, verwijdering, beperking, bezwaar, portabiliteit of andere beschikbare gegevensrechten aanvragen door contact op te nemen met `privacy@grassecon.org`. GEF gebruikt redelijke waarborgen, maar kan geen absolute veiligheid of vertrouwelijkheid beloven, met name voor de openbare blockchain-activiteit en informatie die u publiceert.
 
 ## 18. Servicewijzigingen, opschorting en beëindiging
 

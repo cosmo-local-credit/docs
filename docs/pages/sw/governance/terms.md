@@ -272,7 +272,7 @@ Shughuli ya umma ya blockchain inaweza kufunua anwani ya mkoba, mali, kiasi, vit
 
 GEF huhifadhi habari kwa muda mrefu kama inahitajika kwa madhumuni ya hapo juu, ikiwa ni pamoja na usalama, kuzuia udanganyifu, ushahidi wa shughuli, majukumu ya kisheria, vipindi vya kikomo, nakala rudufu, na utatuzi wa mizozo. Uhifadhi haufanyi GEF uwezekano wa kufuta habari inayomilikiwa na mtandao wa umma au mtu wa tatu.
 
-Kwa kuzingatia sheria inayotumika, unaweza kuomba ufikiaji, kurekebisha, kufuta, kuzuia, upinzani, kubeba, au haki zingine za data zinazopatikana kwa kuwasiliana na `info@grassecon.org`. GEF hutumia ulinzi wa busara lakini haiwezi kuahidi usalama kamili au usiri, haswa kwa shughuli za umma za blockchain na habari unayotoa.
+Kwa kuzingatia sheria inayotumika, unaweza kuomba ufikiaji, kurekebisha, kufuta, kuzuia, upinzani, kubeba, au haki zingine za data zinazopatikana kwa kuwasiliana na `privacy@grassecon.org`. GEF hutumia ulinzi wa busara lakini haiwezi kuahidi usalama kamili au usiri, haswa kwa shughuli za umma za blockchain na habari unayotoa.
 
 ## 18. Mabadiliko ya huduma, kusimamishwa, na kumalizika
 

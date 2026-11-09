@@ -270,7 +270,7 @@ Public blockchain activity may expose a Wallet address, assets, amounts, timesta
 
 GEF retains information for as long as reasonably needed for the purposes above, including security, fraud prevention, transaction evidence, legal duties, limitation periods, backups, and dispute resolution. Retention does not make GEF able to delete information held by a public network or third party.
 
-Subject to applicable law, you may request access, correction, deletion, restriction, objection, portability, or other available data rights by contacting `info@grassecon.org`. GEF uses reasonable safeguards but cannot promise absolute security or confidentiality, particularly for public blockchain activity and information you publish.
+Subject to applicable law, you may request access, correction, deletion, restriction, objection, portability, or other available data rights by contacting `privacy@grassecon.org`. GEF uses reasonable safeguards but cannot promise absolute security or confidentiality, particularly for public blockchain activity and information you publish.
 
 ## 18. Service changes, suspension, and termination
 

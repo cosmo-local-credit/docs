@@ -2,22 +2,19 @@
 
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
-public documentation site. The `clc-app` `origin/develop` baseline is commit
-`92bf381e9e55deabf460b7ac4f32f92009c06151`, which includes the merged Filipino
-and Flemish catalogs and is the app baseline audited for the current policy
-translation batch.
+public documentation site. The current product audit baseline is `clc-app`
+`origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee` and
+`clc-core` `origin/develop` commit
+`15a65e5ab751841fb16f7eb761910d0377c7f322`.
 
 English is unprefixed. Localized routes use their registered locale prefix. The
-registry contains Arabic, Simplified Chinese, Traditional Chinese, German,
+site registry contains Arabic, Simplified Chinese, Traditional Chinese, German,
 Dzongkha, Spanish, French, Hindi, Italian, Dutch, Flemish, Portuguese, Serbian,
 Kiswahili, Ukrainian, and Filipino. Detailed documentation is normally
-released one reviewed language at a time. French, Spanish, Portuguese, Italian,
-Kiswahili, German, Ukrainian, and Serbian have completed web review. Arabic,
-Dzongkha, Dutch, Hindi, Simplified Chinese, Traditional Chinese, and Filipino
-are complete, validated web drafts with outstanding review checkpoints.
-Flemish is a complete first draft based on the merged app catalog and remains
-under review. Stable English slugs are deliberately retained below each
-published locale prefix.
+released one reviewed language at a time. The existing 36-page translations
+are structurally validated and are not being editorially reopened during the
+policy completion pass. Stable English slugs are deliberately retained below
+each published locale prefix.
 
 ## Files
 
@@ -32,7 +29,7 @@ published locale prefix.
   Commitment Pool and Pool Steward terms.
 - `heading-map.json` maps equivalent heading anchors by document order.
 - `translation-manifest.<locale>.json` records source and translation hashes,
-  the app baseline, draft status, date, and automated review results.
+  the app baseline, review status, date, and automated review results.
 - `drafts/pages/` preserves unfinished deep-page translations outside Vocs'
   public route compiler.
 
@@ -43,9 +40,10 @@ the saved preference; only a manual choice writes `clc.docs.locale`.
 
 ## Translation and review workflow
 
-The maintained translation generator uses the local open NLLB-200 distilled
-model (`JustFrederik/nllb-200-distilled-600M-ct2-int8`, CC BY-NC 4.0) as a
-maintainer tool. It is not shipped to visitors and is not a runtime dependency.
+The maintained policy workflow uses the Apache-licensed MADLAD-400 model from
+the machine-local cache. A local NLLB-200 distilled model may be used as an
+independent comparison for a language that fails substantive review. These are
+maintainer tools; neither model is shipped to visitors or added to Git.
 Every release applies:
 
 1. semantic translation with URLs, code, formulas, names, contract identifiers,
@@ -61,13 +59,15 @@ for White Paper v0.8. Localized HTML and PDFs state the English publication date
 and the translation publication date.
 
 The English Policy hub, Privacy Notice, Data Protection Policy, and Child
-Safeguarding Policy are currently review drafts. French has a complete,
-validated working translation for review. Other policy languages remain on the
-English fallback until their complete four-page candidates have passed review.
-`policy-locales.json` is the single registry for policy source hashes, localized
-draft metadata, navigation labels, and the policy locales included in review
-builds. No translated policy becomes an App destination until the English texts
-are approved, dated, frozen, and the relevant locale is deployed.
+Safeguarding Policy are the controlling Version 1.0 source. Their product audit
+commits, publication metadata, and frozen source hashes are recorded in
+`policy-locales.json`. The same registry owns localized notices, metadata,
+navigation labels, and release state. No translated policy becomes an App
+destination until its complete four-page set passes review and the locale is
+deployed. Dzongkha, Simplified Chinese, and Traditional Chinese currently
+retain the English-policy fallback because independent machine candidates
+failed legal-meaning review. Their catalog metadata stays registered but is
+excluded from policy routing until a qualified fluent review succeeds.
 
 The tracked PDF builder uses pdfLaTeX for English and LuaLaTeX for localized
 papers. Polyglossia provides most localized typesetting; Arabic uses Babel's
@@ -109,28 +109,27 @@ clearer and still preserves the docs glossary and protected technical content.
 
 ## Accelerated policy workflow
 
-Prepare exactly one language in an isolated workspace. The command translates
-the four policy pages and their policy-specific labels in one forward batch,
-performs one back-translation batch, checks the recorded English source hashes,
-and writes a candidate catalog, manifest, and low-confidence report. Replace
-the dates and App commit with the values verified for the current language.
+Prepare exactly one language in an isolated workspace. The reconciliation
+command retains reviewed translation memory for unchanged units, translates
+only changed or missing units, performs a separate back-translation pass,
+checks the frozen English hashes, and writes a candidate catalog, manifest, and
+low-confidence report.
 
 ```sh
-/path/to/python \
-  scripts/generate_documentation_translations.py \
-  --policy-draft --locales es \
-  --policy-workspace /tmp/clc-policy-es \
-  --policy-app-commit <audited-clc-app-commit> \
-  --policy-source-draft-date "24 de octubre de 2026" \
-  --policy-translation-draft-date "<Spanish review date>"
+/path/to/python scripts/reconcile_policy_translations.py es \
+  --workspace /tmp/clc-policy-es \
+  --cache /tmp/clc-policy-es-cache.json \
+  --threads 16
 
 npm run check:policies -- es --candidate /tmp/clc-policy-es
 ```
 
 Review every entry in `policy-review.es.json`, the mandatory legal and
-technical topics listed there, and all four pages for natural language. After
-manual corrections, refresh only the back-translations affected by changed
-units; the machine-local cache avoids repeating unchanged work.
+technical topics listed there, and all four pages for natural language. A
+candidate that changes public/private distinctions, reporting instructions,
+rights, or safeguarding meaning must not be promoted. After manual corrections,
+refresh only the back-translations affected by changed units; the machine-local
+cache avoids repeating unchanged work.
 
 ```sh
 /path/to/python \
@@ -146,7 +145,9 @@ registry, regenerates heading mappings, and runs the focused validator.
 
 ```sh
 npm run policies:promote -- es \
-  --candidate /tmp/clc-policy-es --reviewed
+  --candidate /tmp/clc-policy-es --reviewed --replace
+
+node scripts/refresh_policy_manifest.mjs es
 ```
 
 Then run the full validation gate once:

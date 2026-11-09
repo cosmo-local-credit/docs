@@ -272,7 +272,7 @@ Die öffentliche Blockchain-Aktivität kann weltweit eine Wallet-Adresse, Vermö
 
 GEF speichert Informationen so lange, wie dies für die oben genannten Zwecke angemessen erforderlich ist, einschließlich Sicherheit, Betrugsprävention, Transaktionsnachweise, gesetzlichen Pflichten, Verjährungsfristen, Backups und Streitbeilegung. Die Aufbewahrung macht GEF nicht in der Lage, Informationen zu löschen, die von einem öffentlichen Netzwerk oder einem Dritten gehalten werden.
 
-Vorbehaltlich des geltenden Rechts können Sie Zugang, Berichtigung, Löschung, Einschränkung, Widerspruch, Portabilität oder andere verfügbare Datenrechte beantragen, indem Sie sich an `info@grassecon.org` wenden. GEF verwendet angemessene Schutzmaßnahmen, kann aber keine absolute Sicherheit oder Vertraulichkeit versprechen, insbesondere für öffentliche Blockchain-Aktivitäten und Informationen, die Sie veröffentlichen.
+Vorbehaltlich des geltenden Rechts können Sie Zugang, Berichtigung, Löschung, Einschränkung, Widerspruch, Portabilität oder andere verfügbare Datenrechte beantragen, indem Sie sich an `privacy@grassecon.org` wenden. GEF verwendet angemessene Schutzmaßnahmen, kann aber keine absolute Sicherheit oder Vertraulichkeit versprechen, insbesondere für öffentliche Blockchain-Aktivitäten und Informationen, die Sie veröffentlichen.
 
 ## 18. Serviceänderungen, Aussetzung und Beendigung
 

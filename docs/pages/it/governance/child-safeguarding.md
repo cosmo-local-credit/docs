@@ -1,12 +1,12 @@
 # Politica di tutela dei minori
 
-> **Traduzione di lavoro — non ancora in vigore.** Questa traduzione italiana è disponibile per la revisione prima dell’approvazione legale. Il testo inglese è il testo di riferimento e prevale, salvo che la legge applicabile disponga diversamente. [Leggi il testo inglese.](/governance/child-safeguarding)
+> **Traduzione di cortesia.** Questa traduzione è fornita per agevolare la lettura. Il testo inglese è il testo originale e prevale, salvo ove diversamente richiesto dalla legge applicabile. [Leggi il testo inglese.](/governance/child-safeguarding)
 
-**Versione provvisoria del testo di riferimento: 1.0**
+**Versione del testo originale: 1.0**
 
-**Data della bozza inglese: 24 ottobre 2026**
+**Data di pubblicazione ed entrata in vigore del testo inglese: 9 novembre 2026**
 
-**Data di questa traduzione di lavoro: 25 ottobre 2026**
+**Data di pubblicazione della traduzione: 9 novembre 2026**
 
 ## 1. Finalità
 
@@ -110,7 +110,7 @@ Il rifiuto o l’abbandono di un’attività facoltativa non deve comportare rit
 
 ## 11. Immagini, storie, ricerca e dati personali
 
-GEF raccoglie e utilizza le informazioni dei minori soltanto quando esistono una finalità chiara, un’autorità legittima e garanzie adeguate. Si applica anche la [Politica di protezione dei dati](/it/governance/data-protection).
+GEF raccoglie e utilizza le informazioni relative ai minori soltanto quando esistono uno scopo chiaro, una base giuridica e garanzie adeguate. Si applicano inoltre la [Politica di protezione dei dati](/it/governance/data-protection) e la [Nota di orientamento dell’ODPC sul trattamento dei dati dei minori](https://www.odpc.go.ke/guidelines-2/index.html).
 
 Prima di registrare o pubblicare l’immagine, la voce, la storia, il lavoro, l’identità, i recapiti, l’appartenenza a una comunità o la posizione di un minore, il gruppo responsabile deve considerare il consenso, la dignità, l’esattezza, i possibili riutilizzi futuri, il pubblico, la permanenza digitale e il rischio di identificazione o danno.
 
@@ -180,9 +180,9 @@ GEF riesamina la presente Politica almeno una volta all’anno e dopo un inciden
 
 Le segnalazioni e le domande relative alla tutela possono essere inviate a:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [info@grassecon.org](mailto:info@grassecon.org)
 
 Le domande sulla privacy e sui diritti relativi ai dati devono essere inviate separatamente a [privacy@grassecon.org](mailto:privacy@grassecon.org).

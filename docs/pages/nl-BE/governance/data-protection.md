@@ -1,18 +1,18 @@
 # Gegevensbeschermingsbeleid van Grassroots Economics Foundation
 
-> **Werkvertaling — nog niet van kracht.** Deze Vlaamse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/data-protection)
+> **Vertaling voor het leesgemak.** Deze vertaling wordt voor het leesgemak aangeboden. De Engelse tekst is de brontekst en is bepalend, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/data-protection)
 
 **Versie van de brontekst: 1.0**
 
-**Datum van het Engelse concept: 24 oktober 2026**
+**Publicatie- en ingangsdatum van de Engelse tekst: 9 november 2026**
 
-**Datum van deze werkvertaling: 28 oktober 2026**
+**Publicatiedatum van de vertaling: 9 november 2026**
 
 ## 1. Doel
 
-Grassroots Economics Foundation (**GEF**) respecteert de privacy en beschouwt een zorgvuldige omgang met persoonsgegevens als een verantwoordelijkheid tegenover de mensen en gemeenschappen die bij zijn werk betrokken zijn. Dit Beleid stelt minimumnormen vast voor persoonsgegevens die worden verwerkt via systemen, programma's, onderzoek, onderwijs, evenementen, partnerschappen en activiteiten van GEF, waaronder de Cosmo-Local Credit App (**CLC App**).
+Grassroots Economics Foundation (**GEF **) respecteert de privacy en beschouwt een zorgvuldige omgang met persoonsgegevens als een verantwoordelijkheid tegenover de mensen en gemeenschappen die bij zijn werk betrokken zijn. Dit Beleid stelt minimumnormen vast voor persoonsgegevens die worden verwerkt via systemen, programma's, onderzoek, onderwijs, evenementen, partnerschappen en activiteiten van GEF, waaronder de Cosmo-Local Credit App (** CLC App**).
 
-Dit Beleid is gebaseerd op de Keniaanse [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), toepasselijke regelgeving en de actuele richtlijnen van de [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/). Waar GEF werkt of waar betrokken personen zich bevinden, kunnen ook andere wetten gelden.
+Dit Beleid is gebaseerd op de Keniaanse [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), toepasselijke regelgeving en de actuele richtlijnen van de [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Waar GEF werkt of waar betrokken personen zich bevinden, kunnen ook andere wetten gelden.
 
 De [Privacyverklaring van de CLC App](/nl-BE/governance/privacy) geeft specifiekere informatie over App-velden, openbare resources, het zoeken naar ontvangers en openbare blockchaingegevens. De [Gebruiksvoorwaarden](/nl-BE/governance/terms) regelen het gebruik van de App.
 
@@ -79,7 +79,7 @@ Gegevens kunnen door hun inhoud, context, combinatie of de betrokken personen er
 
 GEF past zwaardere waarborgen toe wanneer het risico groter is. Maatregelen kunnen bestaan uit minder gegevens verzamelen, identificatoren scheiden, strengere toegangsbeperkingen, versleuteling, kortere bewaartermijnen, veiligere contactmethoden, beveiligde overdracht, beoordeling vóór openbaarmaking, specialistisch advies en een gedocumenteerde effectbeoordeling.
 
-Teams moeten rekening houden met plaatselijke omstandigheden. Een naam, band met een gemeenschap, kaartpunt, portefeuilleadres, foto of transactiegeschiedenis kan gevoelig zijn, ook wanneer die informatie niet in iedere wet als gevoelige persoonsgegevens wordt aangemerkt.
+Teams moeten rekening houden met plaatselijke omstandigheden. Een naam, band met een gemeenschap, kaartpunt, Walletadres, foto of transactiegeschiedenis kan gevoelig zijn, ook wanneer die informatie niet in iedere wet als gevoelige persoonsgegevens wordt aangemerkt.
 
 ## 8. Kinderen en kinderbescherming
 
@@ -178,7 +178,7 @@ GEF beoordeelt dit Beleid ten minste jaarlijks en wanneer wezenlijke juridische,
 
 Privacyvragen, verzoeken over rechten of zorgen kunnen worden gestuurd naar:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenia  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenia
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

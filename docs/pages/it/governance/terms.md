@@ -272,7 +272,7 @@ L'attività blockchain pubblica può esporre un indirizzo Wallet, attività, imp
 
 GEF conserva le informazioni per il periodo ragionevolmente necessario per le finalità di cui sopra, comprese le attività di sicurezza, la prevenzione delle frodi, le prove delle transazioni, i doveri legali, i termini di prescrizione, i backup e la risoluzione delle controversie. La conservazione non rende GEF in grado di cancellare le informazioni detenute da una rete pubblica o da terzi.
 
-Fatto salvo la legge applicabile, è possibile richiedere l'accesso, la correzione, la cancellazione, la restrizione, l'obiezione, la portabilità o altri diritti di dati disponibili contattando `info@grassecon.org`. GEF utilizza garanzie ragionevoli ma non può promettere assoluta sicurezza o riservatezza, in particolare per l'attività pubblica della blockchain e le informazioni che si pubblicano.
+Fatto salvo la legge applicabile, è possibile richiedere l'accesso, la correzione, la cancellazione, la restrizione, l'obiezione, la portabilità o altri diritti di dati disponibili contattando `privacy@grassecon.org`. GEF utilizza garanzie ragionevoli ma non può promettere assoluta sicurezza o riservatezza, in particolare per l'attività pubblica della blockchain e le informazioni che si pubblicano.
 
 ## 18. Modifiche del servizio, sospensione e cessazione
 

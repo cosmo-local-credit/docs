@@ -12,6 +12,20 @@ date: 26 October 2026
 - **Format:** Edited desktop overview with two mobile-width browser panes side by side; not a real-time click-along tutorial
 - **Outcome:** The viewer sees how two people publish what they offer, how a Want reveals an opportunity, and how a prepared Pool lets them exchange and use their Vouchers.
 
+## Title options
+
+1. **Cosmo-Local Credit: Wants, Vouchers, and a Pool Exchange**
+2. **How a Doctor and Farmer Exchange Their Offers**
+3. **Create, Find, Exchange, and Use a Voucher**
+
+## YouTube description
+
+Dr. Amina offers medical consultations and wants fresh local food. Kofi offers food baskets and needs a consultation. In this step-by-step Cosmo-Local Credit explainer, both people create Vouchers and Offerings, Amina publishes a Want, and Kofi discovers an exchange that can help them both.
+
+The walkthrough shows the App's **Create voucher**, **Add offering**, **Create Want**, **Approve voucher**, **Deposit**, **Swap**, and **Redeem** flows. It also explains that a Pool credit limit controls how much of a Voucher the Pool may hold—it is not a personal loan.
+
+Explore Cosmo-Local Credit at `https://cosmolocal.credit`.
+
 ## The story
 
 Use two new, prepared demonstration accounts:
@@ -57,7 +71,7 @@ These figures make the story easy to follow. They are not default settings, reco
 
 ## Before filming
 
-- Use a filming build based on, or rechecked against, CLC App `origin/develop` commit `8f49f61120c383e73223b4c4c68945aa57863609`.
+- Use a filming build based on, or rechecked against, CLC App `origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee`.
 - Use two isolated browser profiles or contexts so one login cannot replace the other. Keep both panes about 360–430 CSS pixels wide, with **DOCTOR — Dr. Amina** and **FARMER — Kofi** visible above them.
 - Highlight the active pane and dim the other. Never operate both accounts at once.
 - Prepare two safe demonstration Wallets. Do not expose real passkeys, private keys, recovery information, contact details, precise home locations, or health information.

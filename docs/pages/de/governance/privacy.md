@@ -1,16 +1,16 @@
 # Datenschutzhinweis für die CLC App
 
-> **Arbeitsübersetzung – noch nicht in Kraft.** Diese deutsche Übersetzung wird vor der rechtlichen Genehmigung zur Prüfung bereitgestellt. Der englische Text ist der Ausgangstext und hat Vorrang, sofern das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/privacy)
+> **Übersetzung zur leichteren Lesbarkeit.** Diese Übersetzung dient der leichteren Lesbarkeit. Der englische Text ist der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/privacy)
 
-**Entwurfsversion des Ausgangstextes: 1.0**
+**Version des Ausgangstextes: 1.0**
 
-**Datum des englischen Entwurfs: 24. Oktober 2026**
+**Veröffentlichungs- und Geltungsdatum des englischen Textes: 9. November 2026**
 
-**Datum dieser Arbeitsübersetzung: 25. Oktober 2026**
+**Veröffentlichungsdatum der Übersetzung: 9. November 2026**
 
-Dieser Datenschutzhinweis erläutert, wie die Grassroots Economics Foundation (**GEF**, **wir**, **uns** oder **unser**) personenbezogene Daten verarbeitet, wenn Sie die Cosmo-Local Credit App unter `cosmolocal.credit` und die damit verbundenen von GEF betriebenen Dienste besuchen oder nutzen (zusammen die **App**).
+Dieser Datenschutzhinweis erläutert, wie die Grassroots Economics Foundation (**GEF **, ** wir **, ** uns ** oder ** unser **) personenbezogene Daten verarbeitet, wenn Sie die Cosmo-Local Credit App unter `cosmolocal.credit` und die damit verbundenen von GEF betriebenen Dienste besuchen oder nutzen (zusammen die ** App**).
 
-> **Vor dem Veröffentlichen lesen.** Die Kontaktdaten und der gespeicherte Standort in Ihrem Profil werden nicht automatisch in öffentlichen Ressourcen angezeigt. Informationen, die Sie in einen Gutschein, Fonds, ein Angebot, ein Gesuch, einen Katalog oder einen Beitrag eingeben oder kopieren, können beim Veröffentlichen der Ressource öffentlich werden. Ein öffentlicher Standort kann die von Ihnen gewählten genauen Kartenkoordinaten enthalten.
+> **Vor dem Veröffentlichen lesen.** Ihr privates Profil ist kein öffentliches Profil. Informationen, die Sie in einen Gutschein, Fonds, ein Angebot, ein Gesuch, einen Katalog oder einen Beitrag eingeben oder kopieren, können dennoch über diese Ressource veröffentlicht werden. Beschreibung, Bedingungen, Bilder, Tags, Wallet-Adressen und genaue Kartenkoordinaten einer Ressource können ohne Anmeldung sichtbar sein. Kontaktdaten zu einem Gutschein, Fonds oder Gesuch werden nur über Ressourcen- oder Kontaktfunktionen für angemeldete Personen angezeigt; die empfangende Person kann sie dennoch kopieren oder weitergeben.
 
 Dieser Hinweis ergänzt die [Nutzungsbedingungen](/de/governance/terms) und die [Datenschutzrichtlinie](/de/governance/data-protection).
 
@@ -37,39 +37,44 @@ Er regelt nicht, wie ein unabhängiger Herausgeber, ein Fonds-Verantwortlicher, 
 
 Je nach den von Ihnen genutzten Funktionen können wir Folgendes erheben:
 
-- Ihren öffentlichen Benutzernamen und Ihre öffentliche Blockchain-Wallet-Adresse;
+- Ihren Benutzernamen und Ihre öffentliche Blockchain-Wallet-Adresse;
 - Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer, Ihr Land und Ihre bevorzugte Währung;
 - Ihre Biografie, Website, Ihr Profilbild sowie den Namen und die Koordinaten Ihres gespeicherten Standorts;
 - Rolle, Status und Ressourcenlimits des Kontos sowie Zeitpunkte der Kontoerstellung und -aktualisierung; und
 - Einstellungen, Sprache, Benachrichtigungseinstellungen und andere von Ihnen getroffene Entscheidungen.
 
-Ihr öffentlicher Benutzername unterscheidet sich von Ihrem privaten Profilnamen. Ihr Profil kann zum Vorausfüllen von Formularen verwendet werden. Das Vorausfüllen veröffentlicht ein Feld jedoch erst, wenn Sie die Ressource selbst veröffentlichen.
+Ihr Benutzername unterscheidet sich von Ihrem privaten Profilnamen. Er dient als Empfängerkennung und kann zusammen mit Ihrer Wallet-Adresse an eine angemeldete Person ausgegeben werden, die den genauen Benutzernamen eingibt. Ihr Profil kann zum Vorausfüllen von Formularen verwendet werden. Das Vorausfüllen veröffentlicht ein Feld jedoch erst, wenn Sie die Ressource selbst veröffentlichen.
+
+Autorisierte Administratoren können das Kontoverzeichnis nach Name, Benutzername, E-Mail-Adresse, Telefonnummer oder Wallet-Adresse durchsuchen. Sie können Identitäts- und Kontaktfelder des Kontos, Rolle, Status, Ressourcenlimits und zugehörige Ressourcen einsehen, soweit dies für Betrieb, Support, Moderation und Sicherheit der App erforderlich ist. Dieses Verzeichnis ist nicht öffentlich.
 
 ### Authentifizierungs-, Wallet- und Transaktionsdaten
 
-Wir können Wallet-Adressen, signierte Nachrichten, Transaktionsfreigaben, Signaturen, Kennungen von Passkey-Anmeldedaten und Koordinaten öffentlicher Schlüssel, Sitzungskennungen, Transaktionsanfragen, Aufzeichnungen zur Transaktionsweiterleitung und den Transaktionsstatus verarbeiten. Wir benötigen den privaten Schlüssel Ihres Passkeys nicht, um eine Passkey-Bestätigung zu prüfen.
+Wir können Wallet-Adressen, signierte Nachrichten, Transaktionsfreigaben, Signaturen, Kennungen von Passkey-Anmeldedaten und Koordinaten öffentlicher Schlüssel, den Status von Anmeldedaten, Sitzungskennungen und -rollen, Transaktionsanfragen, Aufzeichnungen zur Weiterleitung, Daten zu Ersatztransaktionen und den Transaktionsstatus verarbeiten. Wird eine Anmeldekarte ersetzt, können wir die alte und neue Wallet-Adresse, Nachweise der angeforderten Änderung, den Status des verknüpften Passkeys und die für die Fortsetzung oder Prüfung der Änderung erforderlichen Betriebsaufzeichnungen speichern.
 
-Wenn Sie eine Papier-Wallet oder andere von Ihnen kontrollierte Zugangsdaten verwenden, sind Sie für den Schutz des privaten Materials verantwortlich. Eine öffentliche Wallet-Adresse und öffentliche Blockchain-Transaktionen sind nicht privat.
+Die App speichert das private Material ihrer Browser-Anmeldekarte im lokalen Speicher dieses Browsers, damit der Browser signieren kann. GEF-Dienste erhalten Signaturen und signierte Transaktionen, nicht den unverarbeiteten privaten Schlüssel. Ein Passkey-Anbieter schützt den privaten Schlüssel des Passkeys; die App und ihre Dienste verwenden die Kennung der Anmeldedaten, das Material des öffentlichen Schlüssels, die Abfrage und die signierte Bestätigung, die zur Registrierung oder Prüfung erforderlich sind. Wenn Sie eine Papier-Wallet, eine Anmeldekarte, einen Passkey oder andere Anmeldedaten verwenden, sind Sie für den Schutz des Geräts und des privaten Materials verantwortlich.
+
+Wird ein Gutschein oder Fonds von einer kompatiblen Multisig kontrolliert, können wir die Multisig-Adresse, die Wallet-Adressen der unterzeichnenden Personen, den Genehmigungsschwellenwert, vorgeschlagene Transaktionen, Bestätigungen, den Ausführungsstatus und die zur Anzeige und Bedienung der Multisig-Steuerung erforderlichen Berechtigungen verarbeiten. Eigentümeradresse, Kreis der unterzeichnenden Personen und Schwellenwert können bei einer öffentlichen Eigentumsprüfung ausgegeben werden und auch auf einer öffentlichen Blockchain sichtbar sein.
 
 ### Geräte-, Sicherheits- und Nutzungsdaten
 
-Wir können technische und betriebliche Informationen erfassen, etwa IP-Adresse, Browser- und Geräteinformationen, Zeitstempel, aufgerufene Seiten oder Endpunkte, Sitzungs- und Sicherheitsereignisse, Validierungsfehler, Informationen zu Ratenbegrenzungen, Benachrichtigungsabonnements, Dienstaktivitäten und Diagnoseaufzeichnungen.
+Wir können technische und betriebliche Informationen erfassen, etwa IP-Adresse, Browser- und Geräteinformationen, Zeitstempel, aufgerufene Seiten oder Endpunkte, Sitzungs- und Sicherheitsereignisse, Validierungsfehler, Informationen zu Ratenbegrenzungen, Benachrichtigungsabonnements und Zustellbestätigungen, Dienstaktivitäten und Diagnoseaufzeichnungen.
 
 ### Inhalts- und Supportdaten
 
-Wir verarbeiten Informationen, die Sie in Gutscheinen, Fonds, Angeboten, Gesuchen, Katalogen, Beiträgen, Bewertungen, Bildern, Anhängen, Bedingungen, Beschreibungen, Tags, Standorten, Kontaktfeldern, Beschwerden, Supportnachrichten und anderen Mitteilungen übermitteln.
+Wir verarbeiten Informationen, die Sie in Gutscheinen, Fonds, Angeboten, Wünschen, Katalogen, Beiträgen, Gutschein- und Poolbewertungen, Bildern, Anhängen, Bedingungen, Beschreibungen, Tags, Standorten, Kontaktfeldern, privaten Nachrichten nach Transaktionen oder Bestellungen, Reklamationen, Supportnachrichten und anderen Mitteilungen übermitteln.
 
 Veröffentlichen Sie keine personenbezogenen Daten, Bilder, Kontaktdaten oder genauen Standorte anderer Personen, es sei denn, Sie haben dafür einen rechtmäßigen Grund und jede erforderliche Erlaubnis.
 
 ## 4. Was wird öffentlich?
 
-Die App unterscheidet vier wichtige Sichtbarkeitsstufen.
+Die App unterscheidet fünf wichtige Sichtbarkeitsstufen.
 
 | Sichtbarkeit | Bedeutung |
 | --- | --- |
-| Private Profil- und Kontodaten | Profilname, E-Mail-Adresse, Telefonnummer, gespeicherter Standort, Einstellungen, Authentifizierungsaufzeichnungen und ähnliche Kontoinformationen werden zum Betrieb der App verwendet und nicht automatisch in Antworten zu öffentlichen Ressourcen aufgenommen. Berechtigte Beschäftigte und Dienstleister von GEF können darauf zugreifen, wenn dies für ihre Arbeit erforderlich ist. |
+| Private Profil- und Kontodaten | Profilname, E-Mail-Adresse, Telefonnummer, gespeicherter Standort, Einstellungen, Authentifizierungsaufzeichnungen und ähnliche Kontoinformationen werden zum Betrieb der App verwendet und nicht automatisch in Antworten zu öffentlichen Ressourcen aufgenommen. Berechtigte Beschäftigte und Dienstleister von GEF können darauf zugreifen, wenn dies für ihre Arbeit erforderlich ist. Autorisierte Administratoren können außerdem das nicht öffentliche Kontoverzeichnis durchsuchen und verwalten. |
 | Exakte Empfängersuche | Ein angemeldeter Nutzer, der Ihren exakten Benutzernamen oder Ihre vollständige Telefonnummer eingibt, kann Ihren öffentlichen Benutzernamen und Ihre Wallet-Adresse erhalten. Teile eines Benutzernamens führen nicht zu einem Nutzerergebnis. Die für die Suche eingegebene Telefonnummer, Ihr privater Profilname, Ihre E-Mail-Adresse, Telefonnummer und Ihr gespeicherter Standort werden im Empfängerergebnis nicht zurückgegeben. |
-| Veröffentlichte App-Ressourcen | Felder, die bewusst in eine veröffentlichte Ressource eingegeben oder dorthin kopiert werden, können für alle Personen sichtbar sein, die auf den öffentlichen Katalog oder die Ressource zugreifen können. Öffentliche Felder können indexiert, kopiert, geteilt oder mit einer Wallet oder anderen Ressource verknüpft werden. |
+| Öffentliche Katalog- und Ressourcendaten | Veröffentlichte Beschreibungen, Bedingungen, Bilder, Tags, Wallet- und Vertragsadressen, Standorte, genaue Koordinaten, Angebote, Wünsche, Beiträge, Bewertungen, Poolregeln und technische Einstellungen können ohne Anmeldung eingesehen werden. Öffentliche Felder können indiziert, kopiert, geteilt oder mit einer Wallet oder anderen Ressource verknüpft werden. |
+| Angemeldeter Ressourcenkontakt | E-Mail, Telefonnummer, Website oder Kontaktanweisungen, die absichtlich zu einem Gutschein, Fonds oder Wunsch hinzugefügt wurden, werden aus abgemeldeten Katalog- und Detailantworten entfernt. Eine angemeldete Person kann den vollständigen kontaktbezogenen Gutschein- oder Pooldatensatz oder die für einen aktiven Wunsch ausgewählten Kontaktmethoden anfordern. Der Empfänger kann diese Informationen weiterhin kopieren, verwenden oder freigeben. Außer Betrieb genommene Ressourcen haben einen eingeschränkteren Besitzer- oder Administratorzugriff. |
 | Öffentliche Blockchain-Aufzeichnungen | Wallet-Adressen, Verträge, Salden, Bestände, Übertragungen, Beträge, Gegenparteien, Zeitstempel, Signaturen und Vertragsaktionen können dauerhaft über öffentliche Netzwerke und unabhängige Block-Explorer sichtbar sein. GEF kann eine öffentliche Blockchain weder löschen noch umschreiben. |
 
 Das Entfernen einer Ressource aus dem App-Katalog entfernt keine Kopien, die bereits von anderen Personen, Suchdiensten, Archiven, unabhängigen Indexierern oder öffentlichen Blockchains erstellt wurden.
@@ -80,21 +85,21 @@ Die für eine Ressource verfügbaren Felder können sich mit der Weiterentwicklu
 
 | Ressource | Informationen, die öffentlich werden können |
 | --- | --- |
-| Gutschein | Vertrags- und Blockchain-Kennungen; Name, Symbol, Beschreibung, angegebene Einheit und Wert des Gutscheins; Wallet-Adresse des Herausgebers oder Eigentümers; Bedingungen; Kontaktdaten; Standortname und genaue Koordinaten; Bilder; Tags; visuelle Kennzeichnungen; sowie aktiver oder aus dem Katalog genommener Status. |
-| Fonds | Vertrags- und Blockchain-Kennungen; Name und Beschreibung des Fonds; Wallet-Adressen des Eigentümers, Gebührenempfängers, Abhängigkeitsverantwortlichen oder anderer technischer Kontrollpersonen; unterstützte Gutscheine; Bestands- oder Verfügbarkeitsinformationen; Bewertungsmethode; Gebühren, Limits, Regeln und andere Konfigurationen; Kontaktdaten; Standortname und genaue Koordinaten; Bilder; Tags; und Zeitstempel. |
+| Gutschein | Öffentlich: Vertrags- und Blockchain-Kennungen; Name, Symbol, Beschreibung, angegebene Einheit und Wert des Gutscheins; Wallet-Adresse des Herausgebers oder Eigentümers; Bedingungen; Standortname und genaue Koordinaten; Bilder; Tags; visuelle Kennzeichnungen; sowie aktiver Katalogstatus. Angemeldet: bewusst eingegebene E-Mail-Adresse, Telefonnummer und Website. Aus dem Katalog genommene Datensätze sind über den Endpunkt mit vollständigen Informationen nur für berechtigte Eigentümer oder Administratoren verfügbar; die Blockchain-Historie kann öffentlich bleiben. |
+| Fonds | Öffentlich: Vertrags- und Blockchain-Kennungen; Name und Beschreibung des Fonds; Wallet-Adressen des Eigentümers, Gebührenempfängers, Abhängigkeitsverantwortlichen oder anderer technischer Kontrollpersonen; unterstützte Gutscheine; Bestands- oder Verfügbarkeitsinformationen; Bewertungsmethode; Gebühren, Limits, Regeln und andere Konfigurationen; Standortname und genaue Koordinaten; Bilder; Tags; Zeitstempel; und bei kompatiblen Multisigs Eigentümer- und Unterzeichneradressen sowie Genehmigungsschwelle. Angemeldet: bewusst eingegebene E-Mail-Adresse, Telefonnummer und Website. Aus dem Katalog genommene Datensätze haben denselben eingeschränkten Zugriff auf vollständige Informationen wie entsprechende Gutscheine. |
 | Angebot | Angaben zum verknüpften Gutschein; Wallet-Adresse des Verkäufers oder der Herkunft; angebotene Waren oder Dienstleistungen; Beschreibung, Menge, Einheit, Häufigkeit, Preis und Verfügbarkeit; Standortname und genaue oder übernommene Koordinaten; Bild; Tags; und Zeitstempel. |
-| Gesuch | Gesuchte Waren oder Dienstleistungen; Beschreibung; Tags; Bild; Status und Daten; Standortname und genaue Koordinaten; sowie nur die Kontaktmethode, die bewusst für dieses Gesuch ausgewählt wurde. Öffentliche Antworten zu einem Gesuch müssen das private Profil der erstellenden Person nicht identifizieren. |
+| Gesuch | Öffentlich: gesuchte Waren oder Dienstleistungen; Beschreibung; Tags; Bild; Status und Daten; Standortname und genaue Koordinaten. Angemeldet: nur die Kontaktanweisungen, E-Mail-Adresse oder Telefonnummer, die bewusst für dieses aktive Gesuch ausgewählt wurden. Öffentliche Antworten zum Gesuch lassen diese Kontaktfelder weg und identifizieren nicht das private Profil der erstellenden Person; verknüpfte Gutscheine oder Fonds können jedoch einen indirekten Zusammenhang erkennen lassen. |
 | Katalog | Name, Beschreibung, Bild und Tags des Katalogs; Wallet-Adresse des Eigentümers; aufgeführte Mitglieder oder Ressourcen; Anzahlen; Standortname und genaue Koordinaten; sowie Zeitstempel. |
-| Genehmigter Beitrag | Titel, Zusammenfassung, Inhalt, Name des Gastgebers, Angaben zu Teilnehmenden, Daten, Bilder, Bildunterschriften, Anhänge, eingebettete Links, Tags, verknüpfte Gutscheine oder Fonds und genaue Koordinaten. Entwürfe sowie eingereichte oder abgelehnte Beiträge sind nicht öffentlich. Die Wallet-Adresse des Autors wird für Verwaltung und Rechenschaftspflicht gespeichert, aber in öffentlichen Antworten zu Beiträgen nicht ausgegeben. Verknüpfte Ressourcen oder der Inhalt selbst können dennoch einen Zusammenhang erkennen lassen. |
-| Bewertung | Bewertung, Kommentar und jede öffentliche Antwort des Gutschein-Eigentümers. Die öffentliche Antwort zur Bewertung enthält weder die Wallet-Adresse der bewertenden Person noch Metadaten zur Einlösung. Der Dienst speichert jedoch Informationen, die benötigt werden, um die Berechtigung zu prüfen, doppelte Bewertungen zu verhindern, Inhalte zu moderieren und den Bewertungszeitraum durchzusetzen. |
+| Veröffentlichter Beitrag | Titel, Zusammenfassung, Inhalt, Name des Gastgebers, Angaben zu Teilnehmenden, Daten, Bilder, Bildunterschriften, Anhänge, eingebettete Links, Tags, verknüpfte Gutscheine oder Fonds und genaue Koordinaten. Wallet-Adresse und Bearbeitungsstatus des Autors werden für Verwaltung und Rechenschaftspflicht gespeichert, aber in öffentlichen Antworten zu Beiträgen nicht ausgegeben. Verknüpfte Ressourcen oder der Inhalt selbst können dennoch einen Zusammenhang erkennen lassen. |
+| Gutschein- oder Fondsbewertung | Bewertung, Kommentar und jede öffentliche Antwort des Gutschein- oder Fonds-Eigentümers. Die öffentliche Antwort enthält weder die Wallet-Adresse der bewertenden Person noch Nachweise zur Einlösung oder zum Tausch. Der Dienst speichert die Adresse und Nachweise, die benötigt werden, um die Berechtigung zu prüfen, doppelte Bewertungen zu verhindern, Antworten und Meldungen zu ermöglichen, Inhalte zu moderieren und den Bewertungszeitraum durchzusetzen. Wird eine Bewertung gemeldet, können Administratoren den Meldegrund und den gemeldeten Inhalt erhalten. |
 
 Kontaktdaten und genaue Koordinaten können persönliche Sicherheitsrisiken verursachen. Verwenden Sie nach Möglichkeit eine geeignete öffentliche Kontaktmethode und einen sicheren öffentlichen Treffpunkt statt einer Privatwohnung.
 
 ## 6. Informationen auf öffentlichen Blockchains
 
-Die App interagiert mit öffentlichen Blockchain-Netzwerken. Eine Transaktion kann die beteiligten Wallets, den Token- oder Gutscheinvertrag, den Betrag, den Zeitpunkt, den Status und damit verbundene Vertragsereignisse offenlegen. Fondsverträge können außerdem unterstützte Vermögenswerte, Salden, Gebühren, Limits, Bewertungen, Eigentümer, Administratoren, Abhängigkeiten und andere Konfigurationen offenlegen.
+Die App interagiert mit öffentlichen Blockchain-Netzwerken. Eine Transaktion kann die beteiligten Wallets, den Token- oder Gutscheinvertrag, den Betrag, den Zeitpunkt, den Status, die Signatur und damit verbundene Vertragsereignisse offenlegen. Fondsverträge können außerdem unterstützte Vermögenswerte, Salden, Einzahlungen, Auszahlungen, Tauschvorgänge, Liquiditätsabhebungen, Gebühren, Limits, Bewertungen, Eigentümer, Administratoren, Abhängigkeiten und andere Konfigurationen offenlegen. Kompatible Multisigs können Unterzeichnerkreise, Schwellenwerte, Vorschläge, Bestätigungen und ausgeführte Maßnahmen offenlegen.
 
-Blockchain-Informationen können von Netzwerkvalidatoren, Knotenbetreibern, Indexierern, Wallet-Software, Analysediensten und allen Personen verarbeitet werden, die das Netzwerk auslesen. Transaktionen können unumkehrbar sein. Das Schließen eines App-Kontos, die Änderung eines Profils oder die Aufforderung an GEF, Off-Chain-Daten zu löschen, löscht keine Blockchain-Aufzeichnungen.
+Blockchain-Informationen können von Netzwerkvalidatoren, Knotenbetreibern, Indexierern, Wallet-Software, Analysediensten und allen Personen verarbeitet werden, die das Netzwerk auslesen. Transaktionen können unumkehrbar sein. Das Schließen eines App-Kontos, die Änderung eines Profils, der Austausch einer Anmeldekarte, die Entfernung oder Stilllegung einer Katalogressource, die Vernichtung von Gutscheineinheiten oder die Aufforderung an GEF, Off-Chain-Daten zu löschen, löscht weder frühere Blockchain-Aufzeichnungen noch unabhängig indexierte Kopien.
 
 ## 7. Warum wir Daten verwenden und auf welcher Rechtsgrundlage
 
@@ -114,7 +119,7 @@ Wir behandeln Ihre Entscheidung, ein Feld zu veröffentlichen, nicht als Einwill
 
 ## 8. Erforderliche und optionale Daten
 
-Die App kennzeichnet erforderliche Felder im jeweiligen Formular. Für die derzeitige Kontoregistrierung sind eine Wallet-Adresse, ein Authentifizierungsnachweis, ein Name und eine E-Mail-Adresse erforderlich. Bestimmte Funktionen können zusätzliche Transaktions-, Kontakt-, Standort-, Berechtigungs- oder Ressourceninformationen verlangen.
+Die App kennzeichnet erforderliche Felder im jeweiligen Formular. Für die derzeitige geführte Kontoerstellung sind eine Wallet-Adresse und ein Authentifizierungsnachweis, ein Name, ein Profilbild, ein Land und ein gespeicherter Standort, eine bevorzugte Währung sowie mindestens eine E-Mail-Adresse oder Telefonnummer erforderlich. Ein Benutzername ist optional. Andere Wege zur Anmeldung oder Kontowiederherstellung können vorübergehende Systemwerte anlegen, bis die nutzende Person ihr Profil vervollständigt oder korrigiert. Bestimmte Funktionen können zusätzliche Transaktions-, Kontakt-, Standort-, Berechtigungs- oder Ressourceninformationen verlangen.
 
 Andere Profil- und Ressourcenfelder sind optional, sofern das Formular nichts anderes angibt. Wenn Sie erforderliche Informationen nicht bereitstellen, können wir möglicherweise kein Konto erstellen, Sie nicht authentifizieren, keine Transaktion übermitteln, keine Ressource veröffentlichen, keinen Support leisten, keine gesetzliche Anforderung erfüllen oder die gewünschte Funktion nicht bereitstellen.
 
@@ -136,13 +141,16 @@ Wir erhalten Daten:
 Wir legen nur Informationen offen, die für den genannten Zweck, nach anwendbarem Recht oder für die von Ihnen gewünschte öffentliche Handlung vernünftigerweise erforderlich sind. Zu den Empfängern können gehören:
 
 - App-Besuchende und -Nutzende, wenn Sie eine Ressource veröffentlichen oder eine öffentliche Blockchain verwenden;
+- angemeldete App-Benutzer, wenn sie Kontaktdaten anfordern, die Sie absichtlich einem aktiven Gutschein, Fonds oder Wunsch hinzugefügt haben;
 - Herausgeber, Fonds-Verantwortliche, Gegenparteien und andere Teilnehmende, die für eine Transaktion, Einlösung, Beschwerde oder angeforderte Dienstleistung benötigt werden;
 - Infrastrukturanbieter für Hosting, Datenbanken, Speicherung, Inhaltsbereitstellung, Sicherheit, Authentifizierung, Support, E-Mail, Benachrichtigungen, Karten, Geokodierung, Blockchain-Zugriff, Indexierung, Transaktionsweiterleitung und Überwachung;
 - unabhängige Wallet-, Blockchain-, Zahlungs-, Stablecoin-, Ein- und Auszahlungs- oder sonstige Drittanbieter, die Sie nutzen möchten;
 - professionelle Berater, Prüfer, Versicherer, Forschende, Förderer und Partner unter geeigneten Pflichten und Schutzmaßnahmen; und
 - Aufsichtsbehörden, Gerichte, Strafverfolgungsbehörden oder andere Personen, wenn eine Offenlegung gesetzlich vorgeschrieben oder zum Schutz von Rechten, Sicherheit und Integrität des Dienstes vernünftigerweise erforderlich ist.
 
-Drittanbieterdienste können Daten unmittelbar nach ihren eigenen Datenschutzhinweisen erheben. Vor der Veröffentlichung dieses Hinweises prüft GEF das aktuelle Verzeichnis der Anbieter und Übermittlungen, damit die Angaben zutreffend bleiben.
+Die produktive Webanwendung wird über Cloudflare Pages bereitgestellt. Ihre aktuelle Browserkonfiguration verwendet MapTiler für Kartenstile und IP-basierte Standortvorschläge, ArcGIS World Geocoding für die Ortssuche und umgekehrte Geocodierung sowie konfigurierte Gnosis-Chain-RPC-Endpunkte für Blockchain-Abfragen. Diese Dienste erhalten die zur Beantwortung nötigen Anfragedaten; dazu können IP-Adresse, Browserinformationen, Kartenbereich, Suchtext, Koordinaten oder Wallet- und Vertragsabfragen gehören.
+
+Weitere Integrationen hängen von der jeweiligen Funktion ab. Wenn sie aktiviert und genutzt werden, verarbeitet ein Benachrichtigungsdienst Endpunkte für Push-Abonnements, Gerätestatus, verknüpfte Wallet-Adressen, Zustell- und Klickbestätigungen und den Posteingangsstatus; ein Transaktions-Relay verarbeitet signierte Anfragen und den Transaktionsstatus; ein Safe-Transaktionsdienst verarbeitet Multisig-Adressen, Vorschläge, Signaturen, Bestätigungen und den Ausführungsstatus; und ein Zahlungs- oder Geldumtausch-Anbieter verarbeitet Telefonnummer, Wallet-Adresse, Vermögenswert, Betrag, Anbieterkennung, Kurs und Transaktionsstatus, soweit dies für die Funktion erforderlich ist. Bildspeicher, App-API, Datenbanken, Blockchain-Indexer und Überwachungsinfrastruktur verarbeiten die für ihre Aufgaben nötigen Inhalte und Betriebsaufzeichnungen. Drittanbieterdienste können Daten zudem unmittelbar nach ihren eigenen Datenschutzhinweisen erheben.
 
 ## 11. Internationale Verarbeitung
 
@@ -208,7 +216,7 @@ Ein späterer Hinweis macht zuvor private Daten nicht öffentlich. Die Sichtbark
 
 Für Datenschutzfragen oder -anfragen:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenia  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenia
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

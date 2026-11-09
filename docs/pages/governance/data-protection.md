@@ -1,16 +1,16 @@
 # Grassroots Economics Foundation Data Protection Policy
 
-> **Review draft — not yet effective.** This English text is available for public review before legal approval and translation. It does not replace an operative GEF policy until an approved version takes effect.
+**Version: 1.0**
 
-**Draft version: 1.0**
+**Publication date: 9 November 2026**
 
-**Draft date: 24 October 2026**
+**Effective date: 9 November 2026**
 
 ## 1. Purpose
 
 Grassroots Economics Foundation (**GEF**) respects privacy and handles personal data as a responsibility to the people and communities involved in its work. This Policy establishes minimum standards for personal data processed through GEF systems, programs, research, education, events, partnerships, and operations, including the Cosmo-Local Credit App (**CLC App**).
 
-This Policy is informed by Kenya's [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), applicable regulations, and current [Office of the Data Protection Commissioner guidance](https://www.odpc.go.ke/guidelines-2/). Other laws may also apply where GEF works or where affected people are located.
+This Policy is informed by Kenya's [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), applicable regulations, and current [Office of the Data Protection Commissioner guidance](https://www.odpc.go.ke/guidelines-2/index.html). Other laws may also apply where GEF works or where affected people are located.
 
 The [CLC App Privacy Notice](/governance/privacy) gives more specific information about App fields, public resources, recipient lookup, and public blockchain records. The [Terms of Service](/governance/terms) govern use of the App.
 

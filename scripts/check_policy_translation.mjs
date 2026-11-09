@@ -51,10 +51,10 @@ for (const key of ['policies', 'privacy', 'dataProtection', 'childSafeguarding']
 for (const key of ['title', 'body', 'englishSource']) {
   if (!catalog?.notice?.[key]?.trim()) errors.push(`${locale}: missing notice.${key}`)
 }
-for (const key of ['sourceVersion', 'englishDraftDate', 'translationDraftDate']) {
+for (const key of ['sourceVersion', 'englishPublicationDate', 'translationPublicationDate']) {
   if (!catalog?.metadata?.[key]?.trim()) errors.push(`${locale}: missing metadata.${key}`)
 }
-for (const key of ['sourceDraftDate', 'translationDraftDate', 'sourceAppCommit']) {
+for (const key of ['sourcePublicationDate', 'translationPublicationDate', 'sourceAppCommit']) {
   if (!catalog?.[key]?.trim()) errors.push(`${locale}: missing ${key}`)
 }
 
@@ -123,8 +123,8 @@ for (const route of policyRoutes) {
   for (const required of [
     `> **${catalog.notice.title}** ${catalog.notice.body} [${catalog.notice.englishSource}](${route})`,
     `**${catalog.metadata.sourceVersion}${catalog.metadataSeparator ?? ': '}${policyRegistry.source.version}**`,
-    `**${catalog.metadata.englishDraftDate}${catalog.metadataSeparator ?? ': '}${catalog.sourceDraftDate}**`,
-    `**${catalog.metadata.translationDraftDate}${catalog.metadataSeparator ?? ': '}${catalog.translationDraftDate}**`,
+    `**${catalog.metadata.englishPublicationDate}${catalog.metadataSeparator ?? ': '}${catalog.sourcePublicationDate}**`,
+    `**${catalog.metadata.translationPublicationDate}${catalog.metadataSeparator ?? ': '}${catalog.translationPublicationDate}**`,
   ]) {
     if (!translated.includes(required)) errors.push(`${route}: missing policy notice or metadata: ${required}`)
   }

@@ -1,14 +1,14 @@
 # Politiques et avis
 
-> **Traduction de travail — pas encore en vigueur.** Cette traduction française est mise à disposition pour relecture avant l’approbation juridique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable. [Lire le texte anglais.](/governance/policies)
+> **Traduction fournie à titre pratique.** Cette traduction est fournie à titre pratique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable. [Lire le texte anglais.](/governance/policies)
 
-**Version provisoire de la source : 1.0**
+**Version source : 1.0**
 
-**Date du projet anglais : 24 octobre 2026**
+**Date de publication et de prise d’effet du texte anglais : 9 novembre 2026**
 
-**Date de cette traduction de travail : 25 octobre 2026**
+**Date de publication de la traduction : 9 novembre 2026**
 
-Grassroots Economics Foundation (**GEF**) exploite l’application Cosmo-Local Credit (**CLC App**). Cette page rassemble les conditions, les informations relatives à la confidentialité et les politiques de l’organisation qui s’appliquent à l’Application et aux activités concernées de GEF.
+Grassroots Economics Foundation (**GEF **) exploite l’application Cosmo-Local Credit (** CLC App**). Cette page rassemble les conditions, les informations relatives à la confidentialité et les politiques de l’organisation qui s’appliquent à l’Application et aux activités concernées de GEF.
 
 ## Quel document consulter ?
 
@@ -27,7 +27,7 @@ Chaque document précise son propre champ d’application. Si une traduction dif
 
 ## Documents actuels et anciens
 
-Une fois approuvés et assortis de dates de publication et d’entrée en vigueur, ces documents constitueront les sources à jour pour les domaines qu’ils couvrent. Les anciennes pages de politiques de Grassroots Economics restent utiles comme documents historiques, mais elles ne décrivent pas tous les champs, toutes les mesures de protection ni toutes les limites entre informations publiques et privées dans la version actuelle de CLC App.
+Ces documents datés sont les sources actuelles pour la portée qu’ils décrivent. Les pages de politiques antérieures de Grassroots Economics restent utiles comme document historique, mais elles ne décrivaient pas tous les domaines, sauvegardes ou frontières public/privé dans le CLC App actuel.
 
 La Politique de confidentialité de Social Soil s’applique au jeu éducatif distinct Social Soil ; elle ne constitue pas une politique de CLC App.
 

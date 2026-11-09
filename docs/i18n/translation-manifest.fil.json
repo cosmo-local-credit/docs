@@ -1,5 +1,5 @@
 {
-  "sourceAppCommit": "facf5e034dc668c2e5ded90b9dd5995690f0fb63",
+  "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "translationPublicationDate": "10 October 2026",
   "status": "first-draft-review",
   "reviewProcess": [
@@ -122,10 +122,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
+      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
       "locales": {
         "fil": {
-          "sha256": "1d1c3ec8c9adad916bb0aeb23f32968457e7b0ca2f491374ea885e3cfd176003",
+          "sha256": "3b112d17f01fffadc258ca51749922d9ff540a2b3f0d3900d80607b4f1ead010",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6821,
@@ -514,81 +514,69 @@
     },
     "/governance/policies": {
       "source": "governance/policies.md",
-      "sourceSha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340",
+      "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c",
       "locales": {
         "fil": {
-          "sha256": "c7195f788bfb7f66621292b18f85d33fd07ccf487727761a7b5f820fd4382fd6",
+          "sha256": "a69dab958eef82b4e417423ca0ad1d1d92c6276bfc05aa5ff0e987df8c27849b",
           "review": {
-            "units": 36,
-            "meanBackTranslationSimilarity": 0.7495,
-            "unitsBelow0_35": 3,
-            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11",
+      "sourceSha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0",
       "locales": {
         "fil": {
-          "sha256": "a65d3ae7e40f913bb5388e4fe0b43e9d892b66c8c44f16087a8d897c4e8b5b0c",
+          "sha256": "94687e2ad6d323fa10bf91bf1be1cef6b8c680e8ba89248e034dbe422dbfa90f",
           "review": {
-            "units": 174,
-            "meanBackTranslationSimilarity": 0.6889,
-            "unitsBelow0_35": 22,
-            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     },
     "/governance/data-protection": {
       "source": "governance/data-protection.md",
-      "sourceSha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92",
+      "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61",
       "locales": {
         "fil": {
-          "sha256": "35b1d2ab7f6fe2290c7760e3e299f81364d88f66dc154d367322ab4ce6353265",
+          "sha256": "8c08f12024b20ea23f5bc8e4b5622c12281f1d9f31b52b58937dd3ca3549c206",
           "review": {
-            "units": 132,
-            "meanBackTranslationSimilarity": 0.6782,
-            "unitsBelow0_35": 19,
-            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     },
     "/governance/child-safeguarding": {
       "source": "governance/child-safeguarding.md",
-      "sourceSha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd",
+      "sourceSha256": "f87320a4609ab130bab19e9905c2ffad36b16a2e7f519876f8dcf23f3165e133",
       "locales": {
         "fil": {
-          "sha256": "00db252b3dd0be720f845e567c3dcf0376b2a9b1f0c749b020428f9850376139",
+          "sha256": "133136f452832105948ee4a120763ec1af32560e4fe9b1ab7015cdacf78c7a38",
           "review": {
-            "units": 134,
-            "meanBackTranslationSimilarity": 0.6858,
-            "unitsBelow0_35": 14,
-            "method": "rejected machine candidate, manual Filipino rewrite, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     }
   },
-  "policyTranslationDraftDate": "28 Oktubre 2026",
-  "policySourceAppCommit": "f20006dca642321ee8db333fc3ce6b418858ebd3",
+  "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "policyReviewProcess": [
-    "MADLAD-400 candidate rejected after protected-name and semantic review",
-    "manual Filipino rewrite preserving the English structure and app vocabulary",
-    "complete plain-language skim and independent back-translation of all 476 aligned units"
+    "reviewed translation memory retained for unchanged units",
+    "semantic translation of changed units",
+    "complete plain-language and legal-meaning review of the four policy pages",
+    "protected-token, structure, link, and source-hash verification"
   ],
   "policyBackTranslationReview": {
-    "units": 476,
-    "meanBackTranslationSimilarity": 0.6896,
-    "unitsBelow0_35": 58,
-    "threshold": 0.35,
-    "lowConfidenceReport": "policy-review.fil.json"
-  }
+    "status": "completed-before-final-human-review",
+    "scope": "changed policy units",
+    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
+  },
+  "policyTranslationPublicationDate": "9 Nobyembre 2026",
+  "policyStatus": "release-ready"
 }

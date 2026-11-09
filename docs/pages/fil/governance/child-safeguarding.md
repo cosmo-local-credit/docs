@@ -1,12 +1,12 @@
 # Patakaran sa Pangangalaga sa mga Bata
 
-> **Salin para sa pagsusuri — hindi pa epektibo.** Inilaan ang saling Filipino na ito para sa pagsusuri bago ang legal na pag-apruba. Ang tekstong Ingles ang pinagmulan at siyang mananaig, maliban kung iba ang hinihingi ng naaangkop na batas. [Basahin ang tekstong Ingles.](/governance/child-safeguarding)
+> **Salin para sa kaginhawaan.** Ibinibigay ang saling ito para sa kaginhawaan. Ang tekstong Ingles ang pinagmulang teksto at siyang masusunod, maliban kung iba ang hinihingi ng naaangkop na batas. [Basahin ang tekstong Ingles.](/governance/child-safeguarding)
 
-**Bersyon ng pinagmulang draft: 1.0**
+**Bersyon ng pinagmulang teksto: 1.0**
 
-**Petsa ng English draft: 24 Oktubre 2026**
+**Petsa ng paglalathala at pagkakabisa ng tekstong Ingles: 9 Nobyembre 2026**
 
-**Petsa ng saling ito para sa pagsusuri: 28 Oktubre 2026**
+**Petsa ng paglalathala ng salin: 9 Nobyembre 2026**
 
 ## 1. Layunin
 
@@ -110,7 +110,7 @@ Hindi dapat magresulta sa pagganti o hindi inihayag na pagkawala ng mahalagang s
 
 ## 11. Mga larawan, kuwento, pananaliksik, at personal na data
 
-Kinokolekta at ginagamit lamang ng GEF ang impormasyon ng mga bata kapag may malinaw na layunin, legal na awtoridad, at angkop na proteksyon. Ang [Patakaran sa Proteksyon ng Data](/fil/governance/data-protection) ay naaangkop din.
+Kinokolekta at ginagamit lamang ng GEF ang impormasyon ng mga bata kapag may malinaw na layunin, legal na awtoridad, at angkop na proteksyon. Naaangkop din ang [Patakaran sa Proteksyon ng Data](/fil/governance/data-protection) at ang [Gabay ng ODPC sa Pagproseso ng Data ng mga Bata](https://www.odpc.go.ke/guidelines-2/index.html).
 
 Bago i-record o ilathala ang larawan, boses, kuwento, gawa, pagkakakilanlan, contact detail, kaugnayan sa komunidad, o lokasyon ng bata, dapat isaalang-alang ng responsableng team ang pahintulot, dignidad, katumpakan, muling paggamit sa hinaharap, audience, digital permanence, at panganib ng pagkilala o pinsala.
 
@@ -180,9 +180,9 @@ Sinusuri ng GEF ang Patakarang ito hindi bababa sa isang beses bawat taon at pag
 
 Maaaring ipadala ang mga ulat at tanong tungkol sa pangangalaga sa:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [info@grassecon.org](mailto:info@grassecon.org)
 
 Dapat ipadala nang hiwalay ang mga tanong tungkol sa privacy at mga karapatan sa data sa [privacy@grassecon.org](mailto:privacy@grassecon.org).

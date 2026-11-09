@@ -1,16 +1,16 @@
 # Aviso de privacidade da CLC App
 
-> **Tradução de trabalho — ainda não em vigor.** Esta tradução para português é disponibilizada para revisão antes da aprovação jurídica. O texto em inglês é o texto de origem e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/privacy)
+> **Tradução de conveniência.** Esta tradução é fornecida para facilitar a leitura. O texto em inglês é o texto original e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/privacy)
 
-**Versão provisória da fonte: 1.0**
+**Versão do texto original: 1.0**
 
-**Data do rascunho em inglês: 24 de outubro de 2026**
+**Data de publicação e de entrada em vigor do texto inglês: 9 de novembro de 2026**
 
-**Data desta tradução de trabalho: 25 de outubro de 2026**
+**Data de publicação da tradução: 9 de novembro de 2026**
 
-Este Aviso de privacidade explica como a Grassroots Economics Foundation (**GEF**, **nós**, **nos** ou **nosso**) trata dados pessoais quando visita ou utiliza a aplicação Cosmo-Local Credit em `cosmolocal.credit` e os serviços relacionados operados pela GEF (em conjunto, a **Aplicação**).
+Este Aviso de privacidade explica como a Grassroots Economics Foundation (**GEF **, ** nós **, ** nos ** ou ** nosso **) trata dados pessoais quando visita ou utiliza a aplicação Cosmo-Local Credit em `cosmolocal.credit` e os serviços relacionados operados pela GEF (em conjunto, a ** Aplicação**).
 
-> **Leia antes de publicar.** Os dados de contacto e a localização guardada no seu perfil não são apresentados automaticamente em recursos públicos. As informações que introduzir ou copiar para um Vale, Fundo, Oferta, Pedido, Catálogo ou Publicação podem tornar-se públicas quando publicar esse recurso. Uma localização pública pode incluir as coordenadas exatas do mapa que selecionou.
+> **Leia antes de publicar.** O seu perfil privado não é um perfil público. As informações que introduzir ou copiar num Vale, Fundo, Oferta, Procura, Catálogo ou Publicação podem, ainda assim, ser publicadas através desse recurso. A descrição, os termos, as imagens, as etiquetas, os endereços de Carteira e as coordenadas exatas do mapa de um recurso podem ser visíveis sem iniciar sessão. Os dados de contacto de um Vale, Fundo ou Procura são apresentados apenas através das funcionalidades de informação ou contacto acessíveis após iniciar sessão, mas o destinatário pode ainda copiá-los ou partilhá-los.
 
 Este Aviso complementa os [Termos de Serviço](/pt/governance/terms) e a [Política de Proteção de Dados](/pt/governance/data-protection).
 
@@ -37,39 +37,44 @@ Não regula a forma como um Emissor independente, um Gestor do Fundo, um prestad
 
 Consoante as funcionalidades que utilizar, podemos recolher:
 
-- o seu nome de utilizador público e o endereço público da sua Carteira blockchain;
+- o seu nome de utilizador e o endereço público da sua Carteira blockchain;
 - o seu nome, endereço de correio eletrónico, número de telefone, país e moeda preferida;
 - a sua biografia, site, avatar, bem como o nome e as coordenadas da localização guardada;
 - a função, o estado e os limites de recursos da conta, e as datas de criação ou atualização; e
 - as suas definições, idioma, preferências de notificação e outras escolhas.
 
-O seu nome de utilizador público é diferente do nome privado do seu perfil. O perfil pode ser utilizado para preencher previamente formulários, mas esse preenchimento não publica um campo até que decida publicar o recurso.
+O seu nome de utilizador é diferente do nome privado do seu perfil. É utilizado como identificador do destinatário e pode ser devolvido com o endereço da sua Carteira a uma pessoa com sessão iniciada que introduza o nome de utilizador exato. O seu perfil pode ser utilizado para pré-preencher formulários, mas esse preenchimento não publica um campo até escolher publicar o recurso.
+
+Os administradores autorizados podem pesquisar o diretório de contas por nome, nome de utilizador, correio eletrónico, número de telefone ou endereço de Carteira. Podem consultar os campos de identidade e contacto da conta, a função, o estado, os limites de recursos e os recursos associados quando necessário para operar, prestar apoio, moderar e proteger a Aplicação. Este diretório não é público.
 
 ### Dados de autenticação, Carteira e transações
 
-Podemos tratar endereços de Carteiras, mensagens assinadas, autorizações de transações, assinaturas, identificadores de credenciais de chaves de acesso e coordenadas de chaves públicas, identificadores de sessão, pedidos de transação, registos de retransmissão e o estado das transações. Não precisamos da chave privada da sua chave de acesso para verificar uma autenticação efetuada com ela.
+Podemos tratar endereços de Carteira, mensagens assinadas, autorizações de transações, assinaturas, identificadores de credenciais de acesso e coordenadas de chaves públicas, estado das credenciais, identificadores e funções de sessão, pedidos de transação, registos de retransmissão, dados de transações de substituição e estado das transações. Se um cartão de início de sessão for substituído, podemos conservar os endereços de Carteira antigo e novo, as provas da alteração solicitada, o estado da credencial de acesso associada e os registos operacionais necessários para retomar ou verificar a alteração.
 
-Se utilizar uma Carteira em papel ou outra credencial sob o seu controlo, é responsável por proteger o respetivo material secreto. Um endereço público de Carteira e as transações numa blockchain pública não são privados.
+A Aplicação guarda o material privado do cartão de início de sessão no armazenamento local do navegador para que este possa assinar. Os serviços da GEF recebem assinaturas e transações assinadas, e não a chave privada em bruto. O fornecedor de uma credencial de acesso protege a respetiva chave privada; a Aplicação e os seus serviços utilizam o identificador, o material de chave pública, o desafio e a declaração assinada necessários para a registar ou verificar. Se utilizar uma Carteira em papel, um cartão de início de sessão, uma credencial de acesso ou outra credencial, é responsável por proteger o dispositivo e o material privado.
+
+Quando um Vale ou Fundo é controlado por uma carteira multifirma compatível, podemos tratar o endereço multifirma, os endereços de Carteira dos signatários, o limiar de aprovação, as transações propostas, as confirmações, o estado de execução e as permissões necessárias para apresentar e operar os controlos multifirma. O endereço do proprietário, o conjunto de signatários e o limiar podem ser devolvidos através da consulta pública da propriedade e também podem ser visíveis numa blockchain pública.
 
 ### Dados do dispositivo, de segurança e de utilização
 
-Podemos recolher informações técnicas e operacionais, como o endereço IP, informações do navegador e do dispositivo, marcas temporais, páginas ou pontos de acesso solicitados, eventos de sessão e de segurança, erros de validação, informações sobre limites de pedidos, subscrições de notificações, atividade do serviço e registos de diagnóstico.
+Podemos coletar informações técnicas e operacionais, como endereço IP, informações do navegador e dispositivo, carimbos de data/hora, páginas ou pontos finais solicitados, eventos de sessão e segurança, erros de validação, informações de limite de taxa, assinaturas de notificações e confirmações de entrega, atividade de serviço e registros de diagnóstico.
 
 ### Conteúdo e dados de apoio
 
-Tratamos as informações que enviar em Vales, Fundos, Ofertas, Pedidos, Catálogos, Publicações, Avaliações, imagens, anexos, termos, descrições, etiquetas, localizações, campos de contacto, reclamações, mensagens de apoio e outras comunicações.
+Tratamos as informações que envia em Vales, Fundos, Ofertas, Procuras, Catálogos, Publicações, Avaliações de Vales e Fundos, imagens, anexos, termos, descrições, etiquetas, localizações, campos de contacto, mensagens privadas ou encomendas posteriores a uma transação, reclamações, mensagens de apoio e outras comunicações.
 
 Não publique dados pessoais, imagens, dados de contacto ou a localização precisa de outra pessoa, salvo se tiver um fundamento lícito e qualquer autorização necessária.
 
 ## 4. O que se torna público?
 
-A Aplicação tem quatro níveis importantes de visibilidade.
+A aplicação tem cinco níveis de visibilidade importantes.
 
 | Visibilidade | O que significa |
 | --- | --- |
-| Dados privados do perfil e da conta | O nome do perfil, o endereço de correio eletrónico, o número de telefone, a localização guardada, as preferências, os registos de autenticação e outras informações semelhantes da conta são utilizados para operar a Aplicação e não são incluídos automaticamente nas respostas públicas dos recursos. O pessoal autorizado da GEF e os prestadores de serviços podem aceder-lhes quando necessário para o seu trabalho. |
+| Dados privados do perfil e da conta | O nome do perfil, o correio eletrónico, o número de telefone, a localização guardada, as preferências, os registos de autenticação e outras informações semelhantes da conta são utilizados para operar a Aplicação e não são automaticamente incluídos nas respostas públicas dos recursos. O pessoal autorizado da GEF e os prestadores de serviços podem aceder a esses dados quando necessário para o seu trabalho. Os administradores autorizados também podem pesquisar e gerir o diretório não público de contas. |
 | Pesquisa exata de destinatário | Um utilizador com sessão iniciada que introduza o seu nome de utilizador exato ou o número de telefone completo pode receber o seu nome de utilizador público e o endereço da sua Carteira. Uma pesquisa com apenas parte do nome de utilizador não devolve qualquer utilizador. O número de telefone utilizado na consulta, o nome privado do perfil, o endereço de correio eletrónico, o número de telefone e a localização guardada não são devolvidos no resultado da pesquisa. |
-| Recursos publicados na Aplicação | Os campos introduzidos ou copiados deliberadamente para um recurso publicado podem ser visíveis para qualquer pessoa que possa aceder ao catálogo público ou ao recurso. Os campos públicos podem ser indexados, copiados, partilhados ou associados a uma Carteira ou a outro recurso. |
+| Dados públicos do catálogo e dos recursos | As descrições, termos, imagens, etiquetas, endereços de Carteira e de contrato, localizações, coordenadas exatas, Ofertas, Procuras, Publicações, Avaliações, regras dos Fundos e configurações técnicas publicadas podem ser visíveis sem iniciar sessão. Os campos públicos podem ser indexados, copiados, partilhados ou associados a uma Carteira ou outro recurso. |
+| Contacto do recurso acessível após iniciar sessão | O correio eletrónico, o telefone, o site ou as instruções de contacto adicionados deliberadamente a um Vale, Fundo ou Procura são removidos das respostas de catálogo e de detalhe sem sessão iniciada. Uma pessoa com sessão iniciada pode pedir o registo completo de um Vale ou Fundo com dados de contacto, ou os métodos de contacto selecionados para uma Procura ativa. O destinatário pode ainda copiar, utilizar ou partilhar essas informações. O acesso aos recursos retirados é mais restrito ao proprietário ou a um administrador. |
 | Registos públicos de blockchain | Endereços de Carteiras, contratos, saldos, ativos detidos, transferências, montantes, contrapartes, marcas temporais, assinaturas e ações de contratos podem permanecer visíveis de forma permanente através de redes públicas e exploradores de blocos independentes. A GEF não pode apagar nem reescrever uma blockchain pública. |
 
 Retirar um recurso do catálogo da Aplicação não elimina as cópias já efetuadas por outras pessoas, serviços de pesquisa, arquivos, indexadores independentes ou blockchains públicas.
@@ -80,21 +85,21 @@ Os campos disponíveis para um recurso podem mudar à medida que a Aplicação e
 
 | Recurso | Informações que podem tornar-se públicas |
 | --- | --- |
-| Vale | Identificadores do contrato e da rede; nome, símbolo, descrição, unidade e valor declarados do Vale; endereço de Carteira do Emissor ou proprietário; termos; dados de contacto; nome da localização e coordenadas exatas; imagens; etiquetas; marcadores visuais; e estado ativo ou retirado no catálogo. |
-| Fundo | Identificadores do contrato e da rede; nome e descrição do Fundo; endereços de Carteira do proprietário, destinatário de comissões, dependências ou outros controladores técnicos; Vales suportados; informações sobre inventário ou disponibilidade; método de avaliação; comissões, limites, regras e outras configurações; dados de contacto; nome da localização e coordenadas exatas; imagens; etiquetas; e marcas temporais. |
+| Vale | Público: identificadores de contrato e cadeia; nome, símbolo, descrição, unidade e valor declarados do Vale; endereço de Carteira do Emissor ou proprietário; termos; nome da localização e coordenadas exatas; imagens; etiquetas; marcadores visuais; e estado ativo no catálogo. Com sessão iniciada: correio eletrónico, telefone e site introduzidos deliberadamente. Os registos retirados só estão disponíveis para um proprietário ou administrador autorizado através do ponto de acesso de informações completas, enquanto o histórico da cadeia pode permanecer público. |
+| Fundo | Público: identificadores de contrato e cadeia; nome e descrição do Fundo; endereços de Carteira do proprietário, destinatário de taxas, dependência ou outro controlador técnico; Vales suportados; informações sobre inventário ou disponibilidade; método de avaliação; taxas, limites, regras e outras configurações; nome da localização e coordenadas exatas; imagens; etiquetas; marcas temporais; e, para carteiras multifirma compatíveis, endereços do proprietário e dos signatários e limiar de aprovação. Com sessão iniciada: correio eletrónico, telefone e site introduzidos deliberadamente. Os registos retirados têm o mesmo acesso mais restrito às informações completas que os Vales retirados. |
 | Oferta | Dados do Vale associado; endereço de Carteira do vendedor ou de proveniência; bens ou serviços oferecidos; descrição, quantidade, unidade, frequência, preço e disponibilidade; nome da localização e coordenadas exatas ou herdadas; imagem; etiquetas; e marcas temporais. |
-| Pedido | Bens ou serviços pedidos; descrição; etiquetas; imagem; estado e datas; nome da localização e coordenadas exatas; e apenas o meio de contacto selecionado deliberadamente para esse Pedido. As respostas públicas de um Pedido não têm de identificar o perfil privado da pessoa que o criou. |
+| Procura | Público: bens ou serviços procurados; descrição; etiquetas; imagem; estado e datas; nome da localização e coordenadas exatas. Com sessão iniciada: apenas as instruções de contacto, o correio eletrónico ou o telefone selecionados deliberadamente para essa Procura ativa. As respostas públicas omitem esses campos de contacto e não identificam o perfil privado do autor, embora Vales ou Fundos associados possam criar uma ligação indireta. |
 | Catálogo | Nome, descrição, imagem e etiquetas do Catálogo; endereço de Carteira do proprietário; membros ou recursos listados; contagens; nome da localização e coordenadas exatas; e marcas temporais. |
-| Publicação aprovada | Título, resumo, corpo, nome do anfitrião, informações sobre participantes, datas, imagens, legendas, anexos, ligações incorporadas, etiquetas, Vales ou Fundos associados e coordenadas exatas. As Publicações em rascunho, submetidas ou rejeitadas não são públicas. O endereço de Carteira do autor é conservado para gestão e prestação de contas, mas é omitido nas respostas públicas da Publicação. Os recursos associados ou o próprio conteúdo podem ainda assim revelar uma associação. |
-| Avaliação | Classificação, comentário e qualquer resposta pública do proprietário do Vale. A resposta pública da Avaliação omite o endereço de Carteira de quem fez a Avaliação e os metadados de resgate, embora o serviço conserve as informações necessárias para verificar a elegibilidade, impedir Avaliações duplicadas, moderar o conteúdo e aplicar o período de avaliação. |
+| Publicação | Título, resumo, corpo, nome do anfitrião, informações dos participantes, datas, imagens, legendas, anexos, ligações incorporadas, etiquetas, Vales ou Fundos associados e coordenadas exatas. O endereço de Carteira do autor e o estado do fluxo de trabalho são conservados para gestão e prestação de contas, mas omitidos das respostas públicas. Os recursos associados ou o próprio conteúdo podem ainda revelar uma ligação. |
+| Avaliação de Vale ou Fundo | Classificação, comentário e qualquer resposta pública do proprietário do Vale ou Fundo. A resposta pública omite o endereço de Carteira do autor da Avaliação e as provas de resgate ou troca. O serviço conserva o endereço e as provas necessários para verificar a elegibilidade, evitar avaliações duplicadas, permitir respostas e sinalizações, moderar o conteúdo e aplicar o período de avaliação. Os administradores podem receber o motivo da denúncia e o conteúdo denunciado quando uma Avaliação é sinalizada. |
 
 Os dados de contacto e as coordenadas exatas podem criar riscos para a segurança pessoal. Sempre que possível, utilize um meio de contacto público adequado e um local público seguro em vez de uma residência privada.
 
 ## 6. Informações públicas de blockchain
 
-A Aplicação interage com redes públicas de blockchain. Uma transação pode revelar as Carteiras envolvidas, o contrato do Token ou do Vale, o montante, a hora, o estado e eventos contratuais relacionados. Os contratos de Fundos também podem revelar os ativos suportados, saldos, comissões, limites, avaliações, proprietários, administradores, dependências e outras configurações.
+A Aplicação interage com redes públicas de blockchain. Uma transação pode divulgar as Carteiras envolvidas, o contrato do Token ou Vale, o montante, a hora, o estado, a assinatura e os eventos de contrato relacionados. Os contratos de Fundo também podem divulgar ativos suportados, saldos, depósitos, pagamentos, trocas, retiradas de liquidez, taxas, limites, avaliações, proprietários, administradores, dependências e outras configurações. As carteiras multifirma compatíveis podem divulgar conjuntos de signatários, limiares, propostas, confirmações e ações executadas.
 
-As informações da blockchain podem ser tratadas por validadores de rede, operadores de nós, indexadores, programas de Carteira, serviços de análise e qualquer pessoa que consulte a rede. As transações podem ser irreversíveis. Encerrar uma conta da Aplicação, alterar um perfil ou pedir à GEF que elimine dados fora da blockchain não elimina os registos da blockchain.
+As informações da blockchain podem ser tratadas por validadores de rede, operadores de nós, indexadores, software de Carteira, serviços de análise e qualquer pessoa que consulte a rede. As transações podem ser irreversíveis. Fechar uma conta da Aplicação, alterar um perfil, substituir um cartão de início de sessão, remover ou retirar um recurso do catálogo, destruir unidades de Vale ou pedir à GEF que elimine dados fora da cadeia não elimina registos anteriores da blockchain nem cópias indexadas de forma independente.
 
 ## 7. Porque utilizamos dados e quais são os nossos fundamentos jurídicos
 
@@ -114,7 +119,7 @@ Não tratamos a sua decisão de publicar um campo como consentimento para public
 
 ## 8. Dados obrigatórios e opcionais
 
-A Aplicação identifica os campos obrigatórios no formulário relevante. Atualmente, são necessários um endereço de Carteira, uma prova de autenticação, um nome e um endereço de correio eletrónico para registar uma conta. Certas funcionalidades podem exigir informações adicionais sobre transações, contacto, localização, elegibilidade ou recursos.
+A Aplicação identifica os campos obrigatórios no formulário relevante. A criação guiada de uma conta exige atualmente um endereço de Carteira e uma prova de autenticação, um nome, uma imagem de perfil, um país e uma localização guardada, uma moeda preferida e pelo menos um endereço de correio eletrónico ou um número de telefone. O nome de utilizador é opcional. Outros percursos de início de sessão ou recuperação de conta podem criar valores temporários do sistema até o utilizador completar ou corrigir o perfil. Algumas funcionalidades podem exigir informações adicionais sobre transações, contactos, localização, elegibilidade ou recursos.
 
 Os restantes campos do perfil e dos recursos são opcionais, salvo indicação em contrário no formulário. Se não fornecer as informações obrigatórias, poderemos não conseguir criar uma conta, autenticá-lo, submeter uma transação, publicar um recurso, prestar apoio, cumprir um requisito legal ou disponibilizar a funcionalidade solicitada.
 
@@ -136,13 +141,16 @@ Recebemos dados:
 Só divulgamos as informações razoavelmente necessárias para a finalidade indicada, o direito aplicável ou a ação pública que solicitou. Os destinatários podem incluir:
 
 - visitantes e utilizadores da Aplicação quando publicar um recurso ou utilizar uma blockchain pública;
+- utilizadores da Aplicação com sessão iniciada quando pedem os dados de contacto que associou deliberadamente a um Vale, Fundo ou Procura ativos;
 - Emissores, Gestores de Fundos, contrapartes e outros participantes necessários para uma transação, resgate, reclamação ou serviço solicitado;
 - prestadores de infraestrutura para alojamento, bases de dados, armazenamento, distribuição de conteúdos, segurança, autenticação, apoio, correio eletrónico, notificações, mapas, geocodificação, acesso a blockchain, indexação, retransmissão de transações e monitorização;
 - fornecedores independentes de Carteiras, blockchain, pagamentos, stablecoins, serviços de entrada ou saída de numerário ou outros serviços externos que escolha utilizar;
 - consultores profissionais, auditores, seguradoras, investigadores, financiadores e parceiros sujeitos a deveres e salvaguardas adequados; e
 - reguladores, tribunais, autoridades policiais ou outras pessoas quando a divulgação seja exigida por lei ou razoavelmente necessária para proteger direitos, a segurança e a integridade do serviço.
 
-Os serviços externos podem recolher dados diretamente ao abrigo dos seus próprios avisos de privacidade. Antes da publicação deste Aviso, a GEF analisa o inventário atual de prestadores e transferências para manter exatas as informações divulgadas.
+A Aplicação web de produção é distribuída através do Cloudflare Pages. A configuração atual no navegador utiliza MapTiler para os estilos de mapa e as sugestões de localização baseadas no endereço IP, ArcGIS World Geocoding para a pesquisa de locais e a geocodificação inversa, e pontos de acesso RPC configurados de Gnosis Chain para leituras da cadeia. Estes serviços recebem os dados necessários para responder, que podem incluir o endereço IP, informações do navegador, a área do mapa, o texto da pesquisa, coordenadas ou consultas de Carteira e contrato.
+
+Outras integrações dependem da funcionalidade utilizada. Quando ativado e utilizado, um serviço de notificações trata pontos de acesso de subscrição push, o estado do dispositivo, endereços de Carteira associados, confirmações de entrega e clique e o estado da caixa de entrada; um retransmissor de transações trata pedidos assinados e o estado das transações; um serviço de transações Safe trata endereços multifirma, propostas, assinaturas, confirmações e estado de execução; e um prestador de pagamentos ou de acesso a numerário trata o número de telefone, o endereço de Carteira, o ativo, o montante, o identificador do prestador, a taxa e o estado da transação necessários para essa funcionalidade. O armazenamento de imagens, a API da Aplicação, as bases de dados, os indexadores de blockchain e a infraestrutura de monitorização tratam o conteúdo e os registos operacionais necessários às suas funções. Um serviço externo também pode recolher dados diretamente ao abrigo do seu próprio aviso de privacidade.
 
 ## 11. Tratamento internacional
 
@@ -208,7 +216,7 @@ Um Aviso posterior não torna públicos dados que antes eram privados. A visibil
 
 Para perguntas ou pedidos relacionados com privacidade:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

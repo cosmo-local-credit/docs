@@ -21,20 +21,27 @@ POLICY_REGISTRY = json.loads(
 
 def without_policy_preamble(value: str) -> str:
     lines = value.splitlines()
-    quote_index = next(
-        (index for index, line in enumerate(lines) if line.startswith("> ")),
+    heading_index = next(
+        (index for index, line in enumerate(lines) if line.startswith("# ")),
         None,
     )
-    if quote_index is None:
-        raise ValueError("policy page is missing its draft notice")
-    end = quote_index + 1
-    while end < len(lines):
-        stripped = lines[end].strip()
-        if not stripped or (stripped.startswith("**") and stripped.endswith("**")):
-            end += 1
+    if heading_index is None:
+        raise ValueError("policy page is missing its page heading")
+    content_index = heading_index + 1
+    while content_index < len(lines):
+        stripped = lines[content_index].strip()
+        if not stripped or stripped.startswith("> ") or (
+            stripped.startswith("**") and stripped.endswith("**")
+        ):
+            content_index += 1
             continue
         break
-    return "\n".join(lines[:quote_index] + lines[end:]) + "\n"
+    if content_index >= len(lines):
+        raise ValueError("policy page is missing its body")
+    return (
+        "\n".join(lines[: heading_index + 1] + [""] + lines[content_index:])
+        + "\n"
+    )
 
 
 def main() -> None:
@@ -50,6 +57,11 @@ def main() -> None:
         ),
     )
     parser.add_argument("--threads", type=int, default=10)
+    parser.add_argument(
+        "--model-family",
+        choices=["auto", "madlad", "nllb"],
+        default="auto",
+    )
     parser.add_argument(
         "--cache",
         type=Path,
@@ -109,11 +121,23 @@ def main() -> None:
         / f".cache/clc-translation-models/policy-{args.locale}-review.json"
     )
     cache_path.parent.mkdir(parents=True, exist_ok=True)
-    engine = translation.CachedTranslator(
-        translation.MadladTranslator(args.model, args.threads),
-        cache_path,
-        batch_size=128,
+    model_family = args.model_family
+    if model_family == "auto":
+        if (args.model / "sentencepiece.bpe.model").exists():
+            model_family = "nllb"
+        elif (args.model / "spiece.model").exists():
+            model_family = "madlad"
+        else:
+            parser.error(
+                "cannot detect model family: expected sentencepiece.bpe.model "
+                "or spiece.model"
+            )
+    translator = (
+        translation.NllbTranslator(args.model, args.threads)
+        if model_family == "nllb"
+        else translation.MadladTranslator(args.model, args.threads)
     )
+    engine = translation.CachedTranslator(translator, cache_path, batch_size=128)
     back_translations = engine.translate_many(
         [target for _, _, _, target in aligned],
         args.locale,

@@ -1,29 +1,32 @@
 {
   "source": {
     "version": "1.0",
-    "draftDate": "24 October 2026",
+    "publicationDate": "9 November 2026",
+    "effectiveDate": "9 November 2026",
+    "auditedAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+    "auditedCoreCommit": "15a65e5ab751841fb16f7eb761910d0377c7f322",
     "routes": {
       "/governance/policies": {
         "source": "governance/policies.md",
-        "sha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340"
+        "sha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c"
       },
       "/governance/privacy": {
         "source": "governance/privacy.md",
-        "sha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11"
+        "sha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0"
       },
       "/governance/data-protection": {
         "source": "governance/data-protection.md",
-        "sha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92"
+        "sha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61"
       },
       "/governance/child-safeguarding": {
         "source": "governance/child-safeguarding.md",
-        "sha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd"
+        "sha256": "f87320a4609ab130bab19e9905c2ffad36b16a2e7f519876f8dcf23f3165e133"
       }
     }
   },
   "locales": {
     "en": {
-      "status": "source-review-draft",
+      "status": "source-final",
       "navigation": {
         "policies": "Policies",
         "privacy": "Privacy Notice",
@@ -32,10 +35,8 @@
       }
     },
     "fr": {
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 octobre 2026",
-      "translationDraftDate": "25 octobre 2026",
-      "sourceAppCommit": "27321a637fded39c8ac0fb1a9e4783a852a5113b",
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
       "metadataSeparator": " : ",
       "navigation": {
         "policies": "Politiques",
@@ -44,15 +45,17 @@
         "childSafeguarding": "Protection de l’enfance"
       },
       "notice": {
-        "title": "Traduction de travail — pas encore en vigueur.",
-        "body": "Cette traduction française est mise à disposition pour relecture avant l’approbation juridique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable.",
+        "title": "Traduction fournie à titre pratique.",
+        "body": "Cette traduction est fournie à titre pratique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable.",
         "englishSource": "Lire le texte anglais."
       },
       "metadata": {
-        "sourceVersion": "Version provisoire de la source",
-        "englishDraftDate": "Date du projet anglais",
-        "translationDraftDate": "Date de cette traduction de travail"
-      }
+        "sourceVersion": "Version source",
+        "englishPublicationDate": "Date de publication et de prise d’effet du texte anglais",
+        "translationPublicationDate": "Date de publication de la traduction"
+      },
+      "sourcePublicationDate": "9 novembre 2026",
+      "translationPublicationDate": "9 novembre 2026"
     },
     "es": {
       "navigation": {
@@ -62,20 +65,20 @@
         "childSafeguarding": "Protección de la infancia"
       },
       "notice": {
-        "title": "Traducción de trabajo — aún no vigente.",
-        "body": "Esta traducción al español se facilita para su revisión antes de la aprobación jurídica. El texto en inglés es el texto fuente y prevalece, salvo que el derecho aplicable exija lo contrario.",
+        "title": "Traducción de conveniencia.",
+        "body": "Esta traducción se ofrece para facilitar la lectura. El texto en inglés es el texto fuente y prevalece, salvo que la legislación aplicable exija lo contrario.",
         "englishSource": "Leer el texto en inglés."
       },
       "metadata": {
-        "sourceVersion": "Versión provisional de la fuente",
-        "englishDraftDate": "Fecha del borrador en inglés",
-        "translationDraftDate": "Fecha de esta traducción de trabajo"
+        "sourceVersion": "Versión de la fuente",
+        "englishPublicationDate": "Fecha de publicación y entrada en vigor del texto inglés",
+        "translationPublicationDate": "Fecha de publicación de la traducción"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 de octubre de 2026",
-      "translationDraftDate": "25 de octubre de 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 de noviembre de 2026",
+      "translationPublicationDate": "9 de noviembre de 2026"
     },
     "pt": {
       "navigation": {
@@ -85,20 +88,20 @@
         "childSafeguarding": "Proteção da infância"
       },
       "notice": {
-        "title": "Tradução de trabalho — ainda não em vigor.",
-        "body": "Esta tradução para português é disponibilizada para revisão antes da aprovação jurídica. O texto em inglês é o texto de origem e prevalece, salvo se a lei aplicável exigir o contrário.",
+        "title": "Tradução de conveniência.",
+        "body": "Esta tradução é fornecida para facilitar a leitura. O texto em inglês é o texto original e prevalece, salvo se a lei aplicável exigir o contrário.",
         "englishSource": "Ler o texto em inglês."
       },
       "metadata": {
-        "sourceVersion": "Versão provisória da fonte",
-        "englishDraftDate": "Data do rascunho em inglês",
-        "translationDraftDate": "Data desta tradução de trabalho"
+        "sourceVersion": "Versão do texto original",
+        "englishPublicationDate": "Data de publicação e de entrada em vigor do texto inglês",
+        "translationPublicationDate": "Data de publicação da tradução"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 de outubro de 2026",
-      "translationDraftDate": "25 de outubro de 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 de novembro de 2026",
+      "translationPublicationDate": "9 de novembro de 2026"
     },
     "it": {
       "navigation": {
@@ -108,20 +111,20 @@
         "childSafeguarding": "Tutela dei minori"
       },
       "notice": {
-        "title": "Traduzione di lavoro — non ancora in vigore.",
-        "body": "Questa traduzione italiana è disponibile per la revisione prima dell’approvazione legale. Il testo inglese è il testo di riferimento e prevale, salvo che la legge applicabile disponga diversamente.",
+        "title": "Traduzione di cortesia.",
+        "body": "Questa traduzione è fornita per agevolare la lettura. Il testo inglese è il testo originale e prevale, salvo ove diversamente richiesto dalla legge applicabile.",
         "englishSource": "Leggi il testo inglese."
       },
       "metadata": {
-        "sourceVersion": "Versione provvisoria del testo di riferimento",
-        "englishDraftDate": "Data della bozza inglese",
-        "translationDraftDate": "Data di questa traduzione di lavoro"
+        "sourceVersion": "Versione del testo originale",
+        "englishPublicationDate": "Data di pubblicazione ed entrata in vigore del testo inglese",
+        "translationPublicationDate": "Data di pubblicazione della traduzione"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 ottobre 2026",
-      "translationDraftDate": "25 ottobre 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 novembre 2026",
+      "translationPublicationDate": "9 novembre 2026"
     },
     "sw": {
       "navigation": {
@@ -131,20 +134,20 @@
         "childSafeguarding": "Ulinzi wa Watoto"
       },
       "notice": {
-        "title": "Tafsiri ya kazi — bado haijaanza kutumika.",
-        "body": "Tafsiri hii ya Kiswahili imetolewa kwa ukaguzi kabla ya idhini ya kisheria. Maandishi ya Kiingereza ndiyo chanzo na ndiyo yanayotawala, isipokuwa sheria inayotumika itake vinginevyo.",
+        "title": "Tafsiri ya urahisi.",
+        "body": "Tafsiri hii imetolewa ili kurahisisha usomaji. Maandishi ya Kiingereza ndiyo chanzo na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo.",
         "englishSource": "Soma maandishi ya Kiingereza."
       },
       "metadata": {
-        "sourceVersion": "Toleo la rasimu ya chanzo",
-        "englishDraftDate": "Tarehe ya rasimu ya Kiingereza",
-        "translationDraftDate": "Tarehe ya tafsiri hii ya kazi"
+        "sourceVersion": "Toleo la chanzo",
+        "englishPublicationDate": "Tarehe ya kuchapishwa na kuanza kutumika kwa maandishi ya Kiingereza",
+        "translationPublicationDate": "Tarehe ya kuchapishwa kwa tafsiri"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 Oktoba 2026",
-      "translationDraftDate": "25 Oktoba 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 Novemba 2026",
+      "translationPublicationDate": "9 Novemba 2026"
     },
     "de": {
       "navigation": {
@@ -154,20 +157,20 @@
         "childSafeguarding": "Kinderschutz"
       },
       "notice": {
-        "title": "Arbeitsübersetzung – noch nicht in Kraft.",
-        "body": "Diese deutsche Übersetzung wird vor der rechtlichen Genehmigung zur Prüfung bereitgestellt. Der englische Text ist der Ausgangstext und hat Vorrang, sofern das anwendbare Recht nichts anderes verlangt.",
+        "title": "Übersetzung zur leichteren Lesbarkeit.",
+        "body": "Diese Übersetzung dient der leichteren Lesbarkeit. Der englische Text ist der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt.",
         "englishSource": "Englischen Ausgangstext lesen."
       },
       "metadata": {
-        "sourceVersion": "Entwurfsversion des Ausgangstextes",
-        "englishDraftDate": "Datum des englischen Entwurfs",
-        "translationDraftDate": "Datum dieser Arbeitsübersetzung"
+        "sourceVersion": "Version des Ausgangstextes",
+        "englishPublicationDate": "Veröffentlichungs- und Geltungsdatum des englischen Textes",
+        "translationPublicationDate": "Veröffentlichungsdatum der Übersetzung"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24. Oktober 2026",
-      "translationDraftDate": "25. Oktober 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9. November 2026",
+      "translationPublicationDate": "9. November 2026"
     },
     "uk": {
       "navigation": {
@@ -177,20 +180,20 @@
         "childSafeguarding": "Захист дітей"
       },
       "notice": {
-        "title": "Робочий переклад — ще не набрав чинності.",
-        "body": "Цей переклад українською мовою надано для перевірки до юридичного затвердження. Англійський текст є вихідним і має переважну силу, якщо застосовне законодавство не вимагає іншого.",
+        "title": "Переклад для зручності.",
+        "body": "Цей переклад надано для зручності. Англійський текст є вихідним і має переважну силу, якщо застосовне законодавство не вимагає іншого.",
         "englishSource": "Прочитати англійський текст."
       },
       "metadata": {
-        "sourceVersion": "Версія проєкту вихідного тексту",
-        "englishDraftDate": "Дата англійського проєкту",
-        "translationDraftDate": "Дата цього робочого перекладу"
+        "sourceVersion": "Версія вихідного тексту",
+        "englishPublicationDate": "Дата публікації та набрання чинності англійським текстом",
+        "translationPublicationDate": "Дата публікації перекладу"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 жовтня 2026 року",
-      "translationDraftDate": "25 жовтня 2026 року",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 листопада 2026 року",
+      "translationPublicationDate": "9 листопада 2026 року"
     },
     "sr": {
       "navigation": {
@@ -200,20 +203,20 @@
         "childSafeguarding": "Заштита деце"
       },
       "notice": {
-        "title": "Радни превод — још није ступио на снагу.",
-        "body": "Овај превод на српски језик дат је на преглед пре правног одобрења. Енглески текст је изворни и има предност, осим ако меродавно право не захтева другачије.",
-        "englishSource": "Прочитајте енглески извор."
+        "title": "Превод ради лакшег читања.",
+        "body": "Овај превод је дат ради лакшег читања. Енглески текст је изворни и има предност, осим ако меродавно право не захтева другачије.",
+        "englishSource": "Прочитајте енглески текст."
       },
       "metadata": {
-        "sourceVersion": "Верзија изворног нацрта",
-        "englishDraftDate": "Датум енглеског нацрта",
-        "translationDraftDate": "Датум овог радног превода"
+        "sourceVersion": "Верзија изворног текста",
+        "englishPublicationDate": "Датум објављивања и ступања на снагу енглеског текста",
+        "translationPublicationDate": "Датум објављивања превода"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24. октобар 2026.",
-      "translationDraftDate": "25. октобар 2026.",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9. новембар 2026.",
+      "translationPublicationDate": "9. новембар 2026."
     },
     "ar": {
       "navigation": {
@@ -223,20 +226,20 @@
         "childSafeguarding": "حماية الطفل"
       },
       "notice": {
-        "title": "ترجمة عمل — لم تدخل حيز النفاذ بعد.",
-        "body": "تُقدَّم هذه الترجمة العربية للمراجعة قبل الموافقة القانونية. النص الإنجليزي هو النص المصدر وتكون له الغلبة ما لم يقتضِ القانون الساري خلاف ذلك.",
-        "englishSource": "اقرأ النص الإنجليزي المصدر."
+        "title": "ترجمة للتيسير.",
+        "body": "تُقدَّم هذه الترجمة للتيسير. النص الإنجليزي هو النص المصدر والمرجع الحاكم، ما لم يقتضِ القانون المعمول به خلاف ذلك.",
+        "englishSource": "اقرأ النص الإنجليزي."
       },
       "metadata": {
-        "sourceVersion": "نسخة المسودة المصدر",
-        "englishDraftDate": "تاريخ المسودة الإنجليزية",
-        "translationDraftDate": "تاريخ ترجمة العمل هذه"
+        "sourceVersion": "نسخة النص المصدر",
+        "englishPublicationDate": "تاريخ نشر النص الإنجليزي وسريان مفعوله",
+        "translationPublicationDate": "تاريخ نشر الترجمة"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 أكتوبر 2026",
-      "translationDraftDate": "25 أكتوبر 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 نوفمبر 2026",
+      "translationPublicationDate": "9 نوفمبر 2026"
     },
     "nl": {
       "navigation": {
@@ -246,20 +249,20 @@
         "childSafeguarding": "Kinderbescherming"
       },
       "notice": {
-        "title": "Werkvertaling — nog niet van kracht.",
-        "body": "Deze Nederlandse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist.",
+        "title": "Vertaling voor het leesgemak.",
+        "body": "Deze vertaling wordt voor het leesgemak aangeboden. De Engelse tekst is de brontekst en is bepalend, tenzij het toepasselijke recht anders vereist.",
         "englishSource": "Lees de Engelse brontekst."
       },
       "metadata": {
         "sourceVersion": "Versie van de brontekst",
-        "englishDraftDate": "Datum van het Engelse concept",
-        "translationDraftDate": "Datum van deze werkvertaling"
+        "englishPublicationDate": "Publicatie- en ingangsdatum van de Engelse tekst",
+        "translationPublicationDate": "Publicatiedatum van de vertaling"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 oktober 2026",
-      "translationDraftDate": "25 oktober 2026",
-      "sourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 november 2026",
+      "translationPublicationDate": "9 november 2026"
     },
     "nl-BE": {
       "navigation": {
@@ -269,20 +272,20 @@
         "childSafeguarding": "Kinderbescherming"
       },
       "notice": {
-        "title": "Werkvertaling — nog niet van kracht.",
-        "body": "Deze Vlaamse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist.",
+        "title": "Vertaling voor het leesgemak.",
+        "body": "Deze vertaling wordt voor het leesgemak aangeboden. De Engelse tekst is de brontekst en is bepalend, tenzij het toepasselijke recht anders vereist.",
         "englishSource": "Lees de Engelse brontekst."
       },
       "metadata": {
         "sourceVersion": "Versie van de brontekst",
-        "englishDraftDate": "Datum van het Engelse concept",
-        "translationDraftDate": "Datum van deze werkvertaling"
+        "englishPublicationDate": "Publicatie- en ingangsdatum van de Engelse tekst",
+        "translationPublicationDate": "Publicatiedatum van de vertaling"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 oktober 2026",
-      "translationDraftDate": "28 oktober 2026",
-      "sourceAppCommit": "f20006dca642321ee8db333fc3ce6b418858ebd3",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 november 2026",
+      "translationPublicationDate": "9 november 2026"
     },
     "fil": {
       "navigation": {
@@ -292,20 +295,112 @@
         "childSafeguarding": "Pangangalaga sa mga Bata"
       },
       "notice": {
-        "title": "Salin para sa pagsusuri — hindi pa epektibo.",
-        "body": "Inilaan ang saling Filipino na ito para sa pagsusuri bago ang legal na pag-apruba. Ang tekstong Ingles ang pinagmulan at siyang mananaig, maliban kung iba ang hinihingi ng naaangkop na batas.",
+        "title": "Salin para sa kaginhawaan.",
+        "body": "Ibinibigay ang saling ito para sa kaginhawaan. Ang tekstong Ingles ang pinagmulang teksto at siyang masusunod, maliban kung iba ang hinihingi ng naaangkop na batas.",
         "englishSource": "Basahin ang tekstong Ingles."
       },
       "metadata": {
-        "sourceVersion": "Bersyon ng pinagmulang draft",
-        "englishDraftDate": "Petsa ng English draft",
-        "translationDraftDate": "Petsa ng saling ito para sa pagsusuri"
+        "sourceVersion": "Bersyon ng pinagmulang teksto",
+        "englishPublicationDate": "Petsa ng paglalathala at pagkakabisa ng tekstong Ingles",
+        "translationPublicationDate": "Petsa ng paglalathala ng salin"
       },
-      "status": "translation-review-ready",
-      "sourceDraftDate": "24 Oktubre 2026",
-      "translationDraftDate": "28 Oktubre 2026",
-      "sourceAppCommit": "f20006dca642321ee8db333fc3ce6b418858ebd3",
-      "metadataSeparator": ": "
+      "status": "release-ready",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "sourcePublicationDate": "9 Nobyembre 2026",
+      "translationPublicationDate": "9 Nobyembre 2026"
+    },
+    "dz": {
+      "status": "qualified-review-required",
+      "sourcePublicationDate": "9 ནོ་ཝེམ་བར་ 2026",
+      "translationPublicationDate": "9 ནོ་ཝེམ་བར་ 2026",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "navigation": {
+        "policies": "སྲིད་བྱུས་དང་བརྡ་ཐོ།",
+        "privacy": "སྒེར་གསང་བརྡ་ཐོ།",
+        "dataProtection": "གནས་སྡུད་སྲུང་སྐྱོབ།",
+        "childSafeguarding": "ཨ་ལོའི་ཉེན་སྲུང་།"
+      },
+      "notice": {
+        "title": "ཀློག་བདེའི་སྐད་བསྒྱུར།",
+        "body": "སྐད་བསྒྱུར་འདི་ཀློག་བདེ་ནིའི་དོན་ལུ་བཀོད་ཡོད། ཁྲིམས་ཀྱིས་གཞན་དགོཔ་མེད་པ་ཅིན་ དབྱིན་ཡིག་གི་ཡིག་ཆ་འདི་འབྱུང་ཁུངས་དང་ཚད་འཛིན་ཨིན།",
+        "englishSource": "དབྱིན་ཡིག་གི་ཡིག་ཆ་ཀློག"
+      },
+      "metadata": {
+        "sourceVersion": "འབྱུང་ཁུངས་ཐོན་རིམ",
+        "englishPublicationDate": "དབྱིན་ཡིག་གི་ཡིག་ཆ་དཔེ་སྐྲུན་དང་ལག་ལེན་འཐབ་པའི་ཚེས་གྲངས",
+        "translationPublicationDate": "སྐད་བསྒྱུར་དཔེ་སྐྲུན་ཚེས་གྲངས"
+      }
+    },
+    "hi": {
+      "status": "release-ready",
+      "sourcePublicationDate": "9 नवंबर 2026",
+      "translationPublicationDate": "9 नवंबर 2026",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "navigation": {
+        "policies": "नीतियाँ और सूचनाएँ",
+        "privacy": "गोपनीयता सूचना",
+        "dataProtection": "डेटा संरक्षण",
+        "childSafeguarding": "बाल सुरक्षा"
+      },
+      "notice": {
+        "title": "सुविधा के लिए अनुवाद।",
+        "body": "यह अनुवाद सुविधा के लिए दिया गया है। अंग्रेज़ी पाठ मूल पाठ है और लागू कानून में अन्यथा आवश्यक न होने तक वही मान्य होगा।",
+        "englishSource": "अंग्रेज़ी पाठ पढ़ें।"
+      },
+      "metadata": {
+        "sourceVersion": "मूल पाठ का संस्करण",
+        "englishPublicationDate": "अंग्रेज़ी पाठ के प्रकाशन और प्रभावी होने की तारीख",
+        "translationPublicationDate": "अनुवाद के प्रकाशन की तारीख"
+      }
+    },
+    "zh": {
+      "status": "qualified-review-required",
+      "sourcePublicationDate": "2026年11月9日",
+      "translationPublicationDate": "2026年11月9日",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "navigation": {
+        "policies": "政策与通知",
+        "privacy": "隐私声明",
+        "dataProtection": "数据保护",
+        "childSafeguarding": "儿童保护"
+      },
+      "notice": {
+        "title": "便捷译文。",
+        "body": "本译文仅为方便阅读而提供。除非适用法律另有要求，英文文本是源文本并具有优先效力。",
+        "englishSource": "阅读英文源文本。"
+      },
+      "metadata": {
+        "sourceVersion": "源文本版本",
+        "englishPublicationDate": "英文文本发布及生效日期",
+        "translationPublicationDate": "译文发布日期"
+      }
+    },
+    "zh-Hant": {
+      "status": "qualified-review-required",
+      "sourcePublicationDate": "2026年11月9日",
+      "translationPublicationDate": "2026年11月9日",
+      "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+      "metadataSeparator": ": ",
+      "navigation": {
+        "policies": "政策與通知",
+        "privacy": "隱私聲明",
+        "dataProtection": "資料保護",
+        "childSafeguarding": "兒童保護"
+      },
+      "notice": {
+        "title": "便捷譯文。",
+        "body": "本譯文僅為方便閱讀而提供。除非適用法律另有要求，英文文本是源文本並具有優先效力。",
+        "englishSource": "閱讀英文源文本。"
+      },
+      "metadata": {
+        "sourceVersion": "源文本版本",
+        "englishPublicationDate": "英文文本發布及生效日期",
+        "translationPublicationDate": "譯文發布日期"
+      }
     }
   }
 }

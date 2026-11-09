@@ -1,18 +1,18 @@
 # Sera ya Ulinzi wa Data ya Grassroots Economics Foundation
 
-> **Tafsiri ya kazi — bado haijaanza kutumika.** Tafsiri hii ya Kiswahili imetolewa kwa ukaguzi kabla ya idhini ya kisheria. Maandishi ya Kiingereza ndiyo chanzo na ndiyo yanayotawala, isipokuwa sheria inayotumika itake vinginevyo. [Soma maandishi ya Kiingereza.](/governance/data-protection)
+> **Tafsiri ya urahisi.** Tafsiri hii imetolewa ili kurahisisha usomaji. Maandishi ya Kiingereza ndiyo chanzo na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo. [Soma maandishi ya Kiingereza.](/governance/data-protection)
 
-**Toleo la rasimu ya chanzo: 1.0**
+**Toleo la chanzo: 1.0**
 
-**Tarehe ya rasimu ya Kiingereza: 24 Oktoba 2026**
+**Tarehe ya kuchapishwa na kuanza kutumika kwa maandishi ya Kiingereza: 9 Novemba 2026**
 
-**Tarehe ya tafsiri hii ya kazi: 25 Oktoba 2026**
+**Tarehe ya kuchapishwa kwa tafsiri: 9 Novemba 2026**
 
 ## 1. Kusudi
 
-Grassroots Economics Foundation (**GEF**) inaheshimu faragha na inachukulia kushughulikia data binafsi kuwa wajibu kwa watu na jamii zinazohusika katika kazi yake. Sera hii inaweka viwango vya chini vya data binafsi inayoshughulikiwa kupitia mifumo, programu, utafiti, elimu, matukio, ushirikiano na shughuli za GEF, ikiwemo Cosmo-Local Credit App (**CLC App**).
+Grassroots Economics Foundation (**GEF **) inaheshimu faragha na inachukulia kushughulikia data binafsi kuwa wajibu kwa watu na jamii zinazohusika katika kazi yake. Sera hii inaweka viwango vya chini vya data binafsi inayoshughulikiwa kupitia mifumo, programu, utafiti, elimu, matukio, ushirikiano na shughuli za GEF, ikiwemo Cosmo-Local Credit App (** CLC App**).
 
-Sera hii inaongozwa na [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) ya Kenya, kanuni zinazotumika na [mwongozo wa sasa wa Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/). Sheria nyingine zinaweza pia kutumika mahali GEF inapofanya kazi au watu wanaoathiriwa walipo.
+Sera hii inaongozwa na [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) ya Kenya, kanuni zinazotumika na [mwongozo wa sasa wa Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Sheria nyingine zinaweza pia kutumika mahali GEF inapofanya kazi au watu wanaoathiriwa walipo.
 
 Hati ya [Taarifa ya Faragha ya CLC App](/sw/governance/privacy) inatoa maelezo mahususi zaidi kuhusu sehemu za App, rasilimali za umma, utafutaji wa mpokeaji na rekodi za blockchain ya umma. [Masharti ya Huduma](/sw/governance/terms) yanasimamia matumizi ya App.
 
@@ -178,7 +178,7 @@ GEF hukagua Sera hii angalau kila mwaka na panapotokea mabadiliko muhimu ya kish
 
 Maswali kuhusu faragha, maombi ya haki au masuala ya wasiwasi yanaweza kutumwa kwa:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

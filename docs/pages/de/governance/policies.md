@@ -1,14 +1,14 @@
 # Richtlinien und Hinweise
 
-> **Arbeitsübersetzung – noch nicht in Kraft.** Diese deutsche Übersetzung wird vor der rechtlichen Genehmigung zur Prüfung bereitgestellt. Der englische Text ist der Ausgangstext und hat Vorrang, sofern das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/policies)
+> **Übersetzung zur leichteren Lesbarkeit.** Diese Übersetzung dient der leichteren Lesbarkeit. Der englische Text ist der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/policies)
 
-**Entwurfsversion des Ausgangstextes: 1.0**
+**Version des Ausgangstextes: 1.0**
 
-**Datum des englischen Entwurfs: 24. Oktober 2026**
+**Veröffentlichungs- und Geltungsdatum des englischen Textes: 9. November 2026**
 
-**Datum dieser Arbeitsübersetzung: 25. Oktober 2026**
+**Veröffentlichungsdatum der Übersetzung: 9. November 2026**
 
-Die Grassroots Economics Foundation (**GEF**) betreibt die Cosmo-Local Credit App (**CLC App**). Diese Seite fasst die Bedingungen, Datenschutzhinweise und organisatorischen Richtlinien zusammen, die für die App und die einschlägigen Tätigkeiten von GEF gelten.
+Die Grassroots Economics Foundation (**GEF **) betreibt die Cosmo-Local Credit App (** CLC App**). Diese Seite fasst die Bedingungen, Datenschutzhinweise und organisatorischen Richtlinien zusammen, die für die App und die einschlägigen Tätigkeiten von GEF gelten.
 
 ## Welches Dokument sollte ich lesen?
 
@@ -27,7 +27,7 @@ Jedes Dokument beschreibt seinen eigenen Geltungsbereich. Weicht eine Übersetzu
 
 ## Aktuelle und frühere Dokumente
 
-Nach ihrer Genehmigung und der Festlegung eines Veröffentlichungs- und Inkrafttretungsdatums sind diese Dokumente die aktuellen Quellen für den jeweils beschriebenen Geltungsbereich. Frühere Richtlinienseiten von Grassroots Economics bleiben als historisches Material nützlich, beschreiben aber nicht jedes Feld, jede Schutzmaßnahme oder jede Grenze zwischen öffentlichen und privaten Informationen in der aktuellen CLC App.
+Diese datierten Dokumente sind die aktuellen Quellen für ihren jeweils beschriebenen Geltungsbereich. Frühere Richtlinienseiten von Grassroots Economics bleiben als historisches Material nützlich, beschreiben aber nicht jedes Feld, jede Schutzmaßnahme oder jede Grenze zwischen öffentlichen und privaten Informationen in der aktuellen CLC App.
 
 Die Datenschutzrichtlinie von Social Soil gilt für das separate Lernspiel Social Soil und ist keine Richtlinie der CLC App.
 

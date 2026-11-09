@@ -272,7 +272,7 @@ La actividad pública de blockchain puede exponer una dirección de billetera, a
 
 GEF conservará la información durante el tiempo razonablemente necesario para los fines anteriores, incluyendo seguridad, prevención de fraudes, pruebas de transacciones, obligaciones legales, plazos de prescripción, copias de seguridad y resolución de disputas. La retención no hace que GEF pueda borrar la información que posee una red pública o un tercero.
 
-Sujeto a la legislación aplicable, puede solicitar acceso, corrección, eliminación, restricción, objeción, portabilidad u otros derechos de datos disponibles poniéndose en contacto con `info@grassecon.org`. GEF utiliza salvaguardias razonables, pero no puede prometer seguridad o confidencialidad absoluta, particularmente para la actividad pública de la cadena de bloques e información que publique.
+Sujeto a la legislación aplicable, puede solicitar acceso, corrección, eliminación, restricción, objeción, portabilidad u otros derechos de datos disponibles poniéndose en contacto con `privacy@grassecon.org`. GEF utiliza salvaguardias razonables, pero no puede prometer seguridad o confidencialidad absoluta, particularmente para la actividad pública de la cadena de bloques e información que publique.
 
 ## 18. Cambios de servicio, suspensión y terminación
 

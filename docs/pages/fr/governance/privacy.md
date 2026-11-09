@@ -1,16 +1,16 @@
 # Avis de confidentialité de CLC App
 
-> **Traduction de travail — pas encore en vigueur.** Cette traduction française est mise à disposition pour relecture avant l’approbation juridique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable. [Lire le texte anglais.](/governance/privacy)
+> **Traduction fournie à titre pratique.** Cette traduction est fournie à titre pratique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable. [Lire le texte anglais.](/governance/privacy)
 
-**Version provisoire de la source : 1.0**
+**Version source : 1.0**
 
-**Date du projet anglais : 24 octobre 2026**
+**Date de publication et de prise d’effet du texte anglais : 9 novembre 2026**
 
-**Date de cette traduction de travail : 25 octobre 2026**
+**Date de publication de la traduction : 9 novembre 2026**
 
-Le présent Avis de confidentialité explique comment Grassroots Economics Foundation (**GEF**, **nous**, **notre** ou **nos**) traite les données à caractère personnel lorsque vous consultez ou utilisez l’application Cosmo-Local Credit à l’adresse `cosmolocal.credit` et les services connexes exploités par GEF (ensemble, l’**Application**).
+Le présent Avis de confidentialité explique comment Grassroots Economics Foundation (**GEF **, ** nous **, ** notre ** ou ** nos **) traite les données à caractère personnel lorsque vous consultez ou utilisez l’application Cosmo-Local Credit à l’adresse `cosmolocal.credit` et les services connexes exploités par GEF (ensemble, l’** Application**).
 
-> **À lire avant de publier.** Les coordonnées de contact et la localisation enregistrées dans votre profil ne sont pas automatiquement affichées dans les ressources publiques. Les informations que vous saisissez ou copiez dans un Bon d’échange, un Bassin, une Offre, une Demande, un Catalogue ou une Publication peuvent devenir publiques lorsque vous les publiez. Une localisation publique peut comprendre les coordonnées cartographiques exactes que vous avez sélectionnées.
+> **À lire avant de publier.** Votre profil privé n’est pas un profil public. Les informations que vous saisissez ou copiez dans un Bon d’échange, un Bassin, une Offre, une Demande, un Catalogue ou une Publication peuvent néanmoins être publiées par l’intermédiaire de cette ressource. La description, les conditions, les images, les étiquettes, les adresses de Portefeuille et les coordonnées cartographiques exactes d’une ressource peuvent être visibles sans connexion. Les coordonnées de contact d’un Bon d’échange, d’un Bassin ou d’une Demande ne sont affichées que par les fonctions d’information ou de contact accessibles après connexion, mais leur destinataire peut toujours les copier ou les partager.
 
 Le présent Avis complète les [Conditions d’utilisation](/fr/governance/terms) et la [Politique de protection des données](/fr/governance/data-protection).
 
@@ -37,39 +37,44 @@ Il ne régit pas la manière dont un Émetteur indépendant, un Gestionnaire de 
 
 Selon les fonctionnalités que vous utilisez, nous pouvons collecter :
 
-- votre nom d’utilisateur public et l’adresse publique de votre Portefeuille blockchain ;
+- votre nom d’utilisateur et l’adresse publique de votre Portefeuille blockchain ;
 - votre nom, votre adresse électronique, votre numéro de téléphone, votre pays et votre devise préférée ;
 - votre biographie, votre site web, votre avatar ainsi que le nom et les coordonnées de votre localisation enregistrée ;
 - le rôle et le statut du compte, ses limites de ressources et les dates de création ou de mise à jour ; et
 - vos paramètres, votre langue, vos préférences de notification et les autres choix que vous effectuez.
 
-Votre nom d’utilisateur public est distinct du nom privé de votre profil. Votre profil peut servir à préremplir des formulaires, mais le préremplissage d’un formulaire ne publie pas un champ tant que vous ne choisissez pas de publier la ressource.
+Votre nom d’utilisateur est distinct du nom privé de votre profil. Il sert d’identifiant de destinataire et peut être renvoyé avec l’adresse de votre Portefeuille à une personne connectée qui saisit le nom d’utilisateur exact. Votre profil peut servir à préremplir des formulaires, mais ce préremplissage ne publie pas un champ tant que vous ne choisissez pas de publier la ressource.
+
+Les administrateurs autorisés peuvent rechercher un compte par nom, nom d’utilisateur, adresse électronique, numéro de téléphone ou adresse de Portefeuille. Ils peuvent consulter les champs d’identité et de contact du compte, son rôle, son statut, ses limites de ressources et les ressources associées lorsque cela est nécessaire pour exploiter, assister, modérer et sécuriser l’Application. Cet annuaire n’est pas public.
 
 ### Données d’authentification, de Portefeuille et de transaction
 
-Nous pouvons traiter les adresses de Portefeuille, les messages signés, les autorisations de transaction, les signatures, les identifiants de clés d’accès et les coordonnées de clés publiques, les identifiants de session, les demandes de transaction, les enregistrements de relais et l’état des transactions. Nous n’avons pas besoin de la clé privée associée à votre clé d’accès pour vérifier une assertion de clé d’accès.
+Nous pouvons traiter les adresses de Portefeuille, les messages signés, les autorisations de transaction, les signatures, les identifiants de clés d’accès et les coordonnées de clés publiques, l’état des identifiants, les identifiants et rôles de session, les demandes de transaction, les enregistrements de relais, les données de transaction de remplacement et l’état des transactions. Si une carte de connexion est remplacée, nous pouvons conserver les anciennes et nouvelles adresses de Portefeuille, les preuves de la demande de changement, l’état de la clé d’accès associée et les enregistrements opérationnels nécessaires pour reprendre ou vérifier le changement.
 
-Si vous utilisez un Portefeuille papier ou un autre moyen d’identification que vous contrôlez, il vous appartient d’en protéger les éléments privés. Une adresse publique de Portefeuille et les transactions inscrites sur une blockchain publique ne sont pas privées.
+L’Application conserve les éléments privés de sa carte de connexion dans le stockage local du navigateur afin que celui-ci puisse signer. Les services de GEF reçoivent les signatures et les transactions signées, et non la clé privée brute. Le fournisseur d’une clé d’accès protège la clé privée de celle-ci ; l’Application et ses services utilisent l’identifiant, les éléments de clé publique, le défi et l’assertion signée nécessaires pour l’enregistrer ou la vérifier. Si vous utilisez un Portefeuille papier, une carte de connexion, une clé d’accès ou un autre moyen d’identification, il vous appartient de protéger l’appareil et les éléments privés.
+
+Lorsqu’un Bon d’échange ou un Bassin est contrôlé par un portefeuille multisignature compatible, nous pouvons traiter l’adresse multisignature, les adresses de Portefeuille des signataires, le seuil d’approbation, les transactions proposées, les confirmations, l’état d’exécution et les autorisations nécessaires pour afficher et utiliser ces contrôles. L’adresse du propriétaire, l’ensemble des signataires et le seuil peuvent être renvoyés lors d’une consultation publique de la propriété et être également visibles sur une blockchain publique.
 
 ### Données relatives à l’appareil, à la sécurité et à l’utilisation
 
-Nous pouvons collecter des informations techniques et opérationnelles, notamment l’adresse IP, des informations sur le navigateur et l’appareil, les horodatages, les pages ou points de terminaison demandés, les événements de session et de sécurité, les erreurs de validation, les informations relatives aux limites de débit, les abonnements aux notifications, l’activité du service et les données de diagnostic.
+Nous pouvons collecter des informations techniques et opérationnelles, notamment l’adresse IP, des informations sur le navigateur et l’appareil, les horodatages, les pages ou points de terminaison demandés, les événements de session et de sécurité, les erreurs de validation, les informations relatives aux limites de débit, les abonnements aux notifications et les accusés de réception, l’activité du service et les données de diagnostic.
 
 ### Contenu et données d’assistance
 
-Nous traitons les informations que vous transmettez dans les Bons d’échange, les Bassins, les Offres, les Demandes, les Catalogues, les Publications, les Avis, les images, les pièces jointes, les conditions, les descriptions, les étiquettes, les localisations, les champs de contact, les réclamations, les messages adressés à l’assistance et les autres communications.
+Nous traitons les informations que vous transmettez dans les Bons d’échange, les Bassins, les Offres, les Demandes, les Catalogues, les Publications, les Avis sur des Bons d’échange ou des Bassins, les images, les pièces jointes, les conditions, les descriptions, les étiquettes, les localisations, les champs de contact, les messages privés ou commandes postérieurs à une transaction, les réclamations, les messages adressés à l’assistance et les autres communications.
 
 Ne publiez pas les données à caractère personnel, l’image, les coordonnées de contact ou la localisation précise d’une autre personne sans motif licite et sans avoir obtenu toute autorisation requise.
 
 ## 4. Qu’est-ce qui devient public ?
 
-L’Application distingue quatre niveaux importants de visibilité.
+L’Application distingue cinq niveaux importants de visibilité.
 
 | Niveau de visibilité | Signification |
 | --- | --- |
-| Données privées du profil et du compte | Le nom du profil, l’adresse électronique, le numéro de téléphone, la localisation enregistrée, les préférences, les données d’authentification et les informations analogues relatives au compte servent au fonctionnement de l’Application et ne sont pas automatiquement inclus dans les réponses publiques relatives aux ressources. Le personnel autorisé de GEF et ses prestataires peuvent y accéder lorsque leur travail l’exige. |
+| Données privées du profil et du compte | Le nom du profil, l’adresse électronique, le numéro de téléphone, la localisation enregistrée, les préférences, les données d’authentification et les informations analogues relatives au compte servent au fonctionnement de l’Application et ne sont pas automatiquement inclus dans les réponses publiques relatives aux ressources. Le personnel autorisé de GEF et ses prestataires peuvent y accéder lorsque leur travail l’exige. Les administrateurs autorisés peuvent également rechercher et gérer l’annuaire non public des comptes. |
 | Recherche exacte d’un destinataire | Un utilisateur connecté qui saisit votre nom d’utilisateur exact ou votre numéro de téléphone complet peut recevoir votre nom d’utilisateur public et votre adresse de Portefeuille. Une partie seulement du nom d’utilisateur ne permet pas de retrouver un utilisateur. Le numéro de téléphone utilisé pour la recherche, le nom privé de votre profil, votre adresse électronique, votre numéro de téléphone et votre localisation enregistrée ne sont pas renvoyés dans le résultat. |
-| Ressources publiées dans l’Application | Les champs délibérément saisis ou copiés dans une ressource publiée peuvent être visibles par toute personne qui accède au catalogue public ou à la ressource. Les champs publics peuvent être indexés, copiés, partagés ou associés à un Portefeuille ou à une autre ressource. |
+| Données publiques des catalogues et ressources | Les descriptions, conditions, images, étiquettes, adresses de Portefeuille et de contrat, localisations, coordonnées exactes, Offres, Demandes, Publications, Avis, règles des Bassins et paramètres techniques publiés peuvent être visibles sans connexion. Les champs publics peuvent être indexés, copiés, partagés ou associés à un Portefeuille ou à une autre ressource. |
+| Coordonnées de contact accessibles après connexion | Les adresses électroniques, numéros de téléphone, sites web ou instructions de contact ajoutés délibérément à un Bon d’échange, un Bassin ou une Demande sont retirés des réponses de catalogue et de détail fournies sans connexion. Une personne connectée peut demander la fiche complète d’un Bon d’échange ou d’un Bassin comportant ces coordonnées, ou les moyens de contact sélectionnés pour une Demande active. Le destinataire peut toujours copier, utiliser ou partager ces informations. L’accès aux ressources retirées est davantage limité au propriétaire ou à un administrateur. |
 | Données inscrites sur une blockchain publique | Les adresses de Portefeuille, contrats, soldes, avoirs, transferts, montants, contreparties, horodatages, signatures et actions sur les contrats peuvent rester visibles de manière permanente par l’intermédiaire des réseaux publics et d’explorateurs de blocs indépendants. GEF ne peut ni effacer ni réécrire une blockchain publique. |
 
 Le retrait d’une ressource du catalogue de l’Application ne supprime pas les copies déjà réalisées par d’autres personnes, des moteurs de recherche, des archives, des services d’indexation indépendants ou des blockchains publiques.
@@ -80,21 +85,21 @@ Les champs disponibles pour une ressource peuvent évoluer avec l’Application.
 
 | Ressource | Informations susceptibles de devenir publiques |
 | --- | --- |
-| Bon d’échange | Identifiants du contrat et de la chaîne ; nom, symbole, description, unité et valeur déclarées du Bon d’échange ; adresse de Portefeuille de l’Émetteur ou du propriétaire ; conditions ; coordonnées de contact ; nom et coordonnées exactes de la localisation ; images ; étiquettes ; repères visuels ; et statut actif ou retiré du catalogue. |
-| Bassin | Identifiants du contrat et de la chaîne ; nom et description du Bassin ; adresses de Portefeuille du propriétaire, du bénéficiaire des frais, d’une dépendance ou d’un autre contrôleur technique ; Bons d’échange pris en charge ; informations sur l’inventaire ou la disponibilité ; méthode d’évaluation ; frais, limites, règles et autres paramètres ; coordonnées de contact ; nom et coordonnées exactes de la localisation ; images ; étiquettes ; et horodatages. |
+| Bon d’échange | Public : identifiants du contrat et de la chaîne ; nom, symbole, description, unité et valeur déclarées du Bon d’échange ; adresse de Portefeuille de l’Émetteur ou du propriétaire ; conditions ; nom et coordonnées exactes de la localisation ; images ; étiquettes ; repères visuels ; et statut actif du catalogue. Après connexion : adresse électronique, numéro de téléphone et site web saisis délibérément. Les fiches retirées ne sont accessibles qu’à un propriétaire autorisé ou à un administrateur par le point de terminaison d’information complète, tandis que l’historique de la chaîne peut rester public. |
+| Bassin | Public : identifiants du contrat et de la chaîne ; nom et description du Bassin ; adresses de Portefeuille du propriétaire, du bénéficiaire des frais, d’une dépendance ou d’un autre contrôleur technique ; Bons d’échange pris en charge ; informations sur l’inventaire ou la disponibilité ; méthode d’évaluation ; frais, limites, règles et autres paramètres ; nom et coordonnées exactes de la localisation ; images ; étiquettes ; horodatages ; et, pour les portefeuilles multisignatures compatibles, adresses du propriétaire et des signataires ainsi que seuil d’approbation. Après connexion : adresse électronique, numéro de téléphone et site web saisis délibérément. Les fiches retirées bénéficient du même accès limité aux informations complètes que les Bons d’échange retirés. |
 | Offre | Informations relatives au Bon d’échange associé ; adresse de Portefeuille du vendeur ou adresse de Portefeuille indiquant la provenance ; biens ou services proposés ; description, quantité, unité, fréquence, prix et disponibilité ; nom de la localisation et coordonnées exactes ou héritées ; image ; étiquettes ; et horodatages. |
-| Demande | Biens ou services recherchés ; description ; étiquettes ; image ; statut et dates ; nom et coordonnées exactes de la localisation ; et uniquement le moyen de contact délibérément choisi pour cette Demande. Les réponses publiques relatives à une Demande n’ont pas à identifier le profil privé de son auteur. |
+| Demande | Public : biens ou services recherchés ; description ; étiquettes ; image ; statut et dates ; nom et coordonnées exactes de la localisation. Après connexion : uniquement les instructions de contact, l’adresse électronique ou le numéro de téléphone délibérément choisis pour cette Demande active. Les réponses publiques relatives à une Demande omettent ces champs de contact et n’identifient pas le profil privé de son auteur, bien que des Bons d’échange ou Bassins associés puissent créer un lien indirect. |
 | Catalogue | Nom, description, image et étiquettes du Catalogue ; adresse de Portefeuille du propriétaire ; membres ou ressources répertoriés ; nombres d’éléments ; nom et coordonnées exactes de la localisation ; et horodatages. |
-| Publication approuvée | Titre, résumé, corps du texte, nom de l’hôte, informations sur les participants, dates, images, légendes, pièces jointes, liens intégrés, étiquettes, Bons d’échange ou Bassins associés et coordonnées géographiques exactes. Les Publications à l’état de brouillon, soumises ou rejetées ne sont pas publiques. L’adresse de Portefeuille de l’auteur est conservée à des fins de gestion et de responsabilisation, mais elle est omise des réponses publiques relatives à la Publication. Les ressources associées ou le contenu lui-même peuvent néanmoins révéler un lien. |
-| Avis | Note, commentaire et toute réponse publique du propriétaire du Bon d’échange. La réponse publique relative à l’Avis omet l’adresse de Portefeuille de son auteur et les métadonnées de présentation pour utilisation. Le service conserve toutefois les informations nécessaires pour vérifier l’admissibilité, empêcher les avis en double, modérer le contenu et faire respecter la période pendant laquelle un avis peut être publié. |
+| Publication | Titre, résumé, corps du texte, nom de l’hôte, informations sur les participants, dates, images, légendes, pièces jointes, liens intégrés, étiquettes, Bons d’échange ou Bassins associés et coordonnées exactes. L’adresse de Portefeuille de l’auteur et l’état du processus de publication sont conservés à des fins de gestion et de responsabilisation, mais omis des réponses publiques. Les ressources associées ou le contenu lui-même peuvent néanmoins révéler un lien. |
+| Avis sur un Bon d’échange ou un Bassin | Note, commentaire et toute réponse publique du propriétaire du Bon d’échange ou du Bassin. La réponse publique omet l’adresse de Portefeuille de l’auteur de l’Avis et les preuves de présentation pour utilisation ou d’échange. Le service conserve l’adresse et les preuves nécessaires pour vérifier l’admissibilité, empêcher les avis en double, permettre les réponses et signalements, modérer le contenu et faire respecter la période de publication. Lorsqu’un Avis est signalé, les administrateurs peuvent recevoir le motif du signalement et le contenu concerné. |
 
 Les coordonnées de contact et les coordonnées géographiques exactes peuvent créer des risques pour la sécurité des personnes. Dans la mesure du possible, utilisez un moyen de contact public adapté et un lieu de rencontre public sûr plutôt qu’un domicile privé.
 
 ## 6. Informations inscrites sur une blockchain publique
 
-L’Application interagit avec des réseaux de blockchain publics. Une transaction peut révéler les Portefeuilles concernés, le contrat du Jeton ou du Bon d’échange, le montant, l’heure, l’état et les événements de contrat associés. Les contrats de Bassin peuvent également révéler les actifs pris en charge, les soldes, les frais, les limites, les évaluations, les propriétaires, les administrateurs, les dépendances et d’autres paramètres.
+L’Application interagit avec des réseaux de blockchain publics. Une transaction peut révéler les Portefeuilles concernés, le contrat du Jeton ou du Bon d’échange, le montant, l’heure, l’état, la signature et les événements de contrat associés. Les contrats de Bassin peuvent également révéler les actifs pris en charge, les soldes, les dépôts, les versements, les échanges, les retraits de liquidité, les frais, les limites, les évaluations, les propriétaires, les administrateurs, les dépendances et d’autres paramètres. Les portefeuilles multisignatures compatibles peuvent révéler les ensembles de signataires, les seuils, les propositions, les confirmations et les actions exécutées.
 
-Les informations de blockchain peuvent être traitées par les validateurs du réseau, les exploitants de nœuds, les services d’indexation, les logiciels de Portefeuille, les services d’analyse et toute personne qui consulte le réseau. Les transactions peuvent être irréversibles. La fermeture d’un compte de l’Application, la modification d’un profil ou une demande adressée à GEF pour supprimer des données hors chaîne ne supprime pas les données de la blockchain.
+Les informations de blockchain peuvent être traitées par les validateurs du réseau, les exploitants de nœuds, les services d’indexation, les logiciels de Portefeuille, les services d’analyse et toute personne qui consulte le réseau. Les transactions peuvent être irréversibles. La fermeture d’un compte de l’Application, la modification d’un profil, le remplacement d’une carte de connexion, le retrait d’une ressource du catalogue, la destruction d’unités de Bon d’échange ou une demande adressée à GEF pour supprimer des données hors chaîne ne supprime ni les enregistrements antérieurs de la blockchain ni les copies indexées de manière indépendante.
 
 ## 7. Pourquoi nous utilisons les données et sur quelles bases juridiques
 
@@ -114,7 +119,7 @@ Nous ne considérons pas votre décision de publier un champ comme un consenteme
 
 ## 8. Données obligatoires et facultatives
 
-L’Application signale les champs obligatoires dans le formulaire concerné. Une adresse de Portefeuille, une preuve d’authentification, un nom et une adresse électronique sont actuellement nécessaires à la création d’un compte. Certaines fonctionnalités peuvent nécessiter des informations supplémentaires relatives à une transaction, un contact, une localisation, l’admissibilité ou une ressource.
+L’Application signale les champs obligatoires dans le formulaire concerné. La création guidée d’un compte exige actuellement une adresse de Portefeuille et une preuve d’authentification, un nom, une image de profil, un pays et une localisation enregistrée, une devise préférée et au moins une adresse électronique ou un numéro de téléphone. Le nom d’utilisateur est facultatif. D’autres parcours de connexion ou de récupération du compte peuvent créer des valeurs système temporaires jusqu’à ce que l’utilisateur complète ou corrige son profil. Certaines fonctionnalités peuvent nécessiter des informations supplémentaires relatives à une transaction, un contact, une localisation, l’admissibilité ou une ressource.
 
 Les autres champs du profil et des ressources sont facultatifs, sauf indication contraire dans le formulaire. Si vous ne fournissez pas les informations obligatoires, nous pourrions ne pas être en mesure de créer un compte, de vous authentifier, de soumettre une transaction, de publier une ressource, de vous assister, de satisfaire à une obligation légale ou de mettre à votre disposition la fonctionnalité demandée.
 
@@ -136,13 +141,16 @@ Nous recevons les données :
 Nous ne communiquons que les informations raisonnablement nécessaires à la finalité indiquée, au respect du droit applicable ou à l’action publique que vous avez demandée. Les destinataires peuvent comprendre :
 
 - les visiteurs et utilisateurs de l’Application lorsque vous publiez une ressource ou utilisez une blockchain publique ;
+- les utilisateurs connectés de l’Application lorsqu’ils demandent les coordonnées que vous avez délibérément associées à un Bon d’échange, un Bassin ou une Demande active ;
 - les Émetteurs, les Gestionnaires de Bassins, les contreparties et les autres participants nécessaires à une transaction, une présentation pour utilisation, une réclamation ou un service demandé ;
 - les prestataires d’infrastructure pour l’hébergement, les bases de données, le stockage, la diffusion de contenu, la sécurité, l’authentification, l’assistance, le courrier électronique, les notifications, la cartographie, le géocodage, l’accès aux blockchains, l’indexation, le relais de transactions et la surveillance ;
 - les fournisseurs indépendants de Portefeuilles, de services de blockchain, de paiement, de stablecoins, de conversion entre espèces et actifs numériques, ou d’autres services tiers que vous choisissez d’utiliser ;
 - les conseillers professionnels, auditeurs, assureurs, chercheurs, financeurs et partenaires soumis à des obligations et garanties appropriées ; et
 - les autorités de régulation, tribunaux, services chargés de l’application de la loi ou autres personnes lorsque la communication est exigée par la loi ou raisonnablement nécessaire pour protéger les droits, la sécurité et l’intégrité du service.
 
-Les services tiers peuvent collecter directement des données conformément à leurs propres avis de confidentialité. Avant la publication du présent Avis, GEF examine l’inventaire à jour des prestataires et des transferts afin que ces informations restent exactes.
+L’Application web de production est distribuée par Cloudflare Pages. Sa configuration actuelle dans le navigateur utilise MapTiler pour les styles de carte et les suggestions de localisation fondées sur l’adresse IP, ArcGIS World Geocoding pour la recherche de lieux et le géocodage inverse, ainsi que des points de terminaison RPC configurés pour Gnosis Chain afin de lire la chaîne. Ces services reçoivent les données nécessaires pour répondre à la requête, qui peuvent comprendre l’adresse IP, les informations du navigateur, la zone cartographique, le texte recherché, les coordonnées ou les requêtes relatives à un Portefeuille ou à un contrat.
+
+D’autres intégrations dépendent des fonctionnalités utilisées. Lorsqu’il est activé et utilisé, un service de notification traite les points de terminaison d’abonnement push, l’état de l’appareil, les adresses de Portefeuille associées, les accusés de réception et de clic ainsi que l’état de la boîte de réception ; un relais de transactions traite les demandes signées et l’état des transactions ; un service de transaction Safe traite les adresses multisignatures, les propositions, les signatures, les confirmations et l’état d’exécution ; et un prestataire de paiement ou de conversion d’espèces traite le numéro de téléphone, l’adresse de Portefeuille, l’actif, le montant, l’identifiant du prestataire, le taux et l’état de la transaction nécessaires à cette fonctionnalité. Le stockage d’images, l’API de l’Application, les bases de données, les services d’indexation de blockchain et l’infrastructure de surveillance traitent le contenu et les enregistrements opérationnels nécessaires à leurs fonctions. Un service tiers peut également collecter directement des données conformément à son propre avis de confidentialité.
 
 ## 11. Traitement international
 
@@ -208,7 +216,7 @@ Un Avis ultérieur ne rend pas publiques des données qui étaient auparavant pr
 
 Pour toute question ou demande relative à la confidentialité :
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

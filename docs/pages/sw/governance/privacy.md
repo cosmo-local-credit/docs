@@ -1,16 +1,16 @@
 # Taarifa ya Faragha ya CLC App
 
-> **Tafsiri ya kazi — bado haijaanza kutumika.** Tafsiri hii ya Kiswahili imetolewa kwa ukaguzi kabla ya idhini ya kisheria. Maandishi ya Kiingereza ndiyo chanzo na ndiyo yanayotawala, isipokuwa sheria inayotumika itake vinginevyo. [Soma maandishi ya Kiingereza.](/governance/privacy)
+> **Tafsiri ya urahisi.** Tafsiri hii imetolewa ili kurahisisha usomaji. Maandishi ya Kiingereza ndiyo chanzo na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo. [Soma maandishi ya Kiingereza.](/governance/privacy)
 
-**Toleo la rasimu ya chanzo: 1.0**
+**Toleo la chanzo: 1.0**
 
-**Tarehe ya rasimu ya Kiingereza: 24 Oktoba 2026**
+**Tarehe ya kuchapishwa na kuanza kutumika kwa maandishi ya Kiingereza: 9 Novemba 2026**
 
-**Tarehe ya tafsiri hii ya kazi: 25 Oktoba 2026**
+**Tarehe ya kuchapishwa kwa tafsiri: 9 Novemba 2026**
 
-Taarifa hii ya Faragha inaeleza jinsi Grassroots Economics Foundation (inayojulikana hapa kama **GEF**, **shirika**, **sisi** au **yetu**) inavyoshughulikia data binafsi unapotembelea au kutumia Cosmo-Local Credit App katika `cosmolocal.credit` na huduma husika zinazoendeshwa na GEF (kwa pamoja, **App**).
+Taarifa hii ya Faragha inaeleza jinsi Grassroots Economics Foundation (inayojulikana hapa kama **GEF **, ** shirika **, ** sisi ** au ** yetu **) inavyoshughulikia data binafsi unapotembelea au kutumia Cosmo-Local Credit App katika `cosmolocal.credit` na huduma husika zinazoendeshwa na GEF (kwa pamoja, ** App**).
 
-> **Soma kabla ya kuchapisha.** Maelezo ya mawasiliano katika wasifu wako na eneo ulilohifadhi hayaonyeshwi moja kwa moja katika rasilimali za umma. Taarifa unayoingiza au kunakili katika Vocha, Kikundi, Toleo, Ombi, Katalogi au Chapisho inaweza kuwa ya umma unapochapisha rasilimali hiyo. Eneo la umma linaweza kujumuisha viwianishi halisi vya ramani ulivyochagua.
+> **Soma kabla ya kuchapisha.** Wasifu wako binafsi si wasifu wa umma. Hata hivyo, taarifa unazoingiza au kunakili katika Vocha, Kikundi, Toleo, Ombi, Katalogi au Chapisho zinaweza kuchapishwa kupitia rasilimali hiyo. Maelezo, masharti, picha, lebo, anwani za Mkoba na viwianishi halisi vya ramani vya rasilimali vinaweza kuonekana bila kuingia. Maelezo ya mawasiliano katika Vocha, Kikundi au Ombi huonyeshwa tu kupitia vipengele vya taarifa au mawasiliano vya rasilimali kwa watumiaji walioingia, lakini mpokeaji bado anaweza kuyanakili au kuyashiriki.
 
 Taarifa hii inakamilisha [Masharti ya Huduma](/sw/governance/terms) na [Sera ya Ulinzi wa Data](/sw/governance/data-protection).
 
@@ -37,39 +37,44 @@ Haidhibiti jinsi Mtoaji huru, Msimamizi wa Kikundi, mtoa huduma mwingine, blockc
 
 Kulingana na vipengele unavyotumia, tunaweza kukusanya:
 
-- jina lako la mtumiaji linaloonekana kwa umma na anwani yako ya Mkoba ya blockchain ya umma;
+- jina lako la mtumiaji na anwani yako ya Mkoba ya blockchain ya umma;
 - jina lako, anwani ya barua pepe, nambari ya simu, nchi na sarafu unayopendelea;
 - wasifu mfupi, tovuti, picha ya wasifu, pamoja na jina na viwianishi vya eneo ulilohifadhi;
 - jukumu na hali ya akaunti, mipaka ya rasilimali, na nyakati akaunti ilipoundwa au kusasishwa; na
 - mipangilio, lugha, mapendeleo ya arifa na machaguo mengine unayofanya.
 
-Jina lako la mtumiaji linaloonekana kwa umma ni tofauti na jina la binafsi katika wasifu wako. Wasifu wako unaweza kutumika kujaza fomu mapema, lakini kujaza fomu mapema hakuchapishi sehemu hiyo hadi uchague kuchapisha rasilimali.
+Jina lako la mtumiaji ni tofauti na jina la binafsi katika wasifu wako. Linatumika kumtambua mpokeaji na linaweza kurudishwa pamoja na anwani yako ya Mkoba kwa mtu aliyeingia na kuandika jina hilo kamili la mtumiaji. Wasifu wako unaweza kutumika kujaza fomu mapema, lakini kujaza mapema hakuchapishi sehemu hiyo hadi uchague kuchapisha rasilimali.
+
+Wasimamizi walioidhinishwa wanaweza kutafuta katika orodha ya akaunti kwa jina, jina la mtumiaji, barua pepe, nambari ya simu au anwani ya Mkoba. Wanaweza kuona sehemu za utambulisho na mawasiliano za akaunti, jukumu, hali, mipaka ya rasilimali na rasilimali zinazohusiana inapohitajika kuendesha, kusaidia, kusimamia maudhui na kulinda App. Orodha hii si ya umma.
 
 ### Data ya uthibitishaji, Mkoba na miamala
 
-Tunaweza kushughulikia anwani za Mkoba, ujumbe uliotiwa saini, idhini za miamala, saini, vitambulisho vya hati za passkey na viwianishi vya funguo zake za umma, vitambulisho vya vipindi, maombi ya miamala, rekodi za huduma ya kupeleka miamala na hali ya miamala. Hatuhitaji ufunguo binafsi wa passkey yako ili kuthibitisha dai la passkey.
+Tunaweza kushughulikia anwani za Mkoba, ujumbe uliotiwa saini, idhini za miamala, saini, vitambulisho vya hati za passkey na viwianishi vya funguo zake za umma, hali ya hati, vitambulisho na majukumu ya vipindi, maombi ya miamala, rekodi za huduma ya kupeleka miamala, data ya miamala mbadala na hali ya miamala. Kadi ya kuingia ikibadilishwa, tunaweza kuhifadhi anwani za zamani na mpya za Mkoba, ushahidi wa mabadiliko yaliyoombwa, hali ya passkey iliyounganishwa na rekodi za uendeshaji zinazohitajika kuendelea au kuthibitisha mabadiliko hayo.
 
-Ukitumia Mkoba wa karatasi au kitambulisho kingine unachodhibiti, unawajibika kulinda taarifa zake binafsi. Anwani ya Mkoba ya umma na miamala kwenye blockchain ya umma haziko katika faragha.
+App huhifadhi taarifa binafsi ya kadi ya kuingia katika hifadhi ya ndani ya kivinjari hicho ili kivinjari kiweze kutia saini. Huduma za GEF hupokea saini na miamala iliyotiwa saini badala ya ufunguo huo binafsi. Mtoa huduma wa passkey hulinda ufunguo binafsi wa passkey; App na huduma zake hutumia kitambulisho cha hati, taarifa ya ufunguo wa umma, changamoto na dai lililotiwa saini vinavyohitajika kuisajili au kuithibitisha. Ukitumia Mkoba wa karatasi, kadi ya kuingia, passkey au kitambulisho kingine, unawajibika kulinda kifaa na taarifa binafsi.
+
+Vocha au Kikundi kinapodhibitiwa na multisig inayooana, tunaweza kushughulikia anwani ya multisig, anwani za Mkoba za watia saini, kiwango cha chini cha idhini, miamala iliyopendekezwa, uthibitisho, hali ya utekelezaji na ruhusa zinazohitajika kuonyesha na kutumia vidhibiti vya multisig. Anwani ya mmiliki, orodha ya watia saini na kiwango cha idhini vinaweza kurudishwa kupitia ukaguzi wa umiliki wa umma na pia kuonekana kwenye blockchain ya umma.
 
 ### Data ya kifaa, usalama na matumizi
 
-Tunaweza kukusanya taarifa za kiufundi na uendeshaji kama vile anwani ya IP, taarifa za kivinjari na kifaa, mihuri ya muda, kurasa au API zilizoombwa, matukio ya vipindi na usalama, hitilafu za uthibitishaji, taarifa za vikomo vya matumizi, usajili wa arifa, shughuli za huduma na rekodi za uchunguzi wa hitilafu.
+Tunaweza kukusanya taarifa za kiufundi na uendeshaji kama vile anwani ya IP, taarifa za kivinjari na kifaa, mihuri ya muda, kurasa au endpoint zilizoombwa, matukio ya vipindi na usalama, hitilafu za uthibitishaji, taarifa za vikomo vya matumizi, usajili wa arifa na uthibitisho wa uwasilishaji, shughuli za huduma na rekodi za uchunguzi wa hitilafu.
 
 ### Data ya maudhui na usaidizi
 
-Tunashughulikia taarifa unazowasilisha katika Vocha, Vikundi, Matoleo, Maombi, Katalogi, Machapisho, Maoni, picha, viambatisho, masharti, maelezo, lebo, maeneo, sehemu za mawasiliano, malalamiko, ujumbe wa usaidizi na mawasiliano mengine.
+Tunashughulikia taarifa unazowasilisha katika Vocha, Vikundi, Matoleo, Maombi, Katalogi, Machapisho, Maoni ya Vocha na Vikundi, picha, viambatisho, masharti, maelezo, lebo, maeneo, sehemu za mawasiliano, ujumbe binafsi au maagizo baada ya muamala, malalamiko, ujumbe wa usaidizi na mawasiliano mengine.
 
 Usichapishe data binafsi, picha, maelezo ya mawasiliano au eneo sahihi la mtu mwingine isipokuwa una sababu halali na ruhusa yoyote inayohitajika.
 
 ## 4. Nini huwa cha umma?
 
-App ina viwango vinne muhimu vya mwonekano.
+App ina viwango vitano muhimu vya mwonekano.
 
 | Kiwango cha mwonekano | Maana yake |
 | --- | --- |
-| Data binafsi ya wasifu na akaunti | Jina la wasifu, barua pepe, nambari ya simu, eneo lililohifadhiwa, mapendeleo, rekodi za uthibitishaji na taarifa zinazofanana za akaunti hutumika kuendesha App na haziwekwi moja kwa moja katika majibu ya rasilimali za umma. Wafanyakazi wa GEF na watoa huduma walioidhinishwa wanaweza kuzifikia inapohitajika kwa kazi yao. |
+| Data binafsi ya wasifu na akaunti | Jina la wasifu, barua pepe, nambari ya simu, eneo lililohifadhiwa, mapendeleo, rekodi za uthibitishaji na taarifa zinazofanana za akaunti hutumika kuendesha App na haziwekwi moja kwa moja katika majibu ya rasilimali za umma. Wafanyakazi wa GEF na watoa huduma walioidhinishwa wanaweza kuzifikia inapohitajika kwa kazi yao. Wasimamizi walioidhinishwa wanaweza pia kutafuta na kusimamia orodha ya akaunti isiyo ya umma. |
 | Utafutaji mahususi wa mpokeaji | Mtumiaji aliyeingia ambaye anaweka jina lako kamili la mtumiaji au nambari yako kamili ya simu anaweza kupata jina lako la mtumiaji linaloonekana kwa umma na anwani yako ya Mkoba. Sehemu tu ya jina la mtumiaji haitarudisha mtumiaji. Nambari ya simu iliyotumika kutafuta, jina la binafsi la wasifu, barua pepe, nambari ya simu na eneo lililohifadhiwa havirudishwi katika matokeo ya mpokeaji. |
-| Rasilimali za App zilizochapishwa | Sehemu unazoingiza au kunakili kwa makusudi katika rasilimali iliyochapishwa zinaweza kuonekana na yeyote anayeweza kufikia katalogi au rasilimali ya umma. Sehemu za umma zinaweza kuorodheshwa, kunakiliwa, kushirikiwa au kuhusishwa na Mkoba au rasilimali nyingine. |
+| Data ya katalogi na rasilimali ya umma | Maelezo, masharti, picha, lebo, anwani za Mkoba na mikataba, maeneo, viwianishi halisi, Matoleo, Maombi, Machapisho, Maoni, kanuni za Vikundi na mipangilio ya kiufundi iliyochapishwa inaweza kuonekana bila kuingia. Sehemu za umma zinaweza kuorodheshwa, kunakiliwa, kushirikiwa au kuhusishwa na Mkoba au rasilimali nyingine. |
+| Mawasiliano ya rasilimali kwa mtumiaji aliyeingia | Barua pepe, simu, tovuti au maelekezo ya mawasiliano yaliyoongezwa kwa makusudi katika Vocha, Kikundi au Ombi huondolewa kwenye katalogi na majibu ya kina kwa watumiaji ambao hawajaingia. Mtu aliyeingia anaweza kuomba rekodi kamili yenye mawasiliano ya Vocha au Kikundi, au njia za mawasiliano zilizochaguliwa kwa Ombi linalotumika. Mpokeaji bado anaweza kunakili, kutumia au kushiriki taarifa hiyo. Rasilimali zilizostaafishwa zina ufikiaji mdogo kwa mmiliki au msimamizi. |
 | Rekodi za blockchain ya umma | Anwani za Mkoba, mikataba, salio, mali, uhamisho, kiasi, wahusika wengine, mihuri ya muda, saini na vitendo vya mikataba vinaweza kuonekana daima kupitia mitandao ya umma na vivinjari huru vya blockchain. GEF haiwezi kufuta wala kuandika upya blockchain ya umma. |
 
 Kuondoa rasilimali kwenye katalogi ya App hakuondoi nakala zilizokwisha kutengenezwa na watu wengine, huduma za utafutaji, kumbukumbu, waorodheshaji huru au blockchain za umma.
@@ -80,21 +85,21 @@ Sehemu zinazopatikana katika rasilimali zinaweza kubadilika App inapoendelea kut
 
 | Rasilimali | Taarifa inayoweza kuwa ya umma |
 | --- | --- |
-| Vocha | Vitambulisho vya mkataba na mtandao wa blockchain; jina, alama, maelezo, kipimo na thamani iliyoelezwa ya Vocha; anwani ya Mkoba ya Mtoaji au mmiliki; masharti; maelezo ya mawasiliano; jina la eneo na viwianishi halisi; picha; lebo; alama za mwonekano; na hali ya kuorodheshwa au kuondolewa kwenye katalogi. |
-| Kikundi | Vitambulisho vya mkataba na mtandao wa blockchain; jina na maelezo ya Kikundi; anwani za Mkoba za mmiliki, mpokeaji wa ada, kidhibiti cha utegemezi au mdhibiti mwingine wa kiufundi; Vocha zinazotumika; taarifa za akiba au upatikanaji; njia ya kuthamini; ada, mipaka, kanuni na mipangilio mingine; maelezo ya mawasiliano; jina la eneo na viwianishi halisi; picha; lebo; na mihuri ya muda. |
+| Vocha | Umma: vitambulisho vya mkataba na mtandao; jina, alama, maelezo, kipimo na thamani iliyoelezwa ya Vocha; anwani ya Mkoba ya Mtoaji au mmiliki; masharti; jina la eneo na viwianishi halisi; picha; lebo; alama za mwonekano; na hali inayotumika katika katalogi. Kwa aliyeingia: barua pepe, simu na tovuti zilizoingizwa kwa makusudi. Rekodi zilizostaafishwa zinapatikana tu kwa mmiliki au msimamizi aliyeidhinishwa kupitia endpoint ya taarifa kamili, huku historia ya blockchain ikiweza kubaki ya umma. |
+| Kikundi | Umma: vitambulisho vya mkataba na mtandao; jina na maelezo ya Kikundi; anwani za Mkoba za mmiliki, mpokeaji wa ada, kidhibiti cha utegemezi au mdhibiti mwingine wa kiufundi; Vocha zinazotumika; taarifa za akiba au upatikanaji; njia ya kuthamini; ada, mipaka, kanuni na mipangilio mingine; jina la eneo na viwianishi halisi; picha; lebo; mihuri ya muda; na kwa multisig inayooana, anwani za mmiliki na watia saini pamoja na kiwango cha idhini. Kwa aliyeingia: barua pepe, simu na tovuti zilizoingizwa kwa makusudi. Rekodi zilizostaafishwa zina ufikiaji uleule wa taarifa kamili uliozuiliwa kama Vocha zilizostaafishwa. |
 | Toleo | Maelezo ya Vocha iliyounganishwa; anwani ya Mkoba ya muuzaji au chanzo; bidhaa au huduma zinazotolewa; maelezo, kiasi, kipimo, marudio, bei na upatikanaji; jina la eneo na viwianishi halisi au vilivorithiwa; picha; lebo; na mihuri ya muda. |
-| Ombi | Bidhaa au huduma zinazoombwa; maelezo; lebo; picha; hali na tarehe; jina la eneo na viwianishi halisi; na njia ya mawasiliano iliyochaguliwa kwa makusudi kwa Ombi hilo pekee. Majibu ya Ombi la umma hayahitaji kutambulisha wasifu binafsi wa aliyeunda Ombi. |
+| Ombi | Umma: bidhaa au huduma zinazoombwa; maelezo; lebo; picha; hali na tarehe; jina la eneo na viwianishi halisi. Kwa aliyeingia: maelekezo ya mawasiliano, barua pepe au simu iliyochaguliwa kwa makusudi kwa Ombi hilo linalotumika. Majibu ya Ombi la umma huondoa sehemu hizo za mawasiliano na hayatambulishi wasifu binafsi wa aliyeunda Ombi, ingawa Vocha au Vikundi vilivyounganishwa vinaweza kuonyesha uhusiano kwa njia isiyo ya moja kwa moja. |
 | Katalogi | Jina la Katalogi, maelezo, picha, lebo, anwani ya Mkoba ya mmiliki, wanachama au rasilimali zilizoorodheshwa, idadi, jina la eneo na viwianishi halisi, pamoja na mihuri ya muda. |
-| Chapisho lililoidhinishwa | Kichwa, muhtasari, maudhui, jina la mwenyeji, taarifa za washiriki, tarehe, picha, maelezo ya picha, viambatisho, viungo vilivyopachikwa, lebo, Vocha au Vikundi vilivyounganishwa, na viwianishi halisi. Machapisho ya rasimu, yaliyowasilishwa au yaliyokataliwa si ya umma. Anwani ya Mkoba ya mwandishi huhifadhiwa kwa usimamizi na uwajibikaji lakini haijumuishwi katika majibu ya Chapisho la umma. Rasilimali zilizounganishwa au maudhui yenyewe bado yanaweza kuonyesha uhusiano. |
-| Maoni | Ukadiriaji, maoni yaliyoandikwa na jibu lolote la umma la mmiliki wa Vocha. Jibu la Maoni kwa umma halijumuishi anwani ya Mkoba ya aliyeandika Maoni wala metadata ya ukombozi, ingawa huduma huhifadhi taarifa zinazohitajika kuthibitisha ustahiki, kuzuia Maoni yanayojirudia, kusimamia maudhui na kutekeleza kipindi cha kutoa Maoni. |
+| Chapisho lililochapishwa | Kichwa, muhtasari, maudhui, jina la mwenyeji, taarifa za washiriki, tarehe, picha, maelezo ya picha, viambatisho, viungo vilivyopachikwa, lebo, Vocha au Vikundi vilivyounganishwa na viwianishi halisi. Anwani ya Mkoba ya mwandishi na hali ya mchakato huhifadhiwa kwa usimamizi na uwajibikaji lakini hazijumuishwi katika majibu ya Chapisho la umma. Rasilimali zilizounganishwa au maudhui yenyewe bado yanaweza kuonyesha uhusiano. |
+| Maoni ya Vocha au Kikundi | Ukadiriaji, maoni yaliyoandikwa na jibu lolote la umma la mmiliki wa Vocha au Kikundi. Jibu la Maoni kwa umma halijumuishi anwani ya Mkoba ya aliyeandika Maoni wala ushahidi wa ukombozi au ubadilishaji. Huduma huhifadhi anwani ya aliyeandika Maoni na ushahidi unaohitajika kuthibitisha ustahiki, kuzuia Maoni yanayojirudia, kusaidia majibu na ripoti, kusimamia maudhui na kutekeleza kipindi cha kutoa Maoni. Maoni yakiripotiwa, wasimamizi wanaweza kupokea sababu ya ripoti na maudhui yaliyoripotiwa. |
 
 Maelezo ya mawasiliano na viwianishi halisi yanaweza kusababisha hatari kwa usalama wa mtu. Inapowezekana, tumia njia inayofaa ya mawasiliano ya umma na mahali salama pa kukutana hadharani badala ya makazi binafsi.
 
 ## 6. Taarifa kwenye blockchain ya umma
 
-App huwasiliana na mitandao ya blockchain ya umma. Muamala unaweza kuonyesha anwani za Mkoba zinazohusika, mkataba wa Token au Vocha, kiasi, muda, hali na matukio husika ya mkataba. Mikataba ya Kikundi inaweza pia kuonyesha mali zinazotumika, salio, ada, mipaka, uthamini, wamiliki, wasimamizi, vitegemezi na mipangilio mingine.
+App huwasiliana na mitandao ya blockchain ya umma. Muamala unaweza kuonyesha anwani za Mkoba zinazohusika, mkataba wa Token au Vocha, kiasi, muda, hali, saini na matukio husika ya mkataba. Mikataba ya Kikundi inaweza pia kuonyesha mali zinazotumika, salio, amana, malipo, ubadilishaji, uondoaji wa ukwasi, ada, mipaka, uthamini, wamiliki, wasimamizi, vitegemezi na mipangilio mingine. Multisig zinazooana zinaweza kuonyesha orodha za watia saini, viwango vya idhini, mapendekezo, uthibitisho na hatua zilizotekelezwa.
 
-Taarifa za blockchain zinaweza kushughulikiwa na waidhinishaji wa mtandao, waendeshaji wa nodi, waorodheshaji, programu za Mkoba, huduma za uchanganuzi na yeyote anayesoma mtandao. Baada ya kuthibitishwa, huenda muamala usiweze kubatilishwa. Kufunga akaunti ya App, kubadilisha wasifu au kuiomba GEF ifute data iliyo nje ya blockchain hakufuti rekodi za blockchain.
+Taarifa za blockchain zinaweza kushughulikiwa na waidhinishaji wa mtandao, waendeshaji wa nodi, waorodheshaji, programu za Mkoba, huduma za uchanganuzi na yeyote anayesoma mtandao. Miamala inaweza kuwa isiyoweza kubatilishwa. Kufunga akaunti ya App, kubadilisha wasifu, kubadilisha kadi ya kuingia, kuondoa au kustaafisha rasilimali ya katalogi, kuharibu vitengo vya Vocha au kuiomba GEF ifute data iliyo nje ya blockchain hakufuti rekodi za awali za blockchain wala nakala zilizoorodheshwa kwa njia huru.
 
 ## 7. Kwa nini tunatumia data na misingi yetu ya kisheria
 
@@ -114,7 +119,7 @@ Hatuchukulii uamuzi wako wa kuchapisha sehemu moja kuwa ridhaa ya kuchapisha seh
 
 ## 8. Data ya lazima na ya hiari
 
-App hutambulisha sehemu zinazohitajika katika fomu husika. Anwani ya Mkoba, uthibitisho wa utambulisho, jina na barua pepe zinahitajika kwa usajili wa sasa wa akaunti. Vipengele fulani vinaweza kuhitaji taarifa zaidi za muamala, mawasiliano, eneo, ustahiki au rasilimali.
+App hutambulisha sehemu zinazohitajika katika fomu husika. Uundaji wa sasa wa akaunti unaoongozwa unahitaji anwani ya Mkoba na uthibitisho wa utambulisho, jina, picha ya wasifu, nchi na eneo lililohifadhiwa, sarafu unayopendelea na angalau anwani moja ya barua pepe au nambari ya simu. Jina la mtumiaji ni la hiari. Njia nyingine za kuingia au kurejesha akaunti zinaweza kuunda thamani za muda za mfumo hadi mtumiaji akamilishe au asahihishe wasifu. Vipengele fulani vinaweza kuhitaji taarifa zaidi za muamala, mawasiliano, eneo, ustahiki au rasilimali.
 
 Sehemu nyingine za wasifu na rasilimali ni za hiari isipokuwa fomu iseme vinginevyo. Usipotoa taarifa inayohitajika, huenda tusiweze kuunda akaunti, kukuthibitisha, kuwasilisha muamala, kuchapisha rasilimali, kutoa usaidizi, kutimiza sharti la kisheria au kukuwezesha kutumia kipengele ulichoomba.
 
@@ -136,13 +141,16 @@ Tunapokea data:
 Tunafichua tu taarifa inayohitajika kwa kiasi kinachofaa kwa kusudi lililoelezwa, sheria inayotumika au kitendo cha kuweka taarifa hadharani ulichoomba. Wapokeaji wanaweza kujumuisha:
 
 - wageni na watumiaji wa App unapochapisha rasilimali au kutumia blockchain ya umma;
+- watumiaji wa App walioingia wanapoomba maelezo ya mawasiliano uliyoyaunganisha kwa makusudi na Vocha, Kikundi au Ombi linalotumika;
 - Watoaji, Wasimamizi wa Vikundi, wahusika wa miamala na washiriki wengine wanaohitajika kwa muamala, ukombozi, malalamiko au huduma uliyoomba;
 - watoa huduma za miundombinu kwa upangishaji, hifadhidata, hifadhi, uwasilishaji wa maudhui, usalama, uthibitishaji, usaidizi, barua pepe, arifa, ramani, uainishaji wa eneo, ufikiaji wa blockchain, uorodheshaji, upelekaji wa miamala na ufuatiliaji;
 - watoa huduma huru za Mkoba, blockchain, malipo, stablecoin, ubadilishaji wa pesa taslimu au huduma nyingine unaochagua kutumia;
 - washauri wa kitaalamu, wakaguzi, watoa bima, watafiti, wafadhili na washirika walio chini ya wajibu na hatua zinazofaa za ulinzi; na
 - wadhibiti, mahakama, vyombo vya kutekeleza sheria au watu wengine pale ambapo ufichuaji unahitajika kisheria au ni muhimu kwa kiasi kinachofaa kulinda haki, usalama na uadilifu wa huduma.
 
-Huduma za wengine zinaweza kukusanya data moja kwa moja chini ya taarifa zao wenyewe za faragha. Kabla ya Taarifa hii kuchapishwa, GEF hukagua orodha ya sasa ya watoa huduma na uhamishaji wa data ili ufichuaji ubaki sahihi.
+Programu ya wavuti ya uzalishaji inatolewa kupitia Cloudflare Pages. Mipangilio yake ya sasa ya kivinjari hutumia MapTiler kwa mitindo ya ramani na mapendekezo ya eneo yanayotegemea IP, ArcGIS World Geocoding kwa utafutaji wa mahali na geocoding ya kinyume, na endpoint za RPC zilizosanidiwa za Gnosis Chain kwa kusoma blockchain. Huduma hizo hupokea data ya ombi inayohitajika kujibu, ambayo inaweza kujumuisha anwani ya IP, taarifa za kivinjari, eneo la ramani, maandishi ya utafutaji, viwianishi au maswali kuhusu Mkoba na mkataba.
+
+Miunganisho mingine hutegemea kipengele. Inapowezeshwa na kutumiwa, huduma ya arifa hushughulikia endpoint za usajili wa arifa, hali ya kifaa, anwani za Mkoba zilizounganishwa, uthibitisho wa uwasilishaji na mibofyo na hali ya kikasha; huduma ya kupeleka miamala hushughulikia maombi yaliyotiwa saini na hali ya miamala; huduma ya miamala ya Safe hushughulikia anwani za multisig, mapendekezo, saini, uthibitisho na hali ya utekelezaji; na mtoa huduma wa malipo au ubadilishaji wa pesa hushughulikia nambari ya simu, anwani ya Mkoba, mali, kiasi, kitambulisho cha mtoa huduma, kiwango na hali ya muamala inayohitajika kwa kipengele hicho. Hifadhi ya picha, API ya App, hifadhidata, waorodheshaji wa blockchain na miundombinu ya ufuatiliaji hushughulikia maudhui na rekodi za uendeshaji zinazohitajika kwa kazi zao. Huduma ya mtu mwingine inaweza pia kukusanya data moja kwa moja chini ya taarifa yake ya faragha.
 
 ## 11. Ushughulikiaji wa data kimataifa
 
@@ -208,7 +216,7 @@ Taarifa itakayotolewa baadaye haifanyi data iliyokuwa binafsi hapo awali kuwa ya
 
 Kwa maswali au maombi kuhusu faragha:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

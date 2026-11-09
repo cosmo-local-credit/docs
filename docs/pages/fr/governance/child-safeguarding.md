@@ -1,12 +1,12 @@
 # Politique de protection de l’enfance
 
-> **Traduction de travail — pas encore en vigueur.** Cette traduction française est mise à disposition pour relecture avant l’approbation juridique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable. [Lire le texte anglais.](/governance/child-safeguarding)
+> **Traduction fournie à titre pratique.** Cette traduction est fournie à titre pratique. Le texte anglais est le texte source et prévaut, sauf disposition contraire du droit applicable. [Lire le texte anglais.](/governance/child-safeguarding)
 
-**Version provisoire de la source : 1.0**
+**Version source : 1.0**
 
-**Date du projet anglais : 24 octobre 2026**
+**Date de publication et de prise d’effet du texte anglais : 9 novembre 2026**
 
-**Date de cette traduction de travail : 25 octobre 2026**
+**Date de publication de la traduction : 9 novembre 2026**
 
 ## 1. Objet
 
@@ -110,7 +110,7 @@ Le refus ou l’abandon d’une activité facultative ne doit entraîner ni repr
 
 ## 11. Images, récits, recherche et données à caractère personnel
 
-GEF collecte et utilise les informations relatives aux enfants uniquement lorsqu’il existe une finalité claire, une autorisation légale et une garantie adaptée. La [Politique de protection des données](/fr/governance/data-protection) s’applique également.
+GEF recueille et utilise les informations relatives aux enfants uniquement lorsqu’il existe une finalité claire, une autorisation légale et des garanties appropriées. La [Politique de protection des données](/fr/governance/data-protection) et la [Note d’orientation de l’ODPC sur le traitement des données relatives aux enfants](https://www.odpc.go.ke/guidelines-2/index.html) s’appliquent également.
 
 Avant d’enregistrer ou de publier l’image, la voix, le récit, le travail, l’identité, les coordonnées de contact, l’appartenance communautaire ou la localisation d’un enfant, l’équipe responsable doit examiner le consentement, la dignité, l’exactitude, les réutilisations futures, le public visé, la permanence numérique et les risques d’identification ou de préjudice.
 
@@ -180,9 +180,9 @@ GEF réexamine la présente Politique au moins une fois par an, ainsi qu’à la
 
 Les signalements et questions relatifs à la protection de l’enfance peuvent être adressés à :
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [info@grassecon.org](mailto:info@grassecon.org)
 
 Les questions relatives à la confidentialité et aux droits sur les données doivent être adressées séparément à [privacy@grassecon.org](mailto:privacy@grassecon.org).

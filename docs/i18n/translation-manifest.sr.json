@@ -1,5 +1,5 @@
 {
-  "sourceAppCommit": "facf5e034dc668c2e5ded90b9dd5995690f0fb63",
+  "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "translationPublicationDate": "10 October 2026",
   "status": "first-draft-review",
   "reviewProcess": [
@@ -122,10 +122,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
+      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
       "locales": {
         "sr": {
-          "sha256": "a0fb65e02c96a16ea0f51c3504d747001a51d8d67dab8bc8d262cd8b1ece0dee",
+          "sha256": "4c56b913fe3498ed3dcf413d6ec10259f38f7e798026aa49072096ca385655f8",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6003,
@@ -514,81 +514,69 @@
     },
     "/governance/policies": {
       "source": "governance/policies.md",
-      "sourceSha256": "67126290c8ffbbdac595812d8134f06fee1afd7d9cefe255bf34e470b9674340",
+      "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c",
       "locales": {
         "sr": {
-          "sha256": "cc077571228c2124ae759de777bbbdfa20d4527ab444bc343ba0dbfe80fa18a4",
+          "sha256": "092e5aa2fef28ad83d7fb95044048d9c5d327977fddbd4d682f35cd920a484f4",
           "review": {
-            "units": 36,
-            "meanBackTranslationSimilarity": 0.7191,
-            "unitsBelow0_35": 3,
-            "method": "model draft, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "8930bb2106b22a060bb1dfa895c67cbf403dc80ea815e7ea29f5c4bdbf2d8a11",
+      "sourceSha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0",
       "locales": {
         "sr": {
-          "sha256": "56c56945bcce43d43c0770510786de77938b40bb27496c2399a0bf0ced9d58b3",
+          "sha256": "5bb8264053db076034f7b773f639a04989d25851204b405edb2424df8ea0a12f",
           "review": {
-            "units": 174,
-            "meanBackTranslationSimilarity": 0.6674,
-            "unitsBelow0_35": 23,
-            "method": "model draft, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     },
     "/governance/data-protection": {
       "source": "governance/data-protection.md",
-      "sourceSha256": "8f85ed92cc90198406559b00d9eb93157b98bf3566059ecdda08dc8d45dceb92",
+      "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61",
       "locales": {
         "sr": {
-          "sha256": "ff3d50382731827bd033e537e96af455465e1d65c59f5099c3258c0ee7f4cf79",
+          "sha256": "2029e87e2a08793e43c8b64b9c4c0cb752cabf66556ddcfb676d6862103076e8",
           "review": {
-            "units": 132,
-            "meanBackTranslationSimilarity": 0.663,
-            "unitsBelow0_35": 19,
-            "method": "model draft, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     },
     "/governance/child-safeguarding": {
       "source": "governance/child-safeguarding.md",
-      "sourceSha256": "ad10730738f75fcb5c14b73a6c6325b38908d10505bc386214abf1ebfbc7c8fd",
+      "sourceSha256": "f87320a4609ab130bab19e9905c2ffad36b16a2e7f519876f8dcf23f3165e133",
       "locales": {
         "sr": {
-          "sha256": "5a0e6b26b829ecc49d629ffd985b124ed83e1ce9431fee26bbab19767583f2ca",
+          "sha256": "3ba5ada8122cc0dca6873fc694c7e2f7d0fa467aca8634dd14fc5e653affb101",
           "review": {
-            "units": 134,
-            "meanBackTranslationSimilarity": 0.6626,
-            "unitsBelow0_35": 16,
-            "method": "model draft, plain-language review, and independent back-translation",
-            "status": "first-draft-review-complete"
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }
     }
   },
-  "policyTranslationDraftDate": "25. октобар 2026.",
-  "policySourceAppCommit": "92bf381e9e55deabf460b7ac4f32f92009c06151",
+  "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "policyReviewProcess": [
-    "semantic MADLAD-400 translation with protected technical tokens",
-    "plain-language clarity review required before promotion",
-    "independent back-translation with every low-confidence unit recorded"
+    "reviewed translation memory retained for unchanged units",
+    "semantic translation of changed units",
+    "complete plain-language and legal-meaning review of the four policy pages",
+    "protected-token, structure, link, and source-hash verification"
   ],
   "policyBackTranslationReview": {
-    "units": 476,
-    "meanBackTranslationSimilarity": 0.6687,
-    "unitsBelow0_35": 61,
-    "threshold": 0.35,
-    "lowConfidenceReport": "policy-review.sr.json"
-  }
+    "status": "completed-before-final-human-review",
+    "scope": "changed policy units",
+    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
+  },
+  "policyTranslationPublicationDate": "9. новембар 2026.",
+  "policyStatus": "release-ready"
 }

@@ -53,17 +53,17 @@ POLICY_CATALOG_SOURCE = {
         "childSafeguarding": "Child Safeguarding",
     },
     "notice": {
-        "title": "Working translation — not yet effective.",
+        "title": "Convenience translation.",
         "body": (
-            "This translation is provided for review before legal approval. "
+            "This translation is provided for convenience. "
             "The English text is the source text and controls unless applicable law requires otherwise."
         ),
         "englishSource": "Read the English source.",
     },
     "metadata": {
-        "sourceVersion": "Source draft version",
-        "englishDraftDate": "English draft date",
-        "translationDraftDate": "Working translation date",
+        "sourceVersion": "Source version",
+        "englishPublicationDate": "English publication and effective date",
+        "translationPublicationDate": "Translation publication date",
     },
 }
 LOCALES = ["ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
@@ -86,7 +86,7 @@ LANGUAGE_CODES = {
     "zh": "zho_Hans",
     "zh-Hant": "zho_Hant",
 }
-APP_BASELINE = "facf5e034dc668c2e5ded90b9dd5995690f0fb63"
+APP_BASELINE = "79b498f74e615f4a942122f91081f23beb8760ee"
 TRANSLATION_DATES = {
     "ar": "10 October 2026",
     "de": "10 October 2026",
@@ -110,6 +110,12 @@ UNCHANGED_NAMES = [
     "CLC App",
     "Sarafu Network",
     "Grassroots Economics Foundation",
+    "GEF",
+    "Cloudflare Pages",
+    "MapTiler",
+    "ArcGIS World Geocoding",
+    "Gnosis Chain",
+    "Safe",
     "Data Protection Act, 2019",
     "Children Act, 2022",
     "Office of the Data Protection Commissioner",
@@ -1246,7 +1252,11 @@ class MadladTranslator:
             # MADLAD's greedy output is strong enough for the comparison draft
             # and keeps a full corpus pass practical on maintainer hardware.
             beam_size=1,
-            max_batch_size=128,
+            # CTranslate2 interprets this value as tokens because batch_type is
+            # "tokens". A 128-token ceiling serialized nearly every policy
+            # sentence; 4096 keeps the 3B int8 model inside ordinary maintainer
+            # memory while using the available CPU cores effectively.
+            max_batch_size=4096,
             batch_type="tokens",
             max_decoding_length=256,
             repetition_penalty=1.1,
@@ -2304,6 +2314,7 @@ def translate_segments(
     app_glossary: dict[str, dict[str, str]],
     *,
     protect_names: bool = True,
+    forward_beam_size: int = 4,
 ) -> tuple[list[str], dict[str, object]]:
     protected_segments: list[tuple[list[str], list[Protected]]] = []
     flat_chunks: list[str] = []
@@ -2352,9 +2363,11 @@ def translate_segments(
         flat_chunks,
         "en",
         locale,
-        beam_size=4,
+        beam_size=forward_beam_size,
     )
-    translated: list[str] = []
+    translated: list[str | None] = []
+    retry_plans: list[tuple[int, str, list[Protected], list[str], int, int]] = []
+    retry_natural_parts: list[str] = []
     offset = 0
     for source_segment, (source_chunks, protected), count in strict_zip(
         segments, protected_segments, chunk_counts
@@ -2382,30 +2395,56 @@ def translate_segments(
                 if not re.fullmatch(r"〔\d+〕", part)
                 and re.search(r"[A-Za-z]", part)
             ]
-            retry_translated = iter(
-                translator.translate_many(
-                    natural_parts, "en", locale, beam_size=1
+            retry_start = len(retry_natural_parts)
+            retry_natural_parts.extend(natural_parts)
+            translated.append(None)
+            retry_plans.append(
+                (
+                    len(translated) - 1,
+                    source_segment,
+                    protected,
+                    retry_parts,
+                    retry_start,
+                    len(retry_natural_parts),
                 )
             )
-            retry_value = "".join(
-                part
-                if re.fullmatch(r"〔\d+〕", part)
-                or not re.search(r"[A-Za-z]", part)
-                else next(retry_translated)
-                for part in retry_parts
-            )
-            try:
-                translated.append(
-                    normalize_translation(
-                        source_segment, restore_text(retry_value, protected), locale
-                    )
-                )
-            except ValueError as error:
-                raise ValueError(f"source={source_segment!r}; {error}") from error
         offset += count
 
+    # Retry all natural-language spans in one durable batch. This avoids one
+    # model invocation per policy unit for scripts in which the translation
+    # model frequently paraphrases opaque protected tokens away.
+    retry_results = translator.translate_many(
+        retry_natural_parts, "en", locale, beam_size=1
+    )
+    for (
+        index,
+        source_segment,
+        protected,
+        retry_parts,
+        retry_start,
+        retry_end,
+    ) in retry_plans:
+        retry_translated = iter(retry_results[retry_start:retry_end])
+        retry_value = "".join(
+            part
+            if re.fullmatch(r"〔\d+〕", part)
+            or not re.search(r"[A-Za-z]", part)
+            else next(retry_translated)
+            for part in retry_parts
+        )
+        try:
+            translated[index] = normalize_translation(
+                source_segment, restore_text(retry_value, protected), locale
+            )
+        except ValueError as error:
+            raise ValueError(f"source={source_segment!r}; {error}") from error
+
+    final_translated = [value for value in translated if value is not None]
+    if len(final_translated) != len(segments):
+        raise ValueError("Not every translated policy unit was reconstructed")
+
     # Verification is a separate full back-translation pass over every unit.
-    back_chunks = translator.translate_many(translated, locale, "en", beam_size=1)
+    back_chunks = translator.translate_many(final_translated, locale, "en", beam_size=1)
     similarities = [
         SequenceMatcher(None, source.casefold(), back.casefold()).ratio()
         for source, back in strict_zip(segments, back_chunks)
@@ -2419,7 +2458,7 @@ def translate_segments(
         "scores": similarities,
         "backTranslations": back_chunks,
     }
-    return translated, review
+    return final_translated, review
 
 
 def review_scores(scores: list[float]) -> dict[str, float | int]:
@@ -2505,26 +2544,26 @@ def replace_policy_preamble(
     value: str,
     route: str,
     catalog: dict[str, object],
-    source_draft_date: str,
-    translation_draft_date: str,
+    source_publication_date: str,
+    translation_publication_date: str,
 ) -> str:
     lines = value.splitlines()
-    quote_index = next(
-        (index for index, line in enumerate(lines) if line.startswith("> ")),
+    heading_index = next(
+        (index for index, line in enumerate(lines) if line.startswith("# ")),
         None,
     )
-    if quote_index is None:
-        raise ValueError(f"{route}: translated policy is missing its draft notice")
-    first_section_index = next(
-        (
-            index
-            for index, line in enumerate(lines[quote_index + 1 :], quote_index + 1)
-            if line.startswith("## ")
-        ),
-        None,
-    )
-    if first_section_index is None:
-        raise ValueError(f"{route}: translated policy is missing its first section")
+    if heading_index is None:
+        raise ValueError(f"{route}: translated policy is missing its page heading")
+
+    content_index = heading_index + 1
+    while content_index < len(lines):
+        line = lines[content_index]
+        if not line.strip() or line.startswith("> ") or re.match(r"^\*\*.*\*\*$", line):
+            content_index += 1
+            continue
+        break
+    if content_index >= len(lines):
+        raise ValueError(f"{route}: translated policy is missing its body")
 
     notice = catalog["notice"]
     metadata = catalog["metadata"]
@@ -2537,15 +2576,13 @@ def replace_policy_preamble(
         "",
         f"**{metadata['sourceVersion']}{separator}{POLICY_REGISTRY['source']['version']}**",
         "",
-        f"**{metadata['englishDraftDate']}{separator}{source_draft_date}**",
+        f"**{metadata['englishPublicationDate']}{separator}{source_publication_date}**",
         "",
-        f"**{metadata['translationDraftDate']}{separator}{translation_draft_date}**",
+        f"**{metadata['translationPublicationDate']}{separator}{translation_publication_date}**",
     ]
-    # The English policy sources currently use either two or three metadata
-    # lines, and a translation model can alter spacing inside their bold
-    # delimiters. Replace the complete preamble up to the first H2 instead of
-    # trying to recognize translated metadata labels one by one.
-    lines[quote_index:first_section_index] = replacement + [""]
+    # Replace only the translated metadata block. The introductory paragraph
+    # before the first H2 is substantive policy text and must be retained.
+    lines[heading_index + 1 : content_index] = [""] + replacement + [""]
     return "\n".join(lines) + "\n"
 
 
@@ -2601,7 +2638,7 @@ def main() -> None:
     parser.add_argument(
         "--policy-draft",
         action="store_true",
-        help="Prepare only the four policy pages in an isolated review workspace.",
+        help="Prepare only the four final policy pages in an isolated review workspace.",
     )
     parser.add_argument(
         "--policy-workspace",
@@ -2609,8 +2646,8 @@ def main() -> None:
         help="Temporary output directory for a policy translation candidate.",
     )
     parser.add_argument("--policy-app-commit")
-    parser.add_argument("--policy-source-draft-date")
-    parser.add_argument("--policy-translation-draft-date")
+    parser.add_argument("--policy-source-date", dest="policy_source_date")
+    parser.add_argument("--policy-translation-date", dest="policy_translation_date")
     args = parser.parse_args()
 
     if args.policy_draft:
@@ -2620,10 +2657,10 @@ def main() -> None:
             parser.error("--policy-draft requires --policy-workspace")
         if not args.policy_app_commit:
             parser.error("--policy-draft requires --policy-app-commit")
-        if not args.policy_source_draft_date:
-            parser.error("--policy-draft requires --policy-source-draft-date")
-        if not args.policy_translation_draft_date:
-            parser.error("--policy-draft requires --policy-translation-draft-date")
+        if not args.policy_source_date:
+            parser.error("--policy-draft requires --policy-source-date")
+        if not args.policy_translation_date:
+            parser.error("--policy-draft requires --policy-translation-date")
         if args.routes:
             parser.error("--policy-draft selects the policy routes automatically")
         locale = args.locales[0]
@@ -2641,7 +2678,7 @@ def main() -> None:
                 Path.home()
                 / f".cache/clc-translation-models/policy-{locale}-translations.json"
             )
-        translation_date = args.policy_translation_draft_date
+        translation_date = args.policy_translation_date
     else:
         translation_dates = {
             TRANSLATION_DATES.get(locale, "10 October 2026")
@@ -2740,7 +2777,7 @@ def main() -> None:
             {
                 "sourceAppCommit": APP_BASELINE,
                 "status": "policy-translation-candidate",
-                "policyTranslationDraftDate": args.policy_translation_draft_date,
+                "policyTranslationPublicationDate": args.policy_translation_date,
                 "policySourceAppCommit": args.policy_app_commit,
                 "policyReviewProcess": [
                     translation_method,
@@ -2766,6 +2803,9 @@ def main() -> None:
                 canonical_terms,
                 app_glossary,
                 protect_names=True,
+                # MADLAD always uses greedy decoding; retain the historical
+                # cache key so previously reviewed policy units are reused.
+                forward_beam_size=4,
             )
 
         splash_path = I18N / f"messages/{locale}.json"
@@ -2852,8 +2892,8 @@ def main() -> None:
             policy_catalog.update(
                 {
                     "status": "translation-candidate",
-                    "sourceDraftDate": args.policy_source_draft_date,
-                    "translationDraftDate": args.policy_translation_draft_date,
+                    "sourcePublicationDate": args.policy_source_date,
+                    "translationPublicationDate": args.policy_translation_date,
                     "sourceAppCommit": args.policy_app_commit,
                     "metadataSeparator": ": ",
                 }
@@ -2881,8 +2921,8 @@ def main() -> None:
                     translated,
                     route,
                     policy_catalog,
-                    args.policy_source_draft_date,
-                    args.policy_translation_draft_date,
+                    args.policy_source_date,
+                    args.policy_translation_date,
                 )
                 policy_page_reviews[route] = review
                 for unit_index, (source_unit, translated_unit, back_translation, score) in enumerate(

@@ -16,6 +16,7 @@ const candidateIndex = args.indexOf('--candidate')
 const candidate = candidateIndex === -1 ? null : resolve(args[candidateIndex + 1] ?? '')
 const reviewed = args.includes('--reviewed')
 const replace = args.includes('--replace')
+const deferHeadingMap = args.includes('--defer-heading-map')
 
 if (!locale || !candidate || !reviewed) {
   console.error(
@@ -54,23 +55,25 @@ for (const route of policyRoutes) {
   const page = structuredClone(candidateManifest.pages[route])
   page.locales[locale].review = {
     ...page.locales[locale].review,
-    method: 'model draft, plain-language review, and independent back-translation',
-    status: 'first-draft-review-complete',
+    method: 'semantic translation, plain-language review, and independent back-translation',
+    status: 'release-review-complete',
   }
   manifest.pages[route] = page
 }
 
-manifest.policyTranslationDraftDate = candidateManifest.policyTranslationDraftDate
+manifest.policyTranslationPublicationDate = candidateManifest.policyTranslationPublicationDate
 manifest.policySourceAppCommit = candidateManifest.policySourceAppCommit
 manifest.policyReviewProcess = candidateManifest.policyReviewProcess
 manifest.policyBackTranslationReview = candidateManifest.policyBackTranslationReview
 writeFileSync(localeManifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
 
-candidateCatalog.status = 'translation-review-ready'
+candidateCatalog.status = 'release-ready'
 policyRegistry.locales[locale] = candidateCatalog
 writeFileSync(policyRegistryPath, `${JSON.stringify(policyRegistry, null, 2)}\n`)
 
-execFileSync(process.execPath, [join(root, 'scripts/build_heading_map.mjs')], { stdio: 'inherit' })
+if (!deferHeadingMap) {
+  execFileSync(process.execPath, [join(root, 'scripts/build_heading_map.mjs')], { stdio: 'inherit' })
+}
 execFileSync(
   process.execPath,
   [join(root, 'scripts/check_policy_translation.mjs'), locale],

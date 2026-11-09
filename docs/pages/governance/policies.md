@@ -1,10 +1,10 @@
 # Policies and notices
 
-> **Review draft — not yet effective.** This English text is available for public review before legal approval and translation. The existing [Terms of Service](/governance/terms) remain unchanged.
+**Version: 1.0**
 
-**Draft version: 1.0**
+**Publication date: 9 November 2026**
 
-**Draft date: 24 October 2026**
+**Effective date: 9 November 2026**
 
 Grassroots Economics Foundation (**GEF**) operates the Cosmo-Local Credit App (**CLC App**). This page brings together the terms, privacy information, and organizational policies that apply to the App and to relevant GEF activities.
 
@@ -25,7 +25,7 @@ Each document states its own scope. If a translated version differs from the Eng
 
 ## Current and legacy material
 
-Once approved and given publication and effective dates, these documents will be the current sources for the scope they describe. Earlier Grassroots Economics policy pages remain useful as historical material, but they do not describe every field, safeguard, or public/private boundary in the current CLC App.
+These dated documents are the current sources for the scope they describe. Earlier Grassroots Economics policy pages remain useful as historical material, but they do not describe every field, safeguard, or public/private boundary in the current CLC App.
 
 The Social Soil Privacy Policy applies to the separate Social Soil educational game and is not a CLC App policy.
 

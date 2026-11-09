@@ -1,14 +1,14 @@
 # Mga patakaran at abiso
 
-> **Salin para sa pagsusuri — hindi pa epektibo.** Inilaan ang saling Filipino na ito para sa pagsusuri bago ang legal na pag-apruba. Ang tekstong Ingles ang pinagmulan at siyang mananaig, maliban kung iba ang hinihingi ng naaangkop na batas. [Basahin ang tekstong Ingles.](/governance/policies)
+> **Salin para sa kaginhawaan.** Ibinibigay ang saling ito para sa kaginhawaan. Ang tekstong Ingles ang pinagmulang teksto at siyang masusunod, maliban kung iba ang hinihingi ng naaangkop na batas. [Basahin ang tekstong Ingles.](/governance/policies)
 
-**Bersyon ng pinagmulang draft: 1.0**
+**Bersyon ng pinagmulang teksto: 1.0**
 
-**Petsa ng English draft: 24 Oktubre 2026**
+**Petsa ng paglalathala at pagkakabisa ng tekstong Ingles: 9 Nobyembre 2026**
 
-**Petsa ng saling ito para sa pagsusuri: 28 Oktubre 2026**
+**Petsa ng paglalathala ng salin: 9 Nobyembre 2026**
 
-Pinapatakbo ng Grassroots Economics Foundation (**GEF**) ang Cosmo-Local Credit App (**CLC App**). Pinagsasama-sama ng pahinang ito ang mga tuntunin, impormasyon tungkol sa privacy, at mga patakaran ng organisasyon na naaangkop sa App at sa mga kaugnay na gawain ng GEF.
+Pinapatakbo ng Grassroots Economics Foundation (**GEF **) ang Cosmo-Local Credit App (** CLC App**). Pinagsasama-sama ng pahinang ito ang mga tuntunin, impormasyon tungkol sa privacy, at mga patakaran ng organisasyon na naaangkop sa App at sa mga kaugnay na gawain ng GEF.
 
 ## Aling dokumento ang dapat kong basahin?
 
@@ -27,7 +27,7 @@ Nakasaad sa bawat dokumento ang sarili nitong saklaw. Kung naiiba ang isang sali
 
 ## Kasalukuyan at dating mga materyal
 
-Kapag naaprubahan na at nalagyan ng mga petsa ng paglalathala at pagiging epektibo, ang mga dokumentong ito ang magiging kasalukuyang sanggunian para sa saklaw na inilalarawan ng mga ito. Nananatiling kapaki-pakinabang na makasaysayang materyal ang mga naunang pahina ng patakaran ng Grassroots Economics, ngunit hindi inilalarawan ng mga iyon ang bawat field, proteksyon, o pampubliko/pribadong hangganan sa kasalukuyang CLC App.
+Ang mga dokumentong ito na may petsa ang kasalukuyang sanggunian para sa saklaw na inilalarawan ng mga ito. Nananatiling kapaki-pakinabang na makasaysayang materyal ang mga naunang pahina ng patakaran ng Grassroots Economics, ngunit hindi inilalarawan ng mga iyon ang bawat field, proteksyon, o hangganan sa pagitan ng pampubliko at pribadong impormasyon sa kasalukuyang CLC App.
 
 Ang Social Soil Privacy Policy ay para sa hiwalay na larong pang-edukasyon na Social Soil at hindi ito patakaran ng CLC App.
 

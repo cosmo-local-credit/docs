@@ -13,6 +13,20 @@ date: 26 October 2026
 - **Tone:** Human, practical, warm, and easy to follow
 - **Primary call to action:** Explore what people offer and need at `cosmolocal.credit`
 
+## Title options
+
+1. **Cosmo-Local Credit: What Can You Offer?**
+2. **A Doctor and Farmer Exchange What They Offer**
+3. **Gift Cards for What Your Community Can Provide**
+
+## YouTube description
+
+Dr. Amina provides medical care and wants fresh local food. Kofi grows food and needs a consultation. Each creates a Voucher—much like a gift card for what that person provides—and an Offering that explains how it can be used.
+
+Amina publishes what she needs, Kofi finds it, and their Vouchers become exchangeable through a Commitment Pool with clear rules. This short introduction shows how people can make useful offers easier to find, exchange, and use.
+
+Explore Cosmo-Local Credit at `https://cosmolocal.credit`.
+
 ## The story in one sentence
 
 A doctor needs fresh food, a farmer needs medical care, and Cosmo-Local Credit helps them make their offers visible and exchangeable.

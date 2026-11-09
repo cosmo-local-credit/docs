@@ -1,5 +1,5 @@
 {
-  "sourceAppCommit": "facf5e034dc668c2e5ded90b9dd5995690f0fb63",
+  "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "translationPublicationDate": "10 October 2026",
   "status": "first-draft-review",
   "reviewProcess": [
@@ -122,10 +122,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
+      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
       "locales": {
         "hi": {
-          "sha256": "321eafb0177e1fe77b384b17d4b2d6c944101d54902bae326c3c1ace2e57ad01",
+          "sha256": "a084d6eea63cb7c692f66e05fba8d39371d5297c35b0af873cf2f3fdc6015355",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6973,
@@ -511,6 +511,72 @@
           }
         }
       }
+    },
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "locales": {
+        "hi": {
+          "sha256": "2651989bb38274bc90ce23be5405221b0ba3b628826b65e6abe9fbee542716fe",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c"
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "locales": {
+        "hi": {
+          "sha256": "c447bb9bfea876a85770567a1fbbf347016edc26f8204ee149c38c09799c489b",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0"
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "locales": {
+        "hi": {
+          "sha256": "aef42533b73891e72dea51e30e8aec0db0087d1a240d0b4228982ff47711ede1",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61"
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "locales": {
+        "hi": {
+          "sha256": "4e6bcb8a02cb78e724e274e4089818ba842cd9dc51b1d3caefd98136a1780939",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "f87320a4609ab130bab19e9905c2ffad36b16a2e7f519876f8dcf23f3165e133"
     }
-  }
+  },
+  "policyTranslationPublicationDate": "9 नवंबर 2026",
+  "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+  "policyReviewProcess": [
+    "reviewed translation memory retained for unchanged units",
+    "semantic translation of changed units",
+    "complete plain-language and legal-meaning review of the four policy pages",
+    "protected-token, structure, link, and source-hash verification"
+  ],
+  "policyBackTranslationReview": {
+    "status": "completed-before-final-human-review",
+    "scope": "changed policy units",
+    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
+  },
+  "policyStatus": "release-ready"
 }

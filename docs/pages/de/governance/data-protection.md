@@ -1,18 +1,18 @@
 # Datenschutzrichtlinie der Grassroots Economics Foundation
 
-> **Arbeitsübersetzung – noch nicht in Kraft.** Diese deutsche Übersetzung wird vor der rechtlichen Genehmigung zur Prüfung bereitgestellt. Der englische Text ist der Ausgangstext und hat Vorrang, sofern das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/data-protection)
+> **Übersetzung zur leichteren Lesbarkeit.** Diese Übersetzung dient der leichteren Lesbarkeit. Der englische Text ist der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/data-protection)
 
-**Entwurfsversion des Ausgangstextes: 1.0**
+**Version des Ausgangstextes: 1.0**
 
-**Datum des englischen Entwurfs: 24. Oktober 2026**
+**Veröffentlichungs- und Geltungsdatum des englischen Textes: 9. November 2026**
 
-**Datum dieser Arbeitsübersetzung: 25. Oktober 2026**
+**Veröffentlichungsdatum der Übersetzung: 9. November 2026**
 
 ## 1. Zweck
 
-Die Grassroots Economics Foundation (**GEF**) achtet die Privatsphäre und versteht den Umgang mit personenbezogenen Daten als Verantwortung gegenüber den Menschen und Gemeinschaften, die an ihrer Arbeit beteiligt sind. Diese Richtlinie legt Mindeststandards für personenbezogene Daten fest, die über Systeme, Programme, Forschung, Bildung, Veranstaltungen, Partnerschaften und betriebliche Abläufe von GEF verarbeitet werden, einschließlich der Cosmo-Local Credit App (**CLC App**).
+Die Grassroots Economics Foundation (**GEF **) achtet die Privatsphäre und versteht den Umgang mit personenbezogenen Daten als Verantwortung gegenüber den Menschen und Gemeinschaften, die an ihrer Arbeit beteiligt sind. Diese Richtlinie legt Mindeststandards für personenbezogene Daten fest, die über Systeme, Programme, Forschung, Bildung, Veranstaltungen, Partnerschaften und betriebliche Abläufe von GEF verarbeitet werden, einschließlich der Cosmo-Local Credit App (** CLC App**).
 
-Diese Richtlinie berücksichtigt Kenias [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), die anwendbaren Vorschriften und die aktuellen [Leitlinien des Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/). Je nach Tätigkeitsort von GEF oder Aufenthaltsort betroffener Personen können weitere Gesetze gelten.
+Diese Richtlinie berücksichtigt Kenias [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), die anwendbaren Vorschriften und die aktuellen [Leitlinien des Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Je nach Tätigkeitsort von GEF oder Aufenthaltsort betroffener Personen können weitere Gesetze gelten.
 
 Der [Datenschutzhinweis für die CLC App](/de/governance/privacy) enthält genauere Angaben zu App-Feldern, öffentlichen Ressourcen, der Empfängersuche und öffentlichen Blockchain-Aufzeichnungen. Die [Nutzungsbedingungen](/de/governance/terms) regeln die Nutzung der App.
 
@@ -178,7 +178,7 @@ GEF überprüft diese Richtlinie mindestens jährlich sowie bei wesentlichen rec
 
 Datenschutzfragen, Anträge zur Ausübung von Rechten oder Bedenken können gerichtet werden an:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenia  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenia
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

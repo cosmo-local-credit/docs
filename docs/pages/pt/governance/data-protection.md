@@ -1,18 +1,18 @@
 # Política de Proteção de Dados da Grassroots Economics Foundation
 
-> **Tradução de trabalho — ainda não em vigor.** Esta tradução para português é disponibilizada para revisão antes da aprovação jurídica. O texto em inglês é o texto de origem e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/data-protection)
+> **Tradução de conveniência.** Esta tradução é fornecida para facilitar a leitura. O texto em inglês é o texto original e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/data-protection)
 
-**Versão provisória da fonte: 1.0**
+**Versão do texto original: 1.0**
 
-**Data do rascunho em inglês: 24 de outubro de 2026**
+**Data de publicação e de entrada em vigor do texto inglês: 9 de novembro de 2026**
 
-**Data desta tradução de trabalho: 25 de outubro de 2026**
+**Data de publicação da tradução: 9 de novembro de 2026**
 
 ## 1. Finalidade
 
-A Grassroots Economics Foundation (**GEF**) respeita a privacidade e trata os dados pessoais como uma responsabilidade perante as pessoas e comunidades envolvidas no seu trabalho. Esta Política estabelece normas mínimas para os dados pessoais tratados através dos sistemas, programas, investigações, atividades educativas, eventos, parcerias e operações da GEF, incluindo a aplicação Cosmo-Local Credit (**CLC App**).
+A Grassroots Economics Foundation (**GEF **) respeita a privacidade e trata os dados pessoais como uma responsabilidade perante as pessoas e comunidades envolvidas no seu trabalho. Esta Política estabelece normas mínimas para os dados pessoais tratados através dos sistemas, programas, investigações, atividades educativas, eventos, parcerias e operações da GEF, incluindo a aplicação Cosmo-Local Credit (** CLC App**).
 
-Esta Política tem em conta a [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) do Kenya, os regulamentos aplicáveis e as orientações atuais da [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/). Outras leis também podem aplicar-se nos locais onde a GEF trabalha ou onde se encontram as pessoas afetadas.
+Esta Política baseia-se na [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) do Kenya, nos regulamentos aplicáveis e nas [orientações atuais da Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Outras leis também podem aplicar-se nos locais onde a GEF trabalha ou onde se encontram as pessoas afetadas.
 
 O [Aviso de privacidade da CLC App](/pt/governance/privacy) fornece informações mais específicas sobre os campos da Aplicação, os recursos públicos, a pesquisa de destinatários e os registos públicos da blockchain. Os [Termos de Serviço](/pt/governance/terms) regulam a utilização da Aplicação.
 
@@ -178,7 +178,7 @@ A GEF revê esta Política pelo menos anualmente e quando ocorrem alterações j
 
 As perguntas, pedidos de exercício de direitos ou preocupações sobre privacidade podem ser enviados para:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

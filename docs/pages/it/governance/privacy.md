@@ -1,16 +1,16 @@
 # Informativa sulla privacy della CLC App
 
-> **Traduzione di lavoro — non ancora in vigore.** Questa traduzione italiana è disponibile per la revisione prima dell’approvazione legale. Il testo inglese è il testo di riferimento e prevale, salvo che la legge applicabile disponga diversamente. [Leggi il testo inglese.](/governance/privacy)
+> **Traduzione di cortesia.** Questa traduzione è fornita per agevolare la lettura. Il testo inglese è il testo originale e prevale, salvo ove diversamente richiesto dalla legge applicabile. [Leggi il testo inglese.](/governance/privacy)
 
-**Versione provvisoria del testo di riferimento: 1.0**
+**Versione del testo originale: 1.0**
 
-**Data della bozza inglese: 24 ottobre 2026**
+**Data di pubblicazione ed entrata in vigore del testo inglese: 9 novembre 2026**
 
-**Data di questa traduzione di lavoro: 25 ottobre 2026**
+**Data di pubblicazione della traduzione: 9 novembre 2026**
 
-La presente Informativa sulla privacy spiega come Grassroots Economics Foundation (**GEF**, **noi**, **ci** o **nostro**) tratta i dati personali quando visiti o utilizzi Cosmo-Local Credit all’indirizzo `cosmolocal.credit` e i relativi servizi gestiti da GEF (congiuntamente, la **CLC App**).
+La presente Informativa sulla privacy spiega come Grassroots Economics Foundation (**GEF **, ** noi **, ** ci ** o ** nostro **) tratta i dati personali quando visiti o utilizzi Cosmo-Local Credit all’indirizzo `cosmolocal.credit` e i relativi servizi gestiti da GEF (congiuntamente, la ** CLC App**).
 
-> **Leggi prima di pubblicare.** I dati di contatto del tuo profilo e la posizione salvata non vengono mostrati automaticamente nelle risorse pubbliche. Le informazioni che inserisci o copi in un Buono, Fondo, Offerta, Richiesta, Catalogo o Pubblicazione possono diventare pubbliche quando pubblichi la risorsa. Una posizione pubblica può includere le coordinate esatte che hai selezionato sulla mappa.
+> **Leggi prima di pubblicare.** Il tuo profilo privato non è un profilo pubblico. Tuttavia, le informazioni che inserisci o copi in un Buono, Fondo, Offerta, Richiesta, Catalogo o Post possono essere pubblicate tramite quella risorsa. La descrizione, i termini, le immagini, i tag, gli indirizzi del Portafoglio e le coordinate esatte sulla mappa di una risorsa possono essere visibili senza accedere. I recapiti associati a un Buono, Fondo o Richiesta sono mostrati solo attraverso le funzioni relative alle informazioni della risorsa o ai contatti per utenti che hanno effettuato l'accesso, ma chi li riceve può comunque copiarli o condividerli.
 
 La presente Informativa integra i [Termini di servizio](/it/governance/terms) e la [Politica di protezione dei dati](/it/governance/data-protection).
 
@@ -37,39 +37,44 @@ Non disciplina il modo in cui un Emittente indipendente, un Responsabile del Fon
 
 A seconda delle funzioni che utilizzi, possiamo raccogliere:
 
-- il tuo nome utente pubblico e l’indirizzo pubblico del tuo Portafoglio blockchain;
+- il tuo nome utente e l'indirizzo pubblico del portafoglio blockchain;
 - il tuo nome, indirizzo email, numero di telefono, Paese e valuta preferita;
 - la tua biografia, il sito web, l’avatar, nonché il nome e le coordinate della posizione salvata;
 - ruolo e stato dell’account, limiti relativi alle risorse e date di creazione o aggiornamento dell’account; e
 - impostazioni, lingua, preferenze di notifica e altre scelte che effettui.
 
-Il tuo nome utente pubblico è distinto dal nome privato del profilo. I dati del profilo possono essere usati per precompilare i moduli, ma la precompilazione non pubblica un campo finché non scegli di pubblicare la risorsa.
+Il tuo nome utente è diverso dal nome del tuo profilo privato. Viene utilizzato come identificativo del destinatario e può essere restituito, insieme al tuo indirizzo del Portafoglio, a una persona che ha effettuato l'accesso e inserisce il nome utente esatto. Il tuo profilo può essere usato per precompilare i moduli, ma la precompilazione non pubblica un campo finché non scegli di pubblicare la risorsa.
+
+Gli amministratori autorizzati possono cercare nella directory degli account per nome, nome utente, e-mail, numero di telefono o indirizzo Wallet e possono visualizzare i campi relativi all'identità e ai contatti dell'account, il ruolo, lo stato, i limiti delle risorse e le risorse associate ove necessario per gestire, supportare, moderare e proteggere l'app. Questa directory non è pubblica.
 
 ### Dati di autenticazione, del Portafoglio e delle transazioni
 
-Possiamo trattare indirizzi di Portafoglio, messaggi firmati, autorizzazioni e firme di transazioni, identificativi delle credenziali passkey e coordinate delle chiavi pubbliche, identificativi di sessione, richieste di transazione, registri dei servizi di inoltro e stato delle transazioni. Non abbiamo bisogno della chiave privata della tua passkey per verificare un’asserzione passkey.
+Possiamo trattare indirizzi del Portafoglio, messaggi firmati, autorizzazioni di transazioni, firme, identificatori delle credenziali passkey e coordinate della chiave pubblica, stato delle credenziali, identificatori e ruoli di sessione, richieste di transazione, registri del servizio di inoltro, dati sulle transazioni sostitutive e stato delle transazioni. Se una scheda di accesso viene sostituita, possiamo conservare il vecchio e il nuovo indirizzo del Portafoglio, le prove della modifica richiesta, lo stato della passkey collegata e i registri operativi necessari per riprendere o verificare la modifica.
 
-Se utilizzi un Portafoglio cartaceo o un’altra credenziale sotto il tuo controllo, sei responsabile della protezione del relativo materiale privato. Un indirizzo pubblico di Portafoglio e le transazioni su una blockchain pubblica non sono informazioni private.
+L’App memorizza nel browser il materiale privato della scheda di accesso, così che il browser possa firmare. I servizi di GEF ricevono firme e transazioni firmate, non la chiave privata grezza. Un fornitore di passkey protegge la chiave privata della passkey; l’App e i suoi servizi utilizzano l’identificatore della credenziale, il materiale della chiave pubblica, la richiesta di verifica e l’asserzione firmata necessari per registrarla o verificarla. Se usi un Portafoglio cartaceo, una scheda di accesso, una passkey o un’altra credenziale, sei responsabile della protezione del dispositivo e del materiale privato.
+
+Quando un Buono o un Fondo è controllato da un multisig compatibile, possiamo trattare l’indirizzo multisig, gli indirizzi dei Portafogli dei firmatari, la soglia di approvazione, le transazioni proposte, le conferme, lo stato di esecuzione e le autorizzazioni necessarie per visualizzare e utilizzare i controlli multisig. L’indirizzo del proprietario, l’insieme dei firmatari e la soglia possono essere restituiti tramite l’ispezione pubblica della proprietà e possono essere visibili anche su una blockchain pubblica.
 
 ### Dati relativi al dispositivo, alla sicurezza e all’utilizzo
 
-Possiamo raccogliere informazioni tecniche e operative quali indirizzo IP, dati sul browser e sul dispositivo, date e orari, pagine o endpoint richiesti, eventi di sessione e di sicurezza, errori di convalida, informazioni sui limiti di frequenza, iscrizioni alle notifiche, attività del servizio e registri diagnostici.
+Possiamo raccogliere informazioni tecniche e operative come l’indirizzo IP, informazioni sul browser e sul dispositivo, date e orari, pagine o endpoint richiesti, eventi di sessione e sicurezza, errori di convalida, informazioni sui limiti di frequenza, iscrizioni alle notifiche e conferme di consegna, attività del servizio e registri diagnostici.
 
 ### Contenuti e dati di assistenza
 
-Trattiamo le informazioni che invii in Buoni, Fondi, Offerte, Richieste, Cataloghi, Pubblicazioni, Recensioni, immagini, allegati, condizioni, descrizioni, tag, posizioni, campi di contatto, reclami, messaggi all’assistenza e altre comunicazioni.
+Trattiamo le informazioni che invii in Buoni, Fondi, Offerte, Richieste, Cataloghi, Post, Recensioni di Buoni e Fondi, immagini, allegati, termini, descrizioni, tag, posizioni, campi di contatto, messaggi privati successivi a una transazione oppure ordini, reclami, messaggi di assistenza e altre comunicazioni.
 
 Non pubblicare dati personali, immagini, recapiti o la posizione precisa di un’altra persona senza una base giuridica e le eventuali autorizzazioni necessarie.
 
 ## 4. Cosa diventa pubblico?
 
-L’App prevede quattro importanti livelli di visibilità.
+L’App ha cinque importanti livelli di visibilità.
 
 | Livello di visibilità | Cosa significa |
 | --- | --- |
-| Dati privati del profilo e dell’account | Nome del profilo, email, numero di telefono, posizione salvata, preferenze, registri di autenticazione e informazioni analoghe dell’account vengono utilizzati per il funzionamento dell’App e non vengono inseriti automaticamente nelle risposte relative alle risorse pubbliche. Il personale autorizzato di GEF e i fornitori di servizi possono accedervi quando necessario per il loro lavoro. |
+| Dati privati del profilo e dell’account | Il nome del profilo, l’email, il numero di telefono, la posizione salvata, le preferenze, i registri di autenticazione e informazioni analoghe dell’account sono usati per far funzionare l’App e non vengono inseriti automaticamente nelle risposte relative alle risorse pubbliche. Il personale autorizzato di GEF e i fornitori di servizi possono accedervi quando necessario per il loro lavoro. Gli amministratori autorizzati possono inoltre cercare e gestire l’elenco non pubblico degli account. |
 | Ricerca esatta del destinatario | Un utente autenticato che inserisce il tuo nome utente esatto o il tuo numero di telefono completo può ricevere il tuo nome utente pubblico e l’indirizzo del Portafoglio. Un nome utente parziale non restituisce alcun utente. Il numero di telefono utilizzato per la ricerca, il nome privato del profilo, l’email, il numero di telefono e la posizione salvata non vengono restituiti nel risultato. |
-| Risorse pubblicate nell’App | I campi inseriti o copiati deliberatamente in una risorsa pubblicata possono essere visibili a chiunque possa accedere al catalogo pubblico o alla risorsa. I campi pubblici possono essere indicizzati, copiati, condivisi o associati a un Portafoglio o a un’altra risorsa. |
+| Dati del catalogo pubblico e delle risorse | Le descrizioni, i termini, le immagini, i tag, gli indirizzi pubblicati di Portafogli e contratti, le posizioni, le coordinate esatte, le Offerte, le Richieste, i Post, le Recensioni, le regole dei Fondi e le impostazioni tecniche possono essere visibili senza accedere. I campi pubblici possono essere indicizzati, copiati, condivisi o associati a un Portafoglio o a un’altra risorsa. |
+| Contatti della risorsa per utenti che hanno effettuato l’accesso | Email, numeri di telefono, siti web o istruzioni di contatto aggiunti deliberatamente a un Buono, Fondo o Richiesta vengono rimossi dal catalogo e dalle risposte dettagliate per utenti che non hanno effettuato l’accesso. Una persona che ha effettuato l’accesso può richiedere il record completo di un Buono o Fondo contenente i recapiti, oppure i metodi di contatto selezionati per una Richiesta attiva. Chi li riceve può comunque copiarli, usarli o condividerli. Le risorse ritirate hanno un accesso più ristretto, limitato al proprietario o all’amministratore. |
 | Registri delle blockchain pubbliche | Indirizzi di Portafoglio, contratti, saldi, disponibilità, trasferimenti, importi, controparti, date e orari, firme e azioni sui contratti possono rimanere visibili in modo permanente tramite reti pubbliche ed esploratori di blocchi indipendenti. GEF non può cancellare né riscrivere una blockchain pubblica. |
 
 La rimozione di una risorsa dal catalogo dell’App non elimina le copie già effettuate da altre persone, motori di ricerca, archivi, indicizzatori indipendenti o blockchain pubbliche.
@@ -80,21 +85,21 @@ I campi disponibili per una risorsa possono cambiare con l’evoluzione dell’A
 
 | Risorsa | Informazioni che possono diventare pubbliche |
 | --- | --- |
-| Buono | Identificativi del contratto e della rete; nome, simbolo, descrizione, unità dichiarata e valore del Buono; indirizzo del Portafoglio dell’Emittente o del proprietario; condizioni; recapiti; nome della posizione e coordinate esatte; immagini; tag; indicatori visivi; stato attivo o ritirato nel catalogo. |
-| Fondo | Identificativi del contratto e della rete; nome e descrizione del Fondo; indirizzi di Portafoglio del proprietario, del destinatario delle commissioni, delle dipendenze o di altri controllori tecnici; Buoni supportati; informazioni sulle disponibilità; metodo di valutazione; commissioni, limiti, regole e altre configurazioni; recapiti; nome della posizione e coordinate esatte; immagini; tag; date e orari. |
+| Buono | Pubblico: identificatori del contratto e della rete; nome, simbolo, descrizione, unità e valore dichiarati del Buono; indirizzo del Portafoglio dell’Emittente o proprietario; termini; nome della posizione e coordinate esatte; immagini; tag; indicatori visivi; e stato attivo nel catalogo. Per utenti che hanno effettuato l’accesso: email, telefono e sito web inseriti deliberatamente. I record ritirati sono disponibili soltanto a un proprietario o amministratore autorizzato attraverso l’endpoint delle informazioni complete, mentre la cronologia della blockchain può restare pubblica. |
+| Fondo | Pubblico: identificatori del contratto e della rete; nome e descrizione del Fondo; indirizzi dei Portafogli del proprietario, destinatario delle commissioni, dipendenza o altro controllore tecnico; Buoni supportati; informazioni su inventario o disponibilità; metodo di valutazione; commissioni, limiti, regole e altre configurazioni; nome della posizione e coordinate esatte; immagini; tag; date e orari; e, per i multisig compatibili, indirizzi del proprietario e dei firmatari e soglia di approvazione. Per utenti che hanno effettuato l’accesso: email, telefono e sito web inseriti deliberatamente. I record ritirati hanno lo stesso accesso ristretto alle informazioni complete dei Buoni ritirati. |
 | Offerta | Dati del Buono collegato; indirizzo del Portafoglio del venditore o di provenienza; beni o servizi offerti; descrizione, quantità, unità, frequenza, prezzo e disponibilità; nome della posizione e coordinate esatte o ereditate; immagine; tag; date e orari. |
-| Richiesta | Beni o servizi richiesti; descrizione; tag; immagine; stato e date; nome della posizione e coordinate esatte; e soltanto il metodo di contatto scelto deliberatamente per la Richiesta. Le risposte pubbliche a una Richiesta non devono necessariamente identificare il profilo privato dell’autore. |
+| Richiesta | Pubblico: beni o servizi richiesti; descrizione; tag; immagine; stato e date; nome della posizione e coordinate esatte. Per utenti che hanno effettuato l’accesso: soltanto le istruzioni di contatto, l’email o il telefono scelti deliberatamente per quella Richiesta attiva. Le risposte pubbliche relative alla Richiesta omettono questi campi di contatto e non identificano il profilo privato di chi l’ha creata, anche se Buoni o Fondi collegati possono creare un’associazione indiretta. |
 | Catalogo | Nome, descrizione, immagine e tag del Catalogo; indirizzo del Portafoglio del proprietario; membri o risorse elencati; conteggi; nome della posizione e coordinate esatte; date e orari. |
-| Pubblicazione approvata | Titolo, sintesi, testo, nome dell’organizzatore, informazioni sui partecipanti, date, immagini, didascalie, allegati, collegamenti incorporati, tag, Buoni o Fondi collegati e coordinate esatte. Le Pubblicazioni in bozza, inviate o respinte non sono pubbliche. L’indirizzo del Portafoglio dell’autore viene conservato per la gestione e la responsabilità, ma è omesso dalle risposte pubbliche. Le risorse collegate o il contenuto stesso possono comunque rivelare un’associazione. |
-| Recensione | Valutazione, commento ed eventuale risposta pubblica del proprietario del Buono. La risposta pubblica della Recensione omette l’indirizzo del Portafoglio del recensore e i metadati di riscatto, anche se il servizio conserva le informazioni necessarie per verificare l’idoneità, impedire recensioni duplicate, moderare i contenuti e applicare il periodo previsto per la recensione. |
+| Post pubblicato | Titolo, riepilogo, testo, nome dell’organizzatore, informazioni sui partecipanti, date, immagini, didascalie, allegati, collegamenti incorporati, tag, Buoni o Fondi collegati e coordinate esatte. L’indirizzo del Portafoglio dell’autore e lo stato del flusso di lavoro vengono conservati per la gestione e la responsabilità, ma omessi dalle risposte pubbliche relative ai Post. Le risorse collegate o il contenuto stesso possono comunque rivelare un’associazione. |
+| Recensione di un Buono o Fondo | Valutazione, commento ed eventuale risposta pubblica del proprietario del Buono o Fondo. La risposta pubblica relativa alla Recensione omette l’indirizzo del Portafoglio del recensore e le prove di riscatto o scambio. Il servizio conserva l’indirizzo del recensore e le prove necessarie per verificarne l’idoneità, evitare Recensioni duplicate, gestire risposte e segnalazioni, moderare i contenuti e applicare il periodo di revisione. Quando una Recensione viene segnalata, gli amministratori possono ricevere il motivo della segnalazione e il contenuto segnalato. |
 
 I recapiti e le coordinate esatte possono creare rischi per la sicurezza personale. Quando possibile, usa un metodo di contatto pubblico adeguato e un luogo pubblico sicuro per gli incontri, anziché un’abitazione privata.
 
 ## 6. Informazioni sulle blockchain pubbliche
 
-L’App interagisce con reti blockchain pubbliche. Una transazione può rivelare i Portafogli coinvolti, il contratto del Token o del Buono, l’importo, la data e l’ora, lo stato e gli eventi contrattuali correlati. I contratti dei Fondi possono inoltre rivelare gli asset supportati, i saldi, le commissioni, i limiti, le valutazioni, i proprietari, gli amministratori, le dipendenze e altre configurazioni.
+L’App interagisce con reti blockchain pubbliche. Una transazione può rivelare i Portafogli coinvolti, il contratto del Token o Buono, l’importo, l’ora, lo stato, la firma e gli eventi contrattuali correlati. I contratti dei Fondi possono inoltre rivelare le risorse supportate, i saldi, i depositi, i pagamenti, gli scambi, i prelievi di liquidità, le commissioni, i limiti, le valutazioni, i proprietari, gli amministratori, le dipendenze e altre configurazioni. I multisig compatibili possono rivelare l’insieme dei firmatari, le soglie, le proposte, le conferme e le azioni eseguite.
 
-Le informazioni della blockchain possono essere trattate da validatori della rete, gestori di nodi, indicizzatori, software per Portafogli, servizi di analisi e chiunque consulti la rete. Le transazioni possono essere irreversibili. La chiusura di un account dell’App, la modifica di un profilo o la richiesta a GEF di eliminare dati esterni alla blockchain non cancella i registri della blockchain.
+Le informazioni della blockchain possono essere trattate da validatori di rete, gestori di nodi, indicizzatori, software per Portafogli, servizi di analisi e chiunque legga la rete. Le transazioni possono essere irreversibili. Chiudere un account dell’App, modificare un profilo, sostituire una scheda di accesso, rimuovere o ritirare una risorsa dal catalogo, distruggere unità di un Buono o chiedere a GEF di eliminare dati fuori dalla blockchain non elimina i precedenti record della blockchain né le copie indicizzate in modo indipendente.
 
 ## 7. Perché utilizziamo i dati e su quali basi giuridiche
 
@@ -114,7 +119,7 @@ Non consideriamo la tua decisione di pubblicare un campo come consenso alla pubb
 
 ## 8. Dati obbligatori e facoltativi
 
-L’App identifica nei relativi moduli i campi obbligatori. Per l’attuale registrazione dell’account sono necessari un indirizzo di Portafoglio, una prova di autenticazione, il nome e l’email. Alcune funzioni possono richiedere ulteriori informazioni sulle transazioni, sui recapiti, sulla posizione, sull’idoneità o sulle risorse.
+L’App indica nei moduli quali campi sono obbligatori. L’attuale creazione guidata dell’account richiede un indirizzo del Portafoglio e una prova di autenticazione, un nome, un’immagine del profilo, un Paese e una posizione salvata, una valuta preferita e almeno un indirizzo email o numero di telefono. Il nome utente è facoltativo. Altri percorsi di accesso o recupero dell’account possono creare valori temporanei di sistema finché l’utente non completa o corregge il profilo. Alcune funzioni possono richiedere ulteriori informazioni relative a transazioni, contatti, posizione, idoneità o risorse.
 
 Gli altri campi del profilo e delle risorse sono facoltativi, salvo diversa indicazione nel modulo. Se non fornisci le informazioni obbligatorie, potremmo non essere in grado di creare un account, autenticarti, trasmettere una transazione, pubblicare una risorsa, prestare assistenza, adempiere un obbligo legale o rendere disponibile la funzione richiesta.
 
@@ -136,13 +141,16 @@ Riceviamo dati:
 Comunichiamo soltanto le informazioni ragionevolmente necessarie per la finalità dichiarata, in base alla legge applicabile o per l’azione pubblica da te richiesta. I destinatari possono comprendere:
 
 - visitatori e utenti dell’App quando pubblichi una risorsa o utilizzi una blockchain pubblica;
+- Gli utenti dell'app che hanno effettuato l'accesso quando richiedono i dettagli di contatto che hai deliberatamente allegato a un buono, Fondo o Want attivo;
 - Emittenti, Responsabili dei Fondi, controparti e altri partecipanti necessari per una transazione, un riscatto, un reclamo o un servizio richiesto;
 - fornitori di infrastrutture per hosting, database, archiviazione, distribuzione di contenuti, sicurezza, autenticazione, assistenza, email, notifiche, mappe, geocodifica, accesso alla blockchain, indicizzazione, inoltro delle transazioni e monitoraggio;
 - fornitori indipendenti di Portafogli, servizi blockchain, pagamenti, stablecoin, rampe di conversione in denaro o altri servizi terzi che scegli di utilizzare;
 - consulenti professionali, revisori, assicuratori, ricercatori, finanziatori e partner soggetti a doveri e garanzie adeguati; e
 - autorità di regolamentazione, organi giurisdizionali, forze dell’ordine o altre persone, quando la comunicazione è prevista dalla legge o ragionevolmente necessaria per proteggere diritti, sicurezza e integrità del servizio.
 
-I servizi terzi possono raccogliere dati direttamente in base alle proprie informative sulla privacy. Prima della pubblicazione della presente Informativa, GEF verifica l’elenco aggiornato dei fornitori e dei trasferimenti affinché le informazioni fornite rimangano accurate.
+L’applicazione web di produzione è distribuita tramite Cloudflare Pages. La configurazione attuale del browser usa MapTiler per gli stili delle mappe e i suggerimenti di posizione basati sull’IP, ArcGIS World Geocoding per la ricerca dei luoghi e la geocodifica inversa, e gli endpoint RPC configurati di Gnosis Chain per leggere la blockchain. Questi servizi ricevono i dati necessari per rispondere alla richiesta, che possono includere indirizzo IP, informazioni sul browser, area della mappa, testo cercato, coordinate o richieste relative a Portafogli e contratti.
+
+Le altre integrazioni dipendono dalle funzioni abilitate. Quando sono abilitate e utilizzate, un servizio di notifiche tratta gli endpoint delle iscrizioni push, lo stato del dispositivo, gli indirizzi del Portafoglio collegati, le conferme di consegna e di clic e lo stato della casella di posta; un servizio di inoltro delle transazioni tratta le richieste firmate e lo stato delle transazioni; un servizio di transazioni Safe tratta gli indirizzi multisig, le proposte, le firme, le conferme e lo stato di esecuzione; e un fornitore di pagamenti o conversione in contanti tratta il numero di telefono, l’indirizzo del Portafoglio, la risorsa, l’importo, l’identificatore del fornitore, il tasso e lo stato della transazione necessari per la funzione. L’archiviazione delle immagini, l’API dell’App, i database, gli indicizzatori della blockchain e l’infrastruttura di monitoraggio trattano i contenuti e i registri operativi necessari alle rispettive funzioni. Un servizio terzo può inoltre raccogliere dati direttamente secondo la propria informativa sulla privacy.
 
 ## 11. Trattamento internazionale
 
@@ -208,7 +216,7 @@ Una successiva Informativa non rende pubblici dati che in precedenza erano priva
 
 Per domande o richieste relative alla privacy:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

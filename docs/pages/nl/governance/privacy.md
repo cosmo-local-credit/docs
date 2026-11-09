@@ -1,16 +1,16 @@
 # Privacyverklaring van de CLC App
 
-> **Werkvertaling — nog niet van kracht.** Deze Nederlandse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/privacy)
+> **Vertaling voor het leesgemak.** Deze vertaling wordt voor het leesgemak aangeboden. De Engelse tekst is de brontekst en is bepalend, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/privacy)
 
 **Versie van de brontekst: 1.0**
 
-**Datum van het Engelse concept: 24 oktober 2026**
+**Publicatie- en ingangsdatum van de Engelse tekst: 9 november 2026**
 
-**Datum van deze werkvertaling: 25 oktober 2026**
+**Publicatiedatum van de vertaling: 9 november 2026**
 
-Deze Privacyverklaring legt uit hoe Grassroots Economics Foundation (**GEF**, **wij**, **ons** of **onze**) persoonsgegevens verwerkt wanneer u de Cosmo-Local Credit App op `cosmolocal.credit` en de bijbehorende diensten van GEF bezoekt of gebruikt (samen: de **App**).
+Deze Privacyverklaring legt uit hoe Grassroots Economics Foundation (**GEF **, ** wij **, ** ons ** of ** onze **) persoonsgegevens verwerkt wanneer u de Cosmo-Local Credit App op `cosmolocal.credit` en de bijbehorende diensten van GEF bezoekt of gebruikt (samen: de ** App**).
 
-> **Lees dit voordat u publiceert.** De contactgegevens en opgeslagen locatie in uw profiel worden niet automatisch weergegeven in openbare resources. Informatie die u invoert of kopieert in een Waardebon, Fonds, Aanbod, Verzoek, Catalogus of Bericht kan openbaar worden wanneer u deze publiceert. Een openbare locatie kan de exacte kaartcoördinaten bevatten die u hebt geselecteerd.
+> **Lees dit voordat u publiceert.** Uw privéprofiel is geen openbaar profiel. Informatie die u invoert of kopieert in een Waardebon, Fonds, Aanbod, Verzoek, Catalogus of Bericht kan echter via die resource worden gepubliceerd. De beschrijving, voorwaarden, afbeeldingen, tags, Walletadressen en exacte kaartcoördinaten van een resource kunnen zonder aanmelding zichtbaar zijn. Contactgegevens bij een Waardebon, Fonds of Verzoek worden alleen getoond via resource-informatie of contactfuncties voor aangemelde gebruikers, maar de ontvanger kan ze nog steeds kopiëren of delen.
 
 Deze Verklaring vormt een aanvulling op de [Gebruiksvoorwaarden](/nl/governance/terms) en het [Gegevensbeschermingsbeleid](/nl/governance/data-protection).
 
@@ -37,39 +37,44 @@ Ze bepaalt niet hoe een onafhankelijke Uitgever, Fondsbeheerder, externe provide
 
 Afhankelijk van de functies die u gebruikt, kunnen we het volgende verzamelen:
 
-- uw openbare gebruikersnaam en openbare blockchain-Walletadres;
+- uw gebruikersnaam en openbare blockchain-Walletadres;
 - uw naam, e-mailadres, telefoonnummer, land en voorkeursvaluta;
 - uw biografie, website, avatar en de naam en coördinaten van uw opgeslagen locatie;
 - accountrol, status, resourcelimieten en tijdstippen waarop het account is aangemaakt of bijgewerkt; en
 - instellingen, taal, meldingsvoorkeuren en andere keuzes die u maakt.
 
-Uw openbare gebruikersnaam is niet hetzelfde als uw persoonlijke profielnaam. Uw profiel kan worden gebruikt om formulieren vooraf in te vullen, maar een vooraf ingevuld veld wordt pas gepubliceerd wanneer u ervoor kiest de resource te publiceren.
+Uw gebruikersnaam is niet hetzelfde als uw persoonlijke profielnaam. De gebruikersnaam dient als identificatie van de ontvanger en kan samen met uw Walletadres worden teruggegeven aan een aangemelde persoon die de exacte gebruikersnaam invoert. Uw profiel kan worden gebruikt om formulieren vooraf in te vullen, maar een vooraf ingevuld veld wordt pas gepubliceerd wanneer u ervoor kiest de resource te publiceren.
+
+Bevoegde beheerders kunnen in de accountdirectory zoeken op naam, gebruikersnaam, e-mailadres, telefoonnummer of Walletadres. Zij kunnen de identiteits- en contactvelden, rol, status, resourcelimieten en gekoppelde resources van het account bekijken wanneer dat nodig is om de App te beheren, ondersteunen, modereren en beveiligen. Deze directory is niet openbaar.
 
 ### Authenticatie-, Wallet- en transactiegegevens
 
-We kunnen Walletadressen, ondertekende berichten, transactieautorisaties, handtekeningen, identificatoren van passkey-referenties en coördinaten van openbare sleutels, sessie-identificatoren, transactieverzoeken, gegevens van relayers en de status van transacties verwerken. We hebben de privésleutel van uw passkey niet nodig om een passkey-bevestiging te verifiëren.
+We kunnen Walletadressen, ondertekende berichten, transactieautorisaties, handtekeningen, identificatoren van passkey-referenties en coördinaten van openbare sleutels, de status van referenties, sessie-identificatoren en -rollen, transactieverzoeken, gegevens van relayers, gegevens over vervangende transacties en de transactiestatus verwerken. Als een aanmeldingskaart wordt vervangen, kunnen we de oude en nieuwe Walletadressen, bewijs van de gevraagde wijziging, de status van de gekoppelde passkey en de operationele gegevens bewaren die nodig zijn om de wijziging te hervatten of te verifiëren.
 
-Als u een papieren Wallet of andere inloggegevens gebruikt die u zelf beheert, bent u verantwoordelijk voor de bescherming van het geheime materiaal. Een openbaar Walletadres en openbare blockchaintransacties zijn niet privé.
+De App bewaart het geheime materiaal van de aanmeldingskaart in de lokale opslag van die browser, zodat de browser kan ondertekenen. GEF-diensten ontvangen handtekeningen en ondertekende transacties, niet de onbewerkte privésleutel. Een passkeyprovider beschermt de privésleutel van de passkey; de App en haar diensten gebruiken de referentie-identificator, het openbare-sleutelmateriaal, de uitdaging en de ondertekende bevestiging die nodig zijn om de passkey te registreren of te verifiëren. Als u een papieren Wallet, aanmeldingskaart, passkey of andere inloggegevens gebruikt, bent u verantwoordelijk voor de bescherming van het apparaat en het geheime materiaal.
+
+Wanneer een Waardebon of Fonds door een compatibele multisig wordt beheerd, kunnen we het multisigadres, de Walletadressen van ondertekenaars, de goedkeuringsdrempel, voorgestelde transacties, bevestigingen, uitvoeringsstatus en machtigingen verwerken die nodig zijn om de multisigbediening te tonen en te gebruiken. Het eigenaarsadres, de groep ondertekenaars en de drempel kunnen via een openbare eigendomscontrole worden teruggegeven en ook op een openbare blockchain zichtbaar zijn.
 
 ### Apparaat-, beveiligings- en gebruiksgegevens
 
-We kunnen technische en operationele informatie verzamelen, zoals IP-adres, browser- en apparaatinformatie, tijdstempels, opgevraagde pagina's of eindpunten, sessie- en beveiligingsgebeurtenissen, validatiefouten, informatie over snelheidslimieten, meldingsabonnementen, gebruik van de dienst en diagnostische gegevens.
+We kunnen technische en operationele informatie verzamelen, zoals IP-adres, browser- en apparaatinformatie, tijdstempels, opgevraagde pagina's of eindpunten, sessie- en beveiligingsgebeurtenissen, validatiefouten, informatie over snelheidslimieten, meldingsabonnementen en ontvangstbevestigingen, gebruik van de dienst en diagnostische gegevens.
 
 ### Inhoud en ondersteuningsgegevens
 
-We verwerken informatie die u indient in Waardebonnen, Fondsen, Aanbiedingen, Verzoeken, Catalogi, Berichten, Beoordelingen, afbeeldingen, bijlagen, voorwaarden, beschrijvingen, tags, locaties, contactvelden, klachten, ondersteuningsberichten en andere communicatie.
+We verwerken informatie die u verstrekt in waardebonnen, Fondsen, Aanbiedingen, Verzoeken, Catalogi, Berichten, waardebonnen- en Poolbeoordelingen, afbeeldingen, bijlagen, voorwaarden, beschrijvingen, tags, locaties, contactvelden, privéberichten na transactie of bestellingen, klachten, ondersteuningsberichten en andere communicatie.
 
 Publiceer geen persoonsgegevens, afbeeldingen, contactgegevens of nauwkeurige locatie van iemand anders, tenzij u daarvoor een rechtsgeldige reden en iedere vereiste toestemming hebt.
 
 ## 4. Wat wordt openbaar?
 
-De App kent vier belangrijke zichtbaarheidsniveaus.
+De App kent vijf belangrijke zichtbaarheidsniveaus.
 
 | Zichtbaarheid | Wat dit betekent |
 | --- | --- |
-| Privéprofiel- en accountgegevens | Profielnaam, e-mailadres, telefoonnummer, opgeslagen locatie, voorkeuren, authenticatiegegevens en vergelijkbare accountinformatie worden gebruikt om de App te laten werken en worden niet automatisch opgenomen in openbare resource-antwoorden. Bevoegde medewerkers en dienstverleners van GEF kunnen deze gegevens raadplegen wanneer dat nodig is voor hun werk. |
+| Privéprofiel- en accountgegevens | Profielnaam, e-mailadres, telefoonnummer, opgeslagen locatie, voorkeuren, authenticatiegegevens en vergelijkbare accountinformatie worden gebruikt om de App te laten werken en worden niet automatisch opgenomen in openbare resource-antwoorden. Bevoegde medewerkers en dienstverleners van GEF kunnen deze gegevens raadplegen wanneer dat nodig is voor hun werk. Bevoegde beheerders kunnen ook in de niet-openbare accountdirectory zoeken en deze beheren. |
 | Exact zoeken naar een ontvanger | Een aangemelde gebruiker die uw exacte gebruikersnaam of volledige telefoonnummer invoert, kan uw openbare gebruikersnaam en Walletadres ontvangen. Een gedeeltelijke gebruikersnaam levert geen gebruiker op. Het voor de zoekopdracht ingevoerde telefoonnummer, uw privéprofielnaam, e-mailadres, telefoonnummer en opgeslagen locatie worden niet in het ontvangerresultaat teruggegeven. |
-| Gepubliceerde App-resources | Velden die bewust in een gepubliceerde resource zijn ingevoerd of ernaar zijn gekopieerd, kunnen zichtbaar zijn voor iedereen die toegang heeft tot de openbare catalogus of resource. Openbare velden kunnen worden geïndexeerd, gekopieerd, gedeeld of gekoppeld aan een Wallet of andere resource. |
+| Openbare catalogus- en resourcegegevens | Gepubliceerde beschrijvingen, voorwaarden, afbeeldingen, tags, Wallet- en contractadressen, locaties, exacte coördinaten, Aanbiedingen, Verzoeken, Berichten, Beoordelingen, Fondsregels en technische instellingen kunnen zonder aanmelding zichtbaar zijn. Openbare velden kunnen worden geïndexeerd, gekopieerd, gedeeld of gekoppeld aan een Wallet of andere resource. |
+| Resourcecontact voor aangemelde gebruikers | E-mail, telefoonnummer, website of contactinstructies die bewust aan een Waardebon, Fonds of Verzoek zijn toegevoegd, worden verwijderd uit catalogus- en detailantwoorden voor niet-aangemelde gebruikers. Een aangemelde persoon kan de volledige Waardebon- of Fondsgegevens met contactinformatie opvragen, of de contactmethoden die voor een actief Verzoek zijn geselecteerd. De ontvanger kan deze informatie nog steeds kopiëren, gebruiken of delen. Verwijderde resources hebben een beperktere toegang voor eigenaar of beheerder. |
 | Openbare blockchaingegevens | Walletadressen, contracten, saldi, tegoeden, overdrachten, bedragen, tegenpartijen, tijdstempels, handtekeningen en contracthandelingen kunnen permanent zichtbaar zijn via openbare netwerken en onafhankelijke blockchainverkenners. GEF kan een openbare blockchain niet wissen of herschrijven. |
 
 Als een resource uit de catalogus van de App wordt verwijderd, verdwijnen daarmee geen kopieën die al zijn gemaakt door andere mensen, zoekdiensten, archieven, onafhankelijke indexeerders of openbare blockchains.
@@ -80,21 +85,21 @@ De velden die een resource kan bevatten, kunnen veranderen naarmate de App zich 
 
 | Resource | Informatie die openbaar kan worden |
 | --- | --- |
-| Waardebon | Contract- en ketenidentificatoren; naam, symbool, beschrijving, opgegeven eenheid en waarde van de Waardebon; Walletadres van de Uitgever of eigenaar; voorwaarden; contactgegevens; locatienaam en exacte coördinaten; afbeeldingen; tags; visuele markeringen; en actieve of uit de catalogus verwijderde status. |
-| Fonds | Contract- en ketenidentificatoren; naam en beschrijving van het Fonds; Walletadressen van de eigenaar, vergoedingontvanger, afhankelijkheidsbeheerder of andere technische beheerder; ondersteunde Waardebonnen; voorraad- of beschikbaarheidsinformatie; waarderingsmethode; vergoedingen, limieten, regels en andere configuratie; contactgegevens; locatienaam en exacte coördinaten; afbeeldingen; tags; en tijdstempels. |
+| Waardebon | Openbaar: contract- en ketenidentificatoren; naam, symbool, beschrijving, opgegeven eenheid en waarde van de Waardebon; Walletadres van de Uitgever of eigenaar; voorwaarden; locatienaam en exacte coördinaten; afbeeldingen; tags; visuele markeringen; en actieve catalogusstatus. Aangemeld: bewust ingevoerd e-mailadres, telefoonnummer en website. Verwijderde records zijn via het eindpunt met volledige informatie alleen beschikbaar voor een bevoegde eigenaar of beheerder, terwijl de blockchaingeschiedenis openbaar kan blijven. |
+| Fonds | Openbaar: contract- en ketenidentificatoren; naam en beschrijving van het Fonds; Walletadressen van de eigenaar, vergoedingontvanger, afhankelijkheidsbeheerder of andere technische beheerder; ondersteunde Waardebonnen; voorraad- of beschikbaarheidsinformatie; waarderingsmethode; vergoedingen, limieten, regels en andere configuratie; locatienaam en exacte coördinaten; afbeeldingen; tags; tijdstempels; en voor compatibele multisigs de adressen van eigenaar en ondertekenaars en de goedkeuringsdrempel. Aangemeld: bewust ingevoerd e-mailadres, telefoonnummer en website. Verwijderde records hebben dezelfde beperktere toegang tot volledige informatie als verwijderde Waardebonnen. |
 | Aanbod | Gegevens van de gekoppelde Waardebon; Walletadres van de verkoper of herkomst; aangeboden goederen of diensten; beschrijving, hoeveelheid, eenheid, frequentie, prijs en beschikbaarheid; locatienaam en exacte of overgenomen coördinaten; afbeelding; tags; en tijdstempels. |
-| Verzoek | Gevraagde goederen of diensten; beschrijving; tags; afbeelding; status en datums; locatienaam en exacte coördinaten; en uitsluitend de contactmethode die bewust voor dat Verzoek is gekozen. Openbare antwoorden op een Verzoek hoeven het privéprofiel van de maker niet bekend te maken. |
+| Verzoek | Openbaar: gevraagde goederen of diensten; beschrijving; tags; afbeelding; status en datums; locatienaam en exacte coördinaten. Aangemeld: uitsluitend de contactinstructies, het e-mailadres of telefoonnummer dat bewust voor dat actieve Verzoek is gekozen. Openbare antwoorden op een Verzoek laten deze contactvelden weg en identificeren het privéprofiel van de maker niet, hoewel gekoppelde Waardebonnen of Fondsen een indirect verband kunnen laten zien. |
 | Catalogus | Naam, beschrijving, afbeelding en tags van de Catalogus; Walletadres van de eigenaar; vermelde deelnemers of resources; aantallen; locatienaam en exacte coördinaten; en tijdstempels. |
-| Goedgekeurd Bericht | Titel, samenvatting, hoofdtekst, naam van de organisator, informatie over deelnemers, datums, afbeeldingen, bijschriften, bijlagen, ingesloten links, tags, gekoppelde Waardebonnen of Fondsen en exacte coördinaten. Concepten, ingediende of afgewezen Berichten zijn niet openbaar. Het Walletadres van de auteur wordt bewaard voor beheer en verantwoording, maar wordt weggelaten uit openbare antwoorden op Berichten. Gekoppelde resources of de inhoud zelf kunnen een verband toch zichtbaar maken. |
-| Beoordeling | Waardering, opmerking en eventuele openbare reactie van de eigenaar van de Waardebon. In het openbare antwoord op een Beoordeling worden het Walletadres en de inwisselgegevens van de beoordelaar weggelaten. De dienst bewaart wel de informatie die nodig is om te controleren of iemand in aanmerking komt, dubbele Beoordelingen te voorkomen, inhoud te modereren en de beoordelingsperiode te handhaven. |
+| Gepubliceerd Bericht | Titel, samenvatting, hoofdtekst, naam van de organisator, informatie over deelnemers, datums, afbeeldingen, bijschriften, bijlagen, ingesloten links, tags, gekoppelde Waardebonnen of Fondsen en exacte coördinaten. Het Walletadres en de workflowstatus van de auteur worden bewaard voor beheer en verantwoording, maar weggelaten uit openbare antwoorden op Berichten. Gekoppelde resources of de inhoud zelf kunnen een verband toch zichtbaar maken. |
+| Beoordeling van een Waardebon of Fonds | Waardering, opmerking en eventuele openbare reactie van de eigenaar van de Waardebon of het Fonds. In het openbare antwoord worden het Walletadres en het bewijs van inwisseling of ruil van de beoordelaar weggelaten. De dienst bewaart het adres en bewijs dat nodig is om te controleren of iemand in aanmerking komt, dubbele Beoordelingen te voorkomen, reacties en meldingen te ondersteunen, inhoud te modereren en de beoordelingsperiode te handhaven. Als een Beoordeling wordt gemeld, kunnen beheerders de reden en gemelde inhoud ontvangen. |
 
 Contactgegevens en exacte coördinaten kunnen risico's voor uw persoonlijke veiligheid opleveren. Gebruik waar mogelijk een geschikte openbare contactmethode en een veilige openbare ontmoetingsplaats in plaats van een privéwoning.
 
 ## 6. Openbare blockchaininformatie
 
-De App werkt met openbare blockchainnetwerken. Een transactie kan de betrokken Wallets, het Token- of Waardeboncontract, het bedrag, het tijdstip, de status en bijbehorende contractgebeurtenissen openbaar maken. Fondscontracten kunnen ook ondersteunde assets, saldi, vergoedingen, limieten, waarderingen, eigenaren, beheerders, afhankelijkheden en andere configuratie openbaar maken.
+De App werkt met openbare blockchainnetwerken. Een transactie kan de betrokken Wallets, het Token- of Waardeboncontract, het bedrag, het tijdstip, de status, de handtekening en bijbehorende contractgebeurtenissen openbaar maken. Fondscontracten kunnen ook ondersteunde assets, saldi, stortingen, uitbetalingen, ruiltransacties, liquiditeitsopnames, vergoedingen, limieten, waarderingen, eigenaren, beheerders, afhankelijkheden en andere configuratie openbaar maken. Compatibele multisigs kunnen groepen ondertekenaars, drempels, voorstellen, bevestigingen en uitgevoerde acties openbaar maken.
 
-Blockchaininformatie kan worden verwerkt door netwerkvalidators, nodebeheerders, indexeerders, Walletsoftware, analysediensten en iedereen die het netwerk raadpleegt. Transacties kunnen onomkeerbaar zijn. Het sluiten van een App-account, het wijzigen van een profiel of een verzoek aan GEF om off-chain gegevens te verwijderen, verwijdert geen blockchaingegevens.
+Blockchaininformatie kan worden verwerkt door netwerkvalidators, nodebeheerders, indexeerders, Walletsoftware, analysediensten en iedereen die het netwerk raadpleegt. Transacties kunnen onomkeerbaar zijn. Het sluiten van een App-account, het wijzigen van een profiel, het vervangen van een aanmeldingskaart, het verwijderen of intrekken van een catalogusresource, het vernietigen van Waardeboneenheden of een verzoek aan GEF om off-chain gegevens te verwijderen, verwijdert geen eerdere blockchaingegevens of onafhankelijk geïndexeerde kopieën.
 
 ## 7. Waarom we gegevens gebruiken en onze rechtsgronden
 
@@ -114,7 +119,7 @@ We beschouwen uw beslissing om één veld te publiceren niet als toestemming om 
 
 ## 8. Verplichte en optionele gegevens
 
-De App geeft in het betreffende formulier aan welke velden verplicht zijn. Voor de huidige accountregistratie zijn een Walletadres, authenticatiebewijs, naam en e-mailadres vereist. Voor bepaalde functies kunnen aanvullende transactie-, contact-, locatie-, toelatings- of resourcegegevens nodig zijn.
+De App geeft in het betreffende formulier aan welke velden verplicht zijn. Voor het huidige begeleide aanmaken van een account zijn een Walletadres en authenticatiebewijs, een naam, een profielfoto, een land en opgeslagen locatie, een voorkeursvaluta en ten minste één e-mailadres of telefoonnummer vereist. Een gebruikersnaam is optioneel. Andere manieren om aan te melden of een account te herstellen kunnen tijdelijke systeemwaarden maken totdat de gebruiker het profiel voltooit of corrigeert. Voor bepaalde functies kunnen aanvullende transactie-, contact-, locatie-, toelatings- of resourcegegevens nodig zijn.
 
 Andere profiel- en resourcevelden zijn optioneel, tenzij het formulier anders aangeeft. Als u verplichte informatie niet verstrekt, kunnen we mogelijk geen account aanmaken, u niet authenticeren, geen transactie indienen, geen resource publiceren, geen ondersteuning bieden, niet aan een wettelijke verplichting voldoen of de gevraagde functie niet beschikbaar stellen.
 
@@ -136,13 +141,16 @@ We ontvangen gegevens:
 We verstrekken alleen informatie die redelijkerwijs nodig is voor het vermelde doel, het toepasselijke recht of de door u gevraagde openbare handeling. Ontvangers kunnen zijn:
 
 - bezoekers en gebruikers van de App wanneer u een resource publiceert of een openbare blockchain gebruikt;
+- aangemelde App-gebruikers wanneer zij contactgegevens opvragen die u bewust aan een actieve Waardebon, een actief Fonds of Verzoek hebt toegevoegd;
 - Uitgevers, Fondsbeheerders, tegenpartijen en andere deelnemers die nodig zijn voor een transactie, inwisseling, klacht of gevraagde dienst;
 - infrastructuurproviders voor hosting, databases, opslag, contentlevering, beveiliging, authenticatie, ondersteuning, e-mail, meldingen, kaarten, geocodering, blockchaintoegang, indexering, transactiedoorgifte en monitoring;
 - onafhankelijke Wallet-, blockchain-, betalings-, stablecoin-, geldwissel- of andere externe dienstverleners die u zelf kiest te gebruiken;
 - professionele adviseurs, auditors, verzekeraars, onderzoekers, financiers en partners met passende verplichtingen en waarborgen; en
 - toezichthouders, rechtbanken, opsporingsinstanties of andere personen wanneer verstrekking wettelijk verplicht is of redelijkerwijs nodig is om rechten, veiligheid en de integriteit van de dienst te beschermen.
 
-Externe diensten kunnen gegevens rechtstreeks verzamelen volgens hun eigen privacyverklaringen. Vóór publicatie van deze Verklaring controleert GEF de actuele inventaris van providers en overdrachten, zodat de informatie juist blijft.
+De productie-webapplicatie wordt geleverd via Cloudflare Pages. De huidige browserconfiguratie gebruikt MapTiler voor kaartstijlen en op IP gebaseerde locatiesuggesties, ArcGIS World Geocoding voor het zoeken naar plaatsen en omgekeerde geocodering, en geconfigureerde Gnosis Chain-RPC-eindpunten voor het lezen van de blockchain. Die diensten ontvangen de verzoekgegevens die nodig zijn om te antwoorden, waaronder IP-adres, browserinformatie, kaartgebied, zoektekst, coördinaten of Wallet- en contractvragen.
+
+Andere integraties zijn afhankelijk van de functie. Wanneer zij zijn ingeschakeld en gebruikt, verwerkt een meldingsdienst eindpunten van pushabonnementen, apparaatstatus, gekoppelde Walletadressen, bevestigingen van levering en klikken en de inboxstatus; een transactierelay verwerkt ondertekende verzoeken en de transactiestatus; een Safe-transactiedienst verwerkt multisigadressen, voorstellen, handtekeningen, bevestigingen en uitvoeringsstatus; en een betalings- of geldomwisselingsaanbieder verwerkt het telefoonnummer, Walletadres, asset, bedrag, aanbieder-ID, tarief en de transactiestatus die voor die functie nodig zijn. Afbeeldingsopslag, de App-API, databases, blockchainindexeerders en monitoringinfrastructuur verwerken de inhoud en operationele gegevens die voor hun functies nodig zijn. Een externe dienst kan gegevens ook rechtstreeks volgens de eigen privacyverklaring verzamelen.
 
 ## 11. Internationale verwerking
 
@@ -208,7 +216,7 @@ Een latere Verklaring maakt eerder privé gebleven gegevens niet openbaar. De zi
 
 Voor privacyvragen of verzoeken:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenia  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenia
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

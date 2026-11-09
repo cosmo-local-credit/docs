@@ -1,14 +1,14 @@
 # Políticas e avisos
 
-> **Tradução de trabalho — ainda não em vigor.** Esta tradução para português é disponibilizada para revisão antes da aprovação jurídica. O texto em inglês é o texto de origem e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/policies)
+> **Tradução de conveniência.** Esta tradução é fornecida para facilitar a leitura. O texto em inglês é o texto original e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/policies)
 
-**Versão provisória da fonte: 1.0**
+**Versão do texto original: 1.0**
 
-**Data do rascunho em inglês: 24 de outubro de 2026**
+**Data de publicação e de entrada em vigor do texto inglês: 9 de novembro de 2026**
 
-**Data desta tradução de trabalho: 25 de outubro de 2026**
+**Data de publicação da tradução: 9 de novembro de 2026**
 
-A Grassroots Economics Foundation (**GEF**) opera a aplicação Cosmo-Local Credit (**CLC App**). Esta página reúne os termos, as informações sobre privacidade e as políticas institucionais aplicáveis à Aplicação e às atividades relevantes da GEF.
+A Grassroots Economics Foundation (**GEF **) opera a aplicação Cosmo-Local Credit (** CLC App**). Esta página reúne os termos, as informações sobre privacidade e as políticas institucionais aplicáveis à Aplicação e às atividades relevantes da GEF.
 
 ## Que documento devo ler?
 
@@ -27,7 +27,7 @@ Cada documento define o seu próprio âmbito. Se uma versão traduzida diferir d
 
 ## Material atual e anterior
 
-Depois de aprovados e de lhes serem atribuídas datas de publicação e entrada em vigor, estes documentos serão as fontes atuais para os âmbitos que descrevem. As páginas anteriores de políticas da Grassroots Economics continuam a ser úteis como material histórico, mas não descrevem todos os campos, salvaguardas nem limites entre o público e o privado na CLC App atual.
+Esses documentos datados são as fontes atuais para o escopo que eles descrevem. Páginas anteriores de políticas da Economia de Base permanecem úteis como material histórico, mas elas não descrevam todos os campos, salvaguardas ou limites públicos/privados no atual CLC App.
 
 A Política de Privacidade da Social Soil aplica-se ao jogo educativo independente Social Soil e não é uma política da CLC App.
 

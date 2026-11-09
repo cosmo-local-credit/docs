@@ -41,7 +41,7 @@ const translationDates = {
   'zh-Hant': '10 October 2026',
 }
 const splashLocalizedLocales = locales.slice(1)
-const appBaseline = 'facf5e034dc668c2e5ded90b9dd5995690f0fb63'
+const appBaseline = '79b498f74e615f4a942122f91081f23beb8760ee'
 const protectedNames = [
   'Cosmo-Local Credit', 'CLC App', 'Sarafu Network', 'Grassroots Economics Foundation',
   'Protocol v1.1.0', 'White Paper v0.8', 'William O. Ruddick', 'Mohamed Sohail',
@@ -267,8 +267,8 @@ function validateTranslation(source, route, english, locale) {
     for (const required of [
       `> **${localePolicy.notice.title}** ${localePolicy.notice.body} [${localePolicy.notice.englishSource}](${route})`,
       `**${localePolicy.metadata.sourceVersion}${separator}${policyRegistry.source.version}**`,
-      `**${localePolicy.metadata.englishDraftDate}${separator}${localePolicy.sourceDraftDate}**`,
-      `**${localePolicy.metadata.translationDraftDate}${separator}${localePolicy.translationDraftDate}**`,
+      `**${localePolicy.metadata.englishPublicationDate}${separator}${localePolicy.sourcePublicationDate}**`,
+      `**${localePolicy.metadata.translationPublicationDate}${separator}${localePolicy.translationPublicationDate}**`,
     ]) {
       if (!translated.includes(required)) errors.push(`${route}: ${locale} is missing ${required}`)
     }
@@ -302,14 +302,14 @@ for (const route of policyRoutes) {
     errors.push(`${policy}: English policy source changed without updating the policy registry`)
   }
   for (const required of [
-    '> **Review draft — not yet effective.**',
-    '**Draft version: 1.0**',
-    '**Draft date: 24 October 2026**',
+    '**Version: 1.0**',
+    `**Publication date: ${policyRegistry.source.publicationDate}**`,
+    `**Effective date: ${policyRegistry.source.effectiveDate}**`,
   ]) {
     if (!policySource.includes(required)) errors.push(`${policy}: missing ${required}`)
   }
-  if (/\*\*(?:Publication|Effective) date:/.test(policySource)) {
-    errors.push(`${policy}: review draft must not claim a publication or effective date`)
+  if (/review draft|not yet effective|before legal approval/i.test(policySource)) {
+    errors.push(`${policy}: final English policy retains draft wording`)
   }
   for (const locale of localizedLocales.filter((candidate) => !policyTranslationLocales.includes(candidate))) {
     const localizedPolicy = join(pages, locale, `governance/${policy}.md`)
@@ -362,4 +362,4 @@ if (errors.length) {
 }
 
 const routeCount = sources.length + (localizedSources.length * localizedLocales.length) + (policyRouteSet.size * policyTranslationLocales.length)
-console.log(`Validated ${locales.length} splash routes, ${routeCount} documentation routes, catalogs, hashes, links, Terms, policy drafts, TeX, and PDFs.`)
+console.log(`Validated ${locales.length} splash routes, ${routeCount} documentation routes, catalogs, hashes, links, Terms, policies, TeX, and PDFs.`)

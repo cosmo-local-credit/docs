@@ -1,18 +1,18 @@
 # Patakaran sa Proteksyon ng Data ng Grassroots Economics Foundation
 
-> **Salin para sa pagsusuri — hindi pa epektibo.** Inilaan ang saling Filipino na ito para sa pagsusuri bago ang legal na pag-apruba. Ang tekstong Ingles ang pinagmulan at siyang mananaig, maliban kung iba ang hinihingi ng naaangkop na batas. [Basahin ang tekstong Ingles.](/governance/data-protection)
+> **Salin para sa kaginhawaan.** Ibinibigay ang saling ito para sa kaginhawaan. Ang tekstong Ingles ang pinagmulang teksto at siyang masusunod, maliban kung iba ang hinihingi ng naaangkop na batas. [Basahin ang tekstong Ingles.](/governance/data-protection)
 
-**Bersyon ng pinagmulang draft: 1.0**
+**Bersyon ng pinagmulang teksto: 1.0**
 
-**Petsa ng English draft: 24 Oktubre 2026**
+**Petsa ng paglalathala at pagkakabisa ng tekstong Ingles: 9 Nobyembre 2026**
 
-**Petsa ng saling ito para sa pagsusuri: 28 Oktubre 2026**
+**Petsa ng paglalathala ng salin: 9 Nobyembre 2026**
 
 ## 1. Layunin
 
-Iginagalang ng Grassroots Economics Foundation (**GEF**) ang privacy at itinuturing na pananagutan nito sa mga tao at komunidad na kaugnay ng gawain nito ang maingat na pagproseso ng personal na data. Nagtatakda ang Patakarang ito ng pinakamababang pamantayan para sa personal na data na pinoproseso sa mga sistema, programa, pananaliksik, edukasyon, event, partnership, at operasyon ng GEF, kabilang ang Cosmo-Local Credit App (**CLC App**).
+Iginagalang ng Grassroots Economics Foundation (**GEF **) ang privacy at itinuturing na pananagutan nito sa mga tao at komunidad na kaugnay ng gawain nito ang maingat na pagproseso ng personal na data. Nagtatakda ang Patakarang ito ng pinakamababang pamantayan para sa personal na data na pinoproseso sa mga sistema, programa, pananaliksik, edukasyon, event, partnership, at operasyon ng GEF, kabilang ang Cosmo-Local Credit App (** CLC App**).
 
-Nakabatay ang Patakarang ito sa [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) ng Kenya, mga naaangkop na regulasyon, at kasalukuyang gabay ng [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/). Maaari ring umiral ang ibang batas kung saan nagtatrabaho ang GEF o kung saan naroon ang mga apektadong tao.
+Nakabatay ang Patakarang ito sa [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) ng Kenya, mga naaangkop na regulasyon, at kasalukuyang gabay ng [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Maaari ring umiral ang ibang batas kung saan nagtatrabaho ang GEF o kung saan naroon ang mga apektadong tao.
 
 Ang [Abiso sa Privacy ng CLC App](/fil/governance/privacy) ay nagbibigay ng mas tiyak na impormasyon tungkol sa mga field ng App, pampublikong resource, recipient lookup, at pampublikong blockchain record. Namamahala ang [Mga Tuntunin ng Serbisyo](/fil/governance/terms) sa paggamit ng App.
 
@@ -178,7 +178,7 @@ Sinusuri ng GEF ang Patakarang ito hindi bababa sa isang beses bawat taon at kap
 
 Maaaring ipadala ang mga tanong tungkol sa privacy, kahilingan sa karapatan, o alalahanin sa:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

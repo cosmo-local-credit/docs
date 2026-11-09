@@ -1,12 +1,12 @@
 # Sera ya Ulinzi wa Watoto
 
-> **Tafsiri ya kazi — bado haijaanza kutumika.** Tafsiri hii ya Kiswahili imetolewa kwa ukaguzi kabla ya idhini ya kisheria. Maandishi ya Kiingereza ndiyo chanzo na ndiyo yanayotawala, isipokuwa sheria inayotumika itake vinginevyo. [Soma maandishi ya Kiingereza.](/governance/child-safeguarding)
+> **Tafsiri ya urahisi.** Tafsiri hii imetolewa ili kurahisisha usomaji. Maandishi ya Kiingereza ndiyo chanzo na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo. [Soma maandishi ya Kiingereza.](/governance/child-safeguarding)
 
-**Toleo la rasimu ya chanzo: 1.0**
+**Toleo la chanzo: 1.0**
 
-**Tarehe ya rasimu ya Kiingereza: 24 Oktoba 2026**
+**Tarehe ya kuchapishwa na kuanza kutumika kwa maandishi ya Kiingereza: 9 Novemba 2026**
 
-**Tarehe ya tafsiri hii ya kazi: 25 Oktoba 2026**
+**Tarehe ya kuchapishwa kwa tafsiri: 9 Novemba 2026**
 
 ## 1. Kusudi
 
@@ -110,7 +110,7 @@ Kukataa au kuacha shughuli ya hiari hakupaswi kusababisha kulipiziwa kisasi au k
 
 ## 11. Picha, simulizi, utafiti na data binafsi
 
-GEF hukusanya na kutumia taarifa za watoto tu pale ambapo kuna kusudi lililo wazi, mamlaka ya kisheria na hatua inayofaa ya ulinzi. [Sera ya Ulinzi wa Data](/sw/governance/data-protection) pia inatumika.
+GEF hukusanya na kutumia taarifa za watoto tu pale ambapo kuna kusudi lililo wazi, mamlaka ya kisheria na hatua inayofaa ya ulinzi. [Sera ya Ulinzi wa Data](/sw/governance/data-protection) na [Mwongozo wa ODPC kuhusu Ushughulikiaji wa Data ya Watoto](https://www.odpc.go.ke/guidelines-2/index.html) pia vinatumika.
 
 Kabla ya kurekodi au kuchapisha picha, sauti, simulizi, kazi, utambulisho, maelezo ya mawasiliano, uhusiano na jamii au eneo la mtoto, timu inayowajibika lazima izingatie ridhaa, utu, usahihi, matumizi ya baadaye, hadhira, kudumu kwa rekodi ya kidijitali na hatari ya kutambuliwa au kudhuriwa.
 
@@ -180,9 +180,9 @@ GEF hukagua Sera hii angalau kila mwaka na baada ya tukio kubwa, mabadiliko ya k
 
 Taarifa na maswali kuhusu ulinzi wa watoto yanaweza kutumwa kwa:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [info@grassecon.org](mailto:info@grassecon.org)
 
 Maswali kuhusu faragha na haki za data yanapaswa kutumwa kando kwa [privacy@grassecon.org](mailto:privacy@grassecon.org).

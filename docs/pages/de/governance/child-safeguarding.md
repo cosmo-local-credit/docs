@@ -1,12 +1,12 @@
 # Kinderschutzrichtlinie
 
-> **Arbeitsübersetzung – noch nicht in Kraft.** Diese deutsche Übersetzung wird vor der rechtlichen Genehmigung zur Prüfung bereitgestellt. Der englische Text ist der Ausgangstext und hat Vorrang, sofern das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/child-safeguarding)
+> **Übersetzung zur leichteren Lesbarkeit.** Diese Übersetzung dient der leichteren Lesbarkeit. Der englische Text ist der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt. [Englischen Ausgangstext lesen.](/governance/child-safeguarding)
 
-**Entwurfsversion des Ausgangstextes: 1.0**
+**Version des Ausgangstextes: 1.0**
 
-**Datum des englischen Entwurfs: 24. Oktober 2026**
+**Veröffentlichungs- und Geltungsdatum des englischen Textes: 9. November 2026**
 
-**Datum dieser Arbeitsübersetzung: 25. Oktober 2026**
+**Veröffentlichungsdatum der Übersetzung: 9. November 2026**
 
 ## 1. Zweck
 
@@ -110,7 +110,7 @@ Die Ablehnung oder Beendigung einer freiwilligen Tätigkeit darf weder zu Vergel
 
 ## 11. Bilder, Geschichten, Forschung und personenbezogene Daten
 
-GEF erhebt und verwendet Informationen über Kinder nur bei einem klaren Zweck, einer rechtmäßigen Befugnis und geeigneten Schutzmaßnahmen. Die [Datenschutzrichtlinie](/de/governance/data-protection) gilt ebenfalls.
+GEF erhebt und verwendet Informationen über Kinder nur bei einem klaren Zweck, einer rechtmäßigen Befugnis und geeigneten Schutzmaßnahmen. Die [Datenschutzrichtlinie](/de/governance/data-protection) und der [Leitfaden des ODPC zur Verarbeitung von Daten von Kindern](https://www.odpc.go.ke/guidelines-2/index.html) gelten ebenfalls.
 
 Bevor Bild, Stimme, Geschichte, Werk, Identität, Kontaktdaten, Gemeinschaftszugehörigkeit oder Standort eines Kindes aufgezeichnet oder veröffentlicht werden, muss das verantwortliche Team Einwilligung, Würde, Richtigkeit, zukünftige Wiederverwendung, Publikum, digitale Dauerhaftigkeit und das Risiko einer Identifizierung oder Schädigung berücksichtigen.
 
@@ -180,9 +180,9 @@ GEF überprüft diese Richtlinie mindestens jährlich sowie nach einem bedeutend
 
 Kinderschutzmeldungen und -fragen können gerichtet werden an:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenia  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenia
 [info@grassecon.org](mailto:info@grassecon.org)
 
 Fragen zu Datenschutz und Betroffenenrechten sind gesondert an [privacy@grassecon.org](mailto:privacy@grassecon.org) zu richten.

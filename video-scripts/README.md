@@ -1,44 +1,42 @@
 # Cosmo-Local Credit video scripts
 
-This folder contains production scripts that are kept in the repository but are not published on the documentation website.
+This folder contains production scripts that are versioned with the repository but are not published on the documentation website.
 
 ## Structure
 
-- `en/` — English source scripts and their editable Word exports.
+- `en/` contains the English source scripts and their editable Word exports.
 - Future translations should use matching locale folders, such as `fr/`, `es/`, or `sw/`, and retain the English filenames.
 
-The Markdown files are the source of record. The DOCX files are generated from them for review with video-production collaborators.
+The Markdown files are authoritative. The matching DOCX files are generated for collaborators who review or produce the videos.
 
 ## Current scripts
 
-- `en/clc-social-video-script.md` — short general-interest doctor-and-farmer story, designed to run under two minutes.
-- `en/clc-first-voucher-explainer-script.md` — two-account Wants, Voucher, Offering, Pool, swap, and use walkthrough, designed to run under five minutes.
+| Markdown source | Purpose | Target runtime |
+| --- | --- | --- |
+| `en/clc-social-video-script.md` | Original short doctor/farmer introduction | Under 2 minutes |
+| `en/clc-first-voucher-explainer-script.md` | Original doctor/farmer walkthrough using Wants, Offerings, and Health Care Pool | Under 5 minutes |
+| `en/clc-unboxing-three-person-social-script.md` | Short edit of the dentist–farmer–mechanic Unboxing | Under 2 minutes |
+| `en/clc-unboxing-three-person-exchange-script.md` | Full dentist–farmer–mechanic Health Market Unboxing | Under 5 minutes |
+| `en/clc-unboxing-community-pool-script.md` | Follow-up transferring Health Market to a two-of-three community multisig | About 4 minutes |
+
+Every script includes a runtime, voiceover, screen directions, visible App labels, reusable description copy, and product-accuracy notes. The community Pool script distinguishes contract-level multisig approvals from individual deposits and separately authorized catalog-management permissions.
 
 ## Product baseline
 
-The English scripts were last checked against the CLC App `origin/develop` commit `8f49f61120c383e73223b4c4c68945aa57863609` on 26 October 2026. This baseline includes searchable Wants, related creator Vouchers and creditable Pools, public Want contact choices, and selectable Market-map resource types. Recheck labels, screen order, account allowances, Pool configuration, and fees against the filming build before recording.
+The scripts were last reconciled with CLC App `origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee` on 9 November 2026. Recheck labels, permissions, account allowances, Pool configuration, balances, rates, fees, and the exact filming build before final editing.
 
 ## Filming convention
 
-The explainer uses two narrow browser panes side by side on a desktop recording:
+Use fictional Wallets and personal data. Never record private keys, passkeys, sign-in-card secrets, recovery information, real health information, or a participant's private location.
 
-- **DOCTOR — Dr. Amina** on the left.
-- **FARMER — Kofi** on the right.
-
-Keep each pane near the App's mobile viewport width. Highlight the active pane and dim the other one. Do not ask viewers to follow two actions at once, and do not refer to “left” or “right” in the voiceover so the script remains easy to translate and adapt.
-
-## Updating the Word files
+## Generate the DOCX files
 
 From the repository root:
 
-```sh
-pandoc video-scripts/en/clc-social-video-script.md \
-  --from=gfm --to=docx \
-  --output=video-scripts/en/clc-social-video-script.docx
-
-pandoc video-scripts/en/clc-first-voucher-explainer-script.md \
-  --from=gfm --to=docx \
-  --output=video-scripts/en/clc-first-voucher-explainer-script.docx
+```bash
+for source in video-scripts/en/*.md; do
+  pandoc "$source" -o "${source%.md}.docx"
+done
 ```
 
 Regenerate the corresponding DOCX whenever its Markdown source changes.

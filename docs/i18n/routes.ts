@@ -56,9 +56,12 @@ export const POLICY_DOCUMENTATION_PATHS = [
   '/governance/child-safeguarding',
 ] as const
 
-export const POLICY_DOCUMENTATION_LOCALES = Object.keys(
+export const POLICY_DOCUMENTATION_LOCALES = Object.entries(
   policyLocaleRegistry.locales,
-) as SupportedLocale[]
+)
+  .filter(([locale, catalog]) =>
+    locale === DEFAULT_LOCALE || catalog.status === 'release-ready')
+  .map(([locale]) => locale) as SupportedLocale[]
 
 export type DocumentationPath = (typeof DOCUMENTATION_PATHS)[number]
 

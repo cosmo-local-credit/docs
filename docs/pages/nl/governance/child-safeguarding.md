@@ -1,12 +1,12 @@
 # Kinderbeschermingsbeleid
 
-> **Werkvertaling — nog niet van kracht.** Deze Nederlandse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/child-safeguarding)
+> **Vertaling voor het leesgemak.** Deze vertaling wordt voor het leesgemak aangeboden. De Engelse tekst is de brontekst en is bepalend, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/child-safeguarding)
 
 **Versie van de brontekst: 1.0**
 
-**Datum van het Engelse concept: 24 oktober 2026**
+**Publicatie- en ingangsdatum van de Engelse tekst: 9 november 2026**
 
-**Datum van deze werkvertaling: 25 oktober 2026**
+**Publicatiedatum van de vertaling: 9 november 2026**
 
 ## 1. Doel
 
@@ -110,7 +110,7 @@ Het weigeren of verlaten van een vrijwillige activiteit mag niet leiden tot repr
 
 ## 11. Afbeeldingen, verhalen, onderzoek en persoonsgegevens
 
-GEF verzamelt en gebruikt gegevens van kinderen alleen wanneer er een duidelijk doel, rechtmatige bevoegdheid en passende waarborg is. Het [Gegevensbeschermingsbeleid](/nl/governance/data-protection) is eveneens van toepassing.
+GEF verzamelt en gebruikt gegevens van kinderen alleen wanneer er een duidelijk doel, rechtmatige bevoegdheid en passende waarborg is. Het [Gegevensbeschermingsbeleid](/nl/governance/data-protection) en de [richtsnoeren van de ODPC voor de verwerking van gegevens van kinderen](https://www.odpc.go.ke/guidelines-2/index.html) zijn eveneens van toepassing.
 
 Voordat het beeld, de stem, het verhaal, het werk, de identiteit, contactgegevens, band met een gemeenschap of locatie van een kind worden opgenomen of gepubliceerd, moet het verantwoordelijke team rekening houden met toestemming, waardigheid, juistheid, toekomstig hergebruik, publiek, digitale duurzaamheid en het risico op identificatie of schade.
 
@@ -180,9 +180,9 @@ GEF beoordeelt dit Beleid ten minste jaarlijks en na een ernstig incident, wetsw
 
 Meldingen en vragen over kinderbescherming kunnen worden gestuurd naar:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenia  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenia
 [info@grassecon.org](mailto:info@grassecon.org)
 
 Vragen over privacy en gegevensrechten moeten afzonderlijk worden gestuurd naar [privacy@grassecon.org](mailto:privacy@grassecon.org).

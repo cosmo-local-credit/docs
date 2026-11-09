@@ -1,14 +1,14 @@
 # Sera na taarifa
 
-> **Tafsiri ya kazi — bado haijaanza kutumika.** Tafsiri hii ya Kiswahili imetolewa kwa ukaguzi kabla ya idhini ya kisheria. Maandishi ya Kiingereza ndiyo chanzo na ndiyo yanayotawala, isipokuwa sheria inayotumika itake vinginevyo. [Soma maandishi ya Kiingereza.](/governance/policies)
+> **Tafsiri ya urahisi.** Tafsiri hii imetolewa ili kurahisisha usomaji. Maandishi ya Kiingereza ndiyo chanzo na yanatawala, isipokuwa sheria inayotumika ihitaji vinginevyo. [Soma maandishi ya Kiingereza.](/governance/policies)
 
-**Toleo la rasimu ya chanzo: 1.0**
+**Toleo la chanzo: 1.0**
 
-**Tarehe ya rasimu ya Kiingereza: 24 Oktoba 2026**
+**Tarehe ya kuchapishwa na kuanza kutumika kwa maandishi ya Kiingereza: 9 Novemba 2026**
 
-**Tarehe ya tafsiri hii ya kazi: 25 Oktoba 2026**
+**Tarehe ya kuchapishwa kwa tafsiri: 9 Novemba 2026**
 
-Grassroots Economics Foundation (**GEF**) inaendesha Cosmo-Local Credit App (**CLC App**). Ukurasa huu unakusanya masharti, taarifa za faragha na sera za shirika zinazotumika kwa App na shughuli husika za GEF.
+Grassroots Economics Foundation (**GEF **) inaendesha Cosmo-Local Credit App (** CLC App**). Ukurasa huu unakusanya masharti, taarifa za faragha na sera za shirika zinazotumika kwa App na shughuli husika za GEF.
 
 ## Nisome hati ipi?
 
@@ -27,7 +27,7 @@ Kila hati inaeleza upeo wake. Tafsiri ikitofautiana na chanzo cha Kiingereza, to
 
 ## Nyaraka za sasa na za zamani
 
-Baada ya kuidhinishwa na kupewa tarehe za kuchapishwa na kuanza kutumika, hati hizi zitakuwa vyanzo vya sasa kwa upeo wanaoueleza. Kurasa za awali za sera za Grassroots Economics zitaendelea kuwa nyaraka za kihistoria, lakini hazielezi kila sehemu, hatua ya ulinzi au mpaka kati ya taarifa za umma na binafsi katika CLC App ya sasa.
+Hati hizi zenye tarehe ndizo vyanzo vya sasa kwa upeo unaoelezwa katika kila hati. Kurasa za awali za sera za Grassroots Economics bado zinafaa kama nyenzo za kihistoria, lakini hazielezi kila sehemu, hatua ya ulinzi au mpaka kati ya taarifa za umma na binafsi katika CLC App ya sasa.
 
 Sera ya Faragha ya Social Soil inatumika kwa mchezo tofauti wa kielimu wa Social Soil, wala si sera ya CLC App.
 

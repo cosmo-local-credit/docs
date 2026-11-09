@@ -1,10 +1,10 @@
 # Child Safeguarding Policy
 
-> **Review draft — not yet effective.** This English text is available for public review before legal approval and translation. It does not replace an operative GEF safeguarding policy until an approved version takes effect.
+**Version: 1.0**
 
-**Draft version: 1.0**
+**Publication date: 9 November 2026**
 
-**Draft date: 24 October 2026**
+**Effective date: 9 November 2026**
 
 ## 1. Purpose
 
@@ -108,7 +108,7 @@ Refusing or leaving an optional activity must not result in retaliation or an un
 
 ## 11. Images, stories, research, and personal data
 
-GEF collects and uses children's information only where there is a clear purpose, lawful authority, and suitable safeguard. The [Data Protection Policy](/governance/data-protection) also applies.
+GEF collects and uses children's information only where there is a clear purpose, lawful authority, and suitable safeguard. The [Data Protection Policy](/governance/data-protection) and the ODPC's [Guidance Note for Processing Children's Data](https://www.odpc.go.ke/guidelines-2/index.html) also apply.
 
 Before recording or publishing a child's image, voice, story, work, identity, contact details, community affiliation, or location, the responsible team must consider consent, dignity, accuracy, future reuse, audience, digital permanence, and the risk of identification or harm.
 

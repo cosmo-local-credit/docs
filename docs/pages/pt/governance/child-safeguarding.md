@@ -1,12 +1,12 @@
 # Política de Proteção da Infância
 
-> **Tradução de trabalho — ainda não em vigor.** Esta tradução para português é disponibilizada para revisão antes da aprovação jurídica. O texto em inglês é o texto de origem e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/child-safeguarding)
+> **Tradução de conveniência.** Esta tradução é fornecida para facilitar a leitura. O texto em inglês é o texto original e prevalece, salvo se a lei aplicável exigir o contrário. [Ler o texto em inglês.](/governance/child-safeguarding)
 
-**Versão provisória da fonte: 1.0**
+**Versão do texto original: 1.0**
 
-**Data do rascunho em inglês: 24 de outubro de 2026**
+**Data de publicação e de entrada em vigor do texto inglês: 9 de novembro de 2026**
 
-**Data desta tradução de trabalho: 25 de outubro de 2026**
+**Data de publicação da tradução: 9 de novembro de 2026**
 
 ## 1. Finalidade
 
@@ -110,7 +110,7 @@ Recusar ou abandonar uma atividade opcional não deve resultar em represálias n
 
 ## 11. Imagens, histórias, investigação e dados pessoais
 
-A GEF só recolhe e utiliza informações de crianças quando existe uma finalidade clara, uma autorização lícita e uma salvaguarda adequada. A [Política de Proteção de Dados](/pt/governance/data-protection) também se aplica.
+A GEF recolhe e utiliza informações sobre crianças apenas quando existe uma finalidade clara, uma base legal e salvaguardas adequadas. Também se aplicam a [Política de Proteção de Dados](/pt/governance/data-protection) e a [Nota de orientação da ODPC sobre o tratamento de dados de crianças](https://www.odpc.go.ke/guidelines-2/index.html).
 
 Antes de gravar ou publicar a imagem, voz, história, trabalho, identidade, dados de contacto, associação comunitária ou localização de uma criança, a equipa responsável deve considerar o consentimento, a dignidade, a exatidão, a reutilização futura, o público, a permanência digital e o risco de identificação ou dano.
 
@@ -180,9 +180,9 @@ A GEF revê esta Política pelo menos anualmente e após um incidente significat
 
 As comunicações e perguntas sobre proteção podem ser enviadas para:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [info@grassecon.org](mailto:info@grassecon.org)
 
 As perguntas sobre privacidade e direitos de dados devem ser enviadas separadamente para [privacy@grassecon.org](mailto:privacy@grassecon.org).

@@ -1,14 +1,14 @@
 # Politiche e informative
 
-> **Traduzione di lavoro — non ancora in vigore.** Questa traduzione italiana è disponibile per la revisione prima dell’approvazione legale. Il testo inglese è il testo di riferimento e prevale, salvo che la legge applicabile disponga diversamente. [Leggi il testo inglese.](/governance/policies)
+> **Traduzione di cortesia.** Questa traduzione è fornita per agevolare la lettura. Il testo inglese è il testo originale e prevale, salvo ove diversamente richiesto dalla legge applicabile. [Leggi il testo inglese.](/governance/policies)
 
-**Versione provvisoria del testo di riferimento: 1.0**
+**Versione del testo originale: 1.0**
 
-**Data della bozza inglese: 24 ottobre 2026**
+**Data di pubblicazione ed entrata in vigore del testo inglese: 9 novembre 2026**
 
-**Data di questa traduzione di lavoro: 25 ottobre 2026**
+**Data di pubblicazione della traduzione: 9 novembre 2026**
 
-Grassroots Economics Foundation (**GEF**) gestisce Cosmo-Local Credit (**CLC App**). Questa pagina riunisce i termini, le informazioni sulla privacy e le politiche organizzative applicabili all’App e alle attività correlate di GEF.
+Grassroots Economics Foundation (**GEF **) gestisce Cosmo-Local Credit (** CLC App**). Questa pagina riunisce i termini, le informazioni sulla privacy e le politiche organizzative applicabili all’App e alle attività correlate di GEF.
 
 ## Quale documento devo leggere?
 
@@ -27,7 +27,7 @@ Se una traduzione differisce dal testo inglese, prevale la versione inglese, sal
 
 ## Documenti attuali e materiale precedente
 
-Una volta approvati e corredati delle date di pubblicazione e di entrata in vigore, questi documenti saranno i riferimenti attuali per gli ambiti che descrivono. Le precedenti pagine delle politiche di Grassroots Economics rimangono utili come materiale storico, ma non descrivono tutti i campi, le misure di tutela o i confini tra pubblico e privato dell’attuale CLC App.
+Questi documenti datati sono le fonti attuali per l'ambito che descrivono. Le precedenti pagine di politica dell'Economia di Base rimangono utili come materiale storico, ma non descrivono ogni campo, salvaguardia o confine pubblico/privato nell'attuale CLC App.
 
 L’Informativa sulla privacy di Social Soil si applica al gioco educativo SocialSoil, che è un prodotto distinto, e non costituisce una politica della CLC App.
 

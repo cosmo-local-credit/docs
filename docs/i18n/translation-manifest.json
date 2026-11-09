@@ -1,5 +1,5 @@
 {
-  "sourceAppCommit": "facf5e034dc668c2e5ded90b9dd5995690f0fb63",
+  "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "localeMetadata": {
     "ar": {
       "translationPublicationDate": "10 October 2026",
@@ -1221,10 +1221,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "ec8bb88f5ecdc4ddbdaf4972ed92d75f10f492a9cb9b1c169c31d1747ced31d8",
+      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
       "locales": {
         "ar": {
-          "sha256": "979b4746d257263d87b9c6e33ec17a02715ec2720506d23ba5bce8ab4201be27",
+          "sha256": "7a71f0fc50cdc16c497085c66b5821d28265810c1f5b99c4808e0c2be6cd4d75",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.5631,
@@ -1232,7 +1232,7 @@
           }
         },
         "de": {
-          "sha256": "c7d09b95fe69925445e22971871714f1568a2bdd870ad54e9b0fff2ca279f8f7",
+          "sha256": "0f9807d93c3657ed24dd060b090ef0f3542b987a228c10ae9887957e980c6d63",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6235,
@@ -1240,7 +1240,7 @@
           }
         },
         "dz": {
-          "sha256": "88c1a9d6507bb0aee55114c0c17ba2e6f7bce9704ff79f598cce5d5bd0d58733",
+          "sha256": "06afe4d12dfd85b9ef3402e7a1fa208be979c0266930340d0e70753632a58d76",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.3898,
@@ -1248,7 +1248,7 @@
           }
         },
         "es": {
-          "sha256": "bf4fed20fbbbd28bb0a16e95e840b9140a67e38fc5d7ffe7b89eb50070057138",
+          "sha256": "e10e07cac33555f267d2f45a36f76da8a2854c2d26d6ff5bf96fbe52f79a9878",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6448,
@@ -1256,7 +1256,7 @@
           }
         },
         "fil": {
-          "sha256": "1d1c3ec8c9adad916bb0aeb23f32968457e7b0ca2f491374ea885e3cfd176003",
+          "sha256": "3b112d17f01fffadc258ca51749922d9ff540a2b3f0d3900d80607b4f1ead010",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6821,
@@ -1264,7 +1264,7 @@
           }
         },
         "fr": {
-          "sha256": "a95de18ece64561fc982114e6c13ac7aa43d61a60fa5fa4679d3092db4fdcd37",
+          "sha256": "1ccd44a53f03a38ed0dd6a986a2c45046da562e8b92baf8fad7d9be851d1679d",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6595,
@@ -1272,7 +1272,7 @@
           }
         },
         "hi": {
-          "sha256": "321eafb0177e1fe77b384b17d4b2d6c944101d54902bae326c3c1ace2e57ad01",
+          "sha256": "a084d6eea63cb7c692f66e05fba8d39371d5297c35b0af873cf2f3fdc6015355",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6973,
@@ -1280,7 +1280,7 @@
           }
         },
         "it": {
-          "sha256": "ffed2952a013d11dab95247a57a7f33bbc31558508e765c67887472893d16b4d",
+          "sha256": "da999d4d98f29830294686c6920f2dca353348b758af618b513c82c6a3768f78",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6291,
@@ -1288,7 +1288,7 @@
           }
         },
         "nl-BE": {
-          "sha256": "88f9b1571ea9b54de4eeb261d5e821be8395ad9206b4b5264799adeb85d4b0e8",
+          "sha256": "0cec6ace6de09c8704461b5776189c6cdb152ff16d4b0a016c4c58535428a1c0",
           "review": {
             "units": 307,
             "adaptedFromLocale": "nl",
@@ -1296,7 +1296,7 @@
           }
         },
         "nl": {
-          "sha256": "1545bca057a6e03f799364d14673f19c50ff585d3df1da021735506c8ca967fb",
+          "sha256": "949f1295a311880fad20a7674a82b50b2af8090529a2a510d1073613129dda3c",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6352,
@@ -1304,7 +1304,7 @@
           }
         },
         "pt": {
-          "sha256": "c7dbf258b32df5ce133e9aa5439bb44dfc1bf2bd60e9c3842e5758606aa66368",
+          "sha256": "a9e18036d1b1645a15f202e79c457392258bfab9f76d314dbf845ed941b69d51",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6508,
@@ -1312,7 +1312,7 @@
           }
         },
         "sr": {
-          "sha256": "a0fb65e02c96a16ea0f51c3504d747001a51d8d67dab8bc8d262cd8b1ece0dee",
+          "sha256": "4c56b913fe3498ed3dcf413d6ec10259f38f7e798026aa49072096ca385655f8",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6003,
@@ -1320,7 +1320,7 @@
           }
         },
         "sw": {
-          "sha256": "543fb0fa9564695a4be093c1c42c2dd4000225b0a1542438f99ec5da1ca86e66",
+          "sha256": "90e4245c5ed67167762180adccffa24e06d6bf601bbf8960e4e98b8dcd3ea7d2",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.5648,
@@ -1328,7 +1328,7 @@
           }
         },
         "uk": {
-          "sha256": "09e91760460b531cb39a133f624d26e213112dd1e0cf827cec557ca725953016",
+          "sha256": "87276cc4e7a3149f2e997f929726fb284d61a86ee8d4a044298dc9332e2f29df",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.622,
@@ -1336,7 +1336,7 @@
           }
         },
         "zh-Hant": {
-          "sha256": "245348b96332d9c0b53bfd4d2bb62402119653d6ee26eebdac0fff5e12c9e894",
+          "sha256": "64dba6093886e7c579ac724f60f5503fc71863679b1f069c4d956adb627a792b",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.5622,
@@ -1344,7 +1344,7 @@
           }
         },
         "zh": {
-          "sha256": "23120431d0f04bd5ce1b739d179447f49d23f00809d3ec337d5dc2d19af2c302",
+          "sha256": "6f6c39be2b6b88b34c38155fe68fbe04138ed8a21bd7da39ce9e820c764c6862",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.5622,
@@ -4967,6 +4967,394 @@
             "units": 115,
             "meanBackTranslationSimilarity": 0.6183,
             "unitsBelow0_35": 25
+          }
+        }
+      }
+    },
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c",
+      "locales": {
+        "ar": {
+          "sha256": "a5f320855e0de61a72c0052bbf4f602b8a2d51deadeb2d1d343b585c4916ce44",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "de": {
+          "sha256": "c6fcced857cc04c0845c6202858ffc9d18010606f7122b9b2b662a1d560df7b5",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "es": {
+          "sha256": "9664c85ce4026411ba9b4f2041072da933992fad3384c2fd27cb64a9245d4081",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fil": {
+          "sha256": "a69dab958eef82b4e417423ca0ad1d1d92c6276bfc05aa5ff0e987df8c27849b",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fr": {
+          "sha256": "28bae8e5278e3c2545adfab7cbefdaa9745f5372fa6731fa82bd8ac5e42f8116",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "hi": {
+          "sha256": "2651989bb38274bc90ce23be5405221b0ba3b628826b65e6abe9fbee542716fe",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "it": {
+          "sha256": "0b72bddb843a2aa63ce04148686182df50504f5c422773d59ba298b87b321474",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl-BE": {
+          "sha256": "cc55e99d5a09fd550d45ed9df4c9875aef606b58b4c32d62553ea932ddf8704f",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl": {
+          "sha256": "7f2b566f33f24acd4065228537d6009b3d38436762b8e0f2f24f3a9af366a73d",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "pt": {
+          "sha256": "e012520d2c939775745b8b941768c07e22ea37a0b7ff7927de223773625d2d98",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sr": {
+          "sha256": "092e5aa2fef28ad83d7fb95044048d9c5d327977fddbd4d682f35cd920a484f4",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sw": {
+          "sha256": "0c72fdc9eae2a1d0ee2af56d441565b66580c94dc36afd1a2f144821aeae95ab",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "uk": {
+          "sha256": "db652e16f73151f1c8a3957d3924dd76e59a8877b2a78b50330d5486154d46b7",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "sourceSha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0",
+      "locales": {
+        "ar": {
+          "sha256": "61d0d3c9e51636eaf7be79a4e51b5ad0e5aa6b537098becbaada85e497e1d66b",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "de": {
+          "sha256": "bce3af3441f732f75c335fdb9a6e2fbf2329f5f9d2e934cd2bd7aef8844f458d",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "es": {
+          "sha256": "3ac4dffb71c9725bd5acf619f95ef077f337ff1b086a9053cf2bc1b1c10d854c",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fil": {
+          "sha256": "94687e2ad6d323fa10bf91bf1be1cef6b8c680e8ba89248e034dbe422dbfa90f",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fr": {
+          "sha256": "2562ae11e8c895d5f4f3ed019ce7a041af0b512ba5880196497ca1d4db12ac55",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "hi": {
+          "sha256": "c447bb9bfea876a85770567a1fbbf347016edc26f8204ee149c38c09799c489b",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "it": {
+          "sha256": "c266bb9943255477b0872324b3b09c09f4a47d718d9911cca4658f4c1a65d666",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl-BE": {
+          "sha256": "15843405d696b6fb2b3840c4bdc6493c1e7d138c5f87db1bac1a60af5c9a3695",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl": {
+          "sha256": "b8417c03f9b465005b5227a458c1da29b93cfed79912f33b6b7170d0f0544548",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "pt": {
+          "sha256": "0b42ca851e0745b66a9e6ffb8d3a684ea7c71750dfae3f67d350442504fe1be8",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sr": {
+          "sha256": "5bb8264053db076034f7b773f639a04989d25851204b405edb2424df8ea0a12f",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sw": {
+          "sha256": "8bf4a9d8438cf85cec80c68fbcb5bb304956288a642c96cbda27cc45684b7337",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "uk": {
+          "sha256": "9e5474d06f0ff91b446f1b06eb96f69722efe062ea1de65ce6f2ef32b493972d",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61",
+      "locales": {
+        "ar": {
+          "sha256": "aa2b09249e40cfae71c9291d75ec178fee022a1e61dbd5eae81880353301ddde",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "de": {
+          "sha256": "9d7656b1ac0d7b52a7762372d74dca8e502ee917be540c59301defee1cb808ca",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "es": {
+          "sha256": "36c20794be6d5688cbc36b85d047804ff74c1c84e5e8faf7ac209effb4b830d7",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fil": {
+          "sha256": "8c08f12024b20ea23f5bc8e4b5622c12281f1d9f31b52b58937dd3ca3549c206",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fr": {
+          "sha256": "bba1efcb226628b6afc311e7a665ec7789273b16514c20622e1137b9cd2d9bca",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "hi": {
+          "sha256": "aef42533b73891e72dea51e30e8aec0db0087d1a240d0b4228982ff47711ede1",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "it": {
+          "sha256": "3a241776a72664b9fc1afdd136e71c7d42c1b062c8a0d95fe1772e0f4c0ddf0c",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl-BE": {
+          "sha256": "9080c18870bc7eb3fc431219c79da0c8419ec122a035914d460c578eecc1a6cb",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl": {
+          "sha256": "3b9396315b2c5bf140169b49628a047e443640bd043bebc71fc6e7459ca41276",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "pt": {
+          "sha256": "153ed8909887e0135cd4a29e824288b62d0e555ff3bf8bbb1d134164d96e7f6b",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sr": {
+          "sha256": "2029e87e2a08793e43c8b64b9c4c0cb752cabf66556ddcfb676d6862103076e8",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sw": {
+          "sha256": "c8762af5bfe84135629ca74f3ff7a45ed7a4b040a9a062060b3d9da4633e537e",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "uk": {
+          "sha256": "96d70db2e663ac6760ec2b5850ec9452b4b1d257c7cf40dd92929b65454908c5",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        }
+      }
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "sourceSha256": "f87320a4609ab130bab19e9905c2ffad36b16a2e7f519876f8dcf23f3165e133",
+      "locales": {
+        "ar": {
+          "sha256": "b1e3f8a1b3175d73f0794c27e0aeb9bf0754e7661014b8cf56598097b4752c9f",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "de": {
+          "sha256": "d75c21fce4705b9779e92699dfd161690bebe6d920b6f9b07de48dba712314fd",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "es": {
+          "sha256": "f213ef3ae72f5e40eff1c7d7ca1a1e984b871636fa2447736bb83cfbb7fddcd0",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fil": {
+          "sha256": "133136f452832105948ee4a120763ec1af32560e4fe9b1ab7015cdacf78c7a38",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "fr": {
+          "sha256": "fedcffb2c5728422756c19a9b55136b29a76c3337ee4f381c10780d8774103cd",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "hi": {
+          "sha256": "4e6bcb8a02cb78e724e274e4089818ba842cd9dc51b1d3caefd98136a1780939",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "it": {
+          "sha256": "607653dfe113bac20092070096ba69faac929517bb90f7de4a4a8f57b1e72f76",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl-BE": {
+          "sha256": "1ca8e18ff84afa1f3bd577ab84827a7f7859009a293fdf3eb9f77f01fb15464e",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "nl": {
+          "sha256": "c996ef00932362cf8984f3fcd016c9288504f104da43b69f1f23e0c8ed2a0177",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "pt": {
+          "sha256": "532d4ed933270aa0312664cfbdabc0dfb424a7056d9995627de0cae403646076",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sr": {
+          "sha256": "3ba5ada8122cc0dca6873fc694c7e2f7d0fa467aca8634dd14fc5e653affb101",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "sw": {
+          "sha256": "290a315f9834e39c477f1cb968c5322d93ba60f05c4ff60ed9af2c2bfc155107",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
+          }
+        },
+        "uk": {
+          "sha256": "362a5a66ab74c9904f91537b5ddaf3280690a69c2f500ff9898058c239590a76",
+          "review": {
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "status": "release-review-complete"
           }
         }
       }

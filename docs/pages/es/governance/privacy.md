@@ -1,16 +1,16 @@
 # Aviso de privacidad de la CLC App
 
-> **Traducción de trabajo — aún no vigente.** Esta traducción al español se facilita para su revisión antes de la aprobación jurídica. El texto en inglés es el texto fuente y prevalece, salvo que el derecho aplicable exija lo contrario. [Leer el texto en inglés.](/governance/privacy)
+> **Traducción de conveniencia.** Esta traducción se ofrece para facilitar la lectura. El texto en inglés es el texto fuente y prevalece, salvo que la legislación aplicable exija lo contrario. [Leer el texto en inglés.](/governance/privacy)
 
-**Versión provisional de la fuente: 1.0**
+**Versión de la fuente: 1.0**
 
-**Fecha del borrador en inglés: 24 de octubre de 2026**
+**Fecha de publicación y entrada en vigor del texto inglés: 9 de noviembre de 2026**
 
-**Fecha de esta traducción de trabajo: 25 de octubre de 2026**
+**Fecha de publicación de la traducción: 9 de noviembre de 2026**
 
-Este Aviso de privacidad explica cómo Grassroots Economics Foundation (**GEF**, **nosotros**, **nos** o **nuestro**) trata los datos personales cuando usted visita o utiliza la aplicación Cosmo-Local Credit en `cosmolocal.credit` y los servicios relacionados que opera GEF (en conjunto, la **Aplicación**).
+Este Aviso de privacidad explica cómo Grassroots Economics Foundation (**GEF **, ** nosotros **, ** nos ** o ** nuestro **) trata los datos personales cuando usted visita o utiliza la aplicación Cosmo-Local Credit en `cosmolocal.credit` y los servicios relacionados que opera GEF (en conjunto, la ** Aplicación**).
 
-> **Lea esto antes de publicar.** Los datos de contacto y la ubicación guardada en su perfil no aparecen automáticamente en los recursos públicos. La información que introduzca o copie en un Vale, Fondo, Oferta, Solicitud, Catálogo o Publicación puede hacerse pública cuando publique ese recurso. Una ubicación pública puede incluir las coordenadas exactas del mapa que usted haya seleccionado.
+> **Lea antes de publicar.** Su perfil privado no es un perfil público. La información que introduzca o copie en un Vale, Fondo, Oferta, Solicitud, Catálogo o Publicación puede publicarse a través de ese recurso. La descripción, los términos, las imágenes, las etiquetas, las direcciones de Billetera y las coordenadas exactas del mapa de un recurso pueden ser visibles sin iniciar sesión. Los datos de contacto de un Vale, Fondo o Solicitud solo se muestran mediante las funciones de información o contacto para usuarios que han iniciado sesión, pero el destinatario puede copiarlos o compartirlos.
 
 Este Aviso complementa los [Términos de Servicio](/es/governance/terms) y la [Política de Protección de Datos](/es/governance/data-protection).
 
@@ -37,39 +37,44 @@ No regula la forma en que un Emisor independiente, un Responsable del Fondo, un 
 
 Según las funciones que utilice, podemos recopilar:
 
-- su nombre de usuario público y la dirección pública de su Billetera blockchain;
+- su nombre de usuario y dirección pública de la billetera blockchain;
 - su nombre, dirección de correo electrónico, número de teléfono, país y moneda preferida;
 - su biografía, sitio web, avatar, así como el nombre y las coordenadas de su ubicación guardada;
 - la función, el estado y los límites de recursos de la cuenta, y las fechas de creación o actualización de esta; y
 - sus ajustes, idioma, preferencias de notificación y demás elecciones.
 
-Su nombre de usuario público es distinto del nombre privado de su perfil. Su perfil puede utilizarse para rellenar formularios previamente, pero rellenar un formulario de este modo no publica un campo hasta que usted decide publicar el recurso.
+Su nombre de usuario es distinto del nombre privado de su perfil. Se utiliza como identificador de destinatario y puede devolverse junto con la dirección de su Billetera a una persona que haya iniciado sesión e introduzca el nombre de usuario exacto. Su perfil puede usarse para rellenar formularios previamente, pero este proceso no publica ningún campo hasta que usted decide publicar el recurso.
+
+Los administradores autorizados pueden buscar en el directorio de cuentas por nombre, nombre de usuario, correo electrónico, número de teléfono o dirección de Billetera. Pueden ver los campos de identidad y contacto de la cuenta, su función, estado, límites de recursos y recursos asociados cuando sea necesario para operar, prestar asistencia, moderar y proteger la Aplicación. Este directorio no es público.
 
 ### Datos de autenticación, Billetera y transacciones
 
-Podemos tratar direcciones de Billeteras, mensajes firmados, autorizaciones de transacciones, firmas, identificadores de credenciales de acceso y coordenadas de claves públicas, identificadores de sesión, solicitudes de transacción, registros de retransmisión y estado de las transacciones. No necesitamos la clave privada de su credencial de acceso para verificar una autenticación con esa credencial.
+Podemos tratar direcciones de Billetera, mensajes firmados, autorizaciones de transacciones, firmas, identificadores de credenciales de acceso y coordenadas de claves públicas, estado de las credenciales, identificadores y funciones de sesión, solicitudes de transacción, registros de retransmisión, datos de transacciones de sustitución y estado de las transacciones. Si se sustituye una tarjeta de inicio de sesión, podemos conservar las direcciones de Billetera antigua y nueva, las pruebas del cambio solicitado, el estado de la credencial de acceso vinculada y los registros operativos necesarios para reanudar o verificar el cambio.
 
-Si utiliza una Billetera en papel u otra credencial que usted controla, es responsable de proteger su información privada. Una dirección pública de Billetera y las transacciones de una blockchain pública no son privadas.
+La Aplicación almacena el material privado de su tarjeta de inicio de sesión en el almacenamiento local del navegador para que este pueda firmar. Los servicios de GEF reciben firmas y transacciones firmadas, no la clave privada sin procesar. El proveedor de una credencial de acceso protege su clave privada; la Aplicación y sus servicios utilizan el identificador, el material de clave pública, el desafío y la afirmación firmada necesarios para registrarla o verificarla. Si utiliza una Billetera en papel, una tarjeta de inicio de sesión, una credencial de acceso u otra credencial, usted es responsable de proteger el dispositivo y el material privado.
+
+Cuando un Vale o Fondo esté controlado por una Billetera multifirma compatible, podemos tratar la dirección multifirma, las direcciones de Billetera de los firmantes, el umbral de aprobación, las transacciones propuestas, las confirmaciones, el estado de ejecución y los permisos necesarios para mostrar y operar los controles multifirma. La dirección del propietario, el conjunto de firmantes y el umbral pueden devolverse mediante la consulta pública de la propiedad y también ser visibles en una blockchain pública.
 
 ### Datos del dispositivo, de seguridad y de uso
 
-Podemos recopilar información técnica y operativa, como la dirección IP, información del navegador y del dispositivo, marcas de tiempo, páginas o puntos de acceso solicitados, eventos de sesión y seguridad, errores de validación, información sobre límites de solicitudes, suscripciones a notificaciones, actividad del servicio y registros de diagnóstico.
+Podemos recopilar información técnica y operativa, como la dirección IP, información del navegador y el dispositivo, marcas de tiempo, páginas o puntos finales solicitados, eventos de sesión y seguridad, errores de validación, información sobre límites de velocidad, suscripciones a notificaciones y confirmaciones de entrega, actividad de servicio y registros de diagnóstico.
 
 ### Contenido y datos de asistencia
 
-Tratamos la información que usted incluye en Vales, Fondos, Ofertas, Solicitudes, Catálogos, Publicaciones, Reseñas, imágenes, archivos adjuntos, condiciones, descripciones, etiquetas, ubicaciones, campos de contacto, reclamaciones, mensajes de asistencia y otras comunicaciones.
+Tratamos la información que usted envía en Vales, Fondos, Ofertas, Solicitudes, Catálogos, Publicaciones, Reseñas de Vales y Fondos, imágenes, archivos adjuntos, términos, descripciones, etiquetas, ubicaciones, campos de contacto, mensajes privados u órdenes posteriores a una transacción, reclamaciones, mensajes de asistencia y otras comunicaciones.
 
 No publique los datos personales, la imagen, los datos de contacto ni la ubicación precisa de otra persona, salvo que tenga un motivo legítimo y haya obtenido cualquier permiso necesario.
 
 ## 4. ¿Qué se hace público?
 
-La Aplicación tiene cuatro niveles importantes de visibilidad.
+La Aplicación tiene cinco niveles importantes de visibilidad.
 
 | Visibilidad | Qué significa |
 | --- | --- |
-| Datos privados del perfil y de la cuenta | El nombre del perfil, el correo electrónico, el número de teléfono, la ubicación guardada, las preferencias, los registros de autenticación y otros datos similares de la cuenta se utilizan para operar la Aplicación y no se incluyen automáticamente en las respuestas públicas de los recursos. El personal autorizado de GEF y los proveedores de servicios pueden acceder a ellos cuando sea necesario para su trabajo. |
+| Datos privados del perfil y de la cuenta | El nombre del perfil, el correo electrónico, el número de teléfono, la ubicación guardada, las preferencias, los registros de autenticación y otros datos similares de la cuenta se utilizan para operar la Aplicación y no se incluyen automáticamente en las respuestas públicas de los recursos. El personal autorizado de GEF y sus proveedores de servicios pueden acceder a ellos cuando sea necesario para su trabajo. Los administradores autorizados también pueden buscar y gestionar el directorio no público de cuentas. |
 | Búsqueda exacta de destinatario | Un usuario que haya iniciado sesión e introduzca su nombre de usuario exacto o su número de teléfono completo puede recibir su nombre de usuario público y la dirección de su Billetera. Una búsqueda con solo parte del nombre de usuario no devuelve ningún usuario. El número de teléfono empleado en la consulta, el nombre privado de su perfil, su correo electrónico, su número de teléfono y su ubicación guardada no se devuelven en el resultado de la búsqueda. |
-| Recursos publicados en la Aplicación | Los campos que se introduzcan o copien deliberadamente en un recurso publicado pueden ser visibles para cualquier persona que pueda acceder al catálogo público o al recurso. Los campos públicos pueden indexarse, copiarse, compartirse o asociarse a una Billetera o a otro recurso. |
+| Datos públicos del catálogo y de los recursos | Las descripciones, términos, imágenes, etiquetas, direcciones de Billetera y de contrato, ubicaciones, coordenadas exactas, Ofertas, Solicitudes, Publicaciones, Reseñas, reglas de los Fondos y configuraciones técnicas publicadas pueden ser visibles sin iniciar sesión. Los campos públicos pueden indexarse, copiarse, compartirse o asociarse a una Billetera u otro recurso. |
+| Contacto de recursos para usuarios que han iniciado sesión | El correo electrónico, el teléfono, el sitio web o las instrucciones de contacto añadidos deliberadamente a un Vale, Fondo o Solicitud se eliminan de las respuestas de catálogo y de detalle para usuarios que no han iniciado sesión. Una persona que haya iniciado sesión puede solicitar el registro completo de un Vale o Fondo con datos de contacto, o los métodos de contacto seleccionados para una Solicitud activa. El destinatario puede copiar, utilizar o compartir esa información. El acceso a los recursos retirados se limita en mayor medida al propietario o a un administrador. |
 | Registros públicos de blockchain | Las direcciones de Billeteras, contratos, saldos, activos, transferencias, importes, contrapartes, marcas de tiempo, firmas y acciones de contratos pueden permanecer visibles de forma permanente a través de redes públicas y exploradores de bloques independientes. GEF no puede borrar ni reescribir una blockchain pública. |
 
 Retirar un recurso del catálogo de la Aplicación no elimina las copias que ya hayan realizado otras personas, servicios de búsqueda, archivos, indexadores independientes o blockchains públicas.
@@ -80,21 +85,21 @@ Los campos disponibles para un recurso pueden cambiar a medida que evoluciona la
 
 | Recurso | Información que puede hacerse pública |
 | --- | --- |
-| Vale | Identificadores del contrato y de la red; nombre, símbolo, descripción, unidad y valor declarados del Vale; dirección de Billetera del Emisor o propietario; condiciones; datos de contacto; nombre de la ubicación y coordenadas exactas; imágenes; etiquetas; marcadores visuales; y estado activo o retirado del catálogo. |
-| Fondo | Identificadores del contrato y de la red; nombre y descripción del Fondo; direcciones de Billetera del propietario, destinatario de comisiones, dependencias u otros controladores técnicos; Vales admitidos; información sobre inventario o disponibilidad; método de valoración; comisiones, límites, normas y demás configuración; datos de contacto; nombre de la ubicación y coordenadas exactas; imágenes; etiquetas; y marcas de tiempo. |
+| Vale | Público: identificadores de contrato y cadena; nombre, símbolo, descripción, unidad y valor declarados del Vale; dirección de Billetera del Emisor o propietario; términos; nombre de la ubicación y coordenadas exactas; imágenes; etiquetas; marcadores visuales; y estado activo del catálogo. Con sesión iniciada: correo electrónico, teléfono y sitio web introducidos deliberadamente. Los registros retirados solo están disponibles para un propietario o administrador autorizado mediante el punto final de información completa, mientras que el historial de la cadena puede seguir siendo público. |
+| Fondo | Público: identificadores de contrato y cadena; nombre y descripción del Fondo; direcciones de Billetera del propietario, destinatario de tarifas, dependencia u otro controlador técnico; Vales admitidos; información sobre inventario o disponibilidad; método de valoración; tarifas, límites, reglas y otras configuraciones; nombre de la ubicación y coordenadas exactas; imágenes; etiquetas; marcas de tiempo; y, para multifirmas compatibles, direcciones del propietario y los firmantes y umbral de aprobación. Con sesión iniciada: correo electrónico, teléfono y sitio web introducidos deliberadamente. Los registros retirados tienen el mismo acceso más restringido a la información completa que los Vales retirados. |
 | Oferta | Datos del Vale vinculado; dirección de Billetera del vendedor o de procedencia; bienes o servicios ofrecidos; descripción, cantidad, unidad, frecuencia, precio y disponibilidad; nombre de la ubicación y coordenadas exactas o heredadas; imagen; etiquetas; y marcas de tiempo. |
-| Solicitud | Bienes o servicios solicitados; descripción; etiquetas; imagen; estado y fechas; nombre de la ubicación y coordenadas exactas; y solo el medio de contacto elegido expresamente para esa Solicitud. Las respuestas públicas de una Solicitud no tienen por qué identificar el perfil privado de su creador. |
+| Solicitud | Público: bienes o servicios solicitados; descripción; etiquetas; imagen; estado y fechas; nombre de la ubicación y coordenadas exactas. Con sesión iniciada: solo las instrucciones de contacto, el correo electrónico o el teléfono seleccionados deliberadamente para esa Solicitud activa. Las respuestas públicas omiten esos campos de contacto y no identifican el perfil privado del creador, aunque los Vales o Fondos vinculados pueden crear una asociación indirecta. |
 | Catálogo | Nombre, descripción, imagen y etiquetas del Catálogo; dirección de Billetera de su propietario; miembros o recursos incluidos; recuentos; nombre de la ubicación y coordenadas exactas; y marcas de tiempo. |
-| Publicación aprobada | Título, resumen, cuerpo, nombre del anfitrión, información sobre participantes, fechas, imágenes, pies de imagen, archivos adjuntos, enlaces insertados, etiquetas, Vales o Fondos vinculados y coordenadas exactas. Las Publicaciones en borrador, presentadas o rechazadas no son públicas. La dirección de Billetera del autor se conserva para la gestión y la rendición de cuentas, pero se omite en las respuestas públicas de la Publicación. Los recursos vinculados o el propio contenido pueden aun así revelar una asociación. |
-| Reseña | Calificación, comentario y cualquier respuesta pública del propietario del Vale. La respuesta pública de la Reseña omite la dirección de Billetera de quien escribió la Reseña y los metadatos de canje, aunque el servicio conserva la información necesaria para verificar la elegibilidad, impedir Reseñas duplicadas, moderar el contenido y aplicar el periodo de reseña. |
+| Publicación | Título, resumen, cuerpo, nombre del anfitrión, información de los participantes, fechas, imágenes, leyendas, archivos adjuntos, enlaces incrustados, etiquetas, Vales o Fondos vinculados y coordenadas exactas. La dirección de Billetera del autor y el estado del flujo de trabajo se conservan para fines de gestión y rendición de cuentas, pero se omiten de las respuestas públicas. Los recursos vinculados o el propio contenido pueden seguir revelando una asociación. |
+| Reseña de Vale o Fondo | Calificación, comentario y cualquier respuesta pública del propietario del Vale o Fondo. La respuesta pública omite la dirección de Billetera del autor de la Reseña y las pruebas de canje o intercambio. El servicio conserva la dirección y las pruebas necesarias para verificar la elegibilidad, evitar reseñas duplicadas, admitir respuestas y señalamientos, moderar el contenido y aplicar el período de reseña. Los administradores pueden recibir el motivo del señalamiento y el contenido de la Reseña cuando esta se señala. |
 
 Los datos de contacto y las coordenadas exactas pueden crear riesgos para la seguridad personal. Siempre que sea posible, utilice un medio de contacto público adecuado y un lugar público seguro en vez de un domicilio particular.
 
 ## 6. Información pública de blockchain
 
-La Aplicación interactúa con redes públicas de blockchain. Una transacción puede revelar las Billeteras implicadas, el contrato del Token o del Vale, el importe, la hora, el estado y los eventos contractuales relacionados. Los contratos de Fondos también pueden revelar los activos admitidos, saldos, comisiones, límites, valoraciones, propietarios, administradores, dependencias y demás configuración.
+La Aplicación interactúa con redes públicas de blockchain. Una transacción puede revelar las Billeteras implicadas, el contrato del Token o Vale, el importe, la hora, el estado, la firma y los eventos de contrato relacionados. Los contratos de Fondo también pueden revelar activos admitidos, saldos, depósitos, pagos, intercambios, retiradas de liquidez, tarifas, límites, valoraciones, propietarios, administradores, dependencias y otras configuraciones. Las multifirmas compatibles pueden revelar conjuntos de firmantes, umbrales, propuestas, confirmaciones y acciones ejecutadas.
 
-La información de blockchain puede ser tratada por validadores de red, operadores de nodos, indexadores, programas de Billeteras, servicios de análisis y cualquier persona que consulte la red. Las transacciones pueden ser irreversibles. Cerrar una cuenta de la Aplicación, cambiar un perfil o pedir a GEF que elimine datos fuera de la cadena no borra los registros de blockchain.
+La información de blockchain puede ser tratada por validadores de red, operadores de nodos, indexadores, software de Billetera, servicios de análisis y cualquier persona que consulte la red. Las transacciones pueden ser irreversibles. Cerrar una cuenta de la Aplicación, cambiar un perfil, sustituir una tarjeta de inicio de sesión, eliminar o retirar un recurso del catálogo, destruir unidades de Vale o pedir a GEF que elimine datos fuera de la cadena no elimina los registros anteriores de la blockchain ni las copias indexadas de forma independiente.
 
 ## 7. Por qué utilizamos datos y cuáles son nuestras bases jurídicas
 
@@ -114,7 +119,7 @@ No consideramos que su decisión de publicar un campo equivalga a dar su consent
 
 ## 8. Datos obligatorios y opcionales
 
-La Aplicación señala los campos obligatorios en el formulario correspondiente. Actualmente se requieren una dirección de Billetera, una prueba de autenticación, un nombre y una dirección de correo electrónico para registrar una cuenta. Algunas funciones pueden requerir datos adicionales de transacción, contacto, ubicación, elegibilidad o recursos.
+La Aplicación identifica los campos obligatorios en el formulario correspondiente. La creación guiada de una cuenta requiere actualmente una dirección de Billetera y una prueba de autenticación, un nombre, una imagen de perfil, un país y una ubicación guardada, una moneda preferida y al menos una dirección de correo electrónico o un número de teléfono. El nombre de usuario es opcional. Otras rutas de inicio de sesión o recuperación de cuenta pueden crear valores temporales del sistema hasta que el usuario complete o corrija el perfil. Algunas funciones pueden requerir información adicional sobre transacciones, contactos, ubicación, elegibilidad o recursos.
 
 Los demás campos del perfil y de los recursos son opcionales, salvo que el formulario indique lo contrario. Si no facilita los datos obligatorios, quizá no podamos crear una cuenta, autenticarle, presentar una transacción, publicar un recurso, prestar asistencia, cumplir un requisito legal o poner a su disposición la función solicitada.
 
@@ -136,13 +141,16 @@ Recibimos datos:
 Solo divulgamos la información razonablemente necesaria para la finalidad declarada, para cumplir el derecho aplicable o para llevar a cabo la acción pública que usted solicita. Los destinatarios pueden incluir:
 
 - visitantes y usuarios de la Aplicación cuando usted publique un recurso o utilice una blockchain pública;
+- usuarios de la Aplicación que hayan iniciado sesión cuando soliciten los datos de contacto que usted haya asociado deliberadamente a un Vale, Fondo o Solicitud activos;
 - Emisores, Responsables de Fondos, contrapartes y otros participantes necesarios para una transacción, un canje, una reclamación o un servicio solicitado;
 - proveedores de infraestructura de alojamiento, bases de datos, almacenamiento, distribución de contenidos, seguridad, autenticación, asistencia, correo electrónico, notificaciones, mapas, geocodificación, acceso a blockchain, indexación, retransmisión de transacciones y supervisión;
 - proveedores independientes de Billeteras, blockchain, pagos, stablecoins, acceso a efectivo u otros servicios externos que usted decida utilizar;
 - asesores profesionales, auditores, aseguradoras, investigadores, financiadores y socios sujetos a las obligaciones y medidas de protección adecuadas; y
 - reguladores, tribunales, fuerzas del orden u otras personas cuando la divulgación sea exigida por la ley o razonablemente necesaria para proteger derechos, la seguridad y la integridad del servicio.
 
-Los servicios externos pueden recopilar datos directamente conforme a sus propios avisos de privacidad. Antes de publicar este Aviso, GEF examina el inventario actual de proveedores y transferencias para que la información facilitada siga siendo exacta.
+La Aplicación web de producción se distribuye mediante Cloudflare Pages. Su configuración actual en el navegador utiliza MapTiler para los estilos de mapa y las sugerencias de ubicación basadas en la dirección IP, ArcGIS World Geocoding para buscar lugares y realizar geocodificación inversa, y puntos finales RPC configurados de Gnosis Chain para realizar lecturas de la cadena. Estos servicios reciben los datos de solicitud necesarios para responder, que pueden incluir la dirección IP, información del navegador, el área del mapa, el texto de búsqueda, coordenadas o consultas de Billetera y contratos.
+
+Otras integraciones dependen de la función utilizada. Cuando se habilita y utiliza, un servicio de notificaciones trata los puntos finales de suscripción push, el estado del dispositivo, las direcciones de Billetera vinculadas, los acuses de entrega y clic y el estado de la bandeja de entrada; un retransmisor de transacciones trata las solicitudes firmadas y el estado de las transacciones; un servicio de transacciones Safe trata direcciones multifirma, propuestas, firmas, confirmaciones y estado de ejecución; y un proveedor de pagos o de acceso a efectivo trata el número de teléfono, la dirección de Billetera, el activo, el importe, el identificador del proveedor, la tasa y el estado de la transacción necesarios para esa función. El almacenamiento de imágenes, la API de la Aplicación, las bases de datos, los indexadores de blockchain y la infraestructura de supervisión tratan el contenido y los registros operativos necesarios para sus funciones. Un servicio externo también puede recopilar datos directamente conforme a su propio aviso de privacidad.
 
 ## 11. Tratamiento internacional
 
@@ -208,7 +216,7 @@ Un Aviso posterior no convierte en públicos datos que antes eran privados. La v
 
 Para preguntas o solicitudes relacionadas con la privacidad:
 
-**Grassroots Economics Foundation**  
-P.O. Box 1659-80108  
-Kilifi, Kenya  
+**Grassroots Economics Foundation**
+P.O. Box 1659-80108
+Kilifi, Kenya
 [privacy@grassecon.org](mailto:privacy@grassecon.org)

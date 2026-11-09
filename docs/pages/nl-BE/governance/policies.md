@@ -1,14 +1,14 @@
 # Beleid en kennisgevingen
 
-> **Werkvertaling — nog niet van kracht.** Deze Vlaamse vertaling is beschikbaar voor beoordeling vóór de juridische goedkeuring. De Engelse tekst is de brontekst en heeft voorrang, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/policies)
+> **Vertaling voor het leesgemak.** Deze vertaling wordt voor het leesgemak aangeboden. De Engelse tekst is de brontekst en is bepalend, tenzij het toepasselijke recht anders vereist. [Lees de Engelse brontekst.](/governance/policies)
 
 **Versie van de brontekst: 1.0**
 
-**Datum van het Engelse concept: 24 oktober 2026**
+**Publicatie- en ingangsdatum van de Engelse tekst: 9 november 2026**
 
-**Datum van deze werkvertaling: 28 oktober 2026**
+**Publicatiedatum van de vertaling: 9 november 2026**
 
-Grassroots Economics Foundation (**GEF**) beheert de Cosmo-Local Credit App (**CLC App**). Op deze pagina staan de voorwaarden, privacy-informatie en organisatorische beleidsdocumenten die van toepassing zijn op de App en op relevante activiteiten van GEF.
+Grassroots Economics Foundation (**GEF **) beheert de Cosmo-Local Credit App (** CLC App**). Op deze pagina staan de voorwaarden, privacy-informatie en organisatorische beleidsdocumenten die van toepassing zijn op de App en op relevante activiteiten van GEF.
 
 ## Welk document moet ik lezen?
 
@@ -27,7 +27,7 @@ Elk document vermeldt zijn eigen toepassingsgebied. Als een vertaling afwijkt va
 
 ## Huidig en historisch materiaal
 
-Zodra deze documenten zijn goedgekeurd en een publicatie- en ingangsdatum hebben, zijn zij de actuele bronnen voor het toepassingsgebied dat zij beschrijven. Oudere beleidspagina's van Grassroots Economics blijven bruikbaar als historisch materiaal, maar beschrijven niet ieder veld, iedere waarborg of iedere grens tussen openbaar en privé in de huidige CLC App.
+Deze gedateerde documenten zijn de actuele bronnen voor het toepassingsgebied dat zij beschrijven. Oudere beleidspagina's van Grassroots Economics blijven bruikbaar als historisch materiaal, maar beschrijven niet ieder veld, iedere waarborg of iedere grens tussen openbaar en privé in de huidige CLC App.
 
 Het privacybeleid van Social Soil geldt voor het afzonderlijke educatieve spel Social Soil en is geen beleid voor de CLC App.
 

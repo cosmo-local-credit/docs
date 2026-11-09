@@ -272,7 +272,7 @@ Ang pampublikong aktibidad ng blockchain ay maaaring magpahayag ng isang address
 
 GEF ang impormasyon ay pinapanatili hanggang sa sapat na kinakailangan para sa mga layunin sa itaas, kabilang ang seguridad, pag-iwas sa panliligaw, katibayan ng transaksyon, legal na tungkulin, limitasyon ng panahon, backup, at dispute resolution.GEF maaaring tanggalin ang impormasyon na inaalagaan ng isang pampublikong network o ng third party.
 
-Alinsunod sa naaangkop na batas, maaari kang humiling ng access, pagwawasto, pagtanggal, paghihigpit, objection, portability, o iba pang available na karapatan sa data sa pamamagitan ng pakikipag-ugnayan sa `info@grassecon.org`. Gumagamit ang GEF ng makatuwirang safeguard ngunit hindi magagarantiyahan ang ganap na seguridad o pagiging kumpidensiyal, lalo na para sa pampublikong blockchain activity at impormasyong inilalathala mo.
+Alinsunod sa naaangkop na batas, maaari kang humiling ng access, pagwawasto, pagtanggal, paghihigpit, objection, portability, o iba pang available na karapatan sa data sa pamamagitan ng pakikipag-ugnayan sa `privacy@grassecon.org`. Gumagamit ang GEF ng makatuwirang safeguard ngunit hindi magagarantiyahan ang ganap na seguridad o pagiging kumpidensiyal, lalo na para sa pampublikong blockchain activity at impormasyong inilalathala mo.
 
 ## 18. Pagbabago ng serbisyo, pag-suspension, at pagtatapos
 
