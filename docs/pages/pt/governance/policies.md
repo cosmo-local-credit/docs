@@ -8,7 +8,7 @@
 
 **Data de publicação da tradução: 9 de novembro de 2026**
 
-A Grassroots Economics Foundation (**GEF **) opera a aplicação Cosmo-Local Credit (** CLC App**). Esta página reúne os termos, as informações sobre privacidade e as políticas institucionais aplicáveis à Aplicação e às atividades relevantes da GEF.
+A Grassroots Economics Foundation (**GEF**) opera a aplicação Cosmo-Local Credit (**CLC App**). Esta página reúne os termos, as informações sobre privacidade e as políticas institucionais aplicáveis à Aplicação e às atividades relevantes da GEF.
 
 ## Que documento devo ler?
 

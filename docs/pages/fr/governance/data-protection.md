@@ -10,7 +10,7 @@
 
 ## 1. Objet
 
-Grassroots Economics Foundation (**GEF **) respecte la vie privée et considère le traitement des données à caractère personnel comme une responsabilité envers les personnes et les communautés concernées par son travail. La présente Politique fixe des normes minimales pour les données à caractère personnel traitées dans le cadre des systèmes, programmes, recherches, activités éducatives, événements, partenariats et opérations de GEF, y compris l’application Cosmo-Local Credit (** CLC App**).
+Grassroots Economics Foundation (**GEF**) respecte la vie privée et considère le traitement des données à caractère personnel comme une responsabilité envers les personnes et les communautés concernées par son travail. La présente Politique fixe des normes minimales pour les données à caractère personnel traitées dans le cadre des systèmes, programmes, recherches, activités éducatives, événements, partenariats et opérations de GEF, y compris l’application Cosmo-Local Credit (**CLC App**).
 
 La présente Politique s’appuie sur le [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) du Kenya, la réglementation applicable et les [orientations actuelles de l’Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). D’autres lois peuvent également s’appliquer dans les lieux où GEF intervient ou où se trouvent les personnes concernées.
 

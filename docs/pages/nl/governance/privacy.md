@@ -8,7 +8,7 @@
 
 **Publicatiedatum van de vertaling: 9 november 2026**
 
-Deze Privacyverklaring legt uit hoe Grassroots Economics Foundation (**GEF **, ** wij **, ** ons ** of ** onze **) persoonsgegevens verwerkt wanneer u de Cosmo-Local Credit App op `cosmolocal.credit` en de bijbehorende diensten van GEF bezoekt of gebruikt (samen: de ** App**).
+Deze Privacyverklaring legt uit hoe Grassroots Economics Foundation (**GEF**, **wij**, **ons** of **onze**) persoonsgegevens verwerkt wanneer u de Cosmo-Local Credit App op `cosmolocal.credit` en de bijbehorende diensten van GEF bezoekt of gebruikt (samen: de **App**).
 
 > **Lees dit voordat u publiceert.** Uw privéprofiel is geen openbaar profiel. Informatie die u invoert of kopieert in een Waardebon, Fonds, Aanbod, Verzoek, Catalogus of Bericht kan echter via die resource worden gepubliceerd. De beschrijving, voorwaarden, afbeeldingen, tags, Walletadressen en exacte kaartcoördinaten van een resource kunnen zonder aanmelding zichtbaar zijn. Contactgegevens bij een Waardebon, Fonds of Verzoek worden alleen getoond via resource-informatie of contactfuncties voor aangemelde gebruikers, maar de ontvanger kan ze nog steeds kopiëren of delen.
 
@@ -63,6 +63,16 @@ We kunnen technische en operationele informatie verzamelen, zoals IP-adres, brow
 
 We verwerken informatie die u verstrekt in waardebonnen, Fondsen, Aanbiedingen, Verzoeken, Catalogi, Berichten, waardebonnen- en Poolbeoordelingen, afbeeldingen, bijlagen, voorwaarden, beschrijvingen, tags, locaties, contactvelden, privéberichten na transactie of bestellingen, klachten, ondersteuningsberichten en andere communicatie.
 
+Als u de berichtenfunctie van de App gebruikt, verwerken we:
+
+- gespreksverzoeken en de status daarvan;
+- Walletadressen, gebruikersnamen en avatars van deelnemers;
+- tekst, afbeeldingen en tijdstempels van berichten;
+- de leesmarkering van iedere gebruiker, blokkeringsgegevens en gegevens over aanvraagquota; en
+- helpdeskgesprekken en meldingen van misbruik.
+
+Directe berichten zijn privé en alleen zichtbaar voor de twee deelnemers aan het gesprek. Beheerders van GEF kunnen helpdeskberichten lezen. Zij kunnen een direct bericht alleen lezen wanneer een deelnemer het aan een melding van misbruik toevoegt.
+
 Publiceer geen persoonsgegevens, afbeeldingen, contactgegevens of nauwkeurige locatie van iemand anders, tenzij u daarvoor een rechtsgeldige reden en iedere vereiste toestemming hebt.
 
 ## 4. Wat wordt openbaar?
@@ -76,6 +86,8 @@ De App kent vijf belangrijke zichtbaarheidsniveaus.
 | Openbare catalogus- en resourcegegevens | Gepubliceerde beschrijvingen, voorwaarden, afbeeldingen, tags, Wallet- en contractadressen, locaties, exacte coördinaten, Aanbiedingen, Verzoeken, Berichten, Beoordelingen, Fondsregels en technische instellingen kunnen zonder aanmelding zichtbaar zijn. Openbare velden kunnen worden geïndexeerd, gekopieerd, gedeeld of gekoppeld aan een Wallet of andere resource. |
 | Resourcecontact voor aangemelde gebruikers | E-mail, telefoonnummer, website of contactinstructies die bewust aan een Waardebon, Fonds of Verzoek zijn toegevoegd, worden verwijderd uit catalogus- en detailantwoorden voor niet-aangemelde gebruikers. Een aangemelde persoon kan de volledige Waardebon- of Fondsgegevens met contactinformatie opvragen, of de contactmethoden die voor een actief Verzoek zijn geselecteerd. De ontvanger kan deze informatie nog steeds kopiëren, gebruiken of delen. Verwijderde resources hebben een beperktere toegang voor eigenaar of beheerder. |
 | Openbare blockchaingegevens | Walletadressen, contracten, saldi, tegoeden, overdrachten, bedragen, tegenpartijen, tijdstempels, handtekeningen en contracthandelingen kunnen permanent zichtbaar zijn via openbare netwerken en onafhankelijke blockchainverkenners. GEF kan een openbare blockchain niet wissen of herschrijven. |
+
+Appberichten zijn niet openbaar. De twee deelnemers kunnen elkaars Walletadres, gebruikersnaam, avatar, berichten, afbeeldingen, gespreksstatus en tijdstempels zien. Leesmarkeringen, blokkeerlijsten en aanvraagquota zijn operationele gegevens en zijn niet openbaar.
 
 Als een resource uit de catalogus van de App wordt verwijderd, verdwijnen daarmee geen kopieën die al zijn gemaakt door andere mensen, zoekdiensten, archieven, onafhankelijke indexeerders of openbare blockchains.
 
@@ -142,6 +154,8 @@ We verstrekken alleen informatie die redelijkerwijs nodig is voor het vermelde d
 
 - bezoekers en gebruikers van de App wanneer u een resource publiceert of een openbare blockchain gebruikt;
 - aangemelde App-gebruikers wanneer zij contactgegevens opvragen die u bewust aan een actieve Waardebon, een actief Fonds of Verzoek hebt toegevoegd;
+- de andere deelnemer aan een direct gesprek;
+- gemachtigde beheerders van GEF die een helpdeskgesprek of melding van misbruik behandelen, met inachtneming van de in paragraaf 3 beschreven beperkingen;
 - Uitgevers, Fondsbeheerders, tegenpartijen en andere deelnemers die nodig zijn voor een transactie, inwisseling, klacht of gevraagde dienst;
 - infrastructuurproviders voor hosting, databases, opslag, contentlevering, beveiliging, authenticatie, ondersteuning, e-mail, meldingen, kaarten, geocodering, blockchaintoegang, indexering, transactiedoorgifte en monitoring;
 - onafhankelijke Wallet-, blockchain-, betalings-, stablecoin-, geldwissel- of andere externe dienstverleners die u zelf kiest te gebruiken;
@@ -162,7 +176,7 @@ Wanneer voor een overdracht waarborgen vereist zijn, gebruikt GEF maatregelen di
 
 GEF bewaart persoonsgegevens niet langer dan redelijkerwijs nodig is voor het doel waarvoor ze zijn verzameld, onder meer:
 
-- zolang een account, resource, transactie, klacht of ondersteuningskwestie actief is;
+- zolang een account, resource, transactie, gesprek, blokkering, melding van misbruik, klacht of ondersteuningskwestie actief is;
 - voor beveiliging, fraudepreventie, afstemming, audit, governance, onderzoeksintegriteit en continuïteit van de dienst;
 - voor fiscale, boekhoudkundige, regelgevende, contractuele, geschil-, verjarings- of andere wettelijke vereisten; en
 - gedurende een beperkte periode in beveiligde back-ups en logbestanden voordat deze volgens planning worden verwijderd of vervangen.

@@ -517,9 +517,12 @@
       "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c",
       "locales": {
         "nl-BE": {
-          "sha256": "cc55e99d5a09fd550d45ed9df4c9875aef606b58b4c32d62553ea932ddf8704f",
+          "sha256": "05c15cf796089a8a05f218e2f86f3d06a312992631d8887a85207b367b5b20ff",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 36,
+            "meanBackTranslationSimilarity": 0.7017,
+            "unitsBelow0_35": 6,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -527,12 +530,15 @@
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0",
+      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b",
       "locales": {
         "nl-BE": {
-          "sha256": "15843405d696b6fb2b3840c4bdc6493c1e7d138c5f87db1bac1a60af5c9a3695",
+          "sha256": "7f1dfd32ea2bb82232084cc18d6cd0e51244ae43c584ce1fce1b36360334cd3b",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 190,
+            "meanBackTranslationSimilarity": 0.632,
+            "unitsBelow0_35": 47,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -543,9 +549,12 @@
       "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61",
       "locales": {
         "nl-BE": {
-          "sha256": "9080c18870bc7eb3fc431219c79da0c8419ec122a035914d460c578eecc1a6cb",
+          "sha256": "fd2f8e775a87cb0c6775dabd85f14a1712fd66769cd70a6c7f4d2336d9cc5325",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 132,
+            "meanBackTranslationSimilarity": 0.6517,
+            "unitsBelow0_35": 23,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -558,7 +567,10 @@
         "nl-BE": {
           "sha256": "1ca8e18ff84afa1f3bd577ab84827a7f7859009a293fdf3eb9f77f01fb15464e",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 136,
+            "meanBackTranslationSimilarity": 0.668,
+            "unitsBelow0_35": 19,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -568,14 +580,16 @@
   "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "policyReviewProcess": [
     "reviewed translation memory retained for unchanged units",
-    "semantic translation of changed units",
-    "complete plain-language and legal-meaning review of the four policy pages",
-    "protected-token, structure, link, and source-hash verification"
+    "semantic NLLB translation for changed units",
+    "plain-language and legal-meaning review",
+    "independent back-translation of every changed unit"
   ],
   "policyBackTranslationReview": {
-    "status": "completed-before-final-human-review",
-    "scope": "changed policy units",
-    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
+    "units": 494,
+    "meanBackTranslationSimilarity": 0.6523,
+    "unitsBelow0_35": 95,
+    "threshold": 0.35,
+    "lowConfidenceReport": "policy-review.nl-BE.json"
   },
   "policyTranslationPublicationDate": "9 november 2026",
   "policyStatus": "release-ready"

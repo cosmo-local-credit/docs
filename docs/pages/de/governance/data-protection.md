@@ -10,7 +10,7 @@
 
 ## 1. Zweck
 
-Die Grassroots Economics Foundation (**GEF **) achtet die Privatsphäre und versteht den Umgang mit personenbezogenen Daten als Verantwortung gegenüber den Menschen und Gemeinschaften, die an ihrer Arbeit beteiligt sind. Diese Richtlinie legt Mindeststandards für personenbezogene Daten fest, die über Systeme, Programme, Forschung, Bildung, Veranstaltungen, Partnerschaften und betriebliche Abläufe von GEF verarbeitet werden, einschließlich der Cosmo-Local Credit App (** CLC App**).
+Die Grassroots Economics Foundation (**GEF**) achtet die Privatsphäre und versteht den Umgang mit personenbezogenen Daten als Verantwortung gegenüber den Menschen und Gemeinschaften, die an ihrer Arbeit beteiligt sind. Diese Richtlinie legt Mindeststandards für personenbezogene Daten fest, die über Systeme, Programme, Forschung, Bildung, Veranstaltungen, Partnerschaften und betriebliche Abläufe von GEF verarbeitet werden, einschließlich der Cosmo-Local Credit App (**CLC App**).
 
 Diese Richtlinie berücksichtigt Kenias [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), die anwendbaren Vorschriften und die aktuellen [Leitlinien des Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Je nach Tätigkeitsort von GEF oder Aufenthaltsort betroffener Personen können weitere Gesetze gelten.
 

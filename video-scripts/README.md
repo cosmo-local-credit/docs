@@ -23,7 +23,7 @@ Every script includes a runtime, voiceover, screen directions, visible App label
 
 ## Product baseline
 
-The scripts were last reconciled with CLC App `origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee` on 9 November 2026. Recheck labels, permissions, account allowances, Pool configuration, balances, rates, fees, and the exact filming build before final editing.
+The scripts were last reconciled with CLC App `origin/develop` commit `704480cf2173dd9d95f3feadda3748999df2b072` on 11 November 2026. The current desktop interface retains the scripted action labels. Recheck permissions, account allowances, Pool configuration, balances, rates, fees, and the exact filming build before final editing.
 
 ## Filming convention
 

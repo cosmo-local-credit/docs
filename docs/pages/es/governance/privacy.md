@@ -8,7 +8,7 @@
 
 **Fecha de publicación de la traducción: 9 de noviembre de 2026**
 
-Este Aviso de privacidad explica cómo Grassroots Economics Foundation (**GEF **, ** nosotros **, ** nos ** o ** nuestro **) trata los datos personales cuando usted visita o utiliza la aplicación Cosmo-Local Credit en `cosmolocal.credit` y los servicios relacionados que opera GEF (en conjunto, la ** Aplicación**).
+Este Aviso de privacidad explica cómo Grassroots Economics Foundation (**GEF**, **nosotros**, **nos** o **nuestro**) trata los datos personales cuando usted visita o utiliza la aplicación Cosmo-Local Credit en `cosmolocal.credit` y los servicios relacionados que opera GEF (en conjunto, la **Aplicación**).
 
 > **Lea antes de publicar.** Su perfil privado no es un perfil público. La información que introduzca o copie en un Vale, Fondo, Oferta, Solicitud, Catálogo o Publicación puede publicarse a través de ese recurso. La descripción, los términos, las imágenes, las etiquetas, las direcciones de Billetera y las coordenadas exactas del mapa de un recurso pueden ser visibles sin iniciar sesión. Los datos de contacto de un Vale, Fondo o Solicitud solo se muestran mediante las funciones de información o contacto para usuarios que han iniciado sesión, pero el destinatario puede copiarlos o compartirlos.
 
@@ -63,6 +63,16 @@ Podemos recopilar información técnica y operativa, como la dirección IP, info
 
 Tratamos la información que usted envía en Vales, Fondos, Ofertas, Solicitudes, Catálogos, Publicaciones, Reseñas de Vales y Fondos, imágenes, archivos adjuntos, términos, descripciones, etiquetas, ubicaciones, campos de contacto, mensajes privados u órdenes posteriores a una transacción, reclamaciones, mensajes de asistencia y otras comunicaciones.
 
+Si utiliza la mensajería de la Aplicación, tratamos:
+
+- las solicitudes de conversación y su estado;
+- las direcciones de Billetera, los nombres de usuario y los avatares de los participantes;
+- texto, imágenes y marcas de tiempo de los mensajes;
+- el marcador de lectura de cada usuario, los registros de bloqueo y los registros de cuotas de solicitudes; y
+- los hilos de asistencia y los informes de abuso.
+
+Los mensajes directos son privados y solo pueden verlos los dos participantes de la conversación. Los administradores de GEF pueden leer los mensajes de asistencia. Solo pueden leer un mensaje directo cuando un participante lo adjunta a un informe de abuso.
+
 No publique los datos personales, la imagen, los datos de contacto ni la ubicación precisa de otra persona, salvo que tenga un motivo legítimo y haya obtenido cualquier permiso necesario.
 
 ## 4. ¿Qué se hace público?
@@ -76,6 +86,8 @@ La Aplicación tiene cinco niveles importantes de visibilidad.
 | Datos públicos del catálogo y de los recursos | Las descripciones, términos, imágenes, etiquetas, direcciones de Billetera y de contrato, ubicaciones, coordenadas exactas, Ofertas, Solicitudes, Publicaciones, Reseñas, reglas de los Fondos y configuraciones técnicas publicadas pueden ser visibles sin iniciar sesión. Los campos públicos pueden indexarse, copiarse, compartirse o asociarse a una Billetera u otro recurso. |
 | Contacto de recursos para usuarios que han iniciado sesión | El correo electrónico, el teléfono, el sitio web o las instrucciones de contacto añadidos deliberadamente a un Vale, Fondo o Solicitud se eliminan de las respuestas de catálogo y de detalle para usuarios que no han iniciado sesión. Una persona que haya iniciado sesión puede solicitar el registro completo de un Vale o Fondo con datos de contacto, o los métodos de contacto seleccionados para una Solicitud activa. El destinatario puede copiar, utilizar o compartir esa información. El acceso a los recursos retirados se limita en mayor medida al propietario o a un administrador. |
 | Registros públicos de blockchain | Las direcciones de Billeteras, contratos, saldos, activos, transferencias, importes, contrapartes, marcas de tiempo, firmas y acciones de contratos pueden permanecer visibles de forma permanente a través de redes públicas y exploradores de bloques independientes. GEF no puede borrar ni reescribir una blockchain pública. |
+
+Los mensajes de la Aplicación no son públicos. Los dos participantes pueden ver la dirección de Billetera, el nombre de usuario, el avatar, los mensajes, las imágenes, el estado de la conversación y las marcas de tiempo del otro. Los marcadores de lectura, las listas de bloqueo y las cuotas de solicitudes son registros operativos y no son públicos.
 
 Retirar un recurso del catálogo de la Aplicación no elimina las copias que ya hayan realizado otras personas, servicios de búsqueda, archivos, indexadores independientes o blockchains públicas.
 
@@ -142,6 +154,8 @@ Solo divulgamos la información razonablemente necesaria para la finalidad decla
 
 - visitantes y usuarios de la Aplicación cuando usted publique un recurso o utilice una blockchain pública;
 - usuarios de la Aplicación que hayan iniciado sesión cuando soliciten los datos de contacto que usted haya asociado deliberadamente a un Vale, Fondo o Solicitud activos;
+- el otro participante en una conversación directa;
+- los administradores autorizados de GEF que gestionan un hilo de asistencia o un informe de abuso, con sujeción a los límites descritos en la sección 3;
 - Emisores, Responsables de Fondos, contrapartes y otros participantes necesarios para una transacción, un canje, una reclamación o un servicio solicitado;
 - proveedores de infraestructura de alojamiento, bases de datos, almacenamiento, distribución de contenidos, seguridad, autenticación, asistencia, correo electrónico, notificaciones, mapas, geocodificación, acceso a blockchain, indexación, retransmisión de transacciones y supervisión;
 - proveedores independientes de Billeteras, blockchain, pagos, stablecoins, acceso a efectivo u otros servicios externos que usted decida utilizar;
@@ -162,7 +176,7 @@ Cuando una transferencia requiera medidas de protección, GEF utiliza las medida
 
 GEF solo conserva los datos personales durante el tiempo razonablemente necesario para la finalidad con la que se recopilaron, lo que incluye:
 
-- mientras permanezca activa una cuenta, un recurso, una transacción, una reclamación o una solicitud de asistencia;
+- mientras una cuenta, un recurso, una transacción, una conversación, un bloqueo, un informe de abuso, una reclamación o una solicitud de asistencia permanezca activa;
 - por necesidades de seguridad, prevención del fraude, conciliación, auditoría, gobierno, integridad de la investigación y continuidad del servicio;
 - para cumplir requisitos fiscales, contables, regulatorios, contractuales, relativos a controversias, plazos de prescripción u otros requisitos legales; y
 - durante un periodo limitado en copias de seguridad y registros protegidos antes de su eliminación o sustitución programada.

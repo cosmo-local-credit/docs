@@ -3,8 +3,8 @@
     "version": "1.0",
     "publicationDate": "9 November 2026",
     "effectiveDate": "9 November 2026",
-    "auditedAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
-    "auditedCoreCommit": "15a65e5ab751841fb16f7eb761910d0377c7f322",
+    "auditedAppCommit": "704480cf2173dd9d95f3feadda3748999df2b072",
+    "auditedCoreCommit": "aee51f6c41c2aaee52d17fe533113a93f7a9d503",
     "routes": {
       "/governance/policies": {
         "source": "governance/policies.md",
@@ -12,7 +12,7 @@
       },
       "/governance/privacy": {
         "source": "governance/privacy.md",
-        "sha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0"
+        "sha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b"
       },
       "/governance/data-protection": {
         "source": "governance/data-protection.md",
@@ -311,7 +311,7 @@
       "translationPublicationDate": "9 Nobyembre 2026"
     },
     "dz": {
-      "status": "qualified-review-required",
+      "status": "release-ready",
       "sourcePublicationDate": "9 ནོ་ཝེམ་བར་ 2026",
       "translationPublicationDate": "9 ནོ་ཝེམ་བར་ 2026",
       "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
@@ -357,7 +357,7 @@
       }
     },
     "zh": {
-      "status": "qualified-review-required",
+      "status": "release-ready",
       "sourcePublicationDate": "2026年11月9日",
       "translationPublicationDate": "2026年11月9日",
       "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
@@ -380,7 +380,7 @@
       }
     },
     "zh-Hant": {
-      "status": "qualified-review-required",
+      "status": "release-ready",
       "sourcePublicationDate": "2026年11月9日",
       "translationPublicationDate": "2026年11月9日",
       "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",

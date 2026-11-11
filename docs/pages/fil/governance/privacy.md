@@ -8,7 +8,7 @@
 
 **Petsa ng paglalathala ng salin: 9 Nobyembre 2026**
 
-Ipinapaliwanag ng Abiso sa Privacy na ito kung paano pinoproseso ng Grassroots Economics Foundation (**GEF **, ** kami **, ** namin **, o ** amin **) ang personal na data kapag bumibisita o gumagamit ka ng Cosmo-Local Credit App sa `cosmolocal.credit` at ng mga kaugnay na serbisyong pinapatakbo ng GEF (sama-samang tinatawag na ** App**).
+Ipinapaliwanag ng Abiso sa Privacy na ito kung paano pinoproseso ng Grassroots Economics Foundation (**GEF**, **kami**, **namin**, o **amin**) ang personal na data kapag bumibisita o gumagamit ka ng Cosmo-Local Credit App sa `cosmolocal.credit` at ng mga kaugnay na serbisyong pinapatakbo ng GEF (sama-samang tinatawag na **App**).
 
 > **Basahin bago maglathala.** Ang iyong pribadong profile ay hindi pampublikong profile. Gayunman, maaaring mailathala sa pamamagitan ng resource ang impormasyong inilalagay o kinokopya mo sa isang Voucher, Pool, Alok, Pangangailangan, Katalogo, o Post. Maaaring makita nang hindi nagsa-sign in ang paglalarawan, mga tuntunin, larawan, tag, Wallet address, at eksaktong map coordinates ng isang resource. Ang contact detail sa Voucher, Pool, o Pangangailangan ay ipinapakita lamang sa pamamagitan ng resource-information o contact feature para sa mga naka-sign in, ngunit maaari pa rin itong kopyahin o ibahagi ng tatanggap.
 
@@ -63,6 +63,16 @@ Maaari naming mangolekta ng teknikal at operasyonal na impormasyon tulad ng IP a
 
 Pinoproseso namin ang impormasyong isinusumite mo sa mga Voucher, Pool, Alok, Pangangailangan, Katalogo, Post, Review ng Voucher at Pool, larawan, attachment, tuntunin, paglalarawan, tag, lokasyon, contact field, pribadong mensahe o order pagkatapos ng transaksyon, reklamo, support message, at iba pang komunikasyon.
 
+Kung ginagamit mo ang messaging ng App, pinoproseso namin ang:
+
+- mga kahilingan sa pag-uusap at katayuan ng mga ito;
+- mga Wallet address, username at avatar ng mga kalahok;
+- teksto, larawan at timestamp ng mga mensahe;
+- read marker, block record at request-quota record ng bawat user; at
+- mga usapan sa helpdesk at mga ulat ng pang-aabuso.
+
+Pribado ang mga direct message at ang dalawang kalahok lamang sa pag-uusap ang makakakita sa mga ito. Maaaring basahin ng mga administrator ng GEF ang mga mensahe sa helpdesk. Maaari lamang nilang basahin ang isang direct message kapag inilakip ito ng isang kalahok sa ulat ng pang-aabuso.
+
 Huwag ilathala ang personal na data, larawan, contact information, o tiyak na lokasyon ng ibang tao maliban kung mayroon kang legal na batayan at anumang kinakailangang pahintulot.
 
 ## 4. Ano ang nagiging pampubliko?
@@ -76,6 +86,8 @@ Ang App ay may limang mahalagang mga antas ng visibility.
 | Pampublikong katalogo at resource data | Maaaring makita nang hindi nagsa-sign in ang inilathalang paglalarawan, tuntunin, larawan, tag, Wallet at contract address, lokasyon, eksaktong coordinate, Alok, Pangangailangan, Post, Review, tuntunin ng Pool, at technical setting. Maaaring ma-index, makopya, maibahagi, o maiugnay sa isang Wallet o ibang resource ang mga pampublikong field. |
 | Contact ng resource para sa naka-sign in na user | Inaalis sa katalogo at detail response para sa hindi naka-sign in ang email, telepono, website, o contact instruction na sadyang idinagdag sa isang Voucher, Pool, o Pangangailangan. Maaaring hingin ng naka-sign in na tao ang kumpletong Voucher o Pool record na may contact detail, o ang mga paraan ng pakikipag-ugnayan na pinili para sa aktibong Pangangailangan. Maaari pa ring kopyahin, gamitin, o ibahagi ng tatanggap ang impormasyon. Mas makitid ang access ng may-ari o administrator sa retired resource. |
 | Pampublikong blockchain record | Maaaring permanenteng makita sa mga pampublikong network at hiwalay na block explorer ang mga Wallet address, contract, balance, holding, transfer, halaga, counterparty, timestamp, signature, at contract action. Hindi mabubura o maisusulat muli ng GEF ang isang pampublikong blockchain. |
+
+Hindi pampubliko ang mga mensahe sa App. Makikita ng dalawang kalahok ang Wallet address, username, avatar, mga mensahe, larawan, katayuan ng pag-uusap at mga timestamp ng isa’t isa. Ang mga read marker, block list at request quota ay mga rekord ng operasyon at hindi pampubliko.
 
 Ang pag-alis ng resource sa katalogo ng App ay hindi nag-aalis sa mga kopyang ginawa na ng ibang tao, search service, archive, hiwalay na indexer, o pampublikong blockchain.
 
@@ -142,6 +154,8 @@ Ibinabahagi lamang namin ang impormasyong makatwirang kailangan para sa nakasaad
 
 - mga bisita at user ng App kapag naglathala ka ng resource o gumagamit ng pampublikong blockchain;
 - mga naka-sign in na user ng App kapag hiniling nila ang contact detail na sadyang idinagdag mo sa isang aktibong Voucher, Pool, o Pangangailangan;
+- ang isa pang kalahok sa isang direktang pag-uusap;
+- mga awtorisadong GEF administrator na nangangasiwa sa isang thread ng helpdesk o ulat ng pang-aabuso, alinsunod sa mga limitasyon na inilarawan sa Seksiyon 3;
 - mga Tagapag-isyu, Tagapangasiwa ng Pool, counterparty, at ibang kalahok na kailangan para sa transaksyon, redemption, reklamo, o hinihinging serbisyo;
 - infrastructure provider para sa hosting, database, storage, content delivery, seguridad, authentication, suporta, email, notification, mapping, geocoding, blockchain access, indexing, transaction relaying, at monitoring;
 - mga hiwalay na Wallet, blockchain, payment, stablecoin, cash-ramp, o ibang third-party service provider na pinili mong gamitin;
@@ -162,7 +176,7 @@ Kapag nangangailangan ng proteksyon ang isang transfer, gumagamit ang GEF ng mga
 
 Itinatago lamang ng GEF ang personal na data hangga't makatwirang kailangan para sa layunin ng pangongolekta nito, kabilang ang:
 
-- habang aktibo ang isang account, resource, transaksyon, reklamo, o usapin sa suporta;
+- habang aktibo ang isang account, resource, transaksyon, pag-uusap, pag-block, ulat ng pang-aabuso, reklamo o usapin sa suporta;
 - para sa seguridad, pag-iwas sa pandaraya, reconciliation, audit, governance, integridad ng pananaliksik, at pagpapatuloy ng serbisyo;
 - para sa tax, accounting, regulatory, contractual, dispute, limitation-period, o ibang legal na requirement; at
 - sa limitadong panahon sa mga protektadong backup at log bago ang nakatakdang pagbura o pagpapalit.

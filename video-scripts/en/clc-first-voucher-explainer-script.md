@@ -71,7 +71,7 @@ These figures make the story easy to follow. They are not default settings, reco
 
 ## Before filming
 
-- Use a filming build based on, or rechecked against, CLC App `origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee`.
+- Use a filming build based on, or rechecked against, CLC App `origin/develop` commit `704480cf2173dd9d95f3feadda3748999df2b072`.
 - Use two isolated browser profiles or contexts so one login cannot replace the other. Keep both panes about 360–430 CSS pixels wide, with **DOCTOR — Dr. Amina** and **FARMER — Kofi** visible above them.
 - Highlight the active pane and dim the other. Never operate both accounts at once.
 - Prepare two safe demonstration Wallets. Do not expose real passkeys, private keys, recovery information, contact details, precise home locations, or health information.

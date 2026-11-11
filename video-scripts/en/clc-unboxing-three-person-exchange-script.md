@@ -287,7 +287,7 @@ Use the actual quantities, prices, rates, fees, and symbols visible in the recor
 
 ## Product-accuracy and safety notes
 
-- This script was checked against CLC App `origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee`. Recheck labels, permissions, rates, fees, balances, and limits against the filming build before final editing.
+- This script was checked against CLC App `origin/develop` commit `704480cf2173dd9d95f3feadda3748999df2b072`. Recheck labels, permissions, rates, fees, balances, and limits against the filming build before final editing.
 - Use fictional accounts, Wallets, contact details, locations, dental information, and vehicle details. Do not show passkeys, recovery information, private keys, real phone numbers, or precise home locations.
 - A Pool **credit limit** caps how much value of a Voucher the Pool may hold. It is Pool exchange capacity, not cash, a personal credit line, a debt, or a promise that a swap will always be available.
 - Approval alone adds no inventory. Health Market must hold enough Dental Services Vouchers before the farmer can receive them.

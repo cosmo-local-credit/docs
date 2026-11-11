@@ -3,9 +3,9 @@
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
 public documentation site. The current product audit baseline is `clc-app`
-`origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee` and
+`origin/develop` commit `704480cf2173dd9d95f3feadda3748999df2b072` and
 `clc-core` `origin/develop` commit
-`15a65e5ab751841fb16f7eb761910d0377c7f322`.
+`aee51f6c41c2aaee52d17fe533113a93f7a9d503`.
 
 English is unprefixed. Localized routes use their registered locale prefix. The
 site registry contains Arabic, Simplified Chinese, Traditional Chinese, German,
@@ -64,10 +64,17 @@ commits, publication metadata, and frozen source hashes are recorded in
 `policy-locales.json`. The same registry owns localized notices, metadata,
 navigation labels, and release state. No translated policy becomes an App
 destination until its complete four-page set passes review and the locale is
-deployed. Dzongkha, Simplified Chinese, and Traditional Chinese currently
-retain the English-policy fallback because independent machine candidates
-failed legal-meaning review. Their catalog metadata stays registered but is
-excluded from policy routing until a qualified fluent review succeeds.
+deployed. All 16 translated locales now contain complete four-page policy sets.
+Simplified and Traditional Chinese have completed independent back-translation
+and legal-meaning review. The Dzongkha machine translation was accepted by the
+product owner for this release after a dedicated Dzongkha back-translation,
+foreign-script cleanup, and the focused structural checks.
+
+The registry's `source.auditedAppCommit` and `source.auditedCoreCommit` record
+the latest factual product audit. Per-locale `sourceAppCommit` values retain the
+App vocabulary baseline used when that translation was reviewed; a later
+factual audit does not invalidate a translation when the controlling English
+policy text and its hashes remain unchanged.
 
 The tracked PDF builder uses pdfLaTeX for English and LuaLaTeX for localized
 papers. Polyglossia provides most localized typesetting; Arabic uses Babel's

@@ -8,7 +8,7 @@
 
 **Tarehe ya kuchapishwa kwa tafsiri: 9 Novemba 2026**
 
-Taarifa hii ya Faragha inaeleza jinsi Grassroots Economics Foundation (inayojulikana hapa kama **GEF **, ** shirika **, ** sisi ** au ** yetu **) inavyoshughulikia data binafsi unapotembelea au kutumia Cosmo-Local Credit App katika `cosmolocal.credit` na huduma husika zinazoendeshwa na GEF (kwa pamoja, ** App**).
+Taarifa hii ya Faragha inaeleza jinsi Grassroots Economics Foundation (inayojulikana hapa kama **GEF**, **shirika**, **sisi** au **yetu**) inavyoshughulikia data binafsi unapotembelea au kutumia Cosmo-Local Credit App katika `cosmolocal.credit` na huduma husika zinazoendeshwa na GEF (kwa pamoja, **App**).
 
 > **Soma kabla ya kuchapisha.** Wasifu wako binafsi si wasifu wa umma. Hata hivyo, taarifa unazoingiza au kunakili katika Vocha, Kikundi, Toleo, Ombi, Katalogi au Chapisho zinaweza kuchapishwa kupitia rasilimali hiyo. Maelezo, masharti, picha, lebo, anwani za Mkoba na viwianishi halisi vya ramani vya rasilimali vinaweza kuonekana bila kuingia. Maelezo ya mawasiliano katika Vocha, Kikundi au Ombi huonyeshwa tu kupitia vipengele vya taarifa au mawasiliano vya rasilimali kwa watumiaji walioingia, lakini mpokeaji bado anaweza kuyanakili au kuyashiriki.
 
@@ -63,6 +63,16 @@ Tunaweza kukusanya taarifa za kiufundi na uendeshaji kama vile anwani ya IP, taa
 
 Tunashughulikia taarifa unazowasilisha katika Vocha, Vikundi, Matoleo, Maombi, Katalogi, Machapisho, Maoni ya Vocha na Vikundi, picha, viambatisho, masharti, maelezo, lebo, maeneo, sehemu za mawasiliano, ujumbe binafsi au maagizo baada ya muamala, malalamiko, ujumbe wa usaidizi na mawasiliano mengine.
 
+Ukitumia huduma ya ujumbe ya Programu, tunachakata:
+
+- maombi ya kuanzisha mazungumzo na hali yake;
+- anwani za Mkoba, majina ya watumiaji na picha za wasifu za washiriki;
+- maandishi ya ujumbe, picha na mihuri ya muda;
+- alama ya kusoma ya kila mtumiaji, rekodi za kuzuia na rekodi za vikomo vya maombi; na
+- mazungumzo ya dawati la usaidizi na ripoti za matumizi mabaya.
+
+Ujumbe wa moja kwa moja ni wa faragha na unaweza kuonekana na washiriki wawili wa mazungumzo pekee. Wasimamizi wa GEF wanaweza kusoma ujumbe wa dawati la usaidizi. Wanaweza kusoma ujumbe wa moja kwa moja tu pale mshiriki anapouambatisha kwenye ripoti ya matumizi mabaya.
+
 Usichapishe data binafsi, picha, maelezo ya mawasiliano au eneo sahihi la mtu mwingine isipokuwa una sababu halali na ruhusa yoyote inayohitajika.
 
 ## 4. Nini huwa cha umma?
@@ -76,6 +86,8 @@ App ina viwango vitano muhimu vya mwonekano.
 | Data ya katalogi na rasilimali ya umma | Maelezo, masharti, picha, lebo, anwani za Mkoba na mikataba, maeneo, viwianishi halisi, Matoleo, Maombi, Machapisho, Maoni, kanuni za Vikundi na mipangilio ya kiufundi iliyochapishwa inaweza kuonekana bila kuingia. Sehemu za umma zinaweza kuorodheshwa, kunakiliwa, kushirikiwa au kuhusishwa na Mkoba au rasilimali nyingine. |
 | Mawasiliano ya rasilimali kwa mtumiaji aliyeingia | Barua pepe, simu, tovuti au maelekezo ya mawasiliano yaliyoongezwa kwa makusudi katika Vocha, Kikundi au Ombi huondolewa kwenye katalogi na majibu ya kina kwa watumiaji ambao hawajaingia. Mtu aliyeingia anaweza kuomba rekodi kamili yenye mawasiliano ya Vocha au Kikundi, au njia za mawasiliano zilizochaguliwa kwa Ombi linalotumika. Mpokeaji bado anaweza kunakili, kutumia au kushiriki taarifa hiyo. Rasilimali zilizostaafishwa zina ufikiaji mdogo kwa mmiliki au msimamizi. |
 | Rekodi za blockchain ya umma | Anwani za Mkoba, mikataba, salio, mali, uhamisho, kiasi, wahusika wengine, mihuri ya muda, saini na vitendo vya mikataba vinaweza kuonekana daima kupitia mitandao ya umma na vivinjari huru vya blockchain. GEF haiwezi kufuta wala kuandika upya blockchain ya umma. |
+
+Ujumbe wa Programu si wa umma. Washiriki wawili wanaweza kuona anwani ya Mkoba, jina la mtumiaji, picha ya wasifu, ujumbe, picha, hali ya mazungumzo na mihuri ya muda ya kila mmoja. Alama za kusoma, orodha za kuzuia na vikomo vya maombi ni rekodi za uendeshaji na si za umma.
 
 Kuondoa rasilimali kwenye katalogi ya App hakuondoi nakala zilizokwisha kutengenezwa na watu wengine, huduma za utafutaji, kumbukumbu, waorodheshaji huru au blockchain za umma.
 
@@ -142,6 +154,8 @@ Tunafichua tu taarifa inayohitajika kwa kiasi kinachofaa kwa kusudi lililoelezwa
 
 - wageni na watumiaji wa App unapochapisha rasilimali au kutumia blockchain ya umma;
 - watumiaji wa App walioingia wanapoomba maelezo ya mawasiliano uliyoyaunganisha kwa makusudi na Vocha, Kikundi au Ombi linalotumika;
+- mshiriki mwingine katika mazungumzo ya moja kwa moja;
+- wasimamizi walioidhinishwa wa GEF wanaoshughulikia mazungumzo ya dawati la usaidizi au ripoti ya matumizi mabaya, kwa kuzingatia mipaka iliyoelezwa katika Sehemu ya 3;
 - Watoaji, Wasimamizi wa Vikundi, wahusika wa miamala na washiriki wengine wanaohitajika kwa muamala, ukombozi, malalamiko au huduma uliyoomba;
 - watoa huduma za miundombinu kwa upangishaji, hifadhidata, hifadhi, uwasilishaji wa maudhui, usalama, uthibitishaji, usaidizi, barua pepe, arifa, ramani, uainishaji wa eneo, ufikiaji wa blockchain, uorodheshaji, upelekaji wa miamala na ufuatiliaji;
 - watoa huduma huru za Mkoba, blockchain, malipo, stablecoin, ubadilishaji wa pesa taslimu au huduma nyingine unaochagua kutumia;
@@ -162,7 +176,7 @@ Uhamishaji unapohitaji ulinzi, GEF hutumia hatua zinazofaa kwa uhamishaji huo na
 
 GEF huhifadhi data binafsi kwa muda unaohitajika kwa kiasi kinachofaa kwa kusudi ililokusanywa, ikiwemo:
 
-- wakati akaunti, rasilimali, muamala, malalamiko au suala la usaidizi bado linaendelea;
+- wakati akaunti, rasilimali, muamala, mazungumzo, kizuizi, ripoti ya matumizi mabaya, malalamiko au suala la usaidizi linaendelea;
 - kwa mahitaji ya usalama, kuzuia udanganyifu, upatanisho wa rekodi, ukaguzi, utawala, uadilifu wa utafiti na kuendelea kwa huduma;
 - kwa matakwa ya kodi, uhasibu, udhibiti, mkataba, migogoro, vipindi vya ukomo wa madai au masharti mengine ya kisheria; na
 - kwa muda mfupi katika nakala rudufu na kumbukumbu zilizolindwa kabla ya kufutwa au kubadilishwa kwa ratiba.

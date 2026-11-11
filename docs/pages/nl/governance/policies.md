@@ -8,7 +8,7 @@
 
 **Publicatiedatum van de vertaling: 9 november 2026**
 
-Grassroots Economics Foundation (**GEF **) beheert de Cosmo-Local Credit App (** CLC App**). Op deze pagina staan de voorwaarden, privacy-informatie en organisatorische beleidsdocumenten die van toepassing zijn op de App en op relevante activiteiten van GEF.
+Grassroots Economics Foundation (**GEF**) beheert de Cosmo-Local Credit App (**CLC App**). Op deze pagina staan de voorwaarden, privacy-informatie en organisatorische beleidsdocumenten die van toepassing zijn op de App en op relevante activiteiten van GEF.
 
 ## Welk document moet ik lezen?
 

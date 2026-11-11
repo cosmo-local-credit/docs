@@ -8,7 +8,7 @@
 
 **Tarehe ya kuchapishwa kwa tafsiri: 9 Novemba 2026**
 
-Grassroots Economics Foundation (**GEF **) inaendesha Cosmo-Local Credit App (** CLC App**). Ukurasa huu unakusanya masharti, taarifa za faragha na sera za shirika zinazotumika kwa App na shughuli husika za GEF.
+Grassroots Economics Foundation (**GEF**) inaendesha Cosmo-Local Credit App (**CLC App**). Ukurasa huu unakusanya masharti, taarifa za faragha na sera za shirika zinazotumika kwa App na shughuli husika za GEF.
 
 ## Nisome hati ipi?
 

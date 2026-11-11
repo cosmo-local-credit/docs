@@ -8,7 +8,7 @@
 
 **Data di pubblicazione della traduzione: 9 novembre 2026**
 
-La presente Informativa sulla privacy spiega come Grassroots Economics Foundation (**GEF **, ** noi **, ** ci ** o ** nostro **) tratta i dati personali quando visiti o utilizzi Cosmo-Local Credit all’indirizzo `cosmolocal.credit` e i relativi servizi gestiti da GEF (congiuntamente, la ** CLC App**).
+La presente Informativa sulla privacy spiega come Grassroots Economics Foundation (**GEF**, **noi**, **ci** o **nostro**) tratta i dati personali quando visiti o utilizzi Cosmo-Local Credit all’indirizzo `cosmolocal.credit` e i relativi servizi gestiti da GEF (congiuntamente, la **CLC App**).
 
 > **Leggi prima di pubblicare.** Il tuo profilo privato non è un profilo pubblico. Tuttavia, le informazioni che inserisci o copi in un Buono, Fondo, Offerta, Richiesta, Catalogo o Post possono essere pubblicate tramite quella risorsa. La descrizione, i termini, le immagini, i tag, gli indirizzi del Portafoglio e le coordinate esatte sulla mappa di una risorsa possono essere visibili senza accedere. I recapiti associati a un Buono, Fondo o Richiesta sono mostrati solo attraverso le funzioni relative alle informazioni della risorsa o ai contatti per utenti che hanno effettuato l'accesso, ma chi li riceve può comunque copiarli o condividerli.
 
@@ -63,6 +63,16 @@ Possiamo raccogliere informazioni tecniche e operative come l’indirizzo IP, in
 
 Trattiamo le informazioni che invii in Buoni, Fondi, Offerte, Richieste, Cataloghi, Post, Recensioni di Buoni e Fondi, immagini, allegati, termini, descrizioni, tag, posizioni, campi di contatto, messaggi privati successivi a una transazione oppure ordini, reclami, messaggi di assistenza e altre comunicazioni.
 
+Se usi la messaggistica dell’App, trattiamo:
+
+- le richieste di conversazione e il relativo stato;
+- gli indirizzi di Portafoglio, i nomi utente e gli avatar dei partecipanti;
+- il testo, le immagini e le date e gli orari dei messaggi;
+- l’indicatore di lettura di ciascun utente, i registri dei blocchi e i registri delle quote di richieste; e
+- le conversazioni con il servizio di assistenza e le segnalazioni di abusi.
+
+I messaggi diretti sono privati e possono essere visti solo dai due partecipanti alla conversazione. Gli amministratori di GEF possono leggere i messaggi di assistenza. Possono leggere un messaggio diretto solo quando un partecipante lo allega a una segnalazione di abuso.
+
 Non pubblicare dati personali, immagini, recapiti o la posizione precisa di un’altra persona senza una base giuridica e le eventuali autorizzazioni necessarie.
 
 ## 4. Cosa diventa pubblico?
@@ -76,6 +86,8 @@ L’App ha cinque importanti livelli di visibilità.
 | Dati del catalogo pubblico e delle risorse | Le descrizioni, i termini, le immagini, i tag, gli indirizzi pubblicati di Portafogli e contratti, le posizioni, le coordinate esatte, le Offerte, le Richieste, i Post, le Recensioni, le regole dei Fondi e le impostazioni tecniche possono essere visibili senza accedere. I campi pubblici possono essere indicizzati, copiati, condivisi o associati a un Portafoglio o a un’altra risorsa. |
 | Contatti della risorsa per utenti che hanno effettuato l’accesso | Email, numeri di telefono, siti web o istruzioni di contatto aggiunti deliberatamente a un Buono, Fondo o Richiesta vengono rimossi dal catalogo e dalle risposte dettagliate per utenti che non hanno effettuato l’accesso. Una persona che ha effettuato l’accesso può richiedere il record completo di un Buono o Fondo contenente i recapiti, oppure i metodi di contatto selezionati per una Richiesta attiva. Chi li riceve può comunque copiarli, usarli o condividerli. Le risorse ritirate hanno un accesso più ristretto, limitato al proprietario o all’amministratore. |
 | Registri delle blockchain pubbliche | Indirizzi di Portafoglio, contratti, saldi, disponibilità, trasferimenti, importi, controparti, date e orari, firme e azioni sui contratti possono rimanere visibili in modo permanente tramite reti pubbliche ed esploratori di blocchi indipendenti. GEF non può cancellare né riscrivere una blockchain pubblica. |
+
+I messaggi dell’App non sono pubblici. I due partecipanti possono vedere l’indirizzo di Portafoglio, il nome utente, l’avatar, i messaggi, le immagini, lo stato della conversazione e le date e gli orari dell’altro. Gli indicatori di lettura, gli elenchi dei blocchi e le quote di richieste sono registri operativi e non sono pubblici.
 
 La rimozione di una risorsa dal catalogo dell’App non elimina le copie già effettuate da altre persone, motori di ricerca, archivi, indicizzatori indipendenti o blockchain pubbliche.
 
@@ -142,6 +154,8 @@ Comunichiamo soltanto le informazioni ragionevolmente necessarie per la finalit�
 
 - visitatori e utenti dell’App quando pubblichi una risorsa o utilizzi una blockchain pubblica;
 - Gli utenti dell'app che hanno effettuato l'accesso quando richiedono i dettagli di contatto che hai deliberatamente allegato a un buono, Fondo o Want attivo;
+- l'altro partecipante a una conversazione diretta;
+- gli amministratori autorizzati di GEF che gestiscono una conversazione di assistenza o una segnalazione di abuso, nel rispetto dei limiti descritti nella sezione 3;
 - Emittenti, Responsabili dei Fondi, controparti e altri partecipanti necessari per una transazione, un riscatto, un reclamo o un servizio richiesto;
 - fornitori di infrastrutture per hosting, database, archiviazione, distribuzione di contenuti, sicurezza, autenticazione, assistenza, email, notifiche, mappe, geocodifica, accesso alla blockchain, indicizzazione, inoltro delle transazioni e monitoraggio;
 - fornitori indipendenti di Portafogli, servizi blockchain, pagamenti, stablecoin, rampe di conversione in denaro o altri servizi terzi che scegli di utilizzare;
@@ -162,7 +176,7 @@ Quando un trasferimento richiede garanzie, GEF adotta misure adeguate al trasfer
 
 GEF conserva i dati personali soltanto per il tempo ragionevolmente necessario alla finalità per la quale sono stati raccolti, compresi i periodi necessari:
 
-- finché un account, una risorsa, una transazione, un reclamo o una richiesta di assistenza rimane attivo;
+- mentre un account, una risorsa, una transazione, una conversazione, un blocco, una segnalazione di abuso, un reclamo o una questione di supporto rimane attivo;
 - per esigenze di sicurezza, prevenzione delle frodi, riconciliazione, audit, governance, integrità della ricerca e continuità del servizio;
 - per obblighi fiscali, contabili, normativi e contrattuali, controversie, termini di prescrizione o altri requisiti legali; e
 - per un periodo limitato in backup e registri protetti, prima della cancellazione o sostituzione programmata.

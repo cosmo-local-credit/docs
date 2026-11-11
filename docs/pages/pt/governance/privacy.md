@@ -8,7 +8,7 @@
 
 **Data de publicação da tradução: 9 de novembro de 2026**
 
-Este Aviso de privacidade explica como a Grassroots Economics Foundation (**GEF **, ** nós **, ** nos ** ou ** nosso **) trata dados pessoais quando visita ou utiliza a aplicação Cosmo-Local Credit em `cosmolocal.credit` e os serviços relacionados operados pela GEF (em conjunto, a ** Aplicação**).
+Este Aviso de privacidade explica como a Grassroots Economics Foundation (**GEF**, **nós**, **nos** ou **nosso**) trata dados pessoais quando visita ou utiliza a aplicação Cosmo-Local Credit em `cosmolocal.credit` e os serviços relacionados operados pela GEF (em conjunto, a **Aplicação**).
 
 > **Leia antes de publicar.** O seu perfil privado não é um perfil público. As informações que introduzir ou copiar num Vale, Fundo, Oferta, Procura, Catálogo ou Publicação podem, ainda assim, ser publicadas através desse recurso. A descrição, os termos, as imagens, as etiquetas, os endereços de Carteira e as coordenadas exatas do mapa de um recurso podem ser visíveis sem iniciar sessão. Os dados de contacto de um Vale, Fundo ou Procura são apresentados apenas através das funcionalidades de informação ou contacto acessíveis após iniciar sessão, mas o destinatário pode ainda copiá-los ou partilhá-los.
 
@@ -63,6 +63,16 @@ Podemos coletar informações técnicas e operacionais, como endereço IP, infor
 
 Tratamos as informações que envia em Vales, Fundos, Ofertas, Procuras, Catálogos, Publicações, Avaliações de Vales e Fundos, imagens, anexos, termos, descrições, etiquetas, localizações, campos de contacto, mensagens privadas ou encomendas posteriores a uma transação, reclamações, mensagens de apoio e outras comunicações.
 
+Se utilizar as mensagens da Aplicação, tratamos:
+
+- pedidos de conversa e o respetivo estado;
+- endereços de Carteira, nomes de utilizador e avatares dos participantes;
+- texto, imagens e marcas temporais das mensagens;
+- o marcador de leitura de cada utilizador, registos de bloqueio e registos de quotas de pedidos; e
+- conversas de assistência e relatórios de abuso.
+
+As mensagens diretas são privadas e apenas os dois participantes da conversa podem vê-las. Os administradores da GEF podem ler as mensagens de assistência. Só podem ler uma mensagem direta quando um participante a anexa a um relatório de abuso.
+
 Não publique dados pessoais, imagens, dados de contacto ou a localização precisa de outra pessoa, salvo se tiver um fundamento lícito e qualquer autorização necessária.
 
 ## 4. O que se torna público?
@@ -76,6 +86,8 @@ A aplicação tem cinco níveis de visibilidade importantes.
 | Dados públicos do catálogo e dos recursos | As descrições, termos, imagens, etiquetas, endereços de Carteira e de contrato, localizações, coordenadas exatas, Ofertas, Procuras, Publicações, Avaliações, regras dos Fundos e configurações técnicas publicadas podem ser visíveis sem iniciar sessão. Os campos públicos podem ser indexados, copiados, partilhados ou associados a uma Carteira ou outro recurso. |
 | Contacto do recurso acessível após iniciar sessão | O correio eletrónico, o telefone, o site ou as instruções de contacto adicionados deliberadamente a um Vale, Fundo ou Procura são removidos das respostas de catálogo e de detalhe sem sessão iniciada. Uma pessoa com sessão iniciada pode pedir o registo completo de um Vale ou Fundo com dados de contacto, ou os métodos de contacto selecionados para uma Procura ativa. O destinatário pode ainda copiar, utilizar ou partilhar essas informações. O acesso aos recursos retirados é mais restrito ao proprietário ou a um administrador. |
 | Registos públicos de blockchain | Endereços de Carteiras, contratos, saldos, ativos detidos, transferências, montantes, contrapartes, marcas temporais, assinaturas e ações de contratos podem permanecer visíveis de forma permanente através de redes públicas e exploradores de blocos independentes. A GEF não pode apagar nem reescrever uma blockchain pública. |
+
+As mensagens da Aplicação não são públicas. Os dois participantes podem ver o endereço de Carteira, o nome de utilizador, o avatar, as mensagens, as imagens, o estado da conversa e as marcas temporais um do outro. Os marcadores de leitura, as listas de bloqueio e as quotas de pedidos são registos operacionais e não são públicos.
 
 Retirar um recurso do catálogo da Aplicação não elimina as cópias já efetuadas por outras pessoas, serviços de pesquisa, arquivos, indexadores independentes ou blockchains públicas.
 
@@ -142,6 +154,8 @@ Só divulgamos as informações razoavelmente necessárias para a finalidade ind
 
 - visitantes e utilizadores da Aplicação quando publicar um recurso ou utilizar uma blockchain pública;
 - utilizadores da Aplicação com sessão iniciada quando pedem os dados de contacto que associou deliberadamente a um Vale, Fundo ou Procura ativos;
+- o outro participante numa conversa direta;
+- os administradores autorizados da GEF que tratam uma conversa de assistência ou um relatório de abuso, sujeitos aos limites descritos na secção 3;
 - Emissores, Gestores de Fundos, contrapartes e outros participantes necessários para uma transação, resgate, reclamação ou serviço solicitado;
 - prestadores de infraestrutura para alojamento, bases de dados, armazenamento, distribuição de conteúdos, segurança, autenticação, apoio, correio eletrónico, notificações, mapas, geocodificação, acesso a blockchain, indexação, retransmissão de transações e monitorização;
 - fornecedores independentes de Carteiras, blockchain, pagamentos, stablecoins, serviços de entrada ou saída de numerário ou outros serviços externos que escolha utilizar;
@@ -162,7 +176,7 @@ Quando uma transferência exigir salvaguardas, a GEF utiliza medidas adequadas �
 
 A GEF só conserva dados pessoais durante o período razoavelmente necessário para a finalidade para a qual foram recolhidos, incluindo:
 
-- enquanto uma conta, um recurso, uma transação, uma reclamação ou um assunto de apoio permanecer ativo;
+- enquanto uma conta, um recurso, uma transação, uma conversa, um bloqueio, um relatório de abuso, uma reclamação ou um pedido de assistência permanecer ativo;
 - para necessidades de segurança, prevenção de fraude, reconciliação, auditoria, governação, integridade da investigação e continuidade do serviço;
 - para requisitos fiscais, contabilísticos, regulamentares, contratuais, relativos a litígios, prazos de prescrição ou outros requisitos legais; e
 - durante um período limitado em cópias de segurança e registos protegidos antes da eliminação ou substituição programada.

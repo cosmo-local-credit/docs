@@ -10,7 +10,7 @@
 
 ## 1. Doel
 
-Grassroots Economics Foundation (**GEF **) respecteert de privacy en beschouwt een zorgvuldige omgang met persoonsgegevens als een verantwoordelijkheid tegenover de mensen en gemeenschappen die bij zijn werk betrokken zijn. Dit Beleid stelt minimumnormen vast voor persoonsgegevens die worden verwerkt via systemen, programma's, onderzoek, onderwijs, evenementen, partnerschappen en activiteiten van GEF, waaronder de Cosmo-Local Credit App (** CLC App**).
+Grassroots Economics Foundation (**GEF**) respecteert de privacy en beschouwt een zorgvuldige omgang met persoonsgegevens als een verantwoordelijkheid tegenover de mensen en gemeenschappen die bij zijn werk betrokken zijn. Dit Beleid stelt minimumnormen vast voor persoonsgegevens die worden verwerkt via systemen, programma's, onderzoek, onderwijs, evenementen, partnerschappen en activiteiten van GEF, waaronder de Cosmo-Local Credit App (**CLC App**).
 
 Dit Beleid is gebaseerd op de Keniaanse [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source), toepasselijke regelgeving en de actuele richtlijnen van de [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Waar GEF werkt of waar betrokken personen zich bevinden, kunnen ook andere wetten gelden.
 

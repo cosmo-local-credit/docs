@@ -511,6 +511,85 @@
           }
         }
       }
+    },
+    "/governance/policies": {
+      "source": "governance/policies.md",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "d624cdecbd582aeaafe684c429d748286c4845d5d72f6badce7efabe7c86e44e",
+          "review": {
+            "units": 0,
+            "meanBackTranslationSimilarity": 1,
+            "unitsBelow0_35": 0,
+            "method": "semantic translation, plain-language review, and independent back-translation",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c"
+    },
+    "/governance/privacy": {
+      "source": "governance/privacy.md",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "312a189f2a92f3d1cd2339a47c20cd8bd78472346c5ff2e2176cc41351a28691",
+          "review": {
+            "units": 11,
+            "meanBackTranslationSimilarity": 0.4734,
+            "unitsBelow0_35": 3,
+            "method": "semantic translation, plain-language review, and independent back-translation",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b"
+    },
+    "/governance/data-protection": {
+      "source": "governance/data-protection.md",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "92632a5da9617f85c6acdb3c059cdd398c37df550ab7c75f49f3183e7eda1160",
+          "review": {
+            "units": 0,
+            "meanBackTranslationSimilarity": 1,
+            "unitsBelow0_35": 0,
+            "method": "semantic translation, plain-language review, and independent back-translation",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61"
+    },
+    "/governance/child-safeguarding": {
+      "source": "governance/child-safeguarding.md",
+      "locales": {
+        "zh-Hant": {
+          "sha256": "cd0049d9bf90f4a91d84ca855446278a0e99e742db783bb6bbdc8d136d0ebe2e",
+          "review": {
+            "units": 0,
+            "meanBackTranslationSimilarity": 1,
+            "unitsBelow0_35": 0,
+            "method": "semantic translation, plain-language review, and independent back-translation",
+            "status": "release-review-complete"
+          }
+        }
+      },
+      "sourceSha256": "f87320a4609ab130bab19e9905c2ffad36b16a2e7f519876f8dcf23f3165e133"
     }
+  },
+  "policyTranslationPublicationDate": "2026年11月9日",
+  "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+  "policyReviewProcess": [
+    "reviewed translation memory retained for unchanged units",
+    "semantic NLLB translation for changed units",
+    "plain-language and legal-meaning review",
+    "independent back-translation of every changed unit"
+  ],
+  "policyBackTranslationReview": {
+    "units": 11,
+    "meanBackTranslationSimilarity": 0.4734,
+    "unitsBelow0_35": 3,
+    "threshold": 0.35,
+    "lowConfidenceReport": "policy-review.zh-Hant.json"
   }
 }

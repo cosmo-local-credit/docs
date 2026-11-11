@@ -10,7 +10,7 @@
 
 ## 1. Layunin
 
-Iginagalang ng Grassroots Economics Foundation (**GEF **) ang privacy at itinuturing na pananagutan nito sa mga tao at komunidad na kaugnay ng gawain nito ang maingat na pagproseso ng personal na data. Nagtatakda ang Patakarang ito ng pinakamababang pamantayan para sa personal na data na pinoproseso sa mga sistema, programa, pananaliksik, edukasyon, event, partnership, at operasyon ng GEF, kabilang ang Cosmo-Local Credit App (** CLC App**).
+Iginagalang ng Grassroots Economics Foundation (**GEF**) ang privacy at itinuturing na pananagutan nito sa mga tao at komunidad na kaugnay ng gawain nito ang maingat na pagproseso ng personal na data. Nagtatakda ang Patakarang ito ng pinakamababang pamantayan para sa personal na data na pinoproseso sa mga sistema, programa, pananaliksik, edukasyon, event, partnership, at operasyon ng GEF, kabilang ang Cosmo-Local Credit App (**CLC App**).
 
 Nakabatay ang Patakarang ito sa [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) ng Kenya, mga naaangkop na regulasyon, at kasalukuyang gabay ng [Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Maaari ring umiral ang ibang batas kung saan nagtatrabaho ang GEF o kung saan naroon ang mga apektadong tao.
 

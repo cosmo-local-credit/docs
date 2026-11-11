@@ -8,7 +8,7 @@
 
 **Date de publication de la traduction : 9 novembre 2026**
 
-Le présent Avis de confidentialité explique comment Grassroots Economics Foundation (**GEF **, ** nous **, ** notre ** ou ** nos **) traite les données à caractère personnel lorsque vous consultez ou utilisez l’application Cosmo-Local Credit à l’adresse `cosmolocal.credit` et les services connexes exploités par GEF (ensemble, l’** Application**).
+Le présent Avis de confidentialité explique comment Grassroots Economics Foundation (**GEF**, **nous**, **notre** ou **nos**) traite les données à caractère personnel lorsque vous consultez ou utilisez l’application Cosmo-Local Credit à l’adresse `cosmolocal.credit` et les services connexes exploités par GEF (ensemble, l’**Application**).
 
 > **À lire avant de publier.** Votre profil privé n’est pas un profil public. Les informations que vous saisissez ou copiez dans un Bon d’échange, un Bassin, une Offre, une Demande, un Catalogue ou une Publication peuvent néanmoins être publiées par l’intermédiaire de cette ressource. La description, les conditions, les images, les étiquettes, les adresses de Portefeuille et les coordonnées cartographiques exactes d’une ressource peuvent être visibles sans connexion. Les coordonnées de contact d’un Bon d’échange, d’un Bassin ou d’une Demande ne sont affichées que par les fonctions d’information ou de contact accessibles après connexion, mais leur destinataire peut toujours les copier ou les partager.
 
@@ -63,6 +63,16 @@ Nous pouvons collecter des informations techniques et opérationnelles, notammen
 
 Nous traitons les informations que vous transmettez dans les Bons d’échange, les Bassins, les Offres, les Demandes, les Catalogues, les Publications, les Avis sur des Bons d’échange ou des Bassins, les images, les pièces jointes, les conditions, les descriptions, les étiquettes, les localisations, les champs de contact, les messages privés ou commandes postérieurs à une transaction, les réclamations, les messages adressés à l’assistance et les autres communications.
 
+Si vous utilisez la messagerie de l’Application, nous traitons :
+
+- les demandes de conversation et leur statut ;
+- les adresses de Portefeuille, les noms d’utilisateur et les avatars des participants ;
+- le texte, les images et les horodatages des messages ;
+- le marqueur de lecture de chaque utilisateur, les enregistrements de blocage et les registres de quotas de demandes ; et
+- les fils d’assistance et les rapports d’abus.
+
+Les messages directs sont privés et accessibles uniquement aux deux participants de la conversation. Les administrateurs de GEF peuvent lire les messages adressés au service d’assistance. Ils ne peuvent lire un message direct que si un participant le joint à un rapport d’abus.
+
 Ne publiez pas les données à caractère personnel, l’image, les coordonnées de contact ou la localisation précise d’une autre personne sans motif licite et sans avoir obtenu toute autorisation requise.
 
 ## 4. Qu’est-ce qui devient public ?
@@ -76,6 +86,8 @@ L’Application distingue cinq niveaux importants de visibilité.
 | Données publiques des catalogues et ressources | Les descriptions, conditions, images, étiquettes, adresses de Portefeuille et de contrat, localisations, coordonnées exactes, Offres, Demandes, Publications, Avis, règles des Bassins et paramètres techniques publiés peuvent être visibles sans connexion. Les champs publics peuvent être indexés, copiés, partagés ou associés à un Portefeuille ou à une autre ressource. |
 | Coordonnées de contact accessibles après connexion | Les adresses électroniques, numéros de téléphone, sites web ou instructions de contact ajoutés délibérément à un Bon d’échange, un Bassin ou une Demande sont retirés des réponses de catalogue et de détail fournies sans connexion. Une personne connectée peut demander la fiche complète d’un Bon d’échange ou d’un Bassin comportant ces coordonnées, ou les moyens de contact sélectionnés pour une Demande active. Le destinataire peut toujours copier, utiliser ou partager ces informations. L’accès aux ressources retirées est davantage limité au propriétaire ou à un administrateur. |
 | Données inscrites sur une blockchain publique | Les adresses de Portefeuille, contrats, soldes, avoirs, transferts, montants, contreparties, horodatages, signatures et actions sur les contrats peuvent rester visibles de manière permanente par l’intermédiaire des réseaux publics et d’explorateurs de blocs indépendants. GEF ne peut ni effacer ni réécrire une blockchain publique. |
+
+Les messages de l’Application ne sont pas publics. Les deux participants peuvent voir l’adresse de Portefeuille, le nom d’utilisateur, l’avatar, les messages, les images, le statut de la conversation et les horodatages l’un de l’autre. Les marqueurs de lecture, les listes de blocage et les quotas de demandes sont des enregistrements opérationnels qui ne sont pas publics.
 
 Le retrait d’une ressource du catalogue de l’Application ne supprime pas les copies déjà réalisées par d’autres personnes, des moteurs de recherche, des archives, des services d’indexation indépendants ou des blockchains publiques.
 
@@ -142,6 +154,8 @@ Nous ne communiquons que les informations raisonnablement nécessaires à la fin
 
 - les visiteurs et utilisateurs de l’Application lorsque vous publiez une ressource ou utilisez une blockchain publique ;
 - les utilisateurs connectés de l’Application lorsqu’ils demandent les coordonnées que vous avez délibérément associées à un Bon d’échange, un Bassin ou une Demande active ;
+- l’autre participant à une conversation directe ;
+- les administrateurs autorisés de GEF qui traitent un fil d’assistance ou un rapport d’abus, sous réserve des limites décrites à la section 3 ;
 - les Émetteurs, les Gestionnaires de Bassins, les contreparties et les autres participants nécessaires à une transaction, une présentation pour utilisation, une réclamation ou un service demandé ;
 - les prestataires d’infrastructure pour l’hébergement, les bases de données, le stockage, la diffusion de contenu, la sécurité, l’authentification, l’assistance, le courrier électronique, les notifications, la cartographie, le géocodage, l’accès aux blockchains, l’indexation, le relais de transactions et la surveillance ;
 - les fournisseurs indépendants de Portefeuilles, de services de blockchain, de paiement, de stablecoins, de conversion entre espèces et actifs numériques, ou d’autres services tiers que vous choisissez d’utiliser ;
@@ -162,7 +176,7 @@ Lorsqu’un transfert exige des garanties, GEF applique des mesures adaptées au
 
 GEF ne conserve les données à caractère personnel que pendant la durée raisonnablement nécessaire à la finalité pour laquelle elles ont été collectées, notamment :
 
-- tant qu’un compte, une ressource, une transaction, une réclamation ou une demande d’assistance reste actif ;
+- tant qu’un compte, une ressource, une transaction, une conversation, un blocage, un rapport d’abus, une réclamation ou une demande d’assistance reste actif ;
 - pour les besoins de sécurité, de prévention de la fraude, de rapprochement, d’audit, de gouvernance, d’intégrité de la recherche et de continuité du service ;
 - pour répondre à des exigences fiscales, comptables, réglementaires, contractuelles, contentieuses, liées aux délais de prescription ou à d’autres obligations légales ; et
 - pendant une durée limitée dans des sauvegardes et journaux protégés avant leur suppression ou leur remplacement programmé.

@@ -185,7 +185,7 @@ Before filming, prepare a supported multisig wallet with all three demonstration
 
 ## Accuracy and production notes
 
-- Recheck the filming build against CLC App `origin/develop` commit `79b498f74e615f4a942122f91081f23beb8760ee` or the later commit actually filmed.
+- Recheck the filming build against CLC App `origin/develop` commit `704480cf2173dd9d95f3feadda3748999df2b072` or the later commit actually filmed.
 - Use the App's visible labels: **Transfer ownership**, **Signers and approvals**, **Approvals required**, **Multisig transactions**, **Approve voucher**, **Manage voucher**, **Credit limit**, and **Deposit**.
 - The transfer changes the owner address of the Pool and its connected owner-controlled contracts. Do not describe it as transferring the legal ownership of participants' businesses, Vouchers, or obligations.
 - A two-of-three threshold governs queued Safe transactions. It does not mean that every catalog edit, message, deposit, or swap needs two approvals.

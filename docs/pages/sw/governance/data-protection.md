@@ -10,7 +10,7 @@
 
 ## 1. Kusudi
 
-Grassroots Economics Foundation (**GEF **) inaheshimu faragha na inachukulia kushughulikia data binafsi kuwa wajibu kwa watu na jamii zinazohusika katika kazi yake. Sera hii inaweka viwango vya chini vya data binafsi inayoshughulikiwa kupitia mifumo, programu, utafiti, elimu, matukio, ushirikiano na shughuli za GEF, ikiwemo Cosmo-Local Credit App (** CLC App**).
+Grassroots Economics Foundation (**GEF**) inaheshimu faragha na inachukulia kushughulikia data binafsi kuwa wajibu kwa watu na jamii zinazohusika katika kazi yake. Sera hii inaweka viwango vya chini vya data binafsi inayoshughulikiwa kupitia mifumo, programu, utafiti, elimu, matukio, ushirikiano na shughuli za GEF, ikiwemo Cosmo-Local Credit App (**CLC App**).
 
 Sera hii inaongozwa na [Data Protection Act, 2019](https://new.kenyalaw.org/akn/ke/act/2019/24/eng@2019-11-15/source) ya Kenya, kanuni zinazotumika na [mwongozo wa sasa wa Office of the Data Protection Commissioner](https://www.odpc.go.ke/guidelines-2/index.html). Sheria nyingine zinaweza pia kutumika mahali GEF inapofanya kazi au watu wanaoathiriwa walipo.
 

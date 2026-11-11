@@ -517,9 +517,12 @@
       "sourceSha256": "bc7166238635901abb3fb8fec32a919968db53752b17b3113eea9b270a73c75c",
       "locales": {
         "es": {
-          "sha256": "9664c85ce4026411ba9b4f2041072da933992fad3384c2fd27cb64a9245d4081",
+          "sha256": "d6e3775256996cc1ca460c687468b4bc99c3836bf1852758a7df807f61dc7974",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 36,
+            "meanBackTranslationSimilarity": 0.7724,
+            "unitsBelow0_35": 1,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -527,12 +530,15 @@
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "650aab834da1335ecc34ab88301d05e106d1a9a63dfe050ce9ac340ad66c86f0",
+      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b",
       "locales": {
         "es": {
-          "sha256": "3ac4dffb71c9725bd5acf619f95ef077f337ff1b086a9053cf2bc1b1c10d854c",
+          "sha256": "3a1d8c04aa933beaeb1b7ebd888b02a7f182d5805cfabb9d0b4186d745bce56f",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 190,
+            "meanBackTranslationSimilarity": 0.6318,
+            "unitsBelow0_35": 37,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -543,9 +549,12 @@
       "sourceSha256": "3e31a2af80b23e44910fcd703bdfcba1098c4020e5e3518163a19759306d0b61",
       "locales": {
         "es": {
-          "sha256": "36c20794be6d5688cbc36b85d047804ff74c1c84e5e8faf7ac209effb4b830d7",
+          "sha256": "598b4636cc8c6491eea509e199558bc55cf8dc53015f4d409737e450090c7c3e",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 132,
+            "meanBackTranslationSimilarity": 0.6542,
+            "unitsBelow0_35": 21,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -558,7 +567,10 @@
         "es": {
           "sha256": "f213ef3ae72f5e40eff1c7d7ca1a1e984b871636fa2447736bb83cfbb7fddcd0",
           "review": {
-            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
+            "units": 136,
+            "meanBackTranslationSimilarity": 0.6629,
+            "unitsBelow0_35": 17,
+            "method": "semantic translation, plain-language review, and independent back-translation",
             "status": "release-review-complete"
           }
         }
@@ -568,14 +580,16 @@
   "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "policyReviewProcess": [
     "reviewed translation memory retained for unchanged units",
-    "semantic translation of changed units",
-    "complete plain-language and legal-meaning review of the four policy pages",
-    "protected-token, structure, link, and source-hash verification"
+    "semantic NLLB translation for changed units",
+    "plain-language and legal-meaning review",
+    "independent back-translation of every changed unit"
   ],
   "policyBackTranslationReview": {
-    "status": "completed-before-final-human-review",
-    "scope": "changed policy units",
-    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
+    "units": 494,
+    "meanBackTranslationSimilarity": 0.6566,
+    "unitsBelow0_35": 76,
+    "threshold": 0.35,
+    "lowConfidenceReport": "policy-review.es.json"
   },
   "policyTranslationPublicationDate": "9 de noviembre de 2026",
   "policyStatus": "release-ready"

@@ -61,6 +61,16 @@ We may collect technical and operational information such as IP address, browser
 
 We process information you submit in Vouchers, Pools, Offerings, Wants, Catalogs, Posts, Voucher and Pool Reviews, images, attachments, terms, descriptions, tags, locations, contact fields, private post-transaction messages or orders, complaints, support messages, and other communications.
 
+If you use App messaging, we process:
+
+- conversation requests and status;
+- participant Wallet addresses, usernames, and avatars;
+- message text, images, and timestamps;
+- each user's read marker, block records, and request-quota records; and
+- helpdesk threads and abuse reports.
+
+Direct messages are private to the two conversation participants. GEF administrators can read helpdesk messages. They can read a direct message only when a participant attaches it to an abuse report.
+
 Do not publish another person's personal data, image, contact information, or precise location unless you have a lawful reason and any permission that is required.
 
 ## 4. What becomes public?
@@ -74,6 +84,8 @@ The App has five important visibility levels.
 | Public catalog and resource data | Published descriptions, terms, images, tags, Wallet and contract addresses, locations, exact coordinates, Offers, Wants, Posts, Reviews, Pool rules, and technical settings can be visible without signing in. Public fields may be indexed, copied, shared, or associated with a Wallet or another resource. |
 | Signed-in resource contact | Email, phone, website, or contact instructions deliberately added to a Voucher, Pool, or Want are removed from signed-out catalog and detail responses. A signed-in person can request the full contact-bearing Voucher or Pool record, or the contact methods selected for an active Want. The recipient can still copy, use, or share that information. Retired resources have narrower owner-or-administrator access. |
 | Public blockchain records | Wallet addresses, contracts, balances, holdings, transfers, amounts, counterparties, timestamps, signatures, and contract actions can be visible permanently through public networks and independent block explorers. GEF cannot erase or rewrite a public blockchain. |
+
+App messages are not public. The two participants can see each other's Wallet address, username, avatar, messages, images, conversation status, and timestamps. Read markers, block lists, and request quotas are operational records and are not public.
 
 Removing a resource from the App's catalog does not remove copies already made by other people, search services, archives, independent indexers, or public blockchains.
 
@@ -140,6 +152,8 @@ We disclose only the information reasonably needed for the stated purpose, appli
 
 - App visitors and users when you publish a resource or use a public blockchain;
 - signed-in App users when they request contact details you deliberately attached to an active Voucher, Pool, or Want;
+- the other participant in a direct conversation;
+- authorized GEF administrators handling a helpdesk thread or abuse report, subject to the limits described in Section 3;
 - Issuers, Pool Stewards, counterparties, and other participants needed for a transaction, redemption, complaint, or requested service;
 - infrastructure providers for hosting, databases, storage, content delivery, security, authentication, support, email, notifications, mapping, geocoding, blockchain access, indexing, transaction relaying, and monitoring;
 - independent Wallet, blockchain, payment, stablecoin, cash-ramp, or other third-party service providers you choose to use;
@@ -160,7 +174,7 @@ Where a transfer requires safeguards, GEF uses measures appropriate to the trans
 
 GEF keeps personal data only for as long as reasonably necessary for the purpose for which it was collected, including:
 
-- while an account, resource, transaction, complaint, or support matter remains active;
+- while an account, resource, transaction, conversation, block, abuse report, complaint, or support matter remains active;
 - for security, fraud prevention, reconciliation, audit, governance, research-integrity, and service-continuity needs;
 - for tax, accounting, regulatory, contractual, dispute, limitation-period, or other legal requirements; and
 - for a limited period in protected backups and logs before scheduled deletion or replacement.

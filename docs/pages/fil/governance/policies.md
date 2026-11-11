@@ -8,7 +8,7 @@
 
 **Petsa ng paglalathala ng salin: 9 Nobyembre 2026**
 
-Pinapatakbo ng Grassroots Economics Foundation (**GEF **) ang Cosmo-Local Credit App (** CLC App**). Pinagsasama-sama ng pahinang ito ang mga tuntunin, impormasyon tungkol sa privacy, at mga patakaran ng organisasyon na naaangkop sa App at sa mga kaugnay na gawain ng GEF.
+Pinapatakbo ng Grassroots Economics Foundation (**GEF**) ang Cosmo-Local Credit App (**CLC App**). Pinagsasama-sama ng pahinang ito ang mga tuntunin, impormasyon tungkol sa privacy, at mga patakaran ng organisasyon na naaangkop sa App at sa mga kaugnay na gawain ng GEF.
 
 ## Aling dokumento ang dapat kong basahin?
 

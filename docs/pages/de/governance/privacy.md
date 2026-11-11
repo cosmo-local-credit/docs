@@ -8,7 +8,7 @@
 
 **Veröffentlichungsdatum der Übersetzung: 9. November 2026**
 
-Dieser Datenschutzhinweis erläutert, wie die Grassroots Economics Foundation (**GEF **, ** wir **, ** uns ** oder ** unser **) personenbezogene Daten verarbeitet, wenn Sie die Cosmo-Local Credit App unter `cosmolocal.credit` und die damit verbundenen von GEF betriebenen Dienste besuchen oder nutzen (zusammen die ** App**).
+Dieser Datenschutzhinweis erläutert, wie die Grassroots Economics Foundation (**GEF**, **wir**, **uns** oder **unser**) personenbezogene Daten verarbeitet, wenn Sie die Cosmo-Local Credit App unter `cosmolocal.credit` und die damit verbundenen von GEF betriebenen Dienste besuchen oder nutzen (zusammen die **App**).
 
 > **Vor dem Veröffentlichen lesen.** Ihr privates Profil ist kein öffentliches Profil. Informationen, die Sie in einen Gutschein, Fonds, ein Angebot, ein Gesuch, einen Katalog oder einen Beitrag eingeben oder kopieren, können dennoch über diese Ressource veröffentlicht werden. Beschreibung, Bedingungen, Bilder, Tags, Wallet-Adressen und genaue Kartenkoordinaten einer Ressource können ohne Anmeldung sichtbar sein. Kontaktdaten zu einem Gutschein, Fonds oder Gesuch werden nur über Ressourcen- oder Kontaktfunktionen für angemeldete Personen angezeigt; die empfangende Person kann sie dennoch kopieren oder weitergeben.
 
@@ -63,6 +63,16 @@ Wir können technische und betriebliche Informationen erfassen, etwa IP-Adresse,
 
 Wir verarbeiten Informationen, die Sie in Gutscheinen, Fonds, Angeboten, Wünschen, Katalogen, Beiträgen, Gutschein- und Poolbewertungen, Bildern, Anhängen, Bedingungen, Beschreibungen, Tags, Standorten, Kontaktfeldern, privaten Nachrichten nach Transaktionen oder Bestellungen, Reklamationen, Supportnachrichten und anderen Mitteilungen übermitteln.
 
+Wenn Sie die Nachrichtenfunktion der App verwenden, verarbeiten wir:
+
+- Gesprächsanfragen und deren Status;
+- Teilnehmer-Wallet-Adressen, Benutzernamen und Avatare;
+- Nachrichtentext, Bilder und Zeitstempel;
+- den Lesemarker jedes Benutzers, Sperreinträge und Aufzeichnungen zu Anfragekontingenten; und
+- Support-Unterhaltungen und Missbrauchsmeldungen.
+
+Direkte Nachrichten sind privat und können nur von den beiden Gesprächsteilnehmern gelesen werden. Administratoren von GEF können Support-Nachrichten lesen. Eine direkte Nachricht können sie nur lesen, wenn ein Teilnehmer sie einer Missbrauchsmeldung beifügt.
+
 Veröffentlichen Sie keine personenbezogenen Daten, Bilder, Kontaktdaten oder genauen Standorte anderer Personen, es sei denn, Sie haben dafür einen rechtmäßigen Grund und jede erforderliche Erlaubnis.
 
 ## 4. Was wird öffentlich?
@@ -76,6 +86,8 @@ Die App unterscheidet fünf wichtige Sichtbarkeitsstufen.
 | Öffentliche Katalog- und Ressourcendaten | Veröffentlichte Beschreibungen, Bedingungen, Bilder, Tags, Wallet- und Vertragsadressen, Standorte, genaue Koordinaten, Angebote, Wünsche, Beiträge, Bewertungen, Poolregeln und technische Einstellungen können ohne Anmeldung eingesehen werden. Öffentliche Felder können indiziert, kopiert, geteilt oder mit einer Wallet oder anderen Ressource verknüpft werden. |
 | Angemeldeter Ressourcenkontakt | E-Mail, Telefonnummer, Website oder Kontaktanweisungen, die absichtlich zu einem Gutschein, Fonds oder Wunsch hinzugefügt wurden, werden aus abgemeldeten Katalog- und Detailantworten entfernt. Eine angemeldete Person kann den vollständigen kontaktbezogenen Gutschein- oder Pooldatensatz oder die für einen aktiven Wunsch ausgewählten Kontaktmethoden anfordern. Der Empfänger kann diese Informationen weiterhin kopieren, verwenden oder freigeben. Außer Betrieb genommene Ressourcen haben einen eingeschränkteren Besitzer- oder Administratorzugriff. |
 | Öffentliche Blockchain-Aufzeichnungen | Wallet-Adressen, Verträge, Salden, Bestände, Übertragungen, Beträge, Gegenparteien, Zeitstempel, Signaturen und Vertragsaktionen können dauerhaft über öffentliche Netzwerke und unabhängige Block-Explorer sichtbar sein. GEF kann eine öffentliche Blockchain weder löschen noch umschreiben. |
+
+App-Nachrichten sind nicht öffentlich. Die beiden Teilnehmer können die Wallet-Adresse, den Benutzernamen, den Avatar, Nachrichten, Bilder, den Gesprächsstatus und die Zeitstempel des jeweils anderen sehen. Lesemarker, Sperrlisten und Anfragekontingente sind betriebliche Aufzeichnungen und nicht öffentlich.
 
 Das Entfernen einer Ressource aus dem App-Katalog entfernt keine Kopien, die bereits von anderen Personen, Suchdiensten, Archiven, unabhängigen Indexierern oder öffentlichen Blockchains erstellt wurden.
 
@@ -142,6 +154,8 @@ Wir legen nur Informationen offen, die für den genannten Zweck, nach anwendbare
 
 - App-Besuchende und -Nutzende, wenn Sie eine Ressource veröffentlichen oder eine öffentliche Blockchain verwenden;
 - angemeldete App-Benutzer, wenn sie Kontaktdaten anfordern, die Sie absichtlich einem aktiven Gutschein, Fonds oder Wunsch hinzugefügt haben;
+- der andere Teilnehmer eines direkten Gesprächs;
+- autorisierte Administratoren von GEF, die eine Support-Unterhaltung oder eine Missbrauchsmeldung bearbeiten, vorbehaltlich der in Abschnitt 3 beschriebenen Grenzen;
 - Herausgeber, Fonds-Verantwortliche, Gegenparteien und andere Teilnehmende, die für eine Transaktion, Einlösung, Beschwerde oder angeforderte Dienstleistung benötigt werden;
 - Infrastrukturanbieter für Hosting, Datenbanken, Speicherung, Inhaltsbereitstellung, Sicherheit, Authentifizierung, Support, E-Mail, Benachrichtigungen, Karten, Geokodierung, Blockchain-Zugriff, Indexierung, Transaktionsweiterleitung und Überwachung;
 - unabhängige Wallet-, Blockchain-, Zahlungs-, Stablecoin-, Ein- und Auszahlungs- oder sonstige Drittanbieter, die Sie nutzen möchten;
@@ -162,7 +176,7 @@ Ist eine Übermittlung nur mit Schutzmaßnahmen zulässig, verwendet GEF Maßnah
 
 GEF bewahrt personenbezogene Daten nur so lange auf, wie es für den Erhebungszweck vernünftigerweise erforderlich ist, unter anderem:
 
-- solange ein Konto, eine Ressource, eine Transaktion, eine Beschwerde oder eine Supportangelegenheit aktiv ist;
+- solange ein Konto, eine Ressource, eine Transaktion, ein Gespräch, eine Sperre, eine Missbrauchsmeldung, eine Beschwerde oder eine Supportangelegenheit aktiv ist;
 - für Sicherheit, Betrugsprävention, Abstimmung, Prüfung, Governance, Forschungsintegrität und Dienstkontinuität;
 - aufgrund steuerlicher, buchhalterischer, aufsichtsrechtlicher, vertraglicher, streitbezogener, verjährungsrechtlicher oder anderer gesetzlicher Anforderungen; und
 - für einen begrenzten Zeitraum in geschützten Sicherungskopien und Protokollen, bevor diese planmäßig gelöscht oder ersetzt werden.

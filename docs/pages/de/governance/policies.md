@@ -8,7 +8,7 @@
 
 **Veröffentlichungsdatum der Übersetzung: 9. November 2026**
 
-Die Grassroots Economics Foundation (**GEF **) betreibt die Cosmo-Local Credit App (** CLC App**). Diese Seite fasst die Bedingungen, Datenschutzhinweise und organisatorischen Richtlinien zusammen, die für die App und die einschlägigen Tätigkeiten von GEF gelten.
+Die Grassroots Economics Foundation (**GEF**) betreibt die Cosmo-Local Credit App (**CLC App**). Diese Seite fasst die Bedingungen, Datenschutzhinweise und organisatorischen Richtlinien zusammen, die für die App und die einschlägigen Tätigkeiten von GEF gelten.
 
 ## Welches Dokument sollte ich lesen?
 
