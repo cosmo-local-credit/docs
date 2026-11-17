@@ -42,6 +42,8 @@ import { MermaidDiagram } from '../../../components/MermaidDiagram'
 
 تنشئ القسيمة المشتركة **مسارًا محتملًا في الرسم الشبكي**، لا مسارًا مضمونًا. وتحافظ خدمة CLC Core في الإنتاج على رسم شبكي مطابق من معلومات الصناديق والسجلات والكتالوجات والأرصدة والرسوم وأحداث السلسلة. كما تتحقق من الأرصدة ذات الصلة في محفظة الجلسة. ويبحث التنفيذ العام حاليًا عن مسارات تضم حتى ثلاث مبادلات عبر الصناديق.
 
+يستخدم توجيه الإنتاج عمدًا نطاق أهلية أضيق من المبادلة المباشرة عبر الصندوق. فلا تُوجَّه إلا الصناديق المتحقق منها التي تستخدم أسعارًا نسبية، والرموز التي تنقل بالضبط المقدار المذكور: قسائم `GiftableToken` ورموز ERC-20 الخارجية البسيطة المدرجة صراحةً في إعداد `router.plain_erc20` للنشر. ولذلك قد يكون الرمز صالحًا لمبادلة مباشرة عبر صندوق من دون أن يكون مؤهلًا للتوجيه على مستوى App.
+
 اكتشاف الرسم الشبكي سريع، لكنه تقدير بحسب كتلته المفهرسة. وقد توسم النتيجة بأنها قديمة، ولا يثبت الاتصال إمكان مرور الكمية المطلوبة. ويستخدم مرشح **الائتمان** في التطبيق هذه المجموعة المتاحة في السوق وشاشات الاكتشاف ذات الصلة.
 
 ### عرض سعر مرجعي
@@ -83,16 +85,17 @@ import { MermaidDiagram } from '../../../components/MermaidDiagram'
   label="مكونات صندوق الالتزامات التابعة والصلاحيات الإدارية"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
-    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
-    Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
-    Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+    Steward["مشرف الصندوق المسؤول"] -. ينشر القواعد<br/>والإفصاحات والحوكمة .-> Pool["SwapPool<br/>الخزنة والتسوية"]
+    Owner["عنوان مالك SwapPool"] -->|التهيئة والإغلاق والتحصيل والسحب| Pool
+    ProxyAdmin["مسؤول وكيل<br/>ERC-1967"] -->|يرقّي التنفيذ| Pool
+    Dependencies["مكونات تابعة اختيارية<br/>سجل · محدد · عارض أسعار<br/>سياسة رسوم · متحكم رسوم البروتوكول<br/>ولكل منها حوكمتها الخاصة"] -. مدخلات التسوية .-> Pool
+    Seal["خمس خانات عناوين قابلة للإغلاق<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. يقفل العناوين .-> Pool
 
-    Wallet["User wallet"] -->|deposit or swap input| Pool
-    Pool -->|net swap output| Wallet
-    Pool -->|collected Pool fees| FeeAddress["Configured<br/>fee address"]
-    Pool -->|protocol fee in same swap| ProtocolRecipient["Protocol<br/>recipient"]
-    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+    Wallet["محفظة المستخدم"] -->|إيداع أو أصل إدخال للمبادلة| Pool
+    Pool -->|صافي ناتج المبادلة| Wallet
+    Pool -->|رسوم الصندوق المحصلة| FeeAddress["عنوان الرسوم<br/>المهيأ"]
+    Pool -->|رسم البروتوكول في المبادلة نفسها| ProtocolRecipient["مستلم<br/>البروتوكول"]
+    Pool -->|withdrawLiquidity| Destination["مستلم يختاره<br/>المالك"]`}
 />
 
 السجل ومحدد الحدود وعارض الأسعار وسياسة الرسوم ومتحكم رسوم البروتوكول مكونات اختيارية. ففي غياب السجل يمر أي رمز باختبار القبول، وفي غياب محدد الحدود لا يكون للإيداعات سقف، وفي غياب عارض الأسعار يستخدم الصندوق تكافؤ الوحدات الخام، وفي غياب وحدات الرسوم تكون الرسوم المقابلة صفرًا.
