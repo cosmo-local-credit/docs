@@ -1,4 +1,4 @@
-# **Cosmo-Local Credit (CLC)**
+# Cosmo-Local Credit Whitepaper
 
 > **Über diese Übersetzung.** Dies ist eine Übersetzung des White Paper v0.9. Der englische Ausgangstext wurde am 16. November 2026 veröffentlicht. Diese Übersetzung wurde am 17. November 2026 veröffentlicht. Englisch ist der Ausgangstext. <a data-english-source="true" href="/white-paper" hrefLang="en">Englischen Ausgangstext lesen</a>.
 
@@ -14,6 +14,8 @@
 
 **Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-de.pdf">CLC White Paper v0.9 (PDF, Deutsch)</a>
 
+**Barrierefreie Ausgabe:** Die HTML-Kapitel in diesem Abschnitt bilden die barrierefreie Webausgabe. Das herunterladbare PDF ist ein festes Veröffentlichungsartefakt und derzeit nicht mit Tags für die Navigation in barrierefreien Dokumenten versehen.
+
 **Veröffentlichung:** Finale, versionierte öffentliche Ausgabe. Dieses Dokument ist keine Anlageberatung und stellt weder ein Verkaufsangebot noch eine Aufforderung zum Kauf eines Wertpapiers oder Finanzinstruments dar. Spätere Versionen können die hier beschriebenen Entwürfe überarbeiten.
 
 ## Hinweise zum Lesen
@@ -27,7 +29,7 @@ Dieses Whitepaper verbindet vier Arten von Inhalten. Der jeweilige Status gilt f
 | **Historisch** | Nachweise oder Funktionen des früheren Dienstes Sarafu Network. Sie sind weder aktuelle CLC-Nutzungszahlen noch ein Beleg dafür, dass ein Nutzer, Vermögenswert, Datensatz oder eine Verpflichtung migriert wurde. |
 | **Vorgeschlagen** | Ein Entwurf, Wirtschaftsmodell, Governance-Mechanismus oder Roadmap-Punkt, der nicht als bereitgestellt dargestellt wird. |
 
-Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über `SwapPool`, optionale Kuratierung und Bewertung, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen Solidity-`SwapRouter`, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core bieten Routenerkennung innerhalb derselben Blockchain, Angebote auf Grundlage eines festgelegten Blocks, Simulation, signierte atomare Wallet-Batches durch bis zu drei Fonds und zusammengefasste Belege. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme bleiben vorgeschlagen oder bereitstellungsabhängig.
+Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über `SwapPool`, optionale Kuratierung und Bewertung, Token-Saldenobergrenzen der Fonds, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen Solidity-`SwapRouter`, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core bieten Routenerkennung innerhalb derselben Blockchain, Kursangebote auf Grundlage eines festgelegten Blocks, Simulation, signierte atomare Wallet-Batches durch bis zu drei Fonds und zusammengefasste Belege. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme bleiben vorgeschlagen oder bereitstellungsabhängig.
 
 **Zielgruppe:** Entwickler und Verantwortliche von Fonds, Protokollentwickler und Prüfer, Geldgeber für Liquidität und Mandate, Gestalter von Governance sowie Fachleute für Recht und Compliance.
 
@@ -35,13 +37,13 @@ Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über `SwapPool`, o
 
 Cosmo-Local Credit ist eine Produktfamilie rund um das **Commitment Pooling Protocol (CPP)**. CPP beschreibt, wie unabhängig verwaltete Commitment-Fonds einlösbare Verpflichtungen kuratieren, Methoden für Wechselkurse und Grenzen veröffentlichen, Bestände halten und verantwortlichen Tausch ermöglichen können.
 
-Ein **Commitment-Fonds ** ist die verwaltete Vereinbarung. Ein aktueller **`SwapPool`** von Protocol v1.1.0 ist eine Vertragskomponente: ein Token-Tresor und eine Engine für direkte Tausche. Eine Bereitstellung kann diesen Vertrag mit Registern, Quotern, Obergrenzen für Fonds-Token-Salden, Gebührenregeln und weiteren Diensten verbinden.
+Ein **Commitment-Fonds** ist die verwaltete Vereinbarung. Ein aktueller **`SwapPool`** von Protocol v1.1.0 ist eine Vertragskomponente: ein Token-Tresor und eine Engine für direkte Tausche. Eine Bereitstellung kann diesen Vertrag mit Registern, Quotern, Obergrenzen für Fonds-Token-Salden, Gebührenregeln und weiteren Diensten verbinden.
 
 Kosmo-lokal bedeutet, offene Standards, Software und Wissen weltweit zu teilen, während Ausgabe, Erfüllung, Governance und reale Verantwortlichkeit lokal bleiben. Ein Herausgeber bleibt für seinen Gutschein verantwortlich. Eine Fonds-Verantwortliche bleibt für die Fondsregeln und jede ausdrücklich übernommene Garantie verantwortlich. Weder die CLC App noch GEF garantieren automatisch einen Gutschein, Fonds, Wert, eine Route, Liquiditätsposition oder ein Ergebnis.
 
 ## Aktuelle Bereitstellung
 
-GEF betreibt die CLC App unter [cosmolocal.credit](https://cosmolocal.credit). Sie bietet Zugang zu Konten und Wallets, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Wünsche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen auf Anwendungsebene. CLC Core unterstützt Routenerkennung, verbindliche Angebote, Transaktionssimulation, Koordination des Relayers, Abstimmung mit der Blockchain und zusammengefasste Belege. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Wallet-Typ, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
+GEF betreibt die CLC App unter [cosmolocal.credit](https://cosmolocal.credit). Sie bietet Zugang zu Konten und Wallets, einen öffentlichen Marktkatalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Gesuche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen auf Anwendungsebene. CLC Core unterstützt Routenerkennung, verbindliche Kursangebote, Transaktionssimulation, Koordination des Relayers, Abstimmung mit der Blockchain und zusammengefasste Belege. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Wallet-Typ, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
 
 Der Betrieb der Benutzeroberfläche macht GEF nicht automatisch zum Herausgeber, zur Fonds-Verantwortlichen, zum Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garanten, zur Einlösestelle, zum Berater, Versicherer oder zur Partei von Verpflichtungen zwischen Teilnehmern. Die Nutzung der App unterliegt den [Nutzungsbedingungen](/de/governance/terms).
 

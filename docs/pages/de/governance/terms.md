@@ -1,6 +1,6 @@
 # Nutzungsbedingungen von Cosmo-Local Credit
 
-> **Erste Übersetzung zur Überprüfung.** Diese Übersetzung dient der leichteren Lesbarkeit. Die englischen Nutzungsbedingungen sind der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt. <a data-english-source="true" href="/governance/terms" hrefLang="en">Englische Nutzungsbedingungen lesen</a>.
+> **Übersetzung zur leichteren Lesbarkeit.** Diese Übersetzung dient der leichteren Lesbarkeit. Die englischen Nutzungsbedingungen sind der Ausgangstext und maßgeblich, soweit das anwendbare Recht nichts anderes verlangt. <a data-english-source="true" href="/governance/terms" hrefLang="en">Englische Nutzungsbedingungen lesen</a>.
 
 **Version 1.1**
 
@@ -8,7 +8,7 @@
 
 **Wirksamkeitsdatum: 1. Oktober 2026**
 
-Diese Nutzungsbedingungen (**Bedingungen **) sind eine verbindliche Vereinbarung zwischen Ihnen und der Grassroots Economics Foundation (** GEF **, ** wir **, ** uns ** oder ** unser **) über Ihren Zugang zur progressiven Web-App Cosmo-Local Credit unter `cosmolocal.credit` und zugehörigen Diensten, die GEF betreibt (zusammen die ** App**).
+Diese Nutzungsbedingungen (**Bedingungen**) sind eine verbindliche Vereinbarung zwischen Ihnen und der Grassroots Economics Foundation (**GEF**, **wir**, **uns** oder **unser**) über Ihren Zugang zur progressiven Web-App Cosmo-Local Credit unter `cosmolocal.credit` und zugehörigen Diensten, die GEF betreibt (zusammen die **App**).
 
 Diese Bedingungen gelten für jede Person oder Organisation, die ein Konto erstellt oder nutzt, über die App einen Token oder Gutschein hält oder verwendet, einen Fonds erstellt oder betreibt, Vermögenswerte in einen Fonds einbringt oder einen Tausch ausführt. Lesen Sie sie sorgfältig, bevor Sie sie akzeptieren oder die App nutzen.
 
@@ -45,13 +45,13 @@ In diesen Bedingungen:
 - **Transaktionsbedingungen** bezeichnen die für eine Transaktion angezeigten oder bereitgestellten Parameter und besonderen Regeln, etwa Vermögenswerte, Beträge, Fonds, Route, Wechselkursmethode, Gebühren, Grenzen, Frist, Anbieterbedingungen oder Einlösungsbedingungen.
 - **Vorlage zur Einlösung** bedeutet, dass ein Inhaber Gutschein-Einheiten nach dem bezeichneten Einlösungsverfahren an den Herausgeber zurückgibt oder ihm vorlegt. Die Vorlage allein beweist weder Erfüllung noch Ausbuchung.
 - **Servicegebühr** bezeichnet eine gesondert offengelegte Gebühr für Routing, Benutzeroberfläche, Anbieter, Zahlung, Überwachung oder einen anderen bezeichneten Dienst.
-- **Nutzer ** oder ** Sie** bezeichnet die Person, die diese Bedingungen akzeptiert, sowie jede Organisation, die diese Person wirksam vertritt.
+- **Nutzer** oder **Sie** bezeichnet die Person, die diese Bedingungen akzeptiert, sowie jede Organisation, die diese Person wirksam vertritt.
 - **Gutschein** bezeichnet einen Token oder Datensatz, den ein Herausgeber unter veröffentlichten Einlösungsbedingungen als Verpflichtung, vorausbezahlten Anspruch oder Recht auf bestimmte Waren, Dienstleistungen, Vorteile, Leistungen oder sonstige Werte darstellt.
 - **Geldbörse** bezeichnet das Blockchain-Konto, die Adresse, Signatur-Zugangsdaten, den Passkey, Schlüssel einer Papier-Geldbörse, Smart Account oder einen zugehörigen Mechanismus zur Autorisierung von Transaktionen.
 
 ## 2. Annahme und Geltungsbereich
 
-Die aktuelle App zeichnet bei der Kontoerstellung keine ausdrückliche Annahme dieser Bedingungen auf. Soweit das anwendbare Recht dies zulässt, akzeptieren Sie diese Bedingungen, indem Sie ein Konto erstellen oder nutzen oder die App weiter nutzen, nachdem eine angekündigte Aktualisierung wirksam geworden ist. Verlangt das anwendbare Recht eine ausdrückliche Annahme oder erneute Annahme, stellt GEF eine Annahmeabfrage bereit, bevor eine weitere Nutzung der betroffenen Kontofunktionen zugelassen wird. Das bloße Lesen dieser Bedingungen ohne Erstellung oder Nutzung eines Kontos begründet für sich allein keine Vereinbarung.
+Die aktuelle App zeigt während der unterstützten Konto-Einrichtung sowie bevor ein Nutzer einen Gutschein oder Fonds veröffentlicht, eine ausdrückliche Annahmeabfrage an. Die Auswahl dieser Abfrage und das Fortsetzen des betreffenden Ablaufs zeigen die Annahme dieser Bedingungen an. Die App kann verlangen, dass ein Nutzer die aktuellen Bedingungen annimmt oder erneut annimmt, bevor er betroffene Funktionen weiter nutzen darf. Soweit ein Ablauf keine dauerhafte, versionsbezogene Annahmeaufzeichnung speichert, akzeptieren Sie diese Bedingungen außerdem – soweit das anwendbare Recht dies zulässt –, indem Sie ein Konto erstellen oder nutzen oder die App weiter nutzen, nachdem eine angekündigte Aktualisierung wirksam geworden ist. Das bloße Lesen dieser Bedingungen ohne Erstellung oder Nutzung eines Kontos begründet für sich allein keine Vereinbarung.
 
 Wenn Sie nicht zustimmen, erstellen Sie kein Konto und nutzen Sie die App nicht. Wenn Sie für eine Organisation zustimmen, versichern Sie, dass Sie zu deren Bindung befugt sind. In diesem Fall umfasst **Sie** sowohl Sie als auch die Organisation, soweit der Zusammenhang dies zulässt.
 
@@ -152,7 +152,7 @@ Der Inhaber muss die Gutscheinbedingungen lesen, Herausgeber und Angebot prüfen
 
 Wenn ein Empfänger ein Angebot modifiziert, umverpackt oder umvertreibt, wenn die Bedingungen des Emittenten dies zulassen, muss dieser Empfänger wesentliche Änderungen genau identifizieren, die erforderlichen Herkunfts- und Quellbestätigungen behalten, die geltenden Bedingungen weitergeben und vermeiden, dass der ursprüngliche Emittent oder GEF das modifizierte Angebot genehmigt hat.
 
-Das App-Etikett **„Gutschein stilllegen“** bedeutet umkehrbare Auflösung des Katalogs. Es verbrennt oder annulliert keine Salden, vervollständigt die Erfüllung oder Ausbuchung oder löscht die ausstehenden Verpflichtungen des Emittenten nicht aus.
+Das App-Etikett **„Stilllegung beantragen“** erlaubt dem aktuellen Eigentümer, einen Administrator um die Stilllegung eines Gutscheins zu bitten. Der Gutschein bleibt aktiv, solange der Antrag aussteht. Der Eigentümer kann einen ausstehenden Antrag zurückziehen, und ein Administrator kann ihn genehmigen oder ablehnen. Eine genehmigte Stilllegung entfernt den Gutschein aus der aktiven Katalognutzung, löscht aber weder Vertrag, Salden, Transaktionsverlauf noch ausstehende Verpflichtungen, vollendet weder Erfüllung noch Ausbuchung und verbrennt oder storniert keine Salden. Ein Administrator kann den Katalogdatensatz später wiederherstellen, sofern das anwendbare Verfahren dies erlaubt.
 
 ## 10. Schaffung und Betrieb eines Fonds
 
@@ -176,6 +176,8 @@ Die Fonds-Verantwortliche muss diese Offenlegungen richtig und aktuell halten, s
 Eine Fonds-Verantwortliche darf einen Fonds nicht nutzen, um betrügerische Renditeversprechen abzugeben, rechtswidrige Finanzdienstleistungen zu verschleiern, Lohn- oder Arbeitsschutz zu umgehen, Preise oder Aktivitäten zu manipulieren, Herkunft oder Verwendung von Vermögenswerten zu verbergen, verbotenes Verhalten zu ermöglichen oder öffentlich Auszahlung, Umtauschbarkeit, Liquidität oder Verlustschutz zu versprechen, die sie nicht leisten kann.
 
 GEF kann Mindestnormen für die Auflistung, Sicherheit, Offenlegung oder technische Standards festlegen und kann einen Fonds aus einem von der App betriebenen Register ablehnen, suspendieren, markieren oder entfernen. Der Registrierungsstatus ist bedingt und ist keine GEF-Garantie.
+
+Das Verfahren **„Stilllegung beantragen“** der App gilt auch für einen Fonds. Der Fonds bleibt aktiv, solange der Antrag aussteht. Nach der Genehmigung sperren die App und der unterstützende Dienst neue Tausche und Einzahlungen, während verfügbare Abhebungen möglich bleiben. Die Stilllegung löscht weder den Fondsvertrag noch frühere Abwicklungen, Salden, ausstehende Verpflichtungen oder gesonderte Rechte und Pflichten nach den Fondsregeln.
 
 Fonds-Verantwortliche, Fonds-Eigentümer, Proxy-Administrator, Kontrolleure von Abhängigkeiten, Katalogmoderator und Gebührenempfänger können verschiedene Parteien sein. Die Angaben zum Fonds müssen jede wesentliche Befugnis benennen. Die Befugnis eines technischen Kontrolleurs macht diese Partei nicht selbst zur Fonds-Verantwortlichen und überträgt nicht deren Pflichten.
 
@@ -273,6 +275,8 @@ Die öffentliche Blockchain-Aktivität kann weltweit eine Wallet-Adresse, Vermö
 GEF speichert Informationen so lange, wie dies für die oben genannten Zwecke angemessen erforderlich ist, einschließlich Sicherheit, Betrugsprävention, Transaktionsnachweise, gesetzlichen Pflichten, Verjährungsfristen, Backups und Streitbeilegung. Die Aufbewahrung macht GEF nicht in der Lage, Informationen zu löschen, die von einem öffentlichen Netzwerk oder einem Dritten gehalten werden.
 
 Vorbehaltlich des geltenden Rechts können Sie Zugang, Berichtigung, Löschung, Einschränkung, Widerspruch, Portabilität oder andere verfügbare Datenrechte beantragen, indem Sie sich an `privacy@grassecon.org` wenden. GEF verwendet angemessene Schutzmaßnahmen, kann aber keine absolute Sicherheit oder Vertraulichkeit versprechen, insbesondere für öffentliche Blockchain-Aktivitäten und Informationen, die Sie veröffentlichen.
+
+Der [Datenschutzhinweis der CLC App](/de/governance/privacy) erläutert App-spezifische Felder und die Grenzen zwischen öffentlichen und privaten Informationen. Die [Datenschutzrichtlinie](/de/governance/data-protection) beschreibt die weiter gefassten Standards von GEF für die Daten-Governance.
 
 ## 18. Serviceänderungen, Aussetzung und Beendigung
 

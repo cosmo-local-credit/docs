@@ -42,6 +42,8 @@ Unter [Konzepte und Begriffe](/de/introduction/concepts) wird die Trennung zwisc
 
 Ein gemeinsamer Gutschein schafft einen **möglichen Graphpfad**, keine garantierte Route. Der produktive Dienst von CLC Core verwaltet einen abgestimmten Graphen aus Fonds-, Register-, Katalog-, Salden-, Gebühren- und Blockchain-Ereignisdaten. Er prüft außerdem die maßgeblichen Bestände der aktiven Wallet. Die öffentliche Bereitstellung sucht derzeit Routen mit bis zu drei Fonds-Tauschen.
 
+Das produktive Routing verwendet absichtlich ein engeres Zulassungsprofil als der direkte Fonds-Tausch. Geroutet werden nur verifizierte Fonds mit relativer Bewertung und Tokens, deren Übertragungen genau den angegebenen Betrag bewegen: `GiftableToken`-Gutscheine und externe einfache ERC-20-Tokens, die ausdrücklich in der Konfiguration `router.plain_erc20` der Bereitstellung aufgeführt sind. Ein Token kann daher in einem direkten Fonds-Tausch verwendbar sein, ohne für das Routing auf Anwendungsebene geeignet zu sein.
+
 Die Erkennung im Graphen ist schnell, aber nur eine Schätzung auf Grundlage des indexierten Blocks. Ein Ergebnis kann als veraltet gekennzeichnet sein, und eine Verbindung belegt nicht, dass die gewünschte Menge darüber getauscht werden kann. Der Filter **Kredit** der App verwendet diese erreichbare Menge im Markt und in zugehörigen Suchansichten.
 
 ### Verbindliches Angebot
@@ -81,16 +83,17 @@ Eine Route kann vor der Signatur scheitern, weil keine geeignete Route oder kein
   label="Abhängigkeiten und administrative Befugnisse eines Commitment-Fonds"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
-    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
-    Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
-    Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+    Steward["Verantwortliche Stelle<br/>Fonds-Verantwortliche"] -. veröffentlicht Regeln,<br/>Offenlegungen und Governance .-> Pool["SwapPool<br/>Tresor und Abwicklung"]
+    Owner["Adresse des<br/>SwapPool-Eigentümers"] -->|konfigurieren, versiegeln,<br/>einziehen, abheben| Pool
+    ProxyAdmin["ERC-1967<br/>Proxy-Administrator"] -->|Implementierung aktualisieren| Pool
+    Dependencies["Optionale Abhängigkeiten<br/>Register · Limiter · Quoter<br/>Gebührenregel · Protokollgebühren-Controller<br/>jeweils mit eigener Governance"] -. Eingaben für die Abwicklung .-> Pool
+    Seal["Fünf versiegelbare Adressfelder<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. sperrt Adressen .-> Pool
 
-    Wallet["User wallet"] -->|deposit or swap input| Pool
-    Pool -->|net swap output| Wallet
-    Pool -->|collected Pool fees| FeeAddress["Configured<br/>fee address"]
-    Pool -->|protocol fee in same swap| ProtocolRecipient["Protocol<br/>recipient"]
-    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
+    Wallet["Geldbörse des Nutzers"] -->|Einzahlung oder Eingabe für Tausch| Pool
+    Pool -->|Nettoausgabe des Tauschs| Wallet
+    Pool -->|eingezogene Fondsgebühren| FeeAddress["Konfigurierte<br/>Gebührenadresse"]
+    Pool -->|Protokollgebühr im selben Tausch| ProtocolRecipient["Protokoll-<br/>Empfänger"]
+    Pool -->|withdrawLiquidity| Destination["Vom Eigentümer ausgewählter<br/>Empfänger"]`}
 />
 
 Register, Limiter, Quoter, Gebührenregel und Protokollgebühren-Controller sind optional. Ohne Register besteht jedes Token die Zulassungsprüfung; ohne Limiter sind Einzahlungen unbegrenzt; ohne Quoter verwendet der Fonds Rohwertparität; ohne Gebührenmodule sind die jeweiligen Gebühren null.

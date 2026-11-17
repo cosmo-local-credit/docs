@@ -1,53 +1,53 @@
-# 17. Rechtliche und Konformitätsnachweise
+# 17. Rechtlicher und regulatorischer Hinweis
 
-CPP kann Token, Gutscheine, Fonds und Swaps koordinieren, deren rechtliche Behandlung von ihrer Gestaltung, Vermarktung, Verwendung, Verantwortlichen und Gerichtsbarkeit abhängt. Nichts in diesem Weißbuch ist rechtliche, steuerliche, Investitions-, Kredit- oder Finanzberatung.
+CPP kann Token, Gutscheine, Commitment-Fonds und Tausche koordinieren, deren rechtliche Behandlung von ihrer Ausgestaltung, Vermarktung und Nutzung sowie von den verantwortlichen Parteien und der jeweiligen Rechtsordnung abhängt. Dieses Whitepaper stellt keine Rechts-, Steuer-, Anlage-, Kredit- oder Finanzberatung dar.
 
-Die Nutzung der CLC App unterliegt den [Nutzungsbedingungen](/de/governance/terms). GEF betreibt die App und die unterstützende Infrastruktur. Sofern GEF nicht ausdrücklich eine andere Rolle übernimmt, ist GEF weder Herausgeber noch Fonds-Verantwortliche, Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garant, Einlösestelle, Berater, Versicherer oder Partei von Verpflichtungen zwischen Teilnehmern.
+Für die Nutzung der CLC App gelten die [Nutzungsbedingungen](/de/governance/terms). Der [Bereich Richtlinien und Hinweise](/de/governance/policies) verlinkt die aktuelle Datenschutzerklärung, Datenschutzrichtlinie und Kinderschutzrichtlinie. GEF betreibt die App und die unterstützende Infrastruktur. Sofern GEF nicht ausdrücklich eine andere Rolle übernimmt, ist GEF weder Herausgeber noch Fonds-Verantwortliche, Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garant, Einlösestelle, Berater, Versicherer oder Partei von Verpflichtungen zwischen Teilnehmenden.
 
-Beim Einsatz abhängige Zahlungsdienste müssen der verantwortliche Anbieter, die Gerichtsbarkeit, die Berechtigung, die Gebühren, die Grenzen, das Modell der Aufbewahrung und die Bedingungen identifiziert werden. Die Anwesenheit eines Anschlusses bedeutet nicht, dass GEF oder ein Fonds den zugrunde liegenden regulierten Dienst betreibt.
+Einsatzabhängige Zahlungsdienste müssen ihren verantwortlichen Anbieter, die Rechtsordnungen, Teilnahmevoraussetzungen, Gebühren, Grenzen, das Verwahrungsmodell und die Bedingungen benennen. Das Vorhandensein einer Schnittstelle bedeutet nicht, dass GEF oder ein Fonds den zugrunde liegenden regulierten Dienst betreibt.
 
-## **17.1 Gutscheine und Angebote**
+## **17.1 Offenlegungen zu Gutscheinen und Angeboten**
 
-Ein Emittent sollte Folgendes veröffentlichen und auf dem neuesten Stand halten:
+Ein Herausgeber sollte Folgendes veröffentlichen und aktuell halten:
 
-- Verantwortliche Identität und Kontaktinformationen;
-- das zugehörige Angebot, die Einheit, die Versorgung, der angegebene Wert und die Kapazität;
-- Standorte und Verfahren der Darstellung;
+- verantwortliche Identität und Kontaktinformationen;
+- das zugehörige Angebot, die Einheit, die ausgegebene Menge, den angegebenen Wert und die Kapazität;
+- Orte und Verfahren für die Vorlage zur Einlösung;
 - Zeitpunkt und Nachweis der Erfüllung;
-- Verfall, Gebühren, Steuern, Einschränkungen und Regeln für die Änderung von Materialien;
-- Beschwerden, Ersetzungen, Erstattungen oder sonstige Rechtsmittel; und
-- die Entladungsmethode, die eine Wiederverwendung nach der Verfüllung verhindert.
+- Ablauf, Gebühren, Steuern, Einschränkungen und Regeln für wesentliche Änderungen;
+- Beschwerden, Ersatzleistungen, Erstattungen oder andere Rechtsbehelfe; und
+- das Verfahren zur Ausbuchung, das eine erneute Verwendung nach der Erfüllung verhindert.
 
-Ein Token-Vertrag legt diese Bedingungen nicht fest oder beweist die Leistung nicht.
+Ein Token-Vertrag legt diese Bedingungen nicht fest und beweist keine Leistung.
 
-## **17.2 Veröffentlichungen des Fonds**
+## **17.2 Offenlegungen zu Fonds**
 
-Eine Fonds-Verantwortliche Person sollte Folgendes veröffentlichen:
+Eine Fonds-Verantwortliche sollte Folgendes veröffentlichen:
 
-- Zweck des Fonds und verantwortliche Entscheidungsträger;
-- der Eigentümer von `SwapPool`, der Proxy-Administrator, die Abhängigkeitscontroller und die Gebührenempfänger;
-- die zugelassenen Vermögenswerte und die Aussetzung oder Entfernung von Vorschriften;
-- Bewertungsmethoden, Zitatquellen, Gebühren, Token-Balanz-Obergrenzen, Inventar- und Eigentümer-Abweichungsbefugnisse;
-- Beiträge und Ausstiegsrechte;
-- jede Reserve, Garantie, Bürgschaft, Versicherungspolice und Verlustzuweisungsregelung; und
-- Regierungsführung, Upgrade, Notfälle, Beschwerden, Migration und Beendigungsprozesse.
+- den Zweck des Fonds und die verantwortlichen Entscheidungsträger;
+- den Eigentümer des `SwapPool`, den Proxy-Administrator, die Kontrolleure von Abhängigkeiten und die Gebührenempfänger;
+- zugelassene Vermögenswerte sowie Regeln für ihre Aussetzung oder Entfernung;
+- Bewertungsmethoden, Quellen für Kursangebote, Gebühren, Token-Saldenobergrenzen, Bestände und die Abhebungsbefugnisse des Eigentümers;
+- Beitrags- und Ausstiegsrechte;
+- jede Reserve, Garantie, jeden Garanten, jede Versicherungspolice und jede Regel zur Verlustzuweisung; und
+- Verfahren für Governance, Upgrades, Notfälle, Beschwerden, Migration und Beendigung.
 
-Die Anmeldung ist keine Genehmigung, Bewertung, Versicherung oder Garantie von GEF.
+Eine Auflistung ist keine Empfehlung, Bewertung, Versicherung oder Garantie durch GEF.
 
-## **17.3 Aktionen und Verpflichtungen**
+## **17.3 Handlungen und Verpflichtungen**
 
-Ein gewöhnlicher **Fonds swap** Börsen unterstützte Vermögenswerte unter einer angezeigten Quote und Transaktionsgrenzen. Die Vermögensverwaltung macht es nicht zu einem Darlehen, zur Rückzahlung, zur Rückzahlung durch den Emittenten oder zur Realisierung.
+Ein gewöhnlicher **Fonds-Tausch** tauscht unterstützte Vermögenswerte zu einem angezeigten Kursangebot und innerhalb der Transaktionsgrenzen. Die Richtung der Vermögenswerte macht den Vorgang weder zu einem Darlehen noch zu einer Rückzahlung, einer Einlösung durch den Herausgeber oder einer Erfüllung in der realen Welt.
 
-**Erlösungsvorlage ** Rückgabe oder Darstellung von Gutscheineinheiten an einen Emittenten. ** Erfüllung ** ist die vom Emittenten versprochene Leistung. ** Ausbuchung ** die Aufzeichnungen erfüllte Einheiten, so dass sie nicht wiederverwendbar sind. Die App ist **„Einlösen“** die Aktion zurzeit eine Übertragung an den Tokeninhaber vorbereitet; Diese Übertragung allein beweist keine Erfüllung.
+Bei der **Vorlage zur Einlösung** werden Gutschein-Einheiten an einen Herausgeber zurückgegeben oder ihm vorgelegt. **Erfüllung** ist die vom Herausgeber versprochene Leistung. Die **Ausbuchung** erfasst erfüllte Einheiten so, dass sie nicht erneut verwendet werden können. Die App-Aktion **„Einlösen“** bereitet derzeit eine Übertragung an den Token-Eigentümer vor; diese Übertragung allein beweist keine Erfüllung.
 
-Die App ist **„Gutschein stilllegen“** Die Aktion ist reversibel Katalog-Entfernung. Sie verbrennt keine Salden, annulliert keine Ansprüche oder entrichtet keine Verpflichtungen.
+Die App-Aktion **„Stilllegung beantragen“** übermittelt einen Antrag des Eigentümers zur administrativen Prüfung. Der Gutschein oder Fonds bleibt aktiv, solange der Antrag aussteht; der Antrag kann genehmigt, abgelehnt oder zurückgezogen werden. Die genehmigte Stilllegung eines Gutscheins entfernt den Katalogeintrag aus der aktiven Nutzung, ohne Salden, Verträge, Verlauf, Ansprüche oder Verpflichtungen zu löschen. Die genehmigte Stilllegung eines Fonds sperrt neue Tausche und Einzahlungen, während verfügbare Abhebungen weiterhin möglich sind. Keine dieser Handlungen ist eine Verbrennung, Erfüllung oder Ausbuchung.
 
-Für ein zukünftiges Darlehen oder ein anderes Kreditprodukt sind zusätzliche und Transaktionsbedingungen vor Verwendung getrennt vorzulegen. Ein gewöhnlicher Versand, Beitrag, Fonds-Einzahlung, Fonds-Swap, Darstellung, Erfüllung oder Ausbuchung erzeugt kein Darlehen nur aufgrund seiner Richtung oder Art des Vermögenswerts.
+Ein künftiges Darlehen oder anderes Kreditprodukt würde vor der Nutzung gesondert vorgelegte ergänzende und transaktionsbezogene Bedingungen erfordern. Ein gewöhnlicher Versand, Beitrag, eine Fonds-Einzahlung, ein Fonds-Tausch, eine Vorlage zur Einlösung, Erfüllung oder Ausbuchung schafft nicht allein wegen seiner Richtung oder Art des Vermögenswerts ein Darlehen.
 
-## **17.4 Schutz, Beweise und lokales Recht**
+## **17.4 Schutz, Nachweise und lokales Recht**
 
-Ein Limit, eine Reserve, eine Registrierung, eine App-Liste oder eine Blockchain-Transaktion sind nicht automatisch eine Garantie oder eine Versicherungspolice. Jeder Schutz muss seine verantwortliche Partei, das abgedeckte Ereignis, die Finanzierung, die Höchstgrenze, die Ausschlüsse, die Dauer, die Beweise, das Anspruchsprozess und die anwendbaren Bedingungen identifizieren.
+Eine Grenze, Reserve, ein Registereintrag, eine App-Auflistung oder eine Blockchain-Transaktion ist nicht automatisch eine Garantie oder Versicherungspolice. Jeder Schutz muss die verantwortliche Partei, das abgedeckte Ereignis, Finanzierung, Höchstgrenze, Ausschlüsse, Dauer, Nachweise, das Anspruchsverfahren und die geltenden Bedingungen benennen.
 
-Beweise aus der öffentlichen Kette können Adressen, Vermögenswerte, Beträge, Zeitstempel und Verträge zeigen. Sie beweist nicht an sich Identität, Emittentenkapazität, Erfüllung, Zufriedenheit, Governance-Deberierung, gesetzliche Ausbuchung oder soziale Auswirkungen.
+Nachweise aus einer öffentlichen Blockchain können Adressen, Vermögenswerte, Beträge, Zeitstempel und Vertragsereignisse zeigen. Sie beweisen für sich allein weder Identität noch Leistungsfähigkeit des Herausgebers, Erfüllung, Zufriedenheit, Beratungen der Governance, rechtliche Ausbuchung oder soziale Wirkung.
 
-Funktionen können aufgrund von Gesetzen, Sanktionen, Förderfähigkeit, Vertragszustand, Bestand, Grenzen, Sicherheit, Gerichtsbarkeit oder Dienstleistungen von Drittanbietern eingeschränkt oder nicht verfügbar sein. Emittenten, Fonds-Verantwortliche, Anbieter und Teilnehmer sind weiterhin für die Bestimmung und Einhaltung des geltenden Rechts verantwortlich.
+Funktionen können aufgrund von Gesetzen, Sanktionen, Teilnahmevoraussetzungen, Vertragszustand, Beständen, Grenzen, Sicherheit, Rechtsordnung oder Diensten Dritter eingeschränkt oder nicht verfügbar sein. Herausgeber, Fonds-Verantwortliche, Anbieter und Teilnehmende bleiben dafür verantwortlich, das anwendbare Recht zu bestimmen und einzuhalten.

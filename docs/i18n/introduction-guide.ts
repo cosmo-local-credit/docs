@@ -101,7 +101,7 @@ export const introductionGuideMessages = {
   },
   "de": {
     "label": "So nutzen Sie CLC",
-    "back": "Rücken",
+    "back": "Zurück",
     "next": "Weiter",
     "about": "Über Cosmo-Local Credit",
     "slides": [

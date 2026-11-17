@@ -56,6 +56,8 @@
 
 \textbf{Download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-de.pdf}{CLC White Paper v0.9 (PDF, Deutsch)}
 
+\textbf{Barrierefreie Ausgabe:} Die HTML-Kapitel in diesem Abschnitt bilden die barrierefreie Webausgabe. Das herunterladbare PDF ist ein festes Veröffentlichungsartefakt und derzeit nicht mit Tags für die Navigation in barrierefreien Dokumenten versehen.
+
 \textbf{Veröffentlichung:} Finale, versionierte öffentliche Ausgabe. Dieses Dokument ist keine Anlageberatung und stellt weder ein Verkaufsangebot noch eine Aufforderung zum Kauf eines Wertpapiers oder Finanzinstruments dar. Spätere Versionen können die hier beschriebenen Entwürfe überarbeiten.
 
 \section*{Hinweise zum Lesen}
@@ -75,7 +77,7 @@ Status & Bedeutung \\
 \bottomrule
 \end{longtable}
 
-Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über \texttt{SwapPool}, optionale Kuratierung und Bewertung, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core bieten Routenerkennung innerhalb derselben Blockchain, Angebote auf Grundlage eines festgelegten Blocks, Simulation, signierte atomare Wallet-Batches durch bis zu drei Fonds und zusammengefasste Belege. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme bleiben vorgeschlagen oder bereitstellungsabhängig.
+Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über \texttt{SwapPool}, optionale Kuratierung und Bewertung, Token-Saldenobergrenzen der Fonds, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core bieten Routenerkennung innerhalb derselben Blockchain, Kursangebote auf Grundlage eines festgelegten Blocks, Simulation, signierte atomare Wallet-Batches durch bis zu drei Fonds und zusammengefasste Belege. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme bleiben vorgeschlagen oder bereitstellungsabhängig.
 
 \textbf{Zielgruppe:} Entwickler und Verantwortliche von Fonds, Protokollentwickler und Prüfer, Geldgeber für Liquidität und Mandate, Gestalter von Governance sowie Fachleute für Recht und Compliance.
 
@@ -84,14 +86,14 @@ Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über \texttt{SwapP
 
 Cosmo-Local Credit ist eine Produktfamilie rund um das \textbf{Commitment Pooling Protocol (CPP)}. CPP beschreibt, wie unabhängig verwaltete Commitment-Fonds einlösbare Verpflichtungen kuratieren, Methoden für Wechselkurse und Grenzen veröffentlichen, Bestände halten und verantwortlichen Tausch ermöglichen können.
 
-Ein \textbf{Commitment-Fonds } ist die verwaltete Vereinbarung. Ein aktueller \textbf{\texttt{SwapPool}} von Protocol v1.1.0 ist eine Vertragskomponente: ein Token-Tresor und eine Engine für direkte Tausche. Eine Bereitstellung kann diesen Vertrag mit Registern, Quotern, Obergrenzen für Fonds-Token-Salden, Gebührenregeln und weiteren Diensten verbinden.
+Ein \textbf{Commitment-Fonds} ist die verwaltete Vereinbarung. Ein aktueller \textbf{\texttt{SwapPool}} von Protocol v1.1.0 ist eine Vertragskomponente: ein Token-Tresor und eine Engine für direkte Tausche. Eine Bereitstellung kann diesen Vertrag mit Registern, Quotern, Obergrenzen für Fonds-Token-Salden, Gebührenregeln und weiteren Diensten verbinden.
 
 Kosmo-lokal bedeutet, offene Standards, Software und Wissen weltweit zu teilen, während Ausgabe, Erfüllung, Governance und reale Verantwortlichkeit lokal bleiben. Ein Herausgeber bleibt für seinen Gutschein verantwortlich. Eine Fonds-Verantwortliche bleibt für die Fondsregeln und jede ausdrücklich übernommene Garantie verantwortlich. Weder die CLC App noch GEF garantieren automatisch einen Gutschein, Fonds, Wert, eine Route, Liquiditätsposition oder ein Ergebnis.
 
 \section*{Aktuelle Bereitstellung}
 \addcontentsline{toc}{section}{Aktuelle Bereitstellung}
 
-GEF betreibt die CLC App unter \href{https://cosmolocal.credit}{cosmolocal.credit}. Sie bietet Zugang zu Konten und Wallets, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Wünsche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen auf Anwendungsebene. CLC Core unterstützt Routenerkennung, verbindliche Angebote, Transaktionssimulation, Koordination des Relayers, Abstimmung mit der Blockchain und zusammengefasste Belege. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Wallet-Typ, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
+GEF betreibt die CLC App unter \href{https://cosmolocal.credit}{cosmolocal.credit}. Sie bietet Zugang zu Konten und Wallets, einen öffentlichen Marktkatalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Gesuche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen auf Anwendungsebene. CLC Core unterstützt Routenerkennung, verbindliche Kursangebote, Transaktionssimulation, Koordination des Relayers, Abstimmung mit der Blockchain und zusammengefasste Belege. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Wallet-Typ, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
 
 Der Betrieb der Benutzeroberfläche macht GEF nicht automatisch zum Herausgeber, zur Fonds-Verantwortlichen, zum Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garanten, zur Einlösestelle, zum Berater, Versicherer oder zur Partei von Verpflichtungen zwischen Teilnehmern. Die Nutzung der App unterliegt den \href{https://docs.cosmolocal.credit/de/governance/terms}{Nutzungsbedingungen}.
 
@@ -178,44 +180,46 @@ Unterstützer oder Liquiditätsanbieter erhalten durch den aktuellen \texttt{Swa
 \section*{Zusammenfassung}
 \addcontentsline{toc}{section}{Zusammenfassung}
 
-Die \textbf{Commitment Pooling Protokoll (CPP)} beschreibt, wie unabhängig regierte Commitment-Fonds einlösbare Verpflichtungen kuratieren, Wechselkursmethoden und -grenzen veröffentlichen, Bestandsaufzeichnungen führen und einen verantwortungsvollen Austausch ermöglichen kann. Die Emittenten sind weiterhin für ihre Gutscheinsverpflichtungen verantwortlich. Fonds-Verantwortliche bleibt für die Fonds-Regelungen und alle garantierten Bestimmungen, die sie ausdrücklich übernehmen, verantwortlich. Weder die CLC App noch die GEF sind ein universeller Garant.
+Das \textbf{Commitment Pooling Protocol (CPP)} beschreibt, wie unabhängig verwaltete Commitment-Fonds einlösbare Verpflichtungen kuratieren, Methoden für Wechselkurse und Grenzen veröffentlichen, Bestände halten und verantwortlichen Tausch ermöglichen können. Herausgeber bleiben für ihre Gutscheinverpflichtungen verantwortlich. Fonds-Verantwortliche bleiben für die Fondsregeln und jede ausdrücklich übernommene Garantie verantwortlich. Weder die CLC App noch GEF sind universelle Garanten.
 
-Protocol v1.1.0 stellt die aktuellen Bausteine für direkte Tausche bereit: \texttt{GiftableToken}, \texttt{SwapPool}, optionale Register und Bewertungsmodule, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr und einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core erkennen jetzt Routen innerhalb derselben Blockchain durch bis zu drei Fonds, erstellen Angebote auf Grundlage eines festgelegten Blocks, simulieren und bereiten signierte atomare Wallet-Batches vor, leiten sie weiter und fassen ihre Abwicklungsdaten zusammen. Die Verträge erfassen weiterhin keine Erfüllung in der realen Welt, schaffen keine automatischen Anteile für Liquiditätsanbieter, führen kein Blockchain-übergreifendes Routing oder gebündelte Verrechnung aus und stellen keine universellen Reserven, Garantien oder Versicherungen bereit.
+Protocol v1.1.0 stellt die aktuellen Bausteine für direkte Tausche bereit: \texttt{GiftableToken}, \texttt{SwapPool}, optionale Register und Bewertungsmodule, Fonds-Token-Saldenobergrenzen, Fondsgebühren, eine zusätzliche Protokollgebühr und einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core erkennen heute Routen innerhalb derselben Blockchain durch bis zu drei Fonds, erstellen Angebote auf Grundlage eines festgelegten Blocks, simulieren und bereiten signierte atomare Wallet-Batches vor, leiten sie weiter und fassen ihre Abwicklungsaufzeichnungen zusammen. Die Verträge erfassen weiterhin keine Erfüllung in der realen Welt, schaffen keine automatischen Anteile für Liquiditätsanbieter, führen kein Blockchain-übergreifendes Routing oder gebündelte Verrechnung aus und stellen keine universellen Reserven, Garantien oder Versicherungen bereit.
 
-Die historische \textbf{Sarafu Network} Gebrauch von Konzepten der Verpflichtungsherstellung in gemeinschaftlichen Währungen, Spargruppen, gegenseitigen Beihilferegelungen und Produktionsverpflichtungen. Sein Service wechselte später zum CLC App. Dies war keine Darstellung, dass jedes historische Konto, Brieftasche, Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder Verpflichtung migrierte.
+Das historische \textbf{Sarafu Network} verwendete Konzepte des Commitment Pooling in Gemeinschaftswährungen, Spargruppen, Systemen gegenseitiger Hilfe und Produktionsverpflichtungen. Sein Dienst ging später in die CLC App über. Dies war keine Aussage, dass jedes historische Konto, jede Geldbörse, jeder Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder jede Verpflichtung migriert wurde.
 
-\subsubsection*{Historisches Sarafu Network-Snapshot --- Celo-Aktivität vom 5. Juli 2023 bis zum 20. Juli 2025}
+\textbf{Historische Momentaufnahme des Sarafu Network -- Celo-Aktivität vom 5. Juli 2023 bis 20. Juli 2025}
 
-\textbf{Quelle:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics-Dashboard}
+\textbf{Quelle:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune-Analytics-Dashboard}
 
 \begin{itemize}[leftmargin=*]
-\item 26.367 Benutzer
-\item 285.197 Peer-to-Peer-Austausch
+\item 26.367 Nutzer
+\item 285.197 Tausche zwischen Nutzern
 \item 188 einzigartige aktive Commitment-Fonds
 \item 745 einzigartige aktive Gutscheine
-\item Volumen der Fonds-Swaps von \$320.692
-\item 899 veröffentlichte Berichte (\href{https://sarafu.network/reports}{historische Berichte Archive})
+\item 320.692 USD Volumen von Fonds-Tauschen
+\item 899 veröffentlichte Berichte (\href{https://sarafu.network/reports}{historisches Berichtsarchiv})
 \end{itemize}
-Diese Zahlen sind historische Beweise, nicht aktuelle CLC-Nutzungszahlen.
+Diese Zahlen sind historische Nachweise und keine aktuellen CLC-Nutzungszahlen.
 
-Der weitergehende CLC-Entwurf verbindet das aktuelle Routing mit Vorschlägen dazu, wie kompatible Netzwerke:
+Die Zahlen geben die veröffentlichten Bezeichnungen des Dashboards für einen zusammenhängenden Messzeitraum wieder. „Nutzer``, „aktiv``, „Tausch`` und die Umrechnung des Fonds-Tauschvolumens in USD hängen von den zugrunde liegenden Dashboard-Abfragen und der Bewertungsmethode ab; sie sollten nicht als allgemeingültige CLC-KPI-Definitionen behandelt werden. Dieses Repository hat den Datensatz nicht unabhängig neu berechnet. Jede Weiterverwendung sollte Datum, Quellenlink, Bezeichnungen und historische Einordnung beibehalten. Die vorgeschlagenen Messanforderungen in \href{https://docs.cosmolocal.credit/de/white-paper/appendix-c-kpi-definitions}{Anhang C} sind für künftige Berichte strenger.
+
+Der weiter gefasste CLC-Entwurf verbindet das aktuelle Routing mit Vorschlägen dazu, wie kompatible Netzwerke:
 
 \begin{enumerate}[leftmargin=*]
-\item verantwortliche Routing-Dienste auf zusätzliche Register- oder Richtlinienprofile und weitere Bereiche ausweiten;
-\item koordinieren verantwortungsbewusste Netzdienste, ohne die örtliche Verantwortung zu übernehmen;
-\item Unterstützung von separat finanzierten Liquiditätsmandaten, Garantien, Reserven oder Versicherungspolicies;
-\item die Fonds-Swaps getrennt von der Vorlage, Erfüllung und Ausbuchung von Gutscheinen zu messen; und
-\item einen vorgeschlagenen Netzwerkanteil und gesondert beschlossene Servicegebühren zur Finanzierung gemeinsamer Dienste verwenden.
+\item verantwortliche Routing-Dienste auf zusätzliche Register- oder Richtlinienprofile und weitere Bereiche ausweiten könnten;
+\item verantwortliche Netzwerkdienste koordinieren könnten, ohne die lokale Verantwortung zu verdrängen;
+\item gesondert finanzierte Liquiditätsmandate, Garantien, Reserven oder Versicherungspolicen unterstützen könnten;
+\item Fonds-Tausche getrennt von Gutscheinvorlage, Erfüllung und Ausbuchung messen könnten; und
+\item einen vorgeschlagenen Netzwerkanteil und gesondert beschlossene Servicegebühren zur Finanzierung gemeinsamer Dienste verwenden könnten.
 \end{enumerate}
-Der Entwurf umfasst einen \textbf{vorgeschlagenen CLC-Governance-Token } und einen \textbf{ vorgeschlagenen CLC-Netzwerkfonds}. Beide sind weder Teil der aktuellen App noch von Protocol v1.1.0.
+Der Entwurf umfasst einen \textbf{vorgeschlagenen CLC-Governance-Token} und einen \textbf{vorgeschlagenen CLC-Netzwerkfonds}. Beide sind weder Bestandteil der aktuellen App noch von Protocol v1.1.0.
 
-Im Rahmen des vorgeschlagenen Modells konnten die Teilnehmer an Liquidität und Governance nur durch getrennte Programme mit veröffentlichter Förderfähigkeit, Risiken, Kontrollen, Übertragungsrechten, Rückforderungsbedingungen und Gebührenregeln handeln. Normal Fonds-Einlagen erzeugen keine automatischen Anteile, Rückzahlungen, Auszahlungen, Belohnungen oder Governance-Rechte.
+Im vorgeschlagenen Modell könnten Teilnehmer nur über getrennte Programme mit veröffentlichten Regeln zu Berechtigung, Risiken, Kontrollen, Übertragungsrechten, Rückforderungsbedingungen und Gebühren an Liquidität und Governance teilhaben. Gewöhnliche Fonds-Einzahlungen schaffen keine automatischen Anteile, Rückzahlungen, Abhebungen, Belohnungen oder Governance-Rechte.
 
-Das gemeinsame Ziel ist:
+Das gemeinsame Ziel lautet:
 
-Erhöhung des verantwortungsvollen Austauschs und der Erfüllung von Verpflichtungen in der realen Welt, wobei Pflege, Gerechtigkeit, lokale Verantwortung und Widerstandsfähigkeit gewahrt werden.
+Verantwortlichen Tausch und die Erfüllung realer Verpflichtungen ausweiten und dabei Fürsorge, Fairness, lokale Verantwortlichkeit und Widerstandsfähigkeit bewahren.
 
-Die Festnahmeverhütung und der glaubwürdige Ausstieg bleiben die Kernziele des Entwurfs. Die vorgeschlagenen Kontrollen umfassen zeitverzögerte Governance, mehrere Genehmigungsschwellen, transparente Delegationen, Konfliktregeln, Vorfallüberprüfung und einen dokumentierten Fork-and-Migrate-Prozess. Diese Kontrollen würden gewählte Risiken für die Governance reduzieren, aber keine Verluste oder Garantieergebnisse beseitigen.
+Die Vermeidung vereinnahmender Strukturen und ein glaubwürdiger Ausstieg bleiben zentrale Gestaltungsziele. Zu den vorgeschlagenen Kontrollen gehören zeitverzögerte Governance, mehrere Genehmigungsschwellen, transparente Delegationen, Regeln für Interessenkonflikte, Überprüfung von Vorfällen und ein dokumentiertes Verfahren für Fork und Migration. Diese Kontrollen würden bestimmte Governance-Risiken verringern, aber keine Verluste ausschließen oder Ergebnisse garantieren.
 
 
 \section*{1. Verpflichtungspartnerprotokoll (CPP): das primitive Kern}
@@ -1272,66 +1276,66 @@ Ein Register, Fonds oder ein zukünftiges Liquiditätsprogramm kann diese Vorlag
 Die Ausgabe sollte die Aufbewahrung, die Grenzwerte, die Reserven oder die Überprüfung nicht als Bestätigung, die Ausstellerkapazität, die Versicherung oder die garantierte Erfüllung beschreiben, es sei denn, die zuständige Partei hat diesen Schutz ausdrücklich festgestellt.
 
 
-\section*{17. Rechtliche und Konformitätsnachweise}
-\addcontentsline{toc}{section}{17. Rechtliche und Konformitätsnachweise}
+\section*{17. Rechtlicher und regulatorischer Hinweis}
+\addcontentsline{toc}{section}{17. Rechtlicher und regulatorischer Hinweis}
 
-CPP kann Token, Gutscheine, Fonds und Swaps koordinieren, deren rechtliche Behandlung von ihrer Gestaltung, Vermarktung, Verwendung, Verantwortlichen und Gerichtsbarkeit abhängt. Nichts in diesem Weißbuch ist rechtliche, steuerliche, Investitions-, Kredit- oder Finanzberatung.
+CPP kann Token, Gutscheine, Commitment-Fonds und Tausche koordinieren, deren rechtliche Behandlung von ihrer Ausgestaltung, Vermarktung und Nutzung sowie von den verantwortlichen Parteien und der jeweiligen Rechtsordnung abhängt. Dieses Whitepaper stellt keine Rechts-, Steuer-, Anlage-, Kredit- oder Finanzberatung dar.
 
-Die Nutzung der CLC App unterliegt den \href{https://docs.cosmolocal.credit/de/governance/terms}{Nutzungsbedingungen}. GEF betreibt die App und die unterstützende Infrastruktur. Sofern GEF nicht ausdrücklich eine andere Rolle übernimmt, ist GEF weder Herausgeber noch Fonds-Verantwortliche, Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garant, Einlösestelle, Berater, Versicherer oder Partei von Verpflichtungen zwischen Teilnehmern.
+Für die Nutzung der CLC App gelten die \href{https://docs.cosmolocal.credit/de/governance/terms}{Nutzungsbedingungen}. Der \href{https://docs.cosmolocal.credit/de/governance/policies}{Bereich Richtlinien und Hinweise} verlinkt die aktuelle Datenschutzerklärung, Datenschutzrichtlinie und Kinderschutzrichtlinie. GEF betreibt die App und die unterstützende Infrastruktur. Sofern GEF nicht ausdrücklich eine andere Rolle übernimmt, ist GEF weder Herausgeber noch Fonds-Verantwortliche, Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garant, Einlösestelle, Berater, Versicherer oder Partei von Verpflichtungen zwischen Teilnehmenden.
 
-Beim Einsatz abhängige Zahlungsdienste müssen der verantwortliche Anbieter, die Gerichtsbarkeit, die Berechtigung, die Gebühren, die Grenzen, das Modell der Aufbewahrung und die Bedingungen identifiziert werden. Die Anwesenheit eines Anschlusses bedeutet nicht, dass GEF oder ein Fonds den zugrunde liegenden regulierten Dienst betreibt.
+Einsatzabhängige Zahlungsdienste müssen ihren verantwortlichen Anbieter, die Rechtsordnungen, Teilnahmevoraussetzungen, Gebühren, Grenzen, das Verwahrungsmodell und die Bedingungen benennen. Das Vorhandensein einer Schnittstelle bedeutet nicht, dass GEF oder ein Fonds den zugrunde liegenden regulierten Dienst betreibt.
 
-\subsection*{17.1 Gutscheine und Angebote}
-\addcontentsline{toc}{subsection}{17.1 Gutscheine und Angebote}
+\subsection*{17.1 Offenlegungen zu Gutscheinen und Angeboten}
+\addcontentsline{toc}{subsection}{17.1 Offenlegungen zu Gutscheinen und Angeboten}
 
-Ein Emittent sollte Folgendes veröffentlichen und auf dem neuesten Stand halten:
+Ein Herausgeber sollte Folgendes veröffentlichen und aktuell halten:
 
 \begin{itemize}[leftmargin=*]
-\item Verantwortliche Identität und Kontaktinformationen;
-\item das zugehörige Angebot, die Einheit, die Versorgung, der angegebene Wert und die Kapazität;
-\item Standorte und Verfahren der Darstellung;
+\item verantwortliche Identität und Kontaktinformationen;
+\item das zugehörige Angebot, die Einheit, die ausgegebene Menge, den angegebenen Wert und die Kapazität;
+\item Orte und Verfahren für die Vorlage zur Einlösung;
 \item Zeitpunkt und Nachweis der Erfüllung;
-\item Verfall, Gebühren, Steuern, Einschränkungen und Regeln für die Änderung von Materialien;
-\item Beschwerden, Ersetzungen, Erstattungen oder sonstige Rechtsmittel; und
-\item die Entladungsmethode, die eine Wiederverwendung nach der Verfüllung verhindert.
+\item Ablauf, Gebühren, Steuern, Einschränkungen und Regeln für wesentliche Änderungen;
+\item Beschwerden, Ersatzleistungen, Erstattungen oder andere Rechtsbehelfe; und
+\item das Verfahren zur Ausbuchung, das eine erneute Verwendung nach der Erfüllung verhindert.
 \end{itemize}
-Ein Token-Vertrag legt diese Bedingungen nicht fest oder beweist die Leistung nicht.
+Ein Token-Vertrag legt diese Bedingungen nicht fest und beweist keine Leistung.
 
-\subsection*{17.2 Veröffentlichungen des Fonds}
-\addcontentsline{toc}{subsection}{17.2 Veröffentlichungen des Fonds}
+\subsection*{17.2 Offenlegungen zu Fonds}
+\addcontentsline{toc}{subsection}{17.2 Offenlegungen zu Fonds}
 
-Eine Fonds-Verantwortliche Person sollte Folgendes veröffentlichen:
+Eine Fonds-Verantwortliche sollte Folgendes veröffentlichen:
 
 \begin{itemize}[leftmargin=*]
-\item Zweck des Fonds und verantwortliche Entscheidungsträger;
-\item der Eigentümer von \texttt{SwapPool}, der Proxy-Administrator, die Abhängigkeitscontroller und die Gebührenempfänger;
-\item die zugelassenen Vermögenswerte und die Aussetzung oder Entfernung von Vorschriften;
-\item Bewertungsmethoden, Zitatquellen, Gebühren, Token-Balanz-Obergrenzen, Inventar- und Eigentümer-Abweichungsbefugnisse;
-\item Beiträge und Ausstiegsrechte;
-\item jede Reserve, Garantie, Bürgschaft, Versicherungspolice und Verlustzuweisungsregelung; und
-\item Regierungsführung, Upgrade, Notfälle, Beschwerden, Migration und Beendigungsprozesse.
+\item den Zweck des Fonds und die verantwortlichen Entscheidungsträger;
+\item den Eigentümer des \texttt{SwapPool}, den Proxy-Administrator, die Kontrolleure von Abhängigkeiten und die Gebührenempfänger;
+\item zugelassene Vermögenswerte sowie Regeln für ihre Aussetzung oder Entfernung;
+\item Bewertungsmethoden, Quellen für Kursangebote, Gebühren, Token-Saldenobergrenzen, Bestände und die Abhebungsbefugnisse des Eigentümers;
+\item Beitrags- und Ausstiegsrechte;
+\item jede Reserve, Garantie, jeden Garanten, jede Versicherungspolice und jede Regel zur Verlustzuweisung; und
+\item Verfahren für Governance, Upgrades, Notfälle, Beschwerden, Migration und Beendigung.
 \end{itemize}
-Die Anmeldung ist keine Genehmigung, Bewertung, Versicherung oder Garantie von GEF.
+Eine Auflistung ist keine Empfehlung, Bewertung, Versicherung oder Garantie durch GEF.
 
-\subsection*{17.3 Aktionen und Verpflichtungen}
-\addcontentsline{toc}{subsection}{17.3 Aktionen und Verpflichtungen}
+\subsection*{17.3 Handlungen und Verpflichtungen}
+\addcontentsline{toc}{subsection}{17.3 Handlungen und Verpflichtungen}
 
-Ein gewöhnlicher \textbf{Fonds swap} Börsen unterstützte Vermögenswerte unter einer angezeigten Quote und Transaktionsgrenzen. Die Vermögensverwaltung macht es nicht zu einem Darlehen, zur Rückzahlung, zur Rückzahlung durch den Emittenten oder zur Realisierung.
+Ein gewöhnlicher \textbf{Fonds-Tausch} tauscht unterstützte Vermögenswerte zu einem angezeigten Kursangebot und innerhalb der Transaktionsgrenzen. Die Richtung der Vermögenswerte macht den Vorgang weder zu einem Darlehen noch zu einer Rückzahlung, einer Einlösung durch den Herausgeber oder einer Erfüllung in der realen Welt.
 
-\textbf{Erlösungsvorlage } Rückgabe oder Darstellung von Gutscheineinheiten an einen Emittenten. \textbf{ Erfüllung } ist die vom Emittenten versprochene Leistung. \textbf{ Ausbuchung } die Aufzeichnungen erfüllte Einheiten, so dass sie nicht wiederverwendbar sind. Die App ist \textbf{„Einlösen``} die Aktion zurzeit eine Übertragung an den Tokeninhaber vorbereitet; Diese Übertragung allein beweist keine Erfüllung.
+Bei der \textbf{Vorlage zur Einlösung} werden Gutschein-Einheiten an einen Herausgeber zurückgegeben oder ihm vorgelegt. \textbf{Erfüllung} ist die vom Herausgeber versprochene Leistung. Die \textbf{Ausbuchung} erfasst erfüllte Einheiten so, dass sie nicht erneut verwendet werden können. Die App-Aktion \textbf{„Einlösen``} bereitet derzeit eine Übertragung an den Token-Eigentümer vor; diese Übertragung allein beweist keine Erfüllung.
 
-Die App ist \textbf{„Gutschein stilllegen``} Die Aktion ist reversibel Katalog-Entfernung. Sie verbrennt keine Salden, annulliert keine Ansprüche oder entrichtet keine Verpflichtungen.
+Die App-Aktion \textbf{„Stilllegung beantragen``} übermittelt einen Antrag des Eigentümers zur administrativen Prüfung. Der Gutschein oder Fonds bleibt aktiv, solange der Antrag aussteht; der Antrag kann genehmigt, abgelehnt oder zurückgezogen werden. Die genehmigte Stilllegung eines Gutscheins entfernt den Katalogeintrag aus der aktiven Nutzung, ohne Salden, Verträge, Verlauf, Ansprüche oder Verpflichtungen zu löschen. Die genehmigte Stilllegung eines Fonds sperrt neue Tausche und Einzahlungen, während verfügbare Abhebungen weiterhin möglich sind. Keine dieser Handlungen ist eine Verbrennung, Erfüllung oder Ausbuchung.
 
-Für ein zukünftiges Darlehen oder ein anderes Kreditprodukt sind zusätzliche und Transaktionsbedingungen vor Verwendung getrennt vorzulegen. Ein gewöhnlicher Versand, Beitrag, Fonds-Einzahlung, Fonds-Swap, Darstellung, Erfüllung oder Ausbuchung erzeugt kein Darlehen nur aufgrund seiner Richtung oder Art des Vermögenswerts.
+Ein künftiges Darlehen oder anderes Kreditprodukt würde vor der Nutzung gesondert vorgelegte ergänzende und transaktionsbezogene Bedingungen erfordern. Ein gewöhnlicher Versand, Beitrag, eine Fonds-Einzahlung, ein Fonds-Tausch, eine Vorlage zur Einlösung, Erfüllung oder Ausbuchung schafft nicht allein wegen seiner Richtung oder Art des Vermögenswerts ein Darlehen.
 
-\subsection*{17.4 Schutz, Beweise und lokales Recht}
-\addcontentsline{toc}{subsection}{17.4 Schutz, Beweise und lokales Recht}
+\subsection*{17.4 Schutz, Nachweise und lokales Recht}
+\addcontentsline{toc}{subsection}{17.4 Schutz, Nachweise und lokales Recht}
 
-Ein Limit, eine Reserve, eine Registrierung, eine App-Liste oder eine Blockchain-Transaktion sind nicht automatisch eine Garantie oder eine Versicherungspolice. Jeder Schutz muss seine verantwortliche Partei, das abgedeckte Ereignis, die Finanzierung, die Höchstgrenze, die Ausschlüsse, die Dauer, die Beweise, das Anspruchsprozess und die anwendbaren Bedingungen identifizieren.
+Eine Grenze, Reserve, ein Registereintrag, eine App-Auflistung oder eine Blockchain-Transaktion ist nicht automatisch eine Garantie oder Versicherungspolice. Jeder Schutz muss die verantwortliche Partei, das abgedeckte Ereignis, Finanzierung, Höchstgrenze, Ausschlüsse, Dauer, Nachweise, das Anspruchsverfahren und die geltenden Bedingungen benennen.
 
-Beweise aus der öffentlichen Kette können Adressen, Vermögenswerte, Beträge, Zeitstempel und Verträge zeigen. Sie beweist nicht an sich Identität, Emittentenkapazität, Erfüllung, Zufriedenheit, Governance-Deberierung, gesetzliche Ausbuchung oder soziale Auswirkungen.
+Nachweise aus einer öffentlichen Blockchain können Adressen, Vermögenswerte, Beträge, Zeitstempel und Vertragsereignisse zeigen. Sie beweisen für sich allein weder Identität noch Leistungsfähigkeit des Herausgebers, Erfüllung, Zufriedenheit, Beratungen der Governance, rechtliche Ausbuchung oder soziale Wirkung.
 
-Funktionen können aufgrund von Gesetzen, Sanktionen, Förderfähigkeit, Vertragszustand, Bestand, Grenzen, Sicherheit, Gerichtsbarkeit oder Dienstleistungen von Drittanbietern eingeschränkt oder nicht verfügbar sein. Emittenten, Fonds-Verantwortliche, Anbieter und Teilnehmer sind weiterhin für die Bestimmung und Einhaltung des geltenden Rechts verantwortlich.
+Funktionen können aufgrund von Gesetzen, Sanktionen, Teilnahmevoraussetzungen, Vertragszustand, Beständen, Grenzen, Sicherheit, Rechtsordnung oder Diensten Dritter eingeschränkt oder nicht verfügbar sein. Herausgeber, Fonds-Verantwortliche, Anbieter und Teilnehmende bleiben dafür verantwortlich, das anwendbare Recht zu bestimmen und einzuhalten.
 
 
 \section*{18. Fazit}

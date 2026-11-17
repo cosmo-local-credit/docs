@@ -60,14 +60,17 @@
     ],
     "de": [
       "erste-schritte",
-      "mit-der-aktuellen-app-beginnen",
-      "1-den-markt-durchsuchen",
-      "2-ein-konto-und-eine-geldbörse-erstellen-oder-aufrufen",
-      "3-einen-gutschein-erstellen",
-      "4-einen-commitment-fonds-erstellen-oder-prüfen",
-      "5-umtausch-direkt-oder-über-eine-route",
-      "6-die-passende-aktion-wählen",
-      "aktuelle-bereitstellungsabhängige-und-vorgeschlagene-funktionen"
+      "ein-erster-weg-durch-die-app",
+      "1-den-markt-und-gesuche-erkunden",
+      "2-ein-konto-und-eine-geldbörse-erstellen-oder-darauf-zugreifen",
+      "3-einen-gutschein-und-ein-angebot-erstellen",
+      "4-ein-gesuch-veröffentlichen-oder-beantworten",
+      "5-einen-commitment-fonds-finden-oder-erstellen",
+      "6-gutscheine-senden-oder-tauschen",
+      "7-einen-gutschein-bei-seinem-herausgeber-nutzen",
+      "vor-einer-veröffentlichung",
+      "aktuelle-aktionen-in-der-app",
+      "verantwortlichkeiten-und-wichtige-grenzen"
     ],
     "es": [
       "primeros-pasos",
@@ -266,11 +269,13 @@
     ],
     "de": [
       "konzepte-und-begriffe",
-      "produkt--und-protokollebenen",
-      "tokens-gutscheine-und-angebote",
+      "alltägliche-begriffe",
+      "teilnehmer-entdecken-und-kontaktieren",
+      "gutscheine-tokens-und-angebote",
       "verantwortliche-rollen-und-technische-kontrolle",
       "handlungen-und-lebenszyklus",
-      "markt-werte-grenzen-und-gebühren",
+      "produkt--und-protokollebenen",
+      "werte-kredit-grenzen-und-gebühren",
       "routen-und-liquidität",
       "schutz-und-nachweise",
       "statusbegriffe"
@@ -481,18 +486,20 @@
       "མའོངསཔའི-སྐྱིནའགྲུལགྱིམཐུནརྐྱེནཚུ"
     ],
     "de": [
-      "praktisches-gutscheinbeispiel",
+      "beispiele-für-den-gutschein-tausch",
+      "einfaches-beispiel-ein-fonds-drei-teilnehmer",
+      "erweitertes-beispiel-ein-tausch-über-eine-route",
       "1-ein-herausgeber-veröffentlicht-eine-verpflichtung",
-      "2-ein-teilnehmer-veröffentlicht-einen-wunsch",
+      "2-ein-teilnehmer-veröffentlicht-ein-gesuch",
       "3-unabhängige-fonds-verantwortliche-kuratieren-eine-route",
       "4-teilnehmer-stellen-bestände-bereit",
       "5-die-app-erkennt-und-berechnet-eine-route",
       "6-der-inhaber-führt-den-tausch-über-die-route-aus",
       "7-der-inhaber-legt-den-gutschein-vor",
-      "8-der-herausgeber-zeichnet-erfüllung-und-ausbuchung-auf",
-      "verantwortlichkeiten-auf-einen-blick",
+      "8-der-herausgeber-erfasst-erfüllung-und-ausbuchung",
+      "verantwortlichkeiten-im-überblick",
       "wenn-keine-route-verfügbar-ist",
-      "zukünftige-kreditvereinbarungen"
+      "künftige-kreditvereinbarungen"
     ],
     "es": [
       "ejemplos-de-intercambio-de-vales",
@@ -1505,6 +1512,7 @@
       "8-erforderliche-und-optionale-daten",
       "9-wie-wir-daten-erhalten",
       "10-wer-erhält-daten",
+      "verzeichnis-der-aktuellen-dienste",
       "11-internationale-verarbeitung",
       "12-wie-lange-wir-daten-aufbewahren",
       "13-sicherheit",
@@ -3239,7 +3247,7 @@
       "ཀློགཐིགཚུ"
     ],
     "de": [
-      "cosmo-local-credit-clc",
+      "cosmo-local-credit-whitepaper",
       "ein-netzwerk-für-kreditrouting-die-koordination-von-verpflichtungen-und-die-finanzierung-einer-gesunden-kosmo-lokalen-wirtschaft",
       "hinweise-zum-lesen",
       "kurzfassung",
@@ -5127,11 +5135,11 @@
       "174-སྲུངསྐྱོབདང-དཔྱདཡིག-དེལས-སགནསཁྲིམས"
     ],
     "de": [
-      "17-rechtliche-und-konformitätsnachweise",
-      "171-gutscheine-und-angebote",
-      "172-veröffentlichungen-des-fonds",
-      "173-aktionen-und-verpflichtungen",
-      "174-schutz-beweise-und-lokales-recht"
+      "17-rechtlicher-und-regulatorischer-hinweis",
+      "171-offenlegungen-zu-gutscheinen-und-angeboten",
+      "172-offenlegungen-zu-fonds",
+      "173-handlungen-und-verpflichtungen",
+      "174-schutz-nachweise-und-lokales-recht"
     ],
     "es": [
       "17-nota-legal-y-de-cumplimiento",

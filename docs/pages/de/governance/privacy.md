@@ -61,7 +61,7 @@ Wir können technische und betriebliche Informationen erfassen, etwa IP-Adresse,
 
 ### Inhalts- und Supportdaten
 
-Wir verarbeiten Informationen, die Sie in Gutscheinen, Fonds, Angeboten, Wünschen, Katalogen, Beiträgen, Gutschein- und Poolbewertungen, Bildern, Anhängen, Bedingungen, Beschreibungen, Tags, Standorten, Kontaktfeldern, privaten Nachrichten nach Transaktionen oder Bestellungen, Reklamationen, Supportnachrichten und anderen Mitteilungen übermitteln.
+Wir verarbeiten Informationen, die Sie in Gutscheinen, Fonds, Angeboten, Gesuchen, Katalogen, Beiträgen, Gutschein- und Fondsbewertungen, Bildern, Anhängen, Bedingungen, Beschreibungen, Tags, Standorten, Kontaktfeldern, privaten Nachrichten nach Transaktionen oder Bestellungen, Reklamationen, Supportnachrichten und anderen Mitteilungen übermitteln.
 
 Wenn Sie die Nachrichtenfunktion der App verwenden, verarbeiten wir:
 
@@ -83,8 +83,8 @@ Die App unterscheidet fünf wichtige Sichtbarkeitsstufen.
 | --- | --- |
 | Private Profil- und Kontodaten | Profilname, E-Mail-Adresse, Telefonnummer, gespeicherter Standort, Einstellungen, Authentifizierungsaufzeichnungen und ähnliche Kontoinformationen werden zum Betrieb der App verwendet und nicht automatisch in Antworten zu öffentlichen Ressourcen aufgenommen. Berechtigte Beschäftigte und Dienstleister von GEF können darauf zugreifen, wenn dies für ihre Arbeit erforderlich ist. Autorisierte Administratoren können außerdem das nicht öffentliche Kontoverzeichnis durchsuchen und verwalten. |
 | Exakte Empfängersuche | Ein angemeldeter Nutzer, der Ihren exakten Benutzernamen oder Ihre vollständige Telefonnummer eingibt, kann Ihren öffentlichen Benutzernamen und Ihre Wallet-Adresse erhalten. Teile eines Benutzernamens führen nicht zu einem Nutzerergebnis. Die für die Suche eingegebene Telefonnummer, Ihr privater Profilname, Ihre E-Mail-Adresse, Telefonnummer und Ihr gespeicherter Standort werden im Empfängerergebnis nicht zurückgegeben. |
-| Öffentliche Katalog- und Ressourcendaten | Veröffentlichte Beschreibungen, Bedingungen, Bilder, Tags, Wallet- und Vertragsadressen, Standorte, genaue Koordinaten, Angebote, Wünsche, Beiträge, Bewertungen, Poolregeln und technische Einstellungen können ohne Anmeldung eingesehen werden. Öffentliche Felder können indiziert, kopiert, geteilt oder mit einer Wallet oder anderen Ressource verknüpft werden. |
-| Angemeldeter Ressourcenkontakt | E-Mail, Telefonnummer, Website oder Kontaktanweisungen, die absichtlich zu einem Gutschein, Fonds oder Wunsch hinzugefügt wurden, werden aus abgemeldeten Katalog- und Detailantworten entfernt. Eine angemeldete Person kann den vollständigen kontaktbezogenen Gutschein- oder Pooldatensatz oder die für einen aktiven Wunsch ausgewählten Kontaktmethoden anfordern. Der Empfänger kann diese Informationen weiterhin kopieren, verwenden oder freigeben. Außer Betrieb genommene Ressourcen haben einen eingeschränkteren Besitzer- oder Administratorzugriff. |
+| Öffentliche Katalog- und Ressourcendaten | Veröffentlichte Beschreibungen, Bedingungen, Bilder, Tags, Wallet- und Vertragsadressen, Standorte, genaue Koordinaten, Angebote, Gesuche, Beiträge, Bewertungen, Fondsregeln und technische Einstellungen können ohne Anmeldung eingesehen werden. Öffentliche Felder können indiziert, kopiert, geteilt oder mit einer Wallet oder anderen Ressource verknüpft werden. |
+| Angemeldeter Ressourcenkontakt | E-Mail, Telefonnummer, Website oder Kontaktanweisungen, die absichtlich zu einem Gutschein, Fonds oder Gesuch hinzugefügt wurden, werden aus abgemeldeten Katalog- und Detailantworten entfernt. Eine angemeldete Person kann den vollständigen kontaktbezogenen Gutschein- oder Fondsdatensatz oder die für ein aktives Gesuch ausgewählten Kontaktmethoden anfordern. Der Empfänger kann diese Informationen weiterhin kopieren, verwenden oder freigeben. Stillgelegte Ressourcen haben einen eingeschränkteren Eigentümer- oder Administratorzugriff. |
 | Öffentliche Blockchain-Aufzeichnungen | Wallet-Adressen, Verträge, Salden, Bestände, Übertragungen, Beträge, Gegenparteien, Zeitstempel, Signaturen und Vertragsaktionen können dauerhaft über öffentliche Netzwerke und unabhängige Block-Explorer sichtbar sein. GEF kann eine öffentliche Blockchain weder löschen noch umschreiben. |
 
 App-Nachrichten sind nicht öffentlich. Die beiden Teilnehmer können die Wallet-Adresse, den Benutzernamen, den Avatar, Nachrichten, Bilder, den Gesprächsstatus und die Zeitstempel des jeweils anderen sehen. Lesemarker, Sperrlisten und Anfragekontingente sind betriebliche Aufzeichnungen und nicht öffentlich.
@@ -166,6 +166,19 @@ Die produktive Webanwendung wird über Cloudflare Pages bereitgestellt. Ihre akt
 
 Weitere Integrationen hängen von der jeweiligen Funktion ab. Wenn sie aktiviert und genutzt werden, verarbeitet ein Benachrichtigungsdienst Endpunkte für Push-Abonnements, Gerätestatus, verknüpfte Wallet-Adressen, Zustell- und Klickbestätigungen und den Posteingangsstatus; ein Transaktions-Relay verarbeitet signierte Anfragen und den Transaktionsstatus; ein Safe-Transaktionsdienst verarbeitet Multisig-Adressen, Vorschläge, Signaturen, Bestätigungen und den Ausführungsstatus; und ein Zahlungs- oder Geldumtausch-Anbieter verarbeitet Telefonnummer, Wallet-Adresse, Vermögenswert, Betrag, Anbieterkennung, Kurs und Transaktionsstatus, soweit dies für die Funktion erforderlich ist. Bildspeicher, App-API, Datenbanken, Blockchain-Indexer und Überwachungsinfrastruktur verarbeiten die für ihre Aufgaben nötigen Inhalte und Betriebsaufzeichnungen. Drittanbieterdienste können Daten zudem unmittelbar nach ihren eigenen Datenschutzhinweisen erheben.
 
+### Verzeichnis der aktuellen Dienste
+
+Dieses Verzeichnis erfasst Dienste, die in der am 17. November 2026 geprüften Produktionskonfiguration nachgewiesen wurden. Ein bereitstellungsabhängiger Dienst erscheint nur, wenn die betreffende Funktion konfiguriert oder genutzt wird. Funktionen, Standorte und Hinweise der Anbieter können sich ändern; zusätzlich gilt der jeweils aktuelle Hinweis des Anbieters.
+
+| Dienst oder Kategorie | Zweck und betroffene Daten | Anbieterinformationen | Status |
+| --- | --- | --- | --- |
+| Cloudflare Pages | Stellt die Webanwendung bereit und verarbeitet Netzwerkanfragen, darunter IP-Adresse, Browser-, Sicherheits- und Anfrageinformationen. | [Datenschutzrichtlinie von Cloudflare](https://www.cloudflare.com/privacypolicy/) | Aktuelles Webhosting der Produktion |
+| MapTiler | Stellt Kartenstile und IP-basierte Standortvorschläge bereit; Anfragen können IP-Adresse, Browserinformationen, Kartenausschnitt und Standortkontext umfassen. | [Datenschutzrichtlinie von MapTiler](https://www.maptiler.com/privacy-policy/) | Aktuelle Browserkonfiguration |
+| Esri ArcGIS World Geocoding | Ermöglicht Ortssuche und umgekehrte Geokodierung; Anfragen können Suchtext, Koordinaten, IP-Adresse und Browserinformationen umfassen. | [Datenschutzerklärung von Esri](https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement) | Aktuelle Browserkonfiguration |
+| Von GEF betriebene App-Dienste | Stellen App-API, Datenbank, Bildspeicher, Indexierung, konfigurierten RPC-Zugriff, Transaktionsweiterleitung, Support und damit verbundene Abläufe bereit. Die Daten richten sich nach der angeforderten App-Funktion. | Dieser Datenschutzhinweis und die [Datenschutzrichtlinie](/de/governance/data-protection) | Aktuell, wobei einzelne Komponenten je nach Bereitstellung aktiviert werden |
+| Safe-Transaktionsdienst | Unterstützt das Auffinden kompatibler Multisigs und die Koordination von Transaktionen, darunter Safe-Adressen, Unterzeichner, Schwellenwerte, Vorschläge, Bestätigungen und Ausführungsstatus. | [Datenschutzrichtlinie von Safe](https://safe.global/privacy) | Bereitstellungsabhängig |
+| Benachrichtigungs-, Zahlungs-, Geldumtausch- und andere optionale Anbieter | Verarbeiten nur die für eine aktivierte Funktion benötigten Informationen, wie oben und in den mit der Funktion angezeigten Anbieterbedingungen beschrieben. | Hinweis und Transaktionsbedingungen des jeweiligen Anbieters | Bereitstellungsabhängig |
+
 ## 11. Internationale Verarbeitung
 
 Die App, öffentliche Blockchain-Netzwerke, Dienstleister, Partner und Nutzende können in mehreren Ländern tätig sein. Personenbezogene Daten können daher außerhalb Kenias oder des Landes, in dem sie erhoben wurden, abgerufen oder verarbeitet werden.
@@ -206,7 +219,7 @@ Senden Sie Ihre Anfrage an [privacy@grassecon.org](mailto:privacy@grassecon.org)
 
 Sie können außerdem darauf verzichten, optionale Profilfelder auszufüllen, optionale Angaben vor der Veröffentlichung entfernen, eine geeignete öffentliche Kontaktmethode verwenden, einen sicheren öffentlichen Kartenpunkt auswählen, Benachrichtigungsberechtigungen verwalten und Funktionen vermeiden, die Daten erfordern, die Sie nicht bereitstellen möchten.
 
-Informationen über die Rechte betroffener Personen in Kenia erhalten Sie beim [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/).
+Informationen über die Rechte betroffener Personen in Kenia erhalten Sie beim [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/). Betroffene Personen können außerdem die offizielle [Beschwerdeseite des ODPC](https://odpc.go.ke/file-a-complaint/index.html) nutzen.
 
 ## 15. Kinder
 
