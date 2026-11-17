@@ -19,6 +19,8 @@ O histórico **Sarafu Network** Utilizou conceitos de partilha de compromissos e
 
 Estes números são evidências históricas, não os atuais números de utilização do CLC.
 
+Os números reproduzem as etiquetas publicadas no painel para um único período de medição coerente. «Utilizador», «ativo», «troca» e a conversão para USD do volume de trocas dos Fundos dependem das consultas e do método de avaliação subjacentes ao painel; não devem ser tratados como definições universais dos indicadores CLC. Este repositório não recalculou o conjunto de dados de forma independente. Qualquer reutilização deve conservar as datas, a ligação à fonte, as etiquetas e o seu caráter histórico. Os requisitos de medição propostos no [Apêndice C](/pt/white-paper/appendix-c-kpi-definitions) são mais rigorosos para relatórios futuros.
+
 O projeto mais amplo do CLC combina o roteamento atual com propostas de como as redes compatíveis poderiam:
 
 1. Estender os serviços de rotas responsáveis a perfis e domínios adicionais de registos ou políticas;

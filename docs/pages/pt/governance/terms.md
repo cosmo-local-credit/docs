@@ -1,6 +1,6 @@
 # Termos de Serviço da Cosmo-Local Credit
 
-> **Primeira tradução para revisão.** Esta tradução é fornecida para facilitar a leitura. Os Termos em inglês são o texto original e prevalecem, salvo se a lei aplicável exigir o contrário. <a data-english-source="true" href="/governance/terms" hrefLang="en">Ler os Termos em inglês</a>.
+> **Tradução de conveniência.** Esta tradução é fornecida para facilitar a leitura. Os Termos em inglês são o texto original e prevalecem, salvo se a lei aplicável exigir o contrário. <a data-english-source="true" href="/governance/terms" hrefLang="en">Ler os Termos em inglês</a>.
 
 **Versão 1.1**
 
@@ -51,7 +51,7 @@ Nestes Termos:
 
 ## 2. Aceitação e âmbito de aplicação
 
-A aplicação atual não registra uma aceitação afirmativa destes Termos durante a criação da Conta. Na medida em que a lei aplicável o permita, você aceita estes Termos criando ou usando uma Conta ou continuando a usar a aplicação após uma atualização notificada entrar em vigor. Se a legislação aplicável exigir a aceitação ou a reaceitação afirmativa, a GEF apresentará um controlo de aceitação antes de permitir a utilização contínua dos recursos da Conta afectada. A simples visualização destes Termos sem criar ou usar uma Conta não cria por si só um acordo.
+A Aplicação atual apresenta um controlo de aceitação afirmativa durante os processos de criação de Conta suportados e antes de um Utilizador publicar um Vale ou Fundo. Selecionar esse controlo e continuar o processo relevante indica a aceitação destes Termos. A Aplicação pode exigir que um Utilizador aceite ou volte a aceitar os Termos atuais antes de permitir a utilização continuada das funcionalidades afetadas. Quando um processo não conserva um registo duradouro e específico da versão aceite, na medida permitida pela legislação aplicável, o utilizador também aceita estes Termos ao criar ou utilizar uma Conta ou ao continuar a utilizar a Aplicação depois de uma atualização notificada entrar em vigor. A mera consulta destes Termos sem criar nem utilizar uma Conta não constitui, por si só, um acordo.
 
 Se não concordar, não crie uma Conta ou use a aplicação. Se você aceita para uma organização, representa que tem autoridade para a vincular. Nesse caso, **você** Inclui tanto a si como a organização, se o contexto o permitir.
 
@@ -152,7 +152,7 @@ Um Titular deve ler os termos do vale, avaliar o emissor e a oferta, seguir o pr
 
 Se um destinatário modificar, reembalar ou redistribuir uma oferta quando os termos do emissor o permitirem, esse destinatário deve identificar com precisão as alterações materiais, preservar os certificados de origem e fonte exigidos, transmitir as condições aplicáveis e evitar implicar que o emissor original ou GEF aprovou a oferta modificada.
 
-O rótulo da aplicação **“Retirar vale”** significa exclusão reversível do catálogo. Não queima ou cancela os saldos, completa o cumprimento ou quitação, nem extingue os compromissos pendentes do emissor.
+O rótulo **«Solicitar retirada»** da Aplicação permite que o proprietário atual peça a um administrador que retire um Vale. O Vale permanece ativo enquanto o pedido está pendente. O proprietário pode cancelar um pedido pendente e um administrador pode aprová-lo ou rejeitá-lo. A retirada aprovada remove o Vale da utilização ativa no catálogo, mas não elimina o contrato, os saldos, o histórico de transações ou os compromissos pendentes; também não conclui o Cumprimento ou a Quitação nem queima ou cancela saldos. Um administrador pode posteriormente restaurar o registo no catálogo quando o processo aplicável o permitir.
 
 ## 10. Criar e operar um Fundo
 
@@ -176,6 +176,8 @@ O administrador deve manter estas divulgações precisas, aplicá-las consistent
 Um administrador não deve utilizar um fundo para fazer pedidos de devolução enganosos, disfarçar serviços financeiros ilegais, evadir proteções salariais ou de emprego, manipular preços ou atividades, ocultar a origem ou utilização de ativos, permitir uma conduta proibida ou prometer um pagamento público, convertibilidade, liquidez ou proteção contra perdas que não possa fornecer.
 
 O GEF pode estabelecer normas mínimas de listagem, segurança, divulgação ou técnicas e pode recusar, suspender, marcar ou remover um Fundo de um registo operado pela aplicação. O estatuto do registo é condicional e não é uma garantia GEF.
+
+O processo **«Solicitar retirada»** da Aplicação também se aplica a um Fundo. O Fundo permanece ativo enquanto o pedido está pendente. Após aprovação, a Aplicação e o serviço de apoio impedem novas trocas e depósitos, mas permitem os levantamentos disponíveis. A retirada não elimina o contrato do Fundo, as liquidações anteriores, os saldos, as obrigações pendentes ou os direitos e deveres independentes estabelecidos nas regras do Fundo.
 
 O administrador, o proprietário do Fundo, o administrador por procuração, os controladores de dependências, o moderador do catálogo e os destinatários das taxas podem ser partes diferentes. As divulgações do Fundo devem identificar cada autoridade relevante. O poder do Contralor Técnico não torna por si só essa parte o administrador ou transfere as obrigações do administrador.
 
@@ -273,6 +275,8 @@ A atividade blockchain pública pode expor um endereço de carteira, ativos, mon
 A GEF mantém as informações durante o tempo razoável necessário para os fins acima referidos, incluindo segurança, prevenção de fraudes, provas de transações, deveres legais, prazos de prescrição, backups e resolução de litígios. A retenção não torna a GEF capaz de excluir informações detidas por uma rede pública ou por terceiros.
 
 Sob reserva da legislação aplicável, pode solicitar acesso, correção, exclusão, restrição, objeção, portabilidade ou outros direitos de dados disponíveis contatando `privacy@grassecon.org`. O GEF utiliza salvaguardas razoáveis, mas não pode prometer segurança ou confidencialidade absoluta, particularmente para a atividade pública de blockchain e informações que você publica.
+
+O [Aviso de Privacidade da CLC App](/pt/governance/privacy) explica os campos específicos da Aplicação e os limites entre informações públicas e privadas. A [Política de Proteção de Dados](/pt/governance/data-protection) descreve as normas mais amplas de governação de dados da GEF.
 
 ## 18. Mudanças de serviço, suspensão e encerramento
 

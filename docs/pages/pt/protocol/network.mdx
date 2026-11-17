@@ -43,6 +43,8 @@ Consulte [Conceitos e vocabulário](/pt/introduction/concepts) para compreender 
 
 Um vale partilhado cria um **caminho possível no grafo**, não uma rota garantida. O serviço CLC Core em produção mantém um grafo reconciliado com informações dos Fundos, registos, catálogos, saldos, comissões e eventos da cadeia. Também verifica as posições relevantes da carteira da sessão. A implementação pública procura atualmente caminhos com até três trocas de Fundo.
 
+O encaminhamento de produção utiliza deliberadamente um perfil de elegibilidade mais restrito do que a troca direta num Fundo. Apenas são encaminhados Fundos verificados com preços relativos e tokens cujas transferências movem exatamente o montante indicado: Vales `GiftableToken` e tokens ERC-20 externos e simples expressamente listados na configuração `router.plain_erc20` da implementação. Por conseguinte, um token pode ser utilizado numa troca direta de Fundo sem ser elegível para o encaminhamento ao nível da aplicação.
+
 A descoberta no grafo é rápida, mas é uma estimativa baseada no bloco indexado. Um resultado pode ser assinalado como desatualizado, e uma ligação não prova que a quantidade pretendida possa atravessá-la. O filtro **Crédito** da CLC App utiliza esse conjunto de vales acessíveis no Mercado e nos ecrãs de descoberta relacionados.
 
 ### Citação autorizada
@@ -84,7 +86,8 @@ Uma rota pode falhar antes da assinatura por não existir um caminho ou uma cota
   label="Dependências e poderes administrativos de um Fundo de Compromissos"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Proprietário do contrato ou<br/>Gestor do Fundo"] -->|Configurar, selar, recolher, retirar| Pool["SwapPool<br/>cofre e liquidação"]
+    Steward["Gestor do Fundo<br/>responsável"] -. publica regras,<br/>divulgações e governação .-> Pool["SwapPool<br/>cofre e liquidação"]
+    Owner["Endereço proprietário<br/>do SwapPool"] -->|configurar, selar, cobrar, levantar| Pool
     ProxyAdmin["ERC-1967<br/>administrador proxy"] -->|implementação de atualizações| Pool
     Dependencies["Dependências opcionais<br/>registry · limiter · quoter<br/>Política de taxas · Controlador de taxas de protocolo<br/>Cada um com a sua própria governação"] -. settlement inputs .-> Pool
     Seal["Cinco espaços de endereço selados<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool

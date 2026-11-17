@@ -154,14 +154,17 @@
     ],
     "pt": [
       "começar",
-      "começar-a-utilizar-a-aplicação-atual",
-      "1-explorar-o-mercado",
+      "um-primeiro-percurso-pela-aplicação",
+      "1-explorar-o-mercado-e-os-pedidos",
       "2-criar-ou-aceder-a-uma-conta-e-carteira",
-      "3-criar-um-vale",
-      "4-criar-ou-avaliar-um-fundo-de-compromissos",
-      "5-trocar-diretamente-ou-através-de-uma-rota",
-      "6-utilizar-a-ação-correta",
-      "capacidades-atuais-dependentes-da-implementação-e-propostas"
+      "3-criar-um-vale-e-uma-oferta",
+      "4-publicar-ou-responder-a-um-pedido",
+      "5-encontrar-ou-criar-um-fundo-de-compromissos",
+      "6-enviar-ou-trocar-vales",
+      "7-utilizar-um-vale-junto-do-seu-emissor",
+      "antes-de-publicar",
+      "ações-atuais-da-aplicação",
+      "responsabilidades-e-limites-importantes"
     ],
     "sr": [
       "почетак-рада",
@@ -349,14 +352,16 @@
     ],
     "pt": [
       "conceitos-e-vocabulário",
-      "camadas-do-produto-e-do-protocolo",
-      "tokens-vales-e-ofertas",
+      "termos-do-dia-a-dia",
+      "descobrir-e-contactar-participantes",
+      "vales-tokens-e-ofertas",
       "funções-responsáveis-e-controlo-técnico",
       "ações-e-ciclo-de-vida",
-      "mercado-valores-limites-e-comissões",
-      "itinerários-e-liquidez",
+      "camadas-do-produto-e-do-protocolo",
+      "valores-crédito-limites-e-comissões",
+      "rotas-e-liquidez",
       "proteções-e-provas",
-      "palavras-de-estado"
+      "termos-de-estado"
     ],
     "sr": [
       "појмови-и-речник",
@@ -582,18 +587,20 @@
       "toekomstige-kredietregelingen"
     ],
     "pt": [
-      "exemplo-prático-de-vale",
+      "exemplos-de-troca-de-vales",
+      "exemplo-simples-um-fundo-três-participantes",
+      "exemplo-avançado-uma-troca-encaminhada",
       "1-um-emissor-publica-um-compromisso",
-      "2-um-participante-publica-um-want",
-      "3-gestores-de-fundos-independentes-organizam-uma-rota",
-      "4-os-participantes-fornecem-o-inventário",
-      "5-a-aplicação-descobre-e-cota-uma-rota",
+      "2-um-participante-publica-um-pedido",
+      "3-gestores-de-fundos-independentes-selecionam-um-percurso",
+      "4-os-participantes-fornecem-inventário",
+      "5-a-app-descobre-e-cota-um-percurso",
       "6-o-titular-executa-a-troca-encaminhada",
       "7-o-titular-apresenta-o-vale",
-      "8-o-emitente-regista-o-cumprimento-e-a-liquidação",
-      "as-responsabilidades-numa-visão",
-      "quando-uma-rota-não-está-disponível",
-      "regimes-de-crédito-futuros"
+      "8-o-emissor-regista-o-cumprimento-e-a-quitação",
+      "responsabilidades-em-resumo",
+      "quando-um-percurso-não-está-disponível",
+      "acordos-de-crédito-futuros"
     ],
     "sr": [
       "практичан-пример-ваучера",
@@ -1406,6 +1413,7 @@
       "8-dados-obrigatórios-e-opcionais",
       "9-como-recebemos-os-dados",
       "10-quem-recebe-os-dados",
+      "registo-atual-de-serviços",
       "11-tratamento-internacional",
       "12-durante-quanto-tempo-conservamos-os-dados",
       "13-segurança",
@@ -3327,7 +3335,7 @@
       "leeswijzer"
     ],
     "pt": [
-      "cosmo-local-credit-clc",
+      "livro-branco-de-cosmo-local-credit",
       "uma-rede-de-encaminhamento-de-crédito-coordenação-de-compromissos-e-financiamento-de-uma-economia-cosmo-local-saudável",
       "como-ler-este-documento",
       "resumo",

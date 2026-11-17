@@ -1,106 +1,128 @@
-# Exemplo prático de vale
+# Exemplos de troca de Vales
 
-Este exemplo acompanha um vale desde uma Oferta e um Want, através de uma troca encaminhada por dois Fundos, até à apresentação para resgate, ao cumprimento e à quitação. Ilustra as funções envolvidas; não promete que um determinado vale, Fundo, rota ou resultado esteja disponível.
+Estes exemplos mostram como Vales, Pedidos, Fundos, troca, cumprimento e quitação permanecem ligados, mas distintos. Ilustram as funções envolvidas; não prometem que um determinado Vale, Fundo, percurso ou resultado esteja disponível.
 
-Para as definições utilizadas aqui, ver [conceitos e Vocabulário](/pt/introduction/concepts).
+Para as definições utilizadas aqui, consulte [Conceitos e vocabulário](/pt/introduction/concepts).
 
-## 1. Um emissor publica um compromisso
+## Exemplo simples: um Fundo, três participantes
 
-Imaginem que uma cozinha comunitária cria um vale digital de refeições. Antes da sua emissão, a cozinha publica as informações necessárias para o titular tomar uma decisão informada:
+Uma agricultora oferece cabazes de alimentos e precisa de cuidados dentários. Um mecânico oferece reparação de veículos e precisa de alimentos. Uma dentista oferece cuidados dentários e precisa de reparar um veículo.
 
-- Identidade e dados de contacto da cozinha;
-- A refeição ou outra oferta representada por um vale;
-- Fornecimento, unidade, valor declarado e capacidade de funcionamento da cozinha;
-- Onde e durante que horas pode ser apresentada;
-- Qualquer data de expiração, processo de reserva, taxas, impostos ou restrições de transferência; e
-- Como funcionam a apresentação, cumprimento, reclamações, reembolsos, substituições e outros recursos.
+Cada participante cria um Vale com condições claras e publica uma Oferta:
 
-A cozinha é a emissora. Deve manter esta informação precisa, evitar emitir além da sua capacidade razoável e honrar os vales de acordo com os termos em que os titulares os adquiriram. A criação do token ou a publicação da Oferta não provam essa capacidade nem tornam o GEF o emissor.
+- o Vale da agricultora pode ser utilizado para cabazes de alimentos;
+- o Vale do mecânico pode ser utilizado para serviços de reparação; e
+- o Vale da dentista pode ser utilizado para cuidados dentários.
 
-A cozinha também publica uma **Oferta** que descreve as refeições disponíveis. O vale e a oferta estão relacionados, mas distintos: o vale é o compromisso resgatável, enquanto a oferta ajuda as pessoas a descobrir os bens ou serviços associados.
+A dentista cria um Fundo de Compromissos chamado **Mercado da Saúde**, publica as suas regras, admite os três Vales e deposita alguns Vales de cuidados dentários. Os limites configurados para os saldos de tokens do Fundo definem quantos Vales da agricultora e do mecânico o Fundo pode deter. Estes **«Limites de crédito»** da App são controlos da capacidade do Fundo, não empréstimos pessoais.
 
-## 2. Um participante publica um Want
+A agricultora vê o Pedido da dentista por alimentos locais, analisa o Vale e as condições do Fundo da dentista e troca Vales de cabazes de alimentos por Vales de cuidados dentários. Depois, marca uma consulta, apresenta os Vales de cuidados dentários, recebe os cuidados prometidos e a dentista regista a quitação.
 
-Uma escola próxima tem vales de transporte e precisa de refeições para um evento. Publica um **Want** que descreve as refeições, a quantidade, o local, o momento e o método de contacto.
+O mecânico troca Vales de serviços de reparação pelos Vales de cabazes de alimentos agora detidos pelo Fundo e utiliza-os para receber alimentos. A dentista pode trocar Vales de cuidados dentários pelos Vales de reparação do mecânico e utilizá-los para reparar um veículo.
 
-O Want expressa uma necessidade. Não aceita automaticamente o vale da cozinha, não reserva refeições, não cria um contrato, não autoriza uma troca e não promete que a escola avançará. A escola ainda precisa de avaliar a cozinha, as condições do vale, a rota disponível, a cotação e as condições aplicáveis.
+Cada troca no Fundo liquida saldos de Vales. Cada Emissor continua separadamente responsável por fornecer os alimentos, a reparação ou os cuidados dentários prometidos. O Fundo permite uma troca multilateral sem exigir que cada par queira exatamente o que o outro oferece no mesmo momento.
 
-## 3. Gestores de Fundos independentes organizam uma rota
+## Exemplo avançado: uma troca encaminhada
 
-Dois Fundos governados de forma independente ligam os ativos:
+Este exemplo acompanha um Vale desde uma Oferta e um Pedido através de dois Fundos com governação independente.
+
+### 1. Um Emissor publica um compromisso
+
+Imagine que uma cozinha comunitária cria um vale digital para refeições. Antes de o emitir, a cozinha publica as informações de que um titular necessita para tomar uma decisão informada:
+
+- a identidade e os contactos da cozinha;
+- a refeição ou outra Oferta representada por um vale;
+- a quantidade disponível, a unidade, o valor declarado e a capacidade de cumprimento da cozinha;
+- onde e em que horário pode ser apresentado;
+- qualquer prazo de validade, processo de reserva, taxa, imposto ou restrição à transferência; e
+- como funcionam a apresentação, o cumprimento, as reclamações, os reembolsos, as substituições e outros meios de reparação.
+
+A cozinha é o emissor. Deve manter estas informações exatas, evitar emitir para além da sua capacidade razoável e honrar os vales segundo as condições sob as quais os titulares os adquiriram. Criar o token ou publicar a Oferta não prova essa capacidade nem torna a GEF no emissor.
+
+A cozinha também publica uma **Oferta** que descreve as refeições disponíveis. O vale e a Oferta estão relacionados, mas são distintos: o vale é o compromisso resgatável, enquanto a Oferta ajuda as pessoas a descobrir os bens ou serviços associados a ele.
+
+### 2. Um participante publica um Pedido
+
+Uma escola próxima possui vales de transporte e precisa de refeições para um evento. Publica um **Pedido** que descreve as refeições, a quantidade, o local, o momento e a forma de contacto.
+
+O Pedido expressa uma necessidade. Não aceita automaticamente o vale da cozinha, não reserva refeições, não cria um contrato, não autoriza uma troca nem promete que a escola irá avançar. A escola continua a ter de analisar a cozinha, as condições do vale, o percurso disponível, a cotação e as condições aplicáveis.
+
+### 3. Gestores de Fundos independentes selecionam um percurso
+
+Dois Fundos com governação independente ligam os ativos:
 
 1. um Fundo de mobilidade admite o vale de transporte da escola e um vale de milho; e
-2. um Fundo de segurança alimentar admite esse vale de milho e o vale de refeição da cozinha.
+2. um Fundo de segurança alimentar admite esse vale de milho e o vale de refeições da cozinha.
 
-Cada gestor de Fundo analisa os ativos e publica as próprias regras do Fundo, incluindo:
+Cada Gestor do Fundo analisa os ativos e publica as regras do respetivo Fundo, incluindo:
 
-- quem é responsável pelo Fundo;
-- o proprietário atual de `SwapPool`, o administrador do proxy e os controladores de dependências importantes;
+- quem responde pelo Fundo;
+- o atual proprietário do `SwapPool`, o administrador do proxy e os controladores de dependências relevantes;
 - os vales admitidos e outros ativos suportados;
 - os métodos de taxa de câmbio ou cotação;
-- os limites de saldo de tokens, chamados **“Limites de crédito”** na CLC App;
-- as comissões do Fundo e do protocolo;
-- os poderes sobre o inventário e o levantamento de liquidez; e
+- os limites dos saldos de tokens, designados **«Limites de crédito»** na App;
+- as taxas do Fundo e do protocolo;
+- os poderes relativos ao inventário e à retirada de liquidez; e
 - qualquer garantia, reserva ou mecanismo de apoio financiado separadamente.
 
-A admissão significa que as regras configuradas de um Fundo permitem o vale. Não prova a capacidade de cumprimento, não estabelece um valor em dinheiro, não cria um seguro e não transforma os dois Fundos numa única entidade governada.
+A admissão significa que as regras configuradas de um Fundo permitem um vale. Não prova a capacidade de cumprimento, não estabelece um valor em dinheiro, não cria um seguro nem transforma os dois Fundos numa única entidade governada.
 
-## 4. Os participantes fornecem o inventário
+### 4. Os participantes fornecem inventário
 
-O Fundo de Mobilidade detém vales de milho que podem ser trocados por vales para transporte. O Fundo de Segurança Alimentar detém vales-refeição que podem ser trocados por vales de milho. Os participantes podem ter fornecido esse inventário ao abrigo de diferentes acordos publicados.
+O Fundo de mobilidade detém vales de milho que podem ser trocados por vales de transporte. O Fundo de segurança alimentar detém vales de refeições que podem ser trocados por vales de milho. Os participantes podem ter fornecido esse inventário ao abrigo de diferentes acordos publicados.
 
-Um depósito aumenta o inventário disponível do Fundo, mas não cria automaticamente uma participação no Fundo, um pedido de reembolso, um direito de retirada, uma recompensa ou um poder de governação. Qualquer tal direito deve vir de um acordo separado divulgado.
+Um depósito aumenta o inventário disponível no Fundo, mas não cria automaticamente uma participação no Fundo, um direito a reembolso, um direito de retirada, uma recompensa ou poder de governação. Qualquer direito desse tipo deve resultar de um acordo separado e divulgado.
 
-## 5. A aplicação descobre e cota uma rota
+### 5. A App descobre e cota um percurso
 
-A carteira da escola abre a vista **Crédito** e seleciona o Vale de refeição. CLC Core estima um possível caminho:
+A carteira da escola abre a vista **Crédito** e seleciona o vale de refeições. O CLC Core estima um percurso possível:
 
 `transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-Este resultado da descoberta ainda não promete que a troca será bem-sucedida. Cada passo depende da admissão atual, dos limites de saldo de tokens do Fundo, do inventário disponível, da configuração de cotação e comissões, dos comportamentos de token suportados e da atualidade do serviço.
+Este resultado de descoberta ainda não é uma promessa de que a troca será concluída. Cada etapa depende da admissão atual, dos limites dos saldos de tokens do Fundo, do inventário disponível, da configuração da cotação e das taxas, do comportamento suportado dos tokens e da atualidade do serviço.
 
-A escola escolhe quanto pretende obter ou gastar. O CLC Core lê então ambos os Fundos num mesmo bloco fixado, produz uma cotação autorizada e limitada no tempo e simula o lote completo da carteira. Os **Detalhes da rota** da aplicação mostram as duas trocas, os montantes estimados e as comissões do Fundo e do protocolo em cada passo.
+A escola escolhe quanto pretende **Obter** ou **Gastar**. Em seguida, o CLC Core lê ambos os Fundos no mesmo bloco fixado, produz uma cotação oficial com duração limitada e simula o lote completo da carteira. Os **Detalhes da rota** na App mostram as duas trocas, os montantes estimados e as taxas do Fundo e do protocolo em cada etapa.
 
-## 6. O titular executa a troca encaminhada
+### 6. O Titular executa a troca encaminhada
 
-Depois de rever o montante mínimo a receber e o prazo da cotação, a escola seleciona **Confirmar troca** e assina o lote preparado. A CLC App envia uma transação na mesma cadeia que contém as autorizações e a chamada de troca limitada para cada Fundo.
+Depois de analisar o montante mínimo a receber e o prazo da cotação, a escola seleciona **Confirmar a troca** e assina o lote preparado. A App envia uma única transação na mesma cadeia que contém as aprovações e a chamada de troca limitada para cada Fundo.
 
-Se uma chamada falhar, toda a transação é revertida; a primeira troca de Fundo não fica liquidada sem a segunda. Se for bem-sucedida, o recibo agrupado da escola mostra um identificador de acompanhamento, o hash da transação, os dois passos pelos Fundos, os montantes liquidados e as comissões de cada passo.
+Se alguma chamada falhar, toda a transação é revertida; a troca no primeiro Fundo não permanece liquidada sem a segunda. Se for bem-sucedida, o recibo agrupado da escola mostra um identificador de acompanhamento, um hash de transação, as duas etapas nos Fundos, os montantes liquidados e as taxas de cada etapa.
 
-A escola tem agora vales de refeição. A troca na cadeia é a liquidação dos intercâmbios. Dá à escola o direito resultante descrito nas condições do vale de refeição; não prova que a cozinha já tenha fornecido os alimentos.
+A escola possui agora vales de refeições. A troca na cadeia constitui a **liquidação da troca**. Dá à escola o direito resultante descrito nas condições do vale de refeições; não prova que a cozinha já forneceu os alimentos.
 
-## 7. O titular apresenta o Vale
+### 7. O Titular apresenta o Vale
 
-Na aplicação atual, escolher **“Resgatar”** abre o fluxo de envio normal com o endereço do proprietário do token já preenchido. Devolver o vale comprova a apresentação ao emissor; não prova, por si só, que a cozinha forneceu uma refeição.
+Na App atual, selecionar **«Resgatar»** abre o fluxo normal de envio com o endereço do proprietário do token já preenchido. Enviar o vale de volta constitui prova da apresentação ao emissor; não prova, por si só, que a cozinha forneceu uma refeição.
 
-A escola segue o processo de reserva ou contacto da cozinha. A cozinha verifica a apresentação e fornece as refeições prometidas nos termos publicados.
+A escola segue o processo de reserva ou contacto da cozinha. A cozinha verifica a apresentação e fornece as refeições prometidas segundo as condições publicadas.
 
-## 8. O emitente regista o cumprimento e a liquidação
+### 8. O Emissor regista o cumprimento e a quitação
 
-Depois de fornecer as refeições, a cozinha registra as unidades cumpridas para que não possam ser apresentadas duas vezes. Dependendo do processo publicado, isso pode envolver receber, queimar, cancelar ou de outra forma desativar o Vale devolvido.
+Depois de fornecer as refeições, a cozinha regista as unidades cumpridas para impedir que sejam apresentadas duas vezes. Dependendo do processo publicado, isto pode envolver receber, queimar, cancelar ou desativar de outra forma o vale devolvido.
 
-Se a cozinha não honrar o seu compromisso, o titular recorre ao processo de reclamação ou recurso publicado pelo emitente e a quaisquer direitos disponíveis nos termos da legislação aplicável. Nem o GEF nem o Gestor do Fundo tornam-se redentores simplesmente porque a App encontrou a rota ou os Fundos ativaram as suas trocas.
+Se a cozinha não honrar o seu compromisso, o titular utiliza o processo de reclamação ou reparação publicado pelo emissor e quaisquer direitos previstos na legislação aplicável. Nem a GEF nem qualquer dos Gestores dos Fundos se torna responsável pelo resgate apenas porque a App encontrou o percurso ou os Fundos permitiram as trocas.
 
-Escolher **“Retirar vale”** na CLC App é diferente: oculta a listagem no catálogo, enquanto os saldos e o histórico permanecem, e um administrador pode restaurá-la. Não é cumprimento, quitação, queima nem cancelamento.
+Selecionar **«Solicitar retirada»** é diferente: o proprietário atual pede a um administrador que retire o Vale. O Vale permanece ativo enquanto o pedido estiver pendente, e o pedido pode ser aprovado, rejeitado ou cancelado. A retirada aprovada remove-o da utilização ativa no catálogo, mas não elimina o contrato, os saldos, o histórico ou as obrigações pendentes. Não constitui cumprimento, quitação, queima nem cancelamento.
 
-## As responsabilidades numa visão
+## Responsabilidades em resumo
 
-- **emissor:** descreve e cumpre o vale e registra a liquidação.
-- **Pessoa que publica um Want:** descreve uma necessidade sem aceitar automaticamente um Vale ou rota.
-- Os "Gestores de Fundos" publicam e administram de forma independente as regras, taxas, comissões, limites, controlos e quaisquer garantias expressamente assumidas por cada Fundo.
-- **Titular:** analisa o emissor, os termos do Vale, os Fundos, a cotação da rota, as taxas, a autorização de carteira e a lei aplicável.
-- **CLC App e CLC Core:** descobrem e cotam rotas possíveis, preparam e retransmitem o lote assinado e agrupam registos técnicos de liquidação. Não provam o cumprimento pelo emissor.
-- Os controladores técnicos: exercem apenas os poderes de contrato, dependência, actualização, catálogo, serviço de encaminhamento ou comissão que lhes são atribuídos.
+- **Emissor:** descreve e cumpre o vale e regista a quitação.
+- **Pessoa que publica um Pedido:** descreve uma necessidade sem aceitar automaticamente um vale ou percurso.
+- **Gestores dos Fundos:** publicam e administram, de forma independente, as regras, taxas, comissões, limites e controlos de cada Fundo, bem como qualquer garantia expressamente assumida.
+- **Titular:** analisa o emissor, as condições do vale, os Fundos, a cotação do percurso, as taxas, a autorização da carteira e a legislação aplicável.
+- **CLC App e CLC Core:** descobrem e cotam percursos possíveis, preparam e retransmitem o lote assinado e agrupam os registos técnicos de liquidação. Não provam o cumprimento pelo emissor.
+- **Controladores técnicos:** exercem apenas os poderes de contrato, dependência, atualização, catálogo, serviço de encaminhamento ou cobrança de taxas que lhes foram atribuídos.
 - **GEF:** opera a CLC App e a infraestrutura de apoio, sujeita aos [Termos de Serviço](/pt/governance/terms); não assume automaticamente as outras funções.
 
-## Quando uma rota não está disponível
+## Quando um percurso não está disponível
 
-O aplicativo pode não encontrar nenhuma rota, ou uma cotação pode falhar, quando o inventário é insuficiente, um limite máximo do Fundo seria excedido, um Vale não é admitido, uma ficha ou cotador não é suportado, a carteira carece de entrada suficiente, os dados da rota estão obsoletos ou a simulação final do lote falha. Uma cotação também pode expirar ou tornar-se inválida antes da sua apresentação à medida que o estado do Fundo muda.
+A App pode não encontrar um percurso, ou uma cotação pode falhar, quando o inventário é insuficiente, um limite do Fundo seria ultrapassado, um vale não está admitido, um token ou mecanismo de cotação não é suportado, a carteira não possui entrada suficiente, os dados do percurso estão desatualizados ou a simulação final do lote falha. Uma cotação também pode expirar ou tornar-se inválida antes do envio devido a alterações no estado do Fundo.
 
-Este resultado não altera o pedido, a oferta ou as obrigações de vales existentes do emitente. O participante pode atualizar a rota, escolher um montante menor, utilizar outro vale de entrada elegível ou esperar que as condições do Fundo mudem.
+Esse resultado não altera o Pedido, a Oferta ou as obrigações existentes do Emissor relativas ao Vale. O participante pode atualizar o percurso, escolher um montante menor, utilizar outro Vale de entrada elegível ou aguardar que as condições do Fundo mudem.
 
-## Regimes de crédito futuros
+## Acordos de crédito futuros
 
-Um futuro Fundo ou outra parte responsável poderia oferecer separadamente uma transação como adiantamento reembolsável, transação garantida ou outro produto de crédito. Tal produto exigiria a apresentação separada de termos suplementares e de transações que identificassem as partes, os montantes, as datas de vencimento, as taxas ou juros, o tratamento das garantias, a cessão, o incumprimento, as medidas de reparação e as provas de descarte.
+No futuro, um Fundo ou outra parte responsável poderá oferecer separadamente uma transação como adiantamento reembolsável, transação garantida ou outro produto de crédito. Esse produto exigiria condições suplementares e de transação apresentadas separadamente, que identificassem as partes, montantes, prazos de pagamento, taxas ou juros, tratamento das garantias, cessão, incumprimento, meios de reparação e prova de quitação.
 
-Um envio ordinário, depósito no Fundo, troca direta ou encaminhada do Fundo, apresentação de vouchers, cumprimento ou liquidação não criam essas obrigações por si só.
+Um envio normal, depósito num Fundo, troca direta ou encaminhada num Fundo, apresentação de vale, cumprimento ou quitação não cria, por si só, essas obrigações.

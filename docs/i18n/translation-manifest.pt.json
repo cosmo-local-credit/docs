@@ -28,10 +28,10 @@
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
-      "sourceSha256": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+      "sourceSha256": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
       "locales": {
         "pt": {
-          "sha256": "98636e49af884c27ca027137a31cb7f4fa25af4d3cafed28a9b0a6ef37104e45",
+          "sha256": "0d4fa34fac1a59008e48b31a1f9d222e18523eaeb1c5af60a7dca4bb7035bef9",
           "review": {
             "units": 150,
             "meanBackTranslationSimilarity": 0.6548,
@@ -42,10 +42,10 @@
     },
     "/introduction/example": {
       "source": "introduction/example.mdx",
-      "sourceSha256": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+      "sourceSha256": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
       "locales": {
         "pt": {
-          "sha256": "4facc478a0ad344ea4cb02b9e0a13c5711a4a34339ca073a678cec7cece857d7",
+          "sha256": "460845338b8c09d8ebe26a9b79169cdf9cdad84acf7b8492212863d6c343fd9b",
           "review": {
             "units": 60,
             "meanBackTranslationSimilarity": 0.673,
@@ -56,10 +56,10 @@
     },
     "/introduction/getting-started": {
       "source": "introduction/getting-started.mdx",
-      "sourceSha256": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+      "sourceSha256": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
       "locales": {
         "pt": {
-          "sha256": "a4eb9eda7031ddcb0bbbdc6462b8e20e71a0886ed0c6bdac0bb1311373704caf",
+          "sha256": "150a439137b6e82426b47b0e5a2376906fa05da68252022991015773d937e1d9",
           "review": {
             "units": 74,
             "meanBackTranslationSimilarity": 0.674,
@@ -84,10 +84,10 @@
     },
     "/protocol/network": {
       "source": "protocol/network.mdx",
-      "sourceSha256": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+      "sourceSha256": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
       "locales": {
         "pt": {
-          "sha256": "44d16adcdd13bdb72984eb91071086a00b52f52a5aead6c0c914ce79b15f8a75",
+          "sha256": "e7eced5980f487ced897022e17458c7bfe1d91978267977bff18790771facec2",
           "review": {
             "units": 72,
             "meanBackTranslationSimilarity": 0.5996,
@@ -140,10 +140,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
+      "sourceSha256": "620ac4e8ee95ed5d8ddfaf2dbd615ed0e3211e723044bbfe602340bce9d4c2c4",
       "locales": {
         "pt": {
-          "sha256": "a9e18036d1b1645a15f202e79c457392258bfab9f76d314dbf845ed941b69d51",
+          "sha256": "86dea480f13f011dedaea04b070a7a12545f5095b841c8abd05eb741ffbda0f7",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6508,
@@ -476,10 +476,10 @@
     },
     "/white-paper/chapter-17-legal-compliance-note": {
       "source": "white-paper/chapter-17-legal-compliance-note.md",
-      "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
+      "sourceSha256": "5b350a304f2e2af49b5ffddd22fb36813eff2cf5b0cb2239c0f6ccc47c02f751",
       "locales": {
         "pt": {
-          "sha256": "57fc7c0e6b7bce000776206ff39ae75bff43f52aca0c24c5a3cc4d72aac3d626",
+          "sha256": "dc518a2ad7332bf2584f9b1d4472951c8fa1a1c9d466179363705e5c120b3f95",
           "review": {
             "units": 46,
             "meanBackTranslationSimilarity": 0.6108,
@@ -504,10 +504,10 @@
     },
     "/white-paper/executive-summary": {
       "source": "white-paper/executive-summary.md",
-      "sourceSha256": "0ea6749f959a98aef81f15e20f9385688758614efb3a81896af2079355b33175",
+      "sourceSha256": "0f150ea2091498f6627c69b8926757aef07aa1ee120f423b8592b1e044d2446f",
       "locales": {
         "pt": {
-          "sha256": "d7875bfc471f778180bcc888d7de7fafd3d58ad9b108f7e7a767deadd7554ecb",
+          "sha256": "cf6c93c1acea44c278750cb8dad30c255c7bd489a236d6bad1f138ae61abb1f4",
           "review": {
             "units": 35,
             "meanBackTranslationSimilarity": 0.6076,
@@ -518,10 +518,10 @@
     },
     "/white-paper": {
       "source": "white-paper/index.mdx",
-      "sourceSha256": "dfba309365534fa5271db0c53356428084c398f47024400c4857e7ab72e38aaf",
+      "sourceSha256": "91a55686f4a7fc1d2540bd5fcbe5acc03481c04c8a3bf8b9c581e0956d24bd69",
       "locales": {
         "pt": {
-          "sha256": "6f472013a950bbdba74ec6951fba583af501ad160cea5c59504e6246f4b89f06",
+          "sha256": "2c34ab99a46c76340cf85a61a7a3059ce3adbacd69f14becc90ec275ed17e63d",
           "review": {
             "units": 115,
             "meanBackTranslationSimilarity": 0.6478,
@@ -548,10 +548,10 @@
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b",
+      "sourceSha256": "faaf1517659e9fb1d0fc910f09d3aa960b1d797fa671b879412fb746ae7e1426",
       "locales": {
         "pt": {
-          "sha256": "795d1c33851133a2719178eaad5cb675904cd7f7477b02d84b2e2d0059ec5631",
+          "sha256": "8c5209be20211defc636b10542ac8b805f6de207257ff5c7f5b1429eaa773c15",
           "review": {
             "units": 190,
             "meanBackTranslationSimilarity": 0.657,

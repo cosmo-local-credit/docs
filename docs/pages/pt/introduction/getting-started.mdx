@@ -1,95 +1,131 @@
 # Começar
 
-Cosmo-Local Credit (CLC) é uma aplicação web progressiva para criar, descobrir, deter, transferir e trocar ativos digitais, incluindo vales resgatáveis, através de Fundos de Compromissos governados de forma independente. A CLC App está disponível em [cosmolocal.credit](https://cosmolocal.credit).
+Cosmo-Local Credit (CLC) ajuda as pessoas a descrever o que oferecem, publicar o que procuram e trocar vales através de Fundos de Compromissos governados de forma independente. Abra a [CLC App](https://cosmolocal.credit) para começar.
 
-A [Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) gere a aplicação e a infraestrutura de apoio. A menos que aceite expressamente outra função numa determinada oferta ou transação, a GEF não é o emissor de um vale criado por um utilizador, o Gestor de um Fundo criado por um utilizador, um custodiante, credor, mutuário, garante, segurador ou responsável pelo resgate. Os emissores são responsáveis pelos compromissos dos seus vales, e os Gestores dos Fundos são responsáveis pelas regras dos seus Fundos.
+A ideia básica é simples:
 
-Leia [Conceitos e vocabulário](/pt/introduction/concepts) para conhecer as camadas do produto, as funções, as ações, os valores, as comissões e os termos de estado utilizados nesta documentação.
+1. Crie um vale — semelhante a um cartão-presente — para algo que possa fornecer.
+2. Publique uma Oferta para que as pessoas descubram os bens ou serviços associados.
+3. Publique ou responda a um Pedido para encontrar possíveis parceiros de troca.
+4. Utilize um Fundo de Compromissos para trocar vales suportados segundo regras publicadas.
+5. Utilize um vale junto do seu Emissor para obter o que as suas condições prometem.
 
-Antes de criar uma conta ou efetuar uma transação, leia os [Termos de Serviço](/pt/governance/terms). Em especial:
+Na aplicação, «Crédito» significa compromissos reconhecidos e capacidade para trocar Vales. Não é automaticamente um empréstimo pessoal, um limite de endividamento ou uma promessa de adiantar dinheiro.
 
-- Deve ter pelo menos 18 anos, ter atingido a maioridade legal aplicável e possuir capacidade para celebrar contratos.
-- É responsável por confirmar que a sua conta, o seu vale, o seu Fundo e as suas transações são legais em todas as jurisdições relevantes.
-- Deve proteger as credenciais da sua carteira. A GEF pode não conseguir recuperar uma carteira perdida ou reverter uma transação autorizada.
-- As transações e os registos numa blockchain pública podem ser visíveis, permanentes e irreversíveis.
-- Uma listagem na aplicação não constitui um endosso da GEF nem uma garantia de resgate, valor, liquidez, conversão ou liquidação.
+Para obter definições exatas, consulte [Conceitos e vocabulário](/pt/introduction/concepts).
 
-## Começar a utilizar a aplicação atual
+## Um primeiro percurso pela aplicação
 
-### 1. Explorar o Mercado
+### 1. Explorar o Mercado e os Pedidos
 
-Abra [cosmolocal.credit](https://cosmolocal.credit) para explorar o **Mercado** público, o catálogo de descoberta da aplicação. Consulte o emissor responsável, os bens ou serviços prometidos, a localização, a disponibilidade e as condições publicadas. Uma listagem no Mercado não é automaticamente um local de troca, uma relação com um vendedor, uma avaliação independente, um endosso ou uma garantia.
+Explore a [CLC App](https://cosmolocal.credit) antes de criar alguma coisa. O **Mercado** é um catálogo de descoberta; não é automaticamente um vendedor, local de troca, endosso ou garantia.
 
-### 2. Criar ou aceder a uma conta e carteira
+Ao analisar um Vale, verifique:
 
-A aplicação utiliza uma conta para dar acesso ao perfil e à sessão, e uma carteira para autorizar transações em blockchain. Proteja a sua chave de acesso, os dados da carteira, as informações de recuperação, os dispositivos e quaisquer outras credenciais. Verifique cada ativo, montante, endereço, Fundo, comissão e autorização antes de confirmar uma transação.
+- quem o emitiu;
+- os bens ou serviços que promete;
+- onde, quando e como pode ser utilizado;
+- os seus limites, validade, método de contacto e processo de reclamação; e
+- quais os Fundos de Compromissos que o suportam.
 
-### 3. Criar um vale
+Um **Pedido** expressa uma necessidade. Publicar ou responder a um Pedido não aceita automaticamente um Vale, reserva bens, autoriza uma troca ou cria uma obrigação. Contactar ou enviar uma mensagem a outro participante também não cria, cumpre ou quita, por si só, um compromisso de Vale.
 
-Um vale combina várias camadas distintas:
+### 2. Criar ou aceder a uma conta e Carteira
 
-1. o funcionamento e os saldos do contrato do token;
-2. a designação do vale pelo emissor e as condições publicadas;
-3. um ou mais registos de Oferta relativos aos bens ou serviços associados; e
-4. o cumprimento do compromisso pelo emissor no mundo real.
+A aplicação utiliza uma conta para o acesso ao perfil e à sessão e uma **Carteira** para autorizar operações na blockchain. Proteja a sua chave de acesso, o material da carteira em papel, as informações de recuperação, os dispositivos e quaisquer outras credenciais. Verifique cada endereço, ativo, montante, Fundo, comissão e autorização antes de confirmar uma transação.
 
-Criar ou cunhar um token não prova, por si só, que existe uma Oferta, que o emissor tem capacidade para a cumprir ou que a GEF garante o resgate.
+A interface pede-lhe que confirme os Termos durante a integração e antes de publicar um Vale ou Fundo. Leia os [Termos de Serviço](/pt/governance/terms) e o [Aviso de Privacidade](/pt/governance/privacy) antes de continuar.
 
-### 4. Criar ou avaliar um Fundo de Compromissos
+### 3. Criar um Vale e uma Oferta
 
-Um Fundo de Compromissos é uma estrutura governada. O seu contrato `SwapPool` atual pode manter um inventário de tokens suportados e executar trocas diretas. Antes de utilizar um Fundo ou contribuir para ele, verifique:
+Crie um Vale para algo que possa fornecer razoavelmente. Pense nele como o seu próprio cartão-presente: descreve o que representa e as condições de utilização.
 
-- o Gestor responsável e o proprietário atual do contrato;
-- o administrador de proxy e os controladores das dependências configuradas;
-- os vales admitidos e outros ativos suportados;
-- os métodos de taxa de câmbio ou de cotação;
-- o **“Limite de crédito”** apresentado pela aplicação, que é um limite para o saldo do token no Fundo e não um crédito pessoal;
+Um Vale completo tem várias camadas distintas:
+
+1. o funcionamento do contrato do token e os saldos;
+2. as condições do Vale publicadas pelo Emissor;
+3. um ou mais registos de **Oferta** que descrevem os bens ou serviços associados; e
+4. o cumprimento pelo Emissor no mundo real.
+
+Criar ou cunhar um token não prova que existe uma Oferta, que o Emissor tem capacidade ou que a Grassroots Economics Foundation (GEF) garante o cumprimento.
+
+### 4. Publicar ou responder a um Pedido
+
+Utilize um Pedido para descrever aquilo que procura, incluindo o montante, o local, o momento e um método de contacto adequado. Outro participante pode descobri-lo, analisar os seus Vales e Ofertas públicos e decidir se entra em contacto consigo.
+
+Mantenha claras a negociação e as responsabilidades. Uma mensagem pode ajudar os participantes a acordar uma entrega, marcação ou outros pormenores, mas o compromisso é determinado pelas condições aplicáveis do Vale e pelas condições da transação que forem acordadas separadamente.
+
+### 5. Encontrar ou criar um Fundo de Compromissos
+
+Um Fundo de Compromissos seleciona determinados Vales e permite a sua troca. Antes de utilizar ou apoiar um Fundo, verifique:
+
+- o **Gestor do Fundo** responsável e o atual proprietário do contrato;
+- os Vales admitidos e outros ativos suportados;
+- os métodos de taxa de câmbio ou cotação;
+- o **«Limite de crédito»** da aplicação, que limita o saldo do token no Fundo e não é crédito pessoal;
 - as comissões do Fundo e do protocolo;
-- o inventário disponível e o poder do proprietário para levantar liquidez; e
-- quaisquer condições de contribuição, garantia, reserva ou seguro publicadas separadamente.
+- o inventário disponível e o poder do proprietário para levantar liquidez;
+- os controladores de proxy, multisig e dependências; e
+- quaisquer condições de contribuição, garantia, reserva, recompensa ou seguro publicadas separadamente.
 
-Um depósito transfere ativos para o `SwapPool`. O Protocol v1.1.0 não cria automaticamente tokens de participação no Fundo nem concede ao depositante direitos a reembolso, levantamento, recompensa ou governação.
+Um depósito transfere ativos para o `SwapPool` do Fundo. O Protocol v1.1.0 não concede automaticamente ao depositante participações no Fundo nem direitos de reembolso, levantamento, recompensa ou governação.
 
-### 5. Trocar diretamente ou através de uma rota
+### 6. Enviar ou trocar Vales
 
-A vista **Crédito** da aplicação pode encontrar vales acessíveis a partir dos vales na sua carteira. Um vale acessível pode exigir uma única troca de Fundo ou uma rota através de vários Fundos governados de forma independente. A implementação pública atual procura rotas com até três trocas de Fundo.
+Utilize **Enviar** para transferir diretamente um Vale. Utilize uma **troca de Fundo** para trocar um ativo suportado por outro através de um único Fundo.
 
-Para efetuar uma troca:
+A vista **Crédito** da aplicação também pode encontrar Vales acessíveis através de vários Fundos governados de forma independente. Selecione **Obter** para o Vale que pretende receber ou **Gastar** para o Vale que pretende utilizar. Depois, verifique:
 
-1. escolha **Obter** para o vale que pretende ou **Gastar** para os vales que quer utilizar;
-2. reveja as opções disponíveis em **Pagar com** e a **Estimativa**;
-3. abra **Detalhes da rota** para ver cada Fundo, passo, montante, comissão do Fundo e comissão do protocolo;
-4. selecione **Rever**, confirme o montante mínimo a receber e o prazo da cotação e, em seguida, selecione **Confirmar troca**; e
-5. assine o lote preparado para a carteira.
+1. a opção **Pagar com** e a **Estimativa**;
+2. os **Detalhes da rota**, incluindo cada Fundo, montante, comissão do Fundo e comissão do protocolo;
+3. o montante mínimo recebido e o prazo da cotação; e
+4. o lote preparado para a Carteira antes de selecionar **Confirmar a troca**.
 
-O CLC Core descobre caminhos possíveis a partir de informações indexadas sobre os Fundos e os vales. A descoberta é uma estimativa. Antes da assinatura, o serviço lê o estado dos Fundos relevantes num mesmo bloco fixado, produz uma cotação autorizada, aplica a cada passo um valor mínimo de saída e um prazo e simula o lote completo. Atualmente, a CLC App não acrescenta uma comissão separada pelo serviço de encaminhamento; cada passo pode ainda cobrar a comissão configurada do Fundo e uma comissão adicional do protocolo.
+O encaminhamento de produção é deliberadamente mais limitado do que a troca direta num Fundo. Utiliza Fundos verificados com preços relativos e tokens cujas transferências movem exatamente o montante indicado: Vales `GiftableToken` e tokens ERC-20 simples expressamente incluídos na lista de permissões. A implementação pública procura rotas com até três trocas de Fundo e suporta Carteiras EOA/Calibur compatíveis, mas não Safes nem outras Carteiras de contrato.
 
-A rota assinada é enviada como uma única transação na mesma cadeia. Cada passo utiliza a mesma carteira compatível com a CLC App. Se alguma autorização ou troca de Fundo do lote falhar, toda a transação é revertida, pelo que os passos anteriores não ficam liquidados. O recibo agrupa a rota sob um identificador de acompanhamento e mostra o estado, o hash da transação, cada Fundo, os montantes liquidados e as comissões do Fundo e do protocolo em cada passo.
+A descoberta da rota é uma estimativa. Antes da assinatura, o CLC Core lê os Fundos selecionados num mesmo bloco fixado, calcula uma cotação com prazo, aplica limites de saída mínima e de tempo e simula o lote completo. Se alguma chamada falhar, toda a transação na mesma cadeia é revertida. O recibo agrupa os montantes liquidados e as comissões do Fundo e do protocolo de cada passo.
 
-Uma rota pode não estar disponível porque a carteira não tem um vale de entrada elegível, um Fundo não admite um token, o limite de saldo de tokens do Fundo seria excedido, o inventário de saída é insuficiente, um cotador ou token não é suportado, ou o serviço de encaminhamento está temporariamente desatualizado ou indisponível. Uma cotação também pode expirar, ficar desatualizada quando o estado do Fundo muda, falhar na simulação final ou ser revertida na cadeia. Atualize a rota e reveja a nova cotação em vez de presumir que uma estimativa anterior continua válida.
+### 7. Utilizar um Vale junto do seu Emissor
 
-A execução atual de rotas suporta carteiras EOA/Calibur compatíveis com a CLC App. Atualmente, não prepara trocas encaminhadas para Safes nem para outras carteiras de contrato.
+Leia as condições do Vale e siga o processo de marcação, entrega ou contacto do Emissor. Na aplicação atual, **«Resgatar»** abre o fluxo normal de envio com o endereço do proprietário do token já preenchido. Enviar o Vale constitui a apresentação para resgate; não prova que o Emissor forneceu os bens ou serviços prometidos.
 
-### 6. Utilizar a ação correta
+Após o cumprimento, o Emissor deve registar a **quitação** para impedir que as unidades cumpridas voltem a ser utilizadas — por exemplo, recebendo-as, queimando-as, cancelando-as ou desativando-as de outra forma segundo as condições publicadas.
 
-- **Enviar** transfere um saldo de token para outro endereço.
-- **Troca de Fundo** troca um ativo suportado por outro através de um `SwapPool`. Pode ser uma troca direta ou um passo de uma troca encaminhada. A liquidação da troca na cadeia não prova o cumprimento pelo emissor.
-- **Troca encaminhada** executa uma sequência ordenada de trocas de Fundo numa única transação limitada da carteira e na mesma cadeia. Não reúne a governação dos Fundos nem torna o operador de encaminhamento responsável pelo cumprimento do emissor.
-- **“Resgatar”** abre o fluxo de envio com o endereço do proprietário do token já preenchido. Apresenta ou devolve o vale ao emissor; o resgate concluído também exige o desempenho prometido pelo emissor e um registo de quitação que impeça a reutilização.
-- **“Retirar vale”** oculta a listagem no catálogo. Não queima saldos, não cancela o vale nem extingue obrigações pendentes do emissor.
-- **Retirada de liquidez do Fundo** permite ao proprietário do Fundo transferir o inventário disponível.
-- **Coleção de taxas** envia as comissões acumuladas do Fundo para o destinatário configurado.
+## Antes de publicar
 
-Veja o [Exemplo de Vale prático](/pt/introduction/example) para o ciclo de vida completo.
+As informações sobre Vales, Fundos, Ofertas, Pedidos, Catálogos, Publicações e Avaliações podem ter diferentes níveis de visibilidade. Antes de publicar um recurso:
 
-## Capacidades atuais, dependentes da implementação e propostas
+- escolha um ponto no mapa que seja seguro tornar público; as coordenadas exatas podem ficar visíveis;
+- verifique que informações são visíveis com e sem sessão iniciada;
+- utilize dados de contacto adequados ao público pretendido;
+- não copie informações privadas do perfil para um recurso público, a menos que pretenda publicá-las; e
+- leia a secção [«O que se torna público?»](/pt/governance/privacy#o-que-se-torna-público) do Aviso de Privacidade.
 
-A aplicação atual fornece um Mercado e fluxos suportados para contas, carteiras, vales, Ofertas, Wants, Fundos, transferências, trocas diretas de Fundo, trocas encaminhadas ao nível da aplicação e registos relacionados. A disponibilidade depende da implementação ativa, do ativo, da configuração do Fundo, do inventário, do tipo de carteira, do dispositivo, da rede, da elegibilidade, do fornecedor, da jurisdição e das condições publicadas.
+## Ações atuais da aplicação
 
-Os serviços de pagamento, os métodos de apoio, as recompensas, as garantias, os mecanismos de contribuição e outras integrações de fornecedores dependem da implementação. A parte responsável, as comissões, os limites, a elegibilidade e as condições legais devem ser divulgados quando essas capacidades forem oferecidas.
+| Ação da aplicação | O que faz |
+| --- | --- |
+| **Enviar** | Transfere um saldo de tokens para outro endereço. |
+| **Troca de Fundo** | Troca ativos suportados através de um `SwapPool`. A liquidação na cadeia não prova o cumprimento pelo Emissor. |
+| **Troca encaminhada** | Executa uma sequência ordenada de trocas de Fundo numa única transação limitada da Carteira e na mesma cadeia. Não reúne a governação dos Fundos. |
+| **«Resgatar»** | Preenche um envio para o proprietário do token como apresentação para resgate. O cumprimento e a quitação continuam separados. |
+| **«Solicitar retirada»** | Permite ao atual proprietário pedir a um administrador que retire um Vale ou Fundo. O recurso permanece ativo enquanto o pedido está pendente; o proprietário pode cancelá-lo e um administrador pode aprová-lo ou rejeitá-lo. A retirada não elimina contratos, saldos ou histórico. |
+| **Retirada de um Fundo** | Após aprovação, bloqueia novas trocas e depósitos no Fundo, mantendo disponíveis os levantamentos possíveis. Não apaga registos de liquidações anteriores. |
+| **Levantamento de liquidez do Fundo** | Permite ao proprietário transferir o inventário disponível para um endereço escolhido. |
+| **Cobrança de comissões** | Envia as comissões acumuladas do Fundo para o destinatário configurado. |
 
-O Protocol v1.1.0 fornece execução direta de Fundo e um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção proporcionam agora descoberta de rotas com vários passos na mesma cadeia, cotação autorizada, preparação de lotes da carteira, simulação, retransmissão e recibos agrupados acima desses contratos. O `SwapRouter` Solidity não se tornou um contrato de execução. O encaminhamento HTLC ou por depósito em garantia entre cadeias, o reequilíbrio automático de Fundos, a compensação por lotes, o seguro partilhado, os ativos de governação propostos, os programas de liquidez de rede e os meios de pagamento regulados continuam propostos ou dependentes da implementação, salvo quando uma implementação específica os identifique como ativos.
+## Responsabilidades e limites importantes
 
-Qualquer futuro empréstimo ou outro produto de crédito exige condições suplementares e condições da transação apresentadas separadamente. Uma transferência comum, um depósito num Fundo, uma troca num Fundo, uma apresentação para resgate, o cumprimento ou a quitação não constituem automaticamente um empréstimo, adiantamento ou reembolso.
+A [Grassroots Economics Foundation](https://grassrootseconomics.org/about/) gere a aplicação e a infraestrutura de apoio. A menos que a GEF aceite expressamente outra função numa determinada transação, não é o Emissor de um Vale criado por um utilizador, o Gestor de um Fundo criado por um utilizador, custodiante, credor, mutuário, garante, segurador ou responsável pelo resgate.
 
-Em seguida, leia a [visão geral do protocolo](/pt/protocol/overview), os [mecanismos de governação](/pt/governance/mechanics) ou o [Livro Branco](/pt/white-paper) mais abrangente.
+Antes de efetuar uma transação, lembre-se:
+
+- Deve cumprir os requisitos de idade, capacidade jurídica e jurisdição previstos nos Termos.
+- Os Emissores são responsáveis pelos compromissos dos seus Vales.
+- Os Gestores dos Fundos são responsáveis pelas regras publicadas e por qualquer garantia que assumam expressamente.
+- Uma listagem, avaliação, rota, limite, reserva ou registo na blockchain não é automaticamente um endosso, avaliação de valor, registo de cumprimento, garantia, apólice de seguro ou promessa de conversão em dinheiro.
+- Os serviços de pagamento, recompensas, mecanismos de contribuição e outras integrações de fornecedores dependem da implementação e exigem divulgações próprias.
+
+O Protocol v1.1.0 fornece execução direta num Fundo e um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção coordenam a execução na mesma cadeia através de vários Fundos acima desses contratos. O encaminhamento entre cadeias, o reequilíbrio automático dos Fundos, a compensação por lotes, os seguros partilhados, os ativos de governação propostos, os programas de liquidez de rede e os meios de pagamento regulados continuam propostos ou dependentes da implementação, salvo quando uma implementação específica os identifique como ativos.
+
+Consulte os [exemplos simples e avançado](/pt/introduction/example), a [visão geral do Protocolo](/pt/protocol/overview) ou os [mecanismos de governação](/pt/governance/mechanics) para obter mais informações.
