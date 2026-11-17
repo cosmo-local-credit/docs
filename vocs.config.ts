@@ -17,6 +17,7 @@ import {
   routeLocale,
 } from './docs/i18n/routes'
 import { vocsLocaleSearch } from './scripts/vocsLocaleSearch'
+import { vocsLeanRoutes } from './scripts/vocsLeanRoutes'
 
 const siteUrl = 'https://docs.cosmolocal.credit'
 const localeCodes = LOCALE_OPTIONS.map(({ code }) => code)
@@ -282,6 +283,6 @@ export default defineConfig({
   ],
   sidebar: localizedSidebars,
   vite: {
-    plugins: [vocsLocaleSearch()],
+    plugins: [vocsLocaleSearch(), vocsLeanRoutes()],
   },
 })
