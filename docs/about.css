@@ -337,68 +337,113 @@ body:has(.about-page) {
 }
 
 .clc-guide-art {
+  --clc-guide-art-background: oklch(1 0 0);
+  --clc-guide-art-border: oklch(0.922 0 0);
+  --clc-guide-art-foreground: oklch(0.145 0 0);
+  --clc-guide-art-muted: oklch(0.97 0 0);
+  --clc-guide-art-muted-foreground: oklch(0.556 0 0);
+  --clc-guide-art-primary: oklch(0.508 0.118 165.612);
+  --clc-guide-art-primary-foreground: oklch(0.979 0.021 166.113);
+  --clc-logo-tile: var(--clc-guide-art-primary);
   position: relative;
   overflow: hidden;
   width: min(100%, 34rem);
   margin: 1.1rem auto 0;
-  border: 1px solid var(--clc-guide-border);
-  aspect-ratio: 15 / 8;
-  background: var(--clc-surface-article);
+  border: 1px solid var(--clc-guide-art-border);
+  aspect-ratio: 4 / 3;
+  background: var(--clc-guide-art-background);
 }
 
-.clc-guide-art svg {
+:root.dark .clc-guide-art {
+  --clc-guide-art-background: oklch(0.205 0 0);
+  --clc-guide-art-border: oklch(0.269 0 0);
+  --clc-guide-art-foreground: oklch(0.97 0 0);
+  --clc-guide-art-muted: oklch(0.27 0 0);
+  --clc-guide-art-muted-foreground: oklch(0.708 0 0);
+  --clc-guide-art-primary: oklch(0.58 0.13 165.612);
+  --clc-guide-art-primary-foreground: oklch(0.985 0.021 166.113);
+}
+
+.clc-guide-art > svg {
   display: block;
   width: 100%;
   height: 100%;
-  padding: 0.7rem;
+  padding: 0.75rem;
 }
 
 .clc-guide-art__line,
 .clc-guide-art__dash {
   fill: none;
-  stroke: var(--clc-guide-foreground);
+  stroke: var(--clc-guide-art-foreground);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 1.7;
+  stroke-width: 1.5;
 }
 
 .clc-guide-art__dash {
-  stroke: var(--clc-guide-muted);
-  stroke-dasharray: 4 5;
+  stroke: var(--clc-guide-art-muted-foreground);
+  stroke-dasharray: 3 4;
+  stroke-width: 1.25;
 }
 
 .clc-guide-art__card {
-  fill: var(--clc-surface-article);
-  stroke: var(--clc-guide-foreground);
-  stroke-width: 1.7;
+  fill: var(--clc-guide-art-background);
+  stroke: var(--clc-guide-art-foreground);
+  stroke-width: 1.5;
 }
 
-.clc-guide-art__card--accent {
-  fill: var(--clc-guide-accent);
-  stroke: var(--clc-guide-accent);
+.clc-guide-art__card--dashed {
+  stroke-dasharray: 4 3;
 }
 
-.clc-guide-art__line--inverse {
-  stroke: var(--clc-accent-on-fill);
+.clc-guide-art__node--primary {
+  fill: var(--clc-guide-art-primary);
+  stroke: var(--clc-guide-art-primary);
+}
+
+.clc-guide-art__chip--primary {
+  fill: color-mix(in srgb, var(--clc-guide-art-primary) 10%, transparent);
+  stroke: var(--clc-guide-art-primary);
+  stroke-width: 1.5;
+}
+
+.clc-guide-art__line--accent {
+  stroke: var(--clc-guide-art-primary);
+}
+
+.clc-guide-art__icon {
+  fill: var(--clc-guide-art-foreground);
+}
+
+.clc-guide-art__icon--accent {
+  fill: var(--clc-guide-art-primary);
+}
+
+.clc-guide-art__icon--inverse {
+  fill: var(--clc-guide-art-primary-foreground);
 }
 
 .clc-guide-art__muted {
-  fill: var(--clc-guide-border);
+  fill: var(--clc-guide-art-border);
+}
+
+.clc-guide-art__media {
+  fill: var(--clc-guide-art-muted);
 }
 
 .clc-guide-art__qr {
-  fill: var(--clc-guide-foreground);
+  fill: var(--clc-guide-art-foreground);
 }
 
 .clc-guide-art__label {
-  fill: var(--clc-guide-foreground);
+  fill: var(--clc-guide-art-foreground);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 11px;
   font-weight: 700;
 }
 
 .clc-guide-art__label--accent {
-  fill: var(--clc-guide-accent);
+  fill: var(--clc-guide-art-primary);
 }
 
 .clc-guide__arrow {

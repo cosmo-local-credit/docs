@@ -74,12 +74,20 @@ for (const selector of [
 
 for (const declaration of [
   '--clc-guide-accent: var(--clc-accent-fill)',
+  '--clc-logo-tile: var(--clc-guide-art-primary)',
+  '--clc-guide-art-primary: oklch(0.508 0.118 165.612)',
+  '--clc-guide-art-primary: oklch(0.58 0.13 165.612)',
   'color: var(--clc-accent-text)',
-  'stroke: var(--clc-accent-on-fill)',
+  'fill: var(--clc-guide-art-primary-foreground)',
+  'aspect-ratio: 4 / 3',
 ]) {
   if (!splashCss.includes(declaration)) {
     errors.push(`introduction carousel is missing theme declaration ${declaration}`)
   }
+}
+
+if (splashCss.includes('--clc-surface-article')) {
+  errors.push('introduction carousel references undefined --clc-surface-article')
 }
 
 for (const className of ['mermaid-diagram', 'mermaid-diagram__caption', 'mermaid-diagram__viewport']) {
