@@ -1,6 +1,6 @@
 # Praktisches Gutscheinbeispiel
 
-Dieses Beispiel begleitet einen Gutschein von der Ausgabe über einen Fonds-Tausch, die Vorlage zur Einlösung und die Erfüllung bis zur Ausbuchung. Es veranschaulicht die beteiligten Rollen, verspricht aber nicht, dass ein bestimmter Gutschein, Fonds, eine Route oder ein Ergebnis verfügbar sein wird.
+Dieses Beispiel begleitet einen Gutschein von einem Angebot und einem Wunsch über einen Tausch durch zwei Fonds bis zur Einlösungsvorlage, Erfüllung und Ausbuchung. Es veranschaulicht die beteiligten Rollen, verspricht aber nicht, dass ein bestimmter Gutschein, Fonds, eine Route oder ein Ergebnis verfügbar sein wird.
 
 Die hier verwendeten Begriffe werden unter [Konzepte und Begriffe](/de/introduction/concepts) erklärt.
 
@@ -11,63 +11,96 @@ Stellen Sie sich vor, eine Gemeinschaftsküche erstellt einen digitalen Essensgu
 - Identität und Kontaktdaten der Küche;
 - die Mahlzeit oder das andere Angebot, für das ein Gutschein steht;
 - Bestand, Einheit, angegebener Wert und Leistungsfähigkeit der Küche;
-- Ort und Zeiten, an denen der Gutschein vorgelegt werden kann;
+- Ort und Zeiten für die Vorlage;
 - Ablaufdatum, Buchungsverfahren, Gebühren, Steuern oder Übertragungsbeschränkungen; und
-- das Verfahren für Vorlage, Erfüllung, Beschwerden, Erstattungen, Ersatzleistungen und andere Abhilfen.
+- Verfahren für Vorlage, Erfüllung, Beschwerden, Rückerstattungen, Ersatzleistungen und andere Abhilfen.
 
-Die Küche ist der Herausgeber. Sie muss diese Informationen richtig und aktuell halten, darf nicht über ihre vernünftigerweise zu erwartende Leistungsfähigkeit hinaus ausgeben und muss Gutscheine nach den Bedingungen erfüllen, unter denen die Inhaber sie erworben haben. Das Erstellen eines Tokens oder Veröffentlichen eines Angebots beweist diese Leistungsfähigkeit nicht und macht GEF nicht zum Herausgeber.
+Die Küche ist der Herausgeber. Sie muss diese Informationen richtig und aktuell halten, darf nicht über ihre vernünftigerweise zu erwartende Leistungsfähigkeit hinaus ausgeben und muss Gutscheine nach den Bedingungen erfüllen, unter denen die Inhaber sie erworben haben. Das Erstellen eines Tokens oder Veröffentlichen eines Angebots belegt diese Leistungsfähigkeit nicht und macht GEF nicht zum Herausgeber.
 
-## 2. Eine Fonds-Verantwortliche lässt den Gutschein zu
+Die Küche veröffentlicht außerdem ein **Angebot**, das die verfügbaren Mahlzeiten beschreibt. Gutschein und Angebot hängen zusammen, sind aber nicht dasselbe: Der Gutschein ist die einlösbare Verpflichtung; das Angebot hilft Menschen, die damit verbundenen Waren oder Dienstleistungen zu finden.
 
-Ein Commitment-Fonds für Ernährungssicherheit prüft die Küche, ihre Gutscheinbedingungen und den eigenen Zweck des Fonds. Wird der Gutschein zugelassen, veröffentlicht die Fonds-Verantwortliche die geltenden Regeln, darunter:
+## 2. Ein Teilnehmer veröffentlicht einen Wunsch
+
+Eine Schule in der Nähe besitzt Transportgutscheine und benötigt Mahlzeiten für eine Veranstaltung. Sie veröffentlicht einen **Wunsch**, der Mahlzeiten, Menge, Ort, Zeitpunkt und Kontaktweg beschreibt.
+
+Der Wunsch macht einen Bedarf sichtbar. Er nimmt den Gutschein der Küche nicht automatisch an, reserviert keine Mahlzeiten, schließt keinen Vertrag, genehmigt keinen Tausch und verpflichtet die Schule nicht zum Fortfahren. Die Schule muss weiterhin die Küche, die Gutscheinbedingungen, die verfügbare Route, das Angebot und die geltenden Bedingungen prüfen.
+
+## 3. Unabhängige Fonds-Verantwortliche kuratieren eine Route
+
+Zwei unabhängig verwaltete Fonds verbinden die Vermögenswerte:
+
+1. Ein Mobilitätsfonds lässt den Transportgutschein der Schule und einen Maisgutschein zu.
+2. Ein Ernährungssicherheitsfonds lässt denselben Maisgutschein und den Essensgutschein der Küche zu.
+
+Jeder Fonds-Verantwortliche prüft die Vermögenswerte und veröffentlicht die eigenen Regeln des Fonds, darunter:
 
 - wer für den Fonds verantwortlich ist;
 - der aktuelle `SwapPool`-Eigentümer, Proxy-Administrator und wesentliche Kontrolleure von Abhängigkeiten;
-- zugelassene Vermögenswerte;
+- zugelassene Gutscheine und andere unterstützte Vermögenswerte;
 - Methoden für Wechselkurse oder Kursangebote;
 - Obergrenzen für Token-Salden, in der App **„Kreditlimits“** genannt;
 - Fonds- und Protokollgebühren;
 - Befugnisse in Bezug auf Bestände und Liquiditätsabhebungen; und
 - gesondert finanzierte Garantien, Reserven oder Unterstützungsvereinbarungen.
 
-Die Zulassung bedeutet, dass der Gutschein nach den konfigurierten Fondsregeln erlaubt ist. Sie beweist keine Leistungsfähigkeit des Herausgebers, begründet keinen Bargeldwert und schafft keine Versicherung.
+Die Zulassung bedeutet, dass der Gutschein nach den konfigurierten Regeln eines Fonds erlaubt ist. Sie belegt keine Leistungsfähigkeit des Herausgebers, begründet keinen Bargeldwert, schafft keine Versicherung und vereint die beiden Fonds nicht zu einer gemeinsam verwalteten Einheit.
 
-## 3. Ein Teilnehmer trägt Bestände bei
+## 4. Teilnehmer stellen Bestände bereit
 
-Ein Unterstützer überträgt Essensgutscheine oder einen anderen unterstützten Vermögenswert zu den veröffentlichten Bedingungen an den `SwapPool`. Diese Einzahlung erhöht die verfügbaren Bestände.
+Der Mobilitätsfonds hält Maisgutscheine, die gegen Transportgutscheine getauscht werden können. Der Ernährungssicherheitsfonds hält Essensgutscheine, die gegen Maisgutscheine getauscht werden können. Teilnehmer können diese Bestände unter unterschiedlichen veröffentlichten Vereinbarungen bereitgestellt haben.
 
-Die Übertragung schafft nicht automatisch Fondsanteile oder Ansprüche auf Rückzahlung, Abhebung, Belohnung oder Governance. Solche Rechte müssen aus einer gesonderten, offengelegten Vereinbarung hervorgehen.
+Eine Einzahlung erhöht die verfügbaren Fondsbestände, schafft aber nicht automatisch einen Fondsanteil, einen Rückzahlungsanspruch, ein Abhebungsrecht, eine Belohnung oder eine Governance-Befugnis. Ein solches Recht muss aus einer gesonderten, offengelegten Vereinbarung hervorgehen.
 
-## 4. Ein Inhaber führt einen Fonds-Tausch aus
+## 5. Die App erkennt und berechnet eine Route
 
-Ein Inhaber tauscht über den Fonds einen unterstützten Vermögenswert gegen Essensgutscheine. Das angezeigte Kursangebot ist ein Transaktionsparameter des konfigurierten Quoters. Es beweist weder den Bargeldwert des Gutscheins noch die Leistung der Küche.
+Die Wallet der Schule öffnet die Ansicht **Kredit** und wählt den Essensgutschein aus. CLC Core schätzt eine mögliche Route:
 
-Der direkte Fonds-Tausch wird auf der Blockchain durch die Übertragung von Eingabe, Ausgabe, Fondsgebühr und einer etwaigen zusätzlichen Protokollgebühr abgewickelt. Er ist nicht automatisch ein Darlehen, eine Einlösung durch den Herausgeber oder eine reale Erfüllung.
+`transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-## 5. Der Inhaber legt den Gutschein vor
+Dieses Ergebnis ist noch kein Versprechen, dass der Tausch erfolgreich sein wird. Jeder Schritt hängt von der aktuellen Zulassung, den Fonds-Tokenlimits, verfügbaren Beständen, Kurs- und Gebühreneinstellungen, unterstütztem Tokenverhalten und der Aktualität des Dienstes ab.
 
-In der aktuellen App öffnet **„Einlösen“** den gewöhnlichen Sendevorgang mit der vorausgefüllten Adresse des Token-Eigentümers. Die Rücksendung des Gutscheins belegt die Vorlage beim Herausgeber; sie beweist für sich allein nicht, dass die Küche eine Mahlzeit bereitgestellt hat.
+Die Schule entscheidet, wie viel sie **Bekommen** oder **Ausgeben** möchte. CLC Core liest dann beide Fonds in einem festgelegten Block, erstellt ein zeitlich begrenztes verbindliches Angebot und simuliert den vollständigen Wallet-Batch. Die **Routendetails** der App zeigen beide Tausche, die geschätzten Beträge sowie die Fonds- und Protokollgebühren für jeden Schritt.
 
-Die Küche prüft die Vorlage und stellt die versprochene Mahlzeit nach ihren veröffentlichten Bedingungen bereit.
+## 6. Der Inhaber führt den Tausch über die Route aus
 
-## 6. Der Herausgeber zeichnet Erfüllung und Ausbuchung auf
+Nachdem die Schule den Mindestbetrag und die Angebotsfrist geprüft hat, wählt sie **Umtausch bestätigen** und signiert den vorbereiteten Batch. Die App übermittelt eine Transaktion innerhalb derselben Blockchain, die für jeden Fonds die Freigabe und den begrenzten Tauschaufruf enthält.
 
-Nach der Bereitstellung der Mahlzeit erfasst der Herausgeber die erfüllten Einheiten so, dass sie nicht zweimal vorgelegt werden können. Je nach veröffentlichtem Verfahren kann dies durch Empfang, Verbrennung, Stornierung oder eine andere Deaktivierung des zurückgegebenen Gutscheins geschehen.
+Schlägt ein Aufruf fehl, wird die gesamte Transaktion rückgängig gemacht; der erste Fonds-Tausch bleibt nicht ohne den zweiten abgewickelt. Bei Erfolg zeigt der zusammengefasste Beleg der Schule eine Tracking-ID, einen Transaktionshash, beide Fonds-Schritte, die abgewickelten Beträge und die Gebühren jedes Schritts.
 
-Erfüllt die Küche ihre Verpflichtung nicht, nutzt der Inhaber das veröffentlichte Beschwerde- oder Abhilfeverfahren des Herausgebers und seine Rechte nach anwendbarem Recht. Weder GEF noch die Fonds-Verantwortliche wird allein deshalb zur Einlösestelle, weil die App den Gutschein angezeigt oder der Fonds einen Tausch ermöglicht hat.
+Die Schule besitzt nun Essensgutscheine. Der Tausch auf der Blockchain ist **Tauschabwicklung**. Er gibt der Schule den Anspruch, den die Bedingungen des Essensgutscheins beschreiben; er belegt nicht, dass die Küche bereits Essen geliefert hat.
+
+## 7. Der Inhaber legt den Gutschein vor
+
+In der aktuellen App öffnet **„Einlösen“** den gewöhnlichen Sendevorgang mit der vorausgefüllten Adresse des Token-Eigentümers. Die Rücksendung des Gutscheins ist ein Nachweis der Vorlage beim Herausgeber; sie belegt für sich allein nicht, dass die Küche eine Mahlzeit bereitgestellt hat.
+
+Die Schule folgt dem Buchungs- oder Kontaktverfahren der Küche. Die Küche prüft die Vorlage und stellt die versprochenen Mahlzeiten nach ihren veröffentlichten Bedingungen bereit.
+
+## 8. Der Herausgeber zeichnet Erfüllung und Ausbuchung auf
+
+Nach der Bereitstellung der Mahlzeiten erfasst die Küche die erfüllten Einheiten so, dass sie nicht zweimal vorgelegt werden können. Je nach veröffentlichtem Verfahren kann dies durch Empfang, Verbrennung, Stornierung oder eine andere Deaktivierung des zurückgegebenen Gutscheins geschehen.
+
+Erfüllt die Küche ihre Verpflichtung nicht, nutzt der Inhaber das veröffentlichte Beschwerde- oder Abhilfeverfahren des Herausgebers und seine Rechte nach anwendbarem Recht. Weder GEF noch einer der Fonds-Verantwortlichen wird allein deshalb zur Einlösestelle, weil die App die Route gefunden oder die Fonds ihre Tausche ermöglicht haben.
 
 **„Gutschein stilllegen“** in der App ist etwas anderes: Die Auflistung im Katalog wird ausgeblendet, während Salden und Verlauf bestehen bleiben; ein Administrator kann sie wiederherstellen. Dies ist weder Erfüllung noch Ausbuchung, Verbrennung oder Stornierung.
 
 ## Verantwortlichkeiten auf einen Blick
 
 - **Herausgeber:** beschreibt und erfüllt den Gutschein und zeichnet die Ausbuchung auf.
-- **Fonds-Verantwortliche:** veröffentlicht und verwaltet Regeln, Kurse, Gebühren, Grenzen, Kontrollen und jede ausdrücklich übernommene Garantie des Fonds.
-- **Inhaber:** prüft Herausgeber, Gutscheinbedingungen, Fondsregeln, Kursangebot, Autorisierung der Geldbörse und anwendbares Recht.
-- **Technische Kontrolleure:** üben nur die ihnen übertragenen Befugnisse über Verträge, Abhängigkeiten, Upgrades, Kataloge oder Gebühren aus.
+- **Person, die einen Wunsch veröffentlicht:** beschreibt einen Bedarf, ohne damit automatisch einen Gutschein oder eine Route anzunehmen.
+- **Fonds-Verantwortliche:** veröffentlichen und verwalten unabhängig die Regeln, Kurse, Gebühren, Grenzen, Kontrollen und jede ausdrücklich übernommene Garantie ihres jeweiligen Fonds.
+- **Inhaber:** prüft Herausgeber, Gutscheinbedingungen, Fonds, Routenangebot, Gebühren, Wallet-Autorisierung und anwendbares Recht.
+- **CLC App und CLC Core:** erkennen und berechnen mögliche Routen, bereiten den signierten Batch vor, leiten ihn weiter und fassen technische Abwicklungsdaten zusammen. Sie belegen keine Erfüllung durch den Herausgeber.
+- **Technische Kontrolleure:** üben nur die ihnen übertragenen Befugnisse über Verträge, Abhängigkeiten, Upgrades, Kataloge, Routing-Dienste oder Gebühren aus.
 - **GEF:** betreibt die CLC App und die unterstützende Infrastruktur gemäß den [Nutzungsbedingungen](/de/governance/terms); GEF übernimmt die anderen Rollen nicht automatisch.
+
+## Wenn keine Route verfügbar ist
+
+Die App findet möglicherweise keine Route oder ein Angebot schlägt fehl, wenn der Bestand nicht ausreicht, ein Fonds-Tokenlimit überschritten würde, ein Gutschein nicht zugelassen ist, ein Token oder Kursanbieter nicht unterstützt wird, die Wallet nicht genügend Eingabebestand besitzt, die Routendaten veraltet sind oder die abschließende Batch-Simulation fehlschlägt. Ein Angebot kann außerdem ablaufen oder vor der Übermittlung ungültig werden, wenn sich der Fonds-Zustand ändert.
+
+Dieses Ergebnis ändert weder den Wunsch noch das Angebot oder bestehende Gutscheinverpflichtungen des Herausgebers. Der Teilnehmer kann die Route aktualisieren, einen kleineren Betrag wählen, einen anderen geeigneten Eingabegutschein verwenden oder warten, bis sich die Bedingungen eines Fonds ändern.
 
 ## Zukünftige Kreditvereinbarungen
 
 Ein zukünftiger Fonds oder eine andere verantwortliche Partei könnte eine Transaktion gesondert als rückzahlbaren Vorschuss, besicherte Transaktion oder anderes Kreditprodukt anbieten. Ein solches Produkt würde gesonderte Zusatz- und Transaktionsbedingungen benötigen, die Parteien, Beträge, Fälligkeiten, Gebühren oder Zinsen, Behandlung der Sicherheiten, Abtretung, Ausfall, Abhilfen und Nachweis der Ausbuchung benennen.
 
-Ein gewöhnlicher Sendevorgang, eine Fonds-Einzahlung, ein Fonds-Tausch, eine Gutscheinvorlage, Erfüllung oder Ausbuchung begründet diese Verpflichtungen nicht von selbst.
+Ein gewöhnlicher Sendevorgang, eine Fonds-Einzahlung, ein direkter Fonds-Tausch oder ein Tausch über eine Route, eine Gutscheinvorlage, Erfüllung oder Ausbuchung begründet diese Verpflichtungen nicht von selbst.

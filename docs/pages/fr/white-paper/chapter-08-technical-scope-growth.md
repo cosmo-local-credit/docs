@@ -1,11 +1,21 @@
 ## **8. Portée technique et croissance**
 
-Ce chapitre décrit les travaux facultatifs ou proposés. Il ne s'agit pas d'une liste de caractéristiques dont la présence est garantie dans l'actuel CLC App ou Protocol v1.1.0.
+Ce chapitre distingue le service de routage actuellement en production des évolutions facultatives ou proposées. Toute capacité actuelle décrite ici est propre au déploiement public de la CLC App et de CLC Core ; elle ne constitue pas automatiquement une fonctionnalité des contrats de Protocol v1.1.0 ni d'un autre déploiement.
 
-Les domaines de travail possibles sont les suivants:
+Le déploiement public actuel comprend:
 
-- l'acheminement de l'exécution à travers des bassins compatibles, avec enregistrement, devis, limite, frais et découverte d'inventaire;
+- la découverte, à partir d'un graphe, des bons accessibles au moyen de Bassins compatibles ;
+- des cotations faisant autorité, établies à un bloc déterminé pour des itinéraires sélectionnés sur une même chaîne ;
+- le calcul, à chaque étape, des frais du Bassin et du protocole, des sorties minimales et des échéances ;
+- la simulation du lot complet, la signature par le participant et l'exécution Calibur relayée ;
+- une seule transaction sur la même chaîne, qui annule tous les appels de l'itinéraire si l'un d'eux échoue ; et
+- des reçus regroupés et le rapprochement des événements de règlement de chaque étape.
+
+Les domaines de croissance possibles sont les suivants:
+
 - les adaptateurs de dépôt à durée déterminée ou HTLC pour l'exécution interdomaine lorsque le règlement atomique n'est pas disponible;
+- des profils de registre ou de politique supplémentaires et un routage entre les profils;
+- le rééquilibrage des stocks du Bassin et la compensation par lots;
 - des interfaces et des outils stratégiques pour les petits groupes ou les groupes personnels;
 - des registres vérifiables pour les bons d’échange, les bassins, les méthodes de change, les limites, les contrôleurs et les redevances;
 - les connecteurs de prestataires de paiement spécifiques au déploiement, les flux de paiement et les contrôles d'éligibilité;
@@ -14,26 +24,32 @@ Les domaines de travail possibles sont les suivants:
 
 Les prix du marché extérieur ne détermineraient pas ce qu'un émetteur doit en termes de bons. Un bassin pourrait utiliser une référence externe protégée pour un actif fongible, mais sa méthode de taux de change publiée, ses limites, ses frais et son inventaire régiraient ses cotations.
 
-### **8.1 Normes proposées pour le service sur route et SDK**
+### **8.1 Service de routage actuel et normes plus générales**
 
-**Découverte.** Un service d'itinéraire proposé interrogerait des registres identifiés pour l'admission d'actifs, les méthodes de taux de change, les limites, les frais, l'inventaire, les incidents et les informations sur le contrôleur. Les enregistrements en cache incluent les limites de fraîcheur et les identifiants de source.
+**Découverte.** CLC Core maintient un graphe rapproché à partir des catalogues configurés, des relations de registre, des paramètres des Bassins, des frais, des limites, des soldes et des événements sur la chaîne. Il estime ce qu'un portefeuille de session peut atteindre et signale les données obsolètes. La configuration publique recherche des itinéraires comportant jusqu'à trois étapes. La découverte ne constitue pas une promesse exécutable.
 
-**Les profils des réseaux.** Un client peut prendre en charge plus d'une racine de registre ou un profil de politique. Il indiquerait au participant le profil, les contreparties, les adaptateurs, les contraintes et les opérateurs de services responsables utilisés par un devis. Une route à profil croisé devrait satisfaire à toutes les conditions de étape applicables.
+**Cotation faisant autorité.** Pour un itinéraire sélectionné, CLC Core lit les Bassins participants à un bloc déterminé et reproduit les calculs `SwapPool` pris en charge. Il détaille les frais du Bassin et du protocole, fixe une sortie minimale pour chaque étape ainsi qu'une échéance, prépare les appels du portefeuille et simule le lot complet. Les jetons, modules de cotation, portefeuilles ou conditions de Bassin non pris en charge sont refusés.
 
-**Politique du parcours.** Un exploitant responsable pourrait exclure les dépendances ou les contreparties dangereuses et appliquer des plafonds au niveau de la route, des exigences de fraîcheur et des critères sanitaires. Ces signaux soutiendraient une décision; ils ne garantiraient pas l'exécution ou la protection contre la perte.
+**Exécution actuelle.** Le participant signe un lot Calibur contenant, pour chaque étape, la remise à zéro de l'autorisation, l'octroi de l'autorisation et un retrait borné. Un relayeur soumet une seule transaction sur la même chaîne avec `revertOnFailure` activé. L'itinéraire actuel est ainsi exécuté intégralement ou annulé au niveau de la transaction. Il ne s'agit ni d'une atomicité interchaînes, ni d'un routage par HTLC ou entiercement, ni d'un rééquilibrage automatique, ni d'une compensation.
 
-**Frais et limites.** Un devis détaillerait les frais de bassin, les frais de protocole actuels supplémentaires et les frais de routage ou de service proposés séparément. L'exécution rejetterait les offres expirées ou les limites dépassées.
+**Reçus et opérations.** L'application regroupe l'itinéraire sous un seul identifiant de suivi et enregistre l'état de la transaction, l'ordre des étapes, les Bassins, les paires de jetons, les montants cotés et réglés, les frais des Bassins, les frais du protocole et les reliquats intermédiaires. Le service surveille la fraîcheur du graphe, les résultats de l'énumération et de la cotation des itinéraires, les échecs de simulation, la durée et les corrections du rapprochement, ainsi que les membres indexés non résolus ou inconnus. La télémétrie opérationnelle ne prouve pas que l'émetteur a honoré son engagement.
 
-**Atomicité et récupération.** L'exécution multi-hop serait atomique si possible. Lorsqu'il utilisait des HTLC ou des dépôts, le service divulguait les délais, les voies d'interruption, les contrôleurs responsables, les procédures d'incident et les risques résiduels.
+**Profils de réseau.** Un client pourrait prendre en charge plusieurs racines de registre ou profils de politique. Il indiquerait au participant le profil, les contreparties, les adaptateurs, les contraintes et les opérateurs de services responsables utilisés par une cotation. Un itinéraire entre profils devrait respecter les conditions applicables à chaque étape.
 
-**Proposition de mise en réseau et de rééquilibrage des lots.** Un service opt-in pourrait recueillir des intentions de rééquilibrage et rechercher des cycles ou des chaînes compatibles. Ce serait:
+Un exploitant responsable pourrait exclure les dépendances ou contreparties dangereuses et appliquer des plafonds au niveau de la route, des exigences en matière de fraîcheur et des critères sanitaires. Ces signaux appuieraient une décision; ils ne garantiraient pas l'accomplissement ou la protection contre les pertes.
 
-1. publier un reçu lisible par machine indiquant les cycles exécutés, les actifs, les montants, les dates d'évaluation et les honoraires;
-2. appliquer les plafonds par période et les politiques de contrepartie adoptés;
-3. rejeter toute activité qui enfreint l'autorisation, les limites ou l'inventaire disponible de tout groupe participant ; et
-4. conserver les entrées et les reçus déterministes pour l'examen et le traitement des litiges.
+**Frais et limites.** La cotation actuelle détaille, pour chaque étape, les frais du Bassin et les éventuels frais de protocole supplémentaires. L'application publique n'ajoute actuellement pas de frais distincts pour le service de routage. Tout futur frais de service serait indiqué séparément. L'exécution rejette les cotations expirées ou les bornes dépassées.
 
-**Exigences du SDK.** Un SDK pour les itinéraires exécutés fournirait une cartographie déterministe du devis à la réception, des vérifications invariantes par étape, des codes de défaillance compréhensibles et des journaux faciles à vérifier. L'actuel Protocol v1.1.0 `SwapRouter` fournit uniquement des cotations; Il n'exécute pas ces lignes proposées.
+**Atomicité et récupération interdomaines.** Lorsqu'un futur itinéraire ne pourrait pas utiliser le lot atomique actuel sur une même chaîne et recourrait plutôt à des HTLC ou à un entiercement, le service indiquerait les délais, les voies d'abandon, les contrôleurs responsables, les procédures d'incident et les risques résiduels.
+
+**Compensation par lots et rééquilibrage proposés.** Un service facultatif pourrait recueillir des intentions de rééquilibrage et rechercher des cycles ou des chaînes compatibles. Il devrait :
+
+1. publier un reçu lisible par machine indiquant les cycles exécutés, les actifs, les montants, les horodatages de valorisation et les frais ;
+2. appliquer les plafonds par période et les politiques de contrepartie adoptés ;
+3. rejeter toute activité qui enfreint l'autorisation, les limites ou l'inventaire disponible de tout Bassin participant; et
+4. conserver des données d'entrée et des reçus déterministes pour les examens et le règlement des différends.
+
+**Exigences relatives au SDK et à l'interface.** Une intégration de routage réutilisable devrait fournir une correspondance déterministe entre la cotation et le reçu, des vérifications d'invariants à chaque étape, des codes d'échec compréhensibles et des journaux faciles à auditer. L'implémentation de production actuelle de l'application et de CLC Core fournit ces fonctions pour son propre profil. Le `SwapRouter` Solidity du protocole v1.1.0 calcule toujours uniquement des cotations et n'exécute pas l'itinéraire.
 
 #### **8.1.1 Spécification minimale de compatibilité de la confédération**
 

@@ -10,10 +10,13 @@ Diese Seite erklärt die Begriffe, die in der Dokumentation verwendet werden. Ex
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | Die Produktfamilie: die CLC App, ihre Dokumentation und die weiterführende Arbeit zum Commitment Pooling. |
 | **CLC App** | Die progressive Web-App unter [cosmolocal.credit](https://cosmolocal.credit). GEF betreibt diese Benutzeroberfläche und die unterstützenden Dienste. |
+| **CLC Core** | Der unterstützende App-Dienst für Kataloge, den indexierten Blockchain-Zustand, Routenerkennung, verbindliche Routenangebote, die Koordination des Relayers und Belege. CLC Core ist weder ein Smart Contract noch ein Fonds-Verantwortlicher. |
 | **Commitment Pooling Protocol (CPP)** | Das wiederverwendbare Modell für Kuratierung, Bewertung, Begrenzung, Tausch und verantwortliche Governance. |
 | **Protocol v1.1.0** | Die geprüfte öffentliche Smart-Contract-Version, die in der [Protokollreferenz](/de/protocol/overview) dokumentiert ist. |
 | **Commitment-Fonds ** | Eine verwaltete Vereinbarung, die Vermögenswerte kuratiert, Regeln veröffentlicht und Tausch ermöglicht. ** Fonds** ist die übliche Kurzform. |
 | **`SwapPool`** | Der aktuelle Protokollvertrag, der Token-Bestände hält und direkte Tausche ausführt. Er ist eine technische Komponente eines Commitment-Fonds. |
+| **Solidity-`SwapRouter`** | Der Vertrag von Protocol v1.1.0, der ein Kursangebot für einen vorgeschlagenen Weg durch mehrere Fonds berechnet. Er verwahrt keine Vermögenswerte und führt die Route nicht aus. |
+| **Routing-Ablauf der App** | Der aktuelle Ablauf von CLC App und CLC Core: Routen innerhalb derselben Blockchain erkennen, verbindlich berechnen und simulieren, einen signierten Wallet-Batch vorbereiten und weiterleiten sowie die daraus entstehenden Fonds-Abwicklungen in einem Beleg zusammenfassen. |
 | **Vorgeschlagener CLC-Governance-Token** | Ein zukünftiger Governance-Entwurf im Whitepaper. Er ist kein aktueller Vermögenswert der App oder von Protocol v1.1.0. |
 | **Vorgeschlagener CLC-Netzwerkfonds** | Ein zukünftiger Entwurf für Verrechnung und Koordination auf Netzwerkebene. Er ist nicht dasselbe wie ein aktueller `SwapPool`. |
 
@@ -63,6 +66,10 @@ Es handelt sich um vier getrennte Ebenen:
 | **„Gutschein stilllegen“** | Einen Gutschein im App-Katalog ausblenden. Salden und Verlauf bleiben erhalten, und ein Administrator kann die Auflistung wiederherstellen. Es handelt sich weder um Verbrennung noch Stornierung. |
 | **Fonds-Einzahlung oder Beitrag** | Vermögenswerte an einen `SwapPool` übertragen. Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance bestehen nur, wenn sie gesondert offengelegt wurden. |
 | **Fonds-Tausch** | Einen unterstützten Vermögenswert über einen `SwapPool` gegen einen anderen tauschen. Dies ist weder die Erfüllung durch den Herausgeber noch automatisch ein Darlehen. |
+| **Routenerkennung** | Mögliche Wege von geeigneten Gutscheinen in einer Wallet zu einem Zielgutschein über konfigurierte Fonds-Beziehungen finden. Das Ergebnis ist eine Schätzung, kein ausführbares Versprechen. |
+| **Routenangebot** | Eine zeitlich begrenzte, verbindliche Berechnung für eine ausgewählte Route. Sie beruht auf dem Fonds-Zustand in einem festgelegten Block und wird vor der Signatur simuliert. |
+| **Tausch über eine Route** | Eine geordnete Folge von Fonds-Tauschen, die die App als einen Wallet-Batch innerhalb derselben Blockchain einreicht. Im aktuellen Ablauf wird der gesamte Batch rückgängig gemacht, wenn ein Aufruf fehlschlägt. |
+| **Beleg für einen Tausch über eine Route** | Ein zusammengefasster Datensatz mit Tracking-Status, Transaktionshash, den einzelnen Routenschritten, den abgewickelten Beträgen sowie den Fonds- und Protokollgebühren je Schritt. |
 | **Liquidität aus einem Fonds abheben** | Der Fonds-Eigentümer überträgt verfügbare Bestände an eine ausgewählte Adresse. |
 | **Gebühren einziehen** | Ein konfigurierter Empfänger zieht aufgelaufene Fondsgebühren ein. |
 
@@ -82,7 +89,15 @@ Diese Wertbegriffe müssen getrennt bleiben:
 
 Die App-Bezeichnung **„Kreditlimit“** meint die konfigurierte Obergrenze für den Token-Saldo eines Fonds: den Höchstbetrag dieses Tokens, den der Fonds nach einer Einzahlung halten darf. Sie ist weder eine persönliche Kreditlinie noch eine Prüfung der Leistungsfähigkeit des Herausgebers oder eine Einlösungsgarantie. Die im Whitepaper vorgeschlagenen gleitenden, kontobezogenen und netzwerkweiten Grenzen sind andere Mechanismen.
 
-Protocol v1.1.0 kann eine **Fondsgebühr ** und zusätzlich eine ** Protokollgebühr ** erheben. Das vorgeschlagene Whitepaper-Modell beschreibt davon getrennt einen zukünftigen ** Netzwerkanteil** aus Fondsgebühren sowie mögliche Routing- oder Servicegebühren. Diese Modelle dürfen weder bei der Erklärung aktueller Kosten noch bei der Berechnung zukünftiger Einnahmen vermischt werden.
+Das aktuelle Protocol v1.1.0 kann für jeden Fonds-Tausch eine **Fondsgebühr** und zusätzlich eine **Protokollgebühr** berechnen. Bei einem Tausch über eine Route werden diese Gebühren für jeden Schritt erfasst. Der aktuelle Routing-Ablauf der CLC App erhebt keine gesonderte Gebühr für den Routing-Dienst. Das vorgeschlagene Whitepaper-Modell beschreibt davon getrennt einen zukünftigen **Netzwerkanteil** aus Fondsgebühren sowie mögliche Routing- oder Servicegebühren. Diese Modelle dürfen weder bei der Erklärung aktueller Kosten noch bei der Berechnung zukünftiger Einnahmen vermischt werden.
+
+## Routen und Liquidität
+
+Eine **Route** ist ein geordneter Weg durch einen oder mehrere unabhängig verwaltete Fonds. Die **Routentiefe** ist die Anzahl der Fonds-Tausche auf diesem Weg. Die aktuelle öffentliche Bereitstellung durchsucht Routen mit bis zu drei Schritten.
+
+**Verfügbare Liquidität** bezeichnet den geeigneten Ausgabebestand, den ein Fonds nach seinem aktuellen Zulassungs-, Saldenlimit-, Kurs-, Gebühren- und Reservestatus bereitstellen kann. Eine grafische Verbindung allein belegt nicht, dass darüber eine nützliche Menge getauscht werden kann. Die Routenerkennung kann veralten; das spätere Angebot auf Grundlage eines festgelegten Blocks ist nur bis zu seiner Frist oder einer relevanten Zustandsänderung verbindlich.
+
+Die aktuelle Routenausführung findet innerhalb derselben Blockchain statt und wird von der Wallet veranlasst. Sie vereint nicht die Governance der beteiligten Fonds, gleicht Fondsbestände nicht automatisch aus, verrechnet keine Verpflichtungen zwischen mehreren Parteien und belegt keine Erfüllung durch einen Herausgeber. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich und gebündelte Verrechnung bleiben vorgeschlagen oder bereitstellungsabhängig.
 
 ## Schutz und Nachweise
 

@@ -15,4 +15,6 @@ Uma futura implementação pode adicionar interruptores de circuito, bloqueios d
 
 A governação proposta deve manter os poderes de registo e de serviço restritos e revisaveis. As ações ordinárias podem usar processos de aviso, atraso, publicação de razões, recurso e correção. As ações de emergência devem produzir registos de incidentes e expirar ou receber revisão no âmbito de uma política adoptada.
 
-A descoberta de rotas compatíveis pode possibilitar mais trocas entre Fundos. A execução e a rede multi-hop exigiriam software adicional, autorização, limites, manejo de falhas e governação. Os swaps mais cotados ou executados não provariam, por si só, o cumprimento do vale ou o impacto social.
+A CLC App e o CLC Core em produção fornecem agora descoberta de rotas compatíveis e execução com vários passos na mesma cadeia para rotas autorizadas pelos participantes através do perfil público configurado. As cotações aplicam em cada passo limites de montante, comissões, inventário, limites de saldo e simulação, enquanto um lote assinado pela carteira é revertido por inteiro se uma chamada falhar.
+
+Esse serviço não autoriza o reequilíbrio automático de Fundos nem o controlo, ao nível da rede, dos seus inventários. O reequilíbrio, a compensação por lotes, a execução entre domínios por HTLC ou depósito em garantia e a governação da liquidez partilhada exigiriam autoridade adicional, software, limites, tratamento de falhas e regras adotadas. Mais trocas cotadas ou executadas não provam, por si só, o cumprimento dos vales nem o impacto social.

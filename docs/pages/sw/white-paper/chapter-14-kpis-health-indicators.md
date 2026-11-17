@@ -1,26 +1,33 @@
-## **14. KPI zilizopendekezwa na viashiria vya afya**
+## **14. KPIs na viashiria vya afya**
 
-Uanzishaji unapaswa kuchapisha KPI tu wakati inaweza kuamua tukio, chanzo, cohort au kipindi, kitengo, mbinu ya tathmini na muda, uondoaji, sera ya marekebisho, ushahidi nje ya mlolongo, na mipaka ya ubora wa data.
+Utekelezaji unapaswa kuchapisha KPI tu unapoweza kufafanua tukio, chanzo, kundi au kipindi, kitengo, mbinu na muhuri wa muda wa uthamini, mambo yaliyotengwa, sera ya marekebisho, ushahidi wa nje ya mnyororo na mipaka ya ubora wa data.
 
-Mipango iliyopendekezwa ni:
+Huduma za sasa za njia zinaweza kupima ugunduzi, nukuu, utekelezaji, ukamilishaji na matukio ya upatanisho. Utekelezaji wa vocha na matokeo ya kijamii bado yanahitaji ushahidi tofauti. Vipimo vinavyopendekezwa ni pamoja na:
 
-- maonyesho halali ya ukombozi;
-- kiwango cha kutimiza kulingana na kundi;
-- utoaji kamili;
-- latency ya uwasilishaji hadi utekelezaji;
-- muda wa uhifadhi wa ununuzi hadi uwasilishaji;
-- mikopo inayostahiki chini ya mbinu iliyoainishwa;
-- Jumla kamili ya kubadilishana kikundi;
-- hesabu ya kikundi iliyokadiriwa;
-- Matumizi ya mkusanyiko wa ishara za usawa;
-- kiwango cha kupitisha nukuu, kilichowekwa kando na kiwango cha utekelezaji wa njia;
-- Hifadhi zinazofaa zilizogawanywa kwa mfiduo uliofunikwa wazi;
-- madai ya mdhamini na upatikanaji chini ya sera iliyotambuliwa;
-- mapato yaliyopendekezwa ya mtandao na ada za huduma zilizopokelewa kweli, bila malipo ya jumla ya Jumuiya ya Jumuiya;
-- wakati wa kugundua utawala, uamuzi, kupumzika, kurekebisha, na kufunga;
-- malalamiko, mabishano, marekebisho, na njia za kurekebisha; na
-- Matokeo ya kijamii au kiekolojia yaliothibitishwa tofauti.
+- uwasilishaji halali kwa ukombozi;
+- kiwango cha utekelezaji kulingana na kundi;
+- ukamilifu wa ukomo;
+- muda kutoka uwasilishaji hadi utekelezaji;
+- muda wa kushikilia kutoka upatikanaji hadi uwasilishaji;
+- ahadi zinazofaa zilizobaki chini ya mbinu iliyotajwa;
+- kiasi cha ubadilishaji wa moja kwa moja kupitia Kikundi uliokamilishwa;
+- majaribio ya ugunduzi wa njia na idadi ya njia zinazowezekana zilizopatikana;
+- majaribio, matokeo, kina, muda wa kuisha na ada zilizonukuliwa za nukuu halali za njia;
+- majaribio ya ubadilishaji wa njia, miamala iliyothibitishwa na iliyorejeshwa, pamoja na sababu za kushindwa;
+- kiasi cha ingizo na matokeo cha njia nzima, kinachohesabiwa mara moja kwa kila njia badala ya kila hatua;
+- kiasi kilichokamilishwa, ada za Kikundi, ada za itifaki na salio la kati kwa kila hatua;
+- vizuizi vya njia, vikiwemo ukwasi usiotosha, mipaka ya salio la tokeni la Kikundi, vitegemezi visivyosaidiwa na vizuizi vya Mkoba;
+- ubora wa sasa wa grafu, muda wa upatanisho, marekebisho na kushindwa;
+- mali zilizopimwa za Kikundi;
+- matumizi ya kikomo cha salio la tokeni la Kikundi;
+- viwango vya mafanikio ya ugunduzi na nukuu, vinavyowekwa tofauti na viwango vya utekelezaji na ukamilishaji wa njia;
+- akiba zinazofaa ikigawanywa kwa thamani iliyofunikwa wazi;
+- madai ya mdhamini na urejeshaji chini ya sera iliyotajwa;
+- ada za sasa za Kikundi na itifaki kwa kila hatua, zikitengwa na sehemu yoyote ya mtandao inayopendekezwa au ada ya huduma ya baadaye;
+- muda wa kugundua, kuamua, kusitisha, kusuluhisha na kufunga suala la utawala;
+- malalamiko, migogoro, marekebisho na suluhisho; na
+- matokeo ya kijamii au kiikolojia yaliyothibitishwa kando.
 
-Takwimu za shughuli kwenye mlolongo hazionyeshi utambulisho, utendaji wa mtoaji, kuridhika, kisababishi, afya ya jamii, au athari za kijamii. Maneno hayo yanahitaji mbinu na ushahidi wao wenyewe.
+Takwimu za miamala kwenye mnyororo hazithibitishi utambulisho, utekelezaji wa Mtoaji, kuridhika, sababu, afya ya jamii wala athari za kijamii. Madai hayo yanahitaji mbinu na ushahidi wake.
 
-Tazama [Kiambatisho C](/sw/white-paper/appendix-c-kpi-definitions) kwa ajili ya specification kupimwa iliyopendekezwa.
+Angalia [Kiambatisho C](/sw/white-paper/appendix-c-kpi-definitions) kwa vipimo vya kina vinavyopendekezwa.

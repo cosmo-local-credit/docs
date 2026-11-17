@@ -5,7 +5,7 @@ De ervaring van de historische Sarafu Network motiveerde onderzoek naar twee bre
 1. hoe onafhankelijk beheerde fondsen liquiditeits- en routingdiensten konden coördineren; en
 2. Hoe gedeelde diensten aansprakelijk kunnen blijven als de participatie toeneemt.
 
-Een voorgestelde CLC-ontwerp introduceert een **voorgestelde CLC netwerkpool ** als een nettoverzekerings- en begrotingscoördinatieovereenkomst op netwerkniveau en ** voorgestelde CLC governance token**. Geen van beide bestaat in de huidige App of Protocol v1.1.0. Andere implementaties kunnen gebruik maken van coöperaties, overheidsinstanties, federaties, multinationals, dienstverleners of andere verantwoordingsplichtige structuren zonder dat elk voorstel wordt aangenomen.
+Eén voorgesteld CLC-ontwerp introduceert een **voorgesteld CLC Network Pool** als regeling voor netwerkbrede clearing en begrotingscoördinatie, en een **voorgestelde CLC-governancetoken**. Geen van beide bestaat in de huidige App of Protocol v1.1.0. Andere implementaties kunnen coöperaties, overheidsinstanties, federaties, multisigs, dienstverleners of andere verantwoordelijke structuren gebruiken zonder een van beide voorstellen over te nemen.
 
 ### **6.1 Downside-controles en optionaliteit**
 
@@ -15,4 +15,6 @@ Een toekomstige implementatie zou circuitsonderbrekers, timelocks, reserves, gar
 
 De voorgestelde governance moet de register- en dienstbevoegdheden beperkt en herzienbaar houden. Normale acties kunnen gebruik maken van kennisgeving, vertraging, reden publicatie, beroep en correctieprocessen.
 
-Een compatibele routeontdekking zou meer uitwisselingen mogelijk kunnen maken tussen Fondsen. Multi-hop-uitvoering en netting vereisen extra software, autorisatie, limieten, foutbeheersing en governance. Meer genoteerde of uitgevoerde swaps zouden op zich niet bewijzen dat de waardebon volstaat of sociale impact heeft.
+De productieversies van de CLC App en CLC Core bieden nu compatibele routeontdekking en uitvoering in meerdere stappen binnen één blockchainnetwerk voor routes die deelnemers via het geconfigureerde openbare profiel goedkeuren. Offertes passen per stap limieten, kosten, voorraad, grenzen en simulatie toe, terwijl een ondertekende walletbatch als geheel wordt teruggedraaid als één aanroep mislukt.
+
+Deze dienst geeft geen toestemming voor automatische herbalancering van Fondsen of netwerkbrede controle over Fondsvoorraad. Herbalancering, batchverrekening, cross-domain uitvoering met HTLC's of escrow en gedeelde liquiditeitsgovernance vereisen aanvullende bevoegdheden, software, grenzen, foutafhandeling en vastgestelde regels. Meer geoffreerde of uitgevoerde swaps bewijzen op zichzelf geen nakoming van Waardebonnen of maatschappelijke impact.

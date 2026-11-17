@@ -1,0 +1,51 @@
+{
+  "source": {
+    "whitePaperVersion": "0.9",
+    "publicationDate": "16 November 2026",
+    "appCommit": "b5f337f3c2d7bc508d11f35126ad2175b6c717eb",
+    "coreCommit": "ef0f0067ce3ac8f254d33b7f974304510a439aab",
+    "protocolCommit": "ce090fd3d5a7493c726fb939da39af15ef1c9d7c",
+    "affectedRoutes": [
+      "/introduction/getting-started",
+      "/introduction/concepts",
+      "/introduction/example",
+      "/introduction/history",
+      "/protocol/overview",
+      "/protocol/network",
+      "/governance/mechanics",
+      "/white-paper",
+      "/white-paper/executive-summary",
+      "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive",
+      "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network",
+      "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance",
+      "/white-paper/chapter-08-technical-scope-growth",
+      "/white-paper/chapter-09-economics-for-lps",
+      "/white-paper/chapter-10-comprehensive-risk-framework",
+      "/white-paper/chapter-13-jargon-plain-language-glossary",
+      "/white-paper/chapter-14-kpis-health-indicators",
+      "/white-paper/chapter-15-roadmap-indicative",
+      "/white-paper/chapter-18-conclusion",
+      "/white-paper/appendix-c-kpi-definitions",
+      "/white-paper/archive"
+    ]
+  },
+  "locales": {
+    "en": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "16 November 2026" },
+    "fr": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "es": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "pt": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "it": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "sw": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "de": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "uk": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "sr": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "ar": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "dz": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "nl": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "hi": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "zh": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "zh-Hant": { "status": "current", "whitePaperVersion": "0.9", "translationPublicationDate": "17 November 2026" },
+    "fil": { "status": "pending", "whitePaperVersion": "0.8", "translationPublicationDate": "10 October 2026" },
+    "nl-BE": { "status": "pending", "whitePaperVersion": "0.8", "translationPublicationDate": "11 October 2026" }
+  }
+}

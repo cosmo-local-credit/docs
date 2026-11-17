@@ -50,10 +50,31 @@ Ein Commitment-Fonds ist eine verwaltete Vereinbarung. Sein aktueller `SwapPool`
 
 Eine Einzahlung überträgt Vermögenswerte an den `SwapPool`. Protocol v1.1.0 prägt keine Fondsanteil-Tokens und gewährt Einzahlenden nicht automatisch Rechte auf Rückzahlung, Abhebung, Belohnung oder Governance.
 
-### 5. Die passende Handlung wählen
+### 5. Umtausch direkt oder über eine Route
+
+In der App-Ansicht **Kredit** finden Sie Gutscheine, die Sie mit den Gutscheinen in Ihrer Wallet erhalten können. Für einen erreichbaren Gutschein kann ein direkter Fonds-Tausch oder eine Route durch mehrere unabhängig verwaltete Fonds erforderlich sein. Die aktuelle öffentliche Bereitstellung sucht nach Routen mit bis zu drei Tauschen.
+
+Um zu tauschen:
+
+1. Wählen Sie **Bekommen** für den gewünschten Gutschein oder **Ausgeben** für die Gutscheine, die Sie verwenden möchten.
+2. Prüfen Sie die verfügbare Option unter **Bezahlen mit** und die **Schätzung**.
+3. Öffnen Sie **Routendetails**, um jeden Fonds, Tausch, Betrag sowie jede Fonds- und Protokollgebühr zu sehen.
+4. Wählen Sie **Prüfen**, kontrollieren Sie den Mindestbetrag und die Gültigkeitsdauer des Angebots und wählen Sie anschließend **Umtausch bestätigen**.
+5. Signieren Sie den vorbereiteten Wallet-Batch.
+
+CLC Core erkennt mögliche Routen anhand indexierter Fonds- und Gutscheininformationen. Diese Erkennung ist nur eine Schätzung. Vor der Signatur liest CLC Core den maßgeblichen Fonds-Zustand in einem festgelegten Block, erstellt ein verbindliches Angebot, wendet für jeden Schritt Mindestbeträge und Fristen an und simuliert den vollständigen Batch. Die App erhebt derzeit keine gesonderte Gebühr für den Routing-Dienst; jeder Schritt kann jedoch die konfigurierte Fondsgebühr und zusätzlich eine Protokollgebühr berechnen.
+
+Die signierte Route wird als eine Transaktion innerhalb derselben Blockchain übermittelt. Jeder Schritt verwendet dieselbe mit der App kompatible Wallet. Wenn eine Freigabe oder ein Fonds-Tausch im Batch fehlschlägt, wird die gesamte Transaktion rückgängig gemacht; frühere Schritte bleiben daher nicht einzeln abgewickelt. Der Beleg fasst die Route unter einer Tracking-ID zusammen und zeigt Status, Transaktionshash, jeden Fonds, abgewickelte Beträge sowie die Fonds- und Protokollgebühren jedes Schritts.
+
+Eine Route ist möglicherweise nicht verfügbar, weil die Wallet keinen geeigneten Eingabegutschein enthält, ein Fonds den Token nicht akzeptiert, ein Fonds-Tokenlimit überschritten würde, der Ausgabebestand nicht ausreicht, ein Kursanbieter oder Token nicht unterstützt wird oder der Routing-Dienst vorübergehend veraltet oder nicht erreichbar ist. Ein Angebot kann außerdem ablaufen, durch eine Änderung des Fonds-Zustands veralten oder bei der abschließenden Simulation beziehungsweise auf der Blockchain fehlschlagen. Aktualisieren Sie die Route und prüfen Sie das neue Angebot, statt anzunehmen, dass eine frühere Schätzung weiterhin gilt.
+
+Die aktuelle Routenausführung unterstützt die kompatiblen EOA-/Calibur-Wallets der CLC App. Für einen Safe oder eine andere Smart-Contract-Wallet bereitet sie derzeit keinen Tausch über eine Route vor.
+
+### 6. Die passende Aktion wählen
 
 - **Senden** überträgt einen Token-Saldo an eine andere Adresse.
-- **Fonds-Tausch** tauscht einen unterstützten Vermögenswert über einen `SwapPool` gegen einen anderen. Die Abwicklung des Tauschs auf der Blockchain beweist keine Erfüllung durch den Herausgeber.
+- **Fonds-Tausch** tauscht einen unterstützten Vermögenswert über einen `SwapPool`. Das kann ein direkter Tausch oder ein einzelner Schritt eines Tauschs über eine Route sein. Die Abwicklung des Tauschs auf der Blockchain belegt keine Erfüllung durch den Herausgeber.
+- **Tausch über eine Route** führt eine geordnete Reihe von Fonds-Tauschen als eine begrenzte Wallet-Transaktion innerhalb derselben Blockchain aus. Er vereint nicht die Governance der Fonds und macht den Routing-Dienst nicht für die Erfüllung durch den Herausgeber verantwortlich.
 - **„Einlösen“** öffnet den Sendevorgang mit der vorausgefüllten Adresse des Token-Eigentümers. Dadurch wird der Gutschein dem Herausgeber zur Einlösung vorgelegt oder an ihn zurückgesendet. Eine vollständige Einlösung setzt zusätzlich die versprochene Leistung des Herausgebers und eine Ausbuchung voraus, die eine erneute Verwendung verhindert.
 - **„Gutschein stilllegen“** blendet die Auflistung im Katalog aus. Dies verbrennt keine Salden, storniert den Gutschein nicht und beendet keine noch offenen Verpflichtungen des Herausgebers.
 - **Liquidität aus einem Fonds abheben** erlaubt dem Fonds-Eigentümer, verfügbare Bestände zu übertragen.
@@ -63,11 +84,11 @@ Das [praktische Gutscheinbeispiel](/de/introduction/example) zeigt den vollstän
 
 ## Aktuelle, bereitstellungsabhängige und vorgeschlagene Funktionen
 
-Die aktuelle App bietet einen Markt und unterstützte Abläufe für Konten, Geldbörsen, Gutscheine, Angebote, Fonds, Übertragungen, direkte Fonds-Tausche und zugehörige Aufzeichnungen. Die Verfügbarkeit hängt von der aktiven Bereitstellung, dem Vermögenswert, der Fonds-Konfiguration, dem Gerät, dem Netzwerk, der Berechtigung, dem Anbieter, der Rechtsordnung und den veröffentlichten Bedingungen ab.
+Die aktuelle App bietet einen Markt und unterstützte Abläufe für Konten, Wallets, Gutscheine, Angebote, Fonds, Übertragungen, direkte Fonds-Tausche, Tausch über Routen auf Anwendungsebene und zugehörige Aufzeichnungen. Die Verfügbarkeit hängt von der aktiven Bereitstellung, dem Vermögenswert, der Fonds-Konfiguration, dem Bestand, dem Wallet-Typ, dem Gerät, dem Netzwerk, der Berechtigung, dem Anbieter, der Rechtsordnung und den veröffentlichten Bedingungen ab.
 
 Zahlungsdienste, Unterstützungsmöglichkeiten, Belohnungen, Garantien, Beitragsvereinbarungen und andere Anbieterintegrationen sind bereitstellungsabhängig. Wo sie angeboten werden, müssen die verantwortliche Partei, Gebühren, Grenzen, Berechtigung und rechtlichen Bedingungen offengelegt werden.
 
-Protocol v1.1.0 ermöglicht die direkte Ausführung in einem Fonds und enthält einen `SwapRouter`, der nur Kursangebote erstellt. Mehrstufige Ausführung, HTLC- oder Escrow-Routing, gebündelte Verrechnung, gemeinsame Versicherung, vorgeschlagene Governance-Vermögenswerte, Netzwerkliquiditätsprogramme und regulierte Zahlungswege bleiben vorgeschlagen oder bereitstellungsabhängig, sofern eine konkrete Bereitstellung sie nicht ausdrücklich als aktiv ausweist.
+Protocol v1.1.0 ermöglicht die direkte Ausführung in einem Fonds und enthält einen Solidity-`SwapRouter`, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core ergänzen darüber Routenerkennung innerhalb derselben Blockchain, verbindliche Angebote, Vorbereitung von Wallet-Batches, Simulation, Weiterleitung und zusammengefasste Belege. Der Solidity-`SwapRouter` ist dadurch nicht zu einem Ausführungsvertrag geworden. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich, gebündelte Verrechnung, gemeinsame Versicherung, vorgeschlagene Governance-Vermögenswerte, Netzwerkliquiditätsprogramme und regulierte Zahlungswege bleiben vorgeschlagen oder bereitstellungsabhängig, sofern eine konkrete Bereitstellung sie nicht ausdrücklich als aktiv ausweist.
 
 Jedes zukünftige Darlehen oder sonstige Kreditprodukt erfordert gesonderte Zusatz- und Transaktionsbedingungen. Eine gewöhnliche Übertragung, Fonds-Einzahlung, ein Fonds-Tausch, eine Vorlage zur Einlösung, eine Erfüllung oder Ausbuchung ist nicht automatisch ein Darlehen, Vorschuss oder eine Rückzahlung.
 

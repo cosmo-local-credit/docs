@@ -2,6 +2,24 @@
   "sourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
   "translationPublicationDate": "10 October 2026",
   "status": "first-draft-review",
+  "routingSourceAppCommit": "b5f337f3c2d7bc508d11f35126ad2175b6c717eb",
+  "routingSourceCoreCommit": "ef0f0067ce3ac8f254d33b7f974304510a439aab",
+  "routingSourceProtocolCommit": "ce090fd3d5a7493c726fb939da39af15ef1c9d7c",
+  "routingWhitePaperVersion": "0.9",
+  "routingTranslationPublicationDate": "17 November 2026",
+  "routingReviewProcess": [
+    "three-way reconciliation against the committed v0.8 English source, the v0.9 English source, and the reviewed Portuguese v0.8 translation",
+    "line-scoped semantic translation of changed units with protected technical tokens",
+    "manual product-accuracy and natural-language review of every affected route",
+    "independent back-translation and structural verification"
+  ],
+  "routingBackTranslationReview": {
+    "units": 560,
+    "meanBackTranslationSimilarity": 0.7325,
+    "unitsBelow0_35": 30,
+    "threshold": 0.35,
+    "status": "manual-review-complete"
+  },
   "reviewProcess": [
     "semantic NLLB translation with protected technical tokens",
     "clarity normalization with complete-line context and the clc-app glossary",
@@ -10,10 +28,10 @@
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
-      "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",
+      "sourceSha256": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
       "locales": {
         "pt": {
-          "sha256": "a1608a7e8090b73da70cf3df5fc54c0f707b6ffaa8e7d81c3fcb1ae21ab42863",
+          "sha256": "98636e49af884c27ca027137a31cb7f4fa25af4d3cafed28a9b0a6ef37104e45",
           "review": {
             "units": 150,
             "meanBackTranslationSimilarity": 0.6548,
@@ -24,10 +42,10 @@
     },
     "/introduction/example": {
       "source": "introduction/example.mdx",
-      "sourceSha256": "fdadea998896654637ce3dcafe25e2b52331e9761337420d1fc48ec6cc2f9b73",
+      "sourceSha256": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
       "locales": {
         "pt": {
-          "sha256": "d992055406fd226ea057c893e29b3bf783d3ff62394a011a5daa1000fe683181",
+          "sha256": "4facc478a0ad344ea4cb02b9e0a13c5711a4a34339ca073a678cec7cece857d7",
           "review": {
             "units": 60,
             "meanBackTranslationSimilarity": 0.673,
@@ -38,10 +56,10 @@
     },
     "/introduction/getting-started": {
       "source": "introduction/getting-started.mdx",
-      "sourceSha256": "0994bc3095975e850382f00f7f1f2bbba3263a2ea12155596633fae0e58f3e13",
+      "sourceSha256": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
       "locales": {
         "pt": {
-          "sha256": "4e0bc97e8ebe897857c80d54df3715beb375b91a5810fea5548c615a2dbfdddd",
+          "sha256": "a4eb9eda7031ddcb0bbbdc6462b8e20e71a0886ed0c6bdac0bb1311373704caf",
           "review": {
             "units": 74,
             "meanBackTranslationSimilarity": 0.674,
@@ -52,10 +70,10 @@
     },
     "/introduction/history": {
       "source": "introduction/history.mdx",
-      "sourceSha256": "2ac38e29d8d93d2b10534d715d285105bfb96cdcbe4334f88668d3be3c8ec456",
+      "sourceSha256": "363cf3a1387301ef1f3ba088871d57e8d43f16762027b1a1e1b63fc7b841f801",
       "locales": {
         "pt": {
-          "sha256": "6d6b5ca4af3aecae2c7d80a4be244c1d09605f70f37beb6d74fc3747cd974150",
+          "sha256": "b1ca3db50b4a6f53d09e5405e84e302a4eebf601f9d6e60f55f534011ff4bb64",
           "review": {
             "units": 37,
             "meanBackTranslationSimilarity": 0.7136,
@@ -66,10 +84,10 @@
     },
     "/protocol/network": {
       "source": "protocol/network.mdx",
-      "sourceSha256": "b7a0b29963a5e0aa8d02a74659a66fc29883daf88311e98c40b85eadd424b768",
+      "sourceSha256": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
       "locales": {
         "pt": {
-          "sha256": "1f2458cddbecc837dfa971e2dfa4290117bef39d3948c899a5dd3556951c3da2",
+          "sha256": "44d16adcdd13bdb72984eb91071086a00b52f52a5aead6c0c914ce79b15f8a75",
           "review": {
             "units": 72,
             "meanBackTranslationSimilarity": 0.5996,
@@ -80,10 +98,10 @@
     },
     "/protocol/overview": {
       "source": "protocol/overview.md",
-      "sourceSha256": "3d72a446f706e4f2fbaf7671ac6efbc178eaef1351c1199ba17e1e768eedcabd",
+      "sourceSha256": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
       "locales": {
         "pt": {
-          "sha256": "65f8747dcac13e6dee2319208e8bb60a9ddf6fc6532a9a6b4971499524f78b8b",
+          "sha256": "edfde2c7d269a6f813c51d159155cbe72a5d269e49bf6a097b7a48166483a905",
           "review": {
             "units": 41,
             "meanBackTranslationSimilarity": 0.6039,
@@ -108,10 +126,10 @@
     },
     "/governance/mechanics": {
       "source": "governance/mechanics.md",
-      "sourceSha256": "71bc7b63c36a963a64249f174ebeef2b7dcf01718ddc75dd11a33f0fea74fa0b",
+      "sourceSha256": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180",
       "locales": {
         "pt": {
-          "sha256": "5186f57170104f383303c63f75dface737b89a1db1288ba3398061c6fe34d1d8",
+          "sha256": "c9b882fce375e1b16ce5416216e0129bd3bf95ad2ef8a25d11e99fa0c54d0095",
           "review": {
             "units": 39,
             "meanBackTranslationSimilarity": 0.6669,
@@ -164,10 +182,10 @@
     },
     "/white-paper/appendix-c-kpi-definitions": {
       "source": "white-paper/appendix-c-kpi-definitions.md",
-      "sourceSha256": "59d07455a39371abab65dba41b23f095cf9e8261dc22bb45ceeaf9a2fb0217e0",
+      "sourceSha256": "c6f6315718ff19152407292bc55bd821e8df65dc18e573a7e2e098bdd86b6b62",
       "locales": {
         "pt": {
-          "sha256": "8489c3c25eac725feab84940129a0414129657334fec67cab9dc3de3f4aa3c36",
+          "sha256": "61f4c49a8e6db024848dc2656a26441cc99e5df30cc0574ef99f40f909843cb5",
           "review": {
             "units": 62,
             "meanBackTranslationSimilarity": 0.6338,
@@ -220,10 +238,10 @@
     },
     "/white-paper/archive": {
       "source": "white-paper/archive.md",
-      "sourceSha256": "09db774f7da51b4e506e56d3c4f3fa8d57f41a8464d04b747e9c3afab74563bd",
+      "sourceSha256": "cf1f56338868f997a0d6038cdc7cfa441c5686a1719173fc7a1400d71221c2ef",
       "locales": {
         "pt": {
-          "sha256": "d4c1217fa6a9d8be805be2ab666192d872057925b7f8b1271328bf261a0d0545",
+          "sha256": "01341de21b785b358b94dc77ab02f28fb7d5a6682909d1da9d5acdf7c9c07970",
           "review": {
             "units": 9,
             "meanBackTranslationSimilarity": 0.762,
@@ -234,10 +252,10 @@
     },
     "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
       "source": "white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive.md",
-      "sourceSha256": "0e4b229ba74085a5b6d3e6c6eb0ff28ec915a149a5ff93f0c773c465fad117b2",
+      "sourceSha256": "5153c389ab16877edca5b5af66bbdd600a744c13c638e806662cc9714c893afc",
       "locales": {
         "pt": {
-          "sha256": "048a17eff718e269c58104382640a13aba52b6dd49f91b9bc6fefb931d896f20",
+          "sha256": "d81e1c68e2466e0a66b7b8737f77a6c1cc21e15ed6100436885f596bb57716a8",
           "review": {
             "units": 51,
             "meanBackTranslationSimilarity": 0.6579,
@@ -290,10 +308,10 @@
     },
     "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
       "source": "white-paper/chapter-05-from-isolated-pools-to-a-federated-network.md",
-      "sourceSha256": "2aa539c5faaaee42f5f5e9e5aa3ee306137de2ea7bddcea116033da4d7fdba03",
+      "sourceSha256": "75a0e04680e2ff4e3950a67e97fd89dd11373193bd8c3191fa41f46fd711259b",
       "locales": {
         "pt": {
-          "sha256": "b395d0665f029af007a13cf260ba62b59dd00ce51280cf61be91597afcabae22",
+          "sha256": "1566e700553e0322f343aa6b4d782297d790c7f8f2cd93325e4d5d2b74c18460",
           "review": {
             "units": 79,
             "meanBackTranslationSimilarity": 0.6312,
@@ -304,10 +322,10 @@
     },
     "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
       "source": "white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance.md",
-      "sourceSha256": "9409d6d33de56e1327ac7e7a031e9113c60b86677708fa767d9bc8ba274f0b5a",
+      "sourceSha256": "5a9aeeff2fba5a7e6a07b4b278b81f8a89463989459ab5bdef5b450aa52e9bd9",
       "locales": {
         "pt": {
-          "sha256": "7164b0f9dcec3ec386af21c933acc89fa896efcaa2caa7e3b332c71bff914f23",
+          "sha256": "d621e76b17c4cd9898e8ba989b96be542cab08ff328972bdc9da7782397873c2",
           "review": {
             "units": 14,
             "meanBackTranslationSimilarity": 0.5144,
@@ -332,10 +350,10 @@
     },
     "/white-paper/chapter-08-technical-scope-growth": {
       "source": "white-paper/chapter-08-technical-scope-growth.md",
-      "sourceSha256": "1fd06beb840c9478cd8f8f13424017e9376bfaead7e2e8b1218e210733c1e97c",
+      "sourceSha256": "49ed7dbb256f61ae9e2e240d3762a03114c7c18cd4961abbcd67c46086f25080",
       "locales": {
         "pt": {
-          "sha256": "ac751fbc773995dc1d010606285cb202037672b7f2b77c311b9aa2735ef5693b",
+          "sha256": "6002a13f5a7119afeb04c18948e5933b910085b8c760c39b278694467e44186b",
           "review": {
             "units": 55,
             "meanBackTranslationSimilarity": 0.6867,
@@ -346,10 +364,10 @@
     },
     "/white-paper/chapter-09-economics-for-lps": {
       "source": "white-paper/chapter-09-economics-for-lps.md",
-      "sourceSha256": "f1ea77a9368d3173ae695b18d835732575902ef01824f6d9a6aefdc02a6548af",
+      "sourceSha256": "0509bba6fb1c8aee9ed12691d2351bae859c5396ce75a056b0d9a2288e9893c0",
       "locales": {
         "pt": {
-          "sha256": "2c850c30669f65511674c4c935c6ef1a9e4c4df0f6b88339d16962473467e76c",
+          "sha256": "1948469505db23c12e99f4c135ad581d700a5e841e99df276cc138b47596b8e7",
           "review": {
             "units": 27,
             "meanBackTranslationSimilarity": 0.6871,
@@ -360,10 +378,10 @@
     },
     "/white-paper/chapter-10-comprehensive-risk-framework": {
       "source": "white-paper/chapter-10-comprehensive-risk-framework.md",
-      "sourceSha256": "4f57b19c37b50133e0d264f6f69fbd7c0bb0d0b32f054c77873e0a32d48dab4f",
+      "sourceSha256": "2aa8452787b16b0320040a3a0d6506b93b4ddfb1356bbb2932e6fe489e84acd8",
       "locales": {
         "pt": {
-          "sha256": "98dfac490dc36063e9d7e04b03460f0ded303a64ace1dd1a94d60b04a58a573b",
+          "sha256": "931e575955b01bd3d99e5d407767d035dc39312841956226ca07d28aae440865",
           "review": {
             "units": 122,
             "meanBackTranslationSimilarity": 0.7195,
@@ -402,10 +420,10 @@
     },
     "/white-paper/chapter-13-jargon-plain-language-glossary": {
       "source": "white-paper/chapter-13-jargon-plain-language-glossary.md",
-      "sourceSha256": "e2493eaf44740497efa7e8ba72f298059328dbe7009d8191f1ab95619cb723ea",
+      "sourceSha256": "b0d8e501193c4e2e85606dca7cfd40889b7e7c3e05232611d35e510b250bbf6b",
       "locales": {
         "pt": {
-          "sha256": "fa1a80c5b072afe947bcef69dca44827d1f698b6816a234b87badbe38d3db2ab",
+          "sha256": "676e9ec164a0fc87463949ca5b27bdab6d5bb9adcc69fc5afef1ac970ef971ee",
           "review": {
             "units": 48,
             "meanBackTranslationSimilarity": 0.6676,
@@ -416,10 +434,10 @@
     },
     "/white-paper/chapter-14-kpis-health-indicators": {
       "source": "white-paper/chapter-14-kpis-health-indicators.md",
-      "sourceSha256": "a596d4aa3b3065a7722e09a78caa2cb2c6d394cfe66918106ee95eca17986f20",
+      "sourceSha256": "73c8bf65fd7bba5d28d199ead20a10a9e032381cf9fdbfe80329fd2413bdbc12",
       "locales": {
         "pt": {
-          "sha256": "43924edd3e3c25d2d6c7ad4e772388ec1b10f65a15b05118c687b78d7cb29a37",
+          "sha256": "06fed54e0c1bcd3b6720e555f0ac0706abe962f618f404d2f7b6852086a6b199",
           "review": {
             "units": 23,
             "meanBackTranslationSimilarity": 0.5826,
@@ -430,10 +448,10 @@
     },
     "/white-paper/chapter-15-roadmap-indicative": {
       "source": "white-paper/chapter-15-roadmap-indicative.md",
-      "sourceSha256": "ed23216a7d040415f9e3300ce56f27c0ddd34adef4fd805f5723f23d20b10ce2",
+      "sourceSha256": "bcc2fb4461a24d21f55ef5a7ed3b8a56c89030cf8a38682c0e356ff163e8bbad",
       "locales": {
         "pt": {
-          "sha256": "a3dc53f8ae0889119436f555a2539de4f6a4d9db06ec3b0bf1a7e0f3606b156a",
+          "sha256": "5aa3e5fcd2fcc1852df7a7ebf6b7b7e91a675f1c8e847a50f21d3d53f6c5ec1f",
           "review": {
             "units": 16,
             "meanBackTranslationSimilarity": 0.6828,
@@ -472,10 +490,10 @@
     },
     "/white-paper/chapter-18-conclusion": {
       "source": "white-paper/chapter-18-conclusion.md",
-      "sourceSha256": "aef3272b5bcd43b58fc0a4222167366fc66766fcabba97bd5e9d909955587558",
+      "sourceSha256": "2c9ca4becd6e994cd11ef8a8b470fff7ea3431a97c6b0f69de8afbf992a75863",
       "locales": {
         "pt": {
-          "sha256": "952285885d628fe64b9238c4532fd0886c2dba8830a5083e565cf4292074447f",
+          "sha256": "594ee8f324103d0f56a2bc73bcd5a130726e1e3056cde6b3f6bacb521e97e219",
           "review": {
             "units": 3,
             "meanBackTranslationSimilarity": 0.202,
@@ -486,10 +504,10 @@
     },
     "/white-paper/executive-summary": {
       "source": "white-paper/executive-summary.md",
-      "sourceSha256": "0bfd50439332f9b8fea7865944d61d7e4ca4f009acbc92edc017df0111b7ec57",
+      "sourceSha256": "0ea6749f959a98aef81f15e20f9385688758614efb3a81896af2079355b33175",
       "locales": {
         "pt": {
-          "sha256": "8a08ceb180e2e126091f034964a90c2bbcc52999f66e96a17ccee911df49b4e3",
+          "sha256": "afd3d67b69ee0699457f899ff2a1a3f3250ad3272f966e11e430b4d024d9fc41",
           "review": {
             "units": 35,
             "meanBackTranslationSimilarity": 0.6076,
@@ -500,10 +518,10 @@
     },
     "/white-paper": {
       "source": "white-paper/index.mdx",
-      "sourceSha256": "784327ca9c7cb86015d46a953b9233a0d215648f51110e14f1de6b5eb43f7c34",
+      "sourceSha256": "dfba309365534fa5271db0c53356428084c398f47024400c4857e7ab72e38aaf",
       "locales": {
         "pt": {
-          "sha256": "987553b3b6400084258dfe9c6d355058239a11eec62be9a92e0339914b090fc7",
+          "sha256": "6f472013a950bbdba74ec6951fba583af501ad160cea5c59504e6246f4b89f06",
           "review": {
             "units": 115,
             "meanBackTranslationSimilarity": 0.6478,

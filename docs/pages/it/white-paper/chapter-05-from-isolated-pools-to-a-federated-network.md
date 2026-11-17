@@ -1,12 +1,12 @@
 ## **5. Da Fondi isolati a una rete federata**
 
-L'attuale Protocol v1.1.0 supporta l'esecuzione diretta attraverso un solo `SwapPool` e fornisce una quotazione solo `SwapRouter`. Non esegue percorsi multi-hop, HTLC, percorsi escrow, rete di lotti o compensazione tra reti.
+L'attuale Protocol v1.1.0 supporta l'esecuzione diretta attraverso uno `SwapPool` e fornisce un contratto Solidity `SwapRouter` di sola quotazione. La CLC App e CLC Core in produzione coordinano percorsi sulla stessa catena, avviati dai partecipanti, attraverso un massimo di tre Fondi preparando un batch Calibur firmato. I contratti non eseguono autonomamente un percorso con più passaggi e l'attuale flusso App/Core non fornisce HTLC tra catene, percorsi tramite escrow, riequilibrio automatico dei Fondi, compensazione in batch o clearing tra reti.
 
-Questo capitolo propone come i Fondi governate in modo indipendente possano coordinarsi senza rinunciare alle proprie regole di ammissione, valutazione, limite, tasse, inventario, autorizzazione e governance.
+Il presente capitolo spiega l'attuale percorso dei partecipanti e lo distingue dal coordinamento proposto che richiederebbe una nuova autorità del Fondo. In entrambi i casi, i pool indipendenti mantengono le proprie regole di ammissione, valutazione, limite, commissioni, inventario, autorizzazione e governance.
 
 ### **5.1 Misure separate di scambio e di adempimento**
 
-La Federazione potrebbe migliorare l'accesso all'inventario, ma non fonderà il buono e scambierà i cicli di vita. Qualsiasi attuazione misurerebbe separatamente questi eventi:
+L'instradamento può migliorare l'accesso all'inventario, ma non unisce il ciclo di vita del buono a quello dello scambio. La misurazione deve mantenere separati questi eventi:
 
 1. è indicato un percorso;
 2. uno o più swap di fondo eseguono e liquidano in catena;
@@ -16,21 +16,25 @@ La Federazione potrebbe migliorare l'accesso all'inventario, ma non fonderà il 
 
 Più percorsi citati o eseguiti non dimostrano maggiore realizzazione. Le relazioni indicano la coorte, il periodo, le attività, il metodo di valutazione e il timestamp, le esclusioni, le correzioni e le prove fuori catena richieste dall'appendice C.
 
-**Il percorso illustrativo:** Una scuola ha i buoni per il mais, ma ha bisogno di buoni per il trasporto. Un servizio di percorso identifica gli inventari compatibili del Fondo. L'esecuzione sarebbe riuscita solo se ogni salto autorizzato separatamente rimaneva entro i suoi limiti di quotazione, limiti, commissioni, inventario e politica. Gli swap risultanti non dimostrerebbero che nessuno degli emittenti abbia più tardi adempiuto ai propri impegni in materia di buoni.
+**Percorso illustrativo:** Una scuola possiede buoni di mais ma ha bisogno di buoni per il trasporto. CLC Core può identificare gli inventari Fondo compatibili, citare il percorso selezionato in un blocco fissato e preparare le chiamate limitate per il portafoglio della scuola. L'esecuzione ha successo solo se ogni salto rimane entro i suoi limiti di quotazione, limiti, commissioni, inventario, comportamento supportato e politica. Gli swap risultanti non dimostrano che uno degli emittenti abbia in seguito adempiuto ai suoi impegni sui buoni.
 
-### **5.2 Servizi di routing e di riequilibrio proposti**
+### **5.2 Routing attuale dei partecipanti e riequilibrio proposto**
 
-Un futuro servizio di rotta potrebbe supportare due attività distinte.
+Due attività richiedono autorità diverse.
 
-**Esecuzione iniziata dal partecipante.** In considerazione delle risorse di input e output, di un importo e dei vincoli degli utenti, il servizio potrebbe identificare un percorso e preparare l'esecuzione. Ogni salto avrebbe la sua Fondo responsabile, quote, autorizzazione, commissioni, limiti, inventario e ricevuta. Batch atomici, HTLC e custodia sono possibili futuri scelte di esecuzione, non attuale comportamento Protocollo.
+**Esecuzione attuale avviata dal partecipante.** Dati un buono di input, un buono di output e un importo, CLC Core stima i percorsi a partire dalle disponibilità idonee del partecipante. Per il percorso selezionato, legge i Fondi allo stesso blocco fissato, produce una quotazione autorevole, simula l'intero batch e prepara tre chiamate per passaggio: azzeramento dell'autorizzazione, nuova autorizzazione e `SwapPool.withdraw`. Il partecipante firma e il relayer invia una transazione Calibur sulla stessa catena con `revertOnFailure` attivo. Se una chiamata fallisce, tutte le chiamate del percorso vengono annullate. L'App raggruppa la transazione e il regolamento di ciascun passaggio in un'unica ricevuta.
 
-**Opt-in Fondo riequilibrio.** Responsabili dei Fondi potrebbe pubblicare obiettivi di inventario, controparti autorizzate, classi di attività, limiti di deviazione delle quote e limiti per periodo. Un servizio responsabile potrebbe cercare cicli o catene compatibili e eseguire solo le intenzioni autorizzate.
+Ogni passaggio conserva il proprio Fondo responsabile, gli input di quotazione, l'autorizzazione, le commissioni, i limiti, l'inventario e l'evento di regolamento. L'App attuale non aggiunge una commissione separata per il servizio di instradamento. Il flusso corrente supporta portafogli EOA/Calibur compatibili con l'App, non Safe o altri portafogli a contratto.
 
-Il riequilibrio sarebbe opt-in. Un fondo potrebbe consentire percorsi per i partecipanti rifiutando un riequilibrio in uscita, oppure potrebbe consentire solo attività, controparti e importi selezionati. Ogni salto eseguito produrrebbe una ricevuta e le eventuali commissioni di servizio sarebbero comunicate separatamente dalle commissioni di fondo e protocollo.
+**Riequilibrio volontario dei Fondi.** I Responsabili dei Fondi potrebbero pubblicare obiettivi di inventario, controparti ammesse, classi di attività, limiti di deviazione delle quotazioni e limiti per periodo. Un servizio responsabile potrebbe cercare cicli o catene compatibili ed eseguire soltanto le intenzioni autorizzate.
+
+Il riequilibrio sarebbe opzionale. Un Fondo può consentire ai partecipanti ordinari di utilizzare rotte senza autorizzare un servizio a spostare l'inventario per il riequilibrio. Un futuro mandato potrebbe consentire solo attività, controparti e importi selezionati. Ogni hop eseguito produrrebbe una ricevuta e qualsiasi commissione di servizio sarebbe divulgata separatamente dalle commissioni del Fondo e del protocollo.
+
+L'esecuzione cross-chain HTLC o escrow è anche separata dall'attuale lotto atomico della stessa catena. Ciò richiederebbe l'adozione di regole relative al timeout, all'aborto, al controllore, al recupero e al rischio residuo.
 
 #### **5.2.1 Confederazione e interoperabilità**
 
-Le implementazioni indipendenti potrebbero gestire i propri registri, interfacce, servizi di percorso e profili di politica, scegliendo al contempo standard di dati e ricezione compatibili. L'esecuzione multiprofile rimarrà dipendente dalla distribuzione.
+Le implementazioni indipendenti possono gestire i propri registri, interfacce, servizi di percorso e profili delle politiche scegliendo standard compatibili per i dati e la ricezione. L'attuale App pubblica utilizza il suo profilo di servizio e registro configurato. L'esecuzione cross-profile rimane dipendente dalla distribuzione.
 
 Un profilo compatibile:
 
@@ -45,6 +49,8 @@ La compatibilità può aumentare i percorsi di scambio disponibili e ridurre la 
 ### **5.3 Modello proposto per la rete e per le tariffe di servizio**
 
 L'attuale Protocol v1.1.0 addebiterà una quota di fondo e, quando configurata, una quota di protocollo aggiuntiva su uno swap di fondo diretto. Tali tasse correnti rimangono distinte.
+
+La borsa di routing della produzione applica tali commissioni correnti in modo indipendente ad ogni salto e le espone dettagliatamente nel preventivo e nella ricevuta. Attualmente non aggiunge una tariffa separata per il servizio di routing.
 
 Un programma futuro potrebbe ricevere separatamente:
 

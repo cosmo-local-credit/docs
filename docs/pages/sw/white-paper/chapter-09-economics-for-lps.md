@@ -12,6 +12,8 @@ Bajeti ya mitandao ya baadaye inaweza kupokea:
 
 Ada za jumla za Vikundi zinazobaki kwenye Vikundi si mapato ya mtandao. Protocol v1.1.0 ya sasa hutumia mfano tofauti: ada ya hiari ya itifaki huongezwa juu ya ada ya Kikundi na hutumwa moja kwa moja kwa mpokeaji aliyesanidiwa.
 
+Mtiririko wa njia wa CLC App katika uzalishaji hauongezi ada tofauti ya huduma ya uelekezaji. Ubadilishaji wa njia bado unaweza kuwa na ada ya Kikundi na ada ya itifaki katika kila hatua. Ada hizi za sasa za kila hatua hazipaswi kuandikwa kama sehemu ya mtandao inayopendekezwa wala kuhesabiwa tena kama mapato ya huduma ya baadaye.
+
 ### **9.2 Mfano wa kihisabati wa sehemu ya mtandao**
 
 Ikiwa Jumuiya inayoshiriki inatoza ada ya Jumuiya ya 2.00% na jumuiya iliyopitishwa ya mtandao hupokea 20% ya ada hiyo ya Jumuiya, kiwango cha kweli cha jumuiya ya mtandao kilichopendekezwa juu ya thamani iliyoelekezwa ni:

@@ -1,6 +1,6 @@
 # Ejemplo práctico de vale
 
-Este ejemplo sigue a un vale de emisión a través de un swap de fondo, presentación de redención, cumplimiento y descarga. En él se ilustran los roles que se desempeñan; no es una promesa de que un vale, Fondo, ruta o resultado particular estarán disponibles.
+Este ejemplo sigue un vale desde una Oferta y una Necesidad, a través de un intercambio enrutado por dos Fondos, hasta su presentación, cumplimiento y descarga. Ilustra las funciones implicadas; no promete que un vale, Fondo, ruta o resultado concreto vaya a estar disponible.
 
 Para las definiciones utilizadas aquí, véase [Conceptos y vocabulario](/es/introduction/concepts).
 
@@ -17,57 +17,90 @@ Imagínese que una cocina comunitaria crea un vale de comida digital. Antes de e
 
 La cocina es el emisor. Debe mantener esta información exacta, evitar emitir más allá de su capacidad razonable y honrar los vales de acuerdo con las condiciones en que los titulares los adquirieron. La creación del token o la publicación de la Oferta no demuestran esa capacidad ni hacen de GEF el emisor.
 
-## 2. Un Responsable del Fondo admite el vale
+La cocina también publica una **Oferta** que describe las comidas disponibles. El vale y la Oferta están relacionados, pero son distintos: el vale representa el compromiso canjeable, mientras que la Oferta ayuda a descubrir los bienes o servicios asociados.
 
-Un sistema de seguridad alimentaria Fondo de Compromisos revisa la cocina, sus términos de vale y el propósito del Fondo. Si se admite, el Responsable del Fondo publicará las normas aplicables, incluyendo:
+## 2. Un participante publica una Necesidad
 
-- quien es responsable del Fondo;
-- el propietario actual de `SwapPool`, el administrador de proxy y los controladores de dependencia del material;
-- activos aceptados;
-- métodos de cambio o de cotización;
-- Capas de balance de tokens, denominadas **“Límites de crédito”** en la aplicación;
-- Tarifas de grupo y de protocolo;
-- las competencias de inventario y de retiro de liquidez; y
+Una escuela cercana tiene vales de transporte y necesita comidas para un evento. Publica una **Necesidad** que describe las comidas, la cantidad, el lugar, el momento y el método de contacto.
+
+La Necesidad expresa una demanda. No acepta automáticamente el vale de la cocina, no reserva comidas, no crea un contrato, no autoriza un intercambio y no promete que la escuela vaya a seguir adelante. La escuela todavía debe revisar la cocina, las condiciones del vale, la ruta disponible, la cotización y las condiciones aplicables.
+
+## 3. Responsables de Fondos independientes organizan una ruta
+
+Dos Fondos gobernados de forma independiente conectan los activos:
+
+1. un Fondo de movilidad admite el vale de transporte de la escuela y un vale de maíz; y
+2. un Fondo de seguridad alimentaria admite ese vale de maíz y el vale de comida de la cocina.
+
+Cada Responsable del Fondo revisa los activos y publica las reglas de su propio Fondo, entre ellas:
+
+- quién es responsable del Fondo;
+- el propietario actual de `SwapPool`, el administrador del proxy y los controladores de dependencias importantes;
+- los vales admitidos y otros activos respaldados;
+- los métodos de tipo de cambio o cotización;
+- los límites de saldo de tokens, llamados **“Límites de crédito”** en la CLC App;
+- las comisiones del Fondo y del protocolo;
+- los poderes de inventario y retiro de liquidez; y
 - cualquier acuerdo de garantía, reserva o apoyo financiado por separado.
 
-La admisión significa que las reglas configuradas del Fondo permiten el vale. No demuestra capacidad de cumplimiento, no establece valor en efectivo ni crea seguro.
+La admisión significa que las reglas configuradas de un Fondo permiten el vale. No prueba la capacidad de cumplimiento, no establece un valor en efectivo, no crea un seguro y no convierte los dos Fondos en una sola entidad gobernada.
 
-## 3. Un participante contribuye al inventario
+## 4. Los participantes proporcionan el inventario
 
-Un patrocinador transfiere vales de comida u otro activo apoyado en el `SwapPool` bajo los términos publicados aplicables. Ese depósito aumenta el inventario disponible.
+El Fondo de movilidad contiene vales de maíz que pueden intercambiarse por vales de transporte. El Fondo de seguridad alimentaria contiene vales de comida que pueden intercambiarse por vales de maíz. Los participantes pueden haber aportado ese inventario mediante acuerdos publicados diferentes.
 
-La transferencia no crea automáticamente una participación en el grupo, un reclamo de reembolso, un derecho de retiro, una recompensa o un poder de gobernanza. Cualquier derecho de este tipo debe provenir de un acuerdo revelado por separado.
+Un depósito aumenta el inventario disponible del Fondo, pero no crea automáticamente una participación en el Fondo, una reclamación de reembolso, un derecho de retiro, una recompensa ni una facultad de gobernanza. Cualquier derecho de ese tipo debe proceder de un acuerdo separado y publicado.
 
-## 4. Un titular hace un cambio de Fondo
+## 5. La aplicación descubre y cotiza una ruta
 
-Un titular intercambia un activo apoyado por vales de comida a través del Fondo. La cotización mostrada es un parámetro de transacción producido por el cotizador configurado, no prueba del valor en efectivo del vale o del rendimiento de la cocina.
+La escuela abre la vista **Crédito** desde su billetera y selecciona el vale de comida. CLC Core estima un camino posible:
 
-El swap directo de Fondo se liquida en cadena mediante la transferencia de la entrada, salida, tarifa de Fondo y cualquier tarifa adicional de protocolo. No es automáticamente un préstamo, el rescate del emisor, o el cumplimiento del mundo real.
+`transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-## 5. El titular presenta el vale
+Este resultado del descubrimiento todavía no promete que el intercambio vaya a tener éxito. Cada paso depende de la admisión vigente, los límites de saldo de tokens del Fondo, el inventario disponible, la configuración de cotizaciones y comisiones, los comportamientos de token admitidos y la frescura del servicio.
 
-En la aplicación actual, elegir **“Canjear”** abre el flujo de envío ordinario con la dirección del propietario del token preemplada. La devolución del vale constituirá una prueba de presentación al emisor; no demuestra por sí mismo que la cocina suministró una comida.
+La escuela elige cuánto quiere obtener o gastar. CLC Core lee después ambos Fondos en un mismo bloque fijado, produce una cotización autorizada y limitada en el tiempo, y simula el lote completo de la billetera. Los **Detalles de la ruta** muestran los dos intercambios, los importes estimados y las comisiones del Fondo y del protocolo en cada paso.
 
-La cocina verifica la presentación y proporciona la comida prometida según sus términos publicados.
+## 6. El titular ejecuta el intercambio enrutado
 
-## 6. Los registros de cumplimiento y descarga del emisor
+Después de revisar el importe mínimo que recibirá y el vencimiento de la cotización, la escuela selecciona **Confirmar intercambio** y firma el lote preparado. La CLC App envía una sola transacción en la misma cadena que contiene las autorizaciones y el llamado limitado de intercambio para cada Fondo.
 
-Después de proporcionar la comida, el emisor registra las unidades cumplidas para que no puedan presentarse dos veces. Dependiendo del proceso publicado, esto puede implicar recibir, quemar, cancelar o de otra manera desactivar el vale devuelto.
+Si falla uno de los llamados, se revierte toda la transacción; el primer intercambio de Fondo no queda liquidado sin el segundo. Si tiene éxito, el recibo agrupado de la escuela muestra un identificador de seguimiento, el hash de la transacción, los dos pasos por los Fondos, los importes liquidados y las comisiones de cada paso.
 
-Si la cocina no cumple su compromiso, el titular utilizará el proceso de reclamación o recurso publicado por el emisor y cualquier derecho disponible en virtud de la legislación aplicable. Ni GEF ni Responsable del Fondo se convierte en el redentor simplemente porque la aplicación mostró el vale o el Fondo habilitó un swap.
+La escuela ahora tiene vales de comida. El intercambio en la cadena constituye la liquidación de los intercambios. Da a la escuela el derecho resultante descrito en las condiciones del vale de comida; no prueba que la cocina ya haya proporcionado los alimentos.
 
-La elección **“Retirar vale”** en la aplicación es diferente: oculta la lista del catálogo mientras permanecen los balances y el historial, y un administrador puede restaurarlo. No es cumplimiento, descarga, quema o cancelación.
+## 7. El titular presenta el vale
+
+En la aplicación actual, elegir **“Canjear”** abre el flujo de envío ordinario con la dirección del propietario del token ya completada. Devolver el vale constituye una prueba de presentación al emisor; por sí solo no demuestra que la cocina haya proporcionado una comida.
+
+La escuela sigue el proceso de reserva o contacto de la cocina. La cocina verifica la presentación y proporciona las comidas prometidas conforme a sus condiciones publicadas.
+
+## 8. El emisor registra el cumplimiento y la descarga
+
+Después de proporcionar las comidas, la cocina registra las unidades cumplidas para impedir que se presenten dos veces. Según el proceso publicado, esto puede implicar recibir, quemar, cancelar o desactivar de otra manera el vale devuelto.
+
+Si la cocina no cumple su compromiso, el titular utilizará el procedimiento de reclamación o recurso publicado por el emisor y los derechos disponibles conforme a la legislación aplicable. Ni GEF ni el Responsable del Fondo se convierten en quienes deben canjear el vale solo porque la CLC App encontró la ruta o los Fondos permitieron sus intercambios.
+
+Elegir **“Retirar vale”** en la aplicación es distinto: oculta la ficha del catálogo, mientras los saldos y el historial permanecen, y un administrador puede restaurarla. No constituye cumplimiento, descarga, quema ni cancelación.
 
 ## Responsabilidades en un vistazo
 
 - **El emisor:** Describe y cumple el vale y registra la descarga.
-- **Responsable del Fondo:** publicará y administrará las normas, tarifas, tarifas, límites, controles y cualquier garantía expresamente asumida.
-- **Titular:** revisa el emisor, los términos del vale, las reglas del grupo, la cotización, la autorización de la billetera y la legislación aplicable.
-- **Controladores técnicos:** ejercer únicamente las competencias de contrato, dependencia, actualización, catálogo o tarifa que se les hayan asignado.
+- **Persona que publica una Necesidad:** describe una necesidad sin aceptar automáticamente un vale ni una ruta.
+- **Responsables de los Fondos:** publican y administran de forma independiente las reglas, tasas, comisiones, límites, controles y cualquier garantía asumida expresamente por cada Fondo.
+- **Titular:** revisa el emisor, las condiciones del vale, los Fondos, la cotización de la ruta, las comisiones, la autorización de la billetera y la legislación aplicable.
+- **CLC App y CLC Core:** descubren y cotizan rutas posibles, preparan y retransmiten el lote firmado y agrupan los registros técnicos de liquidación. No prueban el cumplimiento del emisor.
+- **Controladores técnicos:** ejercen únicamente las facultades sobre contratos, dependencias, actualizaciones, catálogos, servicios de enrutamiento o comisiones que se les hayan asignado.
 - **GEF:** operará el CLC App y la infraestructura de apoyo, sujeto a las [Términos de servicio](/es/governance/terms) En el caso de los Estados miembros; no asume automáticamente las demás funciones.
+
+## Cuando una ruta no está disponible
+
+La CLC App puede no encontrar una ruta, o una cotización puede fallar, cuando el inventario es insuficiente, se superaría un límite del Fondo, un vale no está admitido, un token o módulo de cotización no es compatible, la billetera no tiene suficiente saldo de entrada, los datos de la ruta están obsoletos o falla la simulación final del lote. Una cotización también puede vencer o dejar de ser válida antes de enviarse si cambia el estado del Fondo.
+
+Ese resultado no modifica la Necesidad, la Oferta ni las obligaciones existentes del emisor relativas al vale. El participante puede actualizar la ruta, elegir un importe menor, usar otro vale de entrada admisible o esperar a que cambien las condiciones del Fondo.
 
 ## Arreglos futuros de crédito
 
 Un futuro grupo o otra parte responsable podría ofrecer una transacción por separado como anticipo reembolsable, transacción garantizada u otro producto de crédito. Dicho producto requeriría que se presentaran por separado los términos suplementarios y de la transacción que identificaran a las partes, los importes, las fechas de vencimiento, las tarifas o intereses, el tratamiento colateral, la cesión, el incumplimiento, las medidas correctivas y la evidencia de descarga.
 
-Un envío ordinario, un depósito de fondo, un swap de fondo, la presentación de vales, el cumplimiento o la descarga no crean dichas obligaciones por sí solos.
+Un envío ordinario, un depósito en el Fondo, un intercambio de Fondo directo o enrutado, la presentación del vale, el cumplimiento o la descarga no crean por sí solos esas obligaciones.

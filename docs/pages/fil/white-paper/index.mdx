@@ -1,18 +1,18 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **Tungkol sa saling ito.** Salin ito ng White Paper v0.8. Inilathala ang English na pinagmulang teksto noong 30 Setyembre 2026. Inilathala ang saling ito noong 10 Oktubre 2026. English ang pinagmulang teksto. <a data-english-source="true" href="/white-paper" hrefLang="en">Basahin ang English na pinagmulang teksto</a>.
+> **Tungkol sa saling ito.** Ito ay isang pagsasalin ng White Paper v0.9. Ang Ingles na pinagmulan ay inilathala noong 16 Nobyembre 2026. Ang salin na ito ay inilathala noong 17 Nobyembre 2026. Ang Ingles ang pinagmulan ng teksto. <a data-english-source="true" href="/white-paper" hrefLang="en">Basahin ang Ingles na pinagmulan</a>.
 
 ## Isang network para sa pag-route ng credit, pag-uugnay ng mga pangako, at pagpopondo sa isang malusog na cosmo-local na ekonomiya
 
-**Bersyon:** 0.8
+**Bersyon:** 0.9
 
-**Petsa:** 30 Setyembre 2026
+**Taray:** 16 Nobyembre 2026
 
 **Mga may-akda:** William O. Ruddick at Mohamed Sohail
 
 **Makipag-ugnayan:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**I-download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fil.pdf">CLC White Paper v0.8 PDF sa Filipino</a>
+**I-download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-fil.pdf">CLC White Paper v0.9 PDF sa Filipino</a>
 
 **Publikasyon:** Pinal at may bersyong pampublikong publikasyon. Hindi payo sa pamumuhunan ang papel na ito at hindi ito alok na magbenta o paanyayang bumili ng anumang security o financial instrument. Maaaring baguhin ng mga susunod na bersyon ang mga disenyong inilalarawan dito.
 
@@ -27,7 +27,7 @@ Pinagsasama ng papel na ito ang apat na uri ng materyal. Nalalapat ang status sa
 | **Makasaysayan** | Ebidensiya o functionality mula sa naunang serbisyo ng Sarafu Network. Hindi ito kasalukuyang paggamit ng CLC o patunay na lumipat ang isang user, asset, record, o obligasyon. |
 | **Iminungkahi** | Disenyo, economic model, governance mechanism, o roadmap item na hindi ipinapakitang deployed na. |
 
-Kasama sa kasalukuyang Protocol v1.1.0 ang direktang execution sa `SwapPool`, opsyonal na curation, valuation, cap sa balanse ng token ng Pool, bayad sa Pool, karagdagang bayad sa Protocol, at `SwapRouter` na para sa quote lamang. Iminungkahi o depende sa deployment ang multi-hop execution, HTLC o escrow routing, batch netting, shared insurance, iminungkahing CLC governance token, iminungkahing CLC Network Pool, fee-credit mechanism, at network liquidity program.
+Kasalukuyang Protocol v1.1.0 kasama ang direktang `SwapPool` execution, optional curation, valuation, Pool token-balance caps, Pool fees, isang karagdagang protocol fee, at isang quote-only Solidity `SwapRouter`. Ang produksyon CLC App at CLC Core ay nagbibigay ng same-chain na pagtuklas ng ruta, pined-block quoting, simulation, naka-sign atomic wallet-batch execution sa pamamagitan ng hanggang sa tatlong mga pool, at pinagtipon na mga resibo. Ang cross-chain HTLC o escrow routing, automatic Pool rebalancing, batch netting, ibinahaging insurance, ang iminungkahing CLC governance token, ang iminumungkahi na CLC Network Pool, fee-credit mechanisms, at network liquidity programs ay inirerekomenda o nakasalalay sa deployment.
 
 **Nilalayong mambabasa:** mga tagabuo at Tagapangasiwa ng Pool, protocol engineer at auditor, mga nagpopondo ng liquidity at mandato, governance designer, at legal o compliance reviewer.
 
@@ -41,7 +41,7 @@ Ang cosmo-local ay nangangahulugang pagbabahagi ng open standard, software, at k
 
 ## Kasalukuyang deployment
 
-Pinapatakbo ng GEF ang CLC App sa [cosmolocal.credit](https://cosmolocal.credit). Nagbibigay ito ng access sa account at Wallet, pampublikong catalog na Pamilihan, at mga suportadong interface para sa token, voucher, Offering, Pool ng Pangako, paglilipat, at direktang palitan sa Pool. Nakadepende ang availability sa interface, contract, inventory, naka-configure na limitasyon at bayarin, network state, eligibility, provider, hurisdiksyon, at inilathalang mga tuntunin ng tagapag-isyu o Pool.
+GEF ay nagpapatakbo ng CLC App sa [cosmolocal.credit (sa wikang Ingles)](https://cosmolocal.credit). Nagbibigay ito ng access sa account at wallet, isang pampublikong katalogo ng Pamilihan, at sinusuportahan ang mga interface para sa mga token, voucher, Offerings, Wants, mga Pool ng Pangako, paglilipat, direktang Pool swaps, at application-level na naka-routed exchanges. Sinusuportahan ng CLC Core ang pagtuklas ng ruta, mga awtoridad na binabanggit, simulation ng transaksyon, koordinasyon ng relay, pagkakatugma ng kadena, at pinagsama-samang mga resibo. Ang pagkakaroon ay nakasalalay sa interface, mga kontrata, imbentaryo, naka-configure na mga limitasyon at bayad, uri ng wallet, estado ng network, pagiging karapat-dapat, mga tagapagbigay, hurisdiksyon, at nai-publish na mga tuntunin ng tagapag-isyu o Pool.
 
 Hindi ginagawang tagapag-isyu, Tagapangasiwa ng Pool, custodian, lender, borrower, broker, guarantor, tagatubos, adviser, insurer, o partido sa obligasyon ng mga kalahok ang GEF dahil lamang pinapatakbo nito ang interface. Ang paggamit ng App ay pinamamahalaan ng [Mga Tuntunin ng Serbisyo](/fil/governance/terms).
 
@@ -79,20 +79,24 @@ Ang digital layer ay shared memory at imprastraktura sa koordinasyon. Hindi nito
 
 ## Kasalukuyan at iminungkahing mga daloy
 
-### Kasalukuyang direktang daloy sa Pool
+### Direkta o naka-routing na kasalukuyang daloy ng Pool
 
-1. Sinusuri ng may hawak ang voucher, tagapag-isyu nito, mga tuntunin, at kaugnay na Offering.
-2. Tumatanggap ang Pool ng mga suportadong asset at inilalathala ang configuration at mga responsableng awtoridad nito.
-3. Kumukuha ang may hawak ng quote at inaawtorisahan ang direktang palitan sa Pool.
-4. Isinasagawa ng `SwapPool` ang on-chain swap settlement at itinatala ang bayad sa Pool at Protocol.
-5. Kung piliin ng may hawak ang **“Tubusin”** sa App, naghahanda ang App ng paglilipat sa may-ari ng token bilang paghaharap para tubusin.
-6. Hiwalay na tinutupad ng tagapag-isyu ang pangako at itinatala ang discharge upang hindi magamit muli ang mga natupad na yunit.
+1. Sinusuri ng may-ari ang isang Voucher, ang nag-isyu nito, ang mga tuntunin nito, at ang nauugnay na Mga Alok.
+2. Ang isang Pool ay tumatanggap ng mga tinutulungan na ari-arian at naglalathala ng pagkakakilanlan nito at mga may pananagutang awtoridad.
+3. Ang may-ari ay maaaring gumamit ng pananaw na **Credit** upang matuklasan ang isang direktang Palitan o isang ruta sa pamamagitan ng ilang mga malayang pinamamahalaang mga Pool.
+4. Ang CLC Core ay nagbabasa ng mga napiling Pool sa isang pin na bloke, gumagawa ng isang time-bounded quote, itemizes ang Pool at protocol fee ng bawat hop, simulates ang kumpletong batch, at inihahanda ang mga tawag para sa wallet ng may-ari.
+5. Sinusuri at pinirmahan ng may-ari. Ang App relays ng isang parehong-chain transaksyon na kung saan ang kumpletong batch reverts kung anumang tawag nabigo.
+6. Bawat isa `SwapPool` nagsasagawa ng sarili nitong on-chain settlement. Ang App ay nag-uumpisa sa katayuan ng transaksyon, hops, naayos na halaga, at mga bayarin sa isang naka-routed exchange receipt.
+7. Kung ang may-ari ay pumili ng ****Tubusin**** sa App, inihahanda ng App ang isang paglipat sa may-arian ng token bilang pagbabayad.
+8. Ang tagapag-isyu ay hiwalay na nagsasagawa ng ipinangakong pagsasakatuparan at nagrekord ng discharge kaya ang mga natupad na yunit ay hindi maaaring magamit muli.
 
-Palitan ang pagkuha ng inventory mula sa Pool. Pagtubos lamang ito kung hiwalay na inako ng Pool ang tungkulin ng tagapag-isyu at tinutupad nito ang naaangkop na mga tuntunin ng voucher.
+Ang pagkuha ng inventory mula sa Pool ay isang Palitan. Ito ay pagbabayad lamang kung ang Pool na iyon ay hiwalay na nagtiwala sa tungkulin ng tagapag-isyu at tinutupad ang naaangkop na mga kondisyon ng Voucher.
+
+Ang kasalukuyang configuration ng pampublikong ruta ay naghahanap hanggang sa tatlong Pool swaps at sumusuporta sa mga wallet ng EOA/Calibur na compatible sa App. Ito ay kasalukuyang hindi naghahanda ng mga naka-rout na palitan para sa mga safe o iba pang mga wallet ng kontrata. Ang Katatagan `SwapRouter` nananatiling quote-only; CLC Core at ang naka-sign wallet batch coordinate execution sa itaas ng mga kontrata.
 
 ### Mas malawak na iminungkahing disenyo
 
-Sinusuri ng iminungkahing disenyo ang execution routing, netting, shared service, network liquidity program, insurance policy, at governance asset. Mangangailangan ang bawat isa ng implementation, responsableng partido, pinagtibay na tuntunin, pondo, kontrol, at pampublikong pagsisiwalat bago ito mailapat.
+Ang iminungkahing disenyo ay nagsasaliksik sa cross-domain HTLC o escrow routing, opt-in Pool rebalancing, batch netting, karagdagang ibinahaging serbisyo, mga programa ng network liquidity, mga patakaran sa seguro, at mga ari-arian sa pamamahala. Ang bawat isa ay mangangailangan ng pagpapatupad, mga may pananagutan na partido, pinagtibay na mga patakaran, pagpopondo, mga kontrol, at pampublikong pagsisiwalat bago ito magamit.
 
 Maaaring gumamit ang iminungkahing fee model ng network rake mula sa Pool fees at hiwalay na routing o service fee. Iba ang panukalang iyon sa Protocol v1.1.0, kung saan karagdagan sa Pool fee ang opsyonal na protocol fee.
 

@@ -28,3 +28,12 @@ Nakadepende rin sa bawat contract ang EIP-165 support; hindi ito pangkalahatan. 
 - **Splitter, EthFaucet, PeriodSimple, at RescueVault** — Mga kasangkapan para sa distribution, gas funding, rate limit, at asset recovery.
 
 Maaaring pagsama-samahin ang mga contract sa iba’t ibang paraan. Ang listing sa registry, quote, o graph path ay hindi garantiya na maisasagawa ang transaksyon: nakadepende pa rin ito sa kasalukuyang liquidity, limitasyon ng token, bayarin, estado ng oracle, awtorisasyon, deadline, kondisyon ng network, at configuration ng bawat Pool.
+
+
+## Routed exchange sa application layer
+
+Hindi basta tumatawag lang sa Solidity `SwapRouter` ang production CLC App. Pinananatili ng CLC Core ang reconciled graph ng mga kwalipikadong ugnayan ng Pool, tinatantiya ang maaabot na Voucher, binabasa ang mga napiling Pool sa iisang pinned block upang gumawa ng may-awtoridad na quote, sini-simulate ang buong ruta, at naghahanda ng Calibur Wallet batch. Pinipirmahan ito ng gumagamit at isinusumite ng relayer bilang isang same-chain na transaksyon.
+
+Direktang tumatawag ang bawat hop sa isang `SwapPool`. Nire-reset at itinatakda ng batch ang kinakailangang token allowance, at tinatawag ang bounded `SwapPool.withdraw` overload na may minimum output at deadline. Naka-enable ang `revertOnFailure`, kaya ibinabalik ng isang nabigong call ang buong routed transaction. Pagkatapos ay nagpapakita ang App ng grouped receipt na may settlement at fee detail sa bawat hop.
+
+Ang routing workflow na ito ay kakayahan ng App/Core na itinayo sa ibabaw ng Protocol v1.1.0. Hindi nito ginagawang execution router ang Solidity `SwapRouter`, binabago ang may-ari o Tagapangasiwa ng Pool, o ginagawang responsable ang isang Pool sa mga patakaran ng ibang Pool o pagtupad ng tagapag-isyu. Tingnan ang [arkitektura ng protocol network](/fil/protocol/network) para sa buong flow.

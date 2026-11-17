@@ -9,16 +9,30 @@
 - **Le jeton:** Un solde en chaîne ou un actif numérique. La mécanique des jetons à elle seule ne crée pas une promesse rédemptible.
 - **Le bon d’échange:** Un jeton ou un enregistrement représenté par un émetteur comme un engagement remboursable selon des conditions publiées.
 - **Offre:** Un enregistrement de catalogue de biens ou de services associés à un bon d’échange.
+- **Demande :** expression publiée d'un besoin. Elle n'accepte pas à elle seule une Offre ou un bon, n'autorise pas un échange, ne réserve pas d'inventaire et ne crée aucune obligation.
 - **Émetteur:** La partie responsable de la publication et de l'exécution d'un engagement de bon d’échange.
 - **Gestionnaire de Bassin:** La structure responsable qui publie et administre les règles du bassin.
+- **Registre :** un enregistrement servant à la découverte et aux autorisations pour des contrats, Bassins, jetons ou autres ressources identifiés. L'inscription ne constitue pas à elle seule une approbation et ne prouve ni la capacité de l'émetteur, ni l'exécution, ni une garantie ou une assurance.
 - **Taux de change ou devis:** Paramètre de transaction produit par un devis configuré; pas une preuve de liquidité ou de valeur de rachat.
-- **Plafond du solde des jetons du bassin:** Le maximum actuel de `Limiter` pour un jeton détenu par un bassin. L'application peut le marquer **“ Limite de crédit.”**
+- **Indice de valeur :** donnée de valorisation relative utilisée par un module de cotation configuré pour calculer la cotation d'un échange de Bassin. Il ne s'agit pas automatiquement d'un prix de marché, d'une valeur en espèces ou d'une obligation de l'émetteur.
+- **Limiter :** composant facultatif du protocole v1.1.0 qui fixe le solde maximal d'un jeton dans un Bassin. L'application peut appeler ce plafond **« Limite de crédit »**. Il ne s'agit ni d'une limite d'emprunt personnelle ni d'une limite glissante à l'échelle du réseau.
 - **Échange de fonds:** Un échange direct d'actifs à travers un `SwapPool`.
+- **Itinéraire :** chemin ordonné composé d'un ou de plusieurs échanges de Bassin, depuis le bon d'entrée du portefeuille jusqu'au bon recherché.
+- **Profondeur de l'itinéraire :** nombre d'échanges de Bassin qui composent un itinéraire. Le déploiement public actuel en recherche jusqu'à trois.
+- **Découverte d'itinéraires :** estimation des chemins possibles à partir de données rapprochées concernant le graphe et les avoirs du portefeuille. Un chemin découvert ne constitue pas une promesse exécutable.
+- **Cotation d'un itinéraire :** proposition faisant autorité et limitée dans le temps pour un chemin sélectionné, calculée à partir de l'état pris en charge des Bassins, lu à un bloc déterminé, puis simulée avant la signature.
+- **Échange routé :** séquence d'échanges de Bassin autorisée par le participant. L'application actuelle la soumet comme un seul lot signé par le portefeuille Calibur sur une même chaîne ; tous ses appels sont annulés ensemble si l'un d'eux échoue.
+- **Reçu d'échange routé :** enregistrement technique regroupé indiquant l'état de l'itinéraire, le hachage de la transaction, les étapes, les montants réglés et, pour chaque étape, les frais du Bassin et du protocole.
+- **Liquidité :** inventaire de sortie admissible d'un Bassin, disponible selon les conditions actuelles d'admission, de plafond de solde, de cotation, de frais, de réservation et de retrait. Une arête du graphe ou un solde de jetons ne prouve pas à lui seul l'existence d'une liquidité utilisable.
 - **Règlement d'échange:** Les transferts en chaîne et la comptabilisation des frais lors de l'achèvement d'un échange de bassin.
 - **Présentation du remboursement:** Retourner ou présenter autrement des unités de bon d’échange à l'émetteur.
 - **Exécution:** L'émetteur fournit le bien, le service, le bénéfice ou une autre prestation promis.
 - **Décharge:** Un enregistrement empêchant que les unités remplies soient présentées à nouveau.
-- **Routeur d'exécution proposé:** Un logiciel futur qui autorise et exécute les itinéraires. L'actuel `SwapRouter` ne fait que des citations.
+- **`SwapRouter` Solidity :** contrat du protocole v1.1.0 qui calcule uniquement des cotations. Il peut effectuer des calculs sur un chemin fourni, mais ne conserve pas d'actifs, n'autorise pas de jetons et n'exécute pas d'échanges.
+- **Flux de routage de l'application :** service actuel de l'application CLC et de CLC Core qui découvre, cote, simule, prépare, relaie, rapproche et présente les itinéraires sur une même chaîne au-dessus des contrats des Bassins.
+- **Rééquilibrage :** déplacement de l'inventaire d'un Bassin vers des objectifs adoptés dans le cadre d'un mandat autorisé par son Gestionnaire. Le routage actuel initié par les participants n'autorise pas, à lui seul, un rééquilibrage automatique.
+- **Compensation :** regroupement de plusieurs obligations ou transferts prévus afin de calculer des positions nettes réduites. Elle ne fait pas partie de l'échange routé actuel de l'application et de CLC Core.
+- **Réparation :** procédure responsable visant à corriger une configuration, une entrée de registre, une défaillance de service, un litige ou un engagement non honoré, dans le cadre d'une autorité identifiée. La réparation du registre ou du service de routage ne réécrit pas silencieusement les règles d'un Bassin indépendant et ne libère pas un émetteur de son obligation.
 - **Bassins de réseau CLC proposés:** Un futur accord de compensation et de coordination budgétaire au niveau du réseau.
 - **Le jeton de gouvernance CLC proposé:** Une conception de gouvernance future, pas une application actuelle ou un actif Protocol v1.1.0.
 - **Prélèvement de réseau :** Une part proposée des frais de Bassin transférée vers un futur budget du réseau.

@@ -1,18 +1,18 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **Acerca de esta traducción.** Esta es una traducción del Libro Blanco v0.8 (White Paper v0.8). El texto original en inglés se publicó el 30 de septiembre de 2026. Esta traducción se publicó el 9 de octubre de 2026. El inglés es el texto original. <a data-english-source="true" href="/white-paper" hrefLang="en">Leer el texto original en inglés</a>.
+> **Acerca de esta traducción.** Esta es una traducción del Libro Blanco v0.9 (White Paper v0.9). La fuente en inglés se publicó el 16 de noviembre de 2026. Esta traducción fue publicada el 17 de noviembre de 2026. El texto original es en inglés. <a data-english-source="true" href="/white-paper" hrefLang="en">Leer el texto original en inglés</a>.
 
 ## Una red para la red de crédito, la coordinación de los compromisos y la financiación de una economía cosmo-local saludable
 
-**Versión:** 0.8
+**Versión:** 0.9
 
-**Fecha:** 30 Septiembre 2026
+**Fecha:** 16 de noviembre de 2026
 
 **Los autores:** William O. Ruddick y Mohamed Sohail
 
 **Contacto:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Descargar:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-es.pdf">Libro Blanco CLC v0.8 en español (PDF)</a>
+**Descargar:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-es.pdf">Libro Blanco CLC v0.9 en español (PDF)</a>
 
 **Publicación:** Publicación pública en versión final. Este documento no es asesoramiento sobre inversiones y no constituye una oferta de venta ni una solicitud de compra de ningún tipo de valor o instrumento financiero. Las versiones posteriores pueden revisar los diseños descritos aquí.
 
@@ -27,7 +27,7 @@ Este documento combina cuatro tipos de material. El estatus se aplica en todas p
 | **Histórica** | Evidencia o funcionalidad del servicio anterior Sarafu Network. No es la adopción o prueba actual de CLC que un usuario, activo, registro o obligación haya migrado. |
 | **Proposición** | Un diseño, un modelo económico, un mecanismo de gobernanza o un elemento de la hoja de ruta que no se representa como implementado. |
 
-El Protocol v1.1.0 actual incluye la ejecución directa de `SwapPool`, la curaduría opcional, la valoración, los límites máximos del balance de tokens del Fondo, las tarifas del Fondo, una tarifa adicional del protocolo y una sola cotización de `SwapRouter`. Se proponen o dependen del despliegue la ejecución multi-hop, el HTLC o el enrutamiento de garantías, la rede de lotes, el seguro compartido, el token de gobernanza CLC propuesto, el fondo de red CLC propuesto, los mecanismos de crédito por honorarios y los programas de liquidez de la red.
+El Protocol v1.1.0 actual incluye la ejecución directa de `SwapPool`, la curaduría opcional, la valoración, los límites del saldo de tokens del Fondo, las comisiones del Fondo, una comisión adicional del protocolo y un `SwapRouter` Solidity que solo calcula cotizaciones. La CLC App y CLC Core en producción proporcionan descubrimiento de rutas en la misma cadena, cotizaciones en un bloque fijado, simulación, ejecución atómica de un lote firmado por la billetera a través de hasta tres Fondos y recibos agrupados. El enrutamiento HTLC o mediante depósito en garantía entre cadenas, el reequilibrio automático de Fondos, la compensación por lotes, el seguro compartido, el token de gobernanza CLC propuesto, el Fondo de Red CLC propuesto, los mecanismos de créditos de comisiones y los programas de liquidez de red son propuestas o dependen del despliegue.
 
 **Público previsto:** Constructores de Fondos y administradores, ingenieros de protocolos y auditores, financiadores de liquidez y mandatos, diseñadores de gobernanza y revisores legales o de cumplimiento.
 
@@ -41,7 +41,7 @@ Cosmo-local significa compartir estándares abiertos, software y conocimientos a
 
 ## Despliegue actual
 
-GEF opera el CLC App en [cosmolocal.credit](https://cosmolocal.credit) Proporciona acceso a cuentas y carteras, un catálogo público del mercado y interfaces compatibles para tokens, vales, Ofertas, Fondos de Compromisos, transferencias y swaps directos de Fondo. La disponibilidad depende de la interfaz, los contratos, el inventario, los límites y tarifas configurados, el estado de la red, la elegibilidad, los proveedores, la jurisdicción y los términos publicados del emisor o del grupo.
+GEF opera la CLC App en [cosmolocal.credit](https://cosmolocal.credit). Proporciona acceso a cuentas y billeteras, un catálogo público del Mercado e interfaces compatibles para tokens, vales, Ofertas, Wants, Fondos de Compromisos, transferencias, intercambios directos de Fondo e intercambios enrutados en el nivel de la aplicación. CLC Core proporciona descubrimiento de rutas, cotizaciones autorizadas, simulación de transacciones, coordinación de retransmisión, conciliación con la cadena y recibos agrupados. La disponibilidad depende de la interfaz, los contratos, el inventario, los límites y comisiones configurados, el tipo de billetera, el estado de la red, la elegibilidad, los proveedores, la jurisdicción y las condiciones publicadas por el emisor o el Fondo.
 
 El funcionamiento de la interfaz no hace que GEF sea un emisor, Responsable del Fondo, custodio, prestamista, prestatario, corredor, garante, redentor, asesor, asegurador o parte de las obligaciones entre los participantes. El uso de la aplicación se rige por el [Términos de servicio](/es/governance/terms).
 
@@ -79,20 +79,24 @@ La capa digital es la memoria compartida y la infraestructura de coordinación. 
 
 ## Flujos actuales y propuestos
 
-### Corriente directo Flujo del Fondo
+### Flujo actual directo o enrutado de Fondo
 
 1. Un titular revisa un vale, su emisor, sus términos y las Ofertas asociadas.
-2. Un grupo admite activos apoyados y publica su configuración y las autoridades responsables.
-3. El titular obtiene una cotización y autoriza un cambio directo de Fondo.
-4. `SwapPool` realiza la liquidación de swaps en cadena y cuenta las tasas de fondo y de protocolo.
-5. Si el titular opta posteriormente **“Canjear”** En la aplicación, la aplicación prepara una transferencia al propietario del token como presentación de redención.
-6. El emisor realiza por separado el cumplimiento prometido y registra la descarga, por lo que las unidades cumplidas no pueden ser reutilizadas.
+2. Un Fondo admite activos compatibles y publica su configuración y las autoridades responsables.
+3. El titular puede usar la vista **Crédito** para descubrir un intercambio directo o una ruta a través de varios Fondos gobernados de forma independiente.
+4. CLC Core lee los Fondos seleccionados en un mismo bloque fijado, genera una cotización con tiempo limitado, detalla las comisiones de Fondo y de protocolo de cada paso, simula el lote completo y prepara las llamadas para la billetera del titular.
+5. El titular revisa y firma. La CLC App retransmite una transacción en la misma cadena cuyo lote completo se revierte si falla alguna llamada.
+6. Cada `SwapPool` realiza su propia liquidación en la cadena. La CLC App agrupa el estado de la transacción, los pasos, los importes liquidados y las comisiones en un único recibo de intercambio enrutado.
+7. Si el titular elige posteriormente **«Canjear»** en la CLC App, esta prepara una transferencia al propietario del token como presentación para el canje.
+8. El emisor cumple por separado lo prometido y registra la extinción para que las unidades ya cumplidas no puedan reutilizarse.
 
-Tomar inventario de un Fondo es un intercambio. Es redentor únicamente si ese grupo ha asumido por separado el papel de emisor y cumple las condiciones del vale aplicables.
+Tomar inventario de un Fondo es un intercambio. Solo es un canje si ese Fondo ha asumido por separado el papel de emisor y cumple las condiciones aplicables del vale.
+
+La configuración pública actual busca rutas de hasta tres intercambios de Fondo y admite billeteras EOA/Calibur compatibles con la CLC App. Actualmente no prepara intercambios enrutados para Safes ni otras billeteras de contrato. El `SwapRouter` Solidity sigue siendo solo para cotizaciones; CLC Core y el lote firmado por la billetera coordinan la ejecución por encima de los contratos.
 
 ### Proyecto más amplio propuesto
 
-El diseño propuesto explora el enrutamiento de ejecución, la compensación, los servicios compartidos, los programas de liquidez de red, las pólizas de seguro y los activos de gobernanza. Cada uno requeriría una aplicación, partes responsables, normas adoptadas, financiación, controles y divulgación pública antes de que pudiera aplicarse.
+El diseño propuesto explora el enrutamiento entre dominios mediante HTLC o depósito en garantía, el reequilibrio voluntario de Fondos, la compensación por lotes, servicios compartidos adicionales, programas de liquidez de red, pólizas de seguro y activos de gobernanza. Cada elemento requeriría implementación, partes responsables, reglas adoptadas, financiación, controles e información pública antes de poder aplicarse.
 
 El modelo de tarifas propuesto puede utilizar una comisión de red tomada de las tarifas del grupo y de las tarifas de enrutamiento o de servicio separadas. Dicha propuesta es distinta de la de Protocol v1.1.0, en la que una tarifa de protocolo opcional se suma a la tarifa del grupo.
 

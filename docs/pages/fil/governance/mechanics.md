@@ -12,10 +12,36 @@ Iniuugnay ng [Mga konsepto at bokabularyo](/fil/introduction/concepts) ang mga p
 
 - **Mga tagapag-isyu ng Voucher** ang namamahala sa sarili nilang Offering. Naglalathala sila ng tumpak na impormasyon tungkol sa pagkakakilanlan, kakayahan, supply, valuation, expiry, paghaharap, pagtupad, lugar, oras, bayarin, paghihigpit, at remedyo, at nananatili silang responsable sa pagtupad sa mga pangakong iyon.
 - **Mga Tagapangasiwa ng Pool** ang namamahala sa pagtanggap, curation ng asset, valuation, bayarin, limitasyon, inventory, reserba, kontribusyon, conflict, provenance, configuration, pause, upgrade, at anumang garantiya o mekanismo ng paglalaan ng pagkalugi para sa kanilang Pool.
-- **Mga tagapangasiwa ng registry at serbisyo** ay maaaring mamahala kung aling Pool o asset ang lumilitaw sa isang registry at sa mga tuntunin at bayarin para sa routing, monitoring, liquidity support, o ibang shared service.
+- **Ang mga Registry at Service Stewards** ay maaaring magtakda kung aling mga Pool o asset ang lilitaw sa isang rehistro at ang mga patakaran sa pagpapatakbo para sa pagtuklas, routing, pagsubaybay, suporta sa likididad, o iba pang ibinahaging serbisyo. Ang kanilang awtoridad sa serbisyo ay hindi awtomatikong nagpapalawak sa mga ari-arian ng isang Pool o sa mga obligasyon ng isang tagapag-isyu.
 - **Mga user** ang nagpapasya kung katanggap-tanggap at legal para sa kanila ang isang tagapag-isyu, Voucher, Pool, quote, at transaksyon. Ang registry entry o listing sa App ay hindi garantiya o pag-endorso.
 
 Maaaring gampanan ng isang tao o organisasyon ang higit sa isang tungkulin, ngunit dapat nitong isiwalat ang bawat tungkulin at ang mga conflict at obligasyong kaakibat nito.
+
+## Pamamahala sa antas ng Pool
+
+Pananagutan ng Tagapangasiwa ng Pool ang inilathalang curation, valuation, limitasyon, bayarin, kondisyon ng palitan, tinanggap na pangako, patakaran sa inventory, lokal na pagtatalo, proseso ng pag-aayos, at awtorisadong pagbabago sa pamamahala. Maaaring hatiin ang teknikal na awtoridad sa may-ari ng `SwapPool`, proxy administrator, dependency controller, multisig signer, at tumatanggap ng bayarin. Dapat tukuyin ng pampublikong patakaran ang mga kapangyarihang iyon sa halip na ituring silang iisang tungkulin.
+
+Ang pag-aayos sa loob ng Pool ay nananatili sa awtorisadong pamamahala at mga responsableng partido nito. Maaaring iwasto ng Tagapangasiwa ang configuration, ihinto ang admission, tugunan ang lokal na pagtatalo, o gumawa ng remedyo sa loob ng awtoridad nito. Hindi nito mabubura ang pampublikong transaction record o tahimik na mapapawi ang hiwalay na obligasyon sa Voucher ng tagapag-isyu.
+
+## Mga operasyon sa antas ng network
+
+Nagpapatakbo ang production CLC App at CLC Core ng shared discovery, route quote, paghahanda ng Wallet batch, relay coordination, indexing, reconciliation, at grouped routed-exchange receipt. Maaaring kabilang sa network-level incident ang stale o unavailable na route data, reconciliation failure, hindi suportadong dependency, relay failure, at problema sa interoperability ng mga Pool.
+
+Maaaring i-pause o ayusin ng operator ang sarili nitong service, i-refresh ang indexed state, ibukod ang hindi suportadong path, ipaliwanag ang failure, at makipag-ugnayan sa apektadong Tagapangasiwa. Hindi nagbibigay ang operational role na ito ng awtoridad na baguhin ang patakaran ng hiwalay na Pool, ilipat ang inventory nito, talikuran ang pangako ng tagapag-isyu, o magpasya sa lokal na pagtatalo sa fulfillment.
+
+Hindi rin pinapahintulutan ng kasalukuyang participant-initiated routing ang awtomatikong Pool rebalancing. Ang anumang rebalancing, netting, shared-liquidity, guarantee, o insurance service ay nangangailangan ng hiwalay na opt-in authority, control, responsableng partido, at inilathalang tuntunin.
+
+## Pamamahala sa antas ng rehistro
+
+Ang isang registrar o katalogo steward ay maaaring harapin ang mga maling listahan, pagkakakilanlan at integridad ng metadata, mga pahintulot sa rehistro, estado ng paglalathala, mga pagkabigo sa serbisyo, at mga pamamaraan sa pagwawasto, suspensyon, o apela. Ang isang talaan ng rehistro ay tumutulong sa pagtuklas; ito mismo ay hindi isang pagtatasa ng kapasidad ng naglalabas, garantiya ng Pool, o talaan sa katuparan.
+
+Ang pag-correct o pagtanggal ng isang paglilista ay hindi nagbabago sa isang on-chain settlement, aalisin ang isang balanse, baguhin ang independiyenteng pinamamahalaan na pagkakakilanlan ng isang Pool, o i-discharge ang isang natitirang pangako. Ang mga resulta na iyon ay nangangailangan ng awtoridad at proseso na naaangkop sa kaugnay na kontrata, Pool, tagapag-isyu, o legal na obligasyon.
+
+## Katibayan sa ruta at pananagutan
+
+Pinananatili ng routed exchange ang mga boundary sa pagitan ng mga hop. Inilalapat ng bawat Pool ang sarili nitong admission, quote, balance cap, bayarin, inventory, at controller power. Pinagsasama ng CLC Core ang teknikal na resulta sa isang resibo, ngunit hindi nito pinagsasama ang pamamahala ng mga Pool o inililipat ang pananagutan ng tagapag-isyu sa route operator.
+
+Maaaring patunayan ng resibo ang pagpili ng ruta, awtorisasyon, transaction status, settled amount sa bawat hop, at bayarin. Nangangailangan ng hiwalay na ebidensiya ang real-world redemption presentment, fulfillment, satisfaction, at discharge, at nananatili ang pananagutan sa tinukoy na tagapag-isyu at naaangkop na proseso.
 
 ## Mga istrukturang may pananagutan
 
@@ -36,7 +62,7 @@ Dapat tumugma ang inilathalang mga tuntunin sa mga kapangyarihang available sa k
 
 Kung naaangkop ang token voting, maaaring gumamit ang isang deployment ng mga contract ng [OpenZeppelin Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance) at interface gaya ng Tally. Maaaring umasa ang ibang deployment sa multisig approval, cooperative resolution, pasya ng board, mandato ng public agency, o hybrid na proseso.
 
-Opsyonal ang mga tool na ito. Ang pagtalakay sa token voting, shared insurance, network-wide routing, netting, o liquidity program ay hindi nangangahulugang aktibo ang bawat kakayahan sa pampublikong App o pinamamahalaan ng GEF. Dapat tukuyin ng bawat deployment ang aktuwal nitong decision-maker, contract, service provider, at patakaran.
+Ang mga kasangkapan na ito ay opsyonal. Ang pampublikong App ay kasalukuyang nagbibigay ng same-chain routing na sinimulan ng kalahok sa pamamagitan ng CLC Core, ngunit hindi ito nagpapahiwatig ng token voting, awtomatikong muling pagbabalanse, netting, ibinahaging seguro, mga programa sa likididad ng network, o sentral na pamamahala ng GEF. Ang bawat deployment ay dapat na makilala ang mga aktwal na gumagawa ng desisyon, kontrata, service provider, at patakaran.
 
 ## Kilos sa interface at on-chain state
 

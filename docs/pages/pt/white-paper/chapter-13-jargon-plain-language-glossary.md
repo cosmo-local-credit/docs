@@ -9,16 +9,30 @@
 - **Marca:** Um saldo na cadeia ou um activo digital. A mecânica de tokens sozinha não cria uma promessa resgatável.
 - **vale:** Um token ou registro representado por um emissor como um compromisso reembolsável em termos publicados.
 - **Oferta:** Registo de catálogo de bens ou serviços associados a um vale.
+- **Want:** Uma expressão publicada de uma necessidade. Não aceita por si só uma Oferta ou um vale, não autoriza uma troca, não reserva inventário e não cria uma obrigação.
 - **emissor:** A parte responsável pela publicação e cumprimento de um compromisso de vale.
 - **Gestor do Fundo:** A estrutura responsável que publica e administra as regras do Fundo.
+- **Registo:** Um registo de descoberta e permissões para contratos, Fundos, tokens ou outros recursos identificados. A inclusão, por si só, não estabelece apoio, capacidade do emissor, cumprimento, garantia nem seguro.
 - **Taxa de câmbio ou cotação do Fundo:** Um parâmetro de transação produzido por um cotador configurado; Nenhuma prova de liquidez ou valor de resgate.
-- **O limite máximo da balança de tokens do fundo:** O máximo atual de `Limiter` para um token detido por um Fundo. A aplicação pode etiquetá-lo **“Limite de crédito.”**
+- **Índice de Valor:** Insumo relativo de avaliação utilizado por um cotador configurado para calcular uma cotação de bolsa do Fundo. Não é automaticamente um preço de mercado, valor em numerário ou obrigação do emitente.
+- **`Limiter`:** O componente opcional do Protocol v1.1.0 que define um saldo máximo de um token num Fundo. A CLC App pode chamar a esse limite **“Limite de crédito”**. Não é um limite de empréstimo pessoal nem um limite móvel para toda a rede.
 - **Intercâmbio de Fundo:** Uma troca direta de activos através de um `SwapPool`.
+- **Rota:** Um caminho ordenado de uma ou mais trocas de Fundo, desde um vale de entrada na carteira até ao vale pretendido.
+- **Profundidade da rota:** Número de trocas de Fundo numa rota. O desdobramento público atual procura até três.
+- **Descoberta de rotas:** Uma estimativa dos caminhos possíveis a partir do grafo reconciliado e dos dados da carteira. Um caminho descoberto não é uma promessa executável.
+- **Cotação da rota:** Uma proposta autorizada e limitada no tempo para um caminho selecionado, calculada a partir do estado suportado dos Fundos lido num mesmo bloco fixado e simulada antes da assinatura.
+- **Troca encaminhada:** Uma sequência de trocas de Fundo autorizada pelo participante. A aplicação atual envia-a como um lote Calibur da carteira na mesma cadeia, cujas chamadas são revertidas em conjunto se uma delas falhar.
+- **Recibo de troca encaminhada:** Um registo técnico agrupado do estado da rota, do hash da transação, dos passos, dos montantes liquidados e das comissões do Fundo e do protocolo em cada passo.
+- **Liquidez:** Inventário de saída elegível de um Fundo, disponível segundo as condições atuais de admissão, limite de saldo, cotação, comissões, reservas e levantamento. Uma ligação no grafo ou um saldo de tokens não prova, por si só, liquidez utilizável.
 - **Swap settlement:** As transferências na cadeia e a contabilidade das taxas completando uma troca de fundo.
 - **apresentação de resgate:** Retorno ou apresentação de unidades de vale ao emissor.
 - **Realização:** O emissor fornece o bem, serviço, benefício ou outro desempenho prometido.
 - **quitação:** Um registo que impede que as unidades preenchidas sejam apresentadas novamente.
-- **Roteador de execução proposto:** Software futuro que autorizaria e executaria rotas. Apenas as cotações atuais do `SwapRouter`.
+- **`SwapRouter` Solidity:** O contrato do Protocol v1.1.0 que apenas calcula cotações. Pode calcular uma cotação através de um caminho fornecido, mas não detém ativos, não autoriza tokens e não executa trocas.
+- **Fluxo de encaminhamento da aplicação:** O serviço atual da CLC App e do CLC Core que descobre, cota, simula, prepara, retransmite, reconcilia e apresenta rotas na mesma cadeia acima dos contratos dos Fundos.
+- **Reequilíbrio:** Movimento do inventário de um Fundo em direção a metas adotadas sob um mandato autorizado pelo Gestor. O encaminhamento atual iniciado pelos participantes não autoriza, por si só, o reequilíbrio automático.
+- **Compensação:** Combinação de várias obrigações ou transferências previstas para calcular posições líquidas reduzidas. Não faz parte da troca encaminhada atual da CLC App e do CLC Core.
+- **Reparação:** Um processo responsável para corrigir uma configuração, uma entrada de registo, uma falha de serviço, uma disputa ou um compromisso não cumprido dentro de uma autoridade identificada. A reparação do registo ou do serviço de rotas não altera silenciosamente as regras de um Fundo independente nem cumpre a obrigação de um emissor.
 - **Proposta de Fundo de rede CLC:** Um futuro acordo de compensação e de coordenação orçamental a nível da rede.
 - **Proposto token de governação CLC:** Um projeto de governação futuro, não um ativo atual da aplicação ou do Protocol v1.1.0.
 - **comissão de rede:** Uma parte proposta das taxas do Fundo transferidas para um futuro orçamento da rede.

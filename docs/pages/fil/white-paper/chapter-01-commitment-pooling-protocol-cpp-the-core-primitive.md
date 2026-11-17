@@ -20,7 +20,7 @@ Kabilang sa mga may kaugnayan na tungkulin at awtoridad ang:
 - **may-ari ng Pool:** may kasalukuyang kapangyarihan bilang may-ari ng `SwapPool`;
 - **proxy administrator:** maaaring mag-upgrade ng isang proxied implementation;
 - **mga controller ng dependency:** namamahala sa mga naka-configure na registry, quoter, limiter, o bahagi ng bayad;
-- **tagahanap o operator ng ruta:** maaaring tumuklas ng mga quote o, sa isang pagpapatupad sa hinaharap, magsagawa ng hiwalay na awtorisadong ruta; at
+- **ang operator ng serbisyo sa ruta:** ay maaaring makahanap, sumulat, simulan, maghanda, i-relay, at magrekord ng isang hiwalay na awtorisadong ruta sa loob ng naipahayag na saklaw nito; at
 - **guarantor:** umaako lamang ng isang tiyak na obligasyon sa pamamagitan ng inilathala at pinondohang mga tuntunin.
 
 Pinapangkat ng CPP ang mga gawain ng Pool sa apat na konsepto:
@@ -30,9 +30,11 @@ Pinapangkat ng CPP ang mga gawain ng Pool sa apat na konsepto:
 - **Limitation:** ilapat ang kasalukuyang cap sa balanse ng token ng Pool o iba pang hiwalay na ipinatupad na kontrol.
 - **Exchange:** humawak ng inventory, magsagawa ng mga swap, magtala ng mga bayad, at maglabas ng mga rekord ng transaksyon.
 
-Ipinatutupad ng Protocol v1.1.0 ang mga gawaing ito sa pamamagitan ng `SwapPool` at mga opsyonal na dependency. Nililimitahan ng kasalukuyang `Limiter` ang balanse ng isang token sa isang Pool; hindi ito nagbibigay ng rolling, per-account, o network-wide na mga limitasyon sa swap. Kinakalkula ng kasalukuyang `SwapRouter` ang mga multi-Pool quote; hindi ito nagsasagawa ng mga swap.
+Protocol v1.1.0 ipinatupad ang mga pag-andar na ito sa pamamagitan `SwapPool` at opsyonal na mga dependency. Ang kasalukuyang `Limiter` may cap sa isang token na balanse sa isang Pool; hindi ito nagbibigay ng rolling, per-account, o network-wide Palitan limits. Ang Kasalukuyang Katatagan nito `SwapRouter` kinakalkula nito ang multi-Pool quotes; hindi ito nagpapatupad ng mga swap.
 
-Maaaring magdagdag ang mas malawak na iminungkahing disenyo ng CPP ng rolling limits, account controls, execution routers, HTLC o escrow paths, at batch netting. Mga iminungkahing bahagi ang mga ito, hindi paglalarawan ng kasalukuyang limiter o router.
+Ang produksyon CLC App at CLC Core ipatupad application-level same-chain routing sa itaas na mga kontrata. Natuklasan ng CLC Core ang mga landas, binabasa ang napiling mga Pool sa isang pin na bloke, inihahanda at simulates ang isang nilagdaan na Calibur wallet batch, coordinates relay, at grupo ang nagreresultang settlement records. Ang kasalukuyang pampublikong pagsasaayos ay naghahanap ng hanggang sa tatlong Pool swaps. Bawat Pool ay nananatiling independiyenteng pinamamahalaan, at bawat hop pa rin gumaganap nang direkta sa pamamagitan ng kanyang sariling `SwapPool`.
+
+Ang mas malawak na iminungkahing disenyo ng CPP ay maaaring magdagdag ng mga rolling limit, mga kontrol sa account, cross-domain HTLC o escrow paths, awtomatikong muling pagbabalanse ng Pool, at batch netting. Ang mga ito ay iminungkahing bahagi, hindi paglalarawan ng kasalukuyang limiter, Solidity router, o App/Core ruta daloy.
 
 ### **1.3 Logika ng kasalukuyang direktang swap**
 

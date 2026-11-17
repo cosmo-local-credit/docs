@@ -1,11 +1,21 @@
 ## **8. Technical scope and growth**
 
-This chapter describes optional or proposed work. It is not a list of features guaranteed to be present in the current CLC App or Protocol v1.1.0.
+This chapter separates the current production routing service from optional or proposed growth. A current capability described here remains specific to the public CLC App/Core deployment; it is not automatically a feature of the Protocol v1.1.0 contracts or another deployment.
 
-Possible work areas include:
+The current public deployment includes:
 
-- execution routing across compatible Pools, with registry, quote, limit, fee, and inventory discovery;
+- graph-based discovery of vouchers reachable through compatible Pools;
+- authoritative pinned-block quotes for selected same-chain routes;
+- per-hop Pool and protocol fee calculation, minimum outputs, and deadlines;
+- complete-batch simulation, participant signing, and relayed Calibur execution;
+- one same-chain transaction that reverts every route call if a call fails; and
+- grouped receipts and reconciliation of per-hop settlement events.
+
+Possible growth areas include:
+
 - timelocked escrow or HTLC adapters for cross-domain execution where atomic settlement is unavailable;
+- additional registry or policy profiles and cross-profile routing;
+- opt-in Pool inventory rebalancing and batch netting;
 - interfaces and policy tools for small or personal Pools;
 - auditable registries for vouchers, Pools, exchange-rate methods, limits, controllers, and fees;
 - deployment-specific payment-provider connectors, checkout flows, and eligibility controls;
@@ -14,17 +24,23 @@ Possible work areas include:
 
 External-market prices would not determine what an issuer owes under voucher terms. A Pool could use a guarded external reference for a fungible asset, but its published exchange-rate method, limits, fees, and inventory would govern its quotes.
 
-### **8.1 Proposed route-service and SDK norms**
+### **8.1 Current route service and wider norms**
 
-**Discovery.** A proposed route service would query identified registries for asset admission, exchange-rate methods, limits, fees, inventory, incidents, and controller information. Cached records would include freshness bounds and source identifiers.
+**Discovery.** CLC Core maintains a reconciled graph from configured catalogs, registry relationships, Pool parameters, fees, limits, balances, and chain events. It estimates what a session wallet can reach and marks stale data. The public configuration searches routes of up to three hops. Discovery is not an executable promise.
+
+**Authoritative quote.** For a selected route, CLC Core reads the participating Pools at one pinned block and reproduces supported `SwapPool` arithmetic. It itemizes Pool and protocol fees, sets per-hop minimum outputs and a deadline, prepares the wallet calls, and simulates the complete batch. Unsupported tokens, quoters, wallets, or Pool conditions are refused.
+
+**Current execution.** The participant signs a Calibur batch containing allowance reset, allowance grant, and bounded withdrawal for every hop. A relayer submits one same-chain transaction with `revertOnFailure` enabled. This provides transaction-level all-or-nothing behavior for the current route. It is not cross-chain atomicity, HTLC or escrow routing, automatic rebalancing, or netting.
+
+**Receipts and operations.** The App groups the route under one tracking ID and records transaction status, hop order, Pools, token pairs, quoted and settled amounts, Pool fees, protocol fees, and intermediate remainders. The service monitors graph freshness, route enumeration and quote outcomes, simulation failures, reconciliation duration and corrections, and unresolved or unknown indexed members. Operational telemetry does not prove issuer fulfillment.
 
 **Network profiles.** A client could support more than one registry root or policy profile. It would tell the participant which profile, counterparties, adapters, constraints, and responsible service operators a quote uses. A cross-profile route would need to satisfy every applicable hop's conditions.
 
 **Path policy.** An accountable operator could exclude unsafe dependencies or counterparties and apply route-level caps, freshness requirements, and health criteria. These signals would support a decision; they would not guarantee fulfillment or protection from loss.
 
-**Fees and limits.** A quote would itemize Pool fees, any additional current Protocol fee, and any separately proposed routing or service fee. Execution would reject expired quotes or breached bounds.
+**Fees and limits.** The current quote itemizes Pool fees and any additional Protocol fee for every hop. The public App currently adds no separate routing-service fee. Any future service fee would be separately disclosed. Execution rejects expired quotes or breached bounds.
 
-**Atomicity and recovery.** Multi-hop execution would be atomic where possible. Where it used HTLCs or escrow, the service would disclose timeouts, abort paths, responsible controllers, incident procedures, and residual risks.
+**Cross-domain atomicity and recovery.** Where a future route cannot use the current same-chain atomic batch and instead uses HTLCs or escrow, the service would disclose timeouts, abort paths, responsible controllers, incident procedures, and residual risks.
 
 **Proposed batch netting and rebalancing.** An opt-in service might collect rebalance intents and search for compatible cycles or chains. It would:
 
@@ -33,7 +49,7 @@ External-market prices would not determine what an issuer owes under voucher ter
 3. reject activity that breaches any participating Pool's authorization, limits, or available inventory; and
 4. preserve deterministic inputs and receipts for review and dispute handling.
 
-**SDK requirements.** An SDK for executed routes would provide deterministic quote-to-receipt mapping, per-hop invariant checks, understandable failure codes, and audit-friendly logs. The current Protocol v1.1.0 `SwapRouter` provides quotes only; it does not execute these proposed routes.
+**SDK and interface requirements.** A reusable route integration should provide deterministic quote-to-receipt mapping, per-hop invariant checks, understandable failure codes, and audit-friendly logs. The current production App/Core implementation provides these functions for its own profile. The Protocol v1.1.0 Solidity `SwapRouter` remains quote-only and does not execute the route.
 
 #### **8.1.1 Minimum confederation compatibility specification**
 

@@ -1,20 +1,20 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **À propos de cette traduction.** Ceci est une traduction du Livre blanc v0.8 (White Paper v0.8). Le texte source anglais a été publié le 30 septembre 2026. Cette traduction a été publiée le 9 octobre 2026. L’anglais constitue le texte source. <a data-english-source="true" href="/white-paper" hrefLang="en">Lire le texte source anglais</a>.
+> **À propos de cette traduction.** Ceci est une traduction du White Paper v0.9. La source anglaise a été publiée le 16 novembre 2026. Cette traduction a été publiée le 17 novembre 2026. Le texte source est en anglais. <a data-english-source="true" href="/white-paper" hrefLang="en">Lire la source en anglais</a>.
 
 ## Un réseau pour la répartition des crédits, la coordination des engagements et le financement d'une économie cosmolocale saine
 
-**La version suivante:** 0.8
+**Version:** 0.9
 
-**Date à laquelle:** 30 Septembre 2026
+**Date:** 16 novembre 2026
 
 **Les auteurs:** William O. Ruddick et Mohamed Sohail
 
 **Contact :** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Télécharger :** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fr.pdf">Livre blanc CLC v0.8 en français (PDF)</a>
+**Télécharger :** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-fr.pdf">Livre blanc CLC v0.9 en français (PDF)</a>
 
-**Publié par:** La version finale est publiée. Le présent document ne constitue pas un avis d'investissement et ne constitue pas une offre de vente ou une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures peuvent réviser les modèles décrits ici.
+**Statut de publication :** Version finale publiée. Le présent document ne constitue pas un conseil en investissement, une offre de vente ni une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures pourront réviser les modèles décrits ici.
 
 ## Comment lire cet article ?
 
@@ -27,7 +27,7 @@ Cet article combine quatre types de matériaux. Le statut s'applique dans l'ense
 | **Historique** |Evidence ou fonctionnalité du service Sarafu Network antérieur. Il ne s'agit pas d'une adoption actuelle de CLC ou d'une preuve qu'un utilisateur, un actif, un enregistrement ou une obligation a migré.|
 | **Proposé** |Une conception, un modèle économique, un mécanisme de gouvernance ou un élément de feuille de route qui n'est pas représenté comme déployé.|
 
-L'actuel Protocol v1.1.0 comprend l'exécution directe de `SwapPool`, la conservation optionnelle, l'évaluation, les plafonds du solde des jetons de bassin, les frais de bassin, une redevance de protocole supplémentaire et un `SwapRouter` uniquement pour les offres. L'exécution multi-hop, le routage HTLC ou de l'escrow, la compensation par lots, l'assurance partagée, le jeton de gouvernance CLC proposé, le bassin de réseau CLC proposé, les mécanismes de crédits de frais et les programmes de liquidité du réseau sont proposés ou dépendants du déploiement.
+Protocol v1.1.0 comprend l’exécution directe par `SwapPool`, la sélection facultative, l’évaluation, les plafonds de solde des jetons du Bassin, les frais de Bassin, des frais de protocole supplémentaires et un `SwapRouter` Solidity de cotation uniquement. La CLC App et CLC Core en production assurent la découverte d’itinéraires sur une même chaîne, les cotations à un bloc fixé, la simulation, l’exécution atomique d’un lot de portefeuille signé à travers jusqu’à trois Bassins et les reçus groupés. Le routage HTLC ou sous séquestre entre chaînes, le rééquilibrage automatique des Bassins, la compensation par lots, l’assurance partagée, le jeton de gouvernance CLC proposé, le Bassin de réseau CLC proposé, les mécanismes de crédits de frais et les programmes de liquidité du réseau restent proposés ou dépendants du déploiement.
 
 **Audience prévue:** Créateurs de bassins et administrateurs, ingénieurs et auditeurs de protocoles, bailleurs de fonds de liquidités et de mandats, concepteurs de gouvernance et examinateurs juridiques ou de conformité.
 
@@ -41,7 +41,7 @@ Cosmo-local signifie partager des normes ouvertes, des logiciels et des connaiss
 
 ## Déploiement actuel
 
-GEF exploite le CLC App au [cosmolocal.credit](https://cosmolocal.credit) Il fournit un accès au compte et au portefeuille, un catalogue public du marché et des interfaces prises en charge pour les jetons, les bons d’échange, les offres, Bassins d’engagements, les transferts et les swaps directs de bassin. La disponibilité dépend de l'interface, des contrats, de l'inventaire, des limites et des frais configurés, de l'état du réseau, de l'admissibilité, des fournisseurs, de la juridiction et des conditions publiées de l'émetteur ou du bassin.
+GEF exploite la CLC App à l’adresse [cosmolocal.credit](https://cosmolocal.credit). Elle donne accès au compte et au portefeuille, à un catalogue public du Marché et à des interfaces prises en charge pour les jetons, les bons d’échange, les Offres, les Wants, les Bassins d’engagements, les transferts, les échanges directs de Bassin et les échanges routés au niveau de l’application. CLC Core assure la découverte d’itinéraires, les cotations faisant autorité, la simulation des transactions, la coordination du relais, le rapprochement avec la chaîne et les reçus groupés. La disponibilité dépend de l’interface, des contrats, de l’inventaire, des limites et frais configurés, du type de portefeuille, de l’état du réseau, de l’admissibilité, des fournisseurs, de la juridiction et des conditions publiées par l’émetteur ou le Bassin.
 
 L'exploitation de l'interface ne fait pas d'elle-même de GEF un émetteur, de Gestionnaire de Bassin un dépositaire, un prêteur, un emprunteur, un courtier, un garant, un racheteur, un conseiller, un assureur ou une partie à des obligations entre participants. L'utilisation de l'application est régie par le [Conditions d'utilisation](/fr/governance/terms).
 
@@ -79,22 +79,26 @@ La couche numérique est la mémoire partagée et l'infrastructure de coordinati
 
 ## Flux actuel et projeté
 
-### Flux direct actuel d’un Bassin
+### Flux actuel direct ou routé des Bassins
 
-1. Un détenteur examine un bon d’échange, son émetteur, ses conditions et les offres associées.
-2. Un bassin admet les actifs pris en charge et publie sa configuration et ses autorités responsables.
-3. Le détenteur obtient un devis et autorise un échange direct de bassin.
-4. `SwapPool` effectue le règlement des swaps en chaîne et tient compte des frais de bassin et de protocole.
-5. Si le Titulaire choisit ensuite **« Redeem »** dans l’application, celle-ci prépare un transfert vers le propriétaire du jeton à titre de présentation pour utilisation.
-6. L'émetteur effectue séparément l'exécution promise et enregistre l'écoulement afin que les unités exécutées ne puissent pas être réutilisées.
+1. Un détenteur examine un bon, son émetteur, ses conditions et les offres associées.
+2. Un Bassin admet les actifs soutenus et publie sa configuration ainsi que les autorités responsables.
+3. Le détenteur peut utiliser la vue **Crédit** pour découvrir un échange direct ou un itinéraire traversant plusieurs Bassins gouvernés indépendamment.
+4. CLC Core lit les Bassins sélectionnés à un même bloc fixé, produit une cotation limitée dans le temps, détaille les frais de Bassin et de protocole de chaque étape, simule le lot complet et prépare les appels destinés au portefeuille du détenteur.
+5. Le détenteur examine et signe. La CLC App relaie une transaction unique sur la même chaîne, dont le lot complet est annulé si un appel échoue.
+6. Chaque `SwapPool` effectue son propre règlement sur la chaîne. La CLC App regroupe le statut de la transaction, les étapes, les montants réglés et les frais dans un reçu unique d’échange routé.
+7. Si le détenteur choisit ensuite **« Utiliser »** dans la CLC App, celle-ci prépare un transfert au propriétaire du jeton comme présentation du bon à l’émetteur.
+8. L’émetteur réalise séparément la prestation promise et enregistre l’acquittement afin que les unités exécutées ne puissent pas être réutilisées.
 
-Prendre l'inventaire d'un Bassin est un échange. Il s'agit d'un remboursement uniquement si ce bassin a assumé séparément le rôle d'émetteur et remplit les conditions du bon d’échange applicable.
+Prendre l'inventaire d'un Bassin est un échange. Il ne s'agit d'un remboursement que si ce Bassin a assumé séparément le rôle d'émetteur et remplit les conditions applicables du bon.
+
+La configuration publique actuelle recherche des itinéraires comportant jusqu’à trois échanges de Bassin et prend en charge les portefeuilles EOA/Calibur compatibles avec la CLC App. Elle ne prépare actuellement pas d’échanges routés pour les portefeuilles Safe ni pour d’autres portefeuilles contractuels. Le `SwapRouter` Solidity reste un contrat de cotation uniquement; CLC Core et le lot de portefeuille signé coordonnent l’exécution au-dessus des contrats.
 
 ### Proposition de conception plus large
 
-La conception proposée explore le routage d'exécution, la compensation, les services partagés, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun d'entre eux nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des divulgations publiques avant de pouvoir s'appliquer.
+La conception proposée explore le routage interdomaine par HTLC ou entiercement, le rééquilibrage facultatif des Bassins, la compensation par lots, des services partagés supplémentaires, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun de ces éléments nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des informations publiques avant de pouvoir s'appliquer.
 
-Le modèle de redevance proposé peut utiliser un ramassage de réseau tiré des redevances de bassin et des redevances de routage ou de service distinctes. Cette proposition est distincte de la proposition Protocol v1.1.0, dans laquelle une redevance de protocole facultative s'ajoute à la redevance de bassin.
+Le modèle de frais proposé peut prévoir un prélèvement de réseau sur les frais de Bassin et des frais distincts de routage ou de service. Cette proposition diffère de Protocol v1.1.0, dans lequel des frais de protocole facultatifs s’ajoutent aux frais de Bassin.
 
 Les partisans ou les fournisseurs de liquidités ne reçoivent aucun droit automatique d'actions de bassin, de remboursement, de retrait, de récompense ou de gouvernance de l'actuel `SwapPool`. Tout programme actuel ou futur doit indiquer séparément le type de transfert, la partie responsable, le contrôle, les droits de récupération ou de retrait, les pertes, les récompenses, les frais et les droits de gouvernance.
 

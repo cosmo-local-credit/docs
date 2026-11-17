@@ -8,41 +8,72 @@ Pinapatakbo ng Grassroots Economics Foundation ang pampublikong App sa [cosmoloc
 
 Tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa pagkakaiba ng mga tungkuling may pananagutan at teknikal na kapangyarihan.
 
-## Mga posibleng ruta at pagpapatupad
+## Production route discovery at execution
 
 <MermaidDiagram
-  scrollMessage="Mag-scroll pahalang upang makita ang buong diagram."
-  errorMessage="Hindi maipakita ang diagram"
-  label="Pagtuklas ng posibleng ruta at wallet-batch execution"
-  minWidth={1040}
+  label="Production routing architecture ng CLC App at CLC Core"
+  minWidth={1180}
   chart={`flowchart TB
-    VoucherA["Voucher A"] ---|nakalista at hawak| PoolA["Pool A"]
-    Bridge["Pangkalahatang bridge asset"] ---|nakalista at hawak| PoolA
-    Bridge ---|nakalista at hawak| PoolB["Pool B"]
-    VoucherB["Voucher B"] ---|nakalista at hawak| PoolB
+    User["Kalahok"] --> App["CLC App<br/>Kredito · Kunin · Gastusin"]
+    App -->|maaabot na Voucher at posibleng ruta| Core["Route service ng CLC Core"]
+    Catalog["Mga katalogo, mga rehistro,<br/>naka-index na mga kaganapan sa kadena"] --> Core
+    Chain["Pinned-block chain na binabasa"] -->|Estado ng Pool, mga balanse, bayad,<br/>mga limitasyon at quote inputs| Core
+    Reconcile["Pag-index at pagkakatugma"] --> Catalog
 
-    App["PWA o tagahanap ng ruta"] -. tumutuklas ng mga opsyon .-> Index["Mga registry at index"]
-    App -. humihingi ng quote .-> Router["SwapRouter: quote lamang"]
-    Router -. binabasa ang mga quote ng Pool .-> PoolA
-    Router -. binabasa ang mga quote ng Pool .-> PoolB
+    Core -->|may-awtoridad na quote,<br/>mga boundary at handang call| App
+    Core -->|simulahin ang kumpletong batch| Chain
+    App -->|pagsusuri at pag-sign| Wallet["App-katugma<br/>EOA / Calibur wallet"]
+    Wallet -->|naka-sign na batch| Relayer["Relayer"]
+    Relayer -->|isang same-chain na transaksyon<br/>revertOnFailure = true| Batch["Calibur batch<br/>approve 0 · approve amount<br/>bounded withdraw bawat hop"]
 
-    App -->|bumubuo ng nakaayos na mga call| WalletStart["Smart-account Wallet ng gumagamit"]
-    WalletStart -->|hop 1: Voucher A| PoolA
-    PoolA -->|bridge output| WalletBridge["Parehong Wallet sa pagitan ng mga call"]
-    WalletBridge -->|hop 2: bridge asset| PoolB
-    PoolB -->|Voucher B output| WalletFinal["Parehong Wallet ng gumagamit"]
+    Batch --> PoolA["SwapPool A"]
+    Batch --> PoolB["SwapPool B"]
+    Batch --> PoolC["SwapPool C<br/>(kung kinakailangan)"]
+    PoolA --> Events["Mga settlement event"]
+    PoolB --> Events
+    PoolC --> Events
+    Events --> Reconcile
+    Reconcile --> Receipt["Grouped routed-exchange receipt<br/>status · tx hash · hops · halaga · bayarin"]
+    Receipt --> App
 
-    PoolA -->|bayarin ng protocol| ProtocolRecipient["Naka-configure na tatanggap ng protocol"]
-    PoolB -->|bayarin ng protocol| ProtocolRecipient`}
+    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>quote-only reusable na kontrata"] -. reads quotes; does not execute .-> PoolA
+    SolidityRouter -. reads quotes; does not execute .-> PoolB`}
 />
 
-Lumilikha ang pinagsasaluhang asset ng **posibleng graph path**, hindi garantisadong ruta. Sa halimbawang ito, maaaring ipagpalit ang Voucher A para sa bridge asset sa Pool A, pagkatapos ay ipagpalit ang bridge asset para sa Voucher B sa Pool B. Nakadepende pa rin ang bawat hop sa kasalukuyang pag-admit ng token, mga limitasyon ng Pool, available na inventory, configuration ng quote at bayarin, estado ng oracle, approval, hangganan ng transaksyon, at pagpapatupad ng network.
+Ang magkaparehong Voucher sa iba’t ibang Pool ay maaaring lumikha ng **posibleng path sa graph**, hindi garantisadong ruta. Pinananatili ng production CLC Core ang reconciled graph mula sa impormasyon tungkol sa mga Pool, registry, catalog, balanse, bayarin, at on-chain event. Tinitiyak din nito ang kaugnay na holdings ng session Wallet. Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong deployment.
 
-Tumatawag lamang ang `SwapRouter` sa mga quote function ng Pool sa isang iminungkahing path. Hindi ito nagtataglay ng pondo, nag-a-approve ng token, o nagsasagawa ng palitan. Maaaring gamitin ng integrator o compatible app ang mga resulta ng quote upang bumuo ng nakaayos na approval at mga call sa Pool sa isang nilagdaang smart-account batch; hindi nito ibig sabihing may multi-hop execution ang kasalukuyang pampublikong App. Bawat hop ay nagsa-settle sa Wallet bago ibigay ng Wallet na iyon ang intermediate asset sa susunod na Pool, at maaaring i-configure ng integrator ang batch na mag-revert kapag pumalya ang isang call.
+Mabilis ang graph discovery ngunit tantiya lamang batay sa indexed block. Maaaring markahang stale ang resulta, at hindi pinatutunayan ng graph edge na makakadaan ang hinihinging halaga. Ginagamit ng filter na **Kredito** ang maaabot na set sa Pamilihan at kaugnay na discovery screen.
 
-Snapshot lamang ang mga quote. Maaari pa ring pumalya o mag-settle nang iba ang matagumpay na route quote kung magbabago ang kaugnay na state bago ang execution. Nagdaragdag ang bounded `SwapPool.withdraw` overload ng proteksyong `minAmountOut` at `deadline` para sa isang hop; kailangang magpasya ng integrator kung paano ilalapat ang mga bound sa buong ruta.
+### May-awtoridad na quote
 
-Nananatili sa kaugnay na Pool ang mga bayarin ng Pool para kolektahin sa ibang pagkakataon. Karagdagan ang anumang bayarin ng protocol at direktang inililipat mula sa Pool patungo sa naka-configure nitong tatanggap habang nagaganap ang palitan.
+Pagkapili ng kalahok ng ruta at halaga, binabasa ng CLC Core ang bawat kaugnay na Pool sa iisang pinned block at inuulit ang suportadong `SwapPool` calculation. Inililista ng quote ang bawat hop, input at output, bayarin sa Pool, bayarin sa protocol, minimum na output, final recipient, at expiry. Limang minuto ang bisa ng kasalukuyang production quote.
+
+Pagkatapos ay binubuo at sini-simulate ng service ang buong Calibur batch. Maaaring hindi ito makapagbigay ng quote dahil sa hindi suportadong token behavior o quoter, kulang na balanse sa Wallet, admission failure, token-balance cap ng Pool, kulang na liquidity, invalid fee domain, gas limit, o ibang dahilan ng revert.
+
+Magkaibang ebidensiya ang discovery at quote. Ipinapakita ng discovery na maaaring may path; ang pinned-block quote ang may-awtoridad na panukala sa transaksyon. Maaari pa ring mag-expire o mawalan ng bisa ang quote kung magbabago ang kaugnay na state bago isumite.
+
+### Pinirmahang atomikong batch
+
+Sinusuri ng gumagamit ang **Mga detalye ng ruta** at pinipirmahan ang handang Wallet batch. Sa bawat hop, tinatawag ng batch ang `approve(pool, 0)`, `approve(pool, amountIn)`, at ang bounded overload ng `SwapPool.withdraw`. Ipinapatupad ng bawat bounded withdraw ang minimum na output at deadline. Bumabalik sa iisang Wallet ang intermediate Voucher bago gastusin ng susunod na Pool ang quoted amount; nananatili rin sa Wallet ang anumang bridging remainder.
+
+Isinusumite ng relayer ang batch bilang isang same-chain na transaksyon na may `revertOnFailure = true`. Kung mabigo ang anumang approval o palitan sa Pool, sabay na babalik ang lahat ng route call—kabilang ang mga naunang hop at pagbabago sa allowance. Ito ang atomicity ng kasalukuyang same-chain transaction; hindi ito cross-chain atomicity, HTLC, escrow, netting, o awtomatikong Pool rebalancing.
+
+Sinusuportahan ng kasalukuyang route flow ang mga EOA/Calibur Wallet na katugma sa App. Tinatanggihan ng kasalukuyang quote path ang Safe at ibang contract Wallet.
+
+### Solidity `SwapRouter` at mga bayarin
+
+Nananatiling quote-only ang Solidity `SwapRouter` ng Protocol v1.1.0. Maaari nitong tawagin ang quote function ng Pool sa isang ibinigay na path, ngunit hindi ito humahawak ng pondo, nag-aapprove ng token, o nagsasagawa ng palitan. Hiwalay na application-level coordinator ang production App/Core flow; direkta nitong tinatawag ang bawat `SwapPool` sa pamamagitan ng pinirmahang Wallet batch ng kalahok.
+
+Ang mga bayarin sa Pool ay mananatiling nasa naaangkop na Pool para sa kalaunang pagkolekta. Ang anumang bayad sa protocol ay dagdag at direktang ililipat mula sa Pool na iyon sa naka-configure na tatanggap ng protocol nito sa panahon ng Palitan.
+
+Walang hiwalay na route-service fee ang kasalukuyang App. Gayunman, maaaring may maraming bayarin sa Pool at protocol ang isang routed exchange dahil hiwalay na `SwapPool` settlement ang bawat hop.
+
+### Receipt at failure status
+
+Pinagsasama ng CLC Core ang ruta sa iisang tracking ID. Ipinapakita ng App ang **Nagpapalit**, **Napalitan**, o **Nabigo ang palitan**, kasama ang teknikal na status na **Nakabinbin**, **Kumpirmado**, o **Binalik**. Itinatala ng resibo ang transaction hash, route depth, bawat Pool at token pair, quoted at settled na halaga, bayarin sa Pool at protocol sa bawat hop, minimum na natanggap, at anumang intermediate remainder sa Wallet.
+
+Ang isang ruta ay maaaring mabigo bago ang pag-sign dahil walang kwalipikadong landas o quote ay magagamit, sa panahon ng simulation dahil ang batch ay babalik, sa oras ng relay dahil ang naka-sign na transaksyon ay hindi maipadala, o on-chain dahil ang estado ay nagbago o isa pang kondisyon ng pagpapatupad ay nabigo. Ang isang nabigo o hindi magagamit na ruta ay hindi muling isusulat ang mga patakaran ng Pool, mag-discharge ng isang Voucher, o patunayan ang anumang bagay tungkol sa katuparan ng tagapag-isyu.
+
 
 ## Loob ng Pool
 

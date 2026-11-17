@@ -20,7 +20,7 @@ As funções e as autoridades pertinentes incluem:
 - **Proprietário do Fundo:** Possui atuais poderes de proprietário do `SwapPool`;
 - **administrador proxy:** Pode atualizar uma implementação proxied;
 - **Controladores de dependência:** Registros, cotadores, limitadores ou componentes de taxas configurados;
-- **Buscador ou operador de rota:** Pode descobrir citações ou, numa futura implementação, executar uma rota autorizada separadamente; e
+- **Operador do serviço de rotas:** pode descobrir, cotar, simular, preparar, retransmitir e registar separadamente uma rota autorizada dentro do seu âmbito publicado; e
 - **Garante:** assume uma obrigação definida apenas através de termos publicados e financiados.
 
 Fundos CPP As funções do Fundo dividem-se em quatro conceitos:
@@ -30,9 +30,11 @@ Fundos CPP As funções do Fundo dividem-se em quatro conceitos:
 - **Limitação:** Aplicar limites máximos atuais de saldo de tokens do Fundo ou outros controles implementados separadamente.
 - **Intercâmbio:** Deter inventário, executar swaps, contabilizar taxas e emitir registos de transações.
 
-Protocol v1.1.0 implementa estas funções através de `SwapPool` e dependências opcionais. A sua atual `Limiter` fixa um saldo de tokens num Fundo; Não prevê limites de swap em rotação, por conta ou em rede. A sua atual `SwapRouter` calcula as cotações de vários fundos; não executa swaps.
+O Protocol v1.1.0 implementa estas funções através de `SwapPool` e dependências opcionais. O `Limiter` atual limita o saldo de um token num Fundo; não fornece limites móveis de troca, por conta ou ao nível de toda a rede. O `SwapRouter` Solidity atual calcula cotações através de vários Fundos; não executa trocas.
 
-O projeto mais amplo proposto de CPP pode adicionar limites de rotação, controles de conta, roteadores de execução, HTLC ou caminhos de custódia e rede de lotes. São componentes propostos, não descrições do limitador ou roteador atual.
+A CLC App e o CLC Core em produção implementam encaminhamento na mesma cadeia ao nível da aplicação, acima desses contratos. O CLC Core descobre caminhos, lê os Fundos selecionados num mesmo bloco fixado, prepara e simula um lote Calibur assinado pela carteira, coordena a retransmissão e agrupa os registos de liquidação resultantes. A configuração pública atual procura até três trocas de Fundo. Cada Fundo continua a ser governado de forma independente e cada passo continua a ser executado diretamente através do seu próprio `SwapPool`.
+
+O projeto CPP proposto, mais amplo, pode acrescentar limites móveis, controlos por conta, caminhos entre domínios por HTLC ou depósito em garantia, reequilíbrio automático de Fundos e compensação por lotes. Estes são componentes propostos, não descrições do `Limiter` atual, do `SwapRouter` Solidity nem do fluxo de rotas da CLC App e do CLC Core.
 
 ### **1.3 Lógico de troca direta atual**
 

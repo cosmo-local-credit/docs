@@ -2,10 +2,10 @@
 
 L'esperienza della storica Sarafu Network ha motivato la ricerca su due domande di progettazione più ampie:
 
-1. il modo in cui i Fondi gestite in modo indipendente potrebbero coordinare i servizi di liquidità e di routing; e
+1. come Fondi gestiti in modo indipendente potrebbero coordinare servizi di liquidità e instradamento; e
 2. come i servizi condivisi possano rimanere responsabili con l'aumento della partecipazione.
 
-Un progetto CLC proposto introduce un **proposto CLC Fondo di rete ** come sistema di compensazione e di coordinamento di bilancio a livello di rete e ** Proposto token di governance CLC**. Neppure esiste nell'attuale app o Protocol v1.1.0. Altre implementazioni potrebbero utilizzare cooperative, agenzie pubbliche, federazioni, multisig, operatori di servizi o altre strutture responsabili senza adottare alcuna proposta.
+Un progetto CLC proposto introduce un **Fondo di rete CLC proposto** come sistema di compensazione e coordinamento dei saldi a livello di rete, oltre a un **token di governance CLC proposto**. Nessuno dei due esiste nell'attuale App o in Protocol v1.1.0. Altre implementazioni potrebbero usare cooperative, agenzie pubbliche, federazioni, multisig, operatori di servizi o altre strutture responsabili senza adottare nessuna delle due proposte.
 
 ### **6.1 Controlli verso il basso e opzionalità**
 
@@ -15,4 +15,6 @@ Una futura distribuzione potrebbe aggiungere interruttori di circuito, blocchi t
 
 La governance proposta dovrebbe mantenere ristretti e verificabili i poteri di registrazione e di servizio. Le azioni ordinarie possono utilizzare procedure di avviso, ritardo, pubblicazione di ragioni, ricorso e correzione. Le azioni di emergenza dovrebbero produrre registrazioni degli incidenti e scadere o ricevere un riesame nell'ambito di una politica adottata.
 
-La scoperta di percorsi compatibili potrebbe rendere più possibili gli scambi tra i Fondi. L'esecuzione e la rete multi-hop richiederebbero software aggiuntivi, autorizzazione, limiti, gestione dei guasti e governance. Gli swap più quotati o eseguiti non dimostrerebbero di per sé l'adempimento del buono o l'impatto sociale.
+La CLC App e CLC Core in produzione forniscono ora la scoperta di percorsi compatibili e l'esecuzione con più passaggi sulla stessa catena per i percorsi autorizzati dai partecipanti attraverso il profilo pubblico configurato. Le quotazioni applicano, a ogni passaggio, limiti, commissioni, disponibilità dell'inventario e simulazione; un batch firmato per il portafoglio viene annullato per intero se una chiamata fallisce.
+
+Questo servizio non autorizza il riequilibrio automatico dei Fondi né il controllo dell'inventario dei Fondi a livello di rete. Riequilibrio, compensazione in batch, esecuzione HTLC o tramite escrow tra domini e governance della liquidità condivisa richiederebbero autorità, software, limiti, gestione degli errori e regole adottate aggiuntivi. Un maggior numero di scambi quotati o eseguiti non dimostra di per sé l'adempimento dei buoni o un impatto sociale.

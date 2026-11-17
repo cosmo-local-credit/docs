@@ -9,16 +9,30 @@
 - **Das Zeichen:** Ein Bilanz in der Kette oder ein digitales Vermögen. Die Token-Mechanik allein schafft kein einlösbares Versprechen.
 - **Gutschein:** Ein Token oder eine Aufzeichnung, die von einem Emittenten als ein einlösbares Engagement unter veröffentlichten Bedingungen dargestellt wird.
 - **Das Angebot:** Ein Katalogbuch für Waren oder Dienstleistungen, die mit einem Gutschein verbunden sind.
+- **Wunsch:** Ein veröffentlichter Bedarf. Ein Wunsch nimmt nicht von selbst ein Angebot oder einen Gutschein an, genehmigt keinen Tausch, stellt keine Bestände bereit und schafft keine Verpflichtung.
 - **Aussteller:** Die für die Veröffentlichung und Erfüllung eines Gutscheinsverpflichtens zuständige Partei.
 - **Fonds-Verantwortliche Person:** Die verantwortliche Struktur, die Fonds-Regeln veröffentlicht und verwaltet.
+- **Register:** Ein Datensatz zur Auffindbarkeit und Berechtigung identifizierter Verträge, Fonds, Tokens oder anderer Ressourcen. Die Aufnahme ist für sich allein weder Empfehlung noch Nachweis von Leistungsfähigkeit, Erfüllung, Garantie oder Versicherung.
 - **Fonds Wechselkurs oder Quote:** Ein Transaktionsparameter, der durch einen konfigurierten Anbieter erzeugt wird; kein Beweis für Bargeld oder Rückzahlungswert.
-- **Fonds-Token-Gleichgewichtsdeckung:** Der aktuelle Maximum `Limiter` für ein Token, das von einem Fonds gehalten wird. Die App kann sie markieren ** Kreditbegrenzung.”**
+- **Wertindex:** Ein relativer Bewertungsfaktor, den ein konfigurierter Kursanbieter zur Berechnung eines Fonds-Wechselkurses verwendet. Er ist nicht automatisch ein Marktpreis, Bargeldwert oder eine Verpflichtung des Herausgebers.
+- **`Limiter`:** Die optionale Komponente von Protocol v1.1.0, die den Höchstsaldo eines Tokens in einem Fonds festlegt. Die App kann diese Obergrenze als **„Kreditlimit“** bezeichnen. Es handelt sich weder um ein persönliches Kreditlimit noch um ein gleitendes Limit auf Netzwerkebene.
 - **Fonds-Swap:** Ein direkter Anlagenaustausch über einen `SwapPool`.
+- **Route:** Ein geordneter Weg aus einem oder mehreren Fonds-Tauschen von einem Eingabegutschein in einer Wallet zu einem Zielgutschein.
+- **Routentiefe:** Die Anzahl der Fonds-Tausche auf einer Route. Die aktuelle öffentliche Bereitstellung sucht Routen mit bis zu drei Schritten.
+- **Routenerkennung:** Eine Schätzung möglicher Wege anhand eines abgestimmten Graphen und der Wallet-Bestände. Eine erkannte Route ist kein ausführbares Versprechen.
+- **Routenangebot:** Ein zeitlich begrenzter, verbindlicher Vorschlag für eine ausgewählte Route. Er wird aus dem unterstützten Fonds-Zustand in einem festgelegten Block berechnet und vor der Signatur simuliert.
+- **Tausch über eine Route:** Eine vom Teilnehmer autorisierte Folge von Fonds-Tauschen. Die aktuelle App übermittelt sie als einen Calibur-Wallet-Batch innerhalb derselben Blockchain, dessen Aufrufe gemeinsam rückgängig gemacht werden, wenn einer fehlschlägt.
+- **Routenbeleg:** Eine zusammengefasste technische Aufzeichnung von Routenstatus, Transaktionshash, Schritten, abgewickelten Beträgen und Fonds- sowie Protokollgebühren je Schritt.
+- **Liquidität:** Geeignete Ausgabebestände eines Fonds, die nach dem aktuellen Zulassungs-, Saldenlimit-, Kurs-, Gebühren-, Reserve- und Abhebungszustand verfügbar sind. Eine Kante im Graphen oder ein Token-Saldo allein belegt keine nutzbare Liquidität.
 - **Swap-Abwicklung:** Die Überweisungen in der Kette und die Rechnungslegung der Gebühren, die einen Fonds-Swap abschließen.
 - **Erlösungsvorlage:** Rückgabe oder sonstige Vorlage von Gutscheineinheiten an den Emittenten.
 - **Erfüllung:** Der Emittent liefert das versprochene Gut, die versprochene Dienstleistung, die versprochene Leistung oder eine andere Leistung.
 - **Ausbuchung:** Eine Aufzeichnung, die verhindert, dass ausgefüllte Einheiten erneut vorgestellt werden.
-- **Angebotene Ausführungsrouter:** Zukunftssoftware, die Routen autorisieren und ausführen würde. Nur die aktuellen Zitate von `SwapRouter`.
+- **Solidity-`SwapRouter`:** Der Vertrag von Protocol v1.1.0 kann Kursangebote über eine vorgegebene Route berechnen, verwahrt aber keine Vermögenswerte, genehmigt keine Tokens und führt keine Tausche aus.
+- **Routing-Ablauf der App:** Der aktuelle Dienst von CLC App und CLC Core erkennt, berechnet, simuliert, vorbereitet, leitet weiter, stimmt ab und dokumentiert Routen innerhalb derselben Blockchain oberhalb der Fondsverträge.
+- **Bestandsausgleich:** Bewegung von Fondsbeständen zu beschlossenen Zielwerten im Rahmen eines vom Fonds-Verantwortlichen genehmigten Mandats. Das aktuelle, von Teilnehmern ausgelöste Routing erlaubt für sich allein keinen automatischen Bestandsausgleich.
+- **Verrechnung:** Kombination mehrerer Verpflichtungen oder beabsichtigter Übertragungen zur Berechnung verringerter Nettopositionen. Sie ist nicht Teil des aktuellen Tauschs über eine Route durch App und CLC Core.
+- **Abhilfe:** Verantwortliches Verfahren zur Berichtigung einer Konfiguration, eines Registereintrags, eines Dienstfehlers, eines Streits oder einer nicht erfüllten Verpflichtung innerhalb einer benannten Zuständigkeit. Die Berichtigung eines Registers oder Routing-Dienstes ändert nicht stillschweigend die Regeln eines unabhängigen Fonds und bucht keine Verpflichtung eines Herausgebers aus.
 - **Der vorgeschlagene Netzwerkpool CLC:** Eine zukünftige Regelung zur Clearing und zur Koordinierung des Budgets auf Ebene des Netzes.
 - **Das vorgeschlagene CLC Governance-Token:** Ein zukünftiges Governance-Design, nicht ein aktuelles App- oder Protocol v1.1.0-Asset.
 - **Netzwerkanteil:** Ein vorgeschlagener Anteil der Poolgebühren, der auf einen zukünftigen Netzbudget übertragen wird.

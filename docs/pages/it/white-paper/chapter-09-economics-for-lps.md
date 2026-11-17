@@ -6,15 +6,17 @@ Questo capitolo descrive un modello futuro, adottato separatamente. Non è una f
 
 Un futuro bilancio della rete potrebbe ricevere:
 
-1. a divulgato **Quota di rete** prese come quota delle commissioni riscosse dalle Fondi partecipanti;
-2. le tariffe di routing o di servizio separate rispetto ai servizi condivisi implementati; e
+1. una **quota per la rete** dichiarata, prelevata come parte delle commissioni riscosse dai Fondi partecipanti;
+2. commissioni di instradamento o di servizio separate per servizi condivisi effettivamente implementati; e
 3. altre entrate ricevute espressamente adottate.
 
-Le commissioni fornite dalle fondo non costituiscono entrate della rete. L'attuale Protocol v1.1.0 utilizza un modello diverso: una tassa di protocollo facoltativa è aggiunta alla tassa di fondo e viene inviata direttamente al destinatario configurato.
+Le commissioni lorde dei Fondi non costituiscono ricavi della rete. L'attuale Protocol v1.1.0 usa un modello diverso: un'eventuale commissione del Protocollo si aggiunge alla commissione del Fondo e viene inviata direttamente al destinatario configurato.
+
+Il flusso di instradamento della CLC App in produzione non aggiunge una commissione separata per il servizio di instradamento. Uno scambio instradato può comunque applicare una commissione del Fondo e una commissione del Protocollo a ciascun passaggio. Queste commissioni attuali per passaggio non devono essere indicate come quota per la rete proposta né conteggiate di nuovo come futuri ricavi di servizio.
 
 ### **9.2 Matematica grafica illustrativa**
 
-Se un fondo partecipante impone una commissione per il fondo di 2.00% e un quota di rete adottato riceve il 20% di tale commissione per il fondo, il tasso effettivo di rata di rete proposto sul valore di rotta è:
+Se un Fondo partecipante applica una commissione del 2,00% e una quota per la rete adottata riceve il 20% di tale commissione, il tasso effettivo della quota per la rete sul valore instradato è:
 
 `rake_rate = 2.00% × 20% = 0.40% = 40 bps`
 
@@ -24,7 +26,7 @@ Le entrate di rete proposte sono:
 
 `network_rake_received + routing_or_service_fees_received`
 
-Non aggiungere le tasse del fondo al quota di rete: il rake è un trasferimento da tali tasse e altrimenti sarebbe contato due volte.
+Non aggiungere le commissioni del Fondo alla quota per la rete: la quota per la rete è un trasferimento tratto da quelle commissioni e, altrimenti, verrebbe conteggiata due volte.
 
 ### **9.3 Diritti del programma di liquidità**
 

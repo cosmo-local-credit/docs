@@ -1,6 +1,6 @@
 ## **1. protocol voor het bundelen van verbintenissen (CPP): de primitieve kern**
 
-**Geestesmodel:** Een Commitmentfonds is een gereglementeerde regeling voor de toelating van waardebonnen of andere activa, het publiceren van ruilregels, het houden van inventaris en het mogelijk maken van swaps.
+**Mentaal model:** Een Commitmentfonds is een bestuurde regeling die Waardebonnen of andere activa toelaat, wisselregels publiceert, voorraad aanhoudt en swaps mogelijk maakt. Houders bieden Waardebonnen later bij hun Uitgever aan voor levering in de echte wereld. De Fondsswap en de levering door de Uitgever zijn afzonderlijke levenscycli.
 
 CPP coördineert de waarde door middel van duidelijk beschreven verplichtingen. [Grassroots Economie: Reflectie en praktijk](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
@@ -20,7 +20,7 @@ Betreffende taken en bevoegdheden zijn onder meer:
 - **Bezitter van Fonds:** heeft de huidige bevoegdheden als eigenaar van `SwapPool`;
 - **proxy-administrator:** kan een proxy-implementatie upgraden;
 - **afhankelijkheidsbeheerders:** het regelen van geconfigureerde registers, quota's, limiters of tariefcomponenten;
-- **routefinder of -operator:** kan aanbiedingen ontdekken of, in een toekomstige uitvoering, een afzonderlijk goedgekeurde route uitvoeren; en
+- De exploitant van een routedienst: kan binnen het gepubliceerde toepassingsgebied een afzonderlijk goedgekeurde route ontdekken, aanbieden, simuleren, voorbereiden, doorgeven en vastleggen;
 - **waarnemer:** neemt alleen een gedefinieerde verplichting op zich door middel van gepubliceerde, gefinancierde voorwaarden.
 
 CPP groepen Poolfuncties in vier concepten:
@@ -30,9 +30,11 @@ CPP groepen Poolfuncties in vier concepten:
 - **Beperking:** het toepassen van huidige tokenbalansgrens of andere afzonderlijk ingevoerd controles.
 - **Uitwisseling:** het houden van inventaris, uitvoeren van swaps, rekening houden met vergoedingen en transactiegegegevens opstellen.
 
-Protocol v1.1.0 Deze functies worden door middel van `SwapPool` De huidige `Limiter` De marktdeelnemer heeft een rekening met de markten van een andere bank, maar is niet verplicht om de markte te vergroten.`SwapRouter` berekent quotes voor meerpools; het voert geen swaps uit.
+Protocol v1.1.0 implementeert deze functies via `SwapPool` en optionele afhankelijkheden. De huidige `Limiter` begrenst het saldo van een token in een Fonds; hij biedt geen voortschrijdende limieten, limieten per account of netwerkbrede swaplimieten. De huidige Solidity-`SwapRouter` berekent offertes voor meerdere Fondsen; hij voert geen swaps uit.
 
-Het bredere voorgestelde CPP-ontwerp kan voortschrijdende limieten, accountcontroles, uitvoeringsrouters, paden via HTLC of escrow en batchverrekening toevoegen. Dit zijn voorgestelde onderdelen en geen beschrijvingen van de huidige limiter of router.
+De productieversies van de CLC App en CLC Core implementeren routering binnen één blockchainnetwerk boven deze contracten. CLC Core ontdekt paden, leest de geselecteerde Fondsen op één vastgezet blok, bereidt en simuleert een ondertekende Calibur-walletbatch, coördineert het doorsturen en groepeert de resulterende afwikkelingsgegevens. De huidige openbare configuratie zoekt routes van maximaal drie Fondsswaps. Elk Fonds blijft onafhankelijk bestuurd en iedere stap wordt rechtstreeks door zijn eigen `SwapPool` uitgevoerd.
+
+Het bredere voorgestelde CPP-ontwerp kan voortschrijdende limieten, accountcontroles, cross-domain paden met HTLC's of escrow, automatische herbalancering van Fondsen en batchverrekening toevoegen. Dat zijn voorgestelde onderdelen, geen beschrijvingen van de huidige `Limiter`, Solidity-router of routeringsworkflow van de App en CLC Core.
 
 ### **1.3 Logiek van de huidige directe swap**
 
@@ -47,10 +49,12 @@ Een huidige directe Fonds swap:
 7. overdraagt de protocolvergoeding en -uitgang, alsmede de rekeningen voor het Poolvergoed; en
 8. uitzendt swap-evenementen.
 
-Het aanbod is een transactieparameter, geen bewijs van de emittentcapaciteit, terugbetalingskosten, reële waarde, cash convertibiliteit of garantie.
+De offerte is een transactieparameter, geen bewijs van capaciteit van de Uitgever, inwisselwaarde, reële waarde, omzetbaarheid in geld of een garantie.
 
 ### **1.4 Breder gebruik**
 
 Commitmentfondsen kan gemeenschapsruil, productie, wederzijdse hulp, openbare programma's en andere verantwoordingsplichtige structuren ondersteunen. Een afzonderlijk gedocumenteerd kredietproduct zou een waardebon als zekerheid of terugbetalingsinstrument kunnen gebruiken, maar het zou aanvullende en transactie-specifieke voorwaarden vereisen.
 
-CPP is bedoeld voor verantwoord uitwisselings- en controleerbare transactiegegegevens, niet speculatieve churn.
+Een gewone overdracht, storting in een Fonds, Fondsswap, aanbieding ter inwisseling, levering of afhandeling is niet automatisch een lening of terugbetaling.
+
+CPP is bedoeld voor verantwoordelijke uitwisseling en controleerbare transactiegegevens, niet voor speculatieve handel. On-chain gegevens bewijzen nog steeds geen levering in de echte wereld of maatschappelijke impact.

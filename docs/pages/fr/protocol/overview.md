@@ -30,3 +30,12 @@ Le support EIP-165 est également spécifique au contrat, pas universel. Il est 
 - **Splitter, EthFaucet, PeriodSimple, et le coffre-fort de sauvetage**— Soutenir les services de distribution, de financement du gaz, de limitation des taux et de récupération des actifs.
 
 Les contrats peuvent être combinés de différentes manières. Une liste de registre, un devis ou un parcours graphique ne garantit pas qu'une transaction sera exécutée: la liquidité actuelle, les limites des jetons, les frais, l'état de l'oracle, l'autorisation, les délais, les conditions du réseau et la configuration de chaque bassin s'appliquent toujours.
+
+
+## Échanges routés au niveau de l’application
+
+La CLC App en production ne se contente pas d’appeler le `SwapRouter` Solidity. CLC Core maintient un graphe réconcilié des relations admissibles entre Bassins, estime les bons d’échange accessibles, lit les Bassins sélectionnés à un bloc fixé pour produire une cotation faisant autorité, simule l’itinéraire complet et prépare un lot de portefeuille Calibur. L’utilisateur signe ce lot, puis un relais le soumet dans une transaction unique sur la même chaîne.
+
+Chaque étape appelle directement un `SwapPool`. Le lot remet à zéro puis définit l’autorisation de jetons nécessaire, avant d’appeler la variante bornée de `SwapPool.withdraw` avec une sortie minimale et une échéance. `revertOnFailure` est activé: si un appel échoue, toute la transaction routée est annulée. La CLC App présente ensuite un reçu groupé qui détaille le règlement et les frais de chaque étape.
+
+Ce flux de routage est une capacité App/Core construite au-dessus de Protocol v1.1.0. Il ne transforme pas le `SwapRouter` Solidity en routeur d’exécution, ne modifie ni le propriétaire ni le gestionnaire d’un Bassin, et ne rend pas un Bassin responsable des règles d’un autre Bassin ou de l’exécution par un émetteur. Consultez l’[architecture du réseau du protocole](/fr/protocol/network) pour voir le flux complet.

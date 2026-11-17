@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -16,16 +18,18 @@ PUBLIC_DIR = ROOT / "docs/public/white-paper"
 BUILD_ROOT = TEX_DIR / "build"
 TEX_CACHE = BUILD_ROOT / ".texlive-cache"
 LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
-SOURCE_DATE_EPOCHS = {
-    "en": "1790743564",
-    "es": "1791547200",
-    "fr": "1791547200",
-    **{
-        locale: "1791633600"
-        for locale in {"ar", "zh", "zh-Hant", "dz", "de", "fil", "hi", "it", "nl", "pt", "sr", "uk", "sw"}
-    },
-    "nl-BE": "1791720000",
-}
+ROUTING_ROLLOUT = json.loads(
+    (ROOT / "docs" / "i18n" / "routing-rollout.json").read_text(encoding="utf-8")
+)
+
+
+def source_date_epoch(locale: str) -> str:
+    value = ROUTING_ROLLOUT["locales"][locale]["translationPublicationDate"]
+    parsed = datetime.strptime(value, "%d %B %Y").replace(
+        hour=12,
+        tzinfo=timezone.utc,
+    )
+    return str(int(parsed.timestamp()))
 
 
 def compile_pdf(locale: str) -> None:
@@ -37,7 +41,7 @@ def compile_pdf(locale: str) -> None:
 
     engine = "-pdf" if locale == "en" else "-lualatex"
     environment = os.environ.copy()
-    environment["SOURCE_DATE_EPOCH"] = SOURCE_DATE_EPOCHS[locale]
+    environment["SOURCE_DATE_EPOCH"] = source_date_epoch(locale)
     environment["FORCE_SOURCE_DATE"] = "1"
     environment["TEXMFCACHE"] = str(TEX_CACHE)
     environment["TEXMFVAR"] = str(TEX_CACHE)
@@ -58,7 +62,8 @@ def compile_pdf(locale: str) -> None:
 
     built = build_dir / f"{stem}.pdf"
     suffix = "" if locale == "en" else f"-{locale}"
-    published = PUBLIC_DIR / f"Cosmo-Local-Credit-CLC-White-Paper-v8{suffix}.pdf"
+    version = ROUTING_ROLLOUT["locales"][locale]["whitePaperVersion"].removeprefix("0.")
+    published = PUBLIC_DIR / f"Cosmo-Local-Credit-CLC-White-Paper-v{version}{suffix}.pdf"
     shutil.copyfile(built, published)
     if built.read_bytes() != published.read_bytes():
         raise RuntimeError(f"Published PDF differs from build output: {locale}")

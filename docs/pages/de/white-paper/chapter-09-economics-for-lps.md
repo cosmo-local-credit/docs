@@ -12,6 +12,8 @@ Ein zukünftiger Netzebudget könnte Folgendes erhalten:
 
 Brutto-Fonds-Gebühren, die von Fonds aufbewahrt werden, sind keine Einnahmen aus dem Netzwerk. Der aktuelle Protocol v1.1.0 verwendet ein anderes Modell: Eine optionale Protokollgebühr ergänzt die Poolgebühr und wird direkt an den konfigurierten Empfänger gesendet.
 
+Der produktive Routing-Ablauf der CLC App erhebt keine gesonderte Gebühr für den Routing-Dienst. Bei einem Tausch über eine Route können dennoch für jeden Schritt eine Fonds- und eine Protokollgebühr anfallen. Diese aktuellen Gebühren je Schritt dürfen weder als vorgeschlagener Netzwerkanteil bezeichnet noch nochmals als zukünftige Serviceeinnahmen gezählt werden.
+
 ### **9.2 Illustrative Rake Mathematik**
 
 Wird ein teilnehmender Fonds eine Poolgebühr von 2.00% berechnen und erhält ein angenommenes Netzwerkanteil 20% dieser Poolgebühr, beträgt der vorgeschlagene wirksame Netzwerkanteil-Rate auf den geleiteten Wert:

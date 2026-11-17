@@ -1,25 +1,39 @@
-## **13. Glossair in eenvoudige taal**
+## **13. Begrippenlijst in gewone taal**
 
-- **Cosmo-Local Credit (CLC):** De productfamilie, met inbegrip van de CLC App, documentatie en het bredere engagement-poolingwerk.
-- **CLC App:** De progressieve web-app die wordt beheerd door GEF op `cosmolocal.credit`.
-- **protocol inzake de samenstelling van verbintenissen (CPP):** Het herbruikbare model van curatie, waardering, beperking, uitwisseling en verantwoord bestuur.
-- **Protocol v1.1.0:** De geverifieerde publieke smart-contract release.
-- **Commitmentfonds:** Een gereglementeerde regeling die ondersteunde activa toestaat en wisselkoersregels publiceert.
-- **`SwapPool`:** De huidige token vault en direct-swap contract.
-- **Teken:** Een saldo op de keten of een digitaal actief.
-- **waardebon:** Een token of record die door een uitgever wordt vertegenwoordigd als aflossbare verbintenis onder gepubliceerde voorwaarden.
-- **Aanbieding:** Een catalogusregister van goederen of diensten in verband met een waardebon.
-- **Uitgever:** De partij die verantwoordelijk is voor de publicatie en uitvoering van een voucherverbintenis.
-- **Fondsbeheerder:** De verantwoordelijke structuur die de regels van Fonds publiceert en beheert.
-- **Fonds wisselkoers of quote:** Een transactieparameter geproduceerd door een geconfigureerde quotator; geen bewijs van contant geld of terugbetalingswaarde.
-- **Fonds-token-balanscap:** De huidige maximale `Limiter` voor een token in handen van een Fonds. **“Creditslimiet.”**
-- **Fonds swap:** Een directe activauitwisseling via één `SwapPool`.
-- **Swap afwikkeling:** De overdrachten in de keten en de boekhouding van de vergoedingen die een Fonds swap voltooien.
-- **Aflossingsaanvraag:** Het teruggeven of anderszins aanbieden van waardebon-eenheden aan de uitgever.
-- **nakoming:** De uitgever levert het beloofde goed, dienst, voordeel of andere prestaties.
-- **afboeking:** Een document dat voorkomt dat voltooide eenheden opnieuw worden gepresenteerd.
-- **Voorgestelde uitvoeringsrouter:** De huidige `SwapRouter` citeert alleen.
-- **Voorgestelde netwerkpool CLC:** Een toekomstige regeling inzake clearing en begrotingscoördinatie op netwerkniveau.
-- **Voorgesteld CLC governance token:** Een toekomstige governance-ontwerp, geen huidige App of Protocol v1.1.0-actief.
-- **Netwerkraak:** Een voorgestelde aandeel van de Poolvergoedingen overgedragen aan een toekomstige netwerkbegroting.
-- **Garantie of verzekering:** Een bescherming die alleen van toepassing is wanneer een geïdentificeerde partij het uitdrukkelijk overneemt, financiert en publiceert.
+- **Cosmo-Local Credit (CLC):** De productfamilie, waaronder de CLC App, de documentatie en het bredere werk rond commitment pooling.
+- **CLC App:** De progressieve webapp die GEF beheert op `cosmolocal.credit`.
+- **Commitment Pooling Protocol (CPP):** Het herbruikbare model voor curatie, waardering, begrenzing, uitwisseling en verantwoordelijke governance.
+- **Protocol v1.1.0:** De geverifieerde openbare smart-contractrelease.
+- **Commitmentfonds:** Een bestuurde regeling die ondersteunde activa toelaat en wisselregels publiceert.
+- **`SwapPool`:** Het huidige contract dat tokens bewaart en directe swaps uitvoert.
+- **Token:** Een on-chain saldo of digitaal activum. Tokenmechanismen alleen creëren geen inwisselbare toezegging.
+- **Waardebon:** Een token of registratie die een Uitgever onder gepubliceerde voorwaarden presenteert als een inwisselbare toezegging.
+- **Aanbod:** Een catalogusvermelding van goederen of diensten die aan een Waardebon is gekoppeld.
+- **Vraag:** Een gepubliceerde beschrijving van een behoefte. Een Vraag aanvaardt op zichzelf geen Aanbod of Waardebon, geeft geen toestemming voor een swap, reserveert geen voorraad en creëert geen verplichting.
+- **Uitgever:** De partij die verantwoordelijk is voor het publiceren en nakomen van de toezegging van een Waardebon.
+- **Fondsbeheerder:** De verantwoordelijke structuur die de regels van een Fonds publiceert en beheert.
+- **Register:** Een registratie voor ontdekking en toestemming van geïdentificeerde contracten, Fondsen, tokens of andere middelen. Opname bewijst op zichzelf geen goedkeuring, capaciteit van de Uitgever, nakoming, garantie of verzekering.
+- **Wisselkoers of offerte van een Fonds:** Een transactieparameter die een geconfigureerde quoter berekent; geen bewijs van geldwaarde of inwisselwaarde.
+- **Value Index:** Een relatieve waarderingsinvoer waarmee een geconfigureerde quoter een wisselofferte van een Fonds berekent. Het is niet automatisch een marktprijs, geldwaarde of verplichting van de Uitgever.
+- **Limiter:** Het optionele onderdeel van Protocol v1.1.0 dat een maximaal tokensaldo voor een Fonds instelt. De App kan deze bovengrens **“Kredietlimiet”** noemen. Het is geen persoonlijke leenlimiet of netwerkbrede voortschrijdende limiet.
+- **Fondsswap:** Een directe uitwisseling van activa via één `SwapPool`.
+- **Route:** Een geordend pad van één of meer Fondsswaps van de invoerwaardebon in een wallet naar een doelwaardebon.
+- **Routediepte:** Het aantal Fondsswaps in een route. De huidige openbare implementatie zoekt er maximaal drie.
+- **Routeontdekking:** Een schatting van mogelijke paden op basis van afgestemde graaf- en walletgegevens. Een ontdekt pad is geen uitvoerbare belofte.
+- **Routeofferte:** Een gezaghebbend voorstel met een vervaltijd voor een gekozen pad. Het wordt berekend uit ondersteunde Fondsgegevens die op één vastgezet blok zijn gelezen en vóór ondertekening gesimuleerd.
+- **Gerouteerde wissel:** Een door de deelnemer goedgekeurde reeks Fondsswaps. De huidige App dient die in als één Calibur-walletbatch binnen hetzelfde blockchainnetwerk, waarbij alle aanroepen samen worden teruggedraaid als één aanroep mislukt.
+- **Overzicht van een gerouteerde wissel:** Eén gebundeld technisch overzicht van de routestatus, transactiehash, stappen, afgewikkelde bedragen en Fonds- en protocolkosten per stap.
+- **Liquiditeit:** Geschikte uitgaande voorraad van een Fonds die beschikbaar is onder de huidige toelatings-, saldolimiet-, offerte-, kosten-, reserverings- en opnamevoorwaarden. Alleen een verbinding in de graaf of tokensaldo bewijst geen bruikbare liquiditeit.
+- **Swapafwikkeling:** De on-chain overdrachten en kostenboekhouding waarmee een Fondsswap wordt voltooid.
+- **Aanbieding ter inwisseling:** Eenheden van een Waardebon teruggeven of anderszins aan de Uitgever aanbieden.
+- **Nakoming:** De Uitgever levert het beloofde goed, de dienst, het voordeel of een andere prestatie.
+- **Afhandeling:** Een registratie die voorkomt dat geleverde eenheden opnieuw worden aangeboden.
+- **Solidity-`SwapRouter`:** Het contract van Protocol v1.1.0 dat alleen offertes berekent. Het kan over een opgegeven pad rekenen, maar bewaart geen activa, keurt geen tokens goed en voert geen swaps uit.
+- **Routeringsworkflow van de App:** De huidige dienst van de CLC App en CLC Core die routes binnen één blockchainnetwerk boven de Fondscontracten ontdekt, offreert, simuleert, voorbereidt, doorstuurt, afstemt en rapporteert.
+- **Herbalancering:** Voorraad van een Fonds naar vastgestelde doelen verplaatsen onder een mandaat dat de Fondsbeheerder heeft goedgekeurd. De huidige door deelnemers gestarte routering geeft op zichzelf geen toestemming voor automatische herbalancering.
+- **Clearing of verrekening:** Meerdere verplichtingen of voorgenomen overdrachten combineren om kleinere nettoposities te berekenen. Dit maakt geen deel uit van de huidige gerouteerde wissel van de App en CLC Core.
+- **Herstel:** Een verantwoordelijk proces om binnen een geïdentificeerde bevoegdheid een configuratie, registervermelding, dienstfout, geschil of niet-nagekomen toezegging te corrigeren. Herstel van een register of routedienst verandert niet stilzwijgend de regels van een onafhankelijk Fonds en ontslaat een Uitgever niet van zijn verplichtingen.
+- **Voorgesteld CLC Network Pool:** Een toekomstige regeling voor netwerkbrede clearing en begrotingscoördinatie.
+- **Voorgestelde CLC-governancetoken:** Een toekomstig governanceontwerp, geen huidig activum van de App of Protocol v1.1.0.
+- **Netwerkafdracht:** Een voorgesteld aandeel van Fondskosten dat naar een toekomstige netwerkbegroting wordt overgedragen.
+- **Garantie of verzekering:** Bescherming die alleen geldt wanneer een geïdentificeerde partij die uitdrukkelijk aanvaardt, financiert en publiceert.

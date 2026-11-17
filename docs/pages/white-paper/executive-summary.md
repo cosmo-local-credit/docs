@@ -2,7 +2,7 @@
 
 The **Commitment Pooling Protocol (CPP)** describes how independently governed Commitment Pools can curate redeemable commitments, publish exchange-rate methods and limits, hold inventory, and enable accountable exchange. Issuers remain responsible for their voucher commitments. Pool Stewards remain responsible for Pool rules and any guarantee they expressly assume. Neither the CLC App nor GEF is a universal guarantor.
 
-Protocol v1.1.0 provides current direct-swap building blocks: `GiftableToken`, `SwapPool`, optional registries and valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only `SwapRouter`. The current contracts do not record real-world fulfillment, create automatic liquidity-provider shares, execute multi-hop routes, or provide universal reserves, guarantees, or insurance.
+Protocol v1.1.0 provides current direct-swap building blocks: `GiftableToken`, `SwapPool`, optional registries and valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only Solidity `SwapRouter`. The production CLC App and CLC Core now discover same-chain routes through as many as three Pools, produce pinned-block quotes, simulate and prepare signed atomic wallet batches, relay them, and group their settlement records. The contracts still do not record real-world fulfillment, create automatic liquidity-provider shares, perform cross-chain routing or batch netting, or provide universal reserves, guarantees, or insurance.
 
 The historic **Sarafu Network** used commitment-pooling concepts across community currencies, savings groups, mutual-aid systems, and production commitments. Its service later transitioned to the CLC App. This was not a representation that every historic account, wallet, token, voucher, Pool, balance, report, participant, or obligation migrated.
 
@@ -19,13 +19,13 @@ The historic **Sarafu Network** used commitment-pooling concepts across communit
 
 These figures are historical evidence, not current CLC usage figures.
 
-The wider proposed CLC design explores how compatible networks could:
+The wider CLC design combines current routing with proposals for how compatible networks could:
 
-1. discover and quote paths across independently governed Pools;
+1. extend accountable route services across additional registry or policy profiles and domains;
 2. coordinate accountable network services without overriding local responsibility;
 3. support separately funded liquidity mandates, guarantees, reserves, or insurance policies;
 4. measure Pool swaps separately from voucher presentment, fulfillment, and discharge; and
-5. use a proposed network rake and service fees to fund adopted shared services.
+5. use a proposed network rake and separately adopted service fees to fund shared services.
 
 The proposal includes a **proposed CLC governance token** and a **proposed CLC Network Pool**. Neither is part of the current App or Protocol v1.1.0.
 

@@ -1,26 +1,33 @@
-## **14. प्रस्तावित KPIs और स्वास्थ्य संकेतक**
+## **14. KPI और स्वास्थ्य संकेतक**
 
-एक तैनाती को केवल तब KPI प्रकाशित करना चाहिए जब वह घटना, स्रोत, समूह या अवधि, इकाई, मूल्यांकन विधि और समयशीर्षक, बहिष्करण, सुधार नीति, आउट-चेन साक्ष्य और डेटा गुणवत्ता सीमाओं को परिभाषित कर सके।
+Deployment को KPI तभी प्रकाशित करना चाहिए जब वह event, source, cohort या period, unit, valuation method और timestamp, exclusions, correction policy, off-chain evidence और data-quality limits परिभाषित कर सके।
 
-प्रस्तावित उपायों में निम्नलिखित शामिल हैंः
+मौजूदा route services खोज, कोटेशन, execution, settlement और reconciliation events माप सकती हैं। Voucher fulfillment और social outcomes के लिए अब भी अलग evidence चाहिए। सुझाए गए measures में ये शामिल हैं:
 
-- वैध प्रतिपूर्ति प्रस्तुतियाँ;
-- कोहर्ट आधारित वादे की पूर्ति दर;
-- डिस्चार्ज की पूर्णता;
-- प्रस्तुति से वादे की पूर्ति तक की विलंबता;
-- अधिग्रहण से प्रस्तुति तक holding की अवधि;
-- एक निर्धारित पद्धति के तहत अपव्यय योग्य प्रतिबद्धताएं;
-- पूल स्वैप की पूर्ण मात्रा;
-- मापा गया पूल इन्वेंट्री;
-- पूल टोकन बैलेंस कैप का उपयोग;
-- उद्धरण पास दर, मार्ग निष्पादन दर से अलग रखी जाती है;
-- स्पष्ट रूप से कवर किए गए जोखिम द्वारा विभाजित पात्र भंडार;
-- पहचान की गई पॉलिसी के तहत गारंटर का दावा और वसूली;
-- प्रस्तावित नेटवर्क रैक और सेवा शुल्क वास्तव में प्राप्त किए गए, डबल-कंटिंग सकल पूल शुल्क के बिना;
-- शासन का पता लगाना, निर्णय लेना, विराम देना, मरम्मत करना और बंद करना;
-- शिकायतें, विवाद, सुधार और उपचार; तथा
-- अलग-अलग सामाजिक या पारिस्थितिक परिणामों को दर्शाया।
+- valid redemption presentments;
+- cohort-based fulfillment rate;
+- discharge completeness;
+- presentment-to-fulfillment latency;
+- acquisition-to-presentment holding duration;
+- तय method के अंतर्गत outstanding eligible commitments;
+- completed direct Pool-swap volume;
+- route-discovery attempts और उपलब्ध candidate routes की संख्या;
+- authoritative route-quotation attempts, outcomes, depth, expiry और quoted fees;
+- routed-exchange attempts, confirmed और reverted routes तथा failure reasons;
+- whole-route input और output volume, per hop नहीं बल्कि हर route पर एक बार गिना हुआ;
+- हर hop की settled amounts, Pool fees, protocol fees और intermediate remainders;
+- insufficient liquidity, Pool token-balance caps, unsupported dependencies और wallet restrictions सहित route rejections;
+- graph freshness, reconciliation lag, corrections और failures;
+- measured Pool inventory;
+- Pool token-balance-cap utilization;
+- discovery success और quotation pass rates, route execution और settlement rates से अलग;
+- eligible reserves divided by explicitly covered exposure;
+- identified policy के अंतर्गत guarantor claims और recoveries;
+- मौजूदा per-hop Pool और protocol fees, किसी proposed network rake या future service fee से अलग;
+- governance detection, decision, pause, repair और closure times;
+- complaints, disputes, corrections और remedies; और
+- अलग से evidenced social या ecological outcomes।
 
-ऑन-चेन लेनदेन डेटा स्वयं पहचान, जारीकर्ता प्रदर्शन, संतुष्टि, कारण संबंधीता, सामुदायिक स्वास्थ्य या सामाजिक प्रभाव को साबित नहीं करता है। इन दावों के लिए अपनी पद्धति और सबूत की आवश्यकता होती है।
+On-chain transaction data अपने-आप identity, issuer performance, satisfaction, causation, community health या social impact सिद्ध नहीं करता। इन claims को अपनी method और evidence चाहिए।
 
 देखिये [परिशिष्ट सी](/hi/white-paper/appendix-c-kpi-definitions) प्रस्तावित माप विनिर्देश के लिए।

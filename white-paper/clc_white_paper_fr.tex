@@ -29,13 +29,13 @@
   citecolor=blue,
   urlcolor=blue,
   pdflang={fr},
-  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.9},
   pdfauthor={William O. Ruddick and Mohamed Sohail}
 }
 
 \title{Cosmo-Local Credit (CLC)\\Un réseau pour la répartition des crédits, la coordination des engagements et le financement d'une économie cosmolocale saine}
 \author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
-\date{White Paper v0.8 translation: 9 October 2026}
+\date{White Paper v0.9 translation: 17 November 2026}
 
 \begin{document}
 \maketitle
@@ -44,19 +44,19 @@
 \sloppy
 \RaggedRight
 
-\textbf{À propos de cette traduction.} Ceci est une traduction du Livre blanc v0.8 (White Paper v0.8). Le texte source anglais a été publié le 30 septembre 2026. Cette traduction a été publiée le 9 octobre 2026. L'anglais constitue le texte source. \href{https://docs.cosmolocal.credit/white-paper}{Lire le texte source anglais}.
+\textbf{À propos de cette traduction.} Ceci est une traduction du White Paper v0.9. La source anglaise a été publiée le 16 novembre 2026. Cette traduction a été publiée le 17 novembre 2026. Le texte source est en anglais. \href{https://docs.cosmolocal.credit/white-paper}{Lire la source en anglais}.
 
-\textbf{La version suivante:} 0.8
+\textbf{Version:} 0.9
 
-\textbf{Date à laquelle:} 30 Septembre 2026
+\textbf{Date:} 16 novembre 2026
 
 \textbf{Les auteurs:} William O. Ruddick et Mohamed Sohail
 
 \textbf{Contact :} \href{mailto:info@grassecon.org}{info@grassecon.org}
 
-\textbf{Télécharger :} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fr.pdf}{Livre blanc CLC v0.8 en français (PDF)}
+\textbf{Télécharger :} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-fr.pdf}{Livre blanc CLC v0.9 en français (PDF)}
 
-\textbf{Publié par:} La version finale est publiée. Le présent document ne constitue pas un avis d'investissement et ne constitue pas une offre de vente ou une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures peuvent réviser les modèles décrits ici.
+\textbf{Statut de publication :} Version finale publiée. Le présent document ne constitue pas un conseil en investissement, une offre de vente ni une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures pourront réviser les modèles décrits ici.
 
 \section*{Comment lire cet article ?}
 \addcontentsline{toc}{section}{Comment lire cet article ?}
@@ -75,7 +75,7 @@ Statut officiel & La signification \\
 \bottomrule
 \end{longtable}
 
-L'actuel Protocol v1.1.0 comprend l'exécution directe de \texttt{SwapPool}, la conservation optionnelle, l'évaluation, les plafonds du solde des jetons de bassin, les frais de bassin, une redevance de protocole supplémentaire et un \texttt{SwapRouter} uniquement pour les offres. L'exécution multi-hop, le routage HTLC ou de l'escrow, la compensation par lots, l'assurance partagée, le jeton de gouvernance CLC proposé, le bassin de réseau CLC proposé, les mécanismes de crédits de frais et les programmes de liquidité du réseau sont proposés ou dépendants du déploiement.
+Protocol v1.1.0 comprend l'exécution directe par \texttt{SwapPool}, la sélection facultative, l'évaluation, les plafonds de solde des jetons du Bassin, les frais de Bassin, des frais de protocole supplémentaires et un \texttt{SwapRouter} Solidity de cotation uniquement. La CLC App et CLC Core en production assurent la découverte d'itinéraires sur une même chaîne, les cotations à un bloc fixé, la simulation, l'exécution atomique d'un lot de portefeuille signé à travers jusqu'à trois Bassins et les reçus groupés. Le routage HTLC ou sous séquestre entre chaînes, le rééquilibrage automatique des Bassins, la compensation par lots, l'assurance partagée, le jeton de gouvernance CLC proposé, le Bassin de réseau CLC proposé, les mécanismes de crédits de frais et les programmes de liquidité du réseau restent proposés ou dépendants du déploiement.
 
 \textbf{Audience prévue:} Créateurs de bassins et administrateurs, ingénieurs et auditeurs de protocoles, bailleurs de fonds de liquidités et de mandats, concepteurs de gouvernance et examinateurs juridiques ou de conformité.
 
@@ -91,7 +91,7 @@ Cosmo-local signifie partager des normes ouvertes, des logiciels et des connaiss
 \section*{Déploiement actuel}
 \addcontentsline{toc}{section}{Déploiement actuel}
 
-GEF exploite le CLC App au \href{https://cosmolocal.credit}{cosmolocal.credit} Il fournit un accès au compte et au portefeuille, un catalogue public du marché et des interfaces prises en charge pour les jetons, les bons d'échange, les offres, Bassins d'engagements, les transferts et les swaps directs de bassin. La disponibilité dépend de l'interface, des contrats, de l'inventaire, des limites et des frais configurés, de l'état du réseau, de l'admissibilité, des fournisseurs, de la juridiction et des conditions publiées de l'émetteur ou du bassin.
+GEF exploite la CLC App à l'adresse \href{https://cosmolocal.credit}{cosmolocal.credit}. Elle donne accès au compte et au portefeuille, à un catalogue public du Marché et à des interfaces prises en charge pour les jetons, les bons d'échange, les Offres, les Wants, les Bassins d'engagements, les transferts, les échanges directs de Bassin et les échanges routés au niveau de l'application. CLC Core assure la découverte d'itinéraires, les cotations faisant autorité, la simulation des transactions, la coordination du relais, le rapprochement avec la chaîne et les reçus groupés. La disponibilité dépend de l'interface, des contrats, de l'inventaire, des limites et frais configurés, du type de portefeuille, de l'état du réseau, de l'admissibilité, des fournisseurs, de la juridiction et des conditions publiées par l'émetteur ou le Bassin.
 
 L'exploitation de l'interface ne fait pas d'elle-même de GEF un émetteur, de Gestionnaire de Bassin un dépositaire, un prêteur, un emprunteur, un courtier, un garant, un racheteur, un conseiller, un assureur ou une partie à des obligations entre participants. L'utilisation de l'application est régie par le \href{https://docs.cosmolocal.credit/fr/governance/terms}{Conditions d'utilisation}.
 
@@ -135,25 +135,29 @@ La couche numérique est la mémoire partagée et l'infrastructure de coordinati
 \section*{Flux actuel et projeté}
 \addcontentsline{toc}{section}{Flux actuel et projeté}
 
-\subsection*{Flux direct actuel d'un Bassin}
-\addcontentsline{toc}{subsection}{Flux direct actuel d'un Bassin}
+\subsection*{Flux actuel direct ou routé des Bassins}
+\addcontentsline{toc}{subsection}{Flux actuel direct ou routé des Bassins}
 
 \begin{enumerate}[leftmargin=*]
-\item Un détenteur examine un bon d'échange, son émetteur, ses conditions et les offres associées.
-\item Un bassin admet les actifs pris en charge et publie sa configuration et ses autorités responsables.
-\item Le détenteur obtient un devis et autorise un échange direct de bassin.
-\item \texttt{SwapPool} effectue le règlement des swaps en chaîne et tient compte des frais de bassin et de protocole.
-\item Si le Titulaire choisit ensuite \textbf{« Redeem »} dans l'application, celle-ci prépare un transfert vers le propriétaire du jeton à titre de présentation pour utilisation.
-\item L'émetteur effectue séparément l'exécution promise et enregistre l'écoulement afin que les unités exécutées ne puissent pas être réutilisées.
+\item Un détenteur examine un bon, son émetteur, ses conditions et les offres associées.
+\item Un Bassin admet les actifs soutenus et publie sa configuration ainsi que les autorités responsables.
+\item Le détenteur peut utiliser la vue \textbf{Crédit} pour découvrir un échange direct ou un itinéraire traversant plusieurs Bassins gouvernés indépendamment.
+\item CLC Core lit les Bassins sélectionnés à un même bloc fixé, produit une cotation limitée dans le temps, détaille les frais de Bassin et de protocole de chaque étape, simule le lot complet et prépare les appels destinés au portefeuille du détenteur.
+\item Le détenteur examine et signe. La CLC App relaie une transaction unique sur la même chaîne, dont le lot complet est annulé si un appel échoue.
+\item Chaque \texttt{SwapPool} effectue son propre règlement sur la chaîne. La CLC App regroupe le statut de la transaction, les étapes, les montants réglés et les frais dans un reçu unique d'échange routé.
+\item Si le détenteur choisit ensuite \textbf{« Utiliser »} dans la CLC App, celle-ci prépare un transfert au propriétaire du jeton comme présentation du bon à l'émetteur.
+\item L'émetteur réalise séparément la prestation promise et enregistre l'acquittement afin que les unités exécutées ne puissent pas être réutilisées.
 \end{enumerate}
-Prendre l'inventaire d'un Bassin est un échange. Il s'agit d'un remboursement uniquement si ce bassin a assumé séparément le rôle d'émetteur et remplit les conditions du bon d'échange applicable.
+Prendre l'inventaire d'un Bassin est un échange. Il ne s'agit d'un remboursement que si ce Bassin a assumé séparément le rôle d'émetteur et remplit les conditions applicables du bon.
+
+La configuration publique actuelle recherche des itinéraires comportant jusqu'à trois échanges de Bassin et prend en charge les portefeuilles EOA/Calibur compatibles avec la CLC App. Elle ne prépare actuellement pas d'échanges routés pour les portefeuilles Safe ni pour d'autres portefeuilles contractuels. Le \texttt{SwapRouter} Solidity reste un contrat de cotation uniquement; CLC Core et le lot de portefeuille signé coordonnent l'exécution au-dessus des contrats.
 
 \subsection*{Proposition de conception plus large}
 \addcontentsline{toc}{subsection}{Proposition de conception plus large}
 
-La conception proposée explore le routage d'exécution, la compensation, les services partagés, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun d'entre eux nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des divulgations publiques avant de pouvoir s'appliquer.
+La conception proposée explore le routage interdomaine par HTLC ou entiercement, le rééquilibrage facultatif des Bassins, la compensation par lots, des services partagés supplémentaires, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun de ces éléments nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des informations publiques avant de pouvoir s'appliquer.
 
-Le modèle de redevance proposé peut utiliser un ramassage de réseau tiré des redevances de bassin et des redevances de routage ou de service distinctes. Cette proposition est distincte de la proposition Protocol v1.1.0, dans laquelle une redevance de protocole facultative s'ajoute à la redevance de bassin.
+Le modèle de frais proposé peut prévoir un prélèvement de réseau sur les frais de Bassin et des frais distincts de routage ou de service. Cette proposition diffère de Protocol v1.1.0, dans lequel des frais de protocole facultatifs s'ajoutent aux frais de Bassin.
 
 Les partisans ou les fournisseurs de liquidités ne reçoivent aucun droit automatique d'actions de bassin, de remboursement, de retrait, de récompense ou de gouvernance de l'actuel \texttt{SwapPool}. Tout programme actuel ou futur doit indiquer séparément le type de transfert, la partie responsable, le contrôle, les droits de récupération ou de retrait, les pertes, les récompenses, les frais et les droits de gouvernance.
 
@@ -178,7 +182,7 @@ Les partisans ou les fournisseurs de liquidités ne reçoivent aucun droit autom
 
 Le \textbf{Protocole de mise en commun des engagements (CPP)} décrit comment Bassins d'engagements, géré de manière indépendante, peut organiser des engagements remboursables, publier des méthodes et des limites de taux de change, tenir un inventaire et permettre un échange responsable. Les émetteurs restent responsables de leurs engagements en matière de bons. Gestionnaires de Bassins reste responsable des règles du bassin et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne sont un garant universel.
 
-Protocol v1.1.0 fournit les éléments constitutifs actuels de l'échange direct: \texttt{GiftableToken}, \texttt{SwapPool}, des registres optionnels et des modules d'évaluation, des plafonds de solde des jetons de bassin, des frais de bassin, une redevance de protocole supplémentaire et un \texttt{SwapRouter} à cotation uniquement. Les contrats actuels n'enregistrent pas l'exécution dans le monde réel, ne créent pas d'actions de fournisseur de liquidités automatiques, n'exécutent pas de routes multi-hop ou ne fournissent pas de réserves universelles, de garanties ou d'assurances.
+Le protocole v1.1.0 fournit les éléments de base des échanges directs actuels : \texttt{GiftableToken}, \texttt{SwapPool}, les registres et modules d'évaluation facultatifs, les plafonds de solde des jetons du Bassin, les frais du Bassin, des frais de protocole supplémentaires et un \texttt{SwapRouter} Solidity qui calcule uniquement des cotations. L'application CLC de production et CLC Core découvrent désormais des itinéraires sur une même chaîne à travers trois Bassins au maximum, produisent des cotations à un bloc déterminé, simulent et préparent des lots atomiques signés par le portefeuille, les relaient et regroupent les enregistrements de règlement. Les contrats n'enregistrent toujours pas l'exécution dans le monde réel, ne créent pas automatiquement de parts pour les fournisseurs de liquidité, n'effectuent pas de routage interchaînes ni de compensation par lots et ne fournissent pas de réserves, garanties ou assurances universelles.
 
 L'historique \textbf{Sarafu Network} ont utilisé des concepts de regroupement d'engagements entre les monnaies communautaires, les groupes d'épargne, les systèmes d'aide mutuelle et les engagements de production. Son service est ensuite passé au CLC App. Ce n'était pas une représentation que chaque compte historique, portefeuille, jeton, bon d'échange, bassin, solde, rapport, participant ou obligation a migré.
 
@@ -197,14 +201,14 @@ L'historique \textbf{Sarafu Network} ont utilisé des concepts de regroupement d
 \end{itemize}
 Ces chiffres sont des preuves historiques, pas des chiffres actuels d'utilisation de CLC.
 
-La conception CLC plus large proposée explore comment les réseaux compatibles pourraient:
+La conception plus large du CLC combine le routage actuel avec des propositions sur la manière dont les réseaux compatibles pourraient:
 
 \begin{enumerate}[leftmargin=*]
-\item découvrir et coter des chemins à travers des bassins gérés de manière indépendante;
+\item étendre les services de routage responsables à d'autres profils de registre ou de politique et à d'autres domaines ;
 \item coordonner les services de réseau responsables sans dépasser la responsabilité locale;
 \item soutenir des mandats de liquidité, des garanties, des réserves ou des polices d'assurance financés séparément;
 \item mesurer les swaps de bassin séparément de la présentation, de l'exécution et de la décharge des bons ; et
-\item Utiliser un réseau proposé et des frais de service pour financer les services partagés adoptés.
+\item utiliser un prélèvement de réseau proposé et des frais de service adoptés séparément pour financer les services partagés.
 \end{enumerate}
 La proposition prévoit un \textbf{le jeton de gouvernance CLC proposé } et une \textbf{ Réservoir de réseau CLC proposé} Il ne fait pas partie de l'application actuelle ou de Protocol v1.1.0.
 
@@ -243,7 +247,7 @@ Les rôles et les pouvoirs pertinents comprennent:
 \item \textbf{Propriétaire du Bassin:} détient les pouvoirs actuels de propriétaire de \texttt{SwapPool};
 \item \textbf{administrateur par procuration:} peut mettre à niveau une mise en œuvre par procuration;
 \item \textbf{contrôleurs de dépendance:} régir les registres configurés, les cotations, les limitateurs ou les composantes de redevance;
-\item \textbf{localisateur ou opérateur:} peut découvrir des offres ou, dans une mise en œuvre future, exécuter un parcours autorisé séparément ; et
+\item \textbf{opérateur du service de routage :} peut découvrir, coter, simuler, préparer, relayer et enregistrer un itinéraire autorisé séparément dans le cadre de son champ d'application publié ; et
 \item \textbf{le garant:} n'assume une obligation définie que par le biais de conditions publiées et financées.
 \end{itemize}
 CPP groupes Les fonctions de bassin sont divisées en quatre concepts:
@@ -254,9 +258,11 @@ CPP groupes Les fonctions de bassin sont divisées en quatre concepts:
 \item \textbf{Limitation de l'utilisation:} appliquer les plafonds actuels du solde des jetons de bassin ou d'autres contrôles mis en œuvre séparément.
 \item \textbf{Échange:} détenir des stocks, exécuter des swaps, comptabiliser les frais et émettre des enregistrements de transactions.
 \end{itemize}
-Protocol v1.1.0 met en œuvre ces fonctions par l'intermédiaire de \texttt{SwapPool} et des dépendances optionnelles. Son \texttt{Limiter} actuel limite un solde symbolique dans un bassin; il ne prévoit pas de limites régulières de swap, par compte ou pour l'ensemble du réseau. Son \texttt{SwapRouter} actuel calcule les cotations multipools; Il n'exécute pas d'échanges.
+Protocol v1.1.0 met en œuvre ces fonctions au moyen de \texttt{SwapPool} et de dépendances facultatives. Son \texttt{Limiter} actuel plafonne le solde d'un jeton dans un Bassin ; il ne fournit pas de limites d'échange glissantes, par compte ou à l'échelle du réseau. Son \texttt{SwapRouter} Solidity actuel calcule des cotations entre plusieurs Bassins ; il n'exécute pas les échanges.
 
-La conception plus large proposée de CPP peut ajouter des limites déroulantes, des contrôles de compte, des routeurs d'exécution, des chemins HTLC ou de dépôt en caution et une compensation par lots. Ce sont des composants proposés, pas des descriptions du limitateur actuel ou du routeur.
+La CLC App et CLC Core de production mettent en œuvre, au-dessus de ces contrats, un routage sur une même chaîne au niveau de l'application. CLC Core découvre les chemins, lit les Bassins sélectionnés à un bloc déterminé, prépare et simule un lot signé par le portefeuille Calibur, coordonne son relais et regroupe les enregistrements de règlement qui en résultent. La configuration publique actuelle recherche des itinéraires comptant jusqu'à trois échanges de Bassin. Chaque Bassin reste gouverné indépendamment et chaque étape est toujours exécutée directement par son propre \texttt{SwapPool}.
+
+La conception plus large proposée pour le CPP pourrait ajouter des limites glissantes, des contrôles de compte, des chemins HTLC ou d'entiercement interdomaines, un rééquilibrage automatique des Bassins et une compensation par lots. Il s'agit de composants proposés, et non de descriptions du limiteur actuel, du routeur Solidity ou du flux de routage de l'application et de CLC Core.
 
 \subsection*{1.3 Logique actuelle d'échange direct}
 \addcontentsline{toc}{subsection}{1.3 Logique actuelle d'échange direct}
@@ -370,14 +376,14 @@ Cette structure pourrait permettre le remboursement convenu en nature tout en co
 \section*{5. Des bassins isolés à un réseau fédéré}
 \addcontentsline{toc}{section}{5. Des bassins isolés à un réseau fédéré}
 
-L'actuel Protocol v1.1.0 prend en charge l'exécution directe par l'intermédiaire d'un \texttt{SwapPool} et fournit un \texttt{SwapRouter} à devis uniquement. Il n'exécute pas les routes multi-hop, les HTLC, les routes d'entiercement, la compensation par lots ou la compensation entre réseaux.
+Le protocole v1.1.0 actuel prend en charge l'exécution directe au moyen d'un \texttt{SwapPool} et fournit un \texttt{SwapRouter} Solidity qui calcule uniquement des cotations. L'application CLC de production et CLC Core coordonnent des itinéraires sur une même chaîne, initiés par les participants et traversant jusqu'à trois Bassins, en préparant un seul lot signé par le portefeuille Calibur. Les contrats n'exécutent pas eux-mêmes un itinéraire à plusieurs étapes, et le flux actuel de l'application et de CLC Core ne fournit ni HTLC interchaînes, ni itinéraires d'entiercement, ni rééquilibrage automatique des Bassins, ni compensation par lots, ni compensation entre réseaux.
 
-Ce chapitre propose comment les bassins indépendants pourraient se coordonner sans renoncer à leurs propres règles d'admission, d'évaluation, de limite, de redevance, d'inventaire, d'autorisation et de gouvernance.
+Ce chapitre explique l'itinéraire actuel des participants et le distingue de la coordination proposée qui nécessiterait une nouvelle autorité du Bassin. Dans les deux cas, les Bassins indépendants conservent leurs propres règles d'admission, de valorisation, de limite, de redevance, d'inventaire et d'autorisation ainsi que leurs règles de gouvernance.
 
 \subsection*{5.1 Mesures d'échange et d'exécution distinctes}
 \addcontentsline{toc}{subsection}{5.1 Mesures d'échange et d'exécution distinctes}
 
-La Fédération pourrait améliorer l'accès à l'inventaire, mais elle ne ferait pas fusionner le bon d'échange et échanger les cycles de vie. Toute mise en œuvre permettrait de mesurer ces événements séparément:
+Le routage peut améliorer l'accès à l'inventaire, mais il ne fusionne pas les cycles de vie du bon et de l'échange. Les mesures doivent distinguer les événements suivants :
 
 \begin{enumerate}[leftmargin=*]
 \item un itinéraire est indiqué;
@@ -388,22 +394,26 @@ La Fédération pourrait améliorer l'accès à l'inventaire, mais elle ne ferai
 \end{enumerate}
 Plus d'itinéraires cités ou exécutés ne prouvent pas plus d'exécution. Les rapports indiquent la cohorte, la période, les actifs, la méthode d'évaluation et l'horodatage, les exclusions, les corrections et les éléments de preuve hors chaîne requis par l'appendice C.
 
-\textbf{Route illustrée:} Une école détient des bons d'échange de maïs mais a besoin de bons d'échange de transport. Un service d'itinéraire identifie les inventaires de bassin compatibles. L'exécution ne réussirait que si chaque étape autorisé séparément restait dans ses limites de quotas, ses limites, ses frais, son inventaire et sa politique. Les swaps qui en résultent ne prouvent pas que l'un ou l'autre émetteur a plus tard rempli ses engagements en matière de bons d'échange.
+\textbf{Itinéraire illustratif :} Une école détient des bons de maïs mais a besoin de bons de transport. CLC Core peut identifier les inventaires de Bassin compatibles, coter le chemin sélectionné à un bloc déterminé et préparer les appels bornés pour le portefeuille de l'école. L'exécution ne réussit que si chaque étape respecte les bornes de sa cotation, ses limites, ses frais, son inventaire, les comportements pris en charge et sa politique. Les échanges qui en résultent ne prouvent pas que l'un ou l'autre émetteur a ensuite honoré ses engagements liés aux bons.
 
-\subsection*{5.2 Services de routage et de rééquilibrage proposés}
-\addcontentsline{toc}{subsection}{5.2 Services de routage et de rééquilibrage proposés}
+\subsection*{5.2 Routage actuel des participants et rééquilibrage proposé}
+\addcontentsline{toc}{subsection}{5.2 Routage actuel des participants et rééquilibrage proposé}
 
-Un futur service de liaison pourrait soutenir deux activités distinctes.
+Deux activités nécessitent une autorité différente.
 
-\textbf{Exécution initiée par le participant.} Compte tenu des actifs d'entrée et de sortie, d'un montant et des contraintes des utilisateurs, le service pourrait identifier un chemin et préparer l'exécution. Chaque étape aurait sa propre Bassin responsable, son devis, son autorisation, ses frais, ses limites, son inventaire et son reçu. Les lots atomiques, les HTLC et l'accréditation sont des choix d'exécution futurs possibles, pas le comportement actuel du protocole.
+\textbf{Exécution actuelle initiée par le participant.} À partir des bons d'entrée et de sortie et d'un montant, CLC Core estime les itinéraires en fonction des avoirs admissibles du participant. Pour l'itinéraire sélectionné, il lit les Bassins à un même bloc déterminé, produit une cotation faisant autorité, simule le lot complet et prépare trois appels par étape : remise à zéro de l'autorisation, octroi de l'autorisation et appel borné à \texttt{SwapPool.withdraw}. Le participant signe, puis le relayeur soumet une seule transaction Calibur sur la même chaîne avec \texttt{revertOnFailure} activé. L'échec d'un appel annule tous les appels de l'itinéraire. L'application regroupe la transaction et les règlements de chaque étape dans un seul reçu.
 
-\textbf{Rééquilibrage du Bassin.} Gestionnaires de Bassins pourrait publier des objectifs d'inventaire, des contreparties autorisées, des catégories d'actifs, des limites d'écart de cotation et des limites par période. Un service responsable pourrait rechercher des cycles ou des chaînes compatibles et exécuter uniquement les intentions autorisées.
+Chaque étape conserve son propre Bassin responsable, ses données de cotation, son autorisation, ses frais, ses limites, son inventaire et son événement de règlement. L'application actuelle n'ajoute pas de frais distincts pour le service de routage. Le flux actuel prend en charge les portefeuilles EOA ou Calibur compatibles avec l'application, mais pas les portefeuilles Safe ni les autres portefeuilles de contrats.
 
-Le rééquilibrage serait une option. Un bassin pourrait autoriser les itinéraires des participants tout en refusant le rééquilibrage à l'extérieur, ou il pourrait autoriser uniquement des actifs, des contreparties et des montants sélectionnés. Chaque étape exécuté produirait un reçu, et toute redevance de service serait divulguée séparément des frais de bassin et de protocole.
+\textbf{Rééquilibrage facultatif des Bassins.} Les Gestionnaires de Bassins pourraient publier des objectifs d'inventaire, des contreparties autorisées, des catégories d'actifs, des bornes d'écart de cotation et des limites par période. Un service responsable pourrait rechercher des cycles ou des chaînes compatibles et n'exécuter que les intentions autorisées.
+
+Le rééquilibrage serait facultatif. Un Bassin peut autoriser les itinéraires ordinaires des participants sans autoriser un service à déplacer l'inventaire pour le rééquilibrage. Un futur mandat pourrait n'autoriser que certains actifs, certaines contreparties et certains montants. Chaque étape exécutée produirait un reçu, et les éventuels frais de service seraient indiqués séparément des frais du Bassin et du protocole.
+
+L'exécution interchaînes par HTLC ou entiercement est également distincte du lot atomique actuel sur une même chaîne. Elle nécessiterait l'adoption de règles concernant les délais, l'abandon, le contrôleur, la récupération et le risque résiduel.
 
 \subsubsection*{5.2.1 Confédération et interopérabilité}
 
-Des déploiements indépendants pourraient exploiter leurs propres registres, interfaces, services de routage et profils de politiques tout en choisissant des normes de données et de réception compatibles. L'exécution interprofessionnelle resterait dépendante du déploiement.
+Les déploiements indépendants peuvent exploiter leurs propres registres, interfaces, services d'itinéraire et profils de politique tout en choisissant des normes de données et de réception compatibles. L'application publique actuelle utilise son registre et son profil de service configurés. L'exécution entre profils reste dépendante du déploiement.
 
 Un profil compatible devrait:
 
@@ -420,6 +430,8 @@ La compatibilité peut augmenter les voies d'échange disponibles et réduire la
 \addcontentsline{toc}{subsection}{5.3 Modèle proposé de redevance réseau et de redevance de service}
 
 L'actuel Protocol v1.1.0 facture une redevance de bassin et, lorsqu'il est configuré, une redevance de protocole supplémentaire sur un échange direct de bassin. Ces frais courants restent distincts.
+
+L'échange routé de production applique ces frais actuels indépendamment à chaque étape et les détaille dans la cotation et le reçu. Il n'ajoute actuellement pas de frais distincts pour le service de routage.
 
 Un programme futur pourrait recevoir séparément:
 
@@ -483,7 +495,7 @@ N'importe quel programme publierait:
 \item les actifs versés et la question de savoir si le transfert est remboursable, rétractable, offert ou doté;
 \item les dispositions relatives à la garde et au contrôle technique;
 \item les utilisations autorisées, les limites, les blocages, les portes de retrait et la répartition des pertes;
-\item l'admissibilité à une redevance ou à une incitation et si le montant peut être égal à zéro;
+\item l'admissibilité à des frais ou à une incitation et la possibilité que le montant soit nul ;
 \item les déclarations, les conflits, les plaintes et les recours ; et
 \item la migration, la résiliation et le traitement des actifs et obligations restants.
 \end{itemize}
@@ -524,7 +536,9 @@ Un déploiement futur pourrait ajouter des disjoncteurs, des timelocks, des rés
 
 La gouvernance proposée devrait maintenir les pouvoirs de registre et de service restreints et révisibles. Les actions ordinaires peuvent utiliser des procédures de préavis, de retard, de publication des motifs, d'appel et de correction. Les actions d'urgence devraient produire des enregistrements d'incidents et expirer ou faire l'objet d'un réexamen dans le cadre d'une politique adoptée.
 
-La découverte d'une route compatible pourrait permettre plus d'échanges entre les Bassins. L'exécution multi-hop et la mise en réseau nécessiteraient un logiciel supplémentaire, une autorisation, des limites, un traitement des défaillances et une gouvernance. Un plus grand nombre d'échanges cotés ou exécutés ne prouverait pas en soi la réalisation d'un bon d'échange ou l'impact social.
+La CLC App de production et CLC Core permettent désormais de découvrir des itinéraires compatibles et d'exécuter sur une même chaîne des itinéraires à plusieurs étapes autorisés par les participants, au moyen du profil public configuré. Les cotations appliquent à chaque étape les limites, les frais, l'inventaire et les bornes, puis le lot est simulé ; un seul lot signé par le portefeuille est entièrement annulé si un appel échoue.
+
+Ce service n'autorise ni le rééquilibrage automatique des Bassins ni le contrôle de leur inventaire à l'échelle du réseau. Le rééquilibrage, la compensation par lots, l'exécution interdomaine par HTLC ou entiercement et la gouvernance partagée des liquidités nécessiteraient une autorité supplémentaire, des logiciels, des bornes, un traitement des défaillances et des règles adoptées. Un plus grand nombre d'échanges cotés ou exécutés ne prouve pas, à lui seul, que les bons ont été honorés ni qu'un impact social a été produit.
 
 
 \section*{7. Actifs de gestion et de gouvernance proposés CLC}
@@ -704,13 +718,24 @@ Aucune mesure ne crée des droits de propriété, de remboursement, de retrait, 
 \section*{8. Portée technique et croissance}
 \addcontentsline{toc}{section}{8. Portée technique et croissance}
 
-Ce chapitre décrit les travaux facultatifs ou proposés. Il ne s'agit pas d'une liste de caractéristiques dont la présence est garantie dans l'actuel CLC App ou Protocol v1.1.0.
+Ce chapitre distingue le service de routage actuellement en production des évolutions facultatives ou proposées. Toute capacité actuelle décrite ici est propre au déploiement public de la CLC App et de CLC Core ; elle ne constitue pas automatiquement une fonctionnalité des contrats de Protocol v1.1.0 ni d'un autre déploiement.
 
-Les domaines de travail possibles sont les suivants:
+Le déploiement public actuel comprend:
 
 \begin{itemize}[leftmargin=*]
-\item l'acheminement de l'exécution à travers des bassins compatibles, avec enregistrement, devis, limite, frais et découverte d'inventaire;
+\item la découverte, à partir d'un graphe, des bons accessibles au moyen de Bassins compatibles ;
+\item des cotations faisant autorité, établies à un bloc déterminé pour des itinéraires sélectionnés sur une même chaîne ;
+\item le calcul, à chaque étape, des frais du Bassin et du protocole, des sorties minimales et des échéances ;
+\item la simulation du lot complet, la signature par le participant et l'exécution Calibur relayée ;
+\item une seule transaction sur la même chaîne, qui annule tous les appels de l'itinéraire si l'un d'eux échoue ; et
+\item des reçus regroupés et le rapprochement des événements de règlement de chaque étape.
+\end{itemize}
+Les domaines de croissance possibles sont les suivants:
+
+\begin{itemize}[leftmargin=*]
 \item les adaptateurs de dépôt à durée déterminée ou HTLC pour l'exécution interdomaine lorsque le règlement atomique n'est pas disponible;
+\item des profils de registre ou de politique supplémentaires et un routage entre les profils;
+\item le rééquilibrage des stocks du Bassin et la compensation par lots;
 \item des interfaces et des outils stratégiques pour les petits groupes ou les groupes personnels;
 \item des registres vérifiables pour les bons d'échange, les bassins, les méthodes de change, les limites, les contrôleurs et les redevances;
 \item les connecteurs de prestataires de paiement spécifiques au déploiement, les flux de paiement et les contrôles d'éligibilité;
@@ -719,28 +744,34 @@ Les domaines de travail possibles sont les suivants:
 \end{itemize}
 Les prix du marché extérieur ne détermineraient pas ce qu'un émetteur doit en termes de bons. Un bassin pourrait utiliser une référence externe protégée pour un actif fongible, mais sa méthode de taux de change publiée, ses limites, ses frais et son inventaire régiraient ses cotations.
 
-\subsection*{8.1 Normes proposées pour le service sur route et SDK}
-\addcontentsline{toc}{subsection}{8.1 Normes proposées pour le service sur route et SDK}
+\subsection*{8.1 Service de routage actuel et normes plus générales}
+\addcontentsline{toc}{subsection}{8.1 Service de routage actuel et normes plus générales}
 
-\textbf{Découverte.} Un service d'itinéraire proposé interrogerait des registres identifiés pour l'admission d'actifs, les méthodes de taux de change, les limites, les frais, l'inventaire, les incidents et les informations sur le contrôleur. Les enregistrements en cache incluent les limites de fraîcheur et les identifiants de source.
+\textbf{Découverte.} CLC Core maintient un graphe rapproché à partir des catalogues configurés, des relations de registre, des paramètres des Bassins, des frais, des limites, des soldes et des événements sur la chaîne. Il estime ce qu'un portefeuille de session peut atteindre et signale les données obsolètes. La configuration publique recherche des itinéraires comportant jusqu'à trois étapes. La découverte ne constitue pas une promesse exécutable.
 
-\textbf{Les profils des réseaux.} Un client peut prendre en charge plus d'une racine de registre ou un profil de politique. Il indiquerait au participant le profil, les contreparties, les adaptateurs, les contraintes et les opérateurs de services responsables utilisés par un devis. Une route à profil croisé devrait satisfaire à toutes les conditions de étape applicables.
+\textbf{Cotation faisant autorité.} Pour un itinéraire sélectionné, CLC Core lit les Bassins participants à un bloc déterminé et reproduit les calculs \texttt{SwapPool} pris en charge. Il détaille les frais du Bassin et du protocole, fixe une sortie minimale pour chaque étape ainsi qu'une échéance, prépare les appels du portefeuille et simule le lot complet. Les jetons, modules de cotation, portefeuilles ou conditions de Bassin non pris en charge sont refusés.
 
-\textbf{Politique du parcours.} Un exploitant responsable pourrait exclure les dépendances ou les contreparties dangereuses et appliquer des plafonds au niveau de la route, des exigences de fraîcheur et des critères sanitaires. Ces signaux soutiendraient une décision; ils ne garantiraient pas l'exécution ou la protection contre la perte.
+\textbf{Exécution actuelle.} Le participant signe un lot Calibur contenant, pour chaque étape, la remise à zéro de l'autorisation, l'octroi de l'autorisation et un retrait borné. Un relayeur soumet une seule transaction sur la même chaîne avec \texttt{revertOnFailure} activé. L'itinéraire actuel est ainsi exécuté intégralement ou annulé au niveau de la transaction. Il ne s'agit ni d'une atomicité interchaînes, ni d'un routage par HTLC ou entiercement, ni d'un rééquilibrage automatique, ni d'une compensation.
 
-\textbf{Frais et limites.} Un devis détaillerait les frais de bassin, les frais de protocole actuels supplémentaires et les frais de routage ou de service proposés séparément. L'exécution rejetterait les offres expirées ou les limites dépassées.
+\textbf{Reçus et opérations.} L'application regroupe l'itinéraire sous un seul identifiant de suivi et enregistre l'état de la transaction, l'ordre des étapes, les Bassins, les paires de jetons, les montants cotés et réglés, les frais des Bassins, les frais du protocole et les reliquats intermédiaires. Le service surveille la fraîcheur du graphe, les résultats de l'énumération et de la cotation des itinéraires, les échecs de simulation, la durée et les corrections du rapprochement, ainsi que les membres indexés non résolus ou inconnus. La télémétrie opérationnelle ne prouve pas que l'émetteur a honoré son engagement.
 
-\textbf{Atomicité et récupération.} L'exécution multi-hop serait atomique si possible. Lorsqu'il utilisait des HTLC ou des dépôts, le service divulguait les délais, les voies d'interruption, les contrôleurs responsables, les procédures d'incident et les risques résiduels.
+\textbf{Profils de réseau.} Un client pourrait prendre en charge plusieurs racines de registre ou profils de politique. Il indiquerait au participant le profil, les contreparties, les adaptateurs, les contraintes et les opérateurs de services responsables utilisés par une cotation. Un itinéraire entre profils devrait respecter les conditions applicables à chaque étape.
 
-\textbf{Proposition de mise en réseau et de rééquilibrage des lots.} Un service opt-in pourrait recueillir des intentions de rééquilibrage et rechercher des cycles ou des chaînes compatibles. Ce serait:
+Un exploitant responsable pourrait exclure les dépendances ou contreparties dangereuses et appliquer des plafonds au niveau de la route, des exigences en matière de fraîcheur et des critères sanitaires. Ces signaux appuieraient une décision; ils ne garantiraient pas l'accomplissement ou la protection contre les pertes.
+
+\textbf{Frais et limites.} La cotation actuelle détaille, pour chaque étape, les frais du Bassin et les éventuels frais de protocole supplémentaires. L'application publique n'ajoute actuellement pas de frais distincts pour le service de routage. Tout futur frais de service serait indiqué séparément. L'exécution rejette les cotations expirées ou les bornes dépassées.
+
+\textbf{Atomicité et récupération interdomaines.} Lorsqu'un futur itinéraire ne pourrait pas utiliser le lot atomique actuel sur une même chaîne et recourrait plutôt à des HTLC ou à un entiercement, le service indiquerait les délais, les voies d'abandon, les contrôleurs responsables, les procédures d'incident et les risques résiduels.
+
+\textbf{Compensation par lots et rééquilibrage proposés.} Un service facultatif pourrait recueillir des intentions de rééquilibrage et rechercher des cycles ou des chaînes compatibles. Il devrait :
 
 \begin{enumerate}[leftmargin=*]
-\item publier un reçu lisible par machine indiquant les cycles exécutés, les actifs, les montants, les dates d'évaluation et les honoraires;
-\item appliquer les plafonds par période et les politiques de contrepartie adoptés;
-\item rejeter toute activité qui enfreint l'autorisation, les limites ou l'inventaire disponible de tout groupe participant ; et
-\item conserver les entrées et les reçus déterministes pour l'examen et le traitement des litiges.
+\item publier un reçu lisible par machine indiquant les cycles exécutés, les actifs, les montants, les horodatages de valorisation et les frais ;
+\item appliquer les plafonds par période et les politiques de contrepartie adoptés ;
+\item rejeter toute activité qui enfreint l'autorisation, les limites ou l'inventaire disponible de tout Bassin participant; et
+\item conserver des données d'entrée et des reçus déterministes pour les examens et le règlement des différends.
 \end{enumerate}
-\textbf{Exigences du SDK.} Un SDK pour les itinéraires exécutés fournirait une cartographie déterministe du devis à la réception, des vérifications invariantes par étape, des codes de défaillance compréhensibles et des journaux faciles à vérifier. L'actuel Protocol v1.1.0 \texttt{SwapRouter} fournit uniquement des cotations; Il n'exécute pas ces lignes proposées.
+\textbf{Exigences relatives au SDK et à l'interface.} Une intégration de routage réutilisable devrait fournir une correspondance déterministe entre la cotation et le reçu, des vérifications d'invariants à chaque étape, des codes d'échec compréhensibles et des journaux faciles à auditer. L'implémentation de production actuelle de l'application et de CLC Core fournit ces fonctions pour son propre profil. Le \texttt{SwapRouter} Solidity du protocole v1.1.0 calcule toujours uniquement des cotations et n'exécute pas l'itinéraire.
 
 \subsubsection*{8.1.1 Spécification minimale de compatibilité de la confédération}
 
@@ -790,6 +821,8 @@ Un futur budget du réseau pourrait recevoir:
 \item autres recettes expressément adoptées et reçues.
 \end{enumerate}
 Les frais bruts de bassin retenus par Bassins ne sont pas des recettes de réseau. L'actuel Protocol v1.1.0 utilise un modèle différent: une redevance de protocole optionnelle est supplémentaire à la redevance de bassin et est envoyée directement à son destinataire configuré.
+
+Le flux de routage de la CLC App de production n'ajoute pas de frais distincts pour le service de routage. Un échange routé peut néanmoins entraîner, à chaque étape, des frais du Bassin et des frais de protocole. Ces frais actuels par étape ne doivent pas être présentés comme le prélèvement de réseau proposé ni être comptabilisés une seconde fois comme de futurs revenus de service.
 
 \subsection*{9.2 Les mathématiques illustratives du prélèvement}
 \addcontentsline{toc}{subsection}{9.2 Les mathématiques illustratives du prélèvement}
@@ -904,10 +937,12 @@ Pour un déploiement futur du jeton de gouvernance CLC proposé, le test de capt
 \addcontentsline{toc}{subsection}{10.7 Risque de routage et risque interdomaine}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Des menaces:} l'exécution partielle, les hops bloqués, les exploits de ponts ou d'escrows, les cotations obsolètes, l'inflation de trajectoire et l'avancée des changements de valeur annoncés.
-\item \textbf{Indicateurs:} les taux d'expiration des itinéraires, les arriérés d'escrow, les écarts entre les cotations et l'exécution, les étapes répétés inutiles et les incidents de ponts.
-\item \textbf{Contrôles possibles:} l'exécution atomique, le cas échéant; des délais conservateurs HTLC ou des délais d'accréditation; la voie et les politiques des contreparties; les plafonds au niveau de la route; la cartographie déterministe de la cotation à la réception; et des opérateurs de services responsables.
-\item \textbf{Tests de résistance:} Un arrêt du pont, une réorganisation de la chaîne, une interruption de la dépendance, et un étape raté dans un itinéraire multi-étape proposé.
+\item \textbf{Menaces actuelles sur une même chaîne :} données de découverte obsolètes, inventaire insuffisant, modification des limites ou de l'admission, expiration de la cotation, portefeuilles ou dépendances non pris en charge, échec de la simulation ou du relais, réorganisation de la chaîne et allongement artificiel du chemin.
+\item \textbf{Contrôles et preuves actuels :} cotations faisant autorité établies à un bloc déterminé, simulation du lot complet, sorties minimales et échéances à chaque étape, lot Calibur signé avec \texttt{revertOnFailure}, reçus regroupés déterministes, rapprochement et codes d'échec explicites. Ces contrôles réduisent certains risques d'exécution, sans garantir la disponibilité ni l'exécution de l'engagement par l'émetteur.
+\item \textbf{Menaces interdomaines proposées :} exécution partielle entre domaines, étapes bloquées, failles de pont, de HTLC ou d'entiercement, incohérence des délais et litiges liés à la récupération.
+\item \textbf{Indicateurs :} résultats de la découverte et de la cotation des itinéraires, écarts entre cotation et exécution, profondeur de l'itinéraire, échecs de simulation, annulations, échecs de rapprochement, étapes inutiles répétées et, pour de futurs systèmes interdomaines, retards d'entiercement et incidents liés aux ponts.
+\item \textbf{Contrôles supplémentaires possibles :} politiques de chemin et de contrepartie ; plafonds à l'échelle de l'itinéraire ; opérateurs de services responsables ; et règles prudentes de délai, d'abandon et de récupération pour les HTLC ou l'entiercement.
+\item \textbf{Tests de résistance :} graphe obsolète, interruption d'une dépendance, échec d'une étape dans le lot atomique actuel, réorganisation de la chaîne et, pour un futur itinéraire interdomaine, arrêt d'un pont ou expiration d'un entiercement.
 \item \textbf{Appétit pour le risque:} faible à modéré uniquement pour les dépendances identifiées et surveillées.
 \end{itemize}
 \subsection*{10.8 Risque de dépôt et de gestion des clés}
@@ -1134,50 +1169,71 @@ Ceci est une liste de contrôle illustrative pour un programme futur, documenté
 \item \textbf{Le jeton:} Un solde en chaîne ou un actif numérique. La mécanique des jetons à elle seule ne crée pas une promesse rédemptible.
 \item \textbf{Le bon d'échange:} Un jeton ou un enregistrement représenté par un émetteur comme un engagement remboursable selon des conditions publiées.
 \item \textbf{Offre:} Un enregistrement de catalogue de biens ou de services associés à un bon d'échange.
+\item \textbf{Demande :} expression publiée d'un besoin. Elle n'accepte pas à elle seule une Offre ou un bon, n'autorise pas un échange, ne réserve pas d'inventaire et ne crée aucune obligation.
 \item \textbf{Émetteur:} La partie responsable de la publication et de l'exécution d'un engagement de bon d'échange.
 \item \textbf{Gestionnaire de Bassin:} La structure responsable qui publie et administre les règles du bassin.
+\item \textbf{Registre :} un enregistrement servant à la découverte et aux autorisations pour des contrats, Bassins, jetons ou autres ressources identifiés. L'inscription ne constitue pas à elle seule une approbation et ne prouve ni la capacité de l'émetteur, ni l'exécution, ni une garantie ou une assurance.
 \item \textbf{Taux de change ou devis:} Paramètre de transaction produit par un devis configuré; pas une preuve de liquidité ou de valeur de rachat.
-\item \textbf{Plafond du solde des jetons du bassin:} Le maximum actuel de \texttt{Limiter} pour un jeton détenu par un bassin. L'application peut le marquer \textbf{`` Limite de crédit.''}
+\item \textbf{Indice de valeur :} donnée de valorisation relative utilisée par un module de cotation configuré pour calculer la cotation d'un échange de Bassin. Il ne s'agit pas automatiquement d'un prix de marché, d'une valeur en espèces ou d'une obligation de l'émetteur.
+\item \textbf{Limiter :} composant facultatif du protocole v1.1.0 qui fixe le solde maximal d'un jeton dans un Bassin. L'application peut appeler ce plafond \textbf{« Limite de crédit »}. Il ne s'agit ni d'une limite d'emprunt personnelle ni d'une limite glissante à l'échelle du réseau.
 \item \textbf{Échange de fonds:} Un échange direct d'actifs à travers un \texttt{SwapPool}.
+\item \textbf{Itinéraire :} chemin ordonné composé d'un ou de plusieurs échanges de Bassin, depuis le bon d'entrée du portefeuille jusqu'au bon recherché.
+\item \textbf{Profondeur de l'itinéraire :} nombre d'échanges de Bassin qui composent un itinéraire. Le déploiement public actuel en recherche jusqu'à trois.
+\item \textbf{Découverte d'itinéraires :} estimation des chemins possibles à partir de données rapprochées concernant le graphe et les avoirs du portefeuille. Un chemin découvert ne constitue pas une promesse exécutable.
+\item \textbf{Cotation d'un itinéraire :} proposition faisant autorité et limitée dans le temps pour un chemin sélectionné, calculée à partir de l'état pris en charge des Bassins, lu à un bloc déterminé, puis simulée avant la signature.
+\item \textbf{Échange routé :} séquence d'échanges de Bassin autorisée par le participant. L'application actuelle la soumet comme un seul lot signé par le portefeuille Calibur sur une même chaîne ; tous ses appels sont annulés ensemble si l'un d'eux échoue.
+\item \textbf{Reçu d'échange routé :} enregistrement technique regroupé indiquant l'état de l'itinéraire, le hachage de la transaction, les étapes, les montants réglés et, pour chaque étape, les frais du Bassin et du protocole.
+\item \textbf{Liquidité :} inventaire de sortie admissible d'un Bassin, disponible selon les conditions actuelles d'admission, de plafond de solde, de cotation, de frais, de réservation et de retrait. Une arête du graphe ou un solde de jetons ne prouve pas à lui seul l'existence d'une liquidité utilisable.
 \item \textbf{Règlement d'échange:} Les transferts en chaîne et la comptabilisation des frais lors de l'achèvement d'un échange de bassin.
 \item \textbf{Présentation du remboursement:} Retourner ou présenter autrement des unités de bon d'échange à l'émetteur.
 \item \textbf{Exécution:} L'émetteur fournit le bien, le service, le bénéfice ou une autre prestation promis.
 \item \textbf{Décharge:} Un enregistrement empêchant que les unités remplies soient présentées à nouveau.
-\item \textbf{Routeur d'exécution proposé:} Un logiciel futur qui autorise et exécute les itinéraires. L'actuel \texttt{SwapRouter} ne fait que des citations.
+\item \textbf{\texttt{SwapRouter} Solidity :} contrat du protocole v1.1.0 qui calcule uniquement des cotations. Il peut effectuer des calculs sur un chemin fourni, mais ne conserve pas d'actifs, n'autorise pas de jetons et n'exécute pas d'échanges.
+\item \textbf{Flux de routage de l'application :} service actuel de l'application CLC et de CLC Core qui découvre, cote, simule, prépare, relaie, rapproche et présente les itinéraires sur une même chaîne au-dessus des contrats des Bassins.
+\item \textbf{Rééquilibrage :} déplacement de l'inventaire d'un Bassin vers des objectifs adoptés dans le cadre d'un mandat autorisé par son Gestionnaire. Le routage actuel initié par les participants n'autorise pas, à lui seul, un rééquilibrage automatique.
+\item \textbf{Compensation :} regroupement de plusieurs obligations ou transferts prévus afin de calculer des positions nettes réduites. Elle ne fait pas partie de l'échange routé actuel de l'application et de CLC Core.
+\item \textbf{Réparation :} procédure responsable visant à corriger une configuration, une entrée de registre, une défaillance de service, un litige ou un engagement non honoré, dans le cadre d'une autorité identifiée. La réparation du registre ou du service de routage ne réécrit pas silencieusement les règles d'un Bassin indépendant et ne libère pas un émetteur de son obligation.
 \item \textbf{Bassins de réseau CLC proposés:} Un futur accord de compensation et de coordination budgétaire au niveau du réseau.
 \item \textbf{Le jeton de gouvernance CLC proposé:} Une conception de gouvernance future, pas une application actuelle ou un actif Protocol v1.1.0.
 \item \textbf{Prélèvement de réseau :} Une part proposée des frais de Bassin transférée vers un futur budget du réseau.
 \item \textbf{Garantie ou assurance:} Une protection qui ne s'applique que lorsqu'une partie identifiée l'assume expressément, la finance et la publie.
 \end{itemize}
 
-\section*{14. Indicateurs clés de performance et indicateurs de santé proposés}
-\addcontentsline{toc}{section}{14. Indicateurs clés de performance et indicateurs de santé proposés}
+\section*{14. Indicateurs clés de performance et indicateurs de santé}
+\addcontentsline{toc}{section}{14. Indicateurs clés de performance et indicateurs de santé}
 
-Un déploiement ne devrait publier un KPI que lorsqu'il peut définir l'événement, la source, la cohorte ou la période, l'unité, la méthode d'évaluation et l'horodatage, les exclusions, la politique de correction, les preuves hors chaîne et les limites de qualité des données.
+Un déploiement ne devrait publier un indicateur de performance clé que s'il peut définir l'événement, la source, la cohorte ou la période, l'unité, la méthode d'évaluation et l'horodatage, les exclusions, la politique de correction, les preuves hors chaîne et les limitations en matière de qualité des données.
 
-Les mesures proposées comprennent:
+Les services de routage actuels peuvent mesurer les événements de découverte, de cotation, d'exécution, de règlement et de rapprochement. L'exécution des engagements liés aux bons et les résultats sociaux nécessitent toujours des preuves distinctes. Les mesures recommandées comprennent :
 
 \begin{itemize}[leftmargin=*]
-\item les présentations de remboursement valables;
-\item taux d'exécution par cohorte;
-\item l'exhaustivité de la décharge;
-\item le délai de présentation à l'exécution;
-\item la durée de détention de l'acquisition à la présentation;
-\item les engagements éligibles en cours dans le cadre d'une méthodologie définie;
-\item le volume de swap de bassin effectué;
-\item l'inventaire de la réserve mesuré;
-\item l'utilisation du plafond de solde des jetons de bassin;
-\item le taux de réussite des cotations, tenu séparément du taux d'exécution des lignes;
+\item les présentations de rachat valides;
+\item le taux de réalisation par cohorte;
+\item l'exhaustivité de la décharge ;
+\item la latence entre la présentation et l'exécution;
+\item la durée de détention depuis l'acquisition jusqu'à la présentation;
+\item engagements éligibles en cours au titre d'une méthodologie définie;
+\item le volume des swaps de Bassin directs réalisés;
+\item les tentatives de découverte d'itinéraires et le nombre d'itinéraires candidats disponibles ;
+\item les tentatives et les résultats de cotation faisant autorité, la profondeur des itinéraires, l'expiration et les frais cotés ;
+\item les tentatives d'échange routé, les itinéraires confirmés ou annulés et les motifs d'échec ;
+\item le volume d'entrée et de sortie sur l'ensemble de l'itinéraire, compté une fois par itinéraire plutôt qu'une fois par étape ;
+\item les montants réglés à chaque étape, les frais du Bassin, les frais du protocole et les reliquats intermédiaires ;
+\item les contraintes liées à l'itinéraire, notamment une liquidité insuffisante, des plafonds de solde pour les jetons du Bassin, des dépendances non prises en charge et des limitations de portefeuille;
+\item la fraîcheur du graphe, la durée du rapprochement, les corrections et les échecs ;
+\item l'inventaire du Bassin mesuré;
+\item l'utilisation du plafond de solde des jetons du Bassin;
+\item les taux de réussite de la découverte et de la cotation, tenus séparément des taux d'exécution et de règlement des itinéraires ;
 \item les réserves éligibles divisées par l'exposition expressément couverte;
-\item les créances du garant et les recouvrements au titre d'une police identifiée;
-\item les redevances proposées pour le nettoyage du réseau et les redevances pour les services effectivement perçues, sans double comptabilisation des redevances brutes pour le bassin;
-\item détection de la gouvernance, décision, pause, réparation et temps de fermeture;
-\item les plaintes, les litiges, les rectifications et les recours ; et
-\item des résultats sociaux ou écologiques démontrés séparément.
+\item les créances des garants et les recouvrements au titre d'une police identifiée;
+\item les frais de Bassin et de protocole courants à chaque étape, tenus séparément de tout prélèvement de réseau proposé ou des frais futurs pour les services;
+\item la gouvernance des délais de détection, de décision, de pause, de réparation et de fermeture;
+\item les plaintes, les litiges, les rectifications et les recours;
+\item résultats sociaux ou écologiques démontrés séparément.
 \end{itemize}
-Les données relatives aux transactions sur la chaîne ne prouvent pas à elles seules l'identité, les performances de l'émetteur, l'exécution, la causalité, la santé de la communauté ou l'impact social. Ces allégations nécessitent une méthodologie et des éléments de preuve propres.
+Les données sur les transactions en chaîne ne prouvent pas à elles seules l'identité, la performance de l'émetteur, la satisfaction, le lien de causalité, la santé communautaire ou l'impact social. Ces allégations nécessitent leur propre méthodologie et leurs propres éléments de preuve.
 
-Voir aussi \href{https://docs.cosmolocal.credit/fr/white-paper/appendix-c-kpi-definitions}{Appendice C} pour la spécification de mesure proposée.
+Voir \href{https://docs.cosmolocal.credit/fr/white-paper/appendix-c-kpi-definitions}{Appendice C} pour la spécification de mesure proposée.
 
 
 \section*{15. Feuille de route (indicative)}
@@ -1186,9 +1242,11 @@ Voir aussi \href{https://docs.cosmolocal.credit/fr/white-paper/appendix-c-kpi-de
 \subsection*{15.1 Fondation actuelle}
 \addcontentsline{toc}{subsection}{15.1 Fondation actuelle}
 
-GEF exploite le CLC App à \texttt{cosmolocal.credit} sur Gnosis Chain. L'application fournit un accès aux comptes et aux portefeuilles pris en charge, un catalogue public du marché et des interfaces pour les jetons, les bons d'échange, les offres, Bassins d'engagements, les transferts et les échanges directs de bassin.
+GEF exploite l'application CLC à l'adresse \texttt{cosmolocal.credit} sur Gnosis Chain. L'application fournit un accès aux comptes et portefeuilles pris en charge, un catalogue public du Marché et des interfaces pour les jetons, les bons, les Offres, les Demandes, les Bassins d'engagement, les transferts, les échanges directs de Bassin et les échanges routés.
 
-Protocol v1.1.0 fournit le fondement du contrat actuel: \texttt{GiftableToken}, exécution directe de \texttt{SwapPool}, registres optionnels, modules d'évaluation, plafonds de solde des jetons de bassin, frais de bassin, frais de protocole supplémentaires et un \texttt{SwapRouter} à cotation uniquement. La disponibilité dépend toujours de l'interface, des contrats déployés, de l'inventaire, de la configuration, de l'état du réseau, de l'éligibilité, des fournisseurs, de la juridiction et des conditions publiées de l'émetteur ou du bassin.
+Le protocole v1.1.0 fournit la base contractuelle actuelle : \texttt{GiftableToken}, l'exécution directe par \texttt{SwapPool}, les registres facultatifs, les modules d'évaluation, les plafonds de solde des jetons du Bassin, les frais du Bassin, des frais de protocole supplémentaires et un \texttt{SwapRouter} Solidity qui calcule uniquement des cotations.
+
+CLC Core fournit désormais la base de routage sur une même chaîne et d'observabilité de l'application publique : découverte au moyen d'un graphe rapproché, itinéraires comportant jusqu'à trois échanges de Bassin, cotations établies à un bloc déterminé, bornes et frais à chaque étape, simulation du lot complet, exécution atomique signée par Calibur, suivi du relais, rapprochement des règlements, reçus regroupés et mesures opérationnelles. La disponibilité dépend toujours de l'interface, du comportement des portefeuilles et des jetons pris en charge, des contrats déployés, de l'inventaire, de la configuration, de la fraîcheur du service, de l'état du réseau, de l'admissibilité, des prestataires, de la juridiction et des conditions publiées par l'émetteur ou le Bassin.
 
 \subsection*{15.2 Les jalons proposés}
 \addcontentsline{toc}{subsection}{15.2 Les jalons proposés}
@@ -1197,13 +1255,13 @@ Ces jalons nommés sont des directions de conception, pas des numéros de sortie
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Fondation pour la gouvernance:} le jeton de gouvernance CLC proposé; le projet de bassin réseau CLC; adaptateurs de tarification; le quorum, le délai et les fondements de la gouvernance.
-\item \textbf{Routage et observabilité:} les API du routeur SDK et du registre; les tableaux de bord de santé; un cadre proposé pour la politique d'assurance; les intentions de rééquilibrage opt-in; prototype de mise en réseau par lots.
+\item \textbf{Routage et observabilité :} étendre les interfaces actuelles d'itinéraire et de reçu à d'autres profils ; publier des tableaux de bord de santé et des rapports au niveau du service ; élaborer un cadre de politique d'assurance ; concevoir des intentions de rééquilibrage facultatives ; et créer un prototype de compensation par lots.
 \item \textbf{Outils de risque interdomaine:} HTLC ou le routage de dépôt en caution; les modules de garant régis séparément; les préréglages des limites déroulantes, des comptes et des niveaux.
 \item \textbf{Accès réglementé:} les services de paiement de tiers spécifiques au déploiement; les micro-bassins personnels; détection du service de conformité; des audits effectués par des tiers sur les catégories de bons.
 \end{itemize}
 Tout service de paiement serait fourni par des tiers identifiés séparément selon la juridiction, l'admissibilité, les frais, les limites et les conditions applicables. Les contrats CLC App et Protocol v1.1.0 ne fonctionnent pas eux-mêmes sur des rails fiduciaires.
 
-L'exécution multi-hop, l'assurance partagée, le jeton de gouvernance CLC proposé et le bassin de réseau CLC proposé, la compensation par lots, les micro-bassins personnels et les services de paiement réglementés restent proposés ou dépendants du déploiement jusqu'à ce qu'une mise en œuvre et ses conditions réglementaires les identifient comme actifs.
+L'exécution interdomaine à plusieurs étapes, le rééquilibrage automatique des Bassins, l'assurance partagée, le jeton de gouvernance CLC proposé, le Bassin de réseau CLC proposé, la compensation par lots, les micro-Bassins personnels et les services de paiement réglementés restent proposés ou dépendants du déploiement jusqu'à ce qu'une mise en œuvre et ses conditions les déclarent actifs. Le routage sur une même chaîne, initié par les participants dans l'application CLC publique, est une capacité actuelle.
 
 
 \section*{16. Modèle d'évaluation proposé}
@@ -1287,9 +1345,9 @@ Les fonctionnalités peuvent être restreintes ou indisponibles en raison de la 
 \section*{18. Conclusion}
 \addcontentsline{toc}{section}{18. Conclusion}
 
-Cosmo-Local Credit relie une application actuelle et la fondation Protocol v1.1.0 à une conception proposée plus large pour Bassins d'engagements gérée de manière indépendante. Les échanges directs actuels, les composantes de cotation et de limite et les enregistrements de transactions publiques peuvent soutenir l'échange responsable, mais ils ne prouvent pas l'exécution de l'émetteur, ne créent pas de droits de contributeur ou ne garantissent pas la valeur, la liquidité, le remboursement, l'assurance, le statut juridique ou la protection contre les pertes.
+Cosmo-Local Credit relie une application actuelle et la base de Protocol v1.1.0 à une conception plus large proposée pour des Bassins d'engagement gouvernés indépendamment. Les échanges directs de Bassin et les échanges routés actuels de l'application et de CLC Core peuvent relier, à travers plusieurs Bassins, les bons détenus par les participants tout en préservant les règles, les frais, les bornes, les enregistrements de règlement et la gouvernance propres à chaque étape. Ces transactions ne prouvent pas que l'émetteur a honoré son engagement, ne créent pas de droits pour les contributeurs et ne garantissent ni la valeur, ni la liquidité, ni le remboursement, ni l'assurance, ni le statut juridique, ni la protection contre les pertes.
 
-Le routage d'exécution proposé, la compensation, les actifs de gouvernance, la compensation du réseau, les programmes de liquidité et les protections partagées décrits dans le présent document nécessiteraient une mise en œuvre, un financement, une gouvernance et des conditions publiées séparées. La conception vise à élargir l'interopérabilité tout en maintenant les performances des émetteurs, la gouvernance du bassin et la responsabilité réelle avec les parties identifiées.
+Le routage interdomaine proposé, le rééquilibrage automatique des Bassins, la compensation, les actifs de gouvernance, la compensation au niveau du réseau, les programmes de liquidité et les protections partagées nécessiteraient une mise en œuvre, un financement, une gouvernance et des conditions publiées distincts. La conception vise à élargir l'interopérabilité tout en maintenant la responsabilité de l'émetteur, la gouvernance du Bassin et la responsabilité dans le monde réel auprès de parties identifiées.
 
 
 \section*{A. Modèle proposé de mesure et de frais}
@@ -1425,12 +1483,19 @@ KPI & Définition proposée & Évidence requise et exclusions \\
 \textbf{Délais d'exécution} & Médiane et 90e percentile du temps de présentation à l'exécution & Ne pas remplacer le temps de conservation de l'émission à la présentation ou de l'acquisition à la présentation \\
 \textbf{Durée de détention} & Médiane et répartition du temps allant de l'acquisition à la présentation & Identifier l'événement d'acquisition et exclure les délais d'acquisition inconnus \\
 \textbf{Obligations éligibles en suspens} & Résidu d'engagements admissibles de tiers après exclusions définies & l'identité et les modalités de l'émetteur; exclure l'inventaire applicable des émetteurs, l'expiration, la combustion, la décharge, les tests et les jetons de non-engagement \\
-\textbf{Volume des swaps de groupe} & Valeur des swaps directs de bassin effectués dans le cadre d'une méthode d'évaluation divulguée & événements de règlement en chaîne, unités symboliques, source de taux, temps; ne sont pas classés comme l'exécution par l'émetteur \\
+\textbf{Volume des échanges directs de Bassin} & Valeur des échanges achevés et initiés comme des échanges dans un seul Bassin, selon une méthode de valorisation publiée & Événements de règlement sur la chaîne, unités de jeton, source du taux et heure ; ne pas les classer comme exécution de l'engagement par l'émetteur \\
+\textbf{Tentatives de découverte d'itinéraires} & Demandes valides visant à trouver des bons accessibles ou des chemins candidats au cours d'une période & Version du graphe, bloc indexé, fraîcheur, périmètre du portefeuille, profondeur demandée, nombre de candidats, état d'omission ou budget de recherche ; il ne s'agit pas d'une cotation faisant autorité \\
+\textbf{Itinéraires candidats disponibles} & Chemins candidats renvoyés par la découverte pour la cohorte de demandes définie & Compter séparément chaque chemin ordonné de Bassins et de jetons ; indiquer la profondeur et les exclusions ; ne pas les classer comme exécutables ou réglés \\
+\textbf{Taux de réussite des cotations d'itinéraire} & Cotations d'itinéraire faisant autorité renvoyées, divisées par les tentatives de cotation valides & Bloc déterminé, chemin, mode de montant, expiration, résultat ou motif du refus ; tenir ce taux séparé de la réussite de la découverte et de l'exécution \\
+\textbf{Taux d'exécution des itinéraires} & Transactions routées confirmées, divisées par les tentatives d'exécution valides et signées pour la même cohorte arrivée à maturité & Identifiant de suivi, hachage de transaction, état de l'envoi, confirmation ou annulation, profondeur de l'itinéraire et motif de l'échec ; exclure les cotations non signées \\
+\textbf{Volume de l'ensemble de l'itinéraire} & Valeur d'entrée et de sortie des échanges routés confirmés, comptée une seule fois par itinéraire & Utiliser l'entrée réglée de la première étape et la sortie réglée de la dernière selon une même méthode de valorisation ; ne pas additionner la valeur de toutes les étapes comme s'il s'agissait de volumes économiques indépendants \\
+\textbf{Règlement par étape} & Entrée réglée, sortie brute, frais du Bassin, frais du protocole et sortie nette pour chaque étape d'un itinéraire confirmé & Identifiants ordonnés des Bassins et des jetons, événements de règlement, hachage de transaction, bloc, index du journal et éventuel reliquat intermédiaire \\
+\textbf{Frais de l'itinéraire} & Frais actuels des Bassins et du protocole effectivement réglés sur l'ensemble de l'itinéraire & Présenter chaque étape et le total par type de frais ; ne pas les qualifier de prélèvement de réseau proposé ni de frais de service non mis en œuvre \\
+\textbf{Contraintes de l'itinéraire} & Nombre et proportion de refus d'itinéraire ou de cotation, répartis par cause identifiée & Admission, plafond de dépôt, liquidité, domaine de frais, jeton ou module de cotation non pris en charge, solde ou type de portefeuille, gaz, budget de recherche, expiration, incohérence ou preuve de simulation \\
+\textbf{Santé du rapprochement des itinéraires} & Fraîcheur et fiabilité du graphe indexé et des enregistrements de règlement regroupés & Version et âge du graphe, profondeur de la file des éléments à rapprocher, durée du rapprochement, corrections, échecs, membres inconnus et reçus non résolus \\
 \textbf{Inventaire des Bassins} & Actifs soutenus mesurés détenus par un bassin à un moment précisé & Solde contractuels, réserves de redevances, actifs inaccessibles, méthode d'évaluation et pouvoirs de rétractation du propriétaire \\
 \textbf{Adéquation des réserves} & Actifs de réserve disponibles éligibles divisés par exposition expressément couverte & Politique de couverture, éligibilité des actifs, garde/contrôle, passifs, exclusions et évaluation; Pas d'offre totale de jetons par défaut \\
 \textbf{Limite d'utilisation} & Réserve de jetons de bassin mesurée divisée par son plafond configuré actuel & Limiter adresse, jeton, bassin, horodatage, changements et périodes sans limiteur \\
-\textbf{Taux de réussite des cotations} & Réponses aux offres réussies divisées par tentatives de offres valides & Résultat de cotation uniquement; Pas d'exécution de route \\
-\textbf{Taux d'exécution des itinéraires} & Exécutions multi-hops terminées divisées par tentatives d'exécution valides & S'applique uniquement à un système d'exécution mis en œuvre; Rapport sur les règles de per-hop et d'atomisation \\
 \textbf{Recouvrement par le garant} & Récupération admissible reçue divisée par créances couvertes payées & Garant désigné, politique de réclamation, calendrier, coûts, litiges et annulations \\
 \textbf{Revenus de réseau proposés} & Réseau proposé plus frais de routage/services reçus séparément & Exclure les frais bruts de bassin retenus par les bassins et éviter de compter le prélèvement deux fois \\
 \textbf{Rapidité de la gouvernance} & Temps pour détecter, décider, faire une pause, réparer et fermer un incident & Définition des horaires, des organes responsables, des pouvoirs d'urgence, des appels et des événements manquants \\

@@ -1,12 +1,12 @@
 ## **5. De Fundos isolados a uma rede federada**
 
-O Protocol v1.1.0 atual suporta a execução direta através de um `SwapPool` e fornece uma citação apenas `SwapRouter`. Não executa rotas multi-hop, HTLCs, rotas de custódia, rede de lotes ou compensação transnacional.
+O Protocol v1.1.0 atual suporta execução direta através de `SwapPool` e fornece um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção coordenam rotas na mesma cadeia, iniciadas pelos participantes, através de até três Fundos, preparando um lote Calibur assinado. Os próprios contratos não executam uma rota com vários passos, e o fluxo atual da CLC App e do CLC Core não fornece HTLCs entre cadeias, encaminhamento por depósito em garantia, reequilíbrio automático de Fundos, compensação por lotes nem compensação entre redes.
 
-Este capítulo propõe como as Fundos governados independentemente poderiam coordenar sem renunciar às suas próprias regras de admissão, avaliação, limite, taxa, inventário, autorização e governação.
+Este capítulo explica o encaminhamento atual iniciado pelos participantes e distingue-o da coordenação proposta, que exigiria nova autoridade dos Fundos. Em ambos os casos, os Fundos independentes mantêm as suas próprias regras de admissão, avaliação, limites, comissões, inventário, autorização e governação.
 
 ### **5.1 Medidas separadas de intercâmbio e de cumprimento**
 
-A Federação pode melhorar o acesso ao inventário, mas não irá fundir o vale e trocar ciclos de vida. Qualquer aplicação mediria estes acontecimentos separadamente:
+O encaminhamento pode melhorar o acesso ao inventário, mas não reúne os ciclos de vida do vale e da troca. A medição deve manter estes eventos separados:
 
 1. é indicada uma rota;
 2. um ou mais swaps de fundo executar e liquidar na cadeia;
@@ -16,21 +16,25 @@ A Federação pode melhorar o acesso ao inventário, mas não irá fundir o vale
 
 Mais rotas citadas ou executadas não provam mais cumprimento. Os relatórios indicarão a coorte, o período, os ativos, o método de avaliação e o timestamp, as exclusões, as correções e as provas fora da cadeia exigidas no apêndice C.
 
-**Rota ilustrativa:** Uma escola tem vales de milho mas precisa de vales de transporte. Um serviço de rota identifica os inventários do Fundo compatíveis. A execução seria bem-sucedida somente se cada salto autorizado separadamente permanecesse dentro de seus limites de citação, limites, taxas, inventário e política. Os swaps resultantes não provariam que qualquer um dos emissores cumprisse posteriormente os seus compromissos em matéria de vales.
+**Rota ilustrativa:** uma escola possui vales de milho, mas precisa de vales de transporte. O CLC Core pode identificar inventários de Fundo compatíveis, cotar o caminho selecionado num mesmo bloco fixado e preparar chamadas limitadas para a carteira da escola. A execução só é bem-sucedida se cada passo permanecer dentro dos limites da cotação, dos limites de saldo, das comissões, do inventário, dos comportamentos suportados e das políticas. As trocas resultantes não provam que algum emissor tenha cumprido depois os compromissos dos seus vales.
 
-### **5.2 Serviços de roteamento e reequilíbrio propostos**
+### **5.2 Encaminhamento atual dos participantes e reequilíbrio proposto**
 
-Um futuro serviço de rotas poderia apoiar duas actividades distintas.
+Duas atividades requerem autoridade diferente.
 
-**Execução iniciada pelo participante.** Tendo em conta os recursos de entrada e saída, uma quantidade e as restrições dos utilizadores, o serviço poderia identificar um caminho e preparar a execução. Cada salto teria sua própria Fundo responsável, cotação, autorização, taxas, limites, inventário e recibo. Batches atômicos, HTLCs e custódia são possíveis opções futuras de execução, não o comportamento atual do Protocolo.
+**Execução atual iniciada pelo participante.** Dados os vales de entrada e saída e um montante, o CLC Core estima caminhos a partir dos ativos elegíveis do participante. Para um caminho selecionado, lê os Fundos num mesmo bloco fixado, produz uma cotação autorizada, simula o lote completo e prepara três chamadas em cada passo: repor a autorização, conceder a autorização e chamar de forma limitada `SwapPool.withdraw`. O participante assina e o relayer envia uma transação Calibur na mesma cadeia com `revertOnFailure` ativo. Uma chamada falhada reverte todas as chamadas da rota. A aplicação agrupa a transação e a liquidação de cada passo num único recibo.
 
-**Opt-in Fundo reequilíbrio.** O Gestores de Fundos poderia publicar metas de inventário, contrapartes autorizadas, classes de ativos, limites de desvio de cotações e limites por período. Um serviço responsável poderia procurar ciclos ou cadeias compatíveis e executar apenas as intenções autorizadas.
+Cada passo mantém o seu próprio Fundo responsável, dados de cotação, autorização, comissões, limites, inventário e evento de liquidação. A aplicação atual não acrescenta uma comissão separada pelo serviço de encaminhamento. O fluxo atual suporta carteiras EOA/Calibur compatíveis com a CLC App, mas não Safes nem outras carteiras de contrato.
 
-O reequilíbrio seria uma opção. Um fundo pode permitir rotas de participantes ao mesmo tempo em que recusa um reequilíbrio de saída, ou pode permitir apenas ativos, contrapartes e montantes selecionados. Cada salto executado produziria um recibo, e quaisquer taxas de serviço seriam divulgadas separadamente das taxas de Fundo e protocolo.
+**Reequilíbrio voluntário dos Fundos.** Os Gestores dos Fundos poderiam publicar metas de inventário, contrapartes autorizadas, classes de ativos, limites de desvio da cotação e limites por período. Um serviço responsável poderia procurar ciclos ou cadeias compatíveis e executar apenas as intenções autorizadas.
+
+O reequilíbrio seria opcional. Um Fundo pode permitir rotas comuns de participantes sem autorizar um serviço a mover inventário para reequilíbrio. Um mandato futuro poderia permitir apenas ativos, contrapartes e montantes selecionados. Cada passo executado produziria um recibo, e qualquer comissão de serviço seria divulgada separadamente das comissões do Fundo e do protocolo.
+
+A execução entre cadeias por HTLC ou depósito em garantia também é distinta do lote atómico atual na mesma cadeia. Exigiria regras adotadas sobre prazos, cancelamento, controladores, recuperação e risco residual.
 
 #### **5.2.1 Confederação e interoperabilidade**
 
-As implementações independentes poderiam operar os seus próprios registros, interfaces, serviços de rotas e perfis de políticas, ao mesmo tempo em que escolhessem padrões de dados e recepção compatíveis. A execução transversal continuaria a depender da implementação.
+As implantações independentes podem operar seus próprios registros, interfaces, serviços de rotas e perfis de políticas enquanto escolhem padrões de dados e recepção compatíveis. O aplicativo público atual usa seu registro e perfil de serviço configurados. A execução de perfis cruzados permanece dependente da implantação.
 
 Um perfil compatível:
 
@@ -45,6 +49,8 @@ A compatibilidade pode aumentar os caminhos de intercâmbio disponíveis e reduz
 ### **5.3 Modelo proposto de rede e taxas de serviço**
 
 A Protocol v1.1.0 atual cobra uma taxa de fundo e, quando configurada, uma taxa adicional de protocolo em uma troca direta de fundo. As taxas atuais continuam a ser distintas.
+
+A troca encaminhada em produção aplica essas comissões atuais de forma independente em cada passo e discrimina-as na cotação e no recibo. Atualmente, não acrescenta uma comissão separada pelo serviço de encaminhamento.
 
 Um programa futuro pode receber separadamente:
 

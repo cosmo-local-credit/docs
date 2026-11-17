@@ -63,10 +63,12 @@ Para uma futura implementação do token de governação CLC proposto, o teste d
 
 ### **10.7 Riscos de encaminhamento e de cross-domain**
 
-- **Ameaças:** Execução parcial, saltos obstruídos, explorações de ponta ou escrow, cotações obsoletas, inflação de caminho e execução antecipada das alterações de valor anunciadas.
-- **Indicadores:** Taxas de expiração de rotas, atrasos de créditos, diferenças de cotação para execução, saltos desnecessários repetidos e incidentes de ponte.
-- **Possibilidades de controlo:** Execução atômica, quando disponível; conservadoraHTLCou temporadas de depósito; políticas de rota e contraparte; limites de nível de rota; mapeamento determinista de cotações a receitas; e operadores de serviços responsáveis.
-- **Testes de estresse:** uma parada de ponte, reorganização de cadeia, interrupção de dependência e um salto falhado numa rota multi-hop proposta.
+- **Ameaças atuais na mesma cadeia:** dados de descoberta desatualizados, inventário insuficiente, alterações de limites ou admissão, expiração das cotações, carteiras ou dependências não suportadas, falhas de simulação, falhas de retransmissão, reorganizações da cadeia e inflação do caminho.
+- **Controlos e provas atuais:** cotações autorizadas num bloco fixado, simulação do lote completo, saídas mínimas e prazos em cada passo, um lote Calibur assinado com `revertOnFailure`, recibos agrupados determinísticos, reconciliação e códigos de falha explícitos. Estes controlos reduzem riscos de execução específicos, mas não garantem disponibilidade nem cumprimento pelo emissor.
+- **Ameaças propostas entre domínios:** execução parcial em vários domínios, passos bloqueados, ataques a pontes, HTLCs ou depósitos em garantia, incompatibilidade de prazos e disputas de recuperação.
+- **Indicadores:** resultados da descoberta e cotação de rotas, diferenças entre cotação e execução, profundidade da rota, falhas de simulação, reversões, falhas de reconciliação, passos repetidos desnecessários e, para futuros sistemas entre domínios, acumulação de operações em depósito em garantia e incidentes com pontes.
+- **Possíveis controlos adicionais:** políticas de rota e contraparte; limites ao nível da rota; operadores de serviços responsáveis; e regras conservadoras de prazo, cancelamento e recuperação para HTLCs ou depósitos em garantia.
+- **Testes de esforço:** estado desatualizado do grafo, indisponibilidade de uma dependência, falha de um passo no lote atómico atual, reorganização da cadeia e, para uma futura rota entre domínios, paralisação de uma ponte ou expiração de um depósito em garantia.
 - **O apetite pelo risco:** de baixa a moderada apenas para dependências identificadas e monitoradas.
 
 ### **10.8 Risco de custódia e gestão de chaves**

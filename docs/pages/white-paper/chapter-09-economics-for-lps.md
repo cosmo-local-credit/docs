@@ -12,6 +12,8 @@ A future network budget could receive:
 
 Gross Pool fees retained by Pools are not network revenue. Current Protocol v1.1.0 uses a different model: an optional protocol fee is additional to the Pool fee and is sent directly to its configured recipient.
 
+The production CLC App route workflow adds no separate routing-service fee. A routed exchange can still incur a Pool fee and protocol fee at every hop. Those current per-hop charges must not be labeled as the proposed network rake or counted again as future service revenue.
+
 ### **9.2 Illustrative rake math**
 
 If a participating Pool charges a 2.00% Pool fee and an adopted network rake receives 20% of that Pool fee, the proposed effective network-rake rate on routed value is:

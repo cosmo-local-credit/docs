@@ -30,3 +30,12 @@ El soporte EIP-165 también es específico del contrato y no universal. Está ex
 - **Splitter, EthFaucet, PeriodSimple y RescueVault** Apoyo a los servicios públicos de distribución, financiación del gas, límite de tasas y recuperación de activos.
 
 Los contratos pueden combinarse de diferentes maneras. Una lista de registro, cotización o ruta gráfica no es una garantía de que una transacción se ejecutará: la liquidez actual, los límites de tokens, las tarifas, el estado del oráculo, la autorización, los plazos, las condiciones de la red y la configuración de cada Fondo todavía se aplican.
+
+
+## Intercambio enrutado a nivel de la aplicación
+
+La CLC App de producción hace más que consultar el `SwapRouter` Solidity. CLC Core mantiene un grafo reconciliado de relaciones admisibles entre Fondos, estima qué vales son accesibles, lee los Fondos seleccionados en un bloque fijado para producir una cotización autorizada, simula la ruta completa y prepara un lote para la billetera Calibur. La persona usuaria firma ese lote y un relé lo envía como una sola transacción en la misma cadena.
+
+Cada paso llama directamente a un `SwapPool`. El lote pone a cero y luego establece la autorización necesaria del token, y después llama a la variante limitada de `SwapPool.withdraw` con una salida mínima y un plazo. `revertOnFailure` está activado, por lo que si falla un llamado se revierte toda la transacción enrutada. La CLC App presenta después un recibo agrupado con los detalles de liquidación y las comisiones de cada paso.
+
+Este flujo de enrutamiento es una capacidad de la CLC App y CLC Core construida por encima de Protocol v1.1.0. No convierte el `SwapRouter` Solidity en un enrutador de ejecución, no cambia quién posee o gestiona un Fondo y no hace responsable a un Fondo de las reglas de otro ni del cumplimiento de un emisor. Consulta la [arquitectura de la red del protocolo](/es/protocol/network) para ver el flujo completo.

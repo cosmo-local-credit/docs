@@ -1,12 +1,12 @@
 ## **5. From isolated Pools to a federated network**
 
-Current Protocol v1.1.0 supports direct execution through one `SwapPool` and provides a quote-only `SwapRouter`. It does not execute multi-hop routes, HTLCs, escrow routes, batch netting, or cross-network clearing.
+Current Protocol v1.1.0 supports direct execution through one `SwapPool` and provides a quote-only Solidity `SwapRouter`. The production CLC App and CLC Core coordinate participant-initiated same-chain routes through as many as three Pools by preparing one signed Calibur wallet batch. The contracts do not themselves execute a multi-hop route, and the current App/Core flow does not provide cross-chain HTLCs, escrow routes, automatic Pool rebalancing, batch netting, or cross-network clearing.
 
-This chapter proposes how independently governed Pools could coordinate without giving up their own admission, valuation, limit, fee, inventory, authorization, and governance rules.
+This chapter explains the current participant route and distinguishes it from proposed coordination that would require new Pool authority. In both cases, independent Pools retain their own admission, valuation, limit, fee, inventory, authorization, and governance rules.
 
 ### **5.1 Separate exchange and fulfillment measures**
 
-Federation might improve access to inventory, but it would not merge the voucher and exchange lifecycles. Any implementation would measure these events separately:
+Routing can improve access to inventory, but it does not merge the voucher and exchange lifecycles. Measurement should keep these events separate:
 
 1. a route is quoted;
 2. one or more Pool swaps execute and settle on-chain;
@@ -16,21 +16,25 @@ Federation might improve access to inventory, but it would not merge the voucher
 
 More quoted or executed routes do not prove more fulfillment. Reports would state the cohort, period, assets, valuation method and timestamp, exclusions, corrections, and off-chain evidence required by Appendix C.
 
-**Illustrative route:** A school holds maize vouchers but needs transport vouchers. A route service identifies compatible Pool inventories. Execution would succeed only if every separately authorized hop remained within its quote bounds, limits, fees, inventory, and policy. The resulting swaps would not prove that either issuer later fulfilled its voucher commitments.
+**Illustrative route:** A school holds maize vouchers but needs transport vouchers. CLC Core can identify compatible Pool inventories, quote the selected path at one pinned block, and prepare the bounded calls for the school's wallet. Execution succeeds only if every hop remains within its quote bounds, limits, fees, inventory, supported behavior, and policy. The resulting swaps do not prove that either issuer later fulfilled its voucher commitments.
 
-### **5.2 Proposed routing and rebalancing services**
+### **5.2 Current participant routing and proposed rebalancing**
 
-A future route service could support two distinct activities.
+Two activities require different authority.
 
-**Participant-initiated execution.** Given input and output assets, an amount, and user constraints, the service could identify a path and prepare execution. Each hop would have its own responsible Pool, quote, authorization, fees, limits, inventory, and receipt. Atomic batches, HTLCs, and escrow are possible future execution choices, not current Protocol behavior.
+**Current participant-initiated execution.** Given input and output vouchers and an amount, CLC Core estimates paths from the participant's eligible holdings. For a selected route, it reads the Pools at one pinned block, produces an authoritative quote, simulates the complete batch, and prepares three calls per hop: allowance reset, allowance grant, and bounded `SwapPool.withdraw`. The participant signs, and the relayer submits one same-chain Calibur transaction with `revertOnFailure` enabled. A failed call reverts every route call. The App groups the transaction and per-hop settlement into one receipt.
+
+Each hop retains its own responsible Pool, quote inputs, authorization, fees, limits, inventory, and settlement event. The current App adds no separate route-service fee. The current flow supports App-compatible EOA/Calibur wallets, not Safes or other contract wallets.
 
 **Opt-in Pool rebalancing.** Pool Stewards could publish inventory targets, allowed counterparties, asset classes, quote-deviation bounds, and per-period limits. An accountable service could search for compatible cycles or chains and execute only the authorized intents.
 
-Rebalancing would be opt-in. A Pool could allow participant routes while refusing outbound rebalancing, or it could enable only selected assets, counterparties, and amounts. Every executed hop would produce a receipt, and any service fee would be disclosed separately from Pool and Protocol fees.
+Rebalancing would be opt-in. A Pool can allow ordinary participant routes without authorizing a service to move inventory for rebalancing. A future mandate could enable only selected assets, counterparties, and amounts. Every executed hop would produce a receipt, and any service fee would be disclosed separately from Pool and Protocol fees.
+
+Cross-chain HTLC or escrow execution is also separate from the current same-chain atomic batch. It would require adopted timeout, abort, controller, recovery, and residual-risk rules.
 
 #### **5.2.1 Confederation and interoperability**
 
-Independent deployments could operate their own registries, interfaces, route services, and policy profiles while choosing compatible data and receipt standards. Cross-profile execution would remain deployment-dependent.
+Independent deployments can operate their own registries, interfaces, route services, and policy profiles while choosing compatible data and receipt standards. The current public App uses its configured registry and service profile. Cross-profile execution remains deployment-dependent.
 
 A compatible profile would:
 
@@ -45,6 +49,8 @@ Compatibility can increase available exchange paths and reduce dependency on one
 ### **5.3 Proposed network-rake and service-fee model**
 
 Current Protocol v1.1.0 charges a Pool fee and, when configured, an additional Protocol fee on a direct Pool swap. Those current fees remain distinct.
+
+The production routed exchange applies those current fees independently at every hop and itemizes them in the quote and receipt. It does not currently add a separate routing-service fee.
 
 A future program could separately receive:
 

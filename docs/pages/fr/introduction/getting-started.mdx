@@ -50,24 +50,45 @@ Un Bassin d’engagements est un arrangement réglementé. Son contrat actuel `S
 
 Un dépôt transfère des actifs au `SwapPool`. Protocol v1.1.0 ne fabrique pas de jetons de parts de Bassin ni n'accorde automatiquement au déposant des droits de remboursement, de retrait, de récompense ou de gouvernance.
 
-### 5. Utilisez l'action correcte
+### 5. Échanger directement ou par un itinéraire
 
-- **Envoyer** transfère un solde symbolique à une autre adresse.
-- **Swap** échange un actif pris en charge contre un autre au moyen d’un `SwapPool`. Le règlement du swap sur la blockchain ne prouve pas l’exécution par l’émetteur.
-- **« Redeem »** ouvre le parcours d’envoi avec l’adresse du propriétaire du jeton préremplie. Cette action présente ou renvoie le bon d’échange à l’émetteur ; une utilisation achevée exige aussi que l’émetteur fournisse ce qui a été promis et qu’un enregistrement de décharge empêche la réutilisation.
-- **« Retire voucher »** masque la fiche du catalogue. Cette action ne détruit pas les soldes, n’annule pas le bon d’échange et n’éteint pas les obligations encore dues par l’émetteur.
-- **Retrait de liquidités du bassin** permet au propriétaire du Bassin de transférer l'inventaire disponible.
-- **Collecte des redevances** envoie les frais de bassin accumulés au destinataire configuré.
+La vue **Crédit** de la CLC App peut trouver les bons d’échange accessibles à partir de ceux de votre portefeuille. Un bon accessible peut nécessiter un échange direct dans un Bassin ou un itinéraire traversant plusieurs Bassins gouvernés indépendamment. Le déploiement public actuel recherche des itinéraires comportant jusqu’à trois échanges de Bassin.
 
-Voir le [exemple de bon d’échange pratique](/fr/introduction/example) pendant tout le cycle de vie.
+Pour échanger:
+
+1. sélectionnez **Obtenir** pour le bon souhaité, ou **Dépenser** pour celui que vous voulez utiliser;
+2. examinez les options **Payer avec** et l’**Estimation**;
+3. ouvrez les **Détails de l’itinéraire** pour voir chaque Bassin, échange, montant et frais de Bassin ou de protocole;
+4. sélectionnez **Vérifier**, contrôlez le montant minimum reçu et l’échéance de la cotation, puis choisissez **Confirmer l’échange**;
+5. signez le lot de portefeuille préparé.
+
+CLC Core découvre des chemins possibles à partir des informations indexées sur les Bassins et les bons d’échange. Cette découverte est une estimation. Avant la signature, CLC Core lit l’état des Bassins concernés à un bloc fixé, produit une cotation faisant autorité, applique à chaque étape des limites de sortie minimale et d’échéance, puis simule le lot complet. La CLC App n’ajoute actuellement pas de frais distincts pour le service de routage; chaque étape peut néanmoins comporter les frais de Bassin configurés et des frais de protocole supplémentaires.
+
+L’itinéraire signé est soumis dans une seule transaction sur la même chaîne. Chaque étape utilise le même portefeuille compatible avec la CLC App. Si une approbation ou un échange de Bassin du lot échoue, toute la transaction est annulée; aucune étape antérieure ne reste réglée. Le reçu regroupe l’itinéraire sous un identifiant de suivi et indique son statut, le hachage de la transaction, chaque Bassin, les montants réglés ainsi que les frais de Bassin et de protocole de chaque étape.
+
+Un itinéraire peut être indisponible si le portefeuille ne possède pas de bon d’entrée admissible, si un Bassin n’admet pas un jeton, si un plafond de solde serait dépassé, si l’inventaire de sortie est insuffisant, si un jeton ou un module de cotation n’est pas pris en charge, ou si le service de routage est temporairement obsolète ou indisponible. Une cotation peut aussi expirer, devenir obsolète lorsque l’état d’un Bassin change, échouer lors de la simulation finale ou être annulée sur la chaîne. Actualisez l’itinéraire et examinez la nouvelle cotation au lieu de supposer qu’une estimation antérieure reste valable.
+
+L’exécution routée actuelle prend en charge les portefeuilles EOA/Calibur compatibles avec la CLC App. Elle ne prépare actuellement pas d’échanges routés pour un portefeuille Safe ou un autre portefeuille contractuel.
+
+### 6. Utilisez la bonne action
+
+- **Envoyer** transfère un solde de jetons à une autre adresse.
+- **Échange de Bassin** échange un actif pris en charge contre un autre au moyen d’un `SwapPool`. Il peut s’agir d’un échange direct ou d’une étape d’un échange routé. Le règlement de l’échange sur la chaîne ne prouve pas l’exécution par l’émetteur.
+- **Échange routé** exécute un ensemble ordonné d’échanges de Bassin dans une transaction de portefeuille bornée sur une même chaîne. Il ne fusionne pas la gouvernance des Bassins et ne rend pas l’opérateur du routage responsable de l’exécution par l’émetteur.
+- **« Utiliser »** ouvre le flux d’envoi avec l’adresse du propriétaire du jeton préremplie. Cette action présente ou renvoie le bon d’échange à l’émetteur; l’utilisation complète exige aussi la prestation promise par l’émetteur et un enregistrement de l’acquittement qui empêche toute réutilisation.
+- **« Retirer le bon d’échange »** masque sa fiche dans le catalogue. Cette action ne détruit pas les soldes, n’annule pas le bon et n’éteint pas les obligations en cours de l’émetteur.
+- **Retrait de liquidité du Bassin** permet au propriétaire du Bassin de transférer les stocks disponibles.
+- **Récupération des frais** envoie les frais de Bassin accumulés au destinataire configuré.
+
+Consultez l’[exemple pratique de bon d’échange](/fr/introduction/example) pour voir le cycle de vie complet.
 
 ## Capacités actuelles, dépendantes du déploiement et proposées
 
-L'application actuelle fournit un marché et des flux pris en charge pour les comptes, les portefeuilles, les bons d’échange, les offres, les bassins, les transferts, les échanges directs entre bassins et les enregistrements connexes. La disponibilité dépend du déploiement actif, de l'actif, de la configuration du bassin, de l'appareil, du réseau, de l'admissibilité, du fournisseur, de la juridiction et des termes publiés.
+L'application actuelle fournit un marché et des flux pris en charge pour les comptes, les portefeuilles, les bons, les offres, les Bassins, les transferts, les échanges directs de Bassin, les transactions acheminées au niveau de l'application et les enregistrements connexes. La disponibilité dépend du déploiement actif, des actifs, de la configuration du Bassin, de l'inventaire, du type de portefeuille, du périphérique, du réseau, de son admissibilité, du fournisseur, de sa juridiction et des conditions publiées.
 
 Les services de paiement, les méthodes de soutien, les récompenses, les garanties, les arrangements de contribution et les autres intégrations des fournisseurs dépendent du déploiement. La partie responsable, les honoraires, les limites, l'admissibilité et les conditions légales doivent être indiqués là où ils sont proposés.
 
-Protocol v1.1.0 fournit une exécution directe de bassin et un `SwapRouter` à cotation uniquement. L'exécution multi-hop, le routage HTLC ou l'escrow, la compensation par lots, l'assurance partagée, les actifs de gouvernance proposés, les programmes de liquidité du réseau et les voies de paiement réglementées restent proposés ou dépendent du déploiement, à moins qu'un déploiement spécifique ne les identifie comme actifs.
+Protocol v1.1.0 assure l’exécution directe dans un Bassin et fournit un `SwapRouter` Solidity de cotation uniquement. La CLC App et CLC Core en production assurent désormais la découverte d’itinéraires de plusieurs étapes sur une même chaîne, les cotations faisant autorité, la préparation des lots de portefeuille, la simulation, le relais et les reçus groupés au-dessus de ces contrats. Le `SwapRouter` Solidity n’est pas devenu un contrat d’exécution. Le routage HTLC ou sous séquestre entre chaînes, le rééquilibrage automatique des Bassins, la compensation par lots, l’assurance partagée, les actifs de gouvernance proposés, les programmes de liquidité du réseau et les services de paiement réglementés restent proposés ou dépendants du déploiement, sauf si un déploiement précis les déclare actifs.
 
 Tout prêt futur ou tout autre produit de crédit nécessite des conditions supplémentaires et des conditions de transaction présentées séparément. Un transfert ordinaire, un dépôt de bassin, un échange de bassin, une présentation de remboursement, une exécution ou une décharge ne constituent pas automatiquement un prêt, une avance ou un remboursement.
 

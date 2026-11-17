@@ -12,6 +12,10 @@ import {
 const root = resolve(import.meta.dirname, '..')
 const pages = resolve(root, 'docs/pages')
 const output = resolve(root, 'docs/i18n/heading-map.json')
+const routingRollout = JSON.parse(
+  readFileSync(resolve(root, 'docs/i18n/routing-rollout.json'), 'utf8'),
+)
+const routingAffectedRoutes = new Set(routingRollout.source.affectedRoutes)
 const locales = ['en', 'ar', 'zh', 'zh-Hant', 'dz', 'de', 'es', 'fil', 'fr', 'hi', 'it', 'nl', 'nl-BE', 'pt', 'sr', 'uk', 'sw']
 const routes = [
   '/introduction/getting-started', '/introduction/concepts', '/introduction/example', '/introduction/history',
@@ -49,6 +53,12 @@ function sourceFor(locale, route) {
   throw new Error(`Missing ${locale} source for ${route}`)
 }
 
+function keepsPreviousRoutingSource(locale, route) {
+  return locale !== 'en' &&
+    routingRollout.locales[locale]?.status === 'pending' &&
+    routingAffectedRoutes.has(route)
+}
+
 function headingData(markdown) {
   const slugger = new GithubSlugger()
   const headings = []
@@ -81,7 +91,7 @@ for (const route of routes) {
   const englishLevels = localeHeadings.en.map(({ level }) => level).join(',')
   for (const locale of routeLocales.slice(1)) {
     const levels = localeHeadings[locale].map(({ level }) => level).join(',')
-    if (levels !== englishLevels) {
+    if (levels !== englishLevels && !keepsPreviousRoutingSource(locale, route)) {
       throw new Error(`${route}: ${locale} heading hierarchy differs from English`)
     }
   }

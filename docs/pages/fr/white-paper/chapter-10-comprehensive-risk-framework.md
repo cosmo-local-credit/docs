@@ -63,10 +63,12 @@ Pour un déploiement futur du jeton de gouvernance CLC proposé, le test de capt
 
 ### **10.7 Risque de routage et risque interdomaine**
 
-- **Des menaces:** l'exécution partielle, les hops bloqués, les exploits de ponts ou d'escrows, les cotations obsolètes, l'inflation de trajectoire et l'avancée des changements de valeur annoncés.
-- **Indicateurs:** les taux d'expiration des itinéraires, les arriérés d'escrow, les écarts entre les cotations et l'exécution, les étapes répétés inutiles et les incidents de ponts.
-- **Contrôles possibles:** l'exécution atomique, le cas échéant; des délais conservateurs HTLC ou des délais d'accréditation; la voie et les politiques des contreparties; les plafonds au niveau de la route; la cartographie déterministe de la cotation à la réception; et des opérateurs de services responsables.
-- **Tests de résistance:** Un arrêt du pont, une réorganisation de la chaîne, une interruption de la dépendance, et un étape raté dans un itinéraire multi-étape proposé.
+- **Menaces actuelles sur une même chaîne :** données de découverte obsolètes, inventaire insuffisant, modification des limites ou de l'admission, expiration de la cotation, portefeuilles ou dépendances non pris en charge, échec de la simulation ou du relais, réorganisation de la chaîne et allongement artificiel du chemin.
+- **Contrôles et preuves actuels :** cotations faisant autorité établies à un bloc déterminé, simulation du lot complet, sorties minimales et échéances à chaque étape, lot Calibur signé avec `revertOnFailure`, reçus regroupés déterministes, rapprochement et codes d'échec explicites. Ces contrôles réduisent certains risques d'exécution, sans garantir la disponibilité ni l'exécution de l'engagement par l'émetteur.
+- **Menaces interdomaines proposées :** exécution partielle entre domaines, étapes bloquées, failles de pont, de HTLC ou d'entiercement, incohérence des délais et litiges liés à la récupération.
+- **Indicateurs :** résultats de la découverte et de la cotation des itinéraires, écarts entre cotation et exécution, profondeur de l'itinéraire, échecs de simulation, annulations, échecs de rapprochement, étapes inutiles répétées et, pour de futurs systèmes interdomaines, retards d'entiercement et incidents liés aux ponts.
+- **Contrôles supplémentaires possibles :** politiques de chemin et de contrepartie ; plafonds à l'échelle de l'itinéraire ; opérateurs de services responsables ; et règles prudentes de délai, d'abandon et de récupération pour les HTLC ou l'entiercement.
+- **Tests de résistance :** graphe obsolète, interruption d'une dépendance, échec d'une étape dans le lot atomique actuel, réorganisation de la chaîne et, pour un futur itinéraire interdomaine, arrêt d'un pont ou expiration d'un entiercement.
 - **Appétit pour le risque:** faible à modéré uniquement pour les dépendances identifiées et surveillées.
 
 ### **10.8 Risque de dépôt et de gestion des clés**

@@ -1,20 +1,22 @@
 ## **9. Voorgestelde economie voor liquiditeitsprogramma's**
 
-Dit hoofdstuk beschrijft een toekomstig, afzonderlijk aangenomen model. het is geen huidige app-functie, een aanbod, een beloofde terugkeer of een recht dat wordt gecreëerd door in `SwapPool` te deponeren.
+Dit hoofdstuk beschrijft een toekomstig, afzonderlijk vastgesteld model. Het is geen huidige App-functie, aanbod, beloofd rendement of recht dat ontstaat door een storting in `SwapPool`.
 
 ### **9.1 Voorgestelde inkomstenbronnen**
 
 Een toekomstige netwerkbegroting kan:
 
-1. een onthuld **netwerkrak** als aandeel van de verzamelde vergoedingen van de deelnemende Fondsen;
+1. een bekendgemaakte **netwerkafdracht** als aandeel van de geïnde kosten van deelnemende Fondsen;
 2. afzonderlijke routing- of servicekosten van geïmplementeerde gedeelde diensten; en
 3. andere uitdrukkelijk aangenomen, ontvangen inkomsten.
 
-De huidige Protocol v1.1.0 maakt gebruik van een ander model: een optionele protocollenvergoeding is aanvullend op de Poolvergoede en wordt rechtstreeks naar de geconfigureerde ontvanger verzonden.
+Bruto Fondskosten die Fondsen behouden zijn geen netwerkinkomsten. Het huidige Protocol v1.1.0 gebruikt een ander model: een optionele protocolvergoeding komt bovenop de Fondskosten en wordt rechtstreeks naar de geconfigureerde ontvanger gestuurd.
+
+De routeringsworkflow van de productieversie van de CLC App voegt geen afzonderlijke vergoeding voor de routedienst toe. Een gerouteerde wissel kan bij iedere stap wel Fonds- en protocolkosten maken. Deze huidige kosten per stap mogen niet als de voorgestelde netwerkafdracht worden aangeduid of opnieuw als toekomstige service-inkomsten worden geteld.
 
 ### **9.2 Illustratieve rake wiskunde**
 
-Indien een deelnemende Fonds een poolvergoeding van 2.00% in rekening brengt en een geadopteerde netwerkrak 20% van die Poolvergoede ontvangt, is het voorgestelde effectieve netwerkrake-tarief op de geleidelijke waarde:
+Als een deelnemend Fonds 2,00% Fondskosten rekent en een vastgestelde netwerkafdracht 20% van die Fondskosten ontvangt, is het voorgestelde effectieve tarief van de netwerkafdracht over de gerouteerde waarde:
 
 `rake_rate = 2.00% × 20% = 0.40% = 40 bps`
 

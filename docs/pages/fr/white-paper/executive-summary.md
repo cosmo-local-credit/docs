@@ -2,7 +2,7 @@
 
 Le **Protocole de mise en commun des engagements (CPP)** décrit comment Bassins d’engagements, géré de manière indépendante, peut organiser des engagements remboursables, publier des méthodes et des limites de taux de change, tenir un inventaire et permettre un échange responsable. Les émetteurs restent responsables de leurs engagements en matière de bons. Gestionnaires de Bassins reste responsable des règles du bassin et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne sont un garant universel.
 
-Protocol v1.1.0 fournit les éléments constitutifs actuels de l'échange direct: `GiftableToken`, `SwapPool`, des registres optionnels et des modules d'évaluation, des plafonds de solde des jetons de bassin, des frais de bassin, une redevance de protocole supplémentaire et un `SwapRouter` à cotation uniquement. Les contrats actuels n'enregistrent pas l'exécution dans le monde réel, ne créent pas d'actions de fournisseur de liquidités automatiques, n'exécutent pas de routes multi-hop ou ne fournissent pas de réserves universelles, de garanties ou d'assurances.
+Le protocole v1.1.0 fournit les éléments de base des échanges directs actuels : `GiftableToken`, `SwapPool`, les registres et modules d'évaluation facultatifs, les plafonds de solde des jetons du Bassin, les frais du Bassin, des frais de protocole supplémentaires et un `SwapRouter` Solidity qui calcule uniquement des cotations. L'application CLC de production et CLC Core découvrent désormais des itinéraires sur une même chaîne à travers trois Bassins au maximum, produisent des cotations à un bloc déterminé, simulent et préparent des lots atomiques signés par le portefeuille, les relaient et regroupent les enregistrements de règlement. Les contrats n'enregistrent toujours pas l'exécution dans le monde réel, ne créent pas automatiquement de parts pour les fournisseurs de liquidité, n'effectuent pas de routage interchaînes ni de compensation par lots et ne fournissent pas de réserves, garanties ou assurances universelles.
 
 L'historique **Sarafu Network** ont utilisé des concepts de regroupement d'engagements entre les monnaies communautaires, les groupes d'épargne, les systèmes d'aide mutuelle et les engagements de production. Son service est ensuite passé au CLC App. Ce n'était pas une représentation que chaque compte historique, portefeuille, jeton, bon d’échange, bassin, solde, rapport, participant ou obligation a migré.
 
@@ -19,13 +19,13 @@ L'historique **Sarafu Network** ont utilisé des concepts de regroupement d'enga
 
 Ces chiffres sont des preuves historiques, pas des chiffres actuels d'utilisation de CLC.
 
-La conception CLC plus large proposée explore comment les réseaux compatibles pourraient:
+La conception plus large du CLC combine le routage actuel avec des propositions sur la manière dont les réseaux compatibles pourraient:
 
-1. découvrir et coter des chemins à travers des bassins gérés de manière indépendante;
+1. étendre les services de routage responsables à d'autres profils de registre ou de politique et à d'autres domaines ;
 2. coordonner les services de réseau responsables sans dépasser la responsabilité locale;
 3. soutenir des mandats de liquidité, des garanties, des réserves ou des polices d'assurance financés séparément;
 4. mesurer les swaps de bassin séparément de la présentation, de l'exécution et de la décharge des bons ; et
-5. Utiliser un réseau proposé et des frais de service pour financer les services partagés adoptés.
+5. utiliser un prélèvement de réseau proposé et des frais de service adoptés séparément pour financer les services partagés.
 
 La proposition prévoit un **le jeton de gouvernance CLC proposé ** et une ** Réservoir de réseau CLC proposé** Il ne fait pas partie de l'application actuelle ou de Protocol v1.1.0.
 

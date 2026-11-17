@@ -1,18 +1,18 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **Über diese Übersetzung.** Dies ist eine Übersetzung des White Paper v0.8. Der englische Ausgangstext wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde am 10. Oktober 2026 veröffentlicht. Englisch ist der Ausgangstext. <a data-english-source="true" href="/white-paper" hrefLang="en">Englischen Ausgangstext lesen</a>.
+> **Über diese Übersetzung.** Dies ist eine Übersetzung des White Paper v0.9. Der englische Ausgangstext wurde am 16. November 2026 veröffentlicht. Diese Übersetzung wurde am 17. November 2026 veröffentlicht. Englisch ist der Ausgangstext. <a data-english-source="true" href="/white-paper" hrefLang="en">Englischen Ausgangstext lesen</a>.
 
 ## Ein Netzwerk für Kreditrouting, die Koordination von Verpflichtungen und die Finanzierung einer gesunden kosmo-lokalen Wirtschaft
 
-**Version:** 0.8
+**Version:** 0.9
 
-**Datum:** 30. September 2026
+**Datum:** 16. November 2026
 
 **Autoren:** William O. Ruddick und Mohamed Sohail
 
 **Kontakt:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-de.pdf">CLC White Paper v0.8 (PDF, Deutsch)</a>
+**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-de.pdf">CLC White Paper v0.9 (PDF, Deutsch)</a>
 
 **Veröffentlichung:** Finale, versionierte öffentliche Ausgabe. Dieses Dokument ist keine Anlageberatung und stellt weder ein Verkaufsangebot noch eine Aufforderung zum Kauf eines Wertpapiers oder Finanzinstruments dar. Spätere Versionen können die hier beschriebenen Entwürfe überarbeiten.
 
@@ -27,7 +27,7 @@ Dieses Whitepaper verbindet vier Arten von Inhalten. Der jeweilige Status gilt f
 | **Historisch** | Nachweise oder Funktionen des früheren Dienstes Sarafu Network. Sie sind weder aktuelle CLC-Nutzungszahlen noch ein Beleg dafür, dass ein Nutzer, Vermögenswert, Datensatz oder eine Verpflichtung migriert wurde. |
 | **Vorgeschlagen** | Ein Entwurf, Wirtschaftsmodell, Governance-Mechanismus oder Roadmap-Punkt, der nicht als bereitgestellt dargestellt wird. |
 
-Protocol v1.1.0 umfasst die direkte Ausführung über `SwapPool`, optionale Kuratierung und Bewertung, Obergrenzen für Token-Salden eines Fonds, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen `SwapRouter`, der nur Kursangebote erstellt. Mehrstufige Ausführung, HTLC- oder Escrow-Routing, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme sind vorgeschlagen oder bereitstellungsabhängig.
+Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über `SwapPool`, optionale Kuratierung und Bewertung, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen Solidity-`SwapRouter`, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core bieten Routenerkennung innerhalb derselben Blockchain, Angebote auf Grundlage eines festgelegten Blocks, Simulation, signierte atomare Wallet-Batches durch bis zu drei Fonds und zusammengefasste Belege. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme bleiben vorgeschlagen oder bereitstellungsabhängig.
 
 **Zielgruppe:** Entwickler und Verantwortliche von Fonds, Protokollentwickler und Prüfer, Geldgeber für Liquidität und Mandate, Gestalter von Governance sowie Fachleute für Recht und Compliance.
 
@@ -41,7 +41,7 @@ Kosmo-lokal bedeutet, offene Standards, Software und Wissen weltweit zu teilen, 
 
 ## Aktuelle Bereitstellung
 
-GEF betreibt die CLC App unter [cosmolocal.credit](https://cosmolocal.credit). Sie bietet Zugang zu Konto und Geldbörse, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Commitment-Fonds, Übertragungen und direkte Fonds-Tausche. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
+GEF betreibt die CLC App unter [cosmolocal.credit](https://cosmolocal.credit). Sie bietet Zugang zu Konten und Wallets, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Wünsche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen auf Anwendungsebene. CLC Core unterstützt Routenerkennung, verbindliche Angebote, Transaktionssimulation, Koordination des Relayers, Abstimmung mit der Blockchain und zusammengefasste Belege. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Wallet-Typ, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
 
 Der Betrieb der Benutzeroberfläche macht GEF nicht automatisch zum Herausgeber, zur Fonds-Verantwortlichen, zum Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garanten, zur Einlösestelle, zum Berater, Versicherer oder zur Partei von Verpflichtungen zwischen Teilnehmern. Die Nutzung der App unterliegt den [Nutzungsbedingungen](/de/governance/terms).
 
@@ -79,20 +79,24 @@ Die digitale Ebene dient als gemeinsames Gedächtnis und Koordinationsinfrastruk
 
 ## Aktuelle und vorgeschlagene Abläufe
 
-### Aktueller direkter Ablauf über einen Fonds
+### Aktueller direkter oder gerouteter Fonds-Ablauf
 
 1. Ein Inhaber prüft einen Gutschein, seinen Herausgeber, seine Bedingungen und die zugehörigen Angebote.
 2. Ein Fonds lässt unterstützte Vermögenswerte zu und veröffentlicht seine Konfiguration und verantwortlichen Stellen.
-3. Der Inhaber holt ein Kursangebot ein und autorisiert einen direkten Fonds-Tausch.
-4. `SwapPool` führt die Tauschabwicklung auf der Blockchain aus und verbucht Fonds- und Protokollgebühren.
-5. Wählt der Inhaber später in der App **„Einlösen“**, bereitet die App als Vorlage zur Einlösung eine Übertragung an den Token-Eigentümer vor.
-6. Der Herausgeber erbringt gesondert die versprochene Leistung und zeichnet die Ausbuchung auf, damit erfüllte Einheiten nicht erneut verwendet werden können.
+3. Der Inhaber kann in der Ansicht **Kredit** einen direkten Tausch oder eine Route durch mehrere unabhängig verwaltete Fonds finden.
+4. CLC Core liest die ausgewählten Fonds in einem festgelegten Block, erstellt ein zeitlich begrenztes Angebot, weist die Fonds- und Protokollgebühren jedes Schritts aus, simuliert den vollständigen Batch und bereitet die Aufrufe für die Wallet des Inhabers vor.
+5. Der Inhaber prüft und signiert. Die App leitet eine Transaktion innerhalb derselben Blockchain weiter, deren vollständiger Batch rückgängig gemacht wird, wenn ein Aufruf fehlschlägt.
+6. Jeder `SwapPool` führt seine eigene Abwicklung auf der Blockchain aus. Die App fasst Transaktionsstatus, Schritte, abgewickelte Beträge und Gebühren in einem Beleg für den Tausch über die Route zusammen.
+7. Wählt der Inhaber später in der App **„Einlösen“**, bereitet die App als Einlösungsvorlage eine Übertragung an den Token-Eigentümer vor.
+8. Der Herausgeber erbringt gesondert die versprochene Leistung und zeichnet die Ausbuchung auf, damit erfüllte Einheiten nicht erneut verwendet werden können.
 
 Bestände aus einem Fonds zu erhalten, ist ein Tausch. Es handelt sich nur dann um eine Einlösung, wenn der Fonds gesondert die Rolle des Herausgebers übernommen hat und die geltenden Gutscheinbedingungen erfüllt.
 
+Die aktuelle öffentliche Routenkonfiguration sucht Routen mit bis zu drei Fonds-Tauschen und unterstützt App-kompatible EOA-/Calibur-Wallets. Sie bereitet derzeit keine Tausche über Routen für Safes oder andere Smart-Contract-Wallets vor. Der Solidity-`SwapRouter` bleibt auf Kursangebote beschränkt; CLC Core und der signierte Wallet-Batch koordinieren die Ausführung oberhalb der Verträge.
+
 ### Weiter gefasster vorgeschlagener Entwurf
 
-Der vorgeschlagene Entwurf untersucht Ausführungsrouting, Verrechnung, gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungsregeln und Governance-Vermögenswerte. Jeder dieser Bausteine benötigt eine Implementierung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen, bevor er angewendet werden kann.
+Der vorgeschlagene Entwurf untersucht Blockchain-übergreifendes HTLC- oder Escrow-Routing, freiwilligen Bestandsausgleich der Fonds, gebündelte Verrechnung, zusätzliche gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungspolicen und Governance-Vermögenswerte. Jeder dieser Punkte würde eine Umsetzung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen erfordern, bevor er angewendet werden könnte.
 
 Das vorgeschlagene Gebührenmodell kann einen Netzwerkanteil aus Fondsgebühren sowie getrennte Routing- oder Servicegebühren vorsehen. Dieser Vorschlag unterscheidet sich von Protocol v1.1.0, bei dem eine optionale Protokollgebühr zusätzlich zur Fondsgebühr erhoben wird.
 

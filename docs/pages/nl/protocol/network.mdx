@@ -2,48 +2,78 @@ import { MermaidDiagram } from '../../../components/MermaidDiagram'
 
 # Protocolnetwerkarchitectuur
 
-Een CPP- compatibele implementatie kan veel waardebonnen en fondsen verbinden via optionele registers, indexen, quote modules en routeontdekking op applicatieniveau.
+Een CPP-compatibele implementatie kan veel Waardebonnen en Fondsen verbinden via optionele registers, indexen, offertemodules en routeontdekking op applicatieniveau. Ieder Fonds blijft een afzonderlijke kluis met eigen liquiditeit, eigenaar, proxybeheerder, configuratie en afhankelijkheden.
 
-Grassroots Economics Foundation exploiteert de openbare app op [cosmolocal.credit](https://cosmolocal.credit). Andere interfaces en implementaties kunnen hetzelfde openbaar protocol gebruiken. Het bedienen van de App maakt GEF niet automatisch eigenaar, uitgever, beheerder, ontvanger of borg voor elk contract dat hieronder wordt weergegeven.
+Grassroots Economics Foundation beheert de openbare App op [cosmolocal.credit](https://cosmolocal.credit). Andere interfaces en implementaties kunnen hetzelfde openbare protocol gebruiken. Het beheer van de App maakt GEF niet automatisch tot eigenaar, Uitgever, Fondsbeheerder, kostenontvanger of garant van ieder contract hieronder.
 
-Zie je dat ? [Begrippen en woordenschat](/nl/introduction/concepts) voor de scheiding tussen verantwoordelijke functies en technische bevoegdheden.
+Bekijk [Begrippen en woordenschat](/nl/introduction/concepts) voor het onderscheid tussen verantwoordelijke rollen en technische bevoegdheden.
 
 
-## Voorwaarden en uitvoering van de kandidaten
+## Ontdekken en uitvoeren van productieroutes
 
 <MermaidDiagram
-  scrollMessage="Scroll horizontaal om het volledige diagram te bekijken."
-  errorMessage="Het diagram kon niet worden weergegeven"
-  label="Het ontdekken van de route van kandidaten en het uitvoeren van wallet-batches"
-  minWidth={1040}
+  label="Productiearchitectuur voor routering door de CLC App en CLC Core"
+  minWidth={1180}
   chart={`flowchart TB
-    VoucherA["waardebon A"] ---|op de lijst staan en worden gehouden| PoolA["Fonds A"]
-    Bridge["Generieke brugsactiviteiten"] ---|op de lijst staan en worden gehouden| PoolA
-    Bridge ---|op de lijst staan en worden gehouden| PoolB["Fonds B"]
-    VoucherB["waardebon B"] ---|op de lijst staan en worden gehouden| PoolB
+    User["Deelnemer"] --> App["CLC App<br/>Krediet · Verkrijgen · Uitgeven"]
+    App -->|bereikbare Waardebonnen en kandidaat-paden| Core["CLC Core routing service"]
+    Catalog["Catalogi, registers,<br/>geïndexeerde blockchaingebeurtenissen"] --> Core
+    Chain["Blockchainlezingen op één vastgezet blok"] -->|Fondsstatus, saldi, kosten,<br/>limieten en offerte-invoer| Core
+    Reconcile["Indexering en afstemming"] --> Catalog
 
-    App["PWA of routefinder"] -. discovers candidates .-> Index["Registries en indexen"]
-    App -. requests a quote .-> Router["SwapRouter: uitsluitend citaat"]
-    Router -. reads Pool quotes .-> PoolA
-    Router -. reads Pool quotes .-> PoolB
+    Core -->|gezaghebbende offerte,<br/>grenzen en voorbereide aanroepen| App
+    Core -->|simulatie van de volledige batch| Chain
+    App -->|herziening en ondertekening| Wallet["App-compatibel<br/>EOA / Calibur portemonnee"]
+    Wallet -->|ondertekende batch| Relayer["Relayer"]
+    Relayer -->|één transactie op dezelfde blockchain<br/>revertOnFailure = true| Batch["Calibur-batch<br/>approve 0 · approve amount<br/>begrensde opname per hop"]
 
-    App -->|bouwt geordende oproepen| WalletStart["Smart-account portemonnee van gebruikers"]
-    WalletStart -->|hop 1: waardebon A| PoolA
-    PoolA -->|brug-uitgang| WalletBridge["Dezelfde portemonnee tussen telefoontjes"]
-    WalletBridge -->|hop 2: brug actief| PoolB
-    PoolB -->|Uitgang van waardebon B| WalletFinal["Dezelfde gebruikersportemonnee"]
+    Batch --> PoolA["SwapPool A"]
+    Batch --> PoolB["SwapPool B"]
+    Batch --> PoolC["SwapPool C<br/>(indien nodig)"]
+    PoolA --> Events["Afwikkelingsgebeurtenissen"]
+    PoolB --> Events
+    PoolC --> Events
+    Events --> Reconcile
+    Reconcile --> Receipt["Gebundeld overzicht van de gerouteerde wissel<br/>status · tx-hash · stappen · bedragen · kosten"]
+    Receipt --> App
 
-    PoolA -->|protocolvergoeding| ProtocolRecipient["Geconfigureerd protocolontvanger"]
-    PoolB -->|protocol fee| ProtocolRecipient`}
+    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>herbruikbaar contract dat alleen quotes berekent"] -. leest quotes; voert niet uit .-> PoolA
+    SolidityRouter -. leest quotes; voert niet uit .-> PoolB`}
 />
 
-Een gedeeld actief creëert een **mogelijke grafiekpad** In dit voorbeeld zou waardebon A kunnen worden uitgewisseld voor het bruggenactief in Fonds A, dan kan het bruggeactief worden uitgerekend voor waardebon B in Fonds B. Elke hop hangt nog steeds af van de huidige toelating van tokens, Fonds limieten, beschikbare inventaris, offertes en kostenconfiguratie, oracle staat, goedkeuringen, transactie grenzen en netwerk uitvoering.
+Een gedeelde Waardebon creëert een **mogelijk grafiekpad**, geen gegarandeerde route. De productiedienst CLC Core onderhoudt een afgestemde grafiek op basis van informatie over Fondsen, registers, catalogi, saldi, kosten en blockchaingebeurtenissen. De dienst controleert ook de relevante bezittingen van de actieve portemonnee. De openbare implementatie zoekt momenteel paden van maximaal drie Fondsswaps.
 
-`SwapRouter` roept alleen Fonds quote-functies op over een voorgestelde pad. Het houdt geen fondsen, goedkeurt tokens of uitvoert swaps. Een integrator of compatibele app kan die quote-resultaten gebruiken om bestelde goedkeuring en Fonds-oproepen in een ondertekende smart-account batch te bouwen; dit betekent niet dat de huidige openbare App multi-hop-uitvoering biedt. Elke hop settelt zich in de Wallet voordat die Wallet het tussenliggende asset aan de volgende Fonds levert, en de integrator kan de batch configureren om terug te keren wanneer een call faalt.
+Grafiekontdekking is snel, maar blijft een schatting op basis van het geïndexeerde blok. Een resultaat kan als verouderd worden gemarkeerd en een verbinding bewijst niet dat de gewenste hoeveelheid erdoorheen kan. Het filter **Krediet** in de App gebruikt deze bereikbare verzameling voor de Markt en verwante ontdekkingsoverzichten.
 
-Een succesvolle route quote kan nog steeds mislukken of anders worden geregeld als de relevante staat verandert voordat ze wordt uitgevoerd.`SwapPool.withdraw` overbelasting toevoegt`minAmountOut` en`deadline` De integratieprocedure is gebaseerd op de volgende criteria:
+### Gezaghebbende offerte
 
-De vergoeding voor de fonds blijft bij de betreffende fonds voor latere inzameling.
+Nadat een deelnemer een route en bedrag heeft gekozen, leest CLC Core ieder relevant Fonds op één vastgezet blok en reproduceert het de ondersteunde `SwapPool`-berekeningen. De offerte vermeldt iedere stap, invoer en uitvoer, Fonds- en protocolkosten, minimale uitvoer, eindontvanger en vervaltijd. De huidige vervaltijd voor een productieofferte is vijf minuten.
+
+De dienst bouwt en simuleert daarna de volledige Calibur-batch. Niet-ondersteund tokengedrag of quoters, een onvoldoende portemonneesaldo, mislukte toelating, overschreden tokensaldoplafonds van een Fonds, onvoldoende liquiditeit, ongeldige kostendomeinen, gaslimieten en andere oorzaken van een terugdraaiing kunnen voorkomen dat een quote wordt aangeboden.
+
+Ontdekking en offreren leveren verschillend bewijs. Ontdekking zegt dat een pad mogelijk bestaat; de offerte op basis van het vastgezette blok is het gezaghebbende transactievoorstel. Ook dat voorstel kan verlopen of ongeldig worden wanneer de relevante status vóór indiening verandert.
+
+### Ondertekende atomaire batch
+
+De gebruiker bekijkt **Routedetails** en ondertekent de voorbereide portemonneebatch. Voor iedere hop roept de batch `approve(pool, 0)`, `approve(pool, amountIn)` en de begrensde overload van `SwapPool.withdraw` aan. Iedere begrensde opname handhaaft een minimale output en deadline. Tussenliggende Waardebonnen keren terug naar dezelfde portemonnee voordat het volgende Fonds het gequote bedrag besteedt; een eventueel restant van het brugactivum blijft in die portemonnee.
+
+De relayer dient de batch in als één transactie op dezelfde blockchain, met `revertOnFailure` ingesteld op `true`. Als een goedkeuring of Fondsswap mislukt, worden alle routeaanroepen—ook eerdere hops en hun allowancewijzigingen—samen teruggedraaid. Dit is de huidige transactieatomiciteit op dezelfde blockchain. Het is geen cross-chain atomiciteit, HTLC, escrow, netting of automatische herbalancering van een Fonds.
+
+De huidige routestroom ondersteunt de EOA/Calibur-portemonnees die compatibel zijn met de App. Een Safe of andere contractportemonnee wordt door het huidige quotepad afgewezen.
+
+### Solidity `SwapRouter` en kosten
+
+De Solidity `SwapRouter` van Protocol v1.1.0 blijft uitsluitend quotes berekenen. Hij kan de quotefuncties van Fondsen over een aangeleverd pad aanroepen, maar bewaart geen middelen, keurt geen tokens goed en voert geen swaps uit. De hierboven beschreven productie-werkstroom van App en CLC Core is een afzonderlijke coördinator op applicatieniveau die iedere `SwapPool` rechtstreeks via de ondertekende portemonneebatch van de deelnemer aanroept.
+
+Fondskosten blijven bij het betreffende Fonds voor latere inning. Eventuele protocolkosten komen daar bovenop en worden tijdens de swap rechtstreeks van dat Fonds naar de ingestelde protocolontvanger overgedragen.
+
+De huidige App voegt geen afzonderlijke kosten voor de routedienst toe. Een gerouteerde wissel kan toch meerdere Fonds- en protocolkosten bevatten, omdat iedere stap een afzonderlijke `SwapPool`-afwikkeling is.
+
+### Transactieoverzicht en mislukking
+
+CLC Core groepeert de route onder één tracking-ID. De App toont **Bezig met ruilen**, **Geruild** of **Ruil mislukt**, met de technische status **In behandeling**, **Bevestigd** of **Teruggedraaid**. Het transactieoverzicht vermeldt de transactiehash, routediepte, ieder Fonds- en tokenpaar, geoffreerde en afgewikkelde bedragen, Fonds- en protocolkosten per stap, het minimaal ontvangen bedrag en ieder tussentijds restant dat in de wallet is achtergebleven.
+
+Een route kan vóór ondertekening mislukken omdat geen geschikt pad of geen quote beschikbaar is; tijdens simulatie omdat de batch zou worden teruggedraaid; tijdens relay omdat de ondertekende transactie niet kan worden ingediend; of op de blockchain omdat de status veranderde of een andere uitvoeringsvoorwaarde faalde. Een mislukte of niet-beschikbare route herschrijft de regels van een Fonds niet, boekt geen Waardebon af en bewijst niets over nakoming door de Uitgever.
 
 
 ## Poolinterieur

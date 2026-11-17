@@ -10,10 +10,13 @@ Cette page définit les termes utilisés dans la documentation. Les étiquettes 
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** |La famille de produits: le CLC App, sa documentation et le travail plus large de mise en commun des engagements.|
 | **CLC App** |L’application web progressive disponible sur [cosmolocal.credit](https://cosmolocal.credit). GEF exploite cette interface et ses services d’assistance.|
+| **CLC Core** | Le service d’assistance de la CLC App pour les catalogues, l’état indexé de la chaîne, la découverte d’itinéraires, les cotations faisant autorité, la coordination du relais et les reçus d’échanges routés. Il ne s’agit ni d’un contrat intelligent ni d’un Gestionnaire de Bassin. |
 | **Protocole de mise en commun des engagements (CPP)** |Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.|
 | **Protocol v1.1.0** |La version publique vérifiée des contrats intelligents documentée dans le [Référence au protocole](/fr/protocol/overview). |
 | **Bassin d’engagements ** |Un dispositif gouverné qui gère des actifs, publie des règles et permet leur échange. ** Bassin** est la forme abrégée courante.|
 | **`SwapPool`** |Le contrat de protocole actuel qui détient un inventaire de jetons et exécute des swaps directs. Il s'agit d'un composant technique d'un Bassin d’engagements.|
+| **`SwapRouter` Solidity** | Le contrat de Protocol v1.1.0 qui calcule une cotation pour un chemin proposé entre plusieurs Bassins. Il ne conserve pas d’actifs et n’exécute pas l’itinéraire. |
+| **Flux de routage de l’application** | Le processus actuel de la CLC App et de CLC Core qui découvre, cote et simule des chemins sur une même chaîne, prépare un lot de portefeuille signé, le relaie et regroupe les règlements des Bassins dans un reçu unique. |
 | **Le jeton de gouvernance CLC proposé** |Un projet de gouvernance future dans le livre blanc. Il ne s'agit pas d'une application ou d'un actif Protocol v1.1.0 en cours.|
 | **Bassin de réseau CLC proposé** |Une future conception de la compensation et de la coordination au niveau du réseau. Ce n’est pas la même chose qu’un `SwapPool` actuel.|
 
@@ -63,6 +66,10 @@ Il y a quatre couches distinctes:
 | **« Retire voucher »** |Masque un bon d’échange dans le catalogue de l’application. Les soldes et l’historique sont conservés, et un administrateur peut rétablir la fiche. Il ne s’agit ni d’une destruction ni d’une annulation.|
 | **Dépôt ou contribution au fonds commun** |Transférer des actifs dans un `SwapPool`. Les droits de remboursement, de retrait, de récompense ou de gouvernance n'existent que lorsqu'ils sont divulgués séparément.|
 | **Échange de fonds** |Échangez un actif soutenu contre un autre à travers un `SwapPool`. Il ne s'agit pas d'un remboursement par l'émetteur ou automatiquement d'un prêt.|
+| **Découverte d’itinéraire** | Rechercher des chemins possibles entre les bons d’échange admissibles d’un portefeuille et un bon cible, à travers les relations configurées entre Bassins. La découverte est une estimation, et non une promesse exécutable. |
+| **Cotation d’itinéraire** | Un calcul faisant autorité et limité dans le temps pour un chemin choisi, fondé sur l’état des Bassins lu à un même bloc fixé et simulé avant la signature. |
+| **Échange routé** | Un ensemble ordonné d’échanges de Bassin soumis par la CLC App dans un lot de portefeuille unique sur une même chaîne. Dans le flux actuel, tous les appels sont annulés si l’un d’eux échoue. |
+| **Reçu d’échange routé** | Un enregistrement groupé comprenant le statut du suivi, le hachage de la transaction, les étapes de l’itinéraire, les montants réglés et les frais de Bassin et de protocole de chaque étape. |
 | **Retrait de liquidités du bassin** |Le propriétaire du bassin transfère l'inventaire disponible à une adresse sélectionnée.|
 | **Collecte des redevances** |Un destinataire configuré perçoit les frais de bassin accumulés.|
 
@@ -82,7 +89,15 @@ Gardez ces termes de valeur séparés:
 
 L’étiquette **« Credit limit »** de l’application désigne le plafond configuré du solde d’un jeton dans un Bassin : le montant maximal de ce jeton que le Bassin peut détenir après un dépôt. Il ne s’agit pas d’une ligne de crédit personnelle, d’une vérification de la capacité de l’émetteur ni d’une garantie. Les limites proposées dans le Livre blanc sont des mécanismes différents.
 
-Protocol v1.1.0 peut actuellement facturer des **frais de Bassin ** ainsi que des ** frais de protocole ** supplémentaires. Le modèle proposé dans le Livre blanc décrit séparément un futur ** prélèvement de réseau** sur les frais de Bassin, ainsi que d’éventuels frais de routage ou de service. Ces modèles ne doivent pas être confondus lorsqu’on explique les frais actuels ou que l’on calcule de futures recettes.
+Protocol v1.1.0 peut actuellement facturer des **frais de Bassin** et des **frais de protocole** supplémentaires pour chaque échange de Bassin. Un échange routé détaille ces frais à chaque étape. Le flux de routage actuel de la CLC App n’ajoute pas de frais distincts pour le service de routage. Le modèle proposé dans le Livre blanc décrit séparément un futur **prélèvement de réseau** sur les frais de Bassin ainsi que d’éventuels frais de routage ou de service. Ces modèles ne doivent pas être combinés lorsqu’on explique les frais actuels ou qu’on calcule de futures recettes.
+
+## Itinéraires et liquidité
+
+Un **itinéraire** est un chemin ordonné qui traverse un ou plusieurs Bassins gouvernés indépendamment. Sa **profondeur** correspond au nombre d’échanges de Bassin qui le composent. Le déploiement public actuel recherche jusqu’à trois étapes.
+
+La **liquidité disponible** désigne l’inventaire de sortie admissible qu’un Bassin peut fournir compte tenu de son état actuel d’admission, de plafond de solde, de cotation, de frais et de réservation. Une simple connexion dans le graphe ne prouve pas qu’une quantité utile puisse la traverser. La découverte d’itinéraire peut devenir obsolète; la cotation ultérieure au bloc fixé ne fait autorité que jusqu’à son échéance ou jusqu’à un changement pertinent de l’état.
+
+L’exécution actuelle d’un itinéraire est lancée par le portefeuille sur une même chaîne. Elle ne regroupe pas la gouvernance, ne rééquilibre pas automatiquement l’inventaire des Bassins, ne compense pas les obligations de plusieurs parties et ne prouve pas l’exécution réelle par l’émetteur. Le routage HTLC ou sous séquestre entre chaînes, le rééquilibrage automatique et la compensation par lots restent proposés ou dépendants du déploiement.
 
 ## Protection et preuves
 

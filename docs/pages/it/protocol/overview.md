@@ -28,3 +28,12 @@ Anche il supporto EIP-165 dipende dal singolo contratto e non è universale. È 
 - **Splitter, EthFaucet, PeriodSimple e RescueVault** — Strumenti di supporto per distribuzione, finanziamento del gas, limitazione della frequenza e recupero degli asset.
 
 I contratti possono essere combinati in modi diversi. La presenza in un registro, una quotazione o un percorso nel grafo non garantiscono l'esecuzione di una transazione: rimangono rilevanti la liquidità attuale, i limiti dei token, le commissioni, lo stato dell'oracolo, le autorizzazioni, le scadenze, le condizioni della rete e la configurazione di ogni Fondo.
+
+
+## Scambio instradato a livello dell'applicazione
+
+La CLC App in produzione fa più che interrogare il contratto Solidity `SwapRouter`. CLC Core mantiene un grafo riconciliato delle relazioni idonee tra Fondi, stima quali buoni sono raggiungibili, legge i Fondi selezionati allo stesso blocco fissato per produrre una quotazione autorevole, simula l'intero percorso e prepara un batch per il portafoglio Calibur. L'utente firma il batch e un relayer lo invia come singola transazione sulla stessa catena.
+
+Ogni passaggio chiama direttamente un `SwapPool`. Il batch azzera e imposta l'autorizzazione necessaria per il token, quindi chiama la versione di `SwapPool.withdraw` con limiti, specificando un output minimo e una scadenza. `revertOnFailure` è attivo: se una chiamata fallisce, l'intera transazione viene annullata. L'App presenta poi una ricevuta raggruppata con i dettagli del regolamento e delle commissioni per ciascun passaggio.
+
+Questo flusso di instradamento è una funzionalità di CLC App e CLC Core costruita sul Protocol v1.1.0. Non trasforma il contratto Solidity `SwapRouter` in un router di esecuzione, non cambia il proprietario o il Responsabile di un Fondo e non rende un Fondo responsabile delle regole di un altro Fondo o dell'adempimento di un emittente. Per il flusso completo, vedere [Architettura della rete del protocollo](/it/protocol/network).

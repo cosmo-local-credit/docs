@@ -20,7 +20,7 @@ Relevant roles and authorities include:
 - **Pool owner:** holds current `SwapPool` owner powers;
 - **proxy administrator:** can upgrade a proxied implementation;
 - **dependency controllers:** govern configured registries, quoters, limiters, or fee components;
-- **route finder or operator:** may discover quotes or, in a future implementation, execute a separately authorized route; and
+- **route service operator:** may discover, quote, simulate, prepare, relay, and record a separately authorized route within its published scope; and
 - **guarantor:** assumes a defined obligation only through published, funded terms.
 
 CPP groups Pool functions into four concepts:
@@ -30,9 +30,11 @@ CPP groups Pool functions into four concepts:
 - **Limitation:** apply current Pool token-balance caps or other separately implemented controls.
 - **Exchange:** hold inventory, execute swaps, account for fees, and emit transaction records.
 
-Protocol v1.1.0 implements these functions through `SwapPool` and optional dependencies. Its current `Limiter` caps a token balance at a Pool; it does not provide rolling, per-account, or network-wide swap limits. Its current `SwapRouter` calculates multi-Pool quotes; it does not execute swaps.
+Protocol v1.1.0 implements these functions through `SwapPool` and optional dependencies. Its current `Limiter` caps a token balance at a Pool; it does not provide rolling, per-account, or network-wide swap limits. Its current Solidity `SwapRouter` calculates multi-Pool quotes; it does not execute swaps.
 
-The wider proposed CPP design may add rolling limits, account controls, execution routers, HTLC or escrow paths, and batch netting. Those are proposed components, not descriptions of the current limiter or router.
+The production CLC App and CLC Core implement application-level same-chain routing above those contracts. CLC Core discovers paths, reads the selected Pools at a pinned block, prepares and simulates a signed Calibur wallet batch, coordinates relay, and groups the resulting settlement records. The current public configuration searches up to three Pool swaps. Every Pool remains independently governed, and each hop still executes directly through its own `SwapPool`.
+
+The wider proposed CPP design may add rolling limits, account controls, cross-domain HTLC or escrow paths, automatic Pool rebalancing, and batch netting. Those are proposed components, not descriptions of the current limiter, Solidity router, or App/Core route flow.
 
 ### **1.3 Current direct-swap logic**
 

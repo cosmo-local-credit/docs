@@ -1,18 +1,18 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **Informazioni su questa traduzione.** Questa è una traduzione del Libro bianco v0.8 (White Paper v0.8). Il testo originale in inglese è stato pubblicato il 30 settembre 2026. Questa traduzione è stata pubblicata il 10 ottobre 2026. L'inglese è il testo originale. <a data-english-source="true" href="/white-paper" hrefLang="en">Leggi il testo originale in inglese</a>.
+> **Informazioni su questa traduzione.** Questa è una traduzione del Libro bianco v0.9 (White Paper v0.9). La fonte inglese è stata pubblicata il 16 novembre 2026. Questa traduzione è stata pubblicata il 17 novembre 2026. Il testo di partenza è in lingua inglese. <a data-english-source="true" href="/white-paper" hrefLang="en">Leggi il testo originale in inglese</a>.
 
 ## Una rete per instradare il credito, coordinare gli impegni e finanziare un'economia cosmo-locale sana
 
-**Versione:** 0.8
+**Versione:** 0.9
 
-**Data:** 30 settembre 2026
+**Data:** 16 novembre 2026
 
 **Autori:** William O. Ruddick e Mohamed Sohail
 
 **Contatto:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-it.pdf">Libro bianco CLC v0.8 in italiano (PDF)</a>
+**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-it.pdf">Libro bianco CLC v0.9 in italiano (PDF)</a>
 
 **Pubblicazione:** Pubblicazione pubblica finale e versionata. Questo documento non costituisce consulenza in materia di investimenti né un'offerta di vendita o una sollecitazione all'acquisto di titoli o strumenti finanziari. Versioni successive potranno modificare i modelli descritti qui.
 
@@ -27,7 +27,7 @@ Questo documento riunisce quattro tipi di contenuto. Lo stato indicato si applic
 | **Storico** | Prova o funzionalità del precedente servizio Sarafu Network. Non rappresenta l'adozione attuale di CLC né dimostra che un utente, asset, record o obbligo sia migrato. |
 | **Proposto** | Modello, meccanismo economico o di governance, oppure elemento della roadmap, che non viene presentato come implementato. |
 
-L'attuale Protocol v1.1.0 comprende l'esecuzione diretta tramite `SwapPool`, curatela facoltativa, valutazione, limiti al saldo dei token del Fondo, commissioni del Fondo, una commissione di protocollo aggiuntiva e uno `SwapRouter` di sola quotazione. L'esecuzione multi-hop, il routing HTLC o tramite escrow, la compensazione in lotti, l'assicurazione condivisa, il token di governance CLC proposto, il Fondo di rete CLC proposto, i meccanismi di credito delle commissioni e i programmi di liquidità di rete sono proposti o dipendenti dall'implementazione.
+L'attuale Protocol v1.1.0 comprende `SwapPool`, componenti opzionali per registro, quotazione, limitazione e commissioni, e un contratto Solidity `SwapRouter` di sola quotazione. La CLC App e CLC Core in produzione forniscono, sulla stessa catena, scoperta dei percorsi, quotazioni a un blocco fissato, simulazione, esecuzione atomica di batch firmati attraverso un massimo di tre Fondi e ricevute raggruppate. L'instradamento HTLC o tramite escrow tra catene, il riequilibrio automatico dei Fondi, la compensazione in batch, l'assicurazione condivisa, il token di governance CLC proposto, il Fondo di rete CLC proposto, i meccanismi di crediti sulle commissioni e i programmi di liquidità della rete sono proposti o dipendenti dall'implementazione.
 
 **Destinatari:** persone che creano e gestiscono Fondi, ingegneri e revisori del protocollo, finanziatori della liquidità e dei mandati, progettisti della governance e revisori legali o della conformità.
 
@@ -35,13 +35,13 @@ L'attuale Protocol v1.1.0 comprende l'esecuzione diretta tramite `SwapPool`, cur
 
 Cosmo-Local Credit è una famiglia di prodotti costruita intorno al **Protocollo di messa in comune degli impegni (CPP)**. CPP descrive come Fondi di Impegni governati in modo indipendente possano selezionare impegni riscattabili, pubblicare metodi e limiti per i tassi di cambio, detenere inventario e consentire scambi responsabili.
 
-Un **Fondo di Impegni ** è l'accordo governato. Nell'attuale Protocol v1.1.0, uno **`SwapPool`** è uno dei componenti contrattuali: un deposito di token e un motore per gli scambi diretti. Un'implementazione può collegare il contratto a registri, quotatori, limiti al saldo dei token del Fondo, politiche delle commissioni e altri servizi.
+Un **Fondo di Impegni** è l'accordo governato. Nell'attuale Protocol v1.1.0, uno **`SwapPool`** è uno dei componenti contrattuali: un deposito di token e un motore per gli scambi diretti. Un'implementazione può collegare il contratto a registri, quotatori, limiti al saldo dei token del Fondo, politiche delle commissioni e altri servizi.
 
 Cosmo-locale significa condividere standard aperti, software e conoscenza a livello globale, mantenendo locali l'emissione, l'adempimento, la governance e la responsabilità nel mondo reale. L'emittente rimane responsabile del proprio buono. Il Responsabile del Fondo rimane responsabile delle regole del Fondo e di ogni garanzia che assume espressamente. Né la CLC App né GEF garantiscono automaticamente un buono, un Fondo, un valore, un percorso, una posizione di liquidità o un risultato.
 
 ## Implementazione attuale
 
-GEF gestisce la CLC App su [cosmolocal.credit](https://cosmolocal.credit). L'app offre accesso ad account e portafogli, un catalogo pubblico del Mercato e interfacce supportate per token, buoni, Offerte, Fondi di Impegni, trasferimenti e scambi diretti tramite Fondo. La disponibilità dipende dall'interfaccia, dai contratti, dall'inventario, dai limiti e dalle commissioni configurati, dallo stato della rete, dall'idoneità, dai fornitori, dalla giurisdizione e dalle condizioni pubblicate dall'emittente o dal Fondo.
+GEF gestisce l'app CLC a [cosmolocal.credit](https://cosmolocal.credit). Fornisce l'accesso al conto e al portafoglio, un catalogo pubblico del mercato e interfacce supportate per token, voucher, offerte, desideri, Fondo di impegno, trasferimenti, Fondo swap diretti e scambi indirizzati a livello di applicazione. CLC Core supporta la scoperta del percorso, le quotazioni autorevoli, la simulazione delle transazioni, il coordinamento dei relè, la riconciliazione della catena e le ricevute raggruppate. La disponibilità dipende dall'interfaccia, dai contratti, dagli inventari, dai limiti e dalle commissioni configurati, dal tipo di portafoglio, dallo stato della rete, dall'ammissibilità, dai fornitori, dalla giurisdizione e dalle condizioni dell'emittente o del Fondo pubblicate.
 
 La gestione dell'interfaccia non rende di per sé GEF un emittente, Responsabile del Fondo, custode, prestatore, mutuatario, intermediario, garante, soggetto tenuto al riscatto, consulente, assicuratore o parte degli obblighi tra partecipanti. L'uso dell'app è regolato dai [Termini di servizio](/it/governance/terms).
 
@@ -79,20 +79,24 @@ Il livello digitale è una memoria condivisa e un'infrastruttura di coordinament
 
 ## Flussi attuali e proposti
 
-### Flusso diretto attuale tramite Fondo
+### Scambio diretto o instradato attuale
 
-1. Il titolare esamina un buono, il suo emittente, le sue condizioni e le Offerte associate.
-2. Un Fondo ammette gli asset supportati e pubblica la propria configurazione e le autorità responsabili.
-3. Il titolare ottiene una quotazione e autorizza uno scambio diretto tramite Fondo.
-4. `SwapPool` esegue il regolamento dello scambio on-chain e contabilizza le commissioni del Fondo e del protocollo.
-5. Se in seguito il titolare sceglie **“Riscattare”** nell'app, l'app prepara un trasferimento al proprietario del token come presentazione per il riscatto.
-6. Separatamente, l'emittente esegue l'adempimento promesso e registra l'estinzione affinché le unità adempiute non possano essere riutilizzate.
+1. Un titolare esamina un buono, il suo emittente, i suoi termini e le Offerte associate.
+2. Un Fondo ammette le attività supportate e pubblica la propria configurazione e le autorità responsabili.
+3. Il titolare può utilizzare la vista **Credito** per trovare uno scambio diretto o un percorso attraverso più Fondi governati in modo indipendente.
+4. CLC Core legge i Fondi selezionati allo stesso blocco fissato, produce una quotazione con validità limitata, dettaglia le commissioni del Fondo e del Protocollo per ciascun passaggio, simula l'intero batch e prepara le chiamate per il portafoglio del titolare.
+5. Il titolare verifica e firma. L'App invia una transazione sulla stessa catena; l'intero batch viene annullato se una chiamata fallisce.
+6. Ciascun `SwapPool` esegue il proprio regolamento on-chain. L'App raggruppa stato della transazione, saldi, importi regolati e commissioni in un'unica ricevuta dello scambio instradato.
+7. Se il titolare sceglie successivamente **Riscatta** nell'App, l'App prepara un trasferimento al proprietario del token come presentazione per il riscatto.
+8. L'emittente adempie separatamente a quanto promesso e registra l'estinzione affinché le unità adempiute non possano essere riutilizzate.
 
-Prelevare inventario da un Fondo è uno scambio. Costituisce riscatto soltanto se quel Fondo ha assunto separatamente il ruolo di emittente e adempie le condizioni applicabili del buono.
+Prendere l'inventario da un Fondo e' uno scambio. È un rimborso solo se tale Fondo ha assunto separatamente il ruolo di emittente e soddisfa le condizioni applicabili del Buono.
+
+L'attuale configurazione pubblica cerca percorsi attraverso un massimo di tre Fondi e supporta portafogli EOA/Calibur compatibili con l'App. Attualmente non prepara scambi instradati per Safe o altri portafogli a contratto. CLC Core e il portafoglio firmato coordinano l'esecuzione del batch al di sopra dei contratti; il contratto Solidity `SwapRouter` resta di sola quotazione.
 
 ### Modello proposto più ampio
 
-Il modello proposto esplora il routing dell'esecuzione, la compensazione, i servizi condivisi, i programmi di liquidità di rete, le polizze assicurative e gli asset di governance. Ciascun elemento richiederebbe un'implementazione, soggetti responsabili, regole adottate, finanziamento, controlli e informazioni pubbliche prima di poter essere applicato.
+Il progetto proposto esplora l'instradamento HTLC o tramite escrow tra domini, il riequilibrio volontario dei Fondi, la compensazione in batch, servizi condivisi aggiuntivi, programmi di liquidità della rete, polizze assicurative e asset di governance. Ciascuno richiederebbe implementazione, parti responsabili, regole adottate, finanziamento, controlli e informative pubbliche prima di poter essere applicato.
 
 Il modello di commissioni proposto può usare una quota di rete prelevata dalle commissioni del Fondo e commissioni separate di routing o di servizio. Questa proposta è distinta da Protocol v1.1.0, nel quale un'eventuale commissione di protocollo è aggiuntiva rispetto alla commissione del Fondo.
 

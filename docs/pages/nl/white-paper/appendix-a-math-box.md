@@ -7,7 +7,7 @@ Protocol v1.1.0 registreert niet de nakoming van de emittenten, real-world disch
 Voor voucherklasse *j*, cohorte of periode *t* en een aangegeven waarderingsmethode *m*:
 
 - `O_{j,t,m}`: waarde van uitlopende in aanmerking komende verplichtingen bij de meetgrens.
-- `X_{j,t,m}`: waarde van voltooide Fonds swaps gedurende de periode.
+- `X_{j,t,m}`: waarde van voltooide Fondsswaps gedurende de periode.
 - `P_{j,t}`: eenheden die geldig aan de uitgever worden gepresenteerd voor terugbetaling.
 - `F_{j,t}`: gepresenteerde eenheden met afzonderlijk aangetoonde voldoening van de uitgever.
 - `G_{j,t}`: voltooide eenheden met een ontladingsregister die hergebruik voorkomt.
@@ -48,9 +48,9 @@ Beide waarden bewijzen geen maatschappelijke impact, vermogen van de uitgever, w
 
 Laat:
 
-- `PF_t` zijn bruto Poolvergoedingen die tijdens de periode worden gegenereerd;
-- `NR_t` is de voorgestelde netwerkrak die daadwerkelijk werd ontvangen als een openbaar deel van deze Poolvergoedingen;
-- `RF_t` zijn afzonderlijk voorgestelde routing- of servicegeld die daadwerkelijk zijn ontvangen; en
+- `PF_t` zijn de bruto Fondskosten die gedurende de periode worden gegenereerd;
+- `NR_t` is de voorgestelde netwerkafdracht die daadwerkelijk werd ontvangen als een bekendgemaakt aandeel van deze Fondskosten;
+- `RF_t` zijn afzonderlijk voorgestelde routerings- of servicevergoedingen die daadwerkelijk werden ontvangen; en
 - `χ_t` is het gemeten aandeel van de ontvangen inkomsten dat in aanmerking komt en converteerbaar is voor een aangegeven gebruik in contant valuta na kosten en beleidsbeperkingen.
 
 Uit het voorgestelde netwerkbegrotingsperspectief:

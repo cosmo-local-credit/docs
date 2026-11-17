@@ -15,6 +15,10 @@ const root = resolve(import.meta.dirname, '..')
 const pages = join(root, 'docs/pages')
 const i18n = join(root, 'docs/i18n')
 const publicPaper = join(root, 'docs/public/white-paper')
+const routingRollout = JSON.parse(
+  readFileSync(join(i18n, 'routing-rollout.json'), 'utf8'),
+)
+const routingAffectedRoutes = new Set(routingRollout.source.affectedRoutes)
 // Snapshot of the clc-app registry at the synchronization baseline below.
 // Keeping it here makes CI independent of the sibling repository while still
 // failing if the docs registry omits a known app language.
@@ -44,7 +48,7 @@ const splashLocalizedLocales = locales.slice(1)
 const appBaseline = '79b498f74e615f4a942122f91081f23beb8760ee'
 const protectedNames = [
   'Cosmo-Local Credit', 'CLC App', 'Sarafu Network', 'Grassroots Economics Foundation',
-  'Protocol v1.1.0', 'White Paper v0.8', 'William O. Ruddick', 'Mohamed Sohail',
+  'Protocol v1.1.0', 'White Paper v0.8', 'White Paper v0.9', 'William O. Ruddick', 'Mohamed Sohail',
   'SwapPool', 'SwapRouter', 'Limiter', 'Quoter', 'VoucherFactory', 'PoolFactory',
 ]
 const protectedFormulas = [
@@ -56,6 +60,22 @@ const protectedFormulas = [
 const errors = []
 const sha256 = (value) => createHash('sha256').update(value).digest('hex')
 const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'))
+
+function keepsPreviousRoutingSource(locale, route) {
+  return locale !== 'en' &&
+    routingRollout.locales[locale]?.status === 'pending' &&
+    routingAffectedRoutes.has(route)
+}
+
+if (routingRollout.source.whitePaperVersion !== '0.9') {
+  errors.push('Routing rollout must identify White Paper v0.9 as the English source')
+}
+if (routingRollout.source.publicationDate !== '16 November 2026') {
+  errors.push('Routing rollout has an unexpected English publication date')
+}
+if (Object.keys(routingRollout.locales).sort().join(',') !== locales.sort().join(',')) {
+  errors.push('Routing rollout locale set differs from the documentation locale set')
+}
 
 if (policyDocumentationLocales[0] !== 'en') {
   errors.push('Policy locale registry must list English first')
@@ -211,7 +231,8 @@ function validateTranslation(source, route, english, locale) {
     errors.push(`${route}: missing ${locale} manifest entry`)
     return
   }
-  if (entry.sourceSha256 !== sha256(english)) {
+  const previousRoutingSource = keepsPreviousRoutingSource(locale, route)
+  if (!previousRoutingSource && entry.sourceSha256 !== sha256(english)) {
     errors.push(`${route}: ${locale} English source hash is stale`)
   }
   const translatedPath = localeSource(locale, source)
@@ -226,31 +247,33 @@ function validateTranslation(source, route, english, locale) {
   if (entry.locales?.[locale]?.sha256 !== sha256(translated)) {
     errors.push(`${route}: ${locale} translation hash is stale`)
   }
-  for (const name of protectedNames) {
-    if (english.includes(name) && !translated.includes(name)) {
-      errors.push(`${route}: ${locale} changed protected name ${name}`)
+  if (!previousRoutingSource) {
+    for (const name of protectedNames) {
+      if (english.includes(name) && !translated.includes(name)) {
+        errors.push(`${route}: ${locale} changed protected name ${name}`)
+      }
     }
-  }
-  for (const formula of protectedFormulas) {
-    if (english.includes(formula) && !translated.includes(formula)) {
-      errors.push(`${route}: ${locale} changed protected formula ${formula}`)
+    for (const formula of protectedFormulas) {
+      if (english.includes(formula) && !translated.includes(formula)) {
+        errors.push(`${route}: ${locale} changed protected formula ${formula}`)
+      }
     }
-  }
-  for (const url of new Set(english.match(/https?:\/\/[^\s)>"']+/g) ?? [])) {
-    if (!translated.includes(url)) errors.push(`${route}: ${locale} changed external URL ${url}`)
-  }
-  const englishCode = [...english.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
-  const translatedCode = [...translated.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
-  for (const token of new Set(englishCode)) {
-    if (!translatedCode.includes(token)) errors.push(`${route}: ${locale} changed code token ${token}`)
-  }
-  for (const match of translated.matchAll(/\]\((\/(?!\/)[^)#?]+)([^)]*)\)/g)) {
-    const target = match[1]
-    const publicAsset = target.startsWith('/about/') ||
-      (/^\/white-paper\/.+\.(?:pdf|svg|png|jpe?g)$/i.test(target))
-    const controllingEnglishPolicy = policyRouteSet.has(route) && target === route
-    if (!target.startsWith(`/${locale}/`) && !publicAsset && !controllingEnglishPolicy) {
-      errors.push(`${route}: ${locale} has an unlocalized internal link ${target}`)
+    for (const url of new Set(english.match(/https?:\/\/[^\s)>"']+/g) ?? [])) {
+      if (!translated.includes(url)) errors.push(`${route}: ${locale} changed external URL ${url}`)
+    }
+    const englishCode = [...english.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
+    const translatedCode = [...translated.matchAll(/`([^`\n]+)`/g)].map((match) => match[1]).sort()
+    for (const token of new Set(englishCode)) {
+      if (!translatedCode.includes(token)) errors.push(`${route}: ${locale} changed code token ${token}`)
+    }
+    for (const match of translated.matchAll(/\]\((\/(?!\/)[^)#?]+)([^)]*)\)/g)) {
+      const target = match[1]
+      const publicAsset = target.startsWith('/about/') ||
+        (/^\/white-paper\/.+\.(?:pdf|svg|png|jpe?g)$/i.test(target))
+      const controllingEnglishPolicy = policyRouteSet.has(route) && target === route
+      if (!target.startsWith(`/${locale}/`) && !publicAsset && !controllingEnglishPolicy) {
+        errors.push(`${route}: ${locale} has an unlocalized internal link ${target}`)
+      }
     }
   }
   if (route === '/governance/terms') {
@@ -277,7 +300,8 @@ function validateTranslation(source, route, english, locale) {
     errors.push(`${route}: ${locale} is missing the White Paper translation notice`)
   }
   if (route === '/white-paper') {
-    const localizedPdf = `/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-${locale}.pdf`
+    const version = routingRollout.locales[locale].whitePaperVersion.replace(/^0\./, '')
+    const localizedPdf = `/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v${version}-${locale}.pdf`
     if (!translated.includes(`href="${localizedPdf}"`)) {
       errors.push(`${route}: ${locale} is missing its localized White Paper PDF link`)
     }
@@ -339,7 +363,9 @@ for (const [route, mapping] of Object.entries(headingMap)) {
   const count = mapping.en?.length
   const routeLocales = policyRouteSet.has(route) ? policyDocumentationLocales : documentationLocales
   for (const locale of routeLocales) {
-    if (!Array.isArray(mapping[locale]) || mapping[locale].length !== count) {
+    if (!Array.isArray(mapping[locale])) {
+      errors.push(`${route}: ${locale} heading mapping is missing`)
+    } else if (!keepsPreviousRoutingSource(locale, route) && mapping[locale].length !== count) {
       errors.push(`${route}: ${locale} heading mapping differs from English`)
     }
   }
@@ -347,7 +373,8 @@ for (const [route, mapping] of Object.entries(headingMap)) {
 
 for (const locale of documentationLocales) {
   const suffix = locale === 'en' ? '' : `-${locale}`
-  const pdf = join(publicPaper, `Cosmo-Local-Credit-CLC-White-Paper-v8${suffix}.pdf`)
+  const version = routingRollout.locales[locale].whitePaperVersion.replace(/^0\./, '')
+  const pdf = join(publicPaper, `Cosmo-Local-Credit-CLC-White-Paper-v${version}${suffix}.pdf`)
   if (!existsSync(pdf)) errors.push(`${locale}: missing current White Paper PDF`)
   const tex = locale === 'en'
     ? join(root, 'white-paper/clc_white_paper.tex')

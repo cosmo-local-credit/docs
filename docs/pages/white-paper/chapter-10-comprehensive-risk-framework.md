@@ -63,10 +63,12 @@ For a future deployment of the proposed CLC governance token, the capture test w
 
 ### **10.7 Routing and cross-domain risk**
 
-- **Threats:** partial execution, stuck hops, bridge or escrow exploits, stale quotes, path inflation, and front-running of announced value changes.
-- **Indicators:** route-expiry rates, escrow backlogs, quote-to-execution differences, repeated unnecessary hops, and bridge incidents.
-- **Possible controls:** atomic execution where available; conservative HTLC or escrow timeouts; path and counterparty policies; route-level caps; deterministic quote-to-receipt mapping; and accountable service operators.
-- **Stress tests:** a bridge halt, chain reorganization, dependency outage, and one failed hop in a proposed multi-hop route.
+- **Current same-chain threats:** stale discovery data, insufficient inventory, limit or admission changes, quote expiry, unsupported wallets or dependencies, simulation failure, relay failure, chain reorganization, and path inflation.
+- **Current controls and evidence:** pinned-block authoritative quotes, complete-batch simulation, per-hop minimum outputs and deadlines, a signed Calibur batch with `revertOnFailure`, deterministic grouped receipts, reconciliation, and explicit failure codes. These controls reduce selected execution risks but do not guarantee availability or issuer fulfillment.
+- **Proposed cross-domain threats:** partial execution across domains, stuck hops, bridge, HTLC or escrow exploits, timeout mismatch, and recovery disputes.
+- **Indicators:** route discovery and quote outcomes, quote-to-execution differences, route depth, simulation failures, reversions, reconciliation failures, repeated unnecessary hops, and—for future cross-domain systems—escrow backlogs and bridge incidents.
+- **Possible additional controls:** path and counterparty policies; route-level caps; accountable service operators; and conservative HTLC or escrow timeout, abort, and recovery rules.
+- **Stress tests:** stale graph state, dependency outage, one failed hop in the current atomic batch, a chain reorganization, and—for a future cross-domain route—a bridge halt or expired escrow.
 - **Risk appetite:** low to moderate only for identified and monitored dependencies.
 
 ### **10.8 Custody and key-management risk**

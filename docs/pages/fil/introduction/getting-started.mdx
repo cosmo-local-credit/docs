@@ -50,24 +50,45 @@ Ang Pool ng Pangako ay isang kaayusang may pamamahala. Maaaring maghawak ang kas
 
 Inililipat ng deposit ang mga asset sa `SwapPool`. Hindi nagmi-mint ang Protocol v1.1.0 ng Pool-share token at hindi nito awtomatikong binibigyan ang nagdeposito ng karapatan sa pagbabayad, withdrawal, reward, o pamamahala.
 
-### 5. Gamitin ang tamang kilos
+### 5. Direktang magpalitan o gumamit ng ruta
 
-- **“Ipadala”** ay naglilipat ng balanse ng token sa ibang address.
-- **Palitan sa Pool** ay nagpapalit ng isang suportadong asset para sa isa pa sa pamamagitan ng isang `SwapPool`. Ang on-chain swap settlement ay hindi patunay na tumupad ang tagapag-isyu.
-- **“Tubusin”** ay nagbubukas ng daloy ng pagpapadala na nakalagay na ang address ng may-ari ng token. Inihaharap o ibinabalik nito ang voucher sa tagapag-isyu; kailangan din sa ganap na pagtubos ang ipinangakong pagtupad ng tagapag-isyu at isang discharge record na pumipigil sa muling paggamit.
-- **“Retire voucher”** ay nagtatago sa listing sa catalog. Hindi nito sinusunog ang mga balanse, kinakansela ang voucher, o winawakasan ang natitirang obligasyon ng tagapag-isyu.
-- **Pag-withdraw ng liquidity ng Pool** ay nagpapahintulot sa may-ari ng Pool na ilipat ang available na inventory.
-- **Pagkolekta ng bayarin** ay nagpapadala ng naipong bayarin ng Pool sa naka-configure na tatanggap.
+Maaaring gamitin ng view na **Kredito** ang mga Voucher sa iyong Wallet upang maghanap ng ibang Voucher na maaari mong makuha. Maaaring kailanganin ang isang palitan sa Pool, o isang ruta sa maraming Pool na magkakahiwalay ang pamamahala. Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong deployment.
 
-Tingnan ang [praktikal na halimbawa ng voucher](/fil/introduction/example) para sa buong lifecycle.
+Upang palitan:
+
+1. piliin ang **Kunin** para sa Voucher na gusto mo, o **Gastusin** para sa Voucher na nais mong gamitin;
+2. suriin ang **Magbayad gamit ang** at ang **Tantiya**;
+3. buksan ang **Mga detalye ng ruta** upang makita ang bawat Pool, palitan, halaga, bayarin sa Pool, at bayarin sa protocol;
+4. piliin ang **Suriin**, tingnan ang minimum na matatanggap at ang pag-expire ng quote, at piliin ang **Kumpirmahin ang palitan**; at
+5. mag-sign sa handa na wallet batch.
+
+Hinahanap ng CLC Core ang mga posibleng ruta mula sa naka-index na impormasyon tungkol sa mga Pool at Voucher. Tantiya lamang ang pagtuklas. Bago pumirma ang gumagamit, binabasa ng CLC Core ang kaugnay na kalagayan ng mga Pool sa iisang pinned block, gumagawa ng may-awtoridad na quote, nagtatakda ng minimum na output at deadline sa bawat hop, at sini-simulate ang buong batch. Walang hiwalay na route-service fee ang App sa kasalukuyan; maaari pa ring maningil ang bawat hop ng naka-configure na bayarin sa Pool at karagdagang bayarin sa protocol.
+
+Isinusumite ang pinirmahang ruta bilang isang same-chain na transaksyon. Iisang Wallet na katugma sa App ang ginagamit sa bawat hop. Kung mabigo ang anumang approval o palitan sa Pool, babalik ang buong transaksyon at walang naunang hop na mananatiling settled. Pinagsasama ng resibo ang ruta sa iisang tracking ID at ipinapakita ang status, transaction hash, bawat Pool, settled na halaga, at mga bayarin sa Pool at protocol sa bawat hop.
+
+Maaaring walang ruta kung walang kwalipikadong input Voucher ang Wallet, hindi tinatanggap ng isang Pool ang token, lalampas sa token-balance cap ng Pool, kulang ang output inventory, hindi suportado ang quoter o token, o luma o hindi available ang route service. Maaari ring mag-expire ang quote, mawalan ng bisa dahil nagbago ang kalagayan ng Pool, bumagsak sa huling simulation, o mag-revert on-chain. I-refresh ang ruta at suriin ang bagong quote sa halip na ipalagay na may bisa pa ang naunang tantiya.
+
+Sinusuportahan ng kasalukuyang routed execution ang mga EOA/Calibur Wallet na katugma sa CLC App. Hindi ito naghahanda ng routed exchange para sa Safe o ibang contract Wallet.
+
+### 6. Gamitin ang tamang pagkilos
+
+- **Ipadala** ang paglilipat ng balanse ng token sa ibang address.
+- **Palitan sa Pool** ang pagpapalit ng isang suportadong asset para sa iba sa pamamagitan ng isang `SwapPool`. Maaari itong direktang palitan o isang hop sa routed exchange. Hindi pinatutunayan ng on-chain swap settlement na tumupad na ang tagapag-isyu.
+- **Routed exchange** ang pagpapatupad ng sunod-sunod na palitan sa Pool sa isang bounded, same-chain na transaksyon ng Wallet. Hindi nito pinagsasama ang pamamahala ng mga Pool o ginagawang responsable ang route operator sa pagtupad ng tagapag-isyu.
+- **“Tubusin”** ang pagbubukas ng flow na Ipadala na nakahanda na ang address ng may-ari ng token. Inihaharap o ibinabalik nito ang Voucher sa tagapag-isyu; kailangan pa ring tuparin ng tagapag-isyu ang pangako at mag-iwan ng discharge record na pumipigil sa muling paggamit.
+- **“I-retire ang Voucher”** ang pagtatago ng listing sa catalog. Hindi nito sinusunog ang balanse, kinakansela ang Voucher, o pinapawi ang hindi pa natutupad na obligasyon ng tagapag-isyu.
+- **Ang pag-atras ng likididad sa Pool** ay nagbibigay-daan sa may-ari ng Pool na ilipat ang magagamit na imbentaryo.
+- **Pagkolekta ng Bayad** ipinapadala ang natamo na mga bayarin sa Pool sa naka-configure na tatanggap.
+
+Tingnan ang [halimbawa ng praktikal na Voucher](/fil/introduction/example) para sa buong siklo ng buhay.
 
 ## Kasalukuyan, nakadepende sa deployment, at iminungkahing kakayahan
 
-Ang kasalukuyang App ay may Pamilihan at mga suportadong daloy para sa mga account, Wallet, voucher, Offering, Pool, transfer, direktang palitan sa Pool, at kaugnay na mga tala. Nakadepende ang availability sa aktibong deployment, asset, configuration ng Pool, device, network, eligibility, provider, hurisdiksiyon, at inilathalang tuntunin.
+Ang kasalukuyang App ay nagbibigay ng isang Pamilihan at sinusuportahan ang mga daloy para sa mga account, wallet, voucher, Offerings, Pool, transfer, direktang Pool swaps, application-level routed exchanges, at kaugnay na mga talaan. Ang availability ay nakasalalay sa aktibong deployment, asset, Pool configuration, inventory, wallet type, device, network, eligibility, provider, jurisdiction, at nai-publish na mga tuntunin.
 
 Nakadepende sa deployment ang mga serbisyo sa pagbabayad, paraan ng pagsuporta, reward, garantiya, kaayusan ng kontribusyon, at iba pang integration ng provider. Dapat ilahad kung sino ang may pananagutan, ang mga bayarin, limitasyon, eligibility, at legal na tuntunin kung saan iniaalok ang mga ito.
 
-Nagbibigay ang Protocol v1.1.0 ng direktang pagpapatupad sa Pool at isang `SwapRouter` na para lamang sa quote. Ang multi-hop execution, HTLC o escrow routing, batch netting, shared insurance, iminungkahing governance asset, network liquidity program, at regulated payment rail ay nananatiling iminungkahi o nakadepende sa deployment maliban kung tukoy na sinasabi ng isang deployment na aktibo ang mga ito.
+Nagbibigay ang Protocol v1.1.0 ng direktang execution sa Pool at isang quote-only na Solidity `SwapRouter`. Sa ibabaw ng mga contract na ito, nagbibigay ang production CLC App at CLC Core ng same-chain multi-hop route discovery, may-awtoridad na quote, paghahanda ng Wallet batch, simulation, relay, at grouped receipt. Hindi naging execution contract ang Solidity `SwapRouter`. Nananatiling iminungkahi o nakadepende sa deployment ang cross-chain HTLC o escrow routing, awtomatikong Pool rebalancing, batch netting, shared insurance, iminungkahing governance asset, network liquidity program, at regulated payment service, maliban kung malinaw na pinagana ng isang deployment.
 
 Ang anumang pautang o iba pang credit product sa hinaharap ay nangangailangan ng hiwalay na supplemental at transaction terms. Ang karaniwang transfer, deposit sa Pool, palitan sa Pool, redemption presentment, fulfillment, o discharge ay hindi awtomatikong pautang, advance, o pagbabayad ng utang.
 

@@ -10,10 +10,13 @@ Esta página define los términos utilizados en toda la documentación. Las etiq
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | La familia de productos: el CLC App, su documentación y el trabajo más amplio de compromiso compartido. |
 | **CLC App** | La aplicación web progresiva en [cosmolocal.credit](https://cosmolocal.credit) GEF opera esta interfaz y sus servicios de apoyo. |
+| **CLC Core** | El servicio de apoyo de la CLC App para catálogos, estado indexado de la cadena, descubrimiento de rutas, cotizaciones autorizadas, coordinación del relé y recibos de intercambios enrutados. No es un contrato inteligente ni un Gestor de Fondo. |
 | **Protocolo de agrupación de compromisos (CPP)** | El modelo reutilizable de curación, valoración, limitación, intercambio y gobernanza responsable. |
 | **Protocol v1.1.0** | La publicación verificada del contrato inteligente público documentada en el [Referencia al protocolo](/es/protocol/overview). |
 | **Fondo de Compromisos** | Un acuerdo gobernado que selecciona activos, publica reglas y permite el intercambio. **Fondo** es la forma abreviada habitual. |
 | **`SwapPool`** | El contrato actual del Protocolo que mantiene el inventario de tokens y ejecuta intercambios directos. Es un componente técnico de un Fondo de Compromisos. |
+| **`SwapRouter` Solidity** | El contrato de Protocol v1.1.0 que calcula una cotización para un camino propuesto entre varios Fondos. No custodia activos ni ejecuta la ruta. |
+| **Flujo de enrutamiento de la aplicación** | El proceso actual de la CLC App y CLC Core que descubre, cotiza y simula caminos en la misma cadena, prepara un lote firmado para la billetera, lo retransmite y agrupa los registros de liquidación de los Fondos en un solo recibo. |
 | **Se propone el token de gobernanza CLC** | Un diseño de gobernanza futuro en el Libro Blanco. No es un activo actual de aplicación o Protocol v1.1.0. |
 | **Propósito de red CLC propuesto** | Un futuro diseño de compensación y coordinación a nivel de red. No es lo mismo que una `SwapPool` actual. |
 
@@ -63,6 +66,10 @@ memberMiembro de la Comunidad” es un lenguaje social informal. Por sí solo no
 | **“Retirar vale”** | Esconda un vale del catálogo de aplicaciones. Los balances y el historial permanecen, y un administrador puede restaurar la lista. No es una quema o cancelación. |
 | **Depósito o contribución del grupo** | Transferir activos en un `SwapPool`. Los derechos a reembolso, retiro, recompensas o gobernanza sólo existen cuando se divulgan por separado. |
 | **Intercambio de Fondos** | Cambiar un activo apoyado por otro a través de un `SwapPool`. Esto no es el cumplimiento del emisor ni automáticamente un préstamo. |
+| **Descubrimiento de rutas** | Buscar caminos posibles desde los vales admisibles de una billetera hasta un vale objetivo, mediante las relaciones configuradas entre Fondos. El descubrimiento es una estimación, no una promesa ejecutable. |
+| **Cotización de ruta** | Un cálculo autorizado y limitado en el tiempo para un camino seleccionado, basado en el estado de los Fondos leído en un mismo bloque fijado y simulado antes de la firma. |
+| **Intercambio enrutado** | Una secuencia ordenada de intercambios de Fondo que la CLC App presenta como un solo lote de billetera en la misma cadena. En el flujo actual, todos los llamados se revierten si uno falla. |
+| **Recibo de intercambio enrutado** | Un registro agrupado con el estado de seguimiento, el hash de la transacción, los pasos de la ruta, los importes liquidados y las comisiones del Fondo y del protocolo en cada paso. |
 | **Retiro de liquidez del grupo** | El propietario del Fondo transfiere el inventario disponible a una dirección seleccionada. |
 | **Recaudación de las tarifas** | Un destinatario configurado recauda las tasas acumuladas del Fondo. |
 
@@ -82,7 +89,15 @@ Mantenga estos términos de valor separados:
 
 La etiqueta de la aplicación **“Límite de crédito”** se refiere al límite de saldo de tokens configurado de un grupo: el importe máximo de ese token que el grupo puede mantener después de un depósito. No se trata de una línea de crédito personal, una verificación de la capacidad del emisor o una garantía de redención. Los límites de movilidad, de contabilidad y de red propuestos en el Libro Blanco son mecanismos diferentes.
 
-El actual Protocol v1.1.0 puede cobrar una **comisión del Fondo** y otra **comisión del protocolo** adicional. El modelo propuesto en el Libro Blanco describe por separado una futura **comisión de red** tomada de las comisiones de los Fondos, además de posibles comisiones de enrutamiento o de servicio. Estos modelos no deben combinarse al explicar los cargos actuales ni al calcular ingresos futuros.
+Protocol v1.1.0 puede cobrar actualmente una **comisión del Fondo** y una **comisión de protocolo** adicional por cada intercambio de Fondo. Un intercambio enrutado detalla esas comisiones en cada paso. El flujo de enrutamiento actual de la CLC App no añade una comisión independiente por el servicio de enrutamiento. El modelo propuesto en el Libro Blanco describe por separado un futuro **porcentaje para la red** tomado de las comisiones de los Fondos, además de posibles comisiones de enrutamiento o servicio. Estos modelos no deben combinarse al explicar los cargos actuales ni al calcular ingresos futuros.
+
+## Rutas y liquidez
+
+Una **ruta** es un camino ordenado a través de uno o más Fondos gobernados de forma independiente. La **profundidad de la ruta** es el número de intercambios de Fondo que contiene. El despliegue público actual busca hasta tres pasos.
+
+La **liquidez disponible** es el inventario de salida admisible que un Fondo puede proporcionar dadas sus condiciones actuales de admisión, límite de saldo, cotización, comisiones y reservas. Una conexión en el grafo no demuestra por sí sola que una cantidad útil pueda atravesarla. El descubrimiento de rutas puede quedar obsoleto; la cotización posterior, calculada en un bloque fijado, solo es válida hasta su vencimiento o hasta que cambie un estado pertinente.
+
+La ejecución de la ruta actual la inicia la billetera en una misma cadena. No reúne la gobernanza de los Fondos, no reequilibra automáticamente su inventario, no compensa obligaciones entre varias partes y no prueba el cumplimiento real del emisor. El enrutamiento intercadena mediante HTLC o depósito en garantía, el reequilibrio automático y la compensación por lotes siguen siendo propuestas o dependen del despliegue.
 
 ## Protecciones y pruebas
 

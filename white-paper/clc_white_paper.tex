@@ -28,7 +28,7 @@
 
 \title{Cosmo-Local Credit (CLC): A Network for Routing Credit, Coordinating Commitments, and Financing a Healthy Cosmo-Local Economy}
 \author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
-\date{Version 0.8 --- 30 September 2026}
+\date{Version 0.9 --- 16 November 2026}
 
 \begin{document}
 \maketitle
@@ -49,9 +49,9 @@ Cosmo-local means sharing open standards, software, and knowledge globally while
 \section*{Front Matter and Key Concepts}
 \addcontentsline{toc}{section}{Front Matter and Key Concepts}
 
-\textbf{Version:} 0.8
+\textbf{Version:} 0.9
 
-\textbf{Date:} 30 September 2026
+\textbf{Date:} 16 November 2026
 
 \textbf{Intended audience:} Pool builders and Stewards, protocol engineers and auditors, liquidity and mandate funders, governance designers, and legal or compliance reviewers.
 
@@ -72,12 +72,12 @@ Status & Meaning \\
 \bottomrule
 \end{longtable}
 
-Current Protocol v1.1.0 includes direct \texttt{SwapPool} execution, optional curation, valuation, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only \texttt{SwapRouter}. Multi-hop execution, HTLC or escrow routing, batch netting, shared insurance, the proposed CLC governance token, the proposed CLC Network Pool, fee-credit mechanisms, and network liquidity programs are proposed or deployment-dependent.
+Current Protocol v1.1.0 includes direct \texttt{SwapPool} execution, optional curation, valuation, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only Solidity \texttt{SwapRouter}. The production CLC App and CLC Core provide same-chain route discovery, pinned-block quoting, simulation, signed atomic wallet-batch execution through as many as three Pools, and grouped receipts. Cross-chain HTLC or escrow routing, automatic Pool rebalancing, batch netting, shared insurance, the proposed CLC governance token, the proposed CLC Network Pool, fee-credit mechanisms, and network liquidity programs are proposed or deployment-dependent.
 
 \section*{Current deployment}
 \addcontentsline{toc}{section}{Current deployment}
 
-GEF operates the CLC App at \href{https://cosmolocal.credit}{cosmolocal.credit}. It provides account and wallet access, a public Market catalog, and supported interfaces for tokens, vouchers, Offerings, Commitment Pools, transfers, and direct Pool swaps. Availability depends on the interface, contracts, inventory, configured limits and fees, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
+GEF operates the CLC App at \href{https://cosmolocal.credit}{cosmolocal.credit}. It provides account and wallet access, a public Market catalog, and supported interfaces for tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, direct Pool swaps, and application-level routed exchanges. CLC Core supports route discovery, authoritative quotes, transaction simulation, relay coordination, chain reconciliation, and grouped receipts. Availability depends on the interface, contracts, inventory, configured limits and fees, wallet type, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
 
 Operating the interface does not by itself make GEF an issuer, Pool Steward, custodian, lender, borrower, broker, guarantor, redeemer, adviser, insurer, or party to obligations between participants. Use of the App is governed by the \href{https://docs.cosmolocal.credit/governance/terms}{Terms of Service}.
 
@@ -121,23 +121,27 @@ The digital layer is shared memory and coordination infrastructure. It is not a 
 \section*{Current and proposed flows}
 \addcontentsline{toc}{section}{Current and proposed flows}
 
-\subsection*{Current direct Pool flow}
-\addcontentsline{toc}{subsection}{Current direct Pool flow}
+\subsection*{Current direct or routed Pool flow}
+\addcontentsline{toc}{subsection}{Current direct or routed Pool flow}
 
 \begin{enumerate}[leftmargin=*]
 \item A holder reviews a voucher, its issuer, its terms, and associated Offerings.
 \item A Pool admits supported assets and publishes its configuration and responsible authorities.
-\item The holder obtains a quote and authorizes a direct Pool swap.
-\item \texttt{SwapPool} performs on-chain swap settlement and accounts for Pool and protocol fees.
+\item The holder may use the \textbf{Credit} view to discover a direct swap or a route through several independently governed Pools.
+\item CLC Core reads the selected Pools at one pinned block, produces a time-bounded quote, itemizes each hop's Pool and protocol fees, simulates the complete batch, and prepares the calls for the holder's wallet.
+\item The holder reviews and signs. The App relays one same-chain transaction whose complete batch reverts if any call fails.
+\item Each \texttt{SwapPool} performs its own on-chain settlement. The App groups the transaction status, hops, settled amounts, and fees into one routed-exchange receipt.
 \item If the holder later chooses \textbf{``Redeem''} in the App, the App prepares a transfer to the token owner as redemption presentment.
 \item The issuer separately performs the promised fulfillment and records discharge so fulfilled units cannot be reused.
 \end{enumerate}
 Taking inventory from a Pool is a swap. It is redemption only if that Pool has separately assumed the issuer role and fulfills the applicable voucher terms.
 
+The current public route configuration searches up to three Pool swaps and supports App-compatible EOA/Calibur wallets. It does not currently prepare routed exchanges for Safes or other contract wallets. The Solidity \texttt{SwapRouter} remains quote-only; CLC Core and the signed wallet batch coordinate execution above the contracts.
+
 \subsection*{Wider proposed design}
 \addcontentsline{toc}{subsection}{Wider proposed design}
 
-The proposed design explores execution routing, netting, shared services, network liquidity programs, insurance policies, and governance assets. Each would require implementation, responsible parties, adopted rules, funding, controls, and public disclosures before it could apply.
+The proposed design explores cross-domain HTLC or escrow routing, opt-in Pool rebalancing, batch netting, additional shared services, network liquidity programs, insurance policies, and governance assets. Each would require implementation, responsible parties, adopted rules, funding, controls, and public disclosures before it could apply.
 
 The proposed fee model may use a network rake taken from Pool fees and separate routing or service fees. That proposal is distinct from Protocol v1.1.0, where an optional protocol fee is additional to the Pool fee.
 
@@ -164,7 +168,7 @@ Supporters or liquidity providers receive no automatic Pool shares, repayment, w
 
 The \textbf{Commitment Pooling Protocol (CPP)} describes how independently governed Commitment Pools can curate redeemable commitments, publish exchange-rate methods and limits, hold inventory, and enable accountable exchange. Issuers remain responsible for their voucher commitments. Pool Stewards remain responsible for Pool rules and any guarantee they expressly assume. Neither the CLC App nor GEF is a universal guarantor.
 
-Protocol v1.1.0 provides current direct-swap building blocks: \texttt{GiftableToken}, \texttt{SwapPool}, optional registries and valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only \texttt{SwapRouter}. The current contracts do not record real-world fulfillment, create automatic liquidity-provider shares, execute multi-hop routes, or provide universal reserves, guarantees, or insurance.
+Protocol v1.1.0 provides current direct-swap building blocks: \texttt{GiftableToken}, \texttt{SwapPool}, optional registries and valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only Solidity \texttt{SwapRouter}. The production CLC App and CLC Core now discover same-chain routes through as many as three Pools, produce pinned-block quotes, simulate and prepare signed atomic wallet batches, relay them, and group their settlement records. The contracts still do not record real-world fulfillment, create automatic liquidity-provider shares, perform cross-chain routing or batch netting, or provide universal reserves, guarantees, or insurance.
 
 The historic \textbf{Sarafu Network} used commitment-pooling concepts across community currencies, savings groups, mutual-aid systems, and production commitments. Its service later transitioned to the CLC App. This was not a representation that every historic account, wallet, token, voucher, Pool, balance, report, participant, or obligation migrated.
 
@@ -183,14 +187,14 @@ The historic \textbf{Sarafu Network} used commitment-pooling concepts across com
 \end{itemize}
 These figures are historical evidence, not current CLC usage figures.
 
-The wider proposed CLC design explores how compatible networks could:
+The wider CLC design combines current routing with proposals for how compatible networks could:
 
 \begin{enumerate}[leftmargin=*]
-\item discover and quote paths across independently governed Pools;
+\item extend accountable route services across additional registry or policy profiles and domains;
 \item coordinate accountable network services without overriding local responsibility;
 \item support separately funded liquidity mandates, guarantees, reserves, or insurance policies;
 \item measure Pool swaps separately from voucher presentment, fulfillment, and discharge; and
-\item use a proposed network rake and service fees to fund adopted shared services.
+\item use a proposed network rake and separately adopted service fees to fund shared services.
 \end{enumerate}
 The proposal includes a \textbf{proposed CLC governance token} and a \textbf{proposed CLC Network Pool}. Neither is part of the current App or Protocol v1.1.0.
 
@@ -229,7 +233,7 @@ Relevant roles and authorities include:
 \item \textbf{Pool owner:} holds current \texttt{SwapPool} owner powers;
 \item \textbf{proxy administrator:} can upgrade a proxied implementation;
 \item \textbf{dependency controllers:} govern configured registries, quoters, limiters, or fee components;
-\item \textbf{route finder or operator:} may discover quotes or, in a future implementation, execute a separately authorized route; and
+\item \textbf{route service operator:} may discover, quote, simulate, prepare, relay, and record a separately authorized route within its published scope; and
 \item \textbf{guarantor:} assumes a defined obligation only through published, funded terms.
 \end{itemize}
 CPP groups Pool functions into four concepts:
@@ -240,9 +244,11 @@ CPP groups Pool functions into four concepts:
 \item \textbf{Limitation:} apply current Pool token-balance caps or other separately implemented controls.
 \item \textbf{Exchange:} hold inventory, execute swaps, account for fees, and emit transaction records.
 \end{itemize}
-Protocol v1.1.0 implements these functions through \texttt{SwapPool} and optional dependencies. Its current \texttt{Limiter} caps a token balance at a Pool; it does not provide rolling, per-account, or network-wide swap limits. Its current \texttt{SwapRouter} calculates multi-Pool quotes; it does not execute swaps.
+Protocol v1.1.0 implements these functions through \texttt{SwapPool} and optional dependencies. Its current \texttt{Limiter} caps a token balance at a Pool; it does not provide rolling, per-account, or network-wide swap limits. Its current Solidity \texttt{SwapRouter} calculates multi-Pool quotes; it does not execute swaps.
 
-The wider proposed CPP design may add rolling limits, account controls, execution routers, HTLC or escrow paths, and batch netting. Those are proposed components, not descriptions of the current limiter or router.
+The production CLC App and CLC Core implement application-level same-chain routing above those contracts. CLC Core discovers paths, reads the selected Pools at a pinned block, prepares and simulates a signed Calibur wallet batch, coordinates relay, and groups the resulting settlement records. The current public configuration searches up to three Pool swaps. Every Pool remains independently governed, and each hop still executes directly through its own \texttt{SwapPool}.
+
+The wider proposed CPP design may add rolling limits, account controls, cross-domain HTLC or escrow paths, automatic Pool rebalancing, and batch netting. Those are proposed components, not descriptions of the current limiter, Solidity router, or App/Core route flow.
 
 \subsection*{1.3 Current direct-swap logic}
 \addcontentsline{toc}{subsection}{1.3 Current direct-swap logic}
@@ -356,14 +362,14 @@ This structure could permit agreed in-kind repayment while preserving separate r
 \section*{5. From isolated Pools to a federated network}
 \addcontentsline{toc}{section}{5. From isolated Pools to a federated network}
 
-Current Protocol v1.1.0 supports direct execution through one \texttt{SwapPool} and provides a quote-only \texttt{SwapRouter}. It does not execute multi-hop routes, HTLCs, escrow routes, batch netting, or cross-network clearing.
+Current Protocol v1.1.0 supports direct execution through one \texttt{SwapPool} and provides a quote-only Solidity \texttt{SwapRouter}. The production CLC App and CLC Core coordinate participant-initiated same-chain routes through as many as three Pools by preparing one signed Calibur wallet batch. The contracts do not themselves execute a multi-hop route, and the current App/Core flow does not provide cross-chain HTLCs, escrow routes, automatic Pool rebalancing, batch netting, or cross-network clearing.
 
-This chapter proposes how independently governed Pools could coordinate without giving up their own admission, valuation, limit, fee, inventory, authorization, and governance rules.
+This chapter explains the current participant route and distinguishes it from proposed coordination that would require new Pool authority. In both cases, independent Pools retain their own admission, valuation, limit, fee, inventory, authorization, and governance rules.
 
 \subsection*{5.1 Separate exchange and fulfillment measures}
 \addcontentsline{toc}{subsection}{5.1 Separate exchange and fulfillment measures}
 
-Federation might improve access to inventory, but it would not merge the voucher and exchange lifecycles. Any implementation would measure these events separately:
+Routing can improve access to inventory, but it does not merge the voucher and exchange lifecycles. Measurement should keep these events separate:
 
 \begin{enumerate}[leftmargin=*]
 \item a route is quoted;
@@ -374,22 +380,26 @@ Federation might improve access to inventory, but it would not merge the voucher
 \end{enumerate}
 More quoted or executed routes do not prove more fulfillment. Reports would state the cohort, period, assets, valuation method and timestamp, exclusions, corrections, and off-chain evidence required by Appendix C.
 
-\textbf{Illustrative route:} A school holds maize vouchers but needs transport vouchers. A route service identifies compatible Pool inventories. Execution would succeed only if every separately authorized hop remained within its quote bounds, limits, fees, inventory, and policy. The resulting swaps would not prove that either issuer later fulfilled its voucher commitments.
+\textbf{Illustrative route:} A school holds maize vouchers but needs transport vouchers. CLC Core can identify compatible Pool inventories, quote the selected path at one pinned block, and prepare the bounded calls for the school's wallet. Execution succeeds only if every hop remains within its quote bounds, limits, fees, inventory, supported behavior, and policy. The resulting swaps do not prove that either issuer later fulfilled its voucher commitments.
 
-\subsection*{5.2 Proposed routing and rebalancing services}
-\addcontentsline{toc}{subsection}{5.2 Proposed routing and rebalancing services}
+\subsection*{5.2 Current participant routing and proposed rebalancing}
+\addcontentsline{toc}{subsection}{5.2 Current participant routing and proposed rebalancing}
 
-A future route service could support two distinct activities.
+Two activities require different authority.
 
-\textbf{Participant-initiated execution.} Given input and output assets, an amount, and user constraints, the service could identify a path and prepare execution. Each hop would have its own responsible Pool, quote, authorization, fees, limits, inventory, and receipt. Atomic batches, HTLCs, and escrow are possible future execution choices, not current Protocol behavior.
+\textbf{Current participant-initiated execution.} Given input and output vouchers and an amount, CLC Core estimates paths from the participant's eligible holdings. For a selected route, it reads the Pools at one pinned block, produces an authoritative quote, simulates the complete batch, and prepares three calls per hop: allowance reset, allowance grant, and bounded \texttt{SwapPool.withdraw}. The participant signs, and the relayer submits one same-chain Calibur transaction with \texttt{revertOnFailure} enabled. A failed call reverts every route call. The App groups the transaction and per-hop settlement into one receipt.
+
+Each hop retains its own responsible Pool, quote inputs, authorization, fees, limits, inventory, and settlement event. The current App adds no separate route-service fee. The current flow supports App-compatible EOA/Calibur wallets, not Safes or other contract wallets.
 
 \textbf{Opt-in Pool rebalancing.} Pool Stewards could publish inventory targets, allowed counterparties, asset classes, quote-deviation bounds, and per-period limits. An accountable service could search for compatible cycles or chains and execute only the authorized intents.
 
-Rebalancing would be opt-in. A Pool could allow participant routes while refusing outbound rebalancing, or it could enable only selected assets, counterparties, and amounts. Every executed hop would produce a receipt, and any service fee would be disclosed separately from Pool and Protocol fees.
+Rebalancing would be opt-in. A Pool can allow ordinary participant routes without authorizing a service to move inventory for rebalancing. A future mandate could enable only selected assets, counterparties, and amounts. Every executed hop would produce a receipt, and any service fee would be disclosed separately from Pool and Protocol fees.
+
+Cross-chain HTLC or escrow execution is also separate from the current same-chain atomic batch. It would require adopted timeout, abort, controller, recovery, and residual-risk rules.
 
 \subsubsection*{5.2.1 Confederation and interoperability}
 
-Independent deployments could operate their own registries, interfaces, route services, and policy profiles while choosing compatible data and receipt standards. Cross-profile execution would remain deployment-dependent.
+Independent deployments can operate their own registries, interfaces, route services, and policy profiles while choosing compatible data and receipt standards. The current public App uses its configured registry and service profile. Cross-profile execution remains deployment-dependent.
 
 A compatible profile would:
 
@@ -406,6 +416,8 @@ Compatibility can increase available exchange paths and reduce dependency on one
 \addcontentsline{toc}{subsection}{5.3 Proposed network-rake and service-fee model}
 
 Current Protocol v1.1.0 charges a Pool fee and, when configured, an additional Protocol fee on a direct Pool swap. Those current fees remain distinct.
+
+The production routed exchange applies those current fees independently at every hop and itemizes them in the quote and receipt. It does not currently add a separate routing-service fee.
 
 A future program could separately receive:
 
@@ -510,7 +522,9 @@ A future deployment could add circuit breakers, timelocks, reserves, guarantees,
 
 Proposed governance should keep registry and service powers narrow and reviewable. Ordinary actions can use notice, delay, reason publication, appeal, and correction processes. Emergency actions should produce incident records and expire or receive review under an adopted policy.
 
-Compatible route discovery could make more exchanges possible across Pools. Multi-hop execution and netting would require additional software, authorization, bounds, failure handling, and governance. More quoted or executed swaps would not by itself prove voucher fulfillment or social impact.
+The production CLC App and CLC Core now provide compatible route discovery and same-chain multi-hop execution for participant-authorized routes through the configured public profile. Quotes apply per-hop limits, fees, inventory, bounds, and simulation, while one signed wallet batch reverts as a whole if a call fails.
+
+That service does not authorize automatic Pool rebalancing or network-level control of Pool inventory. Rebalancing, batch netting, cross-domain HTLC or escrow execution, and shared liquidity governance would require additional authority, software, bounds, failure handling, and adopted rules. More quoted or executed swaps do not by themselves prove voucher fulfillment or social impact.
 
 
 \section*{7. Proposed CLC stewardship and governance assets}
@@ -690,13 +704,24 @@ No step creates ownership, repayment, withdrawal, coverage, reward, or governanc
 \section*{8. Technical scope and growth}
 \addcontentsline{toc}{section}{8. Technical scope and growth}
 
-This chapter describes optional or proposed work. It is not a list of features guaranteed to be present in the current CLC App or Protocol v1.1.0.
+This chapter separates the current production routing service from optional or proposed growth. A current capability described here remains specific to the public CLC App/Core deployment; it is not automatically a feature of the Protocol v1.1.0 contracts or another deployment.
 
-Possible work areas include:
+The current public deployment includes:
 
 \begin{itemize}[leftmargin=*]
-\item execution routing across compatible Pools, with registry, quote, limit, fee, and inventory discovery;
+\item graph-based discovery of vouchers reachable through compatible Pools;
+\item authoritative pinned-block quotes for selected same-chain routes;
+\item per-hop Pool and protocol fee calculation, minimum outputs, and deadlines;
+\item complete-batch simulation, participant signing, and relayed Calibur execution;
+\item one same-chain transaction that reverts every route call if a call fails; and
+\item grouped receipts and reconciliation of per-hop settlement events.
+\end{itemize}
+Possible growth areas include:
+
+\begin{itemize}[leftmargin=*]
 \item timelocked escrow or HTLC adapters for cross-domain execution where atomic settlement is unavailable;
+\item additional registry or policy profiles and cross-profile routing;
+\item opt-in Pool inventory rebalancing and batch netting;
 \item interfaces and policy tools for small or personal Pools;
 \item auditable registries for vouchers, Pools, exchange-rate methods, limits, controllers, and fees;
 \item deployment-specific payment-provider connectors, checkout flows, and eligibility controls;
@@ -705,18 +730,24 @@ Possible work areas include:
 \end{itemize}
 External-market prices would not determine what an issuer owes under voucher terms. A Pool could use a guarded external reference for a fungible asset, but its published exchange-rate method, limits, fees, and inventory would govern its quotes.
 
-\subsection*{8.1 Proposed route-service and SDK norms}
-\addcontentsline{toc}{subsection}{8.1 Proposed route-service and SDK norms}
+\subsection*{8.1 Current route service and wider norms}
+\addcontentsline{toc}{subsection}{8.1 Current route service and wider norms}
 
-\textbf{Discovery.} A proposed route service would query identified registries for asset admission, exchange-rate methods, limits, fees, inventory, incidents, and controller information. Cached records would include freshness bounds and source identifiers.
+\textbf{Discovery.} CLC Core maintains a reconciled graph from configured catalogs, registry relationships, Pool parameters, fees, limits, balances, and chain events. It estimates what a session wallet can reach and marks stale data. The public configuration searches routes of up to three hops. Discovery is not an executable promise.
+
+\textbf{Authoritative quote.} For a selected route, CLC Core reads the participating Pools at one pinned block and reproduces supported \texttt{SwapPool} arithmetic. It itemizes Pool and protocol fees, sets per-hop minimum outputs and a deadline, prepares the wallet calls, and simulates the complete batch. Unsupported tokens, quoters, wallets, or Pool conditions are refused.
+
+\textbf{Current execution.} The participant signs a Calibur batch containing allowance reset, allowance grant, and bounded withdrawal for every hop. A relayer submits one same-chain transaction with \texttt{revertOnFailure} enabled. This provides transaction-level all-or-nothing behavior for the current route. It is not cross-chain atomicity, HTLC or escrow routing, automatic rebalancing, or netting.
+
+\textbf{Receipts and operations.} The App groups the route under one tracking ID and records transaction status, hop order, Pools, token pairs, quoted and settled amounts, Pool fees, protocol fees, and intermediate remainders. The service monitors graph freshness, route enumeration and quote outcomes, simulation failures, reconciliation duration and corrections, and unresolved or unknown indexed members. Operational telemetry does not prove issuer fulfillment.
 
 \textbf{Network profiles.} A client could support more than one registry root or policy profile. It would tell the participant which profile, counterparties, adapters, constraints, and responsible service operators a quote uses. A cross-profile route would need to satisfy every applicable hop's conditions.
 
 \textbf{Path policy.} An accountable operator could exclude unsafe dependencies or counterparties and apply route-level caps, freshness requirements, and health criteria. These signals would support a decision; they would not guarantee fulfillment or protection from loss.
 
-\textbf{Fees and limits.} A quote would itemize Pool fees, any additional current Protocol fee, and any separately proposed routing or service fee. Execution would reject expired quotes or breached bounds.
+\textbf{Fees and limits.} The current quote itemizes Pool fees and any additional Protocol fee for every hop. The public App currently adds no separate routing-service fee. Any future service fee would be separately disclosed. Execution rejects expired quotes or breached bounds.
 
-\textbf{Atomicity and recovery.} Multi-hop execution would be atomic where possible. Where it used HTLCs or escrow, the service would disclose timeouts, abort paths, responsible controllers, incident procedures, and residual risks.
+\textbf{Cross-domain atomicity and recovery.} Where a future route cannot use the current same-chain atomic batch and instead uses HTLCs or escrow, the service would disclose timeouts, abort paths, responsible controllers, incident procedures, and residual risks.
 
 \textbf{Proposed batch netting and rebalancing.} An opt-in service might collect rebalance intents and search for compatible cycles or chains. It would:
 
@@ -726,7 +757,7 @@ External-market prices would not determine what an issuer owes under voucher ter
 \item reject activity that breaches any participating Pool's authorization, limits, or available inventory; and
 \item preserve deterministic inputs and receipts for review and dispute handling.
 \end{enumerate}
-\textbf{SDK requirements.} An SDK for executed routes would provide deterministic quote-to-receipt mapping, per-hop invariant checks, understandable failure codes, and audit-friendly logs. The current Protocol v1.1.0 \texttt{SwapRouter} provides quotes only; it does not execute these proposed routes.
+\textbf{SDK and interface requirements.} A reusable route integration should provide deterministic quote-to-receipt mapping, per-hop invariant checks, understandable failure codes, and audit-friendly logs. The current production App/Core implementation provides these functions for its own profile. The Protocol v1.1.0 Solidity \texttt{SwapRouter} remains quote-only and does not execute the route.
 
 \subsubsection*{8.1.1 Minimum confederation compatibility specification}
 
@@ -776,6 +807,8 @@ A future network budget could receive:
 \item other expressly adopted, received revenue.
 \end{enumerate}
 Gross Pool fees retained by Pools are not network revenue. Current Protocol v1.1.0 uses a different model: an optional protocol fee is additional to the Pool fee and is sent directly to its configured recipient.
+
+The production CLC App route workflow adds no separate routing-service fee. A routed exchange can still incur a Pool fee and protocol fee at every hop. Those current per-hop charges must not be labeled as the proposed network rake or counted again as future service revenue.
 
 \subsection*{9.2 Illustrative rake math}
 \addcontentsline{toc}{subsection}{9.2 Illustrative rake math}
@@ -890,10 +923,12 @@ For a future deployment of the proposed CLC governance token, the capture test w
 \addcontentsline{toc}{subsection}{10.7 Routing and cross-domain risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Threats:} partial execution, stuck hops, bridge or escrow exploits, stale quotes, path inflation, and front-running of announced value changes.
-\item \textbf{Indicators:} route-expiry rates, escrow backlogs, quote-to-execution differences, repeated unnecessary hops, and bridge incidents.
-\item \textbf{Possible controls:} atomic execution where available; conservative HTLC or escrow timeouts; path and counterparty policies; route-level caps; deterministic quote-to-receipt mapping; and accountable service operators.
-\item \textbf{Stress tests:} a bridge halt, chain reorganization, dependency outage, and one failed hop in a proposed multi-hop route.
+\item \textbf{Current same-chain threats:} stale discovery data, insufficient inventory, limit or admission changes, quote expiry, unsupported wallets or dependencies, simulation failure, relay failure, chain reorganization, and path inflation.
+\item \textbf{Current controls and evidence:} pinned-block authoritative quotes, complete-batch simulation, per-hop minimum outputs and deadlines, a signed Calibur batch with \texttt{revertOnFailure}, deterministic grouped receipts, reconciliation, and explicit failure codes. These controls reduce selected execution risks but do not guarantee availability or issuer fulfillment.
+\item \textbf{Proposed cross-domain threats:} partial execution across domains, stuck hops, bridge, HTLC or escrow exploits, timeout mismatch, and recovery disputes.
+\item \textbf{Indicators:} route discovery and quote outcomes, quote-to-execution differences, route depth, simulation failures, reversions, reconciliation failures, repeated unnecessary hops, and---for future cross-domain systems---escrow backlogs and bridge incidents.
+\item \textbf{Possible additional controls:} path and counterparty policies; route-level caps; accountable service operators; and conservative HTLC or escrow timeout, abort, and recovery rules.
+\item \textbf{Stress tests:} stale graph state, dependency outage, one failed hop in the current atomic batch, a chain reorganization, and---for a future cross-domain route---a bridge halt or expired escrow.
 \item \textbf{Risk appetite:} low to moderate only for identified and monitored dependencies.
 \end{itemize}
 \subsection*{10.8 Custody and key-management risk}
@@ -1120,28 +1155,42 @@ This is an illustrative checklist for a future, separately documented program. I
 \item \textbf{Token:} An on-chain balance or digital asset. Token mechanics alone do not create a redeemable promise.
 \item \textbf{Voucher:} A token or record represented by an issuer as a redeemable commitment under published terms.
 \item \textbf{Offering:} A catalog record for goods or services associated with a voucher.
+\item \textbf{Want:} A published expression of demand. It does not by itself accept an Offering or voucher, authorize a swap, reserve inventory, or create an obligation.
 \item \textbf{Issuer:} The party responsible for publishing and fulfilling a voucher commitment.
 \item \textbf{Pool Steward:} The accountable structure that publishes and administers Pool rules.
+\item \textbf{Registry:} A discovery and permission record for identified contracts, Pools, tokens, or other resources. Inclusion does not by itself establish endorsement, issuer capacity, fulfillment, a guarantee, or insurance.
 \item \textbf{Pool exchange rate or quote:} A transaction parameter produced by a configured quoter; not proof of cash or redemption value.
-\item \textbf{Pool token-balance cap:} The current \texttt{Limiter} maximum for a token held by a Pool. The App may label it \textbf{``Credit limit.''}
+\item \textbf{Value Index:} A relative valuation input used by a configured quoter to calculate a Pool exchange quote. It is not automatically a market price, cash value, or issuer obligation.
+\item \textbf{Limiter:} The optional Protocol v1.1.0 component that sets a maximum token balance for a Pool. The App may label this cap \textbf{``Credit limit.''} It is not a personal borrowing limit or a network-wide rolling limit.
 \item \textbf{Pool swap:} A direct asset exchange through one \texttt{SwapPool}.
+\item \textbf{Route:} An ordered path of one or more Pool swaps from a wallet's input voucher to a target voucher.
+\item \textbf{Route depth:} The number of Pool swaps in a route. The current public deployment searches up to three.
+\item \textbf{Route discovery:} An estimate of possible paths from reconciled graph and wallet-holding data. A discovered path is not an executable promise.
+\item \textbf{Route quote:} A time-bounded authoritative proposal for a selected path, calculated from supported Pool state read at one pinned block and simulated before signing.
+\item \textbf{Routed exchange:} A participant-authorized sequence of Pool swaps. The current App submits it as one same-chain Calibur wallet batch whose calls revert together if one fails.
+\item \textbf{Routed-exchange receipt:} One grouped technical record of route status, transaction hash, hops, settled amounts, and per-hop Pool and protocol fees.
+\item \textbf{Liquidity:} Eligible Pool output inventory available under current admission, balance-cap, quote, fee, reservation, and withdrawal conditions. A graph edge or token balance alone does not prove usable liquidity.
 \item \textbf{Swap settlement:} The on-chain transfers and fee accounting completing a Pool swap.
 \item \textbf{Redemption presentment:} Returning or otherwise presenting voucher units to the issuer.
 \item \textbf{Fulfillment:} The issuer provides the promised good, service, benefit, or other performance.
 \item \textbf{Discharge:} A record preventing fulfilled units from being presented again.
-\item \textbf{Proposed execution router:} Future software that would authorize and execute routes. The current \texttt{SwapRouter} quotes only.
+\item \textbf{Solidity \texttt{SwapRouter}:} The Protocol v1.1.0 quote-only contract. It can calculate across a supplied path but does not custody assets, approve tokens, or execute swaps.
+\item \textbf{Application routing workflow:} The current CLC App and CLC Core service that discover, quote, simulate, prepare, relay, reconcile, and report same-chain routes above the Pool contracts.
+\item \textbf{Rebalancing:} Moving Pool inventory toward adopted targets under a Steward-authorized mandate. Current participant-initiated routing does not itself authorize automatic rebalancing.
+\item \textbf{Clearing or netting:} Combining multiple obligations or intended transfers to calculate reduced net positions. It is not part of the current App/Core routed exchange.
+\item \textbf{Repair:} An accountable process for correcting a configuration, registry record, service failure, dispute, or unmet commitment within an identified authority. Registry or route-service repair does not silently rewrite an independent Pool's rules or discharge an issuer's obligation.
 \item \textbf{Proposed CLC Network Pool:} A future network-level clearing and budget-coordination arrangement.
 \item \textbf{Proposed CLC governance token:} A future governance design, not a current App or Protocol v1.1.0 asset.
 \item \textbf{Network rake:} A proposed share of Pool fees transferred to a future network budget.
 \item \textbf{Guarantee or insurance:} A protection that applies only when an identified party expressly assumes, funds, and publishes it.
 \end{itemize}
 
-\section*{14. Proposed KPIs and health indicators}
-\addcontentsline{toc}{section}{14. Proposed KPIs and health indicators}
+\section*{14. KPIs and health indicators}
+\addcontentsline{toc}{section}{14. KPIs and health indicators}
 
 A deployment should publish a KPI only when it can define the event, source, cohort or period, unit, valuation method and timestamp, exclusions, correction policy, off-chain evidence, and data-quality limitations.
 
-Proposed measures include:
+Current route services can measure discovery, quote, execution, settlement, and reconciliation events. Voucher fulfillment and social outcomes still require separate evidence. Recommended measures include:
 
 \begin{itemize}[leftmargin=*]
 \item valid redemption presentments;
@@ -1150,13 +1199,20 @@ Proposed measures include:
 \item presentment-to-fulfillment latency;
 \item acquisition-to-presentment holding duration;
 \item outstanding eligible commitments under a stated methodology;
-\item completed Pool swap volume;
+\item completed direct Pool swap volume;
+\item route discovery attempts and the number of available candidate routes;
+\item authoritative route-quote attempts, outcomes, depth, expiry, and quoted fees;
+\item routed-exchange attempts, confirmed and reverted routes, and failure reasons;
+\item whole-route input and output volume, counted once per route rather than once per hop;
+\item per-hop settlement amounts, Pool fees, protocol fees, and intermediate remainders;
+\item route constraints, including insufficient liquidity, Pool token-balance caps, unsupported dependencies, and wallet limitations;
+\item graph freshness, reconciliation duration, corrections, and failures;
 \item measured Pool inventory;
 \item Pool token-balance-cap utilization;
-\item quote pass rate, kept separate from route execution rate;
+\item discovery success and quote pass rates, kept separate from route execution and settlement rates;
 \item eligible reserves divided by expressly covered exposure;
 \item guarantor claims and recoveries under an identified policy;
-\item proposed network rake and service fees actually received, without double-counting gross Pool fees;
+\item current per-hop Pool and protocol fees, kept separate from any proposed network rake or future service fees;
 \item governance detection, decision, pause, repair, and closure times;
 \item complaints, disputes, corrections, and remedies; and
 \item separately evidenced social or ecological outcomes.
@@ -1172,9 +1228,11 @@ See \href{https://docs.cosmolocal.credit/white-paper/appendix-c-kpi-definitions}
 \subsection*{15.1 Current foundation}
 \addcontentsline{toc}{subsection}{15.1 Current foundation}
 
-GEF operates the CLC App at \texttt{cosmolocal.credit} on Gnosis Chain. The App provides supported account and wallet access, a public Market catalog, and interfaces for tokens, vouchers, Offerings, Commitment Pools, transfers, and direct Pool swaps.
+GEF operates the CLC App at \texttt{cosmolocal.credit} on Gnosis Chain. The App provides supported account and wallet access, a public Market catalog, and interfaces for tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, direct Pool swaps, and routed exchanges.
 
-Protocol v1.1.0 provides the current contract foundation: \texttt{GiftableToken}, direct \texttt{SwapPool} execution, optional registries, valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only \texttt{SwapRouter}. Availability still depends on the interface, deployed contracts, inventory, configuration, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
+Protocol v1.1.0 provides the current contract foundation: \texttt{GiftableToken}, direct \texttt{SwapPool} execution, optional registries, valuation modules, Pool token-balance caps, Pool fees, an additional protocol fee, and a quote-only Solidity \texttt{SwapRouter}.
+
+CLC Core now provides the public App's same-chain routing and observability foundation: reconciled graph discovery, routes of up to three Pool swaps, pinned-block quotes, per-hop bounds and fees, complete-batch simulation, signed atomic Calibur execution, relay tracking, settlement reconciliation, grouped receipts, and operational metrics. Availability still depends on the interface, supported wallet and token behavior, deployed contracts, inventory, configuration, service freshness, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
 
 \subsection*{15.2 Proposed milestones}
 \addcontentsline{toc}{subsection}{15.2 Proposed milestones}
@@ -1183,13 +1241,13 @@ These named milestones are design directions, not release numbers, delivery date
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Governance Foundation:} proposed CLC governance token; proposed CLC Network Pool; fee adapters; quorum, timelock, and governance foundations.
-\item \textbf{Routing \& Observability:} Router SDK and registry APIs; health dashboards; a proposed insurance-policy framework; opt-in rebalance intents; batch-netting prototype.
+\item \textbf{Routing \& Observability:} extend the current route and receipt interfaces to additional profiles; publish health dashboards and service-level reporting; develop an insurance-policy framework; design opt-in rebalance intents; and prototype batch netting.
 \item \textbf{Cross-Domain Risk Tools:} HTLC or escrow routing; separately governed guarantor modules; rolling, account, and tiered limit presets.
 \item \textbf{Regulated Access:} deployment-specific third-party payment services; personal micro-pools; compliance-service discovery; third-party audits of voucher classes.
 \end{itemize}
 Any payment service would be provided by separately identified third parties under the applicable jurisdiction, eligibility, fees, limits, and terms. The CLC App and Protocol v1.1.0 contracts do not themselves operate fiat rails.
 
-Multi-hop execution, shared insurance, the proposed CLC governance token and proposed CLC Network Pool, batch netting, personal micro-pools, and regulated payment services remain proposed or deployment-dependent until an implementation and its governing terms identify them as active.
+Cross-domain multi-hop execution, automatic Pool rebalancing, shared insurance, the proposed CLC governance token and proposed CLC Network Pool, batch netting, personal micro-pools, and regulated payment services remain proposed or deployment-dependent until an implementation and its governing terms identify them as active. Same-chain participant-initiated routing in the public CLC App is current.
 
 
 \section*{16. Proposed evaluation template}
@@ -1273,9 +1331,9 @@ Features may be restricted or unavailable because of law, sanctions, eligibility
 \section*{18. Conclusion}
 \addcontentsline{toc}{section}{18. Conclusion}
 
-Cosmo-Local Credit connects a current application and Protocol v1.1.0 foundation with a wider proposed design for independently governed Commitment Pools. Current direct Pool swaps, quote and limit components, and public transaction records can support accountable exchange, but they do not prove issuer fulfillment, create contributor rights, or guarantee value, liquidity, redemption, insurance, legal status, or protection from loss.
+Cosmo-Local Credit connects a current application and Protocol v1.1.0 foundation with a wider proposed design for independently governed Commitment Pools. Current direct Pool swaps and App/Core routed exchanges can connect participant-held vouchers through several Pools while preserving per-hop rules, fees, bounds, settlement records, and governance. These transactions do not prove issuer fulfillment, create contributor rights, or guarantee value, liquidity, redemption, insurance, legal status, or protection from loss.
 
-The proposed execution routing, netting, governance assets, network clearing, liquidity programs, and shared protections described in this paper would require separate implementation, funding, governance, and published terms. The design aims to expand interoperability while keeping issuer performance, Pool governance, and real-world accountability with identified parties.
+Proposed cross-domain routing, automatic Pool rebalancing, netting, governance assets, network clearing, liquidity programs, and shared protections would require separate implementation, funding, governance, and published terms. The design aims to expand interoperability while keeping issuer performance, Pool governance, and real-world accountability with identified parties.
 
 
 \section*{A. Proposed measurement and fee model}
@@ -1411,12 +1469,19 @@ KPI & Proposed definition & Required evidence and exclusions \\
 \textbf{Fulfillment latency} & Median and 90th percentile of presentment-to-fulfillment time & Do not substitute issue-to-presentment or acquisition-to-presentment holding time \\
 \textbf{Holding duration} & Median and distribution of acquisition-to-presentment time & Identify the acquisition event and exclude unknown acquisition times \\
 \textbf{Outstanding eligible commitments} & Eligible third-party commitments remaining after defined exclusions & Issuer identity and terms; exclude applicable issuer inventory, expiry, burn, discharge, tests, and non-commitment tokens \\
-\textbf{Pool swap volume} & Value of completed direct Pool swaps under one disclosed valuation method & On-chain settlement events, token units, rate source, time; do not classify as issuer fulfillment \\
+\textbf{Direct Pool swap volume} & Value of completed swaps initiated as one-Pool exchanges under one disclosed valuation method & On-chain settlement events, token units, rate source, time; do not classify as issuer fulfillment \\
+\textbf{Route discovery attempts} & Valid requests to find reachable vouchers or candidate paths during a period & Graph version, indexed block, freshness, wallet scope, requested depth, candidate count, omission or search-budget state; not an authoritative quote \\
+\textbf{Available candidate routes} & Candidate paths returned by discovery for the defined request cohort & Count each distinct ordered Pool/token path; state route depth and exclusions; do not classify as executable or settled \\
+\textbf{Route quote pass rate} & Authoritative route quotes returned divided by valid quote attempts & Pinned block, path, amount mode, expiry, result or refusal reason; keep separate from discovery success and execution \\
+\textbf{Route execution rate} & Confirmed routed transactions divided by valid signed execution attempts for the same mature cohort & Tracking ID, transaction hash, dispatch status, confirmation or reversion, route depth, and failure reason; exclude unsigned quotes \\
+\textbf{Whole-route volume} & Input and output value of confirmed routed exchanges, counted once per route & Use the first hop's settled input and final hop's settled output under one valuation method; do not sum all hop values as independent economic volume \\
+\textbf{Per-hop settlement} & Settled input, gross output, Pool fee, protocol fee, and net output for each hop of a confirmed route & Ordered Pool and token identifiers, settlement events, transaction hash, block, log index, and any intermediate remainder \\
+\textbf{Route fees} & Current Pool and protocol fees actually settled across the route & Report each hop and aggregate by fee type; do not label them as a proposed network rake or unimplemented service fee \\
+\textbf{Route constraints} & Count and share of route or quote refusals by identified cause & Admission, deposit cap, liquidity, fee domain, unsupported token or quoter, wallet balance or type, gas, search budget, expiry, mismatch, or simulation evidence \\
+\textbf{Route reconciliation health} & Freshness and reliability of the indexed graph and grouped settlement records & Graph version and age, dirty-queue depth, reconciliation duration, corrections, failures, unknown members, and unresolved receipts \\
 \textbf{Pool inventory} & Measured supported assets held by a Pool at a stated time & Contract balances, fee reservations, inaccessible assets, valuation method, and owner-withdrawal powers \\
 \textbf{Reserve adequacy} & Eligible, available reserve assets divided by expressly covered exposure & Coverage policy, asset eligibility, custody/control, liabilities, exclusions, and valuation; not total token supply by default \\
 \textbf{Limit utilization} & Measured Pool token balance divided by its current configured cap & Limiter address, token, Pool, timestamp, changes, and periods without a limiter \\
-\textbf{Quote pass rate} & Successful quote responses divided by valid quote attempts & Quote-only result; not route execution \\
-\textbf{Route execution rate} & Completed multi-hop executions divided by valid execution attempts & Applicable only to an implemented execution system; report per-hop and atomicity rules \\
 \textbf{Guarantor recovery} & Eligible recovery received divided by covered claims paid & Identified guarantor, claim policy, timing, costs, disputes, and write-offs \\
 \textbf{Proposed network revenue} & Proposed network rake received plus separate routing/service fees received & Exclude gross Pool fees retained by Pools and avoid counting the rake twice \\
 \textbf{Governance timeliness} & Time to detect, decide, pause, repair, and close an incident & Defined clocks, responsible bodies, emergency powers, appeals, and missing events \\

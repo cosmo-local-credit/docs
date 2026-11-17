@@ -28,3 +28,12 @@ Ondersteuning van EIP-165 is eveneens contractgebonden en niet universeel. `Gift
 - **Splitter, EthFaucet, PeriodSimple en RescueVault** — Ondersteunende hulpmiddelen voor distributie, gasfinanciering, snelheidslimieten en herstel van activa.
 
 De contracten kunnen op verschillende manieren worden gecombineerd. Een registervermelding, offerte of pad in een graaf garandeert niet dat een transactie wordt uitgevoerd. De actuele liquiditeit, tokenlimieten, kosten, oraclestatus, autorisatie, deadlines, netwerkomstandigheden en configuratie van ieder Fonds blijven van toepassing.
+
+
+## Gerouteerde uitwisseling op applicatieniveau
+
+De productieversie van de CLC App doet meer dan de Solidity `SwapRouter` aanroepen. CLC Core onderhoudt een afgestemde grafiek van geschikte Fondsrelaties, schat welke Waardebonnen bereikbaar zijn, leest de geselecteerde Fondsen op één vastgezet blok voor een gezaghebbende quote, simuleert de volledige route en bereidt een Calibur-portemonneebatch voor. De gebruiker ondertekent die batch en een relayer dient haar als één transactie op dezelfde blockchain in.
+
+Iedere hop roept rechtstreeks een `SwapPool` aan. De batch zet eerst de tokenallowance terug en stelt daarna de vereiste allowance in. Vervolgens roept zij de begrensde overload van `SwapPool.withdraw` aan met een minimale output en deadline. `revertOnFailure` is ingeschakeld, zodat één mislukte aanroep de volledige gerouteerde transactie terugdraait. De App toont daarna één gegroepeerd ontvangstbewijs met afwikkelings- en kostengegevens per hop.
+
+Deze routingwerkstroom is een mogelijkheid van de App en CLC Core die boven Protocol v1.1.0 is gebouwd. Zij maakt van de Solidity `SwapRouter` geen uitvoeringsrouter, verandert de eigenaar of Fondsbeheerder van een Fonds niet en maakt één Fonds niet verantwoordelijk voor de regels van een ander Fonds of de nakoming door een Uitgever. Bekijk de [protocolnetwerkarchitectuur](/nl/protocol/network) voor de volledige stroom.

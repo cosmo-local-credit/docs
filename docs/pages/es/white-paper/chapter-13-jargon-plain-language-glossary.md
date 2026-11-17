@@ -1,25 +1,39 @@
 ## **13. Glosario en lenguaje simple**
 
-- **Cosmo-Local Credit (CLC):** La familia de productos, incluida la CLC App, la documentación y el trabajo más amplio de asociación de compromisos.
+- **Cosmo-Local Credit (CLC):** La familia de productos que incluye la CLC App, la documentación y el trabajo más amplio sobre agrupación de compromisos.
 - **CLC App:** La aplicación web progresiva operada por GEF en `cosmolocal.credit`.
 - **Protocolo de unión de compromisos (CPP):** El modelo reutilizable de curación, valoración, limitación, intercambio y gobernanza responsable.
-- **Protocol v1.1.0:** La verificación pública de los contratos inteligentes.
+- **Protocol v1.1.0:** Los contratos inteligentes públicos y verificados que sustentan los intercambios directos de Fondo.
 - **Fondo de Compromisos:** Un acuerdo regulado que admite activos respaldados y publica reglas de cambio.
 - **`SwapPool`:** La bóveda de tokens actual y el contrato de intercambio directo.
 - **El símbolo:** Un saldo en cadena o un activo digital. La mecánica de tokens por sí sola no crea una promesa redimible.
 - **El vale:** Un token o registro representado por un emisor como un compromiso canjeable en términos publicados.
 - **Oferta:** Registro de catálogo de los bienes o servicios asociados con un vale.
+- **Necesidad:** Una expresión publicada de demanda. Por sí sola no acepta una Oferta o un vale, no autoriza un intercambio, no reserva inventario y no crea una obligación.
 - **El emisor:** Parte responsable de la publicación y cumplimiento de un compromiso de vale.
 - **Responsable del Fondo:** La estructura responsable que publica y administra las reglas de Fondo.
+- **Registro:** Un registro de descubrimiento y permisos para contratos, Fondos, tokens u otros recursos identificados. La inclusión no establece por sí sola respaldo, capacidad del emisor, cumplimiento, garantía ni seguro.
 - **Tasa de cambio del grupo o cotización:** Un parámetro de transacción producido por un indicador de cotización configurado; no prueba de efectivo o de valor de redención.
-- **Límite del saldo de tokens del Fondo:** El máximo actual de `Limiter` para un token mantenido por un Fondo. La aplicación puede llamarlo **“Límite de crédito”**.
+- **Índice de valor:** Dato de valoración relativa utilizado por un módulo de cotización configurado para calcular la cotización de un intercambio de Fondo. No es automáticamente un precio de mercado, un valor en efectivo ni una obligación del emisor.
+- **Limiter:** El componente opcional de Protocol v1.1.0 que establece el saldo máximo de un token en un Fondo. La CLC App puede llamar a este límite **“Límite de crédito”**. No es un límite de préstamo personal ni un límite móvil para toda la red.
 - **Intercambio de cuentas:** Un intercambio directo de activos a través de un `SwapPool`.
-- **Saldo de intercambio:** Las transferencias en cadena y la contabilidad de cuotas completando un swap de fondo.
+- **Ruta:** Un camino ordenado de uno o más intercambios de Fondo desde el vale de entrada de una billetera hasta un vale objetivo.
+- **Profundidad de la ruta:** Número de intercambios de Fondo que forman una ruta. El despliegue público actual busca hasta tres.
+- **Descubrimiento de rutas:** Una estimación de caminos posibles a partir de datos reconciliados del grafo y de los activos de la billetera. Un camino descubierto no constituye una promesa ejecutable.
+- **Cotización de ruta:** Una propuesta autorizada y limitada en el tiempo para un camino seleccionado, calculada a partir del estado admitido de los Fondos leído en un mismo bloque fijado y simulada antes de la firma.
+- **Intercambio enrutado:** Una secuencia de intercambios de Fondo autorizada por el participante. La CLC App actual la envía como un solo lote de billetera Calibur en la misma cadena; todos sus llamados se revierten juntos si uno falla.
+- **Recibo de intercambio enrutado:** Un registro técnico agrupado del estado de la ruta, el hash de la transacción, los pasos, los importes liquidados y las comisiones del Fondo y del protocolo en cada paso.
+- **Liquidez:** Inventario de salida admisible de un Fondo disponible conforme a las condiciones actuales de admisión, límite de saldo, cotización, comisión, reserva y retiro. Una arista del grafo o un saldo de tokens no demuestra por sí solo que exista liquidez utilizable.
+- **Liquidación del intercambio:** Las transferencias en la cadena y la contabilización de comisiones que completan un intercambio de Fondo.
 - **Presentación de rescate:** Retorno o presentación de unidades de vale al emisor.
 - **Cumplimiento:** El emisor proporciona el bien, servicio, beneficio u otro rendimiento prometido.
 - **Descarga:** Un registro que impida que las unidades cumplidas vuelvan a presentarse.
-- **Router de ejecución propuesto:** Futuro software que autorizaría y ejecutaría rutas. Sólo las cotizaciones actuales de `SwapRouter`.
-- **El grupo de redes CLC propuesto:** Un futuro acuerdo de compensación y coordinación presupuestaria a nivel de red.
+- **`SwapRouter` Solidity:** Contrato de Protocol v1.1.0 que solo calcula cotizaciones. Puede calcular sobre un camino proporcionado, pero no custodia activos, no autoriza tokens ni ejecuta intercambios.
+- **Flujo de enrutamiento de la aplicación:** Servicio actual de la CLC App y CLC Core que descubre, cotiza, simula, prepara, retransmite, concilia y presenta rutas en la misma cadena por encima de los contratos de los Fondos.
+- **Reequilibrio:** Movimiento del inventario de un Fondo hacia objetivos adoptados mediante un mandato autorizado por su Responsable. El enrutamiento actual iniciado por los participantes no autoriza por sí solo el reequilibrio automático.
+- **Compensación:** Combinación de varias obligaciones o transferencias previstas para calcular posiciones netas reducidas. No forma parte del intercambio enrutado actual de la CLC App y CLC Core.
+- **Reparación:** Proceso responsable para corregir una configuración, entrada de registro, fallo del servicio, disputa o compromiso incumplido dentro de una autoridad identificada. Reparar el registro o el servicio de enrutamiento no reescribe silenciosamente las reglas de un Fondo independiente ni descarga la obligación de un emisor.
+- **Fondo de Red CLC propuesto:** Un futuro acuerdo de financiación y coordinación presupuestaria a nivel de red.
 - **Se propone el token de gobernanza CLC:** Un diseño de gobernanza futuro, no un activo actual de la aplicación o Protocol v1.1.0.
 - **Comisión de red:** Una parte propuesta de las tarifas del grupo transferidas a un futuro presupuesto de la red.
 - **Garantias o seguros:** Una protección que sólo se aplica cuando una parte identificada la asume expresamente, la financie y la publique.

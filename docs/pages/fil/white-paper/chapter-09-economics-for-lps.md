@@ -12,6 +12,8 @@ Ang isang hinaharap na badyet ng network ay maaaring tumanggap:
 
 Ang mga gross pool fees na pinananatili ng mga pool ay hindi kita sa network.Protocol v1.1.0 Gumagamit ng ibang modelo: ang optional protocol fee ay dagdag sa pool fee at direktang ipinapadala sa naka-configure na recipient nito.
 
+Ang produksyon CLC App ruta workflow ay nagdaragdag ng walang hiwalay na routing-service fee. Ang isang routed exchange ay maaari pa ring magdulot ng Pool fee at protocol fee sa bawat hop. Ang mga kasalukuyang per-hop na bayarin ay hindi dapat malabel bilang iminungkahing network rake o ibilang muli bilang hinaharap na kita sa serbisyo.
+
 ### **9.2 Illustrative rake matematika**
 
 Kung ang isang nakikibahagi na pool ay nagbabayad ng 2.00% ng bayad sa pool at ang isang inaminang network rake ay tumatanggap ng 20% ng bayad ng pool, ang iminungkahi na epektibong rate ng network-rake sa itinuro na halaga ay:

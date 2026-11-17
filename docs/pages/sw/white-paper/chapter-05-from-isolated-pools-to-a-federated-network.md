@@ -1,12 +1,12 @@
 ## **5. Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa**
 
-Sasa Protocol v1.1.0 inasaidia utekelezaji wa moja kwa moja kupitia `SwapPool` na hutoa quote tu `SwapRouter`. Haitekelezi njia nyingi, HTLCs, njia za usimamizi, kuunganisha makundi, au kuunganisha mtandao.
+Protocol v1.1.0 ya sasa inasaidia utekelezaji wa moja kwa moja kupitia `SwapPool` moja na hutoa `SwapRouter` ya Solidity inayotoa nukuu pekee. CLC App na CLC Core za uzalishaji huratibu njia kwenye mnyororo mmoja zinazoanzishwa na mshiriki kupitia hadi Vikundi vitatu kwa kutayarisha kundi moja la miamala ya Mkoba wa Calibur litakalotiwa sahihi. Mikataba yenyewe haitekelezi njia yenye hatua nyingi, na mtiririko wa sasa wa App/Core hautoi HTLC kati ya minyororo, njia za escrow, usawazishaji wa kiotomatiki wa Vikundi, ulinganishaji wa kundi wala ulinganishaji kati ya mitandao.
 
-Sura hii inapendekeza jinsi kujitegemea kutawala Vikundi inaweza kuhariri bila kutoa yao wenyewe uandikishaji, tathmini, kikomo, ada, hesabu, idhini, na utawala sheria.
+Sura hii inaeleza njia ya sasa ya mshiriki na kuitofautisha na uratibu unaopendekezwa ambao utahitaji mamlaka mapya ya Kikundi. Katika hali zote mbili, Vikundi huru huhifadhi kanuni zao za kukubaliwa kwa mali, uthamini, mipaka, ada, mali zilizopo, idhini na utawala.
 
 ### **5.1 Hatua tofauti za kubadilishana na kutimiza**
 
-Shirikisho inaweza kuboresha upatikanaji wa hisa, lakini itakuwa si kuunganisha vocha na kubadilishana mizunguko ya maisha. Utekelezaji wowote ungepima matukio haya tofauti:
+Uelekezaji unaweza kuboresha upatikanaji wa mali, lakini hauunganishi mizunguko ya maisha ya vocha na ubadilishaji. Vipimo vinapaswa kuweka matukio haya tofauti:
 
 1. njia imeorodheshwa;
 2. moja au zaidi ya kikundi swaps kutekeleza na kutatua juu ya mlolongo;
@@ -16,21 +16,25 @@ Shirikisho inaweza kuboresha upatikanaji wa hisa, lakini itakuwa si kuunganisha 
 
 Njia nyingi zilizotajwa au zilizofanywa hazithibitishi kutimizwa zaidi. Ripoti itaonyesha kundi, kipindi, mali, mbinu ya thamani na muhuri wa muda, uondoaji, marekebisho, na ushahidi nje ya mlolongo required na nyongeza C.
 
-**Njia ya kielelezo:** Shule ina vocha za mahindi lakini inahitaji vocha za usafirishaji. Huduma ya njia huamua hesabu zinazofaa za Kikundi. Utekelezaji ungekuwa na mafanikio tu kama kila hop iliyoidhinishwa tofauti ingebaki ndani ya mipaka yake ya nukuu, mipaka, ada, hesabu, na sera. Swaps zilizosababishwa hazingethibitisha kwamba yeyote kati ya watangazaji baadaye alitimiza ahadi zake za vocha.
+**Njia ya kielelezo:** Shule ina vocha za mahindi lakini inahitaji vocha za usafiri. CLC Core inaweza kutambua mali zinazolingana katika Vikundi, kutoa nukuu ya njia iliyochaguliwa katika block moja iliyowekwa na kutayarisha simu zenye mipaka kwa Mkoba wa shule. Utekelezaji hufanikiwa tu ikiwa kila hatua inabaki ndani ya mipaka ya nukuu, ada, mali zilizopo, tabia zinazosaidiwa na sera. Ubadilishaji unaotokea hauthibitishi kuwa Mtoaji yeyote baadaye alitekeleza ahadi zake za vocha.
 
-### **5.2 Huduma zinazopendekezwa za kuelekeza na kusawazisha upya**
+### **5.2 Uelekezaji wa sasa wa mshiriki na usawazishaji unaopendekezwa**
 
-Huduma ya njia ya wakati ujao inaweza kusaidia shughuli mbili tofauti.
+Shughuli mbili hutaka mamlaka tofauti.
 
-**Utekelezaji ulioanzishwa na mshiriki.** Kwa kuzingatia mali za kuingia na kutoka, kiasi, na vizuizi vya watumiaji, huduma inaweza kutambua njia na kuandaa utekelezaji. Kila hop ingekuwa na Kikundi chake mwenyewe kuwajibika, quote, idhini, ada, mipaka, hesabu, na risiti. Atomic batches, HTLCs, na escrow ni uwezekano wa uchaguzi ujao utekelezaji, si tabia ya sasa itifaki.
+**Utekelezaji wa sasa unaoanzishwa na mshiriki.** Kwa kutumia vocha za kuanzia na zinazotakiwa pamoja na kiasi, CLC Core hukadiria njia kutoka mali zinazofaa za mshiriki. Kwa njia iliyochaguliwa, husoma Vikundi katika block moja iliyowekwa, hutoa nukuu halali, huiga kundi lote na kutayarisha simu tatu kwa kila hatua: kuweka upya idhini, kutoa idhini na `SwapPool.withdraw` yenye mipaka. Mshiriki hutia sahihi, kisha relayer huwasilisha muamala mmoja wa Calibur kwenye mnyororo huo huku `revertOnFailure` ikiwa imewashwa. Simu yoyote ikishindwa, simu zote za njia hurejeshwa. App huweka pamoja muamala na ukamilishaji wa kila hatua katika risiti moja.
 
-**Kuchagua Kikundi kusawazisha tena.** Wasimamizi wa Vikundi inaweza kuchapisha malengo ya hesabu, idhini za wapinzani, madarasa ya mali, mipaka ya kupotoka kwa quotes, na mipaka ya kila kipindi. Huduma inayohusika inaweza kutafuta mizunguko au minyororo inayolingana na kutekeleza tu makusudi yaliyoidhinishwa.
+Kila hatua huhifadhi Kikundi chake kinachowajibika, taarifa za nukuu, idhini, ada, mipaka, mali zilizopo na tukio la ukamilishaji. App ya sasa haiongezi ada tofauti ya huduma ya njia. Mtiririko wa sasa unasaidia Mikoba ya EOA/Calibur inayoendana na App, si Safe au Mikoba mingine ya mkataba.
 
-Kuwa na usawaziko kungekuwa sawa. Kikundi inaweza kuruhusu njia washiriki wakati kukataa outbound rebalancing, au inaweza kuruhusu tu mali zilizochaguliwa, wapinzani, na kiasi. Kila hop kutekelezwa kuzalisha risiti, na ada yoyote ya huduma itakuwa kufunuliwa tofauti na Jumla na itifaki ada.
+**Usawazishaji wa Kikundi unaofanywa kwa hiari.** Wasimamizi wa Vikundi wanaweza kuchapisha malengo ya mali zilizopo, washirika wanaoruhusiwa, aina za mali, mipaka ya kupotoka kwa nukuu na mipaka ya kila kipindi. Huduma inayowajibika inaweza kutafuta mizunguko au minyororo inayolingana na kutekeleza tu nia zilizoidhinishwa.
+
+Usawazishaji utafanywa kwa hiari. Kikundi kinaweza kuruhusu njia za kawaida za washiriki bila kuidhinisha huduma kuhamisha mali kwa ajili ya usawazishaji. Mamlaka ya baadaye yanaweza kuruhusu mali, washirika na kiasi vilivyochaguliwa pekee. Kila hatua iliyotekelezwa itatoa risiti, na ada yoyote ya huduma itawekwa wazi kando na ada za Kikundi na itifaki.
+
+Utekelezaji wa HTLC au escrow kati ya minyororo pia ni tofauti na kundi atomiki la sasa kwenye mnyororo mmoja. Utahitaji kanuni zilizopitishwa za muda, kusitisha, udhibiti, urejeshaji na hatari iliyobaki.
 
 #### **5.2.1 Shirikisho na ushirikiano wa mifumo**
 
-Utekelezaji wa kujitegemea unaweza kuendesha rejista zao wenyewe, viungo, huduma za njia, na maelezo ya sera wakati wa kuchagua data zinazofaa na viwango vya kupokea. Utekelezaji mbalimbali ungeendelea kutegemea utekelezaji.
+Utekelezaji huru unaweza kuendesha rejesta, violeshura, huduma za njia na wasifu wake wa sera huku ukichagua viwango vinavyolingana vya data na risiti. App ya sasa ya umma hutumia rejesta na wasifu wake wa huduma uliosanidiwa. Utekelezaji kati ya wasifu bado hutegemea utekelezaji.
 
 Profaili inayolingana ingekuwa:
 
@@ -45,6 +49,8 @@ Upatano unaweza kuongeza njia za kubadilishana zinazopatikana na kupunguza utege
 ### **5.3 Mfano uliopendekezwa wa upungufu wa mtandao na ada ya huduma**
 
 Sasa Protocol v1.1.0 inachukua ada ya Kikundi na, wakati imewekwa, ada ya itifaki ya ziada kwenye kubadilishana moja kwa moja kwa Kikundi. Mshahara huo unaendelea kutofautiana.
+
+Ubadilishaji wa njia katika uzalishaji hutumia ada hizi za sasa kwa kujitegemea katika kila hatua na kuziainisha katika nukuu na risiti. Kwa sasa hauongezi ada tofauti ya huduma ya uelekezaji.
 
 Programu ya wakati ujao inaweza kupokea tofauti:
 

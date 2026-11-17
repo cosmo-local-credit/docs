@@ -63,10 +63,12 @@ Para sa isang hinaharap na paglalapat ng iminungkahi na CLC governance token, an
 
 ### **10.7 Ang panganib sa pag-route at cross-domain**
 
-- **Mga banta:** partial execution, stuck hops, bridge or escrow exploits, outdated quotes, path inflation, at front-running ng inihayag na pagbabago sa halaga.
-- **Mga tagapagpahiwatig:** ang mga rate ng expiration ng route, escrow backlogs, pagkakaiba sa quote-to-execution, paulit-ulit na hindi kinakailangang hops, at bridge incidents.
-- **Posible na mga kontrol:** atomic execution kung available; conservative HTLC or escrow timeouts; path and counterparty policies; route level caps; deterministic quote-to-receipt mapping; at accountable service operators.
-- **Mga pagsubok sa stress:** isang pagtigil ng tulay, reorganization ng kadena, dependency breakdown, at isang nabigo na hop sa isang iminungkahi multi-hop ruta.
+- ** Kasalukuyang mga banta sa parehong kadena:** wala pang data ng pagtuklas, hindi sapat na imbentaryo, limitasyon o pagbabago sa pagpasok, pag-expire ng quote, hindi sinusuportahan ang mga wallet o dependencies, pagkabigo ng simulation, relay failure, chain reorganization, at path inflation.
+- ** Kasalukuyang mga kontrol at katibayan:** pined-block authoritative quotes, kumpletong-batch simulation, per-hop minimum outputs at deadlines, isang naka-sign na Calibur batch na may `revertOnFailure`, deterministic grouped receipts, reconciliation, at malinaw na mga code ng pagkabigo. Ang mga kontrol na ito ay binabawasan ang mga napiling panganib sa pagsasakatuparan ngunit hindi ginagarantiyahan ang kakayahang magamit o pagtupad ng emitter.
+- **Proposed cross-domain threats:** partial execution across domains, stuck hops, bridge, HTLC o escrow exploits, timeout mismatch, at recovery disputes.
+- ** Mga tagapagpahiwatig:** pagtuklas ng ruta at mga kinalabasan ng quote, pagkakaiba-iba sa quote-to-execution, lalim ng ruta, mga pagkabigo sa simulation, pagbabalik, mga kabiguan sa pagkakatugma, paulit-ulit na hindi kinakailangang hops, at — para sa hinaharap na cross-domain system eng_Latn mga backlog at insidente sa tulay.
+- ** Posibleng karagdagang mga kontrol:** patnubay at mga patakaran ng counterparty; mga cap sa antas ng ruta; responsable na operator ng serbisyo; at konserbatibong HTLC o escrow timeout, pag-aabort, at mga panuntunan sa pagbawi.
+- ** Mga pagsubok sa stress:** hindi nauugnay na estado ng graph, pag-aalis ng dependency, isang nabigo na hop sa kasalukuyang atomikong batch, isang reorganisasyon ng kadena, at — para sa isang hinaharap na cross-domain na ruta eng_Latn isang paghinto ng tulay o expired escrow.
 - **Pangarap sa panganib:** Mababang hanggang moderate lamang para sa mga kinikilala at nasubaybayan na depende.
 
 ### **10.8 Ang panganib ng custody at key-management**

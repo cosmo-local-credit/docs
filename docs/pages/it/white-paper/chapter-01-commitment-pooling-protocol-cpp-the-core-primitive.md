@@ -20,19 +20,21 @@ I ruoli e le autorità pertinenti comprendono:
 - **Proprietario del Fondo:** detiene i poteri di proprietario attuali di `SwapPool`;
 - **amministratore proxy:** può aggiornare un'implementazione proxy;
 - **controllatori di dipendenza:** regolano i registri, i quotatori, i limitatori o le componenti delle tariffe configurati;
-- **ricercatore o operatore di percorso:** può scoprire quote o, in una futura attuazione, eseguire un percorso autorizzato separatamente; e
+- **L'operatore di servizi itineranti:** può scoprire, citare, simulare, preparare, trasmettere e registrare un percorso autorizzato separatamente entro il suo ambito pubblicato; e
 - **il garante:** assume un obbligo definito solo attraverso termini pubblicati e finanziati.
 
-Gruppi CPP Le funzioni del fondo sono suddivise in quattro concetti:
+CPP raggruppa le funzioni di un Fondo in quattro concetti:
 
-- **Curatore:** ammettere token o buoni supportati.
-- **Valuazione:** pubblicare il metodo utilizzato per un tasso di cambio o una quotazione.
+- **Curatela:** ammettere token o buoni supportati.
+- **Valutazione:** pubblicare il metodo usato per produrre un tasso di cambio o una quotazione.
 - **Limitazione:** applicare i massimali correnti del saldo dei token del fondo o altri controlli implementati separatamente.
 - **Scambio:** mantenere l'inventario, eseguire gli swap, contabilizzare le commissioni e emettere registri delle transazioni.
 
-Protocol v1.1.0 implementa queste funzioni attraverso `SwapPool` e le dipendenze opzionali. Il suo attuale `Limiter` copre il saldo token di un fondo; non fornisce limiti di scambio per conto o per tutta la rete. La sua attuale `SwapRouter` calcola quote multi-Fondo; non esegue swap.
+Protocol v1.1.0 implementa queste funzioni tramite `SwapPool` e dipendenze opzionali. L'attuale `Limiter` limita il saldo di un token in un Fondo; non fornisce limiti mobili agli scambi, limiti per account o limiti per l'intera rete. L'attuale contratto Solidity `SwapRouter` calcola quotazioni attraverso più Fondi, ma non esegue scambi.
 
-Il progetto più ampio proposto di CPP può aggiungere limiti di rotazione, controlli di conto, router di esecuzione, percorsi di escrow o escrow HTLC e reti di lotto. Si tratta di componenti proposti, non di descrizioni del limitatore o del router attuale.
+La CLC App e CLC Core in produzione implementano l'instradamento sulla stessa catena a livello applicativo, al di sopra di questi contratti. CLC Core scopre i percorsi, legge i Fondi selezionati allo stesso blocco fissato, prepara e simula un batch Calibur firmato, coordina il relay e raggruppa i registri di regolamento risultanti. L'attuale configurazione pubblica cerca percorsi attraverso un massimo di tre Fondi. Ogni Fondo resta governato in modo indipendente e ogni passaggio viene comunque eseguito direttamente attraverso il proprio `SwapPool`.
+
+Il progetto CPP più ampio proposto può aggiungere limiti mobili, controlli per account, percorsi HTLC o tramite escrow tra domini, riequilibrio automatico dei Fondi e compensazione in batch. Sono componenti proposti, non descrizioni dell'attuale `Limiter`, del contratto Solidity `SwapRouter` o del flusso dei percorsi di CLC App e CLC Core.
 
 ### **1.3 Logica di scambio diretto attuale**
 

@@ -9,16 +9,30 @@
 - **Tagalog:** Isang balanse sa chain o digital asset. Token mekanika lamang ay hindi lumikha ng isang redeemable pangako.
 - **Voucher:** Isang token o record na kinakatawan ng isang tagapag-isyu bilang isang redeemable commitment sa ilalim ng nai-publish na mga tuntunin.
 - **Pag-aalok:** Katalog record para sa mga kalakal o serbisyo na nauugnay sa isang voucher.
+- **Gusto:** Isang inilathala na kapahayagan ng pangangailangan. Hindi ito mismo tumatanggap ng isang Tanyag o Voucher, nagpapahintulot ng Palitan, nagrereserba ng imbentaryo, o lumilikha ng obligasyon.
 - **Pag-iipon:** Ang partido na may pananagutan sa pag-publish at pagpapatupad ng pangako sa voucher.
 - **Tagapangasiwa ng Pool:** Ang responsable na istraktura na nag-publish at namamahala sa mga patakaran ng Pool.
+- **Registry:** Isang rekord ng pagtuklas at pahintulot para sa mga nakikilalang kontrata, Pool, token, o iba pang mapagkukunan. Ang pagsasama ay hindi sa sarili nito nagtatag ng pag-endorso, kapasidad ng naglalabas, katuparan, garantiya, o seguro.
 - **Ang rate o quote ng pool:** Ang isang parameter ng transaksyon na ginawa sa pamamagitan ng isang naka-configure quoter; hindi patunay ng cash o halaga ng pagbabayad.
-- **Kapas sa balanse ng token ng pool:** Ang kasalukuyang maximum na `Limiter` para sa isang token na hawak ng isang Pool. **Credit limit.”**
+- ** Value Index:** Isang relatibong input ng valuation na ginagamit ng isang naka-configure na nagko-quote upang kalkulahin ang isang Pool exchange quote. Ito ay hindi awtomatikong isang presyo sa merkado, halaga ng cash, o obligasyon ng nag-isyu.
+- **Limiter:** Ang opsyonal na bahagi ng Protocol v1.1.0 na nagtatakda ng maximum na balanse ng token para sa isang Pool. Maaaring markahan ng App ang limitasyong ito na ****Limitang kredito.**** Ito ay hindi isang personal na limitasyon sa pag-utang o isang rolling limit sa buong network.
 - **Pagbabago ng pool:** Isang direktang palitan ng mga asset sa pamamagitan ng isang `SwapPool`.
+- **Route:** Isang iniutos na landas ng isa o higit pang Pool swaps mula sa input Voucher ng isang wallet sa isang target Voucher.
+- **Ang lalim ng ruta:** Ang bilang ng Pool swaps sa isang ruta. Ang kasalukuyang pampublikong pag-deploy ay naghahanap hanggang sa tatlo.
+- ** Pagtuklas ng ruta:** Ang isang pagtatantya ng mga posibleng landas mula sa pinagsama-samang graph at wallet-holding data. Ang natuklasan na landas ay hindi isang pangako na matutupad.
+- **Route quote:** Isang time-bound authoritative proposal para sa isang napili na landas, na kinakalkula mula sa suportadong estado ng Pool na nabasa sa isang pined block at simulated bago magpirma.
+- ** Routed exchange:** Isang pagkakasunud-sunod ng mga Pool swap na pinahihintulutan ng kalahok. Ang kasalukuyang App ay nagsusumite nito bilang isang same-chain Calibur wallet batch na ang mga tawag ay nagbabalik nang magkasama kung mabibigo ang isa.
+- ** Routed-exchange receipt:** Isang pinagsama-samang teknikal na talaan ng katayuan ng ruta, transaction hash, hops, settled amounts, at per-hop Pool and protocol fees.
+- ** Liquidity:** Eligible Pool output inventory na magagamit sa ilalim ng kasalukuyang admission, balance-cap, quote, fee, reservation, at withdrawal conditions. Ang isang graph edge o token na balanse lamang ay hindi nagpapatunay ng usable liquidity.
 - **Pagbabayad ng swap:** Ang mga transfer sa chain at accounting ng bayad na kumpleto ng pool swap.
 - **Presentasyon ng pagbabayad:** Pagbalik o iba pang pagpapakita ng mga unit ng voucher sa tagapag-isyu.
 - **Katumpayan:** Ang tagapag-isyu ay nagbibigay ng ipinangako na kalakal, serbisyo, benepisyo, o iba pang pagganap.
 - **Discharge:** Ang isang talaan na nagpapahintulot sa pagpapatupad ng mga yunit na maipresentar muli.
-- **Proposed execution router:** Ang hinaharap na software na mag-authorise at magpatupad ng mga ruta. ang kasalukuyang `SwapRouter` quote lamang.
+- **Katiyakan `SwapRouter`:** Ang Protocol v1.1.0 quote-only na kontrata. Maaari itong magkalkula sa buong isang ibinigay na landas ngunit hindi nag-iingat ng mga ari-arian, nagpapahintulot ng mga token, o nagpapatupad ng mga swap.
+- ** Application routing workflow:** Ang kasalukuyang CLC App at CLC Core serbisyo na matuklasan, quote, simulate, maghanda, relay, i-reconcile, at iulat ang parehong mga ruta ng kadena sa itaas ng mga kontrata ng Pool.
+- ** Pagbawi ng balanse:** Paglipat ng imbentaryo ng Pool patungo sa mga ipinangarap na target sa ilalim ng isang mandatong pinahintulutan ng Steward. Kasalukuyang participant-initiated routing ay hindi mismo awtorisado awtomatikong rebalancing.
+- **Clearing o netting:** Pagsasama ng maramihang mga obligasyon o inilaan na paglilipat upang kalkulahin ang nabawasan na netong posisyon. Ito ay hindi bahagi ng kasalukuyang App/Core routed exchange.
+- ** Pag-aayos:** Isang prosesong may pananagutan para sa pagwawasto ng isang pagsasaayos, talaan ng rehistro, pagkabigo ng serbisyo, pagtatalo, o hindi natupad na pangako sa loob ng isang nakikilalang awtoridad. Ang pag-aayos ng rehistro o serbisyo sa ruta ay hindi tahimik na muling isusulat ang mga patakaran ng isang independiyenteng Pool o mag-alis ng obligasyon ng isang tagapaglabas.
 - **Proposed na CLC Network Pool:** Isang hinaharap na kaayusan sa pag-clearing at koordinasyon ng badyet sa antas ng network.
 - **Proposed na CLC governance token:** Isang disenyo ng pamamahala sa hinaharap, hindi isang kasalukuyang app o Protocol v1.1.0 asset.
 - **Rake ng network:** Isang iminungkahi na bahagi ng mga bayad sa Pool na nai-transfer sa isang hinaharap na badyet ng network.

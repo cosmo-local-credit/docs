@@ -12,6 +12,8 @@ Un futur budget du réseau pourrait recevoir:
 
 Les frais bruts de bassin retenus par Bassins ne sont pas des recettes de réseau. L'actuel Protocol v1.1.0 utilise un modèle différent: une redevance de protocole optionnelle est supplémentaire à la redevance de bassin et est envoyée directement à son destinataire configuré.
 
+Le flux de routage de la CLC App de production n'ajoute pas de frais distincts pour le service de routage. Un échange routé peut néanmoins entraîner, à chaque étape, des frais du Bassin et des frais de protocole. Ces frais actuels par étape ne doivent pas être présentés comme le prélèvement de réseau proposé ni être comptabilisés une seconde fois comme de futurs revenus de service.
+
 ### **9.2 Les mathématiques illustratives du prélèvement**
 
 Si un bassin participant facture une redevance de bassin de 2.00% et qu'un prélèvement de réseau adopté reçoit 20% de cette redevance de bassin, le taux effectif proposé pour le prélèvement de réseau sur la valeur acheminée est le suivant:

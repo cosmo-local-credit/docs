@@ -1,12 +1,12 @@
 ## **5. Des bassins isolés à un réseau fédéré**
 
-L'actuel Protocol v1.1.0 prend en charge l'exécution directe par l'intermédiaire d'un `SwapPool` et fournit un `SwapRouter` à devis uniquement. Il n'exécute pas les routes multi-hop, les HTLC, les routes d'entiercement, la compensation par lots ou la compensation entre réseaux.
+Le protocole v1.1.0 actuel prend en charge l'exécution directe au moyen d'un `SwapPool` et fournit un `SwapRouter` Solidity qui calcule uniquement des cotations. L'application CLC de production et CLC Core coordonnent des itinéraires sur une même chaîne, initiés par les participants et traversant jusqu'à trois Bassins, en préparant un seul lot signé par le portefeuille Calibur. Les contrats n'exécutent pas eux-mêmes un itinéraire à plusieurs étapes, et le flux actuel de l'application et de CLC Core ne fournit ni HTLC interchaînes, ni itinéraires d'entiercement, ni rééquilibrage automatique des Bassins, ni compensation par lots, ni compensation entre réseaux.
 
-Ce chapitre propose comment les bassins indépendants pourraient se coordonner sans renoncer à leurs propres règles d'admission, d'évaluation, de limite, de redevance, d'inventaire, d'autorisation et de gouvernance.
+Ce chapitre explique l'itinéraire actuel des participants et le distingue de la coordination proposée qui nécessiterait une nouvelle autorité du Bassin. Dans les deux cas, les Bassins indépendants conservent leurs propres règles d'admission, de valorisation, de limite, de redevance, d'inventaire et d'autorisation ainsi que leurs règles de gouvernance.
 
 ### **5.1 Mesures d'échange et d'exécution distinctes**
 
-La Fédération pourrait améliorer l'accès à l'inventaire, mais elle ne ferait pas fusionner le bon d’échange et échanger les cycles de vie. Toute mise en œuvre permettrait de mesurer ces événements séparément:
+Le routage peut améliorer l'accès à l'inventaire, mais il ne fusionne pas les cycles de vie du bon et de l'échange. Les mesures doivent distinguer les événements suivants :
 
 1. un itinéraire est indiqué;
 2. un ou plusieurs swaps de bassin sont exécutés et réglés en chaîne;
@@ -16,21 +16,25 @@ La Fédération pourrait améliorer l'accès à l'inventaire, mais elle ne ferai
 
 Plus d'itinéraires cités ou exécutés ne prouvent pas plus d'exécution. Les rapports indiquent la cohorte, la période, les actifs, la méthode d'évaluation et l'horodatage, les exclusions, les corrections et les éléments de preuve hors chaîne requis par l'appendice C.
 
-**Route illustrée:** Une école détient des bons d’échange de maïs mais a besoin de bons d’échange de transport. Un service d'itinéraire identifie les inventaires de bassin compatibles. L'exécution ne réussirait que si chaque étape autorisé séparément restait dans ses limites de quotas, ses limites, ses frais, son inventaire et sa politique. Les swaps qui en résultent ne prouvent pas que l'un ou l'autre émetteur a plus tard rempli ses engagements en matière de bons d’échange.
+**Itinéraire illustratif :** Une école détient des bons de maïs mais a besoin de bons de transport. CLC Core peut identifier les inventaires de Bassin compatibles, coter le chemin sélectionné à un bloc déterminé et préparer les appels bornés pour le portefeuille de l'école. L'exécution ne réussit que si chaque étape respecte les bornes de sa cotation, ses limites, ses frais, son inventaire, les comportements pris en charge et sa politique. Les échanges qui en résultent ne prouvent pas que l'un ou l'autre émetteur a ensuite honoré ses engagements liés aux bons.
 
-### **5.2 Services de routage et de rééquilibrage proposés**
+### **5.2 Routage actuel des participants et rééquilibrage proposé**
 
-Un futur service de liaison pourrait soutenir deux activités distinctes.
+Deux activités nécessitent une autorité différente.
 
-**Exécution initiée par le participant.** Compte tenu des actifs d'entrée et de sortie, d'un montant et des contraintes des utilisateurs, le service pourrait identifier un chemin et préparer l'exécution. Chaque étape aurait sa propre Bassin responsable, son devis, son autorisation, ses frais, ses limites, son inventaire et son reçu. Les lots atomiques, les HTLC et l'accréditation sont des choix d'exécution futurs possibles, pas le comportement actuel du protocole.
+**Exécution actuelle initiée par le participant.** À partir des bons d'entrée et de sortie et d'un montant, CLC Core estime les itinéraires en fonction des avoirs admissibles du participant. Pour l'itinéraire sélectionné, il lit les Bassins à un même bloc déterminé, produit une cotation faisant autorité, simule le lot complet et prépare trois appels par étape : remise à zéro de l'autorisation, octroi de l'autorisation et appel borné à `SwapPool.withdraw`. Le participant signe, puis le relayeur soumet une seule transaction Calibur sur la même chaîne avec `revertOnFailure` activé. L'échec d'un appel annule tous les appels de l'itinéraire. L'application regroupe la transaction et les règlements de chaque étape dans un seul reçu.
 
-**Rééquilibrage du Bassin.** Gestionnaires de Bassins pourrait publier des objectifs d'inventaire, des contreparties autorisées, des catégories d'actifs, des limites d'écart de cotation et des limites par période. Un service responsable pourrait rechercher des cycles ou des chaînes compatibles et exécuter uniquement les intentions autorisées.
+Chaque étape conserve son propre Bassin responsable, ses données de cotation, son autorisation, ses frais, ses limites, son inventaire et son événement de règlement. L'application actuelle n'ajoute pas de frais distincts pour le service de routage. Le flux actuel prend en charge les portefeuilles EOA ou Calibur compatibles avec l'application, mais pas les portefeuilles Safe ni les autres portefeuilles de contrats.
 
-Le rééquilibrage serait une option. Un bassin pourrait autoriser les itinéraires des participants tout en refusant le rééquilibrage à l'extérieur, ou il pourrait autoriser uniquement des actifs, des contreparties et des montants sélectionnés. Chaque étape exécuté produirait un reçu, et toute redevance de service serait divulguée séparément des frais de bassin et de protocole.
+**Rééquilibrage facultatif des Bassins.** Les Gestionnaires de Bassins pourraient publier des objectifs d'inventaire, des contreparties autorisées, des catégories d'actifs, des bornes d'écart de cotation et des limites par période. Un service responsable pourrait rechercher des cycles ou des chaînes compatibles et n'exécuter que les intentions autorisées.
+
+Le rééquilibrage serait facultatif. Un Bassin peut autoriser les itinéraires ordinaires des participants sans autoriser un service à déplacer l'inventaire pour le rééquilibrage. Un futur mandat pourrait n'autoriser que certains actifs, certaines contreparties et certains montants. Chaque étape exécutée produirait un reçu, et les éventuels frais de service seraient indiqués séparément des frais du Bassin et du protocole.
+
+L'exécution interchaînes par HTLC ou entiercement est également distincte du lot atomique actuel sur une même chaîne. Elle nécessiterait l'adoption de règles concernant les délais, l'abandon, le contrôleur, la récupération et le risque résiduel.
 
 #### **5.2.1 Confédération et interopérabilité**
 
-Des déploiements indépendants pourraient exploiter leurs propres registres, interfaces, services de routage et profils de politiques tout en choisissant des normes de données et de réception compatibles. L'exécution interprofessionnelle resterait dépendante du déploiement.
+Les déploiements indépendants peuvent exploiter leurs propres registres, interfaces, services d'itinéraire et profils de politique tout en choisissant des normes de données et de réception compatibles. L'application publique actuelle utilise son registre et son profil de service configurés. L'exécution entre profils reste dépendante du déploiement.
 
 Un profil compatible devrait:
 
@@ -45,6 +49,8 @@ La compatibilité peut augmenter les voies d'échange disponibles et réduire la
 ### **5.3 Modèle proposé de redevance réseau et de redevance de service**
 
 L'actuel Protocol v1.1.0 facture une redevance de bassin et, lorsqu'il est configuré, une redevance de protocole supplémentaire sur un échange direct de bassin. Ces frais courants restent distincts.
+
+L'échange routé de production applique ces frais actuels indépendamment à chaque étape et les détaille dans la cotation et le reçu. Il n'ajoute actuellement pas de frais distincts pour le service de routage.
 
 Un programme futur pourrait recevoir séparément:
 
@@ -97,7 +103,7 @@ N'importe quel programme publierait:
 - les actifs versés et la question de savoir si le transfert est remboursable, rétractable, offert ou doté;
 - les dispositions relatives à la garde et au contrôle technique;
 - les utilisations autorisées, les limites, les blocages, les portes de retrait et la répartition des pertes;
-- l'admissibilité à une redevance ou à une incitation et si le montant peut être égal à zéro;
+- l'admissibilité à des frais ou à une incitation et la possibilité que le montant soit nul ;
 - les déclarations, les conflits, les plaintes et les recours ; et
 - la migration, la résiliation et le traitement des actifs et obligations restants.
 

@@ -2,19 +2,21 @@
 
 ### **15.1 वर्तमान आधार**
 
-GEF संचालित करता हैCLC App पर `cosmolocal.credit` Gnosis Chain पर ऐप समर्थित खाते और वॉलेट एक्सेस, सार्वजनिक बाजार कैटलॉग, और टोकन, वाउचर, ऑफर के लिए इंटरफेस प्रदान करता है।प्रतिबद्धता पूल, हस्तांतरण, और प्रत्यक्ष पूल स्वैप।
+GEF Gnosis Chain पर `cosmolocal.credit` का CLC App संचालित करता है। ऐप account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, direct Pool swaps तथा routed exchanges के लिए समर्थित interfaces देता है।
 
-Protocol v1.1.0 वर्तमान अनुबंध की आधारशिला प्रदान करता हैः`GiftableToken`, प्रत्यक्ष `SwapPool` निष्पादन, वैकल्पिक रजिस्टर, मूल्यांकन मॉड्यूल, पूल टोकन-बालेंस कैप, पूल शुल्क, अतिरिक्त प्रोटोकॉल शुल्क और केवल उद्धरण `SwapRouter`. उपलब्धता अभी भी इंटरफ़ेस, तैनात अनुबंधों, सूची, विन्यास, नेटवर्क की स्थिति, पात्रता, प्रदाताओं, अधिकार क्षेत्र और प्रकाशित जारीकर्ता या पूल शर्तों पर निर्भर करती है।
+Protocol v1.1.0 मौजूदा contract foundation देता है: `GiftableToken`, सीधे `SwapPool` execution, वैकल्पिक registries, valuation modules, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल कोटेशन देने वाला Solidity `SwapRouter`।
+
+CLC Core अब सार्वजनिक App की समान-चेन routing और observability foundation देता है: reconciled graph discovery, अधिकतम तीन Pool swaps वाले routes, fixed-block quotations, per-hop bounds और fees, full-batch simulation, signed atomic Calibur execution, relay tracking, settlement reconciliation, grouped receipts और operational metrics। उपलब्धता अब भी interface, समर्थित wallet और token behavior, deployed contracts, inventory, configuration, service freshness, network state, eligibility, providers, अधिकार क्षेत्र और प्रकाशित issuer या Pool terms पर निर्भर है।
 
 ### **15.2 प्रस्तावित मील के पत्थर**
 
 ये नामित मील के पत्थर डिजाइन निर्देश हैं, रिलीज नंबर, डिलीवरी की तारीखें या प्रतिबद्धताएं नहीं जो एक सुविधा लॉन्च करेगी।
 
-- **शासन फाउंडेशन** प्रस्तावितCLCशासन टोकन; प्रस्तावितCLCनेटवर्क पूल; शुल्क एडाप्टर; क्वारोम, टाइमलॉक और शासन नींव।
-- **रूटिंग और अवलोकनशीलता:** राउटर SDK और रजिस्ट्री एपीआई; स्वास्थ्य डैशबोर्ड; एक प्रस्तावित बीमा नीति ढांचा; ऑप्ट-इन rebalancing इरादे; बैच नेट प्रोटोटाइप।
+- **Governance Foundation:** प्रस्तावित CLC governance token; प्रस्तावित CLC Network Pool; fee adapters; quorum, timelock और governance foundations।
+- **Routing & Observability:** मौजूदा route और receipt interfaces को अतिरिक्त profiles तक बढ़ाना; health dashboards और service-level reporting प्रकाशित करना; insurance-policy framework विकसित करना; opt-in rebalance intents design करना; और batch netting का prototype बनाना।
 - **Cross-Domain Risk Tools:** HTLC या एस्क्रो रूटिंग; अलग से नियंत्रित गारंटर मॉड्यूल; रोलिंग, खाता और स्तरबद्ध सीमा पूर्वनिर्धारित।
 - **विनियमित पहुंचः** तैनाती-विशिष्ट तृतीय-पक्ष भुगतान सेवाएं; व्यक्तिगत सूक्ष्म पूल; अनुपालन-सेवा का पता लगाना; वाउचर वर्गों के तीसरे पक्ष के ऑडिट।
 
 किसी भी भुगतान सेवा को लागू अधिकार क्षेत्र, पात्रता, शुल्क, सीमाएं और शर्तों के तहत अलग से पहचाने गए तृतीय पक्ष द्वारा प्रदान किया जाएगा।CLC App और Protocol v1.1.0 अनुबंध स्वयं फिएट रेल का संचालन नहीं करते हैं।
 
-बहु-हॉप निष्पादन, साझा बीमा, प्रस्तावितCLCशासन का प्रतीक और प्रस्तावितCLCनेटवर्क पूल, बैच नेटिंग, व्यक्तिगत माइक्रो-पूल और विनियमित भुगतान सेवाएं तब तक प्रस्तावित या तैनाती से निर्भर रहती हैं जब तक कि एक कार्यान्वयन और उसके शासन शर्तें उन्हें सक्रिय नहीं पहचानती हैं।
+Cross-domain multi-hop execution, automatic Pool rebalancing, साझा insurance, प्रस्तावित CLC governance token और प्रस्तावित CLC Network Pool, batch netting, personal micro-Pools तथा regulated payment services तब तक प्रस्तावित या तैनाती-निर्भर हैं, जब तक implementation और उसकी governed terms उन्हें सक्रिय न बताएँ। सार्वजनिक CLC App में समान-चेन participant-initiated routing मौजूदा क्षमता है।

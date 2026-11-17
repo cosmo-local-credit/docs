@@ -35,13 +35,13 @@
   citecolor=blue,
   urlcolor=blue,
   pdflang={hi},
-  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.9},
   pdfauthor={William O. Ruddick and Mohamed Sohail}
 }
 
 \title{Cosmo-Local Credit (CLC)\\क्रेडिट को route करने, प्रतिबद्धताओं का समन्वय करने और स्वस्थ kosmo-local अर्थव्यवस्था को वित्त देने का नेटवर्क}
 \author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
-\date{White Paper v0.8 translation: 10 October 2026}
+\date{White Paper v0.9 translation: 17 November 2026}
 
 \begin{document}
 \maketitle
@@ -50,17 +50,17 @@
 \sloppy
 \RaggedRight
 
-\textbf{इस अनुवाद के बारे में।} यह White Paper v0.8 का अनुवाद है। मूल अंग्रेज़ी पाठ 30 सितंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 10 अक्टूबर 2026 को प्रकाशित हुआ। अंग्रेज़ी मूल पाठ है। \href{https://docs.cosmolocal.credit/white-paper}{मूल अंग्रेज़ी पाठ पढ़ें}।
+\textbf{इस अनुवाद के बारे में।} यह White Paper v0.9 का अनुवाद है। मूल अंग्रेज़ी पाठ 16 नवंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 17 नवंबर 2026 को प्रकाशित हुआ। अंग्रेज़ी स्रोत पाठ है। \href{https://docs.cosmolocal.credit/white-paper}{मूल अंग्रेज़ी पाठ पढ़ें}।
 
-\textbf{संस्करण:} 0.8
+\textbf{संस्करण:} 0.9
 
-\textbf{तारीख:} 30 सितंबर 2026
+\textbf{दिनांक:} 16 नवंबर 2026
 
 \textbf{लेखक:} William O. Ruddick और Mohamed Sohail
 
 \textbf{संपर्क:} \href{mailto:info@grassecon.org}{info@grassecon.org}
 
-\textbf{डाउनलोड:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-hi.pdf}{CLC White Paper v0.8 PDF हिंदी में}
+\textbf{डाउनलोड:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-hi.pdf}{CLC White Paper v0.9 PDF हिंदी में}
 
 \textbf{प्रकाशन:} अंतिम, संस्करणबद्ध सार्वजनिक प्रकाशन। यह दस्तावेज़ निवेश सलाह नहीं है और किसी प्रतिभूति या वित्तीय साधन को बेचने का प्रस्ताव या खरीदने का आग्रह नहीं है। बाद के संस्करण यहाँ बताए गए डिज़ाइनों में बदलाव कर सकते हैं।
 
@@ -81,7 +81,7 @@
 \bottomrule
 \end{longtable}
 
-मौजूदा Protocol v1.1.0 में सीधे \texttt{SwapPool} execution, वैकल्पिक चयन और मूल्यांकन, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल quote देने वाला \texttt{SwapRouter} शामिल हैं। Multi-hop execution, HTLC या escrow routing, batch netting, साझा insurance, प्रस्तावित CLC governance token, प्रस्तावित CLC Network Pool, fee-credit mechanisms और network liquidity programs प्रस्तावित या तैनाती पर निर्भर हैं।
+मौजूदा Protocol v1.1.0 में सीधे \texttt{SwapPool} execution, वैकल्पिक curation और valuation, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल कोटेशन देने वाला Solidity \texttt{SwapRouter} शामिल हैं। उत्पादन CLC App और CLC Core समान-चेन मार्ग खोज, निश्चित-ब्लॉक कोटेशन, अनुकरण, अधिकतम तीन पूलों से होकर हस्ताक्षरित atomic wallet-batch execution और समूहित रसीदें प्रदान करते हैं। Cross-chain HTLC या escrow routing, automatic Pool rebalancing, batch netting, साझा insurance, प्रस्तावित CLC governance token, प्रस्तावित CLC Network Pool, fee-credit mechanisms और network liquidity programs प्रस्तावित या तैनाती-निर्भर हैं।
 
 \textbf{किनके लिए:} Pool बनाने और चलाने वाले, protocol engineers और auditors, liquidity और mandate funders, governance designers तथा कानूनी या compliance reviewers।
 
@@ -90,14 +90,14 @@
 
 Cosmo-Local Credit एक उत्पाद परिवार है जो \textbf{Commitment Pooling Protocol (CPP)} के आसपास बना है। CPP बताता है कि स्वतंत्र रूप से संचालित प्रतिबद्धता पूल भुनाए जा सकने वाले वादों का चयन कैसे कर सकते हैं, विनिमय दर की विधियाँ और सीमाएँ कैसे प्रकाशित कर सकते हैं, भंडार कैसे रख सकते हैं और जवाबदेह आदान-प्रदान कैसे संभव बना सकते हैं।
 
-\textbf{प्रतिबद्धता पूल } नियमों से संचालित पूरी व्यवस्था है। मौजूदा Protocol v1.1.0 का \textbf{\texttt{SwapPool}} उसका एक contract component है: token vault और सीधे swap का engine। तैनाती उस contract को registries, quoters, Pool token-balance caps, fee policies और दूसरी services से जोड़ सकती है।
+\textbf{प्रतिबद्धता पूल} नियमों से संचालित पूरी व्यवस्था है। मौजूदा Protocol v1.1.0 का \textbf{\texttt{SwapPool}} उसका एक contract component है: token vault और सीधे swap का engine। तैनाती उस contract को registries, quoters, Pool token-balance caps, fee policies और दूसरी services से जोड़ सकती है।
 
 Kosmo-local का अर्थ है कि खुले standards, software और knowledge को दुनिया भर में साझा किया जाए, जबकि issuing, वादा पूरा करना, governance और वास्तविक दुनिया की accountability स्थानीय रहें। जारीकर्ता अपने वाउचर के लिए ज़िम्मेदार रहता है। Pool प्रबंधक Pool के नियमों और स्पष्ट रूप से स्वीकार की गई किसी भी guarantee के लिए ज़िम्मेदार रहता है। न CLC App और न GEF अपने आप किसी voucher, Pool, value, route, liquidity position या outcome की guarantee देता है।
 
 \section*{मौजूदा तैनाती}
 \addcontentsline{toc}{section}{मौजूदा तैनाती}
 
-GEF \href{https://cosmolocal.credit}{cosmolocal.credit} पर CLC App चलाता है। यह account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, पेशकशों, प्रतिबद्धता पूलों, transfers और सीधे Pool swaps के लिए समर्थित interfaces देता है। उपलब्धता interface, contracts, inventory, configured limits और fees, network state, eligibility, providers, अधिकार क्षेत्र और जारीकर्ता या Pool की प्रकाशित शर्तों पर निर्भर करती है।
+GEF \href{https://cosmolocal.credit}{cosmolocal.credit} पर CLC App चलाता है। यह account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, सीधे Pool swaps तथा application-level routed exchanges के लिए समर्थित interfaces देता है। CLC Core मार्ग खोज, आधिकारिक कोटेशन, transaction simulation, relay coordination, chain reconciliation और समूहित रसीदों में सहायता करता है। उपलब्धता interface, contracts, inventory, configured limits और fees, wallet type, network state, eligibility, providers, अधिकार क्षेत्र और जारीकर्ता या Pool की प्रकाशित शर्तों पर निर्भर करती है।
 
 सिर्फ interface चलाने से GEF जारीकर्ता, Pool प्रबंधक, संरक्षक, ऋणदाता, उधारकर्ता, broker, guarantor, वाउचर भुनाने वाला, adviser, insurer या प्रतिभागियों के बीच दायित्वों का पक्ष नहीं बनता। App के इस्तेमाल पर \href{https://docs.cosmolocal.credit/hi/governance/terms}{सेवा की शर्तें} लागू होती हैं।
 
@@ -141,23 +141,27 @@ Digital layer साझा memory और coordination infrastructure है। �
 \section*{मौजूदा और प्रस्तावित प्रक्रियाएँ}
 \addcontentsline{toc}{section}{मौजूदा और प्रस्तावित प्रक्रियाएँ}
 
-\subsection*{मौजूदा सीधी Pool प्रक्रिया}
-\addcontentsline{toc}{subsection}{मौजूदा सीधी Pool प्रक्रिया}
+\subsection*{वर्तमान प्रत्यक्ष या रूट पूल प्रवाह}
+\addcontentsline{toc}{subsection}{वर्तमान प्रत्यक्ष या रूट पूल प्रवाह}
 
 \begin{enumerate}[leftmargin=*]
-\item धारक voucher, उसके जारीकर्ता, उसकी शर्तों और उससे जुड़ी पेशकशों की जाँच करता है।
-\item Pool समर्थित assets स्वीकार करता है और अपनी configuration और ज़िम्मेदार authorities प्रकाशित करता है।
-\item धारक quote लेता है और सीधे Pool swap की अनुमति देता है।
-\item \texttt{SwapPool} blockchain पर swap settlement करता है और Pool तथा protocol fees दर्ज करता है।
-\item अगर धारक बाद में App में \textbf{`भुनाएँ'} चुनता है, तो App token owner को हस्तांतरण तैयार करता है ताकि voucher भुनाने के लिए पेश किया जा सके।
-\item जारीकर्ता अलग से अपना वादा पूरा करता है और निस्तारण दर्ज करता है, ताकि पूरी की गई units दोबारा इस्तेमाल न हों।
+\item एक धारक वाउचर, उसके जारीकर्ता, उसकी शर्तों और संबंधित प्रस्तावों की समीक्षा करता है।
+\item एक पूल समर्थित परिसंपत्तियों को स्वीकार करता है और इसकी संरचना और जिम्मेदार अधिकारियों को प्रकाशित करता है।
+\item धारक सीधे विनिमय या स्वतंत्र रूप से संचालित कई पूलों के माध्यम से मार्ग खोजने के लिए \textbf{क्रेडिट} दृश्य का उपयोग कर सकता है।
+\item CLC Core एक निश्चित ब्लॉक पर चुने गए पूल पढ़ता है, समय-सीमित कोटेशन बनाता है, हर हॉप के पूल और प्रोटोकॉल शुल्क दिखाता है, पूरे बैच का अनुकरण करता है और धारक के वॉलेट के लिए calls तैयार करता है।
+\item धारक जाँच कर हस्ताक्षर करता है। ऐप एक समान-चेन transaction relay करता है; कोई call विफल होने पर पूरा batch वापस हो जाता है।
+\item हर \texttt{SwapPool} अपना ऑन-चेन निपटान करता है। ऐप transaction status, hops, settled amounts और fees को मार्गित-विनिमय रसीद में समूहित करता है।
+\item धारक बाद में ऐप में \textbf{भुनाएँ} चुने तो ऐप token owner को transfer तैयार करता है, ताकि voucher भुनाने के लिए प्रस्तुत किया जा सके।
+\item जारीकर्ता अलग से वादा पूरा करता और निस्तारण दर्ज करता है, ताकि पूरी की गई units दोबारा इस्तेमाल न हों।
 \end{enumerate}
-Pool से inventory लेना swap है। यह केवल तब voucher भुनाना है जब Pool ने अलग से जारीकर्ता की भूमिका स्वीकार की हो और लागू voucher terms पूरी करता हो।
+पूल से इन्वेंट्री लेना एक स्वैप है। यह केवल तभी भुनाया जाता है जब उस पूल ने अलग से जारीकर्ता की भूमिका निभाई हो और वह लागू वाउचर शर्तों को पूरा करे।
+
+मौजूदा सार्वजनिक route configuration अधिकतम तीन Pool swaps खोजता है और App-संगत EOA/Calibur wallets का समर्थन करता है। यह अभी Safe या दूसरे contract wallets के लिए routed exchanges तैयार नहीं करता। Solidity \texttt{SwapRouter} केवल कोटेशन देता है; CLC Core और हस्ताक्षरित wallet batch contracts के ऊपर execution का समन्वय करते हैं।
 
 \subsection*{व्यापक प्रस्तावित डिज़ाइन}
 \addcontentsline{toc}{subsection}{व्यापक प्रस्तावित डिज़ाइन}
 
-प्रस्तावित डिज़ाइन execution routing, netting, shared services, network liquidity programs, insurance policies और governance assets की संभावना देखता है। लागू होने से पहले हर व्यवस्था को implementation, ज़िम्मेदार पक्ष, स्वीकार किए गए rules, funding, controls और public disclosures चाहिए।
+प्रस्तावित डिजाइन में क्रॉस-डोमेन एचटीएलसी या एस्क्रो रूटिंग, ऑप्ट-इन पूल रीबैलेंसिंग, बैच नेटिंग, अतिरिक्त साझा सेवाओं, नेटवर्क तरलता कार्यक्रमों, बीमा पॉलिसियों और गवर्नेंस परिसंपत्तियों का पता लगाया गया है। प्रत्येक को लागू होने से पहले कार्यान्वयन, जिम्मेदार पक्षों, अपनाए गए नियमों, वित्तपोषण, नियंत्रण और सार्वजनिक प्रकटीकरण की आवश्यकता होगी।
 
 प्रस्तावित fee model Pool fees से ली गई network cut और अलग routing या service fees इस्तेमाल कर सकता है। यह प्रस्ताव Protocol v1.1.0 से अलग है, जहाँ वैकल्पिक protocol fee Pool fee के ऊपर लगती है।
 
@@ -184,7 +188,7 @@ Pool से inventory लेना swap है। यह केवल तब vou
 
 वे \textbf{प्रतिबद्धता संवर्धन प्रोटोकॉल (CPP)} यह वर्णन करता है कि स्वतंत्र रूप से कैसे शासन किया जाता हैप्रतिबद्धता पूलमुआवजे के लिए प्रतिबद्धताएं संसाधित कर सकते हैं, विनिमय दर की विधियों और सीमाओं को प्रकाशित कर सकते है, इन्वेंट्री रख सकते हैं और जिम्मेदार आदान-प्रदान सक्षम कर सकते हैंः जारीकर्ता अपने वाउचर प्रतिबद्धताओं के लिए ज़िम्मेदार रहते हैं।पूल प्रबंधकइस तरह के नियम और उनके द्वारा स्पष्ट रूप से लिए जाने वाले किसी भी गारंटी के लिए जिम्मेदार हैं।CLC App और न हीGEF एक सार्वभौमिक गारंट है।
 
-Protocol v1.1.0 वर्तमान प्रत्यक्ष स्वैप निर्माण ब्लॉक प्रदान करता हैः\texttt{GiftableToken}, \texttt{SwapPool}, वैकल्पिक रजिस्टर और मूल्यांकन मॉड्यूल, पूल टोकन-बालेंस कैप, पूल शुल्क, एक अतिरिक्त प्रोटोकॉल शुल्क, और केवल उद्धरण \texttt{SwapRouter}. वर्तमान अनुबंध वास्तविक दुनिया में वादे की पूर्ति दर्ज नहीं करते, स्वचालित तरलता प्रदाता शेयरों का निर्माण नहीं करते हैं, मल्टी-हॉप मार्गों को निष्पादित नहीं करते या सार्वभौमिक भंडार, गारंटी या बीमा प्रदान नहीं करते।
+Protocol v1.1.0 मौजूदा direct-swap building blocks देता है: \texttt{GiftableToken}, \texttt{SwapPool}, वैकल्पिक registries और valuation modules, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल कोटेशन देने वाला Solidity \texttt{SwapRouter}। उत्पादन CLC App और CLC Core अब अधिकतम तीन पूलों से होकर समान-चेन मार्ग खोजते हैं, निश्चित-ब्लॉक कोटेशन बनाते हैं और हस्ताक्षरित atomic wallet batches तैयार करते हैं। Contracts अब भी वास्तविक दुनिया में वादा पूरा होना दर्ज नहीं करते, automatic liquidity-provider shares नहीं बनाते, cross-chain routing या batch netting नहीं करते और universal reserves, guarantees या insurance नहीं देते।
 
 ऐतिहासिक \textbf{Sarafu Network} समुदाय मुद्राओं, बचत समूहों, पारस्परिक सहायता प्रणालियों और उत्पादन प्रतिबद्धताओं में प्रतिबद्धता साझा करने की अवधारणाओं का उपयोग किया। इसकी सेवा बाद में CLC App पर स्थानांतरित हो गई। यह एक प्रतिनिधित्व नहीं था कि हर ऐतिहासिक खाता, वॉलेट, टोकन, वाउचर, पूल, बैलेंस, रिपोर्ट, प्रतिभागी या दायित्व माइग्रेट हुआ।
 
@@ -203,16 +207,16 @@ Protocol v1.1.0 वर्तमान प्रत्यक्ष स्वै�
 \end{itemize}
 ये आंकड़े ऐतिहासिक साक्ष्य हैं, वर्तमान CLC उपयोग के आंकड़े नहीं।
 
-व्यापक प्रस्तावित CLC डिजाइन पता चलता है कि कैसे संगत नेटवर्क कर सकते हैंः
+व्यापक CLC design मौजूदा routing को उन प्रस्तावों से जोड़ता है जिनसे compatible networks ये काम कर सकें:
 
 \begin{enumerate}[leftmargin=*]
-\item स्वतंत्र रूप से शासित पूल के पार मार्गों की खोज और उद्धरण;
+\item अतिरिक्त रजिस्ट्री या नीति प्रोफाइल और डोमेन में उत्तरदायी मार्ग सेवाओं का विस्तार करना;
 \item स्थानीय जिम्मेदारी के बिना जिम्मेदार नेटवर्क सेवाओं का समन्वय करना;
 \item अलग से वित्त पोषित तरलता जनादेशों, गारंटीओं, भंडार या बीमा पॉलिसी का समर्थन करना;
 \item पूल स्वैप को वाउचर प्रस्तुति, वादे की पूर्ति और डिस्चार्ज से अलग रूप से मापें; तथा
-\item अपनाए गए साझा सेवाओं को वित्त पोषित करने के लिए एक प्रस्तावित नेटवर्क रैक और सेवा शुल्क का उपयोग करें।
+\item साझा सेवाओं के वित्तपोषण के लिए प्रस्तावित नेटवर्क रेक और अलग से अपनाए गए सेवा शुल्क का उपयोग करें।
 \end{enumerate}
-प्रस्ताव में एक \textbf{प्रस्तावित CLC शासन टोकन } और एक \textbf{ प्रस्तावित CLC नेटवर्क पूल}. न ही वर्तमान ऐप या Protocol v1.1.0 का हिस्सा है।
+प्रस्ताव में एक \textbf{प्रस्तावित CLC governance token} और एक \textbf{प्रस्तावित CLC Network Pool} शामिल हैं। दोनों में से कोई भी मौजूदा App या Protocol v1.1.0 का भाग नहीं है।
 
 प्रस्तावित मॉडल के तहत, तरलता और शासन प्रतिभागियों को केवल प्रकाशित पात्रता, जोखिम, नियंत्रण, हस्तांतरण अधिकारों, वसूली की शर्तें और शुल्क नियमों के साथ अलग से अपनाए गए कार्यक्रमों के माध्यम से कार्य कर सकते थे। सामान्य पूल जमा स्वचालित शेयर, वापसी, निकासी, इनाम या शासन अधिकार नहीं बनाते हैं।
 
@@ -249,7 +253,7 @@ CPP स्पष्ट रूप से वर्णित प्रतिबद
 \item \textbf{पूल मालिकः} वर्तमान \texttt{SwapPool} मालिक अधिकारों को धारण करता है;
 \item \textbf{प्रॉक्सी प्रशासक:} एक प्रॉक्सी कार्यान्वयन को अपग्रेड कर सकते हैं;
 \item \textbf{निर्भरता नियंत्रक:} कॉन्फ़िगर किए गए रजिस्टर, कोटर्स, लिमिटर या शुल्क घटकों को नियंत्रित करें;
-\item \textbf{मार्ग खोजक या संचालकः} उद्धरणों की खोज कर सकते हैं या, भविष्य के कार्यान्वयन में, एक अलग से अधिकृत मार्ग निष्पादित कर सकते है; तथा
+\item \textbf{मार्ग सेवा संचालक:} अपने प्रकाशित दायरे के भीतर एक अलग से अधिकृत मार्ग की खोज, उद्धरण, अनुकरण, तैयारी, रिले और रिकॉर्ड कर सकता है; तथा
 \item \textbf{गारंटर:} केवल प्रकाशित, वित्त पोषित शर्तों के माध्यम से एक परिभाषित दायित्व लेता है।
 \end{itemize}
 CPP समूह पूल चार अवधारणाओं में कार्य करता हैः
@@ -260,9 +264,11 @@ CPP समूह पूल चार अवधारणाओं में क�
 \item \textbf{सीमा:} वर्तमान तांडव टोकन बैलेंस कैप या अलग से लागू किए गए अन्य नियंत्रण लागू करें।
 \item \textbf{विनिमयः} इन्वेंट्री रखना, स्वैप निष्पादित करना, शुल्क का लेखांकन करना और लेनदेन रिकॉर्ड जारी करना।
 \end{itemize}
-Protocol v1.1.0 इन कार्यों को लागू करता है\texttt{SwapPool} और वैकल्पिक निर्भरता।\texttt{Limiter} एक पूल में टोकन बैलेंस को कैप करता है; यह रोलिंग, प्रति खाता या नेटवर्क-व्यापी स्वैप सीमाएं प्रदान नहीं करता है।\texttt{SwapRouter} बहु पूल कोट्स की गणना करता है; यह स्वैप निष्पादित नहीं करता है।
+Protocol v1.1.0 इन कामों को \texttt{SwapPool} और वैकल्पिक dependencies के माध्यम से लागू करता है। उसका मौजूदा \texttt{Limiter} पूल में token balance सीमित करता है; वह rolling, per-account या network-wide swap limit नहीं देता। मौजूदा Solidity \texttt{SwapRouter} multi-Pool quotations की गणना करता है; वह swaps निष्पादित नहीं करता।
 
-व्यापक प्रस्तावितCPPडिजाइन रोलिंग सीमाओं, खाता नियंत्रण, निष्पादन राउटर जोड़ सकता है,HTLCवे प्रस्तावित घटक हैं, वर्तमान लिमिटर या राउटर के विवरण नहीं।
+उत्पादन CLC App और CLC Core इन contracts के ऊपर application-level समान-चेन routing लागू करते हैं। CLC Core पथ खोजता है, चुने गए पूल एक निश्चित ब्लॉक पर पढ़ता है और हस्ताक्षर योग्य Calibur wallet batch तैयार कर उसका अनुकरण करता है। मौजूदा सार्वजनिक configuration अधिकतम तीन Pool swaps खोजता है। हर पूल स्वतंत्र रूप से संचालित रहता है और हर हॉप अब भी अपने \texttt{SwapPool} के माध्यम से सीधे निष्पादित होता है।
+
+व्यापक प्रस्तावित CPP design में rolling limits, account controls, cross-domain HTLC या escrow paths, automatic Pool rebalancing और batch netting जोड़े जा सकते हैं। ये प्रस्तावित components हैं; ये मौजूदा \texttt{Limiter}, Solidity \texttt{SwapRouter} या App/Core route flow का वर्णन नहीं करते।
 
 \subsection*{1.3 वर्तमान प्रत्यक्ष स्वैप तर्क}
 \addcontentsline{toc}{subsection}{1.3 वर्तमान प्रत्यक्ष स्वैप तर्क}
@@ -376,14 +382,14 @@ CPP के लिए जिम्मेदार एक्सचेंज और
 \section*{5. अलग-अलग पूल से एक संघीय नेटवर्क तक}
 \addcontentsline{toc}{section}{5. अलग-अलग पूल से एक संघीय नेटवर्क तक}
 
-वर्तमान Protocol v1.1.0 एक के माध्यम से प्रत्यक्ष निष्पादन का समर्थन करता है\texttt{SwapPool} और केवल उद्धरण प्रदान करता है\texttt{SwapRouter}. यह मल्टी-हॉप रूट, एचटीएलसी, एस्क्रो रूट या बैच नेटिंग या क्रॉस नेटवर्क क्लिअरिंग नहीं करता है।
+मौजूदा Protocol v1.1.0 एक \texttt{SwapPool} के माध्यम से सीधे execution और केवल कोटेशन देने वाला Solidity \texttt{SwapRouter} प्रदान करता है। उत्पादन CLC App और CLC Core हस्ताक्षरित Calibur wallet batch तैयार करके अधिकतम तीन पूलों से होकर प्रतिभागी-प्रारंभित समान-चेन मार्गों का समन्वय करते हैं। Contracts स्वयं multi-hop route निष्पादित नहीं करते और मौजूदा App/Core flow cross-chain HTLC, escrow routes, automatic Pool rebalancing, batch netting या cross-network clearing नहीं देता।
 
-इस अध्याय में प्रस्तावित किया गया है कि स्वतंत्र रूप से शासित पूल अपने स्वयं के प्रवेश, मूल्यांकन, सीमा, शुल्क, सूची, प्राधिकरण और शासन नियमों को छोड़ने के बिना कैसे समन्वय कर सकते हैं।
+यह अध्याय वर्तमान प्रतिभागी मार्ग की व्याख्या करता है और इसे प्रस्तावित समन्वय से अलग करता है जिसके लिए नए पूल प्राधिकरण की आवश्यकता होगी। दोनों मामलों में, स्वतंत्र पूल अपने स्वयं के प्रवेश, मूल्यांकन, सीमा, शुल्क, सूची, प्राधिकरण और शासन नियमों को बनाए रखते हैं।
 
 \subsection*{5.1 अलग-अलग विनिमय और वादे की पूर्ति उपाय}
 \addcontentsline{toc}{subsection}{5.1 अलग-अलग विनिमय और वादे की पूर्ति उपाय}
 
-फेडरेशन इन्वेंट्री तक पहुंच में सुधार कर सकता है, लेकिन यह वाउचर को मिलाकर जीवनचक्रों का आदान-प्रदान नहीं करेगा। कोई भी कार्यान्वयन इन घटनाओं को अलग से मापता हैः
+रूटिंग से इन्वेंट्री तक पहुंच में सुधार हो सकता है, लेकिन यह वाउचर को मर्ज नहीं करता और जीवनचक्रों का आदान-प्रदान नहीं करता। माप इन घटनाओं को अलग रखना चाहिएः
 
 \begin{enumerate}[leftmargin=*]
 \item एक मार्ग उद्धृत किया गया है;
@@ -394,22 +400,26 @@ CPP के लिए जिम्मेदार एक्सचेंज और
 \end{enumerate}
 अधिक उद्धृत या निष्पादित मार्ग अधिक वादे की पूर्ति साबित नहीं करते हैं। रिपोर्ट में कोहर्ट, अवधि, परिसंपत्तियां, मूल्यांकन विधि और समयशीर्षक, बहिष्करण, सुधार और श्रृंखला से बाहर साक्ष्य निर्दिष्ट किए जाएंगे।
 
-\textbf{इलस्ट्रेटिव मार्ग:} एक स्कूल मक्का वाउचर रखता है लेकिन परिवहन वाउचर्स की आवश्यकता होती है। एक रूट सेवा संगत पूल इन्वेंट्री की पहचान करती है। निष्पादन केवल तभी सफल होगा यदि प्रत्येक अलग से अधिकृत हूप अपनी बोली सीमाओं, सीमाएं, शुल्क, सूची और नीति के भीतर बने रहे। परिणामस्वरूप स्वैप यह साबित नहीं करेंगे कि किसी भी जारीकर्ता ने बाद में अपने वाउचर प्रतिबद्धताओं को पूरा किया था।
+\textbf{उदाहरण मार्ग:} किसी स्कूल के पास मकई के वाउचर हैं, लेकिन उसे परिवहन वाउचर चाहिए। CLC Core compatible Pool inventory पहचान सकता है, चुने गए पथ का एक निश्चित ब्लॉक पर कोटेशन बना सकता है और स्कूल के वॉलेट के लिए सीमाबद्ध calls तैयार कर सकता है। Execution तभी सफल होता है जब हर हॉप अपनी quotation bounds, limits, fees, inventory, supported behavior और policy के भीतर रहे। परिणामस्वरूप swaps यह साबित नहीं करते कि किसी issuer ने बाद में अपनी voucher commitment पूरी की।
 
-\subsection*{5.2 प्रस्तावित रूटिंग और रिबालेंसिंग सेवाएं}
-\addcontentsline{toc}{subsection}{5.2 प्रस्तावित रूटिंग और रिबालेंसिंग सेवाएं}
+\subsection*{5.2 वर्तमान प्रतिभागी रूटिंग और प्रस्तावित पुनर्संतुलन}
+\addcontentsline{toc}{subsection}{5.2 वर्तमान प्रतिभागी रूटिंग और प्रस्तावित पुनर्संतुलन}
 
-भविष्य की रूट सेवा दो अलग-अलग गतिविधियों का समर्थन कर सकती है।
+दो गतिविधियों के लिए अलग-अलग अधिकारों की आवश्यकता होती है।
 
-\textbf{प्रतिभागी द्वारा शुरू की गई निष्पादन।} इनपुट और आउटपुट परिसंपत्तियों, एक राशि और उपयोगकर्ता प्रतिबंधों को देखते हुए, सेवा एक पथ की पहचान कर सकती है और निष्पादन की तैयारी करती है। प्रत्येक हॉप का अपना जिम्मेदार पूल, बोली, प्राधिकरण, शुल्क, सीमाएं, इन्वेंट्री और रसीद होगी। परमाणु बैच, एचटीएलसी और एस्क्रो भविष्य के निष्पादन विकल्प हैं, वर्तमान प्रोटोकॉल व्यवहार नहीं।
+\textbf{मौजूदा प्रतिभागी-प्रारंभित execution।} Input और output vouchers तथा राशि मिलने पर CLC Core प्रतिभागी की eligible holdings से पथ का अनुमान लगाता है। चुने गए मार्ग के लिए वह एक निश्चित ब्लॉक पर पूल पढ़ता है, आधिकारिक कोटेशन बनाता है, पूरे batch का अनुकरण करता है और हर हॉप के लिए तीन calls तैयार करता है: allowance reset, allowance grant और सीमाबद्ध \texttt{SwapPool.withdraw}। प्रतिभागी हस्ताक्षर करता है और relayer \texttt{revertOnFailure} सक्रिय रखते हुए एक समान-चेन Calibur transaction भेजता है। कोई call विफल होने पर सभी route calls वापस हो जाती हैं। ऐप transaction और हर हॉप के निपटान को एक रसीद में समूहित करता है।
 
-\textbf{ऑप्ट-इन पूल पुनः संतुलन.} पूल प्रबंधक इन्वेंट्री लक्ष्य, अनुमत प्रतिभागियों, परिसंपत्ति वर्गों, उद्धरण विचलन सीमाओं और प्रति अवधि सीमाओं को प्रकाशित कर सकता है। एक उत्तरदायी सेवा संगत चक्र या श्रृंखलाओं की खोज कर सकती है और केवल अधिकृत इरादों को निष्पादित करती है।
+हर हॉप अपना जवाबदेह पूल, quotation inputs, authorization, fees, limits, inventory और settlement event बनाए रखता है। मौजूदा ऐप अलग route-service fee नहीं जोड़ता। मौजूदा flow App-संगत EOA/Calibur wallets का समर्थन करता है, Safe या दूसरे contract wallets का नहीं।
 
-एक पूल प्रतिभागियों के मार्गों की अनुमति दे सकता है जबकि आउटबाउंड रिबैंसिंग से इनकार कर सकता है, या यह केवल चयनित परिसंपत्तियों, समकक्षों और राशि को सक्षम कर सकता था। प्रत्येक निष्पादित होप एक रसीद उत्पन्न करेगा, और किसी भी सेवा शुल्क का खुलासा पूल और प्रोटोकॉल शुल्क से अलग किया जाएगा।
+\textbf{Opt-in Pool rebalancing।} Pool Stewards inventory targets, अनुमत counterparties, asset classes, quotation-deviation limits और per-period limits प्रकाशित कर सकते हैं। जवाबदेह service compatible cycles या chains खोज सकती है और केवल अधिकृत intents निष्पादित कर सकती है।
+
+Rebalancing opt-in होगा। कोई पूल सामान्य participant routes की अनुमति दे सकता है, पर किसी service को rebalancing के लिए inventory ले जाने का अधिकार न दे। भविष्य का mandate केवल चुने गए assets, counterparties और amounts को सक्षम कर सकता है। हर executed hop रसीद बनाएगा और कोई service fee Pool तथा protocol fees से अलग प्रकाशित होगी।
+
+Cross-chain HTLC या escrow execution मौजूदा समान-चेन atomic batch से अलग है। उसके लिए deadlines, abort rules, controllers, recovery और residual risk के नियम अपनाने होंगे।
 
 \subsubsection*{5.2.1 संघ और सहकार्यशीलता}
 
-स्वतंत्र तैनाती अपने स्वयं के रजिस्टर, इंटरफेस, रूट सेवाओं और नीति प्रोफाइल को संचालित कर सकती है जबकि संगत डेटा और प्राप्ति मानकों का चयन करती है। क्रॉस-प्रोफाइल निष्पादन तैनातन पर निर्भर रहेगा।
+स्वतंत्र deployments compatible data और receipt standards चुनते हुए अपनी registries, interfaces, route services और policy profiles चला सकते हैं। मौजूदा सार्वजनिक App अपनी configured registry और service profile उपयोग करता है। Cross-profile execution तैनाती-निर्भर है।
 
 एक संगत प्रोफ़ाइलः
 
@@ -426,6 +436,8 @@ CPP के लिए जिम्मेदार एक्सचेंज और
 \addcontentsline{toc}{subsection}{5.3 प्रस्तावित नेटवर्क रैक और सेवा शुल्क मॉडल}
 
 वर्तमान Protocol v1.1.0 एक पूल शुल्क और, जब कॉन्फ़िगर किया जाता है, तो एक प्रत्यक्ष पूल स्वैप पर एक अतिरिक्त प्रोटोकॉल शुल्क लेता है। ये मौजूदा शुल्क अलग रहते हैं।
+
+उत्पादन routed exchange हर हॉप पर इन मौजूदा fees को स्वतंत्र रूप से लागू करता और quotation तथा receipt में अलग दिखाता है। वह अभी कोई अलग routing-service fee नहीं जोड़ता।
 
 भविष्य के कार्यक्रम को अलग से प्राप्त किया जा सकता हैः
 
@@ -519,7 +531,7 @@ F_{\text{\latinfont cash}} \approx \chi \cdot F
 \item स्वतंत्र रूप से शासित पूल लिक्विडिटी और रूटिंग सेवाओं का समन्वय कैसे कर सकते हैं; तथा
 \item कैसे साझा सेवाएं बढ़ती भागीदारी के साथ जवाबदेही बनाए रख सकती हैं।
 \end{enumerate}
-एक प्रस्तावित CLC डिजाइन \textbf{प्रस्तावित CLC नेटवर्क पूल } नेटवर्क स्तर पर क्लियरिंग और बजट समन्वय व्यवस्था के रूप में \textbf{ प्रस्तावित CLC शासन टोकन}. वर्तमान ऐप या Protocol v1.1.0 में कोई भी नहीं है. अन्य तैनाती सहकारी संस्थाओं, सार्वजनिक एजेंसियों, संघों, बहुसंस्थाओं, सेवा ऑपरेटरों या किसी भी प्रस्ताव को स्वीकार किए बिना अन्य जिम्मेदार संरचनाओं का उपयोग कर सकती हैं।
+प्रस्तावित CLC design में network-level clearing और budget coordination के लिए \textbf{प्रस्तावित CLC Network Pool} तथा \textbf{प्रस्तावित CLC governance token} शामिल हैं। दोनों में से कोई भी मौजूदा App या Protocol v1.1.0 में नहीं है। अन्य deployments इन प्रस्तावों को अपनाए बिना cooperatives, public agencies, federations, multisigs, service operators या दूसरी जवाबदेह structures का उपयोग कर सकते हैं।
 
 \subsection*{6.1 डाउनसाइड कंट्रोल और वैकल्पिकता}
 \addcontentsline{toc}{subsection}{6.1 डाउनसाइड कंट्रोल और वैकल्पिकता}
@@ -530,7 +542,9 @@ F_{\text{\latinfont cash}} \approx \chi \cdot F
 
 प्रस्तावित शासन को रजिस्ट्री और सेवा शक्तियों को संकीर्ण और समीक्षा योग्य बनाए रखना चाहिए। सामान्य कार्यों में सूचना, देरी, कारण प्रकाशन, अपील और सुधार प्रक्रियाओं का उपयोग किया जा सकता है। आपातकालीन कार्यों को घटना रिकॉर्ड तैयार करना चाहिए और समाप्त हो जाना चाहिए या अपनाई गई नीति के तहत समीक्षा प्राप्त करनी चाहिए।
 
-संगत रूट डिस्कवरी पूल में अधिक एक्सचेंजों को संभव बना सकती है। मल्टी-हॉप निष्पादन और नेटिंग के लिए अतिरिक्त सॉफ़्टवेयर, प्राधिकरण, सीमाओं, विफलता प्रबंधन और शासन की आवश्यकता होगी। अधिक उद्धृत या निष्पादित स्वैप अपने आप में वाउचर वादे की पूर्ति या सामाजिक प्रभाव साबित नहीं करेंगे।
+उत्पादन CLC App और CLC Core अब configured public profile के भीतर participant-authorized routes के लिए compatible route discovery और समान-चेन multi-hop execution देते हैं। Quotations हर हॉप की bounds, fees, inventory, limits और simulation लागू करते हैं; कोई call विफल होने पर हस्ताक्षरित wallet batch पूरा वापस हो जाता है।
+
+यह service automatic Pool rebalancing या network-level Pool inventory control अधिकृत नहीं करती। Rebalancing, batch netting, cross-domain HTLC या escrow execution और shared-liquidity governance के लिए अतिरिक्त authorization, software, limits, failure handling और अपनाए गए rules चाहिए। अधिक quoted या executed swaps अपने-आप voucher fulfillment या social impact सिद्ध नहीं करते।
 
 
 \section*{7. प्रस्तावित CLC प्रबंधन और शासन संपत्ति}
@@ -710,13 +724,24 @@ CLC गवर्नेंस टोकन की प्रस्तावित 
 \section*{8. तकनीकी दायरा और विकास}
 \addcontentsline{toc}{section}{8. तकनीकी दायरा और विकास}
 
-इस अध्याय में वैकल्पिक या प्रस्तावित कार्य का वर्णन किया गया है। यह वर्तमान में मौजूद होने की गारंटी वाली विशेषताओं की सूची नहीं हैCLC App याProtocol v1.1.0.
+यह अध्याय मौजूदा production routing service को वैकल्पिक या प्रस्तावित विकास से अलग करता है। यहाँ बताई गई मौजूदा क्षमता सार्वजनिक CLC App/Core deployment की विशेषता है; वह अपने-आप Protocol v1.1.0 contracts या दूसरे deployments की विशेषता नहीं बनती।
 
-संभावित कार्यक्षेत्रों में निम्नलिखित शामिल हैंः
+मौजूदा सार्वजनिक deployment में ये क्षमताएँ शामिल हैं:
 
 \begin{itemize}[leftmargin=*]
-\item रजिस्टर, बोली, सीमा, शुल्क और इन्वेंट्री डिस्कवरी के साथ संगत पूल पर निष्पादन रूटिंग;
-\item जब परमाणु निपटान अनुपलब्ध हो, तो समय पर लॉक किए गए एस्क्रो या HTLC एडाप्टर क्रॉस-डोमेन निष्पादन के लिए;
+\item compatible Pools के माध्यम से पहुँच योग्य vouchers की graph-based खोज;
+\item चुने गए समान-चेन routes के लिए आधिकारिक fixed-block quotations;
+\item हर हॉप के Pool और protocol fees, minimum outputs और deadlines की गणना;
+\item full-batch simulation, participant signature और relayed Calibur execution;
+\item समान-चेन transaction जिसमें कोई call विफल होने पर सभी route calls वापस होती हैं; और
+\item समूहित receipts और हर हॉप के settlement events का reconciliation।
+\end{itemize}
+विकास के संभावित क्षेत्रों में ये शामिल हैं:
+
+\begin{itemize}[leftmargin=*]
+\item जहाँ atomic settlement उपलब्ध न हो वहाँ cross-domain execution के लिए timelocked escrow या HTLC adapters;
+\item अतिरिक्त registry या policy profiles और cross-profile routing;
+\item opt-in Pool inventory rebalancing और batch netting;
 \item छोटे या व्यक्तिगत पूल के लिए इंटरफेस और नीतिगत उपकरण;
 \item वाउचर, पूल, विनिमय दर पद्धति, सीमाओं, नियंत्रकों और शुल्क के लिए लेखापरीक्षण योग्य रजिस्टर;
 \item तैनाती-विशिष्ट भुगतान प्रदाता कनेक्टर्स, चेकआउट प्रवाह और पात्रता नियंत्रण;
@@ -725,28 +750,34 @@ CLC गवर्नेंस टोकन की प्रस्तावित 
 \end{itemize}
 बाह्य बाजार की कीमतें निर्धारित नहीं करतीं कि एक जारीकर्ता वाउचर शर्तों के तहत कितना कर्जदार है। एक पूल फंजबल परिसंपत्ति के लिए एक संरक्षित बाहरी संदर्भ का उपयोग कर सकता है, लेकिन इसकी प्रकाशित विनिमय दर पद्धति, सीमाएं, शुल्क और इन्वेंट्री उसके उद्धरणों को नियंत्रित करेगी।
 
-\subsection*{8.1 प्रस्तावित मार्ग-सेवा और SDK मानदंड}
-\addcontentsline{toc}{subsection}{8.1 प्रस्तावित मार्ग-सेवा और SDK मानदंड}
+\subsection*{8.1 वर्तमान मार्ग सेवा और व्यापक मानदंड}
+\addcontentsline{toc}{subsection}{8.1 वर्तमान मार्ग सेवा और व्यापक मानदंड}
 
-\textbf{खोज.} प्रस्तावित रूट सेवा में परिसंपत्तियों के प्रवेश, विनिमय दर के तरीकों, सीमाओं, शुल्क, इन्वेंट्री, घटनाओं और नियंत्रक की जानकारी के लिए पहचाने गए रजिस्टरों से पूछताछ होगी। कैश किए गए रिकॉर्ड में ताज़ापन सीमाएं और स्रोत पहचानकर्ता शामिल होंगे।
+\textbf{खोज।} CLC Core configured catalogs, registry relationships, Pool parameters, fees, limits, balances और chain events से मिलान किया हुआ graph बनाए रखता है। वह अनुमान लगाता है कि session wallet किन vouchers तक पहुँच सकता है और पुराने data को चिह्नित करता है। सार्वजनिक configuration अधिकतम तीन हॉप वाले routes खोजता है। खोज execution का वादा नहीं है।
 
-\textbf{नेटवर्क प्रोफाइल।} एक ग्राहक एक से अधिक रजिस्ट्री रूट या नीति प्रोफाइल का समर्थन कर सकता है। यह प्रतिभागी को बताएगा कि कौन सा प्रोफ़ाइल, समकक्ष, एडाप्टर, प्रतिबंध और जिम्मेदार सेवा ऑपरेटर उद्धरण का उपयोग करता है। एक क्रॉस-प्रोफाइल मार्ग को प्रत्येक लागू हॉप की शर्तों को पूरा करने की आवश्यकता होगी।
+\textbf{आधिकारिक कोटेशन।} चुने गए मार्ग के लिए CLC Core एक निश्चित block पर भाग लेने वाले Pools पढ़ता और समर्थित \texttt{SwapPool} गणना दोहराता है। वह Pool और protocol fees अलग दिखाता, हर हॉप का minimum output और deadline तय करता, wallet calls तैयार करता और पूरे batch का अनुकरण करता है। असमर्थित tokens, quoters, wallets या Pool conditions अस्वीकार किए जाते हैं।
 
-\textbf{पथ नीति।} एक जिम्मेदार ऑपरेटर असुरक्षित निर्भरता या प्रतिभागियों को बाहर कर सकता है और मार्ग स्तर की सीमाओं, ताजापन आवश्यकताओं और स्वास्थ्य मानदंडों को लागू कर सकता हैः ये संकेत निर्णय का समर्थन करेंगे; वे वादे की पूर्ति या हानि से सुरक्षा की गारंटी नहीं देंगे।
+\textbf{मौजूदा execution।} प्रतिभागी Calibur batch पर हस्ताक्षर करता है, जिसमें हर हॉप के लिए allowance reset, allowance grant और bounded withdrawal होते हैं। Relayer \texttt{revertOnFailure} सक्रिय रखकर इसे एक समान-चेन transaction के रूप में भेजता है। इससे मौजूदा route में transaction-level all-or-nothing behavior मिलता है। यह cross-chain atomicity, HTLC या escrow routing, automatic rebalancing या netting नहीं है।
 
-\textbf{शुल्क और सीमाएं।} एक उद्धरण में पूल शुल्क, किसी भी अतिरिक्त वर्तमान प्रोटोकॉल शुल्क और किसी भी अलग से प्रस्तावित रूटिंग या सेवा शुल्क को सूचीबद्ध किया जाएगा। निष्पादन समाप्त हो चुके उद्धरणों या उल्लंघन सीमाओं को अस्वीकार कर देगा।
+\textbf{रसीदें और संचालन।} ऐप एक tracking ID के अंतर्गत route को समूहित करता और transaction status, hop order, Pools, token pairs, quoted तथा settled amounts, Pool fees, protocol fees और intermediate balances दर्ज करता है। Service graph freshness, route-computation और quote outcomes, simulation failures, reconciliation lag और repairs तथा unresolved या unknown indexed members की निगरानी करती है। Operational telemetry issuer fulfillment सिद्ध नहीं करती।
 
-\textbf{परमाणु शक्ति और पुनर्प्राप्ति।} मल्टी-हॉप निष्पादन जहां संभव हो परमाणु होगा। जब यह एचटीएलसी या एस्क्रो का उपयोग करता है, तो सेवा टाइमआउट, अवरोध पथ, जिम्मेदार नियंत्रकों, घटना प्रक्रियाओं और शेष जोखिमों का खुलासा करेगी।
+\textbf{Network profiles।} Client एक से अधिक registry root या policy profile का समर्थन कर सकता है। वह participant को बताएगा कि quotation में कौन-सा profile, counterparties, adapters, constraints और जवाबदेह service operators उपयोग हुए। Cross-profile route को हर लागू हॉप की शर्तें पूरी करनी होंगी।
 
-\textbf{प्रस्तावित बैच नेटिंग और पुनः संतुलन।} एक ऑप्ट-इन सेवा संतुलन पुनर्प्राप्त करने के इरादों को इकट्ठा कर सकती है और संगत चक्र या श्रृंखलाओं की खोज कर सकती हैः
+\textbf{Route policy।} जवाबदेह operator unsafe dependencies या counterparties बाहर कर सकता और route-level caps, freshness requirements तथा health criteria लागू कर सकता है। ये signals निर्णय में सहायता करते हैं; fulfillment या loss protection की guarantee नहीं देते।
+
+\textbf{Fees और limits।} मौजूदा quotation हर हॉप के Pool fee और अतिरिक्त protocol fee अलग दिखाता है। सार्वजनिक App अभी अलग routing-service fee नहीं जोड़ता। भविष्य की कोई service fee अलग प्रकाशित होगी। Execution expired quotations या limits का उल्लंघन अस्वीकार करता है।
+
+\textbf{Cross-domain atomicity और recovery।} भविष्य का route मौजूदा समान-चेन atomic batch उपयोग न कर सके और HTLC या escrow उपयोग करे, तो service को timeout, abort path, जवाबदेह controllers, incident procedures और residual risks प्रकाशित करने होंगे।
+
+\textbf{प्रस्तावित batch netting और rebalancing।} Opt-in service rebalance intents एकत्र कर compatible cycles या chains खोज सकती है। वह:
 
 \begin{enumerate}[leftmargin=*]
-\item निष्पादित चक्रों, परिसंपत्तियों, मात्राओं, मूल्य निर्धारण समयशीर्षक और शुल्क की पहचान करने वाली एक मशीन-पठनीय रसीद प्रकाशित करें;
-\item अपनाई गई प्रति अवधि सीमाओं और प्रतिपक्ष नीति को लागू करना;
-\item किसी भी भाग लेने वाले पूल के प्राधिकरण, सीमाओं या उपलब्ध सूची का उल्लंघन करने वाली गतिविधि को अस्वीकार करना; तथा
-\item समीक्षा और विवाद निपटान के लिए निर्धारक इनपुट और प्राप्तियों को संरक्षित करना।
+\item निष्पादित चक्रों, परिसंपत्तियों, राशियों, मूल्यांकन टाइमस्टैम्प और फीस की पहचान करने वाली मशीन-पठनीय रसीद प्रकाशित करें;
+\item प्रति अवधि अपनाई गई सीमाओं और प्रतिपक्षी नीतियों को लागू करना;
+\item ऐसी गतिविधि को अस्वीकार करना जो किसी भी भाग लेने वाले पूल के प्राधिकरण, सीमाओं या उपलब्ध सूची का उल्लंघन करती है; और
+\item समीक्षा और विवाद निपटान के लिए निर्धारित इनपुट और प्राप्तियों को संरक्षित करें।
 \end{enumerate}
-\textbf{SDK आवश्यकताएँ।} एकSDKनिष्पादित मार्गों के लिए निर्धारक उद्धरण-से-प्राप्ति मानचित्रण, प्रति हॉप अपरिवर्तित जांच, समझने योग्य विफलता कोड और लेखा परीक्षा अनुकूल लॉग प्रदान करेगा।Protocol v1.1.0 \texttt{SwapRouter} केवल उद्धरण प्रदान करता है; यह इन प्रस्तावित मार्गों को निष्पादित नहीं करता है।
+\textbf{SDK और interface requirements।} Reusable route integration को deterministic quote-to-receipt mapping, हर हॉप की invariant checks, समझने योग्य failure codes और audit-friendly logs देने चाहिए। मौजूदा production App/Core implementation अपने profile के लिए ये काम करता है। Protocol v1.1.0 Solidity \texttt{SwapRouter} केवल कोटेशन देता है और route निष्पादित नहीं करता।
 
 \subsubsection*{8.1.1 न्यूनतम संघ संगतता विनिर्देश}
 
@@ -796,6 +827,8 @@ Protocol v1.1.0 अनुबंधEVM-प्रोटोकॉल रिपॉ�
 \item अन्य स्पष्ट रूप से प्राप्त, प्राप्त राजस्व।
 \end{enumerate}
 पूल द्वारा बनाए गए सकल पूल शुल्क नेटवर्क राजस्व नहीं हैं। वर्तमान Protocol v1.1.0 एक अलग मॉडल का उपयोग करता हैः एक वैकल्पिक प्रोटोकॉल शुल्क पूल फीस के अतिरिक्त है और सीधे इसके कॉन्फ़िगर किए गए प्राप्तकर्ता को भेजा जाता है।
+
+उत्पादन CLC App route workflow अलग routing-service fee नहीं जोड़ता। फिर भी routed exchange हर हॉप पर Pool fee और protocol fee दे सकता है। मौजूदा per-hop fees को प्रस्तावित network rake नहीं कहना चाहिए और भविष्य के service revenue में दोबारा नहीं गिनना चाहिए।
 
 \subsection*{9.2 चित्रणात्मक रैक गणित}
 \addcontentsline{toc}{subsection}{9.2 चित्रणात्मक रैक गणित}
@@ -910,10 +943,12 @@ Protocol v1.1.0 अनुबंधEVM-प्रोटोकॉल रिपॉ�
 \addcontentsline{toc}{subsection}{10.7 रूटिंग और क्रॉस-डोमेन जोखिम}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{खतरे:} आंशिक निष्पादन, फंसे हुए हॉप्स, ब्रिज या एस्क्रो शोषण, पुराने कोटेशन, पथ मुद्रास्फीति और घोषित मूल्य परिवर्तनों का अग्रिम संचालन।
-\item \textbf{संकेतक:} मार्ग की समाप्ति दरें, एस्क्रो बैकलॉग्स, कोट-टू-इक्जीक्यूशन अंतर, दोहराए जाने वाले अनावश्यक कूद और पुल घटनाएं।
-\item \textbf{संभव नियंत्रण:} यदि उपलब्ध हो तो परमाणु निष्पादन; रूढ़िवादी HTLC या एस्क्रो टाइमआउट; पथ और प्रतिपक्ष नीति; मार्ग स्तर की सीमाएं; निर्णायक बोली-से-प्राप्ति मानचित्रण; और उत्तरदायी सेवा ऑपरेटर।
-\item \textbf{तनाव परीक्षण:} एक पुल बंद, श्रृंखला पुनर्गठन, निर्भरता टूटने, और प्रस्तावित मल्टी-हॉप मार्ग में एक असफल कूद।
+\item \textbf{मौजूदा समान-चेन खतरे:} पुराना discovery data, अपर्याप्त inventory, limit या admission changes, quotation expiry, असमर्थित wallets या dependencies, simulation failure, relay failure, chain reorganization और path inflation।
+\item \textbf{मौजूदा controls और evidence:} fixed-block authoritative quotations, full-batch simulation, हर हॉप के minimum outputs और deadlines, \texttt{revertOnFailure} वाला हस्ताक्षरित Calibur batch, deterministic grouped receipts, reconciliation और स्पष्ट failure codes। ये controls चुने गए execution risks घटाते हैं, लेकिन availability या issuer fulfillment की guarantee नहीं देते।
+\item \textbf{प्रस्तावित cross-domain खतरे:} अलग domains में partial execution, फँसे हुए hops, bridge, HTLC या escrow exploits, timeout mismatch और recovery disputes।
+\item \textbf{संकेतक:} route-discovery और quotation outcomes, quote-to-execution gap, route depth, simulation failures, reverts, reconciliation failures, बार-बार अनावश्यक hops और भविष्य के cross-domain systems के लिए escrow backlogs तथा bridge incidents।
+\item \textbf{संभावित अतिरिक्त controls:} route और counterparty policies; route-level limits; जवाबदेह service operators; और conservative HTLC या escrow timeout, abort तथा recovery rules।
+\item \textbf{तनाव परीक्षण:} पुरानी graph state, dependency outage, मौजूदा atomic batch में विफल hop, chain reorganization और भविष्य के cross-domain route में bridge halt या expired escrow।
 \item \textbf{जोखिम की इच्छा:} केवल पहचान और निगरानी की गई निर्भरता के लिए कम से मध्यम।
 \end{itemize}
 \subsection*{10.8 रखरखाव और कुंजी प्रबंधन का जोखिम}
@@ -1140,48 +1175,69 @@ Protocol v1.1.0 अनुबंधEVM-प्रोटोकॉल रिपॉ�
 \item \textbf{टोकन:} केवल token mechanics अपने आप भुनाए जा सकने वाला वादा नहीं बनाती।
 \item \textbf{वाउचर:} ऐसा token या record जिसे जारीकर्ता प्रकाशित शर्तों के तहत भुनाए जा सकने वाले वादे के रूप में प्रस्तुत करता है।
 \item \textbf{प्रस्ताव:} वाउचर से जुड़ी वस्तुओं या सेवाओं के लिए कैटलॉग रिकॉर्ड।
+\item \textbf{Want:} किसी आवश्यकता की प्रकाशित अभिव्यक्ति। यह अपने-आप पेशकश या वाउचर स्वीकार नहीं करता, swap अधिकृत नहीं करता, inventory आरक्षित नहीं करता और कोई दायित्व नहीं बनाता।
 \item \textbf{जारीकर्ता:} वाउचर प्रतिबद्धता को प्रकाशित करने और पूरा करने के लिए जिम्मेदार पक्ष।
 \item \textbf{पूल प्रबंधक:} पूल के नियमों को प्रकाशित और प्रशासित करने वाली जिम्मेदार संरचना।
+\item \textbf{Registry:} पहचाने गए contracts, pools, tokens या दूसरे resources का discovery और admission record। शामिल होना अपने-आप endorsement, issuer capacity, fulfillment, guarantee या insurance सिद्ध नहीं करता।
 \item \textbf{पूल विनिमय दर या बोलीः} एक कॉन्फ़िगर किए गए कोटर द्वारा उत्पादित लेनदेन पैरामीटर; नकद या भुनाने मूल्य का प्रमाण नहीं।
-\item \textbf{पूल टोकन बैलेंस कैपः} एक पूल द्वारा रखे गए टोकन के लिए वर्तमान \texttt{Limiter} अधिकतम। ऐप इसे लेबल कर सकता है \textbf{``क्रेडिट सीमा।''}
+\item \textbf{मूल्य सूचकांक (Value Index):} एक सापेक्ष मूल्यांकन इनपुट जिसका उपयोग कॉन्फ़िगर किए गए कोटर द्वारा पूल एक्सचेंज कोट की गणना के लिए किया जाता है। यह स्वचालित रूप से बाजार मूल्य, नकद मूल्य या जारीकर्ता दायित्व नहीं है।
+\item \textbf{Limiter:} वैकल्पिक Protocol v1.1.0 component जो Pool के लिए अधिकतम token balance तय करता है। ऐप इस सीमा को \textbf{`क्रेडिट सीमा'} कह सकता है। यह personal borrowing limit या network-wide rolling limit नहीं है।
 \item \textbf{पूल स्वैप:} एक \texttt{SwapPool} के माध्यम से प्रत्यक्ष परिसंपत्ति विनिमय।
-\item \textbf{स्वैप सेटलमेंटः} पूल स्वैप को पूरा करने वाले ऑन-चेन हस्तांतरण और शुल्क लेखांकन।
-\item \textbf{मुआवजे की प्रस्तुतिः} जारीकर्ता को वाउचर इकाइयों की वापसी या अन्यथा प्रस्तुत करना।
-\item \textbf{वादे की पूर्ति:} जारीकर्ता वादा किया गया वस्तु, सेवा, लाभ या अन्य प्रदर्शन प्रदान करता है।
-\item \textbf{दायित्व की समाप्तिः} पूर्ण इकाइयों को फिर से प्रस्तुत करने से रोकने के लिए एक रिकॉर्ड।
-\item \textbf{प्रस्तावित निष्पादन राउटरः} भविष्य के सॉफ्टवेयर जो मार्गों को अधिकृत और निष्पादित करेगा। वर्तमान \texttt{SwapRouter} केवल उद्धरण करता है।
+\item \textbf{मार्ग:} वॉलेट के input voucher से लक्ष्य voucher तक एक या अधिक पूल स्वैप का क्रमबद्ध पथ।
+\item \textbf{मार्ग की गहराई:} एक मार्ग में पूल स्वैप की संख्या। वर्तमान सार्वजनिक तैनाती तीन तक की खोज करती है।
+\item \textbf{मार्ग खोज:} मिलान किए हुए graph और wallet-holding data से संभावित पथों का अनुमान। मिला हुआ मार्ग निष्पादन का वादा नहीं है।
+\item \textbf{मार्ग कोटेशन:} चुने गए मार्ग के लिए समय-सीमित आधिकारिक proposal, जिसे एक निश्चित ब्लॉक पर पढ़ी गई समर्थित pool state से निकाला और हस्ताक्षर से पहले अनुकरण किया जाता है।
+\item \textbf{मार्गित विनिमय:} प्रतिभागी द्वारा अधिकृत पूल स्वैप का क्रम। मौजूदा ऐप इसे समान-चेन Calibur wallet batch के रूप में भेजता है, जिसमें कोई call विफल होने पर सभी calls साथ वापस होती हैं।
+\item \textbf{मार्गित-विनिमय रसीद:} route status, transaction hash, hops, settled amounts और हर हॉप के pool तथा protocol fees का समूहित technical record।
+\item \textbf{तरलता:} मौजूदा admission, balance-cap, quotation, fee, reservation और withdrawal conditions के अंतर्गत उपलब्ध योग्य pool output inventory। केवल graph edge या token balance usable liquidity सिद्ध नहीं करता।
+\item \textbf{स्वैप निपटान:} पूल स्वैप पूरा करने वाले on-chain transfers और fee accounting।
+\item \textbf{भुनाने के लिए प्रस्तुति:} वाउचर units को जारीकर्ता को लौटाना या किसी और तरह प्रस्तुत करना।
+\item \textbf{वादा पूरा करना:} जारीकर्ता वादा की गई वस्तु, सेवा, लाभ या दूसरा performance देता है।
+\item \textbf{निस्तारण:} पूरी की गई units को दोबारा प्रस्तुत होने से रोकने वाला record।
+\item \textbf{Solidity \texttt{SwapRouter}:} Protocol v1.1.0 का केवल कोटेशन देने वाला contract। वह दिए गए path की गणना कर सकता है, लेकिन assets custody नहीं करता, tokens approve नहीं करता और swaps निष्पादित नहीं करता।
+\item \textbf{ऐप routing workflow:} मौजूदा CLC App और CLC Core service जो पूल contracts के ऊपर समान-चेन routes खोजती, quote करती, उनका अनुकरण करती, तैयार करती, relay करती, मिलान करती और report करती है।
+\item \textbf{Rebalancing:} Pool Steward से अधिकृत mandate के अंतर्गत pool inventory को तय targets की ओर ले जाना। मौजूदा participant-initiated routing अपने-आप automatic rebalancing अधिकृत नहीं करती।
+\item \textbf{Clearing या netting:} कई obligations या intended transfers को मिलाकर छोटी net positions निकालना। यह मौजूदा App/Core routed exchange का भाग नहीं है।
+\item \textbf{सुधार:} configuration, registry record, service failure, dispute या अधूरी commitment को पहचाने गए अधिकार के भीतर ठीक करने की जवाबदेह प्रक्रिया। Registry या route-service repair स्वतंत्र pool के नियम चुपचाप नहीं बदलती और issuer obligation का निस्तारण नहीं करती।
 \item \textbf{प्रस्तावित CLC नेटवर्क पूलः} नेटवर्क स्तर पर भविष्य की क्लियरिंग और बजट समन्वय व्यवस्था।
 \item \textbf{प्रस्तावित CLC शासन टोकनः} भविष्य के शासन डिजाइन, न कि वर्तमान ऐप या Protocol v1.1.0 संपत्ति।
 \item \textbf{नेटवर्क रैकः} भविष्य के नेटवर्क बजट में स्थानांतरित किए जाने वाले पूल शुल्क का प्रस्तावित हिस्सा।
 \item \textbf{गारंटी या बीमाः} एक ऐसा संरक्षण जो केवल तभी लागू होता है जब किसी पहचाने गए पक्ष ने इसे स्पष्ट रूप से ग्रहण किया हो, वित्तपोषित किया हो और प्रकाशित किया हो।
 \end{itemize}
 
-\section*{14. प्रस्तावित KPIs और स्वास्थ्य संकेतक}
-\addcontentsline{toc}{section}{14. प्रस्तावित KPIs और स्वास्थ्य संकेतक}
+\section*{14. KPI और स्वास्थ्य संकेतक}
+\addcontentsline{toc}{section}{14. KPI और स्वास्थ्य संकेतक}
 
-एक तैनाती को केवल तब KPI प्रकाशित करना चाहिए जब वह घटना, स्रोत, समूह या अवधि, इकाई, मूल्यांकन विधि और समयशीर्षक, बहिष्करण, सुधार नीति, आउट-चेन साक्ष्य और डेटा गुणवत्ता सीमाओं को परिभाषित कर सके।
+Deployment को KPI तभी प्रकाशित करना चाहिए जब वह event, source, cohort या period, unit, valuation method और timestamp, exclusions, correction policy, off-chain evidence और data-quality limits परिभाषित कर सके।
 
-प्रस्तावित उपायों में निम्नलिखित शामिल हैंः
+मौजूदा route services खोज, कोटेशन, execution, settlement और reconciliation events माप सकती हैं। Voucher fulfillment और social outcomes के लिए अब भी अलग evidence चाहिए। सुझाए गए measures में ये शामिल हैं:
 
 \begin{itemize}[leftmargin=*]
-\item वैध प्रतिपूर्ति प्रस्तुतियाँ;
-\item कोहर्ट आधारित वादे की पूर्ति दर;
-\item डिस्चार्ज की पूर्णता;
-\item प्रस्तुति से वादे की पूर्ति तक की विलंबता;
-\item अधिग्रहण से प्रस्तुति तक holding की अवधि;
-\item एक निर्धारित पद्धति के तहत अपव्यय योग्य प्रतिबद्धताएं;
-\item पूल स्वैप की पूर्ण मात्रा;
-\item मापा गया पूल इन्वेंट्री;
-\item पूल टोकन बैलेंस कैप का उपयोग;
-\item उद्धरण पास दर, मार्ग निष्पादन दर से अलग रखी जाती है;
-\item स्पष्ट रूप से कवर किए गए जोखिम द्वारा विभाजित पात्र भंडार;
-\item पहचान की गई पॉलिसी के तहत गारंटर का दावा और वसूली;
-\item प्रस्तावित नेटवर्क रैक और सेवा शुल्क वास्तव में प्राप्त किए गए, डबल-कंटिंग सकल पूल शुल्क के बिना;
-\item शासन का पता लगाना, निर्णय लेना, विराम देना, मरम्मत करना और बंद करना;
-\item शिकायतें, विवाद, सुधार और उपचार; तथा
-\item अलग-अलग सामाजिक या पारिस्थितिक परिणामों को दर्शाया।
+\item valid redemption presentments;
+\item cohort-based fulfillment rate;
+\item discharge completeness;
+\item presentment-to-fulfillment latency;
+\item acquisition-to-presentment holding duration;
+\item तय method के अंतर्गत outstanding eligible commitments;
+\item completed direct Pool-swap volume;
+\item route-discovery attempts और उपलब्ध candidate routes की संख्या;
+\item authoritative route-quotation attempts, outcomes, depth, expiry और quoted fees;
+\item routed-exchange attempts, confirmed और reverted routes तथा failure reasons;
+\item whole-route input और output volume, per hop नहीं बल्कि हर route पर एक बार गिना हुआ;
+\item हर hop की settled amounts, Pool fees, protocol fees और intermediate remainders;
+\item insufficient liquidity, Pool token-balance caps, unsupported dependencies और wallet restrictions सहित route rejections;
+\item graph freshness, reconciliation lag, corrections और failures;
+\item measured Pool inventory;
+\item Pool token-balance-cap utilization;
+\item discovery success और quotation pass rates, route execution और settlement rates से अलग;
+\item eligible reserves divided by explicitly covered exposure;
+\item identified policy के अंतर्गत guarantor claims और recoveries;
+\item मौजूदा per-hop Pool और protocol fees, किसी proposed network rake या future service fee से अलग;
+\item governance detection, decision, pause, repair और closure times;
+\item complaints, disputes, corrections और remedies; और
+\item अलग से evidenced social या ecological outcomes।
 \end{itemize}
-ऑन-चेन लेनदेन डेटा स्वयं पहचान, जारीकर्ता प्रदर्शन, संतुष्टि, कारण संबंधीता, सामुदायिक स्वास्थ्य या सामाजिक प्रभाव को साबित नहीं करता है। इन दावों के लिए अपनी पद्धति और सबूत की आवश्यकता होती है।
+On-chain transaction data अपने-आप identity, issuer performance, satisfaction, causation, community health या social impact सिद्ध नहीं करता। इन claims को अपनी method और evidence चाहिए।
 
 देखिये \href{https://docs.cosmolocal.credit/hi/white-paper/appendix-c-kpi-definitions}{परिशिष्ट सी} प्रस्तावित माप विनिर्देश के लिए।
 
@@ -1192,9 +1248,11 @@ Protocol v1.1.0 अनुबंधEVM-प्रोटोकॉल रिपॉ�
 \subsection*{15.1 वर्तमान आधार}
 \addcontentsline{toc}{subsection}{15.1 वर्तमान आधार}
 
-GEF संचालित करता हैCLC App पर \texttt{cosmolocal.credit} Gnosis Chain पर ऐप समर्थित खाते और वॉलेट एक्सेस, सार्वजनिक बाजार कैटलॉग, और टोकन, वाउचर, ऑफर के लिए इंटरफेस प्रदान करता है।प्रतिबद्धता पूल, हस्तांतरण, और प्रत्यक्ष पूल स्वैप।
+GEF Gnosis Chain पर \texttt{cosmolocal.credit} का CLC App संचालित करता है। ऐप account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, direct Pool swaps तथा routed exchanges के लिए समर्थित interfaces देता है।
 
-Protocol v1.1.0 वर्तमान अनुबंध की आधारशिला प्रदान करता हैः\texttt{GiftableToken}, प्रत्यक्ष \texttt{SwapPool} निष्पादन, वैकल्पिक रजिस्टर, मूल्यांकन मॉड्यूल, पूल टोकन-बालेंस कैप, पूल शुल्क, अतिरिक्त प्रोटोकॉल शुल्क और केवल उद्धरण \texttt{SwapRouter}. उपलब्धता अभी भी इंटरफ़ेस, तैनात अनुबंधों, सूची, विन्यास, नेटवर्क की स्थिति, पात्रता, प्रदाताओं, अधिकार क्षेत्र और प्रकाशित जारीकर्ता या पूल शर्तों पर निर्भर करती है।
+Protocol v1.1.0 मौजूदा contract foundation देता है: \texttt{GiftableToken}, सीधे \texttt{SwapPool} execution, वैकल्पिक registries, valuation modules, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल कोटेशन देने वाला Solidity \texttt{SwapRouter}।
+
+CLC Core अब सार्वजनिक App की समान-चेन routing और observability foundation देता है: reconciled graph discovery, अधिकतम तीन Pool swaps वाले routes, fixed-block quotations, per-hop bounds और fees, full-batch simulation, signed atomic Calibur execution, relay tracking, settlement reconciliation, grouped receipts और operational metrics। उपलब्धता अब भी interface, समर्थित wallet और token behavior, deployed contracts, inventory, configuration, service freshness, network state, eligibility, providers, अधिकार क्षेत्र और प्रकाशित issuer या Pool terms पर निर्भर है।
 
 \subsection*{15.2 प्रस्तावित मील के पत्थर}
 \addcontentsline{toc}{subsection}{15.2 प्रस्तावित मील के पत्थर}
@@ -1202,14 +1260,14 @@ Protocol v1.1.0 वर्तमान अनुबंध की आधारश�
 ये नामित मील के पत्थर डिजाइन निर्देश हैं, रिलीज नंबर, डिलीवरी की तारीखें या प्रतिबद्धताएं नहीं जो एक सुविधा लॉन्च करेगी।
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{शासन फाउंडेशन} प्रस्तावितCLCशासन टोकन; प्रस्तावितCLCनेटवर्क पूल; शुल्क एडाप्टर; क्वारोम, टाइमलॉक और शासन नींव।
-\item \textbf{रूटिंग और अवलोकनशीलता:} राउटर SDK और रजिस्ट्री एपीआई; स्वास्थ्य डैशबोर्ड; एक प्रस्तावित बीमा नीति ढांचा; ऑप्ट-इन rebalancing इरादे; बैच नेट प्रोटोटाइप।
+\item \textbf{Governance Foundation:} प्रस्तावित CLC governance token; प्रस्तावित CLC Network Pool; fee adapters; quorum, timelock और governance foundations।
+\item \textbf{Routing \& Observability:} मौजूदा route और receipt interfaces को अतिरिक्त profiles तक बढ़ाना; health dashboards और service-level reporting प्रकाशित करना; insurance-policy framework विकसित करना; opt-in rebalance intents design करना; और batch netting का prototype बनाना।
 \item \textbf{Cross-Domain Risk Tools:} HTLC या एस्क्रो रूटिंग; अलग से नियंत्रित गारंटर मॉड्यूल; रोलिंग, खाता और स्तरबद्ध सीमा पूर्वनिर्धारित।
 \item \textbf{विनियमित पहुंचः} तैनाती-विशिष्ट तृतीय-पक्ष भुगतान सेवाएं; व्यक्तिगत सूक्ष्म पूल; अनुपालन-सेवा का पता लगाना; वाउचर वर्गों के तीसरे पक्ष के ऑडिट।
 \end{itemize}
 किसी भी भुगतान सेवा को लागू अधिकार क्षेत्र, पात्रता, शुल्क, सीमाएं और शर्तों के तहत अलग से पहचाने गए तृतीय पक्ष द्वारा प्रदान किया जाएगा।CLC App और Protocol v1.1.0 अनुबंध स्वयं फिएट रेल का संचालन नहीं करते हैं।
 
-बहु-हॉप निष्पादन, साझा बीमा, प्रस्तावितCLCशासन का प्रतीक और प्रस्तावितCLCनेटवर्क पूल, बैच नेटिंग, व्यक्तिगत माइक्रो-पूल और विनियमित भुगतान सेवाएं तब तक प्रस्तावित या तैनाती से निर्भर रहती हैं जब तक कि एक कार्यान्वयन और उसके शासन शर्तें उन्हें सक्रिय नहीं पहचानती हैं।
+Cross-domain multi-hop execution, automatic Pool rebalancing, साझा insurance, प्रस्तावित CLC governance token और प्रस्तावित CLC Network Pool, batch netting, personal micro-Pools तथा regulated payment services तब तक प्रस्तावित या तैनाती-निर्भर हैं, जब तक implementation और उसकी governed terms उन्हें सक्रिय न बताएँ। सार्वजनिक CLC App में समान-चेन participant-initiated routing मौजूदा क्षमता है।
 
 
 \section*{16. प्रस्तावित मूल्यांकन टेम्पलेट}
@@ -1293,9 +1351,9 @@ CLC App का प्रयोग \href{https://docs.cosmolocal.credit/hi/govern
 \section*{18. निष्कर्ष}
 \addcontentsline{toc}{section}{18. निष्कर्ष}
 
-Cosmo-Local Credit एक वर्तमान आवेदन को जोड़ता है और Protocol v1.1.0 स्वतंत्र रूप से शासित के लिए एक व्यापक प्रस्तावित डिजाइन के साथ नींवप्रतिबद्धता पूल. वर्तमान प्रत्यक्ष पूल स्वैप, कोट और लिमिट घटक, तथा सार्वजनिक लेनदेन रिकॉर्ड उत्तरदायी आदान-प्रदान का समर्थन कर सकते हैं, लेकिन वे जारीकर्ता की वादे की पूर्ति साबित नहीं करते, योगदानकर्ता अधिकार पैदा नहीं करते या मूल्य, तरलता, मुआवजा, बीमा, कानूनी स्थिति या हानि से सुरक्षा की गारंटी नहीं देते।
+Cosmo-Local Credit स्वतंत्र रूप से संचालित Commitment Pools के व्यापक प्रस्तावित design को मौजूदा App और Protocol v1.1.0 foundation से जोड़ता है। मौजूदा direct Pool swaps और App/Core routed exchanges हर hop के rules, fees, limits, settlement records और governance बनाए रखते हुए प्रतिभागी के vouchers को कई Pools से जोड़ सकते हैं। ये transactions issuer fulfillment सिद्ध नहीं करते, contributor rights नहीं बनाते और value, liquidity, repayment, insurance, legal status या loss protection की guarantee नहीं देते।
 
-प्रस्तावित निष्पादन रूटिंग, नेटिंग, गवर्नेंस एसेट, नेटवर्क क्लीरिंग, तरलता कार्यक्रम और इस पेपर में वर्णित साझा सुरक्षा के लिए अलग कार्यान्वयन, वित्तपोषण, शासन और प्रकाशित शर्तों की आवश्यकता होगी। डिजाइन का उद्देश्य जारीकर्ता प्रदर्शन, पूल प्रशासन और पहचाने गए पक्षों के साथ वास्तविक दुनिया की जवाबदेही को बनाए रखते हुए सहकार्यशीलता का विस्तार करना है।
+प्रस्तावित cross-domain routing, automatic Pool rebalancing, netting, governance assets, network clearing, liquidity programs और shared protections के लिए अलग implementation, funding, governance और published terms चाहिए। Design का उद्देश्य issuer performance, Pool governance और real-world accountability को पहचाने गए पक्षों के पास रखते हुए interoperability बढ़ाना है।
 
 
 \section*{ए. प्रस्तावित माप और शुल्क मॉडल}
@@ -1431,12 +1489,19 @@ KPI & प्रस्तावित परिभाषा & आवश्यक 
 \textbf{निष्पादन विलंबता} & प्रस्तुति-वादे की पूर्ति समय का मध्यवर्ती और 90वां प्रतिशत & जारी करने से प्रस्तुत करने या अधिग्रहण से प्रस्तुत होने तक की प्रतिधारण अवधि को प्रतिस्थापित न करें \\
 \textbf{रखरखाव की अवधि} & अधिग्रहण से प्रस्तुत समय का औसत और वितरण & अधिग्रहण घटना की पहचान करें और अज्ञात अधिग्रहण समय को बाहर रखें \\
 \textbf{शेष पात्र प्रतिबद्धताएं} & निर्दिष्ट बहिष्करणों के बाद शेष पात्र तृतीय-पक्ष प्रतिबद्धताएं & जारीकर्ता की पहचान और शर्तें; लागू जारीकर्ता इन्वेंट्री, समाप्ति, बर्न, डिस्चार्ज, परीक्षण और गैर-प्रतिबंध टोकन को छोड़कर \\
-\textbf{पूल स्वैप की मात्रा} & एक खुलासा मूल्य निर्धारण पद्धति के तहत पूर्ण प्रत्यक्ष पूल स्वैप का मूल्य & ऑन-चेन सेटलमेंट इवेंट्स, टोकन इकाइयां, दर स्रोत, समय; जारीकर्ता वादे की पूर्ति के रूप में वर्गीकृत न करें \\
+\textbf{प्रत्यक्ष पूल स्वैप मात्रा} & एकल पूल एक्सचेंजों के रूप में शुरू किए गए पूर्ण स्वैप का मूल्य & ऑन-चेन निपटान घटनाएं, टोकन इकाइयाँ, दर स्रोत, समय; जारीकर्ता पूर्ति के रूप में वर्गीकृत न करें \\
+\textbf{मार्ग खोज प्रयास} & किसी अवधि में पहुँच योग्य vouchers या candidate paths खोजने के valid requests & graph version, indexed block, freshness, wallet scope, requested depth, candidate count, timeout या search-budget status; यह authoritative quotation नहीं है \\
+\textbf{उपलब्ध candidate routes} & परिभाषित request cohort के लिए खोज से लौटे candidate paths & हर अलग ordered Pool/token path गिनें; route depth और exclusions बताएँ; executable या settled न कहें \\
+\textbf{मार्ग कोटेशन pass rate} & valid quotation attempts में लौटे authoritative route quotations का अनुपात & fixed block, path, amount mode, expiry, result या rejection reason; discovery success और execution से अलग रखें \\
+\textbf{मार्ग execution rate} & समान mature cohort में valid signed execution attempts में confirmed routed transactions का अनुपात & tracking ID, transaction hash, submission status, confirmation या revert, route depth और failure reason; unsigned quotations हटाएँ \\
+\textbf{पूरे मार्ग की मात्रा} & confirmed routed exchanges का input और output value, हर route पर एक बार गिना हुआ & एक valuation method के अंतर्गत पहले hop का settled input और अंतिम hop का settled output उपयोग करें; सभी hop values को अलग economic volume मानकर न जोड़ें \\
+\textbf{हर हॉप का निपटान} & confirmed route के हर hop का settled input, gross output, Pool fee, protocol fee और net output & ordered Pool और token identifiers, settlement events, transaction hash, block, log index और intermediate remainder \\
+\textbf{मार्ग शुल्क} & route में वास्तव में settled मौजूदा Pool और protocol fees & हर hop और fee type के अनुसार total बताएँ; proposed network rake या unimplemented service fee न कहें \\
+\textbf{मार्ग rejection} & पहचाने गए reasons के अनुसार route या quotation rejections की संख्या और अनुपात & admission, deposit limit, liquidity, fee domain, unsupported token या quoter, wallet balance या type, gas, search budget, expiry, stale state या simulation evidence \\
+\textbf{Route reconciliation health} & indexed graph और grouped settlement records की freshness और reliability & graph version और age, dirty-queue depth, reconciliation lag, corrections, failures, unknown members और unresolved receipts \\
 \textbf{पूल इन्वेंट्री} & निर्दिष्ट समय पर एक पूल द्वारा रखी गई मापी गई समर्थित परिसंपत्तियां & अनुबंध शेष राशि, शुल्क आरक्षण, inaccessible assets, valuation method और owner-withdrawal powers \\
 \textbf{रिजर्व पर्याप्तता} & स्पष्ट रूप से कवर किए गए जोखिम द्वारा विभाजित पात्र, उपलब्ध आरक्षित परिसंपत्तियां & कवरेज नीति, परिसंपत्तियों की पात्रता, रखरखाव/नियंत्रण, दायित्व, बहिष्करण और मूल्यांकन; डिफ़ॉल्ट रूप से कुल टोकन आपूर्ति नहीं \\
 \textbf{सीमा उपयोग} & वर्तमान कॉन्फ़िगर की गई कैप द्वारा विभाजित मापा गया पूल टोकन बैलेंस & Limiter पता, टोकन, पूल, टाइमस्टैम्प, परिवर्तन और अवधि बिना सीमांकित \\
-\textbf{उद्धरण पास दर} & वैध उद्धरण प्रयासों द्वारा विभाजित सफल उद्धरण प्रतिक्रियाएं & केवल उद्धरण परिणाम; मार्ग निष्पादन नहीं \\
-\textbf{मार्ग निष्पादन दर} & वैध निष्पादन प्रयासों द्वारा विभाजित पूर्ण मल्टी-हॉप निष्पादन & केवल एक कार्यान्वित निष्पादन प्रणाली पर लागू; प्रति-हॉप रिपोर्ट और परमाणुता नियम \\
 \textbf{गारंटर की वसूली} & भुगतान किए गए कवर किए गए दावों में विभाजित प्राप्त पात्र वसूली & गारंटर की पहचान, दावा नीति, समय सीमा, लागत, विवाद और कटौती \\
 \textbf{प्रस्तावित नेटवर्क राजस्व} & प्रस्तावित नेटवर्क रैक प्राप्त प्लस अलग-अलग रूटिंग/सेवा शुल्क प्राप्त & पूल द्वारा प्रतिधारण किए गए सकल पूल शुल्क को बाहर रखें और रैक को दो बार गिनने से बचें \\
 \textbf{शासन की समयसीमा} & घटना का पता लगाने, निर्णय लेने, रुकने, मरम्मत करने और बंद करने का समय & निर्धारित घड़ियों, जिम्मेदार निकायों, आपातकालीन शक्तियों, अपीलों और गायब होने वाली घटनाओं \\

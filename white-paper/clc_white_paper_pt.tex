@@ -29,13 +29,13 @@
   citecolor=blue,
   urlcolor=blue,
   pdflang={pt},
-  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.9},
   pdfauthor={William O. Ruddick and Mohamed Sohail}
 }
 
 \title{Cosmo-Local Credit (CLC)\\Uma rede de encaminhamento de crédito, coordenação de compromissos e financiamento de uma economia cosmo-local saudável}
 \author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
-\date{White Paper v0.8 translation: 10 October 2026}
+\date{White Paper v0.9 translation: 17 November 2026}
 
 \begin{document}
 \maketitle
@@ -44,17 +44,17 @@
 \sloppy
 \RaggedRight
 
-\textbf{Sobre esta tradução.} Esta é uma tradução do Livro Branco v0.8 (White Paper v0.8). O texto original em inglês foi publicado em 30 de setembro de 2026. Esta tradução foi publicada em 10 de outubro de 2026. O inglês é o texto original. \href{https://docs.cosmolocal.credit/white-paper}{Ler o texto original em inglês}.
+\textbf{Sobre esta tradução.} Esta é uma tradução do Livro Branco v0.9 (White Paper v0.9). A fonte em inglês foi publicada em 16 de novembro de 2026. Esta tradução foi publicada em 17 de novembro de 2026. O texto fonte está em inglês. \href{https://docs.cosmolocal.credit/white-paper}{Ler o texto fonte em inglês}.
 
-\textbf{Versão:} 0.8
+\textbf{Versão:} 0.9
 
-\textbf{Data:} 30 de setembro de 2026
+\textbf{Data:} 16 de novembro de 2026
 
 \textbf{Autores:} William O. Ruddick e Mohamed Sohail
 
 \textbf{Contacto:} \href{mailto:info@grassecon.org}{info@grassecon.org}
 
-\textbf{Transferir:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-pt.pdf}{Livro Branco CLC v0.8 em português (PDF)}
+\textbf{Transferir:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-pt.pdf}{Livro Branco CLC v0.9 em português (PDF)}
 
 \textbf{Publicação:} Publicação pública final e versionada. Este documento não constitui aconselhamento de investimento nem uma oferta de venda ou solicitação de compra de qualquer valor mobiliário ou instrumento financeiro. Versões posteriores podem rever os modelos aqui descritos.
 
@@ -75,7 +75,7 @@ Estado & Significado \\
 \bottomrule
 \end{longtable}
 
-O Protocol v1.1.0 atual inclui execução direta de \texttt{SwapPool}, curadoria opcional, avaliação, limites de saldo de tokens do fundo, taxas do fundo, uma taxa adicional de protocolo e uma taxa de cotação apenas de \texttt{SwapRouter}. A execução multi-hop, HTLC ou encaminhamento de escrow, rede de lotes, seguro compartilhado, o token de governação CLC proposto, o fundo de rede CLC proposto, mecanismos de taxa-crédito e programas de liquidez de rede são propostos ou dependentes da implementação.
+O Protocol v1.1.0 atual inclui execução direta de \texttt{SwapPool}, curadoria opcional, avaliação, limites de saldo de tokens do Fundo, comissões do Fundo, uma comissão adicional do protocolo e um \texttt{SwapRouter} Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção fornecem descoberta de rotas na mesma cadeia, cotações num bloco fixado, simulação, execução atómica de um lote assinado pela carteira através de até três Fundos e recibos agrupados. O encaminhamento HTLC ou por depósito em garantia entre cadeias, o reequilíbrio automático de Fundos, a compensação por lotes, o seguro partilhado, o token de governação CLC proposto, o Fundo de Rede CLC proposto, os mecanismos de créditos de comissões e os programas de liquidez de rede são propostas ou dependem da implementação.
 
 \textbf{Público pretendido:} Construtores e administradores de Fundos, engenheiros e auditores de protocolos, financiadores de liquidez e de mandato, designers de governação e revisores legais ou de conformidade.
 
@@ -91,7 +91,7 @@ Cosmo-local significa partilhar normas abertas, software e conhecimento a nível
 \section*{Implementação atual}
 \addcontentsline{toc}{section}{Implementação atual}
 
-O GEF opera o CLC App em \href{https://cosmolocal.credit}{cosmolocal.credit}. Ele fornece acesso a contas e carteiras, um catálogo público do mercado e interfaces suportadas para tokens, vales, Ofertas, Fundos de Compromissos, transferências e swaps diretos do Fundo. A disponibilidade depende da interface, dos contratos, do inventário, dos limites e taxas configurados, do estado da rede, da elegibilidade, dos provedores, da jurisdição e dos termos publicados do emissor ou do Fundo.
+A GEF opera a CLC App em \href{https://cosmolocal.credit}{cosmolocal.credit}. Esta fornece acesso a contas e carteiras, um catálogo público do Mercado e interfaces suportadas para tokens, vales, Ofertas, Wants, Fundos de Compromissos, transferências, trocas diretas de Fundo e trocas encaminhadas ao nível da aplicação. O CLC Core suporta descoberta de rotas, cotações autorizadas, simulação de transações, coordenação da retransmissão, reconciliação com a cadeia e recibos agrupados. A disponibilidade depende da interface, dos contratos, do inventário, dos limites e comissões configurados, do tipo de carteira, do estado da rede, da elegibilidade, dos fornecedores, da jurisdição e das condições publicadas pelo emissor ou pelo Fundo.
 
 A operação da interface não faz da GEF, por si só, um emissor, Gestor do Fundo, custodiador, credor, mutuante, corretor, garante, redentor, consultor, segurador ou parte de obrigações entre os participantes. A utilização da Aplicação é regida pela \href{https://docs.cosmolocal.credit/pt/governance/terms}{Termos de Serviço}.
 
@@ -135,23 +135,27 @@ A camada digital é a memória compartilhada e a infraestrutura de coordenação
 \section*{Fluxos atuais e propostos}
 \addcontentsline{toc}{section}{Fluxos atuais e propostos}
 
-\subsection*{atual direta Fluxo de Fundo}
-\addcontentsline{toc}{subsection}{atual direta Fluxo de Fundo}
+\subsection*{Fluxo atual direto ou encaminhado de Fundo}
+\addcontentsline{toc}{subsection}{Fluxo atual direto ou encaminhado de Fundo}
 
 \begin{enumerate}[leftmargin=*]
-\item Um titular revisa um vale, seu emissor, seus termos e ofertas associadas.
-\item Um Fundo admite ativos apoiados e publica a sua configuração e as autoridades responsáveis.
-\item O titular obtém uma cotação e autoriza uma troca direta do Fundo.
-\item A \texttt{SwapPool} realiza a liquidação de swaps na cadeia e contabiliza as taxas de Fundo e de protocolo.
-\item Se o titular escolher mais tarde: \textbf{``Resgatar''} na aplicação, a aplicação prepara uma transferência para o proprietário do token como apresentação de resgate.
-\item O emissor realiza separadamente o cumprimento prometido e registra a quitação, de modo que as unidades cumpridas não podem ser reutilizadas.
+\item Um titular revê um vale, o respetivo emissor, as suas condições e as Ofertas associadas.
+\item Um Fundo admite ativos suportados e publica a sua configuração e as autoridades responsáveis.
+\item O titular pode utilizar a vista \textbf{Crédito} para descobrir uma troca direta ou uma rota através de vários Fundos governados de forma independente.
+\item O CLC Core lê os Fundos selecionados num mesmo bloco fixado, produz uma cotação limitada no tempo, discrimina as comissões do Fundo e do protocolo de cada passo, simula o lote completo e prepara as chamadas para a carteira do titular.
+\item O titular revê e assina. A CLC App retransmite uma transação na mesma cadeia cujo lote completo é revertido se alguma chamada falhar.
+\item Cada \texttt{SwapPool} realiza a sua própria liquidação na cadeia. A CLC App agrupa o estado da transação, os passos, os montantes liquidados e as comissões num único recibo de troca encaminhada.
+\item Se o titular escolher depois \textbf{``Resgatar''} na CLC App, esta prepara uma transferência para o proprietário do token como apresentação para resgate.
+\item O emissor cumpre separadamente o prometido e regista a quitação para que as unidades cumpridas não possam ser reutilizadas.
 \end{enumerate}
-Tirar inventário de um Fundo é uma troca. É uma resgate somente se esse Fundo tiver assumido separadamente o papel de emissor e cumprir os termos do vale aplicáveis.
+Retirar inventário de um Fundo é uma troca. Só é um resgate se esse Fundo tiver assumido separadamente o papel de emissor e cumprir as condições aplicáveis do vale.
+
+A configuração pública atual procura rotas com até três trocas de Fundo e suporta carteiras EOA/Calibur compatíveis com a CLC App. Atualmente, não prepara trocas encaminhadas para Safes nem para outras carteiras de contrato. O \texttt{SwapRouter} Solidity continua limitado a cotações; o CLC Core e o lote assinado pela carteira coordenam a execução acima dos contratos.
 
 \subsection*{Projeto mais amplo proposto}
 \addcontentsline{toc}{subsection}{Projeto mais amplo proposto}
 
-O projeto proposto explora o roteamento de execução, a compensação, os serviços compartilhados, os programas de liquidez da rede, as apólices de seguro e os ativos de governação. Cada uma exigiria a aplicação, as partes responsáveis, as regras adotadas, o financiamento, os controlos e a divulgação pública antes de poder ser aplicada.
+O projeto proposto explora o encaminhamento entre domínios por HTLC ou depósito em garantia, o reequilíbrio voluntário de Fundos, a compensação por lotes, serviços partilhados adicionais, programas de liquidez de rede, apólices de seguro e ativos de governação. Cada elemento exigiria implementação, partes responsáveis, regras adotadas, financiamento, controlos e informação pública antes de poder ser aplicado.
 
 O modelo de comissões proposto pode utilizar uma comissão de rede retirada das comissões do Fundo e comissões separadas de encaminhamento ou serviço. Esta proposta é diferente do Protocol v1.1.0 atual, no qual uma comissão opcional do protocolo é acrescentada à comissão do Fundo.
 
@@ -178,7 +182,7 @@ Os apoiadores ou fornecedores de liquidez não recebem direitos automáticos de 
 
 A Comissão \textbf{Protocolo de Partilha de Compromissos (CPP)} descreve como a Fundos de Compromissos, governada de forma independente, pode criar compromissos reembolsáveis, publicar métodos e limites de taxa de câmbio, manter um inventário e permitir uma troca responsável. Os emitentes continuam a ser responsáveis pelos seus compromissos com os vales. A Gestores de Fundos continua a ser responsável pelas regras do Fundo e por quaisquer garantias que assumam expressamente. Nem o CLC App nem o GEF são um garante universal.
 
-O Protocol v1.1.0 fornece blocos de construção atuais de swap direto: \texttt{GiftableToken}, \texttt{SwapPool}, registros opcionais e módulos de avaliação, limites de saldo de tokens do Fundo, taxas do Fundo, uma taxa adicional de protocolo e uma taxa de cotação apenas do \texttt{SwapRouter}. Os contratos atuais não registam cumprimento no mundo real, criam ações automáticas de fornecedores de liquidez, executam rotas multi-hop ou fornecem reservas, garantias ou seguros universais.
+O Protocol v1.1.0 fornece os componentes atuais para trocas diretas: \texttt{GiftableToken}, \texttt{SwapPool}, registos e módulos de avaliação opcionais, limites de saldo de tokens do Fundo, comissões do Fundo, uma comissão adicional do protocolo e um \texttt{SwapRouter} Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção descobrem agora rotas na mesma cadeia através de até três Fundos, produzem cotações num bloco fixado, simulam e preparam lotes atómicos assinados pela carteira, retransmitem-nos e agrupam os respetivos registos de liquidação. Os contratos continuam sem registar o cumprimento no mundo real, criar participações automáticas para fornecedores de liquidez, realizar encaminhamento entre cadeias ou compensação por lotes, nem fornecer reservas, garantias ou seguros universais.
 
 O histórico \textbf{Sarafu Network} Utilizou conceitos de partilha de compromissos entre moedas comunitárias, Fundos de poupança, sistemas de ajuda mútua e compromissos de produção. Seu serviço passou mais tarde para o CLC App. Esta não foi uma representação de que cada conta histórica, carteira, token, vale, Fundo, saldo, relatório, participante ou obrigação migrou.
 
@@ -196,14 +200,14 @@ O histórico \textbf{Sarafu Network} Utilizou conceitos de partilha de compromis
 \end{itemize}
 Estes números são evidências históricas, não os atuais números de utilização do CLC.
 
-O projeto mais amplo proposto de CLC explora como as redes compatíveis poderiam:
+O projeto mais amplo do CLC combina o roteamento atual com propostas de como as redes compatíveis poderiam:
 
 \begin{enumerate}[leftmargin=*]
-\item Descobrir e citar caminhos através de Fundos independentemente governadas;
+\item Estender os serviços de rotas responsáveis a perfis e domínios adicionais de registos ou políticas;
 \item Coordenar serviços de rede responsáveis sem prejuízo da responsabilidade local;
 \item Apoio aos mandatos de liquidez, garantias, reservas ou apólices de seguros financiados separadamente;
 \item Medir os swaps de fundo separadamente da apresentação, realização e liquidação dos vales; e
-\item Usar uma taxa de rede proposta e taxas de serviço para financiar os serviços compartilhados adotados.
+\item utilizar uma percentagem de rede proposta e comissões de serviço adotadas separadamente para financiar serviços partilhados.
 \end{enumerate}
 A proposta inclui uma \textbf{token de governação CLC proposto} e um \textbf{Proposta CLC Fundo de rede}. Nem faz parte da atual aplicação nem do Protocol v1.1.0.
 
@@ -242,7 +246,7 @@ As funções e as autoridades pertinentes incluem:
 \item \textbf{Proprietário do Fundo:} Possui atuais poderes de proprietário do \texttt{SwapPool};
 \item \textbf{administrador proxy:} Pode atualizar uma implementação proxied;
 \item \textbf{Controladores de dependência:} Registros, cotadores, limitadores ou componentes de taxas configurados;
-\item \textbf{Buscador ou operador de rota:} Pode descobrir citações ou, numa futura implementação, executar uma rota autorizada separadamente; e
+\item \textbf{Operador do serviço de rotas:} pode descobrir, cotar, simular, preparar, retransmitir e registar separadamente uma rota autorizada dentro do seu âmbito publicado; e
 \item \textbf{Garante:} assume uma obrigação definida apenas através de termos publicados e financiados.
 \end{itemize}
 Fundos CPP As funções do Fundo dividem-se em quatro conceitos:
@@ -253,9 +257,11 @@ Fundos CPP As funções do Fundo dividem-se em quatro conceitos:
 \item \textbf{Limitação:} Aplicar limites máximos atuais de saldo de tokens do Fundo ou outros controles implementados separadamente.
 \item \textbf{Intercâmbio:} Deter inventário, executar swaps, contabilizar taxas e emitir registos de transações.
 \end{itemize}
-Protocol v1.1.0 implementa estas funções através de \texttt{SwapPool} e dependências opcionais. A sua atual \texttt{Limiter} fixa um saldo de tokens num Fundo; Não prevê limites de swap em rotação, por conta ou em rede. A sua atual \texttt{SwapRouter} calcula as cotações de vários fundos; não executa swaps.
+O Protocol v1.1.0 implementa estas funções através de \texttt{SwapPool} e dependências opcionais. O \texttt{Limiter} atual limita o saldo de um token num Fundo; não fornece limites móveis de troca, por conta ou ao nível de toda a rede. O \texttt{SwapRouter} Solidity atual calcula cotações através de vários Fundos; não executa trocas.
 
-O projeto mais amplo proposto de CPP pode adicionar limites de rotação, controles de conta, roteadores de execução, HTLC ou caminhos de custódia e rede de lotes. São componentes propostos, não descrições do limitador ou roteador atual.
+A CLC App e o CLC Core em produção implementam encaminhamento na mesma cadeia ao nível da aplicação, acima desses contratos. O CLC Core descobre caminhos, lê os Fundos selecionados num mesmo bloco fixado, prepara e simula um lote Calibur assinado pela carteira, coordena a retransmissão e agrupa os registos de liquidação resultantes. A configuração pública atual procura até três trocas de Fundo. Cada Fundo continua a ser governado de forma independente e cada passo continua a ser executado diretamente através do seu próprio \texttt{SwapPool}.
+
+O projeto CPP proposto, mais amplo, pode acrescentar limites móveis, controlos por conta, caminhos entre domínios por HTLC ou depósito em garantia, reequilíbrio automático de Fundos e compensação por lotes. Estes são componentes propostos, não descrições do \texttt{Limiter} atual, do \texttt{SwapRouter} Solidity nem do fluxo de rotas da CLC App e do CLC Core.
 
 \subsection*{1.3 Lógico de troca direta atual}
 \addcontentsline{toc}{subsection}{1.3 Lógico de troca direta atual}
@@ -369,14 +375,14 @@ Esta estrutura poderia permitir o reembolso acordado em espécie, mantendo regis
 \section*{5. De Fundos isolados a uma rede federada}
 \addcontentsline{toc}{section}{5. De Fundos isolados a uma rede federada}
 
-O Protocol v1.1.0 atual suporta a execução direta através de um \texttt{SwapPool} e fornece uma citação apenas \texttt{SwapRouter}. Não executa rotas multi-hop, HTLCs, rotas de custódia, rede de lotes ou compensação transnacional.
+O Protocol v1.1.0 atual suporta execução direta através de \texttt{SwapPool} e fornece um \texttt{SwapRouter} Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção coordenam rotas na mesma cadeia, iniciadas pelos participantes, através de até três Fundos, preparando um lote Calibur assinado. Os próprios contratos não executam uma rota com vários passos, e o fluxo atual da CLC App e do CLC Core não fornece HTLCs entre cadeias, encaminhamento por depósito em garantia, reequilíbrio automático de Fundos, compensação por lotes nem compensação entre redes.
 
-Este capítulo propõe como as Fundos governados independentemente poderiam coordenar sem renunciar às suas próprias regras de admissão, avaliação, limite, taxa, inventário, autorização e governação.
+Este capítulo explica o encaminhamento atual iniciado pelos participantes e distingue-o da coordenação proposta, que exigiria nova autoridade dos Fundos. Em ambos os casos, os Fundos independentes mantêm as suas próprias regras de admissão, avaliação, limites, comissões, inventário, autorização e governação.
 
 \subsection*{5.1 Medidas separadas de intercâmbio e de cumprimento}
 \addcontentsline{toc}{subsection}{5.1 Medidas separadas de intercâmbio e de cumprimento}
 
-A Federação pode melhorar o acesso ao inventário, mas não irá fundir o vale e trocar ciclos de vida. Qualquer aplicação mediria estes acontecimentos separadamente:
+O encaminhamento pode melhorar o acesso ao inventário, mas não reúne os ciclos de vida do vale e da troca. A medição deve manter estes eventos separados:
 
 \begin{enumerate}[leftmargin=*]
 \item é indicada uma rota;
@@ -387,22 +393,26 @@ A Federação pode melhorar o acesso ao inventário, mas não irá fundir o vale
 \end{enumerate}
 Mais rotas citadas ou executadas não provam mais cumprimento. Os relatórios indicarão a coorte, o período, os ativos, o método de avaliação e o timestamp, as exclusões, as correções e as provas fora da cadeia exigidas no apêndice C.
 
-\textbf{Rota ilustrativa:} Uma escola tem vales de milho mas precisa de vales de transporte. Um serviço de rota identifica os inventários do Fundo compatíveis. A execução seria bem-sucedida somente se cada salto autorizado separadamente permanecesse dentro de seus limites de citação, limites, taxas, inventário e política. Os swaps resultantes não provariam que qualquer um dos emissores cumprisse posteriormente os seus compromissos em matéria de vales.
+\textbf{Rota ilustrativa:} uma escola possui vales de milho, mas precisa de vales de transporte. O CLC Core pode identificar inventários de Fundo compatíveis, cotar o caminho selecionado num mesmo bloco fixado e preparar chamadas limitadas para a carteira da escola. A execução só é bem-sucedida se cada passo permanecer dentro dos limites da cotação, dos limites de saldo, das comissões, do inventário, dos comportamentos suportados e das políticas. As trocas resultantes não provam que algum emissor tenha cumprido depois os compromissos dos seus vales.
 
-\subsection*{5.2 Serviços de roteamento e reequilíbrio propostos}
-\addcontentsline{toc}{subsection}{5.2 Serviços de roteamento e reequilíbrio propostos}
+\subsection*{5.2 Encaminhamento atual dos participantes e reequilíbrio proposto}
+\addcontentsline{toc}{subsection}{5.2 Encaminhamento atual dos participantes e reequilíbrio proposto}
 
-Um futuro serviço de rotas poderia apoiar duas actividades distintas.
+Duas atividades requerem autoridade diferente.
 
-\textbf{Execução iniciada pelo participante.} Tendo em conta os recursos de entrada e saída, uma quantidade e as restrições dos utilizadores, o serviço poderia identificar um caminho e preparar a execução. Cada salto teria sua própria Fundo responsável, cotação, autorização, taxas, limites, inventário e recibo. Batches atômicos, HTLCs e custódia são possíveis opções futuras de execução, não o comportamento atual do Protocolo.
+\textbf{Execução atual iniciada pelo participante.} Dados os vales de entrada e saída e um montante, o CLC Core estima caminhos a partir dos ativos elegíveis do participante. Para um caminho selecionado, lê os Fundos num mesmo bloco fixado, produz uma cotação autorizada, simula o lote completo e prepara três chamadas em cada passo: repor a autorização, conceder a autorização e chamar de forma limitada \texttt{SwapPool.withdraw}. O participante assina e o relayer envia uma transação Calibur na mesma cadeia com \texttt{revertOnFailure} ativo. Uma chamada falhada reverte todas as chamadas da rota. A aplicação agrupa a transação e a liquidação de cada passo num único recibo.
 
-\textbf{Opt-in Fundo reequilíbrio.} O Gestores de Fundos poderia publicar metas de inventário, contrapartes autorizadas, classes de ativos, limites de desvio de cotações e limites por período. Um serviço responsável poderia procurar ciclos ou cadeias compatíveis e executar apenas as intenções autorizadas.
+Cada passo mantém o seu próprio Fundo responsável, dados de cotação, autorização, comissões, limites, inventário e evento de liquidação. A aplicação atual não acrescenta uma comissão separada pelo serviço de encaminhamento. O fluxo atual suporta carteiras EOA/Calibur compatíveis com a CLC App, mas não Safes nem outras carteiras de contrato.
 
-O reequilíbrio seria uma opção. Um fundo pode permitir rotas de participantes ao mesmo tempo em que recusa um reequilíbrio de saída, ou pode permitir apenas ativos, contrapartes e montantes selecionados. Cada salto executado produziria um recibo, e quaisquer taxas de serviço seriam divulgadas separadamente das taxas de Fundo e protocolo.
+\textbf{Reequilíbrio voluntário dos Fundos.} Os Gestores dos Fundos poderiam publicar metas de inventário, contrapartes autorizadas, classes de ativos, limites de desvio da cotação e limites por período. Um serviço responsável poderia procurar ciclos ou cadeias compatíveis e executar apenas as intenções autorizadas.
+
+O reequilíbrio seria opcional. Um Fundo pode permitir rotas comuns de participantes sem autorizar um serviço a mover inventário para reequilíbrio. Um mandato futuro poderia permitir apenas ativos, contrapartes e montantes selecionados. Cada passo executado produziria um recibo, e qualquer comissão de serviço seria divulgada separadamente das comissões do Fundo e do protocolo.
+
+A execução entre cadeias por HTLC ou depósito em garantia também é distinta do lote atómico atual na mesma cadeia. Exigiria regras adotadas sobre prazos, cancelamento, controladores, recuperação e risco residual.
 
 \subsubsection*{5.2.1 Confederação e interoperabilidade}
 
-As implementações independentes poderiam operar os seus próprios registros, interfaces, serviços de rotas e perfis de políticas, ao mesmo tempo em que escolhessem padrões de dados e recepção compatíveis. A execução transversal continuaria a depender da implementação.
+As implantações independentes podem operar seus próprios registros, interfaces, serviços de rotas e perfis de políticas enquanto escolhem padrões de dados e recepção compatíveis. O aplicativo público atual usa seu registro e perfil de serviço configurados. A execução de perfis cruzados permanece dependente da implantação.
 
 Um perfil compatível:
 
@@ -419,6 +429,8 @@ A compatibilidade pode aumentar os caminhos de intercâmbio disponíveis e reduz
 \addcontentsline{toc}{subsection}{5.3 Modelo proposto de rede e taxas de serviço}
 
 A Protocol v1.1.0 atual cobra uma taxa de fundo e, quando configurada, uma taxa adicional de protocolo em uma troca direta de fundo. As taxas atuais continuam a ser distintas.
+
+A troca encaminhada em produção aplica essas comissões atuais de forma independente em cada passo e discrimina-as na cotação e no recibo. Atualmente, não acrescenta uma comissão separada pelo serviço de encaminhamento.
 
 Um programa futuro pode receber separadamente:
 
@@ -523,7 +535,9 @@ Uma futura implementação pode adicionar interruptores de circuito, bloqueios d
 
 A governação proposta deve manter os poderes de registo e de serviço restritos e revisaveis. As ações ordinárias podem usar processos de aviso, atraso, publicação de razões, recurso e correção. As ações de emergência devem produzir registos de incidentes e expirar ou receber revisão no âmbito de uma política adoptada.
 
-A descoberta de rotas compatíveis pode possibilitar mais trocas entre Fundos. A execução e a rede multi-hop exigiriam software adicional, autorização, limites, manejo de falhas e governação. Os swaps mais cotados ou executados não provariam, por si só, o cumprimento do vale ou o impacto social.
+A CLC App e o CLC Core em produção fornecem agora descoberta de rotas compatíveis e execução com vários passos na mesma cadeia para rotas autorizadas pelos participantes através do perfil público configurado. As cotações aplicam em cada passo limites de montante, comissões, inventário, limites de saldo e simulação, enquanto um lote assinado pela carteira é revertido por inteiro se uma chamada falhar.
+
+Esse serviço não autoriza o reequilíbrio automático de Fundos nem o controlo, ao nível da rede, dos seus inventários. O reequilíbrio, a compensação por lotes, a execução entre domínios por HTLC ou depósito em garantia e a governação da liquidez partilhada exigiriam autoridade adicional, software, limites, tratamento de falhas e regras adotadas. Mais trocas cotadas ou executadas não provam, por si só, o cumprimento dos vales nem o impacto social.
 
 
 \section*{7. Propostos activos de gestão e governação CLC}
@@ -703,13 +717,24 @@ Nenhuma medida cria direitos de propriedade, reembolso, retirada, cobertura, rec
 \section*{8. Ámbito de aplicação técnico e crescimento}
 \addcontentsline{toc}{section}{8. Ámbito de aplicação técnico e crescimento}
 
-Este capítulo descreve o trabalho opcional ou proposto. Não se trata de uma lista de características garantidas de estar presente no atual CLC App ou Protocol v1.1.0.
+Este capítulo separa o serviço atual de encaminhamento em produção do crescimento opcional ou proposto. Uma capacidade atual aqui descrita continua específica da implementação pública da CLC App e do CLC Core; não é automaticamente uma característica dos contratos do Protocol v1.1.0 nem de outra implementação.
 
-Os domínios de trabalho possíveis incluem:
+A implantação pública atual inclui:
 
 \begin{itemize}[leftmargin=*]
-\item Roteamento de execução através de Fundos compatíveis, com registro, cotação, limite, taxa e descoberta de inventário;
+\item descoberta, através de um grafo, dos vales acessíveis por meio de Fundos compatíveis;
+\item cotações autorizadas num bloco fixado para rotas selecionadas na mesma cadeia;
+\item cálculo das comissões do Fundo e do protocolo em cada passo, das saídas mínimas e dos prazos;
+\item simulação do lote completo, assinatura pelo participante e execução Calibur retransmitida;
+\item uma transação na mesma cadeia que reverte todas as chamadas da rota em caso de falha; e
+\item recibos agrupados e reconciliação dos eventos de liquidação de cada passo.
+\end{itemize}
+As áreas de crescimento possíveis incluem:
+
+\begin{itemize}[leftmargin=*]
 \item Adaptadores de garantia ou de HTLC em tempo bloqueado para execução transnacional em caso de liquidação atômica não disponível;
+\item Perfis adicionais de registo ou política e encaminhamento entre perfis;
+\item Reequilíbrio de estoque do Fundo opcional e compensação por lotes;
 \item Interfaces e ferramentas políticas para Fundos pequenas ou pessoais;
 \item Registros auditáveis de vales, fundos, métodos de taxa de câmbio, limites, controladores e taxas;
 \item Conectores de fornecedores de pagamentos específicos de implementação, fluxos de caixa e controles de elegibilidade;
@@ -718,28 +743,34 @@ Os domínios de trabalho possíveis incluem:
 \end{itemize}
 Os preços do mercado externo não determinariam o que o emissor deve sob condições de vale. Um Fundo poderia utilizar uma referência externa protegida para um ativo fungível, mas o seu método de taxa de câmbio publicado, limites, taxas e inventário governariam as suas cotações.
 
-\subsection*{8.1 Normas propostas de serviço de rota e SDK}
-\addcontentsline{toc}{subsection}{8.1 Normas propostas de serviço de rota e SDK}
+\subsection*{8.1 Serviço de rota actual e normas mais gerais}
+\addcontentsline{toc}{subsection}{8.1 Serviço de rota actual e normas mais gerais}
 
-\textbf{Descoberta.} Um serviço de rota proposto iria consultar registros identificados para admissão de ativos, métodos de taxa de câmbio, limites, taxas, inventário, incidentes e informações do controlador. Os registos em cache incluem limites de frescura e identificadores de fonte.
+\textbf{Descoberta.} O CLC Core mantém um grafo reconciliado a partir dos catálogos configurados, das relações de registo, dos parâmetros dos Fundos, das comissões, dos limites, dos saldos e dos eventos da cadeia. Estima o que a carteira da sessão pode alcançar e assinala dados desatualizados. A configuração pública procura rotas de até três passos. A descoberta não é uma promessa executável.
 
-\textbf{Perfis de rede.} Um cliente pode suportar mais de um perfil de raiz de registo ou de política. Indica ao participante que perfil, contrapartes, adaptadores, restrições e operadores de serviços responsáveis utilizam uma cotação. Uma rota transversal deverá satisfazer todas as condições aplicáveis.
+\textbf{Cotação autorizada.} Para uma rota selecionada, o CLC Core lê os Fundos participantes num mesmo bloco fixado e reproduz a aritmética suportada por \texttt{SwapPool}. Discrimina as comissões do Fundo e do protocolo, define saídas mínimas em cada passo e um prazo, prepara as chamadas para a carteira e simula o lote completo. Tokens, cotadores, carteiras ou condições do Fundo não suportados são recusados.
 
-\textbf{Políticas de caminhos.} Um operador responsável pode excluir dependências ou contrapartes inseguras e aplicar limites de nível de rota, requisitos de frescura e critérios de saúde. Estes sinais apoiariam uma decisão; Não garantiriam a realização nem a proteção contra a perda.
+\textbf{Execução atual.} O participante assina um lote Calibur que contém a reposição da autorização, a concessão da autorização e um levantamento limitado em cada passo. Um relayer envia uma transação na mesma cadeia com \texttt{revertOnFailure} ativo. Isto proporciona um comportamento de tudo ou nada, ao nível da transação, para a rota atual. Não é atomicidade entre cadeias, encaminhamento por HTLC ou depósito em garantia, reequilíbrio automático nem compensação por lotes.
 
-\textbf{Tarifas e limites.} Uma cotação incluiria as taxas do Fundo, quaisquer taxas adicionais atuais do Protocolo e quaisquer taxas de encaminhamento ou de serviço propostas separadamente. A execução rejeitaria as cotas expiradas ou os limites violados.
+\textbf{Recibos e operações.} A CLC App agrupa a rota sob um identificador de acompanhamento e regista o estado da transação, a ordem dos passos, os Fundos, os pares de tokens, os montantes cotados e liquidados, as comissões dos Fundos, as comissões do protocolo e os saldos intermédios restantes. O serviço acompanha a atualidade do grafo, os resultados da enumeração e cotação das rotas, as falhas de simulação, a duração e as correções da reconciliação e os membros indexados não resolvidos ou desconhecidos. A telemetria operacional não prova o cumprimento pelo emissor.
 
-\textbf{Atomicidade e recuperação.} A execução multi-hop seria atômica sempre que possível. Em caso de utilização de HTLCs ou depósitos, o serviço divulgaria temporadas, rotas de interrupção, controladores responsáveis, procedimentos de incidente e riscos residuais.
+\textbf{Perfis de rede.} Um cliente pode suportar mais do que um perfil raiz de registo ou de política. Indicaria ao participante o perfil, as contrapartes, os adaptadores, as restrições e os operadores de serviços responsáveis utilizados numa cotação. Uma rota entre perfis teria de satisfazer todas as condições aplicáveis em cada passo.
 
-\textbf{Proposta de rede de lote e de reequilíbrio.} Um serviço de opt-in pode recolher intenções de reequilíbrio e procurar ciclos ou cadeias compatíveis. Isso seria:
+\textbf{Política do percurso.} Um operador responsável poderia excluir dependências ou contrapartes inseguras e aplicar limites máximos ao nível da rota, requisitos de frescura e critérios de saúde. Estes sinais apoiariam uma decisão; não garantiriam o cumprimento ou a proteção contra perdas.
+
+\textbf{Comissões e limites.} A cotação atual discrimina as comissões do Fundo e qualquer comissão adicional do protocolo em cada passo. A CLC App pública não acrescenta atualmente uma comissão separada pelo serviço de encaminhamento. Qualquer futura comissão de serviço seria divulgada separadamente. A execução rejeita cotações expiradas ou limites ultrapassados.
+
+\textbf{Atomicidade e recuperação entre domínios.} Quando uma futura rota não puder utilizar o lote atómico atual na mesma cadeia e recorrer a HTLCs ou depósito em garantia, o serviço divulgaria os prazos, os caminhos de cancelamento, os controladores responsáveis, os procedimentos para incidentes e os riscos residuais.
+
+\textbf{Compensação por lotes e reequilíbrio propostos.} Um serviço voluntário poderia recolher intenções de reequilíbrio e procurar ciclos ou cadeias compatíveis. Esse serviço iria:
 
 \begin{enumerate}[leftmargin=*]
-\item Publicar um recibo legível por máquina que identifique os ciclos executados, os ativos, os montantes, os timestamps de avaliação e as taxas;
-\item Implementar os limites máximos por período e as políticas de contraparte adotadas;
-\item Rejeitar atividades que violem a autorização, os limites ou o inventário disponível do Fundo participante; e
-\item Preservar as entradas e receitas deterministas para análise e tratamento de litígios.
+\item Publica um recibo de leitura automática que identifique os ciclos executados, os ativos, os montantes, as datas da avaliação e as comissões;
+\item Reforçar os limites máximos por período e as políticas de contraparte adotadas;
+\item Rejeitar qualquer atividade que viole a autorização, os limites ou o inventário disponível de um Fundo participante; e
+\item Preservar as entradas e recebimentos determinísticos para efeitos de revisão e resolução de litígios.
 \end{enumerate}
-\textbf{Requisitos do SDK.} Um SDK para rotas executadas forneceria um mapeamento determinista de cotações a receitas, verificações de invariantes por espera, códigos de falhas compreensíveis e registos favoráveis à auditoria. O actual Protocol v1.1.0 \texttt{SwapRouter} fornece apenas citações; não executar estas rotas propostas.
+\textbf{Requisitos do SDK e da interface.} Uma integração reutilizável de rotas deve fornecer um mapeamento determinístico entre cotação e recibo, verificações de invariantes em cada passo, códigos de falha compreensíveis e registos adequados para auditoria. A implementação atual da CLC App e do CLC Core fornece essas funções para o seu próprio perfil. O \texttt{SwapRouter} Solidity do Protocol v1.1.0 continua limitado a cotações e não executa a rota.
 
 \subsubsection*{8.1.1 Especificação mínima de compatibilidade com a confederação}
 
@@ -789,6 +820,8 @@ Um futuro orçamento da rede poderá receber:
 \item Outras receitas expressamente adotadas.
 \end{enumerate}
 As taxas brutas do Fundo retidas pelos Fundos não são receitas da rede. A atual Protocol v1.1.0 utiliza um modelo diferente: uma taxa de protocolo opcional é adicional à taxa do Fundo e é enviada diretamente ao destinatário configurado.
+
+O fluxo de encaminhamento da CLC App em produção não acrescenta uma comissão separada pelo serviço de encaminhamento. Uma troca encaminhada pode ainda incorrer numa comissão do Fundo e numa comissão do protocolo em cada passo. Essas comissões atuais de cada passo não devem ser apresentadas como a percentagem de rede proposta nem voltar a ser contabilizadas como futuras receitas de serviço.
 
 \subsection*{9.2 Matemática de rake ilustrativa}
 \addcontentsline{toc}{subsection}{9.2 Matemática de rake ilustrativa}
@@ -903,10 +936,12 @@ Para uma futura implementação do token de governação CLC proposto, o teste d
 \addcontentsline{toc}{subsection}{10.7 Riscos de encaminhamento e de cross-domain}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Ameaças:} Execução parcial, saltos obstruídos, explorações de ponta ou escrow, cotações obsoletas, inflação de caminho e execução antecipada das alterações de valor anunciadas.
-\item \textbf{Indicadores:} Taxas de expiração de rotas, atrasos de créditos, diferenças de cotação para execução, saltos desnecessários repetidos e incidentes de ponte.
-\item \textbf{Possibilidades de controlo:} Execução atômica, quando disponível; conservadoraHTLCou temporadas de depósito; políticas de rota e contraparte; limites de nível de rota; mapeamento determinista de cotações a receitas; e operadores de serviços responsáveis.
-\item \textbf{Testes de estresse:} uma parada de ponte, reorganização de cadeia, interrupção de dependência e um salto falhado numa rota multi-hop proposta.
+\item \textbf{Ameaças atuais na mesma cadeia:} dados de descoberta desatualizados, inventário insuficiente, alterações de limites ou admissão, expiração das cotações, carteiras ou dependências não suportadas, falhas de simulação, falhas de retransmissão, reorganizações da cadeia e inflação do caminho.
+\item \textbf{Controlos e provas atuais:} cotações autorizadas num bloco fixado, simulação do lote completo, saídas mínimas e prazos em cada passo, um lote Calibur assinado com \texttt{revertOnFailure}, recibos agrupados determinísticos, reconciliação e códigos de falha explícitos. Estes controlos reduzem riscos de execução específicos, mas não garantem disponibilidade nem cumprimento pelo emissor.
+\item \textbf{Ameaças propostas entre domínios:} execução parcial em vários domínios, passos bloqueados, ataques a pontes, HTLCs ou depósitos em garantia, incompatibilidade de prazos e disputas de recuperação.
+\item \textbf{Indicadores:} resultados da descoberta e cotação de rotas, diferenças entre cotação e execução, profundidade da rota, falhas de simulação, reversões, falhas de reconciliação, passos repetidos desnecessários e, para futuros sistemas entre domínios, acumulação de operações em depósito em garantia e incidentes com pontes.
+\item \textbf{Possíveis controlos adicionais:} políticas de rota e contraparte; limites ao nível da rota; operadores de serviços responsáveis; e regras conservadoras de prazo, cancelamento e recuperação para HTLCs ou depósitos em garantia.
+\item \textbf{Testes de esforço:} estado desatualizado do grafo, indisponibilidade de uma dependência, falha de um passo no lote atómico atual, reorganização da cadeia e, para uma futura rota entre domínios, paralisação de uma ponte ou expiração de um depósito em garantia.
 \item \textbf{O apetite pelo risco:} de baixa a moderada apenas para dependências identificadas e monitoradas.
 \end{itemize}
 \subsection*{10.8 Risco de custódia e gestão de chaves}
@@ -1133,50 +1168,71 @@ Esta é uma lista de verificação ilustrativa para um programa futuro, document
 \item \textbf{Marca:} Um saldo na cadeia ou um activo digital. A mecânica de tokens sozinha não cria uma promessa resgatável.
 \item \textbf{vale:} Um token ou registro representado por um emissor como um compromisso reembolsável em termos publicados.
 \item \textbf{Oferta:} Registo de catálogo de bens ou serviços associados a um vale.
+\item \textbf{Want:} Uma expressão publicada de uma necessidade. Não aceita por si só uma Oferta ou um vale, não autoriza uma troca, não reserva inventário e não cria uma obrigação.
 \item \textbf{emissor:} A parte responsável pela publicação e cumprimento de um compromisso de vale.
 \item \textbf{Gestor do Fundo:} A estrutura responsável que publica e administra as regras do Fundo.
+\item \textbf{Registo:} Um registo de descoberta e permissões para contratos, Fundos, tokens ou outros recursos identificados. A inclusão, por si só, não estabelece apoio, capacidade do emissor, cumprimento, garantia nem seguro.
 \item \textbf{Taxa de câmbio ou cotação do Fundo:} Um parâmetro de transação produzido por um cotador configurado; Nenhuma prova de liquidez ou valor de resgate.
-\item \textbf{O limite máximo da balança de tokens do fundo:} O máximo atual de \texttt{Limiter} para um token detido por um Fundo. A aplicação pode etiquetá-lo \textbf{``Limite de crédito.''}
+\item \textbf{Índice de Valor:} Insumo relativo de avaliação utilizado por um cotador configurado para calcular uma cotação de bolsa do Fundo. Não é automaticamente um preço de mercado, valor em numerário ou obrigação do emitente.
+\item \textbf{\texttt{Limiter}:} O componente opcional do Protocol v1.1.0 que define um saldo máximo de um token num Fundo. A CLC App pode chamar a esse limite \textbf{``Limite de crédito''}. Não é um limite de empréstimo pessoal nem um limite móvel para toda a rede.
 \item \textbf{Intercâmbio de Fundo:} Uma troca direta de activos através de um \texttt{SwapPool}.
+\item \textbf{Rota:} Um caminho ordenado de uma ou mais trocas de Fundo, desde um vale de entrada na carteira até ao vale pretendido.
+\item \textbf{Profundidade da rota:} Número de trocas de Fundo numa rota. O desdobramento público atual procura até três.
+\item \textbf{Descoberta de rotas:} Uma estimativa dos caminhos possíveis a partir do grafo reconciliado e dos dados da carteira. Um caminho descoberto não é uma promessa executável.
+\item \textbf{Cotação da rota:} Uma proposta autorizada e limitada no tempo para um caminho selecionado, calculada a partir do estado suportado dos Fundos lido num mesmo bloco fixado e simulada antes da assinatura.
+\item \textbf{Troca encaminhada:} Uma sequência de trocas de Fundo autorizada pelo participante. A aplicação atual envia-a como um lote Calibur da carteira na mesma cadeia, cujas chamadas são revertidas em conjunto se uma delas falhar.
+\item \textbf{Recibo de troca encaminhada:} Um registo técnico agrupado do estado da rota, do hash da transação, dos passos, dos montantes liquidados e das comissões do Fundo e do protocolo em cada passo.
+\item \textbf{Liquidez:} Inventário de saída elegível de um Fundo, disponível segundo as condições atuais de admissão, limite de saldo, cotação, comissões, reservas e levantamento. Uma ligação no grafo ou um saldo de tokens não prova, por si só, liquidez utilizável.
 \item \textbf{Swap settlement:} As transferências na cadeia e a contabilidade das taxas completando uma troca de fundo.
 \item \textbf{apresentação de resgate:} Retorno ou apresentação de unidades de vale ao emissor.
 \item \textbf{Realização:} O emissor fornece o bem, serviço, benefício ou outro desempenho prometido.
 \item \textbf{quitação:} Um registo que impede que as unidades preenchidas sejam apresentadas novamente.
-\item \textbf{Roteador de execução proposto:} Software futuro que autorizaria e executaria rotas. Apenas as cotações atuais do \texttt{SwapRouter}.
+\item \textbf{\texttt{SwapRouter} Solidity:} O contrato do Protocol v1.1.0 que apenas calcula cotações. Pode calcular uma cotação através de um caminho fornecido, mas não detém ativos, não autoriza tokens e não executa trocas.
+\item \textbf{Fluxo de encaminhamento da aplicação:} O serviço atual da CLC App e do CLC Core que descobre, cota, simula, prepara, retransmite, reconcilia e apresenta rotas na mesma cadeia acima dos contratos dos Fundos.
+\item \textbf{Reequilíbrio:} Movimento do inventário de um Fundo em direção a metas adotadas sob um mandato autorizado pelo Gestor. O encaminhamento atual iniciado pelos participantes não autoriza, por si só, o reequilíbrio automático.
+\item \textbf{Compensação:} Combinação de várias obrigações ou transferências previstas para calcular posições líquidas reduzidas. Não faz parte da troca encaminhada atual da CLC App e do CLC Core.
+\item \textbf{Reparação:} Um processo responsável para corrigir uma configuração, uma entrada de registo, uma falha de serviço, uma disputa ou um compromisso não cumprido dentro de uma autoridade identificada. A reparação do registo ou do serviço de rotas não altera silenciosamente as regras de um Fundo independente nem cumpre a obrigação de um emissor.
 \item \textbf{Proposta de Fundo de rede CLC:} Um futuro acordo de compensação e de coordenação orçamental a nível da rede.
 \item \textbf{Proposto token de governação CLC:} Um projeto de governação futuro, não um ativo atual da aplicação ou do Protocol v1.1.0.
 \item \textbf{comissão de rede:} Uma parte proposta das taxas do Fundo transferidas para um futuro orçamento da rede.
 \item \textbf{Garantia ou seguro:} Uma proteção que só se aplica quando uma parte identificada assume, financia e publica expressamente.
 \end{itemize}
 
-\section*{14. Indicadores KPI e indicadores de saúde propostos}
-\addcontentsline{toc}{section}{14. Indicadores KPI e indicadores de saúde propostos}
+\section*{14. Indicadores-chave de desempenho e indicadores de saúde}
+\addcontentsline{toc}{section}{14. Indicadores-chave de desempenho e indicadores de saúde}
 
-Uma implementação deve publicar um KPI somente quando puder definir o evento, a fonte, a coorte ou o período, a unidade, o método de avaliação e o timestamp, as exclusões, a política de correção, as evidências fora da cadeia e as limitações da qualidade dos dados.
+Uma implementação só deve publicar um indicador quando puder definir o evento, a fonte, a coorte ou o período, a unidade, o método e o momento da avaliação, as exclusões, a política de correção, as provas fora da cadeia e as limitações da qualidade dos dados.
 
-As medidas propostas incluem:
+Os serviços atuais de rotas podem medir eventos de descoberta, cotação, execução, liquidação e reconciliação. O cumprimento dos vales e os resultados sociais continuam a exigir provas separadas. As medidas propostas incluem:
 
 \begin{itemize}[leftmargin=*]
-\item Presentações de resgate válidas;
-\item Taxa de realização baseada em coorte;
-\item Conclusão da quitação;
-\item a latência de apresentação para realização;
+\item Apresentações de resgate válidas;
+\item taxa de cumprimento por coorte;
+\item conclusão da quitação;
+\item Latência entre a apresentação e o cumprimento;
 \item Duração da detenção desde a aquisição até à apresentação;
-\item Os compromissos elegíveis em circulação ao abrigo de uma metodologia estabelecida;
-\item volume de swap de fundo concluído;
-\item O inventário do Fundo medido;
-\item Utilização do equilíbrio de tokens de fundo;
-\item Taxa de passagem das quotas, mantida separada da taxa de execução da rota;
-\item Reservas elegíveis divididas por exposição expressamente coberta;
-\item Reclamações do garante e recuperações no âmbito de uma política identificada;
-\item As taxas de rede e de serviço efectivamente recebidas propostas, sem taxas brutas do Fundo de dupla contabilidade;
-\item Os períodos de detecção, de decisão, de pausa, de reparação e de fechamento da governação;
-\item Reclamações, litígios, correções e recursos; e
-\item Os resultados sociais ou ecológicos foram evidenciados separadamente.
+\item Compromissos elegíveis pendentes ao abrigo de uma metodologia estabelecida;
+\item volume de swaps diretos realizados no Fundo;
+\item tentativas de descoberta de rotas e número de caminhos candidatos disponíveis;
+\item tentativas autorizadas de cotação de rotas, resultados, profundidade, prazo e comissões cotadas;
+\item tentativas de troca encaminhada, rotas confirmadas ou revertidas e motivos de falha;
+\item volume de entrada e saída da rota completa, contado uma vez por rota e não uma vez por passo;
+\item montantes liquidados em cada passo, comissões do Fundo, comissões do protocolo e saldos intermédios restantes;
+\item restrições da rota, incluindo liquidez insuficiente, limites de saldo de tokens do Fundo, dependências não suportadas e limitações da carteira;
+\item atualidade do grafo, duração da reconciliação, correções e falhas;
+\item Inventário do Fundo medido;
+\item utilização do limite de saldo de tokens do Fundo;
+\item taxas de sucesso da descoberta e de aprovação das cotações, mantidas separadas das taxas de execução e liquidação das rotas;
+\item Reservas elegíveis divididas por exposições expressamente cobertas;
+\item Reivindicações de garantias e recuperações ao abrigo de uma apólice identificada;
+\item comissões atuais do Fundo e do protocolo em cada passo, mantidas separadas de qualquer percentagem de rede proposta ou futura comissão de serviço;
+\item tempos de deteção, decisão, pausa, reparação e encerramento da governação;
+\item Reclamações, litígios, correcções e recursos; e
+\item resultados sociais ou ecológicos evidenciados separadamente.
 \end{itemize}
-Os dados das transações na cadeia não provam por si só a identidade, o desempenho do emissor, a satisfação, a causalidade, a saúde da comunidade ou o impacto social. Estas alegações exigem a sua própria metodologia e provas.
+Os dados de transações na cadeia não provam por si só a identidade, o desempenho do emissor, a satisfação, a causalidade, a saúde da comunidade ou o impacto social. Estas alegações exigem uma metodologia e provas próprias.
 
-Consulte o \href{https://docs.cosmolocal.credit/pt/white-paper/appendix-c-kpi-definitions}{Apêndice C} para a especificação de medição proposta.
+Consulte o \href{https://docs.cosmolocal.credit/pt/white-paper/appendix-c-kpi-definitions}{Apêndice C} para ver a especificação de medição proposta.
 
 
 \section*{15. Mapa de estrada (indicativo)}
@@ -1185,9 +1241,11 @@ Consulte o \href{https://docs.cosmolocal.credit/pt/white-paper/appendix-c-kpi-de
 \subsection*{15.1 Fundamento atual}
 \addcontentsline{toc}{subsection}{15.1 Fundamento atual}
 
-O GEF opera o CLC App no \texttt{cosmolocal.credit} na Gnosis Chain. A aplicação fornece acesso a contas e carteiras suportadas, um catálogo público do mercado e interfaces para tokens, vales, Ofertas, Fundos de Compromissos, transferências e swaps diretos do Fundo.
+A GEF opera a CLC App em \texttt{cosmolocal.credit} na Gnosis Chain. A aplicação fornece acesso suportado a contas e carteiras, um catálogo público do Mercado e interfaces para tokens, vales, Ofertas, Wants, Fundos de Compromissos, transferências, trocas diretas de Fundo e trocas encaminhadas.
 
-A Protocol v1.1.0 fornece a base do contrato atual: \texttt{GiftableToken}, execução direta de \texttt{SwapPool}, registros opcionais, módulos de avaliação, limites de saldo dos tokens do fundo, taxas do fundo, uma taxa adicional de protocolo e uma taxa de cotação apenas de \texttt{SwapRouter}. A disponibilidade ainda depende da interface, dos contratos implementados, do inventário, da configuração, do estado da rede, da elegibilidade, dos provedores, da jurisdição e dos termos publicados do emissor ou do Fundo.
+O Protocol v1.1.0 fornece a base contratual atual: \texttt{GiftableToken}, execução direta por \texttt{SwapPool}, registos opcionais, módulos de avaliação, limites de saldo de tokens do Fundo, comissões do Fundo, uma comissão adicional do protocolo e um \texttt{SwapRouter} Solidity que apenas calcula cotações.
+
+O CLC Core fornece agora a base do encaminhamento e da observabilidade, na mesma cadeia, da CLC App pública: descoberta através de um grafo reconciliado, rotas com até três trocas de Fundo, cotações num bloco fixado, limites e comissões em cada passo, simulação do lote completo, execução atómica Calibur assinada, acompanhamento da retransmissão, reconciliação da liquidação, recibos agrupados e métricas operacionais. A disponibilidade continua a depender da interface, dos comportamentos suportados da carteira e dos tokens, dos contratos implementados, do inventário, da configuração, da atualidade do serviço, do estado da rede, da elegibilidade, dos fornecedores, da jurisdição e das condições publicadas pelo emissor ou pelo Fundo.
 
 \subsection*{15.2 Propostas marcas}
 \addcontentsline{toc}{subsection}{15.2 Propostas marcas}
@@ -1196,13 +1254,13 @@ Estes marcos nomeados são instruções de projeto, não números de lançamento
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Fundação Governance:} O token de governação CLC proposto; Proposta de Fundo de rede CLC; adaptadores de taxas; Quorum, prazo e fundações de governação.
-\item \textbf{Roteamento \& Observabilidade:} Roteador SDK e APIs de registo; painéis de controlo de saúde; um quadro proposto de política de seguros; Intenções de reequilíbrio opt-in; protótipo de rede de lotes.
+\item \textbf{Encaminhamento e observabilidade:} alargar as atuais interfaces de rotas e recibos a outros perfis; publicar painéis de estado e relatórios de nível de serviço; desenvolver um quadro de políticas de seguro; conceber intenções voluntárias de reequilíbrio; e criar um protótipo de compensação por lotes.
 \item \textbf{Ferramentas de risco transnacionais:} HTLC ou encaminhamento de garantia; Modulos de garantia regidos separadamente; Preconceitos dos limites de rotação, contabilidade e nível.
 \item \textbf{Acesso regulamentado:} Serviços de pagamento de terceiros específicos para a implementação; Micro-fundos pessoais; A descoberta do serviço de conformidade; Auditos de terceiros das categorias de vales.
 \end{itemize}
 Qualquer serviço de pagamento seria prestado por terceiros identificados separadamente sob a jurisdição, a elegibilidade, as taxas, os limites e os termos aplicáveis. Os contratos CLC App e Protocol v1.1.0 não operam por si só trilhas fiduciárias.
 
-A execução multi-hop, o seguro compartilhado, o token de governação CLC proposto e o Fundo de rede CLC proposto, a rede de lotes, os micro-fundos pessoais e os serviços de pagamento regulamentados continuam a ser propostos ou dependentes da implementação até que uma implementação e os seus termos regulamentares os identifiquem como ativos.
+A execução com vários passos entre domínios, o reequilíbrio automático de Fundos, o seguro partilhado, o token de governação CLC proposto, o Fundo de Rede CLC proposto, a compensação por lotes, os microfundos pessoais e os serviços de pagamento regulados continuam propostos ou dependentes da implementação até que uma implementação e as suas condições os identifiquem como ativos. O encaminhamento na mesma cadeia iniciado pelos participantes na CLC App pública é uma capacidade atual.
 
 
 \section*{16. Modelo de avaliação proposto}
@@ -1286,9 +1344,9 @@ Os recursos podem ser restritos ou indisponíveis devido a lei, sanções, elegi
 \section*{18. Conclusão}
 \addcontentsline{toc}{section}{18. Conclusão}
 
-O Cosmo-Local Credit conecta uma aplicação atual e a fundação Protocol v1.1.0 com um projeto mais amplo proposto para o Fundos de Compromissos governado de forma independente. Os swaps diretos do Fundo atuais, os componentes de cotação e limite e os registos públicos de transações podem apoiar a troca responsável, mas não comprovam o cumprimento do emissor, não criam direitos de contribuinte nem garantem valor, liquidez, resgate, seguro, estatuto legal ou proteção contra perdas.
+O Cosmo-Local Credit liga uma aplicação atual e a base do Protocol v1.1.0 a um projeto proposto mais amplo para Fundos de Compromissos governados de forma independente. As trocas diretas de Fundo e as trocas encaminhadas atuais da CLC App e do CLC Core podem ligar vales detidos pelos participantes através de vários Fundos, mantendo em cada passo as regras, comissões, limites, registos de liquidação e governação. Estas transações não provam o cumprimento pelo emissor, não criam direitos para contribuintes e não garantem valor, liquidez, resgate, seguro, estatuto jurídico nem proteção contra perdas.
 
-O roteamento de execução, a compensação, os ativos de governação, a compensação de rede, os programas de liquidez e as proteções compartilhadas descritos neste documento exigiriam uma implementação, financiamento, governação e termos publicados separados. O projeto visa expandir a interoperabilidade, mantendo simultaneamente o desempenho dos emissores, a governação do Fundo e a rendição de contas no mundo real com as partes identificadas.
+O encaminhamento entre domínios proposto, o reequilíbrio automático de Fundos, a compensação, os ativos de governação, a compensação ao nível da rede, os programas de liquidez e as proteções partilhadas exigiriam implementação, financiamento, governação e condições publicadas separadamente. O projeto procura ampliar a interoperabilidade, mantendo a responsabilidade pelo cumprimento do emissor, a governação do Fundo e a prestação de contas no mundo real nas partes identificadas.
 
 
 \section*{A. A. Modelo de medição e taxa proposto}
@@ -1424,12 +1482,19 @@ KPI & Definição proposta & Evidências necessárias e exclusões \\
 \textbf{Latência de execução} & Mediana e 90o percentil de tempo de apresentação até realização & Não substitua o tempo de retenção da emissão à apresentação ou da aquisição à apresentação \\
 \textbf{Duração da retenção} & Mediana e distribuição do tempo entre aquisição e apresentação & Identificar o evento de aquisição e excluir tempos de aquisição desconhecidos \\
 \textbf{Compromissos elegíveis pendentes} & Compromissos de terceiros elegíveis restantes após exclusões definidas & Identidade e condições do emissor; Excluir o inventário aplicável de emissores, a expiração, a queima, a quitação, os testes e os tokens de não compromisso \\
-\textbf{Volume de troca de Fundo} & Valor dos swaps diretos concluídos no âmbito de um método de avaliação divulgado & Eventos de liquidação na cadeia, unidades de tokens, fonte de taxa, tempo; não são classificados como cumprimento do emissor \\
+\textbf{Volume de trocas diretas de Fundo} & Valor das trocas concluídas que começaram como trocas num único Fundo, segundo um método de avaliação divulgado & Eventos de liquidação na cadeia, unidades de token, fonte da taxa e momento; não classificar como cumprimento pelo emissor \\
+\textbf{Tentativas de descoberta de rotas} & Pedidos válidos para encontrar vales acessíveis ou caminhos candidatos durante um período & Versão do grafo, bloco indexado, atualidade, âmbito da carteira, profundidade solicitada, número de candidatos, estado de omissão ou orçamento de pesquisa; não é uma cotação autorizada \\
+\textbf{Rotas candidatas disponíveis} & Caminhos candidatos devolvidos pela descoberta para a coorte definida de pedidos & Contar cada caminho ordenado e distinto de Fundos e tokens; indicar profundidade e exclusões da rota; não classificar como executável ou liquidado \\
+\textbf{Taxa de aprovação das cotações de rota} & Cotações autorizadas devolvidas, divididas pelas tentativas válidas de cotação & Bloco fixado, caminho, modo de montante, prazo, resultado ou motivo da recusa; manter separada do sucesso da descoberta e da execução \\
+\textbf{Taxa de execução da rota} & Transações encaminhadas confirmadas, divididas pelas tentativas válidas de execução assinadas para a mesma coorte madura & Identificador de acompanhamento, hash da transação, estado do envio, confirmação ou reversão, profundidade e motivo da falha; excluir cotações não assinadas \\
+\textbf{Volume da rota completa} & Valor de entrada e saída das trocas encaminhadas confirmadas, contado uma vez por rota & Utilizar a entrada liquidada do primeiro passo e a saída liquidada do último segundo um único método de avaliação; não somar o valor de todos os passos como volumes económicos independentes \\
+\textbf{Liquidação por passo} & Entrada liquidada, saída bruta, comissão do Fundo, comissão do protocolo e saída líquida de cada passo numa rota confirmada & Identificadores ordenados de Fundos e tokens, eventos de liquidação, hash da transação, bloco, índice do registo e qualquer saldo intermédio restante \\
+\textbf{Comissões da rota} & Comissões atuais dos Fundos e do protocolo efetivamente liquidadas em toda a rota & Apresentar cada passo e o total por tipo de comissão; não as classificar como percentagem de rede proposta nem como comissão de serviço não implementada \\
+\textbf{Restrições da rota} & Número e proporção de recusas de rota ou cotação por causa identificada & Admissão, limite de depósito, liquidez, domínio de comissões, token ou cotador não suportado, saldo ou tipo de carteira, gás, orçamento de pesquisa, prazo, incompatibilidade ou provas de simulação \\
+\textbf{Estado da reconciliação de rotas} & Atualidade e fiabilidade do grafo indexado e dos registos agrupados de liquidação & Versão e idade do grafo, profundidade da fila de itens pendentes, duração da reconciliação, correções, falhas, membros desconhecidos e recibos não resolvidos \\
 \textbf{Inventário de Fundos} & Ativos apoiados medidos detidos por um Fundo em um momento determinado & Saldos contratuais, reservas de taxas, ativos inacessíveis, método de avaliação e poderes de retirada do titular \\
 \textbf{Adequação das reservas} & Ativos de reserva disponíveis elegíveis divididos por exposição expressamente coberta & Política de cobertura, elegibilidade dos ativos, custódia/controle, passivos, exclusões e avaliação; Não fornecimento total de tokens por padrão \\
 \textbf{Utilização de limite} & Balanço de tokens do Fundo medido dividido pelo seu limite atual configurado & Limiter endereço, token, fundo, timestamp, alterações e períodos sem limite \\
-\textbf{Taxa de passagem de citações} & Respostas de citação bem sucedidas divididas por tentativas de citação válidas & Resultado apenas de citação; Não execução de rota \\
-\textbf{Taxa de execução da rota} & Execuções multi-hop completadas divididas por tentativas de execução válidas & Aplicável apenas a um sistema de execução implementado; Relatório de regras de per-hop e de atomicidade \\
 \textbf{Recuperação do garante} & Recuperação elegível recebida dividida por créditos cobertos pagos & Garante identificado, política de crédito, calendário, custos, litígios e amortizações \\
 \textbf{Receita proposta da rede} & comissão de rede proposto recebido mais taxas de roteamento/serviço separadas recebidas & Excluir as taxas brutas dos Fundos retidas pelas Fundos e evitar a contagem do rake duas vezes \\
 \textbf{Terminalidade da governação} & Tempo para detectar, decidir, pausar, reparar e fechar um incidente & Horários definidos, órgãos responsáveis, poderes de emergência, recursos e eventos perdidos \\

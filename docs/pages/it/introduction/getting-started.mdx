@@ -50,24 +50,45 @@ Un Fondo di Impegni è un accordo governato. Il suo attuale contratto `SwapPool`
 
 Un deposito trasferisce asset allo `SwapPool`. Protocol v1.1.0 non crea token che rappresentano quote del Fondo e non attribuisce automaticamente al depositante diritti di rimborso, prelievo, ricompensa o governance.
 
-### 5. Usare l'azione corretta
+### 5. Scambio diretto o tramite un percorso
 
-- **Invia** trasferisce un saldo di token a un altro indirizzo.
-- **Scambio tramite Fondo** scambia un asset supportato con un altro tramite uno `SwapPool`. Il regolamento dello scambio on-chain non dimostra l'adempimento dell'emittente.
-- **“Riscattare”** apre il flusso di invio con l'indirizzo del proprietario del token già compilato. Il buono viene presentato o restituito all'emittente; il riscatto completo richiede anche la prestazione promessa dall'emittente e un record di estinzione che impedisca il riutilizzo.
-- **“Ritiri il buono”** nasconde il buono dal catalogo. Non distrugge i saldi, non annulla il buono e non estingue gli obblighi ancora esistenti dell'emittente.
-- **Prelievo della liquidità del Fondo** consente al proprietario del Fondo di trasferire l'inventario disponibile.
-- **Riscossione delle commissioni** invia le commissioni accumulate dal Fondo al destinatario configurato.
+La vista **Credito** dell'app consente di trovare i buoni raggiungibili a partire da quelli presenti nel portafoglio. Un buono raggiungibile può richiedere un solo scambio tramite Fondo o un percorso attraverso più Fondi governati in modo indipendente. L'attuale implementazione pubblica cerca percorsi con un massimo di tre scambi tramite Fondo.
 
-Per seguire l'intero ciclo di vita, consulti l'[esempio pratico di un buono](/it/introduction/example).
+Per scambiare:
+
+1. scegliere **Ottieni** per il buono desiderato o **Spendi** per i buoni da utilizzare;
+2. esaminare le opzioni disponibili in **Paga con** e la **Stima**;
+3. aprire **Dettagli del percorso** per vedere ogni Fondo, passaggio, importo, commissione del Fondo e commissione del protocollo;
+4. selezionare **Rivedi**, controllare l'importo minimo da ricevere e la scadenza della quotazione, quindi selezionare **Conferma scambio**; e
+5. firmare il lotto preparato per il portafoglio.
+
+CLC Core scopre i percorsi possibili a partire da informazioni indicizzate sui Fondi e sui buoni. La scoperta è una stima. Prima della firma, legge lo stato dei Fondi pertinenti nello stesso blocco fissato, produce una quotazione autorevole, applica a ogni passaggio un importo minimo in uscita e una scadenza e simula il lotto completo. L'app non aggiunge attualmente una commissione separata per il servizio di instradamento; ogni passaggio può comunque addebitare la commissione configurata del Fondo e una commissione aggiuntiva del protocollo.
+
+Il percorso firmato viene inviato come un'unica transazione sulla stessa catena. Ogni passaggio usa lo stesso portafoglio compatibile con l'app. Se un'approvazione o uno scambio tramite Fondo nel lotto fallisce, l'intera transazione viene annullata e i passaggi precedenti non rimangono regolati. La ricevuta raggruppa il percorso sotto un identificativo di tracciamento e mostra lo stato, l'hash della transazione, ogni Fondo, gli importi regolati e le commissioni del Fondo e del protocollo per ogni passaggio.
+
+Un percorso può non essere disponibile perché il portafoglio non contiene un buono di ingresso idoneo, un Fondo non ammette un token, verrebbe superato un limite di saldo dei token del Fondo, l'inventario in uscita è insufficiente, un quotatore o un token non è supportato oppure il servizio di instradamento è temporaneamente non aggiornato o non disponibile. Una quotazione può anche scadere, diventare obsoleta quando cambia lo stato del Fondo, fallire nella simulazione finale o essere annullata sulla catena. Aggiornare il percorso e rivedere la nuova quotazione, invece di presumere che una stima precedente sia ancora valida.
+
+L'esecuzione attuale dei percorsi supporta i portafogli EOA/Calibur compatibili con la CLC App. Attualmente non prepara scambi instradati per Safe o altri portafogli basati su contratto.
+
+### 6. Utilizzare l'azione corretta
+
+- **Invii** trasferisce un saldo token ad un altro indirizzo.
+- **Scambio tramite Fondo** scambia un asset supportato con un altro tramite uno `SwapPool`. Può essere uno scambio diretto o un passaggio di uno scambio instradato. Il regolamento dello scambio sulla catena non prova l'adempimento dell'emittente.
+- **Scambio instradato** esegue una sequenza ordinata di scambi tramite Fondo in un'unica transazione vincolata del portafoglio sulla stessa catena. Non unisce la governance dei Fondi né rende l'operatore del percorso responsabile dell'adempimento dell'emittente.
+- **“Riscattare”** apre il flusso di invio con l'indirizzo del proprietario del token già compilato. Presenta o restituisce il buono all'emittente; il riscatto completato richiede anche la prestazione promessa dall'emittente e un record di estinzione che impedisca il riutilizzo.
+- **“Ritira il buono”** nasconde la voce dal catalogo. Non brucia i saldi, non annulla il buono e non estingue gli obblighi in sospeso dell'emittente.
+- ** Ritiro di liquidità del Fondo** consente al proprietario del Fondo di trasferire l'inventario disponibile.
+- **Collezione delle commissioni** invia le commissioni accumulate del Fondo al destinatario configurato.
+
+Cfr. il [Esempio di buono pratico](/it/introduction/example) per il ciclo di vita completo.
 
 ## Funzionalità attuali, dipendenti dall'implementazione e proposte
 
-L'app attuale offre un Mercato e flussi supportati per account, portafogli, buoni, Offerte, Fondi, trasferimenti, scambi diretti tramite Fondo e relativi registri. La disponibilità dipende dall'implementazione attiva, dall'asset, dalla configurazione del Fondo, dal dispositivo, dalla rete, dall'idoneità, dal fornitore, dalla giurisdizione e dalle condizioni pubblicate.
+L'app attuale fornisce un Mercato e flussi supportati per account, portafogli, buoni, Offerte, Wants, Fondi, trasferimenti, scambi diretti tramite Fondo, scambi instradati a livello di applicazione e record correlati. La disponibilità dipende dall'implementazione attiva, dall'asset, dalla configurazione del Fondo, dall'inventario, dal tipo di portafoglio, dal dispositivo, dalla rete, dall'idoneità, dal fornitore, dalla giurisdizione e dalle condizioni pubblicate.
 
 I servizi di pagamento, i metodi di sostegno, le ricompense, le garanzie, gli accordi di contribuzione e le altre integrazioni dei fornitori dipendono dall'implementazione. Quando sono offerti, devono essere indicati la parte responsabile, le commissioni, i limiti, l'idoneità e le condizioni legali.
 
-Protocol v1.1.0 offre l'esecuzione diretta tramite Fondo e uno `SwapRouter` che produce soltanto quotazioni. L'esecuzione multi-hop, il routing HTLC o tramite escrow, la compensazione in lotti, l'assicurazione condivisa, gli asset di governance proposti, i programmi di liquidità di rete e i canali di pagamento regolamentati rimangono proposti o dipendenti dall'implementazione, salvo che una specifica implementazione li dichiari attivi.
+Protocol v1.1.0 fornisce l'esecuzione diretta tramite Fondo e uno `SwapRouter` Solidity che calcola soltanto quotazioni. La CLC App e CLC Core in produzione forniscono ora la scoperta di percorsi con più passaggi sulla stessa catena, quotazioni autorevoli, preparazione di lotti per il portafoglio, simulazione, inoltro e ricevute raggruppate al di sopra di tali contratti. Lo `SwapRouter` Solidity non è diventato un contratto di esecuzione. L'instradamento HTLC o tramite deposito a garanzia tra catene, il riequilibrio automatico dei Fondi, la compensazione in lotti, l'assicurazione condivisa, gli asset di governance proposti, i programmi di liquidità della rete e i canali di pagamento regolamentati rimangono proposti o dipendenti dall'implementazione, salvo che una specifica implementazione li identifichi come attivi.
 
 Qualsiasi futuro prestito o altro prodotto di credito richiede condizioni supplementari e condizioni della transazione presentate separatamente. Un normale trasferimento, deposito in un Fondo, scambio tramite Fondo, presentazione per il riscatto, adempimento o estinzione non costituisce automaticamente un prestito, un anticipo o un rimborso.
 

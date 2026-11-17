@@ -1,11 +1,21 @@
 ## **8. Ámbito de aplicação técnico e crescimento**
 
-Este capítulo descreve o trabalho opcional ou proposto. Não se trata de uma lista de características garantidas de estar presente no atual CLC App ou Protocol v1.1.0.
+Este capítulo separa o serviço atual de encaminhamento em produção do crescimento opcional ou proposto. Uma capacidade atual aqui descrita continua específica da implementação pública da CLC App e do CLC Core; não é automaticamente uma característica dos contratos do Protocol v1.1.0 nem de outra implementação.
 
-Os domínios de trabalho possíveis incluem:
+A implantação pública atual inclui:
 
-- Roteamento de execução através de Fundos compatíveis, com registro, cotação, limite, taxa e descoberta de inventário;
+- descoberta, através de um grafo, dos vales acessíveis por meio de Fundos compatíveis;
+- cotações autorizadas num bloco fixado para rotas selecionadas na mesma cadeia;
+- cálculo das comissões do Fundo e do protocolo em cada passo, das saídas mínimas e dos prazos;
+- simulação do lote completo, assinatura pelo participante e execução Calibur retransmitida;
+- uma transação na mesma cadeia que reverte todas as chamadas da rota em caso de falha; e
+- recibos agrupados e reconciliação dos eventos de liquidação de cada passo.
+
+As áreas de crescimento possíveis incluem:
+
 - Adaptadores de garantia ou de HTLC em tempo bloqueado para execução transnacional em caso de liquidação atômica não disponível;
+- Perfis adicionais de registo ou política e encaminhamento entre perfis;
+- Reequilíbrio de estoque do Fundo opcional e compensação por lotes;
 - Interfaces e ferramentas políticas para Fundos pequenas ou pessoais;
 - Registros auditáveis de vales, fundos, métodos de taxa de câmbio, limites, controladores e taxas;
 - Conectores de fornecedores de pagamentos específicos de implementação, fluxos de caixa e controles de elegibilidade;
@@ -14,26 +24,32 @@ Os domínios de trabalho possíveis incluem:
 
 Os preços do mercado externo não determinariam o que o emissor deve sob condições de vale. Um Fundo poderia utilizar uma referência externa protegida para um ativo fungível, mas o seu método de taxa de câmbio publicado, limites, taxas e inventário governariam as suas cotações.
 
-### **8.1 Normas propostas de serviço de rota e SDK**
+### **8.1 Serviço de rota actual e normas mais gerais**
 
-**Descoberta.** Um serviço de rota proposto iria consultar registros identificados para admissão de ativos, métodos de taxa de câmbio, limites, taxas, inventário, incidentes e informações do controlador. Os registos em cache incluem limites de frescura e identificadores de fonte.
+**Descoberta.** O CLC Core mantém um grafo reconciliado a partir dos catálogos configurados, das relações de registo, dos parâmetros dos Fundos, das comissões, dos limites, dos saldos e dos eventos da cadeia. Estima o que a carteira da sessão pode alcançar e assinala dados desatualizados. A configuração pública procura rotas de até três passos. A descoberta não é uma promessa executável.
 
-**Perfis de rede.** Um cliente pode suportar mais de um perfil de raiz de registo ou de política. Indica ao participante que perfil, contrapartes, adaptadores, restrições e operadores de serviços responsáveis utilizam uma cotação. Uma rota transversal deverá satisfazer todas as condições aplicáveis.
+**Cotação autorizada.** Para uma rota selecionada, o CLC Core lê os Fundos participantes num mesmo bloco fixado e reproduz a aritmética suportada por `SwapPool`. Discrimina as comissões do Fundo e do protocolo, define saídas mínimas em cada passo e um prazo, prepara as chamadas para a carteira e simula o lote completo. Tokens, cotadores, carteiras ou condições do Fundo não suportados são recusados.
 
-**Políticas de caminhos.** Um operador responsável pode excluir dependências ou contrapartes inseguras e aplicar limites de nível de rota, requisitos de frescura e critérios de saúde. Estes sinais apoiariam uma decisão; Não garantiriam a realização nem a proteção contra a perda.
+**Execução atual.** O participante assina um lote Calibur que contém a reposição da autorização, a concessão da autorização e um levantamento limitado em cada passo. Um relayer envia uma transação na mesma cadeia com `revertOnFailure` ativo. Isto proporciona um comportamento de tudo ou nada, ao nível da transação, para a rota atual. Não é atomicidade entre cadeias, encaminhamento por HTLC ou depósito em garantia, reequilíbrio automático nem compensação por lotes.
 
-**Tarifas e limites.** Uma cotação incluiria as taxas do Fundo, quaisquer taxas adicionais atuais do Protocolo e quaisquer taxas de encaminhamento ou de serviço propostas separadamente. A execução rejeitaria as cotas expiradas ou os limites violados.
+**Recibos e operações.** A CLC App agrupa a rota sob um identificador de acompanhamento e regista o estado da transação, a ordem dos passos, os Fundos, os pares de tokens, os montantes cotados e liquidados, as comissões dos Fundos, as comissões do protocolo e os saldos intermédios restantes. O serviço acompanha a atualidade do grafo, os resultados da enumeração e cotação das rotas, as falhas de simulação, a duração e as correções da reconciliação e os membros indexados não resolvidos ou desconhecidos. A telemetria operacional não prova o cumprimento pelo emissor.
 
-**Atomicidade e recuperação.** A execução multi-hop seria atômica sempre que possível. Em caso de utilização de HTLCs ou depósitos, o serviço divulgaria temporadas, rotas de interrupção, controladores responsáveis, procedimentos de incidente e riscos residuais.
+**Perfis de rede.** Um cliente pode suportar mais do que um perfil raiz de registo ou de política. Indicaria ao participante o perfil, as contrapartes, os adaptadores, as restrições e os operadores de serviços responsáveis utilizados numa cotação. Uma rota entre perfis teria de satisfazer todas as condições aplicáveis em cada passo.
 
-**Proposta de rede de lote e de reequilíbrio.** Um serviço de opt-in pode recolher intenções de reequilíbrio e procurar ciclos ou cadeias compatíveis. Isso seria:
+**Política do percurso.** Um operador responsável poderia excluir dependências ou contrapartes inseguras e aplicar limites máximos ao nível da rota, requisitos de frescura e critérios de saúde. Estes sinais apoiariam uma decisão; não garantiriam o cumprimento ou a proteção contra perdas.
 
-1. Publicar um recibo legível por máquina que identifique os ciclos executados, os ativos, os montantes, os timestamps de avaliação e as taxas;
-2. Implementar os limites máximos por período e as políticas de contraparte adotadas;
-3. Rejeitar atividades que violem a autorização, os limites ou o inventário disponível do Fundo participante; e
-4. Preservar as entradas e receitas deterministas para análise e tratamento de litígios.
+**Comissões e limites.** A cotação atual discrimina as comissões do Fundo e qualquer comissão adicional do protocolo em cada passo. A CLC App pública não acrescenta atualmente uma comissão separada pelo serviço de encaminhamento. Qualquer futura comissão de serviço seria divulgada separadamente. A execução rejeita cotações expiradas ou limites ultrapassados.
 
-**Requisitos do SDK.** Um SDK para rotas executadas forneceria um mapeamento determinista de cotações a receitas, verificações de invariantes por espera, códigos de falhas compreensíveis e registos favoráveis à auditoria. O actual Protocol v1.1.0 `SwapRouter` fornece apenas citações; não executar estas rotas propostas.
+**Atomicidade e recuperação entre domínios.** Quando uma futura rota não puder utilizar o lote atómico atual na mesma cadeia e recorrer a HTLCs ou depósito em garantia, o serviço divulgaria os prazos, os caminhos de cancelamento, os controladores responsáveis, os procedimentos para incidentes e os riscos residuais.
+
+**Compensação por lotes e reequilíbrio propostos.** Um serviço voluntário poderia recolher intenções de reequilíbrio e procurar ciclos ou cadeias compatíveis. Esse serviço iria:
+
+1. Publica um recibo de leitura automática que identifique os ciclos executados, os ativos, os montantes, as datas da avaliação e as comissões;
+2. Reforçar os limites máximos por período e as políticas de contraparte adotadas;
+3. Rejeitar qualquer atividade que viole a autorização, os limites ou o inventário disponível de um Fundo participante; e
+4. Preservar as entradas e recebimentos determinísticos para efeitos de revisão e resolução de litígios.
+
+**Requisitos do SDK e da interface.** Uma integração reutilizável de rotas deve fornecer um mapeamento determinístico entre cotação e recibo, verificações de invariantes em cada passo, códigos de falha compreensíveis e registos adequados para auditoria. A implementação atual da CLC App e do CLC Core fornece essas funções para o seu próprio perfil. O `SwapRouter` Solidity do Protocol v1.1.0 continua limitado a cotações e não executa a rota.
 
 #### **8.1.1 Especificação mínima de compatibilidade com a confederação**
 

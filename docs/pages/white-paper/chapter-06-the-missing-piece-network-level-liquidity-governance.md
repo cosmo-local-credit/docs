@@ -15,4 +15,6 @@ A future deployment could add circuit breakers, timelocks, reserves, guarantees,
 
 Proposed governance should keep registry and service powers narrow and reviewable. Ordinary actions can use notice, delay, reason publication, appeal, and correction processes. Emergency actions should produce incident records and expire or receive review under an adopted policy.
 
-Compatible route discovery could make more exchanges possible across Pools. Multi-hop execution and netting would require additional software, authorization, bounds, failure handling, and governance. More quoted or executed swaps would not by itself prove voucher fulfillment or social impact.
+The production CLC App and CLC Core now provide compatible route discovery and same-chain multi-hop execution for participant-authorized routes through the configured public profile. Quotes apply per-hop limits, fees, inventory, bounds, and simulation, while one signed wallet batch reverts as a whole if a call fails.
+
+That service does not authorize automatic Pool rebalancing or network-level control of Pool inventory. Rebalancing, batch netting, cross-domain HTLC or escrow execution, and shared liquidity governance would require additional authority, software, bounds, failure handling, and adopted rules. More quoted or executed swaps do not by themselves prove voucher fulfillment or social impact.

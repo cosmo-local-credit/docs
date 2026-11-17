@@ -28,3 +28,12 @@ Usaidizi wa EIP-165 pia hutegemea mkataba; haupatikani kila mahali. Unapatikana 
 - **Splitter, EthFaucet, PeriodSimple na RescueVault** — zana saidizi za usambazaji, ufadhili wa gesi, udhibiti wa kiwango na urejeshaji wa mali.
 
 Mikataba inaweza kuunganishwa kwa njia mbalimbali. Kuorodheshwa kwenye rejesta, makadirio au njia kwenye grafu si dhamana kwamba muamala utatekelezwa: ukwasi wa sasa, mipaka ya tokeni, ada, hali ya oracle, idhini, muda wa mwisho, hali ya mtandao na usanidi wa kila Kikundi bado hutumika.
+
+
+## Ubadilishaji wa njia katika kiwango cha programu
+
+CLC App ya uzalishaji hufanya zaidi ya kuita `SwapRouter` ya Solidity. CLC Core hudumisha grafu iliyopatanishwa ya mahusiano ya Vikundi yanayofaa, hukadiria vocha zinazoweza kufikiwa, husoma Vikundi vilivyochaguliwa katika block iliyowekwa ili kutoa nukuu halali, huiga njia nzima na kutayarisha kundi la miamala ya Mkoba wa Calibur. Mtumiaji hutia sahihi kundi hilo, kisha relayer huliwasilisha kama muamala mmoja kwenye mnyororo huo.
+
+Kila hatua huita `SwapPool` moja kwa moja. Kundi huweka upya na kuweka idhini inayohitajika ya tokeni, kisha huita toleo la `SwapPool.withdraw` lenye mipaka ya kiwango cha chini cha matokeo na muda wa mwisho. `revertOnFailure` imewashwa, hivyo simu yoyote ikishindwa muamala wote wa njia hurejeshwa. Kisha App huonyesha risiti moja iliyojumuishwa yenye maelezo ya ukamilishaji na ada za kila hatua.
+
+Mtiririko huu wa uelekezaji ni uwezo wa App/Core uliojengwa juu ya Protocol v1.1.0. Haufanyi `SwapRouter` ya Solidity kuwa mkataba wa utekelezaji, haubadilishi mmiliki au Msimamizi wa Kikundi, wala kufanya Kikundi kimoja kiwajibike kwa kanuni za Kikundi kingine au utekelezaji wa Mtoaji. Angalia [muundo wa mtandao wa Itifaki](/sw/protocol/network) kwa mtiririko kamili.

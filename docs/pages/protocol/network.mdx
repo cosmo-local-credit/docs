@@ -9,39 +9,71 @@ Grassroots Economics Foundation operates the public App at [cosmolocal.credit](h
 See [Concepts and vocabulary](/introduction/concepts) for the separation between accountable roles and technical powers.
 
 
-## Candidate routes and execution
+## Production route discovery and execution
 
 <MermaidDiagram
-  label="Candidate route discovery and wallet-batch execution"
-  minWidth={1040}
+  label="CLC App and Core production routing architecture"
+  minWidth={1180}
   chart={`flowchart TB
-    VoucherA["Voucher A"] ---|listed and held| PoolA["Pool A"]
-    Bridge["Generic bridge asset"] ---|listed and held| PoolA
-    Bridge ---|listed and held| PoolB["Pool B"]
-    VoucherB["Voucher B"] ---|listed and held| PoolB
+    User["Participant"] --> App["CLC App<br/>Credit · Get · Spend"]
+    App -->|reachable vouchers and candidate paths| Core["CLC Core routing service"]
+    Catalog["Catalogs, registries,<br/>indexed chain events"] --> Core
+    Chain["Pinned-block chain reads"] -->|Pool state, balances, fees,<br/>limits and quote inputs| Core
+    Reconcile["Indexing and reconciliation"] --> Catalog
 
-    App["PWA or route finder"] -. discovers candidates .-> Index["Registries and indexes"]
-    App -. requests a quote .-> Router["SwapRouter: quote only"]
-    Router -. reads Pool quotes .-> PoolA
-    Router -. reads Pool quotes .-> PoolB
+    Core -->|authoritative quote,<br/>bounds and prepared calls| App
+    Core -->|simulate complete batch| Chain
+    App -->|review and sign| Wallet["App-compatible<br/>EOA / Calibur wallet"]
+    Wallet -->|signed batch| Relayer["Relayer"]
+    Relayer -->|one same-chain transaction<br/>revertOnFailure = true| Batch["Calibur batch<br/>approve 0 · approve amount<br/>bounded withdraw per hop"]
 
-    App -->|builds ordered calls| WalletStart["User smart-account wallet"]
-    WalletStart -->|hop 1: Voucher A| PoolA
-    PoolA -->|bridge output| WalletBridge["Same wallet between calls"]
-    WalletBridge -->|hop 2: bridge asset| PoolB
-    PoolB -->|Voucher B output| WalletFinal["Same user wallet"]
+    Batch --> PoolA["SwapPool A"]
+    Batch --> PoolB["SwapPool B"]
+    Batch --> PoolC["SwapPool C<br/>(when needed)"]
+    PoolA --> Events["Settlement events"]
+    PoolB --> Events
+    PoolC --> Events
+    Events --> Reconcile
+    Reconcile --> Receipt["Grouped routed-exchange receipt<br/>status · tx hash · hops · amounts · fees"]
+    Receipt --> App
 
-    PoolA -->|protocol fee| ProtocolRecipient["Configured protocol recipient"]
-    PoolB -->|protocol fee| ProtocolRecipient`}
+    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>quote-only reusable contract"] -. reads quotes; does not execute .-> PoolA
+    SolidityRouter -. reads quotes; does not execute .-> PoolB`}
 />
 
-A shared asset creates a **possible graph path**, not a guaranteed route. In this example, Voucher A could be exchanged for the bridge asset in Pool A, then the bridge asset could be exchanged for Voucher B in Pool B. Every hop still depends on current token admission, Pool limits, available inventory, quote and fee configuration, oracle state, approvals, transaction bounds, and network execution.
+A shared voucher creates a **possible graph path**, not a guaranteed route. The production CLC Core service maintains a reconciled graph from Pool, registry, catalog, balance, fee, and chain-event information. It also verifies the session wallet's relevant holdings. The public deployment currently searches paths of up to three Pool swaps.
 
-`SwapRouter` only calls Pool quote functions across a proposed path. It does not hold funds, approve tokens, or execute swaps. An integrator or compatible app can use those quote results to construct ordered approval and Pool calls in a signed smart-account batch; this does not mean that the current public App offers multi-hop execution. Each hop settles to the Wallet before that Wallet supplies the intermediate asset to the next Pool, and the integrator can configure the batch to revert when a call fails.
+Graph discovery is fast but estimated as of its indexed block. A result may be marked stale, and a connection does not prove that the desired amount can pass through it. The App's **Credit** filter uses this reachable set for the Market and related discovery screens.
 
-Quotes are snapshots. A successful route quote can still fail or settle differently if relevant state changes before execution. The bounded `SwapPool.withdraw` overload adds `minAmountOut` and `deadline` protection for an individual hop; integrators must decide how to apply bounds across the full route.
+### Authoritative quote
+
+After a participant selects a route and amount, CLC Core reads every relevant Pool at one pinned block and reproduces the supported `SwapPool` arithmetic. The quote identifies every hop, input and output, Pool fee, protocol fee, minimum output, final recipient, and expiry. The current production quote deadline is five minutes.
+
+The service then constructs and simulates the complete Calibur batch. Unsupported token behavior, unsupported quoters, insufficient wallet balance, admission failures, Pool token-balance caps, insufficient liquidity, invalid fee domains, gas limits, and other reverts can prevent a quote from being offered.
+
+Discovery and quoting are different evidence. Discovery says that a path may exist; the pinned-block quote is the authoritative transaction proposal. Even that proposal can expire or become invalid if relevant state changes before it is submitted.
+
+### Signed atomic batch
+
+The user reviews **Route details** and signs the prepared wallet batch. For every hop, the batch calls `approve(pool, 0)`, `approve(pool, amountIn)`, and the bounded `SwapPool.withdraw` overload. Each bounded withdrawal enforces a minimum output and deadline. Intermediate vouchers return to the same wallet before the next Pool spends the quoted amount; any bridge remainder stays in that wallet.
+
+The relayer submits the batch as one transaction on the same chain with `revertOnFailure` set to `true`. If any approval or Pool swap fails, all route calls—including earlier hops and their allowance changes—revert together. This is current same-chain transaction atomicity. It is not cross-chain atomicity, an HTLC, escrow, netting, or automatic Pool rebalancing.
+
+The current route flow supports the App's compatible EOA/Calibur wallets. A Safe or another contract wallet is rejected by the current quote path.
+
+### Solidity `SwapRouter` and fees
+
+The Protocol v1.1.0 Solidity `SwapRouter` remains quote-only. It can call Pool quote functions across a supplied path, but it does not hold funds, approve tokens, or execute swaps. The production App/Core workflow described above is a separate application-level coordinator that calls each `SwapPool` directly through the participant's signed wallet batch.
 
 Pool fees remain with the relevant Pool for later collection. Any protocol fee is additional and is transferred directly from that Pool to its configured protocol recipient during the swap.
+
+The current App adds no separate routing-service fee. A routed exchange can nevertheless contain several Pool fees and protocol fees because every hop is a separate `SwapPool` settlement.
+
+### Receipt and failure states
+
+CLC Core groups the route under one tracking ID. The App shows **Exchanging**, **Exchanged**, or **Exchange failed**, with a technical status of **Pending**, **Confirmed**, or **Reverted**. The receipt records the transaction hash, route depth, each Pool and token pair, quoted and settled amounts, per-hop Pool and protocol fees, minimum received, and any intermediate remainder left in the wallet.
+
+A route can fail before signing because no eligible path or quote is available, during simulation because the batch would revert, during relay because the signed transaction cannot be submitted, or on-chain because state changed or another execution condition failed. A failed or unavailable route does not rewrite a Pool's rules, discharge a voucher, or prove anything about issuer fulfillment.
 
 
 ## Pool internals

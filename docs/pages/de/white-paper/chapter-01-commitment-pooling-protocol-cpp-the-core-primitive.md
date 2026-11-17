@@ -20,7 +20,7 @@ Zu den einschlägigen Aufgaben und Behörden gehören:
 - **Poolbesitzer:** besitzt die aktuellen Eigentümerbefugnisse von `SwapPool`;
 - **Proxy-Administrator:** kann eine proxied-Implementierung aktualisieren;
 - **Abhängigkeitscontroller:** Regeln konfigurierte Registrierungen, Zitaten, Begrenzungen oder Gebührenkomponenten;
-- **Streckesucher oder -betreiber:** kann Zitate entdecken oder in einer künftigen Umsetzung eine separat zugelassenen Route durchführen; und
+- **Betreiber eines Routing-Dienstes:** kann innerhalb seines veröffentlichten Aufgabenbereichs eine gesondert genehmigte Route erkennen, berechnen, simulieren, vorbereiten, weiterleiten und aufzeichnen; und
 - **Garantierer:** übernimmt eine definierte Verpflichtung nur durch veröffentlichte, finanzierte Bedingungen.
 
 CPP Gruppen Fonds-Funktionen sind in vier Konzepte unterteilt:
@@ -30,9 +30,11 @@ CPP Gruppen Fonds-Funktionen sind in vier Konzepte unterteilt:
 - **Einschränkung:** die gegenwärtigen Token-Gleichgewichtsgrenzwerte des Fonds oder andere separat eingeführte Kontrollen anzuwenden.
 - **Umtausch:** Inventar halten, Swaps ausführen, Gebühren berechnen und Transaktionsunterlagen ausstellen.
 
-Protocol v1.1.0 implementiert diese Funktionen durch `SwapPool` und optionale Abhängigkeiten. Sein aktueller `Limiter` begrenzt ein Token-Guthaben in einem Fonds; es enthält keine rolling-, pro-Konto- oder netzweiten Swap-Limits. Sein aktueller `SwapRouter` berechnet Kotierungen für mehrere Fonds; es führt keine Swaps durch.
+Protocol v1.1.0 setzt diese Funktionen mit `SwapPool` und optionalen Abhängigkeiten um. Der aktuelle `Limiter` begrenzt den Saldo eines Tokens in einem Fonds; er enthält keine gleitenden, kontobezogenen oder netzwerkweiten Tauschlimits. Der aktuelle Solidity-`SwapRouter` berechnet Kursangebote über mehrere Fonds, führt aber keine Tausche aus.
 
-Das breitere vorgeschlagene CPP-Design kann Rolllimits, Konto-Kontrollen, Ausführungsroutern, HTLC oder Escrow-Wege und Charge-Netzungen hinzufügen. Es handelt sich hierbei um vorgeschlagene Komponenten, nicht um Beschreibungen des aktuellen Limiters oder Routers.
+Die produktive CLC App und CLC Core ergänzen diese Verträge um Routing auf Anwendungsebene innerhalb derselben Blockchain. CLC Core erkennt Routen, liest die ausgewählten Fonds in einem festgelegten Block, bereitet einen signierten Calibur-Wallet-Batch vor und simuliert ihn, koordiniert den Relayer und fasst die entstehenden Abwicklungsdaten zusammen. Die aktuelle öffentliche Konfiguration sucht Routen mit bis zu drei Fonds-Tauschen. Jeder Fonds bleibt unabhängig verwaltet, und jeder Schritt wird weiterhin direkt über seinen eigenen `SwapPool` ausgeführt.
+
+Der weitergehende vorgeschlagene CPP-Entwurf kann gleitende Grenzen, Kontokontrollen, Blockchain-übergreifende HTLC- oder Escrow-Routen, automatischen Bestandsausgleich und gebündelte Verrechnung ergänzen. Das sind vorgeschlagene Komponenten, keine Beschreibungen des aktuellen `Limiter`, des Solidity-`SwapRouter` oder des Routing-Ablaufs von App und CLC Core.
 
 ### **1.3 Aktuelle Direkt-Swap-Logik**
 

@@ -12,10 +12,36 @@ The [Terms of Service](/governance/terms) govern use of the public App and expla
 
 - **Voucher Issuers** govern their own Offerings. They publish accurate identity, capacity, supply, valuation, expiry, presentment, fulfillment, geographic, timing, fee, restriction, and remedy information, and they remain responsible for honoring those commitments.
 - **Pool Stewards** govern admission, asset curation, valuation, fees, limits, inventory, reserves, contributions, conflicts, provenance, configuration, pauses, upgrades, and any guarantee or loss-allocation mechanism for their Pools.
-- **Registry and service stewards** may govern which Pools or assets appear in a registry and the rules and fees for routing, monitoring, liquidity support, or other shared services.
+- **Registry and service stewards** may govern which Pools or assets appear in a registry and the operating rules for discovery, routing, monitoring, liquidity support, or other shared services. Their service authority does not automatically extend to a Pool's assets or an issuer's obligations.
 - **Users** decide whether an Issuer, Voucher, Pool, quote, and transaction are acceptable and lawful for them. A registry entry or App listing is not a guarantee or endorsement.
 
 One person or organization can hold more than one role, but it should disclose each role and the conflicts and obligations that follow from it.
+
+## Pool-level stewardship
+
+A Pool Steward is accountable for that Pool's published curation, valuation, limitations, fees, exchange conditions, accepted commitments, inventory policy, local disputes, repair process, and authorized governance changes. Technical authority may be distributed among a `SwapPool` owner, proxy administrator, dependency controllers, multisig signers, and fee recipients; the public rules should identify those powers rather than treating them as one role.
+
+Repair within a Pool remains with its authorized governance and responsible parties. A Steward may correct a configuration, suspend an admission, address a local dispute, or adopt a remedy within its authority. It cannot erase public transaction history or silently discharge an issuer's separate voucher obligation.
+
+## Network-level operations
+
+The production CLC App and CLC Core operate shared discovery, route quoting, wallet-batch preparation, relay coordination, indexing, reconciliation, and grouped routed-exchange receipts. Network-level incidents can include stale or unavailable route data, reconciliation failures, unsupported dependencies, relay failures, and cross-Pool interoperability problems.
+
+An operator can pause or correct its own service, refresh indexed state, exclude unsupported paths, explain a failure, and coordinate with affected Stewards. That operational role does not grant authority to change an independent Pool's rules, move its inventory, waive an issuer's commitment, or decide a local fulfillment dispute.
+
+Current participant-initiated routing also does not authorize automatic Pool rebalancing. Any rebalancing, netting, shared-liquidity, guarantee, or insurance service would require separate opt-in authority, controls, responsible parties, and published terms.
+
+## Registry-level stewardship
+
+A registry or catalog steward may address incorrect listings, identity and metadata integrity, registry permissions, publication status, service failures, and correction, suspension, or appeal procedures. A registry record helps discovery; it is not itself an issuer-capacity assessment, Pool guarantee, or fulfillment record.
+
+Correcting or removing a listing does not reverse an on-chain settlement, remove a balance, change a Pool's independently governed configuration, or discharge an outstanding commitment. Those outcomes require the authority and process applicable to the relevant contract, Pool, issuer, or legal obligation.
+
+## Route evidence and responsibility
+
+A routed exchange preserves the boundaries between its hops. Each Pool applies its own admission, quote, balance cap, fees, inventory, and controller powers. CLC Core groups the technical result into one receipt, but that receipt does not merge Pool governance or transfer an issuer's responsibility to the route operator.
+
+The receipt can evidence route selection, authorization, transaction status, per-hop settlement amounts, and fees. Real-world presentment, fulfillment, satisfaction, and discharge require separate evidence and remain with the identified issuer and applicable process.
 
 ## Accountable governance structures
 
@@ -36,7 +62,7 @@ Published rules should match the powers available in the relevant contracts and 
 
 Where token voting is appropriate, a deployment may use [OpenZeppelin Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance) contracts and an interface such as Tally. Other deployments may rely on multisig approvals, cooperative resolutions, board decisions, public-agency mandates, or hybrid processes.
 
-These tools are optional. Discussion of token voting, shared insurance, network-wide routing, netting, or liquidity programs does not mean that every capability is active in the public App or governed by GEF. Each deployment must identify its actual decision-makers, contracts, service providers, and policies.
+These tools are optional. The public App currently provides participant-initiated same-chain routing through CLC Core, but that does not imply token voting, automatic rebalancing, netting, shared insurance, network liquidity programs, or central governance by GEF. Each deployment must identify its actual decision-makers, contracts, service providers, and policies.
 
 ## Interface action and on-chain state
 

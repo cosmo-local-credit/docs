@@ -15,4 +15,6 @@ Ang isang future deployment ay maaaring magdagdag ng mga circuit breaker, timelo
 
 Ang iminungkahi na pamamahala ay dapat panatilihin ang mga kapangyarihan ng rehistro at serbisyo na mahigpit at mai-review. Ang ordinaryong mga aksyon ay maaaring gumamit ng pahibalo, pag-atras, dahilan publication, appeal, at correction process. Ang mga hakbang sa emerhensiya ay dapat gumawa ng mga talaan ng insidente at matapos o tumanggap ng pagsusuri sa ilalim ng isang inaminang patakaran.
 
-Ang compatible na pagtuklas ng ruta ay maaaring gawing posible ang higit pang mga palitan sa buong Pool.
+Ang produksyon CLC App at CLC Core ngayon ay nagbibigay ng katugma na pagtuklas ng ruta at parehong kadena multi-hop pagpapatupad para sa mga ruta ng awtorisadong kalahok sa pamamagitan ng naka-configure na pampublikong profile. Ang mga quote ay nag-aaplay ng per-hop na mga limitasyon, bayad, imbentaryo, hangganan, at simulasyon, habang ang isang naka-sign na wallet batch ay nagbabalik bilang kabuuan kung mabibigo ang isang tawag.
+
+Ang serbisyong iyon ay hindi nagpapahintulot sa awtomatikong pag-rebalanse ng Pool o kontrol sa antas ng network ng imbentaryo ng Pool. Ang rebalancing, batch netting, cross-domain HTLC o escrow execution, at shared liquidity governance ay kakailanganin ng karagdagang awtoridad, software, limitasyon, failure handling, at pinagtibay na mga patakaran. Ang mga swap na mas nakalista o pinatupad ay hindi sa kanilang sarili nagpapatunay ng katuparan ng Voucher o epekto sa lipunan.

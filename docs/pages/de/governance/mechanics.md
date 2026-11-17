@@ -12,10 +12,36 @@ Unter [Konzepte und Begriffe](/de/introduction/concepts) werden diese öffentlic
 
 - **Gutschein-Herausgeber** verwalten ihre eigenen Angebote. Sie veröffentlichen zutreffende Informationen über Identität, Leistungsfähigkeit, Bestand, Bewertung, Ablauf, Vorlage zur Einlösung, Erfüllung, Ort, Zeitpunkt, Gebühren, Einschränkungen und Abhilfen. Sie bleiben für die Einhaltung dieser Verpflichtungen verantwortlich.
 - **Fonds-Verantwortliche** verwalten Zulassung, Kuratierung von Vermögenswerten, Bewertung, Gebühren, Grenzen, Bestände, Reserven, Beiträge, Interessenkonflikte, Herkunft, Konfiguration, Pausen, Upgrades sowie alle Garantie- oder Verlustverteilungsmechanismen ihrer Fonds.
-- **Verantwortliche für Register und Dienste** können festlegen, welche Fonds oder Vermögenswerte in einem Register erscheinen und welche Regeln und Gebühren für Routing, Überwachung, Liquiditätsunterstützung oder andere gemeinsame Dienste gelten.
+- **Verantwortliche für Register und Dienste** können festlegen, welche Fonds oder Vermögenswerte in einem Register erscheinen und welche Betriebsregeln für Erkennung, Routing, Überwachung, Liquiditätsunterstützung oder andere gemeinsame Dienste gelten. Ihre Befugnis über den Dienst erstreckt sich nicht automatisch auf die Vermögenswerte eines Fonds oder die Verpflichtungen eines Herausgebers.
 - **Nutzer** entscheiden, ob ein Herausgeber, Gutschein, Fonds, Kursangebot und eine Transaktion für sie akzeptabel und rechtmäßig sind. Ein Registereintrag oder eine App-Auflistung ist keine Garantie oder Empfehlung.
 
 Eine Person oder Organisation kann mehrere Rollen übernehmen. Sie sollte jede Rolle und die daraus entstehenden Konflikte und Pflichten offenlegen.
+
+## Verantwortung auf Fonds-Ebene
+
+Ein Fonds-Verantwortlicher ist für die veröffentlichte Kuratierung, Bewertung, Begrenzungen, Gebühren, Tauschbedingungen, angenommenen Verpflichtungen, Bestandspolitik, lokalen Streitigkeiten, Abhilfeverfahren und genehmigten Governance-Änderungen des Fonds verantwortlich. Technische Befugnisse können auf einen `SwapPool`-Eigentümer, einen Proxy-Administrator, Kontrolleure von Abhängigkeiten, Multisig-Unterzeichner und Gebührenempfänger verteilt sein. Die öffentlichen Regeln sollten diese Befugnisse benennen, statt sie als eine einzige Rolle zu behandeln.
+
+Abhilfe innerhalb eines Fonds bleibt Aufgabe seiner autorisierten Governance und der verantwortlichen Parteien. Ein Fonds-Verantwortlicher kann im Rahmen seiner Befugnisse eine Konfiguration berichtigen, eine Zulassung aussetzen, einen lokalen Streit behandeln oder eine Abhilfe beschließen. Er kann weder die öffentliche Transaktionshistorie löschen noch die gesonderte Gutscheinverpflichtung eines Herausgebers stillschweigend ausbuchen.
+
+## Betrieb auf Netzwerkebene
+
+Die produktive CLC App und CLC Core betreiben gemeinsame Routenerkennung und -berechnung, die Vorbereitung von Wallet-Batches, die Koordination des Relayers, Indexierung, Abstimmung und zusammengefasste Belege für Tausche über Routen. Vorfälle auf Netzwerkebene können veraltete oder nicht verfügbare Routendaten, Abstimmungsfehler, nicht unterstützte Abhängigkeiten, Relayer-Fehler und Interoperabilitätsprobleme zwischen Fonds umfassen.
+
+Ein Betreiber kann seinen eigenen Dienst pausieren oder berichtigen, den indexierten Zustand aktualisieren, nicht unterstützte Routen ausschließen, einen Fehler erklären und sich mit betroffenen Fonds-Verantwortlichen abstimmen. Diese operative Rolle verleiht keine Befugnis, die Regeln eines unabhängigen Fonds zu ändern, seine Bestände zu verschieben, auf eine Verpflichtung des Herausgebers zu verzichten oder über einen lokalen Erfüllungsstreit zu entscheiden.
+
+Das derzeitige, von Teilnehmern ausgelöste Routing erlaubt auch keinen automatischen Bestandsausgleich der Fonds. Jeder Dienst für Bestandsausgleich, Verrechnung, gemeinsame Liquidität, Garantien oder Versicherung würde eine gesonderte freiwillige Beauftragung, Kontrollen, verantwortliche Parteien und veröffentlichte Bedingungen erfordern.
+
+## Verantwortung auf Registerebene
+
+Ein Verantwortlicher für ein Register oder einen Katalog kann fehlerhafte Auflistungen, die Integrität von Identitäts- und Metadaten, Registerberechtigungen, Veröffentlichungsstatus, Dienstfehler sowie Berichtigungs-, Aussetzungs- oder Beschwerdeverfahren behandeln. Ein Registereintrag unterstützt die Auffindbarkeit; er ist weder eine Bewertung der Leistungsfähigkeit eines Herausgebers noch eine Fondsgarantie oder ein Erfüllungsnachweis.
+
+Die Berichtigung oder Entfernung einer Auflistung macht keine Abwicklung auf der Blockchain rückgängig, entfernt keinen Saldo, ändert nicht die unabhängig verwaltete Konfiguration eines Fonds und bucht keine offene Verpflichtung aus. Solche Ergebnisse erfordern die Befugnis und das Verfahren, die für den betreffenden Vertrag, Fonds, Herausgeber oder die rechtliche Verpflichtung gelten.
+
+## Routennachweise und Verantwortung
+
+Ein Tausch über eine Route wahrt die Grenzen zwischen seinen einzelnen Schritten. Jeder Fonds wendet seine eigenen Zulassungen, Kursangebote, Saldenlimits, Gebühren, Bestände und Kontrollbefugnisse an. CLC Core fasst das technische Ergebnis in einem Beleg zusammen. Dieser Beleg vereint jedoch nicht die Governance der Fonds und überträgt die Verantwortung eines Herausgebers nicht auf den Routing-Dienst.
+
+Der Beleg kann Routenauswahl, Autorisierung, Transaktionsstatus, Abwicklungsbeträge und Gebühren für jeden Schritt nachweisen. Vorlage, tatsächliche Erfüllung, Annahme der Leistung und Ausbuchung erfordern gesonderte Nachweise und bleiben Sache des benannten Herausgebers und des anwendbaren Verfahrens.
 
 ## Verantwortliche Governance-Strukturen
 
@@ -36,7 +62,7 @@ Veröffentlichte Regeln sollten den Befugnissen in den maßgeblichen Verträgen 
 
 Wo Token-Abstimmungen angemessen sind, kann eine Bereitstellung Verträge von [OpenZeppelin Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance) und eine Benutzeroberfläche wie Tally verwenden. Andere Bereitstellungen können sich auf Multisig-Genehmigungen, Genossenschaftsbeschlüsse, Gremienentscheidungen, Mandate öffentlicher Stellen oder gemischte Verfahren stützen.
 
-Diese Werkzeuge sind optional. Die Erörterung von Token-Abstimmungen, gemeinsamer Versicherung, netzwerkweitem Routing, Verrechnung oder Liquiditätsprogrammen bedeutet nicht, dass jede Funktion in der öffentlichen App aktiv ist oder von GEF verwaltet wird. Jede Bereitstellung muss ihre tatsächlichen Entscheidungsträger, Verträge, Dienstleister und Regeln benennen.
+Diese Werkzeuge sind optional. Die öffentliche App bietet derzeit von Teilnehmern ausgelöstes Routing innerhalb derselben Blockchain über CLC Core. Das bedeutet jedoch weder Token-Abstimmungen noch automatischen Bestandsausgleich, Verrechnung, gemeinsame Versicherung, Netzwerkliquiditätsprogramme oder zentrale Governance durch GEF. Jede Bereitstellung muss ihre tatsächlichen Entscheidungsträger, Verträge, Dienstleister und Regeln benennen.
 
 ## Handlung in der Benutzeroberfläche und Zustand auf der Blockchain
 

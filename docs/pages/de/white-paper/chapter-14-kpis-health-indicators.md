@@ -1,26 +1,33 @@
-## **14. vorgeschlagene KPIs und Gesundheitsindikatoren**
+## **14. KPI und Zustandsindikatoren**
 
-Eine Bereitstellung sollte eine KPI nur dann veröffentlichen, wenn sie das Ereignis, die Quelle, die Kohorte oder den Zeitraum, die Einheit, die Bewertungsmethode und das Zeitstempel, die Ausschlüsse, die Korrekturpolitik, die außerhalb der Kette vorhandenen Beweise und die Datenqualitätsbeschränkungen definieren kann.
+Eine Bereitstellung sollte einen KPI nur veröffentlichen, wenn sie Ereignis, Quelle, Kohorte oder Zeitraum, Einheit, Bewertungsmethode und -zeitpunkt, Ausschlüsse, Korrekturrichtlinie, Nachweise außerhalb der Blockchain und Grenzen der Datenqualität definieren kann.
 
-Zu den vorgeschlagenen Maßnahmen gehören:
+Aktuelle Routing-Dienste können Ereignisse der Erkennung, Kursberechnung, Ausführung, Abwicklung und Abstimmung messen. Die Erfüllung von Gutscheinen und soziale Ergebnisse erfordern weiterhin gesonderte Nachweise. Zu den empfohlenen Messgrößen gehören:
 
-- gültige Erlösungsvorlagen;
-- Kohortenbasierte Erfüllungsrate;
+- gültige Einlösungsvorlagen;
+- Erfüllungsrate nach Kohorten;
 - Vollständigkeit der Ausbuchung;
-- Verzögerung von Vorlage zu Erfüllung;
-- Dauer des Bestands von Erwerb bis zur Einreichung;
-- ausstehende förderfähige Verpflichtungen nach einer angegebenen Methodik;
-- abgeschlossenes Fonds-Swap-Volumen;
-- gemessenes Fonds-Inventar;
-- Nutzung der Fonds-Token-Balance-Cap;
-- die Quotepassrate, getrennt von der Streckenausführungsrate gehalten;
-- berechtigte Reserven aufgeteilt nach ausdrücklich gedeckten Risikopositionen;
-- Gewährleistungsansprüche und Rückerstattungen im Rahmen einer identifizierten Politik;
-- die tatsächlich eingegangenen vorgeschlagenen Netzergebühren und Dienstleistungsgebühren, ohne doppelte Bruttogebühren des Fonds;
-- die Zeiten der Erkennung, Entscheidung, Pause, Reparatur und Schließung der Governance;
-- Beschwerden, Streitigkeiten, Berichtigungen und Rechtsmittel; und
-- Die Kommission hat im Rahmen des Berichts über die Auswirkungen der Maßnahmen auf die Umwelt und die Gesundheit der Bevölkerung
+- Dauer von der Vorlage bis zur Erfüllung;
+- Haltedauer vom Erwerb bis zur Vorlage;
+- ausstehende geeignete Verpflichtungen nach einer angegebenen Methode;
+- Volumen abgeschlossener direkter Fonds-Tausche;
+- Versuche der Routenerkennung und Anzahl verfügbarer möglicher Routen;
+- Versuche, Ergebnisse, Tiefe, Ablauf und angebotene Gebühren verbindlicher Routenangebote;
+- Versuche von Tauschen über Routen, bestätigte und rückgängig gemachte Routen sowie Fehlergründe;
+- Ein- und Ausgabevolumen der gesamten Route, einmal je Route und nicht einmal je Schritt gezählt;
+- Abwicklungsbeträge, Fondsgebühren, Protokollgebühren und Zwischenreste je Schritt;
+- Routeneinschränkungen, darunter unzureichende Liquidität, Fonds-Tokenlimits, nicht unterstützte Abhängigkeiten und Wallet-Einschränkungen;
+- Aktualität des Graphen, Dauer der Abstimmung, Berichtigungen und Fehler;
+- gemessene Fondsbestände;
+- Nutzung der Fonds-Tokenlimits;
+- Erfolgsraten von Erkennung und Kursangeboten, getrennt von Ausführungs- und Abwicklungsraten der Routen;
+- geeignete Reserven geteilt durch ausdrücklich gedeckte Risiken;
+- Garantieansprüche und Rückzahlungen nach einer benannten Richtlinie;
+- aktuelle Fonds- und Protokollgebühren je Schritt, getrennt von einem vorgeschlagenen Netzwerkanteil oder zukünftigen Servicegebühren;
+- Zeiten für Erkennung, Entscheidung, Pause, Abhilfe und Abschluss in der Governance;
+- Beschwerden, Streitigkeiten, Berichtigungen und Abhilfen; und
+- gesondert nachgewiesene soziale oder ökologische Ergebnisse.
 
-Die Daten über Transaktionen in der Kette beweisen nicht von selbst Identität, Leistung des Emittenten, Zufriedenheit, Kausalität, Gesundheit der Gemeinschaft oder soziale Auswirkungen. Diese Behauptungen erfordern ihre eigene Methodik und Beweise.
+Transaktionsdaten auf der Blockchain belegen für sich allein weder Identität, Leistung eines Herausgebers, Zufriedenheit, Kausalität, Gesundheit einer Gemeinschaft noch soziale Wirkung. Solche Aussagen benötigen eigene Methoden und Nachweise.
 
-Siehst du ? [Anhang C](/de/white-paper/appendix-c-kpi-definitions) für die vorgeschlagene Messspezifikation.
+Die vorgeschlagene Messspezifikation steht in [Anhang C](/de/white-paper/appendix-c-kpi-definitions).

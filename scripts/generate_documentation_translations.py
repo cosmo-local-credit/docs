@@ -44,6 +44,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = ROOT / "docs/pages"
 I18N = ROOT / "docs/i18n"
 POLICY_REGISTRY = json.loads((I18N / "policy-locales.json").read_text())
+ROUTING_ROLLOUT = json.loads((I18N / "routing-rollout.json").read_text())
+ROUTING_ROUTES = set(ROUTING_ROLLOUT["source"]["affectedRoutes"])
 POLICY_ROUTES = list(POLICY_REGISTRY["source"]["routes"])
 POLICY_CATALOG_SOURCE = {
     "navigation": {
@@ -125,6 +127,7 @@ UNCHANGED_NAMES = [
     "Mohamed Sohail",
     "Protocol v1.1.0",
     "White Paper v0.8",
+    "White Paper v0.9",
     "SwapPool",
     "SwapRouter",
     "Limiter",
@@ -2624,6 +2627,10 @@ def main() -> None:
         nargs="*",
         help="Optional exact English routes to translate instead of the full corpus.",
     )
+    parser.add_argument(
+        "--routing-translation-date",
+        help="Publication date for a focused production-routing translation candidate.",
+    )
     parser.add_argument("--threads", type=int, default=10)
     parser.add_argument("--cache", type=Path)
     parser.add_argument(
@@ -2649,6 +2656,7 @@ def main() -> None:
     parser.add_argument("--policy-source-date", dest="policy_source_date")
     parser.add_argument("--policy-translation-date", dest="policy_translation_date")
     args = parser.parse_args()
+    routing_update = bool(args.routes and ROUTING_ROUTES.intersection(args.routes))
 
     if args.policy_draft:
         if len(args.locales) != 1:
@@ -2680,13 +2688,21 @@ def main() -> None:
             )
         translation_date = args.policy_translation_date
     else:
-        translation_dates = {
-            TRANSLATION_DATES.get(locale, "10 October 2026")
-            for locale in args.locales
-        }
-        if len(translation_dates) != 1:
-            parser.error("generate locales with different publication dates separately")
-        translation_date = translation_dates.pop()
+        if routing_update:
+            if len(args.locales) != 1:
+                parser.error("focused routing updates require exactly one locale")
+            translation_date = (
+                args.routing_translation_date
+                or ROUTING_ROLLOUT["source"]["publicationDate"]
+            )
+        else:
+            translation_dates = {
+                TRANSLATION_DATES.get(locale, "10 October 2026")
+                for locale in args.locales
+            }
+            if len(translation_dates) != 1:
+                parser.error("generate locales with different publication dates separately")
+            translation_date = translation_dates.pop()
 
     if args.cache:
         args.cache.parent.mkdir(parents=True, exist_ok=True)
@@ -2845,10 +2861,26 @@ def main() -> None:
             nav_template = json_template(english_navigation, nav_segments)
             nav_translated, nav_review = translate(nav_segments)
             navigation = render_json_template(nav_template, nav_translated)
+        if routing_update:
+            routing_notice = (
+                f"This is a translation of White Paper v{ROUTING_ROLLOUT['source']['whitePaperVersion']}. "
+                f"The English source was published on {ROUTING_ROLLOUT['source']['publicationDate']}. "
+                f"This translation was published on {translation_date}. "
+                "English is the source text."
+            )
+            notice_translation, notice_review = translate([routing_notice])
+            ui["whitePaper"]["translationNotice"] = notice_translation[0]
+        else:
+            notice_review = {
+                "units": 0,
+                "meanBackTranslationSimilarity": 1.0,
+                "unitsBelow0_35": 0,
+            }
         locale_reviews: list[dict[str, float | int]] = [
             splash_review,
             ui_review,
             nav_review,
+            notice_review,
         ]
         page_jobs: list[tuple[Path, str, MarkdownTemplate, int, int]] = []
         all_page_segments: list[str] = []
@@ -2925,6 +2957,7 @@ def main() -> None:
                     args.policy_translation_date,
                 )
                 policy_page_reviews[route] = review
+            if args.policy_draft or routing_update:
                 for unit_index, (source_unit, translated_unit, back_translation, score) in enumerate(
                     strict_zip(
                         template.segments,
@@ -2971,17 +3004,28 @@ def main() -> None:
                     f"{paper['englishSource']}</a>."
                 )
                 translated = insert_notice(translated, notice)
-                localized_pdf = (
-                    ROOT
-                    / "docs/public/white-paper"
-                    / f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf"
-                )
-                if route == "/white-paper" and localized_pdf.exists():
+                if route == "/white-paper" and routing_update:
                     translated = translated.replace(
-                        "Cosmo-Local-Credit-CLC-White-Paper-v8.pdf",
-                        f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf",
+                        "Cosmo-Local-Credit-CLC-White-Paper-v9.pdf",
+                        f"Cosmo-Local-Credit-CLC-White-Paper-v9-{locale}.pdf",
                     )
+                elif route == "/white-paper":
+                    localized_pdf = (
+                        ROOT
+                        / "docs/public/white-paper"
+                        / f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf"
+                    )
+                    if localized_pdf.exists():
+                        translated = translated.replace(
+                            "Cosmo-Local-Credit-CLC-White-Paper-v8.pdf",
+                            f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf",
+                        )
                 if route == "/white-paper/archive":
+                    if routing_update:
+                        translated = translated.replace(
+                            "Cosmo-Local-Credit-CLC-White-Paper-v8.pdf",
+                            f"Cosmo-Local-Credit-CLC-White-Paper-v8-{locale}.pdf",
+                        )
                     translated += f"\n> {paper['archivedEnglishOnly']}\n"
 
             relative = source_path.relative_to(PAGES)
@@ -3010,10 +3054,13 @@ def main() -> None:
                 json.dumps(splash, ensure_ascii=False, indent=2) + "\n"
             )
         if not args.policy_draft:
-            (I18N / f"ui/{locale}.json").write_text(
+            catalog_root = I18N if args.output_pages == PAGES else args.output_pages.parent / "i18n"
+            (catalog_root / "ui").mkdir(parents=True, exist_ok=True)
+            (catalog_root / "navigation").mkdir(parents=True, exist_ok=True)
+            (catalog_root / f"ui/{locale}.json").write_text(
                 json.dumps(ui, ensure_ascii=False, indent=2) + "\n"
             )
-            (I18N / f"navigation/{locale}.json").write_text(
+            (catalog_root / f"navigation/{locale}.json").write_text(
                 json.dumps(navigation, ensure_ascii=False, indent=2) + "\n"
             )
         for destination, translated in rendered_pages:
@@ -3050,6 +3097,47 @@ def main() -> None:
                             "lawful bases, transfers, and retention",
                             "children and safeguarding",
                             "complaints and reporting instructions",
+                            "complete natural-language page skim",
+                        ],
+                        "lowConfidenceUnits": low_confidence_units,
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                )
+                + "\n"
+            )
+        elif routing_update:
+            summary = aggregate_reviews(locale_reviews)
+            manifest["routingSourceAppCommit"] = ROUTING_ROLLOUT["source"]["appCommit"]
+            manifest["routingSourceCoreCommit"] = ROUTING_ROLLOUT["source"]["coreCommit"]
+            manifest["routingSourceProtocolCommit"] = ROUTING_ROLLOUT["source"]["protocolCommit"]
+            manifest["routingWhitePaperVersion"] = ROUTING_ROLLOUT["source"]["whitePaperVersion"]
+            manifest["routingTranslationPublicationDate"] = translation_date
+            manifest["routingBackTranslationReview"] = {
+                **summary,
+                "threshold": 0.35,
+                "lowConfidenceReport": f"routing-review.{locale}.json",
+            }
+            review_path = args.output_pages.parent / f"routing-review.{locale}.json"
+            review_path.write_text(
+                json.dumps(
+                    {
+                        "locale": locale,
+                        "sourceAppCommit": ROUTING_ROLLOUT["source"]["appCommit"],
+                        "sourceCoreCommit": ROUTING_ROLLOUT["source"]["coreCommit"],
+                        "sourceProtocolCommit": ROUTING_ROLLOUT["source"]["protocolCommit"],
+                        "whitePaperVersion": ROUTING_ROLLOUT["source"]["whitePaperVersion"],
+                        "translationPublicationDate": translation_date,
+                        "summary": summary,
+                        "mandatoryReview": [
+                            "route discovery is estimated and the pinned-block quote is authoritative",
+                            "current maximum route depth is three Pool swaps",
+                            "same-chain Calibur batch uses revertOnFailure and per-hop bounds",
+                            "Safes and other contract wallets are unsupported by the current route quote",
+                            "Pool and protocol fees are per hop and there is no current route-service fee",
+                            "Solidity SwapRouter remains quote-only",
+                            "participant routing does not authorize Pool rebalancing",
+                            "settlement remains separate from voucher fulfillment and discharge",
                             "complete natural-language page skim",
                         ],
                         "lowConfidenceUnits": low_confidence_units,

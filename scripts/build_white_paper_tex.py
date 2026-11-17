@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import html
 import argparse
+import json
 import re
 from pathlib import Path
 
@@ -14,6 +15,9 @@ PAGES_ROOT = ROOT / "docs" / "pages"
 PAGES = PAGES_ROOT / "white-paper"
 OUT_DIR = ROOT / "white-paper"
 OUT_TEX = OUT_DIR / "clc_white_paper.tex"
+ROUTING_ROLLOUT = json.loads(
+    (ROOT / "docs" / "i18n" / "routing-rollout.json").read_text(encoding="utf-8")
+)
 LOCALES = ["en", "ar", "zh", "zh-Hant", "dz", "de", "es", "fil", "fr", "hi", "it", "nl", "nl-BE", "pt", "sr", "uk", "sw"]
 POLYGLOSSIA_LANGUAGES = {
     "ar": "arabic",
@@ -565,7 +569,12 @@ def english_preamble(abstract_text: str, version: str, publication_date: str) ->
     ]
 
 
-def localized_preamble(locale: str, subtitle: str) -> list[str]:
+def localized_preamble(
+    locale: str,
+    subtitle: str,
+    version: str,
+    translation_publication_date: str,
+) -> list[str]:
     language = POLYGLOSSIA_LANGUAGES[locale]
     language_setup = [
         r"\usepackage{polyglossia}",
@@ -663,13 +672,13 @@ def localized_preamble(locale: str, subtitle: str) -> list[str]:
         r"  citecolor=blue,",
         r"  urlcolor=blue,",
         rf"  pdflang={{{'zh-CN' if locale == 'zh' else 'fil-PH' if locale == 'fil' else locale}}},",
-        r"  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},",
+        rf"  pdftitle={{Cosmo-Local Credit (CLC) White Paper v{escape_text(version)}}},",
         r"  pdfauthor={William O. Ruddick and Mohamed Sohail}",
         r"}",
         "",
         rf"\title{{{title_name}\\" + render_inline(subtitle) + "}",
         r"\author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}",
-        rf"\date{{White Paper v0.8 translation: {TRANSLATION_DATES[locale]}}}",
+        rf"\date{{White Paper v{escape_text(version)} translation: {escape_text(translation_publication_date)}}}",
         "",
         r"\begin{document}",
         r"\maketitle",
@@ -706,7 +715,13 @@ def build(locale: str = "en") -> str:
     else:
         pages_dir = PAGES_ROOT / locale / "white-paper"
         front_lines, subtitle = localized_index(pages_dir)
-        out = localized_preamble(locale, subtitle)
+        release = ROUTING_ROLLOUT["locales"][locale]
+        out = localized_preamble(
+            locale,
+            subtitle,
+            release["whitePaperVersion"],
+            release["translationPublicationDate"],
+        )
     out.extend(convert_lines(front_lines, locale))
     for filename in ORDER:
         source = normalize_source((pages_dir / filename).read_text(encoding="utf-8"))

@@ -1,26 +1,33 @@
-## **14. I KPI e gli indicatori di salute proposti**
+## **14. KPI e indicatori sanitari**
 
-Una distribuzione dovrebbe pubblicare un KPI solo quando può definire l'evento, la fonte, la coorte o il periodo, l'unità, il metodo di valutazione e il timestamp, le esclusioni, la politica di correzione, le prove fuori catena e le limitazioni della qualità dei dati.
+Un'implementazione dovrebbe pubblicare un KPI solo quando può definire l'evento, la fonte, la coorte o il periodo, l'unità, il metodo di valutazione e il timestamp, le esclusioni, la politica di correzione, le prove fuori catena e le limitazioni della qualità dei dati.
 
-Le misure proposte comprendono:
+I servizi di percorso attuali possono misurare eventi di scoperta, quotazione, esecuzione, regolamento e riconciliazione. L'adempimento dei buoni e i risultati sociali richiedono ancora prove separate. Le misure raccomandate includono:
 
 - presentazioni di rimborso valide;
-- tasso di soddisfazione basato su coorte;
-- completità dello estinzione;
-- la latenza presentazione-adempimento;
+- tasso di soddisfazione basato sulla coorte;
+- completezza dello scarico;
+- la latenza dalla presentazione all'adempimento;
 - durata della detenzione dall'acquisizione alla presentazione;
-- impegni in sospeso ammissibili in base a una metodologia dichiarata;
-- il volume completato dello swap di fondo;
-- inventario del fondo misurato;
-- L'utilizzo del fondo-token-balance cap;
-- tasso di passaggio delle quote, tenuto separato dal tasso di esecuzione del percorso;
-- riserve ammissibili suddivise per esposizione espressamente coperta;
-- i crediti del garante e i recuperi nell'ambito di una politica identificata;
-- le commissioni di rete e le commissioni di servizio effettivamente ricevute proposte, senza commissioni del fondo lordo a doppio conto;
-- i tempi di rilevamento, decisione, pausa, riparazione e chiusura della governance;
-- reclami, controversie, correzioni e rimedi; e
-- I risultati sociali o ecologici sono stati evidenziati separatamente.
+- impegni ammissibili in essere ai sensi di una metodologia definita;
+- volume completato degli scambi diretti nei Fondi;
+- i tentativi di scoperta del percorso e il numero di percorsi candidati disponibili;
+- tentativi autorevoli di quotazione del percorso, risultati, profondità, scadenza e tariffe quotate;
+- tentativi di scambio instradato, percorsi confermati o annullati e motivi degli errori;
+- volume di ingresso e di uscita dell'intero percorso, conteggiato una volta per percorso anziché una volta al salto;
+- gli importi del regolamento per salto, le commissioni di Fondo, le tasse di protocollo e i rimanenti intermedi;
+- i vincoli di percorso, compresi l'insufficienza di liquidità, i massimali per il saldo dei token del Fondo, le dipendenze non supportate e i limiti del portafoglio;
+- freschezza del grafico, durata della riconciliazione, correzioni e errori;
+- inventario del Fondo misurato;
+- utilizzo del token-balance-cap del Fondo;
+- i tassi di successo della scoperta e di accettazione dell'offerta, tenuti separati dai tassi d'esecuzione del percorso e di regolamento;
+- riserve ammissibili divise per esposizione espressamente coperta;
+- crediti di garanzia e recuperi nell'ambito di una polizza identificata;
+- le commissioni correnti del Fondo e del Protocollo per ogni passaggio, mantenute separate da qualsiasi quota per la rete proposta o futura commissione di servizio;
+- i tempi di rilevamento, decisione, sospensione, riparazione e chiusura della governance;
+- reclami, controversie, rettifiche e rimedi;
+- risultati sociali o ecologici evidenziati separatamente.
 
-I dati delle transazioni on-chain non dimostrano da soli l'identità, le prestazioni dell'emittente, la soddisfazione, la causalità, la salute della comunità o l'impatto sociale. Tali affermazioni richiedono una propria metodologia e prove.
+I dati sulle transazioni on-chain non dimostrano di per sé l'identità, le prestazioni dell'emittente, la soddisfazione, la causalità, la salute della comunità o l'impatto sociale. Tali affermazioni richiedono una metodologia e prove proprie.
 
-Veda l'[Appendice C](/it/white-paper/appendix-c-kpi-definitions) per la specifica di misurazione proposta.
+Vedere [Appendice C](/it/white-paper/appendix-c-kpi-definitions) per le specifiche di misurazione proposte.

@@ -12,10 +12,36 @@ El [Términos de servicio](/es/governance/terms) regir el uso de la aplicación 
 
 - **Emitentes de vales** gobiernan sus propias Ofertas. Publican información exacta sobre identidad, capacidad, suministro, valoración, vencimiento, presentación, cumplimiento, geografía, tiempo, tarifas, restricción y recursos, y siguen siendo responsables de cumplir esos compromisos.
 - **Responsables de Fondos** regir la admisión, la curaduría de activos, la valoración, las tarifas, los límites, el inventario, las reservas, las contribuciones, los conflictos, la procedencia, la configuración, las pausas, las actualizaciones y cualquier mecanismo de garantía o asignación de pérdidas para sus Fondos.
-- **Administradores de registros y servicios** podrá regir qué Fondos o activos aparecen en un registro y las normas y tarifas para el enrutamiento, la vigilancia, el apoyo a la liquidez u otros servicios compartidos.
+- **Los administradores de registros y servicios** pueden decidir qué Fondos o activos aparecen en un registro y establecer las reglas operativas para el descubrimiento, el enrutamiento, el seguimiento, el apoyo a la liquidez u otros servicios compartidos. Su autoridad sobre esos servicios no se extiende automáticamente al inventario de un Fondo ni a las obligaciones de un emisor.
 - **Los usuarios** decidir si un emisor, un vale, una reserva, una cotización y una transacción son aceptables y legales para ellos. Una entrada en el registro o una lista de aplicaciones no es una garantía ni un respaldo.
 
 Una persona o organización puede desempeñar más de una función, pero debe revelar cada función y los conflictos y obligaciones que se derivan de ella.
+
+## Gestión a nivel de los Fondos
+
+Un Responsable del Fondo responde por las reglas publicadas de ese Fondo sobre selección, valoración, límites, comisiones, condiciones de intercambio, compromisos aceptados, política de inventario, disputas locales, procesos de reparación y cambios de gobernanza autorizados. La autoridad técnica puede estar repartida entre el propietario de `SwapPool`, el administrador del proxy, los controladores de dependencias, los firmantes de un multisig y los destinatarios de comisiones; las reglas públicas deben distinguir esos poderes en vez de tratarlos como una sola función.
+
+La reparación dentro de un Fondo corresponde a su gobernanza autorizada y a las partes responsables. Un Responsable puede corregir una configuración, suspender una admisión, abordar una disputa local o adoptar una medida correctiva dentro de su autoridad. No puede borrar el historial público de transacciones ni liberar silenciosamente a un emisor de la obligación independiente asociada a su vale.
+
+## Operaciones a nivel de red
+
+La CLC App y CLC Core de producción proporcionan descubrimiento compartido, cotización de rutas, preparación de lotes para la billetera, coordinación del relé, indexación, conciliación y recibos agrupados de intercambios enrutados. Los incidentes a nivel de red pueden incluir datos de ruta obsoletos o no disponibles, fallos de conciliación, dependencias no admitidas, fallos del relé y problemas de interoperabilidad entre Fondos.
+
+Un operador puede pausar o corregir su propio servicio, actualizar el estado indexado, excluir caminos no admitidos, explicar un fallo y coordinarse con los Responsables afectados. Esa función operativa no le da autoridad para cambiar las reglas de un Fondo independiente, mover su inventario, anular el compromiso de un emisor ni resolver una disputa local sobre el cumplimiento.
+
+El enrutamiento actual iniciado por los participantes tampoco autoriza el reequilibrio automático de Fondos. Cualquier servicio de reequilibrio, compensación, liquidez compartida, garantía o seguro requeriría una autoridad, controles, partes responsables y condiciones publicadas por separado.
+
+## Gestión a nivel de los registros
+
+Un administrador de registro o catálogo puede abordar fichas incorrectas, la integridad de las identidades y los metadatos, los permisos del registro, el estado de publicación, fallos del servicio y procedimientos de corrección, suspensión o apelación. La inclusión en un registro facilita el descubrimiento; no constituye por sí sola una evaluación de la capacidad del emisor, una garantía del Fondo ni una prueba de cumplimiento.
+
+Corregir o retirar una ficha no revierte una liquidación en la cadena, no elimina un saldo, no cambia la configuración gobernada de forma independiente de un Fondo ni descarga un compromiso pendiente. Esos resultados requieren la autoridad y el proceso aplicables al contrato, inventario, emisor u obligación jurídica correspondiente.
+
+## Pruebas de ruta y responsabilidad
+
+Un intercambio enrutado conserva los límites entre sus pasos. Cada Fondo aplica sus propias reglas y facultades de admisión, cotización, límite de saldo, comisiones, inventario y control. CLC Core agrupa el resultado técnico en un solo recibo, pero ese recibo no fusiona la gobernanza de los Fondos ni transfiere la responsabilidad de un emisor al operador de enrutamiento.
+
+El recibo puede demostrar la selección de la ruta, la autorización, el estado de la transacción, los importes liquidados y las comisiones de cada paso. La presentación, el cumplimiento real y la descarga requieren pruebas separadas y siguen siendo responsabilidad del emisor identificado y del proceso aplicable.
 
 ## Estructuras de gobernanza responsables
 
@@ -36,7 +62,7 @@ Las normas publicadas deben corresponder a las competencias disponibles en los c
 
 Cuando el voto simbólico sea apropiado, una implementación puede utilizar [OpenZeppelin Gobernador](https://docs.openzeppelin.com/contracts/4.x/api/governance) contratos y una interfaz como Tally. Otras implementaciones pueden basarse en aprobaciones multisig, resoluciones de cooperación, decisiones de la junta directiva, mandatos de agencias públicas o procesos híbridos.
 
-Estas herramientas son opcionales. La discusión de la votación token, el seguro compartido, el enrutamiento en toda la red, la compensación o los programas de liquidez no significa que todas las capacidades estén activas en la aplicación pública o estén regidas por GEF. Cada despliegue debe identificar a sus tomadores de decisiones reales, contratos, proveedores de servicios y políticas.
+Estas herramientas son opcionales. La CLC App pública ofrece actualmente enrutamiento en la misma cadena iniciado por los participantes mediante CLC Core, pero eso no implica votación mediante tokens, reequilibrio automático, compensación, seguros compartidos, programas de liquidez de red ni gobernanza central por parte de GEF. Cada despliegue debe identificar a quienes realmente toman las decisiones, sus contratos, proveedores de servicios y políticas.
 
 ## Acción de interfaz y estado en cadena
 

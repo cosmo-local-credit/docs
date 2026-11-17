@@ -1,11 +1,21 @@
 ## **8. Ámbito de aplicación técnico y crecimiento**
 
-Este capítulo describe el trabajo opcional o propuesto. No se trata de una lista de características garantizadas para estar presentes en el actual CLC App o Protocol v1.1.0.
+Este capítulo distingue el servicio de enrutamiento actualmente en producción de las ampliaciones opcionales o propuestas. Una capacidad actual descrita aquí sigue siendo específica del despliegue público de la CLC App y CLC Core; no es automáticamente una función de los contratos de Protocol v1.1.0 ni de otro despliegue.
 
-Las áreas de trabajo posibles incluyen:
+El despliegue público actual incluye:
 
-- enrutamiento de ejecución a través de Fondos compatibles, con registro, cotización, límite, tarifa y descubrimiento de inventario;
+- descubrimiento mediante un grafo de los vales accesibles a través de Fondos compatibles;
+- cotizaciones autorizadas en un bloque fijado para rutas seleccionadas en la misma cadena;
+- cálculo en cada paso de las comisiones del Fondo y del protocolo, las salidas mínimas y los plazos;
+- simulación del lote completo, firma del participante y ejecución Calibur retransmitida;
+- una sola transacción en la misma cadena que revierte todos los llamados de la ruta si uno falla; y
+- recibos agrupados y conciliación de los eventos de liquidación de cada paso.
+
+Las posibles áreas de crecimiento incluyen:
+
 - los adaptadores de escrow o HTLC bloqueados en el tiempo para la ejecución transfronteriza cuando no esté disponible la liquidación atómica;
+- perfiles adicionales de registro o política y enrutamiento entre perfiles;
+- reequilibrio voluntario del inventario de los Fondos y compensación por lotes;
 - interfaces y herramientas de política para Fondos pequeñas o personales;
 - registros auditables de vales, fondos, métodos de cambio, límites, controladores y tarifas;
 - los conectores de proveedores de pagos específicos de la implementación, los flujos de pago y los controles de elegibilidad;
@@ -14,26 +24,32 @@ Las áreas de trabajo posibles incluyen:
 
 Los precios del mercado exterior no determinan lo que debe un emisor en virtud de los términos de los vales. Un grupo podría utilizar una referencia externa protegida para un activo fungible, pero su método de cambio publicado, límites, tarifas e inventario regirían sus cotizaciones.
 
-### **8.1 Normas propuestas de servicio de rutas y SDK**
+### **8.1 Servicio de enrutamiento actual y normas más amplias**
 
-**El descubrimiento.** Un servicio de ruta propuesto buscaría registros identificados para la admisión de activos, métodos de cambio, límites, tarifas, inventario, incidentes e información del controlador. Los registros almacenados en caché incluirían límites de frescura y identificadores de fuente.
+**Descubrimiento.** CLC Core mantiene un grafo reconciliado a partir de catálogos configurados, relaciones del registro, parámetros de los Fondos, comisiones, límites, saldos y eventos de la cadena. Estima lo que puede alcanzar una billetera de sesión y señala los datos obsoletos. La configuración pública busca rutas de hasta tres pasos. El descubrimiento no constituye una promesa ejecutable.
 
-**Perfiles de la red.** Un cliente podría soportar más de un perfil de raíz o política de registro. Indicaría al participante qué perfil, contrapartes, adaptadores, restricciones y operadores de servicios responsables utiliza una cotización. Una ruta transversal tendría que satisfacer todas las condiciones aplicables para el salto.
+**Cotización autorizada.** Para una ruta seleccionada, CLC Core lee los Fondos participantes en un mismo bloque fijado y reproduce los cálculos admitidos por `SwapPool`. Detalla las comisiones del Fondo y del protocolo, establece salidas mínimas en cada paso y un plazo, prepara los llamados de la billetera y simula el lote completo. Se rechazan los tokens, módulos de cotización, billeteras o condiciones del Fondo que no sean compatibles.
 
-**La política del camino.** Un operador responsable podría excluir dependencias o contrapartes no seguras y aplicar límites a nivel de ruta, requisitos de frescura y criterios de salud. Estas señales apoyarían una decisión; no garantizarían el cumplimiento ni la protección contra la pérdida.
+**Ejecución actual.** El participante firma un lote Calibur que contiene, en cada paso, la puesta a cero de la autorización, la concesión de la autorización y un retiro limitado. Un relé envía una sola transacción en la misma cadena con `revertOnFailure` activado. Esto hace que la ruta actual se ejecute por completo o se revierta al nivel de la transacción. No es atomicidad intercadena, enrutamiento mediante HTLC o depósito en garantía, reequilibrio automático ni compensación.
 
-**Tarifas y límites.** Una cotización detallaría las tarifas del grupo, cualquier tarifa adicional actual del Protocolo y cualquier tarifa de enrutamiento o servicio propuesta por separado. La ejecución rechazaría las cotizaciones vencidas o los límites incumplidos.
+**Recibos y operaciones.** La CLC App agrupa la ruta bajo un mismo identificador de seguimiento y registra el estado de la transacción, el orden de los pasos, los Fondos, los pares de tokens, los importes cotizados y liquidados, las comisiones de los Fondos, las comisiones del protocolo y los restos intermedios. El servicio supervisa la frescura del grafo, los resultados de la enumeración y la cotización de rutas, los fallos de simulación, la duración y las correcciones de la conciliación, y los miembros indexados no resueltos o desconocidos. La telemetría operativa no prueba el cumplimiento del emisor.
 
-**Atomicidad y recuperación.** La ejecución multi-hop sería atómica cuando sea posible. En caso de que utilizara HTLC o escrow, el servicio revelaría tiempos de espera, trayectorias de interrupción, controladores responsables, procedimientos de incidentes y riesgos residuales.
+**Perfiles de red.** Un cliente podría admitir más de una raíz de registro o perfil de política. Informaría al participante del perfil, las contrapartes, los adaptadores, las restricciones y los operadores de servicios responsables utilizados por una cotización. Una ruta entre perfiles tendría que cumplir las condiciones aplicables a cada paso.
 
-**Proposición de compensación por lotes y reequilibrio.** Un servicio de opt-in puede recopilar intenciones de reequilibrio y buscar ciclos o cadenas compatibles. Eso sería:
+Un operador responsable podría excluir las dependencias o contrapartes inseguras y aplicar límites a nivel de ruta, requisitos de frescura y criterios de salud. Estas señales apoyarían una decisión; no garantizarían el cumplimiento o la protección contra la pérdida.
 
-1. publicar un recibo legible por máquina que identifique los ciclos ejecutados, los activos, los importes, los sellos de tiempo de valoración y las tarifas;
+**Comisiones y límites.** La cotización actual detalla, en cada paso, las comisiones del Fondo y cualquier comisión adicional del protocolo. La CLC App pública no añade actualmente una comisión independiente por el servicio de enrutamiento. Cualquier futura comisión de servicio se publicaría por separado. La ejecución rechaza las cotizaciones vencidas o los límites superados.
+
+**Atomicidad y recuperación entre dominios.** Si una futura ruta no pudiera utilizar el lote atómico actual en la misma cadena y empleara HTLC o depósito en garantía, el servicio publicaría los plazos, las vías de cancelación, los controladores responsables, los procedimientos de incidentes y los riesgos residuales.
+
+**Compensación por lotes y reequilibrio propuestos.** Un servicio voluntario podría recopilar intenciones de reequilibrio y buscar ciclos o cadenas compatibles. Debería:
+
+1. publicar un recibo legible por máquina que identifique los ciclos ejecutados, los activos, los importes, las marcas de tiempo de valoración y las comisiones;
 2. hacer cumplir los límites máximos adoptados por período y las políticas de contraparte;
-3. rechazar actividades que violan las autorizaciones, los límites o el inventario disponible de cualquier grupo participante; y
-4. preservar las entradas y recibos deterministas para la revisión y el manejo de disputas.
+3. rechazar cualquier actividad que infrinja la autorización, los límites o el inventario disponible de un grupo participante; y
+4. conservar las entradas y los recibos determinísticos para su revisión y resolución de controversias.
 
-**Requisitos del SDK.** Un SDK para rutas ejecutadas proporcionaría un mapeo determinista de cotización a recibo, controles de invariantes por espera, códigos de fallas comprensibles y registros amigables con la auditoría. El Protocol v1.1.0 `SwapRouter` actual sólo proporciona cotizaciones; no ejecuta estas rutas propuestas.
+**Requisitos del SDK y de la interfaz.** Una integración de rutas reutilizable debería proporcionar una correspondencia determinista entre cotización y recibo, comprobaciones de invariantes en cada paso, códigos de fallo comprensibles y registros fáciles de auditar. La implementación actual de producción de la CLC App y CLC Core proporciona estas funciones para su propio perfil. El `SwapRouter` Solidity de Protocol v1.1.0 sigue calculando únicamente cotizaciones y no ejecuta la ruta.
 
 #### **8.1.1 Especificación mínima de compatibilidad con la confederación**
 

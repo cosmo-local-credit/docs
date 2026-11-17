@@ -12,10 +12,36 @@ Le [Conditions d'utilisation](/fr/governance/terms) régir l'utilisation de l'ap
 
 - **Émetteurs de bons** gouvernent leurs propres offrandes. Ils publient des informations précises sur l'identité, la capacité, la fourniture, la valorisation, l'expiration, la présentation, l'exécution, la géographie, le calendrier, les frais, les restrictions et les mesures correctives, et restent responsables de respecter ces engagements.
 - **Gestionnaires de Bassins** régir l'admission, la conservation des actifs, l'évaluation, les frais, les limites, l'inventaire, les réserves, les contributions, les conflits, la provenance, la configuration, les pauses, les mises à niveau et tout mécanisme de garantie ou d'allocation des pertes pour leurs bassins.
-- **Administrateurs des registres et des services** peuvent régir les bassins ou les actifs figurant dans un registre et les règles et les frais pour l'acheminement, la surveillance, le soutien à la liquidité ou d'autres services partagés.
+- **Les gestionnaires de registres et de services** peuvent déterminer quels Bassins ou actifs figurent dans un registre et fixer les règles de fonctionnement de la découverte, du routage, du suivi, du soutien à la liquidité ou d’autres services partagés. Leurs pouvoirs sur ces services ne s’étendent pas automatiquement à l’inventaire d’un Bassin ni aux obligations d’un émetteur.
 - **Utilisateurs** décider si un émetteur, un bon d’échange, un bassin, un devis et une transaction sont acceptables et légaux pour eux. Une inscription dans le registre ou une liste d'applications n'est pas une garantie ou une approbation.
 
 Une personne ou une organisation peut occuper plus d'un rôle, mais elle doit divulguer chaque rôle et les conflits et obligations qui en découlent.
+
+## Gouvernance au niveau du Bassin
+
+Un Gestionnaire de Bassin répond des règles publiées de ce Bassin concernant la sélection, l’évaluation, les limites, les frais, les conditions d’échange, les engagements acceptés, la politique d’inventaire, les litiges locaux, les procédures de réparation et les changements de gouvernance autorisés. Les pouvoirs techniques peuvent être répartis entre le propriétaire du `SwapPool`, l’administrateur du proxy, les contrôleurs de dépendances, les signataires d’un multisig et les bénéficiaires des frais; les règles publiques doivent distinguer ces pouvoirs au lieu de les présenter comme un rôle unique.
+
+Les mesures correctives au sein d’un Bassin restent du ressort de sa gouvernance autorisée et des parties responsables. Un Gestionnaire peut corriger une configuration, suspendre une admission, traiter un litige local ou adopter une mesure corrective dans les limites de son autorité. Il ne peut pas effacer l’historique public des transactions ni libérer discrètement un émetteur de l’engagement distinct associé à son bon d’échange.
+
+## Opérations au niveau du réseau
+
+La CLC App et CLC Core en production assurent la découverte partagée, la cotation des itinéraires, la préparation des lots de portefeuille, la coordination du relais, l’indexation, le rapprochement et les reçus groupés des échanges routés. Les incidents au niveau du réseau peuvent comprendre des données d’itinéraire obsolètes ou indisponibles, des échecs de rapprochement, des dépendances non prises en charge, des défaillances du relais et des problèmes d’interopérabilité entre Bassins.
+
+Un opérateur peut suspendre ou corriger son propre service, actualiser l’état indexé, exclure les chemins non pris en charge, expliquer une défaillance et se coordonner avec les Gestionnaires concernés. Ce rôle opérationnel ne lui donne pas le pouvoir de modifier les règles d’un Bassin indépendant, d’en déplacer l’inventaire, d’annuler l’engagement d’un émetteur ou de trancher un litige local relatif à l’exécution.
+
+Le routage actuel lancé par les participants n’autorise pas non plus le rééquilibrage automatique des Bassins. Tout service de rééquilibrage, de compensation, de liquidité partagée, de garantie ou d’assurance exigerait une autorité, des contrôles, des parties responsables et des conditions publiées distinctes.
+
+## Gouvernance au niveau des registres
+
+Un gestionnaire de registre ou de catalogue peut traiter les fiches incorrectes, l’intégrité des identités et des métadonnées, les autorisations du registre, le statut de publication, les défaillances du service et les procédures de correction, de suspension ou d’appel. Une inscription au registre facilite la découverte; elle ne constitue pas une évaluation de la capacité de l’émetteur, une garantie du Bassin ni une preuve d’exécution.
+
+La correction ou la suppression d’une fiche n’annule pas un règlement sur la chaîne, ne supprime pas un solde, ne modifie pas la configuration gouvernée indépendamment d’un Bassin et n’acquitte pas un engagement en cours. De tels effets exigent l’autorité et la procédure applicables au contrat, à l’inventaire, à l’émetteur ou à l’obligation juridique concernée.
+
+## Preuves de l’itinéraire et responsabilité
+
+Un échange routé préserve les limites entre ses étapes. Chaque Bassin applique ses propres règles et pouvoirs d’admission, de cotation, de plafond de solde, de frais, d’inventaire et de contrôle. CLC Core regroupe le résultat technique dans un reçu unique, mais ce reçu ne fusionne pas la gouvernance des Bassins et ne transfère pas la responsabilité de l’émetteur à l’opérateur du routage.
+
+Le reçu peut prouver la sélection de l’itinéraire, l’autorisation, le statut de la transaction, les montants réglés et les frais à chaque étape. La présentation, l’exécution réelle et l’acquittement exigent des preuves distinctes et restent sous la responsabilité de l’émetteur identifié et de la procédure applicable.
 
 ## Structures de gouvernance responsables
 
@@ -36,7 +62,7 @@ Les règles publiées devraient correspondre aux pouvoirs disponibles dans les c
 
 Lorsque le vote symbolique est approprié, un déploiement peut utiliser [OpenZeppelin Gouverneur](https://docs.openzeppelin.com/contracts/4.x/api/governance) des contrats et une interface telle que Tally. D'autres déploiements peuvent s'appuyer sur des approbations multisig, des résolutions de coopération, des décisions du conseil d'administration, des mandats d'agences publiques ou des processus hybrides.
 
-Ces outils sont facultatifs. La discussion sur le vote symbolique, l'assurance partagée, le routage à l'échelle du réseau, la compensation ou les programmes de liquidité ne signifie pas que chaque capacité est active dans l'application publique ou régie par GEF. Chaque déploiement doit identifier ses décideurs réels, ses contrats, ses fournisseurs de services et ses politiques.
+Ces outils sont facultatifs. L'application publique fournit actuellement un routage de même chaîne initié par les participants via CLC Core, mais cela n'implique pas le vote par jeton, le rééquilibrage automatique, la compensation, l'assurance partagée, les programmes de liquidité du réseau ou la gouvernance centrale par GEF. Chaque déploiement doit identifier ses décideurs, contrats, fournisseurs de services et politiques.
 
 ## Action de l'interface et état en chaîne
 

@@ -30,3 +30,12 @@ EIP-165 support is also contract-specific, not universal. It is exposed by `Gift
 - **Splitter, EthFaucet, PeriodSimple, and RescueVault** — Supporting distribution, gas-funding, rate-limit, and asset-recovery utilities.
 
 The contracts can be combined in different ways. A registry listing, quote, or graph path is not a guarantee that a transaction will execute: current liquidity, token limits, fees, oracle state, authorization, deadlines, network conditions, and each Pool's configuration still apply.
+
+
+## Application-level routed exchange
+
+The production CLC App does more than call the Solidity `SwapRouter`. CLC Core maintains a reconciled graph of eligible Pool relationships, estimates reachable vouchers, reads the selected Pools at a pinned block for an authoritative quote, simulates the complete route, and prepares a Calibur wallet batch. The user signs that batch and a relayer submits it as one same-chain transaction.
+
+Each hop calls a `SwapPool` directly. The batch resets and sets the required token allowance, then calls the bounded `SwapPool.withdraw` overload with a minimum output and deadline. `revertOnFailure` is enabled, so a failed call reverts the complete routed transaction. The App then presents one grouped receipt with per-hop settlement and fee details.
+
+This routing workflow is an App/Core capability built above Protocol v1.1.0. It does not turn the Solidity `SwapRouter` into an execution router, change a Pool's owner or Steward, or make one Pool responsible for another Pool's rules or an issuer's fulfillment. See [Protocol network architecture](/protocol/network) for the complete flow.

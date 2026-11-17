@@ -50,24 +50,45 @@ Un Fondo de Compromisos es un arreglo regido. Su contrato actual `SwapPool` pued
 
 Un depósito transfiere activos al `SwapPool`. Protocol v1.1.0 no acuña tokens de Fondo-share ni otorga automáticamente al depositante derechos de reembolso, retiro, recompensa o gobernanza.
 
-### 5. Utilice la acción correcta
+### 5. Intercambia directamente o mediante una ruta
 
-- **Envía** transfiere un saldo simbólico a otra dirección.
-- **Intercambio de Fondos** intercambiará un activo apoyado por otro a través de un `SwapPool`. La liquidación de swaps en cadena no demuestra el cumplimiento del emisor.
-- **“Canjear”** abre el flujo de envío con la dirección del titular del token preemplada. Presentará o devolverá el vale al emisor; el reembolso completado también requiere el rendimiento prometido del emisor y un registro de descarga que impida la reutilización.
-- **“Retirar vale”** Esconde la lista del catálogo. No quema los saldos, no cancela el vale ni extingue las obligaciones pendientes del emisor.
-- **Retiro de liquidez del grupo** permite al propietario del Fondo transferir el inventario disponible.
-- **Recaudación de las tarifas** Envía las tasas acumuladas del grupo al destinatario configurado.
+La vista **Crédito** de la CLC App puede encontrar vales accesibles a partir de los que ya tienes en tu billetera. Para obtener un vale puede bastar un intercambio directo en un Fondo o ser necesaria una ruta por varios Fondos gobernados de forma independiente. El despliegue público actual busca rutas de hasta tres intercambios de Fondo.
 
-Veamos el [ejemplos prácticos de vales](/es/introduction/example) durante todo el ciclo de vida.
+Para el intercambio:
+
+1. selecciona **Obtener** para el vale que quieres recibir o **Gastar** para el que quieres utilizar;
+2. revisa las opciones disponibles en **Pagar con** y la **Estimación**;
+3. abre **Detalles de la ruta** para ver cada Fondo, intercambio, importe y comisión del Fondo o del protocolo;
+4. selecciona **Revisar**, comprueba el importe mínimo que recibirás y cuándo vence la cotización, y luego selecciona **Confirmar intercambio**; y
+5. firma el lote preparado para tu billetera.
+
+CLC Core descubre rutas posibles a partir de la información indexada sobre Fondos y vales. El resultado de la búsqueda es una estimación. Antes de que firmes, lee el estado de los Fondos pertinentes en un mismo bloque fijado, produce una cotización autorizada, aplica a cada paso una salida mínima y un plazo, y simula el lote completo. La CLC App no añade actualmente una comisión independiente por el servicio de enrutamiento; cada paso puede seguir cobrando la comisión configurada del Fondo y la comisión adicional del protocolo.
+
+La ruta firmada se envía como una sola transacción en la misma cadena. Cada paso utiliza la misma billetera compatible con la CLC App. Si falla una autorización o un intercambio de Fondo incluido en el lote, se revierte toda la transacción y los pasos anteriores no quedan liquidados. El recibo agrupa la ruta bajo un mismo identificador de seguimiento y muestra su estado, el hash de la transacción, cada Fondo, los importes liquidados y las comisiones del Fondo y del protocolo en cada paso.
+
+Una ruta puede no estar disponible si la billetera no contiene un vale de entrada admisible, un Fondo no admite un token, se superaría el límite de saldo de tokens del Fondo, no hay suficiente inventario de salida, un módulo de cotización o token no es compatible, o el servicio de enrutamiento está temporalmente desactualizado o no disponible. Una cotización también puede vencer, quedar obsoleta al cambiar el estado del Fondo, fallar en la simulación final o revertirse en la cadena. Actualiza la ruta y revisa la nueva cotización en vez de suponer que una estimación anterior sigue siendo válida.
+
+La ejecución enrutada actual admite billeteras EOA o Calibur compatibles con la CLC App. Actualmente no prepara intercambios enrutados para billeteras Safe ni para otras billeteras de contrato.
+
+### 6. Usa la acción correcta
+
+- **Enviar** transfiere un saldo simbólico a otra dirección.
+- **Intercambio de Fondo** cambia un activo admitido por otro mediante un `SwapPool`. Puede ser un intercambio directo o un paso de un intercambio enrutado. La liquidación del intercambio en la cadena no prueba que el emisor haya cumplido su compromiso.
+- **Intercambio enrutado** ejecuta una secuencia ordenada de intercambios de Fondo en una sola transacción de billetera en la misma cadena. No fusiona la gobernanza de los Fondos ni hace responsable al operador de enrutamiento del cumplimiento del emisor.
+- **“Canjear”** abre el flujo de envío con la dirección del propietario del token ya completada. Presenta o devuelve el vale al emisor; el canje completo también requiere que el emisor proporcione lo prometido y que exista un registro de descarga que impida reutilizar esas unidades.
+- **“Retirar vale”** oculta la ficha del catálogo. No quema los saldos, no cancela el vale ni extingue las obligaciones pendientes del emisor.
+- **Retiro de liquidez del Fondo** permite al propietario del Fondo transferir el inventario disponible.
+- **Recaudación de comisiones** envía las comisiones acumuladas del Fondo al destinatario configurado.
+
+Vea el [Ejemplo de vales prácticos](/es/introduction/example) para el ciclo de vida completo.
 
 ## Capacidades actuales, dependientes del despliegue y propuestas
 
-La aplicación actual proporciona un mercado y flujos soportados para cuentas, billeteras, vales, ofertas, fondos, transferencias, swaps directos de fondo y registros relacionados. La disponibilidad depende de la implementación activa, el activo, la configuración del grupo, el dispositivo, la red, la elegibilidad, el proveedor, la jurisdicción y los términos publicados.
+La aplicación actual proporciona un mercado y flujos soportados para cuentas, billeteras, vales, ofertas, Fondos, transferencias, intercambios directos de Fondo, intercambio enrutado a nivel de aplicación y registros relacionados. La disponibilidad depende de la implementación activa, el activo, la configuración del grupo, el inventario, el tipo de billetera, el dispositivo, la red, la elegibilidad, el proveedor, la jurisdicción y los términos publicados.
 
 Los servicios de pago, los métodos de apoyo, las recompensas, las garantías, los acuerdos de contribución y otras integraciones de proveedores dependen del despliegue. Las partes responsables, los honorarios, los límites, la elegibilidad y las condiciones legales deben revelarse cuando se ofrezcan.
 
-Protocol v1.1.0 proporciona la ejecución directa del Fondo y una cotización exclusiva de `SwapRouter`. La ejecución multi-hop, HTLC o el enrutamiento de garantía, la compensación por lotes, el seguro compartido, los activos de gobernanza propuestos, los programas de liquidez de la red y las vías de pago reguladas siguen siendo propuestos o dependientes de la implementación a menos que una implementación específica los identifique como activos.
+Protocol v1.1.0 proporciona la ejecución directa en los Fondos y un `SwapRouter` Solidity que solo calcula cotizaciones. La CLC App y CLC Core de producción ofrecen, por encima de esos contratos, descubrimiento de rutas de varios pasos en la misma cadena, cotizaciones autorizadas, preparación de lotes para la billetera, simulación, retransmisión y recibos agrupados. El `SwapRouter` Solidity no se ha convertido en un contrato de ejecución. El enrutamiento intercadena mediante HTLC o depósito en garantía, el reequilibrio automático de Fondos, la compensación por lotes, los seguros compartidos, los activos de gobernanza propuestos, los programas de liquidez de red y las vías de pago reguladas siguen siendo propuestas o dependen del despliegue, salvo que un despliegue concreto los identifique como activos.
 
 Cualquier préstamo futuro u otro producto de crédito requiere que se presenten por separado los términos suplementarios y de la transacción. Una transferencia ordinaria, depósito de fondo, swap de fondo, presentación de canje, cumplimiento o descarga no es automáticamente un préstamo, anticipo o reembolso.
 

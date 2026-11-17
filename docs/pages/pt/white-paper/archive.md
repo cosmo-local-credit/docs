@@ -1,15 +1,14 @@
-# Archivo do Livro Branco
+# Arquivo do Livro Branco
 
-> **Sobre esta tradução.** Esta é uma primeira tradução do Livro Branco v0.8 (White Paper v0.8), preparada para revisão. O texto original em inglês foi publicado em 30 de setembro de 2026. Esta tradução foi preparada em 10 de outubro de 2026. O inglês é o texto original. <a data-english-source="true" href="/white-paper/archive" hrefLang="en">Ler o texto original em inglês</a>.
+> **Sobre esta tradução.** Esta página é a tradução portuguesa do arquivo do Livro Branco. O inglês é o texto fonte. <a data-english-source="true" href="/white-paper/archive" hrefLang="en">Ler o texto fonte em inglês</a>.
 
-A publicação atual é [Cosmo-Local Credit White Paper v0.8](/pt/white-paper), datada de 30 de Setembro de 2026.
+A publicação atual é o [Cosmo-Local Credit White Paper v0.9](/pt/white-paper), de 16 de novembro de 2026.
 
-## Versão superada
+## Versão substituída
 
-- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v7.pdf">PDF da versão 0.7</a>, de 24 de Setembro de 2026
+- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf">PDF da versão 0.8</a>, de 30 de setembro de 2026
+- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v7.pdf">PDF da versão 0.7</a>, de 24 de setembro de 2026
 
-A versão 0.7 é preservada para referência histórica. Seu vocabulário, descrições de status, fórmulas e propostas são substituídos por v0.8 e não devem ser usados como a descrição atual do CLC App, Protocol v1.1.0, direitos dos participantes ou economia de rede proposta.
+As versões 0.8 e 0.7 são preservadas para referência histórica. A versão 0.9 atualiza o estado de produção do encaminhamento ao nível da aplicação, mantendo a distinção entre o `SwapRouter` Solidity, que apenas calcula cotações, e a execução pela CLC App e pelo CLC Core. O vocabulário, as descrições de estado, as fórmulas e as propostas anteriores foram substituídos e não devem ser usados como descrição atual da CLC App, do CLC Core, do Protocol v1.1.0, dos direitos dos participantes nem da economia de rede proposta.
 
-A versão 0.6 foi removida do sítio público. A sua história permanece disponível através do repositório de documentação.
-
-> O PDF da versão v0.7, já substituída, está disponível apenas em inglês.
+A versão 0.6 foi removida do site público. A sua história permanece disponível através do repositório de documentação.

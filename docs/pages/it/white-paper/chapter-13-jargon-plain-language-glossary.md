@@ -1,25 +1,39 @@
 ## **13. Glossario in lingua semplice**
 
-- **Cosmo-Local Credit (CLC):** La famiglia di prodotti, compresa la CLC App, la documentazione e il più ampio lavoro di riassunzione degli impegni.
-- **CLC App:** L'app web progressiva gestita da GEF presso `cosmolocal.credit`.
-- **Protocollo di coordinamento degli impegni (CPP):** Il modello riutilizzabile di curazione, valutazione, limitazione, scambio e governance responsabile.
-- **Protocol v1.1.0:** Il rilascio del contratto intelligente pubblico verificato.
-- **Fondo di Impegni:** Un accordo governato che ammette le attività sostenute e pubblica le regole di cambio.
-- **`SwapPool`:** L'attuale token vault e il contratto di scambio diretto.
-- **Segnale:** Un saldo in catena o un'attività digitale. Solo la meccanica dei token non crea una promessa riscattabile.
-- **buono:** Un token o un record rappresentato da un emittente come impegno rimborsabile in termini pubblicati.
-- **Offerta:** Registro del catalogo delle merci o dei servizi associati a un buono.
-- **Emittente:** Parte responsabile della pubblicazione e dell'adempimento di un impegno del buono.
+- **Cosmo-Local Credit (CLC):** La famiglia di prodotti, che comprende la CLC App, la documentazione e il lavoro più ampio sulla messa in comune degli impegni.
+- **CLC App:** L'applicazione web progressiva gestita da GEF su `cosmolocal.credit`.
+- **Protocollo di messa in comune degli impegni (CPP):** Il modello riutilizzabile per curatela, valutazione, limitazione, scambio e governance responsabile.
+- **Protocol v1.1.0:** La versione verificata degli smart contract pubblici.
+- **Fondo di Impegni:** Un accordo governato che ammette attività supportate e pubblica regole di scambio.
+- **`SwapPool`:** L'attuale contratto che funge da deposito di token e motore per gli scambi diretti.
+- **Token:** Un saldo on-chain o un asset digitale. I soli meccanismi del token non creano una promessa riscattabile.
+- **Buono:** Un token o un registro presentato da un emittente come impegno riscattabile secondo termini pubblicati.
+- **Offerta:** La voce del catalogo relativa a beni o servizi associati a un buono.
+- **Want:** Una richiesta pubblicata. Da solo non accetta un'Offerta o un buono, non autorizza uno scambio, non riserva inventario e non crea un obbligo.
+- **Emittente:** La parte responsabile della pubblicazione e dell'adempimento dell'impegno associato a un buono.
 - **Responsabile del Fondo:** La struttura responsabile che pubblica e amministra le regole del Fondo.
-- **tasso di cambio del fondo o quotazione:** un parametro di transazione prodotto da un quotatore configurato; non prove di denaro contante o di valore di riscatto.
-- **Cappello per il saldo dei token del fondo:** Il massimo `Limiter` attuale per un token detenuto da un fondo. L'app può etichettarlo ** Limite di credito.”**
-- **Scambio di fondo:** Uno scambio diretto di attività attraverso uno `SwapPool`.
-- **Risoluzioni di scambio:** I trasferimenti in catena e la contabilità delle commissioni che completano lo scambio di fondo.
-- **Presentazione di riscatto:** Ritorno o in altro modo presentazione delle unità del buono all'emittente.
-- **Completamento:** L'emittente fornisce il bene, il servizio, il beneficio o altre prestazioni promesse.
-- **estinzione:** Una registrazione che impedisce di presentare nuovamente le unità soddisfatte.
-- **Router di esecuzione proposto:** Futuro software che autorizza e esegue le rotte. Solo le quote attuali di `SwapRouter`.
-- **Proposto Fondo di rete CLC:** Un futuro accordo di compensazione e di coordinamento di bilancio a livello di rete.
-- **Proposto CLC token di governance:** Un progetto di governance futuro, non un asset attuale di app o Protocol v1.1.0.
-- **Rake della rete:** Una quota proposta delle commissioni del gruppo trasferita in un futuro bilancio della rete.
-- **Garanzia o assicurazione:** Una protezione che si applica solo quando una parte identificata lo assume espressamente, lo finanzi e la pubblica.
+- **Registro:** Un insieme di dati usato per trovare e autorizzare contratti, Fondi, token o altre risorse identificati. La sola inclusione non costituisce approvazione, prova della capacità dell'emittente, adempimento, garanzia o assicurazione.
+- **Tasso di cambio o quotazione del Fondo:** Un parametro della transazione prodotto dal quotatore configurato; non è prova di un valore in denaro o di riscatto.
+- **Indice di valore:** Un input di valutazione usato dal quotatore configurato per calcolare una quotazione nel Fondo. Non costituisce automaticamente un prezzo di mercato, un valore in denaro o un obbligo dell'emittente.
+- **`Limiter`:** Il componente opzionale di Protocol v1.1.0 che imposta il saldo massimo di un token in un Fondo. L'App può indicarlo come **Limite di credito**. Non è un limite di prestito personale né un limite mobile a livello di rete.
+- **Scambio nel Fondo:** Uno scambio diretto di attività attraverso uno `SwapPool`.
+- **Percorso:** Una sequenza ordinata di uno o più scambi nei Fondi, dal buono in ingresso nel portafoglio al buono desiderato.
+- **Profondità del percorso:** Il numero di scambi nei Fondi che compongono un percorso. L'attuale distribuzione pubblica ne cerca fino a tre.
+- **Scoperta del percorso:** Una stima dei percorsi possibili basata sul grafo riconciliato e sui dati del portafoglio. Un percorso trovato non costituisce una promessa eseguibile.
+- **Quotazione del percorso:** Una proposta autorevole e con validità limitata per un percorso selezionato, calcolata dallo stato supportato dei Fondi letto allo stesso blocco fissato e simulata prima della firma.
+- **Scambio instradato:** Una sequenza di scambi nei Fondi autorizzata dal partecipante. L'App attuale la invia come batch Calibur sulla stessa catena; tutte le chiamate vengono annullate insieme se una fallisce.
+- **Ricevuta dello scambio instradato:** Un registro tecnico raggruppato dello stato del percorso, dell'hash della transazione, dei passaggi, degli importi regolati e delle commissioni del Fondo e del Protocollo per ciascun passaggio.
+- **Liquidità:** L'inventario di output idoneo del Fondo, disponibile secondo le attuali condizioni di ammissione, limite al saldo, quotazione, commissioni, riserva e prelievo. Un collegamento nel grafo o il solo saldo di un token non dimostrano liquidità utilizzabile.
+- **Regolamento dello scambio:** I trasferimenti on-chain e la contabilizzazione delle commissioni che completano uno scambio nel Fondo.
+- **Presentazione per il riscatto:** La restituzione o altra presentazione delle unità del buono all'emittente.
+- **Adempimento:** La fornitura, da parte dell'emittente, del bene, servizio, beneficio o altra prestazione promessa.
+- **Estinzione:** Un registro che impedisce una nuova presentazione delle unità già adempiute.
+- **Contratto Solidity `SwapRouter`:** Il contratto di sola quotazione di Protocol v1.1.0. Può calcolare una quotazione lungo un percorso fornito, ma non custodisce attività, non approva token e non esegue scambi.
+- **Flusso di instradamento dell'applicazione:** L'attuale servizio di CLC App e CLC Core che scopre, quota, simula, prepara, trasmette, riconcilia e segnala percorsi sulla stessa catena al di sopra dei contratti dei Fondi.
+- **Riequilibrio:** Il trasferimento dell'inventario dei Fondi verso obiettivi adottati in base a un mandato autorizzato dal Responsabile del Fondo. L'attuale instradamento avviato dal partecipante non autorizza da solo il riequilibrio automatico.
+- **Clearing o compensazione:** La combinazione di più obblighi o trasferimenti previsti per calcolare posizioni nette ridotte. Non fa parte dell'attuale scambio instradato di CLC App e CLC Core.
+- **Riparazione:** Una procedura responsabile per correggere una configurazione, una voce del registro, un errore del servizio, una controversia o un impegno non adempiuto entro un'autorità identificata. La riparazione del registro o del servizio di instradamento non riscrive tacitamente le regole di un Fondo indipendente né estingue l'obbligo dell'emittente.
+- **Fondo di rete CLC proposto:** Un futuro accordo di compensazione e coordinamento dei saldi a livello di rete.
+- **Token di governance CLC proposto:** Un futuro asset di governance, non un asset attuale dell'App o di Protocol v1.1.0.
+- **Quota per la rete:** Una quota proposta delle commissioni dei Fondi trasferita a un futuro bilancio di rete.
+- **Garanzia o assicurazione:** Una protezione che si applica soltanto quando una parte identificata la assume espressamente, la finanzia e ne pubblica le condizioni.

@@ -63,10 +63,12 @@
 
 ### **10.7 रूटिंग और क्रॉस-डोमेन जोखिम**
 
-- **खतरे:** आंशिक निष्पादन, फंसे हुए हॉप्स, ब्रिज या एस्क्रो शोषण, पुराने कोटेशन, पथ मुद्रास्फीति और घोषित मूल्य परिवर्तनों का अग्रिम संचालन।
-- **संकेतक:** मार्ग की समाप्ति दरें, एस्क्रो बैकलॉग्स, कोट-टू-इक्जीक्यूशन अंतर, दोहराए जाने वाले अनावश्यक कूद और पुल घटनाएं।
-- **संभव नियंत्रण:** यदि उपलब्ध हो तो परमाणु निष्पादन; रूढ़िवादी HTLC या एस्क्रो टाइमआउट; पथ और प्रतिपक्ष नीति; मार्ग स्तर की सीमाएं; निर्णायक बोली-से-प्राप्ति मानचित्रण; और उत्तरदायी सेवा ऑपरेटर।
-- **तनाव परीक्षण:** एक पुल बंद, श्रृंखला पुनर्गठन, निर्भरता टूटने, और प्रस्तावित मल्टी-हॉप मार्ग में एक असफल कूद।
+- **मौजूदा समान-चेन खतरे:** पुराना discovery data, अपर्याप्त inventory, limit या admission changes, quotation expiry, असमर्थित wallets या dependencies, simulation failure, relay failure, chain reorganization और path inflation।
+- **मौजूदा controls और evidence:** fixed-block authoritative quotations, full-batch simulation, हर हॉप के minimum outputs और deadlines, `revertOnFailure` वाला हस्ताक्षरित Calibur batch, deterministic grouped receipts, reconciliation और स्पष्ट failure codes। ये controls चुने गए execution risks घटाते हैं, लेकिन availability या issuer fulfillment की guarantee नहीं देते।
+- **प्रस्तावित cross-domain खतरे:** अलग domains में partial execution, फँसे हुए hops, bridge, HTLC या escrow exploits, timeout mismatch और recovery disputes।
+- **संकेतक:** route-discovery और quotation outcomes, quote-to-execution gap, route depth, simulation failures, reverts, reconciliation failures, बार-बार अनावश्यक hops और भविष्य के cross-domain systems के लिए escrow backlogs तथा bridge incidents।
+- **संभावित अतिरिक्त controls:** route और counterparty policies; route-level limits; जवाबदेह service operators; और conservative HTLC या escrow timeout, abort तथा recovery rules।
+- **तनाव परीक्षण:** पुरानी graph state, dependency outage, मौजूदा atomic batch में विफल hop, chain reorganization और भविष्य के cross-domain route में bridge halt या expired escrow।
 - **जोखिम की इच्छा:** केवल पहचान और निगरानी की गई निर्भरता के लिए कम से मध्यम।
 
 ### **10.8 रखरखाव और कुंजी प्रबंधन का जोखिम**

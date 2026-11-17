@@ -9,39 +9,71 @@ Grassroots Economics Foundation exploite l'application publique au [cosmolocal.c
 Voir aussi [Concepts et vocabulaire](/fr/introduction/concepts) pour la séparation entre les rôles responsables et les pouvoirs techniques.
 
 
-## Les lignes candidates et leur exécution
+## Découverte et exécution des itinéraires en production
 
 <MermaidDiagram
-  label="Découverte d’itinéraires possibles et exécution par lot depuis le portefeuille"
-  minWidth={1040}
+  label="Architecture du routage en production dans la CLC App et CLC Core"
+  minWidth={1180}
   chart={`flowchart TB
-    VoucherA["Bon d’échange A"] ---|répertorié et détenu| PoolA["Bassin A"]
-    Bridge["Actifs de liaison génériques"] ---|inscrits et détenus| PoolA
-    Bridge ---|inscrits et détenus| PoolB["Groupe B"]
-    VoucherB["Bon d’échange B"] ---|répertorié et détenu| PoolB
+    User["Participant"] --> App["CLC App<br/>Crédit · Obtenir · Dépenser"]
+    App -->|bons d’échange accessibles et itinéraires possibles| Core["Service de routage CLC Core"]
+    Catalog["Catalogues, registres<br/>et événements indexés de la chaîne"] --> Core
+    Chain["Lectures de la chaîne à un bloc fixé"] -->|État des Bassins, soldes, frais,<br/>limites et données de cotation| Core
+    Reconcile["Indexation et rapprochement"] --> Catalog
 
-    App["PWA ou détecteur d'itinéraire"] -. discovers candidates .-> Index["Registres et indices"]
-    App -. requests a quote .-> Router["SwapRouter: cotation uniquement"]
-    Router -. reads Pool quotes .-> PoolA
-    Router -. reads Pool quotes .-> PoolB
+    Core -->|cotation faisant autorité,<br/>limites et appels préparés| App
+    Core -->|simuler le lot complet| Chain
+    App -->|vérifier et signer| Wallet["Portefeuille EOA / Calibur<br/>compatible avec la CLC App"]
+    Wallet -->|lot signé| Relayer["Le relais"]
+    Relayer -->|une transaction sur la même chaîne<br/>revertOnFailure = true| Batch["Lot Calibur<br/>approve 0 · approve montant<br/>retrait borné à chaque étape"]
 
-    App -->|crée des appels commandés| WalletStart["Portefeuille de compte intelligent utilisateur"]
-    WalletStart -->|1er étape: le bon d’échange A| PoolA
-    PoolA -->|sortie du pont| WalletBridge["Le même portefeuille entre les appels"]
-    WalletBridge -->|2e étape: actif de passerelle| PoolB
-    PoolB -->|Résultats du bon d’échange B| WalletFinal["Même portefeuille d'utilisateur"]
+    Batch --> PoolA["SwapPool A"]
+    Batch --> PoolB["SwapPool B"]
+    Batch --> PoolC["SwapPool C<br/>(si nécessaire)"]
+    PoolA --> Events["Événements de règlement"]
+    PoolB --> Events
+    PoolC --> Events
+    Events --> Reconcile
+    Reconcile --> Receipt["Reçu groupé de l’échange routé<br/>statut · hachage · étapes · montants · frais"]
+    Receipt --> App
 
-    PoolA -->|Taxe de protocole| ProtocolRecipient["Récepteur de protocole configuré"]
-    PoolB -->|protocol fee| ProtocolRecipient`}
+    SolidityRouter["SwapRouter Solidity de Protocol v1.1.0<br/>contrat réutilisable de cotation uniquement"] -. lit les cotations sans exécuter .-> PoolA
+    SolidityRouter -. lit les cotations sans exécuter .-> PoolB`}
 />
 
-Un actif partagé crée un **parcours possible du graphique**, ce n'est pas une route garantie. Dans cet exemple, le bon d’échange A pourrait être échangé contre l'actif pont dans le bassin A, puis l'actif pont pourrait être échangé contre le bon d’échange B dans le bassin B. Chaque étape dépend toujours de l'admission actuelle de jetons, des limites de bassin, de l'inventaire disponible, de la configuration des offres et des frais, de l'état de l'oracle, des approbations, des limites de transaction et de l'exécution du réseau.
+Un bon d’échange partagé crée un **chemin possible dans le graphe**, et non un itinéraire garanti. Le service CLC Core en production maintient un graphe réconcilié à partir des informations sur les Bassins, les registres, les catalogues, les soldes, les frais et les événements de la chaîne. Il vérifie aussi les avoirs pertinents du portefeuille de la session. Le déploiement public recherche actuellement des itinéraires comportant jusqu’à trois échanges de Bassin.
 
-`SwapRouter` n'appelle que les fonctions de citation Bassin à travers un chemin proposé. Il ne détient pas de fonds, n'approuve pas de jetons ni n'exécute de swaps. Un intégrateur ou une application compatible peut utiliser ces résultats de cotation pour construire une approbation ordonnée et des appels de bassin dans un lot de compte intelligent signé; Cela ne signifie pas que l'application publique actuelle offre une exécution multi-hop. Chaque étape s'installe dans le portefeuille avant que ce portefeuille ne fournisse l'actif intermédiaire au prochain bassin, et l'intégrateur peut configurer le lot pour inverser lorsqu'un appel échoue.
+La découverte dans le graphe est rapide, mais elle repose sur l’état du bloc indexé. Un résultat peut être signalé comme obsolète, et une connexion ne prouve pas que la quantité souhaitée puisse la traverser. Le filtre **Crédit** de la CLC App utilise cet ensemble de bons accessibles dans le Marché et les écrans de découverte associés.
 
-Les citations sont des instantanés. Un devis d'itinéraire réussi peut encore échouer ou se résoudre différemment si l'état pertinent change avant l'exécution. La surcharge limitée `SwapPool.withdraw` ajoute une protection `minAmountOut` et `deadline` pour un étape individuel; Les intégrateurs doivent décider comment appliquer les limites sur l'ensemble du parcours.
+### Cotation faisant autorité
 
-Les frais de bassin restent avec le bassin concerné pour le recouvrement ultérieur. Toute redevance de protocole est additionnelle et est transférée directement de ce bassin à son destinataire de protocole configuré pendant l'échange.
+Après qu’un participant a choisi un itinéraire et un montant, CLC Core lit tous les Bassins concernés à un même bloc fixé et reproduit les calculs pris en charge par `SwapPool`. La cotation indique chaque étape, les entrées et sorties, les frais de Bassin et de protocole, la sortie minimale, le destinataire final et l’échéance. Le délai actuel d’une cotation en production est de cinq minutes.
+
+Le service construit et simule ensuite le lot Calibur complet. Un comportement de jeton ou un module de cotation non pris en charge, un solde de portefeuille insuffisant, un refus d’admission, un plafond de solde dépassé, une liquidité insuffisante, un domaine de frais invalide, une limite de gaz ou un autre retour d’erreur peut empêcher la production d’une cotation.
+
+La découverte et la cotation constituent deux niveaux de preuve différents. La découverte indique qu’un chemin peut exister; la cotation au bloc fixé est la proposition de transaction faisant autorité. Même cette proposition peut expirer ou devenir invalide si l’état pertinent change avant sa soumission.
+
+### Lot atomique signé
+
+L’utilisateur examine les **Détails de l’itinéraire** et signe le lot de portefeuille préparé. À chaque étape, le lot appelle `approve(pool, 0)`, `approve(pool, amountIn)` puis la variante bornée de `SwapPool.withdraw`. Chaque retrait borné impose une sortie minimale et une échéance. Les bons intermédiaires reviennent dans le même portefeuille avant que le Bassin suivant ne dépense le montant coté; tout solde intermédiaire restant demeure dans ce portefeuille.
+
+Le relais soumet le lot dans une seule transaction sur la même chaîne, avec `revertOnFailure` défini sur `true`. Si une approbation ou un échange de Bassin échoue, tous les appels de l’itinéraire — y compris les étapes précédentes et leurs changements d’autorisation — sont annulés ensemble. Il s’agit de l’atomicité actuelle d’une transaction sur une même chaîne, et non d’une atomicité interchaînes, d’un HTLC, d’un séquestre, d’une compensation ou d’un rééquilibrage automatique des Bassins.
+
+Le flux d’itinéraire actuel prend en charge les portefeuilles EOA/Calibur compatibles avec la CLC App. Un portefeuille Safe ou un autre portefeuille contractuel est refusé par le flux de cotation actuel.
+
+### `SwapRouter` Solidity et frais
+
+Le `SwapRouter` Solidity de Protocol v1.1.0 reste un contrat de cotation uniquement. Il peut appeler les fonctions de cotation des Bassins le long d’un chemin fourni, mais il ne détient pas de fonds, n’approuve pas de jetons et n’exécute pas d’échanges. Le flux App/Core en production décrit ci-dessus est un coordinateur distinct au niveau de l’application; il appelle directement chaque `SwapPool` au moyen du lot de portefeuille signé par le participant.
+
+Les frais de Bassin restent dans le Bassin concerné jusqu’à leur collecte. Les frais de protocole éventuels s’y ajoutent et sont transférés directement de ce Bassin au destinataire de protocole configuré pendant l’échange.
+
+La CLC App actuelle n’ajoute pas de frais distincts pour le service de routage. Un échange routé peut néanmoins comporter plusieurs frais de Bassin et de protocole, car chaque étape constitue un règlement `SwapPool` distinct.
+
+### États de réception et d'échec
+
+CLC Core regroupe l’itinéraire sous un même identifiant de suivi. La CLC App affiche **Échange en cours**, **Échangé** ou **Échec de l’échange**, avec un statut technique **En attente**, **Confirmé** ou **Annulé**. Le reçu indique le hachage de la transaction, la profondeur de l’itinéraire, chaque paire de Bassin et de jetons, les montants cotés et réglés, les frais de Bassin et de protocole à chaque étape, le minimum reçu et tout solde intermédiaire restant dans le portefeuille.
+
+Un itinéraire peut échouer avant la signature si aucun chemin ou aucune cotation admissible n’est disponible, pendant la simulation si le lot serait annulé, pendant le relais si la transaction signée ne peut pas être soumise, ou sur la chaîne si l’état a changé ou si une autre condition d’exécution échoue. Un itinéraire indisponible ou échoué ne modifie pas les règles d’un Bassin, n’acquitte pas un bon d’échange et ne prouve rien quant à l’exécution par l’émetteur.
 
 
 ## Intérieur du Bassin

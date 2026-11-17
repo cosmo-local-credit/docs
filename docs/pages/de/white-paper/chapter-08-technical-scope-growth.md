@@ -1,11 +1,21 @@
 ## **8. Technischer Umfang und Wachstum**
 
-Dieses Kapitel beschreibt freiwillige oder vorgeschlagene Arbeiten. Es handelt sich nicht um eine Liste von Merkmalen, die in der aktuellen CLC App oder Protocol v1.1.0 garantiert vorhanden sind.
+Dieses Kapitel trennt den aktuellen produktiven Routing-Dienst von optionalen oder vorgeschlagenen Erweiterungen. Eine hier als aktuell beschriebene Fähigkeit gilt für die öffentliche Bereitstellung von CLC App und CLC Core; sie ist nicht automatisch eine Eigenschaft der Verträge von Protocol v1.1.0 oder einer anderen Bereitstellung.
 
-Zu den möglichen Arbeitsbereichen gehören:
+Der derzeitige öffentliche Einsatz umfasst:
 
-- Ausführungsrouting über kompatible Fonds hinweg mit Registrierung, Angebot, Begrenzung, Gebühr und Inventarentdeckung
-- Zeitverbindlich eingeschlossene Aufbewahrungs- oder HTLC-Adapter für die interdomainübergreifende Ausführung, wenn keine atomare Abwicklung verfügbar ist;
+- graphgestützte Erkennung von Gutscheinen, die über kompatible Fonds erreichbar sind;
+- verbindliche Angebote auf Grundlage eines festgelegten Blocks für ausgewählte Routen innerhalb derselben Blockchain;
+- Berechnung der Fonds- und Protokollgebühren, Mindestausgaben und Fristen je Schritt;
+- Simulation des vollständigen Batchs, Signatur durch den Teilnehmer und weitergeleitete Calibur-Ausführung;
+- eine Transaktion innerhalb derselben Blockchain, die sämtliche Routenaufrufe rückgängig macht, wenn ein Aufruf fehlschlägt; und
+- zusammengefasste Belege und Abstimmung der Abwicklungsereignisse jedes Schritts.
+
+Mögliche Wachstumsbereiche sind:
+
+- zeitgebundene Escrow- oder HTLC-Adapter für Blockchain-übergreifende Ausführung, wenn keine atomare Abwicklung verfügbar ist;
+- zusätzliche Register- oder Richtlinienprofile und profilübergreifendes Routing;
+- freiwilliger Bestandsausgleich der Fonds und gebündelte Verrechnung;
 - Schnittstellen und politische Instrumente für kleine oder persönliche Fonds;
 - Überprüfbare Register für Gutscheine, Fonds, Wechselkursmethoden, Limits, Verantwortliche und Gebühren;
 - Bereitstellungsspezifische Zahlungsanbieter-Konnektoren, Checkout-Flows und Förderfähigkeitskontrollen;
@@ -14,26 +24,32 @@ Zu den möglichen Arbeitsbereichen gehören:
 
 Die Preise auf dem Außenmarkt würden nicht bestimmen, was ein Emittent im Rahmen von Gutscheinen schuldet. Ein Fonds könnte eine geschützte externe Referenz für ein fungibles Vermögenswert verwenden, aber seine veröffentlichte Wechselkursmethode, Grenzen, Gebühren und Inventar würden seine Angebote regeln.
 
-### **8.1 vorgeschlagene Strecken- und SDK-Normen**
+### **8.1 Aktueller Routing-Dienst und weitergehende Standards**
 
-**Die Entdeckung.** Ein vorgeschlagener Routendienst würde identifizierte Register für die Aufnahme von Vermögenswerten, Wechselkursmethoden, Grenzen, Gebühren, Bestand, Vorfälle und Daten des Controllers abfragen. Cached-Aufzeichnungen würden Frischheitsgrenzen und Quell-Identifikatoren enthalten.
+**Routenerkennung.** CLC Core verwaltet einen abgestimmten Graphen aus konfigurierten Katalogen, Registerbeziehungen, Fondsparametern, Gebühren, Grenzen, Salden und Blockchain-Ereignissen. CLC Core schätzt, was die aktive Wallet erreichen kann, und kennzeichnet veraltete Daten. Die öffentliche Konfiguration durchsucht Routen mit bis zu drei Schritten. Die Erkennung ist kein ausführbares Versprechen.
 
-**Netzwerkprofile.** Ein Client kann mehr als ein Registerroot- oder Richtlinienprofil unterstützen. Es würde dem Teilnehmer mitteilen, welches Profil, Gegenparteien, Adapter, Einschränkungen und verantwortungsbewusste Dienstleister ein Angebot verwendet. Eine Profilübergreifende Strecke müsse alle geltenden Bedingungen für den Hop erfüllen.
+**Verbindliches Angebot.** Für eine ausgewählte Route liest CLC Core die beteiligten Fonds in einem festgelegten Block und bildet die unterstützte `SwapPool`-Arithmetik nach. CLC Core weist Fonds- und Protokollgebühren aus, setzt Mindestausgaben je Schritt und eine Frist, bereitet die Wallet-Aufrufe vor und simuliert den vollständigen Batch. Nicht unterstützte Tokens, Kursanbieter, Wallets oder Fondsbedingungen werden abgelehnt.
 
-**Die Pfadpolitik.** Ein verantwortungsbewusster Betreiber könnte unsichere Abhängigkeiten oder Gegenparteien ausschließen und Grenzwerte für die Strecke, die Anforderungen an die Frische und die Gesundheitskriterien anwenden. Diese Signale würden eine Entscheidung unterstützen. Sie garantieren weder Erfüllung noch Schutz vor Verlust.
+**Aktuelle Ausführung.** Der Teilnehmer signiert einen Calibur-Batch, der für jeden Schritt das Zurücksetzen und Erteilen der Freigabe sowie eine begrenzte Abhebung enthält. Ein Relayer übermittelt eine Transaktion innerhalb derselben Blockchain, bei der `revertOnFailure` aktiviert ist. Das bewirkt für die aktuelle Route ein Alles-oder-nichts-Verhalten auf Transaktionsebene. Es handelt sich weder um Blockchain-übergreifende Atomizität noch um HTLC- oder Escrow-Routing, automatischen Bestandsausgleich oder Verrechnung.
 
-**Gebühren und Grenzen.** Ein Angebot würde die Poolgebühren, alle zusätzlichen aktuellen Protokollgebühren und alle separat vorgeschlagenen Routing- oder Servicegebühren auflösen. Die Vollstreckung würde verfallene Angebote oder verletzte Grenzen ablehnen.
+**Belege und Betrieb.** Die App fasst die Route unter einer Tracking-ID zusammen und erfasst Transaktionsstatus, Reihenfolge der Schritte, Fonds, Tokenpaare, angebotene und abgewickelte Beträge, Fondsgebühren, Protokollgebühren und verbleibende Zwischenbestände. Der Dienst überwacht die Aktualität des Graphen, Ergebnisse der Routensuche und Kursberechnung, Simulationsfehler, Dauer und Korrekturen der Abstimmung sowie ungeklärte oder unbekannte indexierte Einträge. Betriebliche Messdaten belegen keine Erfüllung durch einen Herausgeber.
 
-**Atomität und Wiederherstellung.** Multi-Hop-Ausführung wäre Atom, wenn möglich. Wenn sie HTLCs oder Treuhänder verwendet hat, würde der Dienst Zeiträume, Abbrechungswege, verantwortliche Controller, Vorfallverfahren und Restrisiken offenlegen.
+**Netzwerkprofile.** Ein Client könnte mehr als eine Registerwurzel oder ein Richtlinienprofil unterstützen. Er würde dem Teilnehmer mitteilen, welches Profil, welche Gegenparteien, Adapter, Einschränkungen und verantwortlichen Dienstleister ein Angebot verwendet. Eine profilübergreifende Route müsste die Bedingungen jedes beteiligten Schritts erfüllen.
 
-**Angebotene Partie-Vernetzung und Neuausgewogenheit.** Ein Opt-In-Dienst kann Absichten zur Wiedergewogenheit sammeln und nach kompatiblen Zyklen oder Ketten suchen. Es würde:
+**Routenrichtlinie.** Ein verantwortlicher Betreiber könnte unsichere Abhängigkeiten oder Gegenparteien ausschließen und Routengrenzen, Aktualitätsanforderungen und Zustandskriterien anwenden. Diese Signale würden eine Entscheidung unterstützen, aber weder Erfüllung noch Schutz vor Verlust garantieren.
 
-1. eine maschinenlesbare Quittung veröffentlichen, in der ausgeführte Zyklen, Vermögenswerte, Beträge, Bewertungszeiten und Gebühren identifiziert werden;
-2. Durchsetzung der festgelegten Periodengrenzen und der Gegenparteienpolitik;
-3. eine Tätigkeit ablehnen, die gegen die Genehmigung, die Grenzen oder die verfügbaren Bestände des teilnehmenden Fonds verstößt; und
-4. Erhalt der deterministischen Eingaben und Einnahmen für die Überprüfung und die Bearbeitung von Streitigkeiten.
+**Gebühren und Grenzen.** Das aktuelle Angebot weist für jeden Schritt Fondsgebühren und etwaige zusätzliche Protokollgebühren aus. Die öffentliche App erhebt derzeit keine gesonderte Gebühr für den Routing-Dienst. Jede zukünftige Servicegebühr würde gesondert offengelegt. Die Ausführung lehnt abgelaufene Angebote oder überschrittene Grenzen ab.
 
-**SDK-Anforderungen.** Eine SDK für ausgeführte Strecken würde eine deterministische Quote-to-Receipt-Mapping, pro-Hop-Invariante-Kontrollen, verständliche Fehlercodes und auditierungsfreundliche Logs bereitstellen. Der aktuelle Protocol v1.1.0 `SwapRouter` enthält nur Zitate; es führt diese vorgeschlagenen Strecken nicht durch.
+**Blockchain-übergreifende Atomizität und Wiederherstellung.** Kann eine zukünftige Route den aktuellen atomaren Batch innerhalb derselben Blockchain nicht verwenden und setzt stattdessen HTLCs oder Escrow ein, würde der Dienst Fristen, Abbruchwege, verantwortliche Kontrolleure, Vorfallverfahren und verbleibende Risiken offenlegen.
+
+**Vorgeschlagene gebündelte Verrechnung und Bestandsausgleich.** Ein freiwilliger Dienst könnte Absichten zum Bestandsausgleich erfassen und nach kompatiblen Zyklen oder Ketten suchen. Er würde:
+
+1. einen maschinenlesbaren Beleg veröffentlichen, der ausgeführte Zyklen, Vermögenswerte, Beträge, Bewertungszeitpunkte und Gebühren nennt;
+2. beschlossene Grenzen je Zeitraum und Richtlinien für Gegenparteien durchsetzen;
+3. Aktivitäten ablehnen, die gegen Autorisierung, Grenzen oder verfügbare Bestände eines beteiligten Fonds verstoßen; und
+4. deterministische Eingaben und Belege für Prüfung und Streitbehandlung aufbewahren.
+
+**SDK- und Schnittstellenanforderungen.** Eine wiederverwendbare Routing-Integration sollte eine deterministische Zuordnung von Angebot zu Beleg, Invariantenprüfungen je Schritt, verständliche Fehlercodes und prüffreundliche Protokolle bereitstellen. Die aktuelle produktive Implementierung von App und CLC Core bietet diese Funktionen für ihr eigenes Profil. Der Solidity-`SwapRouter` von Protocol v1.1.0 bleibt auf Kursangebote beschränkt und führt die Route nicht aus.
 
 #### **8.1.1 Mindestkonföderationskompatibilitätsspezifikation**
 

@@ -1,15 +1,14 @@
-# श्वेतपत्र संग्रह
+# श्वेत पत्र संग्रह
 
-> **इस अनुवाद के बारे में.** यह White Paper v0.8 का अनुवाद है। अंग्रेज़ी मूल पाठ 30 सितंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 10 अक्टूबर 2026 को प्रकाशित हुआ। अंग्रेज़ी मूल पाठ है। <a data-english-source="true" href="/white-paper/archive" hrefLang="en">अंग्रेज़ी मूल पाठ पढ़ें</a>.
+> **इस अनुवाद के बारे में।** यह पृष्ठ White Paper archive का हिंदी अनुवाद है। अंग्रेज़ी स्रोत पाठ है। <a data-english-source="true" href="/white-paper/archive" hrefLang="en">मूल अंग्रेज़ी पाठ पढ़ें</a>।
 
-वर्तमान प्रकाशन [Cosmo-Local Credit White Paper v0.8](/hi/white-paper), 30 सितंबर 2026 की तारीख।
+मौजूदा प्रकाशन [Cosmo-Local Credit White Paper v0.9](/hi/white-paper), दिनांक 16 नवंबर 2026 है।
 
-## ओवरसेड संस्करण
+## प्रतिस्थापित संस्करण
 
-- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v7.pdf">संस्करण0.7 PDF</a>, 24 सितंबर 2026 की तारीख
+- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf">संस्करण 0.8 पीडीएफ</a>, दिनांक 30 सितंबर 2026
+- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v7.pdf">संस्करण 0.7 पीडीएफ</a>, दिनांक 24 सितंबर 2026
 
-संस्करण0.7इसके शब्दावली, स्थिति विवरण, सूत्र और प्रस्तावों को v0.8 द्वारा प्रतिस्थापित किया गया है और इसका उपयोग वर्तमान वर्णन के रूप में नहीं किया जाना चाहिए CLC App, Protocol v1.1.0, प्रतिभागी अधिकार, या प्रस्तावित नेटवर्क अर्थव्यवस्था।
+संस्करण 0.8 और 0.7 ऐतिहासिक संदर्भ के लिए रखे गए हैं। संस्करण 0.9 केवल कोटेशन देने वाले Solidity `SwapRouter` और CLC App/Core execution के बीच अंतर बनाए रखते हुए application-level routing की production status अपडेट करता है। पहले की terminology, status statements, formulas और proposals superseded हैं; उन्हें CLC App, CLC Core, Protocol v1.1.0, participant rights या proposed network economics का मौजूदा वर्णन नहीं माना जाना चाहिए।
 
 संस्करण 0.6 को सार्वजनिक साइट से हटा दिया गया है। इसका इतिहास प्रलेखन भंडार के माध्यम से उपलब्ध रहता है।
-
-> पुराना v0.7 PDF केवल अंग्रेज़ी में उपलब्ध है।

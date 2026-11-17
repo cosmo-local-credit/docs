@@ -10,10 +10,10 @@
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
-      "sourceSha256": "87404ec60c2fc8e3ebd824d73762a855a9f72d1f8a29b4ba9ec4ccd4e846ea90",
+      "sourceSha256": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
       "locales": {
         "zh-Hant": {
-          "sha256": "c8652b6a45462e562f80d7171e51c66d0c0c9bf5d04b8283ca4cc8fc5bf15e56",
+          "sha256": "736a1b6b0dd84338d0c384cac1ce77e9dab2b48ce3c692ba74f9de528556e886",
           "review": {
             "units": 150,
             "meanBackTranslationSimilarity": 0.6165,
@@ -24,10 +24,10 @@
     },
     "/introduction/example": {
       "source": "introduction/example.mdx",
-      "sourceSha256": "fdadea998896654637ce3dcafe25e2b52331e9761337420d1fc48ec6cc2f9b73",
+      "sourceSha256": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
       "locales": {
         "zh-Hant": {
-          "sha256": "1adf88126b9e9ed739a638546033b9d4cfbf8ad6db8e369d54bd66b1f860cc9d",
+          "sha256": "e973de940adf48292eec522eb5a113f30317f6225f8e105b2f6d84003e92f2fb",
           "review": {
             "units": 60,
             "meanBackTranslationSimilarity": 0.5994,
@@ -38,10 +38,10 @@
     },
     "/introduction/getting-started": {
       "source": "introduction/getting-started.mdx",
-      "sourceSha256": "0994bc3095975e850382f00f7f1f2bbba3263a2ea12155596633fae0e58f3e13",
+      "sourceSha256": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
       "locales": {
         "zh-Hant": {
-          "sha256": "92c0e4b18ef0068a71cc1eaec69b9c0036b1f8eeb5a17d864a0771c7837171f3",
+          "sha256": "d624012c740e733c124332fe7fe961992764195c04e39d534f4ce8cb72d82dda",
           "review": {
             "units": 74,
             "meanBackTranslationSimilarity": 0.5757,
@@ -52,10 +52,10 @@
     },
     "/introduction/history": {
       "source": "introduction/history.mdx",
-      "sourceSha256": "2ac38e29d8d93d2b10534d715d285105bfb96cdcbe4334f88668d3be3c8ec456",
+      "sourceSha256": "363cf3a1387301ef1f3ba088871d57e8d43f16762027b1a1e1b63fc7b841f801",
       "locales": {
         "zh-Hant": {
-          "sha256": "71231eacc3880a22e9bc090c6ce10657edbc2431b54e20152867675c13ea09ff",
+          "sha256": "90a1533b1c87ebbdad38c4b54af2f712ee233c0965ca13501546fe5455fbd0a6",
           "review": {
             "units": 37,
             "meanBackTranslationSimilarity": 0.6643,
@@ -66,10 +66,10 @@
     },
     "/protocol/network": {
       "source": "protocol/network.mdx",
-      "sourceSha256": "b7a0b29963a5e0aa8d02a74659a66fc29883daf88311e98c40b85eadd424b768",
+      "sourceSha256": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
       "locales": {
         "zh-Hant": {
-          "sha256": "56c252288b20a2f2feb7595ba52518e98349abfdca68d2aec8ab2e7ba07fcbe9",
+          "sha256": "2a83bd1a43fe1cc34dc78992d4eb89328c1e21b6f6023172d530c98950d12bee",
           "review": {
             "units": 72,
             "meanBackTranslationSimilarity": 0.6314,
@@ -80,10 +80,10 @@
     },
     "/protocol/overview": {
       "source": "protocol/overview.md",
-      "sourceSha256": "3d72a446f706e4f2fbaf7671ac6efbc178eaef1351c1199ba17e1e768eedcabd",
+      "sourceSha256": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
       "locales": {
         "zh-Hant": {
-          "sha256": "8cf134b543281258c0d5dad5fd872ef0b96933c8412dcffa9e7939ff3e1f304f",
+          "sha256": "cf622214d1e66beb44788872aca2b6534baf8ebe6ac6acbb86891d62c7f97192",
           "review": {
             "units": 41,
             "meanBackTranslationSimilarity": 0.6061,
@@ -108,10 +108,10 @@
     },
     "/governance/mechanics": {
       "source": "governance/mechanics.md",
-      "sourceSha256": "71bc7b63c36a963a64249f174ebeef2b7dcf01718ddc75dd11a33f0fea74fa0b",
+      "sourceSha256": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180",
       "locales": {
         "zh-Hant": {
-          "sha256": "687f4bf01c13ec1bdab6a56763d8001e42d8630ef99fde780c22bab4633655e3",
+          "sha256": "d04f7e40a39cce846486bf7ddf2097b188ffcaa52ed07450c545c7cc31292c40",
           "review": {
             "units": 39,
             "meanBackTranslationSimilarity": 0.6226,
@@ -164,10 +164,10 @@
     },
     "/white-paper/appendix-c-kpi-definitions": {
       "source": "white-paper/appendix-c-kpi-definitions.md",
-      "sourceSha256": "59d07455a39371abab65dba41b23f095cf9e8261dc22bb45ceeaf9a2fb0217e0",
+      "sourceSha256": "c6f6315718ff19152407292bc55bd821e8df65dc18e573a7e2e098bdd86b6b62",
       "locales": {
         "zh-Hant": {
-          "sha256": "a7689e51311864473d7fb0e339eacc71279202f8651b1bef04d6fd7cc67ecc6e",
+          "sha256": "2b28cdf2aa5a3e88452a266aa99db434cdccc157f085f26ebf4895b17181c0b7",
           "review": {
             "units": 62,
             "meanBackTranslationSimilarity": 0.6373,
@@ -220,10 +220,10 @@
     },
     "/white-paper/archive": {
       "source": "white-paper/archive.md",
-      "sourceSha256": "09db774f7da51b4e506e56d3c4f3fa8d57f41a8464d04b747e9c3afab74563bd",
+      "sourceSha256": "cf1f56338868f997a0d6038cdc7cfa441c5686a1719173fc7a1400d71221c2ef",
       "locales": {
         "zh-Hant": {
-          "sha256": "d0540aad169ceb9895220a8860f1da46dbbae9aa0dda366561c9c641f194d5a6",
+          "sha256": "ac2d531fd14479919e479e569e143f101eade600a1b2a082dabf9c00c9e095a1",
           "review": {
             "units": 9,
             "meanBackTranslationSimilarity": 0.7119,
@@ -234,10 +234,10 @@
     },
     "/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive": {
       "source": "white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive.md",
-      "sourceSha256": "0e4b229ba74085a5b6d3e6c6eb0ff28ec915a149a5ff93f0c773c465fad117b2",
+      "sourceSha256": "5153c389ab16877edca5b5af66bbdd600a744c13c638e806662cc9714c893afc",
       "locales": {
         "zh-Hant": {
-          "sha256": "91da436f5b8e773629fbf15395ef884ab2db4688edcc6ba07a7c61fa7a7e769a",
+          "sha256": "6d5775dc9a30ed5f34950c38407cff4f1a6943fda8bbeb9fc3978d53e995a403",
           "review": {
             "units": 51,
             "meanBackTranslationSimilarity": 0.5481,
@@ -290,10 +290,10 @@
     },
     "/white-paper/chapter-05-from-isolated-pools-to-a-federated-network": {
       "source": "white-paper/chapter-05-from-isolated-pools-to-a-federated-network.md",
-      "sourceSha256": "2aa539c5faaaee42f5f5e9e5aa3ee306137de2ea7bddcea116033da4d7fdba03",
+      "sourceSha256": "75a0e04680e2ff4e3950a67e97fd89dd11373193bd8c3191fa41f46fd711259b",
       "locales": {
         "zh-Hant": {
-          "sha256": "47157772884980b029129a50349c5a55a6a7134786d0fd73a792958c7c990360",
+          "sha256": "5bd48bb6b00c94af4fd3abec695c5e7a08d01dd697dab3ebad86dbb3c56fc994",
           "review": {
             "units": 79,
             "meanBackTranslationSimilarity": 0.5547,
@@ -304,10 +304,10 @@
     },
     "/white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance": {
       "source": "white-paper/chapter-06-the-missing-piece-network-level-liquidity-governance.md",
-      "sourceSha256": "9409d6d33de56e1327ac7e7a031e9113c60b86677708fa767d9bc8ba274f0b5a",
+      "sourceSha256": "5a9aeeff2fba5a7e6a07b4b278b81f8a89463989459ab5bdef5b450aa52e9bd9",
       "locales": {
         "zh-Hant": {
-          "sha256": "ba48ece3ee992e54295048b3ff0aedf8e167cd6b5f832255b39deeace903c22e",
+          "sha256": "5af60add1df1b83a4a0f2bd974f4e8be2d2f6823d69ac87d799def15a63710b1",
           "review": {
             "units": 14,
             "meanBackTranslationSimilarity": 0.5496,
@@ -332,10 +332,10 @@
     },
     "/white-paper/chapter-08-technical-scope-growth": {
       "source": "white-paper/chapter-08-technical-scope-growth.md",
-      "sourceSha256": "1fd06beb840c9478cd8f8f13424017e9376bfaead7e2e8b1218e210733c1e97c",
+      "sourceSha256": "49ed7dbb256f61ae9e2e240d3762a03114c7c18cd4961abbcd67c46086f25080",
       "locales": {
         "zh-Hant": {
-          "sha256": "04b6fcdebafdb826a0f045f070bdd76bf827bc3274e36bd0133c0b06383bba2b",
+          "sha256": "57671a2df8dd6c579a0193771ccbc9d52a5453caee1a7cde85caa8cf0ba76ab6",
           "review": {
             "units": 55,
             "meanBackTranslationSimilarity": 0.6211,
@@ -346,10 +346,10 @@
     },
     "/white-paper/chapter-09-economics-for-lps": {
       "source": "white-paper/chapter-09-economics-for-lps.md",
-      "sourceSha256": "f1ea77a9368d3173ae695b18d835732575902ef01824f6d9a6aefdc02a6548af",
+      "sourceSha256": "0509bba6fb1c8aee9ed12691d2351bae859c5396ce75a056b0d9a2288e9893c0",
       "locales": {
         "zh-Hant": {
-          "sha256": "3b3235f9e9e23748f1b845d118f4e2ec693155d0f78b33976bc5effeea20a9c2",
+          "sha256": "d456b4978c3100609c4ec138ce32ef7eddbd177d9d62c8690419b34b462ef18e",
           "review": {
             "units": 27,
             "meanBackTranslationSimilarity": 0.6059,
@@ -360,10 +360,10 @@
     },
     "/white-paper/chapter-10-comprehensive-risk-framework": {
       "source": "white-paper/chapter-10-comprehensive-risk-framework.md",
-      "sourceSha256": "4f57b19c37b50133e0d264f6f69fbd7c0bb0d0b32f054c77873e0a32d48dab4f",
+      "sourceSha256": "2aa8452787b16b0320040a3a0d6506b93b4ddfb1356bbb2932e6fe489e84acd8",
       "locales": {
         "zh-Hant": {
-          "sha256": "29a946e2ac40fc717f6e47dd7068de452396f66a530ddaafce1409d1d595758e",
+          "sha256": "3874b799b139567e382e1702487ed8f9686d442c58c0c97091c1c96ed9739d8e",
           "review": {
             "units": 122,
             "meanBackTranslationSimilarity": 0.6097,
@@ -402,10 +402,10 @@
     },
     "/white-paper/chapter-13-jargon-plain-language-glossary": {
       "source": "white-paper/chapter-13-jargon-plain-language-glossary.md",
-      "sourceSha256": "e2493eaf44740497efa7e8ba72f298059328dbe7009d8191f1ab95619cb723ea",
+      "sourceSha256": "b0d8e501193c4e2e85606dca7cfd40889b7e7c3e05232611d35e510b250bbf6b",
       "locales": {
         "zh-Hant": {
-          "sha256": "b7cdc041b84ee766701c68fb0b2b1d8fdf796818f601fe832f6220b357e5e236",
+          "sha256": "5f3e871c53c397a26d1676aee95041eae8c3be098588519e51b8327c65edb636",
           "review": {
             "units": 48,
             "meanBackTranslationSimilarity": 0.5978,
@@ -416,10 +416,10 @@
     },
     "/white-paper/chapter-14-kpis-health-indicators": {
       "source": "white-paper/chapter-14-kpis-health-indicators.md",
-      "sourceSha256": "a596d4aa3b3065a7722e09a78caa2cb2c6d394cfe66918106ee95eca17986f20",
+      "sourceSha256": "73c8bf65fd7bba5d28d199ead20a10a9e032381cf9fdbfe80329fd2413bdbc12",
       "locales": {
         "zh-Hant": {
-          "sha256": "7270193da67c473bf614ed768e4bc22cf97502412a47d84a32e120c8192f4097",
+          "sha256": "5b9131fc14927bc8f26902478807f5bc41d2723f447a6148897a0521373caea5",
           "review": {
             "units": 23,
             "meanBackTranslationSimilarity": 0.5032,
@@ -430,10 +430,10 @@
     },
     "/white-paper/chapter-15-roadmap-indicative": {
       "source": "white-paper/chapter-15-roadmap-indicative.md",
-      "sourceSha256": "ed23216a7d040415f9e3300ce56f27c0ddd34adef4fd805f5723f23d20b10ce2",
+      "sourceSha256": "bcc2fb4461a24d21f55ef5a7ed3b8a56c89030cf8a38682c0e356ff163e8bbad",
       "locales": {
         "zh-Hant": {
-          "sha256": "941e2a12404611ad2265eceed45f30347cbdd815a8a3acdacb021edcca250147",
+          "sha256": "03e762965daeb8e1fd16129a63c7530d6404420b1f8a1dc8d20465a2cf20df30",
           "review": {
             "units": 16,
             "meanBackTranslationSimilarity": 0.5918,
@@ -472,10 +472,10 @@
     },
     "/white-paper/chapter-18-conclusion": {
       "source": "white-paper/chapter-18-conclusion.md",
-      "sourceSha256": "aef3272b5bcd43b58fc0a4222167366fc66766fcabba97bd5e9d909955587558",
+      "sourceSha256": "2c9ca4becd6e994cd11ef8a8b470fff7ea3431a97c6b0f69de8afbf992a75863",
       "locales": {
         "zh-Hant": {
-          "sha256": "82d73bb10a0d0c53fcfd886726a759901dde77eb192c157111b8c40e148b7e9d",
+          "sha256": "a07e66d065a5895d4b127e65a46a5386a68b0a04bff7a2d3e4b981a66cea4d08",
           "review": {
             "units": 3,
             "meanBackTranslationSimilarity": 0.4891,
@@ -486,10 +486,10 @@
     },
     "/white-paper/executive-summary": {
       "source": "white-paper/executive-summary.md",
-      "sourceSha256": "0bfd50439332f9b8fea7865944d61d7e4ca4f009acbc92edc017df0111b7ec57",
+      "sourceSha256": "0ea6749f959a98aef81f15e20f9385688758614efb3a81896af2079355b33175",
       "locales": {
         "zh-Hant": {
-          "sha256": "7f3954058b5bf2c58258362a8f325e43f405df07a4b35110f767b8567dd585e3",
+          "sha256": "1f237208970c2e1f27e0d0902b5936237ade1452f5128ea243a7b7b988206d19",
           "review": {
             "units": 35,
             "meanBackTranslationSimilarity": 0.6751,
@@ -500,10 +500,10 @@
     },
     "/white-paper": {
       "source": "white-paper/index.mdx",
-      "sourceSha256": "784327ca9c7cb86015d46a953b9233a0d215648f51110e14f1de6b5eb43f7c34",
+      "sourceSha256": "dfba309365534fa5271db0c53356428084c398f47024400c4857e7ab72e38aaf",
       "locales": {
         "zh-Hant": {
-          "sha256": "d2d18cb40b18b8ecbf31806dc8135f1c2b2723b3df76b22b486bfc809e86bf30",
+          "sha256": "476c1818840fe24887ffcc75af8eebe614371d19ff2ad44fa0fc2a11aa60cdc9",
           "review": {
             "units": 115,
             "meanBackTranslationSimilarity": 0.6183,
@@ -591,5 +591,23 @@
     "unitsBelow0_35": 3,
     "threshold": 0.35,
     "lowConfidenceReport": "policy-review.zh-Hant.json"
+  },
+  "routingSourceAppCommit": "b5f337f3c2d7bc508d11f35126ad2175b6c717eb",
+  "routingSourceCoreCommit": "ef0f0067ce3ac8f254d33b7f974304510a439aab",
+  "routingSourceProtocolCommit": "ce090fd3d5a7493c726fb939da39af15ef1c9d7c",
+  "routingWhitePaperVersion": "0.9",
+  "routingTranslationPublicationDate": "17 November 2026",
+  "routingReviewProcess": [
+    "reviewed translation memory retained for unchanged units",
+    "semantic NLLB translation and independent back-translation for changed routing units",
+    "cross-check against the manually reviewed Simplified Chinese edition",
+    "Traditional Chinese phrase conversion, app-vocabulary alignment, and product-accuracy review"
+  ],
+  "routingBackTranslationReview": {
+    "units": 560,
+    "meanBackTranslationSimilarity": 0.5516,
+    "unitsBelow0_35": 114,
+    "threshold": 0.35,
+    "status": "manual-review-complete"
   }
 }

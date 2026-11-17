@@ -15,4 +15,6 @@ Wakati ujao wa kutekeleza utaratibu huo ungeweza kuongeza vivunjaji vya mzunguko
 
 Utawala uliopendekezwa unapaswa kuweka mamlaka ya usajili na huduma nyembamba na inaweza kuchunguzwa. Hatua za kawaida zaweza kutumia utaratibu wa kutoa taarifa, kuchelewesha, kuchapisha sababu, kukata rufani, na kurekebisha. Hatua za dharura zinapaswa kutoa rekodi za matukio na kuisha au kupokea ukaguzi chini ya sera iliyopitishwa.
 
-Ugunduzi wa njia sambamba inaweza kufanya kubadilishana zaidi iwezekanavyo katika Vikundi. Utekelezaji wa hop nyingi na mtandao utahitaji programu ya ziada, idhini, mipaka, usimamizi wa kasoro, na utawala. Zaidi quoted au kutekelezwa swaps si yenyewe kuthibitisha vocha kutimiza au athari ya kijamii.
+CLC App na CLC Core za uzalishaji sasa hutoa ugunduzi wa njia zinazolingana na utekelezaji wenye hatua nyingi kwenye mnyororo mmoja kwa njia zilizoidhinishwa na washiriki kupitia wasifu wa umma uliosanidiwa. Nukuu hutumia mipaka, ada, mali zilizopo, vikomo na uigaji kwa kila hatua, huku kundi moja la miamala ya Mkoba lililotiwa sahihi likirejeshwa lote simu yoyote ikishindwa.
+
+Huduma hiyo haiidhinishi usawazishaji wa kiotomatiki wala udhibiti katika kiwango cha mtandao wa mali za Vikundi. Usawazishaji, ulinganishaji wa kundi, utekelezaji wa HTLC au escrow kati ya vikoa na usimamizi wa ukwasi wa pamoja utahitaji mamlaka, programu, mipaka, utaratibu wa kushughulikia kushindwa na kanuni zilizopitishwa. Kuongezeka kwa nukuu au ubadilishaji uliotekelezwa hakuthibitishi pekee yake utekelezaji wa vocha wala athari za kijamii.

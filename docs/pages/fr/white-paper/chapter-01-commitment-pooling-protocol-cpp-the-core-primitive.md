@@ -20,7 +20,7 @@ Les rôles et les pouvoirs pertinents comprennent:
 - **Propriétaire du Bassin:** détient les pouvoirs actuels de propriétaire de `SwapPool`;
 - **administrateur par procuration:** peut mettre à niveau une mise en œuvre par procuration;
 - **contrôleurs de dépendance:** régir les registres configurés, les cotations, les limitateurs ou les composantes de redevance;
-- **localisateur ou opérateur:** peut découvrir des offres ou, dans une mise en œuvre future, exécuter un parcours autorisé séparément ; et
+- **opérateur du service de routage :** peut découvrir, coter, simuler, préparer, relayer et enregistrer un itinéraire autorisé séparément dans le cadre de son champ d'application publié ; et
 - **le garant:** n'assume une obligation définie que par le biais de conditions publiées et financées.
 
 CPP groupes Les fonctions de bassin sont divisées en quatre concepts:
@@ -30,9 +30,11 @@ CPP groupes Les fonctions de bassin sont divisées en quatre concepts:
 - **Limitation de l'utilisation:** appliquer les plafonds actuels du solde des jetons de bassin ou d'autres contrôles mis en œuvre séparément.
 - **Échange:** détenir des stocks, exécuter des swaps, comptabiliser les frais et émettre des enregistrements de transactions.
 
-Protocol v1.1.0 met en œuvre ces fonctions par l'intermédiaire de `SwapPool` et des dépendances optionnelles. Son `Limiter` actuel limite un solde symbolique dans un bassin; il ne prévoit pas de limites régulières de swap, par compte ou pour l'ensemble du réseau. Son `SwapRouter` actuel calcule les cotations multipools; Il n'exécute pas d'échanges.
+Protocol v1.1.0 met en œuvre ces fonctions au moyen de `SwapPool` et de dépendances facultatives. Son `Limiter` actuel plafonne le solde d'un jeton dans un Bassin ; il ne fournit pas de limites d'échange glissantes, par compte ou à l'échelle du réseau. Son `SwapRouter` Solidity actuel calcule des cotations entre plusieurs Bassins ; il n'exécute pas les échanges.
 
-La conception plus large proposée de CPP peut ajouter des limites déroulantes, des contrôles de compte, des routeurs d'exécution, des chemins HTLC ou de dépôt en caution et une compensation par lots. Ce sont des composants proposés, pas des descriptions du limitateur actuel ou du routeur.
+La CLC App et CLC Core de production mettent en œuvre, au-dessus de ces contrats, un routage sur une même chaîne au niveau de l'application. CLC Core découvre les chemins, lit les Bassins sélectionnés à un bloc déterminé, prépare et simule un lot signé par le portefeuille Calibur, coordonne son relais et regroupe les enregistrements de règlement qui en résultent. La configuration publique actuelle recherche des itinéraires comptant jusqu'à trois échanges de Bassin. Chaque Bassin reste gouverné indépendamment et chaque étape est toujours exécutée directement par son propre `SwapPool`.
+
+La conception plus large proposée pour le CPP pourrait ajouter des limites glissantes, des contrôles de compte, des chemins HTLC ou d'entiercement interdomaines, un rééquilibrage automatique des Bassins et une compensation par lots. Il s'agit de composants proposés, et non de descriptions du limiteur actuel, du routeur Solidity ou du flux de routage de l'application et de CLC Core.
 
 ### **1.3 Logique actuelle d'échange direct**
 

@@ -63,10 +63,12 @@ Para una futura implementación del token de gobernanza CLC propuesto, la prueba
 
 ### **10.7 Riesgo de enrutamiento y riesgo entre dominios**
 
-- **Las amenazas:** la ejecución parcial, los saltos obstruidos, las explotaciones de puente o escrow, las cotizaciones obsoletas, la inflación de la trayectoria y la ejecución anticipada de los cambios de valor anunciados.
-- **Indicadores:** las tasas de vencimiento de las rutas, los atrasos de garantía, las diferencias entre cotizaciones y ejecución, los saltos innecesarios repetidos y los incidentes de puente.
-- **Posibles controles:** la ejecución atómica, cuando esté disponible; los periodos conservadores HTLC o los periodos de custodia; las políticas de trayectoria y de contraparte; los límites máximos a nivel de ruta; cartografía determinista de cotización a recibo; y operadores de servicios responsables.
-- **Pruebas de estrés:** una parada de puente, reorganización de la cadena, interrupción de dependencia, y un salto fallido en una ruta multi-salto propuesta.
+- **Amenazas actuales en la misma cadena:** datos de descubrimiento obsoletos, inventario insuficiente, cambios en los límites o la admisión, vencimiento de cotizaciones, billeteras o dependencias no admitidas, fallos de simulación o del relé, reorganizaciones de la cadena y alargamiento artificial del camino.
+- **Controles y pruebas actuales:** cotizaciones autorizadas en un bloque fijado, simulación del lote completo, salidas mínimas y plazos en cada paso, un lote Calibur firmado con `revertOnFailure`, recibos agrupados deterministas, conciliación y códigos de fallo explícitos. Estos controles reducen ciertos riesgos de ejecución, pero no garantizan la disponibilidad ni el cumplimiento del emisor.
+- **Amenazas propuestas entre dominios:** ejecución parcial entre dominios, pasos bloqueados, fallos de puentes, HTLC o depósitos en garantía, plazos incompatibles y disputas de recuperación.
+- **Indicadores:** resultados del descubrimiento y la cotización de rutas, diferencias entre cotización y ejecución, profundidad de la ruta, fallos de simulación, reversiones, fallos de conciliación, pasos innecesarios repetidos y, para futuros sistemas entre dominios, retrasos en depósitos en garantía e incidentes de puentes.
+- **Posibles controles adicionales:** políticas de camino y contraparte; límites a nivel de ruta; operadores de servicios responsables; y reglas prudentes de plazo, cancelación y recuperación para HTLC o depósitos en garantía.
+- **Pruebas de estrés:** estado obsoleto del grafo, interrupción de una dependencia, un paso fallido en el lote atómico actual, una reorganización de la cadena y, para una futura ruta entre dominios, la parada de un puente o el vencimiento de un depósito en garantía.
 - **El apetito por el riesgo:** de baja a moderada únicamente para las dependencias identificadas y controladas.
 
 ### **10.8 Riesgo de custodia y gestión de llaves**

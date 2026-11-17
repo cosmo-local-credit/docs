@@ -63,10 +63,12 @@ Voor een toekomstige implementatie van de voorgestelde CLC governance token, zou
 
 ### **10.7 Routing- en cross-domainrisico**
 
-- **Bedreigingen** gedeeltelijke uitvoering, geblokkeerde hops, brug- of escrow exploits, verouderde quotes, inflatie en vooruitgang van aangekondigde waardeveranderingen.
-- **Indicatoren:** de vervaltarieven van de route, het achterlaten van de escrow, de verschillen tussen quotes en uitvoering, herhaalde onnodige hoppen en brugincidenten.
-- **Mogelijke controles:** de uitvoering van het programma, indien beschikbaar; conservatieve HTLC of escrow timeouts; pad- en tegenpartijbeleid; route level caps; deterministische quote-to-receipt mapping; en verantwoordelijke dienstverleners.
-- **Stressonderzoek:** Een brugstop, ketenreorganisatie, afhankelijkheidsonderbreking en een mislukte sprong in een voorgestelde multi-hop route.
+- **Huidige risico's binnen één blockchainnetwerk:** verouderde ontdekkingsgegevens, onvoldoende voorraad, wijzigingen in limieten of toelating, verlopen offertes, niet-ondersteunde wallets of afhankelijkheden, mislukte simulatie of relay, reorganisatie van de blockchain en onnodig lange paden.
+- **Huidige controles en bewijs:** gezaghebbende offertes op basis van één vastgezet blok, simulatie van de volledige batch, minimale uitvoer en vervaltijden per stap, een ondertekende Calibur-batch met `revertOnFailure`, deterministische gebundelde transactieoverzichten, afstemming en expliciete foutcodes. Deze controles verminderen bepaalde uitvoeringsrisico's, maar garanderen geen beschikbaarheid of nakoming door de Uitgever.
+- **Voorgestelde cross-domainrisico's:** gedeeltelijke uitvoering tussen domeinen, vastgelopen stappen, kwetsbaarheden in bridges, HTLC's of escrow, niet-overeenkomende time-outs en herstelgeschillen.
+- **Indicatoren:** route ontdekking en offerte resultaten, quote-to-execution verschillen, route diepte, simulatie fouten, omkeringen, verzoening mislukkingen, herhaalde onnodige hops, en—voor toekomstige cross-domain systemen—escrow achterstanden en brug incidenten.
+- **Mogelijke aanvullende controles:** beleid voor paden en tegenpartijen; limieten op routeniveau; verantwoordelijke dienstverleners; en voorzichtige regels voor time-outs, afbreken en herstel bij HTLC's of escrow.
+- **Stresstests:** verouderde grafiektoestand, afhankelijkheidsonderbreking, één mislukte sprong in de huidige atomaire batch, een ketenreorganisatie en —voor een toekomstige cross-domain route—een brugstop of verlopen escrow.
 - **Gevaarsheten:** laag tot matig alleen voor geïdentificeerde en gemonitorde afhankelijkheden.
 
 ### **10.8 Risico van bewaring en sleutelbeheer**

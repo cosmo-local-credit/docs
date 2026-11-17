@@ -2,10 +2,12 @@
 
 This directory owns the locale registry, visitor-facing catalogs, navigation,
 heading mappings, app-aligned glossary, and translation review manifest for the
-public documentation site. The current product audit baseline is `clc-app`
-`origin/develop` commit `704480cf2173dd9d95f3feadda3748999df2b072` and
-`clc-core` `origin/develop` commit
-`aee51f6c41c2aaee52d17fe533113a93f7a9d503`.
+public documentation site. The current production-routing baseline is
+`clc-app` `master` commit `b5f337f3c2d7bc508d11f35126ad2175b6c717eb`,
+`clc-core` `master` commit `ef0f0067ce3ac8f254d33b7f974304510a439aab`,
+and Protocol v1.1.0 commit `ce090fd3d5a7493c726fb939da39af15ef1c9d7c`.
+The separate policy factual-audit baseline remains recorded in
+`policy-locales.json`.
 
 English is unprefixed. Localized routes use their registered locale prefix. The
 site registry contains Arabic, Simplified Chinese, Traditional Chinese, German,
@@ -30,6 +32,8 @@ each published locale prefix.
 - `heading-map.json` maps equivalent heading anchors by document order.
 - `translation-manifest.<locale>.json` records source and translation hashes,
   the app baseline, review status, date, and automated review results.
+- `routing-rollout.json` records the v0.9 production-routing source evidence,
+  affected routes, per-locale release state, and current White Paper version.
 - `drafts/pages/` preserves unfinished deep-page translations outside Vocs'
   public route compiler.
 
@@ -55,8 +59,10 @@ Every release applies:
 
 The English Terms are controlling; every localized Terms page is a convenience
 translation and links prominently to English. English is also the source text
-for White Paper v0.8. Localized HTML and PDFs state the English publication date
-and the translation publication date.
+for the White Paper. English is currently v0.9. A locale remains pinned to its
+reviewed v0.8 pages, hashes, search/LLM output, and PDF until its routing update
+passes the sequential release gate. Localized HTML and PDFs state the English
+source version and publication date and the translation publication date.
 
 The English Policy hub, Privacy Notice, Data Protection Policy, and Child
 Safeguarding Policy are the controlling Version 1.0 source. Their product audit
@@ -184,6 +190,33 @@ another language. Before publication, generate and inspect that locale's White
 Paper PDF. Each published localized landing page links to its localized PDF and
 retains a separate link to the controlling English source.
 
+## Production-routing v0.9 workflow
+
+Process one locale at a time in the order recorded in `PLAN.md`. Pending
+locales intentionally keep their previous English source hashes for the routes
+listed in `routing-rollout.json`; their translated-file hashes must remain
+unchanged. This permits English v0.9 to be current without misrepresenting a
+v0.8 translation as reconciled.
+
+For each locale:
+
+1. translate only the affected routes from the v0.9 English source in a
+   temporary output tree;
+2. preserve product names, contract identifiers, UI labels, code, formulas,
+   URLs, version numbers, fees, wallet limits, and settlement/fulfillment
+   distinctions;
+3. perform a full natural-language pass and independent back-translation;
+4. update that locale's White Paper notice and archive page;
+5. promote the reviewed pages, refresh its manifest and heading mappings, and
+   mark the locale `current` in `routing-rollout.json`;
+6. generate and inspect the locale's v0.9 LaTeX/PDF while retaining v0.8; and
+7. run the focused checks, one production build, PDF text/font inspection, and
+   `git diff --check` before starting the next locale.
+
+The validators allow heading and source-hash differences only for an explicitly
+pending affected route. Every unaffected route and every current locale remains
+strict.
+
 ## Adding an app language
 
 1. Record the app commit and confirm its locale code, native name, formatting
@@ -194,7 +227,8 @@ retains a separate link to the controlling English source.
 4. Generate all 36 translated documentation pages in the non-public draft area.
 5. Review the pages, move the locale into the public page tree, add it to
    `DOCUMENTATION_LOCALES`, and rebuild heading mappings and its manifest.
-6. Generate and inspect the localized v0.8 PDF.
+6. Generate and inspect the White Paper version assigned to that locale in
+   `routing-rollout.json`.
 7. Validate browser matching, manual English override, query/hash preservation,
    RTL/LTR behavior, isolated search, metadata, sidebars, links, PDF glyphs, and
    mobile/desktop layouts before publishing that language.

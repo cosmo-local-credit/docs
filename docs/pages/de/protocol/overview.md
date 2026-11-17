@@ -28,3 +28,12 @@ Auch die Unterstützung von EIP-165 ist vertragsspezifisch und nicht allgemein v
 - **Splitter, EthFaucet, PeriodSimple und RescueVault** — Hilfsprogramme für Verteilung, Gas-Finanzierung, Ratenbegrenzung und Wiederherstellung von Vermögenswerten.
 
 Die Verträge können unterschiedlich kombiniert werden. Ein Registereintrag, Kursangebot oder Graphpfad garantiert nicht, dass eine Transaktion ausgeführt wird. Aktuelle Liquidität, Token-Grenzen, Gebühren, Orakelzustand, Autorisierung, Fristen, Netzwerkbedingungen und die Konfiguration jedes Fonds gelten weiterhin.
+
+
+## Tausch über Routen auf Anwendungsebene
+
+Die produktive CLC App geht über einen Aufruf des Solidity-`SwapRouter` hinaus. CLC Core verwaltet einen abgestimmten Graphen zugelassener Fonds-Beziehungen, schätzt erreichbare Gutscheine, liest die ausgewählten Fonds für ein verbindliches Angebot in einem festgelegten Block, simuliert die vollständige Route und bereitet einen Calibur-Wallet-Batch vor. Der Nutzer signiert diesen Batch; ein Relayer übermittelt ihn als eine Transaktion innerhalb derselben Blockchain.
+
+Jeder Schritt ruft einen `SwapPool` direkt auf. Der Batch setzt die erforderliche Token-Freigabe zurück und neu, ruft anschließend die begrenzte Überladung von `SwapPool.withdraw` mit Mindestausgabe und Frist auf. `revertOnFailure` ist aktiviert, sodass ein fehlgeschlagener Aufruf die gesamte geroutete Transaktion rückgängig macht. Die App zeigt danach einen zusammengefassten Beleg mit Abwicklungs- und Gebührendetails für jeden Schritt.
+
+Dieser Routing-Ablauf ist eine Fähigkeit von App und CLC Core, die auf Protocol v1.1.0 aufbaut. Er macht den Solidity-`SwapRouter` nicht zu einem Ausführungsrouter, ändert weder Eigentümer noch Verantwortliche eines Fonds und macht keinen Fonds für die Regeln eines anderen Fonds oder die Erfüllung durch einen Herausgeber verantwortlich. Den vollständigen Ablauf zeigt die [Protokoll-Netzwerkarchitektur](/de/protocol/network).

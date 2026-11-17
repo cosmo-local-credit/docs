@@ -63,10 +63,12 @@ Per una futura implementazione del token governance CLC proposto, il test di cat
 
 ### **10.7 Rischio di routing e di cross-domain**
 
-- **minacce:** l'esecuzione parziale, i salti bloccati, gli sfruttamenti di bridge o escrow, le quote obsolete, l'inflazione del percorso e l'avanguardia dei cambiamenti di valore annunciati.
-- **Indicatori:** i tassi di scadenza del percorso, gli arretrati di garanzia, le differenze tra quote e esecuzione, i ripetuti saltati inutili e gli incidenti di ponte.
-- **Possibili controlli:** esecuzione atomica, ove disponibile; i tempi conservativi di HTLC o di escrow; il percorso e le politiche delle controparti; limiti a livello di percorso; la mappatura deterministica quote-to-receive; e operatori di servizi responsabili.
-- **Test dello stress:** un arresto di ponte, riorganizzazione della catena, interruzione della dipendenza e un salto fallito in un percorso multi-hop proposto.
+- ** Attuali minacce della stessa catena:** dati di scoperta obsoleti, inventario insufficiente, modifiche del limite o dell'ammissione, scadenza della quotazione, portafogli o dipendenze non supportati, guasto della simulazione, errore del relè, riorganizzazione della catena e inflazione del percorso.
+- **Controlli e prove attuali:** quotazioni autorevoli in blocchi fissati, simulazione di lotti completi, uscite minime per salto e scadenze, un lotto Calibur firmato con `revertOnFailure`, ricevute raggruppate deterministiche, riconciliazione e codici di guasto espliciti. Tali controlli riducono i rischi di esecuzione selezionati, ma non garantiscono la disponibilità o l'adempimento da parte dell'emittente.
+- ** Minacce cross-domain proposte:** esecuzione parziale tra domini, hop bloccati, bridge, HTLC o escrow exploit, mismatch timeout e dispute di recupero.
+- **Indicatori:** risultati della scoperta e della quotazione dei percorsi, differenze tra quotazione ed esecuzione, profondità del percorso, errori di simulazione, revert, errori di riconciliazione, passaggi inutili ripetuti e, per futuri sistemi tra domini, arretrati di regolamento e incidenti dei bridge.
+- ** Possibili controlli aggiuntivi:** politiche di percorso e controparte; limiti a livello di rotta; operatori di servizi responsabili; e HTLC conservativo o escrow timeout, aborto e regole di recupero.
+- **Prove di stress:** stato di grafico obsoleto, interruzione della dipendenza, un salto fallito nel lotto atomico corrente, una riorganizzazione della catena e — per un futuro percorso cross-domain — un arresto del ponte o escrow scaduto.
 - **L'appetito per rischi:** bassi a moderati solo per le dipendenze identificate e monitorate.
 
 ### **10.8 Rischio di custodia e gestione delle chiavi**

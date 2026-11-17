@@ -50,24 +50,45 @@ Um Fundo de Compromissos é uma estrutura governada. O seu contrato `SwapPool` a
 
 Um depósito transfere ativos para o `SwapPool`. O Protocol v1.1.0 não cria automaticamente tokens de participação no Fundo nem concede ao depositante direitos a reembolso, levantamento, recompensa ou governação.
 
-### 5. Utilizar a ação correta
+### 5. Trocar diretamente ou através de uma rota
 
-- **Enviar** transfere um saldo de tokens para outro endereço.
-- **Troca no Fundo** troca um ativo suportado por outro através de um `SwapPool`. A liquidação da troca em cadeia não demonstra o cumprimento pelo emissor.
-- **“Resgatar”** abre o fluxo de envio com o endereço do proprietário do token já preenchido. Isto apresenta ou devolve o vale ao emissor; concluir o resgate exige também que o emissor cumpra o que prometeu e que exista um registo de quitação que impeça a reutilização.
-- **“Retirar vale”** oculta a listagem do catálogo. Não queima saldos, não cancela o vale e não extingue as obrigações pendentes do emissor.
-- **Levantamento de liquidez do Fundo** permite ao proprietário do Fundo transferir o inventário disponível.
-- **Cobrança de comissões** envia as comissões acumuladas do Fundo para o destinatário configurado.
+A vista **Crédito** da aplicação pode encontrar vales acessíveis a partir dos vales na sua carteira. Um vale acessível pode exigir uma única troca de Fundo ou uma rota através de vários Fundos governados de forma independente. A implementação pública atual procura rotas com até três trocas de Fundo.
 
-Consulte o [exemplo prático de um vale](/pt/introduction/example) para ver o ciclo de vida completo.
+Para efetuar uma troca:
+
+1. escolha **Obter** para o vale que pretende ou **Gastar** para os vales que quer utilizar;
+2. reveja as opções disponíveis em **Pagar com** e a **Estimativa**;
+3. abra **Detalhes da rota** para ver cada Fundo, passo, montante, comissão do Fundo e comissão do protocolo;
+4. selecione **Rever**, confirme o montante mínimo a receber e o prazo da cotação e, em seguida, selecione **Confirmar troca**; e
+5. assine o lote preparado para a carteira.
+
+O CLC Core descobre caminhos possíveis a partir de informações indexadas sobre os Fundos e os vales. A descoberta é uma estimativa. Antes da assinatura, o serviço lê o estado dos Fundos relevantes num mesmo bloco fixado, produz uma cotação autorizada, aplica a cada passo um valor mínimo de saída e um prazo e simula o lote completo. Atualmente, a CLC App não acrescenta uma comissão separada pelo serviço de encaminhamento; cada passo pode ainda cobrar a comissão configurada do Fundo e uma comissão adicional do protocolo.
+
+A rota assinada é enviada como uma única transação na mesma cadeia. Cada passo utiliza a mesma carteira compatível com a CLC App. Se alguma autorização ou troca de Fundo do lote falhar, toda a transação é revertida, pelo que os passos anteriores não ficam liquidados. O recibo agrupa a rota sob um identificador de acompanhamento e mostra o estado, o hash da transação, cada Fundo, os montantes liquidados e as comissões do Fundo e do protocolo em cada passo.
+
+Uma rota pode não estar disponível porque a carteira não tem um vale de entrada elegível, um Fundo não admite um token, o limite de saldo de tokens do Fundo seria excedido, o inventário de saída é insuficiente, um cotador ou token não é suportado, ou o serviço de encaminhamento está temporariamente desatualizado ou indisponível. Uma cotação também pode expirar, ficar desatualizada quando o estado do Fundo muda, falhar na simulação final ou ser revertida na cadeia. Atualize a rota e reveja a nova cotação em vez de presumir que uma estimativa anterior continua válida.
+
+A execução atual de rotas suporta carteiras EOA/Calibur compatíveis com a CLC App. Atualmente, não prepara trocas encaminhadas para Safes nem para outras carteiras de contrato.
+
+### 6. Utilizar a ação correta
+
+- **Enviar** transfere um saldo de token para outro endereço.
+- **Troca de Fundo** troca um ativo suportado por outro através de um `SwapPool`. Pode ser uma troca direta ou um passo de uma troca encaminhada. A liquidação da troca na cadeia não prova o cumprimento pelo emissor.
+- **Troca encaminhada** executa uma sequência ordenada de trocas de Fundo numa única transação limitada da carteira e na mesma cadeia. Não reúne a governação dos Fundos nem torna o operador de encaminhamento responsável pelo cumprimento do emissor.
+- **“Resgatar”** abre o fluxo de envio com o endereço do proprietário do token já preenchido. Apresenta ou devolve o vale ao emissor; o resgate concluído também exige o desempenho prometido pelo emissor e um registo de quitação que impeça a reutilização.
+- **“Retirar vale”** oculta a listagem no catálogo. Não queima saldos, não cancela o vale nem extingue obrigações pendentes do emissor.
+- **Retirada de liquidez do Fundo** permite ao proprietário do Fundo transferir o inventário disponível.
+- **Coleção de taxas** envia as comissões acumuladas do Fundo para o destinatário configurado.
+
+Veja o [Exemplo de Vale prático](/pt/introduction/example) para o ciclo de vida completo.
 
 ## Capacidades atuais, dependentes da implementação e propostas
 
-A aplicação atual disponibiliza o Mercado e fluxos suportados para contas, carteiras, vales, Ofertas, Fundos, transferências, trocas diretas nos Fundos e registos relacionados. A disponibilidade depende da implementação ativa, do ativo, da configuração do Fundo, do dispositivo, da rede, da elegibilidade, do fornecedor, da jurisdição e das condições publicadas.
+A aplicação atual fornece um Mercado e fluxos suportados para contas, carteiras, vales, Ofertas, Wants, Fundos, transferências, trocas diretas de Fundo, trocas encaminhadas ao nível da aplicação e registos relacionados. A disponibilidade depende da implementação ativa, do ativo, da configuração do Fundo, do inventário, do tipo de carteira, do dispositivo, da rede, da elegibilidade, do fornecedor, da jurisdição e das condições publicadas.
 
 Os serviços de pagamento, os métodos de apoio, as recompensas, as garantias, os mecanismos de contribuição e outras integrações de fornecedores dependem da implementação. A parte responsável, as comissões, os limites, a elegibilidade e as condições legais devem ser divulgados quando essas capacidades forem oferecidas.
 
-O Protocol v1.1.0 permite a execução direta nos Fundos, enquanto o `SwapRouter` apenas fornece cotações. A execução com vários saltos, o encaminhamento por HTLC ou escrow, a compensação por lotes, o seguro partilhado, os ativos de governação propostos, os programas de liquidez da rede e os acessos de pagamento regulados continuam a ser propostas ou capacidades dependentes da implementação, salvo quando uma implementação específica os identificar como ativos.
+O Protocol v1.1.0 fornece execução direta de Fundo e um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção proporcionam agora descoberta de rotas com vários passos na mesma cadeia, cotação autorizada, preparação de lotes da carteira, simulação, retransmissão e recibos agrupados acima desses contratos. O `SwapRouter` Solidity não se tornou um contrato de execução. O encaminhamento HTLC ou por depósito em garantia entre cadeias, o reequilíbrio automático de Fundos, a compensação por lotes, o seguro partilhado, os ativos de governação propostos, os programas de liquidez de rede e os meios de pagamento regulados continuam propostos ou dependentes da implementação, salvo quando uma implementação específica os identifique como ativos.
 
 Qualquer futuro empréstimo ou outro produto de crédito exige condições suplementares e condições da transação apresentadas separadamente. Uma transferência comum, um depósito num Fundo, uma troca num Fundo, uma apresentação para resgate, o cumprimento ou a quitação não constituem automaticamente um empréstimo, adiantamento ou reembolso.
 

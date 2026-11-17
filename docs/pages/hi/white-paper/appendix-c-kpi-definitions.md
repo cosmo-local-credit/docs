@@ -23,12 +23,19 @@
 | **निष्पादन विलंबता** | प्रस्तुति-वादे की पूर्ति समय का मध्यवर्ती और 90वां प्रतिशत | जारी करने से प्रस्तुत करने या अधिग्रहण से प्रस्तुत होने तक की प्रतिधारण अवधि को प्रतिस्थापित न करें |
 | **रखरखाव की अवधि** | अधिग्रहण से प्रस्तुत समय का औसत और वितरण | अधिग्रहण घटना की पहचान करें और अज्ञात अधिग्रहण समय को बाहर रखें |
 | **शेष पात्र प्रतिबद्धताएं** | निर्दिष्ट बहिष्करणों के बाद शेष पात्र तृतीय-पक्ष प्रतिबद्धताएं | जारीकर्ता की पहचान और शर्तें; लागू जारीकर्ता इन्वेंट्री, समाप्ति, बर्न, डिस्चार्ज, परीक्षण और गैर-प्रतिबंध टोकन को छोड़कर |
-| **पूल स्वैप की मात्रा** | एक खुलासा मूल्य निर्धारण पद्धति के तहत पूर्ण प्रत्यक्ष पूल स्वैप का मूल्य | ऑन-चेन सेटलमेंट इवेंट्स, टोकन इकाइयां, दर स्रोत, समय; जारीकर्ता वादे की पूर्ति के रूप में वर्गीकृत न करें |
+| **प्रत्यक्ष पूल स्वैप मात्रा** | एकल पूल एक्सचेंजों के रूप में शुरू किए गए पूर्ण स्वैप का मूल्य | ऑन-चेन निपटान घटनाएं, टोकन इकाइयाँ, दर स्रोत, समय; जारीकर्ता पूर्ति के रूप में वर्गीकृत न करें |
+| **मार्ग खोज प्रयास** | किसी अवधि में पहुँच योग्य vouchers या candidate paths खोजने के valid requests | graph version, indexed block, freshness, wallet scope, requested depth, candidate count, timeout या search-budget status; यह authoritative quotation नहीं है |
+| **उपलब्ध candidate routes** | परिभाषित request cohort के लिए खोज से लौटे candidate paths | हर अलग ordered Pool/token path गिनें; route depth और exclusions बताएँ; executable या settled न कहें |
+| **मार्ग कोटेशन pass rate** | valid quotation attempts में लौटे authoritative route quotations का अनुपात | fixed block, path, amount mode, expiry, result या rejection reason; discovery success और execution से अलग रखें |
+| **मार्ग execution rate** | समान mature cohort में valid signed execution attempts में confirmed routed transactions का अनुपात | tracking ID, transaction hash, submission status, confirmation या revert, route depth और failure reason; unsigned quotations हटाएँ |
+| **पूरे मार्ग की मात्रा** | confirmed routed exchanges का input और output value, हर route पर एक बार गिना हुआ | एक valuation method के अंतर्गत पहले hop का settled input और अंतिम hop का settled output उपयोग करें; सभी hop values को अलग economic volume मानकर न जोड़ें |
+| **हर हॉप का निपटान** | confirmed route के हर hop का settled input, gross output, Pool fee, protocol fee और net output | ordered Pool और token identifiers, settlement events, transaction hash, block, log index और intermediate remainder |
+| **मार्ग शुल्क** | route में वास्तव में settled मौजूदा Pool और protocol fees | हर hop और fee type के अनुसार total बताएँ; proposed network rake या unimplemented service fee न कहें |
+| **मार्ग rejection** | पहचाने गए reasons के अनुसार route या quotation rejections की संख्या और अनुपात | admission, deposit limit, liquidity, fee domain, unsupported token या quoter, wallet balance या type, gas, search budget, expiry, stale state या simulation evidence |
+| **Route reconciliation health** | indexed graph और grouped settlement records की freshness और reliability | graph version और age, dirty-queue depth, reconciliation lag, corrections, failures, unknown members और unresolved receipts |
 | **पूल इन्वेंट्री** | निर्दिष्ट समय पर एक पूल द्वारा रखी गई मापी गई समर्थित परिसंपत्तियां | अनुबंध शेष राशि, शुल्क आरक्षण, inaccessible assets, valuation method और owner-withdrawal powers |
 | **रिजर्व पर्याप्तता** | स्पष्ट रूप से कवर किए गए जोखिम द्वारा विभाजित पात्र, उपलब्ध आरक्षित परिसंपत्तियां | कवरेज नीति, परिसंपत्तियों की पात्रता, रखरखाव/नियंत्रण, दायित्व, बहिष्करण और मूल्यांकन; डिफ़ॉल्ट रूप से कुल टोकन आपूर्ति नहीं |
 | **सीमा उपयोग** | वर्तमान कॉन्फ़िगर की गई कैप द्वारा विभाजित मापा गया पूल टोकन बैलेंस | Limiter पता, टोकन, पूल, टाइमस्टैम्प, परिवर्तन और अवधि बिना सीमांकित |
-| **उद्धरण पास दर** | वैध उद्धरण प्रयासों द्वारा विभाजित सफल उद्धरण प्रतिक्रियाएं | केवल उद्धरण परिणाम; मार्ग निष्पादन नहीं |
-| **मार्ग निष्पादन दर** | वैध निष्पादन प्रयासों द्वारा विभाजित पूर्ण मल्टी-हॉप निष्पादन | केवल एक कार्यान्वित निष्पादन प्रणाली पर लागू; प्रति-हॉप रिपोर्ट और परमाणुता नियम |
 | **गारंटर की वसूली** | भुगतान किए गए कवर किए गए दावों में विभाजित प्राप्त पात्र वसूली | गारंटर की पहचान, दावा नीति, समय सीमा, लागत, विवाद और कटौती |
 | **प्रस्तावित नेटवर्क राजस्व** | प्रस्तावित नेटवर्क रैक प्राप्त प्लस अलग-अलग रूटिंग/सेवा शुल्क प्राप्त | पूल द्वारा प्रतिधारण किए गए सकल पूल शुल्क को बाहर रखें और रैक को दो बार गिनने से बचें |
 | **शासन की समयसीमा** | घटना का पता लगाने, निर्णय लेने, रुकने, मरम्मत करने और बंद करने का समय | निर्धारित घड़ियों, जिम्मेदार निकायों, आपातकालीन शक्तियों, अपीलों और गायब होने वाली घटनाओं |

@@ -29,13 +29,13 @@
   citecolor=blue,
   urlcolor=blue,
   pdflang={de},
-  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.9},
   pdfauthor={William O. Ruddick and Mohamed Sohail}
 }
 
 \title{Cosmo-Local Credit (CLC)\\Ein Netzwerk für Kreditrouting, die Koordination von Verpflichtungen und die Finanzierung einer gesunden kosmo-lokalen Wirtschaft}
 \author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
-\date{White Paper v0.8 translation: 10 October 2026}
+\date{White Paper v0.9 translation: 17 November 2026}
 
 \begin{document}
 \maketitle
@@ -44,17 +44,17 @@
 \sloppy
 \RaggedRight
 
-\textbf{Über diese Übersetzung.} Dies ist eine Übersetzung des White Paper v0.8. Der englische Ausgangstext wurde am 30. September 2026 veröffentlicht. Diese Übersetzung wurde am 10. Oktober 2026 veröffentlicht. Englisch ist der Ausgangstext. \href{https://docs.cosmolocal.credit/white-paper}{Englischen Ausgangstext lesen}.
+\textbf{Über diese Übersetzung.} Dies ist eine Übersetzung des White Paper v0.9. Der englische Ausgangstext wurde am 16. November 2026 veröffentlicht. Diese Übersetzung wurde am 17. November 2026 veröffentlicht. Englisch ist der Ausgangstext. \href{https://docs.cosmolocal.credit/white-paper}{Englischen Ausgangstext lesen}.
 
-\textbf{Version:} 0.8
+\textbf{Version:} 0.9
 
-\textbf{Datum:} 30. September 2026
+\textbf{Datum:} 16. November 2026
 
 \textbf{Autoren:} William O. Ruddick und Mohamed Sohail
 
 \textbf{Kontakt:} \href{mailto:info@grassecon.org}{info@grassecon.org}
 
-\textbf{Download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-de.pdf}{CLC White Paper v0.8 (PDF, Deutsch)}
+\textbf{Download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-de.pdf}{CLC White Paper v0.9 (PDF, Deutsch)}
 
 \textbf{Veröffentlichung:} Finale, versionierte öffentliche Ausgabe. Dieses Dokument ist keine Anlageberatung und stellt weder ein Verkaufsangebot noch eine Aufforderung zum Kauf eines Wertpapiers oder Finanzinstruments dar. Spätere Versionen können die hier beschriebenen Entwürfe überarbeiten.
 
@@ -75,7 +75,7 @@ Status & Bedeutung \\
 \bottomrule
 \end{longtable}
 
-Protocol v1.1.0 umfasst die direkte Ausführung über \texttt{SwapPool}, optionale Kuratierung und Bewertung, Obergrenzen für Token-Salden eines Fonds, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen \texttt{SwapRouter}, der nur Kursangebote erstellt. Mehrstufige Ausführung, HTLC- oder Escrow-Routing, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme sind vorgeschlagen oder bereitstellungsabhängig.
+Das aktuelle Protocol v1.1.0 umfasst die direkte Ausführung über \texttt{SwapPool}, optionale Kuratierung und Bewertung, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr sowie einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core bieten Routenerkennung innerhalb derselben Blockchain, Angebote auf Grundlage eines festgelegten Blocks, Simulation, signierte atomare Wallet-Batches durch bis zu drei Fonds und zusammengefasste Belege. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token, der vorgeschlagene CLC-Netzwerkfonds, Gebührengutschriften und Netzwerkliquiditätsprogramme bleiben vorgeschlagen oder bereitstellungsabhängig.
 
 \textbf{Zielgruppe:} Entwickler und Verantwortliche von Fonds, Protokollentwickler und Prüfer, Geldgeber für Liquidität und Mandate, Gestalter von Governance sowie Fachleute für Recht und Compliance.
 
@@ -91,7 +91,7 @@ Kosmo-lokal bedeutet, offene Standards, Software und Wissen weltweit zu teilen, 
 \section*{Aktuelle Bereitstellung}
 \addcontentsline{toc}{section}{Aktuelle Bereitstellung}
 
-GEF betreibt die CLC App unter \href{https://cosmolocal.credit}{cosmolocal.credit}. Sie bietet Zugang zu Konto und Geldbörse, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Commitment-Fonds, Übertragungen und direkte Fonds-Tausche. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
+GEF betreibt die CLC App unter \href{https://cosmolocal.credit}{cosmolocal.credit}. Sie bietet Zugang zu Konten und Wallets, einen öffentlichen Markt-Katalog sowie unterstützte Benutzeroberflächen für Tokens, Gutscheine, Angebote, Wünsche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen auf Anwendungsebene. CLC Core unterstützt Routenerkennung, verbindliche Angebote, Transaktionssimulation, Koordination des Relayers, Abstimmung mit der Blockchain und zusammengefasste Belege. Die Verfügbarkeit hängt von Benutzeroberfläche, Verträgen, Beständen, konfigurierten Grenzen und Gebühren, Wallet-Typ, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
 
 Der Betrieb der Benutzeroberfläche macht GEF nicht automatisch zum Herausgeber, zur Fonds-Verantwortlichen, zum Verwahrer, Kreditgeber, Kreditnehmer, Vermittler, Garanten, zur Einlösestelle, zum Berater, Versicherer oder zur Partei von Verpflichtungen zwischen Teilnehmern. Die Nutzung der App unterliegt den \href{https://docs.cosmolocal.credit/de/governance/terms}{Nutzungsbedingungen}.
 
@@ -135,23 +135,27 @@ Die digitale Ebene dient als gemeinsames Gedächtnis und Koordinationsinfrastruk
 \section*{Aktuelle und vorgeschlagene Abläufe}
 \addcontentsline{toc}{section}{Aktuelle und vorgeschlagene Abläufe}
 
-\subsection*{Aktueller direkter Ablauf über einen Fonds}
-\addcontentsline{toc}{subsection}{Aktueller direkter Ablauf über einen Fonds}
+\subsection*{Aktueller direkter oder gerouteter Fonds-Ablauf}
+\addcontentsline{toc}{subsection}{Aktueller direkter oder gerouteter Fonds-Ablauf}
 
 \begin{enumerate}[leftmargin=*]
 \item Ein Inhaber prüft einen Gutschein, seinen Herausgeber, seine Bedingungen und die zugehörigen Angebote.
 \item Ein Fonds lässt unterstützte Vermögenswerte zu und veröffentlicht seine Konfiguration und verantwortlichen Stellen.
-\item Der Inhaber holt ein Kursangebot ein und autorisiert einen direkten Fonds-Tausch.
-\item \texttt{SwapPool} führt die Tauschabwicklung auf der Blockchain aus und verbucht Fonds- und Protokollgebühren.
-\item Wählt der Inhaber später in der App \textbf{„Einlösen``}, bereitet die App als Vorlage zur Einlösung eine Übertragung an den Token-Eigentümer vor.
+\item Der Inhaber kann in der Ansicht \textbf{Kredit} einen direkten Tausch oder eine Route durch mehrere unabhängig verwaltete Fonds finden.
+\item CLC Core liest die ausgewählten Fonds in einem festgelegten Block, erstellt ein zeitlich begrenztes Angebot, weist die Fonds- und Protokollgebühren jedes Schritts aus, simuliert den vollständigen Batch und bereitet die Aufrufe für die Wallet des Inhabers vor.
+\item Der Inhaber prüft und signiert. Die App leitet eine Transaktion innerhalb derselben Blockchain weiter, deren vollständiger Batch rückgängig gemacht wird, wenn ein Aufruf fehlschlägt.
+\item Jeder \texttt{SwapPool} führt seine eigene Abwicklung auf der Blockchain aus. Die App fasst Transaktionsstatus, Schritte, abgewickelte Beträge und Gebühren in einem Beleg für den Tausch über die Route zusammen.
+\item Wählt der Inhaber später in der App \textbf{„Einlösen``}, bereitet die App als Einlösungsvorlage eine Übertragung an den Token-Eigentümer vor.
 \item Der Herausgeber erbringt gesondert die versprochene Leistung und zeichnet die Ausbuchung auf, damit erfüllte Einheiten nicht erneut verwendet werden können.
 \end{enumerate}
 Bestände aus einem Fonds zu erhalten, ist ein Tausch. Es handelt sich nur dann um eine Einlösung, wenn der Fonds gesondert die Rolle des Herausgebers übernommen hat und die geltenden Gutscheinbedingungen erfüllt.
 
+Die aktuelle öffentliche Routenkonfiguration sucht Routen mit bis zu drei Fonds-Tauschen und unterstützt App-kompatible EOA-/Calibur-Wallets. Sie bereitet derzeit keine Tausche über Routen für Safes oder andere Smart-Contract-Wallets vor. Der Solidity-\texttt{SwapRouter} bleibt auf Kursangebote beschränkt; CLC Core und der signierte Wallet-Batch koordinieren die Ausführung oberhalb der Verträge.
+
 \subsection*{Weiter gefasster vorgeschlagener Entwurf}
 \addcontentsline{toc}{subsection}{Weiter gefasster vorgeschlagener Entwurf}
 
-Der vorgeschlagene Entwurf untersucht Ausführungsrouting, Verrechnung, gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungsregeln und Governance-Vermögenswerte. Jeder dieser Bausteine benötigt eine Implementierung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen, bevor er angewendet werden kann.
+Der vorgeschlagene Entwurf untersucht Blockchain-übergreifendes HTLC- oder Escrow-Routing, freiwilligen Bestandsausgleich der Fonds, gebündelte Verrechnung, zusätzliche gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungspolicen und Governance-Vermögenswerte. Jeder dieser Punkte würde eine Umsetzung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen erfordern, bevor er angewendet werden könnte.
 
 Das vorgeschlagene Gebührenmodell kann einen Netzwerkanteil aus Fondsgebühren sowie getrennte Routing- oder Servicegebühren vorsehen. Dieser Vorschlag unterscheidet sich von Protocol v1.1.0, bei dem eine optionale Protokollgebühr zusätzlich zur Fondsgebühr erhoben wird.
 
@@ -178,7 +182,7 @@ Unterstützer oder Liquiditätsanbieter erhalten durch den aktuellen \texttt{Swa
 
 Die \textbf{Commitment Pooling Protokoll (CPP)} beschreibt, wie unabhängig regierte Commitment-Fonds einlösbare Verpflichtungen kuratieren, Wechselkursmethoden und -grenzen veröffentlichen, Bestandsaufzeichnungen führen und einen verantwortungsvollen Austausch ermöglichen kann. Die Emittenten sind weiterhin für ihre Gutscheinsverpflichtungen verantwortlich. Fonds-Verantwortliche bleibt für die Fonds-Regelungen und alle garantierten Bestimmungen, die sie ausdrücklich übernehmen, verantwortlich. Weder die CLC App noch die GEF sind ein universeller Garant.
 
-Protocol v1.1.0 bietet aktuelle Bausteine für den direkten Austausch: \texttt{GiftableToken}, \texttt{SwapPool}, optionale Register und Bewertungsmodule, Fonds-Token-Balance-Caps, Fonds-Gebühren, eine zusätzliche Protokollgebühr und nur ein Zitat \texttt{SwapRouter}. Die derzeitigen Verträge erfassen keine realisierte Erfüllung, erstellen keine automatischen Liquiditätsanbieter-Aktien, führen Multi-Hop-Ruten durch oder bieten keine universellen Reserven, Garantien oder Versicherungen.
+Protocol v1.1.0 stellt die aktuellen Bausteine für direkte Tausche bereit: \texttt{GiftableToken}, \texttt{SwapPool}, optionale Register und Bewertungsmodule, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr und einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core erkennen jetzt Routen innerhalb derselben Blockchain durch bis zu drei Fonds, erstellen Angebote auf Grundlage eines festgelegten Blocks, simulieren und bereiten signierte atomare Wallet-Batches vor, leiten sie weiter und fassen ihre Abwicklungsdaten zusammen. Die Verträge erfassen weiterhin keine Erfüllung in der realen Welt, schaffen keine automatischen Anteile für Liquiditätsanbieter, führen kein Blockchain-übergreifendes Routing oder gebündelte Verrechnung aus und stellen keine universellen Reserven, Garantien oder Versicherungen bereit.
 
 Die historische \textbf{Sarafu Network} Gebrauch von Konzepten der Verpflichtungsherstellung in gemeinschaftlichen Währungen, Spargruppen, gegenseitigen Beihilferegelungen und Produktionsverpflichtungen. Sein Service wechselte später zum CLC App. Dies war keine Darstellung, dass jedes historische Konto, Brieftasche, Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder Verpflichtung migrierte.
 
@@ -197,14 +201,14 @@ Die historische \textbf{Sarafu Network} Gebrauch von Konzepten der Verpflichtung
 \end{itemize}
 Diese Zahlen sind historische Beweise, nicht aktuelle CLC-Nutzungszahlen.
 
-Im weiteren vorgeschlagenen Design von CLC wird untersucht, wie kompatible Netzwerke:
+Der weitergehende CLC-Entwurf verbindet das aktuelle Routing mit Vorschlägen dazu, wie kompatible Netzwerke:
 
 \begin{enumerate}[leftmargin=*]
-\item Entdecken und zitieren Sie Wege über unabhängig regierte Fonds;
+\item verantwortliche Routing-Dienste auf zusätzliche Register- oder Richtlinienprofile und weitere Bereiche ausweiten;
 \item koordinieren verantwortungsbewusste Netzdienste, ohne die örtliche Verantwortung zu übernehmen;
 \item Unterstützung von separat finanzierten Liquiditätsmandaten, Garantien, Reserven oder Versicherungspolicies;
 \item die Fonds-Swaps getrennt von der Vorlage, Erfüllung und Ausbuchung von Gutscheinen zu messen; und
-\item die Verwendung einer vorgeschlagenen Netzwerkanteil- und Dienstleistungsgebühren zur Finanzierung der angenommenen geteilten Dienstleistungen.
+\item einen vorgeschlagenen Netzwerkanteil und gesondert beschlossene Servicegebühren zur Finanzierung gemeinsamer Dienste verwenden.
 \end{enumerate}
 Der Entwurf umfasst einen \textbf{vorgeschlagenen CLC-Governance-Token } und einen \textbf{ vorgeschlagenen CLC-Netzwerkfonds}. Beide sind weder Teil der aktuellen App noch von Protocol v1.1.0.
 
@@ -243,7 +247,7 @@ Zu den einschlägigen Aufgaben und Behörden gehören:
 \item \textbf{Poolbesitzer:} besitzt die aktuellen Eigentümerbefugnisse von \texttt{SwapPool};
 \item \textbf{Proxy-Administrator:} kann eine proxied-Implementierung aktualisieren;
 \item \textbf{Abhängigkeitscontroller:} Regeln konfigurierte Registrierungen, Zitaten, Begrenzungen oder Gebührenkomponenten;
-\item \textbf{Streckesucher oder -betreiber:} kann Zitate entdecken oder in einer künftigen Umsetzung eine separat zugelassenen Route durchführen; und
+\item \textbf{Betreiber eines Routing-Dienstes:} kann innerhalb seines veröffentlichten Aufgabenbereichs eine gesondert genehmigte Route erkennen, berechnen, simulieren, vorbereiten, weiterleiten und aufzeichnen; und
 \item \textbf{Garantierer:} übernimmt eine definierte Verpflichtung nur durch veröffentlichte, finanzierte Bedingungen.
 \end{itemize}
 CPP Gruppen Fonds-Funktionen sind in vier Konzepte unterteilt:
@@ -254,9 +258,11 @@ CPP Gruppen Fonds-Funktionen sind in vier Konzepte unterteilt:
 \item \textbf{Einschränkung:} die gegenwärtigen Token-Gleichgewichtsgrenzwerte des Fonds oder andere separat eingeführte Kontrollen anzuwenden.
 \item \textbf{Umtausch:} Inventar halten, Swaps ausführen, Gebühren berechnen und Transaktionsunterlagen ausstellen.
 \end{itemize}
-Protocol v1.1.0 implementiert diese Funktionen durch \texttt{SwapPool} und optionale Abhängigkeiten. Sein aktueller \texttt{Limiter} begrenzt ein Token-Guthaben in einem Fonds; es enthält keine rolling-, pro-Konto- oder netzweiten Swap-Limits. Sein aktueller \texttt{SwapRouter} berechnet Kotierungen für mehrere Fonds; es führt keine Swaps durch.
+Protocol v1.1.0 setzt diese Funktionen mit \texttt{SwapPool} und optionalen Abhängigkeiten um. Der aktuelle \texttt{Limiter} begrenzt den Saldo eines Tokens in einem Fonds; er enthält keine gleitenden, kontobezogenen oder netzwerkweiten Tauschlimits. Der aktuelle Solidity-\texttt{SwapRouter} berechnet Kursangebote über mehrere Fonds, führt aber keine Tausche aus.
 
-Das breitere vorgeschlagene CPP-Design kann Rolllimits, Konto-Kontrollen, Ausführungsroutern, HTLC oder Escrow-Wege und Charge-Netzungen hinzufügen. Es handelt sich hierbei um vorgeschlagene Komponenten, nicht um Beschreibungen des aktuellen Limiters oder Routers.
+Die produktive CLC App und CLC Core ergänzen diese Verträge um Routing auf Anwendungsebene innerhalb derselben Blockchain. CLC Core erkennt Routen, liest die ausgewählten Fonds in einem festgelegten Block, bereitet einen signierten Calibur-Wallet-Batch vor und simuliert ihn, koordiniert den Relayer und fasst die entstehenden Abwicklungsdaten zusammen. Die aktuelle öffentliche Konfiguration sucht Routen mit bis zu drei Fonds-Tauschen. Jeder Fonds bleibt unabhängig verwaltet, und jeder Schritt wird weiterhin direkt über seinen eigenen \texttt{SwapPool} ausgeführt.
+
+Der weitergehende vorgeschlagene CPP-Entwurf kann gleitende Grenzen, Kontokontrollen, Blockchain-übergreifende HTLC- oder Escrow-Routen, automatischen Bestandsausgleich und gebündelte Verrechnung ergänzen. Das sind vorgeschlagene Komponenten, keine Beschreibungen des aktuellen \texttt{Limiter}, des Solidity-\texttt{SwapRouter} oder des Routing-Ablaufs von App und CLC Core.
 
 \subsection*{1.3 Aktuelle Direkt-Swap-Logik}
 \addcontentsline{toc}{subsection}{1.3 Aktuelle Direkt-Swap-Logik}
@@ -370,14 +376,14 @@ Diese Struktur könnte eine vereinbarte Rückzahlung in Art ermöglichen und gle
 \section*{5. Von isolierten Fonds zu einem föderierten Netzwerk}
 \addcontentsline{toc}{section}{5. Von isolierten Fonds zu einem föderierten Netzwerk}
 
-Der aktuelle Protocol v1.1.0 unterstützt die direkte Ausführung durch einen \texttt{SwapPool} und bietet nur ein Zitat \texttt{SwapRouter}. Es führt keine Multi-Hop-Routes, HTLCs, Escrow-Routes, Charge-Netting oder Cross-Network Clearing durch.
+Das aktuelle Protocol v1.1.0 unterstützt die direkte Ausführung über einen \texttt{SwapPool} und stellt einen Solidity-\texttt{SwapRouter} bereit, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core koordinieren von Teilnehmern ausgelöste Routen innerhalb derselben Blockchain durch bis zu drei Fonds, indem sie einen signierten Calibur-Wallet-Batch vorbereiten. Die Verträge selbst führen keine mehrstufige Route aus. Der aktuelle Ablauf von App und CLC Core bietet weder Blockchain-übergreifende HTLCs oder Escrow-Routen noch automatischen Bestandsausgleich der Fonds, gebündelte Verrechnung oder Netzwerk-übergreifende Verrechnung.
 
-Dieses Kapitel schlägt vor, wie unabhängig regierte Fonds sich koordinieren könnten, ohne ihre eigenen Zulassungs-, Bewertungs-, Begrenzungs-, Gebühren-, Inventar-, Zulassungs- und Governance-Regeln aufzugeben.
+Dieses Kapitel erklärt den aktuellen Routing-Ablauf für Teilnehmer und grenzt ihn von vorgeschlagener Koordination ab, die neue Befugnisse über Fonds erfordern würde. In beiden Fällen behalten unabhängige Fonds ihre eigenen Regeln für Zulassung, Bewertung, Grenzen, Gebühren, Bestände, Autorisierung und Governance.
 
 \subsection*{5.1 Einzelne Austausch- und Erfüllungsmaßnahmen}
 \addcontentsline{toc}{subsection}{5.1 Einzelne Austausch- und Erfüllungsmaßnahmen}
 
-Die Föderation könnte den Zugang zum Inventar verbessern, aber sie würde den Gutschein nicht verschmelzen und Lebenszyklen austauschen. Jede Implementierung würde diese Ereignisse separat messen:
+Routing kann den Zugang zu Beständen verbessern, vereint aber nicht die Lebenszyklen von Gutschein und Tausch. Messungen sollten diese Ereignisse getrennt halten:
 
 \begin{enumerate}[leftmargin=*]
 \item eine Strecke angegeben;
@@ -388,22 +394,26 @@ Die Föderation könnte den Zugang zum Inventar verbessern, aber sie würde den 
 \end{enumerate}
 Mehr zitierte oder ausgeführte Routen beweisen keine größere Erfüllung. In den Berichten würden die Kohorte, die Periode, die Vermögenswerte, die Bewertungsmethode und das Zeitstempel, die Ausschlüsse, Korrekturen und die außerhalb der Kette erforderlichen Beweise angegeben.
 
-\textbf{Veranschaulichender Weg:} Eine Schule hat Mais-Gutscheine, braucht aber Transportgutscheine. Ein Route-Service identifiziert kompatible Fonds-Inventare. Die Ausführung würde nur erfolgreich sein, wenn jeder separat genehmigte Hop innerhalb seiner Quotegrenzen, Grenzen, Gebühren, Bestand und Politik blieb. Die daraus resultierenden Swaps würden nicht nachweisen, dass einer der beiden Emittenten später seine Gutscheinsverpflichtungen erfüllt habe.
+\textbf{Beispielroute:} Eine Schule besitzt Maisgutscheine, benötigt aber Transportgutscheine. CLC Core kann kompatible Fondsbestände erkennen, die ausgewählte Route in einem festgelegten Block berechnen und die begrenzten Aufrufe für die Wallet der Schule vorbereiten. Die Ausführung gelingt nur, wenn jeder Schritt innerhalb seiner Angebotsgrenzen, Limits, Gebühren, Bestände, des unterstützten Verhaltens und der geltenden Regeln bleibt. Die daraus entstehenden Tausche belegen nicht, dass einer der Herausgeber seine Gutscheinverpflichtungen später erfüllt.
 
-\subsection*{5.2 Angebotene Routing- und Rebalancing-Dienste}
-\addcontentsline{toc}{subsection}{5.2 Angebotene Routing- und Rebalancing-Dienste}
+\subsection*{5.2 Aktuelles Teilnehmer-Routing und vorgeschlagener Bestandsausgleich}
+\addcontentsline{toc}{subsection}{5.2 Aktuelles Teilnehmer-Routing und vorgeschlagener Bestandsausgleich}
 
-Ein zukünftiger Streckendienst könnte zwei verschiedene Tätigkeiten unterstützen.
+Zwei Tätigkeiten erfordern unterschiedliche Befugnisse.
 
-\textbf{Die von den Teilnehmern initiierte Hinrichtung.} Angesichts der Eingangs- und Ausgangsaktiva, einer Menge und der Einschränkungen der Nutzer könnte der Dienst einen Weg identifizieren und die Ausführung vorbereiten. Jeder Hop hätte seinen eigenen verantwortlichen Fonds, Angebot, Zulassung, Gebühren, Limits, Bestand und Quittung. Atombatches, HTLCs und Treuhand sind mögliche zukünftige Ausführungsmöglichkeiten, nicht das aktuelle Protokollverhalten.
+\textbf{Aktuelle, vom Teilnehmer ausgelöste Ausführung.} Ausgehend von Eingabe- und Ausgabegutscheinen sowie einem Betrag schätzt CLC Core mögliche Routen aus den geeigneten Beständen des Teilnehmers. Für eine ausgewählte Route liest CLC Core die Fonds in einem festgelegten Block, erstellt ein verbindliches Angebot, simuliert den vollständigen Batch und bereitet je Schritt drei Aufrufe vor: Freigabe zurücksetzen, Freigabe erteilen und begrenztes \texttt{SwapPool.withdraw}. Der Teilnehmer signiert; der Relayer übermittelt eine Calibur-Transaktion innerhalb derselben Blockchain, bei der \texttt{revertOnFailure} aktiviert ist. Ein fehlgeschlagener Aufruf macht sämtliche Routenaufrufe rückgängig. Die App fasst die Transaktion und die Abwicklung jedes Schritts in einem Beleg zusammen.
 
-\textbf{Opt-in Fonds-Wiederausgleich.} Fonds-Verantwortliche könnte Bestandsziele, zulässige Gegenparteien, Anlageklassen, Quote-Abweichungsgrenzen und Periodegrenzen veröffentlichen. Ein verantwortungsbewusster Dienst könnte nach kompatiblen Zyklen oder Ketten suchen und nur die zugelassenen Absichten ausführen.
+Jeder Schritt behält seinen eigenen verantwortlichen Fonds, seine Eingaben für Kursangebote, Autorisierung, Gebühren, Grenzen, Bestände und sein Abwicklungsereignis. Die aktuelle App erhebt keine gesonderte Gebühr für den Routing-Dienst. Der aktuelle Ablauf unterstützt App-kompatible EOA-/Calibur-Wallets, jedoch keine Safes oder anderen Smart-Contract-Wallets.
 
-Eine Neuausgewogenheit wäre ein Opt-in. Ein Fonds könnte Teilnehmerrouten zulassen, während er sich einer ausgehenden Rebalanzierung weigert, oder es könnte nur ausgewählte Vermögenswerte, Gegenparteien und Beträge zulassen. Jeder ausgeführte Sprung würde eine Quittung erzeugen, und alle Dienstleistungsgebühren würden getrennt von Fonds- und Protokollgebühren bekannt gegeben.
+\textbf{Freiwilliger Bestandsausgleich der Fonds.} Fonds-Verantwortliche könnten Bestandsziele, zulässige Gegenparteien, Vermögensklassen, Grenzen für Kursabweichungen und Grenzen je Zeitraum veröffentlichen. Ein verantwortlicher Dienst könnte nach kompatiblen Zyklen oder Ketten suchen und nur autorisierte Absichten ausführen.
+
+Ein Bestandsausgleich wäre freiwillig. Ein Fonds kann gewöhnliche Teilnehmer-Routen zulassen, ohne einen Dienst zu ermächtigen, Bestände zum Ausgleich zu bewegen. Ein zukünftiges Mandat könnte nur ausgewählte Vermögenswerte, Gegenparteien und Beträge erlauben. Jeder ausgeführte Schritt würde einen Beleg erzeugen; jede Servicegebühr würde getrennt von Fonds- und Protokollgebühren offengelegt.
+
+Blockchain-übergreifende HTLC- oder Escrow-Ausführung ist ebenfalls vom aktuellen atomaren Batch innerhalb derselben Blockchain zu trennen. Sie würde beschlossene Regeln für Fristen, Abbruch, Kontrolle, Wiederherstellung und Restrisiken erfordern.
 
 \subsubsection*{5.2.1 Konföderation und Interoperabilität}
 
-Unabhängige Bereitstellungen könnten ihre eigenen Register, Schnittstellen, Routendienste und Richtlinienprofile betreiben und gleichzeitig kompatible Daten- und Empfangsstandards auswählen. Die Profilübergreifende Ausführung würde weiterhin vom Einsatz abhängig bleiben.
+Unabhängige Bereitstellungen können eigene Register, Benutzeroberflächen, Routing-Dienste und Richtlinienprofile betreiben und zugleich kompatible Daten- und Belegstandards wählen. Die aktuelle öffentliche App verwendet ihr konfiguriertes Register- und Dienstprofil. Profilübergreifende Ausführung bleibt bereitstellungsabhängig.
 
 Ein kompatibles Profil würde:
 
@@ -420,6 +430,8 @@ Die Kompatibilität kann die verfügbaren Austauschwege erhöhen und die Abhäng
 \addcontentsline{toc}{subsection}{5.3 Das vorgeschlagene Netz-Rake- und Servicegebührenmodell}
 
 Der aktuelle Protocol v1.1.0 erhebt eine Poolgebühr und, wenn sie konfiguriert ist, eine zusätzliche Protokollgebühr für einen direkten Fonds-Swap. Diese aktuellen Gebühren bleiben unterschiedlich.
+
+Der produktive Tausch über eine Route wendet diese aktuellen Gebühren für jeden Schritt gesondert an und weist sie im Angebot und im Beleg aus. Derzeit kommt keine gesonderte Gebühr für den Routing-Dienst hinzu.
 
 \[
 F \approx \tau \cdot Q_{\mathrm{swap}}
@@ -526,7 +538,9 @@ Bei einem zukünftigen Einsatz könnten Schaltplätze, Zeitversperrungen, Reserv
 
 Die vorgeschlagene Governance sollte die Registrierungs- und Dienstleistungsbefugnisse eingeschränkt und überprüfbar halten. Für gewöhnliche Maßnahmen können Benachrichtigung, Verzögerung, Veröffentlichung von Gründen, Berufung und Korrekturverfahren verwendet werden. Notfallmaßnahmen sollten Aufzeichnungen über Vorfälle erstellen und im Rahmen einer verabschiedeten Politik ablaufen oder überprüft werden.
 
-Kompatible Routenentdeckung könnte mehr Austausch zwischen Fonds ermöglichen. Multi-Hop-Ausführung und Netting erfordern zusätzliche Software, Berechtigung, Grenzen, Fehlerbewältigung und Governance. Mehr notierte oder ausgeführte Swaps würden an sich weder die Erfüllung des Gutscheins noch die soziale Wirkung beweisen.
+Die produktive CLC App und CLC Core bieten jetzt kompatible Routenerkennung und mehrstufige Ausführung innerhalb derselben Blockchain für von Teilnehmern autorisierte Routen im konfigurierten öffentlichen Profil. Angebote berücksichtigen für jeden Schritt Grenzen, Gebühren, Bestände und Simulation. Ein signierter Wallet-Batch wird als Ganzes rückgängig gemacht, wenn ein Aufruf fehlschlägt.
+
+Dieser Dienst erlaubt keinen automatischen Bestandsausgleich der Fonds und keine Kontrolle des Fondsbestands auf Netzwerkebene. Bestandsausgleich, gebündelte Verrechnung, Blockchain-übergreifende HTLC- oder Escrow-Ausführung und gemeinsame Liquiditätsverwaltung würden zusätzliche Befugnisse, Software, Grenzen, Fehlerbehandlung und beschlossene Regeln erfordern. Mehr berechnete oder ausgeführte Tausche belegen für sich allein weder die Erfüllung von Gutscheinen noch soziale Wirkung.
 
 
 \section*{7. Angebotene CLC Stewardship- und Governance-Aktiva}
@@ -706,13 +720,24 @@ Kein Schritt schafft Eigentums-, Rückzahlungs-, Rücktritts-, Abdeckungs-, Belo
 \section*{8. Technischer Umfang und Wachstum}
 \addcontentsline{toc}{section}{8. Technischer Umfang und Wachstum}
 
-Dieses Kapitel beschreibt freiwillige oder vorgeschlagene Arbeiten. Es handelt sich nicht um eine Liste von Merkmalen, die in der aktuellen CLC App oder Protocol v1.1.0 garantiert vorhanden sind.
+Dieses Kapitel trennt den aktuellen produktiven Routing-Dienst von optionalen oder vorgeschlagenen Erweiterungen. Eine hier als aktuell beschriebene Fähigkeit gilt für die öffentliche Bereitstellung von CLC App und CLC Core; sie ist nicht automatisch eine Eigenschaft der Verträge von Protocol v1.1.0 oder einer anderen Bereitstellung.
 
-Zu den möglichen Arbeitsbereichen gehören:
+Der derzeitige öffentliche Einsatz umfasst:
 
 \begin{itemize}[leftmargin=*]
-\item Ausführungsrouting über kompatible Fonds hinweg mit Registrierung, Angebot, Begrenzung, Gebühr und Inventarentdeckung
-\item Zeitverbindlich eingeschlossene Aufbewahrungs- oder HTLC-Adapter für die interdomainübergreifende Ausführung, wenn keine atomare Abwicklung verfügbar ist;
+\item graphgestützte Erkennung von Gutscheinen, die über kompatible Fonds erreichbar sind;
+\item verbindliche Angebote auf Grundlage eines festgelegten Blocks für ausgewählte Routen innerhalb derselben Blockchain;
+\item Berechnung der Fonds- und Protokollgebühren, Mindestausgaben und Fristen je Schritt;
+\item Simulation des vollständigen Batchs, Signatur durch den Teilnehmer und weitergeleitete Calibur-Ausführung;
+\item eine Transaktion innerhalb derselben Blockchain, die sämtliche Routenaufrufe rückgängig macht, wenn ein Aufruf fehlschlägt; und
+\item zusammengefasste Belege und Abstimmung der Abwicklungsereignisse jedes Schritts.
+\end{itemize}
+Mögliche Wachstumsbereiche sind:
+
+\begin{itemize}[leftmargin=*]
+\item zeitgebundene Escrow- oder HTLC-Adapter für Blockchain-übergreifende Ausführung, wenn keine atomare Abwicklung verfügbar ist;
+\item zusätzliche Register- oder Richtlinienprofile und profilübergreifendes Routing;
+\item freiwilliger Bestandsausgleich der Fonds und gebündelte Verrechnung;
 \item Schnittstellen und politische Instrumente für kleine oder persönliche Fonds;
 \item Überprüfbare Register für Gutscheine, Fonds, Wechselkursmethoden, Limits, Verantwortliche und Gebühren;
 \item Bereitstellungsspezifische Zahlungsanbieter-Konnektoren, Checkout-Flows und Förderfähigkeitskontrollen;
@@ -721,28 +746,34 @@ Zu den möglichen Arbeitsbereichen gehören:
 \end{itemize}
 Die Preise auf dem Außenmarkt würden nicht bestimmen, was ein Emittent im Rahmen von Gutscheinen schuldet. Ein Fonds könnte eine geschützte externe Referenz für ein fungibles Vermögenswert verwenden, aber seine veröffentlichte Wechselkursmethode, Grenzen, Gebühren und Inventar würden seine Angebote regeln.
 
-\subsection*{8.1 vorgeschlagene Strecken- und SDK-Normen}
-\addcontentsline{toc}{subsection}{8.1 vorgeschlagene Strecken- und SDK-Normen}
+\subsection*{8.1 Aktueller Routing-Dienst und weitergehende Standards}
+\addcontentsline{toc}{subsection}{8.1 Aktueller Routing-Dienst und weitergehende Standards}
 
-\textbf{Die Entdeckung.} Ein vorgeschlagener Routendienst würde identifizierte Register für die Aufnahme von Vermögenswerten, Wechselkursmethoden, Grenzen, Gebühren, Bestand, Vorfälle und Daten des Controllers abfragen. Cached-Aufzeichnungen würden Frischheitsgrenzen und Quell-Identifikatoren enthalten.
+\textbf{Routenerkennung.} CLC Core verwaltet einen abgestimmten Graphen aus konfigurierten Katalogen, Registerbeziehungen, Fondsparametern, Gebühren, Grenzen, Salden und Blockchain-Ereignissen. CLC Core schätzt, was die aktive Wallet erreichen kann, und kennzeichnet veraltete Daten. Die öffentliche Konfiguration durchsucht Routen mit bis zu drei Schritten. Die Erkennung ist kein ausführbares Versprechen.
 
-\textbf{Netzwerkprofile.} Ein Client kann mehr als ein Registerroot- oder Richtlinienprofil unterstützen. Es würde dem Teilnehmer mitteilen, welches Profil, Gegenparteien, Adapter, Einschränkungen und verantwortungsbewusste Dienstleister ein Angebot verwendet. Eine Profilübergreifende Strecke müsse alle geltenden Bedingungen für den Hop erfüllen.
+\textbf{Verbindliches Angebot.} Für eine ausgewählte Route liest CLC Core die beteiligten Fonds in einem festgelegten Block und bildet die unterstützte \texttt{SwapPool}-Arithmetik nach. CLC Core weist Fonds- und Protokollgebühren aus, setzt Mindestausgaben je Schritt und eine Frist, bereitet die Wallet-Aufrufe vor und simuliert den vollständigen Batch. Nicht unterstützte Tokens, Kursanbieter, Wallets oder Fondsbedingungen werden abgelehnt.
 
-\textbf{Die Pfadpolitik.} Ein verantwortungsbewusster Betreiber könnte unsichere Abhängigkeiten oder Gegenparteien ausschließen und Grenzwerte für die Strecke, die Anforderungen an die Frische und die Gesundheitskriterien anwenden. Diese Signale würden eine Entscheidung unterstützen. Sie garantieren weder Erfüllung noch Schutz vor Verlust.
+\textbf{Aktuelle Ausführung.} Der Teilnehmer signiert einen Calibur-Batch, der für jeden Schritt das Zurücksetzen und Erteilen der Freigabe sowie eine begrenzte Abhebung enthält. Ein Relayer übermittelt eine Transaktion innerhalb derselben Blockchain, bei der \texttt{revertOnFailure} aktiviert ist. Das bewirkt für die aktuelle Route ein Alles-oder-nichts-Verhalten auf Transaktionsebene. Es handelt sich weder um Blockchain-übergreifende Atomizität noch um HTLC- oder Escrow-Routing, automatischen Bestandsausgleich oder Verrechnung.
 
-\textbf{Gebühren und Grenzen.} Ein Angebot würde die Poolgebühren, alle zusätzlichen aktuellen Protokollgebühren und alle separat vorgeschlagenen Routing- oder Servicegebühren auflösen. Die Vollstreckung würde verfallene Angebote oder verletzte Grenzen ablehnen.
+\textbf{Belege und Betrieb.} Die App fasst die Route unter einer Tracking-ID zusammen und erfasst Transaktionsstatus, Reihenfolge der Schritte, Fonds, Tokenpaare, angebotene und abgewickelte Beträge, Fondsgebühren, Protokollgebühren und verbleibende Zwischenbestände. Der Dienst überwacht die Aktualität des Graphen, Ergebnisse der Routensuche und Kursberechnung, Simulationsfehler, Dauer und Korrekturen der Abstimmung sowie ungeklärte oder unbekannte indexierte Einträge. Betriebliche Messdaten belegen keine Erfüllung durch einen Herausgeber.
 
-\textbf{Atomität und Wiederherstellung.} Multi-Hop-Ausführung wäre Atom, wenn möglich. Wenn sie HTLCs oder Treuhänder verwendet hat, würde der Dienst Zeiträume, Abbrechungswege, verantwortliche Controller, Vorfallverfahren und Restrisiken offenlegen.
+\textbf{Netzwerkprofile.} Ein Client könnte mehr als eine Registerwurzel oder ein Richtlinienprofil unterstützen. Er würde dem Teilnehmer mitteilen, welches Profil, welche Gegenparteien, Adapter, Einschränkungen und verantwortlichen Dienstleister ein Angebot verwendet. Eine profilübergreifende Route müsste die Bedingungen jedes beteiligten Schritts erfüllen.
 
-\textbf{Angebotene Partie-Vernetzung und Neuausgewogenheit.} Ein Opt-In-Dienst kann Absichten zur Wiedergewogenheit sammeln und nach kompatiblen Zyklen oder Ketten suchen. Es würde:
+\textbf{Routenrichtlinie.} Ein verantwortlicher Betreiber könnte unsichere Abhängigkeiten oder Gegenparteien ausschließen und Routengrenzen, Aktualitätsanforderungen und Zustandskriterien anwenden. Diese Signale würden eine Entscheidung unterstützen, aber weder Erfüllung noch Schutz vor Verlust garantieren.
+
+\textbf{Gebühren und Grenzen.} Das aktuelle Angebot weist für jeden Schritt Fondsgebühren und etwaige zusätzliche Protokollgebühren aus. Die öffentliche App erhebt derzeit keine gesonderte Gebühr für den Routing-Dienst. Jede zukünftige Servicegebühr würde gesondert offengelegt. Die Ausführung lehnt abgelaufene Angebote oder überschrittene Grenzen ab.
+
+\textbf{Blockchain-übergreifende Atomizität und Wiederherstellung.} Kann eine zukünftige Route den aktuellen atomaren Batch innerhalb derselben Blockchain nicht verwenden und setzt stattdessen HTLCs oder Escrow ein, würde der Dienst Fristen, Abbruchwege, verantwortliche Kontrolleure, Vorfallverfahren und verbleibende Risiken offenlegen.
+
+\textbf{Vorgeschlagene gebündelte Verrechnung und Bestandsausgleich.} Ein freiwilliger Dienst könnte Absichten zum Bestandsausgleich erfassen und nach kompatiblen Zyklen oder Ketten suchen. Er würde:
 
 \begin{enumerate}[leftmargin=*]
-\item eine maschinenlesbare Quittung veröffentlichen, in der ausgeführte Zyklen, Vermögenswerte, Beträge, Bewertungszeiten und Gebühren identifiziert werden;
-\item Durchsetzung der festgelegten Periodengrenzen und der Gegenparteienpolitik;
-\item eine Tätigkeit ablehnen, die gegen die Genehmigung, die Grenzen oder die verfügbaren Bestände des teilnehmenden Fonds verstößt; und
-\item Erhalt der deterministischen Eingaben und Einnahmen für die Überprüfung und die Bearbeitung von Streitigkeiten.
+\item einen maschinenlesbaren Beleg veröffentlichen, der ausgeführte Zyklen, Vermögenswerte, Beträge, Bewertungszeitpunkte und Gebühren nennt;
+\item beschlossene Grenzen je Zeitraum und Richtlinien für Gegenparteien durchsetzen;
+\item Aktivitäten ablehnen, die gegen Autorisierung, Grenzen oder verfügbare Bestände eines beteiligten Fonds verstoßen; und
+\item deterministische Eingaben und Belege für Prüfung und Streitbehandlung aufbewahren.
 \end{enumerate}
-\textbf{SDK-Anforderungen.} Eine SDK für ausgeführte Strecken würde eine deterministische Quote-to-Receipt-Mapping, pro-Hop-Invariante-Kontrollen, verständliche Fehlercodes und auditierungsfreundliche Logs bereitstellen. Der aktuelle Protocol v1.1.0 \texttt{SwapRouter} enthält nur Zitate; es führt diese vorgeschlagenen Strecken nicht durch.
+\textbf{SDK- und Schnittstellenanforderungen.} Eine wiederverwendbare Routing-Integration sollte eine deterministische Zuordnung von Angebot zu Beleg, Invariantenprüfungen je Schritt, verständliche Fehlercodes und prüffreundliche Protokolle bereitstellen. Die aktuelle produktive Implementierung von App und CLC Core bietet diese Funktionen für ihr eigenes Profil. Der Solidity-\texttt{SwapRouter} von Protocol v1.1.0 bleibt auf Kursangebote beschränkt und führt die Route nicht aus.
 
 \subsubsection*{8.1.1 Mindestkonföderationskompatibilitätsspezifikation}
 
@@ -792,6 +823,8 @@ Ein zukünftiger Netzebudget könnte Folgendes erhalten:
 \item sonstige ausdrücklich erlassene Einnahmen.
 \end{enumerate}
 Brutto-Fonds-Gebühren, die von Fonds aufbewahrt werden, sind keine Einnahmen aus dem Netzwerk. Der aktuelle Protocol v1.1.0 verwendet ein anderes Modell: Eine optionale Protokollgebühr ergänzt die Poolgebühr und wird direkt an den konfigurierten Empfänger gesendet.
+
+Der produktive Routing-Ablauf der CLC App erhebt keine gesonderte Gebühr für den Routing-Dienst. Bei einem Tausch über eine Route können dennoch für jeden Schritt eine Fonds- und eine Protokollgebühr anfallen. Diese aktuellen Gebühren je Schritt dürfen weder als vorgeschlagener Netzwerkanteil bezeichnet noch nochmals als zukünftige Serviceeinnahmen gezählt werden.
 
 \subsection*{9.2 Illustrative Rake Mathematik}
 \addcontentsline{toc}{subsection}{9.2 Illustrative Rake Mathematik}
@@ -906,10 +939,12 @@ Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC w�
 \addcontentsline{toc}{subsection}{10.7 Routing- und Cross-Domain-Risiko}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Bedrohungen:} Teilweise Ausführung, festgehaltenen Hops, Bridge- oder Escrow-Exploits, veraltete Zitate, Inflation und Vorlauf der angekündigten Werteänderungen.
-\item \textbf{Indikatoren:} die Verfallraten der Strecke, die Verzögerungen, die Quote-to-Exécution-Unterschiede, wiederholte unnötige Sprünge und Brückenvorfälle.
-\item \textbf{Mögliche Kontrollen:} Atomische Ausführung, soweit verfügbar; konservative HTLC oder Treuhandzeiträume; Pfad- und Gegenparteienpolitik; Grenzwerte für den Fahrweg; Deterministische Quote-to-Receipt-Mapping; und verantwortungsbewusste Dienstleister.
-\item \textbf{Stressuntersuchungen:} Ein Brückenstop, eine Kettenreorganisation, Abhängigkeitsunterbrechung und ein gescheiterter Sprung in einer vorgeschlagenen Multi-Hop Route.
+\item \textbf{Aktuelle Risiken innerhalb derselben Blockchain:} veraltete Erkennungsdaten, unzureichende Bestände, Änderungen an Grenzen oder Zulassungen, abgelaufene Angebote, nicht unterstützte Wallets oder Abhängigkeiten, Simulationsfehler, Relayer-Ausfälle, Blockchain-Reorganisation und unnötig lange Routen.
+\item \textbf{Aktuelle Kontrollen und Nachweise:} Angebote auf Grundlage eines festgelegten Blocks, Simulation des vollständigen Batchs, Mindestausgaben und Fristen je Schritt, ein signierter Calibur-Batch mit \texttt{revertOnFailure}, deterministisch zusammengefasste Belege, Abstimmung und eindeutige Fehlercodes. Diese Kontrollen mindern ausgewählte Ausführungsrisiken, garantieren aber weder Verfügbarkeit noch Erfüllung durch den Herausgeber.
+\item \textbf{Vorgeschlagene Blockchain-übergreifende Risiken:} teilweise Ausführung über verschiedene Bereiche, steckengebliebene Schritte, Ausnutzung von Bridges, HTLCs oder Escrow, nicht abgestimmte Fristen und Streit über die Wiederherstellung.
+\item \textbf{Indikatoren:} Ergebnisse von Routenerkennung und Kursberechnung, Abweichungen zwischen Angebot und Ausführung, Routentiefe, Simulationsfehler, Rückabwicklungen, Abstimmungsschwierigkeiten, wiederholte unnötige Schritte und -- bei zukünftigen Blockchain-übergreifenden Systemen -- Rückstände und Bridge-Vorfälle.
+\item \textbf{Mögliche zusätzliche Kontrollen:} Richtlinien für Routen und Gegenparteien, Routengrenzen, verantwortliche Dienstleister sowie konservative Regeln für Fristen, Abbruch und Wiederherstellung bei HTLC oder Escrow.
+\item \textbf{Stresstests:} veralteter Graphzustand, Ausfall einer Abhängigkeit, ein fehlgeschlagener Schritt im aktuellen atomaren Batch, eine Blockchain-Reorganisation und -- bei einer zukünftigen Blockchain-übergreifenden Route -- ein Bridge-Ausfall oder abgelaufener Escrow.
 \item \textbf{Risikobereitschaft:} nur bei identifizierten und überwachten Abhängigkeiten niedrig bis mäßig.
 \end{itemize}
 \subsection*{10.8 Verwahrungs- und Schlüsselverwaltungsrisiko}
@@ -1136,50 +1171,71 @@ Dies ist eine illustrative Checkliste für ein zukünftiges, separat dokumentier
 \item \textbf{Das Zeichen:} Ein Bilanz in der Kette oder ein digitales Vermögen. Die Token-Mechanik allein schafft kein einlösbares Versprechen.
 \item \textbf{Gutschein:} Ein Token oder eine Aufzeichnung, die von einem Emittenten als ein einlösbares Engagement unter veröffentlichten Bedingungen dargestellt wird.
 \item \textbf{Das Angebot:} Ein Katalogbuch für Waren oder Dienstleistungen, die mit einem Gutschein verbunden sind.
+\item \textbf{Wunsch:} Ein veröffentlichter Bedarf. Ein Wunsch nimmt nicht von selbst ein Angebot oder einen Gutschein an, genehmigt keinen Tausch, stellt keine Bestände bereit und schafft keine Verpflichtung.
 \item \textbf{Aussteller:} Die für die Veröffentlichung und Erfüllung eines Gutscheinsverpflichtens zuständige Partei.
 \item \textbf{Fonds-Verantwortliche Person:} Die verantwortliche Struktur, die Fonds-Regeln veröffentlicht und verwaltet.
+\item \textbf{Register:} Ein Datensatz zur Auffindbarkeit und Berechtigung identifizierter Verträge, Fonds, Tokens oder anderer Ressourcen. Die Aufnahme ist für sich allein weder Empfehlung noch Nachweis von Leistungsfähigkeit, Erfüllung, Garantie oder Versicherung.
 \item \textbf{Fonds Wechselkurs oder Quote:} Ein Transaktionsparameter, der durch einen konfigurierten Anbieter erzeugt wird; kein Beweis für Bargeld oder Rückzahlungswert.
-\item \textbf{Fonds-Token-Gleichgewichtsdeckung:} Der aktuelle Maximum \texttt{Limiter} für ein Token, das von einem Fonds gehalten wird. Die App kann sie markieren \textbf{ Kreditbegrenzung.''}
+\item \textbf{Wertindex:} Ein relativer Bewertungsfaktor, den ein konfigurierter Kursanbieter zur Berechnung eines Fonds-Wechselkurses verwendet. Er ist nicht automatisch ein Marktpreis, Bargeldwert oder eine Verpflichtung des Herausgebers.
+\item \textbf{\texttt{Limiter}:} Die optionale Komponente von Protocol v1.1.0, die den Höchstsaldo eines Tokens in einem Fonds festlegt. Die App kann diese Obergrenze als \textbf{„Kreditlimit``} bezeichnen. Es handelt sich weder um ein persönliches Kreditlimit noch um ein gleitendes Limit auf Netzwerkebene.
 \item \textbf{Fonds-Swap:} Ein direkter Anlagenaustausch über einen \texttt{SwapPool}.
+\item \textbf{Route:} Ein geordneter Weg aus einem oder mehreren Fonds-Tauschen von einem Eingabegutschein in einer Wallet zu einem Zielgutschein.
+\item \textbf{Routentiefe:} Die Anzahl der Fonds-Tausche auf einer Route. Die aktuelle öffentliche Bereitstellung sucht Routen mit bis zu drei Schritten.
+\item \textbf{Routenerkennung:} Eine Schätzung möglicher Wege anhand eines abgestimmten Graphen und der Wallet-Bestände. Eine erkannte Route ist kein ausführbares Versprechen.
+\item \textbf{Routenangebot:} Ein zeitlich begrenzter, verbindlicher Vorschlag für eine ausgewählte Route. Er wird aus dem unterstützten Fonds-Zustand in einem festgelegten Block berechnet und vor der Signatur simuliert.
+\item \textbf{Tausch über eine Route:} Eine vom Teilnehmer autorisierte Folge von Fonds-Tauschen. Die aktuelle App übermittelt sie als einen Calibur-Wallet-Batch innerhalb derselben Blockchain, dessen Aufrufe gemeinsam rückgängig gemacht werden, wenn einer fehlschlägt.
+\item \textbf{Routenbeleg:} Eine zusammengefasste technische Aufzeichnung von Routenstatus, Transaktionshash, Schritten, abgewickelten Beträgen und Fonds- sowie Protokollgebühren je Schritt.
+\item \textbf{Liquidität:} Geeignete Ausgabebestände eines Fonds, die nach dem aktuellen Zulassungs-, Saldenlimit-, Kurs-, Gebühren-, Reserve- und Abhebungszustand verfügbar sind. Eine Kante im Graphen oder ein Token-Saldo allein belegt keine nutzbare Liquidität.
 \item \textbf{Swap-Abwicklung:} Die Überweisungen in der Kette und die Rechnungslegung der Gebühren, die einen Fonds-Swap abschließen.
 \item \textbf{Erlösungsvorlage:} Rückgabe oder sonstige Vorlage von Gutscheineinheiten an den Emittenten.
 \item \textbf{Erfüllung:} Der Emittent liefert das versprochene Gut, die versprochene Dienstleistung, die versprochene Leistung oder eine andere Leistung.
 \item \textbf{Ausbuchung:} Eine Aufzeichnung, die verhindert, dass ausgefüllte Einheiten erneut vorgestellt werden.
-\item \textbf{Angebotene Ausführungsrouter:} Zukunftssoftware, die Routen autorisieren und ausführen würde. Nur die aktuellen Zitate von \texttt{SwapRouter}.
+\item \textbf{Solidity-\texttt{SwapRouter}:} Der Vertrag von Protocol v1.1.0 kann Kursangebote über eine vorgegebene Route berechnen, verwahrt aber keine Vermögenswerte, genehmigt keine Tokens und führt keine Tausche aus.
+\item \textbf{Routing-Ablauf der App:} Der aktuelle Dienst von CLC App und CLC Core erkennt, berechnet, simuliert, vorbereitet, leitet weiter, stimmt ab und dokumentiert Routen innerhalb derselben Blockchain oberhalb der Fondsverträge.
+\item \textbf{Bestandsausgleich:} Bewegung von Fondsbeständen zu beschlossenen Zielwerten im Rahmen eines vom Fonds-Verantwortlichen genehmigten Mandats. Das aktuelle, von Teilnehmern ausgelöste Routing erlaubt für sich allein keinen automatischen Bestandsausgleich.
+\item \textbf{Verrechnung:} Kombination mehrerer Verpflichtungen oder beabsichtigter Übertragungen zur Berechnung verringerter Nettopositionen. Sie ist nicht Teil des aktuellen Tauschs über eine Route durch App und CLC Core.
+\item \textbf{Abhilfe:} Verantwortliches Verfahren zur Berichtigung einer Konfiguration, eines Registereintrags, eines Dienstfehlers, eines Streits oder einer nicht erfüllten Verpflichtung innerhalb einer benannten Zuständigkeit. Die Berichtigung eines Registers oder Routing-Dienstes ändert nicht stillschweigend die Regeln eines unabhängigen Fonds und bucht keine Verpflichtung eines Herausgebers aus.
 \item \textbf{Der vorgeschlagene Netzwerkpool CLC:} Eine zukünftige Regelung zur Clearing und zur Koordinierung des Budgets auf Ebene des Netzes.
 \item \textbf{Das vorgeschlagene CLC Governance-Token:} Ein zukünftiges Governance-Design, nicht ein aktuelles App- oder Protocol v1.1.0-Asset.
 \item \textbf{Netzwerkanteil:} Ein vorgeschlagener Anteil der Poolgebühren, der auf einen zukünftigen Netzbudget übertragen wird.
 \item \textbf{Garantie oder Versicherung:} Ein Schutz, der nur dann gilt, wenn eine identifizierte Partei es ausdrücklich übernimmt, finanziert und veröffentlicht.
 \end{itemize}
 
-\section*{14. vorgeschlagene KPIs und Gesundheitsindikatoren}
-\addcontentsline{toc}{section}{14. vorgeschlagene KPIs und Gesundheitsindikatoren}
+\section*{14. KPI und Zustandsindikatoren}
+\addcontentsline{toc}{section}{14. KPI und Zustandsindikatoren}
 
-Eine Bereitstellung sollte eine KPI nur dann veröffentlichen, wenn sie das Ereignis, die Quelle, die Kohorte oder den Zeitraum, die Einheit, die Bewertungsmethode und das Zeitstempel, die Ausschlüsse, die Korrekturpolitik, die außerhalb der Kette vorhandenen Beweise und die Datenqualitätsbeschränkungen definieren kann.
+Eine Bereitstellung sollte einen KPI nur veröffentlichen, wenn sie Ereignis, Quelle, Kohorte oder Zeitraum, Einheit, Bewertungsmethode und -zeitpunkt, Ausschlüsse, Korrekturrichtlinie, Nachweise außerhalb der Blockchain und Grenzen der Datenqualität definieren kann.
 
-Zu den vorgeschlagenen Maßnahmen gehören:
+Aktuelle Routing-Dienste können Ereignisse der Erkennung, Kursberechnung, Ausführung, Abwicklung und Abstimmung messen. Die Erfüllung von Gutscheinen und soziale Ergebnisse erfordern weiterhin gesonderte Nachweise. Zu den empfohlenen Messgrößen gehören:
 
 \begin{itemize}[leftmargin=*]
-\item gültige Erlösungsvorlagen;
-\item Kohortenbasierte Erfüllungsrate;
+\item gültige Einlösungsvorlagen;
+\item Erfüllungsrate nach Kohorten;
 \item Vollständigkeit der Ausbuchung;
-\item Verzögerung von Vorlage zu Erfüllung;
-\item Dauer des Bestands von Erwerb bis zur Einreichung;
-\item ausstehende förderfähige Verpflichtungen nach einer angegebenen Methodik;
-\item abgeschlossenes Fonds-Swap-Volumen;
-\item gemessenes Fonds-Inventar;
-\item Nutzung der Fonds-Token-Balance-Cap;
-\item die Quotepassrate, getrennt von der Streckenausführungsrate gehalten;
-\item berechtigte Reserven aufgeteilt nach ausdrücklich gedeckten Risikopositionen;
-\item Gewährleistungsansprüche und Rückerstattungen im Rahmen einer identifizierten Politik;
-\item die tatsächlich eingegangenen vorgeschlagenen Netzergebühren und Dienstleistungsgebühren, ohne doppelte Bruttogebühren des Fonds;
-\item die Zeiten der Erkennung, Entscheidung, Pause, Reparatur und Schließung der Governance;
-\item Beschwerden, Streitigkeiten, Berichtigungen und Rechtsmittel; und
-\item Die Kommission hat im Rahmen des Berichts über die Auswirkungen der Maßnahmen auf die Umwelt und die Gesundheit der Bevölkerung
+\item Dauer von der Vorlage bis zur Erfüllung;
+\item Haltedauer vom Erwerb bis zur Vorlage;
+\item ausstehende geeignete Verpflichtungen nach einer angegebenen Methode;
+\item Volumen abgeschlossener direkter Fonds-Tausche;
+\item Versuche der Routenerkennung und Anzahl verfügbarer möglicher Routen;
+\item Versuche, Ergebnisse, Tiefe, Ablauf und angebotene Gebühren verbindlicher Routenangebote;
+\item Versuche von Tauschen über Routen, bestätigte und rückgängig gemachte Routen sowie Fehlergründe;
+\item Ein- und Ausgabevolumen der gesamten Route, einmal je Route und nicht einmal je Schritt gezählt;
+\item Abwicklungsbeträge, Fondsgebühren, Protokollgebühren und Zwischenreste je Schritt;
+\item Routeneinschränkungen, darunter unzureichende Liquidität, Fonds-Tokenlimits, nicht unterstützte Abhängigkeiten und Wallet-Einschränkungen;
+\item Aktualität des Graphen, Dauer der Abstimmung, Berichtigungen und Fehler;
+\item gemessene Fondsbestände;
+\item Nutzung der Fonds-Tokenlimits;
+\item Erfolgsraten von Erkennung und Kursangeboten, getrennt von Ausführungs- und Abwicklungsraten der Routen;
+\item geeignete Reserven geteilt durch ausdrücklich gedeckte Risiken;
+\item Garantieansprüche und Rückzahlungen nach einer benannten Richtlinie;
+\item aktuelle Fonds- und Protokollgebühren je Schritt, getrennt von einem vorgeschlagenen Netzwerkanteil oder zukünftigen Servicegebühren;
+\item Zeiten für Erkennung, Entscheidung, Pause, Abhilfe und Abschluss in der Governance;
+\item Beschwerden, Streitigkeiten, Berichtigungen und Abhilfen; und
+\item gesondert nachgewiesene soziale oder ökologische Ergebnisse.
 \end{itemize}
-Die Daten über Transaktionen in der Kette beweisen nicht von selbst Identität, Leistung des Emittenten, Zufriedenheit, Kausalität, Gesundheit der Gemeinschaft oder soziale Auswirkungen. Diese Behauptungen erfordern ihre eigene Methodik und Beweise.
+Transaktionsdaten auf der Blockchain belegen für sich allein weder Identität, Leistung eines Herausgebers, Zufriedenheit, Kausalität, Gesundheit einer Gemeinschaft noch soziale Wirkung. Solche Aussagen benötigen eigene Methoden und Nachweise.
 
-Siehst du ? \href{https://docs.cosmolocal.credit/de/white-paper/appendix-c-kpi-definitions}{Anhang C} für die vorgeschlagene Messspezifikation.
+Die vorgeschlagene Messspezifikation steht in \href{https://docs.cosmolocal.credit/de/white-paper/appendix-c-kpi-definitions}{Anhang C}.
 
 
 \section*{15. Fahrplan (Anzeige)}
@@ -1188,9 +1244,11 @@ Siehst du ? \href{https://docs.cosmolocal.credit/de/white-paper/appendix-c-kpi-d
 \subsection*{15.1 Aktuelle Grundlagen}
 \addcontentsline{toc}{subsection}{15.1 Aktuelle Grundlagen}
 
-GEF betreibt die CLC App bei \texttt{cosmolocal.credit} auf der Gnosis Chain. Die App bietet Zugang zu unterstützten Konten und Geldbörsen, einen öffentlichen Marktkatalog und Schnittstellen für Token, Gutscheine, Angebote, Commitment-Fonds, Überweisungen und direkte Fonds-Swaps.
+GEF betreibt die CLC App unter \texttt{cosmolocal.credit} auf Gnosis Chain. Die App bietet unterstützten Zugang zu Konten und Wallets, einen öffentlichen Markt-Katalog sowie Benutzeroberflächen für Tokens, Gutscheine, Angebote, Wünsche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen.
 
-Protocol v1.1.0 stellt die derzeitige Vertragsgrundlage dar: \texttt{GiftableToken}, direkte Ausführung von \texttt{SwapPool}, optionale Registrierungen, Bewertungsmodule, Fonds-Token-Balance-Caps, Fonds-Gebühren, eine zusätzliche Protokollgebühr und nur ein Zitat \texttt{SwapRouter}. Die Verfügbarkeit hängt immer noch von der Schnittstelle, den implementierten Verträgen, dem Inventar, der Konfiguration, dem Netzwerkstatus, der Berechtigung, den Anbietern, der Gerichtsbarkeit und den veröffentlichten Emittenten- oder Poolbedingungen ab.
+Protocol v1.1.0 stellt die aktuelle Vertragsgrundlage bereit: \texttt{GiftableToken}, direkte Ausführung über \texttt{SwapPool}, optionale Register, Bewertungsmodule, Fonds-Tokenlimits, Fondsgebühren, eine zusätzliche Protokollgebühr und einen Solidity-\texttt{SwapRouter}, der nur Kursangebote erstellt.
+
+CLC Core stellt jetzt die Grundlage der öffentlichen App für Routing und Beobachtbarkeit innerhalb derselben Blockchain bereit: einen abgestimmten Graphen, Routen mit bis zu drei Fonds-Tauschen, Angebote auf Grundlage eines festgelegten Blocks, Grenzen und Gebühren je Schritt, Simulation des vollständigen Batchs, signierte atomare Calibur-Ausführung, Relayer-Verfolgung, Abstimmung der Abwicklung, zusammengefasste Belege und betriebliche Messdaten. Die Verfügbarkeit hängt weiterhin von Benutzeroberfläche, unterstütztem Wallet- und Tokenverhalten, bereitgestellten Verträgen, Beständen, Konfiguration, Aktualität des Dienstes, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
 
 \subsection*{15.2 vorgeschlagene Meilensteine}
 \addcontentsline{toc}{subsection}{15.2 vorgeschlagene Meilensteine}
@@ -1199,13 +1257,13 @@ Diese genannten Meilensteine sind Entwurfsanweisungen, nicht Veröffentlichungsn
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Die Stiftung Governance:} der vorgeschlagene Governance-Token CLC; der vorgeschlagene CLC-Netzwerkpool; Gebührenadapter; Die Kommission hat in ihrem Bericht eine Reihe von Vorschlägen vorgelegt, mit denen sie sich auf die Erörterungen der Kommission und der Kommission bezieht.
-\item \textbf{Routing \& Beobachtbarkeit} Router SDK und Register-API; Gesundheitsdashboards; einen vorgeschlagenen Rahmen für die Versicherungspolitik; die Absichten für die Wiederaufnahme des Gleichgewichts; Prototypen für das Batchnetzen.
+\item \textbf{Routing \& Beobachtbarkeit:} aktuelle Routen- und Belegschnittstellen auf zusätzliche Profile ausweiten; Zustandsübersichten und Berichte auf Dienstebene veröffentlichen; einen Rahmen für Versicherungsrichtlinien entwickeln; freiwillige Absichten zum Bestandsausgleich entwerfen; und gebündelte Verrechnung prototypisch erproben.
 \item \textbf{Cross-Domain-Risiko-Tools:} HTLC oder Treuhandverweisung; getrennte Bürgschaftsmodule; Roll-, Konto- und Stufengrenzvoranschläge.
 \item \textbf{Regulierter Zugang:} die bereitstellungsspezifischen Zahlungsdienste Dritter; persönliche Mikro-Fonds; die Entdeckung des Compliance-Service; Prüfungen der Gutscheinklassen durch Dritte.
 \end{itemize}
 Jeder Zahlungsdienst würde von separat identifizierten Dritten unter der geltenden Gerichtsbarkeit, Berechtigung, Gebühren, Grenzen und Bedingungen erbracht werden. Die CLC App- und Protocol v1.1.0-Verträge betreiben selbst keine Fiat-Schienen.
 
-Die Multi-Hop-Ausführung, die geteilte Versicherung, das vorgeschlagene CLC Governance-Token und der vorgeschlagene CLC Network Fonds, das Batch-Netting, die persönlichen Mikro-Fonds und die regulierten Zahlungsdienste bleiben vorgeschlagen oder deployment-abhängig, bis eine Implementierung und ihre Regelungsbedingungen sie als aktiv identifizieren.
+Blockchain-übergreifende mehrstufige Ausführung, automatischer Bestandsausgleich der Fonds, gemeinsame Versicherung, der vorgeschlagene CLC-Governance-Token und der vorgeschlagene CLC-Netzwerkfonds, gebündelte Verrechnung, persönliche Mikro-Fonds und regulierte Zahlungsdienste bleiben vorgeschlagen oder bereitstellungsabhängig, bis eine Umsetzung und ihre geltenden Bedingungen sie als aktiv ausweisen. Von Teilnehmern ausgelöstes Routing innerhalb derselben Blockchain in der öffentlichen CLC App ist aktuell.
 
 
 \section*{16. Angebotene Bewertungsvorlage}
@@ -1289,9 +1347,9 @@ Funktionen können aufgrund von Gesetzen, Sanktionen, Förderfähigkeit, Vertrag
 \section*{18. Fazit}
 \addcontentsline{toc}{section}{18. Fazit}
 
-Cosmo-Local Credit verbindet eine aktuelle Anwendung und Protocol v1.1.0-Stiftung mit einem breiteren vorgeschlagenen Entwurf für unabhängig regiertes Commitment-Fonds. Aktuelle Direkt-Fonds-Swaps, Angebot- und Grenzkomponenten und öffentliche Transaktionsunterlagen können einen verantwortungsvollen Austausch unterstützen, beweisen jedoch nicht die Erfüllung durch den Emittenten, schaffen keine Beitragsrechte oder garantieren Wert, Liquidität, Rückzahlung, Versicherung, Rechtsstatus oder Schutz vor Verlusten.
+Cosmo-Local Credit verbindet eine aktuelle Anwendung und die Grundlage von Protocol v1.1.0 mit einem weitergehenden vorgeschlagenen Entwurf für unabhängig verwaltete Commitment-Fonds. Aktuelle direkte Fonds-Tausche und Tausche über Routen durch App und CLC Core können Gutscheine von Teilnehmern über mehrere Fonds verbinden, wobei Regeln, Gebühren, Grenzen, Abwicklungsdaten und Governance jedes Schritts getrennt bleiben. Diese Transaktionen belegen weder die Erfüllung durch den Herausgeber, noch schaffen sie Rechte für Beitragende oder garantieren Wert, Liquidität, Einlösung, Versicherung, Rechtsstatus oder Schutz vor Verlust.
 
-Die in diesem Papier beschriebenen vorgeschlagenen Ausführungsrouting, Netting, Governance Assets, Network Clearing, Liquiditätsprogramme und geteilten Schutzmaßnahmen erfordern eine separate Umsetzung, Finanzierung, Governance und veröffentlichte Bedingungen. Die Konstruktion zielt darauf ab, die Interoperabilität zu erweitern und gleichzeitig die Leistung der Emittenten, die Fonds-Governance und die Rechenschaftspflicht mit den identifizierten Parteien zu gewährleisten.
+Vorgeschlagenes Blockchain-übergreifendes Routing, automatischer Bestandsausgleich der Fonds, Verrechnung, Governance-Vermögenswerte, Netzwerkverrechnung, Liquiditätsprogramme und gemeinsame Schutzmaßnahmen würden eine gesonderte Umsetzung, Finanzierung, Governance und veröffentlichte Bedingungen erfordern. Der Entwurf soll die Interoperabilität erweitern und zugleich die Leistung der Herausgeber, die Fonds-Governance und die praktische Verantwortung bei den benannten Parteien belassen.
 
 
 \section*{A.  Das vorgeschlagene Mess- und Gebührenmodell}
@@ -1427,12 +1485,19 @@ KPI & vorgeschlagene Definition & Erforderliche Beweise und Ausschlüsse \\
 \textbf{Erfüllungslatenz} & Median und 90er Perzentil der Vorlage-zu-Erfüllungszeit & Ersetzen Sie nicht die Aufbewahrungszeit von Emission bis Vorlage oder von Erwerb bis Vorlage \\
 \textbf{Aufbewahrungsdauer} & Median und Verteilung der Zeit vom Erwerb bis zur Vorlage & Identifizieren Sie das Akquisitionsereignis und ausschließen Sie unbekannte Akquisitionszeiten \\
 \textbf{Ausstehende förderfähige Verpflichtungen} & Berechtigte Verpflichtungen von Dritten, die nach definierten Ausschlüssen verbleiben & Identität und Bedingungen des Emittenten die einschlägigen Emittenteninventar, Ablauf, Verbrennung, Ausbuchung, Tests und Nichtverpflichtungs-Token ausschließen \\
-\textbf{Volumen des Fonds-Swaps} & Wert der abgeschlossenen direkten Fonds-Swaps unter einer offengelegten Bewertungsmethode & Veranstaltungen für die Zahlung in der Kette, Token-Einheiten, Kursquelle, Zeit; nicht als Emittentenverfüllung eingestuft werden \\
+\textbf{Volumen direkter Fonds-Tausche} & Wert abgeschlossener Tausche, die als Tausch über einen einzelnen Fonds nach einer offengelegten Bewertungsmethode begonnen wurden & Abwicklungsereignisse auf der Blockchain, Token-Einheiten, Kursquelle und Zeitpunkt; nicht als Erfüllung durch den Herausgeber einstufen \\
+\textbf{Versuche der Routenerkennung} & Gültige Anfragen innerhalb eines Zeitraums, erreichbare Gutscheine oder mögliche Routen zu finden & Graphversion, indexierter Block, Aktualität, Wallet-Umfang, gewünschte Tiefe, Anzahl der Ergebnisse, Auslassungen oder Suchbudget; kein verbindliches Angebot \\
+\textbf{Verfügbare mögliche Routen} & Mögliche Routen, die die Erkennung für die festgelegte Anfragekohorte zurückgibt & Jeden einzelnen geordneten Fonds-/Tokenweg zählen; Routentiefe und Ausschlüsse angeben; nicht als ausführbar oder abgewickelt einstufen \\
+\textbf{Erfolgsrate von Routenangeboten} & Zurückgegebene verbindliche Routenangebote geteilt durch gültige Angebotsversuche & Festgelegter Block, Route, Betragsmodus, Ablauf, Ergebnis oder Ablehnungsgrund; getrennt vom Erfolg der Erkennung und Ausführung halten \\
+\textbf{Ausführungsrate von Routen} & Bestätigte geroutete Transaktionen geteilt durch gültige signierte Ausführungsversuche derselben ausgereiften Kohorte & Tracking-ID, Transaktionshash, Übermittlungsstatus, Bestätigung oder Rückabwicklung, Routentiefe und Fehlergrund; nicht signierte Angebote ausschließen \\
+\textbf{Volumen der gesamten Route} & Ein- und Ausgabewert bestätigter Tausche über Routen, einmal je Route gezählt & Abgewickelte Eingabe des ersten Schritts und abgewickelte Ausgabe des letzten Schritts nach einer einheitlichen Bewertungsmethode verwenden; nicht die Werte aller Schritte als unabhängiges Wirtschaftsvolumen addieren \\
+\textbf{Abwicklung je Schritt} & Abgewickelte Eingabe, Bruttoausgabe, Fondsgebühr, Protokollgebühr und Nettoausgabe für jeden Schritt einer bestätigten Route & Geordnete Fonds- und Tokenkennungen, Abwicklungsereignisse, Transaktionshash, Block, Logindex und verbleibende Zwischenbestände \\
+\textbf{Routengebühren} & Aktuelle Fonds- und Protokollgebühren, die tatsächlich über die Route abgewickelt wurden & Jeden Schritt und die Summe nach Gebührenart ausweisen; nicht als vorgeschlagenen Netzwerkanteil oder nicht umgesetzte Servicegebühr bezeichnen \\
+\textbf{Routeneinschränkungen} & Anzahl und Anteil abgelehnter Routen oder Angebote nach benanntem Grund & Zulassung, Einzahlungsgrenze, Liquidität, Gebührendomäne, nicht unterstützter Token oder Kursanbieter, Wallet-Saldo oder -Typ, Gas, Suchbudget, Ablauf, Abweichung oder Simulationsnachweis \\
+\textbf{Zustand der Routenabstimmung} & Aktualität und Zuverlässigkeit des indexierten Graphen und der zusammengefassten Abwicklungsdaten & Graphversion und -alter, Tiefe der Warteschlange für Änderungen, Dauer der Abstimmung, Berichtigungen, Fehler, unbekannte Einträge und ungeklärte Belege \\
 \textbf{Inventar der Fonds} & Bewertete gestützte Vermögenswerte, die ein Fonds zu einem bestimmten Zeitpunkt hält & Vertragssalden, Gebührenvorbehalt, nicht zugängliche Vermögenswerte, Bewertungsmethode und Auszahlungsbefugnisse des Eigentümers \\
 \textbf{Reserven angemessen} & Berechtigte verfügbare Reservenwerte aufgeteilt nach ausdrücklich gedeckten Risikopositionen & die Abdeckungspolitik, die Anspruchsfähigkeit von Vermögenswerten, die Aufbewahrung/Kontrolle, die Verbindlichkeiten, die Ausschlüsse und die Bewertung; nicht die gesamte Tokenversorgung standardmäßig \\
 \textbf{Einsatzbegrenzung} & Messbares Fonds-Token-Guthaben geteilt durch seine aktuell konfigurierte Grenzwerte & Limiter Adresse, Token, Fonds, Zeitstempel, Änderungen und Perioden ohne Begrenzung \\
-\textbf{Quotepass-Rate} & Erfolgreiche Quoteantworten geteilt durch gültige Quoteversuche & Ergebnis nur mit Zitat; keine Streckenausführung \\
-\textbf{Durchführungsrate der Strecke} & Vollständige Multi-Hop-Ausführungen aufgeteilt nach gültigen Ausführungsversuchen & Nur für ein implementiertes Ausführungssystem anwendbar; Berichterstattung über die Regeln für den Prozentsatz und die Atomität \\
 \textbf{Rückgewinnung des Garantiers} & Berechtigte Rückforderung, geteilt nach gezahlten abgedeckten Forderungen & Identifizierter Bürger, Anspruchspolitik, Zeitplan, Kosten, Streitigkeiten und Abschreibungen \\
 \textbf{Angebotene Netzerlöse} & Erhaltene vorgeschlagene Netz-Rake plus erhaltene separate Routing-/Service-Gebühren & Die Brutto-Poolgebühren, die von Fonds aufbewahrt werden, sind ausgeschlossen und die Rake nicht zweimal gezählt wird. \\
 \textbf{Zeitmäßigkeit der Governance} & Zeit, einen Vorfall zu erkennen, zu entscheiden, zu pausieren, zu reparieren und zu schließen & Definition der Uhrzeiten, zuständige Stellen, Notfallbefugnisse, Beschwerden und fehlende Ereignisse \\

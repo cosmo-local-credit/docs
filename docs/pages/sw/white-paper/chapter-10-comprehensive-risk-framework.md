@@ -63,10 +63,12 @@ Kwa kupelekwa baadaye kwa ishara ya utawala iliyopendekezwa ya CLC, mtihani wa k
 
 ### **10.7 Hatari za uelekezaji na ukamilishaji wa hatua nyingi**
 
-- **Tisho:** utekelezaji wa sehemu, hops stuck, bridge au escrow exploits, quotes ya zamani, trajectory inflation, na mbele ya mabadiliko ya thamani alitangaza.
-- **Viashiria:** viwango vya njia ya kukamilika, backlogs escrow, quotation-to-execution tofauti, mara kwa mara hops zisizo za lazima, na matukio daraja.
-- **Udhibiti unaowezekana:** utekelezaji wa atomiki ikiwa inapatikana; HTLC ya kiasi cha muda au muda wa kuweka akiba; njia na sera za wapinzani; vizuizi vya kiwango cha njia; deterministic quote-to-receipt mapping; na waendeshaji wa huduma wanaohusika.
-- **Uchunguzi wa mkazo:** kusimamishwa kwa daraja, urekebishaji wa mnyororo, kukatika kwa utegemezi, na hop moja iliyoshindwa katika njia iliyopendekezwa ya hop nyingi.
+- **Vitisho vya sasa kwenye mnyororo mmoja:** taarifa za ugunduzi zilizopitwa na wakati, mali zisizotosha, mabadiliko ya kikomo au kukubaliwa, kuisha kwa nukuu, Mkoba au kitegemezi kisichosaidiwa, kushindwa kwa uigaji, kushindwa kwa uwasilishaji, upangaji upya wa mnyororo na kuongeza hatua za njia bila sababu.
+- **Vidhibiti na ushahidi wa sasa:** nukuu halali za block iliyowekwa, uigaji wa kundi lote, kiwango cha chini cha matokeo na muda wa mwisho kwa kila hatua, kundi la Calibur lililotiwa sahihi lenye `revertOnFailure`, risiti bainifu zilizojumuishwa, upatanisho na misimbo wazi ya kushindwa. Vidhibiti hivi hupunguza hatari fulani za utekelezaji lakini havihakikishi upatikanaji wala utekelezaji wa Mtoaji.
+- **Vitisho vinavyopendekezwa kati ya vikoa:** utekelezaji wa sehemu kati ya vikoa, hatua zilizokwama, matumizi mabaya ya daraja, HTLC au escrow, muda usiolingana na migogoro ya urejeshaji.
+- **Viashiria:** matokeo ya ugunduzi wa njia na nukuu, tofauti kati ya nukuu na utekelezaji, kina cha njia, kushindwa kwa uigaji, miamala iliyorejeshwa, makosa ya upatanisho, hatua zisizo za lazima zinazorudiwa na—kwa mifumo ya baadaye kati ya vikoa—foleni za escrow na matukio ya daraja.
+- **Vidhibiti vya ziada vinavyowezekana:** sera za njia na washirika; vikomo katika kiwango cha njia; waendeshaji wa huduma wanaowajibika; pamoja na muda wa kihafidhina, kanuni za kusitisha na kurejesha kwa HTLC au escrow.
+- **Majaribio ya msongo:** hali ya grafu iliyopitwa na wakati, kukatika kwa kitegemezi, hatua moja iliyoshindwa katika kundi atomiki la sasa, upangaji upya wa mnyororo na—kwa njia ya baadaye kati ya vikoa—kusimamishwa kwa daraja au escrow iliyoisha muda.
 - **Tamaa ya kuchukua hatari:** chini kwa wastani tu kwa ajili ya dependencies kutambuliwa na kufuatiliwa.
 
 ### **10.8 Hatari ya ulinzi na usimamizi wa ufunguo**

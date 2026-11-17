@@ -1,12 +1,12 @@
 ## **5. Von isolierten Fonds zu einem föderierten Netzwerk**
 
-Der aktuelle Protocol v1.1.0 unterstützt die direkte Ausführung durch einen `SwapPool` und bietet nur ein Zitat `SwapRouter`. Es führt keine Multi-Hop-Routes, HTLCs, Escrow-Routes, Charge-Netting oder Cross-Network Clearing durch.
+Das aktuelle Protocol v1.1.0 unterstützt die direkte Ausführung über einen `SwapPool` und stellt einen Solidity-`SwapRouter` bereit, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core koordinieren von Teilnehmern ausgelöste Routen innerhalb derselben Blockchain durch bis zu drei Fonds, indem sie einen signierten Calibur-Wallet-Batch vorbereiten. Die Verträge selbst führen keine mehrstufige Route aus. Der aktuelle Ablauf von App und CLC Core bietet weder Blockchain-übergreifende HTLCs oder Escrow-Routen noch automatischen Bestandsausgleich der Fonds, gebündelte Verrechnung oder Netzwerk-übergreifende Verrechnung.
 
-Dieses Kapitel schlägt vor, wie unabhängig regierte Fonds sich koordinieren könnten, ohne ihre eigenen Zulassungs-, Bewertungs-, Begrenzungs-, Gebühren-, Inventar-, Zulassungs- und Governance-Regeln aufzugeben.
+Dieses Kapitel erklärt den aktuellen Routing-Ablauf für Teilnehmer und grenzt ihn von vorgeschlagener Koordination ab, die neue Befugnisse über Fonds erfordern würde. In beiden Fällen behalten unabhängige Fonds ihre eigenen Regeln für Zulassung, Bewertung, Grenzen, Gebühren, Bestände, Autorisierung und Governance.
 
 ### **5.1 Einzelne Austausch- und Erfüllungsmaßnahmen**
 
-Die Föderation könnte den Zugang zum Inventar verbessern, aber sie würde den Gutschein nicht verschmelzen und Lebenszyklen austauschen. Jede Implementierung würde diese Ereignisse separat messen:
+Routing kann den Zugang zu Beständen verbessern, vereint aber nicht die Lebenszyklen von Gutschein und Tausch. Messungen sollten diese Ereignisse getrennt halten:
 
 1. eine Strecke angegeben;
 2. ein oder mehrere Fonds-Swaps werden in der Kette ausgeführt und abgewickelt;
@@ -16,21 +16,25 @@ Die Föderation könnte den Zugang zum Inventar verbessern, aber sie würde den 
 
 Mehr zitierte oder ausgeführte Routen beweisen keine größere Erfüllung. In den Berichten würden die Kohorte, die Periode, die Vermögenswerte, die Bewertungsmethode und das Zeitstempel, die Ausschlüsse, Korrekturen und die außerhalb der Kette erforderlichen Beweise angegeben.
 
-**Veranschaulichender Weg:** Eine Schule hat Mais-Gutscheine, braucht aber Transportgutscheine. Ein Route-Service identifiziert kompatible Fonds-Inventare. Die Ausführung würde nur erfolgreich sein, wenn jeder separat genehmigte Hop innerhalb seiner Quotegrenzen, Grenzen, Gebühren, Bestand und Politik blieb. Die daraus resultierenden Swaps würden nicht nachweisen, dass einer der beiden Emittenten später seine Gutscheinsverpflichtungen erfüllt habe.
+**Beispielroute:** Eine Schule besitzt Maisgutscheine, benötigt aber Transportgutscheine. CLC Core kann kompatible Fondsbestände erkennen, die ausgewählte Route in einem festgelegten Block berechnen und die begrenzten Aufrufe für die Wallet der Schule vorbereiten. Die Ausführung gelingt nur, wenn jeder Schritt innerhalb seiner Angebotsgrenzen, Limits, Gebühren, Bestände, des unterstützten Verhaltens und der geltenden Regeln bleibt. Die daraus entstehenden Tausche belegen nicht, dass einer der Herausgeber seine Gutscheinverpflichtungen später erfüllt.
 
-### **5.2 Angebotene Routing- und Rebalancing-Dienste**
+### **5.2 Aktuelles Teilnehmer-Routing und vorgeschlagener Bestandsausgleich**
 
-Ein zukünftiger Streckendienst könnte zwei verschiedene Tätigkeiten unterstützen.
+Zwei Tätigkeiten erfordern unterschiedliche Befugnisse.
 
-**Die von den Teilnehmern initiierte Hinrichtung.** Angesichts der Eingangs- und Ausgangsaktiva, einer Menge und der Einschränkungen der Nutzer könnte der Dienst einen Weg identifizieren und die Ausführung vorbereiten. Jeder Hop hätte seinen eigenen verantwortlichen Fonds, Angebot, Zulassung, Gebühren, Limits, Bestand und Quittung. Atombatches, HTLCs und Treuhand sind mögliche zukünftige Ausführungsmöglichkeiten, nicht das aktuelle Protokollverhalten.
+**Aktuelle, vom Teilnehmer ausgelöste Ausführung.** Ausgehend von Eingabe- und Ausgabegutscheinen sowie einem Betrag schätzt CLC Core mögliche Routen aus den geeigneten Beständen des Teilnehmers. Für eine ausgewählte Route liest CLC Core die Fonds in einem festgelegten Block, erstellt ein verbindliches Angebot, simuliert den vollständigen Batch und bereitet je Schritt drei Aufrufe vor: Freigabe zurücksetzen, Freigabe erteilen und begrenztes `SwapPool.withdraw`. Der Teilnehmer signiert; der Relayer übermittelt eine Calibur-Transaktion innerhalb derselben Blockchain, bei der `revertOnFailure` aktiviert ist. Ein fehlgeschlagener Aufruf macht sämtliche Routenaufrufe rückgängig. Die App fasst die Transaktion und die Abwicklung jedes Schritts in einem Beleg zusammen.
 
-**Opt-in Fonds-Wiederausgleich.** Fonds-Verantwortliche könnte Bestandsziele, zulässige Gegenparteien, Anlageklassen, Quote-Abweichungsgrenzen und Periodegrenzen veröffentlichen. Ein verantwortungsbewusster Dienst könnte nach kompatiblen Zyklen oder Ketten suchen und nur die zugelassenen Absichten ausführen.
+Jeder Schritt behält seinen eigenen verantwortlichen Fonds, seine Eingaben für Kursangebote, Autorisierung, Gebühren, Grenzen, Bestände und sein Abwicklungsereignis. Die aktuelle App erhebt keine gesonderte Gebühr für den Routing-Dienst. Der aktuelle Ablauf unterstützt App-kompatible EOA-/Calibur-Wallets, jedoch keine Safes oder anderen Smart-Contract-Wallets.
 
-Eine Neuausgewogenheit wäre ein Opt-in. Ein Fonds könnte Teilnehmerrouten zulassen, während er sich einer ausgehenden Rebalanzierung weigert, oder es könnte nur ausgewählte Vermögenswerte, Gegenparteien und Beträge zulassen. Jeder ausgeführte Sprung würde eine Quittung erzeugen, und alle Dienstleistungsgebühren würden getrennt von Fonds- und Protokollgebühren bekannt gegeben.
+**Freiwilliger Bestandsausgleich der Fonds.** Fonds-Verantwortliche könnten Bestandsziele, zulässige Gegenparteien, Vermögensklassen, Grenzen für Kursabweichungen und Grenzen je Zeitraum veröffentlichen. Ein verantwortlicher Dienst könnte nach kompatiblen Zyklen oder Ketten suchen und nur autorisierte Absichten ausführen.
+
+Ein Bestandsausgleich wäre freiwillig. Ein Fonds kann gewöhnliche Teilnehmer-Routen zulassen, ohne einen Dienst zu ermächtigen, Bestände zum Ausgleich zu bewegen. Ein zukünftiges Mandat könnte nur ausgewählte Vermögenswerte, Gegenparteien und Beträge erlauben. Jeder ausgeführte Schritt würde einen Beleg erzeugen; jede Servicegebühr würde getrennt von Fonds- und Protokollgebühren offengelegt.
+
+Blockchain-übergreifende HTLC- oder Escrow-Ausführung ist ebenfalls vom aktuellen atomaren Batch innerhalb derselben Blockchain zu trennen. Sie würde beschlossene Regeln für Fristen, Abbruch, Kontrolle, Wiederherstellung und Restrisiken erfordern.
 
 #### **5.2.1 Konföderation und Interoperabilität**
 
-Unabhängige Bereitstellungen könnten ihre eigenen Register, Schnittstellen, Routendienste und Richtlinienprofile betreiben und gleichzeitig kompatible Daten- und Empfangsstandards auswählen. Die Profilübergreifende Ausführung würde weiterhin vom Einsatz abhängig bleiben.
+Unabhängige Bereitstellungen können eigene Register, Benutzeroberflächen, Routing-Dienste und Richtlinienprofile betreiben und zugleich kompatible Daten- und Belegstandards wählen. Die aktuelle öffentliche App verwendet ihr konfiguriertes Register- und Dienstprofil. Profilübergreifende Ausführung bleibt bereitstellungsabhängig.
 
 Ein kompatibles Profil würde:
 
@@ -45,6 +49,8 @@ Die Kompatibilität kann die verfügbaren Austauschwege erhöhen und die Abhäng
 ### **5.3 Das vorgeschlagene Netz-Rake- und Servicegebührenmodell**
 
 Der aktuelle Protocol v1.1.0 erhebt eine Poolgebühr und, wenn sie konfiguriert ist, eine zusätzliche Protokollgebühr für einen direkten Fonds-Swap. Diese aktuellen Gebühren bleiben unterschiedlich.
+
+Der produktive Tausch über eine Route wendet diese aktuellen Gebühren für jeden Schritt gesondert an und weist sie im Angebot und im Beleg aus. Derzeit kommt keine gesonderte Gebühr für den Routing-Dienst hinzu.
 
 F ≈ τ · Q_swap
 

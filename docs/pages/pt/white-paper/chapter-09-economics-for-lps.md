@@ -12,6 +12,8 @@ Um futuro orçamento da rede poderá receber:
 
 As taxas brutas do Fundo retidas pelos Fundos não são receitas da rede. A atual Protocol v1.1.0 utiliza um modelo diferente: uma taxa de protocolo opcional é adicional à taxa do Fundo e é enviada diretamente ao destinatário configurado.
 
+O fluxo de encaminhamento da CLC App em produção não acrescenta uma comissão separada pelo serviço de encaminhamento. Uma troca encaminhada pode ainda incorrer numa comissão do Fundo e numa comissão do protocolo em cada passo. Essas comissões atuais de cada passo não devem ser apresentadas como a percentagem de rede proposta nem voltar a ser contabilizadas como futuras receitas de serviço.
+
 ### **9.2 Matemática de rake ilustrativa**
 
 Se um Fundo participante cobrar uma taxa de fundo de 2.00% e um rake de rede adotado receber 20% dessa taxa de fundo, a taxa efetiva proposta de rake de rede sobre o valor rotado é:

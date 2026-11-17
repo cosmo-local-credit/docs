@@ -9,16 +9,30 @@
 - **Token:** An on-chain balance or digital asset. Token mechanics alone do not create a redeemable promise.
 - **Voucher:** A token or record represented by an issuer as a redeemable commitment under published terms.
 - **Offering:** A catalog record for goods or services associated with a voucher.
+- **Want:** A published expression of demand. It does not by itself accept an Offering or voucher, authorize a swap, reserve inventory, or create an obligation.
 - **Issuer:** The party responsible for publishing and fulfilling a voucher commitment.
 - **Pool Steward:** The accountable structure that publishes and administers Pool rules.
+- **Registry:** A discovery and permission record for identified contracts, Pools, tokens, or other resources. Inclusion does not by itself establish endorsement, issuer capacity, fulfillment, a guarantee, or insurance.
 - **Pool exchange rate or quote:** A transaction parameter produced by a configured quoter; not proof of cash or redemption value.
-- **Pool token-balance cap:** The current `Limiter` maximum for a token held by a Pool. The App may label it **“Credit limit.”**
+- **Value Index:** A relative valuation input used by a configured quoter to calculate a Pool exchange quote. It is not automatically a market price, cash value, or issuer obligation.
+- **Limiter:** The optional Protocol v1.1.0 component that sets a maximum token balance for a Pool. The App may label this cap **“Credit limit.”** It is not a personal borrowing limit or a network-wide rolling limit.
 - **Pool swap:** A direct asset exchange through one `SwapPool`.
+- **Route:** An ordered path of one or more Pool swaps from a wallet's input voucher to a target voucher.
+- **Route depth:** The number of Pool swaps in a route. The current public deployment searches up to three.
+- **Route discovery:** An estimate of possible paths from reconciled graph and wallet-holding data. A discovered path is not an executable promise.
+- **Route quote:** A time-bounded authoritative proposal for a selected path, calculated from supported Pool state read at one pinned block and simulated before signing.
+- **Routed exchange:** A participant-authorized sequence of Pool swaps. The current App submits it as one same-chain Calibur wallet batch whose calls revert together if one fails.
+- **Routed-exchange receipt:** One grouped technical record of route status, transaction hash, hops, settled amounts, and per-hop Pool and protocol fees.
+- **Liquidity:** Eligible Pool output inventory available under current admission, balance-cap, quote, fee, reservation, and withdrawal conditions. A graph edge or token balance alone does not prove usable liquidity.
 - **Swap settlement:** The on-chain transfers and fee accounting completing a Pool swap.
 - **Redemption presentment:** Returning or otherwise presenting voucher units to the issuer.
 - **Fulfillment:** The issuer provides the promised good, service, benefit, or other performance.
 - **Discharge:** A record preventing fulfilled units from being presented again.
-- **Proposed execution router:** Future software that would authorize and execute routes. The current `SwapRouter` quotes only.
+- **Solidity `SwapRouter`:** The Protocol v1.1.0 quote-only contract. It can calculate across a supplied path but does not custody assets, approve tokens, or execute swaps.
+- **Application routing workflow:** The current CLC App and CLC Core service that discover, quote, simulate, prepare, relay, reconcile, and report same-chain routes above the Pool contracts.
+- **Rebalancing:** Moving Pool inventory toward adopted targets under a Steward-authorized mandate. Current participant-initiated routing does not itself authorize automatic rebalancing.
+- **Clearing or netting:** Combining multiple obligations or intended transfers to calculate reduced net positions. It is not part of the current App/Core routed exchange.
+- **Repair:** An accountable process for correcting a configuration, registry record, service failure, dispute, or unmet commitment within an identified authority. Registry or route-service repair does not silently rewrite an independent Pool's rules or discharge an issuer's obligation.
 - **Proposed CLC Network Pool:** A future network-level clearing and budget-coordination arrangement.
 - **Proposed CLC governance token:** A future governance design, not a current App or Protocol v1.1.0 asset.
 - **Network rake:** A proposed share of Pool fees transferred to a future network budget.

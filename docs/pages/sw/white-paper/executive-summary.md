@@ -2,7 +2,7 @@
 
 Waziri Mkuu **Itifaki ya Kuunganisha Ahadi (CPP)** inaelezea jinsi Vikundi vya Ahadi inayoongozwa kwa kujitegemea inaweza kutunza ahadi zinazoweza kufutwa, kuchapisha njia na mipaka ya kiwango cha ubadilishaji, kuhifadhi hesabu, na kuwezesha kubadilishana kwa hesabu. Watangazaji wanaendelea kuwajibika kwa ahadi zao za vocha. Wasimamizi wa Vikundi huendelea kuwajibika kwa sheria za Kikundi na dhamana yoyote wanayochukua wazi. Wala CLC App wala GEF ni mdhamini wa kimataifa.
 
-Protocol v1.1.0 hutoa sasa moja kwa moja swap blocks: `GiftableToken`, `SwapPool`, kumbukumbu chaguo-msingi na moduli za tathmini, kikundi tokens-walio caps, kikundi ada, ziada itifaki ada, na quote tu `SwapRouter`. Mikataba ya sasa haina rekodi ya utekelezaji wa ulimwengu halisi, kuunda hisa za mtoaji wa umaarufu wa moja kwa moja, kutekeleza njia nyingi za hop, au kutoa hifadhi ya kimataifa, dhamana, au bima.
+Protocol v1.1.0 hutoa vipengele vya sasa vya ubadilishaji wa moja kwa moja: `GiftableToken`, `SwapPool`, rejesta za hiari na moduli za uthamini, mipaka ya salio la tokeni la Kikundi, ada za Kikundi, ada ya ziada ya itifaki na `SwapRouter` ya Solidity inayotoa nukuu pekee. CLC App na CLC Core za uzalishaji sasa hugundua njia kwenye mnyororo mmoja kupitia hadi Vikundi vitatu, hutoa nukuu za block iliyowekwa, huiga na kutayarisha makundi atomiki ya miamala ya Mkoba yatakayotiwa sahihi, huyawasilisha na kuweka pamoja rekodi zake za ukamilishaji. Mikataba bado hairekodi utekelezaji wa ulimwengu halisi, haiundi hisa za mtoa ukwasi kiotomatiki, haitekelezi njia kati ya minyororo wala ulinganishaji wa kundi, na haitoi akiba, dhamana au bima ya jumla.
 
 Historia **Sarafu Network** matumizi ya dhana za ushirikiano wa ahadi katika sarafu za jamii, makundi ya akiba, mifumo ya misaada ya pamoja, na ahadi za uzalishaji. Huduma yake baadaye kuhamishwa kwa CLC App. Hii haikuwa uwakilishi kwamba kila akaunti ya kihistoria, mkoba, ishara, vocha, Kikundi, usawa, ripoti, mshiriki, au wajibu kuhamia.
 
@@ -19,13 +19,13 @@ Historia **Sarafu Network** matumizi ya dhana za ushirikiano wa ahadi katika sar
 
 Takwimu hizi ni ushahidi wa kihistoria, si sasa CLC takwimu matumizi.
 
-Kubuni zaidi iliyopendekezwa CLC inachunguza jinsi mitandao sambamba inaweza:
+Muundo mpana wa CLC unaunganisha uelekezaji wa sasa na mapendekezo ya jinsi mitandao inayolingana inaweza:
 
-1. kugundua na kutaja njia za kuvuka Visiwa vya kujitegemea;
+1. kupanua huduma za njia zenye uwajibikaji katika rejesta, wasifu wa sera au vikoa vya ziada;
 2. kuhariri huduma za mtandao zenye uwajibikaji bila kuzingatia uwajibikaji wa ndani;
 3. Kuunga mkono mipango ya upungufu wa fedha, dhamana, akiba, au sera za bima zilizofadhiliwa kwa njia tofauti;
 4. kipimo kikundi swaps tofauti na vocha kuwasilisha, kutimiza, na discharge; na
-5. kutumia mapato yaliyopendekezwa ya mtandao na ada ya huduma ili kufadhili huduma za pamoja zilizopendekezwa.
+5. kutumia sehemu ya mtandao inayopendekezwa na ada za huduma zilizopitishwa kando ili kufadhili huduma za pamoja.
 
 Mpango huo unajumuisha **iliyopendekezwa CLC utawala ishara ** na a ** Iliyopendekezwa CLC Jumuiya ya Mtandao**. . Wala ni sehemu ya sasa programu au Protocol v1.1.0.
 

@@ -1,11 +1,21 @@
 ## **8. Ufikiaji wa kiufundi na ukuaji**
 
-Sura hii inafafanua kazi ya hiari au inayopendekezwa. Si orodha ya vipengele kuhakikisha kuwa iko katika sasa CLC App au Protocol v1.1.0.
+Sura hii hutenganisha huduma ya sasa ya uelekezaji katika uzalishaji na ukuaji wa hiari au unaopendekezwa. Uwezo wa sasa unaoelezwa hapa ni mahususi kwa utekelezaji wa umma wa CLC App/Core; si kipengele cha moja kwa moja cha mikataba ya Protocol v1.1.0 wala utekelezaji mwingine.
 
-Sehemu zinazowezekana za kazi ni:
+Utekelezaji wa sasa wa umma unajumuisha:
 
-- utekelezaji wa utaratibu wa kupelekwa kwenye Vikundi zinazofaa, na usajili, nukuu, kikomo, ada, na ugunduzi wa hesabu;
-- wakati uliowekwa amana au HTLC adapters kwa ajili ya utekelezaji cross-domain ambapo settlement atomic ni haipatikani;
+- ugunduzi unaotumia grafu wa vocha zinazoweza kufikiwa kupitia Vikundi vinavyolingana;
+- nukuu halali za block iliyowekwa kwa njia zilizochaguliwa kwenye mnyororo mmoja;
+- hesabu ya ada za Kikundi na itifaki, kiwango cha chini cha matokeo na muda wa mwisho kwa kila hatua;
+- uigaji wa kundi lote, utiaji sahihi wa mshiriki na utekelezaji wa Calibur kupitia relayer;
+- muamala mmoja kwenye mnyororo huo unaorejesha simu zote za njia ikiwa simu moja itashindwa; na
+- risiti zilizojumuishwa na upatanisho wa matukio ya ukamilishaji kwa kila hatua.
+
+Maeneo ya uwezekano wa ukuaji ni pamoja na:
+
+- adapter za escrow zenye muda au HTLC kwa utekelezaji kati ya vikoa ambapo ukamilishaji atomiki haupatikani;
+- rejesta au wasifu wa ziada wa sera na uelekezaji kati ya wasifu;
+- usawazishaji wa mali za Kikundi unaofanywa kwa hiari na ulinganishaji wa kundi;
 - interfaces na zana za sera kwa kikundi ndogo au binafsi;
 - kumbukumbu za kufuatilia kwa vocha, Vikundi, njia za kiwango cha ubadilishaji, mipaka, wasimamizi, na ada;
 - viunganisho vya mtoa huduma wa malipo maalum kwa utekelezaji, mtiririko wa malipo, na udhibiti wa uhalali;
@@ -14,26 +24,32 @@ Sehemu zinazowezekana za kazi ni:
 
 Bei za soko la nje haziwezi kuamua ni kiasi gani cha mkopo wa mtoaji chini ya masharti ya vocha. Hifadhi inaweza kutumia marejeleo ya nje ya ulinzi kwa mali ya fungible, lakini njia yake ya kiwango cha ubadilishaji iliyochapishwa, mipaka, ada, na hesabu itaongoza nukuu zake.
 
-### **8.1 Vipimo vinavyopendekezwa vya huduma ya njia na SDK**
+### **8.1 Huduma ya sasa ya njia na kanuni pana zaidi**
 
-**Ugunduzi.** Huduma ya njia iliyopendekezwa ingeuliza kumbukumbu zilizochaguliwa kwa uandikishaji wa mali, njia za kiwango cha ubadilishaji, mipaka, ada, hesabu, matukio, na habari ya mtawala. Rekodi zilizohifadhiwa zingetia ndani mipaka ya utulivu na vitambulisho vya chanzo.
+**Ugunduzi.** CLC Core hudumisha grafu iliyopatanishwa kutokana na katalogi zilizosanidiwa, mahusiano ya rejesta, vigezo vya Vikundi, ada, mipaka, salio na matukio ya mnyororo. Hukadiria kile ambacho Mkoba wa kipindi unaweza kufikia na kutia alama taarifa zilizopitwa na wakati. Usanidi wa umma hutafuta njia zenye hadi hatua tatu. Ugunduzi si ahadi inayoweza kutekelezwa.
 
-**Profaili za mtandao.** Mteja anaweza kusaidia zaidi ya moja registry mizizi au sera profile. Itasema mshiriki ambayo profile, washirika, adapters, vizuizi, na watendaji wa huduma responsible quote inatumia. Njia ya msalaba inapaswa kukidhi hali zote za hop zinazotumika.
+**Nukuu halali.** Kwa njia iliyochaguliwa, CLC Core husoma Vikundi vinavyoshiriki katika block moja iliyowekwa na kurudia hesabu zinazosaidiwa za `SwapPool`. Huainisha ada za Kikundi na itifaki, huweka kiwango cha chini cha matokeo kwa kila hatua na muda wa mwisho, hutayarisha simu za Mkoba na kuiga kundi lote. Tokeni, quoter, Mikoba au hali za Kikundi zisizosaidiwa hukataliwa.
 
-**Sera ya njia.** Mendeshaji anayehusika anaweza kuondoa utegemezi usio salama au washirika na kutumia vizuizi vya kiwango cha njia, mahitaji ya usafi, na vigezo vya afya. Ishara hizo zingeunga mkono uamuzi; Hazingehakikisha utekelezaji au ulinzi dhidi ya hasara.
+**Utekelezaji wa sasa.** Mshiriki hutia sahihi kundi la Calibur lenye kuweka upya idhini, kutoa idhini na utoaji wenye mipaka kwa kila hatua. Relayer huwasilisha muamala mmoja kwenye mnyororo huo huku `revertOnFailure` ikiwa imewashwa. Hii huleta tabia ya yote-au-hakuna katika kiwango cha muamala kwa njia ya sasa. Si uatomiki kati ya minyororo, uelekezaji wa HTLC au escrow, usawazishaji wa kiotomatiki wala ulinganishaji.
 
-**Ada na mipaka.** Taarifa itaorodhesha ada za Kikundi, ada yoyote ya ziada ya Protokolo ya sasa, na ada yoyote ya njia au huduma iliyopendekezwa tofauti. Utekelezaji huo ungekataa ofa zilizokwisha kutimizwa au mipaka iliyovunjwa.
+**Risiti na uendeshaji.** App huweka njia chini ya kitambulisho kimoja cha ufuatiliaji na kurekodi hali ya muamala, mpangilio wa hatua, Vikundi, jozi za tokeni, kiasi kilichonukuliwa na kilichokamilishwa, ada za Kikundi, ada za itifaki na salio la kati. Huduma hufuatilia ubora wa sasa wa grafu, matokeo ya kuorodhesha njia na nukuu, kushindwa kwa uigaji, muda na marekebisho ya upatanisho, pamoja na wanachama wa faharasa ambao hawajatatuliwa au hawajulikani. Taarifa za uendeshaji hazithibitishi utekelezaji wa Mtoaji.
 
-**Atomicity na kupona.** Kuuawa kwa watu wengi kungekuwa kiatomati iwezekanavyo. Ikiwa ilitumia HTLCs au escrow, huduma hiyo ingefunua timeouts, njia za kuvunja, wasimamizi wanaohusika, taratibu za tukio, na hatari zilizobaki.
+**Wasifu wa mtandao.** Mteja anaweza kusaidia zaidi ya mzizi mmoja wa rejesta au wasifu wa sera. Utamweleza mshiriki wasifu, washirika, adapter, vizuizi na waendeshaji wa huduma wanaowajibika ambao nukuu inatumia. Njia kati ya wasifu itahitaji kutimiza masharti yote ya kila hatua inayohusika.
 
-**Tumependekeza mkusanyiko wa kundi na kusawazisha.** Huduma ya opt-in inaweza kukusanya nia ya kusawazisha tena na kutafuta mizunguko au minyororo inayolingana. Ingekuwa:
+**Sera ya njia.** Mwendeshaji anayewajibika anaweza kuondoa vitegemezi au washirika wasio salama na kutumia vikomo katika kiwango cha njia, masharti ya taarifa kuwa za sasa na vigezo vya afya. Ishara hizi zitasaidia uamuzi; hazitahakikisha utekelezaji wala ulinzi dhidi ya hasara.
 
-1. kuchapisha risiti inayoweza kusomwa kwa mashine inayoonyesha mizunguko iliyofanywa, mali, kiasi, vitambaa vya wakati wa kukadiria, na ada;
-2. kutekeleza mipaka iliyopitishwa kwa kipindi na sera za mpinzani;
-3. kukataa shughuli yoyote inayovunja idhini, mipaka, au hesabu inayopatikana ya Kikundi chochote cha washiriki; na
-4. kuhifadhi vituo vya kuamua na mapato kwa ajili ya ukaguzi na utatuzi wa mizozo.
+**Ada na mipaka.** Nukuu ya sasa huainisha ada za Kikundi na ada yoyote ya ziada ya Protocol kwa kila hatua. App ya umma kwa sasa haiongezi ada tofauti ya huduma ya uelekezaji. Ada yoyote ya huduma ya baadaye itawekwa wazi kando. Utekelezaji hukataa nukuu zilizokwisha muda au zinazokiuka mipaka.
 
-**Mahitaji ya SDK.** SDK kwa njia kutekelezwa itatoa deterministic quote-to-receipt ramani, per-hop checks invariant, inaeleweka kasoro codes, na audit-kirafiki rekodi. Protocol v1.1.0 ya sasa `SwapRouter` hutoa nukuu tu; haina kutekeleza njia hizi zilizopendekezwa.
+**Uatomiki na urejeshaji kati ya vikoa.** Pale njia ya baadaye haiwezi kutumia kundi atomiki la sasa kwenye mnyororo mmoja na badala yake ikatumia HTLC au escrow, huduma itaweka wazi muda wa mwisho, njia za kusitisha, wadhibiti wanaowajibika, taratibu za matukio na hatari zilizobaki.
+
+**Ulinganishaji wa kundi na usawazishaji unaopendekezwa.** Huduma ya hiari inaweza kukusanya nia za usawazishaji na kutafuta mizunguko au minyororo inayolingana. Itafanya yafuatayo:
+
+1. kuchapisha risiti inayoweza kusomwa na mashine inayotambua mizunguko iliyotekelezwa, mali, kiasi, stempu za wakati wa tathmini, na ada;
+2. kutekeleza mipaka iliyopitishwa kwa kila kipindi na sera za mpatanishi;
+3. kukataa shughuli ambayo inakiuka ruhusa yoyote ya kushiriki, mipaka, au hesabu inayopatikana; na
+4. kuhifadhi taarifa na risiti bainifu kwa ukaguzi na kushughulikia migogoro.
+
+**Masharti ya SDK na kiolesura.** Muunganisho wa njia unaoweza kutumiwa tena lazima utoe ulinganishaji bainifu kutoka nukuu hadi risiti, ukaguzi wa kanuni zisizobadilika kwa kila hatua, misimbo ya makosa inayoeleweka na rekodi zinazofaa kwa ukaguzi. Utekelezaji wa sasa wa App/Core katika uzalishaji hutoa kazi hizi kwa wasifu wake. `SwapRouter` ya Solidity ya Protocol v1.1.0 hubaki ya nukuu pekee na haitekelezi njia.
 
 #### **8.1.1 Maelezo ya chini ya utangamano wa muungano**
 

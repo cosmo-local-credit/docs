@@ -2,7 +2,7 @@
 
 A Comissão **Protocolo de Partilha de Compromissos (CPP)** descreve como a Fundos de Compromissos, governada de forma independente, pode criar compromissos reembolsáveis, publicar métodos e limites de taxa de câmbio, manter um inventário e permitir uma troca responsável. Os emitentes continuam a ser responsáveis pelos seus compromissos com os vales. A Gestores de Fundos continua a ser responsável pelas regras do Fundo e por quaisquer garantias que assumam expressamente. Nem o CLC App nem o GEF são um garante universal.
 
-O Protocol v1.1.0 fornece blocos de construção atuais de swap direto: `GiftableToken`, `SwapPool`, registros opcionais e módulos de avaliação, limites de saldo de tokens do Fundo, taxas do Fundo, uma taxa adicional de protocolo e uma taxa de cotação apenas do `SwapRouter`. Os contratos atuais não registam cumprimento no mundo real, criam ações automáticas de fornecedores de liquidez, executam rotas multi-hop ou fornecem reservas, garantias ou seguros universais.
+O Protocol v1.1.0 fornece os componentes atuais para trocas diretas: `GiftableToken`, `SwapPool`, registos e módulos de avaliação opcionais, limites de saldo de tokens do Fundo, comissões do Fundo, uma comissão adicional do protocolo e um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção descobrem agora rotas na mesma cadeia através de até três Fundos, produzem cotações num bloco fixado, simulam e preparam lotes atómicos assinados pela carteira, retransmitem-nos e agrupam os respetivos registos de liquidação. Os contratos continuam sem registar o cumprimento no mundo real, criar participações automáticas para fornecedores de liquidez, realizar encaminhamento entre cadeias ou compensação por lotes, nem fornecer reservas, garantias ou seguros universais.
 
 O histórico **Sarafu Network** Utilizou conceitos de partilha de compromissos entre moedas comunitárias, Fundos de poupança, sistemas de ajuda mútua e compromissos de produção. Seu serviço passou mais tarde para o CLC App. Esta não foi uma representação de que cada conta histórica, carteira, token, vale, Fundo, saldo, relatório, participante ou obrigação migrou.
 
@@ -19,13 +19,13 @@ O histórico **Sarafu Network** Utilizou conceitos de partilha de compromissos e
 
 Estes números são evidências históricas, não os atuais números de utilização do CLC.
 
-O projeto mais amplo proposto de CLC explora como as redes compatíveis poderiam:
+O projeto mais amplo do CLC combina o roteamento atual com propostas de como as redes compatíveis poderiam:
 
-1. Descobrir e citar caminhos através de Fundos independentemente governadas;
+1. Estender os serviços de rotas responsáveis a perfis e domínios adicionais de registos ou políticas;
 2. Coordenar serviços de rede responsáveis sem prejuízo da responsabilidade local;
 3. Apoio aos mandatos de liquidez, garantias, reservas ou apólices de seguros financiados separadamente;
 4. Medir os swaps de fundo separadamente da apresentação, realização e liquidação dos vales; e
-5. Usar uma taxa de rede proposta e taxas de serviço para financiar os serviços compartilhados adotados.
+5. utilizar uma percentagem de rede proposta e comissões de serviço adotadas separadamente para financiar serviços partilhados.
 
 A proposta inclui uma **token de governação CLC proposto** e um **Proposta CLC Fundo de rede**. Nem faz parte da atual aplicação nem do Protocol v1.1.0.
 

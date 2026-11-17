@@ -10,10 +10,13 @@ Esta página define os termos utilizados na documentação. Os nomes exatos das 
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | A família de produtos: a CLC App, a sua documentação e o trabalho mais amplo sobre partilha de compromissos. |
 | **CLC App** | A aplicação web progressiva em [cosmolocal.credit](https://cosmolocal.credit). A GEF gere esta interface e os respetivos serviços de apoio. |
+| **CLC Core** | O serviço de apoio da CLC App para catálogos, estado indexado da cadeia, descoberta de rotas, cotações autorizadas, coordenação da retransmissão e recibos de trocas encaminhadas. Não é um contrato inteligente nem um Gestor de Fundo. |
 | **Protocolo de Partilha de Compromissos (CPP)** | O modelo reutilizável de curadoria, avaliação, limitação, troca e governação responsável. |
 | **Protocol v1.1.0** | A versão verificada dos contratos inteligentes públicos, documentada na [referência do protocolo](/pt/protocol/overview). |
 | **Fundo de Compromissos** | Uma estrutura governada que seleciona ativos, publica regras e permite trocas. **Fundo** é a forma abreviada utilizada nesta documentação. |
 | **`SwapPool`** | O contrato atual do protocolo que mantém um inventário de tokens e executa trocas diretas. É um componente técnico de um Fundo de Compromissos. |
+| **`SwapRouter` Solidity** | O contrato do Protocol v1.1.0 que calcula uma cotação para um caminho proposto através de vários Fundos. Não detém ativos nem executa a rota. |
+| **Fluxo de encaminhamento da aplicação** | O processo atual da CLC App e do CLC Core que descobre, cota e simula caminhos na mesma cadeia, prepara um lote assinado pela carteira, retransmite-o e agrupa as liquidações dos Fundos num único recibo. |
 | **Token de governação CLC proposto** | Um futuro modelo de governação descrito no Livro Branco. Não é um ativo atual da aplicação nem do Protocol v1.1.0. |
 | **Fundo de Rede CLC proposto** | Um futuro modelo de compensação e coordenação ao nível da rede. Não é o mesmo que um `SwapPool` atual. |
 
@@ -63,6 +66,10 @@ Estas são quatro camadas distintas:
 | **“Retirar vale”** | Ocultar um vale do catálogo da aplicação. Os saldos e o histórico permanecem, e um administrador pode restaurar a listagem. Não é uma queima nem um cancelamento. |
 | **Depósito ou contribuição para o Fundo** | Transferir ativos para um `SwapPool`. Os direitos a reembolso, levantamento, recompensas ou governação só existem quando forem divulgados separadamente. |
 | **Troca no Fundo** | Trocar um ativo suportado por outro através de um `SwapPool`. Não é cumprimento pelo emissor nem, automaticamente, um empréstimo. |
+| **Descoberta de rotas** | Procurar caminhos possíveis entre os vales elegíveis de uma carteira e um vale pretendido, através das relações configuradas entre Fundos. A descoberta é uma estimativa, não uma promessa executável. |
+| **Cotação da rota** | Um cálculo autorizado e limitado no tempo para um caminho selecionado, baseado no estado dos Fundos lido num mesmo bloco fixado e simulado antes da assinatura. |
+| **Troca encaminhada** | Uma sequência ordenada de trocas de Fundo apresentada pela aplicação como um único lote da carteira na mesma cadeia. No fluxo atual, todas as chamadas são revertidas se uma delas falhar. |
+| **Recibo de troca encaminhada** | Um registo agrupado com o estado de acompanhamento, o hash da transação, os passos da rota, os montantes liquidados e as comissões do Fundo e do protocolo em cada passo. |
 | **Levantamento de liquidez do Fundo** | O proprietário do Fundo transfere o inventário disponível para um endereço selecionado. |
 | **Cobrança de comissões** | Um destinatário configurado cobra as comissões acumuladas do Fundo. |
 
@@ -82,7 +89,15 @@ Mantenha separados estes termos de valor:
 
 O rótulo **“Limite de crédito”** da aplicação refere-se ao limite configurado para o saldo de um token no Fundo: o montante máximo desse token que o Fundo pode manter depois de um depósito. Não é uma linha de crédito pessoal, uma verificação da capacidade do emissor nem uma garantia de resgate. Os limites móveis, por conta e ao nível da rede propostos no Livro Branco são mecanismos diferentes.
 
-O Protocol v1.1.0 atual pode cobrar uma **comissão do Fundo** e uma **comissão adicional do protocolo**. O modelo proposto no Livro Branco descreve separadamente uma futura **comissão de rede**, retirada das comissões dos Fundos, e possíveis comissões de encaminhamento ou serviço. Estes modelos não devem ser combinados ao explicar os encargos atuais ou calcular receitas futuras.
+O Protocol v1.1.0 atual pode cobrar uma **comissão do Fundo** e uma **comissão adicional do protocolo** em cada troca de Fundo. Uma troca encaminhada discrimina essas comissões em cada passo. O fluxo atual de encaminhamento da CLC App não acrescenta uma comissão separada pelo serviço de encaminhamento. O modelo proposto no Livro Branco descreve separadamente uma futura **percentagem para a rede** retirada das comissões dos Fundos, além de possíveis comissões de encaminhamento ou serviço. Estes modelos não devem ser combinados ao explicar os encargos atuais nem ao calcular receitas futuras.
+
+## Itinerários e liquidez
+
+Uma **rota** é um caminho ordenado através de um ou mais Fundos governados de forma independente. A **profundidade da rota** é o número de trocas de Fundo nesse caminho. A implementação pública atual procura até três passos.
+
+**Liquidez disponível** é o inventário de saída elegível que um Fundo pode fornecer segundo o seu estado atual de admissão, limite de saldo, cotação, comissões e reservas. Uma ligação no grafo não prova, por si só, que uma quantidade útil possa atravessá-la. A descoberta de rotas pode ficar desatualizada; a cotação posterior, calculada num bloco fixado, só é válida até ao prazo indicado ou até ocorrer uma alteração relevante do estado.
+
+A execução atual da rota é iniciada pela carteira na mesma cadeia. Não reúne a governação dos Fundos, não reequilibra automaticamente os seus inventários, não compensa obrigações entre várias partes e não prova o cumprimento no mundo real. O encaminhamento entre cadeias por HTLC ou depósito em garantia, o reequilíbrio automático e a compensação por lotes continuam propostos ou dependentes da implementação.
 
 ## Proteções e provas
 

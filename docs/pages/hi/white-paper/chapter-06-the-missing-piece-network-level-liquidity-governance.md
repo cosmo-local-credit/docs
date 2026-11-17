@@ -5,7 +5,7 @@
 1. स्वतंत्र रूप से शासित पूल लिक्विडिटी और रूटिंग सेवाओं का समन्वय कैसे कर सकते हैं; तथा
 2. कैसे साझा सेवाएं बढ़ती भागीदारी के साथ जवाबदेही बनाए रख सकती हैं।
 
-एक प्रस्तावित CLC डिजाइन **प्रस्तावित CLC नेटवर्क पूल ** नेटवर्क स्तर पर क्लियरिंग और बजट समन्वय व्यवस्था के रूप में ** प्रस्तावित CLC शासन टोकन**. वर्तमान ऐप या Protocol v1.1.0 में कोई भी नहीं है. अन्य तैनाती सहकारी संस्थाओं, सार्वजनिक एजेंसियों, संघों, बहुसंस्थाओं, सेवा ऑपरेटरों या किसी भी प्रस्ताव को स्वीकार किए बिना अन्य जिम्मेदार संरचनाओं का उपयोग कर सकती हैं।
+प्रस्तावित CLC design में network-level clearing और budget coordination के लिए **प्रस्तावित CLC Network Pool** तथा **प्रस्तावित CLC governance token** शामिल हैं। दोनों में से कोई भी मौजूदा App या Protocol v1.1.0 में नहीं है। अन्य deployments इन प्रस्तावों को अपनाए बिना cooperatives, public agencies, federations, multisigs, service operators या दूसरी जवाबदेह structures का उपयोग कर सकते हैं।
 
 ### **6.1 डाउनसाइड कंट्रोल और वैकल्पिकता**
 
@@ -15,4 +15,6 @@
 
 प्रस्तावित शासन को रजिस्ट्री और सेवा शक्तियों को संकीर्ण और समीक्षा योग्य बनाए रखना चाहिए। सामान्य कार्यों में सूचना, देरी, कारण प्रकाशन, अपील और सुधार प्रक्रियाओं का उपयोग किया जा सकता है। आपातकालीन कार्यों को घटना रिकॉर्ड तैयार करना चाहिए और समाप्त हो जाना चाहिए या अपनाई गई नीति के तहत समीक्षा प्राप्त करनी चाहिए।
 
-संगत रूट डिस्कवरी पूल में अधिक एक्सचेंजों को संभव बना सकती है। मल्टी-हॉप निष्पादन और नेटिंग के लिए अतिरिक्त सॉफ़्टवेयर, प्राधिकरण, सीमाओं, विफलता प्रबंधन और शासन की आवश्यकता होगी। अधिक उद्धृत या निष्पादित स्वैप अपने आप में वाउचर वादे की पूर्ति या सामाजिक प्रभाव साबित नहीं करेंगे।
+उत्पादन CLC App और CLC Core अब configured public profile के भीतर participant-authorized routes के लिए compatible route discovery और समान-चेन multi-hop execution देते हैं। Quotations हर हॉप की bounds, fees, inventory, limits और simulation लागू करते हैं; कोई call विफल होने पर हस्ताक्षरित wallet batch पूरा वापस हो जाता है।
+
+यह service automatic Pool rebalancing या network-level Pool inventory control अधिकृत नहीं करती। Rebalancing, batch netting, cross-domain HTLC या escrow execution और shared-liquidity governance के लिए अतिरिक्त authorization, software, limits, failure handling और अपनाए गए rules चाहिए। अधिक quoted या executed swaps अपने-आप voucher fulfillment या social impact सिद्ध नहीं करते।

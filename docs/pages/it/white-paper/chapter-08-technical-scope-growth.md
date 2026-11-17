@@ -1,11 +1,21 @@
 ## **8. Portata tecnica e crescita**
 
-Questo capitolo descrive il lavoro opzionale o proposto. Non si tratta di un elenco di caratteristiche garantite presenti nell'attuale CLC App o Protocol v1.1.0.
+Questo capitolo distingue il servizio di instradamento attualmente in produzione dalle funzionalità facoltative o proposte. Una capacità attuale descritta qui resta specifica della distribuzione pubblica di CLC App e CLC Core; non è automaticamente una caratteristica dei contratti Protocol v1.1.0 o di un'altra distribuzione.
 
-Le possibili aree di lavoro includono:
+L'attuale distribuzione pubblica comprende:
 
-- routing di esecuzione tra fondo compatibili, con registrazione, quotazione, limite, tariffa e inventario;
+- scoperta, attraverso un grafo, dei buoni raggiungibili tramite Fondi compatibili;
+- quotazioni autorevoli a un blocco fissato per percorsi selezionati sulla stessa catena;
+- calcolo delle commissioni del Fondo e del Protocollo per ciascun passaggio, degli output minimi e delle scadenze;
+- simulazione dell'intero batch, firma del partecipante ed esecuzione tramite relay con Calibur;
+- una transazione sulla stessa catena che annulla tutte le chiamate del percorso se una chiamata fallisce; e
+- ricevute raggruppate e riconciliazione degli eventi di regolamento per ciascun passaggio.
+
+Le aree di crescita possibili comprendono:
+
 - gli adattatori escrow o HTLC temporaneamente bloccati per l'esecuzione transdominiale in caso di non disponibilità di regolamento atomico;
+- ulteriori profili di registro o policy e routing tra profili;
+- il riequilibrio dell'inventario del Fondo e la compensazione dei lotti;
 - le interfacce e gli strumenti politici per i Fondi piccole o personali;
 - i registri verificabili per i buoni, le fondo, i metodi di cambio, i limiti, i responsabili del trattamento e le commissioni;
 - i connettori specifici del fornitore di pagamenti, i flussi di cassa e i controlli di ammissibilità;
@@ -14,26 +24,32 @@ Le possibili aree di lavoro includono:
 
 I prezzi di mercato esterno non determinano il debito di un emittente in base ai termini del buono. Un fondo potrebbe utilizzare un riferimento esterno protetto per un asset fungible, ma il suo metodo di cambio pubblicato, i limiti, le commissioni e l'inventario reggerebbero le sue quotazioni.
 
-### **8.1 Norme proposte per il servizio di rotta e SDK**
+### **8.1 Servizio di instradamento attuale e regole più ampie**
 
-**La scoperta.** Un servizio di rotta proposto richiederebbe i registri identificati per l'ammissione di attività, i metodi di cambio, i limiti, le commissioni, l'inventario, gli incidenti e le informazioni del controllore. I registri in cache includono limiti di freschezza e identificatori di sorgente.
+**Scoperta.** CLC Core mantiene un grafo riconciliato a partire da cataloghi configurati, relazioni dei registri, parametri dei Fondi, commissioni, limiti, saldi ed eventi della catena. Stima ciò che un portafoglio di sessione può raggiungere e segnala i dati obsoleti. La configurazione pubblica cerca percorsi fino a tre passaggi. La scoperta non costituisce una promessa eseguibile.
 
-**Profili di rete.** Un cliente potrebbe supportare più di un profilo di base di registro o di politica. Essa indicherebbe al partecipante quale profilo, controparti, adattatori, vincoli e operatori di servizi responsabili utilizza un preventivo. Un percorso a profilo incrociato dovrebbe soddisfare tutte le condizioni applicabili.
+Per un percorso selezionato, CLC Core legge i Fondi partecipanti allo stesso blocco fissato e riproduce l'aritmetica supportata di `SwapPool`. Dettaglia le commissioni del Fondo e del Protocollo, imposta output minimi per ciascun passaggio e una scadenza, prepara le chiamate del portafoglio e simula l'intero batch. Token, quotatori, portafogli o condizioni del Fondo non supportati vengono rifiutati.
 
-**Politica del percorso.** Un operatore responsabile potrebbe escludere dipendenze o controparti non sicure e applicare massimali a livello di percorso, requisiti di freschezza e criteri sanitari. Questi segnali supporterebbero una decisione; non garantiscono l'adempimento o la protezione contro le perdite.
+**Esecuzione attuale.** Il partecipante firma un batch Calibur che contiene l'azzeramento dell'autorizzazione, la nuova autorizzazione e il prelievo con limiti per ciascun passaggio. Un relayer invia una transazione sulla stessa catena con `revertOnFailure` attivo. Ciò fornisce un comportamento tutto o niente a livello di transazione per il percorso corrente. Non equivale ad atomicità tra catene, instradamento HTLC o tramite escrow, riequilibrio automatico o compensazione.
 
-**Tariffe e limiti.** Un preventivo indicherebbe le commissioni del gruppo, eventuali commissioni aggiuntive del protocollo in corso e eventuali commissioni di routing o di servizio proposte separatamente. L'esecuzione respingerebbe le quotazioni scadute o i limiti violati.
+**Ricevute e operazioni.** L'App raggruppa il percorso sotto un ID di tracciamento e registra lo stato della transazione, l'ordine dei passaggi, i Fondi, le coppie di token, gli importi quotati e regolati, le commissioni del Fondo e del Protocollo e i residui intermedi. Il servizio monitora la freschezza del grafo, l'enumerazione dei percorsi e i risultati delle quotazioni, gli errori di simulazione, la durata della riconciliazione, le correzioni e i membri indicizzati irrisolti o sconosciuti. La telemetria operativa non dimostra l'adempimento dell'emittente.
 
-**Atomicità e recupero.** L'esecuzione multi-hop sarebbe atomica dove possibile. In caso di utilizzo di HTLC o di escrow, il servizio avrebbe rivelato i tempi di uscita, i percorsi di interrompimento, i responsabili del controllo, le procedure di incidente e i rischi residui.
+**Profili di rete.** Un client potrebbe supportare più di un profilo radice o policy del registro. Indicherebbe al partecipante il profilo, le controparti, gli adattatori, i vincoli e gli operatori di servizi responsabili usati da una quotazione. Un percorso tra profili dovrebbe soddisfare tutte le condizioni applicabili a ciascun passaggio.
 
-**Proposta di rete di lotti e di riequilibrio.** Un servizio di opt-in potrebbe raccogliere intenzioni di riequilibrio e cercare cicli o catene compatibili. Sarebbe:
+**Politica del percorso.** Un operatore responsabile potrebbe escludere le dipendenze o le controparti non sicure e applicare limiti a livello di percorso, requisiti di freschezza e criteri sanitari. Questi segnali avrebbero supportato una decisione; non avrebbero garantito l'adempimento o la protezione dalla perdita.
 
-1. pubblicare una ricevuta leggibile in macchina che identifichi i cicli eseguiti, le attività, gli importi, i timestamp di valutazione e le commissioni;
-2. applicare i massimali per periodo e le politiche di controparte adottate;
-3. rifiutare attività che violino l'autorizzazione, i limiti o l'inventario disponibile del fondo partecipante; e
-4. conservare le entrate e le entrate deterministe per la revisione e la gestione delle controversie.
+**Commissioni e limiti.** L'attuale quotazione specifica le commissioni del Fondo e le eventuali commissioni aggiuntive del Protocollo per ciascun passaggio. L'App pubblica non aggiunge attualmente una commissione separata per il servizio di instradamento. Le eventuali commissioni per servizi futuri saranno comunicate separatamente. L'esecuzione rifiuta quotazioni scadute o limiti superati.
 
-**Requisiti dell'SDK.** Un SDK per le rotte eseguite fornirebbe una mappatura deterministica del quote-to-receipt, controlli di invarianti per hop, codici di errore comprensibili e registri amichevoli all'audit. L'attuale Protocol v1.1.0 `SwapRouter` fornisce solo quote; non esegue tali rotte proposte.
+Quando un percorso futuro non può utilizzare l'attuale lotto atomico della stessa catena e invece utilizza HTLC o escrow, il servizio rivelerebbe timeout, percorsi di aborto, controllori responsabili, procedure di incidente e rischi residui.
+
+Un servizio opt-in potrebbe raccogliere le intenzioni di riequilibrio e cercare cicli o catene compatibili. Sarebbe:
+
+1. pubblicare una ricevuta leggibile a macchina che identifichi i cicli eseguiti, le attività, gli importi, i timestamp della valutazione e le commissioni;
+2. applicare i limiti massimi per periodo e le politiche delle controparti adottate;
+3. rifiutare le attività che violano l'autorizzazione, i limiti o l'inventario disponibile di qualsiasi Fondo partecipante; e
+4. conservare gli input e le ricevute deterministici per la revisione e la gestione delle controversie.
+
+**Requisiti per SDK e interfacce.** Un'integrazione riutilizzabile dei percorsi dovrebbe fornire una corrispondenza deterministica dalla quotazione alla ricevuta, controlli invarianti per ciascun passaggio, codici di errore comprensibili e registri facili da verificare. L'attuale implementazione in produzione di CLC App e CLC Core fornisce queste funzioni per il proprio profilo. Il contratto Solidity `SwapRouter` di Protocol v1.1.0 resta di sola quotazione e non esegue il percorso.
 
 #### **8.1.1 Specifica minima di compatibilità con la confederazione**
 

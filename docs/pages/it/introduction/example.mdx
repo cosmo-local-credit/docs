@@ -1,6 +1,6 @@
 # Esempio pratico di buono
 
-Questo esempio segue un buono da emissione attraverso uno scambio di fondo, presentazione del riscatto, adempimento e estinzione. Essa illustra i ruoli coinvolti; non è una promessa che sarà disponibile un particolare buono, fondo, percorso o risultato.
+Questo esempio segue un buono, da un'Offerta e un Want fino a uno scambio instradato attraverso due Fondi, alla presentazione per il riscatto, all'adempimento e all'estinzione. Illustra i ruoli coinvolti; non garantisce che uno specifico buono, Fondo, percorso o risultato sia disponibile.
 
 Per le definizioni utilizzate qui, vedere [Concetti e vocabolario](/it/introduction/concepts).
 
@@ -17,57 +17,90 @@ Immaginate che una cucina comunitaria crei un buono digitale per il pasto. Prima
 
 La cucina è l'emittente. Essa deve mantenere queste informazioni accurate, evitare di emettere oltre la sua ragionevole capacità e onorare i buoni secondo le condizioni in cui i titolari li hanno acquisiti. La creazione del token o la pubblicazione dell'offerta non dimostra tale capacità né rende GEF l'emittente.
 
-## 2. Un Responsabile del Fondo ammette il buono
+La cucina pubblica anche un'offerta che descrive i pasti disponibili. Il buono e l'offerta sono correlati ma distinti: il buono è l'impegno rimborsabile, mentre l'Offerta aiuta le persone a scoprire i beni o servizi ad esso associati.
 
-Un sistema di sicurezza alimentare Fondo di Impegni riesamina la cucina, i termini del buono e lo scopo del Fondo. Se ammesso, Responsabile del Fondo pubblica le norme applicabili, tra cui:
+## 2. Un partecipante pubblica un Want
 
-- che è responsabile del Fondo;
-- l'attuale proprietario di `SwapPool`, l'amministratore proxy e i controller di dipendenza dei materiali;
-- attività accettate;
+Una scuola vicina ha dei buoni per il trasporto e ha bisogno di pasti per un evento. Pubblica una richiesta che descrive i pasti, la quantità, il luogo, l'orario e il metodo di contatto.
+
+Il Want esprime una richiesta. Non accetta automaticamente il buono della cucina, non prenota pasti, non crea un contratto, non autorizza uno scambio e non promette che la scuola procederà. La scuola deve comunque valutare la cucina, i termini del buono, il percorso disponibile, l'Offerta e le condizioni applicabili.
+
+## 3. Responsabili indipendenti dei Fondi curano un percorso
+
+Due pool a gestione indipendente collegano le attività:
+
+1. un Fondo per la mobilità ammette il buono di trasporto della scuola e un buono per il mais;
+2. un Fondo per la sicurezza alimentare ammette quel buono di mais e il buono di pasto della cucina.
+
+Ciascun Responsabile del Fondo valuta i buoni e pubblica le regole del proprio Fondo, tra cui:
+
+- chi è responsabile del Fondo;
+- l'attuale proprietario di `SwapPool`, l'amministratore del proxy e i controllori delle dipendenze rilevanti;
+- i buoni ammessi e le altre attività supportate;
 - metodi di cambio o di quotazione;
-- caps per il saldo dei token, denominati **“Limiti di credito”** nell'app;
-- tasse di fondo e protocollo;
-- poteri di inventario e di prelievo di liquidità; e
-- qualsiasi accordo di garanzia, riserva o sostegno finanziato separatamente.
+- i limiti al saldo dei token, indicati come **Limiti di credito** nell'App;
+- le commissioni del Fondo e del Protocollo;
+- i poteri di inventario e di prelievo di liquidità;
+- eventuali accordi di garanzia, riserva o sostegno finanziati separatamente.
 
-L'ammissione significa che le regole di configurazione del Fondo consentono il buono. Non dimostra la capacità di soddisfazione, non stabilisce il valore in contanti né crea un'assicurazione.
+L'ammissione significa che le regole configurate di un Fondo consentono quel buono. Non dimostra la capacità di adempimento, non stabilisce un valore in denaro, non crea un'assicurazione e non trasforma i due Fondi in un'unica entità governata.
 
-## 3. Un partecipante contribuisce allo inventario
+## 4. I partecipanti forniscono un inventario
 
-Un sostenitore trasferisce i buoni del pasto o un altro bene sostenuto nella `SwapPool` secondo i termini pubblicati applicabili. Questo deposito aumenta l'inventario disponibile.
+Il Fondo per la mobilità contiene buoni per il mais che possono essere scambiati con buoni di trasporto. Il Fondo per la sicurezza alimentare contiene buoni pasto che possono essere scambiati con buoni per il mais. I partecipanti possono aver fornito questo inventario in base ad accordi pubblicati diversi.
 
-Il trasferimento non crea automaticamente una quota di fondo, una richiesta di rimborso, un diritto di prelievo, una ricompensa o un potere di governance. Tale diritto deve derivare da un accordo separato.
+Un deposito aumenta l'inventario disponibile del Fondo, ma non crea automaticamente una quota di Fondo, un credito di rimborso, un diritto di recesso, una ricompensa o un potere di governance. Qualsiasi tale diritto deve derivare da un accordo separato divulgato.
 
-## 4. Un titolare fa uno scambio di fondo
+## 5. L'App scopre e cita un percorso
 
-Il titolare scambia un'attività sostenuta in cambio di buoni di pasto attraverso il Fondo. La quotazione visualizzata è un parametro di transazione prodotto dal quotatore configurato, non prova del valore in contanti del buoni o delle prestazioni della cucina.
+Il portafoglio della scuola apre la visualizzazione **Credito** e seleziona il buono pasto. CLC Core stima un possibile percorso:
 
-L'interscambio diretto del fondo si effettua in catena trasferendo le entrate, le uscite, le tasse del fondo e le eventuali tasse di protocollo aggiuntive. Non si tratta automaticamente di un prestito, di un riscatto da parte dell'emittente o di una realizzazione.
+`transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-## 5. Il titolare presenta il buono
+Questo risultato della scoperta non è ancora una promessa che lo scambio avrà successo. Ogni salto dipende dall'ammissione corrente, dai limiti di saldo dei token del Fondo, dall'inventario disponibile, dalla configurazione delle quotazioni e delle commissioni, dal comportamento dei token supportati e dalla freschezza del servizio.
 
-Nell'app attuale, scegliere **“Riscattare”** apre il normale flusso di invio con l'indirizzo del titolare del token preempito. La restituzione del buono costituisce la prova della presentazione all'emittente; non dimostra di per sé che la cucina abbia fornito un pasto.
+La scuola sceglie quanto vuole ricevere o spendere. CLC Core legge quindi entrambi i Fondi allo stesso blocco fissato, produce una quotazione autorevole con validità limitata e simula l'intero batch del portafoglio. I dettagli del percorso nell'App mostrano entrambi gli scambi, gli importi stimati e le commissioni del Fondo e del Protocollo per ogni passaggio.
 
-La cucina verifica la presentazione e fornisce il pasto promesso secondo i termini pubblicati.
+## 6. Il titolare esegue lo scambio instradato
 
-## 6. L'emittente registra l'adempimento e lo estinzione
+Dopo aver verificato l'importo minimo da ricevere e la scadenza della quotazione, la scuola seleziona **Conferma scambio** e firma il batch preparato. L'App invia una transazione sulla stessa catena che contiene le approvazioni e la chiamata di scambio con limiti per ciascun Fondo.
 
-Dopo aver fornito il pasto, l'emittente registra le unità soddisfatte in modo che non possano essere presentate due volte. A seconda del processo pubblicato, ciò può comportare la ricezione, la combustione, l'annullamento o la disabilitazione del buono restituito.
+Se una chiamata fallisce, l'intera transazione viene annullata: il primo scambio nel Fondo non rimane regolato senza il secondo. Se riesce, la ricevuta raggruppata della scuola mostra un ID di tracciamento, l'hash della transazione, entrambi i passaggi tra i Fondi, gli importi regolati e le commissioni di ogni passaggio.
 
-Se la cucina non rispetta il suo impegno, il titolare utilizza il processo di denuncia o di rimedio pubblicato dall'emittente e qualsiasi diritto disponibile ai sensi della legge applicabile. Né GEF né Responsabile del Fondo diventa redentore solo perché l'app ha visualizzato il buono o il Fondo ha consentito uno swap.
+La scuola ora possiede i buoni pasto. Lo scambio on-chain costituisce il **regolamento dello scambio**. Attribuisce alla scuola il diritto descritto nei termini del buono pasto; non dimostra che la cucina abbia già fornito il cibo.
 
-Scegliere **“Ritiri il buono”** in app è diverso: nasconde l'elenco del catalogo mentre rimangono i bilanci e la storia, e un amministratore può ripristinarlo. Non è adempimento, estinzione, bruciamento o cancellazione.
+## 7. Il titolare presenta il Buono
+
+Nell'App attuale, scegliendo **Riscatta** si apre il normale flusso di invio con l'indirizzo del proprietario del token già inserito. La restituzione del buono documenta la presentazione all'emittente; da sola non dimostra che la cucina abbia fornito un pasto.
+
+La scuola segue il processo di prenotazione o contatto della cucina. La cucina verifica la presentazione e fornisce i pasti promessi secondo le sue condizioni pubblicate.
+
+## 8. L'emittente registra l'adempimento e lo scarico
+
+Dopo aver fornito i pasti, la cucina registra le unità soddisfatte in modo che non possano essere presentate due volte. A seconda del processo pubblicato, ciò può comportare la ricezione, l'incendio, la cancellazione o la disattivazione del Buono restituito.
+
+Se la cucina non rispetta il suo impegno, il titolare si avvale della procedura di reclamo o di ricorso pubblicata dall'emittente e di tutti i diritti previsti dal diritto applicabile. Né GEF né Responsabile del Fondo diventano redentori semplicemente perché l'App ha trovato il percorso o i Fondo hanno abilitato gli swap.
+
+Scegliere **Ritira il buono** nell'App è un'azione diversa: nasconde la voce del catalogo, mentre saldi e cronologia restano disponibili, e un amministratore può ripristinarla. Non costituisce adempimento, estinzione, distruzione o cancellazione.
 
 ## Responsabilità in un primo sguardo
 
 - **Emittente:** descrive e adempie il buono e registra la estinzione.
-- **Responsabile del Fondo:** pubblica e amministra le norme, le tariffe, le commissioni, i limiti, i controlli e qualsiasi garanzia espressamente assunta.
-- **Portatore:** valuta l'emittente, le condizioni del buono, le regole del fondo, la quotazione, l'autorizzazione del portafoglio e la legge applicabile.
-- **Controlli tecnici:** esercitare soltanto i poteri contrattuali, di dipendenza, di aggiornamento, di catalogo o di tassazione loro assegnati.
-- **GEF:** gestisce la CLC App e l'infrastruttura di supporto, [Termini di servizio](/it/governance/terms) La Commissione ha adottato una decisione . non assume automaticamente gli altri ruoli.
+- **Persona che pubblica un Want:** descrive una necessità senza accettare automaticamente un Buono o un percorso.
+- **Responsabili dei Fondi:** pubblicano e gestiscono in modo indipendente le regole, i tassi, le commissioni, i limiti, i controlli e ogni garanzia espressamente assunta per ciascun Fondo.
+- **Possessore:** esamina l'emittente, i termini del Buono, i pool, la quotazione del percorso, le commissioni, l'autorizzazione al portafoglio e la legge applicabile.
+- **CLC App e CLC Core:** scoprono e quotano i possibili percorsi, preparano e trasmettono il batch firmato e raggruppano i registri tecnici di regolamento. Non dimostrano l'adempimento dell'emittente.
+- **I controllori tecnici:** esercitano solo i poteri di contratto, dipendenza, aggiornamento, catalogo, servizio di routing o tariffa loro assegnati.
+- **GEF:** gestisce la CLC App e l'infrastruttura di supporto secondo i [Termini di servizio](/it/governance/terms). Non assume automaticamente gli altri ruoli.
+
+## Quando un percorso non è disponibile
+
+L'App potrebbe non trovare alcun percorso, o un preventivo potrebbe fallire, quando l'inventario è insufficiente, un limite di Fondo sarebbe superato, un Buono non è ammesso, un token o un quotatore non sono supportati, il portafoglio manca di input sufficienti, i dati del percorso sono obsoleti o la simulazione finale del lotto fallisce. Un preventivo può anche scadere o diventare invalido prima della presentazione a seguito di cambiamenti nello stato del Fondo.
+
+Tale risultato non modifica la richiesta, l'offerta o gli obblighi in materia di Buono esistenti dell'emittente. Il partecipante può aggiornare il percorso, scegliere un importo inferiore, utilizzare un altro buono di ingresso idoneo o attendere che le condizioni del Fondo cambiino.
 
 ## Arrangimenti di credito futuri
 
 Un futuro fondo o un'altra parte responsabile potrebbe offrire separatamente una transazione come anticipo rimborsabile, transazione garantita o altro prodotto creditizio. Tale prodotto richiederebbe la presentazione separata di termini supplementari e di transazione che identificino le parti, gli importi, le date di scadenza, le tasse o gli interessi, il trattamento delle garanzie, la cessione, il default, i rimedi e le prove di estinzione.
 
-L'invio ordinario, il deposito in fondo, lo swap in fondo, la presentazione di buoni, l'adempimento o il estinzione non creano tali obblighi da soli.
+L'invio ordinario, il deposito in un Fondo, lo scambio diretto o instradato attraverso un Fondo, la presentazione del buono, l'adempimento o l'estinzione non creano da soli tali obblighi.

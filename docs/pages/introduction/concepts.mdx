@@ -10,10 +10,13 @@ This page defines the terms used across the documentation. Exact app labels appe
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | The product family: the CLC App, its documentation, and the wider commitment-pooling work. |
 | **CLC App** | The progressive web app at [cosmolocal.credit](https://cosmolocal.credit). GEF operates this interface and its supporting services. |
+| **CLC Core** | The App's supporting service for catalogs, indexed chain state, route discovery, authoritative route quotes, relay coordination, and routed-exchange receipts. It is not a smart contract or a Pool Steward. |
 | **Commitment Pooling Protocol (CPP)** | The reusable model of curation, valuation, limitation, exchange, and accountable governance. |
 | **Protocol v1.1.0** | The verified public smart-contract release documented in the [Protocol reference](/protocol/overview). |
 | **Commitment Pool** | A governed arrangement that curates assets, publishes rules, and enables exchange. **Pool** is the ordinary shorthand. |
 | **`SwapPool`** | The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool. |
+| **Solidity `SwapRouter`** | The Protocol v1.1.0 contract that quotes a proposed multi-Pool path. It does not custody assets or execute the route. |
+| **Application routing workflow** | The current CLC App and CLC Core process that discovers same-chain paths, quotes and simulates them, prepares a signed wallet batch, relays it, and groups the resulting Pool settlements into one receipt. |
 | **Proposed CLC governance token** | A future governance design in the White Paper. It is not a current App or Protocol v1.1.0 asset. |
 | **Proposed CLC Network Pool** | A future network-level clearing and coordination design. It is not the same as a current `SwapPool`. |
 
@@ -63,6 +66,10 @@ These are four separate layers:
 | **“Retire voucher”** | Hide a voucher from the App catalog. Balances and history remain, and an administrator can restore the listing. It is not a burn or cancellation. |
 | **Pool deposit or contribution** | Transfer assets into a `SwapPool`. Rights to repayment, withdrawal, rewards, or governance exist only when separately disclosed. |
 | **Pool swap** | Exchange one supported asset for another through one `SwapPool`. This is not issuer fulfillment or automatically a loan. |
+| **Route discovery** | Find possible paths from a wallet's eligible vouchers to a target voucher through configured Pool relationships. Discovery is an estimate, not an executable promise. |
+| **Route quote** | A time-bounded, authoritative calculation for one selected path, based on Pool state read at one pinned block and simulated before signing. |
+| **Routed exchange** | An ordered set of Pool swaps submitted by the App as one same-chain wallet batch. In the current flow, every call reverts if any call fails. |
+| **Routed-exchange receipt** | One grouped record containing the tracking status, transaction hash, route hops, settled amounts, and per-hop Pool and protocol fees. |
 | **Pool liquidity withdrawal** | The Pool owner transfers available inventory to a selected address. |
 | **Fee collection** | A configured recipient collects accrued Pool fees. |
 
@@ -82,7 +89,15 @@ Keep these value terms separate:
 
 The App label **“Credit limit”** refers to a Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. It is not a personal credit line, an issuer-capacity check, or a guarantee of redemption. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.
 
-Current Protocol v1.1.0 can charge a **Pool fee** and an additional **protocol fee**. The proposed White Paper model separately describes a future **network rake** taken from Pool fees and possible routing or service fees. These models must not be combined when explaining current charges or calculating future revenue.
+Current Protocol v1.1.0 can charge a **Pool fee** and an additional **protocol fee** on each Pool swap. A routed exchange itemizes those fees for every hop. The current CLC App route workflow adds no separate routing-service fee. The proposed White Paper model separately describes a future **network rake** taken from Pool fees and possible routing or service fees. These models must not be combined when explaining current charges or calculating future revenue.
+
+## Routes and liquidity
+
+A **route** is an ordered path through one or more independently governed Pools. **Route depth** is the number of Pool swaps in that path. The current public deployment searches up to three hops.
+
+**Available liquidity** means the eligible output inventory that a Pool can supply under its current admission, balance-cap, quote, fee, and reservation state. A graph connection alone does not prove that a useful amount can pass through it. Route discovery can become stale, while the later pinned-block quote is authoritative only until its deadline or relevant state changes.
+
+Current route execution is same-chain and wallet-initiated. It does not pool governance, automatically rebalance Pool inventory, clear obligations among many parties, or prove fulfillment. Cross-chain HTLC or escrow routing, automatic rebalancing, and batch netting remain proposed or deployment-dependent.
 
 ## Protections and evidence
 

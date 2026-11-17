@@ -20,7 +20,7 @@ Las funciones y autoridades pertinentes incluyen:
 - **Propietario del Fondo:** posee los poderes actuales de titular de `SwapPool`;
 - **administrador proxy:** puede actualizar una implementación proxied;
 - **controladores de dependencias:** regir registros, cotizaciones, limitadores o componentes de tarifas configurados;
-- **buscador o operador de ruta:** podrá descubrir cotizaciones o, en una futura aplicación, ejecutar una ruta autorizada por separado; y
+- **operador del servicio de enrutamiento:** puede descubrir, cotizar, simular, preparar, retransmitir y registrar una ruta autorizada por separado dentro de su ámbito publicado; y
 - **garantía:** asume una obligación definida únicamente a través de términos publicados y financiados.
 
 Grupos CPP Las funciones del grupo se dividen en cuatro conceptos:
@@ -30,9 +30,11 @@ Grupos CPP Las funciones del grupo se dividen en cuatro conceptos:
 - **Limitación:** aplicar límites máximos actuales de saldo de tokens del grupo o otros controles implementados por separado.
 - **Intercambio:** mantener inventario, ejecutar swaps, contabilizar tarifas y emitir registros de transacciones.
 
-Protocol v1.1.0 implementa estas funciones a través de `SwapPool` y dependencias opcionales. Su actual `Limiter` cubre un saldo de tokens en un Fondo; no dispone de límites de swap en circulación, por cuenta o en toda la red. Su actual `SwapRouter` calcula cotizaciones de múltiples Fondos; no ejecuta swaps.
+Protocol v1.1.0 implementa estas funciones mediante `SwapPool` y dependencias opcionales. Su `Limiter` actual limita el saldo de un token en un Fondo; no proporciona límites de intercambio móviles, por cuenta o para toda la red. Su `SwapRouter` Solidity actual calcula cotizaciones entre varios Fondos; no ejecuta intercambios.
 
-El diseño más amplio propuesto de CPP puede añadir límites de movimiento, controles de cuentas, enrutadores de ejecución, caminos HTLC o escrow y redes de lotes. Se trata de componentes propuestos, no de descripciones del limitador o del enrutador actual.
+La CLC App y CLC Core de producción implementan enrutamiento en la misma cadena a nivel de la aplicación por encima de esos contratos. CLC Core descubre caminos, lee los Fondos seleccionados en un bloque fijado, prepara y simula un lote firmado para la billetera Calibur, coordina el relé y agrupa los registros de liquidación resultantes. La configuración pública actual busca rutas de hasta tres intercambios de Fondo. Cada Fondo sigue gobernado de forma independiente y cada paso se ejecuta directamente mediante su propio `SwapPool`.
+
+El diseño más amplio propuesto para el CPP podría añadir límites móviles, controles de cuenta, caminos HTLC o de depósito en garantía entre dominios, reequilibrio automático de Fondos y compensación por lotes. Son componentes propuestos, no descripciones del limitador actual, el enrutador Solidity ni el flujo de rutas de la CLC App y CLC Core.
 
 ### **1.3 Lógica de intercambio directo actual**
 

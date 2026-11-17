@@ -50,10 +50,31 @@ A Commitment Pool is a governed arrangement. Its current `SwapPool` contract can
 
 A deposit transfers assets to the `SwapPool`. Protocol v1.1.0 does not mint Pool-share tokens or automatically give the depositor repayment, withdrawal, reward, or governance rights.
 
-### 5. Use the correct action
+### 5. Exchange directly or through a route
+
+The App's **Credit** view can find vouchers reachable from the vouchers in your wallet. A reachable voucher may require one Pool swap or a route through several independently governed Pools. The current public deployment searches routes of up to three swaps.
+
+To exchange:
+
+1. choose **Get** for the voucher you want, or **Spend** for the voucher you want to use;
+2. review the available **Pay with** choice and the **Estimate**;
+3. open **Route details** to see every Pool, swap, amount, Pool fee, and protocol fee;
+4. select **Review**, check the minimum amount received and quote expiry, then choose **Confirm exchange**; and
+5. sign the prepared wallet batch.
+
+CLC Core discovers possible paths from indexed Pool and voucher information. Discovery is an estimate. Before signing, it reads the relevant Pool state at one pinned block, produces an authoritative quote, applies per-hop minimum-output and deadline bounds, and simulates the complete batch. The App currently adds no separate routing-service fee; each hop can still charge its configured Pool fee and additional protocol fee.
+
+The signed route is submitted as one same-chain transaction. Every hop uses the same App-compatible wallet. If any approval or Pool swap in the batch fails, the complete transaction reverts, so earlier hops do not remain settled. The receipt groups the route under one tracking ID and shows its status, transaction hash, each Pool, settled amounts, and each hop's Pool and protocol fees.
+
+A route may be unavailable because the wallet lacks an eligible input voucher, a Pool does not admit a token, a Pool token-balance cap would be exceeded, output inventory is insufficient, a quoter or token is unsupported, or the routing service is temporarily stale or unavailable. A quote may also expire, become stale as Pool state changes, fail its final simulation, or revert on-chain. Refresh the route and review the new quote rather than assuming an earlier estimate remains valid.
+
+Current routed execution supports the CLC App's compatible EOA/Calibur wallets. It does not currently prepare routed exchanges for a Safe or another contract wallet.
+
+### 6. Use the correct action
 
 - **Send** transfers a token balance to another address.
-- **Pool swap** exchanges one supported asset for another through one `SwapPool`. On-chain swap settlement does not prove issuer fulfillment.
+- **Pool swap** exchanges one supported asset for another through one `SwapPool`. It may be a direct exchange or one hop of a routed exchange. On-chain swap settlement does not prove issuer fulfillment.
+- **Routed exchange** executes an ordered set of Pool swaps in one bounded, same-chain wallet transaction. It does not merge the Pools' governance or make the route operator responsible for issuer fulfillment.
 - **“Redeem”** opens the send flow with the token owner's address prefilled. It presents or returns the voucher to the issuer; completed redemption also requires the issuer's promised performance and a discharge record that prevents reuse.
 - **“Retire voucher”** hides the catalog listing. It does not burn balances, cancel the voucher, or extinguish the issuer's outstanding obligations.
 - **Pool liquidity withdrawal** lets the Pool owner transfer available inventory.
@@ -63,11 +84,11 @@ See the [practical voucher example](/introduction/example) for the complete life
 
 ## Current, deployment-dependent, and proposed capabilities
 
-The current App provides a Market and supported flows for accounts, wallets, vouchers, Offerings, pools, transfers, direct Pool swaps, and related records. Availability depends on the active deployment, asset, Pool configuration, device, network, eligibility, provider, jurisdiction, and published terms.
+The current App provides a Market and supported flows for accounts, wallets, vouchers, Offerings, pools, transfers, direct Pool swaps, application-level routed exchanges, and related records. Availability depends on the active deployment, asset, Pool configuration, inventory, wallet type, device, network, eligibility, provider, jurisdiction, and published terms.
 
 Payment services, support methods, rewards, guarantees, contribution arrangements, and other provider integrations are deployment-dependent. Their responsible party, fees, limits, eligibility, and legal terms must be disclosed where they are offered.
 
-Protocol v1.1.0 provides direct Pool execution and a quote-only `SwapRouter`. Multi-hop execution, HTLC or escrow routing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
+Protocol v1.1.0 provides direct Pool execution and a quote-only Solidity `SwapRouter`. The production CLC App and CLC Core now provide same-chain multi-hop route discovery, authoritative quoting, wallet-batch preparation, simulation, relay, and grouped receipts above those contracts. The Solidity `SwapRouter` did not become an execution contract. Cross-chain HTLC or escrow routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
 
 Any future loan or other credit product requires separately presented supplemental and transaction terms. An ordinary transfer, Pool deposit, Pool swap, redemption presentment, fulfillment, or discharge is not automatically a loan, advance, or repayment.
 

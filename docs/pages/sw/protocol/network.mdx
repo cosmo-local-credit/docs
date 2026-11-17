@@ -8,39 +8,72 @@ Grassroots Economics Foundation huendesha programu ya umma kwenye [cosmolocal.cr
 
 Angalia [Dhana na msamiati](/sw/introduction/concepts) ili kuelewa tofauti kati ya majukumu yenye uwajibikaji na mamlaka za kiufundi.
 
-## Njia zinazowezekana na utekelezaji
+## Ugunduzi na utekelezaji wa njia katika uzalishaji
 
 <MermaidDiagram
-  label="Ugunduzi wa njia zinazowezekana na utekelezaji wa kundi la miamala ya Mkoba"
-  minWidth={1040}
+  label="Muundo wa uelekezaji wa CLC App na CLC Core katika uzalishaji"
+  minWidth={1180}
   chart={`flowchart TB
-    VoucherA["Vocha A"] ---|imeorodheshwa na kuhifadhiwa| PoolA["Kikundi A"]
-    Bridge["Mali ya kati ya kawaida"] ---|imeorodheshwa na kuhifadhiwa| PoolA
-    Bridge ---|imeorodheshwa na kuhifadhiwa| PoolB["Kikundi B"]
-    VoucherB["Vocha B"] ---|imeorodheshwa na kuhifadhiwa| PoolB
+    User["Mshiriki"] --> App["CLC App<br/>Mkopo · Pata · Tumia"]
+    App -->|vocha zinazoweza kufikiwa na njia zinazowezekana| Core["Huduma ya uelekezaji ya CLC Core"]
+    Catalog["Katalogi, rejesta,<br/>matukio ya mnyororo yaliyoainishwa"] --> Core
+    Chain["Usomaji wa mnyororo<br/>katika block iliyowekwa"] -->|hali ya Kikundi, salio, ada,<br/>mipaka na taarifa za nukuu| Core
+    Reconcile["Uainishaji na upatanisho"] --> Catalog
 
-    App["PWA au kitafuta njia"] -. hugundua njia .-> Index["Rejesta na faharasa"]
-    App -. huomba makadirio .-> Router["SwapRouter: makadirio pekee"]
-    Router -. husoma makadirio ya Kikundi .-> PoolA
-    Router -. husoma makadirio ya Kikundi .-> PoolB
+    Core -->|nukuu halali,<br/>mipaka na simu zilizotayarishwa| App
+    Core -->|iga kundi lote| Chain
+    App -->|kagua na utie sahihi| Wallet["Mkoba wa EOA/Calibur<br/>unaoendana na App"]
+    Wallet -->|kundi lililotiwa sahihi| Relayer["Relayer"]
+    Relayer -->|muamala mmoja kwenye mnyororo huo<br/>revertOnFailure = true| Batch["Kundi la Calibur<br/>idhini 0 · idhini ya kiasi<br/>utoaji wenye mipaka kwa kila hatua"]
 
-    App -->|huunda miito kwa mpangilio| WalletStart["Mkoba wa smart-account wa mtumiaji"]
-    WalletStart -->|hatua ya 1: Vocha A| PoolA
-    PoolA -->|mali ya kati inayotoka| WalletBridge["Mkoba huohuo kati ya miito"]
-    WalletBridge -->|hatua ya 2: mali ya kati| PoolB
-    PoolB -->|Vocha B inayotoka| WalletFinal["Mkoba huohuo wa mtumiaji"]
+    Batch --> PoolA["SwapPool A"]
+    Batch --> PoolB["SwapPool B"]
+    Batch --> PoolC["SwapPool C<br/>(ikiwa inahitajika)"]
+    PoolA --> Events["Matukio ya ukamilishaji"]
+    PoolB --> Events
+    PoolC --> Events
+    Events --> Reconcile
+    Reconcile --> Receipt["Risiti iliyojumuishwa ya ubadilishaji wa njia<br/>hali · hash ya muamala · hatua · kiasi · ada"]
+    Receipt --> App
 
-    PoolA -->|ada ya itifaki| ProtocolRecipient["Mpokeaji wa itifaki aliyesanidiwa"]
-    PoolB -->|ada ya itifaki| ProtocolRecipient`}
+    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>mkataba unaotumika tena wa nukuu pekee"] -. husoma nukuu; hautekelezi .-> PoolA
+    SolidityRouter -. husoma nukuu; hautekelezi .-> PoolB`}
 />
 
-Mali inayotumiwa pamoja huunda **njia inayowezekana kwenye grafu**, si njia yenye dhamana. Katika mfano huu, Vocha A inaweza kubadilishwa kuwa mali ya kati katika Kikundi A, kisha mali hiyo ikabadilishwa kuwa Vocha B katika Kikundi B. Kila hatua bado hutegemea kukubaliwa kwa tokeni wakati huo, mipaka ya Kikundi, mali zinazopatikana, usanidi wa makadirio na ada, hali ya oracle, idhini, mipaka ya muamala na utekelezaji wa mtandao.
+Vocha inayoshirikiwa huunda **njia inayowezekana kwenye grafu**, si njia yenye dhamana. Huduma ya CLC Core katika uzalishaji hudumisha grafu iliyopatanishwa kutokana na taarifa za Vikundi, rejesta, katalogi, salio, ada na matukio ya mnyororo. Pia huthibitisha mali muhimu katika Mkoba wa kipindi. Utekelezaji wa umma kwa sasa hutafuta njia zenye hadi ubadilishaji tatu wa Kikundi.
 
-`SwapRouter` huita tu vitendaji vya makadirio vya Vikundi katika njia inayopendekezwa. Haihifadhi fedha, haiidhinishi tokeni wala kutekeleza ubadilishaji. Muunganishi au programu inayolingana inaweza kutumia makadirio hayo kuunda miito ya idhini na ya Kikundi kwa mpangilio ndani ya kundi lililosainiwa la smart-account; hii haimaanishi kuwa programu ya sasa ya umma hutoa utekelezaji wa hatua nyingi. Kila hatua hukamilishwa kwenda kwenye Mkoba kabla Mkoba huo haujatoa mali ya kati kwa Kikundi kinachofuata, na muunganishi anaweza kusanidi kundi lote litenguliwe ikiwa mwito mmoja utashindwa.
+Ugunduzi wa grafu ni wa haraka, lakini ni makadirio ya hali katika block iliyoainishwa. Matokeo yanaweza kutiwa alama kuwa yamepitwa na wakati, na muunganisho hauthibitishi kuwa kiasi kinachotakiwa kinaweza kupita. Kichujio cha **Mkopo** katika App hutumia seti hii inayoweza kufikiwa katika Soko na skrini nyingine za ugunduzi.
 
-Makadirio ni picha ya hali katika wakati fulani. Makadirio ya njia yaliyofaulu bado yanaweza kushindwa au kukamilika kwa matokeo tofauti ikiwa hali husika itabadilika kabla ya utekelezaji. Toleo lenye mipaka la `SwapPool.withdraw` huongeza ulinzi wa `minAmountOut` na `deadline` kwa hatua moja; waunganishi lazima waamue jinsi ya kutumia mipaka katika njia nzima.
+### Nukuu ya mamlaka
 
-Ada za Kikundi hubaki katika Kikundi husika ili zikusanywe baadaye. Ada yoyote ya itifaki ni ya ziada na huhamishwa moja kwa moja kutoka Kikundi hicho kwenda kwa mpokeaji wa itifaki aliyesanidiwa wakati wa ubadilishaji.
+Baada ya mshiriki kuchagua njia na kiasi, CLC Core husoma kila Kikundi kinachohusika katika block moja iliyowekwa na kurudia hesabu zinazosaidiwa za `SwapPool`. Nukuu hutaja kila hatua, ingizo na matokeo, ada ya Kikundi, ada ya itifaki, kiwango cha chini cha matokeo, mpokeaji wa mwisho na muda wa kuisha. Muda wa sasa wa nukuu katika uzalishaji ni dakika tano.
+
+Kisha huduma huunda na kuiga kundi lote la Calibur. Tabia za tokeni zisizosaidiwa, quoter zisizosaidiwa, salio lisilotosha la Mkoba, kushindwa kwa kukubaliwa, vikomo vya salio la tokeni la Kikundi, ukwasi usiotosha, vikoa batili vya ada, vikomo vya gesi na sababu nyingine za kurejesha muamala zinaweza kuzuia nukuu kutolewa.
+
+Ugunduzi na nukuu ni ushahidi tofauti. Ugunduzi unasema kuwa njia inaweza kuwepo; nukuu ya block iliyowekwa ndiyo pendekezo halali la muamala. Hata pendekezo hilo linaweza kuisha muda au kuwa batili ikiwa hali inayohusika itabadilika kabla ya kuwasilishwa.
+
+### Kundi atomiki lililotiwa sahihi
+
+Mtumiaji hukagua **Maelezo ya njia** na kutia sahihi kundi la miamala ya Mkoba lililotayarishwa. Kwa kila hatua, kundi huita `approve(pool, 0)`, `approve(pool, amountIn)` na toleo la `SwapPool.withdraw` lenye mipaka. Kila utoaji wenye mipaka huweka kiwango cha chini cha matokeo na muda wa mwisho. Vocha za kati hurudi kwenye Mkoba huohuo kabla Kikundi kinachofuata hakijatumia kiasi kilichonukuliwa; salio lolote la mali ya kati hubaki katika Mkoba huo.
+
+Relayer huwasilisha kundi kama muamala mmoja kwenye mnyororo huo huku `revertOnFailure` ikiwa `true`. Idhini au ubadilishaji wowote wa Kikundi ukishindwa, simu zote za njia—ikiwemo hatua za awali na mabadiliko yake ya idhini—hurejeshwa pamoja. Huu ndio uatomiki wa sasa wa muamala kwenye mnyororo mmoja. Si uatomiki kati ya minyororo, HTLC, escrow, ulinganishaji wala usawazishaji wa kiotomatiki wa Vikundi.
+
+Mtiririko wa sasa wa njia unasaidia Mikoba ya EOA/Calibur inayoendana na App. Safe au Mkoba mwingine wa mkataba hukataliwa na njia ya sasa ya nukuu.
+
+### `SwapRouter` ya Solidity na ada
+
+`SwapRouter` ya Solidity ya Protocol v1.1.0 hubaki ya nukuu pekee. Inaweza kuita vitendaji vya nukuu vya Vikundi katika njia iliyotolewa, lakini haishikilii fedha, haiidhinishi tokeni wala kutekeleza ubadilishaji. Mtiririko wa App/Core katika uzalishaji ulioelezwa hapo juu ni mratibu tofauti katika kiwango cha programu anayeita kila `SwapPool` moja kwa moja kupitia kundi la miamala ya Mkoba lililotiwa sahihi na mshiriki.
+
+Ada za Kikundi hubaki katika Kikundi kinachohusika ili zikusanywe baadaye. Ada yoyote ya itifaki ni ya ziada na huhamishwa moja kwa moja kutoka Kikundi hicho kwenda kwa mpokeaji wa itifaki aliyesanidiwa wakati wa ubadilishaji.
+
+App ya sasa haiongezi ada tofauti ya huduma ya uelekezaji. Hata hivyo, ubadilishaji wa njia unaweza kuwa na ada kadhaa za Kikundi na itifaki kwa sababu kila hatua ni ukamilishaji tofauti wa `SwapPool`.
+
+### Hali za risiti na kushindwa
+
+CLC Core huweka njia chini ya kitambulisho kimoja cha ufuatiliaji. App huonyesha **Inabadilisha**, **Imebadilishwa** au **Ubadilishaji umeshindwa**, pamoja na hali ya kiufundi ya **Inasubiri**, **Imethibitishwa** au **Imerejeshwa**. Risiti hurekodi hash ya muamala, kina cha njia, kila Kikundi na jozi ya tokeni, kiasi kilichonukuliwa na kilichokamilishwa, ada za Kikundi na itifaki kwa kila hatua, kiwango cha chini kilichopokelewa na salio lolote la kati lililobaki katika Mkoba.
+
+Njia inaweza kushindwa kabla ya kutia sahihi kwa sababu hakuna njia inayofaa au nukuu inayopatikana; wakati wa uigaji kwa sababu kundi lingerudishwa; wakati wa uwasilishaji kwa sababu muamala uliotiwa sahihi hauwezi kuwasilishwa; au kwenye mnyororo kwa sababu hali ilibadilika au sharti jingine la utekelezaji lilishindwa. Njia iliyoshindwa au isiyopatikana haibadilishi kanuni za Kikundi, haiweki ukomo wa vocha wala kuthibitisha chochote kuhusu utekelezaji wa Mtoaji.
+
 
 ## Vipengele vya ndani vya Kikundi
 

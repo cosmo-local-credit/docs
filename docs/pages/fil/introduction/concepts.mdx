@@ -10,10 +10,13 @@ Nililinaw ng pahinang ito ang mga terminong ginagamit sa buong dokumentasyon. Na
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | Ang pamilya ng produkto: ang CLC App, dokumentasyon nito, at mas malawak na gawain sa commitment pooling. |
 | **CLC App** | Ang progressive web app sa [cosmolocal.credit](https://cosmolocal.credit). Pinapatakbo ng GEF ang interface na ito at ang mga sumusuportang serbisyo nito. |
+| **CLC Core** | Ang serbisyo ng suporta ng App para sa mga katalogo, indexed chain state, pagtuklas ng ruta, awtoritative na mga quote sa ruta, koordinasyon ng relay, at mga resibo ng palitan. Hindi ito isang matalinong kontrata o isang Tagapangasiwa ng Pool. |
 | **Commitment Pooling Protocol (CPP)** | Ang magagamit-muling modelo para sa curation, valuation, limitasyon, palitan, at pamamahalang may pananagutan. |
 | **Protocol v1.1.0** | Ang napatunayang pampublikong release ng mga smart contract na nakadokumento sa [sanggunian ng Protokol](/fil/protocol/overview). |
 | **Pool ng Pangako** | Isang kaayusang may pamamahala na pumipili ng mga asset, naglalathala ng mga patakaran, at nagpapahintulot ng palitan. **Pool** ang karaniwang pinaikling tawag. |
 | **`SwapPool`** | Ang kasalukuyang protocol contract na nagtataglay ng inventory ng token at nagsasagawa ng direktang palitan. Isa itong teknikal na bahagi ng Pool ng Pangako. |
+| **Solidity `SwapRouter`** | Ang quote-only contract ng Protocol v1.1.0 para sa isang ibinigay na multi-Pool path. Hindi ito nag-iingat ng asset o nagpapatupad ng ruta. |
+| **Application routing workflow** | Ang kasalukuyang proseso ng CLC App at CLC Core na naghahanap ng same-chain path, nagko-quote at nag-si-simulate nito, naghahanda at nagre-relay ng pinirmahang Wallet batch, at pinagsasama ang settlement ng mga Pool sa isang resibo. |
 | **Iminungkahing CLC governance token** | Isang disenyo para sa pamamahala sa hinaharap na nasa White Paper. Hindi ito kasalukuyang asset ng App o Protocol v1.1.0. |
 | **Iminungkahing CLC Network Pool** | Isang disenyo sa hinaharap para sa clearing at koordinasyon sa antas ng network. Hindi ito katulad ng kasalukuyang `SwapPool`. |
 
@@ -63,6 +66,10 @@ Ang “miyembro ng komunidad” ay impormal na panlipunang tawag. Hindi ito, sa 
 | **“Retire voucher”** | Itago ang voucher mula sa catalog ng App. Nananatili ang mga balanse at kasaysayan, at maaaring ibalik ng administrator ang listing. Hindi ito burning o pagkansela. |
 | **Deposit o kontribusyon sa Pool** | Maglipat ng mga asset sa isang `SwapPool`. Umiiral lamang ang karapatan sa pagbabayad, withdrawal, reward, o pamamahala kung hiwalay itong inilathala. |
 | **Palitan sa Pool** | Magpalit ng isang suportadong asset para sa isa pa sa pamamagitan ng isang `SwapPool`. Hindi ito pagtupad ng tagapag-isyu at hindi awtomatikong pautang. |
+| **Pagtuklas ng ruta** | Hanapin ang mga posibleng landas mula sa kwalipikadong mga Voucher ng isang wallet patungo sa isang target na Voucher sa pamamagitan ng naka-configure na mga ugnayan sa Pool. Ang pagtuklas ay isang pagtatantya, hindi isang pangako. |
+| **Route quote** | Isang may-awtoridad at may-takdang-panahong calculation para sa napiling path, batay sa state ng mga Pool na binasa sa iisang pinned block at sini-simulate bago pumirma. |
+| **Routed exchange** | Isang sunod-sunod na hanay ng palitan sa Pool na isinusumite ng App bilang same-chain Wallet batch. Sa kasalukuyang flow, babalik ang lahat ng call kapag may isang call na nabigo. |
+| **Routed-exchange receipt** | Grouped record na may tracking status, transaction hash, route hop, settled amount, at mga bayarin sa Pool at protocol sa bawat hop. |
 | **Pag-withdraw ng liquidity ng Pool** | Inililipat ng may-ari ng Pool ang available na inventory sa isang napiling address. |
 | **Pagkolekta ng bayarin** | Kinokolekta ng naka-configure na tatanggap ang naipong bayarin ng Pool. |
 
@@ -82,7 +89,15 @@ Panatilihing magkahiwalay ang mga salitang ito tungkol sa halaga:
 
 Ang label ng App na **“Credit limit”** ay tumutukoy sa naka-configure na cap sa balanse ng token ng Pool: ang pinakamataas na halaga ng token na maaaring hawakan ng Pool pagkatapos ng deposit. Hindi ito personal na credit line, pagsusuri sa kakayahan ng tagapag-isyu, o garantiya ng pagtubos. Ibang mekanismo ang iminungkahing rolling, account, at network-wide limit sa White Paper.
 
-Maaaring maningil ang kasalukuyang Protocol v1.1.0 ng **bayarin ng Pool** at karagdagang **bayarin ng protocol**. Hiwalay na inilalarawan ng iminungkahing modelo sa White Paper ang **network rake** sa hinaharap na kinukuha mula sa mga bayarin ng Pool, at posibleng routing o service fee. Hindi dapat paghaluin ang mga modelong ito kapag ipinapaliwanag ang kasalukuyang singil o kinukuwenta ang kita sa hinaharap.
+Maaaring maningil ang kasalukuyang Protocol v1.1.0 ng **bayarin sa Pool** at karagdagang **bayarin sa protocol** sa bawat palitan sa Pool. Inililista ng routed exchange ang mga bayarin sa bawat hop. Walang hiwalay na route-service fee ang kasalukuyang CLC App workflow. Hiwalay na inilalarawan ng White Paper ang iminungkahing **network rake** mula sa mga bayarin sa Pool at posibleng routing o service fee sa hinaharap. Hindi dapat pagsamahin ang mga modelong ito kapag ipinapaliwanag ang kasalukuyang singil o kinukuwenta ang kita sa hinaharap.
+
+## Mga ruta at likididad
+
+Ang **route** ay isang sunod-sunod na path sa isa o higit pang Pool na magkakahiwalay ang pamamahala. Ang **route depth** ay bilang ng palitan sa Pool sa path. Hanggang tatlong hop ang hinahanap ng kasalukuyang pampublikong deployment.
+
+Ang **available liquidity** ay kwalipikadong output inventory na maibibigay ng Pool sa ilalim ng kasalukuyang admission, balance cap, quote, fee, at reservation status. Hindi pinatutunayan ng graph connection lamang na makakadaan ang kapaki-pakinabang na halaga. Maaaring maging stale ang route discovery, at may awtoridad lamang ang huling pinned-block quote hanggang sa deadline nito o hanggang magbago ang kaugnay na state.
+
+Ang kasalukuyang pagpapatupad ng ruta ay same-chain at wallet-initiated. Hindi nito pinagsama ang pamamahala, awtomatikong muling balansehin ang imbentaryo ng Pool, malinaw na mga obligasyon sa maraming partido, o patunayan ang katuparan. Ang cross-chain HTLC o escrow routing, automatic rebalancing, at batch netting ay nananatiling iminungkahi o nakasalalay sa deployment.
 
 ## Mga proteksyon at ebidensiya
 

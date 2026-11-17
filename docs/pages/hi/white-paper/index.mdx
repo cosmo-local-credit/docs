@@ -1,18 +1,18 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **इस अनुवाद के बारे में।** यह White Paper v0.8 का अनुवाद है। मूल अंग्रेज़ी पाठ 30 सितंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 10 अक्टूबर 2026 को प्रकाशित हुआ। अंग्रेज़ी मूल पाठ है। <a data-english-source="true" href="/white-paper" hrefLang="en">मूल अंग्रेज़ी पाठ पढ़ें</a>।
+> **इस अनुवाद के बारे में।** यह White Paper v0.9 का अनुवाद है। मूल अंग्रेज़ी पाठ 16 नवंबर 2026 को प्रकाशित हुआ था। यह अनुवाद 17 नवंबर 2026 को प्रकाशित हुआ। अंग्रेज़ी स्रोत पाठ है। <a data-english-source="true" href="/white-paper" hrefLang="en">मूल अंग्रेज़ी पाठ पढ़ें</a>।
 
 ## क्रेडिट को route करने, प्रतिबद्धताओं का समन्वय करने और स्वस्थ kosmo-local अर्थव्यवस्था को वित्त देने का नेटवर्क
 
-**संस्करण:** 0.8
+**संस्करण:** 0.9
 
-**तारीख:** 30 सितंबर 2026
+**दिनांक:** 16 नवंबर 2026
 
 **लेखक:** William O. Ruddick और Mohamed Sohail
 
 **संपर्क:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**डाउनलोड:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-hi.pdf">CLC White Paper v0.8 PDF हिंदी में</a>
+**डाउनलोड:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-hi.pdf">CLC White Paper v0.9 PDF हिंदी में</a>
 
 **प्रकाशन:** अंतिम, संस्करणबद्ध सार्वजनिक प्रकाशन। यह दस्तावेज़ निवेश सलाह नहीं है और किसी प्रतिभूति या वित्तीय साधन को बेचने का प्रस्ताव या खरीदने का आग्रह नहीं है। बाद के संस्करण यहाँ बताए गए डिज़ाइनों में बदलाव कर सकते हैं।
 
@@ -27,7 +27,7 @@
 | **ऐतिहासिक** | पुरानी Sarafu Network सेवा का प्रमाण या कार्यक्षमता। यह CLC का मौजूदा उपयोग या यह प्रमाण नहीं कि कोई उपयोगकर्ता, संपत्ति, record या दायित्व स्थानांतरित हुआ। |
 | **प्रस्तावित** | ऐसा design, economic model, governance mechanism या roadmap item जिसे लागू हुआ नहीं बताया गया है। |
 
-मौजूदा Protocol v1.1.0 में सीधे `SwapPool` execution, वैकल्पिक चयन और मूल्यांकन, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल quote देने वाला `SwapRouter` शामिल हैं। Multi-hop execution, HTLC या escrow routing, batch netting, साझा insurance, प्रस्तावित CLC governance token, प्रस्तावित CLC Network Pool, fee-credit mechanisms और network liquidity programs प्रस्तावित या तैनाती पर निर्भर हैं।
+मौजूदा Protocol v1.1.0 में सीधे `SwapPool` execution, वैकल्पिक curation और valuation, Pool token-balance caps, Pool fees, अतिरिक्त protocol fee और केवल कोटेशन देने वाला Solidity `SwapRouter` शामिल हैं। उत्पादन CLC App और CLC Core समान-चेन मार्ग खोज, निश्चित-ब्लॉक कोटेशन, अनुकरण, अधिकतम तीन पूलों से होकर हस्ताक्षरित atomic wallet-batch execution और समूहित रसीदें प्रदान करते हैं। Cross-chain HTLC या escrow routing, automatic Pool rebalancing, batch netting, साझा insurance, प्रस्तावित CLC governance token, प्रस्तावित CLC Network Pool, fee-credit mechanisms और network liquidity programs प्रस्तावित या तैनाती-निर्भर हैं।
 
 **किनके लिए:** Pool बनाने और चलाने वाले, protocol engineers और auditors, liquidity और mandate funders, governance designers तथा कानूनी या compliance reviewers।
 
@@ -35,13 +35,13 @@
 
 Cosmo-Local Credit एक उत्पाद परिवार है जो **Commitment Pooling Protocol (CPP)** के आसपास बना है। CPP बताता है कि स्वतंत्र रूप से संचालित प्रतिबद्धता पूल भुनाए जा सकने वाले वादों का चयन कैसे कर सकते हैं, विनिमय दर की विधियाँ और सीमाएँ कैसे प्रकाशित कर सकते हैं, भंडार कैसे रख सकते हैं और जवाबदेह आदान-प्रदान कैसे संभव बना सकते हैं।
 
-**प्रतिबद्धता पूल ** नियमों से संचालित पूरी व्यवस्था है। मौजूदा Protocol v1.1.0 का **`SwapPool`** उसका एक contract component है: token vault और सीधे swap का engine। तैनाती उस contract को registries, quoters, Pool token-balance caps, fee policies और दूसरी services से जोड़ सकती है।
+**प्रतिबद्धता पूल** नियमों से संचालित पूरी व्यवस्था है। मौजूदा Protocol v1.1.0 का **`SwapPool`** उसका एक contract component है: token vault और सीधे swap का engine। तैनाती उस contract को registries, quoters, Pool token-balance caps, fee policies और दूसरी services से जोड़ सकती है।
 
 Kosmo-local का अर्थ है कि खुले standards, software और knowledge को दुनिया भर में साझा किया जाए, जबकि issuing, वादा पूरा करना, governance और वास्तविक दुनिया की accountability स्थानीय रहें। जारीकर्ता अपने वाउचर के लिए ज़िम्मेदार रहता है। Pool प्रबंधक Pool के नियमों और स्पष्ट रूप से स्वीकार की गई किसी भी guarantee के लिए ज़िम्मेदार रहता है। न CLC App और न GEF अपने आप किसी voucher, Pool, value, route, liquidity position या outcome की guarantee देता है।
 
 ## मौजूदा तैनाती
 
-GEF [cosmolocal.credit](https://cosmolocal.credit) पर CLC App चलाता है। यह account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, पेशकशों, प्रतिबद्धता पूलों, transfers और सीधे Pool swaps के लिए समर्थित interfaces देता है। उपलब्धता interface, contracts, inventory, configured limits और fees, network state, eligibility, providers, अधिकार क्षेत्र और जारीकर्ता या Pool की प्रकाशित शर्तों पर निर्भर करती है।
+GEF [cosmolocal.credit](https://cosmolocal.credit) पर CLC App चलाता है। यह account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, सीधे Pool swaps तथा application-level routed exchanges के लिए समर्थित interfaces देता है। CLC Core मार्ग खोज, आधिकारिक कोटेशन, transaction simulation, relay coordination, chain reconciliation और समूहित रसीदों में सहायता करता है। उपलब्धता interface, contracts, inventory, configured limits और fees, wallet type, network state, eligibility, providers, अधिकार क्षेत्र और जारीकर्ता या Pool की प्रकाशित शर्तों पर निर्भर करती है।
 
 सिर्फ interface चलाने से GEF जारीकर्ता, Pool प्रबंधक, संरक्षक, ऋणदाता, उधारकर्ता, broker, guarantor, वाउचर भुनाने वाला, adviser, insurer या प्रतिभागियों के बीच दायित्वों का पक्ष नहीं बनता। App के इस्तेमाल पर [सेवा की शर्तें](/hi/governance/terms) लागू होती हैं।
 
@@ -79,20 +79,24 @@ Digital layer साझा memory और coordination infrastructure है। �
 
 ## मौजूदा और प्रस्तावित प्रक्रियाएँ
 
-### मौजूदा सीधी Pool प्रक्रिया
+### वर्तमान प्रत्यक्ष या रूट पूल प्रवाह
 
-1. धारक voucher, उसके जारीकर्ता, उसकी शर्तों और उससे जुड़ी पेशकशों की जाँच करता है।
-2. Pool समर्थित assets स्वीकार करता है और अपनी configuration और ज़िम्मेदार authorities प्रकाशित करता है।
-3. धारक quote लेता है और सीधे Pool swap की अनुमति देता है।
-4. `SwapPool` blockchain पर swap settlement करता है और Pool तथा protocol fees दर्ज करता है।
-5. अगर धारक बाद में App में **‘भुनाएँ’** चुनता है, तो App token owner को हस्तांतरण तैयार करता है ताकि voucher भुनाने के लिए पेश किया जा सके।
-6. जारीकर्ता अलग से अपना वादा पूरा करता है और निस्तारण दर्ज करता है, ताकि पूरी की गई units दोबारा इस्तेमाल न हों।
+1. एक धारक वाउचर, उसके जारीकर्ता, उसकी शर्तों और संबंधित प्रस्तावों की समीक्षा करता है।
+2. एक पूल समर्थित परिसंपत्तियों को स्वीकार करता है और इसकी संरचना और जिम्मेदार अधिकारियों को प्रकाशित करता है।
+3. धारक सीधे विनिमय या स्वतंत्र रूप से संचालित कई पूलों के माध्यम से मार्ग खोजने के लिए **क्रेडिट** दृश्य का उपयोग कर सकता है।
+4. CLC Core एक निश्चित ब्लॉक पर चुने गए पूल पढ़ता है, समय-सीमित कोटेशन बनाता है, हर हॉप के पूल और प्रोटोकॉल शुल्क दिखाता है, पूरे बैच का अनुकरण करता है और धारक के वॉलेट के लिए calls तैयार करता है।
+5. धारक जाँच कर हस्ताक्षर करता है। ऐप एक समान-चेन transaction relay करता है; कोई call विफल होने पर पूरा batch वापस हो जाता है।
+6. हर `SwapPool` अपना ऑन-चेन निपटान करता है। ऐप transaction status, hops, settled amounts और fees को मार्गित-विनिमय रसीद में समूहित करता है।
+7. धारक बाद में ऐप में **भुनाएँ** चुने तो ऐप token owner को transfer तैयार करता है, ताकि voucher भुनाने के लिए प्रस्तुत किया जा सके।
+8. जारीकर्ता अलग से वादा पूरा करता और निस्तारण दर्ज करता है, ताकि पूरी की गई units दोबारा इस्तेमाल न हों।
 
-Pool से inventory लेना swap है। यह केवल तब voucher भुनाना है जब Pool ने अलग से जारीकर्ता की भूमिका स्वीकार की हो और लागू voucher terms पूरी करता हो।
+पूल से इन्वेंट्री लेना एक स्वैप है। यह केवल तभी भुनाया जाता है जब उस पूल ने अलग से जारीकर्ता की भूमिका निभाई हो और वह लागू वाउचर शर्तों को पूरा करे।
+
+मौजूदा सार्वजनिक route configuration अधिकतम तीन Pool swaps खोजता है और App-संगत EOA/Calibur wallets का समर्थन करता है। यह अभी Safe या दूसरे contract wallets के लिए routed exchanges तैयार नहीं करता। Solidity `SwapRouter` केवल कोटेशन देता है; CLC Core और हस्ताक्षरित wallet batch contracts के ऊपर execution का समन्वय करते हैं।
 
 ### व्यापक प्रस्तावित डिज़ाइन
 
-प्रस्तावित डिज़ाइन execution routing, netting, shared services, network liquidity programs, insurance policies और governance assets की संभावना देखता है। लागू होने से पहले हर व्यवस्था को implementation, ज़िम्मेदार पक्ष, स्वीकार किए गए rules, funding, controls और public disclosures चाहिए।
+प्रस्तावित डिजाइन में क्रॉस-डोमेन एचटीएलसी या एस्क्रो रूटिंग, ऑप्ट-इन पूल रीबैलेंसिंग, बैच नेटिंग, अतिरिक्त साझा सेवाओं, नेटवर्क तरलता कार्यक्रमों, बीमा पॉलिसियों और गवर्नेंस परिसंपत्तियों का पता लगाया गया है। प्रत्येक को लागू होने से पहले कार्यान्वयन, जिम्मेदार पक्षों, अपनाए गए नियमों, वित्तपोषण, नियंत्रण और सार्वजनिक प्रकटीकरण की आवश्यकता होगी।
 
 प्रस्तावित fee model Pool fees से ली गई network cut और अलग routing या service fees इस्तेमाल कर सकता है। यह प्रस्ताव Protocol v1.1.0 से अलग है, जहाँ वैकल्पिक protocol fee Pool fee के ऊपर लगती है।
 

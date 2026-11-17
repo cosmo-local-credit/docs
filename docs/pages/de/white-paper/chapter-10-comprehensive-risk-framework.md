@@ -63,10 +63,12 @@ Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC w�
 
 ### **10.7 Routing- und Cross-Domain-Risiko**
 
-- **Bedrohungen:** Teilweise Ausführung, festgehaltenen Hops, Bridge- oder Escrow-Exploits, veraltete Zitate, Inflation und Vorlauf der angekündigten Werteänderungen.
-- **Indikatoren:** die Verfallraten der Strecke, die Verzögerungen, die Quote-to-Exécution-Unterschiede, wiederholte unnötige Sprünge und Brückenvorfälle.
-- **Mögliche Kontrollen:** Atomische Ausführung, soweit verfügbar; konservative HTLC oder Treuhandzeiträume; Pfad- und Gegenparteienpolitik; Grenzwerte für den Fahrweg; Deterministische Quote-to-Receipt-Mapping; und verantwortungsbewusste Dienstleister.
-- **Stressuntersuchungen:** Ein Brückenstop, eine Kettenreorganisation, Abhängigkeitsunterbrechung und ein gescheiterter Sprung in einer vorgeschlagenen Multi-Hop Route.
+- **Aktuelle Risiken innerhalb derselben Blockchain:** veraltete Erkennungsdaten, unzureichende Bestände, Änderungen an Grenzen oder Zulassungen, abgelaufene Angebote, nicht unterstützte Wallets oder Abhängigkeiten, Simulationsfehler, Relayer-Ausfälle, Blockchain-Reorganisation und unnötig lange Routen.
+- **Aktuelle Kontrollen und Nachweise:** Angebote auf Grundlage eines festgelegten Blocks, Simulation des vollständigen Batchs, Mindestausgaben und Fristen je Schritt, ein signierter Calibur-Batch mit `revertOnFailure`, deterministisch zusammengefasste Belege, Abstimmung und eindeutige Fehlercodes. Diese Kontrollen mindern ausgewählte Ausführungsrisiken, garantieren aber weder Verfügbarkeit noch Erfüllung durch den Herausgeber.
+- **Vorgeschlagene Blockchain-übergreifende Risiken:** teilweise Ausführung über verschiedene Bereiche, steckengebliebene Schritte, Ausnutzung von Bridges, HTLCs oder Escrow, nicht abgestimmte Fristen und Streit über die Wiederherstellung.
+- **Indikatoren:** Ergebnisse von Routenerkennung und Kursberechnung, Abweichungen zwischen Angebot und Ausführung, Routentiefe, Simulationsfehler, Rückabwicklungen, Abstimmungsschwierigkeiten, wiederholte unnötige Schritte und – bei zukünftigen Blockchain-übergreifenden Systemen – Rückstände und Bridge-Vorfälle.
+- **Mögliche zusätzliche Kontrollen:** Richtlinien für Routen und Gegenparteien, Routengrenzen, verantwortliche Dienstleister sowie konservative Regeln für Fristen, Abbruch und Wiederherstellung bei HTLC oder Escrow.
+- **Stresstests:** veralteter Graphzustand, Ausfall einer Abhängigkeit, ein fehlgeschlagener Schritt im aktuellen atomaren Batch, eine Blockchain-Reorganisation und – bei einer zukünftigen Blockchain-übergreifenden Route – ein Bridge-Ausfall oder abgelaufener Escrow.
 - **Risikobereitschaft:** nur bei identifizierten und überwachten Abhängigkeiten niedrig bis mäßig.
 
 ### **10.8 Verwahrungs- und Schlüsselverwaltungsrisiko**

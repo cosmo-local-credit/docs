@@ -10,10 +10,13 @@ Questa pagina definisce i termini usati nella documentazione. Le etichette esatt
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | La famiglia di prodotti: la CLC App, la relativa documentazione e il più ampio lavoro sulla messa in comune degli impegni. |
 | **CLC App** | L'applicazione web progressiva disponibile su [cosmolocal.credit](https://cosmolocal.credit). GEF gestisce questa interfaccia e i relativi servizi di supporto. |
+| **CLC Core** | Il servizio di supporto della CLC App per i cataloghi, lo stato indicizzato della catena, la scoperta dei percorsi, le quotazioni autorevoli, il coordinamento dell'inoltro e le ricevute degli scambi instradati. Non è uno smart contract né un Responsabile del Fondo. |
 | **Protocollo di messa in comune degli impegni (CPP)** | Il modello riutilizzabile per curatela, valutazione, limitazione, scambio e governance responsabile. |
 | **Protocol v1.1.0** | La versione pubblica e verificata degli smart contract, documentata nel [riferimento del protocollo](/it/protocol/overview). |
 | **Fondo di Impegni ** | Un accordo governato che seleziona gli asset, pubblica le regole e consente gli scambi. ** Fondo** è l'abbreviazione usata normalmente. |
 | **`SwapPool`** | L'attuale contratto del protocollo che detiene l'inventario dei token ed esegue scambi diretti. È uno dei componenti tecnici di un Fondo di Impegni. |
+| **`SwapRouter` Solidity** | Il contratto di Protocol v1.1.0 che calcola una quotazione per un percorso proposto attraverso più Fondi. Non custodisce asset e non esegue il percorso. |
+| **Flusso di instradamento dell'applicazione** | L'attuale processo della CLC App e di CLC Core che scopre, quota e simula percorsi sulla stessa catena, prepara un lotto firmato dal portafoglio, lo inoltra e raggruppa i regolamenti dei Fondi in un'unica ricevuta. |
 | **Token di governance CLC proposto** | Un futuro modello di governance descritto nel Libro bianco. Non è un asset attuale dell'app o di Protocol v1.1.0. |
 | **Fondo di rete CLC proposto** | Un futuro modello di compensazione e coordinamento a livello di rete. Non equivale a uno `SwapPool` attuale. |
 
@@ -63,6 +66,10 @@ Si tratta di quattro livelli distinti:
 | **“Ritiri il buono”** | Nascondere un buono dal catalogo dell'app. I saldi e la cronologia rimangono e un amministratore può ripristinare la voce. Non equivale a distruzione o annullamento. |
 | **Deposito o contributo al Fondo** | Trasferire asset in uno `SwapPool`. I diritti di rimborso, prelievo, ricompensa o governance esistono solo se comunicati separatamente. |
 | **Scambio tramite Fondo** | Scambiare un asset supportato con un altro tramite uno `SwapPool`. Non costituisce adempimento dell'emittente né automaticamente un prestito. |
+| **Scoperta dei percorsi** | Cercare i percorsi possibili dai buoni idonei di un portafoglio a un buono target attraverso le relazioni configurate tra Fondi. La scoperta è una stima, non una promessa eseguibile. |
+| **Quotazione del percorso** | Un calcolo autorevole e limitato nel tempo per un percorso selezionato, basato sullo stato dei Fondi letto nello stesso blocco fissato e simulato prima della firma. |
+| **Scambio instradato** | Una sequenza ordinata di scambi tramite Fondo presentata dall'app come un unico lotto del portafoglio sulla stessa catena. Nel flusso attuale, tutte le chiamate vengono annullate se una di esse fallisce. |
+| **Ricevuta dello scambio instradato** | Un record raggruppato con lo stato di tracciamento, l'hash della transazione, i passaggi del percorso, gli importi regolati e le commissioni del Fondo e del protocollo per ogni passaggio. |
 | **Prelievo della liquidità del Fondo** | Il proprietario del Fondo trasferisce l'inventario disponibile a un indirizzo scelto. |
 | **Riscossione delle commissioni** | Un destinatario configurato riscuote le commissioni accumulate dal Fondo. |
 
@@ -82,7 +89,15 @@ Questi termini relativi al valore devono rimanere distinti:
 
 L'etichetta dell'app **“Limite di credito”** indica il limite configurato al saldo di token del Fondo: la quantità massima di quel token che il Fondo può detenere dopo un deposito. Non è una linea di credito personale, un controllo sulla capacità dell'emittente o una garanzia di riscatto. I limiti progressivi, per account e a livello di rete proposti nel Libro bianco sono meccanismi diversi.
 
-L'attuale Protocol v1.1.0 può addebitare una **commissione del Fondo ** e una ** commissione di protocollo ** aggiuntiva. Il modello proposto nel Libro bianco descrive separatamente una futura ** quota di rete** prelevata dalle commissioni del Fondo e possibili commissioni di routing o di servizio. Questi modelli non devono essere combinati per spiegare gli addebiti attuali o calcolare entrate future.
+L'attuale Protocol v1.1.0 può addebitare una **commissione del Fondo** e un'ulteriore **commissione del protocollo** per ogni scambio tramite Fondo. Uno scambio instradato espone tali commissioni per ogni passaggio. L'attuale flusso di instradamento della CLC App non aggiunge una commissione separata per il servizio di instradamento. Il modello proposto nel Libro bianco descrive separatamente una futura **quota per la rete** prelevata dalle commissioni dei Fondi, oltre a eventuali commissioni di instradamento o di servizio. Questi modelli non devono essere combinati per spiegare gli oneri attuali o calcolare i ricavi futuri.
+
+## Percorsi e liquidità
+
+Un **percorso** è una sequenza ordinata attraverso uno o più Fondi governati in modo indipendente. La **profondità del percorso** è il numero di scambi tramite Fondo contenuti. L'attuale implementazione pubblica cerca fino a tre passaggi.
+
+La **liquidità disponibile** è l'inventario in uscita idoneo che un Fondo può fornire in base al proprio stato attuale di ammissione, limite di saldo, quotazione, commissioni e riserve. Un collegamento nel grafo non prova da solo che una quantità utile possa attraversarlo. La scoperta dei percorsi può diventare obsoleta; la successiva quotazione calcolata in un blocco fissato è valida soltanto fino alla sua scadenza o a una modifica rilevante dello stato.
+
+L'esecuzione attuale del percorso viene avviata dal portafoglio sulla stessa catena. Non unisce la governance dei Fondi, non riequilibra automaticamente il loro inventario, non compensa obblighi tra più parti e non prova l'adempimento nel mondo reale. L'instradamento tra catene tramite HTLC o deposito a garanzia, il riequilibrio automatico e la compensazione in lotti rimangono proposti o dipendenti dall'implementazione.
 
 ## Protezioni e prove
 

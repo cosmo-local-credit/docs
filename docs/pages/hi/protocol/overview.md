@@ -28,3 +28,12 @@ EIP-165 समर्थन भी हर contract के लिए अलग ह
 - **Splitter, EthFaucet, PeriodSimple और RescueVault** — वितरण, gas funding, rate limits और asset recovery के सहायक tools।
 
 अनुबंधों को अलग-अलग तरीकों से जोड़ा जा सकता है। Registry listing, quote या graph path यह गारंटी नहीं देता कि लेन-देन पूरा होगा। मौजूदा liquidity, token limits, fees, oracle state, authorization, deadlines, network conditions और हर Pool की configuration अभी भी लागू होती है।
+
+
+## एप्लीकेशन-स्तरीय रूटेड एक्सचेंज
+
+उत्पादन CLC App केवल Solidity `SwapRouter` को call करने से आगे जाता है। CLC Core योग्य पूल संबंधों का मिलान किया हुआ graph बनाए रखता है, पहुँच योग्य वाउचरों का अनुमान लगाता है, आधिकारिक कोटेशन के लिए एक निश्चित ब्लॉक पर चुने गए पूल पढ़ता है, पूरे मार्ग का अनुकरण करता है और Calibur वॉलेट बैच तैयार करता है। उपयोगकर्ता उस बैच पर हस्ताक्षर करता है और relayer उसे एक समान-चेन लेन-देन के रूप में भेजता है।
+
+हर हॉप सीधे एक `SwapPool` को call करता है। बैच आवश्यक token allowance को पहले शून्य करता और फिर तय करता है, उसके बाद न्यूनतम output और deadline वाली सीमाबद्ध `SwapPool.withdraw` overload को call करता है। `revertOnFailure` सक्रिय है, इसलिए कोई call विफल होने पर पूरा मार्गित लेन-देन वापस हो जाता है। ऐप फिर हर हॉप के निपटान और शुल्क विवरण वाली एक समूहित रसीद दिखाता है।
+
+यह routing workflow Protocol v1.1.0 के ऊपर बनी App/Core क्षमता है। यह Solidity `SwapRouter` को execution router नहीं बनाता, किसी पूल के मालिक या प्रबंधक को नहीं बदलता और एक पूल को दूसरे पूल के नियमों या किसी जारीकर्ता द्वारा वादा पूरा करने के लिए ज़िम्मेदार नहीं बनाता। पूरा प्रवाह [प्रोटोकॉल नेटवर्क आर्किटेक्चर](/hi/protocol/network) में देखें।

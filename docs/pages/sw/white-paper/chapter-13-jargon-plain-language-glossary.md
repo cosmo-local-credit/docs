@@ -9,16 +9,30 @@
 - **Ishara:** Msaada katika mlolongo au mali ya digital. Uhandisi wa ishara peke yake hauwezi kutoa ahadi inayoweza kukombolewa.
 - **vocha:** Ishara au rekodi iliyowakilishwa na mtoaji kama ahadi inayoweza kufutwa chini ya masharti yaliyochapishwa.
 - **Utoaji:** Rekodi ya orodha ya bidhaa au huduma zinazohusiana na vocha.
+- **Ombi (Want):** Taarifa iliyochapishwa ya mahitaji. Pekee yake haikubali Toleo au vocha, haiidhinishi ubadilishaji, haihifadhi mali wala kuunda wajibu.
 - **Mtoaji:** Mshiriki anayehusika na kuchapisha na kutimiza ahadi ya vocha.
 - **Msimamizi wa Kikundi:** Muundo wa kuwajibika ambao huchapisha na kusimamia sheria Kikundi.
+- **Rejesta:** Rekodi ya ugunduzi na ruhusa kwa mikataba, Vikundi, tokeni au rasilimali nyingine zinazotambulika. Kuingizwa pekee hakuthibitishi idhini, uwezo wa Mtoaji, utekelezaji, dhamana wala bima.
 - **Kiwango cha kubadilishana fedha au nukuu:** Kiwango cha shughuli zinazozalishwa na quoter iliyowekwa; si uthibitisho wa fedha au thamani ya fidia.
-- **Kiwango cha juu cha usawa wa ishara za kikundi:** Maximum ya sasa ya `Limiter` kwa ishara inayomilikiwa na Kikundi. Programu inaweza kuweka lebo yake **“Kipimo cha mkopo.”**
+- **Faharasa ya thamani:** Hesabu ya thamani inayotumiwa na quoter iliyosanidiwa kukokotoa nukuu ya ubadilishaji wa Kikundi. Si lazima iwe bei ya soko, thamani ya pesa taslimu wala wajibu wa Mtoaji.
+- **Limiter:** Kipengele cha hiari cha Protocol v1.1.0 kinachoweka kiwango cha juu cha salio la tokeni kwa Kikundi. App inaweza kuita kikomo hiki **“Kikomo cha mkopo.”** Si kikomo cha mkopo wa mtu binafsi wala kikomo kinachobadilika kwa muda katika mtandao mzima.
 - **Kubadilishana kikundi:** Kubadilishana moja kwa moja mali kupitia moja `SwapPool`.
+- **Njia:** Mfululizo uliopangwa wa ubadilishaji mmoja au zaidi wa Kikundi kutoka vocha ya kuanzia katika Mkoba hadi vocha inayotakiwa.
+- **Kina cha njia:** Idadi ya ubadilishaji wa Kikundi katika njia. Utekelezaji wa sasa wa umma hutafuta hadi hatua tatu.
+- **Ugunduzi wa njia:** Makadirio ya njia zinazowezekana kutokana na grafu iliyopatanishwa na taarifa za mali za Mkoba. Njia iliyogunduliwa si ahadi inayoweza kutekelezwa.
+- **Nukuu ya njia:** Pendekezo halali lenye muda mfupi kwa njia iliyochaguliwa, lililokokotolewa kutokana na hali zinazosaidiwa za Vikundi zilizosomwa katika block moja iliyowekwa na kuigizwa kabla ya kutia sahihi.
+- **Ubadilishaji wa njia:** Mfululizo wa ubadilishaji wa Vikundi ulioidhinishwa na mshiriki. App ya sasa huuwasilisha kama kundi moja la miamala ya Mkoba wa Calibur kwenye mnyororo huo, ambapo simu zote hurejeshwa pamoja moja ikishindwa.
+- **Risiti ya ubadilishaji wa njia:** Rekodi moja ya kiufundi iliyojumuishwa yenye hali ya njia, hash ya muamala, hatua, kiasi kilichokamilishwa, pamoja na ada za Kikundi na itifaki kwa kila hatua.
+- **Ukwasi:** Mali inayofaa ya kutoa kutoka Kikundi chini ya masharti ya sasa ya kukubaliwa, kikomo cha salio, nukuu, ada, uhifadhi na utoaji. Muunganisho wa grafu au salio la tokeni pekee hauthibitishi ukwasi unaoweza kutumiwa.
 - **Malipo ya kubadilishana:** Uhamisho juu ya mlolongo na uhasibu wa ada kukamilisha Kikundi swap.
 - **Utoaji wa fidia:** Kurudisha au kuwasilisha kwa njia nyingine vipande vya vocha kwa mtoaji.
 - **utekelezaji:** Mtoaji hutoa bidhaa, huduma, faida, au utendaji mwingine ulioahidiwa.
 - **Utoaji:** Rekodi ambayo inazuia vipande vilivyokamilika kutolewa tena.
-- **Mpangilio wa utekelezaji router:** Programu ya wakati ujao ambayo ingeidhinisha na kutekeleza njia. sasa `SwapRouter` quotes tu.
+- **`SwapRouter` ya Solidity:** Mkataba wa Protocol v1.1.0 unaotoa nukuu pekee. Unaweza kukokotoa njia iliyotolewa lakini haushikilii mali, hauidhinishi tokeni wala kutekeleza ubadilishaji.
+- **Mtiririko wa uelekezaji wa programu:** Huduma ya sasa ya CLC App na CLC Core inayogundua njia, kutoa nukuu, kuiga, kutayarisha, kuwasilisha, kupatanisha na kuripoti njia kwenye mnyororo mmoja juu ya mikataba ya Vikundi.
+- **Usawazishaji:** Kuhamisha mali za Kikundi kuelekea malengo yaliyopitishwa chini ya mamlaka iliyoidhinishwa na Msimamizi. Uelekezaji wa sasa unaoanzishwa na mshiriki hauidhinishi pekee yake usawazishaji wa kiotomatiki.
+- **Ulinganishaji au ulipaji wa tofauti:** Kuchanganya wajibu au uhamishaji mwingi unaokusudiwa kukokotoa nafasi zilizopunguzwa. Si sehemu ya ubadilishaji wa sasa wa njia wa App/Core.
+- **Suluhisho:** Mchakato wenye uwajibikaji wa kusahihisha usanidi, rekodi ya rejesta, kushindwa kwa huduma, mgogoro au ahadi ambayo haijatekelezwa ndani ya mamlaka iliyotajwa. Suluhisho la rejesta au huduma ya njia halibadilishi kimya kimya kanuni za Kikundi huru wala kuondoa wajibu wa Mtoaji.
 - **Tumependekeza CLC Network Kikundi:** Mpango wa baadaye wa upimaji na uratibu wa bajeti kwa kiwango cha mtandao.
 - **Ilipendekezwa CLC utawala ishara:** Ubunifu wa utawala wa baadaye, si programu ya sasa au mali ya Protocol v1.1.0.
 - **Mtandao Rack:** Sehemu iliyopendekezwa ya ada za Jumuiya iliyohamishwa kwenye bajeti ya mtandao ya baadaye.

@@ -8,39 +8,72 @@ Die Grassroots Economics Foundation betreibt die öffentliche App unter [cosmolo
 
 Unter [Konzepte und Begriffe](/de/introduction/concepts) wird die Trennung zwischen verantwortlichen Rollen und technischen Befugnissen erläutert.
 
-## Mögliche Routen und Ausführung
+## Routenerkennung und -ausführung in der Produktion
 
 <MermaidDiagram
-  label="Suche möglicher Routen und Ausführung als Wallet-Batch"
-  minWidth={1040}
+  label="Produktive Routing-Architektur von CLC App und CLC Core"
+  minWidth={1180}
   chart={`flowchart TB
-    VoucherA["Voucher A"] ---|listed and held| PoolA["Pool A"]
-    Bridge["Generic bridge asset"] ---|listed and held| PoolA
-    Bridge ---|listed and held| PoolB["Pool B"]
-    VoucherB["Voucher B"] ---|listed and held| PoolB
+    User["Teilnehmer"] --> App["CLC App<br/>Kredit · Bekommen · Ausgeben"]
+    App -->|erreichbare Gutscheine und mögliche Routen| Core["Routing-Dienst von CLC Core"]
+    Catalog["Kataloge, Register<br/>indexierte Blockchain-Ereignisse"] --> Core
+    Chain["Blockchain-Abfragen an einem festgelegten Block"] -->|Fonds-Zustand, Salden, Gebühren,<br/>Grenzen und Eingaben für Kursangebote| Core
+    Reconcile["Indexierung und Abgleich"] --> Catalog
 
-    App["PWA or route finder"] -. discovers candidates .-> Index["Registries and indexes"]
-    App -. requests a quote .-> Router["SwapRouter: quote only"]
-    Router -. reads Pool quotes .-> PoolA
-    Router -. reads Pool quotes .-> PoolB
+    Core -->|verbindliches Angebot,<br/>Grenzen und vorbereitete Aufrufe| App
+    Core -->|vollständigen Batch simulieren| Chain
+    App -->|prüfen und signieren| Wallet["App-kompatible<br/>EOA- / Calibur-Wallet"]
+    Wallet -->|signierter Batch| Relayer["Relayer"]
+    Relayer -->|eine Transaktion innerhalb derselben Blockchain<br/>revertOnFailure = true| Batch["Calibur-Batch<br/>Freigabe 0 · Freigabe Betrag<br/>begrenzte Abhebung je Schritt"]
 
-    App -->|builds ordered calls| WalletStart["User smart-account wallet"]
-    WalletStart -->|hop 1: Voucher A| PoolA
-    PoolA -->|bridge output| WalletBridge["Same wallet between calls"]
-    WalletBridge -->|hop 2: bridge asset| PoolB
-    PoolB -->|Voucher B output| WalletFinal["Same user wallet"]
+    Batch --> PoolA["SwapPool A"]
+    Batch --> PoolB["SwapPool B"]
+    Batch --> PoolC["SwapPool C<br/>(wenn erforderlich)"]
+    PoolA --> Events["Abwicklungsereignisse"]
+    PoolB --> Events
+    PoolC --> Events
+    Events --> Reconcile
+    Reconcile --> Receipt["Zusammengefasster Routenbeleg<br/>Status · Transaktionshash · Schritte · Beträge · Gebühren"]
+    Receipt --> App
 
-    PoolA -->|protocol fee| ProtocolRecipient["Configured protocol recipient"]
-    PoolB -->|protocol fee| ProtocolRecipient`}
+    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>wiederverwendbarer Vertrag nur für Kursangebote"] -. liest Angebote; führt nicht aus .-> PoolA
+    SolidityRouter -. liest Angebote; führt nicht aus .-> PoolB`}
 />
 
-Ein gemeinsamer Vermögenswert schafft einen **möglichen Graphpfad**, keine garantierte Route. In diesem Beispiel könnte Gutschein A in Fonds A gegen den Brücken-Vermögenswert getauscht werden. Anschließend könnte dieser in Fonds B gegen Gutschein B getauscht werden. Jeder Schritt hängt weiterhin von aktueller Token-Zulassung, Fonds-Grenzen, verfügbaren Beständen, Konfiguration von Kursen und Gebühren, Orakelzustand, Genehmigungen, Transaktionsgrenzen und der Ausführung im Netzwerk ab.
+Ein gemeinsamer Gutschein schafft einen **möglichen Graphpfad**, keine garantierte Route. Der produktive Dienst von CLC Core verwaltet einen abgestimmten Graphen aus Fonds-, Register-, Katalog-, Salden-, Gebühren- und Blockchain-Ereignisdaten. Er prüft außerdem die maßgeblichen Bestände der aktiven Wallet. Die öffentliche Bereitstellung sucht derzeit Routen mit bis zu drei Fonds-Tauschen.
 
-`SwapRouter` ruft entlang eines vorgeschlagenen Pfads lediglich die Kursfunktionen der Fonds auf. Er hält keine Gelder, genehmigt keine Tokens und führt keine Tausche aus. Eine Integration oder kompatible App kann die Kursangebote nutzen, um geordnete Genehmigungs- und Fonds-Aufrufe in einem signierten Smart-Account-Batch zu erstellen. Das bedeutet nicht, dass die aktuelle öffentliche App eine mehrstufige Ausführung anbietet. Jeder Schritt wird zunächst an die Geldbörse abgewickelt; dieselbe Geldbörse stellt dann den Zwischenwert für den nächsten Fonds bereit. Die Integration kann festlegen, dass der gesamte Batch bei einem fehlgeschlagenen Aufruf zurückgesetzt wird.
+Die Erkennung im Graphen ist schnell, aber nur eine Schätzung auf Grundlage des indexierten Blocks. Ein Ergebnis kann als veraltet gekennzeichnet sein, und eine Verbindung belegt nicht, dass die gewünschte Menge darüber getauscht werden kann. Der Filter **Kredit** der App verwendet diese erreichbare Menge im Markt und in zugehörigen Suchansichten.
 
-Kursangebote sind Momentaufnahmen. Eine erfolgreich berechnete Route kann trotzdem fehlschlagen oder anders abgewickelt werden, wenn sich der maßgebliche Zustand vor der Ausführung ändert. Die begrenzte Variante von `SwapPool.withdraw` ergänzt für einen einzelnen Schritt den Schutz durch `minAmountOut` und `deadline`. Integrationen müssen entscheiden, wie Grenzen auf die gesamte Route angewendet werden.
+### Verbindliches Angebot
 
-Fondsgebühren verbleiben zur späteren Einziehung im jeweiligen Fonds. Eine Protokollgebühr kommt zusätzlich hinzu und wird während des Tauschs direkt vom Fonds an den konfigurierten Protokollempfänger übertragen.
+Nachdem ein Teilnehmer Route und Betrag ausgewählt hat, liest CLC Core jeden beteiligten Fonds in einem festgelegten Block und bildet die unterstützte `SwapPool`-Arithmetik nach. Das Angebot nennt jeden Schritt, Ein- und Ausgabe, Fondsgebühr, Protokollgebühr, Mindestausgabe, endgültigen Empfänger und Ablaufzeitpunkt. Die aktuelle Angebotsfrist in der Produktion beträgt fünf Minuten.
+
+Der Dienst erstellt und simuliert anschließend den vollständigen Calibur-Batch. Nicht unterstütztes Tokenverhalten, nicht unterstützte Kursanbieter, ein unzureichender Wallet-Saldo, Zulassungsfehler, Fonds-Tokenlimits, unzureichende Liquidität, ungültige Gebührendomänen, Gasgrenzen und andere Fehler können verhindern, dass ein Angebot bereitgestellt wird.
+
+Routenerkennung und Kursberechnung sind unterschiedliche Nachweise. Die Erkennung sagt, dass eine Route möglicherweise besteht; das Angebot auf Grundlage des festgelegten Blocks ist der verbindliche Transaktionsvorschlag. Auch dieser Vorschlag kann ablaufen oder ungültig werden, wenn sich der relevante Zustand vor der Übermittlung ändert.
+
+### Signierter atomarer Batch
+
+Der Nutzer prüft die **Routendetails** und signiert den vorbereiteten Wallet-Batch. Für jeden Schritt ruft der Batch `approve(pool, 0)`, `approve(pool, amountIn)` und die begrenzte Überladung von `SwapPool.withdraw` auf. Jede begrenzte Abhebung erzwingt eine Mindestausgabe und eine Frist. Zwischengutscheine gelangen in dieselbe Wallet zurück, bevor der nächste Fonds den angebotenen Betrag ausgibt; ein verbleibender Zwischenbestand bleibt in dieser Wallet.
+
+Der Relayer übermittelt den Batch als eine Transaktion innerhalb derselben Blockchain, wobei `revertOnFailure` auf `true` gesetzt ist. Schlägt eine Freigabe oder ein Fonds-Tausch fehl, werden alle Routenaufrufe – einschließlich früherer Schritte und ihrer Freigabeänderungen – gemeinsam rückgängig gemacht. Das ist die aktuelle Atomizität einer Transaktion innerhalb derselben Blockchain. Sie ist keine Blockchain-übergreifende Atomizität und weder HTLC, Escrow, Verrechnung noch automatischer Bestandsausgleich der Fonds.
+
+Der aktuelle Routing-Ablauf unterstützt die kompatiblen EOA-/Calibur-Wallets der App. Eine Safe- oder andere Smart-Contract-Wallet wird vom aktuellen Angebotsweg abgelehnt.
+
+### Solidity-`SwapRouter` und Gebühren
+
+Der Solidity-`SwapRouter` von Protocol v1.1.0 bleibt auf Kursangebote beschränkt. Er kann die Kursfunktionen von Fonds entlang einer vorgegebenen Route aufrufen, verwahrt aber keine Gelder, genehmigt keine Tokens und führt keine Tausche aus. Der oben beschriebene produktive Ablauf von App und CLC Core ist ein eigener Koordinator auf Anwendungsebene, der jeden `SwapPool` direkt über den signierten Wallet-Batch des Teilnehmers aufruft.
+
+Fondsgebühren verbleiben zur späteren Einziehung beim jeweiligen Fonds. Eine etwaige Protokollgebühr kommt hinzu und wird während des Tauschs direkt von diesem Fonds an seinen konfigurierten Protokollempfänger übertragen.
+
+Die aktuelle App erhebt keine gesonderte Gebühr für den Routing-Dienst. Ein Tausch über eine Route kann dennoch mehrere Fonds- und Protokollgebühren enthalten, weil jeder Schritt eine eigene `SwapPool`-Abwicklung ist.
+
+### Belege und Fehlerzustände
+
+CLC Core fasst die Route unter einer Tracking-ID zusammen. Die App zeigt **Umtausch läuft**, **Umgetauscht** oder **Umtausch fehlgeschlagen** mit dem technischen Status **Ausstehend**, **Bestätigt** oder **Rückgängig gemacht** an. Der Beleg erfasst Transaktionshash, Routentiefe, jedes Fonds- und Tokenpaar, angebotene und abgewickelte Beträge, Fonds- und Protokollgebühren je Schritt, den empfangenen Mindestbetrag und jeden in der Wallet verbliebenen Zwischenrest.
+
+Eine Route kann vor der Signatur scheitern, weil keine geeignete Route oder kein Angebot verfügbar ist; während der Simulation, weil der Batch rückgängig gemacht würde; bei der Weiterleitung, weil die signierte Transaktion nicht übermittelt werden kann; oder auf der Blockchain, weil sich der Zustand geändert hat oder eine andere Ausführungsbedingung fehlschlägt. Eine fehlgeschlagene oder nicht verfügbare Route ändert keine Fondsregeln, bucht keinen Gutschein aus und belegt nichts über die Erfüllung durch den Herausgeber.
+
 
 ## Innerer Aufbau eines Fonds
 

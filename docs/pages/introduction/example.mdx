@@ -1,6 +1,6 @@
 # Practical voucher example
 
-This example follows a voucher from issuance through a Pool swap, redemption presentment, fulfillment, and discharge. It illustrates the roles involved; it is not a promise that a particular voucher, pool, route, or outcome will be available.
+This example follows a voucher from an Offer and a Want through a two-Pool routed exchange, redemption presentment, fulfillment, and discharge. It illustrates the roles involved; it is not a promise that a particular voucher, Pool, route, or outcome will be available.
 
 For definitions used here, see [Concepts and Vocabulary](/introduction/concepts).
 
@@ -17,57 +17,90 @@ Imagine a community kitchen creates a digital meal voucher. Before issuing it, t
 
 The kitchen is the issuer. It must keep this information accurate, avoid issuing beyond its reasonable capacity, and honor vouchers according to the terms under which holders acquired them. Creating the token or publishing the Offering does not prove that capacity or make GEF the issuer.
 
-## 2. A Pool Steward admits the voucher
+The kitchen also publishes an **Offering** describing the meals available. The voucher and Offering are related but distinct: the voucher is the redeemable commitment, while the Offering helps people discover the goods or services associated with it.
 
-A food-security Commitment Pool reviews the kitchen, its voucher terms, and the Pool's own purpose. If admitted, the Pool Steward publishes the rules that apply, including:
+## 2. A participant publishes a Want
+
+A nearby school has transport vouchers and needs meals for an event. It publishes a **Want** describing the meals, quantity, place, timing, and contact method.
+
+The Want expresses demand. It does not automatically accept the kitchen's voucher, reserve meals, create a contract, authorize a swap, or promise that the school will proceed. The school still needs to review the kitchen, voucher terms, available route, quote, and applicable conditions.
+
+## 3. Independent Pool Stewards curate a route
+
+Two independently governed Pools connect the assets:
+
+1. a mobility Pool admits the school's transport voucher and a maize voucher; and
+2. a food-security Pool admits that maize voucher and the kitchen's meal voucher.
+
+Each Pool Steward reviews the assets and publishes that Pool's own rules, including:
 
 - who is accountable for the Pool;
 - the current `SwapPool` owner, proxy administrator, and material dependency controllers;
-- accepted assets;
+- admitted vouchers and other supported assets;
 - exchange-rate or quote methods;
 - token-balance caps, called **“Credit limits”** in the App;
 - Pool and protocol fees;
 - inventory and liquidity-withdrawal powers; and
 - any separately funded guarantee, reserve, or support arrangement.
 
-Admission means that the Pool's configured rules allow the voucher. It does not prove fulfillment capacity, establish cash value, or create insurance.
+Admission means that a Pool's configured rules allow a voucher. It does not prove fulfillment capacity, establish cash value, create insurance, or make the two Pools one governed entity.
 
-## 3. A participant contributes inventory
+## 4. Participants provide inventory
 
-A supporter transfers meal vouchers or another supported asset into the `SwapPool` under the applicable published terms. That deposit increases available inventory.
+The mobility Pool holds maize vouchers that can be exchanged for transport vouchers. The food-security Pool holds meal vouchers that can be exchanged for maize vouchers. Participants may have supplied that inventory under different published arrangements.
 
-The transfer does not automatically create a Pool share, repayment claim, withdrawal right, reward, or governance power. Any such right must come from a separate disclosed arrangement.
+A deposit increases available Pool inventory, but it does not automatically create a Pool share, repayment claim, withdrawal right, reward, or governance power. Any such right must come from a separate disclosed arrangement.
 
-## 4. A holder makes a Pool swap
+## 5. The App discovers and quotes a route
 
-A holder exchanges one supported asset for meal vouchers through the Pool. The displayed quote is a transaction parameter produced by the configured quoter, not proof of the voucher's cash value or the kitchen's performance.
+The school's wallet opens the **Credit** view and selects the meal voucher. CLC Core estimates a possible path:
 
-The direct Pool swap settles on-chain by transferring the input, output, Pool fee, and any additional protocol fee. It is not automatically a loan, issuer redemption, or real-world fulfillment.
+`transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-## 5. The holder presents the voucher
+This discovery result is not yet a promise that the exchange will succeed. Every hop depends on current admission, Pool token-balance caps, available inventory, quote and fee configuration, supported token behavior, and service freshness.
+
+The school chooses how much it wants to **Get** or **Spend**. CLC Core then reads both Pools at one pinned block, produces an authoritative time-bounded quote, and simulates the complete wallet batch. The App's **Route details** show both swaps, the estimated amounts, and each hop's Pool and protocol fees.
+
+## 6. The holder executes the routed exchange
+
+After reviewing the minimum amount received and quote deadline, the school selects **Confirm exchange** and signs the prepared batch. The App submits one same-chain transaction containing the approvals and bounded swap call for each Pool.
+
+If any call fails, the complete transaction reverts; the first Pool swap does not remain settled without the second. If it succeeds, the school's grouped receipt shows one tracking ID, one transaction hash, both Pool hops, settled amounts, and per-hop fees.
+
+The school now holds meal vouchers. The on-chain exchange is **swap settlement**. It gives the school the resulting claim described by the meal-voucher terms; it does not prove that the kitchen has already supplied food.
+
+## 7. The holder presents the voucher
 
 In the current App, choosing **“Redeem”** opens the ordinary send flow with the token owner's address prefilled. Sending the voucher back is evidence of presentment to the issuer; it does not by itself prove that the kitchen supplied a meal.
 
-The kitchen verifies the presentment and provides the promised meal under its published terms.
+The school follows the kitchen's booking or contact process. The kitchen verifies the presentment and provides the promised meals under its published terms.
 
-## 6. The issuer records fulfillment and discharge
+## 8. The issuer records fulfillment and discharge
 
-After providing the meal, the issuer records the fulfilled units so they cannot be presented twice. Depending on the published process, this may involve receiving, burning, cancelling, or otherwise disabling the returned voucher.
+After providing the meals, the kitchen records the fulfilled units so they cannot be presented twice. Depending on the published process, this may involve receiving, burning, cancelling, or otherwise disabling the returned voucher.
 
-If the kitchen does not honor its commitment, the holder uses the issuer's published complaint or remedy process and any rights available under applicable law. Neither GEF nor the Pool Steward becomes the redeemer merely because the App displayed the voucher or the Pool enabled a swap.
+If the kitchen does not honor its commitment, the holder uses the issuer's published complaint or remedy process and any rights available under applicable law. Neither GEF nor either Pool Steward becomes the redeemer merely because the App found the route or the Pools enabled its swaps.
 
 Choosing **“Retire voucher”** in the App is different: it hides the catalog listing while balances and history remain, and an administrator can restore it. It is not fulfillment, discharge, burning, or cancellation.
 
 ## Responsibilities at a glance
 
 - **Issuer:** describes and fulfills the voucher and records discharge.
-- **Pool Steward:** publishes and administers the Pool's rules, rates, fees, limits, controls, and any expressly assumed guarantee.
-- **Holder:** reviews the issuer, voucher terms, Pool rules, quote, wallet authorization, and applicable law.
-- **Technical controllers:** exercise only the contract, dependency, upgrade, catalog, or fee powers assigned to them.
+- **Person publishing a Want:** describes a need without automatically accepting a voucher or route.
+- **Pool Stewards:** independently publish and administer each Pool's rules, rates, fees, limits, controls, and any expressly assumed guarantee.
+- **Holder:** reviews the issuer, voucher terms, Pools, route quote, fees, wallet authorization, and applicable law.
+- **CLC App and CLC Core:** discover and quote possible routes, prepare and relay the signed batch, and group technical settlement records. They do not prove issuer fulfillment.
+- **Technical controllers:** exercise only the contract, dependency, upgrade, catalog, routing-service, or fee powers assigned to them.
 - **GEF:** operates the CLC App and supporting infrastructure, subject to the [Terms of Service](/governance/terms); it does not automatically take on the other roles.
+
+## When a route is unavailable
+
+The App may find no route, or a quote may fail, when inventory is insufficient, a Pool cap would be exceeded, a voucher is not admitted, a token or quoter is unsupported, the wallet lacks enough input, the route data is stale, or the final batch simulation fails. A quote can also expire or become invalid before submission as Pool state changes.
+
+That outcome does not change the Want, the Offer, or the issuer's existing voucher obligations. The participant can refresh the route, choose a smaller amount, use another eligible input voucher, or wait for Pool conditions to change.
 
 ## Future credit arrangements
 
 A future Pool or other responsible party could separately offer a transaction as a repayable advance, secured transaction, or other credit product. Such a product would require separately presented supplemental and transaction terms identifying the parties, amounts, due dates, fees or interest, collateral treatment, assignment, default, remedies, and discharge evidence.
 
-An ordinary send, Pool deposit, Pool swap, voucher presentment, fulfillment, or discharge does not create those obligations on its own.
+An ordinary send, Pool deposit, direct or routed Pool swap, voucher presentment, fulfillment, or discharge does not create those obligations on its own.
