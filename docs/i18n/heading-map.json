@@ -121,14 +121,17 @@
     ],
     "it": [
       "per-iniziare",
-      "iniziare-con-lapp-attuale",
-      "1-esplorare-il-mercato",
+      "un-primo-percorso-nellapp",
+      "1-esplorare-il-mercato-e-le-richieste",
       "2-creare-o-usare-un-account-e-un-portafoglio",
-      "3-creare-un-buono",
-      "4-creare-o-valutare-un-fondo-di-impegni",
-      "5-scambio-diretto-o-tramite-un-percorso",
-      "6-utilizzare-lazione-corretta",
-      "funzionalità-attuali-dipendenti-dallimplementazione-e-proposte"
+      "3-creare-un-buono-e-unofferta",
+      "4-pubblicare-una-richiesta-o-rispondervi",
+      "5-trovare-o-creare-un-fondo-di-impegni",
+      "6-inviare-o-scambiare-buoni",
+      "7-usare-un-buono-con-il-suo-emittente",
+      "prima-di-pubblicare",
+      "azioni-disponibili-nellapp",
+      "responsabilità-e-limiti-importanti"
     ],
     "nl": [
       "aan-de-slag",
@@ -319,11 +322,13 @@
     ],
     "it": [
       "concetti-e-vocabolario",
-      "livelli-del-prodotto-e-del-protocollo",
-      "token-buoni-e-offerte",
+      "termini-di-uso-comune",
+      "trovare-e-contattare-i-partecipanti",
+      "buoni-token-e-offerte",
       "ruoli-responsabili-e-controllo-tecnico",
       "azioni-e-ciclo-di-vita",
-      "mercato-valori-limiti-e-commissioni",
+      "livelli-del-prodotto-e-del-protocollo",
+      "valori-credito-limiti-e-commissioni",
       "percorsi-e-liquidità",
       "protezioni-e-prove",
       "parole-che-indicano-lo-stato"
@@ -545,18 +550,20 @@
       "भविष्य-की-क्रेडिट-व्यवस्थाएँ"
     ],
     "it": [
-      "esempio-pratico-di-buono",
-      "1-lemittente-pubblica-un-impegno",
-      "2-un-partecipante-pubblica-un-want",
-      "3-responsabili-indipendenti-dei-fondi-curano-un-percorso",
-      "4-i-partecipanti-forniscono-un-inventario",
-      "5-lapp-scopre-e-cita-un-percorso",
+      "esempi-di-scambio-di-buoni",
+      "esempio-semplice-un-fondo-tre-partecipanti",
+      "esempio-avanzato-uno-scambio-instradato",
+      "1-un-emittente-pubblica-un-impegno",
+      "2-un-partecipante-pubblica-una-richiesta",
+      "3-responsabili-indipendenti-selezionano-un-percorso",
+      "4-i-partecipanti-forniscono-linventario",
+      "5-lapp-trova-e-quota-un-percorso",
       "6-il-titolare-esegue-lo-scambio-instradato",
       "7-il-titolare-presenta-il-buono",
-      "8-lemittente-registra-ladempimento-e-lo-scarico",
-      "responsabilità-in-un-primo-sguardo",
+      "8-lemittente-registra-adempimento-ed-estinzione",
+      "responsabilità-in-sintesi",
       "quando-un-percorso-non-è-disponibile",
-      "arrangimenti-di-credito-futuri"
+      "futuri-accordi-di-credito"
     ],
     "nl": [
       "praktisch-voorbeeld-van-een-waardebon",
@@ -1439,6 +1446,7 @@
       "8-dati-obbligatori-e-facoltativi",
       "9-come-riceviamo-i-dati",
       "10-chi-riceve-i-dati",
+      "registro-dei-servizi-attuali",
       "11-trattamento-internazionale",
       "12-per-quanto-tempo-conserviamo-i-dati",
       "13-sicurezza",
@@ -3293,7 +3301,7 @@
       "पढ़ने-का-मार्ग"
     ],
     "it": [
-      "cosmo-local-credit-clc",
+      "libro-bianco-di-cosmo-local-credit",
       "una-rete-per-instradare-il-credito-coordinare-gli-impegni-e-finanziare-uneconomia-cosmo-locale-sana",
       "come-leggere-questo-documento",
       "sintesi",

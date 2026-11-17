@@ -42,6 +42,8 @@ Consulti [Concetti e vocabolario](/it/introduction/concepts) per distinguere i r
 
 Un Buono condiviso crea un **percorso grafico possibile**, non un percorso garantito. Il servizio di produzione CLC Core mantiene un grafico riconciliato da Fondo, registro, catalogo, saldo, tariffa e informazioni sulla catena degli eventi. Verifica anche le riserve rilevanti del portafoglio di sessione. L'implementazione pubblica attualmente cerca percorsi per un massimo di tre Fondo swap.
 
+L'instradamento in produzione usa volutamente criteri di idoneità più ristretti rispetto allo scambio diretto tramite Fondo. Vengono instradati soltanto Fondi verificati con prezzi relativi e token i cui trasferimenti spostano esattamente l'importo dichiarato: Buoni `GiftableToken` e token ERC-20 esterni semplici espressamente elencati nella configurazione `router.plain_erc20` dell'implementazione. Un token può quindi essere utilizzabile in uno scambio diretto tramite Fondo senza essere idoneo all'instradamento a livello applicativo.
+
 La scoperta del grafico è veloce ma stimata a partire dal suo blocco indicizzato. Un risultato può essere contrassegnato come obsoleto, e una connessione non prova che la quantità desiderata possa passare attraverso di esso. Il filtro **Credito** dell'App utilizza questo set raggiungibile per il mercato e le relative schermate di scoperta.
 
 ### Quotazione autorevole
@@ -83,7 +85,8 @@ Un percorso può fallire prima della firma perché non è disponibile un percors
   label="Dipendenze e poteri amministrativi del Fondo di Impegni"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Proprietario del contratto o<br/>Responsabile del Fondo"] -->|configura, sigilla, riscuote, preleva| Pool["SwapPool<br/>deposito e regolamento"]
+    Steward["Responsabile del Fondo"] -. pubblica regole,<br/>informative e governance .-> Pool["SwapPool<br/>deposito e regolamento"]
+    Owner["Indirizzo del proprietario<br/>dello SwapPool"] -->|configura, sigilla, riscuote, preleva| Pool
     ProxyAdmin["Amministratore del proxy<br/>ERC-1967"] -->|aggiorna l'implementazione| Pool
     Dependencies["Dipendenze facoltative<br/>registro · limitatore · quotatore<br/>politica delle commissioni · controller delle commissioni di protocollo<br/>ciascuno con la propria governance"] -. dati per il regolamento .-> Pool
     Seal["Cinque indirizzi sigillabili<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. blocca gli indirizzi .-> Pool

@@ -153,7 +153,7 @@ Riceviamo dati:
 Comunichiamo soltanto le informazioni ragionevolmente necessarie per la finalità dichiarata, in base alla legge applicabile o per l’azione pubblica da te richiesta. I destinatari possono comprendere:
 
 - visitatori e utenti dell’App quando pubblichi una risorsa o utilizzi una blockchain pubblica;
-- Gli utenti dell'app che hanno effettuato l'accesso quando richiedono i dettagli di contatto che hai deliberatamente allegato a un buono, Fondo o Want attivo;
+- gli utenti dell'app che hanno effettuato l'accesso quando richiedono i recapiti che hai deliberatamente associato a un Buono, Fondo o Richiesta attiva;
 - l'altro partecipante a una conversazione diretta;
 - gli amministratori autorizzati di GEF che gestiscono una conversazione di assistenza o una segnalazione di abuso, nel rispetto dei limiti descritti nella sezione 3;
 - Emittenti, Responsabili dei Fondi, controparti e altri partecipanti necessari per una transazione, un riscatto, un reclamo o un servizio richiesto;
@@ -165,6 +165,19 @@ Comunichiamo soltanto le informazioni ragionevolmente necessarie per la finalit�
 L’applicazione web di produzione è distribuita tramite Cloudflare Pages. La configurazione attuale del browser usa MapTiler per gli stili delle mappe e i suggerimenti di posizione basati sull’IP, ArcGIS World Geocoding per la ricerca dei luoghi e la geocodifica inversa, e gli endpoint RPC configurati di Gnosis Chain per leggere la blockchain. Questi servizi ricevono i dati necessari per rispondere alla richiesta, che possono includere indirizzo IP, informazioni sul browser, area della mappa, testo cercato, coordinate o richieste relative a Portafogli e contratti.
 
 Le altre integrazioni dipendono dalle funzioni abilitate. Quando sono abilitate e utilizzate, un servizio di notifiche tratta gli endpoint delle iscrizioni push, lo stato del dispositivo, gli indirizzi del Portafoglio collegati, le conferme di consegna e di clic e lo stato della casella di posta; un servizio di inoltro delle transazioni tratta le richieste firmate e lo stato delle transazioni; un servizio di transazioni Safe tratta gli indirizzi multisig, le proposte, le firme, le conferme e lo stato di esecuzione; e un fornitore di pagamenti o conversione in contanti tratta il numero di telefono, l’indirizzo del Portafoglio, la risorsa, l’importo, l’identificatore del fornitore, il tasso e lo stato della transazione necessari per la funzione. L’archiviazione delle immagini, l’API dell’App, i database, gli indicizzatori della blockchain e l’infrastruttura di monitoraggio trattano i contenuti e i registri operativi necessari alle rispettive funzioni. Un servizio terzo può inoltre raccogliere dati direttamente secondo la propria informativa sulla privacy.
+
+### Registro dei servizi attuali
+
+Questo registro riporta i servizi comprovati dalla configurazione di produzione esaminata il 17 novembre 2026. Un servizio dipendente dall'implementazione compare soltanto quando la funzione pertinente è configurata o utilizzata. Le funzioni, le sedi e le informative dei fornitori possono cambiare; si applica anche l'informativa corrente presentata dal fornitore.
+
+| Servizio o categoria | Finalità e dati coinvolti | Informazioni sul fornitore | Stato |
+| --- | --- | --- | --- |
+| Cloudflare Pages | Distribuisce l'applicazione web e tratta le richieste di rete, compresi indirizzo IP, browser, sicurezza e informazioni sulla richiesta. | [Informativa sulla privacy di Cloudflare](https://www.cloudflare.com/privacypolicy/) | Hosting web attuale di produzione |
+| MapTiler | Fornisce gli stili delle mappe e i suggerimenti di posizione basati sull'IP; le richieste possono includere indirizzo IP, informazioni sul browser, area della mappa e contesto della posizione. | [Informativa sulla privacy di MapTiler](https://www.maptiler.com/privacy-policy/) | Configurazione attuale del browser |
+| Esri ArcGIS World Geocoding | Fornisce la ricerca dei luoghi e la geocodifica inversa; le richieste possono includere testo cercato, coordinate, indirizzo IP e informazioni sul browser. | [Dichiarazione sulla privacy di Esri](https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement) | Configurazione attuale del browser |
+| Servizi gestiti da GEF | Forniscono API dell'app, archiviazione delle immagini, database, indicizzazione della blockchain, accesso RPC, inoltro delle transazioni, monitoraggio e servizi operativi correlati. I dati sono quelli descritti nella presente Informativa e necessari per la funzione richiesta. | [Grassroots Economics Foundation](https://grassrootseconomics.org/) e la presente Informativa | Servizi di produzione attuali, in base alla funzione |
+| Servizio di transazioni Safe | Supporta la scoperta e il coordinamento delle transazioni multisig compatibili, compresi indirizzi Safe, firmatari, soglie, proposte, conferme e stato di esecuzione. | [Informativa sulla privacy di Safe](https://safe.global/privacy) | Dipendente dall'implementazione |
+| Fornitori facoltativi di notifiche, pagamenti, conversione in contanti e altri servizi | Trattano soltanto le informazioni necessarie per una funzione abilitata, come descritto sopra e nelle condizioni del fornitore mostrate con tale funzione. | L'informativa e le condizioni della transazione del fornitore applicabile | Dipendente dall'implementazione |
 
 ## 11. Trattamento internazionale
 
@@ -206,7 +219,7 @@ Invia le richieste a [privacy@grassecon.org](mailto:privacy@grassecon.org). Prim
 
 Puoi inoltre scegliere di non compilare i campi facoltativi del profilo, rimuovere le informazioni facoltative prima della pubblicazione, usare un metodo di contatto pubblico adeguato, selezionare un punto sicuro sulla mappa pubblica, gestire le autorizzazioni per le notifiche ed evitare una funzione che richieda dati che non desideri fornire.
 
-Le informazioni sui diritti degli interessati in Kenya sono disponibili presso l’[ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/).
+Le informazioni sui diritti degli interessati in Kenya sono disponibili presso l’[ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/). L'interessato può inoltre usare la [pagina ufficiale per i reclami dell'ODPC](https://odpc.go.ke/file-a-complaint/index.html).
 
 ## 15. Minori
 
@@ -218,7 +231,7 @@ Le attività di GEF esterne all’App che coinvolgono minori sono disciplinate d
 
 Contatta [privacy@grassecon.org](mailto:privacy@grassecon.org) se hai un reclamo relativo alla privacy, ritieni che dati personali siano stati pubblicati senza autorizzazione o sospetti un incidente di sicurezza dei dati. Fornisci informazioni sufficienti a individuare e valutare il problema, ma non inviare chiavi private, password o dati sensibili non necessari.
 
-Puoi inoltre presentare un reclamo all’[Office of the Data Protection Commissioner](https://www.odpc.go.ke/) o a un’altra autorità competente per il trattamento.
+Puoi inoltre presentare un reclamo tramite la [pagina ufficiale per i reclami dell'Office of the Data Protection Commissioner](https://odpc.go.ke/file-a-complaint/index.html) o a un’altra autorità competente per il trattamento.
 
 ## 17. Modifiche alla presente Informativa
 

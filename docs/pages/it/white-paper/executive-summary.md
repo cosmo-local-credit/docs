@@ -19,6 +19,8 @@ Lo storico **Sarafu Network** ha applicato concetti di messa in comune degli imp
 
 Queste cifre costituiscono prove storiche, non dati sull'uso attuale di CLC.
 
+Le cifre riproducono le etichette pubblicate dalla dashboard per un unico periodo di misurazione coerente. «Utente», «attivo», «scambio» e la conversione in USD del volume degli scambi nei Fondi dipendono dalle query e dal metodo di valutazione sottostanti della dashboard; non devono essere considerati definizioni universali degli indicatori CLC. Questo repository non ha ricalcolato in modo indipendente il set di dati. Ogni riutilizzo dovrebbe conservare date, link alla fonte, etichette e qualifica storica. I requisiti di misurazione proposti nell'[Appendice C](/it/white-paper/appendix-c-kpi-definitions) sono più rigorosi per i rapporti futuri.
+
 Il progetto CLC più ampio combina l'instradamento attuale con proposte su come reti compatibili potrebbero:
 
 1. estendere servizi di instradamento responsabili ad altri profili e domini di registro o di policy;

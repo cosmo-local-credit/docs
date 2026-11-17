@@ -2,7 +2,7 @@
 
 CPP può coordinare token, buoni, fondo e swap il cui trattamento legale dipende dalla loro progettazione, commercializzazione, utilizzo, parti responsabili e giurisdizione. Nulla di questo Libro Bianco è legale, fiscale, di investimento, di credito o di consulenza finanziaria.
 
-L'uso della CLC App è regolato dalla [Termini di servizio](/it/governance/terms). GEF gestisce l'app e l'infrastruttura di supporto. A meno che GEF non assuma espressamente un altro ruolo, non è emittente, Responsabile del Fondo, custode, prestatore, mutuatore, broker, garante, redentore, consulente, assicuratore o parte degli obblighi tra i partecipanti.
+L'uso della CLC App è regolato dai [Termini di servizio](/it/governance/terms). Il [centro delle politiche e informative](/it/governance/policies) collega l'attuale Informativa sulla privacy, la Politica di protezione dei dati e la Politica di tutela dei minori. GEF gestisce l'app e l'infrastruttura di supporto. A meno che GEF non assuma espressamente un altro ruolo, non è Emittente, Responsabile del Fondo, custode, prestatore, mutuatario, broker, garante, soggetto tenuto al riscatto, consulente, assicuratore o parte degli obblighi tra i partecipanti.
 
 I servizi di pagamento dipendenti dall'impiego devono identificare il loro fornitore responsabile, le giurisdizioni, l'ammissibilità, le commissioni, i limiti, il modello di custodia e le condizioni. La presenza di un connettore non significa che GEF o un Fondo gestisca il servizio regolamentato sottostante.
 
@@ -40,7 +40,7 @@ Un uomo comune . **Scambio di fondo** scambi di attività supportate in base a q
 
 **Presentazione di riscatto ** restituisce o presenta all'emittente le unità del buono. ** Adempimento ** è la prestazione promessa dall'emittente. ** Estinzione ** record di unità soddisfatte in modo che non possano essere riutilizzate. L'app **“Riscattare”** l'azione prepara attualmente un trasferimento al titolare del token; il trasferimento da solo non dimostra soddisfazione.
 
-L'app **“Ritiri il buono”** L'azione è la cancellazione del catalogo reversibile. Non brucia i saldi, non annulla i crediti o non accoglie gli obblighi.
+L'azione **«Richiedi ritiro»** dell'app invia una richiesta del proprietario per il riesame amministrativo. Il Buono o il Fondo resta attivo mentre la richiesta è in sospeso e la richiesta può essere approvata, respinta o annullata. Il ritiro approvato di un Buono rimuove il record del catalogo dall'uso attivo senza eliminare saldi, contratti, cronologia, crediti o obblighi. Il ritiro approvato di un Fondo blocca nuovi scambi e depositi, lasciando possibili i prelievi disponibili. Nessuna delle due azioni equivale a distruzione, adempimento o estinzione.
 
 Un prestito futuro o un altro prodotto creditizio richiederebbe che le condizioni supplementari e le condizioni di transazione siano presentate separatamente prima di essere utilizzate. Nessun ordinario invito, contributo, deposito di fondo, swap di fondo, presentazione, adempimento o estinzione crea un prestito solo a causa della sua direzione o del tipo di attività.
 

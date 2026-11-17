@@ -1,6 +1,6 @@
 # Termini di servizio di Cosmo-Local Credit
 
-> **Prima traduzione per la revisione.** Questa traduzione è fornita per agevolare la lettura. I Termini in inglese sono il testo originale e prevalgono, salvo ove diversamente richiesto dalla legge applicabile. <a data-english-source="true" href="/governance/terms" hrefLang="en">Leggi i Termini in inglese</a>.
+> **Traduzione di cortesia.** Questa traduzione è fornita per agevolare la lettura. I Termini in inglese sono il testo originale e prevalgono, salvo ove diversamente richiesto dalla legge applicabile. <a data-english-source="true" href="/governance/terms" hrefLang="en">Leggi i Termini in inglese</a>.
 
 **Versione 1.1**
 
@@ -51,7 +51,7 @@ Nei presenti Termini:
 
 ## 2. Accettazione e portata
 
-L'app attuale non registra un'accettazione affermativa dei presenti Termini durante la creazione dell'Account. Nella misura consentita dalla legge applicabile, si accettano le presenti Condizioni creando o utilizzando un Account o continuando ad utilizzare l'app dopo l'entrata in vigore di un aggiornamento notificato. Qualora la legge applicabile richieda l'accettazione o la ricettazione affermativa, GEF presenterà un controllo di accettazione prima di consentire l'utilizzo continuato delle funzionalità del conto interessato. La semplice visualizzazione dei presenti Termini senza creare o utilizzare un Account non crea di per sé un accordo.
+L'app attuale presenta un controllo di accettazione esplicita durante l'onboarding supportato dell'Account e prima che un Utente pubblichi un Buono o un Fondo. Selezionare tale controllo e proseguire nel relativo flusso indica l'accettazione dei presenti Termini. L'app può chiedere a un Utente di accettare o accettare nuovamente i Termini correnti prima di consentire l'uso continuato delle funzioni interessate. Quando un flusso non conserva una registrazione durevole dell'accettazione riferita a una specifica versione, nella misura consentita dalla legge applicabile, si accettano inoltre i presenti Termini creando o usando un Account oppure continuando a usare l'app dopo l'entrata in vigore di un aggiornamento notificato. La semplice visualizzazione dei presenti Termini senza creare o usare un Account non crea di per sé un accordo.
 
 Se non siete d'accordo, non creare un Account o utilizzare l'app. Se si accetta per un'organizzazione, si rappresenta che si ha l'autorità di legarla. In quel caso, **lei** include sia l'utente che l'organizzazione, se il contesto lo permette.
 
@@ -152,7 +152,7 @@ Il titolare deve leggere i termini del buono, valutare l'emittente e l'offerta, 
 
 Se un destinatario modifica, riempie o ridistribuisce un'offerta quando le condizioni dell'emittente lo consentono, tale destinatario deve identificare con precisione le modifiche sostanziali, preservare le richieste di provenienza e di fonte, trasmettere le condizioni applicabili e evitare di implicare che l'emittente originale o GEF abbia approvato l'offerta modificata.
 
-L'etichetta app **“Ritiri il buono”** significa cancellazione del catalogo reversibile. Non brucia o cancella i saldi, non completa l'adempimento o il estinzione, né cancella gli impegni in essere dell'Emittente.
+L'etichetta dell'app **«Richiedi ritiro»** consente all'attuale proprietario di chiedere a un amministratore di ritirare un Buono. Il Buono resta attivo mentre la richiesta è in sospeso. Il proprietario può annullare una richiesta pendente e un amministratore può approvarla o respingerla. Il ritiro approvato rimuove il Buono dall'uso attivo nel catalogo, ma non ne elimina il contratto, i saldi, la cronologia delle transazioni o gli impegni in sospeso; non completa l'Adempimento o l'Estinzione e non distrugge o annulla i saldi. Un amministratore può successivamente ripristinare il record del catalogo quando la procedura applicabile lo consente.
 
 ## 10. Creazione e gestione di un Fondo
 
@@ -176,6 +176,8 @@ Lo Steward deve mantenere queste rivelazioni accurate, applicarle coerentemente,
 Un gestore non deve utilizzare un fondo per effettuare richieste di restituzione ingannevoli, mascherare servizi finanziari illegali, eludere le protezioni salariali o occupazionali, manipolare i prezzi o l'attività, nascondere la fonte o l'utilizzo di attività, consentire una condotta proibita o promettere al pubblico liquidità, convertibilità, liquidità o protezione delle perdite che non può fornire.
 
 GEF può fissare standard minimi di inserimento, sicurezza, divulgazione o tecniche e può rifiutare, sospendere, segnalare o rimuovere un fondo da un registro gestito dall'app. Lo status di registro è condizionale e non è una garanzia GEF.
+
+La procedura **«Richiedi ritiro»** dell'app si applica anche a un Fondo. Il Fondo resta attivo mentre la richiesta è in sospeso. Dopo l'approvazione, l'app e il servizio di supporto bloccano nuovi scambi e depositi, mantenendo possibili i prelievi disponibili. Il ritiro non elimina il contratto del Fondo, i regolamenti precedenti, i saldi, gli obblighi in sospeso o eventuali diritti e doveri distinti previsti dalle regole del Fondo.
 
 L'amministratore, il proprietario del Fondo, l'amministratore proxy, i controllori delle dipendenze, il moderatore del catalogo e i destinatari delle tasse possono essere parti diverse. Le divulgazioni del fondo devono identificare ciascuna autorità rilevante. Il potere di un responsabile tecnico non rende di per sé tale parte l'amministratore né trasferisce gli obblighi dell'amministratore.
 
@@ -273,6 +275,8 @@ L'attività blockchain pubblica può esporre un indirizzo Wallet, attività, imp
 GEF conserva le informazioni per il periodo ragionevolmente necessario per le finalità di cui sopra, comprese le attività di sicurezza, la prevenzione delle frodi, le prove delle transazioni, i doveri legali, i termini di prescrizione, i backup e la risoluzione delle controversie. La conservazione non rende GEF in grado di cancellare le informazioni detenute da una rete pubblica o da terzi.
 
 Fatto salvo la legge applicabile, è possibile richiedere l'accesso, la correzione, la cancellazione, la restrizione, l'obiezione, la portabilità o altri diritti di dati disponibili contattando `privacy@grassecon.org`. GEF utilizza garanzie ragionevoli ma non può promettere assoluta sicurezza o riservatezza, in particolare per l'attività pubblica della blockchain e le informazioni che si pubblicano.
+
+L'[Informativa sulla privacy della CLC App](/it/governance/privacy) spiega i campi specifici dell'app e i confini tra informazioni pubbliche e private. La [Politica di protezione dei dati](/it/governance/data-protection) descrive gli standard più ampi di GEF per la governance dei dati.
 
 ## 18. Modifiche del servizio, sospensione e cessazione
 
