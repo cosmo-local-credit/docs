@@ -42,6 +42,8 @@ Angalia [Dhana na msamiati](/sw/introduction/concepts) ili kuelewa tofauti kati 
 
 Vocha inayoshirikiwa huunda **njia inayowezekana kwenye grafu**, si njia yenye dhamana. Huduma ya CLC Core katika uzalishaji hudumisha grafu iliyopatanishwa kutokana na taarifa za Vikundi, rejesta, katalogi, salio, ada na matukio ya mnyororo. Pia huthibitisha mali muhimu katika Mkoba wa kipindi. Utekelezaji wa umma kwa sasa hutafuta njia zenye hadi ubadilishaji tatu wa Kikundi.
 
+Uelekezaji wa uzalishaji hutumia kwa makusudi vigezo vichache zaidi kuliko ubadilishaji wa moja kwa moja wa Kikundi. Huelekeza tu kupitia Vikundi vilivyothibitishwa vyenye bei linganishi na tokeni ambazo uhamishaji wake huhamisha kiasi kilichotajwa: vocha za `GiftableToken` na tokeni za kawaida za ERC-20 zilizoidhinishwa wazi katika usanidi wa `router.plain_erc20` wa utekelezaji. Kwa hiyo, tokeni inaweza kutumiwa katika ubadilishaji wa moja kwa moja wa Kikundi bila kustahiki uelekezaji wa kiwango cha Programu.
+
 Ugunduzi wa grafu ni wa haraka, lakini ni makadirio ya hali katika block iliyoainishwa. Matokeo yanaweza kutiwa alama kuwa yamepitwa na wakati, na muunganisho hauthibitishi kuwa kiasi kinachotakiwa kinaweza kupita. Kichujio cha **Mkopo** katika App hutumia seti hii inayoweza kufikiwa katika Soko na skrini nyingine za ugunduzi.
 
 ### Nukuu ya mamlaka
@@ -81,7 +83,8 @@ Njia inaweza kushindwa kabla ya kutia sahihi kwa sababu hakuna njia inayofaa au 
   label="Vitegemezi vya Kikundi cha Ahadi na mamlaka za usimamizi"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Mmiliki wa mkataba au<br/>Msimamizi wa Kikundi"] -->|sanidi, funga, kusanya, toa| Pool["SwapPool<br/>hifadhi na ukamilishaji"]
+    Steward["Msimamizi wa Kikundi anayewajibika"] -. huchapisha sheria,<br/>taarifa na utawala .-> Pool["SwapPool<br/>hifadhi na malipo"]
+    Owner["Anwani ya mmiliki wa SwapPool"] -->|sanidi, funga, kusanya, toa| Pool
     ProxyAdmin["Msimamizi wa proksi<br/>ya ERC-1967"] -->|boresha utekelezaji| Pool
     Dependencies["Vitegemezi vya hiari<br/>rejesta · limiter · quoter<br/>sera ya ada · kidhibiti cha ada ya itifaki<br/>kila kimoja na utawala wake"] -. taarifa za ukamilishaji .-> Pool
     Seal["Nafasi tano zinazoweza kufungwa<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. hufunga anwani .-> Pool

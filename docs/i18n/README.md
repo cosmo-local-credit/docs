@@ -233,6 +233,11 @@ units, preserve protected product and legal terms, then perform the normal
 clarity and back-translation review. Include the English splash-copy changes
 in the same pass.
 
+When the reviewed English update is already committed, pass the parent of that
+rollout commit with `--base-ref`. For the 17 November 2026 clarity review, use
+`--base-ref '5e067c0^'`; the default `HEAD` remains useful while the English
+source changes are still uncommitted.
+
 For each accepted locale, refresh its translation manifest and heading map,
 update any affected localized White Paper PDF, and change only that locale's
 rollout status to `current`. Do not refresh a pending route's English source

@@ -51,7 +51,7 @@ Katika Masharti haya:
 
 ## 2. Kukubali na upeo
 
-Programu ya sasa hairekodi kukubaliwa kwa Masharti haya kwa kitendo cha wazi wakati wa kuunda Akaunti. Kwa kiwango kinachoruhusiwa na sheria inayotumika, unakubali Masharti haya kwa kuunda au kutumia Akaunti, au kwa kuendelea kutumia Programu baada ya sasisho lililotangazwa kuanza kutumika. Pale sheria inayotumika inapohitaji kukubali au kukubali tena kwa kitendo cha wazi, GEF itaonyesha kidhibiti cha kukubali kabla ya kuruhusu matumizi ya kuendelea ya vipengele vya Akaunti vilivyoathiriwa. Kuangalia Masharti haya pekee bila kuunda au kutumia Akaunti hakuundi makubaliano moja kwa moja.
+Programu ya sasa huonyesha kidhibiti cha kukubali kwa kitendo cha wazi wakati wa kuanza kutumia Akaunti inayokubalika na kabla ya Mtumiaji kuchapisha vocha au Kikundi. Kuchagua kidhibiti hicho na kuendelea na mtiririko husika huonyesha kukubali Masharti haya. Programu inaweza kumtaka Mtumiaji akubali au akubali tena Masharti ya sasa kabla ya kuendelea kutumia vipengele vilivyoathiriwa. Pale ambapo mtiririko hauhifadhi rekodi ya kudumu ya kukubali toleo maalumu, basi, kwa kiwango kinachoruhusiwa na sheria inayotumika, unakubali pia Masharti haya kwa kuunda au kutumia Akaunti au kwa kuendelea kutumia Programu baada ya sasisho lililotangazwa kuanza kutumika. Kuangalia Masharti haya pekee bila kuunda au kutumia Akaunti hakuundi makubaliano moja kwa moja.
 
 Ikiwa hukubaliani, usiunde Akaunti wala kutumia Programu. Ikiwa unakubali kwa niaba ya shirika, unathibitisha kuwa una mamlaka ya kulifungamanisha. Katika hali hiyo, **wewe** inajumuisha wewe na shirika hilo pale muktadha unaporuhusu.
 
@@ -152,7 +152,7 @@ Mmiliki lazima asome masharti ya vocha, ahukumu Mtoaji na ofa, afuate mchakato w
 
 Ikiwa mpokeaji anasahihisha, anapakia upya, au anasafirisha ofa ikiwa masharti ya Mtoaji inaruhusu, mpokeaji huyo anapaswa kutambua kwa usahihi mabadiliko muhimu, kuhifadhi uthibitisho unaohitajika wa asili na chanzo, kupitisha masharti yanayotumika, na kuepuka kudokeza kwamba Mtoaji wa asili au GEF alikubali ofa iliyobadilishwa.
 
-Lebo ya programu **“Staafisha vocha”** inamaanisha kuondolewa kwa orodha inayoweza kurudishwa. Si kuchoma au kufuta mikopo, kukamilisha Fulfillment au Discharge, au kufuta wajibu wa Issuer.
+Lebo ya Programu **“Omba kustaafisha”** humruhusu mmiliki wa sasa kumwomba msimamizi astaafishe vocha. Vocha hubaki hai ombi likisubiri. Mmiliki anaweza kufuta ombi linalosubiri, na msimamizi anaweza kulikubali au kulikataa. Kustaafisha kulikoidhinishwa huondoa vocha katika matumizi hai ya katalogi lakini hakufuti mkataba wake, salio, historia ya miamala, au wajibu uliobaki; hakukamilishi Utekelezaji au Ukomo; wala hakuchomi au kufuta salio. Msimamizi anaweza kurejesha rekodi ya katalogi baadaye pale ambapo utaratibu unaotumika unaruhusu.
 
 ## 10. Kuunda na kuendesha Kikundi
 
@@ -176,6 +176,8 @@ Msimamizi-nyumba anapaswa kuweka habari hizo sahihi, kuzitekeleza kwa uthabiti, 
 Msimamizi hawezi kutumia Kikundi kufanya madai ya kurudi ya udanganyifu, kuficha huduma za kifedha haramu, kuepuka mshahara au ulinzi wa ajira, kudhibiti bei au shughuli, kuficha chanzo au matumizi ya mali, kuwezesha mwenendo marufuku, au ahadi ya umma cash out, convertibility, liquidity, au ulinzi wa hasara ambayo haiwezi kutoa.
 
 GEF inaweza kuweka kiwango cha chini cha orodha, usalama, ufunuo, au viwango vya kiufundi na inaweza kukataa, kusimamisha, alama, au kuondoa Kikundi kutoka kwa rejista inayoendeshwa na programu. Hali ya rejista ni masharti na si dhamana GEF.
+
+Mchakato wa Programu wa **“Omba kustaafisha”** hutumika pia kwa Kikundi. Kikundi hubaki hai ombi likisubiri. Baada ya idhini, Programu na huduma zinazoiunga mkono huzuia ubadilishaji na amana mpya huku zikihifadhi uwezo wa kutoa mali zinazopatikana. Kustaafisha hakufuti mkataba wa Kikundi, malipo ya awali, salio, wajibu uliobaki, au haki na wajibu wowote tofauti chini ya sheria za Kikundi.
 
 Msimamizi, mmiliki wa kikundi, msimamizi proxy, wasimamizi wa utegemezi, msimamizi wa orodha, na wapokeaji wa ada wanaweza kuwa pande tofauti. Ufafanuzi wa kikundi lazima ueleze kila mamlaka muhimu. Uwezo wa Mkurugenzi wa Teknolojia haufanyi kwa yenyewe chama hicho kuwa Msimamizi au kuhamisha wajibu wa Msimamizi.
 
@@ -273,6 +275,8 @@ Shughuli ya umma ya blockchain inaweza kufunua anwani ya mkoba, mali, kiasi, vit
 GEF huhifadhi habari kwa muda mrefu kama inahitajika kwa madhumuni ya hapo juu, ikiwa ni pamoja na usalama, kuzuia udanganyifu, ushahidi wa shughuli, majukumu ya kisheria, vipindi vya kikomo, nakala rudufu, na utatuzi wa mizozo. Uhifadhi haufanyi GEF uwezekano wa kufuta habari inayomilikiwa na mtandao wa umma au mtu wa tatu.
 
 Kwa kuzingatia sheria inayotumika, unaweza kuomba ufikiaji, kurekebisha, kufuta, kuzuia, upinzani, kubeba, au haki zingine za data zinazopatikana kwa kuwasiliana na `privacy@grassecon.org`. GEF hutumia ulinzi wa busara lakini haiwezi kuahidi usalama kamili au usiri, haswa kwa shughuli za umma za blockchain na habari unayotoa.
+
+[Taarifa ya Faragha ya CLC App](/sw/governance/privacy) inaeleza sehemu maalumu za Programu na mipaka kati ya taarifa za umma na za binafsi. [Sera ya Ulinzi wa Data](/sw/governance/data-protection) inaeleza viwango vikubwa vya GEF vya usimamizi wa data.
 
 ## 18. Mabadiliko ya huduma, kusimamishwa, na kumalizika
 

@@ -100,9 +100,9 @@ def route_to_relative(route: str) -> Path:
     raise FileNotFoundError(f"No English page for {route}")
 
 
-def committed_source(relative: Path) -> str:
+def committed_source(relative: Path, base_ref: str) -> str:
     result = subprocess.run(
-        ["git", "show", f"HEAD:docs/pages/{relative.as_posix()}"],
+        ["git", "show", f"{base_ref}:docs/pages/{relative.as_posix()}"],
         cwd=ROOT,
         check=True,
         capture_output=True,
@@ -498,6 +498,14 @@ def main() -> None:
     parser.add_argument("--review-cache", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--translation-date", required=True)
+    parser.add_argument(
+        "--base-ref",
+        default="HEAD",
+        help=(
+            "Git ref containing the English source before the controlled "
+            "rollout (defaults to HEAD for an uncommitted English update)."
+        ),
+    )
     parser.add_argument("--threads", type=int, default=16)
     parser.add_argument("--cache-batch-size", type=int, default=128)
     args = parser.parse_args()
@@ -551,7 +559,7 @@ def main() -> None:
     page_report: dict[str, object] = {}
     for route in routes:
         relative = route_to_relative(route)
-        base = committed_source(relative)
+        base = committed_source(relative, args.base_ref)
         current = (PAGES / relative).read_text()
         localized_path = PAGES / args.locale / relative
         localized = localized_path.read_text()

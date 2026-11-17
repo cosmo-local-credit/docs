@@ -76,7 +76,7 @@ steps.
 | 2 | Spanish (`es`) | Reconciled to the approved English review | Focused checks and localized PDF passed | Release-ready | User-managed | External follow-up |
 | 3 | Portuguese (`pt`) | Reconciled to the approved English review | Focused checks, production build, and localized PDF passed | Release-ready | User-managed | External follow-up |
 | 4 | Italian (`it`) | Reconciled to the approved English review | Focused checks, production build, and localized PDF passed | Release-ready | User-managed | External follow-up |
-| 5 | Kiswahili (`sw`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
+| 5 | Kiswahili (`sw`) | Reconciled to the approved English review | Focused checks, production build, and localized PDF passed | Release-ready | User-managed | External follow-up |
 | 6 | German (`de`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
 | 7 | Ukrainian (`uk`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
 | 8 | Serbian (`sr`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
@@ -97,7 +97,7 @@ metadata. The affected routes are Getting Started, Concepts, the practical
 example, Protocol network architecture, Privacy Notice, Terms, the White Paper
 landing page, Executive Summary, and legal/compliance chapter.
 
-English, French, Spanish, Portuguese, and Italian are current. The remaining 12 translated locales are deliberately marked
+English, French, Spanish, Portuguese, Italian, and Kiswahili are current. The remaining 11 translated locales are deliberately marked
 `pending` for these nine routes in `docs/i18n/english-review-rollout.json`.
 Their files, hashes, search content, and links remain usable at the last
 reviewed version; validators must not silently promote them to the new English

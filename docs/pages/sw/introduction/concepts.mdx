@@ -1,117 +1,144 @@
 # Dhana na msamiati
 
-Cosmo-Local Credit huunganisha programu, itifaki wazi, Vikundi vinavyosimamiwa kwa kujitegemea na ahadi za ulimwengu halisi zinazowakilishwa na vocha. Vipengele hivi hufanya kazi pamoja, lakini si kitu kimoja.
+Cosmo-Local Credit huunganisha watu wanaotoa bidhaa au huduma, watu wanaozihitaji, na Vikundi vya Ahadi vinavyosimamiwa kwa kujitegemea ambavyo huwezesha ubadilishaji wa vocha. Ukurasa huu unaanza na maneno ambayo mshiriki huona, kisha unaeleza tabaka za kiufundi zilizo chini yake.
 
-Ukurasa huu unafafanua maneno yanayotumiwa katika nyaraka zote. Lebo halisi za programu zimewekwa ndani ya alama za kunukuu pale ambapo kiolesura kinatumia jina fupi au linaloweza kutatanisha.
+Lebo halisi za Programu huwekwa katika alama za kunukuu pale ambapo kiolesura hutumia jina fupi au linaloweza kueleweka kwa njia zaidi ya moja.
 
-## Vipengele vya bidhaa na itifaki
+## Maneno ya kila siku
 
-| Neno | Maana |
+| Neno | Maana rahisi |
 | --- | --- |
-| **Cosmo-Local Credit (CLC)** | Familia ya bidhaa: CLC App, nyaraka zake na kazi pana ya kuunganisha ahadi. |
-| **CLC App** | Programu ya wavuti inayoendelea kwenye [cosmolocal.credit](https://cosmolocal.credit). GEF huendesha kiolesura hiki na huduma zinazokisaidia. |
-| **CLC Core** | Huduma ya kusaidia App kwa katalogi, hali ya mnyororo iliyoainishwa, ugunduzi wa njia, nukuu halali za njia, uratibu wa uwasilishaji na risiti za ubadilishaji wa njia. Si mkataba mahiri wala Msimamizi wa Kikundi. |
-| **Itifaki ya Kuunganisha Ahadi (CPP)** | Mfumo unaoweza kutumiwa tena wa kuratibu, kuthamini, kuweka mipaka, kubadilisha na kusimamia kwa uwajibikaji. |
-| **Protocol v1.1.0** | Toleo la mikataba mahiri ya umma lililothibitishwa na kuelezwa katika [marejeleo ya Itifaki](/sw/protocol/overview). |
-| **Kikundi cha Ahadi ** | Mpangilio unaosimamiwa ambao huchagua mali, huchapisha kanuni na kuwezesha ubadilishaji. ** Kikundi** ni jina fupi la kawaida. |
-| **`SwapPool`** | Mkataba wa sasa wa Itifaki unaohifadhi tokeni na kutekeleza ubadilishaji wa moja kwa moja. Ni sehemu moja ya kiufundi ya Kikundi cha Ahadi. |
-| **`SwapRouter` ya Solidity** | Mkataba wa Protocol v1.1.0 unaokokotoa makadirio ya njia zinazopendekezwa kupitia Vikundi vingi. Hauhifadhi mali wala kutekeleza njia. |
-| **Mtiririko wa uelekezaji wa programu** | Mchakato wa sasa wa CLC App na CLC Core unaogundua njia kwenye mnyororo mmoja, kutoa nukuu na kuziiga, kutayarisha kundi la miamala ya Mkoba litakalotiwa sahihi, kuliwasilisha, na kuweka matokeo ya kila Kikundi katika risiti moja. |
-| **Tokeni ya utawala ya CLC inayopendekezwa** | Mpango wa utawala wa baadaye katika Waraka Mweupe. Si mali ya sasa ya programu au Protocol v1.1.0. |
-| **Kikundi cha Mtandao wa CLC kinachopendekezwa** | Mpango wa baadaye wa kusawazisha na kuratibu katika kiwango cha mtandao. Si sawa na `SwapPool` ya sasa. |
+| **Vocha** | Ahadi inayoweza kuhamishwa—kama kadi ya zawadi—ambapo Mtoaji huahidi bidhaa, huduma, manufaa, au utekelezaji mwingine uliobainishwa chini ya masharti yaliyochapishwa. |
+| **Mtoaji** | Mtu au shirika linalounda vocha na kubaki na wajibu wa kutekeleza kile inachoahidi. |
+| **Ofa** | Rekodi ya katalogi inayoeleza bidhaa au huduma zinazohusishwa na vocha. Huwasaidia watu kugundua kinachotolewa lakini haithibitishi upatikanaji au utekelezaji. |
+| **Ombi** | Taarifa iliyochapishwa kuhusu kitu ambacho mshiriki anatafuta. Peke yake haikubali Ofa, haihifadhi bidhaa, haiidhinishi ubadilishaji, wala haiundi wajibu. |
+| **Soko** | Katalogi ya Programu ya kugundua vocha, Vikundi, Ofa, Maombi, na taarifa nyingine za umma. Si moja kwa moja mahali pa kubadilishana, muuzaji, idhini, au dhamana. |
+| **Kikundi cha Ahadi** | Mpangilio unaosimamiwa ambao huchagua vocha zinazokubaliwa, huchapisha sheria za ubadilishaji, huhifadhi mali, na kuwezesha ubadilishaji. **Kikundi** ni jina fupi la kawaida. |
+| **Msimamizi wa Kikundi** | Mtu, ushirika, shirika la umma, shirikisho, multisig, huduma, au muundo mwingine unaowajibika ambao huchapisha na kusimamia sheria za Kikundi. |
+| **Mmiliki** | Mshiriki anayedhibiti salio la vocha. Kuimiliki hakuthibitishi utekelezaji, thamani ya fedha taslimu, au dhamana. |
+| **Mkoba** | Akaunti na vitambulisho vinavyotumiwa kuidhinisha uhamishaji wa tokeni na ubadilishaji wa Vikundi. |
 
-## Tokeni, vocha na Matoleo
+“Mwanajamii” ni lugha isiyo rasmi ya kijamii. Peke yake haiundi uanachama rasmi, umiliki, haki za utawala, haki ya kulipwa, au haki nyingine za kisheria.
 
-**Tokeni** ni salio la kwenye blockchain au mali ya kidijitali. Utendaji wa tokeni unaweza kurekodi usambazaji, uhamishaji, muda wa matumizi na uchomaji, lakini pekee yake hauahidi bidhaa, huduma, ubadilishaji kuwa pesa taslimu au ukombozi.
+## Kugundua na kuwasiliana na washiriki
 
-**Vocha** ni tokeni au rekodi ambayo Mtoaji anaiwakilisha kama ahadi inayoweza kukombolewa chini ya masharti yaliyochapishwa. Masharti hayo yanapaswa kueleza kilichoahidiwa, mhusika anayewajibika, mahali na wakati wa kuiwasilisha, mipaka muhimu na mchakato wa utekelezaji na malalamiko.
+Soko huwasaidia watu kupata vocha, Ofa, Maombi, na Vikundi. Kuorodheshwa humaanisha Programu inaweza kuonyesha rekodi; hakuthibitishi kuwa taarifa zake ni sahihi, kuwa mali inapatikana, au kuwa muamala utafanikiwa.
 
-**Toleo** ni rekodi ya katalogi ya bidhaa au huduma inayohusishwa na vocha. Kuchapisha Toleo hakuzalishi tokeni, hakuthibitishi upatikanaji wala hakuthibitishi kuwa utekelezaji umetokea.
+Mshiriki anaweza kuchapisha Ombi na kuwasiliana na mshiriki mwingine kupitia mawasiliano au ujumbe unaopatikana. Ombi la mawasiliano, ujumbe, majadiliano ya kuweka nafasi, au jibu kwa Ombi peke yake:
 
-Hivi ni vipengele vinne tofauti:
+- halikubali vocha au Ofa;
+- haliidhinishi uhamishaji au ubadilishaji wa Kikundi;
+- halithibitishi utoaji au kuridhika;
+- halitekelezi wala halimalizi vocha; na
+- halifanyi GEF kuwa mhusika katika makubaliano ya washiriki.
 
-1. mkataba wa tokeni na salio;
-2. utambulisho wa vocha na masharti yaliyochapishwa;
-3. rekodi moja au zaidi za Matoleo; na
+Maoni ni mrejesho wa umma kuhusu vocha au Kikundi. Si sawa na ushahidi wa faragha wa kustahiki, uchunguzi wa mwendeshaji, dhamana, au uamuzi kwamba utekelezaji umetokea.
+
+## Vocha, tokeni, na Ofa
+
+**Tokeni** ni salio au mali ya kidijitali kwenye mnyororo. Utendaji wa tokeni unaweza kurekodi ugavi, uhamishaji, tarehe ya mwisho, na uchomaji, lakini peke yake hauahidi bidhaa.
+
+Vocha kamili ina tabaka nne tofauti:
+
+1. utendaji wa mkataba wa tokeni na salio;
+2. utambulisho wa vocha na masharti yaliyochapishwa na Mtoaji;
+3. rekodi moja au zaidi za Ofa; na
 4. utekelezaji wa Mtoaji katika ulimwengu halisi.
 
-## Majukumu yenye uwajibikaji na udhibiti wa kiufundi
+## Majukumu yanayowajibika na udhibiti wa kiufundi
 
 | Jukumu au mamlaka | Wajibu au uwezo |
 | --- | --- |
 | **Mtoaji** | Huchapisha na kutekeleza ahadi ya vocha. Wajibu huu hauhamishwi moja kwa moja kwa sababu tu umiliki wa mkataba umebadilika. |
-| **Mmiliki** | Hudhibiti salio la vocha. Udhibiti pekee hauthibitishi utekelezaji, thamani ya pesa taslimu au dhamana. |
-| **Mtoa huduma** | Nafasi inayoonekana kwa umma. Mtoa huduma huwa Mtoaji anapochapisha ahadi ya vocha. |
-| **Msimamizi wa Kikundi** | Mtu, ushirika, shirika la umma, shirikisho, multisig, huduma au muundo mwingine unaowajibika ambao huchapisha na kusimamia kanuni za Kikundi. |
-| **Mmiliki wa Kikundi** | Anwani yenye mamlaka ya sasa ya mmiliki wa `SwapPool`, ikiwemo kusanidi, kukusanya ada na kutoa ukwasi unaopatikana. |
-| **Msimamizi wa proksi** | Mamlaka inayoweza kuboresha utekelezaji wa mkataba wa proksi. Inaweza kuwa tofauti na mmiliki wa Kikundi. |
-| **Mdhibiti wa kitegemezi** | Mmiliki au mwandishi anayedhibiti rejesta, limiter, quoter, oracle, sera ya ada au kidhibiti cha ada za itifaki. |
-| **Msimamizi wa katalogi** | Mwendeshaji wa programu anayeweza kusahihisha, kuficha au kurejesha rekodi za katalogi bila kubadilisha salio la kwenye blockchain. |
-| **Mpokeaji wa ada** | Anwani iliyosanidiwa kupokea ada ya Kikundi au ya itifaki. Si lazima iwe Msimamizi au mmiliki wa Kikundi. |
-| **Msaidizi au mtoa ukwasi** | Mshiriki anayechangia mali chini ya masharti yaliyowekwa wazi kando. `SwapPool` ya sasa haitoi hisa za Kikundi wala haki za moja kwa moja za kulipwa, kutoa mali, kupata zawadi au kushiriki katika utawala. |
-
-“Mwanajamii” ni lugha isiyo rasmi ya kijamii. Pekee yake haitoi haki za kuandikishwa, kumiliki, kutawala, kulipwa au haki nyingine za kisheria.
+| **Msimamizi wa Kikundi** | Huchapisha na kusimamia sheria za Kikundi na hubaki kuwajibika kwa dhamana yoyote ambayo Kikundi huitangaza wazi. |
+| **Mmiliki wa Kikundi** | Anwani yenye uwezo wa sasa wa mmiliki wa `SwapPool`, ikiwa ni pamoja na usanidi, ukusanyaji wa ada, na kutoa ukwasi uliopo. |
+| **Watia sahihi wa multisig** | Hushiriki mamlaka ya kiufundi iliyopewa Mkoba wa multisig. Kubadilisha watia sahihi au kiwango cha idhini hakuhamishi kimyakimya wajibu wa Mtoaji, uwajibikaji wa Msimamizi, au umiliki wa kisheria. |
+| **Msimamizi wa proksi** | Anaweza kuboresha utekelezaji wa mkataba wa proksi. Anaweza kuwa tofauti na mmiliki wa Kikundi. |
+| **Mdhibiti wa kitegemezi** | Hudhibiti rejista, kikomo, quoter, oracle, sera ya ada, au mdhibiti wa ada ya itifaki. |
+| **Msimamizi wa katalogi** | Anaweza kusahihisha, kuficha, kustaafisha, au kurejesha rekodi za katalogi bila kufuta mikataba, salio, au historia ya mnyororo. |
+| **Mpokeaji wa ada** | Hupokea ada iliyosanidiwa ya Kikundi au itifaki. Si lazima awe Msimamizi au mmiliki wa Kikundi. |
+| **Msaidizi au mtoa ukwasi** | Huchangia mali chini ya masharti yaliyotolewa kando. `SwapPool` ya sasa haiundi moja kwa moja hisa za Kikundi, haki ya kulipwa, kutoa mali, kupata zawadi, au kushiriki katika utawala. |
 
 ## Vitendo na mzunguko wa maisha
 
-| Neno la programu au nyaraka | Maana yake |
+| Neno la Programu au nyaraka | Maana yake |
 | --- | --- |
-| **Unda au chapisha vocha** | Sanidi au peleka tokeni na uchapishe rekodi na masharti yake kwenye katalogi. |
+| **Unda au chapisha vocha** | Weka au sanidi tokeni na uchapishe rekodi na masharti yake katika katalogi. |
 | **Toa au zalisha** | Unda salio la tokeni chini ya mamlaka ya mmiliki au mwandishi aliyesanidiwa. |
-| **Chapisha Toleo** | Ongeza rekodi ya bidhaa au huduma chini ya vocha. |
+| **Chapisha Ofa** | Ongeza rekodi ya bidhaa au huduma chini ya vocha. |
+| **Chapisha Ombi** | Eleza hitaji ili ligunduliwe na kuwezesha mawasiliano; peke yake haliundi muamala. |
 | **Tuma** | Hamisha salio la tokeni kwenda anwani nyingine. |
-| **“Komboa”** | Katika programu ya sasa, hufungua mtiririko wa kutuma huku anwani ya mmiliki wa tokeni ikiwa imejazwa tayari. Hii huwasilisha au kurudisha tokeni kwa Mtoaji; haithibitishi utekelezaji. |
-| **Tekeleza** | Mtoaji hutoa bidhaa, huduma, manufaa au utendaji mwingine ulioahidiwa. |
-| **Ukomo** | Rekodi vitengo vilivyotekelezwa ili visiwasilishwe tena, kwa mfano kwa kuvipokea, kuvichoma, kuvifuta au kuvizima kwa njia nyingine chini ya masharti yaliyochapishwa. |
-| **“Staafisha vocha”** | Ficha vocha kutoka kwenye katalogi ya programu. Salio na historia hubaki, na msimamizi anaweza kurejesha orodha. Si uchomaji au kufuta vocha. |
-| **Amana au mchango wa Kikundi** | Hamisha mali kwenda kwenye `SwapPool`. Haki za kulipwa, kutoa mali, kupata zawadi au kushiriki katika utawala zipo tu zinapoelezwa kando. |
-| **Badilisha kupitia Kikundi** | Badilisha mali moja inayokubaliwa kuwa nyingine kupitia `SwapPool` moja. Hii si utekelezaji wa Mtoaji wala si mkopo moja kwa moja. |
-| **Ugunduzi wa njia** | Kupata njia inayowezekana kutoka vocha inayofaa katika Mkoba hadi vocha inayotakiwa kupitia mahusiano ya Vikundi yaliyosanidiwa. Ugunduzi ni makadirio, si ahadi inayoweza kutekelezwa. |
-| **Nukuu ya njia** | Hesabu halali yenye muda mfupi kwa njia moja iliyochaguliwa, ikitumia hali ya Vikundi iliyosomwa katika block moja iliyowekwa na kuigizwa kabla ya kutia sahihi. |
-| **Ubadilishaji wa njia** | Mfululizo uliopangwa wa ubadilishaji wa Vikundi unaowasilishwa na App kama kundi moja la miamala ya Mkoba kwenye mnyororo huo. Katika mtiririko wa sasa, muamala wote hurejeshwa simu yoyote ikishindwa. |
-| **Risiti ya ubadilishaji wa njia** | Rekodi moja iliyojumuishwa yenye hali ya ufuatiliaji, hash ya muamala, hatua za njia, kiasi kilichokamilishwa, pamoja na ada za Kikundi na itifaki kwa kila hatua. |
-| **Kutoa ukwasi wa Kikundi** | Mmiliki wa Kikundi huhamisha mali zinazopatikana kwenda anwani iliyochaguliwa. |
-| **Kukusanya ada** | Mpokeaji aliyesanidiwa hukusanya ada za Kikundi zilizopatikana. |
+| **“Komboa”** | Fungua mtiririko wa kutuma huku anwani ya mmiliki wa tokeni ikiwa imejazwa tayari. Huu ni uwasilishaji kwa ukombozi; hauthibitishi utekelezaji. |
+| **Tekeleza** | Mtoaji hutoa bidhaa, huduma, manufaa, au utekelezaji mwingine ulioahidiwa. |
+| **Ukomo** | Rekodi vitengo vilivyotekelezwa ili visiwasilishwe tena, kwa mfano kwa kuvipokea, kuvichoma, kuvifuta, au kuvizuia kwa njia nyingine chini ya masharti yaliyochapishwa. |
+| **“Omba kustaafisha”** | Mmiliki wa sasa humwomba msimamizi astaafishe vocha au Kikundi. Rasilimali hubaki hai ombi likisubiri, na ombi linaweza kukubaliwa, kukataliwa, au kufutwa. |
+| **Staafisha vocha** | Baada ya idhini, ondoa vocha katika matumizi hai ya katalogi. Mikataba, salio, wajibu, na historia hubaki; kustaafisha si kuchoma wala ukomo. |
+| **Staafisha Kikundi** | Baada ya idhini, zuia ubadilishaji na amana mpya za Kikundi huku ukiruhusu kutoa mali zinazopatikana. Rekodi za awali za malipo hubaki. |
+| **Amana au mchango wa Kikundi** | Hamisha mali kwenda kwenye `SwapPool`. Haki ya kulipwa, kutoa mali, kupata zawadi, au kushiriki katika utawala ipo tu ikitolewa kando. |
+| **Ubadilishaji wa Kikundi** | Badilisha mali zinazokubaliwa kupitia `SwapPool` moja. Huu si utekelezaji wa Mtoaji wala mkopo moja kwa moja. |
+| **Ugunduzi wa njia** | Tafuta njia zinazowezekana kupitia uhusiano wa Vikundi vilivyosanikishwa. Ugunduzi ni makadirio, si ahadi inayoweza kutekelezwa. |
+| **Nukuu ya njia** | Hesabu pendekezo lenye muda maalumu kutokana na hali ya Vikundi iliyosomwa kwenye block moja iliyowekwa, na uliige kabla ya kutia sahihi. |
+| **Ubadilishaji kupitia njia** | Wasilisha mfululizo wa ubadilishaji wa Vikundi kama kundi moja la miamala ya Mkoba kwenye mnyororo huo. Katika mtiririko wa sasa, kila hatua hurejeshwa ikiwa hatua yoyote itashindwa. |
+| **Risiti ya ubadilishaji kupitia njia** | Kusanya hali ya ufuatiliaji, hash ya muamala, hatua za njia, kiasi kilicholipwa, na ada za kila hatua. |
+| **Kutoa ukwasi wa Kikundi** | Ruhusu mmiliki wa Kikundi kuhamisha mali zilizopo kwenda anwani iliyochaguliwa. |
+| **Kukusanya ada** | Tuma ada za Kikundi zilizokusanywa kwa mpokeaji aliyesanidiwa. |
 
-Tumia **ukamilishaji wa ubadilishaji ** kwa uhamishaji kwenye blockchain na uhasibu wa ada unaokamilisha ubadilishaji kupitia Kikundi. Tumia ** uwasilishaji kwa ukombozi **, ** utekelezaji ** na ** ukomo** kwa hatua tofauti za maisha ya vocha katika ulimwengu halisi.
+Tumia **malipo ya ubadilishaji** kwa uhamishaji wa kwenye mnyororo na uhasibu wa ada unaokamilisha ubadilishaji wa Kikundi. Tumia **uwasilishaji kwa ukombozi**, **utekelezaji**, na **ukomo** kwa mzunguko tofauti wa vocha katika ulimwengu halisi.
 
-## Soko, thamani, mipaka na ada
+## Tabaka za bidhaa na itifaki
 
-**Soko** la programu ni katalogi ya kugundua vocha, Vikundi, Matoleo na taarifa za umma. Kuorodheshwa hakufanyi kitu moja kwa moja kuwa eneo la kubadilishia, uhusiano wa muuzaji, idhini, tathmini au dhamana.
+| Neno | Maana |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | Familia ya bidhaa: CLC App, nyaraka zake, na kazi pana ya kuunganisha ahadi. |
+| **CLC App** | Programu ya wavuti inayoendelea kwenye [cosmolocal.credit](https://cosmolocal.credit). GEF huendesha kiolesura hiki na huduma zinazokiunga mkono. |
+| **CLC Core** | Huduma inayounga mkono katalogi, hali ya mnyororo iliyoainishwa, ugunduzi wa njia, nukuu za mamlaka, uratibu wa uwasilishaji, na risiti za ubadilishaji kupitia njia. Si mkataba mahiri wala Msimamizi wa Kikundi. |
+| **Commitment Pooling Protocol (CPP)** | Muundo unaoweza kutumiwa tena wa uchaguzi, tathmini, mipaka, ubadilishaji, na utawala unaowajibika. |
+| **Protocol v1.1.0** | Toleo la mikataba mahiri ya umma lililothibitishwa na kuelezwa katika [marejeo ya Itifaki](/sw/protocol/overview). |
+| **`SwapPool`** | Mkataba wa sasa wa Itifaki unaohifadhi tokeni na kutekeleza ubadilishaji wa moja kwa moja. Ni sehemu moja ya kiufundi ya Kikundi cha Ahadi. |
+| **Solidity `SwapRouter`** | Mkataba wa Protocol v1.1.0 unaotoa nukuu ya njia inayopendekezwa kupitia Vikundi vingi. Hauhifadhi mali wala kutekeleza njia. |
+| **Mtiririko wa uelekezaji wa Programu** | Mchakato wa sasa wa CLC App na CLC Core wa kugundua njia kwenye mnyororo mmoja, kutoa na kuiga nukuu, kuandaa kundi la miamala ya Mkoba linalotiwa sahihi, kuliwasilisha, na kukusanya malipo ya Vikundi katika risiti moja. |
+| **Tokeni ya utawala ya CLC inayopendekezwa** | Muundo wa baadaye wa utawala katika Waraka Mweupe. Si mali ya sasa ya Programu au Protocol v1.1.0. |
+| **Kikundi cha Mtandao wa CLC kinachopendekezwa** | Muundo wa baadaye wa malipo na uratibu katika kiwango cha mtandao. Si sawa na `SwapPool` ya sasa. |
+
+## Thamani, mkopo, mipaka, na ada
 
 Tenganisha maneno haya ya thamani:
 
-- **Bei ya Toleo:** kiasi kinachoombwa kwa bidhaa au huduma iliyoorodheshwa;
-- **thamani iliyotajwa ya vocha:** thamani iliyoelezwa katika masharti yaliyochapishwa ya Mtoaji;
-- **kiwango au makadirio ya ubadilishaji wa Kikundi:** kigezo cha muamala kinachotolewa na quoter iliyosanidiwa ya Kikundi;
-- **marejeleo ya oracle:** data ya nje inayotumiwa na moduli ya uthamini iliyosanidiwa; na
-- **masharti ya ukombozi:** kile ambacho Mtoaji anaahidi kutoa na masharti yanayotumika.
+- **Bei ya Ofa:** kiasi kinachoombwa kwa bidhaa au huduma iliyoorodheshwa;
+- **Thamani iliyotajwa ya vocha:** thamani iliyoelezwa katika masharti yaliyochapishwa na Mtoaji;
+- **Kiwango au nukuu ya ubadilishaji wa Kikundi:** kigezo cha muamala kinachotolewa na quoter iliyosanidiwa ya Kikundi;
+- **Rejeleo la oracle:** data ya nje inayotumiwa na moduli ya tathmini iliyosanidiwa; na
+- **Masharti ya ukombozi:** anachoahidi Mtoaji na masharti yanayotumika.
 
-Lebo ya programu **“Kikomo cha mkopo”** inamaanisha kikomo cha salio la tokeni kilichosanidiwa kwa Kikundi: kiwango cha juu cha tokeni hiyo ambacho Kikundi kinaweza kuhifadhi baada ya amana. Si kiwango cha mkopo wa mtu binafsi, ukaguzi wa uwezo wa Mtoaji wala dhamana ya ukombozi. Mipaka inayobadilika, ya akaunti na ya mtandao mzima inayopendekezwa katika Waraka Mweupe ni taratibu tofauti.
+**Mkopo** katika Programu humaanisha ahadi zinazoweza kufikiwa na uwezo wa kubadilishana. Haimaanishi moja kwa moja kukopa kwa mtu binafsi, mkopo, tathmini ya uwezo wa Mtoaji, au dhamana.
 
-Protocol v1.1.0 ya sasa inaweza kutoza **ada ya Kikundi** na **ada ya itifaki** ya ziada kwa kila ubadilishaji wa Kikundi. Ubadilishaji wa njia huorodhesha ada hizo kwa kila hatua. Mtiririko wa sasa wa CLC App hauongezi ada tofauti ya huduma ya uelekezaji. Mfumo unaopendekezwa katika White Paper unaeleza kando **sehemu ya mtandao** ya baadaye inayotolewa kwenye ada za Kikundi, pamoja na ada zinazoweza kutozwa kwa uelekezaji au huduma. Mifumo hii haipaswi kuchanganywa wakati wa kueleza gharama za sasa au kukokotoa mapato ya baadaye.
+Lebo **“Kikomo cha mkopo”** humaanisha kikomo cha salio la tokeni kilichosanidiwa kwa Kikundi: kiasi cha juu cha tokeni hiyo ambacho Kikundi kinaweza kushikilia baada ya amana. Mipaka inayobadilika, ya akaunti, na ya mtandao mzima inayopendekezwa katika Waraka Mweupe ni mifumo tofauti.
+
+Protocol v1.1.0 inaweza kutoza **ada ya Kikundi** na **ada ya itifaki** ya ziada kwa kila ubadilishaji wa Kikundi. Ubadilishaji kupitia njia huonyesha ada zote mbili kwa kila hatua. Programu ya sasa haiongezi ada tofauti ya huduma ya uelekezaji. Muundo unaopendekezwa wa Waraka Mweupe hueleza kando sehemu ya mtandao na ada za huduma zinazoweza kuwepo baadaye.
 
 ## Njia na ukwasi
 
-**Njia** ni mfululizo uliopangwa kupitia Kikundi kimoja au zaidi vinavyosimamiwa kwa kujitegemea. **Kina cha njia** ni idadi ya ubadilishaji wa Kikundi katika njia hiyo. Utekelezaji wa sasa wa umma hutafuta hadi hatua tatu.
+**Njia** ni mfululizo uliopangwa kupitia Kikundi kimoja au zaidi vinavyosimamiwa kwa kujitegemea. **Kina cha njia** ni idadi ya ubadilishaji wa Vikundi katika njia hiyo. Mfumo wa sasa wa umma hutafuta hadi hatua tatu.
 
-**Ukwasi unaopatikana** ni mali ya kutoa inayofaa ambayo Kikundi kinaweza kutoa chini ya hali yake ya sasa ya usajili, kikomo cha salio, nukuu, ada na mali zilizopo. Muunganisho katika grafu pekee hauthibitishi kuwa kiasi kinachotakiwa kinaweza kupita. Ugunduzi wa njia unaweza kuwa umepitwa na wakati; nukuu inayofuata ya block iliyowekwa ndiyo halali hadi muda wake uishe au hali inayohusika ibadilike.
+Uelekezaji wa uzalishaji hutumia Vikundi vilivyothibitishwa vyenye bei linganishi na tokeni ambazo uhamishaji wake huhamisha kiasi kilichotajwa: vocha za `GiftableToken` na tokeni za kawaida za ERC-20 zilizoidhinishwa wazi. Ubadilishaji wa moja kwa moja wa Kikundi unaweza kukubali usanidi mpana zaidi; kuonekana katika Kikundi hakufanyi tokeni ikubalike moja kwa moja kwa uelekezaji wa Programu.
 
-Utekelezaji wa sasa wa njia unaanzishwa na Mkoba na hufanyika kwenye mnyororo mmoja. Hauunganishi utawala, hausawazishi kiotomatiki mali za Vikundi, hauondoi majukumu tofauti ya wahusika wengi wala kuthibitisha utekelezaji wa Mtoaji. Uelekezaji wa HTLC au escrow kati ya minyororo, usawazishaji wa kiotomatiki na ulinganishaji wa kundi bado ni mapendekezo au hutegemea utekelezaji.
+**Ukwasi unaopatikana** ni mali ya kutoa inayostahiki ambayo Kikundi kinaweza kutoa chini ya hali yake ya sasa ya uanachama, kikomo cha salio, nukuu, ada, na uhifadhi. Muunganisho katika grafu hauthibitishi kuwa kiasi kinachofaa kinaweza kupita. Ugunduzi wa njia unaweza kupitwa na wakati; nukuu ya baadaye ya block iliyowekwa hubaki halali tu hadi muda wake wa mwisho au hali husika ibadilike.
+
+Utekelezaji wa sasa wa njia ni wa mnyororo mmoja na huanzishwa na Mkoba. Hauunganishi utawala, hausawazishi mali za Vikundi kiotomatiki, hausafishi wajibu wa wahusika wengi, wala hauthibitishi utekelezaji. Uelekezaji wa HTLC au escrow kati ya minyororo, usawazishaji kiotomatiki, na ulinganishaji wa kundi hubaki mapendekezo au hutegemea utekelezaji.
 
 ## Ulinzi na ushahidi
 
-Uratibu, kuingizwa kwenye rejesta, kikomo, akiba, kuonekana kwenye programu au muamala wa blockchain pekee hakuthibitishi idhini, uwezo wa Mtoaji, utekelezaji, dhamana au bima.
+Uchaguzi, kuingizwa katika rejista, kikomo, akiba, kuonekana katika Programu, Maoni, au muamala wa blockchain peke yake havithibitishi idhini, uwezo wa Mtoaji, utekelezaji, dhamana, au bima.
 
-Ulinzi wowote unapaswa kutaja mhusika mwenye wajibu, tukio linalolindwa, ufadhili, kiwango cha juu, mambo yasiyojumuishwa, muda, ushahidi na mchakato wa madai. Rekodi za kwenye blockchain zinaweza kuonyesha anwani, mali, kiasi, muda na matukio ya mkataba. Utekelezaji wa Mtoaji, kuridhika, majadiliano ya utawala na athari za kijamii zinahitaji taarifa, ripoti, uthibitisho au ushahidi mwingine wa ziada.
+Ulinzi wowote unapaswa kutaja mhusika mwenye wajibu, tukio linalolindwa, ufadhili, kikomo, vizuizi, muda, ushahidi, na utaratibu wa madai. Rekodi za kwenye mnyororo zinaweza kuonyesha anwani, mali, kiasi, muda, na matukio ya mkataba. Utekelezaji wa Mtoaji, kuridhika, majadiliano ya utawala, na athari za kijamii huhitaji ushahidi tofauti.
 
 ## Maneno ya hali
 
-- **Ya sasa:** yamethibitishwa katika CLC App au Protocol v1.1.0 kama ilivyoelezwa na nyaraka hizi.
-- **Inategemea utekelezaji:** inapatikana tu pale utekelezaji, Kikundi, mtoa huduma, mamlaka au sera iliyochapishwa inaporuhusu.
+- **Ya sasa:** imethibitishwa katika CLC App au Protocol v1.1.0 inayoelezwa na nyaraka hizi.
+- **Inayotegemea utekelezaji:** inapatikana tu pale ambapo utekelezaji fulani, Kikundi, mtoa huduma, mamlaka, au sera iliyochapishwa huiwezesha.
 - **Ya kihistoria:** ushahidi au utendaji kutoka huduma ya awali ya Sarafu Network.
-- **Inayopendekezwa:** mpango wa muundo au hatua ya baadaye ambayo haijaelezwa kuwa imetekelezwa.
+- **Inayopendekezwa:** muundo au mpango ambao haujaelezwa kuwa tayari umetumika.
 
-[Mwongozo wa kuanza](/sw/introduction/getting-started) unatumia maneno haya kwa programu ya sasa. [Marejeleo ya Itifaki](/sw/protocol/overview) yanaeleza mikataba iliyothibitishwa, huku [Waraka Mweupe](/sw/white-paper) ukiwasilisha muundo mpana na mapendekezo.
+[Mwongozo wa kuanza](/sw/introduction/getting-started) hutumia maneno haya kwa Programu ya sasa. [Marejeo ya Itifaki](/sw/protocol/overview) yanaeleza mikataba iliyothibitishwa, na [Waraka Mweupe](/sw/white-paper) unaeleza muundo mpana na mapendekezo.
 
-Kwa mafunzo ya ziada kupitia michezo kuhusu ahadi, ukamilishaji, mtiririko wa rasilimali, ubadilishaji na kuunganisha ahadi, angalia [michezo ya elimu ya Grassroots Economics](https://grassrootseconomics.org/games/). Michezo hiyo ni nyenzo za kujifunza, si ufafanuzi wa tabia ya sasa ya programu au Itifaki.
+Kwa utangulizi wa kujifunza kupitia michezo kuhusu ahadi, malipo, mtiririko wa rasilimali, ubadilishaji, na kuunganisha, angalia [michezo ya elimu ya Grassroots Economics](https://grassrootseconomics.org/games/). Michezo hii ni nyenzo za ziada za kujifunza, si ufafanuzi wa utendaji wa sasa wa Programu au Itifaki.

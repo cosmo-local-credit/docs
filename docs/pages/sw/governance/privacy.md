@@ -166,6 +166,19 @@ Programu ya wavuti ya uzalishaji inatolewa kupitia Cloudflare Pages. Mipangilio 
 
 Miunganisho mingine hutegemea kipengele. Inapowezeshwa na kutumiwa, huduma ya arifa hushughulikia endpoint za usajili wa arifa, hali ya kifaa, anwani za Mkoba zilizounganishwa, uthibitisho wa uwasilishaji na mibofyo na hali ya kikasha; huduma ya kupeleka miamala hushughulikia maombi yaliyotiwa saini na hali ya miamala; huduma ya miamala ya Safe hushughulikia anwani za multisig, mapendekezo, saini, uthibitisho na hali ya utekelezaji; na mtoa huduma wa malipo au ubadilishaji wa pesa hushughulikia nambari ya simu, anwani ya Mkoba, mali, kiasi, kitambulisho cha mtoa huduma, kiwango na hali ya muamala inayohitajika kwa kipengele hicho. Hifadhi ya picha, API ya App, hifadhidata, waorodheshaji wa blockchain na miundombinu ya ufuatiliaji hushughulikia maudhui na rekodi za uendeshaji zinazohitajika kwa kazi zao. Huduma ya mtu mwingine inaweza pia kukusanya data moja kwa moja chini ya taarifa yake ya faragha.
 
+### Rejista ya sasa ya huduma
+
+Rejista hii inaorodhesha huduma zilizothibitishwa katika usanidi wa uzalishaji uliokaguliwa tarehe 17 Novemba 2026. Huduma inayotegemea utekelezaji huonekana tu wakati kipengele husika kimesanidiwa au kutumiwa. Vipengele, maeneo, na taarifa za watoa huduma zinaweza kubadilika; taarifa ya sasa inayotolewa na mtoa huduma pia hutumika.
+
+| Huduma au aina | Kusudi na data inayohusika | Taarifa ya mtoa huduma | Hali |
+| --- | --- | --- | --- |
+| Cloudflare Pages | Hutoa programu ya wavuti na kushughulikia maombi ya mtandao, ikiwa ni pamoja na anwani ya IP, kivinjari, usalama, na taarifa za ombi. | [Sera ya Faragha ya Cloudflare](https://www.cloudflare.com/privacypolicy/) | Upangishaji wa sasa wa wavuti wa uzalishaji |
+| MapTiler | Hutoa mitindo ya ramani na mapendekezo ya mahali kulingana na IP; maombi yanaweza kujumuisha anwani ya IP, taarifa za kivinjari, eneo la ramani, na muktadha wa mahali. | [Sera ya Faragha ya MapTiler](https://www.maptiler.com/privacy-policy/) | Usanidi wa sasa wa kivinjari |
+| Esri ArcGIS World Geocoding | Hutoa utafutaji wa mahali na geocoding ya kinyume; maombi yanaweza kujumuisha maandishi ya utafutaji, viwianishi, anwani ya IP, na taarifa za kivinjari. | [Taarifa ya Faragha ya Esri](https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement) | Usanidi wa sasa wa kivinjari |
+| Huduma za Programu zinazoendeshwa na GEF | Hutoa API ya Programu, hifadhidata, hifadhi ya picha, uorodheshaji, ufikiaji wa RPC uliosanidiwa, uwasilishaji wa miamala, usaidizi, na shughuli zinazohusiana. Data hutegemea kipengele cha Programu kilichoombwa. | Taarifa hii ya Faragha na [Sera ya Ulinzi wa Data](/sw/governance/data-protection) | Ya sasa, huku vipengele binafsi vikiwezeshwa na utekelezaji |
+| Huduma ya miamala ya Safe | Husaidia ugunduzi na uratibu wa miamala ya multisig inayooana, ikiwa ni pamoja na anwani za Safe, watia sahihi, viwango vya idhini, mapendekezo, uthibitisho, na hali ya utekelezaji. | [Sera ya Faragha ya Safe](https://safe.global/privacy) | Inategemea utekelezaji |
+| Watoa huduma wa arifa, malipo, ubadilishaji wa fedha, na huduma nyingine za hiari | Hushughulikia tu taarifa inayohitajika kwa kipengele kilichowezeshwa, kama ilivyoelezwa hapo juu na katika masharti ya mtoa huduma yanayoonyeshwa na kipengele hicho. | Taarifa ya mtoa huduma husika na masharti ya muamala | Inategemea utekelezaji |
+
 ## 11. Ushughulikiaji wa data kimataifa
 
 App, mitandao ya blockchain ya umma, watoa huduma, washirika na watumiaji wanaweza kufanya kazi katika nchi zaidi ya moja. Kwa hiyo, data binafsi inaweza kufikiwa au kushughulikiwa nje ya Kenya au nchi ambako ilikusanywa.
@@ -206,7 +219,7 @@ Tuma ombi kwa [privacy@grassecon.org](mailto:privacy@grassecon.org). Huenda tuka
 
 Pia unaweza kuamua kutojaza sehemu za wasifu za hiari, kuondoa taarifa ya hiari kabla ya kuchapisha, kutumia njia inayofaa ya mawasiliano ya umma, kuchagua sehemu salama ya ramani kwa umma, kudhibiti ruhusa za arifa na kuepuka kipengele kinachohitaji data ambayo hutaki kutoa.
 
-Taarifa kuhusu haki za wenye data nchini Kenya zinapatikana kutoka [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/).
+Taarifa kuhusu haki za wenye data nchini Kenya zinapatikana kutoka [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/). Mwenye data anaweza pia kutumia [ukurasa rasmi wa malalamiko wa ODPC](https://odpc.go.ke/file-a-complaint/index.html).
 
 ## 15. Watoto
 

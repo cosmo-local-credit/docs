@@ -1252,9 +1252,11 @@ class MadladTranslator:
         ]
         results = self.engine.translate_batch(
             tokenized,
-            # MADLAD's greedy output is strong enough for the comparison draft
-            # and keeps a full corpus pass practical on maintainer hardware.
-            beam_size=1,
+            # Controlled reconciliation requests a wider beam for the forward
+            # draft and a greedy pass for independent back-translation. Honor
+            # the caller so lower-resource languages can trade extra runtime
+            # for a clearer candidate without changing the cached model.
+            beam_size=beam_size,
             # CTranslate2 interprets this value as tokens because batch_type is
             # "tokens". A 128-token ceiling serialized nearly every policy
             # sentence; 4096 keeps the 3B int8 model inside ordinary maintainer
@@ -2819,8 +2821,8 @@ def main() -> None:
                 canonical_terms,
                 app_glossary,
                 protect_names=True,
-                # MADLAD always uses greedy decoding; retain the historical
-                # cache key so previously reviewed policy units are reused.
+                # Use a wider forward beam for the candidate; independent
+                # back-translation remains greedy and cache-compatible.
                 forward_beam_size=4,
             )
 
