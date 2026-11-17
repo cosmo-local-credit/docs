@@ -81,7 +81,7 @@ steps.
 | 7 | Ukrainian (`uk`) | Reconciled to the approved English review | Focused checks, production build, browser smoke test, and localized PDF passed | Release-ready | User-managed | External follow-up |
 | 8 | Serbian (`sr`) | Reconciled to the approved English review | Focused checks, production build, browser smoke test, and localized PDF passed | Release-ready | User-managed | External follow-up |
 | 9 | Arabic (`ar`) | Reconciled to the approved English review | Focused checks, production build, RTL browser smoke test, and localized PDF passed | Release-ready | User-managed | External follow-up |
-| 10 | Dzongkha (`dz`) | Final | Product-owner acceptance of the machine translation, dedicated Dzongkha back-translation, foreign-script cleanup, and focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
+| 10 | Dzongkha (`dz`) | Reconciled to the approved English review | Product-owner acceptance of the prior machine translation, targeted source reconciliation, foreign-script cleanup, and focused checks passed | Release-ready | User-managed | External follow-up |
 | 11 | Dutch (`nl`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
 | 12 | Hindi (`hi`) | Final | NLLB back-translation, legal-meaning review, and focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
 | 13 | Simplified Chinese (`zh`) | Final | NLLB back-translation, complete low-confidence review, legal-meaning review, and focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
@@ -97,7 +97,7 @@ metadata. The affected routes are Getting Started, Concepts, the practical
 example, Protocol network architecture, Privacy Notice, Terms, the White Paper
 landing page, Executive Summary, and legal/compliance chapter.
 
-English, French, Spanish, Portuguese, Italian, Kiswahili, German, Ukrainian, Serbian, and Arabic are current. The remaining 7 translated locales are deliberately marked
+English, French, Spanish, Portuguese, Italian, Kiswahili, German, Ukrainian, Serbian, Arabic, and Dzongkha are current. The remaining 6 translated locales are deliberately marked
 `pending` for these nine routes in `docs/i18n/english-review-rollout.json`.
 Their files, hashes, search content, and links remain usable at the last
 reviewed version; validators must not silently promote them to the new English
