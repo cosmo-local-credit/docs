@@ -209,7 +209,7 @@ function GuideArtwork({ name }: { name: IntroductionArt }) {
   }
 
   return (
-    <div className="clc-guide-art" aria-hidden="true" data-art={name}>
+    <div className="clc-guide-art" aria-hidden="true" data-art={name} dir="ltr">
       <svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 300 160">{art}</svg>
     </div>
   )

@@ -75,10 +75,15 @@ for (const selector of [
 for (const declaration of [
   '--clc-guide-accent: var(--clc-accent-fill)',
   '--clc-logo-tile: var(--clc-guide-art-primary)',
+  '--clc-guide-art-canvas: oklch(0.97 0 0)',
+  '--clc-guide-art-card: oklch(1 0 0)',
+  '--clc-guide-art-canvas: oklch(0.27 0 0)',
+  '--clc-guide-art-card: oklch(0.205 0 0)',
   '--clc-guide-art-primary: oklch(0.508 0.118 165.612)',
   '--clc-guide-art-primary: oklch(0.58 0.13 165.612)',
   'color: var(--clc-accent-text)',
   'fill: var(--clc-guide-art-primary-foreground)',
+  'aspect-ratio: 300 / 160',
   'aspect-ratio: 4 / 3',
 ]) {
   if (!splashCss.includes(declaration)) {

@@ -337,10 +337,11 @@ body:has(.about-page) {
 }
 
 .clc-guide-art {
-  --clc-guide-art-background: oklch(1 0 0);
+  /* Keep these in step with clc-app's GuideArt and ConceptCards tokens. */
+  --clc-guide-art-canvas: oklch(0.97 0 0);
+  --clc-guide-art-card: oklch(1 0 0);
   --clc-guide-art-border: oklch(0.922 0 0);
   --clc-guide-art-foreground: oklch(0.145 0 0);
-  --clc-guide-art-muted: oklch(0.97 0 0);
   --clc-guide-art-muted-foreground: oklch(0.556 0 0);
   --clc-guide-art-primary: oklch(0.508 0.118 165.612);
   --clc-guide-art-primary-foreground: oklch(0.979 0.021 166.113);
@@ -350,15 +351,15 @@ body:has(.about-page) {
   width: min(100%, 34rem);
   margin: 1.1rem auto 0;
   border: 1px solid var(--clc-guide-art-border);
-  aspect-ratio: 4 / 3;
-  background: var(--clc-guide-art-background);
+  aspect-ratio: 300 / 160;
+  background: var(--clc-guide-art-canvas);
 }
 
 :root.dark .clc-guide-art {
-  --clc-guide-art-background: oklch(0.205 0 0);
-  --clc-guide-art-border: oklch(0.269 0 0);
+  --clc-guide-art-canvas: oklch(0.27 0 0);
+  --clc-guide-art-card: oklch(0.205 0 0);
+  --clc-guide-art-border: oklch(1 0 0 / 12%);
   --clc-guide-art-foreground: oklch(0.97 0 0);
-  --clc-guide-art-muted: oklch(0.27 0 0);
   --clc-guide-art-muted-foreground: oklch(0.708 0 0);
   --clc-guide-art-primary: oklch(0.58 0.13 165.612);
   --clc-guide-art-primary-foreground: oklch(0.985 0.021 166.113);
@@ -387,7 +388,7 @@ body:has(.about-page) {
 }
 
 .clc-guide-art__card {
-  fill: var(--clc-guide-art-background);
+  fill: var(--clc-guide-art-card);
   stroke: var(--clc-guide-art-foreground);
   stroke-width: 1.5;
 }
@@ -428,7 +429,7 @@ body:has(.about-page) {
 }
 
 .clc-guide-art__media {
-  fill: var(--clc-guide-art-muted);
+  fill: var(--clc-guide-art-canvas);
 }
 
 .clc-guide-art__qr {
@@ -1461,6 +1462,11 @@ body:has(.about-page) .vocs_Layout_headerSpacer {
 
   .clc-guide__copy {
     min-height: 9.25rem;
+  }
+
+  /* clc-app uses the roomier phone-carousel crop at this breakpoint. */
+  .clc-guide-art {
+    aspect-ratio: 4 / 3;
   }
 
   .clc-guide__arrow {
