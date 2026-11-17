@@ -21,6 +21,22 @@ npm install
 npm run dev
 ```
 
+## Production build
+
+```bash
+npm run build
+```
+
+Vocs 1.4.1 prerenders the complete multilingual site in one process. The
+repository's build launcher gives that process a 6144 MB V8 heap so it can use
+the 8 GB available in the Cloudflare build environment without hitting Node's
+default heap limit. To test with a different limit, set `CLC_VOCS_HEAP_MB`, for
+example:
+
+```bash
+CLC_VOCS_HEAP_MB=5120 npm run build
+```
+
 ## License
 
 [CC-BY-SA-4.0](LICENSE).
