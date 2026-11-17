@@ -1,32 +1,32 @@
 ## **5. Mula sa hiwalay na mga Pool tungo sa isang pederadong network**
 
-Kasalukuyang Protocol v1.1.0 ay sumusuporta sa direktang pagpapatupad sa pamamagitan ng isang `SwapPool` at nagbibigay ng isang quote-only Solidity `SwapRouter`. Ang produksyon CLC App at CLC Core coordinate participant-initiated same-chain ruta sa pamamagitan ng maraming bilang ng tatlong mga Pool sa pamamagitan ang paghahanda ng isang pinirmahan Calibur wallet batch. Ang mga kontrata ay hindi mismo nagpapatupad ng isang multi-hop na ruta, at ang kasalukuyang daloy ng App/Core ay hindi nagbibigay ng cross-chain HTLCs, escrow routes, automatic Pool rebalancing, batch netting, o cross-network clearing.
+Sinusuportahan ng kasalukuyang Protocol v1.1.0 ang direktang execution sa pamamagitan ng isang `SwapPool` at nagbibigay ng quote-only na Solidity `SwapRouter`. Inuugnay ng production CLC App at CLC Core ang participant-initiated same-chain route sa hanggang tatlong Pool sa pamamagitan ng paghahanda ng isang pinirmahang Calibur Wallet batch. Hindi mismo ipinapatupad ng mga contract ang multi-hop route, at hindi nagbibigay ang kasalukuyang App/Core flow ng cross-chain HTLC, escrow route, awtomatikong Pool rebalancing, batch netting, o cross-network clearing.
 
-Ipinaliliwanag sa kabanatang ito ang kasalukuyang ruta ng kalahok at pinaghihirapan ito mula sa iminungkahing koordinasyon na kakailanganin ng bagong awtoridad ng Pool. Sa parehong mga kaso, ang mga independiyenteng Pool ay nagpapanatili ng kanilang sariling mga patakaran sa pagpasok, pagpapahalaga, limitasyon, bayad, imbentaryo, pahintulot, at pamamahala.
+Ipinapaliwanag ng kabanatang ito ang kasalukuyang participant route at ibinubukod ito sa iminungkahing koordinasyon na mangangailangan ng bagong awtoridad ng Pool. Sa parehong kaso, pinananatili ng bawat hiwalay na Pool ang sarili nitong admission, valuation, limitasyon, bayarin, inventory, awtorisasyon, at governance rule.
 
-### **5.1 Nag-iiba na mga hakbang sa paghahati at pagpapatupad**
+### **5.1 Hiwalay na sukat para sa palitan at fulfillment**
 
-Routing ay maaaring mapabuti ang access sa imbentaryo, ngunit ito ay hindi pagsamahin ang Voucher at palitan lifecycles. Ang pagsukat ay dapat panatilihing hiwalay ang mga pangyayaring ito:
+Maaaring mapabuti ng routing ang access sa inventory, ngunit hindi nito pinagsasama ang lifecycle ng Voucher at palitan. Dapat panatilihing hiwalay sa pagsukat ang mga pangyayaring ito:
 
-1. ang isang ruta ay iniulat;
-2. ang isa o higit pang mga pool swaps ay ipatupad at matugunan sa chain;
+1. ang isang ruta ay nabigyan ng quote;
+2. isa o higit pang palitan sa Pool ang naisagawa at na-settle on-chain;
 3. inihaharap ng may hawak ang mga unit ng voucher sa tagapag-isyu;
 4. ang tagapag-isyu ay nagtutupad ng pangako; at
 5. dini-discharge ang mga natupad na unit.
 
-Ang mga ulat ay magpapakita ng cohort, period, assets, valuation method at timestamp, exclusions, corrections, and off-chain evidence na kinakailangan sa Appendix C.
+Hindi pinatutunayan ng mas maraming quoted o executed route na mas maraming fulfillment ang naganap. Dapat ilahad sa report ang cohort, period, asset, valuation method at timestamp, exclusion, correction, at off-chain evidence na hinihingi ng Appendix C.
 
-**Illustrative na ruta:** Ang isang paaralan ay may mga voucher ng mais ngunit nangangailangan ng mga mga voucher sa transportasyon. Ang CLC Core ay maaaring makilala ang mga katugmang imbentaryo ng Pool, bigyang-diin ang napiling landas sa isang pin na bloke, at ihanda ang mga nakabatang tawag para sa pitaka ng paaralan. Ang pagpapatupad ay matagumpay lamang kung ang bawat pag-ikot ay mananatiling nasa loob ng mga hangganan, limitasyon, bayad, imbentaryo, sinusuportahan na pag-uugali, at patakaran. Ang mga nagresultang swap ay hindi nagpapatunay na ang alinman sa mga tagapag-isyu ay sumunod sa kanyang mga obligasyong Voucher.
+**Halimbawang ruta:** May Voucher sa mais ang isang paaralan ngunit kailangan nito ng Voucher sa transportasyon. Maaaring tukuyin ng CLC Core ang katugmang inventory ng Pool, i-quote ang napiling path sa iisang pinned block, at ihanda ang bounded call para sa Wallet ng paaralan. Magtatagumpay lamang ang execution kung ang bawat hop ay pasok sa quote boundary, limitasyon, bayarin, inventory, suportadong behavior, at policy. Hindi pinatutunayan ng mga swap na tumupad na ang alinmang tagapag-isyu sa Voucher commitment nito.
 
 ### **5.2 Kasalukuyang routing ng kalahok at iminungkahing muling pagbabalanse**
 
 Ang dalawang gawain ay nangangailangan ng iba't ibang awtoridad.
 
-** Kasalukuyang pagsasakatuparan na sinimulan ng kalahok.** Dahil sa mga input at output voucher at isang halaga, tinataya ng CLC Core ang mga landas mula sa kwalipikadong holding ng kalahoka. Para sa isang napili ruta, ito ay nagbabasa ng mga Pool sa isa pinned block, gumagawa ng isang may awtoridad quote, simulates ang kumpletong batch, at naghahanda ng tatlong tawag sa bawat hop: allowance reset, `SwapPool.withdraw`. Ang mga kasapi sign, at ang relayer magsumite ng isang parehong-chain Calibur transaksyon na may `revertOnFailure` pinagana. Ang isang nabigo na tawag ay nagbabalik sa bawat pagtawag ng ruta. Pinagsasama ng App ang transaksyon at per-hop settlement sa isang resibo.
+**Kasalukuyang participant-initiated execution.** Mula sa input at output Voucher at halaga, tinatantiya ng CLC Core ang path mula sa kwalipikadong holdings ng kalahok. Para sa napiling ruta, binabasa nito ang mga Pool sa iisang pinned block, gumagawa ng may-awtoridad na quote, sini-simulate ang buong batch, at naghahanda ng tatlong call sa bawat hop: allowance reset, allowance grant, at bounded `SwapPool.withdraw`. Pumipirma ang kalahok, at nagsusumite ang relayer ng isang same-chain Calibur transaction na may `revertOnFailure`. Kapag nabigo ang isang call, babalik ang lahat ng route call. Pinagsasama ng App ang transaction at per-hop settlement sa isang resibo.
 
-Ang bawat hop ay nagpapanatili ng sariling may pananagutan na Pool, quote input, pahintulot, bayad, limitasyon, imbentaryo, at kaganapan sa pag-areglo. Ang kasalukuyang App ay hindi nagdaragdag ng hiwalay na bayarin sa serbisyo sa ruta. Sinusuportahan ng kasalukuyang daloy ang mga wallet ng EOA/Calibur na katugma sa App, hindi ang mga Safes o iba pang mga wallets ng kontrata.
+Pinananatili ng bawat hop ang sarili nitong responsableng Pool, quote input, awtorisasyon, bayarin, limitasyon, inventory, at settlement event. Walang hiwalay na route-service fee ang kasalukuyang App. Sinusuportahan ng kasalukuyang flow ang mga EOA/Calibur Wallet na katugma sa App, hindi ang Safe o ibang contract Wallet.
 
-**Opt-in Pool rebalancing.** Maaaring i-publish ng mga Mga Tagapangasiwa ng Pool ang mga target sa imbentaryo, pinahihintulutang counterparties, asset classes, quote-deviation bounds, at per-period limits. Ang isang responsable na serbisyo ay maaaring maghanap para sa mga katugmang siklo o kadena at ipatupad lamang ang awtorisadong mga layunin.
+**Opt-in Pool rebalancing.** Maaaring ilathala ng mga Tagapangasiwa ng Pool ang target na inventory, pinapayagang counterparty, asset class, quote-deviation boundary, at per-period limit. Maaaring maghanap ang isang responsableng service ng katugmang cycle o chain at ipatupad lamang ang awtorisadong intent.
 
 Ang muling pagbabalanse ay magiging opt-in. Ang isang Pool ay maaaring payagan ang mga ordinaryong ruta ng kalahok nang hindi nagpapahintulot sa isang serbisyo na ilipat ang imbentaryo para sa muling pagbabalanse. Ang isang hinaharap na mandate ay maaaring magbigay ng kakayahan lamang sa mga napiling assets, counterparties, at halaga. Ang bawat ginanap na hop ay magbibigay ng isang resibo, at ang anumang bayad sa serbisyo ay ilalabas nang hiwalay mula sa mga bayarin sa Pool at Protocol.
 
@@ -36,26 +36,26 @@ Ang cross-chain HTLC o escrow execution ay hiwalay din sa kasalukuyang same-chai
 
 Ang mga independiyenteng deployments ay maaaring magpatakbo ng kanilang sariling mga rehistro, interface, serbisyo sa ruta, at mga profile ng patakaran habang pinipili ang mga katugmang data at mga pamantayan sa pagtanggap. Ang kasalukuyang pampublikong App ay gumagamit ng naka-configure na rehistro at profile ng serbisyo. Cross-profile pagpapatupad ay nananatiling deployment-dependent.
 
-Ang isang katumbas na profile ay:
+Ang isang compatible na profile ay:
 
-- ipakilala ang mga pinagmulan ng rehistro nito, operator ng serbisyo, controller, at naaangkop na termino;
-- Ihayag ang pinapayagan at hindi pinapayanan na mga kontrahenso, mga asset, adapter, at mga ruta;
-- i-apply ang mga otorisasyon, limitasyon, bayad, at paghihigpit sa inventory ng bawat nakikibahagi na pool;
-- magtipig ng mga katibayan sa quote-to-receipt per-hop; at
-- pahintulutan ang iba pang functional na mga pool na umalis o pumili ng ibang registry nang hindi tinanggal ang mga saldo o obligasyon ng tagapag-isyu.
+- tukuyin ang mga registry source, service operator, controller, at naaangkop na terms nito;
+- ilathala ang pinapayagan at hindi pinapayagang counterparty, asset, adapter, at route;
+- ilapat ang authorization, limit, fee, at inventory constraint ng bawat kasaling Pool;
+- magpanatili ng per-hop quote-to-receipt evidence; at
+- payagan ang ibang gumaganang Pool na umalis o pumili ng ibang registry nang hindi binubura ang balance o obligasyon ng issuer.
 
 Maaaring paramihin ng compatibility ang mga available na landas ng palitan at bawasan ang pagdepende sa iisang registry o operator. Hindi nito ginagawang responsable ang network, CLC App, GEF, o ibang Pool para sa pagtupad ng isang tagapag-isyu.
 
 ### **5.3 Proposed model ng network rake at service fee**
 
-Ang kasalukuyang Protocol v1.1.0 ay nagbabayad ng isang bayad sa Pool at, kapag naka-configure, ng karagdagang bayad sa Protokol sa isang diretso na swap ng Pool.
+Sinisingil ng kasalukuyang Protocol v1.1.0 ang Pool fee at, kapag naka-configure, karagdagang protocol fee sa isang direct Pool swap.
 
-Ang produksyon naka-routed exchange ay naglalapat ng mga kasalukuyang bayarin nang independiyenteng sa bawat hop at itemizes ang mga ito sa quote at pagtanggap. Sa kasalukuyan ay hindi ito nagdaragdag ng hiwalay na bayarin sa serbisyo sa pag-routing.
+Hiwalay na inilalapat ng production routed exchange ang kasalukuyang bayarin sa bawat hop at inililista ang mga ito sa quote at resibo. Hindi ito kasalukuyang nagdaragdag ng hiwalay na route-service fee.
 
 Ang isang hinaharap na programa ay maaaring tumanggap nang hiwalay:
 
-1. isang **network rake**, na tinukoy bilang isang ipinahayag na bahagi ng mga bayad sa pool na nakukuha ng mga kalahok na pool; at
-2. isang **bayad sa pag-route o serbisyo**, na binayaran para sa isang natukoy na hinaharap na serbisyo.
+1. isang **network rake**, na tinukoy bilang inilathalang bahagi ng Pool fee na kinita ng mga kasaling Pool; at
+2. isang **routing o service fee**, na binabayaran para sa tinukoy na service sa hinaharap.
 
 Ang iminungkahi na network rake ay hindi isang karagdagang porsyento na inilapat sa buong halaga ng swap pagkatapos na i-count ang bayad ng pool. Para sa pool `p`:
 
@@ -65,33 +65,33 @@ kung saan ang `f_p` ay rate ng bayad sa Pool at ang `r_p` ay ang iminungkahing b
 
 Para sa isang sinusukat na panahon:
 
-- **gross fees ng pool** ang halaga ng mga tunay na hinihingi sa bawat pool;
-- **mga resibo ng network-rake** ang ipinahayag na bahagi ng mga hinihingi na bayad;
-- **mga resibo ng bayad sa serbisyo** nag-iiba ang mga bayad sa routing o serbisyo; at
-- **mga resibo ng bayad sa programa** katumbas ng network rake plus service fee receipts.
+- **gross Pool fees** ang kabuuan ng mga fee na aktuwal na siningil ng bawat Pool;
+- **network-rake receipts** ang inilathalang bahagi ng mga siningil na fee;
+- **service-fee receipts** ang hiwalay na routing o service fee; at
+- **program fee receipts** ang network rake at service-fee receipts na pinagsama.
 
-Walang kategorya ang binilang nang dalawang beses. Ang kasalukuyang mga bayad sa Protokol ay hindi kasama maliban kung ang isang nag-iiba na panuntunan ng patakaran ay makatuwirang magbabago ng tunay na mga resibo sa mga bayad ng Protokol sa hinaharap na programa.
+Walang kategoryang binibilang nang dalawang beses. Hindi kasama ang kasalukuyang protocol fee maliban kung tahasang ililipat ng ibang policy rule ang aktuwal na protocol-fee receipts sa programa sa hinaharap.
 
 Para sa isang aggregate approximation, ipaalam:
 
 - `Q_swap` ay ang halaga ng executed Pool swaps para sa tinukoy na cohort at panahon; at
-- Ang `τ` ay ang epektibong rate ng iminungkahi na network rake at nag-iiba na natukoy na mga bayad sa serbisyo sa halaga ng executed swap.
+- ang `τ` ay ang effective rate ng proposed network rake at hiwalay na tinukoy na service fee sa value ng executed swap.
 
 Pagkatapos:
 
 F ≈ τ · Q_swap
 
-Ito ay isang analytical approximation, hindi isang pangako ng kita. bawat input ay nangangailangan ng tinukoy na cohort, panahon, yunit, valuation timestamp, exclusions, at correction policy.
+Analytical approximation ito, hindi pangako ng revenue. Kailangan ng bawat input ang tinukoy na cohort, period, unit, valuation timestamp, exclusion, at correction policy.
 
 #### **5.3.1 Ang mga nakatanggap ng cash eligible at in-kind receipts**
 
-Ang mga bayad ay maaaring dumating sa cash-eligible fungible assets o sa mga voucher at iba pang in-kind assets. In-kind receipts ay hindi awtomatikong magbayad ng cash expenses o coverage claims.
+Maaaring matanggap ang fee bilang cash-eligible fungible asset o bilang Voucher at ibang in-kind asset. Hindi awtomatikong pambayad sa cash expense o coverage claim ang in-kind receipt.
 
-Ang `χ` ay ang nai-realize na bahagi ng mga resibo sa bayad na karapat-dapat sa cash pagkatapos ng mga paghihigpit sa patakaran, nabigo na mga pag-convert, at slippage.
+Ang `χ` ay ang realized share ng fee receipt na cash-eligible matapos ang policy restriction, failed conversion, at slippage.
 
 F_cash ≈ χ · F
 
-Ang pagsusuri sa badyet at break-even ay gagamitin ang realized `F_cash`, hindi ang gross quoted fees o ang nominal na halaga ng in-kind inventory.
+Realized `F_cash` ang gagamitin sa budget at break-even analysis, hindi gross quoted fee o nominal value ng in-kind inventory.
 
 ### **5.4 Proposed na mga programa ng likididad**
 
@@ -99,23 +99,23 @@ Maaaring maglaan ang isang hiwalay na dokumentadong liquidity program sa hinahar
 
 Ang anumang programa ay mag-publish:
 
-- ang responsable na entidad at nakikibahagi sa Mga Tagapangasiwa ng Pool;
-- ang kontribusyon sa mga assets at kung ang transfer ay maibabalik, mai-withdrawable, donated, o endowed;
-- mga kaayusan ng custody at technical-control;
-- ang pinapayagan na paggamit, mga limitasyon, pag-lock ups, mga gate ng pag-withdraw, at allocation ng pagkawala;
-- ang pagiging karapat-dapat sa bayad o insentibo at kung ang halaga ay maaaring maging zero;
-- pag-uulat, labanan, reklamo, at mga paraan ng paglilinis; at
-- ang paglipat, pagtatapos, at paggamot ng natitirang mga kabtangan at obligasyon.
+- ang responsableng entity at mga kasaling Pool Steward;
+- ang contributed asset at kung refundable, withdrawable, donated, o endowed ang transfer;
+- mga kaayusan sa custody at technical control;
+- ang pinapayagang paggamit, limit, lockup, withdrawal gate, at allocation ng loss;
+- eligibility para sa fee o incentive at kung maaaring zero ang halaga;
+- reporting, dispute, complaint, at remedy path; at
+- transition, termination, at pagtrato sa natitirang asset at obligasyon.
 
-Ang mga materyal na panganib ay kinabibilangan ng inventory na mahirap i-exchange o matupad, mababang kwalipikasyon sa pera, hindi pagganap ng tagapag-isyu, pagkakamali ng kontrata o provider, pagbabago sa pamamahala, at mga paghihigpit sa paglabas.
+Kabilang sa material risk ang inventory na mahirap i-exchange o i-fulfill, mababang cash eligibility, non-performance ng issuer, contract o provider failure, pagbabago sa governance, at exit restriction.
 
 Para sa isang ex-post analytical metric, hayaan:
 
-- Ang `ϕ` ay ang napapatupad na bahagi ng mga resibo sa bayad sa programa na inilalagay sa ilalim ng mga panuntunan ng programa; at
-- `K` ay ang kinukunan na halaga ng mga asset na sakop ng programa sa ilalim ng isang nabanggit na pamamaraan.
+- ang `ϕ` ay ang realized share ng program fee receipt na inilaan sa ilalim ng mga tuntunin ng programa; at
+- ang `K` ay ang nasukat na value ng asset na sakop ng programa sa ilalim ng nakasaad na methodology.
 
 Pagkatapos:
 
 FeeFlow_LP ≈ (ϕ · F) / K = (ϕ · τ · Q_swap) / K
 
-Ang metric na ito ay naglalarawan ng naiisip na daloy ng bayad sa bawat kinukunan na asset ng programa. Hindi ito APY, isang pag-uulat, dividend, o isang ginagarantiyaang pagbabalik.
+Inilalarawan ng metric na ito ang observed fee flow sa bawat nasukat na program asset. Hindi ito APY, redemption quote, dividend, o guaranteed return.

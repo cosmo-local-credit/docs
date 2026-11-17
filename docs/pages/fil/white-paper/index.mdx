@@ -6,7 +6,7 @@
 
 **Bersyon:** 0.9
 
-**Taray:** 16 Nobyembre 2026
+**Petsa:** 16 Nobyembre 2026
 
 **Mga may-akda:** William O. Ruddick at Mohamed Sohail
 
@@ -27,7 +27,7 @@ Pinagsasama ng papel na ito ang apat na uri ng materyal. Nalalapat ang status sa
 | **Makasaysayan** | Ebidensiya o functionality mula sa naunang serbisyo ng Sarafu Network. Hindi ito kasalukuyang paggamit ng CLC o patunay na lumipat ang isang user, asset, record, o obligasyon. |
 | **Iminungkahi** | Disenyo, economic model, governance mechanism, o roadmap item na hindi ipinapakitang deployed na. |
 
-Kasalukuyang Protocol v1.1.0 kasama ang direktang `SwapPool` execution, optional curation, valuation, Pool token-balance caps, Pool fees, isang karagdagang protocol fee, at isang quote-only Solidity `SwapRouter`. Ang produksyon CLC App at CLC Core ay nagbibigay ng same-chain na pagtuklas ng ruta, pined-block quoting, simulation, naka-sign atomic wallet-batch execution sa pamamagitan ng hanggang sa tatlong mga pool, at pinagtipon na mga resibo. Ang cross-chain HTLC o escrow routing, automatic Pool rebalancing, batch netting, ibinahaging insurance, ang iminungkahing CLC governance token, ang iminumungkahi na CLC Network Pool, fee-credit mechanisms, at network liquidity programs ay inirerekomenda o nakasalalay sa deployment.
+Kasama sa kasalukuyang Protocol v1.1.0 ang direktang `SwapPool` execution, opsyonal na curation at valuation, mga token-balance cap ng Pool, mga bayarin sa Pool, karagdagang bayarin sa protocol, at quote-only na Solidity `SwapRouter`. Nagbibigay ang production CLC App at CLC Core ng same-chain route discovery, pinned-block quote, simulation, pinirmahang atomic Wallet-batch execution sa hanggang tatlong Pool, at grouped receipt. Nananatiling iminungkahi o nakadepende sa deployment ang cross-chain HTLC o escrow routing, awtomatikong Pool rebalancing, batch netting, shared insurance, iminungkahing CLC governance token, iminungkahing CLC Network Pool, fee-credit mechanism, at network liquidity program.
 
 **Nilalayong mambabasa:** mga tagabuo at Tagapangasiwa ng Pool, protocol engineer at auditor, mga nagpopondo ng liquidity at mandato, governance designer, at legal o compliance reviewer.
 
@@ -41,7 +41,7 @@ Ang cosmo-local ay nangangahulugang pagbabahagi ng open standard, software, at k
 
 ## Kasalukuyang deployment
 
-GEF ay nagpapatakbo ng CLC App sa [cosmolocal.credit (sa wikang Ingles)](https://cosmolocal.credit). Nagbibigay ito ng access sa account at wallet, isang pampublikong katalogo ng Pamilihan, at sinusuportahan ang mga interface para sa mga token, voucher, Offerings, Wants, mga Pool ng Pangako, paglilipat, direktang Pool swaps, at application-level na naka-routed exchanges. Sinusuportahan ng CLC Core ang pagtuklas ng ruta, mga awtoridad na binabanggit, simulation ng transaksyon, koordinasyon ng relay, pagkakatugma ng kadena, at pinagsama-samang mga resibo. Ang pagkakaroon ay nakasalalay sa interface, mga kontrata, imbentaryo, naka-configure na mga limitasyon at bayad, uri ng wallet, estado ng network, pagiging karapat-dapat, mga tagapagbigay, hurisdiksyon, at nai-publish na mga tuntunin ng tagapag-isyu o Pool.
+Pinapatakbo ng GEF ang CLC App sa [cosmolocal.credit](https://cosmolocal.credit). Nagbibigay ito ng account at Wallet access, pampublikong catalog ng Pamilihan, at suportadong interface para sa token, Voucher, Offering, Want, Pool ng Pangako, transfer, direktang palitan sa Pool, at application-level routed exchange. Sinusuportahan ng CLC Core ang route discovery, may-awtoridad na quote, transaction simulation, relay coordination, on-chain reconciliation, at grouped receipt. Nakadepende ang availability sa interface, contract, inventory, naka-configure na limitasyon at bayarin, uri ng Wallet, network state, eligibility, provider, hurisdiksiyon, at inilathalang tuntunin ng tagapag-isyu o Pool.
 
 Hindi ginagawang tagapag-isyu, Tagapangasiwa ng Pool, custodian, lender, borrower, broker, guarantor, tagatubos, adviser, insurer, o partido sa obligasyon ng mga kalahok ang GEF dahil lamang pinapatakbo nito ang interface. Ang paggamit ng App ay pinamamahalaan ng [Mga Tuntunin ng Serbisyo](/fil/governance/terms).
 
@@ -79,20 +79,20 @@ Ang digital layer ay shared memory at imprastraktura sa koordinasyon. Hindi nito
 
 ## Kasalukuyan at iminungkahing mga daloy
 
-### Direkta o naka-routing na kasalukuyang daloy ng Pool
+### Kasalukuyang direkta o routed na flow sa Pool
 
-1. Sinusuri ng may-ari ang isang Voucher, ang nag-isyu nito, ang mga tuntunin nito, at ang nauugnay na Mga Alok.
-2. Ang isang Pool ay tumatanggap ng mga tinutulungan na ari-arian at naglalathala ng pagkakakilanlan nito at mga may pananagutang awtoridad.
-3. Ang may-ari ay maaaring gumamit ng pananaw na **Credit** upang matuklasan ang isang direktang Palitan o isang ruta sa pamamagitan ng ilang mga malayang pinamamahalaang mga Pool.
-4. Ang CLC Core ay nagbabasa ng mga napiling Pool sa isang pin na bloke, gumagawa ng isang time-bounded quote, itemizes ang Pool at protocol fee ng bawat hop, simulates ang kumpletong batch, at inihahanda ang mga tawag para sa wallet ng may-ari.
-5. Sinusuri at pinirmahan ng may-ari. Ang App relays ng isang parehong-chain transaksyon na kung saan ang kumpletong batch reverts kung anumang tawag nabigo.
-6. Bawat isa `SwapPool` nagsasagawa ng sarili nitong on-chain settlement. Ang App ay nag-uumpisa sa katayuan ng transaksyon, hops, naayos na halaga, at mga bayarin sa isang naka-routed exchange receipt.
-7. Kung ang may-ari ay pumili ng ****Tubusin**** sa App, inihahanda ng App ang isang paglipat sa may-arian ng token bilang pagbabayad.
-8. Ang tagapag-isyu ay hiwalay na nagsasagawa ng ipinangakong pagsasakatuparan at nagrekord ng discharge kaya ang mga natupad na yunit ay hindi maaaring magamit muli.
+1. Sinusuri ng may-hawak ang Voucher, tagapag-isyu, mga tuntunin, at kaugnay na Offering.
+2. Tinatanggap ng Pool ang mga suportadong asset at inilalathala ang configuration at mga responsableng awtoridad nito.
+3. Maaaring gamitin ng may-hawak ang view na **Kredito** upang maghanap ng direktang palitan o ruta sa ilang Pool na magkakahiwalay ang pamamahala.
+4. Binabasa ng CLC Core ang mga napiling Pool sa iisang pinned block, gumagawa ng time-bounded quote, inililista ang bayarin sa Pool at protocol sa bawat hop, sini-simulate ang buong batch, at inihahanda ang mga call para sa Wallet ng may-hawak.
+5. Sinusuri at pinipirmahan ng may-hawak. Nire-relay ng App ang isang same-chain transaction kung saan babalik ang buong batch kapag may call na nabigo.
+6. Isinasagawa ng bawat `SwapPool` ang sarili nitong on-chain settlement. Pinagsasama ng App ang transaction status, mga hop, settled na halaga, at bayarin sa isang routed-exchange receipt.
+7. Kung piliin ng may-hawak ang **“Tubusin”** sa App, naghahanda ang App ng transfer sa may-ari ng token bilang redemption presentment.
+8. Hiwalay na tinutupad ng tagapag-isyu ang ipinangakong obligasyon at nagtatala ng discharge upang hindi magamit muli ang natupad na unit.
 
-Ang pagkuha ng inventory mula sa Pool ay isang Palitan. Ito ay pagbabayad lamang kung ang Pool na iyon ay hiwalay na nagtiwala sa tungkulin ng tagapag-isyu at tinutupad ang naaangkop na mga kondisyon ng Voucher.
+Palitan ang pagkuha ng inventory mula sa Pool. Redemption lamang ito kung hiwalay na ginagampanan ng Pool ang tungkulin ng tagapag-isyu at tinutupad ang naaangkop na tuntunin ng Voucher.
 
-Ang kasalukuyang configuration ng pampublikong ruta ay naghahanap hanggang sa tatlong Pool swaps at sumusuporta sa mga wallet ng EOA/Calibur na compatible sa App. Ito ay kasalukuyang hindi naghahanda ng mga naka-rout na palitan para sa mga safe o iba pang mga wallet ng kontrata. Ang Katatagan `SwapRouter` nananatiling quote-only; CLC Core at ang naka-sign wallet batch coordinate execution sa itaas ng mga kontrata.
+Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong route configuration, at sinusuportahan nito ang mga EOA/Calibur Wallet na katugma sa App. Hindi ito naghahanda ng routed exchange para sa Safe o ibang contract Wallet. Nananatiling quote-only ang Solidity `SwapRouter`; ang CLC Core at pinirmahang Wallet batch ang nag-uugnay ng execution sa ibabaw ng mga contract.
 
 ### Mas malawak na iminungkahing disenyo
 

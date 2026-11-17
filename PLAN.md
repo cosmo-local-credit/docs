@@ -23,9 +23,10 @@ technical localization workflow and commands live in the
 - English controls the policy suite and all convenience translations.
 - The current build contains 17 splash routes and 680 documentation routes.
   Complete four-policy sets are release-ready in all 16 translated locales.
-- The existing 36-page documentation translations are structurally validated
-  at White Paper v0.8. Routing-related pages now advance sequentially to the
-  v0.9 English source rather than being silently marked current.
+- The existing 36-page documentation translations remain structurally
+  validated. Every routing-related page in all 16 translated locales has now
+  been reconciled to the White Paper v0.9 English source and marked current
+  only after its locale release gate passed.
 - Policy Version 1.0 uses 9 November 2026 as its publication and effective
   date. If production deployment happens later, update both dates and every
   dependent policy hash before publishing.
@@ -85,8 +86,9 @@ steps.
 White Paper v0.9 is dated 16 November 2026. It documents the production
 App/Core route workflow while keeping the Protocol v1.1.0 Solidity
 `SwapRouter` quote-only. The rollout registry is
-`docs/i18n/routing-rollout.json`. A pending locale remains pinned to its
-reviewed v0.8 pages, manifest hashes, search/LLM output, and PDF until that
+`docs/i18n/routing-rollout.json`. All 17 locales are now marked current. The
+registry still enforces that any future pending locale remains pinned to its
+last reviewed pages, manifest hashes, search/LLM output, and PDF until that
 locale is reconciled.
 
 | Order | Locale | Routing pages | White Paper | PDF | Release status |
@@ -106,8 +108,8 @@ locale is reconciled.
 | 12 | Hindi (`hi`) | Reconciled and reviewed, including Devanagari terminology and PDF font checks | v0.9 | v0.9 verified | Current; release gate passed 17 November 2026 |
 | 13 | Simplified Chinese (`zh`) | Reconciled and reviewed, including app terminology and CJK PDF font checks | v0.9 | v0.9 verified | Current; release gate passed 17 November 2026 |
 | 14 | Traditional Chinese (`zh-Hant`) | Reconciled and reviewed, including app terminology, Traditional-script review, and CJK PDF font checks | v0.9 | v0.9 verified | Current; release gate passed 17 November 2026 |
-| 15 | Filipino (`fil`) | Queued | v0.8 | v0.8 | Pending |
-| 16 | Flemish (`nl-BE`) | Queued | v0.8 | v0.8 | Pending |
+| 15 | Filipino (`fil`) | Reconciled and reviewed, including app terminology and natural-language corrections | v0.9 | v0.9 verified | Current; release gate passed 17 November 2026 |
+| 16 | Flemish (`nl-BE`) | Reconciled against the reviewed Dutch edition and aligned with Flemish App terminology | v0.9 | v0.9 verified | Current; release gate passed 17 November 2026 |
 
 ### Routing release gate for one locale
 
@@ -120,12 +122,15 @@ locale is reconciled.
 - Mark the locale `current` only after focused route checks, back-translation,
   a production build, PDF text/font checks, and `git diff --check` pass.
 
-### Remaining repository sequence
+### Repository completion gate
 
-1. Reconcile the remaining 2 locales in the order above without changing
-   their public v0.8 status before their individual release gate passes.
-2. Run the complete repository gate and mark this ledger complete only after
-   every routing locale is current.
+All 16 translated locales and English now describe the production routing
+workflow and publish White Paper v0.9. The locale-by-locale routing rollout is
+complete. The final repository gate passed on 17 November 2026: all 17 PDFs
+match their generated artifacts byte-for-byte, embed their fonts, and expose
+extractable v0.9 text; all 680 documentation routes build; stale-claim
+searches are clear; and type, localization, translation-hash, heading, theme,
+and whitespace validation pass.
 
 ## Remaining external handoff
 

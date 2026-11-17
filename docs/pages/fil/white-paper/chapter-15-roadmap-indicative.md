@@ -2,21 +2,21 @@
 
 ### **15.1 Kasalukuyang pundasyon**
 
-GEF ay nagpapatakbo ng CLC App sa `cosmolocal.credit` sa Gnosis Chain. Nagbibigay ang App ng suportadong pag-access sa account at wallet, isang pampublikong katalogo ng Pamilihan, at mga interface para sa mga token, voucher, Offerings, Wants, mga Pool ng Pangako, paglipat, direktang Pool swaps, at naka-routed na palitan.
+Pinapatakbo ng GEF ang CLC App sa `cosmolocal.credit` sa Gnosis Chain. Nagbibigay ang App ng sinusuportahang account at wallet access, pampublikong Market catalog, at mga interface para sa token, Voucher, Offering, Want, Commitment Pool, transfer, direct Pool swap, at routed exchange.
 
-Protocol v1.1.0 ay nagbibigay ng kasalukuyang kontrata pundasyon: `GiftableToken`, direktang `SwapPool` execution, optional registries, valuation modules, Pool token-balance caps, Pool fees, isang karagdagang bayad sa protocol, at isang quote-only Solidity `SwapRouter`.
+Ibinibigay ng Protocol v1.1.0 ang kasalukuyang contract foundation: `GiftableToken`, direct `SwapPool` execution, mga opsyonal na registry, valuation module, Pool token-balance cap, Pool fee, karagdagang protocol fee, at isang quote-only na Solidity `SwapRouter`.
 
-Ang CLC Core ngayon ay nagbibigay ng same-chain routing at observability na pundasyon ng pampublikong App: pinagkasunduan ang graph discovery, mga ruta ng hanggang sa tatlong Pool swaps, pined-block quotes, per-hop bounds at fees, kumpletong-batch simulation, naka-sign atomic Calibur execution, relay tracking, settlement reconciliation, grouped receipts, at operational metrics. Ang kakayahang magamit ay nakasalalay pa rin sa interface, suportadong wallet at pag-uugali ng token, mga naka-deploy na kontrata, imbentaryo, pagsasaayos, pagiging bago ng serbisyo, estado ng network, pagiging karapat-dapat, mga tagapagbigay, hurisdiksyon, at nai-publish na mga tuntunin ng tagapag-isyu o Pool.
+Ibinibigay na ngayon ng CLC Core ang same-chain routing at observability foundation ng pampublikong App: reconciled graph discovery, mga route na hanggang tatlong Pool swap, pinned-block quote, per-hop bound at fee, simulation ng buong batch, nilagdaang atomic Calibur execution, relay tracking, settlement reconciliation, pinagsamang receipt, at operational metric. Nakasalalay pa rin ang availability sa interface, sinusuportahang wallet at token behavior, naka-deploy na kontrata, inventory, configuration, freshness ng service, estado ng network, eligibility, provider, jurisdiction, at inilathalang tuntunin ng issuer o Pool.
 
-### **15.2 Proposed milestones**
+### **15.2 Mga proposed milestone**
 
-Mga direksiyon sa disenyo ang mga milestone na ito, hindi mga numero ng release, petsa ng paghahatid, o pangakong ilulunsad ang isang feature.
+Mga direksiyon sa disenyo ang mga milestone na ito, hindi release number, petsa ng delivery, o pangakong ilulunsad ang isang feature.
 
-- **Pundasyon ng pamamahala:** iminungkahing CLC governance token; iminungkahing CLC Network Pool; mga fee adapter; quorum, timelock, at mga pundasyon ng pamamahala.
-- ** Routing & Observability:** palawakin ang kasalukuyang ruta at pagtanggap ng mga interface sa karagdagang mga profile; maglathala ng mga dashboard ng kalusugan at pag-uulat sa antas ng serbisyo; bumuo ng isang balangkas ng patakaran sa seguro; disenyo ng mga intensyon ng opt-in rebalance; at prototype na batch netting.
-- **Mga cross-domain risk tool:** HTLC o escrow routing; hiwalay na pinamamahalaang mga guarantor module; rolling, account, at tiered limit preset.
-- **Regulated access:** mga deployment-specific na third-party payment service; mga personal na micro-pool; pagtuklas ng compliance service; third-party audit ng mga klase ng voucher.
+- **Governance Foundation:** proposed CLC governance token; proposed CLC Network Pool; mga fee adapter; quorum, timelock, at pundasyon ng governance.
+- **Routing & Observability:** palawakin sa iba pang profile ang kasalukuyang route at receipt interface; maglathala ng health dashboard at service-level reporting; bumuo ng insurance-policy framework; magdisenyo ng opt-in rebalance intent; at mag-prototype ng batch netting.
+- **Cross-Domain Risk Tools:** HTLC o escrow routing; hiwalay na pinamamahalaang guarantor module; rolling, account, at tiered limit preset.
+- **Regulated Access:** deployment-specific na third-party payment service; personal micro-pool; discovery ng compliance service; third-party audit ng mga klase ng Voucher.
 
-Ang anumang payment service ay ibibigay ng hiwalay na kinilalang mga third party sa ilalim ng naaangkop na hurisdiksiyon, eligibility, mga bayad, limitasyon, at tuntunin. Hindi mismong nagpapatakbo ng fiat rails ang CLC App at mga contract ng Protocol v1.1.0.
+Ang anumang payment service ay ibibigay ng hiwalay na tinukoy na third party sa ilalim ng naaangkop na jurisdiction, eligibility, fee, limit, at terms. Hindi mismong nagpapatakbo ng fiat rail ang CLC App at mga kontrata ng Protocol v1.1.0.
 
-Ang cross-domain multi-hop execution, automatic Pool rebalancing, shared insurance, ang iminungkahing CLC governance token at iminungkang CLC Network Pool, batch netting, personal na micro-mga Pool, at regulated payment services ay nananatiling ipinapayo o nakasalalay sa deployment hanggang sa isang pagpapatupad at mga tuntunin ng pamamahala nito ay makilala silang aktibo. Ang same-chain participant-initiated routing sa pampublikong CLC App ay kasalukuyang.
+Nananatiling proposed o deployment-dependent ang cross-domain multi-hop execution, automatic Pool rebalancing, shared insurance, proposed CLC governance token at proposed CLC Network Pool, batch netting, personal micro-pool, at regulated payment service hanggang sa tukuyin ng isang implementation at ng namamahalang terms nito na aktibo ang mga ito. Kasalukuyang feature ang same-chain participant-initiated routing sa pampublikong CLC App.

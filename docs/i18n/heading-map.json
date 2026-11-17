@@ -84,7 +84,8 @@
       "2-gumawa-o-magbukas-ng-account-at-wallet",
       "3-gumawa-ng-voucher",
       "4-gumawa-o-magsuri-ng-pool-ng-pangako",
-      "5-gamitin-ang-tamang-kilos",
+      "5-direktang-magpalitan-o-gumamit-ng-ruta",
+      "6-gamitin-ang-tamang-pagkilos",
       "kasalukuyan-nakadepende-sa-deployment-at-iminungkahing-kakayahan"
     ],
     "fr": [
@@ -138,7 +139,8 @@
       "2-maak-of-open-een-account-en-portefeuille",
       "3-maak-een-waardebon",
       "4-maak-of-beoordeel-een-commitmentfonds",
-      "5-gebruik-de-juiste-handeling",
+      "5-direct-of-via-een-route-uitwisselen",
+      "6-gebruik-de-juiste-actie",
       "huidige-implementatieafhankelijke-en-voorgestelde-mogelijkheden"
     ],
     "pt": [
@@ -271,6 +273,7 @@
       "mga-tungkuling-may-pananagutan-at-teknikal-na-kontrol",
       "mga-kilos-at-lifecycle",
       "pamilihan-mga-halaga-limitasyon-at-bayarin",
+      "mga-ruta-at-likididad",
       "mga-proteksyon-at-ebidensiya",
       "mga-salitang-tumutukoy-sa-katayuan"
     ],
@@ -325,6 +328,7 @@
       "verantwoordelijke-rollen-en-technische-zeggenschap",
       "handelingen-en-levenscyclus",
       "markt-waarden-limieten-en-kosten",
+      "routes-en-liquiditeit",
       "bescherming-en-bewijs",
       "statuswoorden"
     ],
@@ -475,12 +479,15 @@
     "fil": [
       "praktikal-na-halimbawa-ng-voucher",
       "1-naglalathala-ng-pangako-ang-tagapag-isyu",
-      "2-tinatanggap-ng-tagapangasiwa-ng-pool-ang-voucher",
-      "3-nag-aambag-ng-inventory-ang-isang-kalahok",
-      "4-nagpapalit-sa-pool-ang-may-hawak",
-      "5-inihaharap-ng-may-hawak-ang-voucher",
-      "6-itinatala-ng-tagapag-isyu-ang-pagtupad-at-discharge",
+      "2-ang-isang-kalahok-ay-naglalathala-ng-want",
+      "3-nagbibigay-daan-sa-route-ang-mga-independiyenteng-pool-steward",
+      "4-nagbibigay-ng-imbentaryo-ang-mga-kalahok",
+      "5-natuklasan-at-binabanggit-ng-app-ang-isang-ruta",
+      "6-ang-may-ari-ay-nagpapatupad-ng-naka-routed-na-palitan",
+      "7-ipapakita-ng-may-ari-ang-voucher",
+      "8-itinatala-ng-issuer-ang-fulfillment-at-discharge",
       "buod-ng-mga-pananagutan",
+      "kapag-ang-isang-ruta-ay-hindi-magagamit",
       "mga-posibleng-kaayusan-sa-credit-sa-hinaharap"
     ],
     "fr": [
@@ -542,12 +549,15 @@
     "nl-BE": [
       "praktisch-voorbeeld-van-een-waardebon",
       "1-een-uitgever-publiceert-een-toezegging",
-      "2-een-fondsbeheerder-laat-de-waardebon-toe",
-      "3-een-deelnemer-draagt-voorraad-bij",
-      "4-een-houder-voert-een-fondsswap-uit",
-      "5-de-houder-biedt-de-waardebon-aan",
-      "6-de-uitgever-registreert-nakoming-en-afboeking",
+      "2-een-deelnemer-publiceert-een-vraag",
+      "3-onafhankelijke-fondsbeheerders-stellen-een-route-samen",
+      "4-deelnemers-verstrekken-inventaris",
+      "5-de-app-ontdekt-en-quote-een-route",
+      "6-de-houder-voert-de-gerouteerde-uitwisseling-uit",
+      "7-de-houder-presenteert-de-waardebon",
+      "8-de-uitgever-registreert-nakoming-en-afboeking",
       "verantwoordelijkheden-in-één-oogopslag",
+      "wanneer-een-route-niet-beschikbaar-is",
       "toekomstige-kredietregelingen"
     ],
     "pt": [
@@ -740,7 +750,8 @@
     "fil": [
       "protokol",
       "paraan-ng-deployment",
-      "mapa-ng-mga-component"
+      "mapa-ng-mga-component",
+      "routed-exchange-sa-application-layer"
     ],
     "fr": [
       "protocole",
@@ -769,7 +780,8 @@
     "nl-BE": [
       "protocol",
       "implementatiepatroon",
-      "overzicht-van-componenten"
+      "overzicht-van-componenten",
+      "gerouteerde-uitwisseling-op-applicatieniveau"
     ],
     "pt": [
       "protocolo",
@@ -1068,7 +1080,11 @@
     ],
     "fil": [
       "arkitektura-ng-protocol-network",
-      "mga-posibleng-ruta-at-pagpapatupad",
+      "production-route-discovery-at-execution",
+      "may-awtoridad-na-quote",
+      "pinirmahang-atomikong-batch",
+      "solidity-swaprouter-at-mga-bayarin",
+      "receipt-at-failure-status",
       "loob-ng-pool"
     ],
     "fr": [
@@ -1109,8 +1125,12 @@
     ],
     "nl-BE": [
       "protocolnetwerkarchitectuur",
-      "mogelijke-routes-en-uitvoering",
-      "interne-werking-van-een-fonds"
+      "ontdekken-en-uitvoeren-van-productieroutes",
+      "gezaghebbende-offerte",
+      "ondertekende-atomaire-batch",
+      "solidity-swaprouter-en-kosten",
+      "transactieoverzicht-en-mislukking",
+      "poolinterieur"
     ],
     "pt": [
       "arquitetura-de-rede-de-protocolo",
@@ -2479,6 +2499,10 @@
     "fil": [
       "mga-mekanismo-ng-pamamahala",
       "pananagutan-ayon-sa-tungkulin",
+      "pamamahala-sa-antas-ng-pool",
+      "mga-operasyon-sa-antas-ng-network",
+      "pamamahala-sa-antas-ng-rehistro",
+      "katibayan-sa-ruta-at-pananagutan",
       "mga-istrukturang-may-pananagutan",
       "mga-opsyon-sa-teknikal-na-pamamahala",
       "kilos-sa-interface-at-on-chain-state"
@@ -2528,11 +2552,15 @@
       "interface-actie-en-staat-op-de-keten"
     ],
     "nl-BE": [
-      "governancemechanismen",
+      "bestuurmechanismen",
       "verantwoordelijkheid-per-rol",
-      "verantwoordelijke-governancestructuren",
-      "technische-governanceopties",
-      "interfacehandeling-en-toestand-op-de-blockchain"
+      "beheer-op-poolniveau",
+      "operaties-op-netwerkniveau",
+      "beheer-op-registerniveau",
+      "routebewijs-en-verantwoordelijkheid",
+      "verantwoordelijke-governance-structuren",
+      "opties-voor-technisch-bestuur",
+      "interface-actie-en-staat-op-de-keten"
     ],
     "pt": [
       "mecanismos-de-governação",
@@ -3200,7 +3228,7 @@
       "modelo-ng-disenyo",
       "mga-pagpapahalaga-at-prinsipyo-ng-disenyo",
       "kasalukuyan-at-iminungkahing-mga-daloy",
-      "kasalukuyang-direktang-daloy-sa-pool",
+      "kasalukuyang-direkta-o-routed-na-flow-sa-pool",
       "mas-malawak-na-iminungkahing-disenyo",
       "gabay-para-sa-mambabasa"
     ],
@@ -3270,7 +3298,7 @@
       "ontwerpmodel",
       "waarden-en-ontwerpprincipes",
       "huidige-en-voorgestelde-processen",
-      "huidig-rechtstreeks-fondsproces",
+      "huidige-directe-of-gerouteerde-fondswissel",
       "breder-voorgesteld-ontwerp",
       "leeswijzer"
     ],
@@ -3747,8 +3775,8 @@
     ],
     "fil": [
       "5-mula-sa-hiwalay-na-mga-pool-tungo-sa-isang-pederadong-network",
-      "51-nag-iiba-na-mga-hakbang-sa-paghahati-at-pagpapatupad",
-      "52-proposed-na-mga-serbisyo-sa-routing-at-rebalancing",
+      "51-hiwalay-na-sukat-para-sa-palitan-at-fulfillment",
+      "52-kasalukuyang-routing-ng-kalahok-at-iminungkahing-muling-pagbabalanse",
       "521-konfederasyon-at-interoperability",
       "53-proposed-model-ng-network-rake-at-service-fee",
       "531-ang-mga-nakatanggap-ng-cash-eligible-at-in-kind-receipts",
@@ -3793,9 +3821,9 @@
     "nl-BE": [
       "5-van-geïsoleerde-fondsen-tot-een-federaal-netwerk",
       "51-afzonderlijke-uitwisselings--en-vervullingsmaatregelen",
-      "52-voorgestelde-routing--en-rebalanceringsdiensten",
+      "52-huidige-routing-van-deelnemers-en-voorgestelde-herbalancering",
       "521-confederatie-en-interoperabiliteit",
-      "53-voorstel-voor-een-model-van-netwerkrak-en-dienstverlening",
+      "53-voorgesteld-model-voor-netwerkafdracht-en-servicekosten",
       "531-in-aanmerking-komende-ontvangsten-in-contanten-en-in-natura",
       "54-voorgestelde-liquiditeitsprogrammas"
     ],
@@ -4174,7 +4202,7 @@
     ],
     "fil": [
       "8-technical-scope-at-paglago",
-      "81-proposed-na-mga-pamantayan-ng-serbisyo-sa-ruta-at-sdk",
+      "81-kasalukuyang-serbisyo-sa-ruta-at-mas-malawak-na-mga-pamantayan",
       "811-minimum-confederation-compatibility-specification",
       "82-pagbibigay-ng-lisensya-pag-verify-at-paglabas"
     ],
@@ -4204,8 +4232,8 @@
     ],
     "nl-BE": [
       "8-technische-reikwijdte-en-groei",
-      "81-voorgestelde-routenservice--en-sdk-normen",
-      "811-minimaal-vereenvoudigingscompatibiliteitsspecificatie",
+      "81-huidige-dienstverlening-en-algemene-normen",
+      "811-minimale-compatibiliteitsspecificatie-voor-federatie",
       "82-vergunning-verificatie-en-exit"
     ],
     "pt": [
@@ -4437,18 +4465,18 @@
       "1010-riesgo-de-concentración-y-fragmentación"
     ],
     "fil": [
-      "10-komprehensibong-balangkas-ng-panganib",
-      "101-protokol-at-panganib-sa-smart-contract",
-      "102-mga-panganib-sa-ekonomiya-at-merkado",
-      "103-ang-panganib-ng-tagapag-isyu-at-voucher",
-      "104-ang-panganib-ng-pagpapahayag-at-pagpapatupad",
-      "105-mga-panganib-sa-pamamahala",
-      "106-mga-panganib-sa-ligal-at-pagsunod",
-      "1061-legal-na-pag-uugali-at-pagpaplano-ng-mga-token",
-      "107-ang-panganib-sa-pag-route-at-cross-domain",
-      "108-ang-panganib-ng-custody-at-key-management",
-      "109-reputasyon-at-panganib-sa-lipunan",
-      "1010-ang-panganib-ng-konsentrasyon-at-pagkahiwalay"
+      "10-comprehensive-risk-framework",
+      "101-protocol-at-smart-contract-risk",
+      "102-economic-at-market-risk",
+      "103-issuer-at-voucher-risk",
+      "104-redemption-presentment-at-fulfillment-risk",
+      "105-governance-risk",
+      "106-legal-at-compliance-risk",
+      "1061-legal-positioning-at-pagtrato-sa-proposed-token",
+      "107-routing-at-cross-domain-risk",
+      "108-custody-at-key-management-risk",
+      "109-reputation-at-social-risk",
+      "1010-concentration-at-fragmentation-risk"
     ],
     "fr": [
       "10-cadre-global-des-risques",
@@ -4507,18 +4535,18 @@
       "1010-risico-van-concentratie-en-fragmentatie"
     ],
     "nl-BE": [
-      "10-uitgebreid-risico-kader",
+      "10-uitgebreid-risicokader",
       "101-protocol--en-smartcontractrisico",
       "102-economisch-en-marktrisico",
-      "103-risico-van-uitgever-en-waardebon",
-      "104-risico-van-terugbetaling-en-nakoming",
-      "105-governance-risico",
-      "106-juridisch-en-conformiteitsrisico",
-      "1061-juridische-positionering-en-behandeling-van-de-voorgestelde-tokens",
-      "107-routing--en-cross-domainrisico",
-      "108-risico-van-bewaring-en-sleutelbeheer",
-      "109-reputatie-en-sociaal-risico",
-      "1010-risico-van-concentratie-en-fragmentatie"
+      "103-risico-rond-uitgevers-en-waardebonnen",
+      "104-risico-bij-aanbieding-ter-inwisseling-en-nakoming",
+      "105-bestuursrisico",
+      "106-juridisch-en-compliancerisico",
+      "1061-juridische-positionering-en-behandeling-van-voorgestelde-tokens",
+      "107-routerings--en-cross-domainrisico",
+      "108-bewaar--en-sleutelbeheerrisico",
+      "109-reputatie--en-sociaal-risico",
+      "1010-concentratie--en-fragmentatierisico"
     ],
     "pt": [
       "10-quadro-abrangente-de-riscos",
@@ -4806,7 +4834,7 @@
       "13-begrippenlijst-in-gewone-taal"
     ],
     "nl-BE": [
-      "13-glossair-in-eenvoudige-taal"
+      "13-begrippenlijst-in-gewone-taal"
     ],
     "pt": [
       "13-glossário-de-linguagem-simples"
@@ -4844,7 +4872,7 @@
       "14-indicadores-clave-de-rendimiento-y-indicadores-de-salud"
     ],
     "fil": [
-      "14-ang-mga-iminungkahi-na-kpi-at-tagapagpahiwatig-ng-kalusugan"
+      "14-mga-kpi-at-health-indicator"
     ],
     "fr": [
       "14-indicateurs-clés-de-performance-et-indicateurs-de-santé"
@@ -4859,7 +4887,7 @@
       "14-kpis-en-gezondheidsindicatoren"
     ],
     "nl-BE": [
-      "14-voorgestelde-kpis-en-gezondheidsindicatoren"
+      "14-kpis-en-gezondheidsindicatoren"
     ],
     "pt": [
       "14-indicadores-chave-de-desempenho-e-indicadores-de-saúde"
@@ -4913,7 +4941,7 @@
     "fil": [
       "15-roadmap-indicative",
       "151-kasalukuyang-pundasyon",
-      "152-proposed-milestones"
+      "152-mga-proposed-milestone"
     ],
     "fr": [
       "15-feuille-de-route-indicative",
@@ -5385,7 +5413,7 @@
       "en-el-caso-de-los-estados-miembros-las-definiciones-propuestas-de-kpi"
     ],
     "fil": [
-      "c-proposed-kpi-mga-kahulugan"
+      "c-mga-proposed-kpi-definition"
     ],
     "fr": [
       "c-définition-proposée-des-indicateurs-clés"
@@ -5605,7 +5633,7 @@
     ],
     "fil": [
       "archive-ng-white-paper",
-      "ang-bersyon-na-naka-supersede"
+      "superseded-na-bersyon"
     ],
     "fr": [
       "archive-du-livre-blanc",
@@ -5624,8 +5652,8 @@
       "vervangde-versie"
     ],
     "nl-BE": [
-      "white-paper-archief",
-      "vervangen-versie"
+      "archief-van-het-witboek",
+      "vervangde-versie"
     ],
     "pt": [
       "arquivo-do-livro-branco",

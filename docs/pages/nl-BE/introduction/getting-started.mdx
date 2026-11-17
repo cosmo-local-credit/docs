@@ -50,24 +50,45 @@ Een Commitmentfonds is een bestuurde regeling. Het huidige `SwapPool`-contract k
 
 Een storting draagt activa over aan de `SwapPool`. Protocol v1.1.0 maakt geen Fondsdeeltokens aan en geeft de storter niet automatisch recht op terugbetaling, opname, beloningen of bestuur.
 
-### 5. Gebruik de juiste handeling
+### 5. Direct of via een route uitwisselen
 
-- **Verzenden** draagt een tokensaldo over aan een ander adres.
-- **Fondsswap** wisselt één ondersteund activum om voor een ander via één `SwapPool`. De afwikkeling van een swap op de blockchain bewijst niet dat de Uitgever zijn toezegging nakomt.
-- **‘Inwisselen’** opent de verzendstroom met het adres van de tokeneigenaar vooraf ingevuld. Hiermee wordt de waardebon aan de Uitgever aangeboden of teruggestuurd. Voltooide inwisseling vereist daarnaast de beloofde prestatie van de Uitgever en een afboekingsregistratie die hergebruik voorkomt.
-- **‘Waardebon buiten gebruik stellen’** verbergt de vermelding in de catalogus. Deze handeling verbrandt geen saldi, annuleert de waardebon niet en beëindigt de openstaande verplichtingen van de Uitgever niet.
-- **Liquiditeit uit het Fonds opnemen** laat de Fondseigenaar beschikbare voorraad overdragen.
-- **Kosten innen** stuurt opgebouwde Fondskosten naar de geconfigureerde ontvanger.
+In de **Krediet**-weergave van de App kun je Waardebonnen vinden die bereikbaar zijn vanuit de Waardebonnen in je portefeuille. Voor een bereikbare Waardebon kan één Fondsswap nodig zijn, of een route door meerdere onafhankelijk bestuurde Fondsen. De huidige openbare implementatie zoekt routes van maximaal drie swaps.
 
-Bekijk het [praktische voorbeeld van een waardebon](/nl-BE/introduction/example) voor de volledige levenscyclus.
+Om te ruilen:
+
+1. kies **Verkrijgen** voor de Waardebon die je wilt ontvangen, of **Besteden** voor de Waardebon die je wilt gebruiken;
+2. bekijk de beschikbare keuze onder **Betalen met** en de **Schatting**;
+3. open **Routedetails** om ieder Fonds, iedere swap, ieder bedrag en de Fonds- en protocolkosten te bekijken;
+4. selecteer **Controleren**, controleer het minimaal te ontvangen bedrag en wanneer de quote verloopt, en kies daarna **Omwisseling bevestigen**; en
+5. onderteken de voorbereide portefeuillebatch.
+
+CLC Core ontdekt mogelijke paden op basis van geïndexeerde informatie over Fondsen en Waardebonnen. Die ontdekking is een schatting. Vóór ondertekening leest CLC Core de relevante Fondsstatus op één vastgezet blok, maakt het een gezaghebbende quote, past het per hop grenzen voor minimale output en deadline toe en simuleert het de volledige batch. De App voegt momenteel geen afzonderlijke routingservicekosten toe. Iedere hop kan wel de ingestelde Fondskosten en aanvullende protocolkosten aanrekenen.
+
+De ondertekende route wordt ingediend als één transactie op dezelfde blockchain. Iedere hop gebruikt dezelfde App-compatibele portefeuille. Als een goedkeuring of Fondsswap in de batch mislukt, wordt de volledige transactie teruggedraaid. Eerdere hops blijven dan niet afgewikkeld. Het ontvangstbewijs groepeert de route onder één tracking-ID en toont de status, transactiehash, ieder Fonds, de afgewikkelde bedragen en de Fonds- en protocolkosten per hop.
+
+Een route kan niet beschikbaar zijn omdat de portefeuille geen geschikte invoer-Waardebon heeft, een Fonds een token niet toelaat, een bovengrens voor het tokensaldo van een Fonds zou worden overschreden, de uitvoervoorraad onvoldoende is, een quoter of token niet wordt ondersteund, of de routingservice tijdelijk verouderd of niet beschikbaar is. Een quote kan ook verlopen, verouderd raken wanneer de Fondsstatus verandert, niet door de eindsimulatie komen of op de blockchain worden teruggedraaid. Vernieuw de route en bekijk de nieuwe quote; ga er niet van uit dat een eerdere schatting nog geldig is.
+
+De huidige gerouteerde uitvoering ondersteunt de EOA/Calibur-portefeuilles die compatibel zijn met de CLC App. Zij bereidt momenteel geen gerouteerde uitwisselingen voor een Safe of een andere contractportefeuille voor.
+
+### 6. Gebruik de juiste actie
+
+- **Verzenden** draagt een tokensaldo over naar een ander adres.
+- **Fondsswap** wisselt via één `SwapPool` een ondersteund activum om voor een ander. Dit kan een rechtstreekse uitwisseling zijn of één hop van een gerouteerde uitwisseling. Swapafwikkeling op de blockchain bewijst niet dat de Uitgever zijn toezegging is nagekomen.
+- **Gerouteerde uitwisseling** voert een geordende reeks Fondsswaps uit in één begrensde portefeuilletransactie op dezelfde blockchain. Zij voegt het bestuur van de Fondsen niet samen en maakt de routebeheerder niet verantwoordelijk voor nakoming door de Uitgever.
+- **‘Inwisselen’** opent de verzendstroom met het adres van de tokeneigenaar vooraf ingevuld. De Waardebon wordt daarmee aan de Uitgever aangeboden of teruggestuurd. Voltooide inwisseling vereist ook dat de Uitgever de beloofde prestatie levert en dat een afboekingsrecord hergebruik voorkomt.
+- **‘Waardebon buiten gebruik stellen’** verbergt de catalogusvermelding. Het verbrandt geen saldi, annuleert de Waardebon niet en beëindigt de openstaande verplichtingen van de Uitgever niet.
+- **Liquiditeit uit een Fonds opnemen** laat de Fondseigenaar beschikbare voorraad overdragen.
+- **Kosten innen** stuurt opgebouwde Fondskosten naar de ingestelde ontvanger.
+
+Zie de [Praktisch voorbeeld van een Waardebon](/nl-BE/introduction/example) voor de volledige levenscyclus.
 
 ## Huidige, implementatieafhankelijke en voorgestelde mogelijkheden
 
-De huidige App biedt een Markt en ondersteunde processen voor accounts, Portefeuilles, waardebonnen, Aanbiedingen, Fondsen, overdrachten, rechtstreekse Fondsswaps en bijbehorende gegevens. De beschikbaarheid hangt af van de actieve implementatie, het activum, de Fondsconfiguratie, het apparaat, het netwerk, de geschiktheid, de aanbieder, het rechtsgebied en de gepubliceerde voorwaarden.
+De huidige App biedt een Markt en ondersteunde stromen voor accounts, portefeuilles, Waardebonnen, Aanbiedingen, Fondsen, overdrachten, rechtstreekse Fondsswaps, gerouteerde uitwisselingen op applicatieniveau en bijbehorende records. Beschikbaarheid hangt af van de actieve implementatie, het activum, de Fondsconfiguratie, voorraad, het type portefeuille, apparaat, netwerk, geschiktheid, aanbieder, rechtsgebied en de gepubliceerde voorwaarden.
 
 Betalingsdiensten, ondersteuningsmethoden, beloningen, garanties, bijdrageregelingen en andere integraties met aanbieders zijn implementatieafhankelijk. Waar ze worden aangeboden, moeten de verantwoordelijke partij, kosten, limieten, geschiktheidsvoorwaarden en juridische voorwaarden worden vermeld.
 
-Protocol v1.1.0 biedt rechtstreekse uitvoering door een Fonds en een `SwapRouter` die alleen offertes geeft. Uitvoering over meerdere stappen, routing via HTLC of escrow, batchverrekening, gedeelde verzekering, voorgestelde bestuursactiva, liquiditeitsprogramma’s op netwerkniveau en gereguleerde betaalroutes blijven voorgesteld of implementatieafhankelijk, tenzij een specifieke implementatie ze als actief aanduidt.
+Protocol v1.1.0 biedt rechtstreekse Fondsuitvoering en een Solidity `SwapRouter` die alleen quotes berekent. De productieversies van CLC App en CLC Core bieden boven deze contracten nu routeontdekking over meerdere hops op dezelfde blockchain, gezaghebbende quotes, voorbereiding en simulatie van portefeuillebatches, relay en gegroepeerde ontvangstbewijzen. De Solidity `SwapRouter` is geen uitvoeringscontract geworden. Cross-chain routing via HTLC of escrow, automatische herbalancering van Fondsen, batchnetting, gedeelde verzekering, voorgestelde bestuursactiva, liquiditeitsprogramma's op netwerkniveau en gereguleerde betalingsrails blijven voorgesteld of implementatieafhankelijk, tenzij een specifieke implementatie ze als actief aanwijst.
 
 Voor ieder toekomstig lening- of ander kredietproduct zijn afzonderlijk aangeboden aanvullende voorwaarden en transactievoorwaarden nodig. Een gewone overdracht, storting in een Fonds, Fondsswap, aanbieding ter inwisseling, nakoming of afboeking is niet automatisch een lening, voorschot of terugbetaling.
 

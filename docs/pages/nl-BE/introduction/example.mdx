@@ -1,6 +1,6 @@
 # Praktisch voorbeeld van een waardebon
 
-Dit voorbeeld volgt een waardebon vanaf de uitgifte via een Fondsswap, aanbieding ter inwisseling, nakoming en afboeking. Het verduidelijkt de betrokken rollen, maar belooft niet dat een bepaalde waardebon, een bepaald Fonds, een bepaalde route of een bepaald resultaat beschikbaar zal zijn.
+Dit voorbeeld volgt een Waardebon vanuit een Aanbod en een Vraag, via een gerouteerde uitwisseling door twee Fondsen, tot aanbieding ter inwisseling, nakoming en afboeking. Het laat de betrokken rollen zien; het belooft niet dat een bepaalde Waardebon, Fonds, route of uitkomst beschikbaar zal zijn.
 
 Bekijk [Begrippen en woordenschat](/nl-BE/introduction/concepts) voor de definities die hier worden gebruikt.
 
@@ -17,57 +17,90 @@ Stel dat een gemeenschapskeuken een digitale maaltijdbon maakt. Voordat de keuke
 
 De keuken is de Uitgever. Zij moet deze informatie juist houden, niet meer uitgeven dan zij redelijkerwijs kan nakomen en waardebonnen aanvaarden volgens de voorwaarden waaronder Houders ze hebben verkregen. Het maken van de token of publiceren van de Aanbieding bewijst die capaciteit niet en maakt GEF niet tot Uitgever.
 
-## 2. Een Fondsbeheerder laat de waardebon toe
+De keuken publiceert ook een **Aanbod** waarin de beschikbare maaltijden worden beschreven. De Waardebon en het Aanbod horen bij elkaar, maar zijn niet hetzelfde: de Waardebon is de inwisselbare toezegging, terwijl het Aanbod mensen helpt de bijbehorende goederen of diensten te vinden.
 
-Een Commitmentfonds voor voedselzekerheid beoordeelt de keuken, de voorwaarden van haar waardebon en het eigen doel van het Fonds. Als de waardebon wordt toegelaten, publiceert de Fondsbeheerder de toepasselijke regels, waaronder:
+## 2. Een deelnemer publiceert een Vraag
 
-- wie verantwoordelijk is voor het Fonds;
-- de huidige eigenaar van de `SwapPool`, de proxybeheerder en beheerders van belangrijke afhankelijkheden;
-- geaccepteerde activa;
-- methoden voor wisselkoersen of offertes;
-- bovengrenzen voor tokensaldi, in de App **‘Kredietlimieten’** genoemd;
+Een nabijgelegen school heeft vervoersbonnen en heeft maaltijden nodig voor een evenement. De school publiceert een **Vraag** met de gewenste maaltijden, hoeveelheid, plaats, tijd en contactmethode.
+
+De Vraag maakt de behoefte zichtbaar. Zij accepteert niet automatisch de Waardebon van de keuken, reserveert geen maaltijden, sluit geen contract, geeft geen toestemming voor een swap en belooft niet dat de school doorgaat. De school moet de keuken, de voorwaarden van de Waardebon, de beschikbare route, de quote en de toepasselijke voorwaarden nog beoordelen.
+
+## 3. Onafhankelijke Fondsbeheerders stellen een route samen
+
+Twee onafhankelijk beheerde Fondsen verbinden de activa:
+
+1. een mobiliteitsfonds laat de vervoersbon van de school en een maïsbon toe; en
+2. een voedselzekerheidsfonds laat die maïsbon en de maaltijdbon van de keuken toe.
+
+Iedere Fondsbeheerder beoordeelt de activa en publiceert de eigen regels van dat Fonds, waaronder:
+
+- wie verantwoordelijk is voor de Fonds;
+- de huidige eigenaar van de `SwapPool`, de proxybeheerder en de beheerders van belangrijke afhankelijkheden;
+- toegelaten Waardebonnen en andere ondersteunde activa;
+- methoden voor wisselkoersen of quotes;
+- tokensaldoplafonds, in de App **‘Kredietlimieten’** genoemd;
 - Fonds- en protocolkosten;
-- bevoegdheden met betrekking tot voorraad en opname van liquiditeit; en
-- iedere afzonderlijk gefinancierde garantie, reserve of ondersteuningsregeling.
+- voorraadbevoegdheden en liquiditeitsopnamemogelijkheden; en
+- elke afzonderlijk gefinancierde garantie-, reserve- of steunregeling.
 
-Toelating betekent dat de geconfigureerde regels van het Fonds de waardebon toestaan. Ze bewijst geen capaciteit tot nakoming, stelt geen geldwaarde vast en creëert geen verzekering.
+Toelating betekent dat de ingestelde regels van een Fonds een Waardebon toestaan. Zij bewijst geen capaciteit tot nakoming, stelt geen geldwaarde vast, creëert geen verzekering en maakt van de twee Fondsen geen gezamenlijk bestuurde organisatie.
 
-## 3. Een deelnemer draagt voorraad bij
+## 4. Deelnemers verstrekken inventaris
 
-Een ondersteuner draagt maaltijdbonnen of een ander ondersteund activum over aan de `SwapPool` onder de toepasselijke gepubliceerde voorwaarden. Die storting verhoogt de beschikbare voorraad.
+Het mobiliteitsfonds houdt maïsbonnen die voor vervoersbonnen kunnen worden omgewisseld. Het voedselzekerheidsfonds houdt maaltijdbonnen die voor maïsbonnen kunnen worden omgewisseld. Deelnemers kunnen die voorraad volgens verschillende gepubliceerde regelingen hebben geleverd.
 
-De overdracht creëert niet automatisch een Fondsdeelneming of recht op terugbetaling, opname, beloningen of bestuur. Een dergelijk recht moet uit een afzonderlijk bekendgemaakte regeling voortkomen.
+Een storting verhoogt de beschikbare Fondsvoorraad, maar creëert niet automatisch een Fondsaandeel, terugbetalingsvordering, opnamerecht, beloning of bestuursbevoegdheid. Ieder dergelijk recht moet uit een afzonderlijke, bekendgemaakte regeling voortkomen.
 
-## 4. Een Houder voert een Fondsswap uit
+## 5. De App ontdekt en quote een route
 
-Een Houder wisselt via het Fonds een ondersteund activum om voor maaltijdbonnen. De weergegeven offerte is een transactieparameter die door de geconfigureerde quoter is berekend. Ze bewijst niet de geldwaarde van de waardebon of de prestatie van de keuken.
+De portefeuille van de school opent de weergave **Krediet** en selecteert de maaltijdbon. CLC Core schat een mogelijk pad:
 
-De rechtstreekse Fondsswap wordt op de blockchain afgewikkeld door de invoer, uitvoer, Fondskosten en eventuele aanvullende protocolkosten over te dragen. De swap is niet automatisch een lening, inwisseling door de Uitgever of nakoming in de echte wereld.
+`transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-## 5. De Houder biedt de waardebon aan
+Dit ontdekkingsresultaat garandeert nog niet dat de uitwisseling slaagt. Iedere hop hangt af van de huidige toelating, tokensaldoplafonds van het Fonds, beschikbare voorraad, instellingen voor quotes en kosten, ondersteund tokengedrag en actuele servicegegevens.
 
-In de huidige App opent **‘Inwisselen’** de gewone verzendstroom met het adres van de tokeneigenaar vooraf ingevuld. Het terugsturen van de waardebon is bewijs dat deze aan de Uitgever is aangeboden. Het bewijst op zichzelf niet dat de keuken een maaltijd heeft geleverd.
+De school kiest hoeveel zij wil **Verkrijgen** of **Besteden**. CLC Core leest daarna beide Fondsen op één vastgezet blok, maakt een gezaghebbende offerte met een vervaltijd en simuleert de volledige walletbatch. **Routedetails** in de App toont beide swaps, de geschatte bedragen en de Fonds- en protocolkosten van iedere stap.
 
-De keuken controleert de aanbieding en levert de beloofde maaltijd volgens haar gepubliceerde voorwaarden.
+## 6. De houder voert de gerouteerde uitwisseling uit
 
-## 6. De Uitgever registreert nakoming en afboeking
+Na controle van het minimaal te ontvangen bedrag en de vervaltijd van de offerte kiest de school **Omwisseling bevestigen** en ondertekent zij de voorbereide batch. De App dient één transactie op hetzelfde blockchainnetwerk in met de toestemmingen en begrensde swapaanroepen voor ieder Fonds.
 
-Nadat de maaltijd is geleverd, registreert de Uitgever de nagekomen eenheden zodat ze niet tweemaal kunnen worden aangeboden. Afhankelijk van de gepubliceerde procedure kan dit betekenen dat de teruggestuurde waardebon wordt ontvangen, verbrand, geannuleerd of op een andere manier uitgeschakeld.
+Als één aanroep mislukt, wordt de volledige transactie teruggedraaid; de eerste Fondsswap blijft niet afgewikkeld zonder de tweede. Bij succes toont het gegroepeerde ontvangstbewijs van de school één tracking-ID, één transactiehash, beide Fondshops, afgewikkelde bedragen en kosten per hop.
 
-Als de keuken haar toezegging niet nakomt, gebruikt de Houder de gepubliceerde klachten- of herstelprocedure van de Uitgever en de rechten die het toepasselijke recht biedt. Noch GEF, noch de Fondsbeheerder wordt de partij die de waardebon inwisselt alleen omdat de App de waardebon toonde of het Fonds een swap mogelijk maakte.
+De school bezit nu maaltijdbonnen. De uitwisseling op de blockchain is **swapafwikkeling**. Zij geeft de school de aanspraak die in de voorwaarden van de maaltijdbon wordt beschreven; zij bewijst niet dat de keuken de maaltijden al heeft geleverd.
 
-**‘Waardebon buiten gebruik stellen’** in de App is iets anders: deze handeling verbergt de vermelding in de catalogus, terwijl saldi en geschiedenis blijven bestaan en een beheerder de vermelding kan herstellen. Het is geen nakoming, afboeking, verbranding of annulering.
+## 7. De houder presenteert de Waardebon
+
+In de huidige App opent **Inwisselen** de gewone verzendstroom met het adres van de tokeneigenaar vooraf ingevuld. Het terugsturen van de Waardebon bewijst dat zij aan de Uitgever is aangeboden; op zichzelf bewijst het niet dat de keuken een maaltijd heeft geleverd.
+
+De school volgt het boekings- of contactproces van de keuken. De keuken verifieert de presentatie en levert de beloofde maaltijden volgens de gepubliceerde voorwaarden.
+
+## 8. De Uitgever registreert nakoming en afboeking
+
+Na levering van de maaltijden registreert de keuken de nagekomen eenheden, zodat deze niet tweemaal kunnen worden aangeboden. Afhankelijk van het gepubliceerde proces kan dit betekenen dat de teruggestuurde Waardebon wordt ontvangen, verbrand, geannuleerd of op een andere manier uitgeschakeld.
+
+Als de keuken haar toezegging niet nakomt, gebruikt de Houder het gepubliceerde klachten- of herstelproces van de Uitgever en alle rechten die volgens het toepasselijke recht beschikbaar zijn. GEF en de Fondsbeheerders worden niet de partij die moet inwisselen alleen omdat de App de route vond of de Fondsen de swaps mogelijk maakten.
+
+**‘Waardebon buiten gebruik stellen’** in de App is iets anders: het verbergt de catalogusvermelding, terwijl saldi en geschiedenis blijven bestaan en een beheerder de vermelding kan herstellen. Het is geen nakoming, afboeking, verbranding of annulering.
 
 ## Verantwoordelijkheden in één oogopslag
 
-- **Uitgever:** beschrijft de waardebon, komt de toezegging na en registreert de afboeking.
-- **Fondsbeheerder:** publiceert en beheert de regels, koersen, kosten, limieten en beheersmaatregelen van het Fonds en iedere uitdrukkelijk aanvaarde garantie.
-- **Houder:** beoordeelt de Uitgever, de voorwaarden van de waardebon, de Fondsregels, de offerte, de autorisatie in de Portefeuille en het toepasselijke recht.
-- **Technische beheerders:** oefenen alleen de bevoegdheden uit die hun voor contracten, afhankelijkheden, upgrades, catalogi of kosten zijn toegewezen.
-- **GEF:** beheert de CLC App en de ondersteunende infrastructuur, onder de [Gebruiksvoorwaarden](/nl-BE/governance/terms), en neemt de andere rollen niet automatisch over.
+- **Uitgever:** beschrijft de Waardebon, komt de toezegging na en registreert de afboeking.
+- **Persoon die een Vraag publiceert:** beschrijft een behoefte zonder automatisch een Waardebon of route te accepteren.
+- **Fondsbeheerders:** publiceren en beheren onafhankelijk de regels, koersen, kosten, limieten, bevoegdheden en iedere uitdrukkelijk aanvaarde garantie van ieder Fonds.
+- **Houder:** beoordeelt de Uitgever, voorwaarden van de Waardebon, Fondsen, routeofferte, kosten, walletautorisatie en toepasselijke wetgeving.
+- **CLC App en CLC Core:** ontdekken en quoten mogelijke routes, bereiden de ondertekende batch voor, sturen haar door en groeperen technische afwikkelingsrecords. Zij bewijzen geen nakoming door de Uitgever.
+- **Technische beheerders:** oefenen alleen de contract-, afhankelijkheids-, upgrade-, catalogus-, routingservice- of kostenbevoegdheden uit die aan hen zijn toegewezen.
+- **GEF:** beheert de CLC App en ondersteunende infrastructuur volgens de [Gebruiksvoorwaarden](/nl-BE/governance/terms), zonder automatisch de andere rollen over te nemen.
+
+## Wanneer een route niet beschikbaar is
+
+De App kan geen route vinden of een quote kan mislukken wanneer de voorraad onvoldoende is, een tokensaldoplafond van een Fonds zou worden overschreden, een Waardebon niet is toegelaten, een token of quoter niet wordt ondersteund, de portefeuille onvoldoende invoer heeft, de routegegevens verouderd zijn of de uiteindelijke batchsimulatie mislukt. Een quote kan ook vóór indiening verlopen of ongeldig worden wanneer de Fondsstatus verandert.
+
+Deze uitkomst verandert de Vraag, het Aanbod of de bestaande verplichtingen van de Uitgever niet. De deelnemer kan de route vernieuwen, een kleiner bedrag kiezen, een andere geschikte invoer-Waardebon gebruiken of wachten totdat de Fondsvoorwaarden veranderen.
 
 ## Toekomstige kredietregelingen
 
-Een toekomstig Fonds of een andere verantwoordelijke partij kan een transactie afzonderlijk aanbieden als terugbetaalbaar voorschot, gedekte transactie of ander kredietproduct. Voor zo’n product zijn afzonderlijk aangeboden aanvullende voorwaarden en transactievoorwaarden nodig die de partijen, bedragen, vervaldata, kosten of rente, behandeling van zekerheden, overdracht, wanbetaling, oplossingen en bewijs van afboeking noemen.
+Een toekomstig Fonds of een andere verantwoordelijke partij kan een transactie afzonderlijk aanbieden als terugbetaalbaar voorschot, gedekte transactie of ander kredietproduct. Voor zo’n product zijn afzonderlijk aangeboden aanvullende voorwaarden en transactievoorwaarden nodig die de partijen, bedragen, vervaldata, kosten of rente, behandeling van zekerheden, overdracht, wanbetaling, herstelmogelijkheden en bewijs van afboeking noemen.
 
-Een gewone verzending, storting in een Fonds, Fondsswap, aanbieding van een waardebon, nakoming of afboeking creëert deze verplichtingen niet vanzelf.
+Een gewone verzending, storting in een Fonds, directe of gerouteerde Fondsswap, aanbieding ter inwisseling, nakoming of afboeking schept deze verplichtingen niet vanzelf.

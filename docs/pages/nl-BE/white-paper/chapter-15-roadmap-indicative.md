@@ -2,19 +2,21 @@
 
 ### **15.1 Tegenwoordige basis**
 
-GEF beheert de CLC App op `cosmolocal.credit` op Gnosis Chain. De App biedt ondersteunde toegang tot accounts en Portefeuilles, een openbare Markt-catalogus en interfaces voor tokens, waardebonnen, Aanbiedingen, Commitmentfondsen, overdrachten en rechtstreekse Fondsswaps.
+GEF exploiteert de CLC-app op `cosmolocal.credit` op Gnosis Chain. De app biedt ondersteuning voor account- en wallettoegang, een openbare marktcatalogus en interfaces voor tokens, Waardebonnen, aanbiedingen, wensen, commitmentpools, overschrijvingen, directe poolswaps en gerouteerde uitwisselingen.
 
-Protocol v1.1.0 de huidige contractbasis vormt:`GiftableToken`, direct`SwapPool`uitvoering, optionele registers, waarderingsmodules, fonds token-balans caps, fonds kosten, een extra protocolvergoeding en alleen quote`SwapRouter`De beschikbaarheid hangt nog steeds af van de interface, de ingezette contracten, inventarisatie, configuratie, netwerkstatus, in aanmerking komendheid, aanbieders, rechtsmacht en gepubliceerde voorwaarden voor de uitgever of Fonds.
+Protocol v1.1.0 biedt de huidige contractbasis: `GiftableToken`, directe uitvoering via `SwapPool`, optionele registers, waarderingsmodules, bovengrenzen voor tokensaldi in Fondsen, Fondskosten, een aanvullende protocolvergoeding en een Solidity-`SwapRouter` die alleen offertes berekent.
+
+CLC Core vormt nu de basis voor routering en waarneembaarheid binnen één blockchainnetwerk in de openbare App: een afgestemde graaf voor ontdekking, routes van maximaal drie Fondsswaps, offertes op basis van één vastgezet blok, grenzen en kosten per stap, simulatie van de volledige batch, ondertekende atomaire uitvoering via Calibur, relaytracking, afstemming van de afwikkeling, gebundelde transactieoverzichten en operationele statistieken. Beschikbaarheid blijft afhankelijk van de interface, ondersteund wallet- en tokengedrag, geïmplementeerde contracten, voorraad, configuratie, actualiteit van de dienst, netwerkstatus, toelatingscriteria, aanbieders, rechtsgebied en gepubliceerde voorwaarden van de Uitgever of het Fonds.
 
 ### **15.2 Voorgestelde mijlpalen**
 
-Deze benamde mijlpalen zijn ontwerprichtlijnen, niet releasenummers, leveringsdatums of verplichtingen die een functie zal lanceren.
+Deze benoemde mijlpalen zijn ontwerprichtingen, geen releasenummers, opleverdatums of toezeggingen dat een functie wordt gelanceerd.
 
-- **Stichting Governance:** voorgesteldeCLCgovernance token; voorgesteldCLCNetwerkpool; kostenadapters; kworum, tijdsverbod en governance fundamenten.
-- **Routing & Observability:** Router SDK en register-API's; gezondheids dashboards; een voorgestelde kader voor het verzekeringsbeleid; de intenties van opt-in om te herbalanseren; prototype voor batchnetten.
+- **Governancebasis:** voorgestelde CLC-governancetoken; voorgesteld CLC Network Pool; kostenadapters; quorum-, tijdslot- en governancefundamenten.
+- **Routing & Observability:** uitbreiden van de huidige route- en ontvangstinterfaces naar extra profielen; publiceren van gezondheidsdashboards en rapportage op serviceniveau; ontwikkelen van een kader voor verzekeringsbeleid; ontwerpen van opt-in herbalanseringsintenties; en prototype batch netting.
 - **Cross-Domain Risk Tools:** HTLC of escrow routing; afzonderlijk gereglementeerde garantiemodules; rolling, account en tiered limit presets.
 - **Gereguleerde toegang:** de implementatie-specifieke betalingsdiensten van derden; persoonlijke micro-fondsen; het ontdekken van nalevingsdiensten; audits van voucherklassen door derden.
 
-De betalingsdiensten worden door afzonderlijk geïdentificeerde derden geleverd, onder de toepasselijke rechtsmacht, in aanmerking komendheid, kosten, limieten en voorwaarden.CLC App en Protocol v1.1.0 De contracten werken niet zelf op fiat-rails.
+Betalingsdiensten worden geleverd door afzonderlijk geïdentificeerde derden onder toepasselijke regels voor rechtsgebied, toelating, kosten, limieten en voorwaarden. De CLC App en de contracten van Protocol v1.1.0 beheren zelf geen fiat-betaalinfrastructuur.
 
-Uitvoering over meerdere stappen, gedeelde verzekering, de voorgestelde CLC-bestuurstoken en het voorgestelde CLC-netwerkfonds, batchverrekening, persoonlijke microfondsen en gereguleerde betaaldiensten blijven voorgesteld of implementatieafhankelijk totdat een implementatie en de bijbehorende regels ze als actief aanduiden.
+Uitvoering met meerdere stappen tussen verschillende domeinen, automatische herbalancering van Fondsen, gedeelde verzekering, de voorgestelde CLC-governancetoken, het voorgestelde CLC Network Pool, batchverrekening, persoonlijke microfondsen en gereguleerde betalingsdiensten blijven voorgesteld of implementatieafhankelijk totdat een implementatie en haar toepasselijke voorwaarden ze als actief identificeren. Door deelnemers gestarte routering binnen één blockchainnetwerk in de openbare CLC App is huidig.

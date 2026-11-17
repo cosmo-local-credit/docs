@@ -56,7 +56,7 @@ Magkaibang ebidensiya ang discovery at quote. Ipinapakita ng discovery na maaari
 
 Sinusuri ng gumagamit ang **Mga detalye ng ruta** at pinipirmahan ang handang Wallet batch. Sa bawat hop, tinatawag ng batch ang `approve(pool, 0)`, `approve(pool, amountIn)`, at ang bounded overload ng `SwapPool.withdraw`. Ipinapatupad ng bawat bounded withdraw ang minimum na output at deadline. Bumabalik sa iisang Wallet ang intermediate Voucher bago gastusin ng susunod na Pool ang quoted amount; nananatili rin sa Wallet ang anumang bridging remainder.
 
-Isinusumite ng relayer ang batch bilang isang same-chain na transaksyon na may `revertOnFailure = true`. Kung mabigo ang anumang approval o palitan sa Pool, sabay na babalik ang lahat ng route call—kabilang ang mga naunang hop at pagbabago sa allowance. Ito ang atomicity ng kasalukuyang same-chain transaction; hindi ito cross-chain atomicity, HTLC, escrow, netting, o awtomatikong Pool rebalancing.
+Isinusumite ng relayer ang batch bilang isang same-chain na transaksyon kung saan nakatakda sa `true` ang `revertOnFailure`. Kung mabigo ang anumang approval o palitan sa Pool, sabay na babalik ang lahat ng route call—kabilang ang mga naunang hop at pagbabago sa allowance. Ito ang atomicity ng kasalukuyang same-chain transaction; hindi ito cross-chain atomicity, HTLC, escrow, netting, o awtomatikong Pool rebalancing.
 
 Sinusuportahan ng kasalukuyang route flow ang mga EOA/Calibur Wallet na katugma sa App. Tinatanggihan ng kasalukuyang quote path ang Safe at ibang contract Wallet.
 

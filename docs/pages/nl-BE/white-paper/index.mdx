@@ -1,18 +1,18 @@
 # **Cosmo-Local Credit (CLC)**
 
-> **Over deze vertaling.** Dit is een vertaling van White Paper v0.8. De Engelse brontekst is gepubliceerd op 30 september 2026. Deze vertaling is gepubliceerd op 11 oktober 2026. Engels is de brontekst. <a data-english-source="true" href="/white-paper" hrefLang="en">Lees de Engelse brontekst</a>.
+> **Over deze vertaling.** Dit is een vertaling van White Paper v0.9. De Engelse bron werd gepubliceerd op 16 november 2026. Deze vertaling werd gepubliceerd op 17 november 2026. De oorspronkelijke tekst is in het Engels. <a data-english-source="true" href="/white-paper" hrefLang="en">Lees de Engelse brontekst</a>.
 
 ## Een netwerk voor het routeren van krediet, het coördineren van toezeggingen en het financieren van een gezonde kosmo-lokale economie
 
-**Versie:** 0.8
+**Versie:** 0.9
 
-**Datum:** 30 september 2026
+**Datum:** 16 november 2026
 
 **Auteurs:** William O. Ruddick en Mohamed Sohail
 
 **Contact:** [info@grassecon.org](mailto:info@grassecon.org)
 
-**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-nl-BE.pdf">CLC White Paper v0.8 (PDF, Vlaams)</a>
+**Download:** <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-nl-BE.pdf">CLC White Paper v0.9 (PDF, Vlaams)</a>
 
 **Publicatie:** Definitieve openbare versie. Dit document is geen beleggingsadvies en vormt geen aanbod tot verkoop of uitnodiging tot aankoop van effecten of financiële instrumenten. Latere versies kunnen de hier beschreven ontwerpen herzien.
 
@@ -27,7 +27,7 @@ Deze White Paper bevat vier soorten materiaal. De status geldt voor het hele doc
 | **Historisch** | Bewijs of functionaliteit van de eerdere dienst Sarafu Network. Dit is geen huidig CLC-gebruik en bewijst niet dat een gebruiker, activum, registratie of verplichting is gemigreerd. |
 | **Voorgesteld** | Een ontwerp, economisch model, bestuursmechanisme of roadmaponderdeel dat niet als geïmplementeerd wordt voorgesteld. |
 
-Het huidige Protocol v1.1.0 omvat rechtstreekse uitvoering door een `SwapPool`, optionele samenstelling en waardering, bovengrenzen voor tokensaldi van Fondsen, Fondskosten, aanvullende protocolkosten en een `SwapRouter` die alleen offertes geeft. Uitvoering over meerdere stappen, routing via HTLC of escrow, batchverrekening, gedeelde verzekering, de voorgestelde CLC-bestuurstoken, het voorgestelde CLC-netwerkfonds, mechanismen voor kostenkrediet en liquiditeitsprogramma’s op netwerkniveau zijn voorgesteld of implementatieafhankelijk.
+Het huidige Protocol v1.1.0 omvat directe uitvoering door `SwapPool`, optionele curatie, waardering, bovengrenzen voor tokensaldi in een Fonds, Fondskosten, een aanvullende protocolvergoeding en een Solidity-`SwapRouter` die alleen offertes berekent. De productieversies van de CLC App en CLC Core bieden routering binnen één blockchainnetwerk, offertes op basis van één vastgezet blok, simulatie, ondertekende en atomaire uitvoering van wallet-batches via maximaal drie Fondsen, en gebundelde transactieoverzichten. Cross-chain routering met HTLC's of escrow, automatische herbalancering van Fondsen, batchverrekening, gedeelde verzekering, de voorgestelde CLC-governancetoken, het voorgestelde CLC Network Pool, fee-creditmechanismen en netwerkbrede liquiditeitsprogramma's zijn voorgesteld of implementatieafhankelijk.
 
 **Beoogde lezers:** bouwers en beheerders van Fondsen, protocolingenieurs en auditors, financiers van liquiditeit en mandaten, ontwerpers van bestuur en juridische of compliancebeoordelaars.
 
@@ -35,13 +35,13 @@ Het huidige Protocol v1.1.0 omvat rechtstreekse uitvoering door een `SwapPool`, 
 
 Cosmo-Local Credit is een productfamilie die is opgebouwd rond het **Commitment Pooling Protocol (CPP)**. CPP beschrijft hoe onafhankelijk bestuurde Commitmentfondsen inwisselbare toezeggingen kunnen samenstellen, methoden en limieten voor wisselkoersen kunnen publiceren, voorraad kunnen aanhouden en verantwoorde uitwisseling mogelijk kunnen maken.
 
-Een **Commitmentfonds ** is de bestuurde regeling. Een huidige **`SwapPool`** van Protocol v1.1.0 is één contractonderdeel: een tokenkluis en motor voor rechtstreekse swaps. Een implementatie kan dit contract verbinden met registers, quoters, bovengrenzen voor tokensaldi van Fondsen, kostenbeleid en andere diensten.
+Een **Commitmentfonds** is de bestuurde regeling. Een huidige **`SwapPool`** van Protocol v1.1.0 is één contractonderdeel: een tokenkluis en motor voor rechtstreekse swaps. Een implementatie kan dit contract verbinden met registers, quoters, bovengrenzen voor tokensaldi van Fondsen, kostenbeleid en andere diensten.
 
 Kosmo-lokaal betekent open standaarden, software en kennis wereldwijd delen, terwijl uitgifte, nakoming, bestuur en verantwoordelijkheid in de echte wereld lokaal blijven. Een Uitgever blijft verantwoordelijk voor zijn waardebon. Een Fondsbeheerder blijft verantwoordelijk voor de Fondsregels en iedere garantie die die uitdrukkelijk aanvaardt. Noch de CLC App, noch GEF garandeert automatisch een waardebon, Fonds, waarde, route, liquiditeitspositie of resultaat.
 
 ## Huidige implementatie
 
-GEF beheert de CLC App op [cosmolocal.credit](https://cosmolocal.credit). De App biedt toegang tot accounts en Portefeuilles, een openbare Markt-catalogus en ondersteunde interfaces voor tokens, waardebonnen, Aanbiedingen, Commitmentfondsen, overdrachten en rechtstreekse Fondsswaps. De beschikbaarheid hangt af van de interface, contracten, voorraad, geconfigureerde limieten en kosten, netwerkstatus, geschiktheid, aanbieders, het rechtsgebied en de gepubliceerde voorwaarden van de Uitgever of het Fonds.
+GEF beheert de CLC App op [cosmolocal.credit](https://cosmolocal.credit). De App biedt toegang tot accounts en Portefeuilles, een openbare Markt-catalogus en ondersteunde interfaces voor tokens, Waardebonnen, Aanbiedingen, Verzoeken, Commitmentfondsen, overdrachten, rechtstreekse Fondsswaps en gerouteerde uitwisselingen op applicatieniveau. CLC Core ondersteunt routeontdekking, gezaghebbende offertes, transactiesimulatie, relaycoördinatie, on-chain afstemming en gebundelde transactieoverzichten. Beschikbaarheid hangt af van de interface, contracten, voorraad, ingestelde limieten en kosten, het type Portefeuille, de netwerkstatus, geschiktheid, aanbieders, het rechtsgebied en gepubliceerde voorwaarden van de Uitgever of het Fonds.
 
 Het beheren van de interface maakt GEF op zichzelf niet tot Uitgever, Fondsbeheerder, bewaarder, kredietgever, kredietnemer, tussenpersoon, garant, partij die inwisselt, adviseur, verzekeraar of partij bij verplichtingen tussen deelnemers. Op het gebruik van de App zijn de [Gebruiksvoorwaarden](/nl-BE/governance/terms) van toepassing.
 
@@ -79,20 +79,24 @@ De digitale laag is een gedeeld geheugen en coördinatie-infrastructuur. Ze verv
 
 ## Huidige en voorgestelde processen
 
-### Huidig rechtstreeks Fondsproces
+### Huidige directe of gerouteerde Fondswissel
 
-1. Een Houder beoordeelt een waardebon, de Uitgever, de voorwaarden en bijbehorende Aanbiedingen.
-2. Een Fonds laat ondersteunde activa toe en publiceert zijn configuratie en verantwoordelijke autoriteiten.
-3. De Houder ontvangt een offerte en keurt een rechtstreekse Fondsswap goed.
-4. `SwapPool` voert de swapafwikkeling op de blockchain uit en verwerkt Fonds- en protocolkosten.
-5. Als de Houder later **‘Inwisselen’** in de App kiest, bereidt de App een overdracht naar de tokeneigenaar voor als aanbieding ter inwisseling.
-6. De Uitgever komt de belofte afzonderlijk na en registreert de afboeking, zodat nagekomen eenheden niet opnieuw kunnen worden gebruikt.
+1. Een houder bekijkt een Waardebon, zijn uitgever, de voorwaarden en bijbehorende aanbiedingen.
+2. Een Fonds neemt gesteunde activa op en maakt haar samenstelling en verantwoordelijke autoriteiten bekend.
+3. De houder kan via **Krediet** een directe Fondsswap of een route door meerdere onafhankelijk bestuurde Fondsen zoeken.
+4. CLC Core leest de geselecteerde Fondsen op één vastgezet blok, maakt een offerte met een vervaltijd, specificeert per stap de Fonds- en protocolkosten, simuleert de volledige batch en bereidt de contractaanroepen voor de wallet van de houder voor.
+5. De houder controleert en ondertekent. De App stuurt één transactie binnen hetzelfde blockchainnetwerk door. De volledige batch wordt teruggedraaid als één contractaanroep mislukt.
+6. Elke `SwapPool` voert zijn eigen on-chain swapafwikkeling uit. De App groepeert de transactiestatus, de stappen, de afgewikkelde bedragen en de kosten in één overzicht van de gerouteerde wissel.
+7. Als de houder later **“Inwisselen”** kiest in de App, bereidt de App een overdracht aan de tokeneigenaar voor als aanbieding ter inwisseling.
+8. De Uitgever levert de beloofde goederen of diensten afzonderlijk en registreert de afhandeling, zodat gebruikte eenheden niet opnieuw kunnen worden gebruikt.
 
-Voorraad uit een Fonds ontvangen is een swap. Het is alleen een inwisseling wanneer dat Fonds afzonderlijk de rol van Uitgever heeft aanvaard en de toepasselijke voorwaarden van de waardebon nakomt.
+Inventaris uit een Fonds ontvangen is een swap. Het is alleen inwisseling wanneer dat Fonds afzonderlijk de rol van Uitgever heeft aanvaard en aan de toepasselijke voorwaarden van de Waardebon voldoet.
+
+De huidige openbare routering zoekt routes van maximaal drie Fondsswaps en ondersteunt EOA- en Calibur-wallets die met de App werken. De App bereidt momenteel geen gerouteerde wissels voor Safes of andere contractwallets voor. De Solidity-`SwapRouter` berekent alleen offertes; CLC Core en de door de houder ondertekende wallet-batch coördineren de uitvoering boven de contractlaag.
 
 ### Breder voorgesteld ontwerp
 
-Het voorgestelde ontwerp onderzoekt uitvoeringsrouting, verrekening, gedeelde diensten, liquiditeitsprogramma’s op netwerkniveau, verzekeringsbeleid en bestuursactiva. Elk daarvan vereist een implementatie, verantwoordelijke partijen, vastgestelde regels, financiering, beheersmaatregelen en openbare bekendmakingen voordat het van toepassing kan zijn.
+Het voorgestelde ontwerp verkent cross-domain routering met HTLC's of escrow, vrijwillige herbalancering van Fondsen, batchverrekening, aanvullende gedeelde diensten, netwerkbrede liquiditeitsprogramma's, verzekeringen en governance-activa. Elk onderdeel vereist implementatie, verantwoordelijke partijen, vastgestelde regels, financiering, controles en openbare informatie voordat het kan worden toegepast.
 
 Het voorgestelde kostenmodel kan een netwerkafdracht uit Fondskosten en afzonderlijke routing- of servicekosten gebruiken. Dat voorstel verschilt van Protocol v1.1.0, waarin optionele protocolkosten bovenop de Fondskosten komen.
 

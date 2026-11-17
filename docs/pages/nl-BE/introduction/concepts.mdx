@@ -10,10 +10,13 @@ Deze pagina omschrijft de begrippen die in de documentatie worden gebruikt. Exac
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | De productfamilie: de CLC App, de documentatie en het bredere werk rond het bundelen van toezeggingen. |
 | **CLC App** | De progressieve webapp op [cosmolocal.credit](https://cosmolocal.credit). GEF beheert deze interface en de ondersteunende diensten. |
+| **CLC Core** | De ondersteunende dienst van de App voor catalogi, geïndexeerde blockchainstatus, routeontdekking, gezaghebbende routequotes, relaycoördinatie en ontvangstbewijzen van gerouteerde uitwisselingen. Het is geen smart contract of Fondsbeheerder. |
 | **Commitment Pooling Protocol (CPP)** | Het herbruikbare model voor samenstelling, waardering, begrenzing, uitwisseling en verantwoordelijk bestuur. |
 | **Protocol v1.1.0** | De geverifieerde openbare smart-contractrelease die in de [Protocolreferentie](/nl-BE/protocol/overview) wordt beschreven. |
-| **Commitmentfonds ** | Een bestuurde regeling die activa samenstelt, regels publiceert en uitwisseling mogelijk maakt. ** Fonds** is de gebruikelijke verkorte naam. |
+| **Commitmentfonds** | Een bestuurde regeling die activa samenstelt, regels publiceert en uitwisseling mogelijk maakt. **Fonds** is de gebruikelijke verkorte naam. |
 | **`SwapPool`** | Het huidige Protocolcontract dat een tokenvoorraad aanhoudt en rechtstreekse swaps uitvoert. Het is één technisch onderdeel van een Commitmentfonds. |
+| **Solidity `SwapRouter`** | Het contract van Protocol v1.1.0 dat een voorgestelde route door meerdere Fondsen quote. Het bewaart geen activa en voert de route niet uit. |
+| **Routingwerkstroom van de App** | Het huidige proces van CLC App en CLC Core dat paden op dezelfde blockchain ontdekt, quote en simuleert, een ondertekende portefeuillebatch voorbereidt en doorstuurt, en de resulterende Fondsafwikkelingen in één ontvangstbewijs groepeert. |
 | **Voorgestelde CLC-bestuurstoken** | Een toekomstig bestuursontwerp in de White Paper. Dit is geen huidig activum van de App of Protocol v1.1.0. |
 | **Voorgesteld CLC-netwerkfonds** | Een toekomstig ontwerp voor verrekening en coördinatie op netwerkniveau. Dit is niet hetzelfde als een huidige `SwapPool`. |
 
@@ -63,10 +66,14 @@ Dit zijn vier afzonderlijke lagen:
 | **‘Waardebon buiten gebruik stellen’** | Een waardebon in de App-catalogus verbergen. Saldi en geschiedenis blijven bestaan en een beheerder kan de vermelding herstellen. Het is geen verbranding of annulering. |
 | **Storting of bijdrage aan een Fonds** | Activa naar een `SwapPool` overdragen. Rechten op terugbetaling, opname, beloningen of bestuur bestaan alleen als ze afzonderlijk bekendgemaakt zijn. |
 | **Fondsswap** | Eén ondersteund activum via één `SwapPool` omwisselen voor een ander. Dit is geen nakoming door de Uitgever en ook niet automatisch een lening. |
+| **Routeontdekking** | Zoekt mogelijke paden van geschikte Waardebonnen in een portefeuille naar een doel-Waardebon via ingestelde Fondsrelaties. De ontdekking is een schatting, geen uitvoerbare belofte. |
+| **Routequote** | Een tijdgebonden, gezaghebbende berekening voor één geselecteerd pad, gebaseerd op de Fondsstatus die op één vastgezet blok wordt gelezen en vóór ondertekening wordt gesimuleerd. |
+| **Gerouteerde uitwisseling** | Een geordende reeks Fondsswaps die de App als één portefeuillebatch op dezelfde blockchain indient. In de huidige stroom worden alle aanroepen teruggedraaid als één aanroep mislukt. |
+| **Ontvangstbewijs van een gerouteerde uitwisseling** | Eén gegroepeerd record met trackingstatus, transactiehash, routehops, afgewikkelde bedragen en de Fonds- en protocolkosten per hop. |
 | **Liquiditeit uit een Fonds opnemen** | De Fondseigenaar draagt beschikbare voorraad over naar een gekozen adres. |
 | **Kosten innen** | Een geconfigureerde ontvanger int opgebouwde Fondskosten. |
 
-Gebruik **swapafwikkeling ** voor de overdrachten op de blockchain en de kostenboekhouding waarmee een Fondsswap wordt voltooid. Gebruik ** aanbieding ter inwisseling **, ** nakoming ** en ** afboeking** voor de afzonderlijke levenscyclus van een waardebon in de echte wereld.
+Gebruik **swapafwikkeling** voor de overdrachten op de blockchain en de kostenboekhouding waarmee een Fondsswap wordt voltooid. Gebruik **aanbieding ter inwisseling**, **nakoming** en **afboeking** voor de afzonderlijke levenscyclus van een Waardebon in de echte wereld.
 
 ## Markt, waarden, limieten en kosten
 
@@ -82,7 +89,15 @@ Houd deze waardebegrippen uit elkaar:
 
 Het App-label **‘Kredietlimiet’** verwijst naar de geconfigureerde bovengrens voor het tokensaldo van een Fonds: de maximale hoeveelheid van die token die het Fonds na een storting mag aanhouden. Het is geen persoonlijke kredietlijn, controle van de capaciteit van een Uitgever of garantie op inwisseling. De voorgestelde voortschrijdende limieten en limieten per account of voor het hele netwerk in de White Paper zijn andere mechanismen.
 
-Het huidige Protocol v1.1.0 kan **Fondskosten ** en aanvullende ** protocolkosten ** in rekening brengen. Het voorgestelde model in de White Paper beschrijft daarnaast een toekomstige ** netwerkafdracht** uit Fondskosten en mogelijke routing- of servicekosten. Deze modellen mogen niet worden gecombineerd bij de uitleg van huidige kosten of de berekening van toekomstige inkomsten.
+Het huidige Protocol v1.1.0 kan voor iedere Fondsswap **Fondskosten** en aanvullende **protocolkosten** aanrekenen. Een gerouteerde uitwisseling vermeldt deze kosten per hop. De huidige routingwerkstroom van de CLC App voegt geen afzonderlijke routingservicekosten toe. Het voorgestelde model in de White Paper beschrijft daarnaast een toekomstige ‘network rake’ uit Fondskosten en eventuele routing- of servicekosten. Deze modellen mogen niet worden gecombineerd wanneer de huidige kosten worden uitgelegd of toekomstige inkomsten worden berekend.
+
+## Routes en liquiditeit
+
+Een **route** is een geordend pad door één of meer onafhankelijk bestuurde Fondsen. **Routediepte** is het aantal Fondsswaps in dat pad. De huidige openbare implementatie zoekt maximaal drie hops.
+
+**Bereikbare liquiditeit** betekent de geschikte uitvoervoorraad die een Fonds kan leveren op grond van de huidige toelating, het tokensaldoplafond, de quote, kosten en reserveringsstatus. Alleen een verbinding in de grafiek bewijst niet dat een bruikbare hoeveelheid erdoorheen kan. Routeontdekking kan verouderd raken; de latere quote op een vastgezet blok is slechts gezaghebbend tot de deadline of een relevante statuswijziging.
+
+De huidige route-uitvoering vindt plaats op dezelfde blockchain en wordt door de portefeuille gestart. Zij voegt geen bestuur samen, herbalanceert de Fondsvoorraad niet automatisch, verrekent geen verplichtingen tussen meerdere partijen en bewijst geen nakoming. Cross-chain routing via HTLC of escrow, automatische herbalancering en batchnetting blijven voorgesteld of implementatieafhankelijk.
 
 ## Bescherming en bewijs
 

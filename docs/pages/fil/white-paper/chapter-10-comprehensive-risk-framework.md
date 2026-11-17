@@ -1,94 +1,94 @@
-## **10. Komprehensibong balangkas ng panganib**
+## **10. Comprehensive risk framework**
 
-Ang iniproposed na framework ay naghiwalay ng sampung kategorya ng panganib. Para sa bawat kategorya ito ay nakikilala ang mga posibleng tagapagpahiwatig, kontrol, pagsusulit ng stress, at isang indikatibong kagustuhan sa panganib. Ito ay mga rekomendasyon sa disenyo, hindi mga pangangasihan na ang bawat kontrol ay inilalapat, epektibo, o sapat. Limits, reserbas, garantiya, pagmamataas, saklaw, at pamamahala ay hindi maaaring alisin ang pagkawala.
+Hinahati ng proposed framework na ito ang panganib sa sampung kategorya. Para sa bawat isa, tinutukoy nito ang mga posibleng indicator, control, stress test, at indicative risk appetite. Mga rekomendasyon sa disenyo ang mga ito, hindi claim na naka-deploy, epektibo, o sapat ang bawat control. Hindi maaalis ng limit, reserve, garantiya, monitoring, coverage, o governance ang lahat ng pagkawala.
 
-### **10.1 Protokol at panganib sa smart contract**
+### **10.1 Protocol at smart-contract risk**
 
-- **Mga banta:** mga bug sa kontrata, mga pagkakamali sa pag-upgrade, mga pagkabigo ng pagkakapantay-pantay, at maling naka-configure na mga limitasyon o bayad.
-- **Mga tagapagpahiwatig:** ang mga natuklasan ng audit, hindi maipaliwanag na paggalaw ng inventory, invariant failure, at di-pangkaraniwang mga pagbabalik.
-- **Posible na mga kontrol:** independent audits; minimum privileged roles; disclosed proxy at dependence controllers; time-locked upgrades; on-chain monitoring; incident pauses na may nai-publish na awtoridad at mga pamantayan; at isang nasubok na landas ng migration.
-- **Mga pagsubok sa stress:** hindi available quote o limit dependencies, kakulangan ng inventory, paused contracts, at burst traffic.
-- **Pangarap sa panganib:** Mababang bago ma-scale ang mga outstanding obligation o volume ng swap.
+- **Mga banta:** bug sa kontrata, error sa upgrade, failure ng dependency, at maling configuration ng limit o fee.
+- **Mga indicator:** audit finding, hindi maipaliwanag na galaw ng inventory, invariant failure, at hindi karaniwang revert.
+- **Mga posibleng control:** independent audit; kakaunting privileged role; malinaw na proxy at dependency controller; timelocked upgrade; on-chain monitoring; incident pause na may inilathalang awtoridad at criteria; at nasubok na migration path.
+- **Mga stress test:** hindi available na quote o limit dependency, kakulangan sa inventory, naka-pause na kontrata, at biglang pagdami ng traffic.
+- **Risk appetite:** mababa bago palakihin ang outstanding obligation o swap volume.
 
-### **10.2 Mga panganib sa ekonomiya at merkado**
+### **10.2 Economic at market risk**
 
-- **Mga banta:** ang manipis na imbentaryo, unilateral na daloy, mabilis na pag-withdrawals, at manipulasyon o nakaraan ng mga referensiya sa presyo.
-- **Mga tagapagpahiwatig:** mataas na paggamit ng pool token-balance cap, pagpapalawak ng mga pagkakaiba sa quote, madalas na pagtanggi ng limitasyon, at nakatuon inventory.
-- **Posible na mga kontrol:** ang kasalukuyang mga limitasyon sa balanse ng token ng pool; iminungkahi na mga limitasyong rolling o account; nag-iiba na inaminang mga reserbas; pinansiyal na mga referensiya sa presyo; pagbubukod ng ruta; at mga bayad o limitasyón ng insidente na limitado sa oras.
-- **Mga pagsubok sa stress:** malalaking pag-aalis sa presyo ng referensya, pagtaas ng presentasyon, mga kahilingan sa pag-withdraw, at pagputol sa mapagkukunan ng data.
-- **Pangarap sa panganib:** matindi lamang sa loob ng mga nai-publish na parameter at pinansiyal na kapasidad sa pagbubuntis ng pagkawala.
+- **Mga banta:** manipis na inventory, one-sided flow, mabilis na withdrawal, at minanipula o stale na price reference.
+- **Mga indicator:** mataas na paggamit ng Pool token-balance cap, lumalaking pagkakaiba ng quote, madalas na limit rejection, at concentrated inventory.
+- **Mga posibleng control:** kasalukuyang Pool token-balance cap; proposed rolling o account limit; hiwalay na pinagtibay na reserve; protektadong price reference; route exclusion; at time-limited incident fee o limit.
+- **Mga stress test:** malaking galaw ng reference price, biglang pagdami ng presentment, withdrawal request, at data-source outage.
+- **Risk appetite:** katamtaman lamang sa loob ng inilathalang parameter at pinondohang loss-bearing capacity.
 
-### **10.3 Ang panganib ng tagapag-isyu at voucher**
+### **10.3 Issuer at Voucher risk**
 
-- **Mga banta:** ang emisyon sa kabila ng kapasidad ng pagpapatupad, default ng tagapag-isyu, maling mga termino, at hindi malinaw na window ng availability o presentation.
-- **Mga tagapagpahiwatig:** bumaba ang mga rate ng nakumpirma na pagpapatupad, pag-aging ng mga outstanding voucher, hindi natatapos na mga reklamo, at nakatuon na pagkakalantad sa isang tagapag-isyu.
-- **Posible na mga kontrol:** pag-aalaga sa mga tagapag-isyu; malinaw na mga termino ng voucher at Offer; mga limitasyon sa emisyon o pagpasok; independiyenteng pinansiyal na mga bond o garantiya; pagreport sa cohort; at responsable na pagsusuri ng registry.
-- **Mga pagsubok sa stress:** insolvency ng tagapag-isyu, regional production shocks, counterfeit claims, at long-term compliance delays.
-- **Pangarap sa panganib:** mas mababa sa pagtaas ng konsentrasyon ng tagapag-isyu o nag-aalok.
+- **Mga banta:** issuance na lampas sa fulfillment capacity, default ng issuer, mapanlinlang na terms, at hindi malinaw na availability o presentment window.
+- **Mga indicator:** bumababang confirmed-fulfillment rate, tumatandang outstanding Voucher, hindi nalulutas na complaint, at concentrated exposure sa isang issuer.
+- **Mga posibleng control:** due diligence sa issuer; malinaw na Voucher at Offering terms; issuance o admission limit; independently funded bond o garantiya; cohort reporting; at may-pananagutang registry review.
+- **Mga stress test:** insolvency ng issuer, regional production shock, counterfeit claim, at matagal na fulfillment delay.
+- **Risk appetite:** mas mababa habang lumalaki ang concentration sa issuer o Offering.
 
-### **10.4 Ang panganib ng pagpapahayag at pagpapatupad**
+### **10.4 Redemption-presentment at fulfillment risk**
 
-- **Mga banta:** hindi valid o duplicate presentation, di sapat na kapasidad ng tagapag-isyu, stockouts, logistics failure, at nawawala ang mga record ng discharge.
-- **Mga tagapagpahiwatig:** late-to-fulfill request, nabalitaan o pinagtataloang mga presentation, stocks, backlogs ng tiket, at natupad na mga unit na walang discharge.
-- **Posible na mga kontrol:** ang nai-publish na mga pamamaraan ng pagtatanghal at pagpapatupad; pagpapahayag ng kapasidad; maraming mga lugar ng pagtugon kung saan legal; mga pamantayan sa katibayan; mga landas ng reklamo at remedyo; at mga talaan na naghahati sa paghahayag, pagtugon, at discharge.
-- **Mga pagsubok sa stress:** dalawang hanggang apat na beses ang dami ng paghahatid, mga pagputol sa pasilidad, mga pagkakamali ng supplier, at mga pagtatangka ng duplikatong paggamit.
-- **Pangarap sa panganib:** Mababang kung may kinalaman ang mga mahalagang kalakalan, mahihirapan na kalahok, o mahabang window ng pagpapatupad.
+- **Mga banta:** invalid o duplicate na presentment, kulang na kapasidad ng issuer, stockout, logistics failure, at nawawalang discharge record.
+- **Mga indicator:** tagal mula request hanggang fulfillment, failed o disputed presentment, stockout, ticket backlog, at fulfilled unit na walang discharge.
+- **Mga posibleng control:** inilathalang presentment at fulfillment procedure; capacity disclosure; maraming fulfillment venue kung legal; evidence standard; complaint at remedy path; at mga record na naghihiwalay sa presentment, fulfillment, at discharge.
+- **Mga stress test:** dalawa hanggang apat na beses na presentment volume, facility outage, supplier failure, at pagtatangkang gumamit nang dalawang beses.
+- **Risk appetite:** mababa kapag sangkot ang essential goods, vulnerable participant, o mahabang fulfillment window.
 
-### **10.5 Mga panganib sa pamamahala**
+### **10.5 Governance risk**
 
-- **Mga banta:** Kapanghulihan ng steward o controller, mabilis na pagbabago ng parameter, mga pakikibaka sa interes, lihim na teknikal na kapangyarihan, at mahihirap na appeals.
-- **Mga tagapagpahiwatig:** naka-concentrate na awtoridad, madalas na mga aksyon sa emerhensiya, hindi maipaliwanag na pagbabago ng patakaran, at paulit-ulit na overrides.
-- **Posible na mga kontrol:** ang mga pagbibigay ng impormasyon tungkol sa papel at kapangyarihan; proportional approval thresholds; time-locks; conflicts and recusal rules; public change records; appeals; automatic emergency power sunset; at forkability.
-- **Mga pagsubok sa stress:** mga pagtatanghal ng kontrabida, pagkawala ng signature, pagsisikap na kumita, at pagkuha sa pamamagitan ng pagtipon o naka-delegate na kontrol.
-- **Pangarap sa panganib:** mababa para sa mga aksyon na nakakaapekto sa mga pamamaraan ng halaga, pag-withdraw, root ng registry, coverage, o emergency powers.
+- **Mga banta:** pagkuha sa Steward o controller, minadaling pagbabago ng parameter, conflict of interest, nakatagong technical power, at mahinang appeal.
+- **Mga indicator:** concentrated authority, madalas na emergency action, hindi maipaliwanag na pagbabago ng policy, at paulit-ulit na override.
+- **Mga posibleng control:** disclosure ng role at power; proportional approval threshold; timelock; conflict at recusal rule; public change record; appeal; automatic sunset ng emergency power; at forkability.
+- **Mga stress test:** adversarial proposal, pagkawala ng signer, bribery attempt, at capture sa pamamagitan ng accumulation o delegated control.
+- **Risk appetite:** mababa para sa action na nakaaapekto sa valuation method, withdrawal, registry root, coverage, o emergency power.
 
-Para sa isang hinaharap na paglalapat ng iminungkahi na CLC governance token, ang capture test ay magsasama ng pagpupulong na sinundan ng mga pagtatangka upang i-redirect ang mga badyet, mabawasan ang mga pamantayan ng registry, pahintulot ang mga mandato ng may kaugnayan na partido, o maubos ang pinansiyal na coverage.
+Para sa deployment sa hinaharap ng proposed CLC governance token, isasama sa capture test ang accumulation na sinusundan ng pagtatangkang ilihis ang budget, pahinain ang registry standard, aprubahan ang related-party mandate, o ubusin ang funded coverage. Maaaring kabilang sa safeguard ang governance lockup, mas mataas na threshold para sa critical action, delayed execution, transparent delegation at concentration monitoring, incident process, at kapani-paniwalang fork-and-exit procedure. Hindi itinuturing na deployed ang alinman dahil lamang nakasulat ito rito.
 
-### **10.6 Mga panganib sa ligal at pagsunod**
+### **10.6 Legal at compliance risk**
 
-- **Mga banta:** ang isang voucher, serbisyo, promosyon, o asset sa pamamahala na nakatanggap ng hindi inaasahang paggamot sa regulasyon; mga pagkabigo sa proteksyon ng mamimili; pagkakalantad ng salapi o sanksyon; at cross-border na mga paghihigpit.
-- **Mga tagapagpahiwatig:** mga flags ng jurisdiction, mga imbestigasyon ng regulator, mga reklamo, pag-uugnay ng limitado na partido, at pagkakaiba sa pagitan ng advertised at tunay na pag-uugali.
-- **Posible na mga kontrol:** pagsusuri sa pamamagitan ng mga klase at hurisdiksyon; tumpak na pagpapahayag; geofined interface; proportional eligibility or attestation checks; promosyon controls; records ng awtoridad at pagtanggap; at malinaw na responsable na partido.
-- **Mga pagsubok sa stress:** isang paghihigpit sa hurisdiksyon, pagtatapos ng provider, mandatory re-classification, at isang utos na ihinto ang isang tampok o asset class.
-- **Pangarap sa panganib:** mababa; i-restrict o pause ang hindi suportado na aktibidad.
+- **Mga banta:** hindi inaasahang regulatory treatment sa Voucher, service, promotion, o governance asset; consumer-protection failure; money-laundering o sanctions exposure; at cross-border restriction.
+- **Mga indicator:** jurisdiction flag, regulator inquiry, complaint, restricted-party match, at pagkakaiba ng advertised at aktuwal na behavior.
+- **Mga posibleng control:** review ayon sa class at jurisdiction; tumpak na disclosure; geofenced interface; proportional eligibility o attestation check; promotion control; record ng authority at acceptance; at malinaw na responsableng partido.
+- **Mga stress test:** jurisdictional restriction, provider termination, mandatory reclassification, at utos na i-pause ang feature o asset class.
+- **Risk appetite:** mababa; limitahan o i-pause ang hindi sinusuportahang activity.
 
-#### 10.6.1 Legal na pag-uugali at pagpaplano ng mga token
+#### 10.6.1 Legal positioning at pagtrato sa proposed token
 
-1. **Infrastruktura na maaaring suriin:** Protocol v1.1.0 ang mga kontrata ayEVM-ang mga pinagmulan ay nai-publish sa ilalim ng mga lisensya at third party exceptions na nakikilala sa protocol repository. Ang pag-publika ay nagbibigay-daan sa pagsusuri ngunit hindi mismo patunayan ang isang audit, ligtas na deployment, o legal compliance.
-2. **Proposed-token posture:** sa disenyo na ito, ang iminungkahi na CLC governance token ay mag-coordinate ng pamamahala at policy-gated access. Hindi ito lumilikha ng mga dividend, profit sharing, residual rights, o isang garantiya ng halaga o likido.
-3. **Kaugnay na mga iminungkahing asset:** Maaaring payagan ng hiwalay na ipinatupad na patakaran ang pag-lock ng iminungkahing CLC governance token upang mag-mint ng stCLC at maaaring mag-awtorisa ng epoch-scoped na sCLC. Kailangang tukuyin ng mga pinagtibay na tuntunin ang eksaktong karapatan, limitasyon, expiry, transferability, at pagtrato sa mga ito.
-4. **Mga komunikasyon:** Hindi dapat mangako ng kita, pagtaas ng halaga, passive income, o garantisadong access ang mga materyal para sa anumang deployment ng iminungkahing CLC governance token, stCLC, o sCLC.
-5. **Mga kontrol sa hurisdiksyon:** ang isang paglalapat ay maaaring nangangailangan ng geofencing interface, mga atestasyong para sa limitado na mga klase, mga limitasyon sa promosyon, pagsusuri ng asset-specific, o mga kontrol na nagpigil sa isang iminungkahi na tampok.
-6. **Pakikinig ng mga kalahok:** ang mga termino na inamin ay magpaliwanag kung kailan maaaring mabawasan o mai-deactivate ang pag-access para sa mga dahilan ng batas, operasyonal, o panganib at kung may anumang kompensasyon o remedyo.
+1. **Verifiable infrastructure:** EVM-compatible ang mga kontrata ng Protocol v1.1.0 at inilathala ang source sa ilalim ng mga licence at third-party exception na tinukoy sa Protocol repository. Pinahihintulutan ng publication ang review ngunit hindi nito pinatutunayan ang audit, ligtas na deployment, o legal compliance. Dapat ilathala ng bawat deployment ang code version, build provenance, address, controller power, at audit status nito.
+2. **Proposed-token posture:** sa disenyong ito, iko-coordinate ng proposed CLC governance token ang governance at policy-gated access. Hindi ito lilikha ng dividend, profit sharing, residual right, o garantiya ng value o liquidity.
+3. **Kaugnay na proposed asset:** maaaring payagan ng hiwalay na implemented policy ang pag-lock ng proposed CLC governance token upang mag-mint ng stCLC at maaaring pahintulutan ang epoch-scoped sCLC. Kailangang tukuyin ng pinagtibay na terms ang eksaktong right, limit, expiry, transferability, at treatment ng mga ito.
+4. **Communications:** hindi dapat mangako ng profit, appreciation, passive income, o guaranteed access ang material para sa anumang proposed CLC governance-token, stCLC, o sCLC deployment.
+5. **Jurisdiction controls:** maaaring mangailangan ang deployment ng interface geofencing, attestation para sa restricted class, promotion limit, asset-specific review, o control na nagpa-pause ng proposed feature.
+6. **Participant notice:** ipaliliwanag ng pinagtibay na terms kung kailan maaaring bawasan o ihinto ang access para sa legal, operational, o risk reason at kung may naaangkop na compensation o remedy.
 
-### **10.7 Ang panganib sa pag-route at cross-domain**
+### **10.7 Routing at cross-domain risk**
 
-- ** Kasalukuyang mga banta sa parehong kadena:** wala pang data ng pagtuklas, hindi sapat na imbentaryo, limitasyon o pagbabago sa pagpasok, pag-expire ng quote, hindi sinusuportahan ang mga wallet o dependencies, pagkabigo ng simulation, relay failure, chain reorganization, at path inflation.
-- ** Kasalukuyang mga kontrol at katibayan:** pined-block authoritative quotes, kumpletong-batch simulation, per-hop minimum outputs at deadlines, isang naka-sign na Calibur batch na may `revertOnFailure`, deterministic grouped receipts, reconciliation, at malinaw na mga code ng pagkabigo. Ang mga kontrol na ito ay binabawasan ang mga napiling panganib sa pagsasakatuparan ngunit hindi ginagarantiyahan ang kakayahang magamit o pagtupad ng emitter.
-- **Proposed cross-domain threats:** partial execution across domains, stuck hops, bridge, HTLC o escrow exploits, timeout mismatch, at recovery disputes.
-- ** Mga tagapagpahiwatig:** pagtuklas ng ruta at mga kinalabasan ng quote, pagkakaiba-iba sa quote-to-execution, lalim ng ruta, mga pagkabigo sa simulation, pagbabalik, mga kabiguan sa pagkakatugma, paulit-ulit na hindi kinakailangang hops, at — para sa hinaharap na cross-domain system eng_Latn mga backlog at insidente sa tulay.
-- ** Posibleng karagdagang mga kontrol:** patnubay at mga patakaran ng counterparty; mga cap sa antas ng ruta; responsable na operator ng serbisyo; at konserbatibong HTLC o escrow timeout, pag-aabort, at mga panuntunan sa pagbawi.
-- ** Mga pagsubok sa stress:** hindi nauugnay na estado ng graph, pag-aalis ng dependency, isang nabigo na hop sa kasalukuyang atomikong batch, isang reorganisasyon ng kadena, at — para sa isang hinaharap na cross-domain na ruta eng_Latn isang paghinto ng tulay o expired escrow.
-- **Pangarap sa panganib:** Mababang hanggang moderate lamang para sa mga kinikilala at nasubaybayan na depende.
+- **Kasalukuyang same-chain threat:** stale discovery data, kulang na inventory, pagbabago sa limit o admission, quote expiry, hindi sinusuportahang wallet o dependency, simulation failure, relay failure, chain reorganization, at path inflation.
+- **Kasalukuyang control at ebidensiya:** pinned-block authoritative quote, simulation ng buong batch, per-hop minimum output at deadline, nilagdaang Calibur batch na may `revertOnFailure`, deterministic grouped receipt, reconciliation, at malinaw na failure code. Binabawasan ng mga control na ito ang ilang execution risk ngunit hindi ginagarantiya ang availability o fulfillment ng issuer.
+- **Proposed cross-domain threat:** partial execution sa iba't ibang domain, stuck hop, bridge, HTLC o escrow exploit, timeout mismatch, at recovery dispute.
+- **Mga indicator:** resulta ng route discovery at quote, pagkakaiba ng quote at execution, route depth, simulation failure, reversion, reconciliation failure, paulit-ulit na hindi kailangang hop, at—para sa future cross-domain system—escrow backlog at bridge incident.
+- **Mga posibleng karagdagang control:** path at counterparty policy; route-level cap; may-pananagutang service operator; at maingat na HTLC o escrow timeout, abort, at recovery rule.
+- **Mga stress test:** stale graph state, dependency outage, isang nabigong hop sa kasalukuyang atomic batch, chain reorganization, at—para sa future cross-domain route—bridge halt o expired escrow.
+- **Risk appetite:** mababa hanggang katamtaman lamang para sa tinukoy at mino-monitor na dependency.
 
-### **10.8 Ang panganib ng custody at key-management**
+### **10.8 Custody at key-management risk**
 
-- **Mga banta:** nawala o naka-compromise key, signer collusion, at hindi malinaw na pagbawi o awtoridad ng administrator.
-- **Mga tagapagpahiwatig:** anomaly signatures, controller changes, failed rotations, at hindi pangkaraniwang pag-withdrawals.
-- **Posible na mga kontrol:** Multisig o threshold authorization; hardware-backed keys; role separation; signer rotation; public controller inventories; monitored withdrawal limits; at na-test recovery procedures.
-- **Pangarap sa panganib:** Mababang.
+- **Mga banta:** nawala o nakompromisong key, sabwatan ng signer, at hindi malinaw na recovery o administrator authority.
+- **Mga indicator:** anomalous signature, pagbabago ng controller, failed rotation, at hindi karaniwang withdrawal.
+- **Mga posibleng control:** multisig o threshold authorization; hardware-backed key; paghihiwalay ng role; signer rotation; public controller inventory; mino-monitor na withdrawal limit; at nasubok na recovery procedure.
+- **Risk appetite:** mababa.
 
-### **10.9 Reputasyon at panganib sa lipunan**
+### **10.9 Reputation at social risk**
 
-- **Mga banta:** maling mga pangungusap, mapanganib na insentibo, hindi mai-access ang mga reklamo, masamang karanasan sa pagpapatupad, pagkabigo ng privacy, at proteksyon na pabor sa mga nasa loob.
-- **Mga tagapagpahiwatig:** ang mga reklamo sa pamamagitan ng cohort, hindi nalutas na mga litigasyon, mga trend sa pagganap ng tagapag-isyu, konsentrasyon ng mga benepisyo o pagkawala, at feedback ng komunidad.
-- **Posible na mga kontrol:** ang malinaw na pagpapahayag; mga landas ng reklamo at paglilinis; mai-access na katibayan; transparent na pagreport; pagsusuri sa insidente; at katumbas na sanksyon para sa maling pagtatanghal.
-- **Pangarap sa panganib:** mababa, na may partikular na pag-aalaga sa mga naapektuhan na pamayanan at maluwag na kalahok.
+- **Mga banta:** mapanlinlang na claim, nakapipinsalang incentive, hindi accessible na complaint, mahinang fulfillment experience, privacy failure, at proteksiyong pumapabor sa insider.
+- **Mga indicator:** complaint ayon sa cohort, hindi nalulutas na dispute, trend sa performance ng issuer, concentration ng benefit o loss, at feedback ng komunidad.
+- **Mga posibleng control:** plain-language disclosure; grievance at correction path; accessible evidence; transparent reporting; incident review; at proportional sanction para sa misrepresentation.
+- **Risk appetite:** mababa, na may espesyal na pag-iingat para sa apektadong komunidad at vulnerable participant.
 
-### **10.10 Ang panganib ng konsentrasyon at pagkahiwalay**
+### **10.10 Concentration at fragmentation risk**
 
-- **Mga banta:** depende sa isang maliit na bilang ng mga tagapag-isyu, pool, controller, provider, network, o hindi kapareha fork.
-- **Mga tagapagpahiwatig:** ang mga hakbang sa pagpapatungo ng tagapag-isyu, pool, inventory, controller, o provider ng serbisyo; pagkukulang sa ruta sa pagitan ng mga cluster; at kritikal na indibidwal na depende.
-- **Posible na mga kontrol:** ang nai-publish na mga hangganan ng konsentrasyon; maramihang responsable operator; katumbas ng mga pamantayan; independiyenteng mga registry; sinusubukan na mga pamamaraan ng pag-exit; at ligtas na interoperability.
-- **Mga pagsubok sa stress:** pagkawala ng pinakamalaking tagapag-isyu, pool, operator, provider, o root ng registry.
-- **Pangarap sa panganib:** mga deployment-specific at disclosed, na may mas mahigpit na mga limitasyon para sa mga mahalagang serbisyo o hindi maibabalik na depende.
+- **Mga banta:** pagdepende sa kakaunting issuer, Pool, controller, provider, network, o incompatible fork.
+- **Mga indicator:** concentration measure ayon sa issuer, Pool, inventory, controller, o service provider; route failure sa pagitan ng cluster; at critical single dependency.
+- **Mga posibleng control:** inilathalang concentration threshold; maraming may-pananagutang operator; compatible standard; independent registry; nasubok na exit procedure; at ligtas na interoperability.
+- **Mga stress test:** pagkawala ng pinakamalaking issuer, Pool, operator, provider, o registry root.
+- **Risk appetite:** depende sa deployment at inilalathala, na may mas mahigpit na limit para sa essential service o hindi mapapalitang dependency.

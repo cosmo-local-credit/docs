@@ -1,33 +1,33 @@
-## **14. Mga KPIs at mga tagapagpahiwatig ng kalusugan**
+## **14. Mga KPI at health indicator**
 
-Ang isang pag-deploy ay dapat na maglathala ng KPI lamang kapag maaari nitong tukuyin ang kaganapan, pinagmulan, grupo o panahon, yunit, pamamaraan sa pagpapahalaga at timestamp, mga pagbubukod, patakaran sa pagwawasto, katibayan sa labas ng kadena, at mga limitasyon sa kalidad ng data.
+Dapat lamang maglathala ng KPI ang isang deployment kapag malinaw nitong natutukoy ang event, source, cohort o panahon, unit, valuation method at timestamp, mga exclusion, correction policy, off-chain evidence, at mga limitasyon sa kalidad ng data.
 
-Ang kasalukuyang mga serbisyo sa ruta ay maaaring sukatin ang pagtuklas, quote, pagpapatupad, pag-areglo, at mga kaganapan sa pagkakatugma. Ang katuparan ng Voucher at mga resulta sa lipunan ay nangangailangan pa rin ng hiwalay na katibayan. Kabilang sa inirerekomenda na mga hakbang ay:
+Masusukat ng kasalukuyang route service ang mga event sa discovery, quote, execution, settlement, at reconciliation. Kailangan pa rin ng hiwalay na ebidensiya para sa fulfillment ng Voucher at mga social outcome. Kabilang sa mga inirerekomendang sukat ang:
 
-- valid na mga presentasyon ng pagbabayad;
-- rate ng katuparan batay sa cohort;
-- pagiging kumpleto ng paglabas;
-- latency mula sa presentasyon hanggang sa pagsasakatuparan;
-- tagal ng pag-aari mula sa pagkuha hanggang sa paghahandog;
-- mga natitirang kwalipikadong pangako sa ilalim ng isang tinukoy na metodolohiya;
-- nakumpleto na direktang Pool Palitan volume;
-- mga pagtatangka sa pagtuklas ng ruta at ang bilang ng magagamit na mga ruta;
-- awtorisadong mga pagtatangka sa pag-quote ng ruta, mga kinalabasan, lalim, pag-expire, at binanggit na bayarin;
-- mga pagtatangka sa palitan ng ruta, kumpirmadong at binabalik na mga ruta, at mga dahilan ng pagkabigo;
-- buong ruta input at output na dami, binibilang nang isang beses bawat ruta sa halip na isang beses sa bawat hop;
-- per-hop settlement amounts, Pool fees, protocol fees, at intermediate remainders;
-- mga paghihigpit sa ruta, kabilang ang hindi sapat na likididad, Pool token-balance caps, hindi sinusuportahan dependencies, at wallet limitasyon;
-- graph freshness, reconciliation duration, corrections, at mga pagkabigo;
-- sinusukat na imbentaryo ng Pool;
-- paggamit ng Pool token-balance-cap;
-- mga rate ng tagumpay sa pagtuklas at quote pass, pinananatiling hiwalay mula sa mga rate sa pagpapatupad ng ruta at pag-areglo;
-- karapat-dapat na reserba na nahati sa malinaw na natatakpan na pagkakakilanlan;
-- mga kahilingan ng guarantor at pagbawi sa ilalim ng isang natukoy na patakaran;
-- kasalukuyang per-hop Pool at mga bayarin sa protocol, pinananatiling hiwalay mula sa anumang iminungkahing network rake o mga bayarang serbisyo sa hinaharap;
-- pamamahala sa pagtuklas, pagpapasiya, pag-pause, pagkumpuni, at mga oras ng pagsasara;
-- mga reklamo, salungatan, pagwawasto, at mga remedyo; at
-- mga natatanging napatunayan na resulta sa lipunan o ekolohiya.
+- valid redemption presentments;
+- fulfillment rate ayon sa cohort;
+- completeness ng discharge;
+- tagal mula presentment hanggang fulfillment;
+- holding duration mula acquisition hanggang presentment;
+- natitirang kwalipikadong commitment sa ilalim ng nakasaad na methodology;
+- volume ng nakumpletong direct Pool swap;
+- mga route-discovery attempt at bilang ng available na candidate route;
+- mga attempt, resulta, depth, expiry, at quoted fee ng may-awtoridad na route quote;
+- mga routed-exchange attempt, confirmed at reverted route, at dahilan ng failure;
+- input at output volume ng buong route, na minsan lamang binibilang sa bawat route at hindi sa bawat hop;
+- per-hop settlement amount, Pool fee, protocol fee, at intermediate remainder;
+- mga route constraint, kabilang ang kulang na liquidity, Pool token-balance cap, hindi sinusuportahang dependency, at limitasyon ng wallet;
+- graph freshness, tagal ng reconciliation, correction, at failure;
+- nasukat na Pool inventory;
+- paggamit ng Pool token-balance cap;
+- discovery success at quote pass rate, na hiwalay sa route execution at settlement rate;
+- kwalipikadong reserve na hinati sa tahasang sakop na exposure;
+- claim at recovery sa guarantor sa ilalim ng tinukoy na policy;
+- kasalukuyang bayarin sa Pool at protocol sa bawat hop, na hiwalay sa anumang proposed network rake o service fee sa hinaharap;
+- oras ng governance detection, decision, pause, repair, at closure;
+- mga complaint, dispute, correction, at remedy; at
+- hiwalay na napatunayang social o ecological outcome.
 
-Ang data ng on-chain na transaksyon ay hindi mismo nagpapatunay ng pagkakakilanlan, pagganap ng naglalabas, kasiyahan, kadahilanan, kalusugan ng komunidad, o epekto sa lipunan. Ang mga claim na ito ay nangangailangan ng sariling metodolohiya at katibayan.
+Hindi sapat ang on-chain transaction data lamang upang patunayan ang identity, performance ng issuer, satisfaction, causality, kalusugan ng komunidad, o social impact. Kailangan ng sariling methodology at ebidensiya ang mga claim na iyon.
 
-Tingnan [Apendise C](/fil/white-paper/appendix-c-kpi-definitions) para sa iminungkahing espesipikasyon ng pagsukat.
+Tingnan ang [Appendix C](/fil/white-paper/appendix-c-kpi-definitions) para sa proposed measurement specification.

@@ -1,15 +1,14 @@
-# White Paper-archief
+# Archief van het Witboek
 
-> **Over deze vertaling.** Dit is een vertaling van White Paper v0.8. De Engelse brontekst is gepubliceerd op 30 september 2026. Deze vertaling is gepubliceerd op 11 oktober 2026. Engels is de brontekst. <a data-english-source="true" href="/white-paper/archive" hrefLang="en">Lees de Engelse brontekst</a>.
+> **Over deze vertaling.** Deze pagina is de Nederlandse vertaling van het White Paper-archief. Engels is de brontekst. <a data-english-source="true" href="/white-paper/archive" hrefLang="en">Lees de Engelse brontekst</a>.
 
-De huidige publicatie is [Cosmo-Local Credit White Paper v0.8](/nl-BE/white-paper), van 30 september 2026.
+De huidige publicatie is [Cosmo-Local Credit White Paper v0.9](/nl-BE/white-paper), van 16 november 2026.
 
-## Vervangen versie
+## Vervangde versie
 
+- <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8.pdf">Versie 0.8 PDF</a>, van 30 september 2026
 - <a href="/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v7.pdf">Versie 0.7 PDF</a>, van 24 september 2026
 
-Versie 0.7 wordt voor historische naslag bewaard. De woordenschat, statusbeschrijvingen, formules en voorstellen zijn vervangen door v0.8 en mogen niet worden gebruikt als huidige beschrijving van de CLC App, Protocol v1.1.0, rechten van deelnemers of voorgestelde netwerkeconomie.
+Versies 0.8 en 0.7 blijven beschikbaar als historisch naslagwerk. Versie 0.9 werkt de productiestatus van routering op applicatieniveau bij en houdt het onderscheid helder tussen de Solidity-`SwapRouter`, die alleen offertes berekent, en de uitvoering door de CLC App en CLC Core. Eerdere terminologie, statusbeschrijvingen, formules en voorstellen zijn vervangen en mogen niet worden gebruikt als huidige beschrijving van de CLC App, CLC Core, Protocol v1.1.0, deelnemersrechten of de voorgestelde netwerkeconomie.
 
-Versie 0.6 is van de openbare site verwijderd. De geschiedenis ervan blijft beschikbaar via de documentatierepository.
-
-> De vervangen pdf van v0.7 is alleen in het Engels beschikbaar.
+Versie 0.6 is verwijderd van de openbare site. De geschiedenis ervan blijft beschikbaar via de documentatieopslag.

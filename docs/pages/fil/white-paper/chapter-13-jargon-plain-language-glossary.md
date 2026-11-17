@@ -1,39 +1,39 @@
 ## **13. Glosaryo sa simpleng wika**
 
-- **Cosmo-Local Credit (CLC):** Ang pamilya ng produkto, kabilang ang CLC App, dokumentasyon, at mas malawak na trabaho sa pag-aari ng pakikitungo.
-- **CLC App:** Ang progresibong web app na pinapatakbo ng GEF sa`cosmolocal.credit`.
-- **Protokol sa Pagsasama ng Pangako (CPP):** Ang reusable model ng curation, valuation, limitation, exchange, at responsible governance.
-- **Protocol v1.1.0:** Ang napatunayang publikong smart-contract release.
-- **Pool ng Pangako:** Ang isang pinamamahalaan na kaayusan na tumatanggap ng suportadong mga asset at nag-publish ng mga patakaran sa pagbibili.
-- **`SwapPool`:** Ang kasalukuyang token vault at direct-swap contract.
-- **Tagalog:** Isang balanse sa chain o digital asset. Token mekanika lamang ay hindi lumikha ng isang redeemable pangako.
-- **Voucher:** Isang token o record na kinakatawan ng isang tagapag-isyu bilang isang redeemable commitment sa ilalim ng nai-publish na mga tuntunin.
-- **Pag-aalok:** Katalog record para sa mga kalakal o serbisyo na nauugnay sa isang voucher.
-- **Gusto:** Isang inilathala na kapahayagan ng pangangailangan. Hindi ito mismo tumatanggap ng isang Tanyag o Voucher, nagpapahintulot ng Palitan, nagrereserba ng imbentaryo, o lumilikha ng obligasyon.
-- **Pag-iipon:** Ang partido na may pananagutan sa pag-publish at pagpapatupad ng pangako sa voucher.
-- **Tagapangasiwa ng Pool:** Ang responsable na istraktura na nag-publish at namamahala sa mga patakaran ng Pool.
-- **Registry:** Isang rekord ng pagtuklas at pahintulot para sa mga nakikilalang kontrata, Pool, token, o iba pang mapagkukunan. Ang pagsasama ay hindi sa sarili nito nagtatag ng pag-endorso, kapasidad ng naglalabas, katuparan, garantiya, o seguro.
-- **Ang rate o quote ng pool:** Ang isang parameter ng transaksyon na ginawa sa pamamagitan ng isang naka-configure quoter; hindi patunay ng cash o halaga ng pagbabayad.
-- ** Value Index:** Isang relatibong input ng valuation na ginagamit ng isang naka-configure na nagko-quote upang kalkulahin ang isang Pool exchange quote. Ito ay hindi awtomatikong isang presyo sa merkado, halaga ng cash, o obligasyon ng nag-isyu.
-- **Limiter:** Ang opsyonal na bahagi ng Protocol v1.1.0 na nagtatakda ng maximum na balanse ng token para sa isang Pool. Maaaring markahan ng App ang limitasyong ito na ****Limitang kredito.**** Ito ay hindi isang personal na limitasyon sa pag-utang o isang rolling limit sa buong network.
-- **Pagbabago ng pool:** Isang direktang palitan ng mga asset sa pamamagitan ng isang `SwapPool`.
-- **Route:** Isang iniutos na landas ng isa o higit pang Pool swaps mula sa input Voucher ng isang wallet sa isang target Voucher.
-- **Ang lalim ng ruta:** Ang bilang ng Pool swaps sa isang ruta. Ang kasalukuyang pampublikong pag-deploy ay naghahanap hanggang sa tatlo.
-- ** Pagtuklas ng ruta:** Ang isang pagtatantya ng mga posibleng landas mula sa pinagsama-samang graph at wallet-holding data. Ang natuklasan na landas ay hindi isang pangako na matutupad.
-- **Route quote:** Isang time-bound authoritative proposal para sa isang napili na landas, na kinakalkula mula sa suportadong estado ng Pool na nabasa sa isang pined block at simulated bago magpirma.
-- ** Routed exchange:** Isang pagkakasunud-sunod ng mga Pool swap na pinahihintulutan ng kalahok. Ang kasalukuyang App ay nagsusumite nito bilang isang same-chain Calibur wallet batch na ang mga tawag ay nagbabalik nang magkasama kung mabibigo ang isa.
-- ** Routed-exchange receipt:** Isang pinagsama-samang teknikal na talaan ng katayuan ng ruta, transaction hash, hops, settled amounts, at per-hop Pool and protocol fees.
-- ** Liquidity:** Eligible Pool output inventory na magagamit sa ilalim ng kasalukuyang admission, balance-cap, quote, fee, reservation, at withdrawal conditions. Ang isang graph edge o token na balanse lamang ay hindi nagpapatunay ng usable liquidity.
-- **Pagbabayad ng swap:** Ang mga transfer sa chain at accounting ng bayad na kumpleto ng pool swap.
-- **Presentasyon ng pagbabayad:** Pagbalik o iba pang pagpapakita ng mga unit ng voucher sa tagapag-isyu.
-- **Katumpayan:** Ang tagapag-isyu ay nagbibigay ng ipinangako na kalakal, serbisyo, benepisyo, o iba pang pagganap.
-- **Discharge:** Ang isang talaan na nagpapahintulot sa pagpapatupad ng mga yunit na maipresentar muli.
-- **Katiyakan `SwapRouter`:** Ang Protocol v1.1.0 quote-only na kontrata. Maaari itong magkalkula sa buong isang ibinigay na landas ngunit hindi nag-iingat ng mga ari-arian, nagpapahintulot ng mga token, o nagpapatupad ng mga swap.
-- ** Application routing workflow:** Ang kasalukuyang CLC App at CLC Core serbisyo na matuklasan, quote, simulate, maghanda, relay, i-reconcile, at iulat ang parehong mga ruta ng kadena sa itaas ng mga kontrata ng Pool.
-- ** Pagbawi ng balanse:** Paglipat ng imbentaryo ng Pool patungo sa mga ipinangarap na target sa ilalim ng isang mandatong pinahintulutan ng Steward. Kasalukuyang participant-initiated routing ay hindi mismo awtorisado awtomatikong rebalancing.
-- **Clearing o netting:** Pagsasama ng maramihang mga obligasyon o inilaan na paglilipat upang kalkulahin ang nabawasan na netong posisyon. Ito ay hindi bahagi ng kasalukuyang App/Core routed exchange.
-- ** Pag-aayos:** Isang prosesong may pananagutan para sa pagwawasto ng isang pagsasaayos, talaan ng rehistro, pagkabigo ng serbisyo, pagtatalo, o hindi natupad na pangako sa loob ng isang nakikilalang awtoridad. Ang pag-aayos ng rehistro o serbisyo sa ruta ay hindi tahimik na muling isusulat ang mga patakaran ng isang independiyenteng Pool o mag-alis ng obligasyon ng isang tagapaglabas.
-- **Proposed na CLC Network Pool:** Isang hinaharap na kaayusan sa pag-clearing at koordinasyon ng badyet sa antas ng network.
-- **Proposed na CLC governance token:** Isang disenyo ng pamamahala sa hinaharap, hindi isang kasalukuyang app o Protocol v1.1.0 asset.
-- **Rake ng network:** Isang iminungkahi na bahagi ng mga bayad sa Pool na nai-transfer sa isang hinaharap na badyet ng network.
-- **Garantiya o seguro:** Isang proteksyon na nakakaalam lamang kapag ang isang kinikilala na partido ay malinaw na kumukuha, nagbabayad, at nag-publish nito.
+- **Cosmo-Local Credit (CLC):** Ang pamilya ng produkto, kabilang ang CLC App, dokumentasyon, at mas malawak na gawain sa commitment pooling.
+- **CLC App:** Ang progressive web app na pinapatakbo ng GEF sa `cosmolocal.credit`.
+- **Commitment Pooling Protocol (CPP):** Ang magagamit-muling modelo para sa curation, valuation, limitation, exchange, at may-pananagutang pamamahala.
+- **Protocol v1.1.0:** Ang napatunayang pampublikong release ng mga smart contract.
+- **Commitment Pool:** Isang pinamamahalaang kaayusan na tumatanggap ng mga sinusuportahang asset at naglalathala ng mga tuntunin sa palitan.
+- **`SwapPool`:** Ang kasalukuyang token vault at kontrata para sa direktang swap.
+- **Token:** Isang on-chain balance o digital asset. Ang token mechanics lamang ay hindi lumilikha ng pangakong maaaring tubusin.
+- **Voucher:** Isang token o record na inilalarawan ng issuer bilang isang commitment na maaaring tubusin sa ilalim ng mga inilathalang tuntunin.
+- **Offering:** Isang catalog record para sa mga produkto o serbisyong nauugnay sa isang Voucher.
+- **Want:** Isang inilathalang pahayag ng pangangailangan. Hindi nito kusang tinatanggap ang isang Offering o Voucher, pinahihintulutan ang swap, nagrereserba ng inventory, o lumilikha ng obligasyon.
+- **Issuer:** Ang partidong responsable sa paglalathala at pagtupad sa commitment ng Voucher.
+- **Pool Steward:** Ang may-pananagutang istrukturang naglalathala at nangangasiwa sa mga tuntunin ng Pool.
+- **Registry:** Isang record para sa discovery at pahintulot ng mga tinukoy na kontrata, Pool, token, o iba pang resource. Ang pagkakasama rito ay hindi kusang nangangahulugan ng endorsement, kakayahan ng issuer, fulfillment, garantiya, o insurance.
+- **Exchange rate o quote ng Pool:** Isang transaction parameter na ginawa ng naka-configure na quoter; hindi ito patunay ng cash value o redemption value.
+- **Value Index:** Isang relative valuation input na ginagamit ng naka-configure na quoter upang kalkulahin ang exchange quote ng Pool. Hindi ito awtomatikong market price, cash value, o obligasyon ng issuer.
+- **Limiter:** Ang opsyonal na component ng Protocol v1.1.0 na nagtatakda ng pinakamataas na token balance para sa isang Pool. Maaaring tawagin ng App ang cap na ito na **“Credit limit.”** Hindi ito personal na borrowing limit o rolling limit sa buong network.
+- **Pool swap:** Isang direktang palitan ng asset sa pamamagitan ng isang `SwapPool`.
+- **Route:** Isang nakaayos na path ng isa o higit pang Pool swap mula sa input Voucher ng wallet patungo sa target na Voucher.
+- **Route depth:** Ang bilang ng Pool swap sa isang route. Hanggang tatlo ang hinahanap ng kasalukuyang pampublikong deployment.
+- **Route discovery:** Isang pagtatantiya ng mga posibleng path mula sa na-reconcile na graph at data ng wallet holdings. Ang nahanap na path ay hindi pangakong maipapatupad ito.
+- **Route quote:** Isang may takdang-oras at may-awtoridad na proposal para sa napiling path. Kinakalkula ito mula sa sinusuportahang estado ng Pool na binasa sa iisang pinned block at sini-simulate bago lagdaan.
+- **Routed exchange:** Isang pagkakasunod-sunod ng Pool swap na pinahintulutan ng kalahok. Isinusumite ito ng kasalukuyang App bilang iisang same-chain Calibur wallet batch na sabay-sabay na nagre-revert ang mga call kapag may isang nabigo.
+- **Routed-exchange receipt:** Isang pinagsamang technical record ng route status, transaction hash, mga hop, settled amount, at per-hop Pool at protocol fee.
+- **Liquidity:** Kwalipikadong output inventory ng Pool na available sa ilalim ng kasalukuyang admission, balance-cap, quote, fee, reservation, at withdrawal conditions. Hindi sapat ang graph edge o token balance lamang upang patunayang magagamit ang liquidity.
+- **Swap settlement:** Ang mga on-chain transfer at fee accounting na kumukumpleto sa isang Pool swap.
+- **Redemption presentment:** Ang pagbabalik o ibang pagpapakita ng mga unit ng Voucher sa issuer.
+- **Fulfillment:** Ibinibigay ng issuer ang ipinangakong produkto, serbisyo, benepisyo, o ibang performance.
+- **Discharge:** Isang record na pumipigil sa muling pagpapakita ng mga unit na natupad na.
+- **Solidity `SwapRouter`:** Ang quote-only na kontrata ng Protocol v1.1.0. Maaari itong magkalkula sa ibinigay na path ngunit hindi ito nag-iingat ng asset, nag-a-approve ng token, o nagpapatupad ng swap.
+- **Application routing workflow:** Ang kasalukuyang CLC App at CLC Core service na nagdi-discover, nagko-quote, nagsi-simulate, naghahanda, nagre-relay, nagre-reconcile, at nag-uulat ng mga same-chain route sa ibabaw ng mga Pool contract.
+- **Rebalancing:** Paglilipat ng Pool inventory patungo sa mga pinagtibay na target sa ilalim ng mandatong pinahintulutan ng Steward. Ang kasalukuyang participant-initiated routing ay hindi kusang nagpapahintulot ng automatic rebalancing.
+- **Clearing o netting:** Pagsasama ng maraming obligasyon o planong transfer upang kalkulahin ang nabawasang net position. Hindi ito bahagi ng kasalukuyang App/Core routed exchange.
+- **Repair:** Isang may-pananagutang proseso para itama ang configuration, registry record, service failure, dispute, o hindi natupad na commitment sa loob ng tinukoy na awtoridad. Hindi tahimik na binabago ng registry o route-service repair ang mga tuntunin ng isang independiyenteng Pool o inaalis ang obligasyon ng issuer.
+- **Proposed CLC Network Pool:** Isang kaayusan sa hinaharap para sa network-level clearing at budget coordination.
+- **Proposed CLC governance token:** Isang disenyo ng pamamahala sa hinaharap, hindi kasalukuyang asset ng App o Protocol v1.1.0.
+- **Network rake:** Isang iminungkahing bahagi ng bayarin sa Pool na ililipat sa isang network budget sa hinaharap.
+- **Garantiya o insurance:** Proteksiyong umiiral lamang kapag tahasang inaako, pinopondohan, at inilalathala ito ng isang tinukoy na partido.

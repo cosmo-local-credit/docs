@@ -29,13 +29,13 @@
   citecolor=blue,
   urlcolor=blue,
   pdflang={fil-PH},
-  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.8},
+  pdftitle={Cosmo-Local Credit (CLC) White Paper v0.9},
   pdfauthor={William O. Ruddick and Mohamed Sohail}
 }
 
 \title{Cosmo-Local Credit (CLC)\\Isang network para sa pag-route ng credit, pag-uugnay ng mga pangako, at pagpopondo sa isang malusog na cosmo-local na ekonomiya}
 \author{William O. Ruddick \\ Mohamed Sohail \\ Grassroots Economics Foundation \\ \texttt{info@grassecon.org}}
-\date{White Paper v0.8 translation: 10 October 2026}
+\date{White Paper v0.9 translation: 17 November 2026}
 
 \begin{document}
 \maketitle
@@ -44,17 +44,17 @@
 \sloppy
 \RaggedRight
 
-\textbf{Tungkol sa saling ito.} Salin ito ng White Paper v0.8. Inilathala ang English na pinagmulang teksto noong 30 Setyembre 2026. Inilathala ang saling ito noong 10 Oktubre 2026. English ang pinagmulang teksto. \href{https://docs.cosmolocal.credit/white-paper}{Basahin ang English na pinagmulang teksto}.
+\textbf{Tungkol sa saling ito.} Ito ay isang pagsasalin ng White Paper v0.9. Ang Ingles na pinagmulan ay inilathala noong 16 Nobyembre 2026. Ang salin na ito ay inilathala noong 17 Nobyembre 2026. Ang Ingles ang pinagmulan ng teksto. \href{https://docs.cosmolocal.credit/white-paper}{Basahin ang Ingles na pinagmulan}.
 
-\textbf{Bersyon:} 0.8
+\textbf{Bersyon:} 0.9
 
-\textbf{Petsa:} 30 Setyembre 2026
+\textbf{Petsa:} 16 Nobyembre 2026
 
 \textbf{Mga may-akda:} William O. Ruddick at Mohamed Sohail
 
 \textbf{Makipag-ugnayan:} \href{mailto:info@grassecon.org}{info@grassecon.org}
 
-\textbf{I-download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v8-fil.pdf}{CLC White Paper v0.8 PDF sa Filipino}
+\textbf{I-download:} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-fil.pdf}{CLC White Paper v0.9 PDF sa Filipino}
 
 \textbf{Publikasyon:} Pinal at may bersyong pampublikong publikasyon. Hindi payo sa pamumuhunan ang papel na ito at hindi ito alok na magbenta o paanyayang bumili ng anumang security o financial instrument. Maaaring baguhin ng mga susunod na bersyon ang mga disenyong inilalarawan dito.
 
@@ -75,7 +75,7 @@ Status & Kahulugan \\
 \bottomrule
 \end{longtable}
 
-Kasama sa kasalukuyang Protocol v1.1.0 ang direktang execution sa \texttt{SwapPool}, opsyonal na curation, valuation, cap sa balanse ng token ng Pool, bayad sa Pool, karagdagang bayad sa Protocol, at \texttt{SwapRouter} na para sa quote lamang. Iminungkahi o depende sa deployment ang multi-hop execution, HTLC o escrow routing, batch netting, shared insurance, iminungkahing CLC governance token, iminungkahing CLC Network Pool, fee-credit mechanism, at network liquidity program.
+Kasama sa kasalukuyang Protocol v1.1.0 ang direktang \texttt{SwapPool} execution, opsyonal na curation at valuation, mga token-balance cap ng Pool, mga bayarin sa Pool, karagdagang bayarin sa protocol, at quote-only na Solidity \texttt{SwapRouter}. Nagbibigay ang production CLC App at CLC Core ng same-chain route discovery, pinned-block quote, simulation, pinirmahang atomic Wallet-batch execution sa hanggang tatlong Pool, at grouped receipt. Nananatiling iminungkahi o nakadepende sa deployment ang cross-chain HTLC o escrow routing, awtomatikong Pool rebalancing, batch netting, shared insurance, iminungkahing CLC governance token, iminungkahing CLC Network Pool, fee-credit mechanism, at network liquidity program.
 
 \textbf{Nilalayong mambabasa:} mga tagabuo at Tagapangasiwa ng Pool, protocol engineer at auditor, mga nagpopondo ng liquidity at mandato, governance designer, at legal o compliance reviewer.
 
@@ -91,7 +91,7 @@ Ang cosmo-local ay nangangahulugang pagbabahagi ng open standard, software, at k
 \section*{Kasalukuyang deployment}
 \addcontentsline{toc}{section}{Kasalukuyang deployment}
 
-Pinapatakbo ng GEF ang CLC App sa \href{https://cosmolocal.credit}{cosmolocal.credit}. Nagbibigay ito ng access sa account at Wallet, pampublikong catalog na Pamilihan, at mga suportadong interface para sa token, voucher, Offering, Pool ng Pangako, paglilipat, at direktang palitan sa Pool. Nakadepende ang availability sa interface, contract, inventory, naka-configure na limitasyon at bayarin, network state, eligibility, provider, hurisdiksyon, at inilathalang mga tuntunin ng tagapag-isyu o Pool.
+Pinapatakbo ng GEF ang CLC App sa \href{https://cosmolocal.credit}{cosmolocal.credit}. Nagbibigay ito ng account at Wallet access, pampublikong catalog ng Pamilihan, at suportadong interface para sa token, Voucher, Offering, Want, Pool ng Pangako, transfer, direktang palitan sa Pool, at application-level routed exchange. Sinusuportahan ng CLC Core ang route discovery, may-awtoridad na quote, transaction simulation, relay coordination, on-chain reconciliation, at grouped receipt. Nakadepende ang availability sa interface, contract, inventory, naka-configure na limitasyon at bayarin, uri ng Wallet, network state, eligibility, provider, hurisdiksiyon, at inilathalang tuntunin ng tagapag-isyu o Pool.
 
 Hindi ginagawang tagapag-isyu, Tagapangasiwa ng Pool, custodian, lender, borrower, broker, guarantor, tagatubos, adviser, insurer, o partido sa obligasyon ng mga kalahok ang GEF dahil lamang pinapatakbo nito ang interface. Ang paggamit ng App ay pinamamahalaan ng \href{https://docs.cosmolocal.credit/fil/governance/terms}{Mga Tuntunin ng Serbisyo}.
 
@@ -135,23 +135,27 @@ Ang digital layer ay shared memory at imprastraktura sa koordinasyon. Hindi nito
 \section*{Kasalukuyan at iminungkahing mga daloy}
 \addcontentsline{toc}{section}{Kasalukuyan at iminungkahing mga daloy}
 
-\subsection*{Kasalukuyang direktang daloy sa Pool}
-\addcontentsline{toc}{subsection}{Kasalukuyang direktang daloy sa Pool}
+\subsection*{Kasalukuyang direkta o routed na flow sa Pool}
+\addcontentsline{toc}{subsection}{Kasalukuyang direkta o routed na flow sa Pool}
 
 \begin{enumerate}[leftmargin=*]
-\item Sinusuri ng may hawak ang voucher, tagapag-isyu nito, mga tuntunin, at kaugnay na Offering.
-\item Tumatanggap ang Pool ng mga suportadong asset at inilalathala ang configuration at mga responsableng awtoridad nito.
-\item Kumukuha ang may hawak ng quote at inaawtorisahan ang direktang palitan sa Pool.
-\item Isinasagawa ng \texttt{SwapPool} ang on-chain swap settlement at itinatala ang bayad sa Pool at Protocol.
-\item Kung piliin ng may hawak ang \textbf{``Tubusin''} sa App, naghahanda ang App ng paglilipat sa may-ari ng token bilang paghaharap para tubusin.
-\item Hiwalay na tinutupad ng tagapag-isyu ang pangako at itinatala ang discharge upang hindi magamit muli ang mga natupad na yunit.
+\item Sinusuri ng may-hawak ang Voucher, tagapag-isyu, mga tuntunin, at kaugnay na Offering.
+\item Tinatanggap ng Pool ang mga suportadong asset at inilalathala ang configuration at mga responsableng awtoridad nito.
+\item Maaaring gamitin ng may-hawak ang view na \textbf{Kredito} upang maghanap ng direktang palitan o ruta sa ilang Pool na magkakahiwalay ang pamamahala.
+\item Binabasa ng CLC Core ang mga napiling Pool sa iisang pinned block, gumagawa ng time-bounded quote, inililista ang bayarin sa Pool at protocol sa bawat hop, sini-simulate ang buong batch, at inihahanda ang mga call para sa Wallet ng may-hawak.
+\item Sinusuri at pinipirmahan ng may-hawak. Nire-relay ng App ang isang same-chain transaction kung saan babalik ang buong batch kapag may call na nabigo.
+\item Isinasagawa ng bawat \texttt{SwapPool} ang sarili nitong on-chain settlement. Pinagsasama ng App ang transaction status, mga hop, settled na halaga, at bayarin sa isang routed-exchange receipt.
+\item Kung piliin ng may-hawak ang \textbf{``Tubusin''} sa App, naghahanda ang App ng transfer sa may-ari ng token bilang redemption presentment.
+\item Hiwalay na tinutupad ng tagapag-isyu ang ipinangakong obligasyon at nagtatala ng discharge upang hindi magamit muli ang natupad na unit.
 \end{enumerate}
-Palitan ang pagkuha ng inventory mula sa Pool. Pagtubos lamang ito kung hiwalay na inako ng Pool ang tungkulin ng tagapag-isyu at tinutupad nito ang naaangkop na mga tuntunin ng voucher.
+Palitan ang pagkuha ng inventory mula sa Pool. Redemption lamang ito kung hiwalay na ginagampanan ng Pool ang tungkulin ng tagapag-isyu at tinutupad ang naaangkop na tuntunin ng Voucher.
+
+Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong route configuration, at sinusuportahan nito ang mga EOA/Calibur Wallet na katugma sa App. Hindi ito naghahanda ng routed exchange para sa Safe o ibang contract Wallet. Nananatiling quote-only ang Solidity \texttt{SwapRouter}; ang CLC Core at pinirmahang Wallet batch ang nag-uugnay ng execution sa ibabaw ng mga contract.
 
 \subsection*{Mas malawak na iminungkahing disenyo}
 \addcontentsline{toc}{subsection}{Mas malawak na iminungkahing disenyo}
 
-Sinusuri ng iminungkahing disenyo ang execution routing, netting, shared service, network liquidity program, insurance policy, at governance asset. Mangangailangan ang bawat isa ng implementation, responsableng partido, pinagtibay na tuntunin, pondo, kontrol, at pampublikong pagsisiwalat bago ito mailapat.
+Ang iminungkahing disenyo ay nagsasaliksik sa cross-domain HTLC o escrow routing, opt-in Pool rebalancing, batch netting, karagdagang ibinahaging serbisyo, mga programa ng network liquidity, mga patakaran sa seguro, at mga ari-arian sa pamamahala. Ang bawat isa ay mangangailangan ng pagpapatupad, mga may pananagutan na partido, pinagtibay na mga patakaran, pagpopondo, mga kontrol, at pampublikong pagsisiwalat bago ito magamit.
 
 Maaaring gumamit ang iminungkahing fee model ng network rake mula sa Pool fees at hiwalay na routing o service fee. Iba ang panukalang iyon sa Protocol v1.1.0, kung saan karagdagan sa Pool fee ang opsyonal na protocol fee.
 
@@ -178,7 +182,7 @@ Ang \href{https://docs.cosmolocal.credit/fil/white-paper/archive}{mga nakaraang 
 
 Inilalarawan ng \textbf{Commitment Pooling Protocol (CPP)} kung paano maaaring mag-curate ng mga pangakong maaaring tubusin, maglathala ng paraan ng exchange rate at limitasyon, humawak ng inventory, at magbigay-daan sa may-pananagutang palitan ang mga Pool ng Pangako na malayang pinamamahalaan. Nananatiling responsable ang mga tagapag-isyu sa mga pangako ng kanilang voucher. Nananatiling responsable ang mga Tagapangasiwa ng Pool sa mga tuntunin ng Pool at anumang garantiyang hayagang inaako nila. Hindi pangkalahatang guarantor ang CLC App o GEF.
 
-Nagbibigay ang Protocol v1.1.0 ng kasalukuyang building block para sa direktang palitan: \texttt{GiftableToken}, \texttt{SwapPool}, opsyonal na registry at valuation module, cap sa balanse ng token ng Pool, bayad sa Pool, karagdagang bayad sa Protocol, at \texttt{SwapRouter} na para sa quote lamang. Hindi itinatala ng kasalukuyang mga contract ang real-world fulfillment, lumilikha ng awtomatikong share para sa liquidity provider, nagsasagawa ng multi-hop route, o nagbibigay ng pangkalahatang reserba, garantiya, o insurance.
+Nagbibigay ang Protocol v1.1.0 ng mga kasalukuyang building block para sa direktang palitan: \texttt{GiftableToken}, \texttt{SwapPool}, opsyonal na registry at valuation module, mga token-balance cap ng Pool, mga bayarin sa Pool, karagdagang bayarin sa protocol, at quote-only na Solidity \texttt{SwapRouter}. Naghahanap ngayon ang production CLC App at CLC Core ng same-chain route sa hanggang tatlong Pool, gumagawa ng pinned-block quote, nag-si-simulate at naghahanda ng pinirmahang atomic Wallet batch, nagre-relay nito, at pinagsasama ang settlement record. Hindi pa rin nagtatala ang mga contract ng real-world fulfillment, awtomatikong gumagawa ng liquidity-provider share, nagsasagawa ng cross-chain routing o batch netting, o nagbibigay ng pangkalahatang reserve, guarantee, o insurance.
 
 Ginamit ng makasaysayang \textbf{Sarafu Network} ang mga konsepto ng commitment pooling sa community currency, savings group, mutual-aid system, at production commitment. Lumipat kalaunan ang serbisyo nito sa CLC App. Hindi nito ipinahihiwatig na lumipat ang bawat makasaysayang account, Wallet, token, voucher, Pool, balanse, report, kalahok, o obligasyon.
 
@@ -196,14 +200,14 @@ Ginamit ng makasaysayang \textbf{Sarafu Network} ang mga konsepto ng commitment 
 \end{itemize}
 Makasaysayang ebidensiya ang mga bilang na ito, hindi bilang ng kasalukuyang paggamit ng CLC.
 
-Sinusuri ng mas malawak na iminungkahing disenyo ng CLC kung paano maaaring gawin ng mga compatible na network ang sumusunod:
+Ang mas malawak na disenyo ng CLC ay pinagsasama ang kasalukuyang pag-routing sa mga panukala kung paano maaaring maging compatible ang mga network:
 
 \begin{enumerate}[leftmargin=*]
-\item tumuklas at mag-quote ng mga path sa mga Pool na malayang pinamamahalaan;
+\item palawakin ang mga serbisyong may pananagutan sa ruta sa iba pang mga profile ng rehistro o patakaran at mga domain;
 \item mag-ugnay ng mga serbisyo sa network na may pananagutan nang hindi pinapalitan ang lokal na pananagutan;
 \item sumuporta sa hiwalay na pinondohang liquidity mandate, garantiya, reserba, o insurance policy;
 \item sukatin nang magkahiwalay ang palitan sa Pool, paghaharap ng voucher, pagtupad, at discharge; at
-\item gumamit ng iminungkahing network rake at service fee upang pondohan ang mga pinagtibay na shared service.
+\item gamitin ang isang iminungkahing network rake at hiwalay na pinagtibay na mga bayarin sa serbisyo upang pondohan ang ibinahaging mga serbisyo.
 \end{enumerate}
 Kabilang sa panukala ang isang \textbf{iminungkahing CLC governance token} at \textbf{iminungkahing CLC Network Pool}. Wala sa dalawa ang bahagi ng kasalukuyang App o Protocol v1.1.0.
 
@@ -242,7 +246,7 @@ Kabilang sa mga may kaugnayan na tungkulin at awtoridad ang:
 \item \textbf{may-ari ng Pool:} may kasalukuyang kapangyarihan bilang may-ari ng \texttt{SwapPool};
 \item \textbf{proxy administrator:} maaaring mag-upgrade ng isang proxied implementation;
 \item \textbf{mga controller ng dependency:} namamahala sa mga naka-configure na registry, quoter, limiter, o bahagi ng bayad;
-\item \textbf{tagahanap o operator ng ruta:} maaaring tumuklas ng mga quote o, sa isang pagpapatupad sa hinaharap, magsagawa ng hiwalay na awtorisadong ruta; at
+\item \textbf{route-service operator:} maaaring maghanap, mag-quote, mag-simulate, maghanda, mag-relay, at magtala ng hiwalay na awtorisadong ruta sa loob ng inilathalang saklaw nito; at
 \item \textbf{guarantor:} umaako lamang ng isang tiyak na obligasyon sa pamamagitan ng inilathala at pinondohang mga tuntunin.
 \end{itemize}
 Pinapangkat ng CPP ang mga gawain ng Pool sa apat na konsepto:
@@ -253,9 +257,11 @@ Pinapangkat ng CPP ang mga gawain ng Pool sa apat na konsepto:
 \item \textbf{Limitation:} ilapat ang kasalukuyang cap sa balanse ng token ng Pool o iba pang hiwalay na ipinatupad na kontrol.
 \item \textbf{Exchange:} humawak ng inventory, magsagawa ng mga swap, magtala ng mga bayad, at maglabas ng mga rekord ng transaksyon.
 \end{itemize}
-Ipinatutupad ng Protocol v1.1.0 ang mga gawaing ito sa pamamagitan ng \texttt{SwapPool} at mga opsyonal na dependency. Nililimitahan ng kasalukuyang \texttt{Limiter} ang balanse ng isang token sa isang Pool; hindi ito nagbibigay ng rolling, per-account, o network-wide na mga limitasyon sa swap. Kinakalkula ng kasalukuyang \texttt{SwapRouter} ang mga multi-Pool quote; hindi ito nagsasagawa ng mga swap.
+Ipinapatupad ng Protocol v1.1.0 ang mga function na ito sa pamamagitan ng \texttt{SwapPool} at mga opsyonal na dependency. Nililimitahan ng kasalukuyang \texttt{Limiter} ang balanse ng isang token sa Pool; hindi ito nagbibigay ng rolling, per-account, o network-wide exchange limit. Kinukuwenta ng kasalukuyang Solidity \texttt{SwapRouter} ang multi-Pool quote; hindi ito nagpapatupad ng palitan.
 
-Maaaring magdagdag ang mas malawak na iminungkahing disenyo ng CPP ng rolling limits, account controls, execution routers, HTLC o escrow paths, at batch netting. Mga iminungkahing bahagi ang mga ito, hindi paglalarawan ng kasalukuyang limiter o router.
+Ipinapatupad ng production CLC App at CLC Core ang application-level same-chain routing sa ibabaw ng mga contract na ito. Naghahanap ang CLC Core ng path, binabasa ang napiling mga Pool sa iisang pinned block, naghahanda at nag-si-simulate ng pinirmahang Calibur Wallet batch, nag-uugnay sa relay, at pinagsasama ang settlement record. Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong configuration. Nananatiling hiwalay ang pamamahala ng bawat Pool, at direktang gumagana ang bawat hop sa sarili nitong \texttt{SwapPool}.
+
+Maaaring magdagdag ang mas malawak na iminungkahing disenyo ng CPP ng rolling limit, account control, cross-domain HTLC o escrow path, awtomatikong Pool rebalancing, at batch netting. Mga iminungkahing component ang mga ito, hindi paglalarawan ng kasalukuyang \texttt{Limiter}, Solidity \texttt{SwapRouter}, o App/Core route flow.
 
 \subsection*{1.3 Logika ng kasalukuyang direktang swap}
 \addcontentsline{toc}{subsection}{1.3 Logika ng kasalukuyang direktang swap}
@@ -369,62 +375,68 @@ Ang istraktura na ito ay maaaring pahintulutan ang napagkasunduan na pagbabayad 
 \section*{5. Mula sa hiwalay na mga Pool tungo sa isang pederadong network}
 \addcontentsline{toc}{section}{5. Mula sa hiwalay na mga Pool tungo sa isang pederadong network}
 
-Sinusuportahan ng kasalukuyang Protocol v1.1.0 ang direktang pagpapatupad sa pamamagitan ng isang \texttt{SwapPool} at nagbibigay ng quote-only na \texttt{SwapRouter}. Hindi ito nagsasagawa ng multi-hop route, HTLC, escrow route, batch netting, o cross-network clearing.
+Sinusuportahan ng kasalukuyang Protocol v1.1.0 ang direktang execution sa pamamagitan ng isang \texttt{SwapPool} at nagbibigay ng quote-only na Solidity \texttt{SwapRouter}. Inuugnay ng production CLC App at CLC Core ang participant-initiated same-chain route sa hanggang tatlong Pool sa pamamagitan ng paghahanda ng isang pinirmahang Calibur Wallet batch. Hindi mismo ipinapatupad ng mga contract ang multi-hop route, at hindi nagbibigay ang kasalukuyang App/Core flow ng cross-chain HTLC, escrow route, awtomatikong Pool rebalancing, batch netting, o cross-network clearing.
 
-Ipinapahiwatig ng kabanata na ito kung paano ang mga independentong pinamamahalaan na pool ay maaaring kumonekta nang hindi sumuko sa kanilang sariling pagpasok, pagpapahalaga, limitasyon, bayad, inventory, pahintulot, at mga patakaran sa pamamahala.
+Ipinapaliwanag ng kabanatang ito ang kasalukuyang participant route at ibinubukod ito sa iminungkahing koordinasyon na mangangailangan ng bagong awtoridad ng Pool. Sa parehong kaso, pinananatili ng bawat hiwalay na Pool ang sarili nitong admission, valuation, limitasyon, bayarin, inventory, awtorisasyon, at governance rule.
 
-\subsection*{5.1 Nag-iiba na mga hakbang sa paghahati at pagpapatupad}
-\addcontentsline{toc}{subsection}{5.1 Nag-iiba na mga hakbang sa paghahati at pagpapatupad}
+\subsection*{5.1 Hiwalay na sukat para sa palitan at fulfillment}
+\addcontentsline{toc}{subsection}{5.1 Hiwalay na sukat para sa palitan at fulfillment}
 
-Ang Federasyon ay maaaring mapabuti ang pag-access sa inventory, ngunit hindi ito magsasama ng voucher at magbabago ng mga siklo ng buhay.
+Maaaring mapabuti ng routing ang access sa inventory, ngunit hindi nito pinagsasama ang lifecycle ng Voucher at palitan. Dapat panatilihing hiwalay sa pagsukat ang mga pangyayaring ito:
 
 \begin{enumerate}[leftmargin=*]
-\item ang isang ruta ay iniulat;
-\item ang isa o higit pang mga pool swaps ay ipatupad at matugunan sa chain;
+\item ang isang ruta ay nabigyan ng quote;
+\item isa o higit pang palitan sa Pool ang naisagawa at na-settle on-chain;
 \item inihaharap ng may hawak ang mga unit ng voucher sa tagapag-isyu;
 \item ang tagapag-isyu ay nagtutupad ng pangako; at
 \item dini-discharge ang mga natupad na unit.
 \end{enumerate}
-Ang mga ulat ay magpapakita ng cohort, period, assets, valuation method at timestamp, exclusions, corrections, and off-chain evidence na kinakailangan sa Appendix C.
+Hindi pinatutunayan ng mas maraming quoted o executed route na mas maraming fulfillment ang naganap. Dapat ilahad sa report ang cohort, period, asset, valuation method at timestamp, exclusion, correction, at off-chain evidence na hinihingi ng Appendix C.
 
-\textbf{Ilarawan na ruta:} Ang isang paaralan ay may mga kupon ng mais ngunit nangangailangan ng mga kupon sa transportasyon.
+\textbf{Halimbawang ruta:} May Voucher sa mais ang isang paaralan ngunit kailangan nito ng Voucher sa transportasyon. Maaaring tukuyin ng CLC Core ang katugmang inventory ng Pool, i-quote ang napiling path sa iisang pinned block, at ihanda ang bounded call para sa Wallet ng paaralan. Magtatagumpay lamang ang execution kung ang bawat hop ay pasok sa quote boundary, limitasyon, bayarin, inventory, suportadong behavior, at policy. Hindi pinatutunayan ng mga swap na tumupad na ang alinmang tagapag-isyu sa Voucher commitment nito.
 
-\subsection*{5.2 Proposed na mga serbisyo sa routing at rebalancing}
-\addcontentsline{toc}{subsection}{5.2 Proposed na mga serbisyo sa routing at rebalancing}
+\subsection*{5.2 Kasalukuyang routing ng kalahok at iminungkahing muling pagbabalanse}
+\addcontentsline{toc}{subsection}{5.2 Kasalukuyang routing ng kalahok at iminungkahing muling pagbabalanse}
 
-Ang isang future route service ay maaaring suportahan ang dalawang magkakaibang aktibidad.
+Ang dalawang gawain ay nangangailangan ng iba't ibang awtoridad.
 
-\textbf{Pagpapapatay na iniimbitahan ng kalahok.} Dahil sa input at output assets, isang halaga, at mga paghihigpit ng gumagamit, ang serbisyo ay maaaring makilala ang isang landas at maghanda ng pagpapatupad. bawat hop ay magkakaroon ng kanyang sariling responsable Pool, quote, pag-authorization, bayad, limitasyon, inventory, at resibo. Atomic batches, HTLCs, at escrow ay posibleng mga pagpipilian sa pagtatapos sa hinaharap, hindi kasalukuyang pag-uugali ng Protokol.
+\textbf{Kasalukuyang participant-initiated execution.} Mula sa input at output Voucher at halaga, tinatantiya ng CLC Core ang path mula sa kwalipikadong holdings ng kalahok. Para sa napiling ruta, binabasa nito ang mga Pool sa iisang pinned block, gumagawa ng may-awtoridad na quote, sini-simulate ang buong batch, at naghahanda ng tatlong call sa bawat hop: allowance reset, allowance grant, at bounded \texttt{SwapPool.withdraw}. Pumipirma ang kalahok, at nagsusumite ang relayer ng isang same-chain Calibur transaction na may \texttt{revertOnFailure}. Kapag nabigo ang isang call, babalik ang lahat ng route call. Pinagsasama ng App ang transaction at per-hop settlement sa isang resibo.
 
-\textbf{Opt-in Pool rebalancing.} Ang Mga Tagapangasiwa ng Pool ay maaaring mag-publish ng mga target ng inventory, pinapayagan na mga kasosyo, mga klase ng asset, mga limitasyon sa pagsalungat ng quote, at mga limitasyong per-period.
+Pinananatili ng bawat hop ang sarili nitong responsableng Pool, quote input, awtorisasyon, bayarin, limitasyon, inventory, at settlement event. Walang hiwalay na route-service fee ang kasalukuyang App. Sinusuportahan ng kasalukuyang flow ang mga EOA/Calibur Wallet na katugma sa App, hindi ang Safe o ibang contract Wallet.
 
-Ang rebalancing ay isang opt-in. Ang isang pool ay maaaring magbigay ng mga ruta sa mga kalahok habang tumanggi sa outbound rebalance, o maaari lamang itong magbigay ng pinili na mga asset, counterparties, at halaga.
+\textbf{Opt-in Pool rebalancing.} Maaaring ilathala ng mga Tagapangasiwa ng Pool ang target na inventory, pinapayagang counterparty, asset class, quote-deviation boundary, at per-period limit. Maaaring maghanap ang isang responsableng service ng katugmang cycle o chain at ipatupad lamang ang awtorisadong intent.
+
+Ang muling pagbabalanse ay magiging opt-in. Ang isang Pool ay maaaring payagan ang mga ordinaryong ruta ng kalahok nang hindi nagpapahintulot sa isang serbisyo na ilipat ang imbentaryo para sa muling pagbabalanse. Ang isang hinaharap na mandate ay maaaring magbigay ng kakayahan lamang sa mga napiling assets, counterparties, at halaga. Ang bawat ginanap na hop ay magbibigay ng isang resibo, at ang anumang bayad sa serbisyo ay ilalabas nang hiwalay mula sa mga bayarin sa Pool at Protocol.
+
+Ang cross-chain HTLC o escrow execution ay hiwalay din sa kasalukuyang same-chain atomic batch. Kakailanganin nito ang pinagtibay na mga patakaran sa timeout, abort, controller, recovery, at residual-risk.
 
 \subsubsection*{5.2.1 Konfederasyon at interoperability}
 
-Ang mga independiyenteng deployment ay maaaring gumana ng kanilang sariling mga registry, interface, serbisyo sa ruta, at mga profile ng patakaran habang pumili ng katumbas na mga pamantayan ng data at pagtanggap.
+Ang mga independiyenteng deployments ay maaaring magpatakbo ng kanilang sariling mga rehistro, interface, serbisyo sa ruta, at mga profile ng patakaran habang pinipili ang mga katugmang data at mga pamantayan sa pagtanggap. Ang kasalukuyang pampublikong App ay gumagamit ng naka-configure na rehistro at profile ng serbisyo. Cross-profile pagpapatupad ay nananatiling deployment-dependent.
 
-Ang isang katumbas na profile ay:
+Ang isang compatible na profile ay:
 
 \begin{itemize}[leftmargin=*]
-\item ipakilala ang mga pinagmulan ng rehistro nito, operator ng serbisyo, controller, at naaangkop na termino;
-\item Ihayag ang pinapayagan at hindi pinapayanan na mga kontrahenso, mga asset, adapter, at mga ruta;
-\item i-apply ang mga otorisasyon, limitasyon, bayad, at paghihigpit sa inventory ng bawat nakikibahagi na pool;
-\item magtipig ng mga katibayan sa quote-to-receipt per-hop; at
-\item pahintulutan ang iba pang functional na mga pool na umalis o pumili ng ibang registry nang hindi tinanggal ang mga saldo o obligasyon ng tagapag-isyu.
+\item tukuyin ang mga registry source, service operator, controller, at naaangkop na terms nito;
+\item ilathala ang pinapayagan at hindi pinapayagang counterparty, asset, adapter, at route;
+\item ilapat ang authorization, limit, fee, at inventory constraint ng bawat kasaling Pool;
+\item magpanatili ng per-hop quote-to-receipt evidence; at
+\item payagan ang ibang gumaganang Pool na umalis o pumili ng ibang registry nang hindi binubura ang balance o obligasyon ng issuer.
 \end{itemize}
 Maaaring paramihin ng compatibility ang mga available na landas ng palitan at bawasan ang pagdepende sa iisang registry o operator. Hindi nito ginagawang responsable ang network, CLC App, GEF, o ibang Pool para sa pagtupad ng isang tagapag-isyu.
 
 \subsection*{5.3 Proposed model ng network rake at service fee}
 \addcontentsline{toc}{subsection}{5.3 Proposed model ng network rake at service fee}
 
-Ang kasalukuyang Protocol v1.1.0 ay nagbabayad ng isang bayad sa Pool at, kapag naka-configure, ng karagdagang bayad sa Protokol sa isang diretso na swap ng Pool.
+Sinisingil ng kasalukuyang Protocol v1.1.0 ang Pool fee at, kapag naka-configure, karagdagang protocol fee sa isang direct Pool swap.
+
+Hiwalay na inilalapat ng production routed exchange ang kasalukuyang bayarin sa bawat hop at inililista ang mga ito sa quote at resibo. Hindi ito kasalukuyang nagdaragdag ng hiwalay na route-service fee.
 
 Ang isang hinaharap na programa ay maaaring tumanggap nang hiwalay:
 
 \begin{enumerate}[leftmargin=*]
-\item isang \textbf{network rake}, na tinukoy bilang isang ipinahayag na bahagi ng mga bayad sa pool na nakukuha ng mga kalahok na pool; at
-\item isang \textbf{bayad sa pag-route o serbisyo}, na binayaran para sa isang natukoy na hinaharap na serbisyo.
+\item isang \textbf{network rake}, na tinukoy bilang inilathalang bahagi ng Pool fee na kinita ng mga kasaling Pool; at
+\item isang \textbf{routing o service fee}, na binabayaran para sa tinukoy na service sa hinaharap.
 \end{enumerate}
 Ang iminungkahi na network rake ay hindi isang karagdagang porsyento na inilapat sa buong halaga ng swap pagkatapos na i-count ang bayad ng pool. Para sa pool \texttt{p}:
 
@@ -437,18 +449,18 @@ kung saan ang \texttt{f\_p} ay rate ng bayad sa Pool at ang \texttt{r\_p} ay ang
 Para sa isang sinusukat na panahon:
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{gross fees ng pool} ang halaga ng mga tunay na hinihingi sa bawat pool;
-\item \textbf{mga resibo ng network-rake} ang ipinahayag na bahagi ng mga hinihingi na bayad;
-\item \textbf{mga resibo ng bayad sa serbisyo} nag-iiba ang mga bayad sa routing o serbisyo; at
-\item \textbf{mga resibo ng bayad sa programa} katumbas ng network rake plus service fee receipts.
+\item \textbf{gross Pool fees} ang kabuuan ng mga fee na aktuwal na siningil ng bawat Pool;
+\item \textbf{network-rake receipts} ang inilathalang bahagi ng mga siningil na fee;
+\item \textbf{service-fee receipts} ang hiwalay na routing o service fee; at
+\item \textbf{program fee receipts} ang network rake at service-fee receipts na pinagsama.
 \end{itemize}
-Walang kategorya ang binilang nang dalawang beses. Ang kasalukuyang mga bayad sa Protokol ay hindi kasama maliban kung ang isang nag-iiba na panuntunan ng patakaran ay makatuwirang magbabago ng tunay na mga resibo sa mga bayad ng Protokol sa hinaharap na programa.
+Walang kategoryang binibilang nang dalawang beses. Hindi kasama ang kasalukuyang protocol fee maliban kung tahasang ililipat ng ibang policy rule ang aktuwal na protocol-fee receipts sa programa sa hinaharap.
 
 Para sa isang aggregate approximation, ipaalam:
 
 \begin{itemize}[leftmargin=*]
 \item \texttt{Q\_swap} ay ang halaga ng executed Pool swaps para sa tinukoy na cohort at panahon; at
-\item Ang \texttt{$\tau$} ay ang epektibong rate ng iminungkahi na network rake at nag-iiba na natukoy na mga bayad sa serbisyo sa halaga ng executed swap.
+\item ang \texttt{$\tau$} ay ang effective rate ng proposed network rake at hiwalay na tinukoy na service fee sa value ng executed swap.
 \end{itemize}
 Pagkatapos:
 
@@ -456,19 +468,19 @@ Pagkatapos:
 F \approx \tau \cdot Q_{\mathrm{swap}}
 \]
 
-Ito ay isang analytical approximation, hindi isang pangako ng kita. bawat input ay nangangailangan ng tinukoy na cohort, panahon, yunit, valuation timestamp, exclusions, at correction policy.
+Analytical approximation ito, hindi pangako ng revenue. Kailangan ng bawat input ang tinukoy na cohort, period, unit, valuation timestamp, exclusion, at correction policy.
 
 \subsubsection*{5.3.1 Ang mga nakatanggap ng cash eligible at in-kind receipts}
 
-Ang mga bayad ay maaaring dumating sa cash-eligible fungible assets o sa mga voucher at iba pang in-kind assets. In-kind receipts ay hindi awtomatikong magbayad ng cash expenses o coverage claims.
+Maaaring matanggap ang fee bilang cash-eligible fungible asset o bilang Voucher at ibang in-kind asset. Hindi awtomatikong pambayad sa cash expense o coverage claim ang in-kind receipt.
 
-Ang \texttt{$\chi$} ay ang nai-realize na bahagi ng mga resibo sa bayad na karapat-dapat sa cash pagkatapos ng mga paghihigpit sa patakaran, nabigo na mga pag-convert, at slippage.
+Ang \texttt{$\chi$} ay ang realized share ng fee receipt na cash-eligible matapos ang policy restriction, failed conversion, at slippage.
 
 \[
 F_{\mathrm{cash}} \approx \chi \cdot F
 \]
 
-Ang pagsusuri sa badyet at break-even ay gagamitin ang realized \texttt{F\_cash}, hindi ang gross quoted fees o ang nominal na halaga ng in-kind inventory.
+Realized \texttt{F\_cash} ang gagamitin sa budget at break-even analysis, hindi gross quoted fee o nominal value ng in-kind inventory.
 
 \subsection*{5.4 Proposed na mga programa ng likididad}
 \addcontentsline{toc}{subsection}{5.4 Proposed na mga programa ng likididad}
@@ -478,21 +490,21 @@ Maaaring maglaan ang isang hiwalay na dokumentadong liquidity program sa hinahar
 Ang anumang programa ay mag-publish:
 
 \begin{itemize}[leftmargin=*]
-\item ang responsable na entidad at nakikibahagi sa Mga Tagapangasiwa ng Pool;
-\item ang kontribusyon sa mga assets at kung ang transfer ay maibabalik, mai-withdrawable, donated, o endowed;
-\item mga kaayusan ng custody at technical-control;
-\item ang pinapayagan na paggamit, mga limitasyon, pag-lock ups, mga gate ng pag-withdraw, at allocation ng pagkawala;
-\item ang pagiging karapat-dapat sa bayad o insentibo at kung ang halaga ay maaaring maging zero;
-\item pag-uulat, labanan, reklamo, at mga paraan ng paglilinis; at
-\item ang paglipat, pagtatapos, at paggamot ng natitirang mga kabtangan at obligasyon.
+\item ang responsableng entity at mga kasaling Pool Steward;
+\item ang contributed asset at kung refundable, withdrawable, donated, o endowed ang transfer;
+\item mga kaayusan sa custody at technical control;
+\item ang pinapayagang paggamit, limit, lockup, withdrawal gate, at allocation ng loss;
+\item eligibility para sa fee o incentive at kung maaaring zero ang halaga;
+\item reporting, dispute, complaint, at remedy path; at
+\item transition, termination, at pagtrato sa natitirang asset at obligasyon.
 \end{itemize}
-Ang mga materyal na panganib ay kinabibilangan ng inventory na mahirap i-exchange o matupad, mababang kwalipikasyon sa pera, hindi pagganap ng tagapag-isyu, pagkakamali ng kontrata o provider, pagbabago sa pamamahala, at mga paghihigpit sa paglabas.
+Kabilang sa material risk ang inventory na mahirap i-exchange o i-fulfill, mababang cash eligibility, non-performance ng issuer, contract o provider failure, pagbabago sa governance, at exit restriction.
 
 Para sa isang ex-post analytical metric, hayaan:
 
 \begin{itemize}[leftmargin=*]
-\item Ang \texttt{$\phi$} ay ang napapatupad na bahagi ng mga resibo sa bayad sa programa na inilalagay sa ilalim ng mga panuntunan ng programa; at
-\item \texttt{K} ay ang kinukunan na halaga ng mga asset na sakop ng programa sa ilalim ng isang nabanggit na pamamaraan.
+\item ang \texttt{$\phi$} ay ang realized share ng program fee receipt na inilaan sa ilalim ng mga tuntunin ng programa; at
+\item ang \texttt{K} ay ang nasukat na value ng asset na sakop ng programa sa ilalim ng nakasaad na methodology.
 \end{itemize}
 Pagkatapos:
 
@@ -500,7 +512,7 @@ Pagkatapos:
 \mathrm{FeeFlow}_{LP} \approx \frac{\phi \cdot F}{K} = \frac{\phi \cdot \tau \cdot Q_{\mathrm{swap}}}{K}
 \]
 
-Ang metric na ito ay naglalarawan ng naiisip na daloy ng bayad sa bawat kinukunan na asset ng programa. Hindi ito APY, isang pag-uulat, dividend, o isang ginagarantiyaang pagbabalik.
+Inilalarawan ng metric na ito ang observed fee flow sa bawat nasukat na program asset. Hindi ito APY, redemption quote, dividend, o guaranteed return.
 
 
 \section*{6. Proposed na likido at pamamahala sa antas ng network}
@@ -523,7 +535,9 @@ Ang isang future deployment ay maaaring magdagdag ng mga circuit breaker, timelo
 
 Ang iminungkahi na pamamahala ay dapat panatilihin ang mga kapangyarihan ng rehistro at serbisyo na mahigpit at mai-review. Ang ordinaryong mga aksyon ay maaaring gumamit ng pahibalo, pag-atras, dahilan publication, appeal, at correction process. Ang mga hakbang sa emerhensiya ay dapat gumawa ng mga talaan ng insidente at matapos o tumanggap ng pagsusuri sa ilalim ng isang inaminang patakaran.
 
-Ang compatible na pagtuklas ng ruta ay maaaring gawing posible ang higit pang mga palitan sa buong Pool.
+Nagbibigay ngayon ang production CLC App at CLC Core ng katugmang route discovery at same-chain multi-hop execution para sa mga rutang awtorisado ng kalahok sa naka-configure na pampublikong profile. Inilalapat ng quote ang per-hop na limitasyon, bayarin, inventory, boundary, at simulation; ang pinirmahang Wallet batch ay babalik nang buo kapag may call na nabigo.
+
+Ang serbisyong iyon ay hindi nagpapahintulot sa awtomatikong pag-rebalanse ng Pool o kontrol sa antas ng network ng imbentaryo ng Pool. Ang rebalancing, batch netting, cross-domain HTLC o escrow execution, at shared liquidity governance ay kakailanganin ng karagdagang awtoridad, software, limitasyon, failure handling, at pinagtibay na mga patakaran. Ang mga swap na mas nakalista o pinatupad ay hindi sa kanilang sarili nagpapatunay ng katuparan ng Voucher o epekto sa lipunan.
 
 
 \section*{7. Iminungkahing pangangasiwa at governance asset ng CLC}
@@ -703,13 +717,24 @@ Walang hakbang ang lumilikha ng mga karapatan sa pagmamay-ari, pagbabalik, pagta
 \section*{8. Technical scope at paglago}
 \addcontentsline{toc}{section}{8. Technical scope at paglago}
 
-Inilalarawan ng kabanatang ito ang opsyonal o iminungkahing gawain. Hindi ito listahan ng mga feature na garantisadong nasa kasalukuyang CLC App o Protocol v1.1.0.
+Inihihiwalay ng kabanatang ito ang kasalukuyang production route service sa opsyonal o iminungkahing paglago. Ang kasalukuyang kakayahang inilalarawan dito ay partikular sa pampublikong CLC App/Core deployment; hindi ito awtomatikong feature ng mga contract ng Protocol v1.1.0 o ibang deployment.
 
-Kabilang sa mga posibleng lugar ng trabaho ang:
+Kasama sa kasalukuyang pampublikong paglalagay ang:
 
 \begin{itemize}[leftmargin=*]
-\item execution routing sa mga compatible Pools, na may registry, quote, limitation, fee at inventory discovery;
+\item graph-based discovery ng Voucher na maaabot sa pamamagitan ng katugmang Pool;
+\item may-awtoridad na pinned-block quote para sa napiling same-chain route;
+\item pagkukuwenta ng bayarin sa Pool at protocol, minimum na output, at deadline sa bawat hop;
+\item full-batch simulation, pagpirma ng kalahok, at relayed Calibur execution;
+\item isang same-chain transaction na nagbabalik sa bawat route call kapag may call na nabigo; at
+\item grouped receipt at reconciliation ng settlement event sa bawat hop.
+\end{itemize}
+Kabilang sa posibleng mga lugar ng paglago ang:
+
+\begin{itemize}[leftmargin=*]
 \item ang mga adaptor ng escrow o HTLC na naka-lock sa oras para sa cross-domain execution kung hindi magagamit ang atomic settlement;
+\item dagdag na mga profile ng rehistro o patakaran at cross-profile routing;
+\item opt-in na Pool-inventory rebalancing at batch netting;
 \item mga interface at tool ng patakaran para sa maliliit o personal na pool;
 \item ang mga rehistro na maaaring ma-audit para sa mga voucher, pool, mga pamamaraan ng exchange rate, limitasyon, controller, at bayad;
 \item ang mga connector ng payment provider na partikular sa deployment, cash out flows, at mga kontrol sa pagiging karapat-dapat;
@@ -718,39 +743,45 @@ Kabilang sa mga posibleng lugar ng trabaho ang:
 \end{itemize}
 Ang mga presyo sa panlabas na merkado ay hindi magtataguyod kung ano ang utang ng isang tagapag-isyu sa ilalim ng mga tuntunin ng voucher.
 
-\subsection*{8.1 Proposed na mga pamantayan ng serbisyo sa ruta at SDK}
-\addcontentsline{toc}{subsection}{8.1 Proposed na mga pamantayan ng serbisyo sa ruta at SDK}
+\subsection*{8.1 Kasalukuyang serbisyo sa ruta at mas malawak na mga pamantayan}
+\addcontentsline{toc}{subsection}{8.1 Kasalukuyang serbisyo sa ruta at mas malawak na mga pamantayan}
 
-\textbf{Pagtuklas.} Ang isang iminungkahi na serbisyo ng ruta ay magtanong sa mga kinikilala na registry para sa pagpasok ng mga asset, mga pamamaraan ng rate ng palitan, limitasyon, bayad, inventory, insidente, at impormasyon ng controller.
+\textbf{Discovery.} Pinananatili ng CLC Core ang reconciled graph mula sa naka-configure na catalog, ugnayan sa registry, parameter ng Pool, bayarin, limitasyon, balanse, at on-chain event. Tinatantiya nito kung ano ang maaabot ng session Wallet at minamarkahan ang stale na data. Hanggang tatlong hop ang hinahanap ng pampublikong configuration. Hindi executable commitment ang discovery.
 
-\textbf{Mga profile ng network.} Ang isang kliyente ay maaaring suportahan ang higit sa isa na root ng registry o profile ng patakaran. Ito ay magsasabi sa kalahok kung aling profile, mga katumbas, mga adapter, constraints, at responsable na operator ng serbisyo ang gumagamit ng quote.
+\textbf{May-awtoridad na quote.} Para sa napiling ruta, binabasa ng CLC Core ang mga kasaling Pool sa iisang pinned block at inuulit ang suportadong \texttt{SwapPool} calculation. Inililista nito ang bayarin sa Pool at protocol, nagtatakda ng minimum na output at deadline sa bawat hop, naghahanda ng Wallet call, at sini-simulate ang buong batch. Tinatanggihan ang hindi suportadong token, quoter, Wallet, o kondisyon ng Pool.
 
-\textbf{Mga patakaran sa landas.} Ang isang responsable na operator ay maaaring i-exclude ang mga hindi ligtas na depende o counterparty at mag-apply ng mga cap sa antas ng ruta, mga kinakailangan ng freshness, at mga pamantayan sa kalusugan.
+\textbf{Kasalukuyang execution.} Pinipirmahan ng kalahok ang Calibur batch na naglalaman ng allowance reset, allowance grant, at bounded withdrawal sa bawat hop. Nagsusumite ang relayer ng isang same-chain transaction na may \texttt{revertOnFailure}. Nagbibigay ito ng all-or-nothing behavior sa antas ng transaction para sa kasalukuyang ruta. Hindi ito cross-chain atomicity, HTLC o escrow routing, awtomatikong rebalancing, o netting.
 
-\textbf{Mga bayad at limitasyon.} Ang isang quote ay ipinapakita ang mga bayad ng Pool, anumang karagdagang kasalukuyang bayad sa Protokol, at anumang nag-iiba na iminungkahi na bayad sa routing o serbisyo.
+\textbf{Mga resibo at operasyon.} Pinagsasama ng App ang ruta sa iisang tracking ID at itinatala ang transaction status, ayos ng mga hop, mga Pool, token pair, quoted at settled na halaga, bayarin sa Pool, bayarin sa protocol, at intermediate remainder. Sinusubaybayan ng service ang graph freshness, route enumeration at quote result, simulation failure, tagal at correction ng reconciliation, at unresolved o unknown indexed member. Hindi pinatutunayan ng operational telemetry ang fulfillment ng tagapag-isyu.
 
-\textbf{Atomicity at pagbawi.} Kung ito ay gumagamit ng HTLCs o escrow, ang serbisyong inihayag timeouts, abort paths, responsable controllers, insidente pamamaraan, at residual panganib.
+\textbf{Network profile.} Maaaring suportahan ng client ang higit sa isang registry root o policy profile. Dapat nitong sabihin sa kalahok kung aling profile, counterparty, adapter, constraint, at responsableng service operator ang ginagamit ng quote. Kailangang matugunan ng cross-profile route ang lahat ng naaangkop na condition sa bawat hop.
 
-\textbf{Proposed batch netting at rebalancing.} Ang isang serbisyo ng opt-in ay maaaring kumita ng mga layunin sa pagbabagong balanse at paghahanap para sa katumbas na mga siklo o kadena.
+\textbf{Route policy.} Maaaring ibukod ng responsableng operator ang unsafe na dependency o counterparty at magtakda ng route-level cap, freshness requirement, at health criterion. Tinutulungan ng mga signal na ito ang isang desisyon; hindi garantiya ang mga ito ng fulfillment o proteksiyon laban sa pagkawala.
+
+\textbf{Mga bayarin at limitasyon.} Inililista ng kasalukuyang quote ang bayarin sa Pool at anumang karagdagang bayarin sa protocol sa bawat hop. Walang hiwalay na route-service fee ang pampublikong App sa kasalukuyan. Hiwalay na isisiwalat ang anumang service fee sa hinaharap. Tinatanggihan ng execution ang expired quote o paglabag sa boundary.
+
+\textbf{Cross-domain atomicity at recovery.} Kung saan ang isang hinaharap na ruta ay hindi maaaring gamitin ang kasalukuyang parehong-chain atomic batch at sa halip ay gumagamit ng HTLCs o escrow, isisiwalat ng serbisyo ang mga timeout, abort path, responsable controllers, pamamaraan ng insidente, at natitirang panganib.
+
+\textbf{Proposed batch netting at rebalancing.} Ang isang opt-in na serbisyo ay maaaring mangolekta ng mga intensyon sa rebalance at maghanap para sa mga katugmang siklo o kadena. Ito ay:
 
 \begin{enumerate}[leftmargin=*]
-\item mag-publish ng isang machine-readable receipt na naglalaman ng executed cycles, assets, amounts, valuation timestamps, at fees;
-\item ipatupad ang mga inaminang limitasyon sa bawat panahon at mga patakaran ng counterparty;
-\item tumanggi ng aktibidad na sumisira sa anumang pahintulot, limitasyon, o magagamit na inventory ng nakikibahagi na Pool; at
-\item panatilihin ang mga deterministic input at receipts para sa pagsusuri at dispute handling.
+\item maglathala ng machine-readable receipt na tumutukoy sa eksaktong cycle, asset, amount, valuation timestamp, at fee;
+\item ipatupad ang pinagtibay na per-period cap at counterparty policy;
+\item tanggihan ang activity na lumalabag sa authorization, limit, o available inventory ng kasaling Pool; at
+\item magpanatili ng deterministic input at receipt para sa review at dispute handling.
 \end{enumerate}
-\textbf{Mga kinakailangan ng SDK.} Magbibigay ang isang SDK para sa mga naisagawang ruta ng deterministic quote-to-receipt mapping, per-hop invariant check, madaling maunawaang failure code, at audit-friendly log. Nagbibigay lamang ng mga quote ang kasalukuyang \texttt{SwapRouter} ng Protocol v1.1.0; hindi nito isinasagawa ang mga iminungkahing ruta.
+\textbf{Mga kinakailangan sa SDK at interface.} Dapat magbigay ang reusable route integration ng deterministic quote-to-receipt mapping, per-hop invariant check, madaling maunawaang failure code, at audit-friendly log. Ibinibigay ng kasalukuyang production App/Core implementation ang mga function na ito para sa sarili nitong profile. Nananatiling quote-only ang Solidity \texttt{SwapRouter} ng Protocol v1.1.0 at hindi ito nagpapatupad ng ruta.
 
 \subsubsection*{8.1.1 Minimum confederation compatibility specification}
 
 Ang isang ecosystem ng Pool na naghahanap ng cross-profile routing ay magpupublikar ng impormasyon na maaaring basahin ng makina para sa:
 
 \begin{enumerate}[leftmargin=*]
-\item \textbf{Mga ugat ng rehistro:} mga identifier para sa mga asset, pool, mga pamamaraan ng rate ng palitan, limitasyon, at patakaran sa bayad, o isang root na deterministically resolves ang mga ito.
-\item \textbf{Mga reseta:} ang profile, mga asset sa loob at labas, halaga, pinagmulan ng quote at timestamp, limit snapshot, bayad, resulta ng inventory, at resulta ng pagpapatupad para sa bawat hop.
-\item \textbf{Mga signal sa operasyon:} ang mga impormasyon na may limitasyong kalungkutan tungkol sa inventory, limitasyon ng paggamit, insidente, at anumang partikular na napatunayan na pagpapatupad o pinansiyal na proteksyon.
-\item \textbf{Mga paghihigpit sa patakaran:} Pinapayagan o hindi pinapayagan ang mga counterparty, asset classes, adapters, at anumang mga kinakailangan sa escrow.
-\item \textbf{Mga code ng pagkakamali:} deterministic explanations for rejection, expiration, limit, inventory, policy, dependency, or incident failures.
+\item \textbf{Registry roots:} identifier para sa asset, Pool, exchange-rate method, limit, at fee policy, o isang root na deterministic na tumutukoy sa mga ito.
+\item \textbf{Receipts:} profile, input at output asset, amount, quote source at timestamp, limit snapshot, fee, inventory result, at execution result para sa bawat hop.
+\item \textbf{Operational signals:} impormasyong may limitadong saklaw tungkol sa inventory, paggamit ng limit, incident, at anumang partikular na napatunayang fulfillment o financial protection.
+\item \textbf{Policy constraints:} pinapayagan o hindi pinapayagang counterparty, asset class, adapter, at anumang escrow requirement.
+\item \textbf{Error codes:} deterministic na paliwanag para sa rejection, expiration, limit, inventory, policy, dependency, o incident failure.
 \end{enumerate}
 Ang isang profile ay maaaring magdagdag ng coverage, compliance, arbitration, o iba pang mga serbisyo nang hindi ito gumagawa ng mga kinakailangan para sa pangunahing pagkakapantay-pantay ng CPP.
 
@@ -759,16 +790,16 @@ Ang isang profile ay maaaring magdagdag ng coverage, compliance, arbitration, o 
 
 EVM-compatible ang mga contract ng Protocol v1.1.0. Inilathala sa ilalim ng AGPL-3.0 ang mga contract sa \texttt{src} directory ng Protocol repository, maliban sa mga natukoy na hindi binagong third-party component na nagpapanatili ng sarili nilang mga tuntunin. Sinusuportahan ng inilathalang source, ABI, at deployment instruction ang independiyenteng pagsusuri, ngunit hindi pinatutunayan ng mga ito lamang na may audit, ligtas ang deployment, o sumusunod ito sa batas.
 
-Ang bawat deployment ay nag-iiba na ipahayag ang bersyon ng code nito, build provenance, address, controller at upgrade powers, status ng audit, registry mirrors, at anumang timelock o pause protection.
+Dapat hiwalay na ilathala ng bawat deployment ang code version, build provenance, address, controller at upgrade power, audit status, registry mirror, at anumang timelock o pause protection.
 
-Isang iminungkahi \textbf{forklift kit} maaaring isama ang:
+Maaaring kabilang sa proposed \textbf{forklift kit} ang:
 
 \begin{enumerate}[leftmargin=*]
 \item mga deterministic deployment scripts;
 \item mga snapshot ng registry at mga tool sa pag-export;
-\item isang dokumentadong proseso para sa pagbabalik ng mga serbisyo sa ruta, SDKs, at interface sa isang bagong root ng registry;
-\item isang listahan ng pag-check ng Tagapangasiwa ng Pool para sa ligtas na pagpapalabas ng isang nakabahagi na talaan; at
-\item isang listahan ng pag-check sa migration para sa mga outstanding voucher, kabilang ang mga pahibalo ng tagapag-isyu, mga deadline para sa paghahatid at pagpapatupad, patuloy na access sa mga talaan, at remedies.
+\item dokumentadong proseso para ituro muli ang route service, SDK, at interface sa bagong registry root;
+\item checklist ng Pool Steward para sa ligtas na pag-alis sa shared registry; at
+\item migration checklist para sa outstanding Voucher, kabilang ang notice ng issuer, deadline sa presentment at fulfillment, patuloy na access sa record, at remedy.
 \end{enumerate}
 Ang mga compatible fork ay maaaring mapabuti ang kakayahang umangkop kapag ang mga komunidad, kooperatiba, pampublikong ahensya, federasyon, multisigs, o operator ng serbisyo ay nangangailangan ng iba't ibang pamamahala.
 
@@ -789,6 +820,8 @@ Ang isang hinaharap na badyet ng network ay maaaring tumanggap:
 \item iba pang expressly adopted, natanggap na kita.
 \end{enumerate}
 Ang mga gross pool fees na pinananatili ng mga pool ay hindi kita sa network.Protocol v1.1.0 Gumagamit ng ibang modelo: ang optional protocol fee ay dagdag sa pool fee at direktang ipinapadala sa naka-configure na recipient nito.
+
+Walang hiwalay na route-service fee ang production CLC App route workflow. Maaari pa ring magkaroon ng bayarin sa Pool at protocol sa bawat hop ang routed exchange. Hindi dapat tawaging iminungkahing network rake ang kasalukuyang per-hop na bayarin o bilangin muli bilang service revenue sa hinaharap.
 
 \subsection*{9.2 Illustrative rake matematika}
 \addcontentsline{toc}{subsection}{9.2 Illustrative rake matematika}
@@ -822,120 +855,122 @@ Ang isang hiwalay na programa ay maaaring pondohan ang imbentaryo ng Pool, mga s
 Ang kasalukuyang \texttt{SwapPool} ay hindi lumilikha ng anumang token ng pool-share o awtomatikong karapatan sa kontribusyon.
 
 
-\section*{10. Komprehensibong balangkas ng panganib}
-\addcontentsline{toc}{section}{10. Komprehensibong balangkas ng panganib}
+\section*{10. Comprehensive risk framework}
+\addcontentsline{toc}{section}{10. Comprehensive risk framework}
 
-Ang iniproposed na framework ay naghiwalay ng sampung kategorya ng panganib. Para sa bawat kategorya ito ay nakikilala ang mga posibleng tagapagpahiwatig, kontrol, pagsusulit ng stress, at isang indikatibong kagustuhan sa panganib. Ito ay mga rekomendasyon sa disenyo, hindi mga pangangasihan na ang bawat kontrol ay inilalapat, epektibo, o sapat. Limits, reserbas, garantiya, pagmamataas, saklaw, at pamamahala ay hindi maaaring alisin ang pagkawala.
+Hinahati ng proposed framework na ito ang panganib sa sampung kategorya. Para sa bawat isa, tinutukoy nito ang mga posibleng indicator, control, stress test, at indicative risk appetite. Mga rekomendasyon sa disenyo ang mga ito, hindi claim na naka-deploy, epektibo, o sapat ang bawat control. Hindi maaalis ng limit, reserve, garantiya, monitoring, coverage, o governance ang lahat ng pagkawala.
 
-\subsection*{10.1 Protokol at panganib sa smart contract}
-\addcontentsline{toc}{subsection}{10.1 Protokol at panganib sa smart contract}
-
-\begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} mga bug sa kontrata, mga pagkakamali sa pag-upgrade, mga pagkabigo ng pagkakapantay-pantay, at maling naka-configure na mga limitasyon o bayad.
-\item \textbf{Mga tagapagpahiwatig:} ang mga natuklasan ng audit, hindi maipaliwanag na paggalaw ng inventory, invariant failure, at di-pangkaraniwang mga pagbabalik.
-\item \textbf{Posible na mga kontrol:} independent audits; minimum privileged roles; disclosed proxy at dependence controllers; time-locked upgrades; on-chain monitoring; incident pauses na may nai-publish na awtoridad at mga pamantayan; at isang nasubok na landas ng migration.
-\item \textbf{Mga pagsubok sa stress:} hindi available quote o limit dependencies, kakulangan ng inventory, paused contracts, at burst traffic.
-\item \textbf{Pangarap sa panganib:} Mababang bago ma-scale ang mga outstanding obligation o volume ng swap.
-\end{itemize}
-\subsection*{10.2 Mga panganib sa ekonomiya at merkado}
-\addcontentsline{toc}{subsection}{10.2 Mga panganib sa ekonomiya at merkado}
+\subsection*{10.1 Protocol at smart-contract risk}
+\addcontentsline{toc}{subsection}{10.1 Protocol at smart-contract risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} ang manipis na imbentaryo, unilateral na daloy, mabilis na pag-withdrawals, at manipulasyon o nakaraan ng mga referensiya sa presyo.
-\item \textbf{Mga tagapagpahiwatig:} mataas na paggamit ng pool token-balance cap, pagpapalawak ng mga pagkakaiba sa quote, madalas na pagtanggi ng limitasyon, at nakatuon inventory.
-\item \textbf{Posible na mga kontrol:} ang kasalukuyang mga limitasyon sa balanse ng token ng pool; iminungkahi na mga limitasyong rolling o account; nag-iiba na inaminang mga reserbas; pinansiyal na mga referensiya sa presyo; pagbubukod ng ruta; at mga bayad o limitasyón ng insidente na limitado sa oras.
-\item \textbf{Mga pagsubok sa stress:} malalaking pag-aalis sa presyo ng referensya, pagtaas ng presentasyon, mga kahilingan sa pag-withdraw, at pagputol sa mapagkukunan ng data.
-\item \textbf{Pangarap sa panganib:} matindi lamang sa loob ng mga nai-publish na parameter at pinansiyal na kapasidad sa pagbubuntis ng pagkawala.
+\item \textbf{Mga banta:} bug sa kontrata, error sa upgrade, failure ng dependency, at maling configuration ng limit o fee.
+\item \textbf{Mga indicator:} audit finding, hindi maipaliwanag na galaw ng inventory, invariant failure, at hindi karaniwang revert.
+\item \textbf{Mga posibleng control:} independent audit; kakaunting privileged role; malinaw na proxy at dependency controller; timelocked upgrade; on-chain monitoring; incident pause na may inilathalang awtoridad at criteria; at nasubok na migration path.
+\item \textbf{Mga stress test:} hindi available na quote o limit dependency, kakulangan sa inventory, naka-pause na kontrata, at biglang pagdami ng traffic.
+\item \textbf{Risk appetite:} mababa bago palakihin ang outstanding obligation o swap volume.
 \end{itemize}
-\subsection*{10.3 Ang panganib ng tagapag-isyu at voucher}
-\addcontentsline{toc}{subsection}{10.3 Ang panganib ng tagapag-isyu at voucher}
+\subsection*{10.2 Economic at market risk}
+\addcontentsline{toc}{subsection}{10.2 Economic at market risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} ang emisyon sa kabila ng kapasidad ng pagpapatupad, default ng tagapag-isyu, maling mga termino, at hindi malinaw na window ng availability o presentation.
-\item \textbf{Mga tagapagpahiwatig:} bumaba ang mga rate ng nakumpirma na pagpapatupad, pag-aging ng mga outstanding voucher, hindi natatapos na mga reklamo, at nakatuon na pagkakalantad sa isang tagapag-isyu.
-\item \textbf{Posible na mga kontrol:} pag-aalaga sa mga tagapag-isyu; malinaw na mga termino ng voucher at Offer; mga limitasyon sa emisyon o pagpasok; independiyenteng pinansiyal na mga bond o garantiya; pagreport sa cohort; at responsable na pagsusuri ng registry.
-\item \textbf{Mga pagsubok sa stress:} insolvency ng tagapag-isyu, regional production shocks, counterfeit claims, at long-term compliance delays.
-\item \textbf{Pangarap sa panganib:} mas mababa sa pagtaas ng konsentrasyon ng tagapag-isyu o nag-aalok.
+\item \textbf{Mga banta:} manipis na inventory, one-sided flow, mabilis na withdrawal, at minanipula o stale na price reference.
+\item \textbf{Mga indicator:} mataas na paggamit ng Pool token-balance cap, lumalaking pagkakaiba ng quote, madalas na limit rejection, at concentrated inventory.
+\item \textbf{Mga posibleng control:} kasalukuyang Pool token-balance cap; proposed rolling o account limit; hiwalay na pinagtibay na reserve; protektadong price reference; route exclusion; at time-limited incident fee o limit.
+\item \textbf{Mga stress test:} malaking galaw ng reference price, biglang pagdami ng presentment, withdrawal request, at data-source outage.
+\item \textbf{Risk appetite:} katamtaman lamang sa loob ng inilathalang parameter at pinondohang loss-bearing capacity.
 \end{itemize}
-\subsection*{10.4 Ang panganib ng pagpapahayag at pagpapatupad}
-\addcontentsline{toc}{subsection}{10.4 Ang panganib ng pagpapahayag at pagpapatupad}
+\subsection*{10.3 Issuer at Voucher risk}
+\addcontentsline{toc}{subsection}{10.3 Issuer at Voucher risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} hindi valid o duplicate presentation, di sapat na kapasidad ng tagapag-isyu, stockouts, logistics failure, at nawawala ang mga record ng discharge.
-\item \textbf{Mga tagapagpahiwatig:} late-to-fulfill request, nabalitaan o pinagtataloang mga presentation, stocks, backlogs ng tiket, at natupad na mga unit na walang discharge.
-\item \textbf{Posible na mga kontrol:} ang nai-publish na mga pamamaraan ng pagtatanghal at pagpapatupad; pagpapahayag ng kapasidad; maraming mga lugar ng pagtugon kung saan legal; mga pamantayan sa katibayan; mga landas ng reklamo at remedyo; at mga talaan na naghahati sa paghahayag, pagtugon, at discharge.
-\item \textbf{Mga pagsubok sa stress:} dalawang hanggang apat na beses ang dami ng paghahatid, mga pagputol sa pasilidad, mga pagkakamali ng supplier, at mga pagtatangka ng duplikatong paggamit.
-\item \textbf{Pangarap sa panganib:} Mababang kung may kinalaman ang mga mahalagang kalakalan, mahihirapan na kalahok, o mahabang window ng pagpapatupad.
+\item \textbf{Mga banta:} issuance na lampas sa fulfillment capacity, default ng issuer, mapanlinlang na terms, at hindi malinaw na availability o presentment window.
+\item \textbf{Mga indicator:} bumababang confirmed-fulfillment rate, tumatandang outstanding Voucher, hindi nalulutas na complaint, at concentrated exposure sa isang issuer.
+\item \textbf{Mga posibleng control:} due diligence sa issuer; malinaw na Voucher at Offering terms; issuance o admission limit; independently funded bond o garantiya; cohort reporting; at may-pananagutang registry review.
+\item \textbf{Mga stress test:} insolvency ng issuer, regional production shock, counterfeit claim, at matagal na fulfillment delay.
+\item \textbf{Risk appetite:} mas mababa habang lumalaki ang concentration sa issuer o Offering.
 \end{itemize}
-\subsection*{10.5 Mga panganib sa pamamahala}
-\addcontentsline{toc}{subsection}{10.5 Mga panganib sa pamamahala}
+\subsection*{10.4 Redemption-presentment at fulfillment risk}
+\addcontentsline{toc}{subsection}{10.4 Redemption-presentment at fulfillment risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} Kapanghulihan ng steward o controller, mabilis na pagbabago ng parameter, mga pakikibaka sa interes, lihim na teknikal na kapangyarihan, at mahihirap na appeals.
-\item \textbf{Mga tagapagpahiwatig:} naka-concentrate na awtoridad, madalas na mga aksyon sa emerhensiya, hindi maipaliwanag na pagbabago ng patakaran, at paulit-ulit na overrides.
-\item \textbf{Posible na mga kontrol:} ang mga pagbibigay ng impormasyon tungkol sa papel at kapangyarihan; proportional approval thresholds; time-locks; conflicts and recusal rules; public change records; appeals; automatic emergency power sunset; at forkability.
-\item \textbf{Mga pagsubok sa stress:} mga pagtatanghal ng kontrabida, pagkawala ng signature, pagsisikap na kumita, at pagkuha sa pamamagitan ng pagtipon o naka-delegate na kontrol.
-\item \textbf{Pangarap sa panganib:} mababa para sa mga aksyon na nakakaapekto sa mga pamamaraan ng halaga, pag-withdraw, root ng registry, coverage, o emergency powers.
+\item \textbf{Mga banta:} invalid o duplicate na presentment, kulang na kapasidad ng issuer, stockout, logistics failure, at nawawalang discharge record.
+\item \textbf{Mga indicator:} tagal mula request hanggang fulfillment, failed o disputed presentment, stockout, ticket backlog, at fulfilled unit na walang discharge.
+\item \textbf{Mga posibleng control:} inilathalang presentment at fulfillment procedure; capacity disclosure; maraming fulfillment venue kung legal; evidence standard; complaint at remedy path; at mga record na naghihiwalay sa presentment, fulfillment, at discharge.
+\item \textbf{Mga stress test:} dalawa hanggang apat na beses na presentment volume, facility outage, supplier failure, at pagtatangkang gumamit nang dalawang beses.
+\item \textbf{Risk appetite:} mababa kapag sangkot ang essential goods, vulnerable participant, o mahabang fulfillment window.
 \end{itemize}
-Para sa isang hinaharap na paglalapat ng iminungkahi na CLC governance token, ang capture test ay magsasama ng pagpupulong na sinundan ng mga pagtatangka upang i-redirect ang mga badyet, mabawasan ang mga pamantayan ng registry, pahintulot ang mga mandato ng may kaugnayan na partido, o maubos ang pinansiyal na coverage.
-
-\subsection*{10.6 Mga panganib sa ligal at pagsunod}
-\addcontentsline{toc}{subsection}{10.6 Mga panganib sa ligal at pagsunod}
+\subsection*{10.5 Governance risk}
+\addcontentsline{toc}{subsection}{10.5 Governance risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} ang isang voucher, serbisyo, promosyon, o asset sa pamamahala na nakatanggap ng hindi inaasahang paggamot sa regulasyon; mga pagkabigo sa proteksyon ng mamimili; pagkakalantad ng salapi o sanksyon; at cross-border na mga paghihigpit.
-\item \textbf{Mga tagapagpahiwatig:} mga flags ng jurisdiction, mga imbestigasyon ng regulator, mga reklamo, pag-uugnay ng limitado na partido, at pagkakaiba sa pagitan ng advertised at tunay na pag-uugali.
-\item \textbf{Posible na mga kontrol:} pagsusuri sa pamamagitan ng mga klase at hurisdiksyon; tumpak na pagpapahayag; geofined interface; proportional eligibility or attestation checks; promosyon controls; records ng awtoridad at pagtanggap; at malinaw na responsable na partido.
-\item \textbf{Mga pagsubok sa stress:} isang paghihigpit sa hurisdiksyon, pagtatapos ng provider, mandatory re-classification, at isang utos na ihinto ang isang tampok o asset class.
-\item \textbf{Pangarap sa panganib:} mababa; i-restrict o pause ang hindi suportado na aktibidad.
+\item \textbf{Mga banta:} pagkuha sa Steward o controller, minadaling pagbabago ng parameter, conflict of interest, nakatagong technical power, at mahinang appeal.
+\item \textbf{Mga indicator:} concentrated authority, madalas na emergency action, hindi maipaliwanag na pagbabago ng policy, at paulit-ulit na override.
+\item \textbf{Mga posibleng control:} disclosure ng role at power; proportional approval threshold; timelock; conflict at recusal rule; public change record; appeal; automatic sunset ng emergency power; at forkability.
+\item \textbf{Mga stress test:} adversarial proposal, pagkawala ng signer, bribery attempt, at capture sa pamamagitan ng accumulation o delegated control.
+\item \textbf{Risk appetite:} mababa para sa action na nakaaapekto sa valuation method, withdrawal, registry root, coverage, o emergency power.
 \end{itemize}
-\subsubsection*{10.6.1 Legal na pag-uugali at pagpaplano ng mga token}
+Para sa deployment sa hinaharap ng proposed CLC governance token, isasama sa capture test ang accumulation na sinusundan ng pagtatangkang ilihis ang budget, pahinain ang registry standard, aprubahan ang related-party mandate, o ubusin ang funded coverage. Maaaring kabilang sa safeguard ang governance lockup, mas mataas na threshold para sa critical action, delayed execution, transparent delegation at concentration monitoring, incident process, at kapani-paniwalang fork-and-exit procedure. Hindi itinuturing na deployed ang alinman dahil lamang nakasulat ito rito.
+
+\subsection*{10.6 Legal at compliance risk}
+\addcontentsline{toc}{subsection}{10.6 Legal at compliance risk}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Mga banta:} hindi inaasahang regulatory treatment sa Voucher, service, promotion, o governance asset; consumer-protection failure; money-laundering o sanctions exposure; at cross-border restriction.
+\item \textbf{Mga indicator:} jurisdiction flag, regulator inquiry, complaint, restricted-party match, at pagkakaiba ng advertised at aktuwal na behavior.
+\item \textbf{Mga posibleng control:} review ayon sa class at jurisdiction; tumpak na disclosure; geofenced interface; proportional eligibility o attestation check; promotion control; record ng authority at acceptance; at malinaw na responsableng partido.
+\item \textbf{Mga stress test:} jurisdictional restriction, provider termination, mandatory reclassification, at utos na i-pause ang feature o asset class.
+\item \textbf{Risk appetite:} mababa; limitahan o i-pause ang hindi sinusuportahang activity.
+\end{itemize}
+\subsubsection*{10.6.1 Legal positioning at pagtrato sa proposed token}
 
 \begin{enumerate}[leftmargin=*]
-\item \textbf{Infrastruktura na maaaring suriin:} Protocol v1.1.0 ang mga kontrata ayEVM-ang mga pinagmulan ay nai-publish sa ilalim ng mga lisensya at third party exceptions na nakikilala sa protocol repository. Ang pag-publika ay nagbibigay-daan sa pagsusuri ngunit hindi mismo patunayan ang isang audit, ligtas na deployment, o legal compliance.
-\item \textbf{Proposed-token posture:} sa disenyo na ito, ang iminungkahi na CLC governance token ay mag-coordinate ng pamamahala at policy-gated access. Hindi ito lumilikha ng mga dividend, profit sharing, residual rights, o isang garantiya ng halaga o likido.
-\item \textbf{Kaugnay na mga iminungkahing asset:} Maaaring payagan ng hiwalay na ipinatupad na patakaran ang pag-lock ng iminungkahing CLC governance token upang mag-mint ng stCLC at maaaring mag-awtorisa ng epoch-scoped na sCLC. Kailangang tukuyin ng mga pinagtibay na tuntunin ang eksaktong karapatan, limitasyon, expiry, transferability, at pagtrato sa mga ito.
-\item \textbf{Mga komunikasyon:} Hindi dapat mangako ng kita, pagtaas ng halaga, passive income, o garantisadong access ang mga materyal para sa anumang deployment ng iminungkahing CLC governance token, stCLC, o sCLC.
-\item \textbf{Mga kontrol sa hurisdiksyon:} ang isang paglalapat ay maaaring nangangailangan ng geofencing interface, mga atestasyong para sa limitado na mga klase, mga limitasyon sa promosyon, pagsusuri ng asset-specific, o mga kontrol na nagpigil sa isang iminungkahi na tampok.
-\item \textbf{Pakikinig ng mga kalahok:} ang mga termino na inamin ay magpaliwanag kung kailan maaaring mabawasan o mai-deactivate ang pag-access para sa mga dahilan ng batas, operasyonal, o panganib at kung may anumang kompensasyon o remedyo.
+\item \textbf{Verifiable infrastructure:} EVM-compatible ang mga kontrata ng Protocol v1.1.0 at inilathala ang source sa ilalim ng mga licence at third-party exception na tinukoy sa Protocol repository. Pinahihintulutan ng publication ang review ngunit hindi nito pinatutunayan ang audit, ligtas na deployment, o legal compliance. Dapat ilathala ng bawat deployment ang code version, build provenance, address, controller power, at audit status nito.
+\item \textbf{Proposed-token posture:} sa disenyong ito, iko-coordinate ng proposed CLC governance token ang governance at policy-gated access. Hindi ito lilikha ng dividend, profit sharing, residual right, o garantiya ng value o liquidity.
+\item \textbf{Kaugnay na proposed asset:} maaaring payagan ng hiwalay na implemented policy ang pag-lock ng proposed CLC governance token upang mag-mint ng stCLC at maaaring pahintulutan ang epoch-scoped sCLC. Kailangang tukuyin ng pinagtibay na terms ang eksaktong right, limit, expiry, transferability, at treatment ng mga ito.
+\item \textbf{Communications:} hindi dapat mangako ng profit, appreciation, passive income, o guaranteed access ang material para sa anumang proposed CLC governance-token, stCLC, o sCLC deployment.
+\item \textbf{Jurisdiction controls:} maaaring mangailangan ang deployment ng interface geofencing, attestation para sa restricted class, promotion limit, asset-specific review, o control na nagpa-pause ng proposed feature.
+\item \textbf{Participant notice:} ipaliliwanag ng pinagtibay na terms kung kailan maaaring bawasan o ihinto ang access para sa legal, operational, o risk reason at kung may naaangkop na compensation o remedy.
 \end{enumerate}
-\subsection*{10.7 Ang panganib sa pag-route at cross-domain}
-\addcontentsline{toc}{subsection}{10.7 Ang panganib sa pag-route at cross-domain}
+\subsection*{10.7 Routing at cross-domain risk}
+\addcontentsline{toc}{subsection}{10.7 Routing at cross-domain risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} partial execution, stuck hops, bridge or escrow exploits, outdated quotes, path inflation, at front-running ng inihayag na pagbabago sa halaga.
-\item \textbf{Mga tagapagpahiwatig:} ang mga rate ng expiration ng route, escrow backlogs, pagkakaiba sa quote-to-execution, paulit-ulit na hindi kinakailangang hops, at bridge incidents.
-\item \textbf{Posible na mga kontrol:} atomic execution kung available; conservative HTLC or escrow timeouts; path and counterparty policies; route level caps; deterministic quote-to-receipt mapping; at accountable service operators.
-\item \textbf{Mga pagsubok sa stress:} isang pagtigil ng tulay, reorganization ng kadena, dependency breakdown, at isang nabigo na hop sa isang iminungkahi multi-hop ruta.
-\item \textbf{Pangarap sa panganib:} Mababang hanggang moderate lamang para sa mga kinikilala at nasubaybayan na depende.
+\item \textbf{Kasalukuyang same-chain threat:} stale discovery data, kulang na inventory, pagbabago sa limit o admission, quote expiry, hindi sinusuportahang wallet o dependency, simulation failure, relay failure, chain reorganization, at path inflation.
+\item \textbf{Kasalukuyang control at ebidensiya:} pinned-block authoritative quote, simulation ng buong batch, per-hop minimum output at deadline, nilagdaang Calibur batch na may \texttt{revertOnFailure}, deterministic grouped receipt, reconciliation, at malinaw na failure code. Binabawasan ng mga control na ito ang ilang execution risk ngunit hindi ginagarantiya ang availability o fulfillment ng issuer.
+\item \textbf{Proposed cross-domain threat:} partial execution sa iba't ibang domain, stuck hop, bridge, HTLC o escrow exploit, timeout mismatch, at recovery dispute.
+\item \textbf{Mga indicator:} resulta ng route discovery at quote, pagkakaiba ng quote at execution, route depth, simulation failure, reversion, reconciliation failure, paulit-ulit na hindi kailangang hop, at---para sa future cross-domain system---escrow backlog at bridge incident.
+\item \textbf{Mga posibleng karagdagang control:} path at counterparty policy; route-level cap; may-pananagutang service operator; at maingat na HTLC o escrow timeout, abort, at recovery rule.
+\item \textbf{Mga stress test:} stale graph state, dependency outage, isang nabigong hop sa kasalukuyang atomic batch, chain reorganization, at---para sa future cross-domain route---bridge halt o expired escrow.
+\item \textbf{Risk appetite:} mababa hanggang katamtaman lamang para sa tinukoy at mino-monitor na dependency.
 \end{itemize}
-\subsection*{10.8 Ang panganib ng custody at key-management}
-\addcontentsline{toc}{subsection}{10.8 Ang panganib ng custody at key-management}
+\subsection*{10.8 Custody at key-management risk}
+\addcontentsline{toc}{subsection}{10.8 Custody at key-management risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} nawala o naka-compromise key, signer collusion, at hindi malinaw na pagbawi o awtoridad ng administrator.
-\item \textbf{Mga tagapagpahiwatig:} anomaly signatures, controller changes, failed rotations, at hindi pangkaraniwang pag-withdrawals.
-\item \textbf{Posible na mga kontrol:} Multisig o threshold authorization; hardware-backed keys; role separation; signer rotation; public controller inventories; monitored withdrawal limits; at na-test recovery procedures.
-\item \textbf{Pangarap sa panganib:} Mababang.
+\item \textbf{Mga banta:} nawala o nakompromisong key, sabwatan ng signer, at hindi malinaw na recovery o administrator authority.
+\item \textbf{Mga indicator:} anomalous signature, pagbabago ng controller, failed rotation, at hindi karaniwang withdrawal.
+\item \textbf{Mga posibleng control:} multisig o threshold authorization; hardware-backed key; paghihiwalay ng role; signer rotation; public controller inventory; mino-monitor na withdrawal limit; at nasubok na recovery procedure.
+\item \textbf{Risk appetite:} mababa.
 \end{itemize}
-\subsection*{10.9 Reputasyon at panganib sa lipunan}
-\addcontentsline{toc}{subsection}{10.9 Reputasyon at panganib sa lipunan}
+\subsection*{10.9 Reputation at social risk}
+\addcontentsline{toc}{subsection}{10.9 Reputation at social risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} maling mga pangungusap, mapanganib na insentibo, hindi mai-access ang mga reklamo, masamang karanasan sa pagpapatupad, pagkabigo ng privacy, at proteksyon na pabor sa mga nasa loob.
-\item \textbf{Mga tagapagpahiwatig:} ang mga reklamo sa pamamagitan ng cohort, hindi nalutas na mga litigasyon, mga trend sa pagganap ng tagapag-isyu, konsentrasyon ng mga benepisyo o pagkawala, at feedback ng komunidad.
-\item \textbf{Posible na mga kontrol:} ang malinaw na pagpapahayag; mga landas ng reklamo at paglilinis; mai-access na katibayan; transparent na pagreport; pagsusuri sa insidente; at katumbas na sanksyon para sa maling pagtatanghal.
-\item \textbf{Pangarap sa panganib:} mababa, na may partikular na pag-aalaga sa mga naapektuhan na pamayanan at maluwag na kalahok.
+\item \textbf{Mga banta:} mapanlinlang na claim, nakapipinsalang incentive, hindi accessible na complaint, mahinang fulfillment experience, privacy failure, at proteksiyong pumapabor sa insider.
+\item \textbf{Mga indicator:} complaint ayon sa cohort, hindi nalulutas na dispute, trend sa performance ng issuer, concentration ng benefit o loss, at feedback ng komunidad.
+\item \textbf{Mga posibleng control:} plain-language disclosure; grievance at correction path; accessible evidence; transparent reporting; incident review; at proportional sanction para sa misrepresentation.
+\item \textbf{Risk appetite:} mababa, na may espesyal na pag-iingat para sa apektadong komunidad at vulnerable participant.
 \end{itemize}
-\subsection*{10.10 Ang panganib ng konsentrasyon at pagkahiwalay}
-\addcontentsline{toc}{subsection}{10.10 Ang panganib ng konsentrasyon at pagkahiwalay}
+\subsection*{10.10 Concentration at fragmentation risk}
+\addcontentsline{toc}{subsection}{10.10 Concentration at fragmentation risk}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Mga banta:} depende sa isang maliit na bilang ng mga tagapag-isyu, pool, controller, provider, network, o hindi kapareha fork.
-\item \textbf{Mga tagapagpahiwatig:} ang mga hakbang sa pagpapatungo ng tagapag-isyu, pool, inventory, controller, o provider ng serbisyo; pagkukulang sa ruta sa pagitan ng mga cluster; at kritikal na indibidwal na depende.
-\item \textbf{Posible na mga kontrol:} ang nai-publish na mga hangganan ng konsentrasyon; maramihang responsable operator; katumbas ng mga pamantayan; independiyenteng mga registry; sinusubukan na mga pamamaraan ng pag-exit; at ligtas na interoperability.
-\item \textbf{Mga pagsubok sa stress:} pagkawala ng pinakamalaking tagapag-isyu, pool, operator, provider, o root ng registry.
-\item \textbf{Pangarap sa panganib:} mga deployment-specific at disclosed, na may mas mahigpit na mga limitasyon para sa mga mahalagang serbisyo o hindi maibabalik na depende.
+\item \textbf{Mga banta:} pagdepende sa kakaunting issuer, Pool, controller, provider, network, o incompatible fork.
+\item \textbf{Mga indicator:} concentration measure ayon sa issuer, Pool, inventory, controller, o service provider; route failure sa pagitan ng cluster; at critical single dependency.
+\item \textbf{Mga posibleng control:} inilathalang concentration threshold; maraming may-pananagutang operator; compatible standard; independent registry; nasubok na exit procedure; at ligtas na interoperability.
+\item \textbf{Mga stress test:} pagkawala ng pinakamalaking issuer, Pool, operator, provider, o registry root.
+\item \textbf{Risk appetite:} depende sa deployment at inilalathala, na may mas mahigpit na limit para sa essential service o hindi mapapalitang dependency.
 \end{itemize}
 
 \section*{11. Mga mekanismo ng pamamahala}
@@ -1124,59 +1159,80 @@ Ito ay isang ilustrasyong checklist para sa isang hinaharap, nag-iiba na dokumen
 \addcontentsline{toc}{section}{13. Glosaryo sa simpleng wika}
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Cosmo-Local Credit (CLC):} Ang pamilya ng produkto, kabilang ang CLC App, dokumentasyon, at mas malawak na trabaho sa pag-aari ng pakikitungo.
-\item \textbf{CLC App:} Ang progresibong web app na pinapatakbo ng GEF sa\texttt{cosmolocal.credit}.
-\item \textbf{Protokol sa Pagsasama ng Pangako (CPP):} Ang reusable model ng curation, valuation, limitation, exchange, at responsible governance.
-\item \textbf{Protocol v1.1.0:} Ang napatunayang publikong smart-contract release.
-\item \textbf{Pool ng Pangako:} Ang isang pinamamahalaan na kaayusan na tumatanggap ng suportadong mga asset at nag-publish ng mga patakaran sa pagbibili.
-\item \textbf{\texttt{SwapPool}:} Ang kasalukuyang token vault at direct-swap contract.
-\item \textbf{Tagalog:} Isang balanse sa chain o digital asset. Token mekanika lamang ay hindi lumikha ng isang redeemable pangako.
-\item \textbf{Voucher:} Isang token o record na kinakatawan ng isang tagapag-isyu bilang isang redeemable commitment sa ilalim ng nai-publish na mga tuntunin.
-\item \textbf{Pag-aalok:} Katalog record para sa mga kalakal o serbisyo na nauugnay sa isang voucher.
-\item \textbf{Pag-iipon:} Ang partido na may pananagutan sa pag-publish at pagpapatupad ng pangako sa voucher.
-\item \textbf{Tagapangasiwa ng Pool:} Ang responsable na istraktura na nag-publish at namamahala sa mga patakaran ng Pool.
-\item \textbf{Ang rate o quote ng pool:} Ang isang parameter ng transaksyon na ginawa sa pamamagitan ng isang naka-configure quoter; hindi patunay ng cash o halaga ng pagbabayad.
-\item \textbf{Kapas sa balanse ng token ng pool:} Ang kasalukuyang maximum na \texttt{Limiter} para sa isang token na hawak ng isang Pool. \textbf{Credit limit.''}
-\item \textbf{Pagbabago ng pool:} Isang direktang palitan ng mga asset sa pamamagitan ng isang \texttt{SwapPool}.
-\item \textbf{Pagbabayad ng swap:} Ang mga transfer sa chain at accounting ng bayad na kumpleto ng pool swap.
-\item \textbf{Presentasyon ng pagbabayad:} Pagbalik o iba pang pagpapakita ng mga unit ng voucher sa tagapag-isyu.
-\item \textbf{Katumpayan:} Ang tagapag-isyu ay nagbibigay ng ipinangako na kalakal, serbisyo, benepisyo, o iba pang pagganap.
-\item \textbf{Discharge:} Ang isang talaan na nagpapahintulot sa pagpapatupad ng mga yunit na maipresentar muli.
-\item \textbf{Proposed execution router:} Ang hinaharap na software na mag-authorise at magpatupad ng mga ruta. ang kasalukuyang \texttt{SwapRouter} quote lamang.
-\item \textbf{Proposed na CLC Network Pool:} Isang hinaharap na kaayusan sa pag-clearing at koordinasyon ng badyet sa antas ng network.
-\item \textbf{Proposed na CLC governance token:} Isang disenyo ng pamamahala sa hinaharap, hindi isang kasalukuyang app o Protocol v1.1.0 asset.
-\item \textbf{Rake ng network:} Isang iminungkahi na bahagi ng mga bayad sa Pool na nai-transfer sa isang hinaharap na badyet ng network.
-\item \textbf{Garantiya o seguro:} Isang proteksyon na nakakaalam lamang kapag ang isang kinikilala na partido ay malinaw na kumukuha, nagbabayad, at nag-publish nito.
+\item \textbf{Cosmo-Local Credit (CLC):} Ang pamilya ng produkto, kabilang ang CLC App, dokumentasyon, at mas malawak na gawain sa commitment pooling.
+\item \textbf{CLC App:} Ang progressive web app na pinapatakbo ng GEF sa \texttt{cosmolocal.credit}.
+\item \textbf{Commitment Pooling Protocol (CPP):} Ang magagamit-muling modelo para sa curation, valuation, limitation, exchange, at may-pananagutang pamamahala.
+\item \textbf{Protocol v1.1.0:} Ang napatunayang pampublikong release ng mga smart contract.
+\item \textbf{Commitment Pool:} Isang pinamamahalaang kaayusan na tumatanggap ng mga sinusuportahang asset at naglalathala ng mga tuntunin sa palitan.
+\item \textbf{\texttt{SwapPool}:} Ang kasalukuyang token vault at kontrata para sa direktang swap.
+\item \textbf{Token:} Isang on-chain balance o digital asset. Ang token mechanics lamang ay hindi lumilikha ng pangakong maaaring tubusin.
+\item \textbf{Voucher:} Isang token o record na inilalarawan ng issuer bilang isang commitment na maaaring tubusin sa ilalim ng mga inilathalang tuntunin.
+\item \textbf{Offering:} Isang catalog record para sa mga produkto o serbisyong nauugnay sa isang Voucher.
+\item \textbf{Want:} Isang inilathalang pahayag ng pangangailangan. Hindi nito kusang tinatanggap ang isang Offering o Voucher, pinahihintulutan ang swap, nagrereserba ng inventory, o lumilikha ng obligasyon.
+\item \textbf{Issuer:} Ang partidong responsable sa paglalathala at pagtupad sa commitment ng Voucher.
+\item \textbf{Pool Steward:} Ang may-pananagutang istrukturang naglalathala at nangangasiwa sa mga tuntunin ng Pool.
+\item \textbf{Registry:} Isang record para sa discovery at pahintulot ng mga tinukoy na kontrata, Pool, token, o iba pang resource. Ang pagkakasama rito ay hindi kusang nangangahulugan ng endorsement, kakayahan ng issuer, fulfillment, garantiya, o insurance.
+\item \textbf{Exchange rate o quote ng Pool:} Isang transaction parameter na ginawa ng naka-configure na quoter; hindi ito patunay ng cash value o redemption value.
+\item \textbf{Value Index:} Isang relative valuation input na ginagamit ng naka-configure na quoter upang kalkulahin ang exchange quote ng Pool. Hindi ito awtomatikong market price, cash value, o obligasyon ng issuer.
+\item \textbf{Limiter:} Ang opsyonal na component ng Protocol v1.1.0 na nagtatakda ng pinakamataas na token balance para sa isang Pool. Maaaring tawagin ng App ang cap na ito na \textbf{``Credit limit.''} Hindi ito personal na borrowing limit o rolling limit sa buong network.
+\item \textbf{Pool swap:} Isang direktang palitan ng asset sa pamamagitan ng isang \texttt{SwapPool}.
+\item \textbf{Route:} Isang nakaayos na path ng isa o higit pang Pool swap mula sa input Voucher ng wallet patungo sa target na Voucher.
+\item \textbf{Route depth:} Ang bilang ng Pool swap sa isang route. Hanggang tatlo ang hinahanap ng kasalukuyang pampublikong deployment.
+\item \textbf{Route discovery:} Isang pagtatantiya ng mga posibleng path mula sa na-reconcile na graph at data ng wallet holdings. Ang nahanap na path ay hindi pangakong maipapatupad ito.
+\item \textbf{Route quote:} Isang may takdang-oras at may-awtoridad na proposal para sa napiling path. Kinakalkula ito mula sa sinusuportahang estado ng Pool na binasa sa iisang pinned block at sini-simulate bago lagdaan.
+\item \textbf{Routed exchange:} Isang pagkakasunod-sunod ng Pool swap na pinahintulutan ng kalahok. Isinusumite ito ng kasalukuyang App bilang iisang same-chain Calibur wallet batch na sabay-sabay na nagre-revert ang mga call kapag may isang nabigo.
+\item \textbf{Routed-exchange receipt:} Isang pinagsamang technical record ng route status, transaction hash, mga hop, settled amount, at per-hop Pool at protocol fee.
+\item \textbf{Liquidity:} Kwalipikadong output inventory ng Pool na available sa ilalim ng kasalukuyang admission, balance-cap, quote, fee, reservation, at withdrawal conditions. Hindi sapat ang graph edge o token balance lamang upang patunayang magagamit ang liquidity.
+\item \textbf{Swap settlement:} Ang mga on-chain transfer at fee accounting na kumukumpleto sa isang Pool swap.
+\item \textbf{Redemption presentment:} Ang pagbabalik o ibang pagpapakita ng mga unit ng Voucher sa issuer.
+\item \textbf{Fulfillment:} Ibinibigay ng issuer ang ipinangakong produkto, serbisyo, benepisyo, o ibang performance.
+\item \textbf{Discharge:} Isang record na pumipigil sa muling pagpapakita ng mga unit na natupad na.
+\item \textbf{Solidity \texttt{SwapRouter}:} Ang quote-only na kontrata ng Protocol v1.1.0. Maaari itong magkalkula sa ibinigay na path ngunit hindi ito nag-iingat ng asset, nag-a-approve ng token, o nagpapatupad ng swap.
+\item \textbf{Application routing workflow:} Ang kasalukuyang CLC App at CLC Core service na nagdi-discover, nagko-quote, nagsi-simulate, naghahanda, nagre-relay, nagre-reconcile, at nag-uulat ng mga same-chain route sa ibabaw ng mga Pool contract.
+\item \textbf{Rebalancing:} Paglilipat ng Pool inventory patungo sa mga pinagtibay na target sa ilalim ng mandatong pinahintulutan ng Steward. Ang kasalukuyang participant-initiated routing ay hindi kusang nagpapahintulot ng automatic rebalancing.
+\item \textbf{Clearing o netting:} Pagsasama ng maraming obligasyon o planong transfer upang kalkulahin ang nabawasang net position. Hindi ito bahagi ng kasalukuyang App/Core routed exchange.
+\item \textbf{Repair:} Isang may-pananagutang proseso para itama ang configuration, registry record, service failure, dispute, o hindi natupad na commitment sa loob ng tinukoy na awtoridad. Hindi tahimik na binabago ng registry o route-service repair ang mga tuntunin ng isang independiyenteng Pool o inaalis ang obligasyon ng issuer.
+\item \textbf{Proposed CLC Network Pool:} Isang kaayusan sa hinaharap para sa network-level clearing at budget coordination.
+\item \textbf{Proposed CLC governance token:} Isang disenyo ng pamamahala sa hinaharap, hindi kasalukuyang asset ng App o Protocol v1.1.0.
+\item \textbf{Network rake:} Isang iminungkahing bahagi ng bayarin sa Pool na ililipat sa isang network budget sa hinaharap.
+\item \textbf{Garantiya o insurance:} Proteksiyong umiiral lamang kapag tahasang inaako, pinopondohan, at inilalathala ito ng isang tinukoy na partido.
 \end{itemize}
 
-\section*{14. Ang mga iminungkahi na KPI at tagapagpahiwatig ng kalusugan}
-\addcontentsline{toc}{section}{14. Ang mga iminungkahi na KPI at tagapagpahiwatig ng kalusugan}
+\section*{14. Mga KPI at health indicator}
+\addcontentsline{toc}{section}{14. Mga KPI at health indicator}
 
-Ang isang deployment ay dapat mag-publish ng isang KPI lamang kapag maaari itong tukuyin ang kaganapan, pinagmulan, cohort o panahon, yunit, pamamaraan ng pagpapahalaga at timestamp, mga pag-iwas, patakaran sa pag-aayos, katibayan sa labas ng kadena, at mga limitasyon sa kalidad ng data.
+Dapat lamang maglathala ng KPI ang isang deployment kapag malinaw nitong natutukoy ang event, source, cohort o panahon, unit, valuation method at timestamp, mga exclusion, correction policy, off-chain evidence, at mga limitasyon sa kalidad ng data.
 
-Kabilang sa mga iminungkahi na hakbang ay:
+Masusukat ng kasalukuyang route service ang mga event sa discovery, quote, execution, settlement, at reconciliation. Kailangan pa rin ng hiwalay na ebidensiya para sa fulfillment ng Voucher at mga social outcome. Kabilang sa mga inirerekomendang sukat ang:
 
 \begin{itemize}[leftmargin=*]
-\item may katumbas na mga presentasyon ng pagbabayad;
-\item rate ng pagpapatupad na batay sa cohort;
-\item kumpletong discharge;
-\item ang latency ng presentation to fulfillment;
-\item panahon ng pagmamay-ari hanggang sa paghahatid;
-\item ang mga namumuhunan na karapat-dapat sa ilalim ng isang itinatagong pamamaraan;
-\item nakumpleto na volume ng pool swap;
-\item ang sinusukat na inventory ng pool;
-\item Paggamit ng pool token-balance cap;
-\item rate ng pass quote, na inilalagay nang hiwalay sa rate ng execution ng ruta;
-\item ang mga karapat-dapat na reserba na binago sa malinaw na nasa ilalim ng exposure;
-\item mga obligasyon at asset ng guarantor sa ilalim ng isang tinukoy na patakaran;
-\item Ang mga iminungkahi na bayad sa network rake at serbisyo ay talagang natanggap, nang walang double-counting gross fees ng pool;
-\item ang mga oras ng pagtuklas, desisyon, pause, pag-aayos, at pagsasara sa pamamahala;
-\item ang mga reklamo, litigation, corrections, at remedies; at
-\item nag-iiba na ipinakikita ang mga social or ecological outcomes.
+\item valid redemption presentments;
+\item fulfillment rate ayon sa cohort;
+\item completeness ng discharge;
+\item tagal mula presentment hanggang fulfillment;
+\item holding duration mula acquisition hanggang presentment;
+\item natitirang kwalipikadong commitment sa ilalim ng nakasaad na methodology;
+\item volume ng nakumpletong direct Pool swap;
+\item mga route-discovery attempt at bilang ng available na candidate route;
+\item mga attempt, resulta, depth, expiry, at quoted fee ng may-awtoridad na route quote;
+\item mga routed-exchange attempt, confirmed at reverted route, at dahilan ng failure;
+\item input at output volume ng buong route, na minsan lamang binibilang sa bawat route at hindi sa bawat hop;
+\item per-hop settlement amount, Pool fee, protocol fee, at intermediate remainder;
+\item mga route constraint, kabilang ang kulang na liquidity, Pool token-balance cap, hindi sinusuportahang dependency, at limitasyon ng wallet;
+\item graph freshness, tagal ng reconciliation, correction, at failure;
+\item nasukat na Pool inventory;
+\item paggamit ng Pool token-balance cap;
+\item discovery success at quote pass rate, na hiwalay sa route execution at settlement rate;
+\item kwalipikadong reserve na hinati sa tahasang sakop na exposure;
+\item claim at recovery sa guarantor sa ilalim ng tinukoy na policy;
+\item kasalukuyang bayarin sa Pool at protocol sa bawat hop, na hiwalay sa anumang proposed network rake o service fee sa hinaharap;
+\item oras ng governance detection, decision, pause, repair, at closure;
+\item mga complaint, dispute, correction, at remedy; at
+\item hiwalay na napatunayang social o ecological outcome.
 \end{itemize}
-Ang data ng mga transaksyon sa chain ay hindi nagpapamatuod ng pagkakakilanlan, pagganap ng tagapag-isyu, katagumpay, pagkabalisa, kalusugan ng komunidad, o epekto sa lipunan.
+Hindi sapat ang on-chain transaction data lamang upang patunayan ang identity, performance ng issuer, satisfaction, causality, kalusugan ng komunidad, o social impact. Kailangan ng sariling methodology at ebidensiya ang mga claim na iyon.
 
-Tingnan mo \href{https://docs.cosmolocal.credit/fil/white-paper/appendix-c-kpi-definitions}{Appendix C} para sa iminungkahi na pagtutukoy ng pagsukat.
+Tingnan ang \href{https://docs.cosmolocal.credit/fil/white-paper/appendix-c-kpi-definitions}{Appendix C} para sa proposed measurement specification.
 
 
 \section*{15. Roadmap (indicative)}
@@ -1185,24 +1241,26 @@ Tingnan mo \href{https://docs.cosmolocal.credit/fil/white-paper/appendix-c-kpi-d
 \subsection*{15.1 Kasalukuyang pundasyon}
 \addcontentsline{toc}{subsection}{15.1 Kasalukuyang pundasyon}
 
-Pinapatakbo ng GEF ang CLC App sa \texttt{cosmolocal.credit} sa Gnosis Chain. Nagbibigay ang App ng sinusuportahang access sa account at wallet, pampublikong catalog na Pamilihan, at mga interface para sa mga token, voucher, Offering, Pool ng Pangako, transfer, at direktang swap sa Pool.
+Pinapatakbo ng GEF ang CLC App sa \texttt{cosmolocal.credit} sa Gnosis Chain. Nagbibigay ang App ng sinusuportahang account at wallet access, pampublikong Market catalog, at mga interface para sa token, Voucher, Offering, Want, Commitment Pool, transfer, direct Pool swap, at routed exchange.
 
-Ibinibigay ng Protocol v1.1.0 ang kasalukuyang pundasyon ng mga contract: \texttt{GiftableToken}, direktang pagpapatupad ng \texttt{SwapPool}, mga opsyonal na registry, valuation module, cap sa balanse ng token ng Pool, bayad sa Pool, karagdagang protocol fee, at quote-only na \texttt{SwapRouter}. Nakadepende pa rin ang availability sa interface, mga naka-deploy na contract, inventory, configuration, kalagayan ng network, eligibility, provider, hurisdiksiyon, at inilathalang tuntunin ng tagapag-isyu o Pool.
+Ibinibigay ng Protocol v1.1.0 ang kasalukuyang contract foundation: \texttt{GiftableToken}, direct \texttt{SwapPool} execution, mga opsyonal na registry, valuation module, Pool token-balance cap, Pool fee, karagdagang protocol fee, at isang quote-only na Solidity \texttt{SwapRouter}.
 
-\subsection*{15.2 Proposed milestones}
-\addcontentsline{toc}{subsection}{15.2 Proposed milestones}
+Ibinibigay na ngayon ng CLC Core ang same-chain routing at observability foundation ng pampublikong App: reconciled graph discovery, mga route na hanggang tatlong Pool swap, pinned-block quote, per-hop bound at fee, simulation ng buong batch, nilagdaang atomic Calibur execution, relay tracking, settlement reconciliation, pinagsamang receipt, at operational metric. Nakasalalay pa rin ang availability sa interface, sinusuportahang wallet at token behavior, naka-deploy na kontrata, inventory, configuration, freshness ng service, estado ng network, eligibility, provider, jurisdiction, at inilathalang tuntunin ng issuer o Pool.
 
-Mga direksiyon sa disenyo ang mga milestone na ito, hindi mga numero ng release, petsa ng paghahatid, o pangakong ilulunsad ang isang feature.
+\subsection*{15.2 Mga proposed milestone}
+\addcontentsline{toc}{subsection}{15.2 Mga proposed milestone}
+
+Mga direksiyon sa disenyo ang mga milestone na ito, hindi release number, petsa ng delivery, o pangakong ilulunsad ang isang feature.
 
 \begin{itemize}[leftmargin=*]
-\item \textbf{Pundasyon ng pamamahala:} iminungkahing CLC governance token; iminungkahing CLC Network Pool; mga fee adapter; quorum, timelock, at mga pundasyon ng pamamahala.
-\item \textbf{Routing at observability:} Router SDK at mga registry API; health dashboard; isang iminungkahing insurance-policy framework; opt-in rebalance intent; prototype ng batch netting.
-\item \textbf{Mga cross-domain risk tool:} HTLC o escrow routing; hiwalay na pinamamahalaang mga guarantor module; rolling, account, at tiered limit preset.
-\item \textbf{Regulated access:} mga deployment-specific na third-party payment service; mga personal na micro-pool; pagtuklas ng compliance service; third-party audit ng mga klase ng voucher.
+\item \textbf{Governance Foundation:} proposed CLC governance token; proposed CLC Network Pool; mga fee adapter; quorum, timelock, at pundasyon ng governance.
+\item \textbf{Routing \& Observability:} palawakin sa iba pang profile ang kasalukuyang route at receipt interface; maglathala ng health dashboard at service-level reporting; bumuo ng insurance-policy framework; magdisenyo ng opt-in rebalance intent; at mag-prototype ng batch netting.
+\item \textbf{Cross-Domain Risk Tools:} HTLC o escrow routing; hiwalay na pinamamahalaang guarantor module; rolling, account, at tiered limit preset.
+\item \textbf{Regulated Access:} deployment-specific na third-party payment service; personal micro-pool; discovery ng compliance service; third-party audit ng mga klase ng Voucher.
 \end{itemize}
-Ang anumang payment service ay ibibigay ng hiwalay na kinilalang mga third party sa ilalim ng naaangkop na hurisdiksiyon, eligibility, mga bayad, limitasyon, at tuntunin. Hindi mismong nagpapatakbo ng fiat rails ang CLC App at mga contract ng Protocol v1.1.0.
+Ang anumang payment service ay ibibigay ng hiwalay na tinukoy na third party sa ilalim ng naaangkop na jurisdiction, eligibility, fee, limit, at terms. Hindi mismong nagpapatakbo ng fiat rail ang CLC App at mga kontrata ng Protocol v1.1.0.
 
-Mananatiling iminungkahi o deployment-dependent ang multi-hop execution, shared insurance, iminungkahing CLC governance token, iminungkahing CLC Network Pool, batch netting, mga personal na micro-pool, at regulated payment service hanggang sa tukuyin ng isang pagpapatupad at ng mga tuntunin nito na aktibo na ang mga ito.
+Nananatiling proposed o deployment-dependent ang cross-domain multi-hop execution, automatic Pool rebalancing, shared insurance, proposed CLC governance token at proposed CLC Network Pool, batch netting, personal micro-pool, at regulated payment service hanggang sa tukuyin ng isang implementation at ng namamahalang terms nito na aktibo ang mga ito. Kasalukuyang feature ang same-chain participant-initiated routing sa pampublikong CLC App.
 
 
 \section*{16. Proposed na template ng evaluation}
@@ -1286,9 +1344,9 @@ Maaaring limitahan o hindi maging available ang mga feature dahil sa batas, sanc
 \section*{18. Konklusyon}
 \addcontentsline{toc}{section}{18. Konklusyon}
 
-Pinag-uugnay ng Cosmo-Local Credit ang kasalukuyang application at pundasyon ng Protocol v1.1.0 sa mas malawak na iminungkahing disenyo para sa mga Pool ng Pangako na malayang pinamamahalaan. Maaaring suportahan ng kasalukuyang direktang palitan sa Pool, quote at limit component, at pampublikong transaction record ang may-pananagutang palitan. Ngunit hindi nila pinatutunayan ang pagtupad ng tagapag-isyu, lumilikha ng karapatan ng contributor, o ginagarantiya ang halaga, liquidity, pagtubos, insurance, legal status, o proteksiyon laban sa pagkalugi.
+Iniuugnay ng Cosmo-Local Credit ang kasalukuyang application at pundasyon ng Protocol v1.1.0 sa mas malawak na proposed design para sa mga Commitment Pool na malayang pinamamahalaan. Maaaring iugnay ng kasalukuyang direct Pool swap at App/Core routed exchange ang mga Voucher na hawak ng kalahok sa pamamagitan ng maraming Pool habang pinananatili ang per-hop rule, fee, bound, settlement record, at governance. Hindi pinatutunayan ng mga transaksyong ito ang fulfillment ng issuer, lumilikha ng karapatan ng contributor, o ginagarantiya ang value, liquidity, redemption, insurance, legal status, o proteksiyon laban sa pagkawala.
 
-Mangangailangan ng hiwalay na implementation, pondo, governance, at inilathalang tuntunin ang iminungkahing execution routing, netting, governance asset, network clearing, liquidity program, at shared protection na inilalarawan sa papel na ito. Layunin ng disenyo na palawakin ang interoperability habang nananatili sa mga tinukoy na partido ang performance ng tagapag-isyu, pamamahala ng Pool, at pananagutan sa totoong buhay.
+Mangangailangan ng hiwalay na implementation, funding, governance, at inilathalang terms ang proposed cross-domain routing, automatic Pool rebalancing, netting, governance asset, network clearing, liquidity program, at shared protection. Layunin ng disenyo na palawakin ang interoperability habang pinananatili sa mga tinukoy na partido ang performance ng issuer, pamamahala ng Pool, at pananagutan sa tunay na mundo.
 
 
 \section*{A. Proposed na modelo ng pagsukat at bayad}
@@ -1394,49 +1452,56 @@ Ang isang layunin ng reserba ay hindi mismo isang garantiya.Ang anumang seguro o
 Sa ilalim ng iminungkahi na modelo, ang anumang inirerekumenda na CLC governance tokens na nakuha sa pamamagitan ng isang hiwalay na pinapayagan na programa ng panlabas na likido ay mai-retire o ilagay sa isang naipaliwanag na walang vote sink.
 
 
-\section*{C. Proposed KPI mga kahulugan}
-\addcontentsline{toc}{section}{C. Proposed KPI mga kahulugan}
+\section*{C. Mga proposed KPI definition}
+\addcontentsline{toc}{section}{C. Mga proposed KPI definition}
 
-Ang mga KPI na ito ay bumubuo ng isang iminungkahi na pagtutukoy sa pagsukat, hindi isang pahayag na ang kasalukuyang App o Protokol ay nagrekord ng bawat kinakailangang kaganapan.
+Ang mga KPI na ito ay isang proposed measurement specification, hindi pahayag na itinatala ng kasalukuyang App o Protocol ang bawat kinakailangang event.
 
-Ang bawat nai-publish na KPI ay dapat maglalaman ng:
+Dapat isama sa bawat inilathalang KPI ang:
 
 \begin{itemize}[leftmargin=*]
-\item responsable na publisher at mapagkukunan ng data;
-\item kahulugan ng kaganapan o estado;
-\item panahon ng cohort o pagsukat;
-\item unit at paraan ng valuation;
-\item timestamp ng valuation;
-\item mga patakaran sa pagsasama at pag-iwas;
-\item paggamot ng bahagyang mga talaan, pinagtatalo, natatapos na, hindi mai-access, at itinakda;
-\item ang kinakailangang katibayan o patotoo sa labas ng kadena;
-\item ang kasaysayan ng pagsusuri at mga limitasyon sa kalidad ng data; at
-\item kung ang resulta ay on-chain, naiulat, napatunayan, independiyenteng nasuri, o tinatayang.
+\item responsableng publisher at data source;
+\item definition ng event o state;
+\item cohort o measurement period;
+\item unit at valuation method;
+\item valuation timestamp;
+\item mga tuntunin sa inclusion at exclusion;
+\item pagtrato sa partial, disputed, expired, inaccessible, at corrected record;
+\item kinakailangang off-chain evidence o attestation;
+\item revision history at mga limitasyon sa kalidad ng data; at
+\item kung on-chain, iniulat, in-attest, independently verified, o estimated ang resulta.
 \end{itemize}
 \begin{longtable}{P{0.31\linewidth} P{0.31\linewidth} P{0.31\linewidth}}
 \toprule
-KPI & Proposed na kahulugan & Kinakailangan na katibayan at pag-iwas \\
+KPI & Proposed definition & Kinakailangang ebidensiya at mga exclusion \\
 \midrule
 \endhead
-\textbf{Katumbas na mga presentasyon} & Ang bilang o mga unit na tinanggap sa proseso ng pagbabayad ng tagapag-isyu sa loob ng isang panahon & Pagpapakita ng pagkakakilanlan, tagapag-isyu, pahintulot sa may-ari, halaga, oras, katayuan; hindi kasama ang mga duplikat at di-nakatuwiran na kahilingan \\
-\textbf{Ang rate ng pagpapatupad} & Pinapagtagumpayan na may-katumbas na mga presentasyon na binago ng may-akatumbas para sa parehong mature cohort & Ikalawang katibayan sa pagganap ng tagapag-isyu; ulat ng mga open, rejected, disputed, partial, at corrected case \\
-\textbf{Katumpakan ng discharge} & Pinapayagan na mga presentasyon na may rekord ng diskarte na binago sa pinapayagan na presentasyon & Pagsusunog, pagtanggal, pag-aalis ng rekord, o iba pang katibayan sa hindi muling paggamit na nauugnay sa pagsusumpungan \\
-\textbf{Katagal ng pagpapatupad} & Median at 90th percentile ng oras ng paghahatid hanggang pagpapatupad & Huwag palitan ang panahon ng pagmamay-ari mula sa pagpapahayag hanggang sa paghahatid o pagkuha hanggang sa pagpuhayag \\
-\textbf{Panahon ng pagpapanatili} & Median at pamamahagi ng oras mula sa pagkuha hanggang sa paghahatid & I-identify ang kaganapan ng pagkuha at i-exclude ang hindi kilalang mga oras ng pagkuha \\
-\textbf{Mga outstanding eligible commitments} & Mga karapat-dapat na pangako ng mga third party na nananatiling matapos ang mga tinukoy na exclusions & Identidad at mga termino ng tagapag-isyu; hindi kasama ang magagamit na inventory ng emitent, expiration, burn, discharge, tests, at non-commitment tokens \\
-\textbf{Volume ng pool swap} & Value of completed direct pool swaps under one disclosed valuation method & Ang mga kaganapan ng pagbabayad sa chain, mga yunit ng token, pinagmulan ng rate, oras; huwag i-classify bilang pagpapatupad ng tagapag-isyu \\
-\textbf{Inventory ng pool} & Ang kinukunan na suportadong mga kabtangan na itinatag ng isang pool sa isang tinukoy na oras & Mga saldo sa kontrata, mga reserbasyon sa bayad, hindi mai-access na mga asset, pamamaraan ng valuation, at mga kapangyarihan sa pag-withdraw ng mga may-ari \\
-\textbf{Katumbas ng mga reserba} & Eligible, available reserve assets na binago sa expressly covered exposure & Pulitika ng pagkopya, pagiging karapat-dapat ng mga asset, custody/control, liabilities, exclusions, at valuation; hindi total token supply sa default \\
-\textbf{Limitasyon sa paggamit} & Ang kinukunan na balanse ng token ng pool na binago sa kasalukuyang naka-configure cap nito & Limiter address, token, pool, timestamp, pagbabago, at mga panahon na walang limiter \\
-\textbf{Ang rate ng pass quote} & Ang matagumpay na mga sagot sa quote na binago sa mga wastong pagtatangka ng quote & Resulta sa quote lamang; hindi pagpapatupad ng ruta \\
-\textbf{Ang rate ng pagpapatupad ng ruta} & Nakumpleto multi-hop executions na binago sa mga valid execution attempts & Applicable only to an implemented execution system; report per hop at atomicity rules \\
-\textbf{Pagbawi mula sa guarantor} & Natanggap na karapat-dapat na pagbawi na hinati sa mga natatanging claim & Kinilalang guarantor, patakaran sa claim, oras, gastos, litigasyon, at mga exclusion \\
-\textbf{Proposed na kita sa network} & Pinaplano na network rake natanggap kasama ang nag-iiba na routing/service fees na natatanggap & I-exclude ang gross fees ng pool na pinananatili ng pool at iwasan ang pagbilang ng rake dalawang beses \\
-\textbf{Katapusan ng pamamahala} & Panahon upang makita, magdesisyon, magpahinga, ayusin, at tapusin ang isang insidente & Ang mga tinukoy na oras, responsable na katawan, emergency powers, appeals, at missing events \\
+\textbf{Valid presentments} & Bilang o mga unit na tinanggap sa redemption process ng issuer sa loob ng isang panahon & Presentment identifier, issuer, pahintulot ng holder, amount, oras, status; huwag isama ang duplicate at invalid request \\
+\textbf{Fulfillment rate} & Fulfilled valid presentments na hinati sa valid presentments para sa parehong mature cohort & Hiwalay na ebidensiya ng performance ng issuer; iulat ang open, rejected, disputed, partial, at corrected case \\
+\textbf{Discharge completeness} & Fulfilled presentments na may discharge record na hinati sa fulfilled presentments & Burn, cancellation, disabling record, o ibang ebidensiya ng hindi muling paggamit na nakaugnay sa fulfillment \\
+\textbf{Fulfillment latency} & Median at 90th percentile ng oras mula presentment hanggang fulfillment & Huwag ipalit ang issue-to-presentment o acquisition-to-presentment holding time \\
+\textbf{Holding duration} & Median at distribution ng oras mula acquisition hanggang presentment & Tukuyin ang acquisition event at huwag isama ang hindi alam na acquisition time \\
+\textbf{Outstanding eligible commitments} & Kwalipikadong third-party commitment na natitira pagkatapos ng mga tinukoy na exclusion & Identity at terms ng issuer; huwag isama, kung naaangkop, ang inventory ng issuer, expiry, burn, discharge, test, at non-commitment token \\
+\textbf{Direct Pool swap volume} & Value ng nakumpletong swap na sinimulan bilang one-Pool exchange sa ilalim ng iisang inilathalang valuation method & On-chain settlement event, token unit, rate source, oras; huwag uriin bilang fulfillment ng issuer \\
+\textbf{Route discovery attempts} & Valid request upang maghanap ng reachable Voucher o candidate path sa loob ng isang panahon & Graph version, indexed block, freshness, wallet scope, requested depth, candidate count, omission o search-budget state; hindi ito may-awtoridad na quote \\
+\textbf{Available candidate routes} & Mga candidate path na ibinalik ng discovery para sa tinukoy na request cohort & Bilangin ang bawat natatanging nakaayos na Pool/token path; isaad ang route depth at exclusion; huwag uriin bilang executable o settled \\
+\textbf{Route quote pass rate} & May-awtoridad na route quote na ibinalik na hinati sa valid quote attempt & Pinned block, path, amount mode, expiry, resulta o dahilan ng refusal; panatilihing hiwalay sa discovery success at execution \\
+\textbf{Route execution rate} & Confirmed routed transaction na hinati sa valid signed execution attempt para sa parehong mature cohort & Tracking ID, transaction hash, dispatch status, confirmation o reversion, route depth, at dahilan ng failure; huwag isama ang unsigned quote \\
+\textbf{Whole-route volume} & Input at output value ng confirmed routed exchange, na minsan lamang binibilang sa bawat route & Gamitin ang settled input ng unang hop at settled output ng huling hop sa ilalim ng iisang valuation method; huwag pagsamahin ang lahat ng hop value bilang magkakahiwalay na economic volume \\
+\textbf{Per-hop settlement} & Settled input, gross output, Pool fee, protocol fee, at net output sa bawat hop ng confirmed route & Nakaayos na Pool at token identifier, settlement event, transaction hash, block, log index, at anumang intermediate remainder \\
+\textbf{Route fees} & Kasalukuyang Pool at protocol fee na aktuwal na na-settle sa buong route & Iulat ang bawat hop at aggregate ayon sa uri ng fee; huwag tawagin ang mga ito na proposed network rake o hindi pa ipinapatupad na service fee \\
+\textbf{Route constraints} & Bilang at bahagi ng route o quote refusal ayon sa tinukoy na dahilan & Admission, deposit cap, liquidity, fee domain, hindi sinusuportahang token o quoter, wallet balance o type, gas, search budget, expiry, mismatch, o simulation evidence \\
+\textbf{Route reconciliation health} & Freshness at reliability ng indexed graph at pinagsamang settlement record & Graph version at edad, dirty-queue depth, tagal ng reconciliation, correction, failure, unknown member, at unresolved receipt \\
+\textbf{Pool inventory} & Nasukat na sinusuportahang asset na hawak ng Pool sa tinukoy na oras & Contract balance, fee reservation, inaccessible asset, valuation method, at kapangyarihan ng owner sa withdrawal \\
+\textbf{Reserve adequacy} & Kwalipikado at available na reserve asset na hinati sa tahasang sakop na exposure & Coverage policy, asset eligibility, custody/control, liability, exclusion, at valuation; hindi default na total token supply \\
+\textbf{Limit utilization} & Nasukat na token balance ng Pool na hinati sa kasalukuyang naka-configure na cap & Limiter address, token, Pool, timestamp, pagbabago, at mga panahong walang limiter \\
+\textbf{Guarantor recovery} & Natanggap na kwalipikadong recovery na hinati sa mga covered claim na nabayaran & Tinukoy na guarantor, claim policy, timing, cost, dispute, at write-off \\
+\textbf{Proposed network revenue} & Natanggap na proposed network rake at hiwalay na routing/service fee & Huwag isama ang gross Pool fee na pinanatili ng Pool at iwasang bilangin nang dalawang beses ang rake \\
+\textbf{Governance timeliness} & Oras upang matukoy, pagpasiyahan, i-pause, ayusin, at isara ang isang incident & Tinukoy na clock, responsableng body, emergency power, appeal, at missing event \\
 \bottomrule
 \end{longtable}
 
-Ang mga ari-arian ng epekto sa lipunan ay nangangailangan ng isang hiwalay na pamamaraan. Ang aktibidad ng blockchain lamang ay hindi nagtataguyod ng pagkakakilanlan, pagganap ng tagapag-isyu, katatagan, kalusugan ng komunidad, sanhi, o epekto.
+Kailangan ng hiwalay na methodology ang mga social-impact claim. Hindi sapat ang blockchain activity lamang upang patunayan ang identity, performance ng issuer, satisfaction, kalusugan ng komunidad, causality, o impact.
 
 
 \section*{D. Proposed launch parameters}
