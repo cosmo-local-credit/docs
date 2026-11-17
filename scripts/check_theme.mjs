@@ -72,6 +72,16 @@ for (const selector of [
   if (!splashCss.includes(selector)) errors.push(`missing splash theme selector ${selector}`)
 }
 
+for (const declaration of [
+  '--clc-guide-accent: var(--clc-accent-fill)',
+  'color: var(--clc-accent-text)',
+  'stroke: var(--clc-accent-on-fill)',
+]) {
+  if (!splashCss.includes(declaration)) {
+    errors.push(`introduction carousel is missing theme declaration ${declaration}`)
+  }
+}
+
 for (const className of ['mermaid-diagram', 'mermaid-diagram__caption', 'mermaid-diagram__viewport']) {
   if (!css.includes(`.${className}`) || !mermaid.includes(`className="${className}"`)) {
     errors.push(`Mermaid theme class ${className} is not connected`)

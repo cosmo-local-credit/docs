@@ -270,7 +270,7 @@ body:has(.about-page) {
   --clc-guide-muted: var(--about-muted);
   --clc-guide-border: var(--about-border);
   --clc-guide-surface: var(--clc-surface-raised);
-  --clc-guide-accent: var(--vocs-color_primary);
+  --clc-guide-accent: var(--clc-accent-fill);
   position: relative;
   width: 100%;
   max-width: 46rem;
@@ -332,7 +332,7 @@ body:has(.about-page) {
 }
 
 .clc-guide__copy a {
-  color: var(--vocs-color_primary);
+  color: var(--clc-accent-text);
   text-underline-offset: 0.2em;
 }
 
@@ -379,7 +379,7 @@ body:has(.about-page) {
 }
 
 .clc-guide-art__line--inverse {
-  stroke: var(--clc-on-primary);
+  stroke: var(--clc-accent-on-fill);
 }
 
 .clc-guide-art__muted {
