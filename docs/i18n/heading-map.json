@@ -144,14 +144,17 @@
     ],
     "nl": [
       "aan-de-slag",
-      "begin-met-de-huidige-app",
-      "1-bekijk-de-markt",
+      "een-eerste-rondgang-door-de-app",
+      "1-verken-de-markt-en-verzoeken",
       "2-maak-of-open-een-account-en-portemonnee",
-      "3-maak-een-waardebon",
-      "4-maak-of-beoordeel-een-commitmentfonds",
-      "5-direct-of-via-een-route-uitwisselen",
-      "6-gebruik-de-juiste-actie",
-      "huidige-implementatieafhankelijke-en-voorgestelde-mogelijkheden"
+      "3-maak-een-waardebon-en-aanbieding",
+      "4-publiceer-of-beantwoord-een-verzoek",
+      "5-vind-of-maak-een-commitmentfonds",
+      "6-verzend-of-ruil-waardebonnen",
+      "7-gebruik-een-waardebon-bij-de-uitgever",
+      "voordat-je-publiceert",
+      "huidige-app-acties",
+      "verantwoordelijkheden-en-belangrijke-grenzen"
     ],
     "nl-BE": [
       "aan-de-slag",
@@ -359,11 +362,13 @@
     ],
     "nl": [
       "begrippen-en-woordenschat",
-      "product--en-protocollagen",
-      "tokens-waardebonnen-en-aanbiedingen",
+      "alledaagse-begrippen",
+      "deelnemers-vinden-en-contacteren",
+      "waardebonnen-tokens-en-aanbiedingen",
       "verantwoordelijke-rollen-en-technische-zeggenschap",
       "handelingen-en-levenscyclus",
-      "markt-waarden-limieten-en-kosten",
+      "product--en-protocollagen",
+      "waarden-krediet-limieten-en-kosten",
       "routes-en-liquiditeit",
       "bescherming-en-bewijs",
       "statuswoorden"
@@ -602,14 +607,16 @@
       "futuri-accordi-di-credito"
     ],
     "nl": [
-      "praktisch-voorbeeld-van-een-waardebon",
+      "voorbeelden-van-uitwisseling-met-waardebonnen",
+      "eenvoudig-voorbeeld-één-fonds-drie-deelnemers",
+      "geavanceerd-voorbeeld-een-gerouteerde-uitwisseling",
       "1-een-uitgever-publiceert-een-toezegging",
-      "2-een-deelnemer-publiceert-een-vraag",
+      "2-een-deelnemer-publiceert-een-verzoek",
       "3-onafhankelijke-fondsbeheerders-stellen-een-route-samen",
-      "4-deelnemers-verstrekken-inventaris",
-      "5-de-app-ontdekt-en-quote-een-route",
+      "4-deelnemers-verstrekken-voorraad",
+      "5-de-app-ontdekt-een-route-en-berekent-een-offerte",
       "6-de-houder-voert-de-gerouteerde-uitwisseling-uit",
-      "7-de-houder-presenteert-de-waardebon",
+      "7-de-houder-biedt-de-waardebon-aan",
       "8-de-uitgever-registreert-nakoming-en-afboeking",
       "verantwoordelijkheden-in-één-oogopslag",
       "wanneer-een-route-niet-beschikbaar-is",
@@ -1644,6 +1651,7 @@
       "8-verplichte-en-optionele-gegevens",
       "9-hoe-we-gegevens-ontvangen",
       "10-wie-ontvangt-gegevens",
+      "huidig-dienstenregister",
       "11-internationale-verwerking",
       "12-hoe-lang-we-gegevens-bewaren",
       "13-beveiliging",
@@ -3363,7 +3371,7 @@
       "mappa-per-il-lettore"
     ],
     "nl": [
-      "cosmo-local-credit-clc",
+      "white-paper-van-cosmo-local-credit",
       "een-netwerk-voor-het-routeren-van-krediet-het-coördineren-van-toezeggingen-en-het-financieren-van-een-gezonde-kosmo-lokale-economie",
       "hoe-je-deze-white-paper-leest",
       "samenvatting",
@@ -5209,11 +5217,11 @@
       "174-protezioni-prove-e-leggi-locali"
     ],
     "nl": [
-      "17-juridische-en-nalevingsbrief",
-      "171-informatie-over-vouchers-en-aanbiedingen",
-      "172-openbaarmaking-van-de-fondsen",
-      "173-acties-en-verplichtingen",
-      "174-bescherming-bewijsmateriaal-en-lokaal-recht"
+      "17-juridische-en-nalevingsverklaring",
+      "171-bekendmakingen-over-waardebonnen-en-aanbiedingen",
+      "172-bekendmakingen-over-fondsen",
+      "173-handelingen-en-verplichtingen",
+      "174-bescherming-bewijs-en-lokaal-recht"
     ],
     "nl-BE": [
       "17-juridische-en-nalevingsbrief",

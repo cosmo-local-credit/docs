@@ -166,6 +166,19 @@ De productie-webapplicatie wordt geleverd via Cloudflare Pages. De huidige brows
 
 Andere integraties zijn afhankelijk van de functie. Wanneer zij zijn ingeschakeld en gebruikt, verwerkt een meldingsdienst eindpunten van pushabonnementen, apparaatstatus, gekoppelde Walletadressen, bevestigingen van levering en klikken en de inboxstatus; een transactierelay verwerkt ondertekende verzoeken en de transactiestatus; een Safe-transactiedienst verwerkt multisigadressen, voorstellen, handtekeningen, bevestigingen en uitvoeringsstatus; en een betalings- of geldomwisselingsaanbieder verwerkt het telefoonnummer, Walletadres, asset, bedrag, aanbieder-ID, tarief en de transactiestatus die voor die functie nodig zijn. Afbeeldingsopslag, de App-API, databases, blockchainindexeerders en monitoringinfrastructuur verwerken de inhoud en operationele gegevens die voor hun functies nodig zijn. Een externe dienst kan gegevens ook rechtstreeks volgens de eigen privacyverklaring verzamelen.
 
+### Huidig dienstenregister
+
+Dit register vermeldt diensten die blijken uit de productieconfiguratie die op 17 november 2026 is beoordeeld. Een implementatieafhankelijke dienst verschijnt alleen wanneer de betreffende functie is ingesteld of wordt gebruikt. Functies, locaties en verklaringen van aanbieders kunnen veranderen; de actuele verklaring van de aanbieder is eveneens van toepassing.
+
+| Dienst of categorie | Doel en betrokken gegevens | Informatie van de aanbieder | Status |
+| --- | --- | --- | --- |
+| Cloudflare Pages | Levert de webapplicatie en verwerkt netwerkverzoeken, waaronder IP-adres, browser-, beveiligings- en verzoekgegevens. | [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/) | Huidige productiehosting |
+| MapTiler | Levert kaartstijlen en locatievoorstellen op basis van het IP-adres; verzoeken kunnen IP-adres, browserinformatie, kaartgebied en locatiecontext bevatten. | [MapTiler Privacy Policy](https://www.maptiler.com/privacy-policy/) | Huidige browserconfiguratie |
+| Esri ArcGIS World Geocoding | Biedt plaatszoeken en omgekeerde geocodering; verzoeken kunnen zoektekst, coördinaten, IP-adres en browserinformatie bevatten. | [Esri Privacy Statement](https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement) | Huidige browserconfiguratie |
+| Door GEF beheerde App-diensten | Leveren de App-API, database, beeldopslag, indexering, ingestelde RPC-toegang, transactierelay, ondersteuning en verwante activiteiten. De gegevens hangen af van de gevraagde App-functie. | Deze Privacyverklaring en het [Gegevensbeschermingsbeleid](/nl/governance/data-protection) | Huidig, met afzonderlijke componenten afhankelijk van de implementatie |
+| Safe-transactiedienst | Ondersteunt het vinden van compatibele multisigs en transactiecoördinatie, waaronder Safe-adressen, ondertekenaars, drempels, voorstellen, bevestigingen en uitvoeringsstatus. | [Safe Privacy Policy](https://safe.global/privacy) | Implementatieafhankelijk |
+| Meldings-, betalings-, cash-ramp- en andere optionele aanbieders | Verwerken alleen de informatie die nodig is voor een ingeschakelde functie, zoals hierboven en in de bij die functie getoonde aanbiedersvoorwaarden beschreven. | De toepasselijke verklaring en transactievoorwaarden van de aanbieder | Implementatieafhankelijk |
+
 ## 11. Internationale verwerking
 
 De App, openbare blockchainnetwerken, dienstverleners, partners en gebruikers kunnen in meer dan één land actief zijn. Persoonsgegevens kunnen daarom worden geraadpleegd of verwerkt buiten Kenia of buiten het land waar ze zijn verzameld.
@@ -206,7 +219,7 @@ Stuur een verzoek naar [privacy@grassecon.org](mailto:privacy@grassecon.org). Mo
 
 U kunt er ook voor kiezen geen optionele profielvelden in te vullen, optionele informatie vóór publicatie te verwijderen, een geschikte openbare contactmethode te gebruiken, een veilig openbaar kaartpunt te selecteren, toestemming voor meldingen te beheren en een functie te vermijden waarvoor gegevens nodig zijn die u niet wilt verstrekken.
 
-Informatie over de rechten van betrokkenen in Kenia is beschikbaar bij de [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/).
+Informatie over de rechten van betrokkenen in Kenia is beschikbaar bij de [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/). Een betrokkene kan ook de officiële [klachtenpagina](https://odpc.go.ke/file-a-complaint/index.html) van de ODPC gebruiken.
 
 ## 15. Kinderen
 

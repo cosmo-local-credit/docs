@@ -19,6 +19,8 @@ Het historische **Sarafu Network** gebruikte commitment-poolingconcepten in geme
 
 Deze cijfers zijn historisch bewijs, niet actuele CLC-gebruikscijfers.
 
+De cijfers nemen de gepubliceerde labels van het dashboard over voor één samenhangende meetperiode. ‘Gebruiker’, ‘actief’, ‘uitwisseling’ en de omrekening van Fondsswapvolume naar USD hangen af van de onderliggende dashboardquery's en waarderingsmethode; ze mogen niet worden behandeld als universele CLC-KPI-definities. Deze repository heeft de dataset niet onafhankelijk herberekend. Bij hergebruik moeten de datums, bronlink, labels en historische kwalificatie behouden blijven. De voorgestelde meetvereisten in [Bijlage C](/nl/white-paper/appendix-c-kpi-definitions) zijn strenger voor toekomstige rapportage.
+
 Het bredere CLC-ontwerp combineert de huidige routing met voorstellen voor hoe compatibele netwerken:
 
 1. verantwoordelijke routediensten uitbreiden naar aanvullende register- of beleidsprofielen en domeinen;

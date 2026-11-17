@@ -51,7 +51,7 @@ In deze voorwaarden:
 
 ## 2. Acceptatie en toepassingsgebied
 
-De huidige App registreert tijdens het maken van een Account geen uitdrukkelijke aanvaarding van deze Voorwaarden. Voor zover het toepasselijke recht dit toestaat, aanvaard je deze Voorwaarden door een Account te maken of te gebruiken, of door de App te blijven gebruiken nadat een aangekondigde wijziging van kracht is geworden. Wanneer het toepasselijke recht uitdrukkelijke aanvaarding of hernieuwde aanvaarding vereist, biedt GEF een mogelijkheid tot aanvaarding voordat verder gebruik van de betreffende Accountfuncties wordt toegestaan. Alleen deze Voorwaarden bekijken zonder een Account te maken of te gebruiken, vormt op zichzelf geen overeenkomst.
+De huidige App toont tijdens ondersteunde accountregistratie en voordat een Gebruiker een Waardebon of Fonds publiceert een bevestigingsoptie voor aanvaarding. Door deze optie te selecteren en de betreffende procedure voort te zetten, geeft de Gebruiker aan deze Voorwaarden te aanvaarden. De App kan eisen dat een Gebruiker de actuele Voorwaarden aanvaardt of opnieuw aanvaardt voordat die bepaalde functies verder kan gebruiken. Wanneer een procedure geen duurzame, versiespecifieke registratie van de aanvaarding bewaart, aanvaardt u deze Voorwaarden, voor zover het toepasselijke recht dit toestaat, ook door een Account te maken of te gebruiken of door de App te blijven gebruiken nadat een aangekondigde wijziging van kracht is geworden. Alleen het bekijken van deze Voorwaarden zonder een Account te maken of te gebruiken, schept op zichzelf geen overeenkomst.
 
 Als je niet akkoord gaat, maak dan geen Account en gebruik de App niet. Als je deze Voorwaarden namens een organisatie aanvaardt, verklaar je bevoegd te zijn om die organisatie eraan te binden. In dat geval omvat **jij**, waar de context dat toestaat, zowel jou als de organisatie.
 
@@ -152,7 +152,7 @@ De houder moet de voorwaarden van het bon lezen, de uitgevende en het aanbod beo
 
 Indien een ontvanger een aanbieding wijzigt, opnieuw verpakkt of herdistribueert indien de voorwaarden van de uitgever dit toestaan, moet die ontvanger materiële veranderingen nauwkeurig identificeren, de vereiste afkomst- en bronbevestigingen behouden, toepasselijke voorwaarden doorgeven en voorkomen dat wordt aangegeven dat de oorspronkelijke uitgever of GEF het gewijzigde aanbod heeft goedgekeurd.
 
-Het App-label **Retirement waardebon”** betekent een terugkeerbare catalogusontwikkeling. Het verbrandt of annuleert geen saldo, voltooit de nakoming of afschrijving en schakelt niet uit de uitstaande verplichtingen van de uitgever.
+Het App-label **‘Buitengebruikstelling aanvragen’** laat de huidige eigenaar een beheerder vragen een Waardebon buiten gebruik te stellen. De Waardebon blijft actief terwijl het verzoek in behandeling is. De eigenaar kan een lopend verzoek annuleren en een beheerder kan het goedkeuren of afwijzen. Na goedkeuring wordt de Waardebon uit actief catalogusgebruik verwijderd, maar het contract, de saldi, transactiegeschiedenis en openstaande verbintenissen worden niet verwijderd; Nakoming of Afboeking wordt niet voltooid en saldi worden niet verbrand of geannuleerd. Een beheerder kan het catalogusrecord later herstellen wanneer de toepasselijke procedure dit toestaat.
 
 ## 10. Het creëren en bedienen van een Fonds
 
@@ -176,6 +176,8 @@ De beheerder moet deze openbaarmakingen nauwkeurig houden, ze consequent handhav
 Een beheerder mag een Fonds niet gebruiken om misleidende opbrengstclaims te maken, illegale financiële diensten te verbergen, loon- of arbeidsbescherming te ontwijken, prijzen of activiteiten te manipuleren, de bron of gebruik van activa te verstoppen, verboden gedrag mogelijk te maken of publieke uitbetalingen, convertibiliteit, liquiditeit of verliesbeskerming te beloven die hij niet kan leveren.
 
 GEF De lijst van de gegevens die een Fonds heeft, kan minimale vermelding, veiligheid, openbaarmaking of technische normen vaststellen en kan een Fonds afwijzen, opschorten, markeren of verwijderen uit een door de App beheerd register.GEF- Een garantie.
+
+De procedure **‘Buitengebruikstelling aanvragen’** van de App geldt ook voor een Fonds. Het Fonds blijft actief terwijl het verzoek in behandeling is. Na goedkeuring blokkeren de App en de ondersteunende dienst nieuwe swaps en stortingen, terwijl beschikbare opnames mogelijk blijven. Buitengebruikstelling verwijdert het Fondscontract, eerdere afwikkelingen, saldi, openstaande verplichtingen of afzonderlijke rechten en plichten uit de Fondsregels niet.
 
 De beheerder, Fonds eigenaar, proxy administrator, afhankelijkheid controllers, catalogus moderator en fee ontvangers kunnen verschillende partijen zijn. Fonds openbaarmakingen moeten elke materiële autoriteit identificeren.
 
@@ -273,6 +275,8 @@ Openbare blockchain-activiteit kan een portemonnee adres, activa, bedragen, tijd
 GEF bewaren van informatie zolang als redelijkerwijs nodig is voor de bovenstaande doeleinden, waaronder veiligheid, fraudepreventie, bewijs van transacties, wettelijke verplichtingen, verjaringstermijnen, back-ups en geschillenbeslechting.GEF in staat om informatie te verwijderen die bij een openbaar netwerk of door derden is opgeslagen.
 
 Onder voorbehoud van de toepasselijke wetgeving, kunt u toegang, correctie, verwijdering, beperking, bezwaar, portabiliteit of andere beschikbare gegevensrechten aanvragen door contact op te nemen met `privacy@grassecon.org`. GEF gebruikt redelijke waarborgen, maar kan geen absolute veiligheid of vertrouwelijkheid beloven, met name voor de openbare blockchain-activiteit en informatie die u publiceert.
+
+De [Privacyverklaring van de CLC App](/nl/governance/privacy) legt de App-specifieke velden en grenzen tussen openbare en privégegevens uit. Het [Gegevensbeschermingsbeleid](/nl/governance/data-protection) beschrijft de bredere normen van GEF voor gegevensbeheer.
 
 ## 18. Servicewijzigingen, opschorting en beëindiging
 

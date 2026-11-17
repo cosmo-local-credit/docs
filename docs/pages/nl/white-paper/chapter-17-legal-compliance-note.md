@@ -1,53 +1,53 @@
-# 17. Juridische en nalevingsbrief
+# 17. Juridische en nalevingsverklaring
 
-CPP kan tokens, waardebonnen, fondsen en swaps coördineren waarvan de juridische behandeling afhangt van hun ontwerp, marketing, gebruik, verantwoordelijke partijen en rechtsmacht.
+CPP kan tokens, Waardebonnen, Fondsen en swaps coördineren waarvan de juridische behandeling afhangt van hun ontwerp, presentatie, gebruik, verantwoordelijke partijen en rechtsgebied. Niets in deze White Paper is juridisch, fiscaal, beleggings-, krediet- of financieel advies.
 
-Het gebruik van de CLC App wordt geregeld door: [Voorwaarden van de dienstverlening](/nl/governance/terms). GEF de App en de ondersteunende infrastructuur exploiteert.GEF uitdrukkelijk een andere rol overneemt, is geen uitgever;Fondsbeheerder, bewaarder, kredietverstrekker, leningnemer, makelaar, borg, aflossingspersoon, adviseur, verzekeraar of partij bij verplichtingen tussen deelnemers.
+Het gebruik van de CLC App valt onder de [Gebruiksvoorwaarden](/nl/governance/terms). De [hub voor beleid en verklaringen](/nl/governance/policies) verwijst naar de actuele Privacyverklaring, het Gegevensbeschermingsbeleid en het Kinderbeschermingsbeleid. GEF beheert de App en de ondersteunende infrastructuur. Tenzij GEF uitdrukkelijk een andere rol aanvaardt, is GEF geen Uitgever, Fondsbeheerder, bewaarder, kredietgever, kredietnemer, makelaar, garant, partij die inwisselt, adviseur, verzekeraar of partij bij verplichtingen tussen deelnemers.
 
-Betalingsdiensten die afhankelijk zijn van de inzet moeten hun verantwoordelijke aanbieder, jurisdictie, in aanmerking komendheid, vergoedingen, limieten, bewaarmodel en voorwaarden identificeren. De aanwezigheid van een connector betekent niet dat GEF of een Fonds de onderliggende gereglementeerde dienst exploiteert.
+Implementatieafhankelijke betalingsdiensten moeten hun verantwoordelijke aanbieder, rechtsgebieden, geschiktheid, kosten, limieten, bewaarmodel en voorwaarden vermelden. De aanwezigheid van een connector betekent niet dat GEF of een Fonds de onderliggende gereguleerde dienst beheert.
 
-## **17.1 Informatie over vouchers en aanbiedingen**
+## 17.1 Bekendmakingen over Waardebonnen en Aanbiedingen
 
-Een uitgever dient te publiceren en bij te houden:
+Een Uitgever moet het volgende publiceren en actueel houden:
 
-- verantwoordelijke identiteit en contactgegevens;
-- de bijbehorende aanbieding, eenheid, levering, aangegeven waarde en capaciteit;
-- locaties en procedures voor presentatie;
-- tijdstip en bewijs van de nakoming;
-- verval, honoraria, belastingen, beperkingen en materiële veranderingsregels;
-- klachten, vervangingen, restituties of andere rechtsmiddelen; en
-- de ontladingsmethode die het hergebruik na nakoming voorkomt.
+- de verantwoordelijke identiteit en contactgegevens;
+- de bijbehorende Aanbieding, eenheid, voorraad, vermelde waarde en capaciteit;
+- locaties en procedures voor aanbieding ter inwisseling;
+- het tijdstip en bewijs van nakoming;
+- vervaldatum, kosten, belastingen, beperkingen en regels voor wezenlijke wijzigingen;
+- klachten, vervangingen, terugbetalingen of andere oplossingen; en
+- de afboekingsmethode die hergebruik na nakoming voorkomt.
 
-Een tokencontract stelt deze voorwaarden niet vast of bewijst de uitvoering.
+Een tokencontract stelt deze voorwaarden niet vast en bewijst geen nakoming.
 
-## **17.2 Openbaarmaking van de fondsen**
+## 17.2 Bekendmakingen over Fondsen
 
-Een Fondsbeheerder dient te publiceren:
+Een Fondsbeheerder moet het volgende publiceren:
 
-- het doel van de Fonds en verantwoordelijke besluitnemers;
-- de eigenaar van `SwapPool`, proxy-administrator, afhankelijkheidsbeheerders en ontvangers van vergoedingen;
+- het doel van het Fonds en de verantwoordelijke besluitvormers;
+- de eigenaar van de `SwapPool`, proxybeheerder, beheerders van afhankelijkheden en ontvangers van kosten;
 - toegelaten activa en regels voor opschorting of verwijdering;
-- waarderingsmethoden, aanbiedingsbronnen, vergoedingen, token-balans caps, inventaris en terugtrekkingsbevoegdheden voor eigenaren;
-- bijdrage- en exitrechten;
-- elke reserve, garantie, borg, verzekering en verliesverdelingregel; en
-- het beheer, upgraden, noodgevallen, klachten, migratie en beëindigingsprocessen.
+- waarderingsmethoden, offertebronnen, kosten, tokensaldoplafonds, voorraad en opnamebevoegdheden van de eigenaar;
+- rechten bij bijdragen en uitstappen;
+- iedere reserve, garantie, borgstelling, verzekering en regel voor verliesverdeling; en
+- procedures voor bestuur, upgrades, noodsituaties, klachten, migratie en beëindiging.
 
-De notering is geen bevestiging, waardering, verzekering of garantie van GEF.
+Een vermelding is geen goedkeuring, waardering, verzekering of garantie door GEF.
 
-## **17.3 Acties en verplichtingen**
+## 17.3 Handelingen en verplichtingen
 
-Een gewone. **Fonds swap** de beurs ondersteunde activa onder een weergegeven offerte- en transactiegrens. De vermogensrichting maakt het niet tot een lening, terugbetaling, inwisseling door de uitgever of realisatie in de echte wereld.
+Een gewone **Fondsswap** wisselt ondersteunde activa uit volgens een getoonde offerte en transactiegrenzen. De richting van de activa maakt dit niet tot een lening, terugbetaling, inwisseling door de Uitgever of nakoming in de echte wereld.
 
-**Aflossingsaanvraag ** retourneert of presenteert waardebon-eenheden aan een uitgever. ** nakoming ** is de beloofde prestatie van de uitgever. ** afboeking ** De applicatie heeft de mogelijkheid om gebruik te maken van de gegevens die zijn verstrekt. **‘Inwisselen’** de actie bereidt momenteel een overdracht aan de token-eigenaar voor; alleen deze overdracht bewijst geen nakoming.
+**Aanbieding ter inwisseling** geeft eenheden van een Waardebon terug aan of biedt ze aan de Uitgever aan. **Nakoming** is de beloofde prestatie van de Uitgever. **Afboeking** legt nagekomen eenheden vast zodat ze niet opnieuw kunnen worden gebruikt. De actie **‘Inwisselen’** in de App bereidt momenteel een overdracht aan de tokeneigenaar voor; die overdracht alleen bewijst geen nakoming.
 
-De App's **Retirement waardebon”** Het is een terugkeerbare catalogusontwikkeling die geen saldo verbrandt, vorderingen annulert of verplichtingen afhandelt.
+De actie **‘Buitengebruikstelling aanvragen’** in de App dient een verzoek van de eigenaar in voor administratieve beoordeling. De Waardebon of het Fonds blijft actief terwijl het verzoek in behandeling is en het verzoek kan worden goedgekeurd, afgewezen of geannuleerd. Na goedkeuring wordt een Waardebon uit actief catalogusgebruik verwijderd zonder saldi, contracten, historie, aanspraken of verplichtingen te verwijderen. Na goedkeuring van de buitengebruikstelling van een Fonds worden nieuwe swaps en stortingen geblokkeerd, terwijl beschikbare opnames mogelijk blijven. Geen van beide handelingen is verbranding, nakoming of afboeking.
 
-Een toekomstige lening of ander kredietproduct zou voorafgaand aan het gebruik afzonderlijk gepresenteerde aanvullende en transactievoorwaarden vereisen.
+Een toekomstige lening of ander kredietproduct vereist vóór gebruik afzonderlijk aangeboden aanvullende voorwaarden en transactievoorwaarden. Een gewone verzending, bijdrage, Fondsstorting, Fondsswap, aanbieding ter inwisseling, nakoming of afboeking schept niet alleen vanwege de richting of het type activum een lening.
 
-## **17.4 Bescherming, bewijsmateriaal en lokaal recht**
+## 17.4 Bescherming, bewijs en lokaal recht
 
-Een limiet, reserve, registerinvoer, app-lening of blockchain-transactie is niet automatisch een garantie of verzekeringspolis. Elke bescherming moet de verantwoordelijke partij, het gedekte evenement, de financiering, het maximum, uitsluitingen, duur, bewijsmateriaal, claimsproces en toepasselijke voorwaarden identificeren.
+Een limiet, reserve, registervermelding, App-vermelding of blockchaintransactie is niet automatisch een garantie of verzekering. Iedere bescherming moet de verantwoordelijke partij, gedekte gebeurtenis, financiering, bovengrens, uitsluitingen, duur, bewijseisen, claimprocedure en toepasselijke voorwaarden vermelden.
 
-Bewijs uit de openbare keten kan adressen, activa, bedragen, tijdstempels en contractuele gebeurtenissen tonen. Het bewijst op zich niet identiteit, emittentcapaciteit, voldoening, tevredenheid, bestuursoverleg, juridische ontslag of sociale impact.
+Openbaar blockchainbewijs kan adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Het bewijst op zichzelf geen identiteit, capaciteit van de Uitgever, nakoming, tevredenheid, bestuursoverleg, juridische afboeking of maatschappelijke impact.
 
-Functies kunnen beperkt of niet beschikbaar zijn vanwege de wet, sancties, in aanmerking komendheid, contractstatus, inventaris, beperkingen, beveiliging, rechtsmacht of diensten van derden. Uitgevers, Fondsbeheerders, aanbieders en deelnemers blijven verantwoordelijk voor het bepalen en naleven van toepasselijke wetgeving.
+Functies kunnen door wetgeving, sancties, geschiktheid, contractstatus, voorraad, limieten, beveiliging, rechtsgebied of externe diensten beperkt of niet beschikbaar zijn. Uitgevers, Fondsbeheerders, aanbieders en deelnemers blijven verantwoordelijk voor het vaststellen en naleven van het toepasselijke recht.

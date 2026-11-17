@@ -10,10 +10,10 @@
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
-      "sourceSha256": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+      "sourceSha256": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
       "locales": {
         "nl": {
-          "sha256": "f3eb2d88cc9b3d52570fe22cb65e6a01e1c1b1e876e08c4e5be3b6b08e2467ef",
+          "sha256": "fc9b9ce1a6655a1f0f1fb14a1d5c1aa2592acc41d01cb3b682e36c7c2edf2916",
           "review": {
             "units": 150,
             "meanBackTranslationSimilarity": 0.6675,
@@ -24,10 +24,10 @@
     },
     "/introduction/example": {
       "source": "introduction/example.mdx",
-      "sourceSha256": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+      "sourceSha256": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
       "locales": {
         "nl": {
-          "sha256": "243b5f6f33612ce3b5c17ceb75ba8afed0ba40034ef51a844e9d594bddb1c45a",
+          "sha256": "cf7a0184698cdd0f92274a3a7452301aaa6570e35443ff8532378d0c92cbff3f",
           "review": {
             "units": 60,
             "meanBackTranslationSimilarity": 0.6841,
@@ -38,10 +38,10 @@
     },
     "/introduction/getting-started": {
       "source": "introduction/getting-started.mdx",
-      "sourceSha256": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+      "sourceSha256": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
       "locales": {
         "nl": {
-          "sha256": "926e5eccfc19d3b54e37fd3d316147a98bf3ce35351b9b7ce88e5bd996cdf06e",
+          "sha256": "7488bd9c7181a3cc591f40f8c23b2f5370992b01c3954362fa12c736181a486a",
           "review": {
             "units": 74,
             "meanBackTranslationSimilarity": 0.6676,
@@ -66,10 +66,10 @@
     },
     "/protocol/network": {
       "source": "protocol/network.mdx",
-      "sourceSha256": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+      "sourceSha256": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
       "locales": {
         "nl": {
-          "sha256": "1f0c4318fd49d54ba9ecea96773f25bd44f513455a730371fc8e90c6d85078da",
+          "sha256": "918591b24577880fc180441e840d794bcfaccefd221d3961253ff65f3a9b2173",
           "review": {
             "units": 72,
             "meanBackTranslationSimilarity": 0.6009,
@@ -122,10 +122,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
+      "sourceSha256": "620ac4e8ee95ed5d8ddfaf2dbd615ed0e3211e723044bbfe602340bce9d4c2c4",
       "locales": {
         "nl": {
-          "sha256": "949f1295a311880fad20a7674a82b50b2af8090529a2a510d1073613129dda3c",
+          "sha256": "d2ef1682eecea880590eda5036969e6c1c618c90902edc56f7a6855e6c35718f",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.6352,
@@ -458,10 +458,10 @@
     },
     "/white-paper/chapter-17-legal-compliance-note": {
       "source": "white-paper/chapter-17-legal-compliance-note.md",
-      "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
+      "sourceSha256": "5b350a304f2e2af49b5ffddd22fb36813eff2cf5b0cb2239c0f6ccc47c02f751",
       "locales": {
         "nl": {
-          "sha256": "1c6d11bc01b606e85d96497275b0cd58d5813dbe5f11b62d301bacb1f0f242e4",
+          "sha256": "d73ceecd82172349f0e157dc1beaf4368723a9676e704a8462b1402dc2227a42",
           "review": {
             "units": 46,
             "meanBackTranslationSimilarity": 0.6127,
@@ -486,10 +486,10 @@
     },
     "/white-paper/executive-summary": {
       "source": "white-paper/executive-summary.md",
-      "sourceSha256": "0ea6749f959a98aef81f15e20f9385688758614efb3a81896af2079355b33175",
+      "sourceSha256": "0f150ea2091498f6627c69b8926757aef07aa1ee120f423b8592b1e044d2446f",
       "locales": {
         "nl": {
-          "sha256": "f2198139de25a7b7df1d67b843034f34ba19ae2521e76596e40297be2947b2f5",
+          "sha256": "2bd4e250f9b905237af5bd3b6415135bbe63cedab7356d097daa30e704027267",
           "review": {
             "units": 35,
             "meanBackTranslationSimilarity": 0.6915,
@@ -500,10 +500,10 @@
     },
     "/white-paper": {
       "source": "white-paper/index.mdx",
-      "sourceSha256": "dfba309365534fa5271db0c53356428084c398f47024400c4857e7ab72e38aaf",
+      "sourceSha256": "91a55686f4a7fc1d2540bd5fcbe5acc03481c04c8a3bf8b9c581e0956d24bd69",
       "locales": {
         "nl": {
-          "sha256": "51ae8134873be458653dc9268069c927e4fb2c81f28be91cd68bee6e49af100f",
+          "sha256": "8cfd635f6bfee64c05dbe080e85a3be9f5c2a55448c9fa27d2808ca1d961eba2",
           "review": {
             "units": 115,
             "meanBackTranslationSimilarity": 0.637,
@@ -519,10 +519,7 @@
         "nl": {
           "sha256": "40775b47002b586da86c8cfab4efc55f9d2e91551e4814da91a02abd82ec102c",
           "review": {
-            "units": 36,
-            "meanBackTranslationSimilarity": 0.7391,
-            "unitsBelow0_35": 2,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
@@ -530,15 +527,12 @@
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b",
+      "sourceSha256": "faaf1517659e9fb1d0fc910f09d3aa960b1d797fa671b879412fb746ae7e1426",
       "locales": {
         "nl": {
-          "sha256": "ecf287cedbb00a91a1a775c33a7fda1e6f1d0ec4e996178917be15c4a761d789",
+          "sha256": "495a95db1a4a3137b89add65129a2d0cedc3b046a500416049bc7ca0f9f7d91c",
           "review": {
-            "units": 190,
-            "meanBackTranslationSimilarity": 0.6448,
-            "unitsBelow0_35": 34,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
@@ -551,10 +545,7 @@
         "nl": {
           "sha256": "8df950966cabb2fd46fd85b57a29ad62f09f10d235e0922c05f905fd5735ea1f",
           "review": {
-            "units": 132,
-            "meanBackTranslationSimilarity": 0.6481,
-            "unitsBelow0_35": 22,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
@@ -567,29 +558,24 @@
         "nl": {
           "sha256": "12a00fcf6fa84c869e53794444b4da6859cf0043d7ea65332f5dc2ff392636e0",
           "review": {
-            "units": 136,
-            "meanBackTranslationSimilarity": 0.6667,
-            "unitsBelow0_35": 18,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
       }
     }
   },
-  "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+  "policySourceAppCommit": "704480cf2173dd9d95f3feadda3748999df2b072",
   "policyReviewProcess": [
     "reviewed translation memory retained for unchanged units",
-    "semantic NLLB translation for changed units",
-    "plain-language and legal-meaning review",
-    "independent back-translation of every changed unit"
+    "semantic translation of changed units",
+    "complete plain-language and legal-meaning review of the four policy pages",
+    "protected-token, structure, link, and source-hash verification"
   ],
   "policyBackTranslationReview": {
-    "units": 494,
-    "meanBackTranslationSimilarity": 0.6586,
-    "unitsBelow0_35": 76,
-    "threshold": 0.35,
-    "lowConfidenceReport": "policy-review.nl.json"
+    "status": "completed-before-final-human-review",
+    "scope": "changed policy units",
+    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
   },
   "policyTranslationPublicationDate": "9 november 2026",
   "policyStatus": "release-ready",
