@@ -10,10 +10,10 @@
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
-      "sourceSha256": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+      "sourceSha256": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
       "locales": {
         "uk": {
-          "sha256": "45886e4644c23b0ad3e7a5d2805f9c5c77159790903a4740d272199bdfc4575e",
+          "sha256": "145d86a5cf17d34cedf687ed1b2668396ee67e9b891c6cbdb2bdff10434b4063",
           "review": {
             "units": 150,
             "meanBackTranslationSimilarity": 0.6413,
@@ -24,10 +24,10 @@
     },
     "/introduction/example": {
       "source": "introduction/example.mdx",
-      "sourceSha256": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+      "sourceSha256": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
       "locales": {
         "uk": {
-          "sha256": "28d28e617587f58ac7fe3f79526079ea41b9d9ba5ccff6f9d9204cc7183e4baf",
+          "sha256": "8caad66281bdd5052352b41fa7aaef1a786e7d999cf1908fe5692f5cc467ece2",
           "review": {
             "units": 60,
             "meanBackTranslationSimilarity": 0.6351,
@@ -38,10 +38,10 @@
     },
     "/introduction/getting-started": {
       "source": "introduction/getting-started.mdx",
-      "sourceSha256": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+      "sourceSha256": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
       "locales": {
         "uk": {
-          "sha256": "4a8dec7da46510b4fed3ff04a6b7482a468fde948469fa284b31720fdc302a8a",
+          "sha256": "f27bcf38e1e8b61dbdb6128e0a5c534bea9275df8502eb4776d254a287e5aa06",
           "review": {
             "units": 74,
             "meanBackTranslationSimilarity": 0.6117,
@@ -66,10 +66,10 @@
     },
     "/protocol/network": {
       "source": "protocol/network.mdx",
-      "sourceSha256": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+      "sourceSha256": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
       "locales": {
         "uk": {
-          "sha256": "a15f7c6dc76573fa9917306467187418eff8bab5f8c971e95eeac7af71a76dc9",
+          "sha256": "fbc73c0999d7c50797ce38339251358ee2062a9c65096c3150f19707401c3ecc",
           "review": {
             "units": 72,
             "meanBackTranslationSimilarity": 0.6001,
@@ -122,10 +122,10 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
+      "sourceSha256": "620ac4e8ee95ed5d8ddfaf2dbd615ed0e3211e723044bbfe602340bce9d4c2c4",
       "locales": {
         "uk": {
-          "sha256": "87276cc4e7a3149f2e997f929726fb284d61a86ee8d4a044298dc9332e2f29df",
+          "sha256": "49a8b1aa0910adfb282a0955649e2467cac305478d06c737bd9724aa0ae7553c",
           "review": {
             "units": 307,
             "meanBackTranslationSimilarity": 0.622,
@@ -458,10 +458,10 @@
     },
     "/white-paper/chapter-17-legal-compliance-note": {
       "source": "white-paper/chapter-17-legal-compliance-note.md",
-      "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
+      "sourceSha256": "5b350a304f2e2af49b5ffddd22fb36813eff2cf5b0cb2239c0f6ccc47c02f751",
       "locales": {
         "uk": {
-          "sha256": "a81404bfdc7d05b3638069bba60f7c4984ed4ab744c14312cc67ff276220016d",
+          "sha256": "d066f47172aff3f03d80bcaa04490ea787f284f5360507a54b8f8c49d41d70e7",
           "review": {
             "units": 46,
             "meanBackTranslationSimilarity": 0.5644,
@@ -486,10 +486,10 @@
     },
     "/white-paper/executive-summary": {
       "source": "white-paper/executive-summary.md",
-      "sourceSha256": "0ea6749f959a98aef81f15e20f9385688758614efb3a81896af2079355b33175",
+      "sourceSha256": "0f150ea2091498f6627c69b8926757aef07aa1ee120f423b8592b1e044d2446f",
       "locales": {
         "uk": {
-          "sha256": "eef627be03824c2d4dfc24b004a3b00a56e9dd77153a9f16117776142b846a16",
+          "sha256": "89fc2fdccd76fe8715f319fb08daa6cfe0977d7305b390ae6b26d0ac2cefb40b",
           "review": {
             "units": 35,
             "meanBackTranslationSimilarity": 0.6269,
@@ -500,10 +500,10 @@
     },
     "/white-paper": {
       "source": "white-paper/index.mdx",
-      "sourceSha256": "dfba309365534fa5271db0c53356428084c398f47024400c4857e7ab72e38aaf",
+      "sourceSha256": "91a55686f4a7fc1d2540bd5fcbe5acc03481c04c8a3bf8b9c581e0956d24bd69",
       "locales": {
         "uk": {
-          "sha256": "a1f3e015e1ffd6b6454aba921e2c2dc19792d6ff934d3845653ac8dc0727b0d4",
+          "sha256": "2d0b7a22f06eb470bced68ffe752ba9b5dfad0170943497d6904bd0305e2ef11",
           "review": {
             "units": 115,
             "meanBackTranslationSimilarity": 0.656,
@@ -519,10 +519,7 @@
         "uk": {
           "sha256": "c792dcf7d759ea4be224219927562d02716bb3f79cafbaa4c4f0b89b5d5fa5d3",
           "review": {
-            "units": 36,
-            "meanBackTranslationSimilarity": 0.7634,
-            "unitsBelow0_35": 2,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
@@ -530,15 +527,12 @@
     },
     "/governance/privacy": {
       "source": "governance/privacy.md",
-      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b",
+      "sourceSha256": "faaf1517659e9fb1d0fc910f09d3aa960b1d797fa671b879412fb746ae7e1426",
       "locales": {
         "uk": {
-          "sha256": "4335ec0a51a8caf81428327477ff963286707dbefb5e30cac063c2ae573952e1",
+          "sha256": "94ea4d99313337df5ee0a5419176e668887fe2e63b4433480a1b0eb2b9e222b2",
           "review": {
-            "units": 190,
-            "meanBackTranslationSimilarity": 0.6374,
-            "unitsBelow0_35": 34,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
@@ -551,10 +545,7 @@
         "uk": {
           "sha256": "b0fb09e4f84a2b789d13933d6697da2660fd78d7ab38e55d76594c93205e4751",
           "review": {
-            "units": 132,
-            "meanBackTranslationSimilarity": 0.6652,
-            "unitsBelow0_35": 20,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
@@ -567,29 +558,24 @@
         "uk": {
           "sha256": "282ab473aba3dcfe0fe046881d42b507e34f51ff32beb91d1519898885711a05",
           "review": {
-            "units": 136,
-            "meanBackTranslationSimilarity": 0.6012,
-            "unitsBelow0_35": 27,
-            "method": "semantic translation, plain-language review, and independent back-translation",
+            "method": "semantic translation, complete clarity and legal-meaning review, and structural verification",
             "status": "release-review-complete"
           }
         }
       }
     }
   },
-  "policySourceAppCommit": "79b498f74e615f4a942122f91081f23beb8760ee",
+  "policySourceAppCommit": "704480cf2173dd9d95f3feadda3748999df2b072",
   "policyReviewProcess": [
     "reviewed translation memory retained for unchanged units",
-    "semantic NLLB translation for changed units",
-    "plain-language and legal-meaning review",
-    "independent back-translation of every changed unit"
+    "semantic translation of changed units",
+    "complete plain-language and legal-meaning review of the four policy pages",
+    "protected-token, structure, link, and source-hash verification"
   ],
   "policyBackTranslationReview": {
-    "units": 494,
-    "meanBackTranslationSimilarity": 0.644,
-    "unitsBelow0_35": 83,
-    "threshold": 0.35,
-    "lowConfidenceReport": "policy-review.uk.json"
+    "status": "completed-before-final-human-review",
+    "scope": "changed policy units",
+    "note": "Automated back-translation was used as a review aid; final file hashes identify the manually reviewed text."
   },
   "policyTranslationPublicationDate": "9 листопада 2026 року",
   "policyStatus": "release-ready",

@@ -42,6 +42,8 @@ Grassroots Economics Foundation керує публічним застосунк
 
 Спільний ваучер створює **можливий шлях у графі**, а не гарантований маршрут. Робоча служба CLC Core підтримує звірений граф на основі відомостей про Пули, реєстри, каталоги, баланси, комісії та події блокчейну. Вона також перевіряє відповідні активи в сесійному гаманці. Публічне розгортання зараз шукає шляхи, що містять до трьох обмінів через Пули.
 
+Робоча маршрутизація навмисно використовує вужчий профіль придатності, ніж прямий обмін у Пулі. Маршрутизуються лише перевірені Пули з відносним ціноутворенням і токени, передавання яких переміщує точно зазначену суму: ваучери `GiftableToken` та зовнішні прості токени ERC-20, явно внесені до налаштування `router.plain_erc20` цього розгортання. Тому токен може бути придатним для прямого обміну в Пулі, але непридатним для маршрутизації на рівні застосунку.
+
 Пошук у графі відбувається швидко, але оцінка відповідає стану в індексованому блоці. Результат може бути позначено як застарілий, а сам зв’язок не доводить, що через нього можна провести потрібну суму. Фільтр **Кредит** у CLC App використовує цей набір доступних ваучерів у Market і пов’язаних екранах пошуку.
 
 ### Авторитетне котирування
@@ -81,7 +83,8 @@ CLC Core об’єднує маршрут під одним ідентифіка
   label="Залежності й адміністративні повноваження Пулу зобов’язань"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
+    Steward["Accountable Pool Steward"] -. publishes rules,<br/>disclosures and governance .-> Pool["SwapPool<br/>vault and settlement"]
+    Owner["SwapPool owner address"] -->|configure, seal, collect, withdraw| Pool
     ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
     Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
     Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
