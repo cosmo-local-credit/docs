@@ -71,14 +71,17 @@
     ],
     "es": [
       "primeros-pasos",
-      "comience-con-la-aplicación-actual",
-      "1-explora-el-mercado",
-      "2-crear-o-acceder-a-una-cuenta-y-cartera",
-      "3-crear-un-vale",
-      "4-crear-o-evaluar-un-fondo-de-compromisos",
-      "5-intercambia-directamente-o-mediante-una-ruta",
-      "6-usa-la-acción-correcta",
-      "capacidades-actuales-dependientes-del-despliegue-y-propuestas"
+      "un-primer-recorrido-por-la-app",
+      "1-explora-el-mercado-y-las-solicitudes",
+      "2-crea-una-cuenta-y-billetera-o-accede-a-ellas",
+      "3-crea-un-vale-y-una-oferta",
+      "4-publica-una-solicitud-o-responde-a-ella",
+      "5-encuentra-o-crea-un-fondo-de-compromisos",
+      "6-envía-o-intercambia-vales",
+      "7-utiliza-un-vale-con-su-emisor",
+      "antes-de-publicar",
+      "acciones-actuales-de-la-app",
+      "responsabilidades-y-límites-importantes"
     ],
     "fil": [
       "magsimula",
@@ -265,11 +268,13 @@
     ],
     "es": [
       "conceptos-y-vocabulario",
-      "capas-de-producto-y-protocolo",
-      "tokens-vales-y-ofertas",
+      "términos-cotidianos",
+      "descubrir-y-contactar-a-participantes",
+      "vales-tokens-y-ofertas",
       "funciones-responsables-y-control-técnico",
       "acciones-y-ciclo-de-vida",
-      "mercado-valores-límites-y-tarifas",
+      "capas-del-producto-y-del-protocolo",
+      "valores-crédito-límites-y-comisiones",
       "rutas-y-liquidez",
       "protecciones-y-pruebas",
       "palabras-de-estado"
@@ -475,18 +480,20 @@
       "zukünftige-kreditvereinbarungen"
     ],
     "es": [
-      "ejemplo-práctico-de-vale",
+      "ejemplos-de-intercambio-de-vales",
+      "ejemplo-sencillo-un-fondo-y-tres-participantes",
+      "ejemplo-avanzado-un-intercambio-enrutado",
       "1-un-emisor-publica-un-compromiso",
-      "2-un-participante-publica-una-necesidad",
-      "3-responsables-de-fondos-independientes-organizan-una-ruta",
-      "4-los-participantes-proporcionan-el-inventario",
-      "5-la-aplicación-descubre-y-cotiza-una-ruta",
+      "2-un-participante-publica-una-solicitud",
+      "3-responsables-de-fondos-independientes-seleccionan-una-ruta",
+      "4-los-participantes-aportan-inventario",
+      "5-la-app-descubre-y-cotiza-una-ruta",
       "6-el-titular-ejecuta-el-intercambio-enrutado",
       "7-el-titular-presenta-el-vale",
-      "8-el-emisor-registra-el-cumplimiento-y-la-descarga",
-      "responsabilidades-en-un-vistazo",
-      "cuando-una-ruta-no-está-disponible",
-      "arreglos-futuros-de-crédito"
+      "8-el-emisor-registra-el-cumplimiento-y-la-extinción",
+      "responsabilidades-de-un-vistazo",
+      "cuando-no-hay-una-ruta-disponible",
+      "acuerdos-de-crédito-futuros"
     ],
     "fil": [
       "praktikal-na-halimbawa-ng-voucher",
@@ -1373,6 +1380,7 @@
       "8-datos-obligatorios-y-opcionales",
       "9-cómo-recibimos-los-datos",
       "10-quién-recibe-los-datos",
+      "registro-de-servicios-actuales",
       "11-tratamiento-internacional",
       "12-durante-cuánto-tiempo-conservamos-los-datos",
       "13-seguridad",
@@ -3221,7 +3229,7 @@
       "orientierung-für-leser"
     ],
     "es": [
-      "cosmo-local-credit-clc",
+      "libro-blanco-de-cosmo-local-credit",
       "una-red-para-la-red-de-crédito-la-coordinación-de-los-compromisos-y-la-financiación-de-una-economía-cosmo-local-saludable",
       "cómo-leer-este-periódico",
       "abstracto",

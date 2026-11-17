@@ -2,7 +2,7 @@
 
 CPP puede coordinar tokens, vales, Fondos y swaps cuyo tratamiento legal depende de su diseño, comercialización, uso, partes responsables y jurisdicción. Nada en este Libro Blanco es asesoramiento jurídico, fiscal, de inversión, de crédito o financiero.
 
-El uso de la CLC App se rige por el [Términos de servicio](/es/governance/terms) GEF opera la aplicación y la infraestructura de soporte. A menos que GEF asuma expresamente otro papel, no es emisor, Responsable del Fondo, custodio, prestamista, prestatario, corredor, garante, redentor, asesor, asegurador o parte en las obligaciones entre los participantes.
+El uso de la CLC App se rige por los [Términos de servicio](/es/governance/terms). El [centro de políticas y avisos](/es/governance/policies) enlaza el Aviso de privacidad, la Política de protección de datos y la Política de protección de la infancia vigentes. GEF opera la Aplicación y su infraestructura de apoyo. Salvo que GEF asuma expresamente otra función, no es Emisor, Responsable del Fondo, custodio, prestamista, prestatario, intermediario, garante, responsable del canje, asesor, asegurador ni parte de las obligaciones entre participantes.
 
 Los servicios de pago dependientes del despliegue deberán identificar a su proveedor responsable, jurisdicciones, elegibilidad, tarifas, límites, modelo de custodia y condiciones. La presencia de un conector no significa que GEF o un grupo explote el servicio regulado subyacente.
 
@@ -40,7 +40,7 @@ Un hombre ordinario **Intercambio de Fondos** los intercambios de activos apoyad
 
 La **presentación para el canje** devuelve o presenta unidades de un vale a su emisor. El **cumplimiento** es la prestación prometida por el emisor. La **baja** registra las unidades cumplidas para impedir que vuelvan a utilizarse. La acción **“Canjear”** de la Aplicación prepara actualmente una transferencia al propietario del token; esa transferencia por sí sola no demuestra el cumplimiento.
 
-La aplicación es **“Retirar vale”** La acción es la eliminación de catálogo reversible. No quema los saldos, no cancela las reclamaciones ni cumple con las obligaciones.
+La acción **«Solicitar retiro»** de la Aplicación presenta una solicitud del propietario para su revisión administrativa. El Vale o Fondo permanece activo mientras la solicitud está pendiente y esta puede aprobarse, rechazarse o cancelarse. El retiro aprobado de un Vale elimina su registro del uso activo del catálogo sin borrar saldos, contratos, historial, derechos ni obligaciones. El retiro aprobado de un Fondo impide nuevos intercambios y depósitos, pero permite los retiros disponibles. Ninguna de estas acciones equivale a la quema, el cumplimiento o la extinción.
 
 Un préstamo futuro u otro producto de crédito requeriría que se presentaran por separado los términos suplementarios y de la transacción antes de su uso. Ningún envío ordinario, contribución, depósito de grupo, swap de grupo, presentación, cumplimiento o descarga crea un préstamo simplemente debido a su dirección o tipo de activo.
 

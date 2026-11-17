@@ -1,117 +1,148 @@
 # Conceptos y vocabulario
 
-Cosmo-Local Credit conecta una aplicación, un protocolo abierto, Fondos gobernadas de forma independiente y los compromisos del mundo real representados por vales. Estas capas funcionan juntas, pero no son lo mismo.
+Cosmo-Local Credit conecta a quienes ofrecen bienes o servicios, a quienes los necesitan y a Fondos de Compromisos gobernados de forma independiente que permiten intercambiar Vales. Esta página comienza con los términos que ve un participante y después explica las capas técnicas que hay detrás.
 
-Esta página define los términos utilizados en toda la documentación. Las etiquetas exactas de las aplicaciones aparecen en las citas donde la interfaz utiliza un nombre más corto o potencialmente ambiguo.
+Las etiquetas exactas de la App aparecen entre comillas cuando la interfaz utiliza un nombre más corto o potencialmente ambiguo.
 
-## Capas de producto y protocolo
+## Términos cotidianos
 
-| Término | Significado |
+| Término | Significado en lenguaje sencillo |
 | --- | --- |
-| **Cosmo-Local Credit (CLC)** | La familia de productos: el CLC App, su documentación y el trabajo más amplio de compromiso compartido. |
-| **CLC App** | La aplicación web progresiva en [cosmolocal.credit](https://cosmolocal.credit) GEF opera esta interfaz y sus servicios de apoyo. |
-| **CLC Core** | El servicio de apoyo de la CLC App para catálogos, estado indexado de la cadena, descubrimiento de rutas, cotizaciones autorizadas, coordinación del relé y recibos de intercambios enrutados. No es un contrato inteligente ni un Gestor de Fondo. |
-| **Protocolo de agrupación de compromisos (CPP)** | El modelo reutilizable de curación, valoración, limitación, intercambio y gobernanza responsable. |
-| **Protocol v1.1.0** | La publicación verificada del contrato inteligente público documentada en el [Referencia al protocolo](/es/protocol/overview). |
-| **Fondo de Compromisos** | Un acuerdo gobernado que selecciona activos, publica reglas y permite el intercambio. **Fondo** es la forma abreviada habitual. |
-| **`SwapPool`** | El contrato actual del Protocolo que mantiene el inventario de tokens y ejecuta intercambios directos. Es un componente técnico de un Fondo de Compromisos. |
-| **`SwapRouter` Solidity** | El contrato de Protocol v1.1.0 que calcula una cotización para un camino propuesto entre varios Fondos. No custodia activos ni ejecuta la ruta. |
-| **Flujo de enrutamiento de la aplicación** | El proceso actual de la CLC App y CLC Core que descubre, cotiza y simula caminos en la misma cadena, prepara un lote firmado para la billetera, lo retransmite y agrupa los registros de liquidación de los Fondos en un solo recibo. |
-| **Se propone el token de gobernanza CLC** | Un diseño de gobernanza futuro en el Libro Blanco. No es un activo actual de aplicación o Protocol v1.1.0. |
-| **Propósito de red CLC propuesto** | Un futuro diseño de compensación y coordinación a nivel de red. No es lo mismo que una `SwapPool` actual. |
+| **Vale** | Un compromiso transferible —muy parecido a una tarjeta regalo— cuyo Emisor promete determinados bienes, servicios, beneficios u otra prestación según términos publicados. |
+| **Emisor** | La persona u organización que crea el Vale y sigue siendo responsable de lo que promete. |
+| **Oferta** | Un registro del catálogo que describe bienes o servicios asociados a un Vale. Ayuda a descubrir la oferta, pero no demuestra su disponibilidad ni su cumplimiento. |
+| **Solicitud** | Una expresión publicada de algo que busca un participante. Por sí sola no acepta una Oferta, reserva bienes, autoriza un intercambio ni crea una obligación. |
+| **Mercado** | El catálogo de la App para descubrir Vales, Fondos, Ofertas, Solicitudes y otra información pública. No es automáticamente un lugar de intercambio, un vendedor, un respaldo ni una garantía. |
+| **Fondo de Compromisos** | Un sistema gobernado que selecciona Vales compatibles, publica reglas de intercambio, mantiene inventario y permite intercambiar. **Fondo** es la abreviatura habitual. |
+| **Responsable del Fondo** | La persona, cooperativa, organismo público, federación, multifirma, servicio u otra estructura responsable que publica y administra las reglas de un Fondo. |
+| **Titular** | Un participante que controla un saldo de Vales. Tenerlo no demuestra cumplimiento, valor en efectivo ni garantía. |
+| **Billetera** | La cuenta y las credenciales utilizadas para autorizar transferencias de tokens e intercambios en Fondos. |
 
-## Tokens, vales y Ofertas
+«Miembro de la comunidad» es lenguaje social informal. Por sí solo no crea derechos de admisión, propiedad, gobernanza, reembolso ni otros derechos jurídicos.
 
-En el caso A **símbolo** es un saldo en cadena o un activo digital. Las mecánicas de tokens pueden registrar el suministro, las transferencias, el vencimiento y la quema, pero por sí mismas no prometen bienes, servicios, conversión de efectivo o redención.
+## Descubrir y contactar a participantes
 
-En el caso A **el vale** es un token o registro que un emisor representa como un compromiso canjeable en términos publicados. Estos términos deben identificar lo que se promete, quién es responsable, dónde y cuándo se puede presentar, los límites materiales y el proceso de cumplimiento y reclamación.
+El Mercado ayuda a encontrar Vales, Ofertas, Solicitudes y Fondos. Que aparezca una publicación significa que la App puede mostrar un registro; no demuestra que su información sea correcta, que exista inventario disponible ni que una transacción vaya a realizarse.
 
-Una **La Oferta** es el registro de catálogo de los bienes o servicios asociados con un vale. La publicación de una Oferta no hace monedas, prueba la disponibilidad o muestra que se ha cumplido.
+Un participante puede publicar una Solicitud y contactar a otro mediante las funciones de contacto o mensajería disponibles. Una solicitud de contacto, un mensaje, una conversación sobre una reserva o una respuesta a una Solicitud no hace por sí sola lo siguiente:
 
-Estas son cuatro capas separadas:
+- aceptar un Vale o una Oferta;
+- autorizar una transferencia o un intercambio de Fondo;
+- demostrar la entrega o satisfacción;
+- cumplir o extinguir un Vale; ni
+- convertir a GEF en parte del acuerdo entre los participantes.
 
-1. el contrato simbólico y los saldos;
-2. la designación del vale y los términos publicados;
-3. uno o más registros de ofertas; y
-4. el rendimiento del emisor en el mundo real.
+Las Reseñas son comentarios públicos sobre un Vale o un Fondo. No equivalen a pruebas privadas de elegibilidad, diligencia debida del operador, una garantía ni una constatación de que hubo cumplimiento.
+
+## Vales, tokens y Ofertas
+
+Un **token** es un saldo en la cadena o un activo digital. La mecánica del token puede registrar la oferta total, transferencias, vencimiento y quema, pero por sí sola no promete bienes, servicios, conversión a dinero ni canje.
+
+Un **Vale** es un token o registro que un Emisor presenta como compromiso canjeable según términos publicados. Estos términos deben indicar qué se promete, quién responde, dónde y cuándo puede presentarse, cuáles son sus límites importantes y cómo funcionan el cumplimiento y las reclamaciones.
+
+Una **Oferta** es el registro del catálogo para bienes o servicios asociados a un Vale. En el lenguaje corriente, «oferta» puede ser cualquier cosa que proponga un participante; **Oferta** es el nombre del registro de la App.
+
+Mantén separadas estas cuatro capas:
+
+1. el contrato del token y sus saldos;
+2. la designación del Vale y sus términos publicados;
+3. uno o varios registros de Oferta; y
+4. la prestación del Emisor en el mundo real.
 
 ## Funciones responsables y control técnico
 
-| Función o autoridad | Responsabilidad o poder |
+| Función o autoridad | Responsabilidad o facultad |
 | --- | --- |
-| **Emitente** | Publica y cumple un compromiso de vale. Esta responsabilidad no se transfiere automáticamente simplemente por el cambio de titularidad del contrato. |
-| **Titular** | Controla el saldo de los vales. El control no demuestra cumplimiento, valor en efectivo o garantía. |
-| **Proveedor de servicios** | Un personaje de cara pública. Un proveedor de servicios se convierte en emisor cuando publica un compromiso de vale. |
-| **Responsable del Fondo** | La persona responsable, cooperativa, agencia pública, federación, multisig, servicio u otra estructura que publica y administra las reglas del Fondo. |
-| **Propietario del Fondo** | La dirección con los poderes actuales del propietario de `SwapPool`, incluida la configuración, la cobranza de tarifas y la retirada de liquidez disponible. |
-| **Administrador de proxy** | La autoridad que puede actualizar la ejecución de un contrato por encargo. Puede diferir del propietario del Fondo. |
-| **Controlador de dependencia** | Un propietario o escritor que controla un registro, limitador, citador, oráculo, política de tarifas o controlador de protocolos. |
-| **Moderador de catálogo** | Un operador de aplicación que puede corregir, ocultar o restaurar registros de catálogo sin cambiar los saldos en la cadena. |
-| **Recipiente de las tarifas** | La dirección configurada que recibe una cuota de fondo o protocolo. No es necesariamente el Responsable del Fondo o el propietario. |
-| **Proveedor o proveedor de liquidez** | Un participante que contribuye con activos en términos comunicados por separado. La actual `SwapPool` no crea acciones de Fondo ni derechos de reembolso automático, retiro, recompensa o gobernanza. |
-
-memberMiembro de la Comunidad” es un lenguaje social informal. Por sí solo no crea admisión, propiedad, gobierno, reembolso u otros derechos legales.
+| **Emisor** | Publica y cumple un compromiso de Vale. Esta responsabilidad no se transfiere automáticamente por un cambio de propietario del contrato. |
+| **Responsable del Fondo** | Publica y administra las reglas del Fondo y responde de cualquier garantía que el Fondo anuncie expresamente. |
+| **Propietario del Fondo** | La dirección que actualmente tiene las facultades del propietario del `SwapPool`, incluidas la configuración, la recaudación de comisiones y el retiro de liquidez disponible. |
+| **Firmantes de la multifirma** | Comparten la autoridad técnica asignada a una Billetera multifirma. Cambiar firmantes o umbrales no transfiere silenciosamente la responsabilidad del Emisor, la rendición de cuentas del Responsable ni la propiedad jurídica. |
+| **Administrador del proxy** | Puede actualizar la implementación de un contrato con proxy. Puede ser distinto del propietario del Fondo. |
+| **Controlador de una dependencia** | Controla un registro, limitador, cotizador, oráculo, política de comisiones o controlador de la comisión del protocolo. |
+| **Moderador del catálogo** | Puede corregir, ocultar, retirar o restaurar registros del catálogo sin eliminar contratos, saldos ni historial de la cadena. |
+| **Destinatario de comisiones** | Recibe una comisión configurada del Fondo o del protocolo. No es necesariamente el Responsable ni el propietario del Fondo. |
+| **Colaborador o proveedor de liquidez** | Aporta activos según condiciones divulgadas por separado. El `SwapPool` actual no crea automáticamente participaciones del Fondo ni derechos de reembolso, retiro, recompensa o gobernanza. |
 
 ## Acciones y ciclo de vida
 
-| Término de aplicación o documentación | Lo que significa |
+| Término de la App o la documentación | Qué significa |
 | --- | --- |
-| **Creación o publicación de un vale** | Despliegue o configure un token y publique su registro de catálogo y términos. |
-| **Emisión o menta** | Crear el balance de tokens bajo la autoridad del propietario o escritor configurado. |
-| **Publica una oferta** | Añadir un registro de bienes o servicios debajo de un vale. |
-| **Envía** | Transfiere un saldo token a otra dirección. |
-| **“Canjear”** | En la aplicación actual, abra el flujo de envío con la dirección del propietario del token preemplada. Esto presenta o devuelve tokens al emisor; no demuestra el cumplimiento. |
-| **El cumplimiento** | El emisor proporciona los bienes, servicios, beneficios u otro rendimiento prometidos. |
-| **Descarga** | Registro de unidades cumplidas para que no puedan ser presentadas de nuevo, por ejemplo, recibiendo, quemando, cancelando o desactivando de otra manera en los términos publicados. |
-| **“Retirar vale”** | Esconda un vale del catálogo de aplicaciones. Los balances y el historial permanecen, y un administrador puede restaurar la lista. No es una quema o cancelación. |
-| **Depósito o contribución del grupo** | Transferir activos en un `SwapPool`. Los derechos a reembolso, retiro, recompensas o gobernanza sólo existen cuando se divulgan por separado. |
-| **Intercambio de Fondos** | Cambiar un activo apoyado por otro a través de un `SwapPool`. Esto no es el cumplimiento del emisor ni automáticamente un préstamo. |
-| **Descubrimiento de rutas** | Buscar caminos posibles desde los vales admisibles de una billetera hasta un vale objetivo, mediante las relaciones configuradas entre Fondos. El descubrimiento es una estimación, no una promesa ejecutable. |
-| **Cotización de ruta** | Un cálculo autorizado y limitado en el tiempo para un camino seleccionado, basado en el estado de los Fondos leído en un mismo bloque fijado y simulado antes de la firma. |
-| **Intercambio enrutado** | Una secuencia ordenada de intercambios de Fondo que la CLC App presenta como un solo lote de billetera en la misma cadena. En el flujo actual, todos los llamados se revierten si uno falla. |
-| **Recibo de intercambio enrutado** | Un registro agrupado con el estado de seguimiento, el hash de la transacción, los pasos de la ruta, los importes liquidados y las comisiones del Fondo y del protocolo en cada paso. |
-| **Retiro de liquidez del grupo** | El propietario del Fondo transfiere el inventario disponible a una dirección seleccionada. |
-| **Recaudación de las tarifas** | Un destinatario configurado recauda las tasas acumuladas del Fondo. |
+| **Crear o publicar un Vale** | Desplegar o configurar un token y publicar su registro de catálogo y sus términos. |
+| **Emitir o acuñar** | Crear saldo de tokens mediante la autoridad configurada del propietario o escritor. |
+| **Publicar una Oferta** | Añadir a un Vale un registro de bienes o servicios. |
+| **Publicar una Solicitud** | Describir una necesidad para que pueda descubrirse y permitir un posible contacto; por sí sola no crea una transacción. |
+| **Enviar** | Transferir un saldo de tokens a otra dirección. |
+| **«Canjear»** | Abrir el flujo de envío con la dirección del propietario del token ya completada. Esto es una presentación para el canje; no demuestra el cumplimiento. |
+| **Cumplir** | El Emisor proporciona los bienes, servicios, beneficios u otra prestación prometida. |
+| **Extinguir** | Registrar las unidades cumplidas para que no puedan volver a presentarse; por ejemplo, recibiéndolas, quemándolas, cancelándolas o desactivándolas de otro modo según los términos publicados. |
+| **«Solicitar retiro»** | El propietario actual pide a un administrador que retire un Vale o un Fondo. El recurso permanece activo mientras la solicitud está pendiente y esta puede aprobarse, rechazarse o cancelarse. |
+| **Retirar un Vale** | Tras su aprobación, eliminar el Vale del uso activo del catálogo. Los contratos, saldos, obligaciones e historial permanecen; el retiro no equivale a la quema ni a la extinción. |
+| **Retirar un Fondo** | Tras su aprobación, detener nuevos intercambios y depósitos en el Fondo, pero permitir los retiros disponibles. Los registros de liquidaciones anteriores permanecen. |
+| **Depósito o contribución al Fondo** | Transferir activos a un `SwapPool`. Solo existen derechos de reembolso, retiro, recompensa o gobernanza si se divulgan por separado. |
+| **Intercambio de Fondo** | Intercambiar activos compatibles mediante un `SwapPool`. No es el cumplimiento del Emisor ni automáticamente un préstamo. |
+| **Descubrimiento de rutas** | Encontrar posibles recorridos mediante relaciones configuradas entre Fondos. El resultado es una estimación, no una promesa ejecutable. |
+| **Cotización de ruta** | Calcular una propuesta con vencimiento a partir del estado de los Fondos leído en un mismo bloque fijado y simularla antes de firmar. |
+| **Intercambio enrutado** | Enviar una secuencia ordenada de intercambios de Fondo como un único lote de la Billetera y en la misma cadena. En el flujo actual, todas las llamadas se revierten si falla una de ellas. |
+| **Recibo de intercambio enrutado** | Agrupar el estado de seguimiento, el hash de la transacción, los pasos de la ruta, los importes liquidados y las comisiones de cada paso. |
+| **Retiro de liquidez del Fondo** | Permitir que el propietario del Fondo transfiera el inventario disponible a la dirección elegida. |
+| **Recaudación de comisiones** | Enviar las comisiones acumuladas del Fondo al destinatario configurado. |
 
-Use **liquidación del intercambio** para las transferencias en cadena y la contabilización de comisiones que completan un intercambio mediante un Fondo. Use **presentación para el canje**, **cumplimiento** y **baja** para el ciclo de vida separado del vale en el mundo real.
+Utiliza **liquidación del intercambio** para las transferencias en la cadena y la contabilidad de comisiones que completan un intercambio de Fondo. Utiliza **presentación para el canje**, **cumplimiento** y **extinción** para el ciclo de vida independiente del Vale en el mundo real.
 
-## Mercado, valores, límites y tarifas
+## Capas del producto y del protocolo
 
-La aplicación es **Mercado** es un catálogo de descubrimientos para vales, Fondos, ofertas e información pública. Una cotización no es automáticamente un lugar de intercambio, relación con el vendedor, aprobación, valoración o garantía.
+| Término | Significado |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | La familia de productos: la CLC App, su documentación y el trabajo más amplio sobre agrupación de compromisos. |
+| **CLC App** | La aplicación web progresiva disponible en [cosmolocal.credit](https://cosmolocal.credit). GEF opera esta interfaz y sus servicios de apoyo. |
+| **CLC Core** | El servicio de apoyo para catálogos, estado indexado de la cadena, descubrimiento de rutas, cotizaciones autorizadas, coordinación de retransmisión y recibos de intercambios enrutados. No es un contrato inteligente ni un Responsable del Fondo. |
+| **Protocolo de Agrupación de Compromisos (CPP)** | El modelo reutilizable de selección, valoración, limitación, intercambio y gobernanza responsable. |
+| **Protocol v1.1.0** | La versión verificada de los contratos inteligentes públicos descrita en la [referencia del Protocolo](/es/protocol/overview). |
+| **`SwapPool`** | El contrato actual del Protocolo que mantiene inventario de tokens y ejecuta intercambios directos. Es un componente técnico de un Fondo de Compromisos. |
+| **`SwapRouter` de Solidity** | El contrato de Protocol v1.1.0 que cotiza una ruta propuesta mediante varios Fondos. No custodia activos ni ejecuta la ruta. |
+| **Flujo de enrutamiento de la aplicación** | El proceso actual de la CLC App y CLC Core que descubre rutas en la misma cadena, las cotiza y simula, prepara un lote firmado de la Billetera, lo retransmite y agrupa las liquidaciones resultantes de los Fondos en un recibo. |
+| **Token de gobernanza CLC propuesto** | Un futuro diseño de gobernanza del Libro Blanco. No es un activo actual de la App ni de Protocol v1.1.0. |
+| **Fondo de Red CLC propuesto** | Un futuro diseño de compensación y coordinación a nivel de red. No es lo mismo que un `SwapPool` actual. |
 
-Mantenga estos términos de valor separados:
+## Valores, crédito, límites y comisiones
 
-- **Precio de oferta:** el importe solicitado por un bien o servicio enumerado;
-- **valor declarado del comprobante:** un valor representado en los términos publicados por el emisor;
-- **Tasa de cambio del grupo o cotización:** el parámetro de transacción producido por el cotizador configurado de un grupo;
-- **referencia del oráculo:** los datos externos utilizados por un módulo de valoración configurado; y
-- **condiciones de reembolso:** lo que el emisor promete proporcionar y en qué condiciones.
+Mantén separados estos términos de valor:
 
-La etiqueta de la aplicación **“Límite de crédito”** se refiere al límite de saldo de tokens configurado de un grupo: el importe máximo de ese token que el grupo puede mantener después de un depósito. No se trata de una línea de crédito personal, una verificación de la capacidad del emisor o una garantía de redención. Los límites de movilidad, de contabilidad y de red propuestos en el Libro Blanco son mecanismos diferentes.
+- **Precio de la Oferta:** el importe solicitado por un bien o servicio publicado;
+- **valor declarado del Vale:** un valor indicado en los términos publicados por el Emisor;
+- **tipo de cambio o cotización del Fondo:** el parámetro de transacción producido por el cotizador configurado del Fondo;
+- **referencia del oráculo:** datos externos utilizados por un módulo de valoración configurado; y
+- **términos de canje:** qué promete el Emisor y en qué condiciones.
 
-Protocol v1.1.0 puede cobrar actualmente una **comisión del Fondo** y una **comisión de protocolo** adicional por cada intercambio de Fondo. Un intercambio enrutado detalla esas comisiones en cada paso. El flujo de enrutamiento actual de la CLC App no añade una comisión independiente por el servicio de enrutamiento. El modelo propuesto en el Libro Blanco describe por separado un futuro **porcentaje para la red** tomado de las comisiones de los Fondos, además de posibles comisiones de enrutamiento o servicio. Estos modelos no deben combinarse al explicar los cargos actuales ni al calcular ingresos futuros.
+En la App, **Crédito** se refiere a compromisos accesibles y capacidad de intercambio. No es automáticamente endeudamiento personal, un préstamo, una evaluación de la capacidad del Emisor ni una garantía.
+
+La etiqueta **«Límite de crédito»** significa el límite configurado del saldo de tokens del Fondo: el importe máximo de ese token que el Fondo puede mantener después de un depósito. Los límites continuos, de cuenta y de red propuestos en el Libro Blanco son mecanismos distintos.
+
+Protocol v1.1.0 puede cobrar una **comisión del Fondo** y una **comisión del protocolo** adicional en cada intercambio de Fondo. Un intercambio enrutado desglosa ambas en cada paso. La App actual no añade una comisión independiente por el servicio de enrutamiento. El modelo propuesto en el Libro Blanco describe por separado un futuro porcentaje de red y posibles comisiones de servicio.
 
 ## Rutas y liquidez
 
-Una **ruta** es un camino ordenado a través de uno o más Fondos gobernados de forma independiente. La **profundidad de la ruta** es el número de intercambios de Fondo que contiene. El despliegue público actual busca hasta tres pasos.
+Una **ruta** es un recorrido ordenado mediante uno o varios Fondos gobernados de forma independiente. La **profundidad de la ruta** es el número de intercambios de Fondo de ese recorrido. El despliegue público actual busca hasta tres pasos.
 
-La **liquidez disponible** es el inventario de salida admisible que un Fondo puede proporcionar dadas sus condiciones actuales de admisión, límite de saldo, cotización, comisiones y reservas. Una conexión en el grafo no demuestra por sí sola que una cantidad útil pueda atravesarla. El descubrimiento de rutas puede quedar obsoleto; la cotización posterior, calculada en un bloque fijado, solo es válida hasta su vencimiento o hasta que cambie un estado pertinente.
+El enrutamiento de producción utiliza Fondos verificados con precios relativos y tokens cuyas transferencias mueven exactamente el importe indicado: Vales `GiftableToken` y tokens ERC-20 sencillos incluidos expresamente en la lista permitida. Los intercambios directos de Fondo pueden admitir una configuración más amplia; que un token aparezca en un Fondo no hace que sea automáticamente apto para el enrutamiento de la App.
 
-La ejecución de la ruta actual la inicia la billetera en una misma cadena. No reúne la gobernanza de los Fondos, no reequilibra automáticamente su inventario, no compensa obligaciones entre varias partes y no prueba el cumplimiento real del emisor. El enrutamiento intercadena mediante HTLC o depósito en garantía, el reequilibrio automático y la compensación por lotes siguen siendo propuestas o dependen del despliegue.
+La **liquidez disponible** es el inventario de salida apto que un Fondo puede proporcionar según su estado actual de admisión, límite de saldo, cotización, comisiones y reservas. Una conexión en el grafo no demuestra que pueda pasar por ella un importe útil. El descubrimiento de rutas puede quedar desactualizado; la posterior cotización basada en un bloque fijado solo es válida hasta su plazo o hasta que cambie un estado relevante.
+
+La ejecución actual de rutas ocurre en una misma cadena y se inicia desde la Billetera. No agrupa la gobernanza, reequilibra automáticamente el inventario de los Fondos, compensa obligaciones entre muchas partes ni demuestra el cumplimiento. El enrutamiento entre cadenas mediante HTLC o depósito en garantía, el reequilibrio automático y la compensación por lotes siguen siendo propuestas o dependen del despliegue.
 
 ## Protecciones y pruebas
 
-La curaduría, la inclusión en el registro, un límite, una reserva, la visibilidad de las aplicaciones o una transacción de cadena de bloques no establecen por sí mismos el respaldo, la capacidad del emisor, el cumplimiento, una garantía o un seguro.
+La selección, inclusión en un registro, un límite, una reserva, la visibilidad en la App, una Reseña o una transacción de la cadena de bloques no establecen por sí solas un respaldo, la capacidad del Emisor, el cumplimiento, una garantía ni un seguro.
 
-Cualquier protección debe identificar a la parte obligada, el evento cubierto, la financiación, el límite máximo, las exclusiones, la duración, la evidencia y el proceso de reclamación. Los registros en cadena pueden mostrar direcciones, activos, cantidades, sellos de tiempo y eventos de contrato. El rendimiento, la satisfacción, la deliberación en materia de gobernanza y el impacto social de los emisores requieren revelaciones, informes, certificaciones u otras pruebas separadas.
+Cualquier protección debe identificar a la parte obligada, el evento cubierto, la financiación, el límite, las exclusiones, la duración, las pruebas y el proceso de reclamación. Los registros en la cadena pueden mostrar direcciones, activos, importes, marcas de tiempo y eventos de contratos. La prestación del Emisor, la satisfacción, la deliberación de gobernanza y el impacto social requieren pruebas separadas.
 
 ## Palabras de estado
 
-- **Corriente:** verificadas en el CLC App o Protocol v1.1.0 descrito en estos documentos.
-- **Dependiente del despliegue:** Disponible únicamente cuando lo permita una implementación, un grupo, un proveedor, una jurisdicción o una política publicada en particular.
-- **Históricos:** evidencia o funcionalidad del servicio anterior Sarafu Network.
-- **Se propone:** un mecanismo de diseño o hoja de ruta que no esté representado como implementado.
+- **Actual:** verificado en la CLC App o Protocol v1.1.0 descritos en esta documentación.
+- **Dependiente del despliegue:** disponible únicamente cuando lo habilita un despliegue, Fondo, proveedor, jurisdicción o política publicada concretos.
+- **Histórico:** pruebas o funcionalidad del servicio anterior Sarafu Network.
+- **Propuesto:** un mecanismo de diseño o de hoja de ruta que no se presenta como desplegado.
 
-El [Guía para comenzar](/es/introduction/getting-started) aplica estos términos a la aplicación actual. El [Referencia al protocolo](/es/protocol/overview) documentan los contratos verificados, mientras que el [Libro blanco](/es/white-paper) presenta el diseño y las propuestas más amplias.
+La [guía de primeros pasos](/es/introduction/getting-started) aplica estos términos a la App actual. La [referencia del Protocolo](/es/protocol/overview) documenta los contratos verificados, mientras que el [Libro Blanco](/es/white-paper) presenta el diseño más amplio y sus propuestas.
 
-Para obtener una introducción complementaria y práctica de los compromisos, la liquidación, los flujos de recursos, el intercambio y la agrupación, explore la [Grassroots Economía juegos educativos](https://grassrootseconomics.org/games/) Los juegos son recursos de aprendizaje, no definiciones del comportamiento actual de la aplicación o el protocolo.
+Para aprender mediante juegos sobre compromisos, liquidación, flujos de recursos, intercambio y agrupación, explora los [juegos educativos de Grassroots Economics](https://grassrootseconomics.org/games/). Los juegos son recursos de aprendizaje complementarios, no definiciones del comportamiento actual de la App ni del Protocolo.

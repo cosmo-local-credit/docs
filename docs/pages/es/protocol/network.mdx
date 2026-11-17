@@ -43,6 +43,8 @@ Veamos . [Conceptos y vocabulario](/es/introduction/concepts) para la separació
 
 Un vale compartido crea un **camino posible en el grafo**, no una ruta garantizada. El servicio CLC Core de producción mantiene un grafo reconciliado a partir de la información sobre Fondos, registros, catálogos, saldos, comisiones y eventos de la cadena. También comprueba los activos pertinentes de la billetera de la sesión. El despliegue público busca actualmente rutas de hasta tres intercambios de Fondo.
 
+El enrutamiento de producción utiliza deliberadamente un perfil de admisibilidad más limitado que los intercambios directos de Fondo. Solo enruta Fondos verificados con precios relativos y tokens cuyas transferencias mueven exactamente el importe indicado: Vales `GiftableToken` y tokens ERC-20 externos y sencillos incluidos expresamente en la configuración `router.plain_erc20` del despliegue. Por tanto, un token puede utilizarse en un intercambio directo de Fondo sin ser apto para el enrutamiento de la aplicación.
+
 El descubrimiento en el grafo es rápido, pero se estima a partir del bloque indexado. Un resultado puede marcarse como obsoleto y una conexión no prueba que la cantidad deseada pueda atravesarla. El filtro **Crédito** de la CLC App utiliza este conjunto de vales accesibles en el Mercado y en las pantallas de descubrimiento relacionadas.
 
 ### Cotización autorizada
@@ -84,7 +86,8 @@ Una ruta puede fallar antes de la firma si no hay un camino o una cotización ad
   label="Dependencias y facultades administrativas del Fondo de Compromisos"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Propietario del contrato o<br/>Responsable del Fondo"] -->|Configurar, sellar, recoger, retirar| Pool["SwapPool<br/>bóveda y asentamiento"]
+    Steward["Responsable del Fondo<br/>que rinde cuentas"] -. publica reglas,<br/>divulgaciones y gobernanza .-> Pool["SwapPool<br/>bóveda y liquidación"]
+    Owner["Dirección propietaria<br/>del SwapPool"] -->|configurar, sellar, recaudar, retirar| Pool
     ProxyAdmin["ERC-1967<br/>administrador de proxy"] -->|implementación de la actualización| Pool
     Dependencies["Dependencias opcionales<br/>registry · limiter · quoter<br/>política de tarifas · controlador de tarifas del protocolo<br/>cada uno con su propio gobierno"] -. settlement inputs .-> Pool
     Seal["Cinco espacios de direcciones sellables<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool

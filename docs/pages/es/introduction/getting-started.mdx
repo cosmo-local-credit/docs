@@ -1,95 +1,131 @@
 # Primeros pasos
 
-Cosmo-Local Credit (CLC) es una aplicación web progresiva para crear, descubrir, mantener, transferir y intercambiar activos digitales, incluidos los vales canjeables, a través de Fondos de Compromisos gobernado de forma independiente. El CLC App está disponible en: [cosmolocal.credit](https://cosmolocal.credit).
+Cosmo-Local Credit (CLC) ayuda a las personas a describir lo que ofrecen, publicar lo que necesitan e intercambiar vales mediante Fondos de Compromisos gobernados de forma independiente. Abre la [CLC App](https://cosmolocal.credit) para comenzar.
 
-[Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) opera la aplicación y la infraestructura de apoyo. A menos que GEF acepte expresamente otro papel para una Oferta o transacción particular, no es el emisor de un vale creado por el usuario, el Responsable del Fondo de un grupo creado por el usuario, un custodio, prestamista, prestatario, garante, asegurador o redentor. Los emisores son responsables de sus compromisos de vales y Responsables de Fondos son responsables de sus reglas de fondo.
+La idea básica es sencilla:
 
-Leer [Conceptos y vocabulario](/es/introduction/concepts) para las capas exactas de productos, funciones, acciones, valores, tarifas y términos de estado utilizados en estos documentos.
+1. Crea un vale —muy parecido a una tarjeta regalo— para algo que puedas proporcionar.
+2. Publica una Oferta para que otras personas descubran los bienes o servicios relacionados.
+3. Publica una Solicitud o responde a una para encontrar posibles participantes con quienes intercambiar.
+4. Utiliza un Fondo de Compromisos para intercambiar vales compatibles según reglas publicadas.
+5. Utiliza un vale con su Emisor para obtener lo que prometen sus términos.
 
-Antes de crear una cuenta o realizar una transacción, lea la siguiente información: [Términos de servicio](/es/governance/terms) En particular:
+En la App, «Crédito» significa compromisos reconocidos y capacidad para intercambiar Vales. No es automáticamente un préstamo personal, un límite de endeudamiento ni una promesa de adelantar dinero.
 
-- Debe tener al menos 18 años, haber alcanzado la edad de mayoría de edad que le corresponda y tener capacidad contractual.
-- Usted es responsable de confirmar que su cuenta, vale, fondo o transacción es legal en todas las jurisdicciones pertinentes.
-- Las credenciales de la billetera deben estar protegidas. Es posible que GEF no pueda recuperar una cartera perdida o revertir una transacción autorizada.
-- Las transacciones y registros de blockchain pública pueden ser visibles, permanentes e irreversibles.
-- Una cotización en la aplicación no es un respaldo GEF ni una garantía de redención, valor, liquidez, convertibilidad o liquidación.
+Consulta [Conceptos y vocabulario](/es/introduction/concepts) para conocer las definiciones exactas.
 
-## Comience con la aplicación actual
+## Un primer recorrido por la App
 
-### 1. Explora el mercado
+### 1. Explora el Mercado y las Solicitudes
 
-Abierto [cosmolocal.credit](https://cosmolocal.credit) para explorar el público **Mercado**, el catálogo de descubrimientos de la aplicación. Revisar el emisor responsable, los bienes o servicios prometidos, la ubicación, la disponibilidad y los términos publicados. Una cotización en el mercado no es automáticamente un lugar de intercambio, relación con el vendedor, valoración independiente, aval o garantía.
+Explora la [CLC App](https://cosmolocal.credit) antes de crear nada. El **Mercado** es un catálogo de descubrimiento; no es automáticamente un vendedor, un lugar de intercambio, un respaldo ni una garantía.
 
-### 2. Crear o acceder a una cuenta y cartera
+Cuando revises un Vale, comprueba:
 
-La aplicación utiliza una cuenta para el acceso al perfil y sesión y una billetera para la autorización de blockchain. Proteja su llave de acceso, material de bolso de papel, información de recuperación, dispositivos y cualquier otra credencial. Revise cada activo, cantidad, dirección, fondo, tarifa y autorización antes de confirmar una transacción.
+- quién lo emitió;
+- los bienes o servicios que promete;
+- dónde, cuándo y cómo puede utilizarse;
+- sus límites, vencimiento, método de contacto y proceso de reclamación; y
+- qué Fondos de Compromisos lo admiten.
 
-### 3. Crear un vale
+Una **Solicitud** expresa una necesidad. Publicarla o responder a ella no acepta automáticamente un Vale, reserva bienes, autoriza un intercambio ni crea una obligación. Contactar o enviar un mensaje a otro participante tampoco crea, cumple ni extingue por sí solo un compromiso de Vale.
 
-Un vale combina varias capas distintas:
+### 2. Crea una cuenta y Billetera, o accede a ellas
 
-1. mecánicas y balances de contratos simbólicos;
-2. la designación del vale del emisor y los términos publicados;
-3. uno o más registros de ofertas de bienes o servicios asociados; y
-4. el cumplimiento real del emisor.
+La App utiliza una cuenta para acceder al perfil y a la sesión, y una **Billetera** para autorizar operaciones en la cadena de bloques. Protege tu llave de acceso, el material de la billetera en papel, la información de recuperación, los dispositivos y cualquier otra credencial. Revisa cada dirección, activo, importe, Fondo, comisión y autorización antes de confirmar una transacción.
 
-La creación o acuñación de un token no demuestra por sí solo que existe una Oferta, que el emisor tiene capacidad o que GEF garantiza el canje.
+La interfaz te pide que confirmes los Términos durante la incorporación y antes de publicar un Vale o un Fondo. Lee los [Términos de servicio](/es/governance/terms) y el [Aviso de privacidad](/es/governance/privacy) antes de continuar.
 
-### 4. Crear o evaluar un Fondo de Compromisos
+### 3. Crea un Vale y una Oferta
 
-Un Fondo de Compromisos es un arreglo regido. Su contrato actual `SwapPool` puede mantener un inventario de tokens apoyados y ejecutar swaps directos. Antes de utilizar o contribuir a uno, revisar:
+Crea un Vale para algo que puedas proporcionar razonablemente. Piensa en ello como crear tu propia tarjeta regalo: describes lo que representa y las condiciones para utilizarlo.
 
-- el responsable Responsable del Fondo y el actual titular del contrato;
-- el administrador de proxy y los controladores de dependencias configuradas;
-- vales admitidos y otros activos respaldados;
-- métodos de cambio o de cotización;
-- La aplicación es **“Límite de crédito”**, que es un límite del saldo de la bolsa de tokens en lugar de un crédito personal;
-- Tarifas de grupo y de protocolo;
-- el inventario disponible y el poder de retiro de liquidez del propietario del Fondo; y
-- las condiciones de contribución, garantía, reserva o seguro publicadas por separado.
+Un Vale completo tiene varias capas independientes:
 
-Un depósito transfiere activos al `SwapPool`. Protocol v1.1.0 no acuña tokens de Fondo-share ni otorga automáticamente al depositante derechos de reembolso, retiro, recompensa o gobernanza.
+1. la mecánica del contrato del token y sus saldos;
+2. los términos del Vale publicados por el Emisor;
+3. uno o varios registros de **Oferta** que describen los bienes o servicios asociados; y
+4. el cumplimiento del Emisor en el mundo real.
 
-### 5. Intercambia directamente o mediante una ruta
+Crear o acuñar un token no demuestra que exista una Oferta, que el Emisor tenga capacidad ni que Grassroots Economics Foundation (GEF) garantice el cumplimiento.
 
-La vista **Crédito** de la CLC App puede encontrar vales accesibles a partir de los que ya tienes en tu billetera. Para obtener un vale puede bastar un intercambio directo en un Fondo o ser necesaria una ruta por varios Fondos gobernados de forma independiente. El despliegue público actual busca rutas de hasta tres intercambios de Fondo.
+### 4. Publica una Solicitud o responde a ella
 
-Para el intercambio:
+Utiliza una Solicitud para describir algo que buscas, incluido el importe, el lugar, el momento y un método de contacto adecuado. Otro participante puede descubrirla, revisar tus Vales y Ofertas públicos y decidir si se pone en contacto contigo.
 
-1. selecciona **Obtener** para el vale que quieres recibir o **Gastar** para el que quieres utilizar;
-2. revisa las opciones disponibles en **Pagar con** y la **Estimación**;
-3. abre **Detalles de la ruta** para ver cada Fondo, intercambio, importe y comisión del Fondo o del protocolo;
-4. selecciona **Revisar**, comprueba el importe mínimo que recibirás y cuándo vence la cotización, y luego selecciona **Confirmar intercambio**; y
-5. firma el lote preparado para tu billetera.
+Mantén claros la negociación y el reparto de responsabilidades. Un mensaje puede ayudar a los participantes a acordar una entrega, una reserva u otros detalles, pero el compromiso queda determinado por los términos aplicables del Vale y por las condiciones de la transacción que se acuerden por separado.
 
-CLC Core descubre rutas posibles a partir de la información indexada sobre Fondos y vales. El resultado de la búsqueda es una estimación. Antes de que firmes, lee el estado de los Fondos pertinentes en un mismo bloque fijado, produce una cotización autorizada, aplica a cada paso una salida mínima y un plazo, y simula el lote completo. La CLC App no añade actualmente una comisión independiente por el servicio de enrutamiento; cada paso puede seguir cobrando la comisión configurada del Fondo y la comisión adicional del protocolo.
+### 5. Encuentra o crea un Fondo de Compromisos
 
-La ruta firmada se envía como una sola transacción en la misma cadena. Cada paso utiliza la misma billetera compatible con la CLC App. Si falla una autorización o un intercambio de Fondo incluido en el lote, se revierte toda la transacción y los pasos anteriores no quedan liquidados. El recibo agrupa la ruta bajo un mismo identificador de seguimiento y muestra su estado, el hash de la transacción, cada Fondo, los importes liquidados y las comisiones del Fondo y del protocolo en cada paso.
+Un Fondo de Compromisos selecciona determinados Vales y permite intercambiarlos. Antes de utilizar o apoyar uno, revisa:
 
-Una ruta puede no estar disponible si la billetera no contiene un vale de entrada admisible, un Fondo no admite un token, se superaría el límite de saldo de tokens del Fondo, no hay suficiente inventario de salida, un módulo de cotización o token no es compatible, o el servicio de enrutamiento está temporalmente desactualizado o no disponible. Una cotización también puede vencer, quedar obsoleta al cambiar el estado del Fondo, fallar en la simulación final o revertirse en la cadena. Actualiza la ruta y revisa la nueva cotización en vez de suponer que una estimación anterior sigue siendo válida.
+- el **Responsable del Fondo** que rinde cuentas y el propietario actual del contrato;
+- los Vales admitidos y otros activos compatibles;
+- los métodos para calcular el tipo de cambio o la cotización;
+- el **«Límite de crédito»** de la App, que limita el saldo de tokens del Fondo y no es crédito personal;
+- las comisiones del Fondo y del protocolo;
+- el inventario disponible y la facultad del propietario del Fondo para retirar liquidez;
+- los administradores del proxy, la multifirma y las dependencias; y
+- cualquier condición publicada por separado sobre contribuciones, garantías, reservas, recompensas o seguros.
 
-La ejecución enrutada actual admite billeteras EOA o Calibur compatibles con la CLC App. Actualmente no prepara intercambios enrutados para billeteras Safe ni para otras billeteras de contrato.
+Un depósito transfiere activos al `SwapPool` del Fondo. Protocol v1.1.0 no concede automáticamente al depositante participaciones del Fondo ni derechos de reembolso, retiro, recompensa o gobernanza.
 
-### 6. Usa la acción correcta
+### 6. Envía o intercambia Vales
 
-- **Enviar** transfiere un saldo simbólico a otra dirección.
-- **Intercambio de Fondo** cambia un activo admitido por otro mediante un `SwapPool`. Puede ser un intercambio directo o un paso de un intercambio enrutado. La liquidación del intercambio en la cadena no prueba que el emisor haya cumplido su compromiso.
-- **Intercambio enrutado** ejecuta una secuencia ordenada de intercambios de Fondo en una sola transacción de billetera en la misma cadena. No fusiona la gobernanza de los Fondos ni hace responsable al operador de enrutamiento del cumplimiento del emisor.
-- **“Canjear”** abre el flujo de envío con la dirección del propietario del token ya completada. Presenta o devuelve el vale al emisor; el canje completo también requiere que el emisor proporcione lo prometido y que exista un registro de descarga que impida reutilizar esas unidades.
-- **“Retirar vale”** oculta la ficha del catálogo. No quema los saldos, no cancela el vale ni extingue las obligaciones pendientes del emisor.
-- **Retiro de liquidez del Fondo** permite al propietario del Fondo transferir el inventario disponible.
-- **Recaudación de comisiones** envía las comisiones acumuladas del Fondo al destinatario configurado.
+Utiliza **Enviar** para transferir directamente un Vale. Utiliza un **intercambio de Fondo** para cambiar un activo compatible por otro mediante un único Fondo.
 
-Vea el [Ejemplo de vales prácticos](/es/introduction/example) para el ciclo de vida completo.
+La vista **Crédito** de la App también puede encontrar Vales accesibles mediante varios Fondos gobernados de forma independiente. Selecciona **Obtener** para el Vale que quieras recibir o **Gastar** para el Vale que quieras utilizar. Después revisa:
 
-## Capacidades actuales, dependientes del despliegue y propuestas
+1. la opción **Pagar con** y la **Estimación**;
+2. los **Detalles de la ruta**, incluidos todos los Fondos, importes y comisiones del Fondo y del protocolo;
+3. el importe mínimo que recibirás y el vencimiento de la cotización; y
+4. el lote preparado para la Billetera antes de seleccionar **Confirmar intercambio**.
 
-La aplicación actual proporciona un mercado y flujos soportados para cuentas, billeteras, vales, ofertas, Fondos, transferencias, intercambios directos de Fondo, intercambio enrutado a nivel de aplicación y registros relacionados. La disponibilidad depende de la implementación activa, el activo, la configuración del grupo, el inventario, el tipo de billetera, el dispositivo, la red, la elegibilidad, el proveedor, la jurisdicción y los términos publicados.
+El enrutamiento de producción es deliberadamente más limitado que el intercambio directo en un Fondo. Utiliza Fondos verificados con precios relativos y tokens cuyas transferencias mueven exactamente el importe indicado: Vales `GiftableToken` y tokens ERC-20 sencillos incluidos expresamente en la lista permitida. El despliegue público busca rutas de hasta tres intercambios de Fondo y admite Billeteras EOA/Calibur compatibles, pero no Billeteras Safe ni otras Billeteras de contrato.
 
-Los servicios de pago, los métodos de apoyo, las recompensas, las garantías, los acuerdos de contribución y otras integraciones de proveedores dependen del despliegue. Las partes responsables, los honorarios, los límites, la elegibilidad y las condiciones legales deben revelarse cuando se ofrezcan.
+El descubrimiento de rutas es una estimación. Antes de la firma, CLC Core lee los Fondos seleccionados en un mismo bloque fijado, calcula una cotización con vencimiento, aplica límites de salida mínima y plazo, y simula el lote completo. Si falla cualquiera de las llamadas, se revierte toda la transacción en la misma cadena. El recibo agrupa los importes liquidados y las comisiones del Fondo y del protocolo de cada paso.
 
-Protocol v1.1.0 proporciona la ejecución directa en los Fondos y un `SwapRouter` Solidity que solo calcula cotizaciones. La CLC App y CLC Core de producción ofrecen, por encima de esos contratos, descubrimiento de rutas de varios pasos en la misma cadena, cotizaciones autorizadas, preparación de lotes para la billetera, simulación, retransmisión y recibos agrupados. El `SwapRouter` Solidity no se ha convertido en un contrato de ejecución. El enrutamiento intercadena mediante HTLC o depósito en garantía, el reequilibrio automático de Fondos, la compensación por lotes, los seguros compartidos, los activos de gobernanza propuestos, los programas de liquidez de red y las vías de pago reguladas siguen siendo propuestas o dependen del despliegue, salvo que un despliegue concreto los identifique como activos.
+### 7. Utiliza un Vale con su Emisor
 
-Cualquier préstamo futuro u otro producto de crédito requiere que se presenten por separado los términos suplementarios y de la transacción. Una transferencia ordinaria, depósito de fondo, swap de fondo, presentación de canje, cumplimiento o descarga no es automáticamente un préstamo, anticipo o reembolso.
+Lee los términos del Vale y sigue el proceso de reserva, entrega o contacto del Emisor. En la App actual, **«Canjear»** abre el flujo ordinario de envío con la dirección del propietario del token ya completada. Enviar el Vale constituye su presentación para el canje; no demuestra que el Emisor haya proporcionado los bienes o servicios prometidos.
 
-A continuación, lea el [Presentación general del protocolo](/es/protocol/overview), el [Mecánica de gobierno](/es/governance/mechanics), o el más amplio [Libro blanco](/es/white-paper).
+Después del cumplimiento, el Emisor debe registrar la **extinción** para que las unidades cumplidas no puedan volver a utilizarse; por ejemplo, recibiéndolas, quemándolas, cancelándolas o desactivándolas de otro modo según los términos publicados.
+
+## Antes de publicar
+
+La información sobre Vales, Fondos, Ofertas, Solicitudes, Catálogos, Publicaciones y Reseñas puede tener distintos grados de visibilidad. Antes de publicar un recurso:
+
+- elige un punto del mapa que sea seguro hacer público; las coordenadas exactas pueden ser visibles;
+- comprueba qué información se ve con y sin iniciar sesión;
+- utiliza datos de contacto adecuados para el público previsto;
+- no copies información privada de tu perfil en un recurso público salvo que quieras publicarla; y
+- lee la sección [«¿Qué se hace público?»](/es/governance/privacy#qué-se-hace-público) del Aviso de privacidad.
+
+## Acciones actuales de la App
+
+| Acción de la App | Qué hace |
+| --- | --- |
+| **Enviar** | Transfiere un saldo de tokens a otra dirección. |
+| **Intercambio de Fondo** | Intercambia activos compatibles mediante un `SwapPool`. La liquidación en la cadena no demuestra el cumplimiento del Emisor. |
+| **Intercambio enrutado** | Ejecuta una secuencia ordenada de intercambios de Fondo en una única transacción acotada de la Billetera y en la misma cadena. No fusiona la gobernanza de los Fondos. |
+| **«Canjear»** | Precompleta un envío al propietario del token como presentación para el canje. El cumplimiento y la extinción siguen siendo procesos independientes. |
+| **«Solicitar retiro»** | Permite que el propietario actual pida a un administrador que retire un Vale o un Fondo. El recurso sigue activo mientras la solicitud esté pendiente; el propietario puede cancelarla y un administrador puede aprobarla o rechazarla. El retiro no elimina contratos, saldos ni historial. |
+| **Retiro de un Fondo** | Tras su aprobación, impide nuevos intercambios y depósitos en el Fondo, pero permite los retiros disponibles. No borra los registros de liquidaciones anteriores. |
+| **Retiro de liquidez del Fondo** | Permite que el propietario del Fondo transfiera el inventario disponible a la dirección elegida. |
+| **Recaudación de comisiones** | Envía las comisiones acumuladas del Fondo al destinatario configurado. |
+
+## Responsabilidades y límites importantes
+
+[Grassroots Economics Foundation](https://grassrootseconomics.org/about/) opera la App y la infraestructura de apoyo. Salvo que GEF acepte expresamente otra función para una transacción concreta, no es el Emisor de un Vale creado por un usuario, el Responsable de un Fondo creado por un usuario, un custodio, prestamista, prestatario, garante, asegurador ni responsable del canje.
+
+Antes de realizar una transacción, recuerda:
+
+- Debes cumplir los requisitos de edad, capacidad jurídica y jurisdicción de los Términos.
+- Los Emisores son responsables de los compromisos de sus Vales.
+- Los Responsables de Fondos responden de las reglas publicadas de sus Fondos y de cualquier garantía que asuman expresamente.
+- Una publicación, reseña, ruta, límite, reserva o registro de la cadena de bloques no constituye automáticamente un respaldo, valoración, registro de cumplimiento, garantía, póliza de seguro ni promesa de conversión a dinero.
+- Los servicios de pago, recompensas, acuerdos de contribución y otras integraciones con proveedores dependen del despliegue y requieren sus propias divulgaciones.
+
+Protocol v1.1.0 permite la ejecución directa en un Fondo y ofrece un `SwapRouter` de Solidity que solo calcula cotizaciones. La CLC App y CLC Core de producción coordinan la ejecución en la misma cadena y mediante varios Fondos por encima de esos contratos. El enrutamiento entre cadenas, el reequilibrio automático de Fondos, la compensación por lotes, los seguros compartidos, los activos de gobernanza propuestos, los programas de liquidez de red y las vías de pago reguladas siguen siendo propuestas o dependen del despliegue, salvo que un despliegue concreto las identifique como activas.
+
+Consulta los [ejemplos sencillo y avanzado](/es/introduction/example), la [descripción general del Protocolo](/es/protocol/overview) o los [mecanismos de gobernanza](/es/governance/mechanics) para obtener más información.

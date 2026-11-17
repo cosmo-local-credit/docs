@@ -51,7 +51,7 @@ En estas Condiciones:
 
 ## 2. Acceptación y alcance
 
-La aplicación actual no registra una aceptación afirmativa de estos Términos durante la creación de la Cuenta. En la medida en que la ley aplicable lo permita, usted acepta estos Términos mediante la creación o uso de una Cuenta o continuando utilizando la Aplicación después de que una actualización notificada entre en vigor. Cuando la ley aplicable requiera una aceptación afirmativa o una reacceptación, GEF presentará un control de aceptación antes de permitir el uso continuo de las características de la Cuenta afectadas. El mero hecho de ver estos Términos sin crear o utilizar una Cuenta no crea un acuerdo.
+La Aplicación actual presenta un control de aceptación afirmativa durante los procesos de creación de Cuenta compatibles y antes de que un Usuario publique un Vale o un Fondo. Seleccionar ese control y continuar con el proceso correspondiente indica la aceptación de estos Términos. La Aplicación puede exigir que un Usuario acepte o vuelva a aceptar los Términos vigentes antes de permitir que continúe utilizando las funciones afectadas. Cuando un proceso no conserva un registro duradero y específico de la versión aceptada, en la medida en que lo permita la legislación aplicable, usted también acepta estos Términos al crear o utilizar una Cuenta o al seguir utilizando la Aplicación después de que entre en vigor una actualización notificada. El mero hecho de consultar estos Términos sin crear ni utilizar una Cuenta no crea por sí solo un acuerdo.
 
 Si no está de acuerdo, no cree una cuenta ni use la Aplicación. Si acepta estos Términos en nombre de una organización, declara que tiene autoridad para obligarla. En ese caso, **Usted** incluye tanto a usted como a la organización cuando el contexto lo permita.
 
@@ -152,7 +152,7 @@ El titular deberá leer los términos del vale, evaluar al emisor y la oferta, s
 
 Si un destinatario modifica, reempaca o redistribuye una oferta cuando las condiciones del emisor lo permitan, deberá identificar con precisión los cambios materiales, conservar los certificados de procedencia y fuente requeridos, transmitir las condiciones aplicables y evitar implicar que el emisor original o GEF aprobaron la oferta modificada.
 
-La etiqueta de la aplicación **“Retirar vale”** se refiere a la eliminación del catálogo reversible de la lista. No quema ni cancela los saldos, completa el cumplimiento o la descarga, ni extingue los compromisos pendientes del emisor.
+La etiqueta **«Solicitar retiro»** de la Aplicación permite que el propietario actual pida a un administrador que retire un Vale. El Vale permanece activo mientras la solicitud está pendiente. El propietario puede cancelar una solicitud pendiente y un administrador puede aprobarla o rechazarla. El retiro aprobado elimina el Vale del uso activo del catálogo, pero no borra su contrato, saldos, historial de transacciones ni compromisos pendientes; tampoco completa el Cumplimiento o la Extinción ni quema o cancela saldos. Un administrador puede restaurar posteriormente el registro del catálogo cuando lo permita el proceso aplicable.
 
 ## 10. Creación y explotación de un Fondo
 
@@ -176,6 +176,8 @@ El administrador debe mantener estas revelaciones exactas, hacerlas cumplir de m
 Un administrador no debe utilizar un grupo para hacer reclamaciones de devolución engañosas, disfrazar servicios financieros ilegales, evadir las protecciones salariales o laborales, manipular precios o actividades, ocultar la fuente o uso de activos, permitir una conducta prohibida o prometer a la población una liquidación, convertibilidad, liquidez o protección de pérdidas que no pueda proporcionar.
 
 GEF podrá establecer normas mínimas de inclusión en la lista, seguridad, divulgación o técnicas y podrá rechazar, suspender, señalar o eliminar un Fondo de un registro operado por la aplicación. El estado del registro es condicional y no es una garantía de GEF.
+
+El proceso **«Solicitar retiro»** de la Aplicación también se aplica a un Fondo. El Fondo permanece activo mientras la solicitud está pendiente. Tras su aprobación, la Aplicación y el servicio de apoyo impiden nuevos intercambios y depósitos, pero permiten los retiros disponibles. El retiro no elimina el contrato del Fondo, las liquidaciones anteriores, los saldos, las obligaciones pendientes ni los derechos y deberes independientes establecidos en las reglas del Fondo.
 
 El administrador, el propietario del Fondo, el administrador proxy, los controladores de dependencias, el moderador de catálogo y los beneficiarios de la tarifa pueden ser partes diferentes. Las divulgaciones del grupo deben identificar a cada autoridad importante. El poder del controlador técnico no convierte por sí mismo a esa parte en administrador ni transfiere las obligaciones del administrador.
 
@@ -273,6 +275,8 @@ La actividad pública de blockchain puede exponer una dirección de billetera, a
 GEF conservará la información durante el tiempo razonablemente necesario para los fines anteriores, incluyendo seguridad, prevención de fraudes, pruebas de transacciones, obligaciones legales, plazos de prescripción, copias de seguridad y resolución de disputas. La retención no hace que GEF pueda borrar la información que posee una red pública o un tercero.
 
 Sujeto a la legislación aplicable, puede solicitar acceso, corrección, eliminación, restricción, objeción, portabilidad u otros derechos de datos disponibles poniéndose en contacto con `privacy@grassecon.org`. GEF utiliza salvaguardias razonables, pero no puede prometer seguridad o confidencialidad absoluta, particularmente para la actividad pública de la cadena de bloques e información que publique.
+
+El [Aviso de privacidad de la CLC App](/es/governance/privacy) explica los campos específicos de la Aplicación y los límites entre información pública y privada. La [Política de protección de datos](/es/governance/data-protection) describe las normas más amplias de gobernanza de datos de GEF.
 
 ## 18. Cambios de servicio, suspensión y terminación
 

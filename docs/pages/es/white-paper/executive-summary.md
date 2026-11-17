@@ -19,6 +19,8 @@ El histórico **Sarafu Network** utilizaron los conceptos de participación de c
 
 Estas cifras son evidencia histórica, no cifras actuales de uso de CLC.
 
+Las cifras reproducen las etiquetas publicadas en el panel para un único período de medición coherente. «Usuario», «activo», «intercambio» y la conversión a USD del volumen de intercambios de Fondos dependen de las consultas y del método de valoración subyacentes del panel; no deben tratarse como definiciones universales de indicadores de CLC. Este repositorio no ha recalculado el conjunto de datos de forma independiente. Cualquier reutilización debe conservar las fechas, el enlace a la fuente, las etiquetas y su carácter histórico. Los requisitos de medición propuestos en el [Apéndice C](/es/white-paper/appendix-c-kpi-definitions) son más estrictos para futuros informes.
+
 El diseño más amplio de CLC combina el enrutamiento actual con propuestas sobre cómo las redes compatibles podrían:
 
 1. ampliar los servicios de enrutamiento responsables a otros perfiles de registro o política y a otros dominios;
