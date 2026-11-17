@@ -337,14 +337,19 @@ body:has(.about-page) {
 }
 
 .clc-guide-art {
-  /* Keep these in step with clc-app's GuideArt and ConceptCards tokens. */
-  --clc-guide-art-canvas: oklch(0.97 0 0);
-  --clc-guide-art-card: oklch(1 0 0);
-  --clc-guide-art-border: oklch(0.922 0 0);
-  --clc-guide-art-foreground: oklch(0.145 0 0);
-  --clc-guide-art-muted-foreground: oklch(0.556 0 0);
-  --clc-guide-art-primary: oklch(0.508 0.118 165.612);
-  --clc-guide-art-primary-foreground: oklch(0.979 0.021 166.113);
+  /*
+   * Exact sRGB fallbacks for clc-app's GuideArt and ConceptCards tokens.
+   * Keep these outside @supports: unsupported oklch() values remain valid
+   * custom-property tokens and otherwise turn SVG fills black at use time.
+   */
+  --clc-guide-art-canvas: #f5f5f5;
+  --clc-guide-art-card: #ffffff;
+  --clc-guide-art-border: #e5e5e5;
+  --clc-guide-art-foreground: #0a0a0a;
+  --clc-guide-art-muted-foreground: #737373;
+  --clc-guide-art-primary: #007a55;
+  --clc-guide-art-primary-foreground: #ecfdf5;
+  --clc-guide-art-primary-wash: #007a551a;
   --clc-logo-tile: var(--clc-guide-art-primary);
   position: relative;
   overflow: hidden;
@@ -356,13 +361,36 @@ body:has(.about-page) {
 }
 
 :root.dark .clc-guide-art {
-  --clc-guide-art-canvas: oklch(0.27 0 0);
-  --clc-guide-art-card: oklch(0.205 0 0);
-  --clc-guide-art-border: oklch(1 0 0 / 12%);
-  --clc-guide-art-foreground: oklch(0.97 0 0);
-  --clc-guide-art-muted-foreground: oklch(0.708 0 0);
-  --clc-guide-art-primary: oklch(0.58 0.13 165.612);
-  --clc-guide-art-primary-foreground: oklch(0.985 0.021 166.113);
+  --clc-guide-art-canvas: #262626;
+  --clc-guide-art-card: #171717;
+  --clc-guide-art-border: #ffffff1f;
+  --clc-guide-art-foreground: #f5f5f5;
+  --clc-guide-art-muted-foreground: #a1a1a1;
+  --clc-guide-art-primary: #009268;
+  --clc-guide-art-primary-foreground: #eefff7;
+  --clc-guide-art-primary-wash: #0092681a;
+}
+
+@supports (color: oklch(0.5 0.1 165)) {
+  .clc-guide-art {
+    --clc-guide-art-canvas: oklch(0.97 0 0);
+    --clc-guide-art-card: oklch(1 0 0);
+    --clc-guide-art-border: oklch(0.922 0 0);
+    --clc-guide-art-foreground: oklch(0.145 0 0);
+    --clc-guide-art-muted-foreground: oklch(0.556 0 0);
+    --clc-guide-art-primary: oklch(0.508 0.118 165.612);
+    --clc-guide-art-primary-foreground: oklch(0.979 0.021 166.113);
+  }
+
+  :root.dark .clc-guide-art {
+    --clc-guide-art-canvas: oklch(0.27 0 0);
+    --clc-guide-art-card: oklch(0.205 0 0);
+    --clc-guide-art-border: oklch(1 0 0 / 12%);
+    --clc-guide-art-foreground: oklch(0.97 0 0);
+    --clc-guide-art-muted-foreground: oklch(0.708 0 0);
+    --clc-guide-art-primary: oklch(0.58 0.13 165.612);
+    --clc-guide-art-primary-foreground: oklch(0.985 0.021 166.113);
+  }
 }
 
 .clc-guide-art > svg {
@@ -403,9 +431,15 @@ body:has(.about-page) {
 }
 
 .clc-guide-art__chip--primary {
-  fill: color-mix(in srgb, var(--clc-guide-art-primary) 10%, transparent);
+  fill: var(--clc-guide-art-primary-wash);
   stroke: var(--clc-guide-art-primary);
   stroke-width: 1.5;
+}
+
+@supports (color: color-mix(in srgb, black 10%, transparent)) {
+  .clc-guide-art__chip--primary {
+    fill: color-mix(in srgb, var(--clc-guide-art-primary) 10%, transparent);
+  }
 }
 
 .clc-guide-art__line--accent {
