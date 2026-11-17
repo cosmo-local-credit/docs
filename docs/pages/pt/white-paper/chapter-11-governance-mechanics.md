@@ -1,4 +1,4 @@
-## **11. Mecanismos de governação**
+# 11. Mecanismos de governação
 
 Este capítulo propõe um modelo de governação. Não representa que o CLC App atual use a votação de tokens de governação, bloqueio de tempo, seguro compartilhado, um processo de reclamações ou qualquer controlo descrito abaixo. Cada implementação teria de identificar os seus tomadores de decisão, autoridades, contratos, processos e políticas reais.
 
@@ -21,7 +21,7 @@ As regras de registo publicadas devem tornar o estatuto condicional e podem iden
 
 A lista proibida seria versionada, publicamente auditável e modificável somente através do limiar de ação crítica e do bloqueio de tempo adotados, ilustrado como Q3 + T3 no apêndice D.
 
-### **11.1 governação das taxas de câmbio e dos limites**
+## **11.1 governação das taxas de câmbio e dos limites**
 
 **Mudanças marcadas no tempo.** Uma implementação a seguir a este modelo alteraria os métodos de taxa de câmbio e implementaria separadamente os parâmetros limite somente após um bloqueio de tempo público. Um caminho de emergência usaria um processo de autorização divulgado separadamente e incluiria um pôr do sol automático ou uma revisão.
 
@@ -42,7 +42,7 @@ A lista proibida seria versionada, publicamente auditável e modificável soment
 - **Racionalização:** Notas publicadas e um registo de alterações da atualização anterior.
 - **Assinadores:** Endereços multisig divulgados e limiar de aprovação.
 
-### **11.2 Manual de execução dos fundos de seguros proposto**
+## **11.2 Manual de execução dos fundos de seguros proposto**
 
 **Apenas design opcional.** O presente manual só se aplica a uma implementação que tenha expressamente adotado e financiado um fundo de seguros e publicado os eventos cobertos, os requerentes elegíveis, a entidade responsável, os ativos, os limites, as exclusões, os requisitos de evidência, o processo e os termos de regulamentação. Nem o actual CLC App nem o GEF fornecem cobertura simplesmente porque este desenho aparece no Livro Branco.
 
@@ -63,7 +63,7 @@ Um ajustamento da cobertura não reduz o compromisso subjacente de um emissor co
 3. Um plano de recuperação poderia aplicar uma parte declarada do valor recuperado durante um período declarado, após o qual qualquer falha coberta restante se tornaria uma perda registada com um pós-mortem público; e
 4. Cada decisão produziria um recibo com o incidente ID, os pedidos e vales afetados, a decisão, o plano de recuperação e a janela de recurso.
 
-### **11.3 Quadro de garantia**
+## **11.3 Quadro de garantia**
 
 Esta secção distingue a responsabilidade do emissor, as proteções opcionais do Fundo e as garantias de terceiros. os Fundos podem competir em curadoria, termos e proteções expressamente oferecidas sem implicar que o CLC App, CPP, GEF ou qualquer rede mais ampla garanta automaticamente um vale.
 
@@ -115,7 +115,7 @@ Para cada classe de Fundos e vales cobertos, a parte responsável publicaria:
 
 **Princípio de cura.** A Gestores de Fundos e as estruturas jurídicas ou de governação responsáveis são responsáveis pelas proteções que anunciam. Uma implementação compatível com o CPP pode fornecer padrões, registros ou políticas compartilhadas opcionais, mas nem o CLC nem o GEF garantem automaticamente vales ou Fundos.
 
-### **11.4 Ferraduras anti-captura**
+## **11.4 Ferraduras anti-captura**
 
 No âmbito do presente modelo, as seguintes ações críticas exigem o nível de aprovação mais elevado adotado e um longo prazo:
 
@@ -125,7 +125,7 @@ No âmbito do presente modelo, as seguintes ações críticas exigem o nível de
 4. A expansão dos poderes de pausa de emergência; ou
 5. debilitar a forcabilidade, a transparência ou os compromissos sobre a soberania do Fundo estabelecidos neste documento.
 
-### **11.5 Procedimento de bifurcação e saída**
+## **11.5 Procedimento de bifurcação e saída**
 
 Se a governação fosse capturada ou os valores se desviassem substancialmente, as comunidades, Gestores de Fundos e os operadores poderiam procurar sair forjando a camada de governação da rede. A continuidade dos Fundos e vales subjacentes dependeria dos contratos, chaves, interfaces, infraestrutura, serviços de terceiros e obrigações aplicáveis.
 

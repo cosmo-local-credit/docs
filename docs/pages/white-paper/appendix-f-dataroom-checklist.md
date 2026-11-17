@@ -1,4 +1,4 @@
-## F. Dataroom checklist
+# F. Dataroom checklist
 
 1. **Historical Sarafu Network evidence**
    - Archive dated swap volume, active-user and asset definitions, incidents, redemption presentments, aging vouchers, confirmed fulfillment, discharge, holding-duration measures, periods, exclusions, and methodology separately from current Cosmo-Local Credit metrics.

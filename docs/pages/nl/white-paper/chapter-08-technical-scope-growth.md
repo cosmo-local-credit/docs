@@ -1,4 +1,4 @@
-## **8. Technische reikwijdte en groei**
+# 8. Technische reikwijdte en groei
 
 Dit hoofdstuk onderscheidt de huidige routedienst in productie van optionele of voorgestelde uitbreiding. Een huidige mogelijkheid die hier wordt beschreven, geldt specifiek voor de openbare implementatie van de CLC App en CLC Core. Zij is niet automatisch een functie van de Protocol v1.1.0-contracten of een andere implementatie.
 
@@ -24,7 +24,7 @@ Mogelijke groeigebieden zijn:
 
 Externe marktprijzen bepalen niet wat een Uitgever volgens de voorwaarden van een Waardebon verschuldigd is. Een Fonds kan een afgeschermde externe referentie voor een fungibel activum gebruiken, maar de gepubliceerde wisselkoersmethode, limieten, kosten en voorraad bepalen zijn offertes.
 
-### **8.1 Huidige dienstverlening en algemene normen**
+## **8.1 Huidige dienstverlening en algemene normen**
 
 **Ontdekking.** CLC Core onderhoudt een afgestemde graaf van geconfigureerde catalogi, registerrelaties, Fondsparameters, kosten, limieten, saldi en blockchaingebeurtenissen. Het schat welke Waardebonnen een sessiewallet kan bereiken en markeert verouderde gegevens. De openbare configuratie zoekt routes van maximaal drie stappen. Ontdekking is geen uitvoerbare belofte.
 
@@ -51,7 +51,7 @@ Externe marktprijzen bepalen niet wat een Uitgever volgens de voorwaarden van ee
 
 **SDK- en interfacevereisten.** Een herbruikbare route-integratie moet een deterministische koppeling tussen offerte en transactieoverzicht, invariantcontroles per stap, begrijpelijke foutcodes en controleerbare logboeken bieden. De huidige App/Core-implementatie biedt deze functies voor haar eigen profiel. De Solidity-`SwapRouter` van Protocol v1.1.0 berekent alleen offertes en voert de route niet uit.
 
-#### **8.1.1 Minimale compatibiliteitsspecificatie voor federatie**
+### **8.1.1 Minimale compatibiliteitsspecificatie voor federatie**
 
 Een Fonds-ecosysteem dat cross-profiel routing zoekt, zou machineleesbare informatie publiceren voor:
 
@@ -63,7 +63,7 @@ Een Fonds-ecosysteem dat cross-profiel routing zoekt, zou machineleesbare inform
 
 Een profiel kan dekking, compliance, arbitrage of andere diensten toevoegen zonder die tot vereisten voor basale CPP-compatibiliteit te maken. Iedere optionele dienst identificeert haar verantwoordelijke partij, bevoegdheid, reikwijdte en voorwaarden.
 
-### **8.2 Vergunning, verificatie en exit**
+## **8.2 Vergunning, verificatie en exit**
 
 De contracten van Protocol v1.1.0 zijn EVM-compatibel. Contracten in de map `src` van de Protocolrepository zijn gepubliceerd onder AGPL-3.0, behalve geïdentificeerde ongewijzigde onderdelen van derden die hun eigen voorwaarden behouden. Gepubliceerde broncode, ABI’s en implementatie-instructies ondersteunen onafhankelijke beoordeling, maar bewijzen op zichzelf geen audit, veilige implementatie of naleving van de wet.
 

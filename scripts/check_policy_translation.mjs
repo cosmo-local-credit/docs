@@ -22,6 +22,7 @@ if (!locale) {
 
 const digest = (value) => createHash('sha256').update(value).digest('hex')
 const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'))
+const englishReviewRollout = readJson(join(root, 'docs/i18n/english-review-rollout.json'))
 const errors = []
 const sourceRoot = join(root, 'docs/pages')
 const translatedRoot = candidate ? join(candidate, 'pages') : sourceRoot
@@ -70,6 +71,11 @@ const protectedNames = [
 
 for (const route of policyRoutes) {
   const sourceEntry = policyRegistry.source.routes[route]
+  const reviewedSourceEntry = englishReviewRollout.source.routes[route]
+  const localeIsCurrent = englishReviewRollout.locales[locale]?.status === 'current'
+  const expectedSourceHash = localeIsCurrent && reviewedSourceEntry
+    ? reviewedSourceEntry.sha256
+    : sourceEntry.sha256
   const englishPath = join(sourceRoot, sourceEntry.source)
   const translatedPath = join(translatedRoot, locale, sourceEntry.source)
   if (!existsSync(translatedPath)) {
@@ -78,14 +84,14 @@ for (const route of policyRoutes) {
   }
   const english = readFileSync(englishPath, 'utf8')
   const translated = readFileSync(translatedPath, 'utf8')
-  if (digest(english) !== sourceEntry.sha256) {
+  if (digest(english) !== expectedSourceHash) {
     errors.push(`${route}: English source hash differs from the policy registry`)
   }
   const entry = manifest.pages?.[route]
   if (!entry) {
     errors.push(`${route}: missing manifest entry`)
   } else {
-    if (entry.sourceSha256 !== sourceEntry.sha256) errors.push(`${route}: stale source hash in manifest`)
+    if (entry.sourceSha256 !== expectedSourceHash) errors.push(`${route}: stale source hash in manifest`)
     if (entry.locales?.[locale]?.sha256 !== digest(translated)) {
       errors.push(`${route}: stale translation hash in manifest`)
     }

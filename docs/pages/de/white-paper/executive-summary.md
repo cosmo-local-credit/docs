@@ -1,4 +1,4 @@
-## **Zusammenfassung**
+# Zusammenfassung
 
 Die **Commitment Pooling Protokoll (CPP)** beschreibt, wie unabhängig regierte Commitment-Fonds einlösbare Verpflichtungen kuratieren, Wechselkursmethoden und -grenzen veröffentlichen, Bestandsaufzeichnungen führen und einen verantwortungsvollen Austausch ermöglichen kann. Die Emittenten sind weiterhin für ihre Gutscheinsverpflichtungen verantwortlich. Fonds-Verantwortliche bleibt für die Fonds-Regelungen und alle garantierten Bestimmungen, die sie ausdrücklich übernehmen, verantwortlich. Weder die CLC App noch die GEF sind ein universeller Garant.
 

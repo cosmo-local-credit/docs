@@ -56,6 +56,8 @@
 
 \textbf{Télécharger :} \href{https://docs.cosmolocal.credit/white-paper/Cosmo-Local-Credit-CLC-White-Paper-v9-fr.pdf}{Livre blanc CLC v0.9 en français (PDF)}
 
+\textbf{Édition accessible :} les chapitres HTML de cette section constituent l'édition web accessible. Le PDF téléchargeable est un artefact de publication figé et n'est pas actuellement balisé pour la navigation au moyen de technologies d'assistance.
+
 \textbf{Statut de publication :} Version finale publiée. Le présent document ne constitue pas un conseil en investissement, une offre de vente ni une sollicitation d'achat d'un titre ou d'un instrument financier. Des versions ultérieures pourront réviser les modèles décrits ici.
 
 \section*{Comment lire cet article ?}
@@ -135,8 +137,7 @@ La couche numérique est la mémoire partagée et l'infrastructure de coordinati
 \section*{Flux actuel et projeté}
 \addcontentsline{toc}{section}{Flux actuel et projeté}
 
-\subsection*{Flux actuel direct ou routé des Bassins}
-\addcontentsline{toc}{subsection}{Flux actuel direct ou routé des Bassins}
+\subsubsection*{Flux actuel direct ou routé des Bassins}
 
 \begin{enumerate}[leftmargin=*]
 \item Un détenteur examine un bon, son émetteur, ses conditions et les offres associées.
@@ -152,8 +153,7 @@ Prendre l'inventaire d'un Bassin est un échange. Il ne s'agit d'un remboursemen
 
 La configuration publique actuelle recherche des itinéraires comportant jusqu'à trois échanges de Bassin et prend en charge les portefeuilles EOA/Calibur compatibles avec la CLC App. Elle ne prépare actuellement pas d'échanges routés pour les portefeuilles Safe ni pour d'autres portefeuilles contractuels. Le \texttt{SwapRouter} Solidity reste un contrat de cotation uniquement; CLC Core et le lot de portefeuille signé coordonnent l'exécution au-dessus des contrats.
 
-\subsection*{Proposition de conception plus large}
-\addcontentsline{toc}{subsection}{Proposition de conception plus large}
+\subsubsection*{Proposition de conception plus large}
 
 La conception proposée explore le routage interdomaine par HTLC ou entiercement, le rééquilibrage facultatif des Bassins, la compensation par lots, des services partagés supplémentaires, les programmes de liquidité du réseau, les polices d'assurance et les actifs de gouvernance. Chacun de ces éléments nécessiterait une mise en œuvre, des parties responsables, des règles adoptées, un financement, des contrôles et des informations publiques avant de pouvoir s'appliquer.
 
@@ -186,8 +186,7 @@ Le protocole v1.1.0 fournit les éléments de base des échanges directs actuels
 
 L'historique \textbf{Sarafu Network} ont utilisé des concepts de regroupement d'engagements entre les monnaies communautaires, les groupes d'épargne, les systèmes d'aide mutuelle et les engagements de production. Son service est ensuite passé au CLC App. Ce n'était pas une représentation que chaque compte historique, portefeuille, jeton, bon d'échange, bassin, solde, rapport, participant ou obligation a migré.
 
-\subsection*{Historique Sarafu Network instantané  Activité Celo du 5 juillet 2023 au 20 juillet 2025}
-\addcontentsline{toc}{subsection}{Historique Sarafu Network instantané  Activité Celo du 5 juillet 2023 au 20 juillet 2025}
+\subsubsection*{Historique Sarafu Network instantané  Activité Celo du 5 juillet 2023 au 20 juillet 2025}
 
 \textbf{Nom de l'entreprise:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Panneau d'analyse de Dune}
 
@@ -200,6 +199,8 @@ L'historique \textbf{Sarafu Network} ont utilisé des concepts de regroupement d
 \item 899 rapports publiés (\href{https://sarafu.network/reports}{archives des rapports historiques})
 \end{itemize}
 Ces chiffres sont des preuves historiques, pas des chiffres actuels d'utilisation de CLC.
+
+Ces chiffres reprennent les libellés publiés par le tableau de bord pour une période de mesure cohérente. Les notions d'« utilisateur », d'« activité » et d'« échange », ainsi que la conversion en dollars du volume des échanges dans les Bassins, dépendent des requêtes et de la méthode d'évaluation du tableau de bord ; elles ne doivent pas être considérées comme des définitions universelles des indicateurs de CLC. Ce dépôt n'a pas recalculé ces données de façon indépendante. Toute réutilisation doit conserver les dates, le lien vers la source, les libellés et la qualification historique. Les exigences de mesure proposées dans l'\href{https://docs.cosmolocal.credit/fr/white-paper/appendix-c-kpi-definitions}{Annexe C} sont plus strictes pour les rapports futurs.
 
 La conception plus large du CLC combine le routage actuel avec des propositions sur la manière dont les réseaux compatibles pourraient:
 
@@ -299,8 +300,7 @@ La finance traditionnelle commence par \textbf{Actifs - Passifs = Titres propres
 \item \textbf{Les engagements restants:} a fait des promesses qui restent non tenues et qui sont détenues par d'autres.
 \item \textbf{Capacité d'exécution:} la capacité démontrée de l'émetteur à s'acquitter de ces promesses.
 \end{itemize}
-\subsection*{Illustre la relation engagement-capacité:}
-\addcontentsline{toc}{subsection}{Illustre la relation engagement-capacité:}
+\subsubsection*{Illustre la relation engagement-capacité:}
 
 Capacité d'acceptation - engagements restants = capacité d'acceptation restante
 
@@ -1011,8 +1011,7 @@ La liste interdite serait modifiée, vérifiable publiquement et modifiable uniq
 
 \textbf{Critères de pause d'urgence.} Un déploiement participatif prédéclarait des conditions telles qu'une panne d'oracle, une utilisation à haute limite combinée à des défaillances de réalisation ou une défaillance invariante, ainsi que des vérifications de CV et des exigences d'examen post-incident.
 
-\subsection*{Exemple de flux public d'indexation pour une réserve et un bon d'échange}
-\addcontentsline{toc}{subsection}{Exemple de flux public d'indexation pour une réserve et un bon d'échange}
+\subsubsection*{Exemple de flux public d'indexation pour une réserve et un bon d'échange}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Le symbole:} par exemple \texttt{Maize\_50kg@IssuerY}.
@@ -1052,16 +1051,14 @@ Un ajustement de couverture ne réduit pas l'engagement de bon d'échange sous-j
 
 Cette section distingue la responsabilité de l'émetteur, les protections optionnelles de bassin et les garanties de tiers. Les bassins peuvent rivaliser sur la conservation, les conditions et les protections expressément offertes sans impliquer que le CLC App, CPP, GEF, ou tout autre réseau plus large garantit automatiquement un bon d'échange.
 
-\subsection*{Responsabilité initiale de l'émetteur}
-\addcontentsline{toc}{subsection}{Responsabilité initiale de l'émetteur}
+\subsubsection*{Responsabilité initiale de l'émetteur}
 
 \begin{itemize}[leftmargin=*]
 \item Chaque bon d'échange est avant tout la responsabilité de son émetteur. L'émetteur s'engage à fournir le bien, le service ou l'équivalent en espèces déclaré conformément aux conditions publiées.
 \item Les émetteurs publieraient qui peut présenter le bon d'échange, ce que signifie l'exécution, où et quand il est disponible, quelles preuves sont requises et quels recours sont applicables.
 \item Si un émetteur ne remplit pas ses obligations, il est le principal responsable. Les protections de bassin ou de réseau ne s'appliquent que lorsqu'elles sont adoptées, financées et communiquées séparément.
 \end{itemize}
-\subsection*{Protection optionnelle du bassin}
-\addcontentsline{toc}{subsection}{Protection optionnelle du bassin}
+\subsubsection*{Protection optionnelle du bassin}
 
 Un Gestionnaire de Bassin peut choisir d'ajouter une protection étroitement définie aux bons d'échange admis. Il n'est pas automatique et il faudrait identifier la partie responsable, le financement, les événements éligibles, les plafonds, les fenêtres, les éléments de preuve, les exclusions et les recours dans les métadonnées du bassin et les conditions applicables.
 
@@ -1073,8 +1070,7 @@ Les types de protection illustratifs comprennent:
 \item \textbf{Exécution alternative:} la partie responsable organise un fournisseur de remplacement agréé dans le cadre d'un plafond de quantité ou de valeur publié.
 \item \textbf{Protection par bande de taux de change:} pour les catégories de bons sélectionnés, un bassin n'offre que l'ajustement de couverture ou le recours au swap-back indiqué dans ses conditions préexistantes. Cela ne réduit pas l'obligation sous-jacente de l'émetteur en matière de bons.
 \end{enumerate}
-\subsection*{Sources de financement possibles}
-\addcontentsline{toc}{subsection}{Sources de financement possibles}
+\subsubsection*{Sources de financement possibles}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Obligation de l'émetteur} garantie placée par l'émetteur ou détenue dans une réserve divulguée et disponible après un événement couvert vérifié.
@@ -1083,8 +1079,7 @@ Les types de protection illustratifs comprennent:
 \end{itemize}
 La participation du garant respecterait les critères d'éligibilité publiés, la taille des obligations, les limites de concentration, l'autorité de décision et les règles d'exécution légales.
 
-\subsection*{Procédure de réclamation}
-\addcontentsline{toc}{subsection}{Procédure de réclamation}
+\subsubsection*{Procédure de réclamation}
 
 Une politique adoptée définirait les déclencheurs auditables, tels qu'un délai d'exécution manqué après la présentation d'un remboursement valide, une insolvabilité vérifiée de l'émetteur, une défaillance d'un pont couvert ou d'une caution ou un état d'incident déclaré officiellement. Elle définirait également:
 
@@ -1096,8 +1091,7 @@ Une politique adoptée définirait les déclencheurs auditables, tels qu'un dél
 \end{itemize}
 Les recouvrements provenant d'émetteurs, d'arbitrage ou d'exécution légale permettraient de reconstituer les obligations ou réserves applicables conformément à la politique publiée avant d'être utilisés pour l'accès proposé aux swaps du réseau CLC.
 
-\subsection*{Divulgation obligatoire}
-\addcontentsline{toc}{subsection}{Divulgation obligatoire}
+\subsubsection*{Divulgation obligatoire}
 
 Pour chaque catégorie de bassin et de bon d'échange couvert couverte, la partie responsable publierait:
 
@@ -1285,7 +1279,7 @@ La sortie ne doit pas décrire la conservation, les limites, les réserves ou la
 
 CPP peut coordonner des jetons, des bons d'échange, des bassins et des swaps dont le traitement juridique dépend de leur conception, de leur commercialisation, de leur utilisation, des parties responsables et de leur juridiction. Rien dans ce livre blanc n'est un conseil juridique, fiscal, d'investissement, de crédit ou financier.
 
-L'utilisation du CLC App est régie par la \href{https://docs.cosmolocal.credit/fr/governance/terms}{Conditions d'utilisation} GEF exploite l'application et l'infrastructure de support. Sauf si GEF assume expressément un autre rôle, il n'est ni émetteur, ni Gestionnaire de Bassin, ni dépositaire, ni prêteur, ni emprunteur, ni courtier, ni garant, ni racheteur, ni conseiller, ni assureur, ni partie aux obligations entre participants.
+L'utilisation de la CLC App est régie par les \href{https://docs.cosmolocal.credit/fr/governance/terms}{Conditions d'utilisation}. Le \href{https://docs.cosmolocal.credit/fr/governance/policies}{centre des politiques et avis} donne accès à l'Avis de confidentialité, à la Politique de protection des données et à la Politique de protection de l'enfance en vigueur. GEF exploite l'Application et l'infrastructure d'assistance. Sauf si GEF assume expressément un autre rôle, elle n'est ni Émetteur, ni Gestionnaire de Bassin, ni dépositaire, ni prêteur, ni emprunteur, ni courtier, ni garant, ni responsable de l'utilisation des bons d'échange, ni conseiller, ni assureur, ni partie aux obligations entre participants.
 
 Les services de paiement dépendants du déploiement doivent identifier leur fournisseur responsable, leurs juridictions, leur admissibilité, leurs frais, leurs limites, leur modèle de conservation et leurs conditions. La présence d'un connecteur ne signifie pas que GEF ou un bassin exploite le service réglementé sous-jacent.
 
@@ -1328,7 +1322,7 @@ Un \textbf{swap de Bassin ordinaire} échange des actifs pris en charge selon un
 
 La \textbf{présentation pour utilisation } retourne ou présente des unités de bon d'échange à un émetteur. L'\textbf{ exécution } correspond à la prestation promise par l'émetteur. La \textbf{ décharge } enregistre les unités exécutées afin qu'elles ne puissent pas être réutilisées. L'action \textbf{« Redeem »} de l'application prépare actuellement un transfert vers le propriétaire du jeton ; ce transfert ne prouve pas à lui seul l'exécution.
 
-L'action \textbf{« Retire voucher »} de l'application retire la fiche du catalogue de façon réversible. Elle ne détruit pas les soldes, n'annule pas les créances et n'exécute pas les obligations.
+L'action \textbf{« Demander le retrait »} de l'Application soumet une demande du propriétaire à l'examen d'un administrateur. Le Bon d'échange ou le Bassin reste actif tant que la demande est en attente ; celle-ci peut être approuvée, rejetée ou annulée. Le retrait approuvé d'un Bon d'échange supprime sa fiche des usages actifs du catalogue sans supprimer les soldes, les contrats, l'historique, les créances ou les obligations. Le retrait approuvé d'un Bassin bloque les nouveaux échanges et dépôts tout en maintenant possibles les retraits disponibles. Aucune de ces actions ne constitue une destruction, une Exécution ou une Décharge.
 
 Un prêt futur ou un autre produit de crédit nécessiterait des conditions complémentaires et des conditions de transaction présentées séparément avant utilisation. Aucun envoi ordinaire, contribution, dépôt de bassin, échange de bassin, présentation, exécution ou décharge ne crée un prêt simplement en raison de sa direction ou de son type d'actif.
 

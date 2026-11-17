@@ -1,4 +1,4 @@
-## B. Illustrative future fee waterfall
+# B. Illustrative future fee waterfall
 
 Ito ay isang iminungkahi na disenyo para sa isang hinaharap na paglalapat. Ito ay naaangkop lamang kung ipinatupad, pinansiyal, at tinanggap sa pamamagitan ng nai-publish na pamamahala at mga termino ng kalahok. Hindi ito naglalarawan ng kasalukuyang bayad ng Protocol v1.1.0, karapatan ng kontribudor, reserba, garantiya, o kasunduan ng seguro.
 

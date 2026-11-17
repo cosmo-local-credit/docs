@@ -1,4 +1,4 @@
-## E. Uitgewerkt voorbeeld — voorgestelde netwerkafdracht
+# E. Uitgewerkt voorbeeld — voorgestelde netwerkafdracht
 
 Dit voorbeeld illustreert het voorgestelde rake-model.Protocol v1.1.0.
 

@@ -1,4 +1,4 @@
-## **Résumé exécutif**
+# Résumé exécutif
 
 Le **Protocole de mise en commun des engagements (CPP)** décrit comment Bassins d’engagements, géré de manière indépendante, peut organiser des engagements remboursables, publier des méthodes et des limites de taux de change, tenir un inventaire et permettre un échange responsable. Les émetteurs restent responsables de leurs engagements en matière de bons. Gestionnaires de Bassins reste responsable des règles du bassin et de toute garantie qu'il assume expressément. Ni le CLC App ni le GEF ne sont un garant universel.
 
@@ -18,6 +18,8 @@ L'historique **Sarafu Network** ont utilisé des concepts de regroupement d'enga
 - 899 rapports publiés ([archives des rapports historiques](https://sarafu.network/reports))
 
 Ces chiffres sont des preuves historiques, pas des chiffres actuels d'utilisation de CLC.
+
+Ces chiffres reprennent les libellés publiés par le tableau de bord pour une période de mesure cohérente. Les notions d’« utilisateur », d’« activité » et d’« échange », ainsi que la conversion en dollars du volume des échanges dans les Bassins, dépendent des requêtes et de la méthode d’évaluation du tableau de bord ; elles ne doivent pas être considérées comme des définitions universelles des indicateurs de CLC. Ce dépôt n’a pas recalculé ces données de façon indépendante. Toute réutilisation doit conserver les dates, le lien vers la source, les libellés et la qualification historique. Les exigences de mesure proposées dans l’[Annexe C](/fr/white-paper/appendix-c-kpi-definitions) sont plus strictes pour les rapports futurs.
 
 La conception plus large du CLC combine le routage actuel avec des propositions sur la manière dont les réseaux compatibles pourraient:
 

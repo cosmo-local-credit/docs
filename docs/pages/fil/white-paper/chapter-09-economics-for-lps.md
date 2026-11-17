@@ -1,8 +1,8 @@
-## **9. Proposed economics para sa mga programa ng likididad**
+# 9. Proposed economics para sa mga programa ng likididad
 
 Ang kabanata na ito ay naglalarawan ng isang hinaharap, nag-iiba na modelo. Hindi ito isang kasalukuyang tampok ng App, isang alok, isang ipinangako na pagbabalik, o isang karapatan na nilikha sa pamamagitan ng pagdeposito sa `SwapPool`.
 
-### **9.1 Proposed na mga mapagkukunan ng kita**
+## **9.1 Proposed na mga mapagkukunan ng kita**
 
 Ang isang hinaharap na badyet ng network ay maaaring tumanggap:
 
@@ -14,7 +14,7 @@ Ang mga gross pool fees na pinananatili ng mga pool ay hindi kita sa network.Pro
 
 Walang hiwalay na route-service fee ang production CLC App route workflow. Maaari pa ring magkaroon ng bayarin sa Pool at protocol sa bawat hop ang routed exchange. Hindi dapat tawaging iminungkahing network rake ang kasalukuyang per-hop na bayarin o bilangin muli bilang service revenue sa hinaharap.
 
-### **9.2 Illustrative rake matematika**
+## **9.2 Illustrative rake matematika**
 
 Kung ang isang nakikibahagi na pool ay nagbabayad ng 2.00% ng bayad sa pool at ang isang inaminang network rake ay tumatanggap ng 20% ng bayad ng pool, ang iminungkahi na epektibong rate ng network-rake sa itinuro na halaga ay:
 
@@ -28,7 +28,7 @@ Ang iminungkahi na kita sa network ay:
 
 Huwag magdagdag ng gross pool fees sa network rake: ang rake ay isang paglipat mula sa mga fees na iyon at kung hindi ay double count.
 
-### **9.3 Mga karapatan sa programa ng likido**
+## **9.3 Mga karapatan sa programa ng likido**
 
 Ang isang hiwalay na programa ay maaaring pondohan ang imbentaryo ng Pool, mga serbisyo sa pag-routing, pagsubaybay, o iba pang mga mandato.
 

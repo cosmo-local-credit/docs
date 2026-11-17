@@ -1,8 +1,8 @@
-## A.  Das vorgeschlagene Mess- und Gebührenmodell
+# A.  Das vorgeschlagene Mess- und Gebührenmodell
 
 Dieser Anhang definiert einen vorgeschlagenen Messrahmen. Protocol v1.1.0 erfasst nicht die Erfüllung des Emittenten, die reale Ausbuchung oder jedes nachstehend erforderliche Datenfeld.
 
-### Definitionen von Ereignissen und Bestand
+## Definitionen von Ereignissen und Bestand
 
 Für die Gutscheinklasse *j*, Kohorte oder Periode *t* und eine offensichtliche Bewertungsmethode *m*:
 
@@ -16,7 +16,7 @@ Für die Gutscheinklasse *j*, Kohorte oder Periode *t* und eine offensichtliche 
 
 Jede bewertete Maßnahme muss die Einheit, die Quelle, die Bewertungsmethode, den Zeitstempel und die Behandlung divergenter Poolkurse veröffentlichen. Eine Übertragung auf der Kette kann `X` oder Beweise für die Vorlage unterstützen; es stellt nicht allein `F` oder `G` fest.
 
-### Kohortenbasierte Erfüllungsmaßnahmen
+## Kohortenbasierte Erfüllungsmaßnahmen
 
 Für eine Kohorte von gültigen Erlösungsvorlagen:
 
@@ -32,7 +32,7 @@ Verwenden Sie die gleiche geschlossene oder reife Kohorte in jedem Zähler und N
 
 Erfüllungslatenz misst den Emittentendienst nach der Präsentation. Die Aufbewahrungsdauer ist eine separate Maßnahme und darf nicht als Rückzahlungslatenz bezeichnet werden.
 
-### Unterschiedliche Geschwindigkeitsmessungen
+## Unterschiedliche Geschwindigkeitsmessungen
 
 Eine vorgeschlagene Verpflichtungsentlastungsgeschwindigkeit darf nur berechnet werden, wenn `O` und erfüllter Wert dieselbe Bewertungsmethode verwenden:
 
@@ -44,7 +44,7 @@ Eine Fonds-Swap-Aktivitätsmaßnahme ist getrennt:
 
 Kein der beiden Werte beweist soziale Auswirkungen, Emittentenkapazität, Rentabilität oder Cash Convertibility.
 
-### Angebotene Netzerlöse
+## Angebotene Netzerlöse
 
 Lassen Sie:
 

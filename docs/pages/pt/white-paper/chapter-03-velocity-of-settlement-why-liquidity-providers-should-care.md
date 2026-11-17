@@ -1,4 +1,4 @@
-## **3. Atividade de realização, quitação e troca**
+# 3. Atividade de realização, quitação e troca
 
 Uma variação de swap de fundo que aborda ativos de detenção. O cumprimento do vale ocorre quando o emissor cumpre o compromisso publicado. A quitação registra as unidades preenchidas para que não possam ser apresentadas novamente. Estes acontecimentos não podem ser rebatidos num único uso de "settlement".
 

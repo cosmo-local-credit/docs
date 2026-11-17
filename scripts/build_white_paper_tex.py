@@ -270,9 +270,9 @@ def safe_toc_text(rendered: str) -> str:
 
 
 def heading_command(level: int) -> str:
-    if level <= 2:
+    if level == 1:
         return "section"
-    if level == 3:
+    if level == 2:
         return "subsection"
     return "subsubsection"
 
@@ -503,12 +503,18 @@ def extract_index(pages_dir: Path = PAGES) -> tuple[list[str], str, dict[str, st
     if not version_value or not date_value:
         raise ValueError("White Paper index must define **Version:** and **Date:** metadata")
 
-    front_lines = ["## Front Matter and Key Concepts", ""]
+    # The standalone web chapters use an H1 page title. The combined PDF has
+    # its own document title, so each page H1 becomes a top-level section. The
+    # index page's H2 sections also need promotion into that PDF hierarchy.
+    front_lines = ["# Front Matter and Key Concepts", ""]
     for value in [version, publication_date, distribution, framing, audience]:
         if value:
             front_lines.append(value)
             front_lines.append("")
-    front_lines.extend(body)
+    front_lines.extend(
+        re.sub(r"^## ", "# ", line) if line.startswith("## ") else line
+        for line in body
+    )
     abstract_text = "\n\n".join(
         render_inline(line.strip())
         for line in abstract
@@ -703,7 +709,7 @@ def localized_index(pages_dir: Path) -> tuple[list[str], str]:
             subtitle = strip_md(line)
             found_subtitle = True
             continue
-        output.append(line)
+        output.append(re.sub(r"^## ", "# ", line) if line.startswith("## ") else line)
     return output, subtitle
 
 

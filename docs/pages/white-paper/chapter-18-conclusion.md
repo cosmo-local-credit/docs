@@ -1,4 +1,4 @@
-## **18. Conclusion**
+# 18. Conclusion
 
 Cosmo-Local Credit connects a current application and Protocol v1.1.0 foundation with a wider proposed design for independently governed Commitment Pools. Current direct Pool swaps and App/Core routed exchanges can connect participant-held vouchers through several Pools while preserving per-hop rules, fees, bounds, settlement records, and governance. These transactions do not prove issuer fulfillment, create contributor rights, or guarantee value, liquidity, redemption, insurance, legal status, or protection from loss.
 

@@ -47,8 +47,7 @@ export const navigationMessages: Record<SupportedLocale, NavigationMessages> = {
   'zh-Hant': zhHant,
 }
 
-const whitePaperItems = [
-  ['executiveSummary', '/white-paper/executive-summary'],
+const whitePaperChapterItems = [
   ['chapter01', '/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive'],
   ['chapter02', '/white-paper/chapter-02-the-accounting-shift-from-assets-to-trust'],
   ['chapter03', '/white-paper/chapter-03-velocity-of-settlement-why-liquidity-providers-should-care'],
@@ -67,6 +66,9 @@ const whitePaperItems = [
   ['chapter16', '/white-paper/chapter-16-values-evaluation-template-for-listings-liquidity-mandates'],
   ['chapter17', '/white-paper/chapter-17-legal-compliance-note'],
   ['chapter18', '/white-paper/chapter-18-conclusion'],
+] as const
+
+const whitePaperAppendixItems = [
   ['appendixA', '/white-paper/appendix-a-math-box'],
   ['appendixB', '/white-paper/appendix-b-fee-waterfall'],
   ['appendixC', '/white-paper/appendix-c-kpi-definitions'],
@@ -107,25 +109,44 @@ export function sidebarForLocale(locale: SupportedLocale): SidebarItem[] {
     {
       text: messages.groups.governance,
       items: [
-        ...(policyMessages
-          ? [
-              { text: policyMessages.policies, link: link('/governance/policies') },
-              { text: policyMessages.privacy, link: link('/governance/privacy') },
-              { text: policyMessages.dataProtection, link: link('/governance/data-protection') },
-              { text: policyMessages.childSafeguarding, link: link('/governance/child-safeguarding') },
-            ]
-          : []),
         { text: messages.items.governanceMechanics, link: link('/governance/mechanics') },
-        { text: messages.items.terms, link: link('/governance/terms') },
       ],
     },
+    ...(policyMessages
+      ? [{
+        text: policyMessages.policies,
+        link: link('/governance/policies'),
+        items: [
+          { text: policyMessages.privacy, link: link('/governance/privacy') },
+          { text: policyMessages.dataProtection, link: link('/governance/data-protection') },
+          { text: policyMessages.childSafeguarding, link: link('/governance/child-safeguarding') },
+        { text: messages.items.terms, link: link('/governance/terms') },
+        ],
+      }]
+      : []),
     {
       text: messages.groups.whitePaper,
       link: link('/white-paper'),
-      items: whitePaperItems.map(([key, path]) => ({
-        text: messages.items[key],
-        link: link(path),
-      })),
+      items: [
+        {
+          text: messages.items.executiveSummary,
+          link: link('/white-paper/executive-summary'),
+        },
+        {
+          text: messages.groups.chapters,
+          items: whitePaperChapterItems.map(([key, path]) => ({
+            text: messages.items[key],
+            link: link(path),
+          })),
+        },
+        {
+          text: messages.groups.appendices,
+          items: whitePaperAppendixItems.map(([key, path]) => ({
+            text: messages.items[key],
+            link: link(path),
+          })),
+        },
+      ],
     },
   ]
 }

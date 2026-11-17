@@ -1,4 +1,4 @@
-## **14. KPIs na viashiria vya afya**
+# 14. KPIs na viashiria vya afya
 
 Utekelezaji unapaswa kuchapisha KPI tu unapoweza kufafanua tukio, chanzo, kundi au kipindi, kitengo, mbinu na muhuri wa muda wa uthamini, mambo yaliyotengwa, sera ya marekebisho, ushahidi wa nje ya mnyororo na mipaka ya ubora wa data.
 

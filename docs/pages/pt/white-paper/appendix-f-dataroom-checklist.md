@@ -1,4 +1,4 @@
-## F. Lista de verificação da sala de dados
+# F. Lista de verificação da sala de dados
 
 1. **Evidências históricas Sarafu Network**
    - Arquivo datado volume de troca, definições de usuário ativo e de ativo, incidentes, apresentações de resgate, vales de envelhecimento, cumprimento confirmado, quitação, medidas de duração de detenção, períodos, exclusões e metodologia separadamente das métricas atuais de Cosmo-Local Credit.

@@ -1,4 +1,4 @@
-## E. Exemple détaillé — prélèvement de réseau proposé
+# E. Exemple détaillé — prélèvement de réseau proposé
 
 Cet exemple illustre le modèle de prélèvement proposé. Il ne s'agit pas du calcul des frais de protocole supplémentaires utilisé par Protocol v1.1.0.
 

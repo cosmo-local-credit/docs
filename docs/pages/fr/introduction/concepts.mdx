@@ -1,117 +1,148 @@
 # Concepts et vocabulaire
 
-Cosmo-Local Credit connecte une application, un protocole ouvert, des bassins indépendants et les engagements réels représentés par des bons d’échange. Ces couches fonctionnent ensemble, mais elles ne sont pas la même chose.
+Cosmo-Local Credit met en relation les personnes qui proposent des biens ou des services, celles qui en ont besoin et des Bassins d’engagements gouvernés de façon indépendante qui permettent l’échange de Bons d’échange. Cette page commence par les termes visibles par les participants, puis explique les couches techniques sous-jacentes.
 
-Cette page définit les termes utilisés dans la documentation. Les étiquettes exactes de l'application apparaissent dans les guillemets lorsque l'interface utilise un nom plus court ou potentiellement ambigu.
+Les libellés exacts de l’Application apparaissent entre guillemets lorsque l’interface emploie un nom plus court ou potentiellement ambigu.
 
-## Les couches de produits et de protocoles
+## Termes courants
 
-|Définition|La signification|
+| Terme | Signification en langage simple |
 | --- | --- |
-| **Cosmo-Local Credit (CLC)** |La famille de produits: le CLC App, sa documentation et le travail plus large de mise en commun des engagements.|
-| **CLC App** |L’application web progressive disponible sur [cosmolocal.credit](https://cosmolocal.credit). GEF exploite cette interface et ses services d’assistance.|
-| **CLC Core** | Le service d’assistance de la CLC App pour les catalogues, l’état indexé de la chaîne, la découverte d’itinéraires, les cotations faisant autorité, la coordination du relais et les reçus d’échanges routés. Il ne s’agit ni d’un contrat intelligent ni d’un Gestionnaire de Bassin. |
-| **Protocole de mise en commun des engagements (CPP)** |Le modèle réutilisable de conservation, d'évaluation, de limitation, d'échange et de gouvernance responsable.|
-| **Protocol v1.1.0** |La version publique vérifiée des contrats intelligents documentée dans le [Référence au protocole](/fr/protocol/overview). |
-| **Bassin d’engagements ** |Un dispositif gouverné qui gère des actifs, publie des règles et permet leur échange. ** Bassin** est la forme abrégée courante.|
-| **`SwapPool`** |Le contrat de protocole actuel qui détient un inventaire de jetons et exécute des swaps directs. Il s'agit d'un composant technique d'un Bassin d’engagements.|
-| **`SwapRouter` Solidity** | Le contrat de Protocol v1.1.0 qui calcule une cotation pour un chemin proposé entre plusieurs Bassins. Il ne conserve pas d’actifs et n’exécute pas l’itinéraire. |
-| **Flux de routage de l’application** | Le processus actuel de la CLC App et de CLC Core qui découvre, cote et simule des chemins sur une même chaîne, prépare un lot de portefeuille signé, le relaie et regroupe les règlements des Bassins dans un reçu unique. |
-| **Le jeton de gouvernance CLC proposé** |Un projet de gouvernance future dans le livre blanc. Il ne s'agit pas d'une application ou d'un actif Protocol v1.1.0 en cours.|
-| **Bassin de réseau CLC proposé** |Une future conception de la compensation et de la coordination au niveau du réseau. Ce n’est pas la même chose qu’un `SwapPool` actuel.|
+| **Bon d’échange** | Un engagement transférable — comparable à une carte-cadeau — dont l’Émetteur promet des biens, des services, des avantages ou une autre prestation définis selon des conditions publiées. |
+| **Émetteur** | La personne ou l’organisation qui crée le Bon d’échange et reste responsable de ce qu’il promet. |
+| **Offre** | Une fiche du catalogue décrivant des biens ou services associés à un Bon d’échange. Elle aide à découvrir l’offre, mais ne prouve ni sa disponibilité ni son exécution. |
+| **Demande** | L’expression publiée de ce qu’un participant recherche. Elle n’accepte pas, à elle seule, une Offre, ne réserve pas de biens, n’autorise pas un échange et ne crée pas d’obligation. |
+| **Marché** | Le catalogue de découverte de l’Application pour les Bons d’échange, Bassins, Offres, Demandes et autres informations publiques. Il ne constitue pas automatiquement une place d’échange, un vendeur, une approbation ou une garantie. |
+| **Bassin d’engagements** | Un dispositif gouverné qui sélectionne les Bons d’échange pris en charge, publie des règles d’échange, détient un inventaire et permet l’échange. **Bassin** en est la forme abrégée courante. |
+| **Gestionnaire de Bassin** | La personne, coopérative, agence publique, fédération, multisignature, le service ou toute autre structure responsable qui publie et administre les règles d’un Bassin. |
+| **Détenteur** | Un participant qui contrôle un solde de Bon d’échange. Cette détention ne prouve ni l’exécution, ni une valeur en espèces, ni une garantie. |
+| **Portefeuille** | Le compte et les informations d’identification utilisés pour autoriser les transferts de jetons et les échanges de Bassin. |
 
-## Des jetons, des bons d’échange et des offrandes
+« Membre de la communauté » est une expression sociale informelle. Elle ne crée pas, à elle seule, de droits d’admission, de propriété, de gouvernance, de remboursement ou d’autres droits juridiques.
 
-Un **jeton** est un solde enregistré sur la blockchain ou un actif numérique. Les mécanismes du jeton peuvent enregistrer l’offre, les transferts, l’expiration et la destruction, mais ne promettent pas à eux seuls des biens, des services, une conversion en espèces ou une utilisation auprès de l’émetteur.
+## Découvrir et contacter des participants
 
-Un **bon d’échange** est un jeton ou un enregistrement qu’un émetteur présente comme un engagement utilisable selon des conditions publiées. Ces conditions doivent indiquer ce qui est promis, qui en est responsable, où et quand le bon peut être présenté, ses limites importantes et les procédures d’exécution et de réclamation.
+Le Marché aide à trouver des Bons d’échange, des Offres, des Demandes et des Bassins. Une fiche signifie que l’Application peut afficher un enregistrement ; elle ne prouve ni l’exactitude des informations, ni la disponibilité de l’inventaire, ni la réussite future d’une transaction.
 
-Une **Offre** est la fiche de catalogue des biens ou services associés à un bon d’échange. La publication d’une Offre ne crée pas de jetons, ne prouve pas sa disponibilité et ne montre pas que l’engagement a été exécuté.
+Un participant peut publier une Demande et contacter un autre participant au moyen des fonctions de contact ou de messagerie disponibles. Une demande de contact, un message, une discussion au sujet d’une réservation ou une réponse à une Demande ne suffit pas, à elle seule, à :
 
-Il y a quatre couches distinctes:
+- accepter un Bon d’échange ou une Offre ;
+- autoriser un transfert ou un échange de Bassin ;
+- prouver une livraison ou une satisfaction ;
+- exécuter ou acquitter un Bon d’échange ; ou
+- faire de GEF une partie à l’accord entre les participants.
 
-1. le contrat symbolique et les soldes;
-2. la désignation du bon d’échange et les conditions publiées;
-3. un ou plusieurs enregistrements d'offre ; et
-4. le rendement réel de l'émetteur.
+Les Avis sont des commentaires publics à propos d’un Bon d’échange ou d’un Bassin. Ils ne constituent ni une preuve privée d’admissibilité, ni une vérification préalable par l’opérateur, ni une garantie, ni une conclusion selon laquelle l’exécution a eu lieu.
 
-## Rôles de responsabilité et contrôle technique
+## Bons d’échange, jetons et Offres
 
-|Rôle ou autorité|Responsabilité ou pouvoir|
+Un **jeton** est un solde inscrit sur la blockchain ou un actif numérique. Les mécanismes du jeton peuvent enregistrer l’offre, les transferts, l’expiration et la destruction, mais ils ne promettent pas, à eux seuls, des biens, des services, une conversion en espèces ou une utilisation auprès de l’Émetteur.
+
+Un **Bon d’échange** est un jeton ou un enregistrement qu’un Émetteur présente comme un engagement utilisable selon des conditions publiées. Ces conditions doivent préciser ce qui est promis, qui en est responsable, où et quand le Bon peut être présenté, les limites importantes ainsi que les procédures d’exécution et de réclamation.
+
+Une **Offre** est la fiche du catalogue qui décrit les biens ou services associés à un Bon d’échange. Dans le langage courant, une « offre » désigne simplement ce qu’un participant propose ; **Offre** est le nom de la fiche dans l’Application.
+
+Gardez ces quatre couches distinctes :
+
+1. le contrat du jeton et les soldes ;
+2. la désignation du Bon d’échange et ses conditions publiées ;
+3. une ou plusieurs fiches Offre ; et
+4. l’exécution réelle par l’Émetteur.
+
+## Rôles responsables et contrôle technique
+
+| Rôle ou autorité | Responsabilité ou pouvoir |
 | --- | --- |
-| **Émetteur** |Publie et remplit un engagement de bon d’échange. Cette responsabilité n'est pas automatiquement transférée simplement parce que la propriété du contrat change.|
-| **Détenteur** |Il contrôle le solde des bons. Le contrôle ne prouve pas l'exécution, la valeur monétaire ou une garantie.|
-| **Fournisseur de services** |Une personnalité publique. Un fournisseur de services devient émetteur lorsqu'il publie un engagement de bon d’échange.|
-| **Gestionnaire de Bassin** |La personne responsable, la coopérative, l'agence publique, la fédération, le multisig, le service ou toute autre structure qui publie et administre les règles du bassin.|
-| **Propriétaire du Bassin** |L'adresse avec les pouvoirs actuels du propriétaire `SwapPool`, y compris la configuration, la perception des frais et le retrait de liquidités disponibles.|
-| **Administrateur du proxy** |L'autorité qui peut améliorer l'exécution d'un contrat par procuration. Il peut différer du propriétaire du Bassin.|
-| **Contrôleur de dépendance** |Un propriétaire ou un rédacteur qui contrôle un registre, un limiteur, un module de cotation, un oracle, une politique de frais ou un contrôleur des frais de protocole.|
-| **Modérateur du catalogue** |Un opérateur d'applications qui peut corriger, masquer ou restaurer des enregistrements de catalogue sans modifier les soldes de la chaîne.|
-| **Bénéficiaire de la redevance** |L'adresse configurée recevant une redevance de bassin ou de protocole. Ce n'est pas nécessairement le Gestionnaire de Bassin ou le propriétaire.|
-| **Supporteur ou fournisseur de liquidités** |Un participant qui apporte des actifs selon des conditions communiquées séparément. L'actuel `SwapPool` ne crée pas d'actions de bassin ou de remboursement automatique, de retrait, de récompense ou de droits de gouvernance.|
-
-« Membre de la communauté » est une expression sociale informelle. Elle ne crée pas à elle seule de droits d’admission, de propriété, de gouvernance, de remboursement ou d’autres droits juridiques.
+| **Émetteur** | Publie et exécute l’engagement représenté par un Bon d’échange. Cette responsabilité ne se transfère pas automatiquement lorsque le propriétaire du contrat change. |
+| **Gestionnaire de Bassin** | Publie et administre les règles du Bassin et reste responsable de toute garantie que le Bassin annonce expressément. |
+| **Propriétaire du Bassin** | Adresse qui détient les pouvoirs actuels du propriétaire du `SwapPool`, notamment la configuration, la perception des frais et le retrait des liquidités disponibles. |
+| **Signataires multisignatures** | Partagent l’autorité technique attribuée à un Portefeuille multisignature. Modifier les signataires ou le seuil ne transfère pas silencieusement la responsabilité de l’Émetteur, celle du Gestionnaire ou la propriété juridique. |
+| **Administrateur du proxy** | Peut mettre à niveau l’implémentation d’un contrat mandataire. Il peut être distinct du propriétaire du Bassin. |
+| **Contrôleur d’une dépendance** | Contrôle un registre, un limiteur, un module de cotation, un oracle, une politique de frais ou le contrôleur des frais du protocole. |
+| **Modérateur du catalogue** | Peut corriger, masquer, retirer ou rétablir des fiches du catalogue sans supprimer les contrats, les soldes ou l’historique de la blockchain. |
+| **Destinataire des frais** | Reçoit les frais configurés du Bassin ou du protocole. Il ne s’agit pas nécessairement du Gestionnaire ou du propriétaire du Bassin. |
+| **Soutien ou fournisseur de liquidités** | Apporte des actifs selon des conditions publiées séparément. Le `SwapPool` actuel ne crée aucun droit automatique à des parts du Bassin, à un remboursement, à un retrait, à une récompense ou à la gouvernance. |
 
 ## Actions et cycle de vie
 
-|Terme d'application ou de documentation|Ce que cela signifie|
+| Terme de l’Application ou de la documentation | Signification |
 | --- | --- |
-| **Créer ou publier un bon d’échange** |Déployer ou configurer un jeton et publier son enregistrement de catalogue et ses conditions.|
-| **Émission ou monnaie** |Créer le solde du jeton sous l'autorité du propriétaire ou de l'auteur configuré.|
-| **Publier une offre** |Ajouter un enregistrement de biens ou de services sous un bon d’échange.|
-| **Envoyer** |Transférez un solde symbolique à une autre adresse.|
-| **« Redeem »** |Dans l’application actuelle, ouvre le parcours d’envoi avec l’adresse du propriétaire du jeton préremplie. Cette action présente ou renvoie des jetons à l’émetteur ; elle ne prouve pas que celui-ci a exécuté son engagement.|
-| **Accomplissez** |L'émetteur fournit les biens, services, avantages ou autres prestations promis.|
-| **Décharge** |Enregistrer les unités remplies afin qu'elles ne puissent pas être présentées à nouveau, par exemple en les recevant, en les brûlant, en les annulant ou en les désactivant autrement en vertu des conditions publiées.|
-| **« Retire voucher »** |Masque un bon d’échange dans le catalogue de l’application. Les soldes et l’historique sont conservés, et un administrateur peut rétablir la fiche. Il ne s’agit ni d’une destruction ni d’une annulation.|
-| **Dépôt ou contribution au fonds commun** |Transférer des actifs dans un `SwapPool`. Les droits de remboursement, de retrait, de récompense ou de gouvernance n'existent que lorsqu'ils sont divulgués séparément.|
-| **Échange de fonds** |Échangez un actif soutenu contre un autre à travers un `SwapPool`. Il ne s'agit pas d'un remboursement par l'émetteur ou automatiquement d'un prêt.|
-| **Découverte d’itinéraire** | Rechercher des chemins possibles entre les bons d’échange admissibles d’un portefeuille et un bon cible, à travers les relations configurées entre Bassins. La découverte est une estimation, et non une promesse exécutable. |
-| **Cotation d’itinéraire** | Un calcul faisant autorité et limité dans le temps pour un chemin choisi, fondé sur l’état des Bassins lu à un même bloc fixé et simulé avant la signature. |
-| **Échange routé** | Un ensemble ordonné d’échanges de Bassin soumis par la CLC App dans un lot de portefeuille unique sur une même chaîne. Dans le flux actuel, tous les appels sont annulés si l’un d’eux échoue. |
-| **Reçu d’échange routé** | Un enregistrement groupé comprenant le statut du suivi, le hachage de la transaction, les étapes de l’itinéraire, les montants réglés et les frais de Bassin et de protocole de chaque étape. |
-| **Retrait de liquidités du bassin** |Le propriétaire du bassin transfère l'inventaire disponible à une adresse sélectionnée.|
-| **Collecte des redevances** |Un destinataire configuré perçoit les frais de bassin accumulés.|
+| **Créer ou publier un Bon d’échange** | Déployer ou configurer un jeton, puis publier sa fiche de catalogue et ses conditions. |
+| **Émettre ou frapper** | Créer un solde de jetons sous l’autorité configurée du propriétaire ou du rédacteur. |
+| **Publier une Offre** | Ajouter sous un Bon d’échange une fiche décrivant des biens ou des services. |
+| **Publier une Demande** | Décrire un besoin pour faciliter sa découverte et une éventuelle prise de contact ; cela ne crée pas, à lui seul, une transaction. |
+| **Envoyer** | Transférer un solde de jetons vers une autre adresse. |
+| **« Utiliser »** | Ouvrir le parcours d’envoi en préremplissant l’adresse du propriétaire du jeton. Il s’agit d’une présentation pour utilisation, et non d’une preuve d’exécution. |
+| **Exécuter** | L’Émetteur fournit les biens, services, avantages ou toute autre prestation promise. |
+| **Acquitter** | Enregistrer les unités exécutées afin qu’elles ne puissent pas être présentées une nouvelle fois, par exemple en les recevant, en les détruisant, en les annulant ou en les désactivant autrement selon les conditions publiées. |
+| **« Demander le retrait »** | Le propriétaire actuel demande à un administrateur de retirer un Bon d’échange ou un Bassin. La ressource reste active tant que la demande est en attente ; celle-ci peut être approuvée, rejetée ou annulée. |
+| **Retirer un Bon d’échange** | Après approbation, supprimer le Bon d’échange des usages actifs du catalogue. Les contrats, soldes, obligations et l’historique restent en place ; le retrait ne constitue ni une destruction ni un acquittement. |
+| **Retirer un Bassin** | Après approbation, arrêter les nouveaux échanges et dépôts tout en autorisant les retraits disponibles. Les règlements antérieurs restent enregistrés. |
+| **Dépôt ou contribution au Bassin** | Transférer des actifs dans un `SwapPool`. Les droits de remboursement, de retrait, de récompense ou de gouvernance n’existent que s’ils sont publiés séparément. |
+| **Échange de Bassin** | Échanger des actifs pris en charge au moyen d’un `SwapPool`. Il ne s’agit ni de l’exécution par l’Émetteur ni automatiquement d’un prêt. |
+| **Découverte d’itinéraire** | Trouver des chemins possibles à travers les relations configurées entre les Bassins. Cette découverte est une estimation, pas une promesse exécutable. |
+| **Cotation d’itinéraire** | Calculer une proposition limitée dans le temps à partir de l’état des Bassins lu à un même bloc fixé et la simuler avant la signature. |
+| **Échange routé** | Soumettre un ensemble ordonné d’échanges de Bassin dans un même lot de Portefeuille sur la même chaîne. Dans le parcours actuel, tous les appels sont annulés si l’un d’eux échoue. |
+| **Reçu d’échange routé** | Regrouper le statut du suivi, le hachage de la transaction, les étapes de l’itinéraire, les montants réglés et les frais de chaque étape. |
+| **Retrait des liquidités du Bassin** | Permettre au propriétaire du Bassin de transférer l’inventaire disponible vers l’adresse de son choix. |
+| **Perception des frais** | Envoyer les frais accumulés du Bassin au destinataire configuré. |
 
-Utilisez **règlement du swap ** pour les transferts sur la blockchain et la comptabilisation des frais qui achèvent un swap de Bassin. Utilisez ** présentation pour utilisation **, ** exécution ** et ** décharge** pour le cycle de vie distinct du bon d’échange dans le monde réel.
+Utilisez **règlement de l’échange** pour les transferts sur la blockchain et la comptabilisation des frais qui achèvent un échange de Bassin. Utilisez **présentation pour utilisation**, **exécution** et **acquittement** pour le cycle de vie réel et distinct du Bon d’échange.
 
-## Marché, valeurs, limites et frais
+## Couches du produit et du protocole
 
-Le **Market** de l’application est un catalogue de découverte pour les bons d’échange, les Bassins, les Offres et les informations publiques. Une fiche ne constitue pas automatiquement une place d’échange, une relation avec un vendeur, une approbation, une évaluation ou une garantie.
+| Terme | Signification |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | La famille de produits : la CLC App, sa documentation et le travail plus général sur la mise en commun des engagements. |
+| **CLC App** | L’application web progressive disponible sur [cosmolocal.credit](https://cosmolocal.credit). GEF exploite cette interface et ses services d’assistance. |
+| **CLC Core** | Le service d’assistance pour les catalogues, l’état indexé de la blockchain, la découverte d’itinéraires, les cotations faisant autorité, la coordination du relais et les reçus d’échanges routés. Il ne s’agit ni d’un contrat intelligent ni d’un Gestionnaire de Bassin. |
+| **Protocole de mise en commun des engagements (CPP)** | Le modèle réutilisable de sélection, d’évaluation, de limitation, d’échange et de gouvernance responsable. |
+| **Protocol v1.1.0** | La version publique vérifiée des contrats intelligents décrite dans la [référence du Protocole](/fr/protocol/overview). |
+| **`SwapPool`** | Le contrat actuel du Protocole qui détient l’inventaire des jetons et exécute les échanges directs. Il constitue un composant technique d’un Bassin d’engagements. |
+| **`SwapRouter` Solidity** | Le contrat de Protocol v1.1.0 qui calcule la cotation d’un itinéraire proposé traversant plusieurs Bassins. Il ne conserve pas d’actifs et n’exécute pas l’itinéraire. |
+| **Parcours de routage de l’Application** | Le processus actuel de la CLC App et de CLC Core qui découvre des chemins sur une même chaîne, les cote et les simule, prépare un lot de Portefeuille signé, le relaie et regroupe les règlements des Bassins dans un même reçu. |
+| **Jeton de gouvernance CLC proposé** | Un projet de gouvernance future présenté dans le Livre blanc. Il ne s’agit pas d’un actif actuel de l’Application ou de Protocol v1.1.0. |
+| **Bassin du réseau CLC proposé** | Un futur modèle de compensation et de coordination à l’échelle du réseau. Il ne s’agit pas d’un `SwapPool` actuel. |
 
-Gardez ces termes de valeur séparés:
+## Valeurs, crédit, limites et frais
 
-- **Prix proposé:** le montant demandé pour un bien ou un service figurant sur la liste;
-- **valeur indiquée sur le bon d’échange:** une valeur représentée dans les conditions publiées par l'émetteur;
-- **Taux de change ou devis:** le paramètre de transaction produit par l'indicateur configuré d'un bassin;
-- **référence oracle:** les données externes utilisées par un module d'évaluation configuré ; et
-- **conditions de remboursement:** ce que l'émetteur promet de fournir et dans quelles conditions.
+Gardez ces termes de valeur distincts :
 
-L’étiquette **« Credit limit »** de l’application désigne le plafond configuré du solde d’un jeton dans un Bassin : le montant maximal de ce jeton que le Bassin peut détenir après un dépôt. Il ne s’agit pas d’une ligne de crédit personnelle, d’une vérification de la capacité de l’émetteur ni d’une garantie. Les limites proposées dans le Livre blanc sont des mécanismes différents.
+- **Prix de l’Offre :** montant demandé pour un bien ou un service publié ;
+- **Valeur déclarée du Bon d’échange :** valeur représentée dans les conditions publiées par l’Émetteur ;
+- **Taux de change ou cotation du Bassin :** paramètre de transaction produit par le module de cotation configuré du Bassin ;
+- **Référence d’oracle :** données externes utilisées par un module d’évaluation configuré ; et
+- **Conditions d’utilisation :** ce que l’Émetteur promet et sous quelles conditions.
 
-Protocol v1.1.0 peut actuellement facturer des **frais de Bassin** et des **frais de protocole** supplémentaires pour chaque échange de Bassin. Un échange routé détaille ces frais à chaque étape. Le flux de routage actuel de la CLC App n’ajoute pas de frais distincts pour le service de routage. Le modèle proposé dans le Livre blanc décrit séparément un futur **prélèvement de réseau** sur les frais de Bassin ainsi que d’éventuels frais de routage ou de service. Ces modèles ne doivent pas être combinés lorsqu’on explique les frais actuels ou qu’on calcule de futures recettes.
+Dans l’Application, le **crédit** désigne des engagements accessibles et une capacité d’échange. Il ne constitue pas automatiquement un emprunt personnel, un prêt, une évaluation de la capacité de l’Émetteur ou une garantie.
 
-## Itinéraires et liquidité
+Le libellé **« Limite de crédit »** désigne le plafond configuré du solde d’un jeton dans le Bassin : le montant maximal de ce jeton que le Bassin peut détenir après un dépôt. Les limites glissantes, par compte ou à l’échelle du réseau proposées dans le Livre blanc sont des mécanismes différents.
 
-Un **itinéraire** est un chemin ordonné qui traverse un ou plusieurs Bassins gouvernés indépendamment. Sa **profondeur** correspond au nombre d’échanges de Bassin qui le composent. Le déploiement public actuel recherche jusqu’à trois étapes.
+Protocol v1.1.0 peut prélever des **frais de Bassin** et des **frais de protocole** supplémentaires sur chaque échange de Bassin. Un échange routé détaille ces deux frais pour chaque étape. L’Application actuelle n’ajoute pas de frais distincts pour le service de routage. Le modèle proposé dans le Livre blanc décrit séparément un futur prélèvement de réseau et d’éventuels frais de service.
 
-La **liquidité disponible** désigne l’inventaire de sortie admissible qu’un Bassin peut fournir compte tenu de son état actuel d’admission, de plafond de solde, de cotation, de frais et de réservation. Une simple connexion dans le graphe ne prouve pas qu’une quantité utile puisse la traverser. La découverte d’itinéraire peut devenir obsolète; la cotation ultérieure au bloc fixé ne fait autorité que jusqu’à son échéance ou jusqu’à un changement pertinent de l’état.
+## Itinéraires et liquidités
 
-L’exécution actuelle d’un itinéraire est lancée par le portefeuille sur une même chaîne. Elle ne regroupe pas la gouvernance, ne rééquilibre pas automatiquement l’inventaire des Bassins, ne compense pas les obligations de plusieurs parties et ne prouve pas l’exécution réelle par l’émetteur. Le routage HTLC ou sous séquestre entre chaînes, le rééquilibrage automatique et la compensation par lots restent proposés ou dépendants du déploiement.
+Un **itinéraire** est un chemin ordonné qui traverse un ou plusieurs Bassins gouvernés de façon indépendante. La **profondeur de l’itinéraire** est le nombre d’échanges de Bassin qui le composent. Le déploiement public actuel recherche jusqu’à trois étapes.
 
-## Protection et preuves
+Le routage en production utilise des Bassins vérifiés à prix relatif et des jetons dont le transfert porte exactement sur le montant indiqué : les Bons d’échange `GiftableToken` et les jetons ERC-20 ordinaires explicitement autorisés. Les échanges directs de Bassin peuvent accepter une configuration plus large ; la présence d’un jeton dans un Bassin ne le rend pas automatiquement admissible au routage de l’Application.
 
-La conservation, l'inclusion dans le registre, une limite, une réserve, la visibilité de l'application ou une transaction blockchain n'établit pas par elle-même l'approbation, la capacité d'émetteur, l'exécution, une garantie ou une assurance.
+La **liquidité disponible** est l’inventaire de sortie admissible qu’un Bassin peut fournir selon son état actuel d’admission, de plafond de solde, de cotation, de frais et de réservation. Une connexion dans le graphe ne prouve pas qu’une quantité utile puisse la traverser. La découverte d’itinéraire peut devenir obsolète ; la cotation ultérieure au bloc fixé ne fait autorité que jusqu’à son échéance ou jusqu’à une modification pertinente de l’état.
 
-Toute protection doit identifier la partie obligée, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve et le processus de réclamation. Les enregistrements en chaîne peuvent montrer les adresses, les actifs, les montants, les horodatages et les événements contractuels. La performance de l'émetteur, l'exécution, la délibération sur la gouvernance et l'impact social nécessitent des informations, des rapports, des attestations ou d'autres éléments de preuve distincts.
+L’exécution actuelle d’un itinéraire est lancée par le Portefeuille sur une même chaîne. Elle ne regroupe pas la gouvernance, ne rééquilibre pas automatiquement l’inventaire des Bassins, ne compense pas les obligations de plusieurs parties et ne prouve pas l’exécution. Le routage interchaînes par HTLC ou séquestre, le rééquilibrage automatique et la compensation par lots restent proposés ou dépendants du déploiement.
 
-## Paroles de statut
+## Protections et preuves
 
-- **Le courant:** vérifié dans le CLC App ou le Protocol v1.1.0 décrit par ces documents.
-- **En fonction du déploiement:** disponible uniquement lorsqu'un déploiement particulier, un bassin, un fournisseur, une juridiction ou une politique publiée le permettent.
-- **Historique:** preuve ou fonctionnalité du service Sarafu Network antérieur.
-- **Proposé:** un mécanisme de conception ou de feuille de route qui n'est pas représenté comme déployé.
+La sélection, l’inscription dans un registre, une limite, une réserve, la visibilité dans l’Application, un Avis ou une transaction sur la blockchain ne constitue pas, à lui seul, une approbation, une preuve de la capacité de l’Émetteur ou de l’exécution, une garantie ou une assurance.
 
-Le [Guide de démarrage](/fr/introduction/getting-started) applique ces conditions à l'application en cours. Le [Référence au protocole](/fr/protocol/overview) Il s'agit d'un document qui présente les contrats vérifiés, tandis que le [Le livre blanc](/fr/white-paper) présente le plan et les propositions plus larges.
+Toute protection doit désigner la partie obligée, l’événement couvert, le financement, le plafond, les exclusions, la durée, les preuves et la procédure de réclamation. Les enregistrements sur la blockchain peuvent montrer les adresses, les actifs, les montants, les horodatages et les événements contractuels. L’exécution par l’Émetteur, la satisfaction, les délibérations de gouvernance et l’impact social exigent des preuves distinctes.
 
-Pour une introduction complémentaire à l'apprentissage des engagements, du règlement, des flux de ressources, de l'échange et du regroupement, explorez la [Jeux éducatifs sur l'économie de base](https://grassrootseconomics.org/games/) Les jeux sont des ressources d'apprentissage, pas des définitions du comportement actuel de l'application ou du protocole.
+## Termes de statut
+
+- **Actuel :** vérifié dans la CLC App ou dans Protocol v1.1.0 décrit par cette documentation.
+- **Dépendant du déploiement :** disponible uniquement lorsqu’un déploiement, un Bassin, un prestataire, une juridiction ou une politique publiée l’autorise.
+- **Historique :** preuve ou fonctionnalité provenant de l’ancien service Sarafu Network.
+- **Proposé :** mécanisme de conception ou de feuille de route qui n’est pas présenté comme déployé.
+
+Le [guide Bien démarrer](/fr/introduction/getting-started) applique ces termes à l’Application actuelle. La [référence du Protocole](/fr/protocol/overview) décrit les contrats vérifiés, tandis que le [Livre blanc](/fr/white-paper) présente la conception générale et les propositions.
+
+Pour découvrir par le jeu les engagements, le règlement, les flux de ressources, l’échange et la mise en commun, explorez les [jeux éducatifs de Grassroots Economics](https://grassrootseconomics.org/games/). Ces jeux sont des ressources d’apprentissage complémentaires, et non des définitions du fonctionnement actuel de l’Application ou du Protocole.

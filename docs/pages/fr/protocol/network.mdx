@@ -43,6 +43,8 @@ Voir aussi [Concepts et vocabulaire](/fr/introduction/concepts) pour la séparat
 
 Un bon d’échange partagé crée un **chemin possible dans le graphe**, et non un itinéraire garanti. Le service CLC Core en production maintient un graphe réconcilié à partir des informations sur les Bassins, les registres, les catalogues, les soldes, les frais et les événements de la chaîne. Il vérifie aussi les avoirs pertinents du portefeuille de la session. Le déploiement public recherche actuellement des itinéraires comportant jusqu’à trois échanges de Bassin.
 
+Le routage en production applique volontairement des critères d’admissibilité plus stricts que les échanges directs dans un Bassin. Seuls sont utilisés les Bassins vérifiés à prix relatif et les jetons dont le transfert porte exactement sur le montant indiqué : les bons d’échange `GiftableToken` et les jetons ERC-20 externes explicitement inscrits dans la configuration `router.plain_erc20` du déploiement. Un jeton peut donc être utilisable dans un échange direct sans être admissible au routage au niveau de l’Application.
+
 La découverte dans le graphe est rapide, mais elle repose sur l’état du bloc indexé. Un résultat peut être signalé comme obsolète, et une connexion ne prouve pas que la quantité souhaitée puisse la traverser. Le filtre **Crédit** de la CLC App utilise cet ensemble de bons accessibles dans le Marché et les écrans de découverte associés.
 
 ### Cotation faisant autorité
@@ -82,7 +84,8 @@ Un itinéraire peut échouer avant la signature si aucun chemin ou aucune cotati
   label="Dépendances et pouvoirs administratifs d’un Bassin d’engagements"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Propriétaire du contrat ou<br/>Gestionnaire de Bassin"] -->|configurer, sceller, recueillir, retirer| Pool["SwapPool<br/>le coffre et le règlement"]
+    Steward["Gestionnaire de Bassin responsable"] -. publie les règles,<br/>informations et modalités de gouvernance .-> Pool["SwapPool<br/>le coffre et le règlement"]
+    Owner["Adresse du propriétaire du SwapPool"] -->|configurer, sceller, recueillir, retirer| Pool
     ProxyAdmin["ERC-1967<br/>administrateur par procuration"] -->|mise en œuvre de la mise à niveau| Pool
     Dependencies["Dépendances facultatives<br/>enregistrement · limitateur · cotateur<br/>Politique des redevances · contrôleur des redevances du protocole<br/>chacune avec sa propre gouvernance"] -. settlement inputs .-> Pool
     Seal["Cinq emplacements d'adressage scellés<br/>feePolicy · feeAddress · coté<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool

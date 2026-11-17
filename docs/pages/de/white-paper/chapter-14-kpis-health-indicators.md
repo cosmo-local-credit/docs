@@ -1,4 +1,4 @@
-## **14. KPI und Zustandsindikatoren**
+# 14. KPI und Zustandsindikatoren
 
 Eine Bereitstellung sollte einen KPI nur veröffentlichen, wenn sie Ereignis, Quelle, Kohorte oder Zeitraum, Einheit, Bewertungsmethode und -zeitpunkt, Ausschlüsse, Korrekturrichtlinie, Nachweise außerhalb der Blockchain und Grenzen der Datenqualität definieren kann.
 

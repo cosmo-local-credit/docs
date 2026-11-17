@@ -110,7 +110,7 @@ Kukataa au kuacha shughuli ya hiari hakupaswi kusababisha kulipiziwa kisasi au k
 
 ## 11. Picha, simulizi, utafiti na data binafsi
 
-GEF hukusanya na kutumia taarifa za watoto tu pale ambapo kuna kusudi lililo wazi, mamlaka ya kisheria na hatua inayofaa ya ulinzi. [Sera ya Ulinzi wa Data](/sw/governance/data-protection) na [Mwongozo wa ODPC kuhusu Ushughulikiaji wa Data ya Watoto](https://www.odpc.go.ke/guidelines-2/index.html) pia vinatumika.
+GEF hukusanya na kutumia taarifa za watoto tu pale ambapo kuna kusudi lililo wazi, mamlaka ya kisheria na hatua inayofaa ya ulinzi. [Sera ya Ulinzi wa Data](/sw/governance/data-protection) na [Mwongozo wa ODPC kuhusu Ushughulikiaji wa Data ya Watoto](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf) pia vinatumika.
 
 Kabla ya kurekodi au kuchapisha picha, sauti, simulizi, kazi, utambulisho, maelezo ya mawasiliano, uhusiano na jamii au eneo la mtoto, timu inayowajibika lazima izingatie ridhaa, utu, usahihi, matumizi ya baadaye, hadhira, kudumu kwa rekodi ya kidijitali na hatari ya kutambuliwa au kudhuriwa.
 

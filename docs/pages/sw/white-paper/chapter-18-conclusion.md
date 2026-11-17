@@ -1,4 +1,4 @@
-## **18. Hitimisho**
+# 18. Hitimisho
 
 Cosmo-Local Credit inaunganisha App ya sasa na msingi wa Protocol v1.1.0 pamoja na muundo mpana unaopendekezwa wa Vikundi vya Ahadi vinavyosimamiwa kwa kujitegemea. Ubadilishaji wa sasa wa moja kwa moja kupitia Kikundi na ubadilishaji wa njia wa App/Core unaweza kuunganisha vocha zinazoshikiliwa na mshiriki kupitia Vikundi kadhaa huku ukihifadhi kanuni, ada, mipaka, rekodi za ukamilishaji na utawala wa kila hatua. Shughuli hizi hazithibitishi utekelezaji wa Mtoaji, haziundi haki za mchangiaji wala kuhakikisha thamani, ukwasi, ukombozi, bima, hali ya kisheria au ulinzi dhidi ya hasara.
 

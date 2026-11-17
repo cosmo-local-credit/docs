@@ -1,4 +1,4 @@
-## **6. Proposed na likido at pamamahala sa antas ng network**
+# 6. Proposed na likido at pamamahala sa antas ng network
 
 Ang karanasan mula sa makasaysayang Sarafu Network ay nag-imbak ng pananaliksik sa dalawang mas malawak na mga katanungan sa disenyo:
 
@@ -7,7 +7,7 @@ Ang karanasan mula sa makasaysayang Sarafu Network ay nag-imbak ng pananaliksik 
 
 Isang iminungkahi CLC disenyo ay nagtataguyod ng isang **iminungkahi na CLC Network Pool** bilang isang kaayusan sa pag-clearing at koordinasyon ng badyet sa antas ng network at **Proposed na CLC governance token**. Wala sa kasalukuyang App o Protocol v1.1.0. Ang iba pang mga deployment ay maaaring gumamit ng mga kooperatiba, pampublikong ahensya, federasyon, multisig, operator ng serbisyo, o iba pang responsable na istraktura nang hindi sumasailalim sa sinumang proposal.
 
-### **6.1 Mga control sa downside at optional**
+## **6.1 Mga control sa downside at optional**
 
 Ang kasalukuyang Protocol v1.1.0 ay maaaring mag-apply ng Pool token balance caps at inventory checks.
 

@@ -1,4 +1,4 @@
-## **18. Fazit**
+# 18. Fazit
 
 Cosmo-Local Credit verbindet eine aktuelle Anwendung und die Grundlage von Protocol v1.1.0 mit einem weitergehenden vorgeschlagenen Entwurf für unabhängig verwaltete Commitment-Fonds. Aktuelle direkte Fonds-Tausche und Tausche über Routen durch App und CLC Core können Gutscheine von Teilnehmern über mehrere Fonds verbinden, wobei Regeln, Gebühren, Grenzen, Abwicklungsdaten und Governance jedes Schritts getrennt bleiben. Diese Transaktionen belegen weder die Erfüllung durch den Herausgeber, noch schaffen sie Rechte für Beitragende oder garantieren Wert, Liquidität, Einlösung, Versicherung, Rechtsstatus oder Schutz vor Verlust.
 

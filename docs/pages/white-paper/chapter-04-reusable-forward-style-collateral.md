@@ -1,4 +1,4 @@
-## **4. Reusable forward-style collateral**
+# 4. Reusable forward-style collateral
 
 A separately documented credit facility might accept fungible, transferable vouchers as collateral or as a repayment instrument. If it did:
 
@@ -7,7 +7,7 @@ A separately documented credit facility might accept fungible, transferable vouc
 - limits, inventory, valuation, liquidity, issuer-performance, and default risks would remain; and
 - no route, fulfillment, repayment, value, or recovery would be guaranteed.
 
-### 4.1 Producer credit loop
+## 4.1 Producer credit loop
 
 A future CLC-compatible service could support producer credit only when the parties establish a distinct facility and expressly present the transaction as a repayable advance. Its transaction terms would identify the creditor and debtor and state:
 

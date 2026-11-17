@@ -1,4 +1,4 @@
-## **12. Fiche descriptive du programme de liquidité proposé (aperçu non contraignant)**
+# 12. Fiche descriptive du programme de liquidité proposé (aperçu non contraignant)
 
 Ceci est une liste de contrôle illustrative pour un programme futur, documenté séparément. Il ne s'agit pas d'une offre, d'une fonctionnalité actuelle de l'application ou d'une promesse de liquidité, d'accès, d'assurance, de rendement, de valeur ou de sortie.
 

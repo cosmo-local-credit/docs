@@ -110,7 +110,7 @@ GEF 会取得儿童本人的同意，以及法律和相关活动要求的父母�
 
 ## 11. 图像、故事、研究和个人数据
 
-GEF 仅在目的明确、具有合法授权并采取适当保护措施时，收集和使用儿童信息。[数据保护政策](/zh/governance/data-protection)和 ODPC 的[儿童数据处理指引](https://www.odpc.go.ke/guidelines-2/index.html)也适用。
+GEF 仅在目的明确、具有合法授权并采取适当保护措施时，收集和使用儿童信息。[数据保护政策](/zh/governance/data-protection)和 ODPC 的[儿童数据处理指引](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf)也适用。
 
 在记录或发布儿童的图片、声音、故事、作品、身份、联系方式、社区归属或位置前，负责团队必须考虑同意、尊严、准确性、未来再利用、受众、数字永久性，以及识别儿童身份或造成伤害的风险。
 

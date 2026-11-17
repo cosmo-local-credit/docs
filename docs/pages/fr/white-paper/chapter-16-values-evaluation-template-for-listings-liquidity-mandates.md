@@ -1,4 +1,4 @@
-## **16. Modèle d'évaluation proposé**
+# 16. Modèle d'évaluation proposé
 
 Ce modèle peut être adapté par un registre, un bassin ou un programme de liquidité future. Il ne s'agit pas d'une norme ou d'une garantie d'inscription universelle en vigueur.
 

@@ -1,4 +1,4 @@
-## **14. Indicateurs clés de performance et indicateurs de santé**
+# 14. Indicateurs clés de performance et indicateurs de santé
 
 Un déploiement ne devrait publier un indicateur de performance clé que s'il peut définir l'événement, la source, la cohorte ou la période, l'unité, la méthode d'évaluation et l'horodatage, les exclusions, la politique de correction, les preuves hors chaîne et les limitations en matière de qualité des données.
 

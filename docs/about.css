@@ -255,25 +255,236 @@ body:has(.about-page) {
 }
 
 .about-video__label {
-  margin-bottom: 0.65rem;
+  margin: 0.9rem 0 0;
   color: var(--about-earth-green-text);
   font-weight: 700;
 }
 
-.about-video__frame {
+.about-video__label a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.clc-guide {
+  --clc-guide-foreground: var(--about-text);
+  --clc-guide-muted: var(--about-muted);
+  --clc-guide-border: var(--about-border);
+  --clc-guide-surface: var(--clc-surface-raised);
+  --clc-guide-accent: var(--vocs-color_primary);
+  position: relative;
+  width: 100%;
+  max-width: 46rem;
+  margin-inline: auto;
+  color: var(--clc-guide-foreground);
+  text-align: start;
+}
+
+.clc-guide__heading {
+  margin: 0 0 0.75rem;
+  color: var(--about-earth-green-text);
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.7vw, 1.22rem);
+  font-weight: 750;
+  text-align: center;
+}
+
+.clc-guide__viewport {
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--about-border);
-  border-radius: 0.75rem;
-  aspect-ratio: 16 / 9;
-  background: #000;
+  border: 1px solid var(--clc-guide-border);
+  border-radius: 0.9rem;
+  background: var(--clc-guide-surface);
   box-shadow: 0 12px 32px var(--clc-shadow);
 }
 
-.about-video__frame iframe {
+.clc-guide__track {
+  display: flex;
+  width: 100%;
+  transition: transform 280ms ease;
+}
+
+.clc-guide__slide {
+  display: flex;
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: clamp(1rem, 2.2vw, 1.6rem) clamp(2.8rem, 6vw, 4.2rem) clamp(1rem, 2.4vw, 1.6rem);
+  flex-direction: column;
+}
+
+.clc-guide__copy {
+  min-height: 7.25rem;
+}
+
+.clc-guide__copy h4 {
+  margin: 0;
+  color: var(--clc-guide-foreground);
+  font-family: var(--font-sans);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 760;
+  line-height: 1.2;
+}
+
+.clc-guide__copy p {
+  margin: 0.6rem 0 0;
+  color: var(--clc-guide-muted);
+  font-size: clamp(0.94rem, 1.7vw, 1.08rem);
+  line-height: 1.55;
+}
+
+.clc-guide__copy a {
+  color: var(--vocs-color_primary);
+  text-underline-offset: 0.2em;
+}
+
+.clc-guide-art {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 34rem);
+  margin: 1.1rem auto 0;
+  border: 1px solid var(--clc-guide-border);
+  aspect-ratio: 15 / 8;
+  background: var(--clc-surface-article);
+}
+
+.clc-guide-art svg {
   display: block;
   width: 100%;
   height: 100%;
+  padding: 0.7rem;
+}
+
+.clc-guide-art__line,
+.clc-guide-art__dash {
+  fill: none;
+  stroke: var(--clc-guide-foreground);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.clc-guide-art__dash {
+  stroke: var(--clc-guide-muted);
+  stroke-dasharray: 4 5;
+}
+
+.clc-guide-art__card {
+  fill: var(--clc-surface-article);
+  stroke: var(--clc-guide-foreground);
+  stroke-width: 1.7;
+}
+
+.clc-guide-art__card--accent {
+  fill: var(--clc-guide-accent);
+  stroke: var(--clc-guide-accent);
+}
+
+.clc-guide-art__line--inverse {
+  stroke: var(--clc-on-primary);
+}
+
+.clc-guide-art__muted {
+  fill: var(--clc-guide-border);
+}
+
+.clc-guide-art__qr {
+  fill: var(--clc-guide-foreground);
+}
+
+.clc-guide-art__label {
+  fill: var(--clc-guide-foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.clc-guide-art__label--accent {
+  fill: var(--clc-guide-accent);
+}
+
+.clc-guide__arrow {
+  position: absolute;
+  z-index: 2;
+  top: 58%;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  padding: 0;
   border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--clc-guide-surface) 86%, transparent);
+  color: var(--clc-guide-foreground);
+  cursor: pointer;
+  font: inherit;
+  transform: translateY(-50%);
+}
+
+.clc-guide__arrow span {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.clc-guide__arrow:hover:not(:disabled) {
+  background: var(--clc-surface-green);
+}
+
+.clc-guide__arrow:focus-visible,
+.clc-guide__segment:focus-visible {
+  outline: 3px solid var(--clc-focus);
+  outline-offset: 3px;
+}
+
+.clc-guide__arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.clc-guide__arrow--back {
+  inset-inline-start: 0.45rem;
+}
+
+.clc-guide__arrow--next {
+  inset-inline-end: 0.45rem;
+}
+
+.clc-guide[dir='rtl'] .clc-guide__arrow span {
+  transform: scaleX(-1);
+}
+
+.clc-guide__progress {
+  display: flex;
+  gap: 0.45rem;
+  padding: 1rem 0.15rem 0.4rem;
+}
+
+.clc-guide__segment {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  background: var(--clc-guide-border);
+  cursor: pointer;
+}
+
+.clc-guide__segment::before {
+  position: absolute;
+  inset: -0.75rem 0;
+  content: '';
+}
+
+.clc-guide__segment[data-state='visited'] {
+  background: var(--clc-guide-muted);
+}
+
+.clc-guide__segment[data-state='active'] {
+  background: var(--clc-guide-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clc-guide__track {
+    transition: none;
+  }
 }
 
 .about-stats {
@@ -514,7 +725,7 @@ body:has(.about-page) {
   line-height: 1;
 }
 
-.about-step-card h2,
+.about-step-card h3,
 .about-feature-card h3,
 .about-action-card h3 {
   margin-bottom: 0.65rem;
@@ -802,6 +1013,10 @@ body:has(.about-page) {
   background: var(--clc-surface-raised);
 }
 
+.about-impact > .about-section-heading {
+  margin-bottom: 2rem;
+}
+
 .about-impact__card > * {
   min-height: 32rem;
 }
@@ -867,6 +1082,13 @@ body:has(.about-page) {
 .about-features__intro a {
   color: var(--about-link);
   font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.about-feature-card h3 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentcolor 45%, transparent);
   text-underline-offset: 0.2em;
 }
 
@@ -1186,6 +1408,28 @@ body:has(.about-page) .vocs_Layout_headerSpacer {
 
   .about-hero {
     padding-top: 2rem;
+  }
+
+  .clc-guide__slide {
+    padding: 1rem 2.75rem 1.1rem;
+  }
+
+  .clc-guide__copy {
+    min-height: 9.25rem;
+  }
+
+  .clc-guide__arrow {
+    top: 64%;
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .clc-guide__arrow--back {
+    inset-inline-start: 0.2rem;
+  }
+
+  .clc-guide__arrow--next {
+    inset-inline-end: 0.2rem;
   }
 
   .about-stats,

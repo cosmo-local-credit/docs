@@ -1,4 +1,4 @@
-## **18. Conclusione**
+# 18. Conclusione
 
 Cosmo-Local Credit collega un'applicazione attuale e la base contrattuale di Protocol v1.1.0 a un progetto più ampio proposto per Fondi di Impegni governati in modo indipendente. Gli attuali scambi diretti nei Fondi e gli scambi instradati di CLC App e CLC Core possono collegare i buoni detenuti dai partecipanti attraverso più Fondi, preservando regole, commissioni, limiti, registri di regolamento e governance per ciascun passaggio. Queste operazioni non dimostrano l'adempimento dell'emittente, non creano diritti per chi contribuisce e non garantiscono valore, liquidità, rimborso, assicurazione, status giuridico o protezione dalle perdite.
 

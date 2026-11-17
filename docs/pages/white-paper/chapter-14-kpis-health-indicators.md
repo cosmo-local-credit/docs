@@ -1,4 +1,4 @@
-## **14. KPIs and health indicators**
+# 14. KPIs and health indicators
 
 A deployment should publish a KPI only when it can define the event, source, cohort or period, unit, valuation method and timestamp, exclusions, correction policy, off-chain evidence, and data-quality limitations.
 

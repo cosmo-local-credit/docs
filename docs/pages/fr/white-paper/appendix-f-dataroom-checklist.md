@@ -1,4 +1,4 @@
-## F. Liste de contrôle de la salle de données
+# F. Liste de contrôle de la salle de données
 
 1. **Indice historique Sarafu Network**
    - Archiver le volume de swap daté, les définitions d'utilisateurs actifs et d'actifs, les incidents, les présentations de remboursement, les bons d’échange de vieillissement, l'exécution confirmée, la décharge, les mesures de durée de détention, les périodes, les exclusions et la méthodologie séparément des métriques actuelles Cosmo-Local Credit.

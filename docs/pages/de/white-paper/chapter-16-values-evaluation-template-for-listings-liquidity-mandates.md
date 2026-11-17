@@ -1,4 +1,4 @@
-## **16. Angebotene Bewertungsvorlage**
+# 16. Angebotene Bewertungsvorlage
 
 Ein Register, Fonds oder ein zukünftiges Liquiditätsprogramm kann diese Vorlage anpassen. Es handelt sich nicht um einen aktuellen universellen Anmeldestandard oder eine Garantie.
 

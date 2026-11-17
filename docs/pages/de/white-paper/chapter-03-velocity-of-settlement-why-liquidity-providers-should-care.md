@@ -1,4 +1,4 @@
-## **3. Erfüllung, Ausbuchung und Austausch**
+# 3. Erfüllung, Ausbuchung und Austausch
 
 Eine Fonds-Swap-Veränderung, die sich auf Holding-Vermögenswerte bezieht. Die Erfüllung des Gutscheins erfolgt, wenn der Emittent die veröffentlichte Verpflichtung erfüllt. Die Ausbuchung erfasst die ausgefüllten Einheiten, so dass sie nicht erneut vorgestellt werden können. Diese Ereignisse dürfen nicht in eine Verwendung von settlement zusammenfallen.”
 

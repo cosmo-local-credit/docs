@@ -1,95 +1,131 @@
 # Getting started
 
-Cosmo-Local Credit (CLC) is a progressive web app for creating, discovering, holding, transferring, and exchanging digital assets, including redeemable vouchers, through independently governed Commitment Pools. The CLC App is available at [cosmolocal.credit](https://cosmolocal.credit).
+Cosmo-Local Credit (CLC) helps people describe what they offer, publish what they need, and exchange vouchers through independently governed Commitment Pools. Open the [CLC App](https://cosmolocal.credit) to begin.
 
-[Grassroots Economics Foundation](https://grassrootseconomics.org/about/) (GEF) operates the App and supporting infrastructure. Unless GEF expressly accepts another role for a particular Offering or transaction, it is not the issuer of a user-created voucher, the Pool Steward of a user-created pool, a custodian, lender, borrower, guarantor, insurer, or redeemer. Issuers are responsible for their voucher commitments, and Pool Stewards are responsible for their pool rules.
+The basic idea is simple:
 
-Read [Concepts and Vocabulary](/introduction/concepts) for the exact product layers, roles, actions, values, fees, and status terms used in these docs.
+1. Create a voucher—much like a gift card—for something you can provide.
+2. Publish an Offering so people can discover the related goods or services.
+3. Publish or respond to a Want to find possible exchange partners.
+4. Use a Commitment Pool to exchange supported vouchers under published rules.
+5. Use a voucher with its Issuer for what its terms promise.
 
-Before creating an account or transacting, read the [Terms of Service](/governance/terms). In particular:
+“Credit” in the App means recognized commitments and Voucher exchange capacity. It is not automatically a personal loan, borrowing limit, or promise to advance money.
 
-- You must be at least 18 years old, have reached the age of legal majority that applies to you, and have contractual capacity.
-- You are responsible for confirming that your account, voucher, pool, or transaction is lawful in every relevant jurisdiction.
-- Wallet credentials must be protected. GEF may be unable to recover a lost wallet or reverse an authorized transaction.
-- Public-blockchain transactions and records may be visible, permanent, and irreversible.
-- A listing in the App is not a GEF endorsement or a guarantee of redemption, value, liquidity, convertibility, or cash-out.
+For exact definitions, see [Concepts and vocabulary](/introduction/concepts).
 
-## Start with the current App
+## A first journey through the App
 
-### 1. Browse the Market
+### 1. Explore the Market and Wants
 
-Open [cosmolocal.credit](https://cosmolocal.credit) to explore the public **Market**, the App's discovery catalog. Review the responsible issuer, the promised goods or services, location, availability, and published terms. A Market listing is not automatically an exchange venue, seller relationship, independent valuation, endorsement, or guarantee.
+Browse the [CLC App](https://cosmolocal.credit) before creating anything. The **Market** is a discovery catalog, not automatically a seller, exchange venue, endorsement, or guarantee.
 
-### 2. Create or access an account and wallet
+When reviewing a Voucher, check:
 
-The App uses an account for profile and session access and a wallet for blockchain authorization. Protect your passkey, paper-wallet material, recovery information, devices, and any other credentials. Review every asset, amount, address, pool, fee, and authorization before confirming a transaction.
+- who issued it;
+- the goods or services it promises;
+- where, when, and how it can be used;
+- its limits, expiry, contact method, and complaint process; and
+- which Commitment Pools support it.
 
-### 3. Create a voucher
+A **Want** expresses demand. Publishing or answering one does not automatically accept a Voucher, reserve goods, authorize an exchange, or create an obligation. Contacting or messaging another participant also does not by itself create, fulfill, or discharge a Voucher commitment.
 
-A voucher combines several distinct layers:
+### 2. Create or access an account and Wallet
+
+The App uses an account for profile and session access and a **Wallet** for blockchain authorization. Protect your passkey, paper-wallet material, recovery information, devices, and any other credentials. Review every address, asset, amount, Pool, fee, and authorization before confirming a transaction.
+
+The interface asks you to confirm the Terms during onboarding and before publishing a Voucher or Pool. Read the [Terms of Service](/governance/terms) and [Privacy Notice](/governance/privacy) before continuing.
+
+### 3. Create a Voucher and Offering
+
+Create a Voucher for something you can reasonably provide. Think of it as making your own gift card: you describe what it represents and the conditions for using it.
+
+A complete Voucher has several separate layers:
 
 1. token-contract mechanics and balances;
-2. the issuer's voucher designation and published terms;
-3. one or more Offering records for associated goods or services; and
-4. the issuer's real-world fulfillment.
+2. the Issuer's published Voucher terms;
+3. one or more **Offering** records describing associated goods or services; and
+4. the Issuer's real-world fulfillment.
 
-Creating or minting a token does not by itself prove that an Offering exists, that the issuer has capacity, or that GEF guarantees redemption.
+Creating or minting a token does not prove that an Offering exists, that the Issuer has capacity, or that Grassroots Economics Foundation (GEF) guarantees fulfillment.
 
-### 4. Create or assess a Commitment Pool
+### 4. Publish or respond to a Want
 
-A Commitment Pool is a governed arrangement. Its current `SwapPool` contract can hold supported token inventory and execute direct swaps. Before using or contributing to one, review:
+Use a Want to describe something you are looking for, including the amount, place, timing, and a suitable contact method. Another participant can discover it, review your public Vouchers and Offerings, and decide whether to contact you.
 
-- the accountable Pool Steward and the current contract owner;
-- the proxy administrator and controllers of configured dependencies;
-- admitted vouchers and other supported assets;
+Keep negotiation and responsibility clear. A message can help participants agree on delivery, booking, or other details, but the applicable Voucher terms and any separately agreed transaction terms determine the commitment.
+
+### 5. Find or create a Commitment Pool
+
+A Commitment Pool curates selected Vouchers and enables their exchange. Before using or supporting one, review:
+
+- the accountable **Pool Steward** and current contract owner;
+- admitted Vouchers and other supported assets;
 - exchange-rate or quote methods;
-- the App's **“Credit limit”**, which is a pool token-balance cap rather than personal credit;
+- the App's **“Credit limit”**, which is a Pool token-balance cap rather than personal credit;
 - Pool and protocol fees;
-- available inventory and the Pool owner's liquidity-withdrawal power; and
-- any separately published contribution, guarantee, reserve, or insurance terms.
+- available inventory and the Pool owner's liquidity-withdrawal power;
+- proxy, multisig, and dependency controllers; and
+- any separately published contribution, guarantee, reserve, reward, or insurance terms.
 
-A deposit transfers assets to the `SwapPool`. Protocol v1.1.0 does not mint Pool-share tokens or automatically give the depositor repayment, withdrawal, reward, or governance rights.
+Depositing transfers assets into the Pool's `SwapPool`. Protocol v1.1.0 does not automatically give a depositor Pool shares, repayment, withdrawal, reward, or governance rights.
 
-### 5. Exchange directly or through a route
+### 6. Send or exchange Vouchers
 
-The App's **Credit** view can find vouchers reachable from the vouchers in your wallet. A reachable voucher may require one Pool swap or a route through several independently governed Pools. The current public deployment searches routes of up to three swaps.
+Use **Send** to transfer a Voucher directly. Use a **Pool swap** to exchange one supported asset for another through one Pool.
 
-To exchange:
+The App's **Credit** view can also find Vouchers reachable through several independently governed Pools. Choose **Get** for the Voucher you want or **Spend** for the Voucher you want to use. Then review:
 
-1. choose **Get** for the voucher you want, or **Spend** for the voucher you want to use;
-2. review the available **Pay with** choice and the **Estimate**;
-3. open **Route details** to see every Pool, swap, amount, Pool fee, and protocol fee;
-4. select **Review**, check the minimum amount received and quote expiry, then choose **Confirm exchange**; and
-5. sign the prepared wallet batch.
+1. the **Pay with** choice and **Estimate**;
+2. **Route details**, including every Pool, amount, Pool fee, and protocol fee;
+3. the minimum amount received and quote expiry; and
+4. the prepared Wallet batch before choosing **Confirm exchange**.
 
-CLC Core discovers possible paths from indexed Pool and voucher information. Discovery is an estimate. Before signing, it reads the relevant Pool state at one pinned block, produces an authoritative quote, applies per-hop minimum-output and deadline bounds, and simulates the complete batch. The App currently adds no separate routing-service fee; each hop can still charge its configured Pool fee and additional protocol fee.
+Production routing is intentionally narrower than direct Pool swapping. It uses verified, relative-priced Pools and tokens whose transfers move exactly the stated amount: `GiftableToken` vouchers and explicitly allowlisted plain ERC-20 tokens. The public deployment searches routes of up to three Pool swaps and supports compatible EOA/Calibur Wallets, not Safes or other contract Wallets.
 
-The signed route is submitted as one same-chain transaction. Every hop uses the same App-compatible wallet. If any approval or Pool swap in the batch fails, the complete transaction reverts, so earlier hops do not remain settled. The receipt groups the route under one tracking ID and shows its status, transaction hash, each Pool, settled amounts, and each hop's Pool and protocol fees.
+Route discovery is an estimate. Before signing, CLC Core reads the selected Pools at one pinned block, calculates a time-bounded quote, applies minimum-output and deadline bounds, and simulates the complete batch. If any call fails, the complete same-chain transaction reverts. The receipt groups the route's settled amounts and per-hop Pool and protocol fees.
 
-A route may be unavailable because the wallet lacks an eligible input voucher, a Pool does not admit a token, a Pool token-balance cap would be exceeded, output inventory is insufficient, a quoter or token is unsupported, or the routing service is temporarily stale or unavailable. A quote may also expire, become stale as Pool state changes, fail its final simulation, or revert on-chain. Refresh the route and review the new quote rather than assuming an earlier estimate remains valid.
+### 7. Use a Voucher with its Issuer
 
-Current routed execution supports the CLC App's compatible EOA/Calibur wallets. It does not currently prepare routed exchanges for a Safe or another contract wallet.
+Read the Voucher terms and follow the Issuer's booking, delivery, or contact process. In the current App, **“Redeem”** opens the ordinary send flow with the token owner's address prefilled. Sending the Voucher is redemption presentment; it does not prove that the Issuer has provided the promised goods or services.
 
-### 6. Use the correct action
+After fulfillment, the Issuer should record **discharge** so fulfilled units cannot be used again—for example by receiving, burning, cancelling, or otherwise disabling them under the published terms.
 
-- **Send** transfers a token balance to another address.
-- **Pool swap** exchanges one supported asset for another through one `SwapPool`. It may be a direct exchange or one hop of a routed exchange. On-chain swap settlement does not prove issuer fulfillment.
-- **Routed exchange** executes an ordered set of Pool swaps in one bounded, same-chain wallet transaction. It does not merge the Pools' governance or make the route operator responsible for issuer fulfillment.
-- **“Redeem”** opens the send flow with the token owner's address prefilled. It presents or returns the voucher to the issuer; completed redemption also requires the issuer's promised performance and a discharge record that prevents reuse.
-- **“Retire voucher”** hides the catalog listing. It does not burn balances, cancel the voucher, or extinguish the issuer's outstanding obligations.
-- **Pool liquidity withdrawal** lets the Pool owner transfer available inventory.
-- **Fee collection** sends accrued Pool fees to the configured recipient.
+## Before you publish
 
-See the [practical voucher example](/introduction/example) for the complete lifecycle.
+Voucher, Pool, Offering, Want, Catalog, Post, and Review information can have different visibility. Before publishing a resource:
 
-## Current, deployment-dependent, and proposed capabilities
+- choose a map point that is safe to make public; exact coordinates may be visible;
+- check which information is visible while signed out and while signed in;
+- use contact details that are suitable for the intended audience;
+- do not copy private profile information into a public resource unless you intend to publish it; and
+- read the Privacy Notice's [“What becomes public?”](/governance/privacy#what-becomes-public) section.
 
-The current App provides a Market and supported flows for accounts, wallets, vouchers, Offerings, pools, transfers, direct Pool swaps, application-level routed exchanges, and related records. Availability depends on the active deployment, asset, Pool configuration, inventory, wallet type, device, network, eligibility, provider, jurisdiction, and published terms.
+## Current App actions
 
-Payment services, support methods, rewards, guarantees, contribution arrangements, and other provider integrations are deployment-dependent. Their responsible party, fees, limits, eligibility, and legal terms must be disclosed where they are offered.
+| App action | What it does |
+| --- | --- |
+| **Send** | Transfers a token balance to another address. |
+| **Pool swap** | Exchanges supported assets through one `SwapPool`. On-chain settlement does not prove Issuer fulfillment. |
+| **Routed exchange** | Executes an ordered set of Pool swaps in one bounded, same-chain Wallet transaction. It does not merge the Pools' governance. |
+| **“Redeem”** | Prefills a send to the token owner as redemption presentment. Fulfillment and discharge remain separate. |
+| **“Request retirement”** | Lets the current owner ask an administrator to retire a Voucher or Pool. The resource remains active while the request is pending; the owner can cancel the request, and an administrator can approve or reject it. Retirement does not delete contracts, balances, or history. |
+| **Pool retirement** | After approval, blocks new Pool swaps and deposits while keeping available withdrawals possible. It does not erase prior settlement records. |
+| **Pool liquidity withdrawal** | Lets the Pool owner transfer available inventory to a selected address. |
+| **Fee collection** | Sends accrued Pool fees to the configured recipient. |
 
-Protocol v1.1.0 provides direct Pool execution and a quote-only Solidity `SwapRouter`. The production CLC App and CLC Core now provide same-chain multi-hop route discovery, authoritative quoting, wallet-batch preparation, simulation, relay, and grouped receipts above those contracts. The Solidity `SwapRouter` did not become an execution contract. Cross-chain HTLC or escrow routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
+## Responsibilities and important limits
 
-Any future loan or other credit product requires separately presented supplemental and transaction terms. An ordinary transfer, Pool deposit, Pool swap, redemption presentment, fulfillment, or discharge is not automatically a loan, advance, or repayment.
+[Grassroots Economics Foundation](https://grassrootseconomics.org/about/) operates the App and supporting infrastructure. Unless GEF expressly accepts another role for a particular transaction, it is not the Issuer of a user-created Voucher, the Steward of a user-created Pool, a custodian, lender, borrower, guarantor, insurer, or redeemer.
 
-Next, read the [Protocol overview](/protocol/overview), the [governance mechanics](/governance/mechanics), or the broader [White Paper](/white-paper).
+Before transacting, remember:
+
+- You must meet the Terms' age, legal-capacity, and jurisdiction requirements.
+- Issuers are responsible for their Voucher commitments.
+- Pool Stewards are responsible for their published Pool rules and any guarantee they expressly assume.
+- A listing, review, route, limit, reserve, or blockchain record is not automatically an endorsement, valuation, fulfillment record, guarantee, insurance policy, or promise of cash-out.
+- Payment services, rewards, contribution arrangements, and other provider integrations are deployment-dependent and require their own disclosures.
+
+Protocol v1.1.0 provides direct Pool execution and a quote-only Solidity `SwapRouter`. The production App and CLC Core coordinate same-chain multi-Pool execution above those contracts. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
+
+See the [simple and advanced examples](/introduction/example), the [Protocol overview](/protocol/overview), or [governance mechanics](/governance/mechanics) for more detail.

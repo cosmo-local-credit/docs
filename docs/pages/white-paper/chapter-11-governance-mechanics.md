@@ -1,4 +1,4 @@
-## **11. Governance mechanics**
+# 11. Governance mechanics
 
 This chapter proposes a governance template. It does not represent that the current CLC App uses governance-token voting, timelocks, shared insurance, a claims process, or every control described below. Each deployment would need to identify its actual decision-makers, authorities, contracts, processes, and policies.
 
@@ -21,7 +21,7 @@ Published registry rules should make status conditional and may identify repeate
 
 The prohibited list would be versioned, publicly auditable, and changeable only through the adopted critical-action threshold and timelock, illustrated as Q3 + T3 in Appendix D.
 
-### **11.1 Exchange-rate and limit governance**
+## **11.1 Exchange-rate and limit governance**
 
 **Timelocked changes.** A deployment following this template would change exchange-rate methods and separately implemented limit parameters only after a public timelock. An emergency path would use a separately disclosed authorization process and include an automatic sunset or review.
 
@@ -42,7 +42,7 @@ The prohibited list would be versioned, publicly auditable, and changeable only 
 - **Rationale:** published notes and a change record from the prior update.
 - **Signers:** disclosed multisig addresses and approval threshold.
 
-### **11.2 Proposed insurance-fund runbook**
+## **11.2 Proposed insurance-fund runbook**
 
 **Optional design only.** This runbook applies only to a deployment that has expressly adopted and funded an insurance fund and published the covered events, eligible claimants, responsible entity, assets, limits, exclusions, evidence requirements, process, and governing terms. Neither the current CLC App nor GEF provides coverage merely because this design appears in the White Paper.
 
@@ -63,7 +63,7 @@ A coverage adjustment does not reduce an issuer's underlying voucher commitment 
 3. a recovery plan could apply a stated share of recovered value for a stated period, after which any remaining covered shortfall would become a recorded loss with a public post-mortem; and
 4. each decision would produce a receipt with the incident ID, affected claim and vouchers, decision, recovery plan, and appeal window.
 
-### **11.3 Guarantor framework**
+## **11.3 Guarantor framework**
 
 This section distinguishes issuer responsibility, optional Pool protections, and third-party guarantees. Pools can compete on curation, terms, and expressly offered protections without implying that the CLC App, CPP, GEF, or any wider network automatically guarantees a voucher.
 
@@ -115,7 +115,7 @@ For every covered Pool and voucher class, the responsible party would publish:
 
 **Curation principle.** Pool Stewards and the responsible legal or governance structures are accountable for the protections they advertise. A CPP-compatible deployment may provide standards, registries, or optional shared policies, but neither CLC nor GEF automatically guarantees vouchers or Pools.
 
-### **11.4 Anti-capture guardrails**
+## **11.4 Anti-capture guardrails**
 
 Under this template, the following would be critical actions requiring the adopted highest approval tier and a long timelock:
 
@@ -125,7 +125,7 @@ Under this template, the following would be critical actions requiring the adopt
 4. expanding emergency-pause powers; or
 5. weakening forkability, transparency, or Pool sovereignty commitments stated in this paper.
 
-### **11.5 Fork and exit procedure**
+## **11.5 Fork and exit procedure**
 
 If governance were captured or values drifted materially, communities, Pool Stewards, and operators could seek to exit by forking the network governance layer. Continuity of underlying Pools and vouchers would depend on the deployed contracts, keys, interfaces, infrastructure, third-party services, and applicable obligations.
 

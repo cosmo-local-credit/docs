@@ -1,4 +1,4 @@
-## C. Ufafanuzi unaopendekezwa wa KPI
+# C. Ufafanuzi unaopendekezwa wa KPI
 
 KPI hizi huunda ufafanuzi wa kipimo uliopendekezwa, sio taarifa kwamba programu ya sasa au itifaki huorodhesha kila tukio linalohitajika.
 

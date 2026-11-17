@@ -1,4 +1,4 @@
-## **2. Le passage de l'actif à la fiducie**
+# 2. Le passage de l'actif à la fiducie
 
 La finance traditionnelle commence par **Actifs − Passifs = Titres propres** CPP redéfinit cela pour une économie d'engagement:
 

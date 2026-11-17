@@ -1,8 +1,8 @@
-## **10. Quadro abrangente de riscos**
+# 10. Quadro abrangente de riscos
 
 Este quadro proposto separa dez categorias de risco. Para cada categoria, identifica possíveis indicadores, controles, testes de stress e um apetite indicativo de risco. Estas são recomendações de projeto, não afirmações de que todos os controles são implantados, eficazes ou suficientes. Os limites, as reservas, as garantias, o acompanhamento, a cobertura e a governação não podem eliminar as perdas.
 
-### **10.1 Protocolo e risco de contratos inteligentes**
+## **10.1 Protocolo e risco de contratos inteligentes**
 
 - **Ameaças:** erros de contrato, erros de atualização, falhas de dependência e limites ou taxas mal configurados.
 - **Indicadores:** Resultados de auditoria, movimentos de inventário inexplicados, falhas invariáveis e reversões incomuns.
@@ -10,7 +10,7 @@ Este quadro proposto separa dez categorias de risco. Para cada categoria, identi
 - **Testes de estresse:** dependências de quotas ou limites indisponíveis, deficiências de estoque, contratos interrompidos e rádio de tráfego.
 - **O apetite pelo risco:** Baixo antes de escalar as obrigações pendentes ou o volume de swap.
 
-### **10.2 Riscos económicos e de mercado**
+## **10.2 Riscos económicos e de mercado**
 
 - **Ameaças:** Inventário fino, fluxos unilaterais, retiradas rápidas e referências de preços manipuladas ou obsoletas.
 - **Indicadores:** Uma utilização elevada do balanço de tokens, aumento das diferenças de cotações, rejeição frequente dos limites e inventário concentrado.
@@ -18,7 +18,7 @@ Este quadro proposto separa dez categorias de risco. Para cada categoria, identi
 - **Testes de estresse:** Grandes movimentos de preços de referência, aumentos de apresentação, pedidos de retirada e interrupções de fontes de dados.
 - **O apetite pelo risco:** moderar apenas dentro dos parâmetros publicados e da capacidade de suportar perdas financiada.
 
-### **10.3 Risco do emissor e do vale**
+## **10.3 Risco do emissor e do vale**
 
 - **Ameaças:** Emissão fora da capacidade de cumprimento, incumprimento do emissor, termos enganosos e janelas de disponibilidade ou apresentação mal especificadas.
 - **Indicadores:** a diminuição das taxas de cumprimento confirmadas, o envelhecimento dos vales pendentes, as queixas não resolvidas e a exposição concentrada a um emissor.
@@ -26,7 +26,7 @@ Este quadro proposto separa dez categorias de risco. Para cada categoria, identi
 - **Testes de estresse:** Insolvência do emissor, choques regionais da produção, reclamações falsificadas e atrasos prolongados no cumprimento.
 - **O apetite pelo risco:** A concentração do emissor ou da oferta aumenta.
 
-### **10.4 Risco de apresentação de resgate e cumprimento**
+## **10.4 Risco de apresentação de resgate e cumprimento**
 
 - **Ameaças:** apresentação inválida ou duplicada, capacidade insuficiente da emissora, estoques, falhas logísticas e falta de registos de quitação.
 - **Indicadores:** Latência no cumprimento dos pedidos, apresentações falhadas ou contestadas, estoques, atrasos de bilhetes e unidades cumpridas sem quitação.
@@ -34,7 +34,7 @@ Este quadro proposto separa dez categorias de risco. Para cada categoria, identi
 - **Testes de estresse:** volume de apresentação de duas a quatro vezes, interrupções das instalações, falhas dos fornecedores e tentativas de utilização duplicadas.
 - **O apetite pelo risco:** Em caso de produtos essenciais, participantes vulneráveis ou longas janelas de realização.
 
-### **10.5 Risco de governação**
+## **10.5 Risco de governação**
 
 - **Ameaças:** Captura de administrador ou controlador, mudanças de parâmetros apressadas, conflitos de interesses, poderes técnicos ocultos e apelos fracos.
 - **Indicadores:** Autoridade concentrada, ações de emergência frequentes, mudanças inexplicáveis de política e repetidas reincidências.
@@ -44,7 +44,7 @@ Este quadro proposto separa dez categorias de risco. Para cada categoria, identi
 
 Para uma futura implementação do token de governação CLC proposto, o teste de captura incluiria acumulação seguida de tentativas de redirecionamento de orçamentos, enfraquecimento dos padrões de registo, aprovação de mandatos de partes relacionadas ou esgotamento da cobertura financiada. As possibilidades de salvaguarda incluem bloqueios de governação, limiares mais elevados para ações críticas, atraso na execução, monitorização transparente das delegações e concentrações, um processo de incidente e um procedimento credível de saída e saída. Nenhum deles é representado como implantado simplesmente aparecendo aqui.
 
-### **10.6 Riscos legais e de conformidade**
+## **10.6 Riscos legais e de conformidade**
 
 - **Ameaças:** um vale, um serviço, uma promoção ou um ativo de governação que receba um tratamento regulamentar inesperado; falhas na proteção dos consumidores; lavagem de dinheiro ou exposição a sanções; e restrições transfronteiriças.
 - **Indicadores:** Flags de jurisdição, inquéritos do regulador, reclamações, partidas restritas e divergência entre o comportamento anunciado e o comportamento real.
@@ -52,7 +52,7 @@ Para uma futura implementação do token de governação CLC proposto, o teste d
 - **Testes de estresse:** Uma restrição jurisdicional, a terminação do prestador, a reclassificação obrigatória e uma ordem de pausa de um recurso ou classe de ativos.
 - **O apetite pelo risco:** Baixo; restringir ou suspender a atividade não apoiada.
 
-#### 10.6.1 Posicionamento jurídico e tratamento dos tokens propostos
+### 10.6.1 Posicionamento jurídico e tratamento dos tokens propostos
 
 1. **Infraestrutura verificável:** Os contratos Protocol v1.1.0 são compatíveis com EVM- e a sua origem é publicada nos termos das licenças e das exceções de terceiros identificadas no repositório do Protocolo. A publicação permite uma revisão, mas não prova por si só uma auditoria, uma implementação segura ou a conformidade legal. Cada implementação deve divulgar a sua versão de código, a proveniência da construção, os endereços, os poderes do controlador e o status da auditoria.
 2. **Posição do símbolo proposto:** Neste projeto, o token de governação CLC proposto coordenaria a governação e o acesso à política. Não criaria dividendos, partilha de lucros, direitos residuais ou garantia de valor ou liquidez.
@@ -61,7 +61,7 @@ Para uma futura implementação do token de governação CLC proposto, o teste d
 5. **Controlos de competência:** Uma implementação pode exigir geofencing de interface, certificações para classes restritas, limites de promoção, revisão específica de ativos ou controles que interrompam um recurso proposto.
 6. **Aviso do participante:** Os termos adoptados explicariam quando o acesso pode ser reduzido ou desativado por razões legais, operacionais ou de risco e se aplica qualquer compensação ou recurso.
 
-### **10.7 Riscos de encaminhamento e de cross-domain**
+## **10.7 Riscos de encaminhamento e de cross-domain**
 
 - **Ameaças atuais na mesma cadeia:** dados de descoberta desatualizados, inventário insuficiente, alterações de limites ou admissão, expiração das cotações, carteiras ou dependências não suportadas, falhas de simulação, falhas de retransmissão, reorganizações da cadeia e inflação do caminho.
 - **Controlos e provas atuais:** cotações autorizadas num bloco fixado, simulação do lote completo, saídas mínimas e prazos em cada passo, um lote Calibur assinado com `revertOnFailure`, recibos agrupados determinísticos, reconciliação e códigos de falha explícitos. Estes controlos reduzem riscos de execução específicos, mas não garantem disponibilidade nem cumprimento pelo emissor.
@@ -71,21 +71,21 @@ Para uma futura implementação do token de governação CLC proposto, o teste d
 - **Testes de esforço:** estado desatualizado do grafo, indisponibilidade de uma dependência, falha de um passo no lote atómico atual, reorganização da cadeia e, para uma futura rota entre domínios, paralisação de uma ponte ou expiração de um depósito em garantia.
 - **O apetite pelo risco:** de baixa a moderada apenas para dependências identificadas e monitoradas.
 
-### **10.8 Risco de custódia e gestão de chaves**
+## **10.8 Risco de custódia e gestão de chaves**
 
 - **Ameaças:** Chaves perdidas ou comprometidas, conluio de assinantes, recuperação não clara ou autoridade do administrador.
 - **Indicadores:** As assinaturas anómalas, as alterações do controlador, as rotações falhadas e as retiradas incomuns.
 - **Possibilidades de controlo:** Autorização de múltiplos signos ou limiares; Chaves suportadas por hardware; separação de funções; rotação de sinais; Inventários dos controladores públicos; limites de retirada monitorizados; e procedimentos de recuperação testados.
 - **O apetite pelo risco:** Baixo.
 
-### **10.9 Reputação e risco social**
+## **10.9 Reputação e risco social**
 
 - **Ameaças:** Reclamações enganosas, incentivos prejudiciais, queixas inacessíveis, experiências de preenchimento pobres, falhas de privacidade e proteções que favorecem os insiders.
 - **Indicadores:** Reclamações por coorte, litígios não resolvidos, tendências de desempenho dos emissores, concentração de benefícios ou perdas e feedback da comunidade.
 - **Possibilidades de controlo:** Divulgação em linguagem simples; Caminhos de reclamação e correção; Evidências acessíveis; Relatórios transparentes; Revisão dos incidentes; e sanções proporcionais por falsas declarações.
 - **O apetite pelo risco:** - a redução das taxas de incidência, com especial atenção para as comunidades afectadas e os participantes vulneráveis.
 
-### **10.10 Risco de concentração e fragmentação**
+## **10.10 Risco de concentração e fragmentação**
 
 - **Ameaças:** Dependência de um pequeno número de emissores, fundos, controladores, fornecedores, redes ou forças incompatíveis.
 - **Indicadores:** Medidas de concentração por emissor, Fundo, inventário, controlador ou prestador de serviços; Falhas de rota entre aglomerados; e dependências individuais críticas.

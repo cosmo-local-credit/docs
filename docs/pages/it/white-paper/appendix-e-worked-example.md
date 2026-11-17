@@ -1,4 +1,4 @@
-## - E. Esempio di lavoro — rassegna di rete proposta
+# - E. Esempio di lavoro — rassegna di rete proposta
 
 Questo esempio illustra il modello di rake proposto. Non si tratta del calcolo aggiuntivo del protocollo-tariffa utilizzato da Protocol v1.1.0.
 

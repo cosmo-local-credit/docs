@@ -1,8 +1,8 @@
-## **10. Uitgebreid risicokader**
+# 10. Uitgebreid risicokader
 
 Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie beschrijft het mogelijke indicatoren, beheersmaatregelen, stresstests en een indicatieve risicobereidheid. Dit zijn ontwerpaanbevelingen, geen beweringen dat elke maatregel is ingevoerd, doeltreffend of voldoende is. Limieten, reserves, garanties, toezicht, dekking en bestuur kunnen verlies niet uitsluiten.
 
-### **10.1 Protocol- en smartcontractrisico**
+## **10.1 Protocol- en smartcontractrisico**
 
 - **Bedreigingen:** fouten in contracten, fouten bij upgrades, uitval van afhankelijkheden en verkeerd ingestelde limieten of kosten.
 - **Indicatoren:** auditbevindingen, onverklaarde voorraadbewegingen, schendingen van invarianten en ongebruikelijke terugdraaiingen.
@@ -10,7 +10,7 @@ Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie
 - **Stresstests:** onbeschikbare offerte- of limietafhankelijkheden, voorraadtekorten, gepauzeerde contracten en plotselinge verkeerspieken.
 - **Risicobereidheid:** laag voordat uitstaande verplichtingen of swapvolume worden opgeschaald.
 
-### **10.2 Economisch en marktrisico**
+## **10.2 Economisch en marktrisico**
 
 - **Bedreigingen:** geringe voorraad, eenzijdige stromen, snelle opnames en gemanipuleerde of verouderde prijsreferenties.
 - **Indicatoren:** hoog gebruik van de tokensaldolimiet van een Fonds, toenemende offerteverschillen, veelvuldige limietafwijzingen en geconcentreerde voorraad.
@@ -18,7 +18,7 @@ Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie
 - **Stresstests:** grote bewegingen in referentieprijzen, pieken in aanbiedingen ter inwisseling, opnameverzoeken en uitval van gegevensbronnen.
 - **Risicobereidheid:** alleen matig binnen gepubliceerde parameters en gefinancierde verliesdragende capaciteit.
 
-### **10.3 Risico rond Uitgevers en Waardebonnen**
+## **10.3 Risico rond Uitgevers en Waardebonnen**
 
 - **Bedreigingen:** uitgifte boven de nakomingscapaciteit, wanprestatie door de Uitgever, misleidende voorwaarden en slecht omschreven beschikbaarheids- of aanbiedingsperioden.
 - **Indicatoren:** dalende percentages van bevestigde nakoming, verouderende uitstaande Waardebonnen, onopgeloste klachten en geconcentreerde blootstelling aan één Uitgever.
@@ -26,7 +26,7 @@ Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie
 - **Stresstests:** insolventie van een Uitgever, regionale productieschokken, vervalste claims en langdurige vertragingen in de nakoming.
 - **Risicobereidheid:** lager naarmate de concentratie bij één Uitgever of Aanbieding toeneemt.
 
-### **10.4 Risico bij aanbieding ter inwisseling en nakoming**
+## **10.4 Risico bij aanbieding ter inwisseling en nakoming**
 
 - **Bedreigingen:** ongeldige of dubbele aanbieding, onvoldoende capaciteit van de Uitgever, voorraadtekorten, logistieke storingen en ontbrekende afboekingsrecords.
 - **Indicatoren:** tijd van verzoek tot nakoming, mislukte of betwiste aanbiedingen, voorraadtekorten, achterstanden en nagekomen eenheden zonder afboeking.
@@ -34,7 +34,7 @@ Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie
 - **Stresstests:** twee tot vier keer het gewone aanbiedingsvolume, uitval van locaties, storingen bij leveranciers en pogingen tot dubbel gebruik.
 - **Risicobereidheid:** laag wanneer essentiële goederen, kwetsbare deelnemers of lange nakomingstermijnen betrokken zijn.
 
-### **10.5 Bestuursrisico**
+## **10.5 Bestuursrisico**
 
 - **Bedreigingen:** overname van een Fondsbeheerder of controller, overhaaste parameterwijzigingen, belangenconflicten, verborgen technische bevoegdheden en zwakke beroepsmogelijkheden.
 - **Indicatoren:** geconcentreerde bevoegdheid, veelvuldige noodmaatregelen, onverklaarde beleidswijzigingen en herhaalde uitzonderingen.
@@ -44,7 +44,7 @@ Dit voorgestelde kader onderscheidt tien risicocategorieën. Voor elke categorie
 
 Voor een toekomstige implementatie van de voorgestelde CLC-governancetoken zou een overnametest bestaan uit accumulatie gevolgd door pogingen om budgetten om te leiden, registernormen te verzwakken, mandaten voor verbonden partijen goed te keuren of gefinancierde dekking leeg te halen. Mogelijke waarborgen zijn governance-lockups, hogere drempels voor kritieke handelingen, vertraagde uitvoering, transparante delegatie en concentratiemonitoring, een incidentproces en een geloofwaardige procedure voor afsplitsing en vertrek. Geen daarvan geldt als ingevoerd enkel omdat het hier wordt beschreven.
 
-### **10.6 Juridisch en compliancerisico**
+## **10.6 Juridisch en compliancerisico**
 
 - **Bedreigingen:** onverwachte regelgevende behandeling van een Waardebon, dienst, promotie of governance-activum; tekortkomingen in consumentenbescherming; blootstelling aan witwas- of sanctierisico; en grensoverschrijdende beperkingen.
 - **Indicatoren:** signalen per rechtsgebied, vragen van toezichthouders, klachten, overeenkomsten met beperkte partijen en verschillen tussen aangekondigd en werkelijk gedrag.
@@ -52,7 +52,7 @@ Voor een toekomstige implementatie van de voorgestelde CLC-governancetoken zou e
 - **Stresstests:** een beperking in een rechtsgebied, beëindiging door een aanbieder, verplichte herclassificatie en een bevel om een functie of activaklasse te pauzeren.
 - **Risicobereidheid:** laag; beperk of pauzeer niet-ondersteunde activiteiten.
 
-#### 10.6.1 Juridische positionering en behandeling van voorgestelde tokens
+### 10.6.1 Juridische positionering en behandeling van voorgestelde tokens
 
 1. **Verifieerbare infrastructuur:** de contracten van Protocol v1.1.0 zijn EVM-compatibel en hun broncode is gepubliceerd onder de licenties en uitzonderingen voor derden die in de Protocolrepository worden genoemd. Publicatie maakt beoordeling mogelijk, maar bewijst op zichzelf geen audit, veilige implementatie of wettelijke naleving. Elke implementatie moet codeversie, herkomst van de build, adressen, controllerbevoegdheden en auditstatus bekendmaken.
 2. **Positie van de voorgestelde token:** in dit ontwerp zou de voorgestelde CLC-governancetoken bestuur en door beleid beperkte toegang coördineren. De token zou geen dividend, winstdeling, resterend recht of garantie van waarde of liquiditeit creëren.
@@ -61,7 +61,7 @@ Voor een toekomstige implementatie van de voorgestelde CLC-governancetoken zou e
 5. **Beperkingen per rechtsgebied:** een implementatie kan geografische begrenzing van interfaces, attestaties voor beperkte klassen, promotielimieten, activaspecifieke beoordeling of pauzemogelijkheden vereisen.
 6. **Kennisgeving aan deelnemers:** vastgestelde voorwaarden moeten uitleggen wanneer toegang om juridische, operationele of risicoredenen kan worden verminderd of uitgeschakeld en of vergoeding of herstel van toepassing is.
 
-### **10.7 Routerings- en cross-domainrisico**
+## **10.7 Routerings- en cross-domainrisico**
 
 - **Huidige bedreigingen binnen één blockchainnetwerk:** verouderde ontdekkingsgegevens, onvoldoende voorraad, gewijzigde limieten of toelating, verlopen offertes, niet-ondersteunde portefeuilles of afhankelijkheden, mislukte simulatie of relay, blockchainreorganisatie en onnodig lange paden.
 - **Huidige beheersmaatregelen en bewijs:** gezaghebbende offertes op één vastgezet blok, simulatie van de volledige batch, minimale uitvoer en deadlines per stap, een ondertekende Calibur-batch met `revertOnFailure`, deterministische gebundelde transactieoverzichten, afstemming en duidelijke foutcodes. Deze maatregelen beperken bepaalde uitvoeringsrisico's, maar garanderen geen beschikbaarheid of nakoming door de Uitgever.
@@ -71,21 +71,21 @@ Voor een toekomstige implementatie van de voorgestelde CLC-governancetoken zou e
 - **Stresstests:** verouderde grafiekstatus, uitval van afhankelijkheden, één mislukte stap in de huidige atomaire batch, blockchainreorganisatie en—voor een toekomstige cross-domainroute—een stilgevallen bridge of verlopen escrow.
 - **Risicobereidheid:** alleen laag tot matig voor geïdentificeerde en bewaakte afhankelijkheden.
 
-### **10.8 Bewaar- en sleutelbeheerrisico**
+## **10.8 Bewaar- en sleutelbeheerrisico**
 
 - **Bedreigingen:** verloren of gecompromitteerde sleutels, samenspanning van ondertekenaars en onduidelijke herstel- of beheerdersbevoegdheid.
 - **Indicatoren:** afwijkende handtekeningen, wijzigingen van controllers, mislukte rotaties en ongebruikelijke opnames.
 - **Mogelijke beheersmaatregelen:** multisig- of drempelautorisatie; sleutels met hardwarebescherming; scheiding van rollen; rotatie van ondertekenaars; openbare overzichten van controllers; bewaakte opnamelimieten; en geteste herstelprocedures.
 - **Risicobereidheid:** laag.
 
-### **10.9 Reputatie- en sociaal risico**
+## **10.9 Reputatie- en sociaal risico**
 
 - **Bedreigingen:** misleidende beweringen, schadelijke prikkels, ontoegankelijke klachtenprocedures, slechte ervaringen met nakoming, privacyschendingen en bescherming die insiders bevoordeelt.
 - **Indicatoren:** klachten per cohort, onopgeloste geschillen, trends in prestaties van Uitgevers, concentratie van voordelen of verliezen en feedback uit de gemeenschap.
 - **Mogelijke beheersmaatregelen:** informatie in duidelijke taal; klachten- en correctieprocedures; toegankelijk bewijs; transparante rapportage; incidentbeoordeling; en evenredige sancties voor misleiding.
 - **Risicobereidheid:** laag, met bijzondere aandacht voor getroffen gemeenschappen en kwetsbare deelnemers.
 
-### **10.10 Concentratie- en fragmentatierisico**
+## **10.10 Concentratie- en fragmentatierisico**
 
 - **Bedreigingen:** afhankelijkheid van een klein aantal Uitgevers, Fondsen, controllers, aanbieders, netwerken of incompatibele afsplitsingen.
 - **Indicatoren:** concentratiemaatstaven per Uitgever, Fonds, voorraad, controller of dienstverlener; routefouten tussen clusters; en kritieke afzonderlijke afhankelijkheden.

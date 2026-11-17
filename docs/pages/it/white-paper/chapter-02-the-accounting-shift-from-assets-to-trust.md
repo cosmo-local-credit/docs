@@ -1,4 +1,4 @@
-## **2. Il cambiamento contabile: dall'attività al fiduciario**
+# 2. Il cambiamento contabile: dall'attività al fiduciario
 
 La finanza tradizionale inizia con **Asset − Passività = Equity**. CPP riformula questo per un'economia di impegno:
 

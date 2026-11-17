@@ -1,4 +1,4 @@
-## **12. Scheda terminale del programma di liquidità proposta (conto non vincolante)**
+# 12. Scheda terminale del programma di liquidità proposta (conto non vincolante)
 
 Questa è una lista di controllo illustrativa per un programma futuro, documentato separatamente. Non è un'offerta, una funzione attuale dell'app, o una promessa di liquidità, accesso, assicurazione, rendimento, valore o uscita.
 

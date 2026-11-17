@@ -1,4 +1,4 @@
-## **14. Mga KPI at health indicator**
+# 14. Mga KPI at health indicator
 
 Dapat lamang maglathala ng KPI ang isang deployment kapag malinaw nitong natutukoy ang event, source, cohort o panahon, unit, valuation method at timestamp, mga exclusion, correction policy, off-chain evidence, at mga limitasyon sa kalidad ng data.
 

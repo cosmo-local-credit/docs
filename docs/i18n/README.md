@@ -18,6 +18,11 @@ are structurally validated and are not being editorially reopened during the
 policy completion pass. Stable English slugs are deliberately retained below
 each published locale prefix.
 
+The 17 November 2026 English clarity review is a separate controlled rollout.
+Its materially changed routes and per-locale status are recorded in
+`english-review-rollout.json`; a pending locale remains pinned to its last
+reviewed source until that focused reconciliation is complete.
+
 ## Files
 
 - `locales.ts` is the single locale registry and preserves the app's order,
@@ -34,6 +39,9 @@ each published locale prefix.
   the app baseline, review status, date, and automated review results.
 - `routing-rollout.json` records the v0.9 production-routing source evidence,
   affected routes, per-locale release state, and current White Paper version.
+- `english-review-rollout.json` records the current English product-review
+  evidence, materially changed routes, exact source hashes, and the translations
+  that still require reconciliation.
 - `drafts/pages/` preserves unfinished deep-page translations outside Vocs'
   public route compiler.
 
@@ -59,10 +67,10 @@ Every release applies:
 
 The English Terms are controlling; every localized Terms page is a convenience
 translation and links prominently to English. English is also the source text
-for the White Paper. English is currently v0.9. A locale remains pinned to its
-reviewed v0.8 pages, hashes, search/LLM output, and PDF until its routing update
-passes the sequential release gate. Localized HTML and PDFs state the English
-source version and publication date and the translation publication date.
+for the White Paper. All locales publish the reviewed v0.9 routing edition.
+When a later English review changes a route, a pending locale remains pinned
+to its last reviewed page, hash, search/LLM output, and PDF text until its
+focused update passes the sequential release gate.
 
 The English Policy hub, Privacy Notice, Data Protection Policy, and Child
 Safeguarding Policy are the controlling Version 1.0 source. Their product audit
@@ -216,6 +224,24 @@ For each locale:
 The validators allow heading and source-hash differences only for an explicitly
 pending affected route. Every unaffected route and every current locale remains
 strict.
+
+## English clarity-review workflow
+
+Process the routes in `english-review-rollout.json` one locale at a time. Start
+from that locale's current reviewed page, translate only changed semantic
+units, preserve protected product and legal terms, then perform the normal
+clarity and back-translation review. Include the English splash-copy changes
+in the same pass.
+
+For each accepted locale, refresh its translation manifest and heading map,
+update any affected localized White Paper PDF, and change only that locale's
+rollout status to `current`. Do not refresh a pending route's English source
+hash merely to make validation green. The manifest refresher intentionally
+preserves that prior source hash until the locale is promoted.
+
+The revised English Terms and Privacy Notice were approved on 17 November
+2026. Each convenience translation must still be reconciled and validated
+against that frozen source before the locale is promoted.
 
 ## Adding an app language
 

@@ -1,6 +1,6 @@
-## **15. रोडमैप (सूचक)**
+# 15. रोडमैप (सूचक)
 
-### **15.1 वर्तमान आधार**
+## **15.1 वर्तमान आधार**
 
 GEF Gnosis Chain पर `cosmolocal.credit` का CLC App संचालित करता है। ऐप account और wallet access, सार्वजनिक Market catalog और tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, direct Pool swaps तथा routed exchanges के लिए समर्थित interfaces देता है।
 
@@ -8,7 +8,7 @@ Protocol v1.1.0 मौजूदा contract foundation देता है: `Gif
 
 CLC Core अब सार्वजनिक App की समान-चेन routing और observability foundation देता है: reconciled graph discovery, अधिकतम तीन Pool swaps वाले routes, fixed-block quotations, per-hop bounds और fees, full-batch simulation, signed atomic Calibur execution, relay tracking, settlement reconciliation, grouped receipts और operational metrics। उपलब्धता अब भी interface, समर्थित wallet और token behavior, deployed contracts, inventory, configuration, service freshness, network state, eligibility, providers, अधिकार क्षेत्र और प्रकाशित issuer या Pool terms पर निर्भर है।
 
-### **15.2 प्रस्तावित मील के पत्थर**
+## **15.2 प्रस्तावित मील के पत्थर**
 
 ये नामित मील के पत्थर डिजाइन निर्देश हैं, रिलीज नंबर, डिलीवरी की तारीखें या प्रतिबद्धताएं नहीं जो एक सुविधा लॉन्च करेगी।
 

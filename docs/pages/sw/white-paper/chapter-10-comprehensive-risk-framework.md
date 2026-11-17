@@ -1,8 +1,8 @@
-## **10. Mfumo mpana wa hatari**
+# 10. Mfumo mpana wa hatari
 
 Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, inaonyesha viashiria vinavyowezekana, udhibiti, vipimo vya mkazo, na hamu ya kuonyesha hatari. Hizi ni mapendekezo ya kubuni, si madai kwamba kila udhibiti ni kutekelezwa, ufanisi, au kutosha. Mipaka, hifadhi, dhamana, ufuatiliaji, chanjo, na utawala haziwezi kuondoa hasara.
 
-### **10.1 Hatari za itifaki na mikataba mahiri**
+## **10.1 Hatari za itifaki na mikataba mahiri**
 
 - **Tisho:** makosa ya mikataba, makosa ya kuboresha, kushindwa kwa utegemezi, na kikomo au ada zilizowekwa vibaya.
 - **Viashiria:** matokeo ya ukaguzi, harakati zisizoeleweka za hesabu, kushindwa kwa kutofautiana, na kurudi kwa kawaida.
@@ -10,7 +10,7 @@ Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, in
 - **Uchunguzi wa mkazo:** kutopatikana quote au kikomo kutegemea, upungufu wa hisa, mikataba paused, na burst trafiki.
 - **Tamaa ya kuchukua hatari:** kiwango cha chini kabla ya kupanua wajibu uliopo au kiasi cha swap.
 
-### **10.2 Hatari za kiuchumi na za soko**
+## **10.2 Hatari za kiuchumi na za soko**
 
 - **Tisho:** hesabu nyembamba, mtiririko wa upande mmoja, uondoaji wa haraka, na kumbukumbu za bei zilizobadilishwa au zilizopitwa na wakati.
 - **Viashiria:** kikundi high tokeni-salio matumizi, kupanua quotation tofauti, mara nyingi kikomo kukataliwa, na mkusanyiko wa hisa.
@@ -18,7 +18,7 @@ Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, in
 - **Uchunguzi wa mkazo:** mabadiliko makubwa ya bei ya rejea, kuongezeka kwa uwasilishaji, maombi ya kujiondoa, na kukatika kwa vyanzo vya data.
 - **Tamaa ya kuchukua hatari:** kiasi tu ndani ya vigezo vya kuchapishwa na uwezo wa kubeba hasara wa fedha.
 
-### **10.3 Hatari ya mtoaji na vocha**
+## **10.3 Hatari ya mtoaji na vocha**
 
 - **Tisho:** kutolewa zaidi ya uwezo wa kutimiza, kutofaulu kwa mtoaji, masharti ya udanganyifu, na madirisha mabaya ya upatikanaji au uwasilishaji.
 - **Viashiria:** kupungua kwa viwango vya utekelezaji vilivyothibitishwa, kupungua kwa vocha zilizopotea, malalamiko yasiyotatuliwa, na mfiduo mkali kwa mtoaji mmoja.
@@ -26,7 +26,7 @@ Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, in
 - **Uchunguzi wa mkazo:** kutofaulu kwa mtoaji, mshtuko wa uzalishaji wa kikanda, madai ya bandia, na kuchelewa kwa muda mrefu kwa kutimiza.
 - **Tamaa ya kuchukua hatari:** chini kama mtoaji au kutoa huongezeka ushirikiano.
 
-### **10.4 Hatari za uwasilishaji kwa ukombozi na utekelezaji**
+## **10.4 Hatari za uwasilishaji kwa ukombozi na utekelezaji**
 
 - **Tisho:** Uwasilishaji usiofaa au wa duplicate, uwezo wa ukomo wa kutosha, upungufu wa hisa, kasoro za vifaa, na kumbukumbu za ukomo.
 - **Viashiria:** latency ya ombi la kutimizwa, mawasilisho yaliyoshindwa au yaliyohojiwa, akiba, backlogs za tiketi, na vitengo vilivyokamilika ambavyo havina malipo.
@@ -34,7 +34,7 @@ Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, in
 - **Uchunguzi wa mkazo:** mara mbili hadi nne ya kiasi cha uwasilishaji, kukatika kwa vifaa, kasoro za wasambazaji, na majaribio ya matumizi ya mara mbili.
 - **Tamaa ya kuchukua hatari:** chini ambapo bidhaa muhimu, washiriki dhaifu, au madirisha marefu ya kutimiza ni kuhusika.
 
-### **10.5 Hatari ya utawala**
+## **10.5 Hatari ya utawala**
 
 - **Tisho:** Steward au controller kukamata, haraka mabadiliko parameter, migogoro ya maslahi, nguvu za kiufundi siri, na rufaa dhaifu.
 - **Viashiria:** mamlaka ya kuzingatia, hatua za dharura mara kwa mara, mabadiliko ya sera zisizoeleweka, na overrides mara kwa mara.
@@ -44,7 +44,7 @@ Mfumo huu uliopendekezwa hutenganisha makundi kumi ya hatari. Kwa kila jamii, in
 
 Kwa kupelekwa baadaye kwa ishara ya utawala iliyopendekezwa ya CLC, mtihani wa kukamata utajumuisha mkusanyiko uliofuatwa na majaribio ya kuelekeza bajeti, kudhoofisha viwango vya rejista, kupitisha amri za vyama vinavyohusiana, au kukomesha chanjo ya fedha. Ulinzi wa uwezekano ni pamoja na kufuli kwa utawala, mipaka ya juu kwa ajili ya hatua muhimu, kuchelewesha utekelezaji, uhamisho wa uhamisho wa uhamisho na ushirikiano, mchakato wa tukio, na utaratibu wa kuaminika wa kuondoka. Hakuna moja ambayo inawakilishwa kwa kuonekana tu hapa.
 
-### **10.6 Hatari za kisheria na uzingatiaji**
+## **10.6 Hatari za kisheria na uzingatiaji**
 
 - **Tisho:** vocha, huduma, kukuza, au mali ya utawala ambayo hupokea matibabu ya kisheria yasiyotarajiwa; kushindwa kwa ulinzi wa watumiaji; kupoteza fedha au kuathiriwa na vikwazo; na vizuizi vya mpakani.
 - **Viashiria:** bendera za mamlaka, uchunguzi wa wasimamizi, malalamiko, mechi za vyama vilivyozuiliwa, na kutofautiana kati ya tabia iliyotangazwa na tabia halisi.
@@ -52,7 +52,7 @@ Kwa kupelekwa baadaye kwa ishara ya utawala iliyopendekezwa ya CLC, mtihani wa k
 - **Uchunguzi wa mkazo:** kizuizi cha mamlaka, kukomesha mtoa huduma, upya wa lazima, na agizo la kusimamisha huduma au darasa la mali.
 - **Tamaa ya kuchukua hatari:** chini; kupunguza au kusimamisha shughuli zisizoungwa mkono.
 
-#### 10.6.1 Mahali pa kisheria na matumizi ya tokeni inayopendekezwa
+### 10.6.1 Mahali pa kisheria na matumizi ya tokeni inayopendekezwa
 
 1. **Miundombinu inayoweza kuthibitishwa:** Protocol v1.1.0 mikataba ni EVM-compatible na chanzo chao ni kuchapishwa chini ya leseni na watu wa tatu isipokuwa zilizoainishwa katika hifadhidata ya itifaki. Uchapishaji huwezesha ukaguzi lakini hauwezi kuthibitisha ukaguzi, utekelezaji salama, au kutii sheria. Kila utekelezaji unapaswa kufichua toleo lake la msimbo, utengenezaji wa asili, anwani, mamlaka ya mdhibiti, na hali ya ukaguzi.
 2. **Msimamo wa ishara iliyopendekezwa:** katika muundo huu, iliyopendekezwa CLC utawala ishara ingekuwa kuhariri utawala na sera walengwa upatikanaji. Haitaunda dividends, ushiriki wa faida, haki za ziada, au dhamana ya thamani au umaarufu.
@@ -61,7 +61,7 @@ Kwa kupelekwa baadaye kwa ishara ya utawala iliyopendekezwa ya CLC, mtihani wa k
 5. **Udhibiti wa mamlaka:** utekelezaji unaweza kuhitaji interface geofencing, vyeti kwa ajili ya madarasa mdogo, mipaka ya kukuza, tathmini maalum ya mali, au udhibiti kwamba pause kipengele iliyopendekezwa.
 6. **Ujumbe wa mshiriki:** masharti yaliyochaguliwa yataelezea wakati ufikiaji unaweza kupunguzwa au kulemazwa kwa sababu za kisheria, za uendeshaji, au hatari na ikiwa fidia yoyote au suluhisho linatumika.
 
-### **10.7 Hatari za uelekezaji na ukamilishaji wa hatua nyingi**
+## **10.7 Hatari za uelekezaji na ukamilishaji wa hatua nyingi**
 
 - **Vitisho vya sasa kwenye mnyororo mmoja:** taarifa za ugunduzi zilizopitwa na wakati, mali zisizotosha, mabadiliko ya kikomo au kukubaliwa, kuisha kwa nukuu, Mkoba au kitegemezi kisichosaidiwa, kushindwa kwa uigaji, kushindwa kwa uwasilishaji, upangaji upya wa mnyororo na kuongeza hatua za njia bila sababu.
 - **Vidhibiti na ushahidi wa sasa:** nukuu halali za block iliyowekwa, uigaji wa kundi lote, kiwango cha chini cha matokeo na muda wa mwisho kwa kila hatua, kundi la Calibur lililotiwa sahihi lenye `revertOnFailure`, risiti bainifu zilizojumuishwa, upatanisho na misimbo wazi ya kushindwa. Vidhibiti hivi hupunguza hatari fulani za utekelezaji lakini havihakikishi upatikanaji wala utekelezaji wa Mtoaji.
@@ -71,21 +71,21 @@ Kwa kupelekwa baadaye kwa ishara ya utawala iliyopendekezwa ya CLC, mtihani wa k
 - **Majaribio ya msongo:** hali ya grafu iliyopitwa na wakati, kukatika kwa kitegemezi, hatua moja iliyoshindwa katika kundi atomiki la sasa, upangaji upya wa mnyororo na—kwa njia ya baadaye kati ya vikoa—kusimamishwa kwa daraja au escrow iliyoisha muda.
 - **Tamaa ya kuchukua hatari:** chini kwa wastani tu kwa ajili ya dependencies kutambuliwa na kufuatiliwa.
 
-### **10.8 Hatari ya ulinzi na usimamizi wa ufunguo**
+## **10.8 Hatari ya ulinzi na usimamizi wa ufunguo**
 
 - **Tisho:** waliopotea au kuhatarishwa funguo, saini collusion, na haijulikani ahueni au msimamizi mamlaka.
 - **Viashiria:** saini zisizo za kawaida, mabadiliko ya controller, rotations kushindwa, na kuondoa zisizo za kawaida.
 - **Udhibiti unaowezekana:** ruhusa ya multiplesig au threshold; funguo zilizotegemezwa na vifaa; kutenganisha majukumu; kugeuka kwa saini; hesabu za wasimamizi wa umma; vizuizi vinavyodhibitiwa vya kujiondoa; na utaratibu uliojaribiwa wa kupona.
 - **Tamaa ya kuchukua hatari:** chini.
 
-### **10.9 Sifa na hatari ya kijamii**
+## **10.9 Sifa na hatari ya kijamii**
 
 - **Tisho:** madai ya udanganyifu, vichocheo vyenye madhara, malalamiko yasiyoweza kupatikana, uzoefu mbaya wa kutimiza, kushindwa kwa faragha, na ulinzi unaopendelea wa ndani.
 - **Viashiria:** malalamiko kwa kundi, migogoro isiyotatuliwa, mwenendo wa utendaji wa watangazaji, mkusanyiko wa faida au hasara, na maoni ya jamii.
 - **Udhibiti unaowezekana:** taarifa za lugha rahisi; njia za malalamiko na marekebisho; ushahidi unaopatikana; kuripoti kwa uwazi; ukaguzi wa tukio; na vikwazo vinavyopatana na kiasi kwa ajili ya taarifa zisizo za kweli.
 - **Tamaa ya kuchukua hatari:** chini, na huduma maalum kwa jamii zilizoathiriwa na washiriki walio hatarini.
 
-### **10.10 Hatari ya mkusanyiko na kugawanyika**
+## **10.10 Hatari ya mkusanyiko na kugawanyika**
 
 - **Tisho:** kutegemea idadi ndogo ya wachapishaji, Vikundi, wasimamizi, watoa huduma, mitandao, au forks zisizo sambamba.
 - **Viashiria:** hatua za mkusanyiko na mtoaji, kundi, hisa, mtawala, au mtoa huduma; kushindwa kwa njia kati ya makundi; na utegemezi binafsi muhimu.

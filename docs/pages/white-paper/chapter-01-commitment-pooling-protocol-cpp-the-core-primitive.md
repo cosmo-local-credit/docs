@@ -1,16 +1,16 @@
-## **1. Commitment Pooling Protocol (CPP): the core primitive**
+# 1. Commitment Pooling Protocol (CPP): the core primitive
 
 **Mental model:** A Commitment Pool is a governed arrangement for admitting vouchers or other assets, publishing exchange rules, holding inventory, and enabling swaps. Holders later present vouchers to their issuers for real-world fulfillment. Pool exchange and issuer fulfillment are separate lifecycles.
 
 CPP coordinates value through clearly described commitments. The model is discussed in [Grassroots Economics: Reflection and Practice](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
-### **1.1 What is a commitment?**
+## **1.1 What is a commitment?**
 
 A commitment is an identified party's promise of future delivery—for example food, transport, labor, storage, or another lawful good, service, benefit, or performance. A **voucher** is a token or record represented as that commitment under published terms.
 
 The token contract records digital mechanics. Voucher terms identify the issuer, Offering, capacity, place, timing, restrictions, presentment, fulfillment, complaints, and discharge process.
 
-### **1.2 What is a Commitment Pool?**
+## **1.2 What is a Commitment Pool?**
 
 A Commitment Pool is the governed arrangement. It can be stewarded by an individual, cooperative, community group, public agency, federation, multisig, service operator, or another accountable structure.
 
@@ -36,7 +36,7 @@ The production CLC App and CLC Core implement application-level same-chain routi
 
 The wider proposed CPP design may add rolling limits, account controls, cross-domain HTLC or escrow paths, automatic Pool rebalancing, and batch netting. Those are proposed components, not descriptions of the current limiter, Solidity router, or App/Core route flow.
 
-### **1.3 Current direct-swap logic**
+## **1.3 Current direct-swap logic**
 
 A current direct Pool swap:
 
@@ -51,7 +51,7 @@ A current direct Pool swap:
 
 The quote is a transaction parameter, not proof of issuer capacity, redemption value, fair value, cash convertibility, or a guarantee.
 
-### **1.4 Wider use**
+## **1.4 Wider use**
 
 Commitment Pools can support community exchange, production, mutual aid, public programs, and other accountable structures. A separately documented credit product could use a voucher as collateral or a repayment instrument, but it would require supplemental and transaction-specific terms. An ordinary send, Pool deposit, Pool swap, redemption presentment, fulfillment, or discharge is not automatically a loan or repayment.
 

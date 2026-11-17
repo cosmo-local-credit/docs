@@ -1,4 +1,4 @@
-## **3. Fulfillment, discharge, and exchange activity**
+# 3. Fulfillment, discharge, and exchange activity
 
 A Pool swap changes which addresses hold assets. Voucher fulfillment occurs when the issuer performs the published commitment. Discharge records the fulfilled units so they cannot be presented again. These events must not be collapsed into one use of “settlement.”
 

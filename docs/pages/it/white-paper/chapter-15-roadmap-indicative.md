@@ -1,6 +1,6 @@
-## **15. Roadmap indicativa**
+# 15. Roadmap indicativa
 
-### **15.1 Fondamento attuale**
+## **15.1 Fondamento attuale**
 
 GEF gestisce la CLC App su `cosmolocal.credit`, su Gnosis Chain. L'App fornisce accesso supportato ad account e portafogli, un catalogo pubblico del Market e interfacce per token, buoni, Offerte, Want, Fondi di Impegni, trasferimenti, scambi diretti nei Fondi e scambi instradati.
 
@@ -8,7 +8,7 @@ Protocol v1.1.0 fornisce l'attuale base contrattuale: `GiftableToken`, esecuzion
 
 CLC Core fornisce ora la base di instradamento e osservabilità sulla stessa catena per l'App pubblica: scoperta tramite un grafo riconciliato, percorsi attraverso un massimo di tre Fondi, quotazioni a un blocco fissato, limiti e commissioni per ciascun passaggio, simulazione dell'intero batch, esecuzione atomica firmata con Calibur, monitoraggio del relay, riconciliazione dei regolamenti, ricevute raggruppate e metriche operative. La disponibilità dipende comunque dall'interfaccia, dal comportamento supportato del portafoglio e dei token, dai contratti distribuiti, dall'inventario, dalla configurazione, dalla freschezza del servizio, dallo stato della rete, dall'ammissibilità, dai fornitori, dalla giurisdizione e dai termini pubblicati dagli emittenti o dai Fondi.
 
-### **15.2 Traguardi proposti**
+## **15.2 Traguardi proposti**
 
 Questi traguardi rappresentano direzioni progettuali, non numeri di versione, date di consegna o impegni al rilascio di una funzionalità.
 

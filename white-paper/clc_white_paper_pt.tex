@@ -135,8 +135,7 @@ A camada digital é a memória compartilhada e a infraestrutura de coordenação
 \section*{Fluxos atuais e propostos}
 \addcontentsline{toc}{section}{Fluxos atuais e propostos}
 
-\subsection*{Fluxo atual direto ou encaminhado de Fundo}
-\addcontentsline{toc}{subsection}{Fluxo atual direto ou encaminhado de Fundo}
+\subsubsection*{Fluxo atual direto ou encaminhado de Fundo}
 
 \begin{enumerate}[leftmargin=*]
 \item Um titular revê um vale, o respetivo emissor, as suas condições e as Ofertas associadas.
@@ -152,8 +151,7 @@ Retirar inventário de um Fundo é uma troca. Só é um resgate se esse Fundo ti
 
 A configuração pública atual procura rotas com até três trocas de Fundo e suporta carteiras EOA/Calibur compatíveis com a CLC App. Atualmente, não prepara trocas encaminhadas para Safes nem para outras carteiras de contrato. O \texttt{SwapRouter} Solidity continua limitado a cotações; o CLC Core e o lote assinado pela carteira coordenam a execução acima dos contratos.
 
-\subsection*{Projeto mais amplo proposto}
-\addcontentsline{toc}{subsection}{Projeto mais amplo proposto}
+\subsubsection*{Projeto mais amplo proposto}
 
 O projeto proposto explora o encaminhamento entre domínios por HTLC ou depósito em garantia, o reequilíbrio voluntário de Fundos, a compensação por lotes, serviços partilhados adicionais, programas de liquidez de rede, apólices de seguro e ativos de governação. Cada elemento exigiria implementação, partes responsáveis, regras adotadas, financiamento, controlos e informação pública antes de poder ser aplicado.
 
@@ -298,8 +296,7 @@ As finanças tradicionais começam \textbf{Ativos - Passivos = Capitais}. O CPP 
 \item \textbf{Compromissos pendentes:} promessas que permanecem não cumpridas e são mantidas por outros.
 \item \textbf{Capacidade de realização:} a capacidade comprovada do emissor de cumprir essas promessas.
 \end{itemize}
-\subsection*{Relação ilustrativa entre compromisso e capacidade:}
-\addcontentsline{toc}{subsection}{Relação ilustrativa entre compromisso e capacidade:}
+\subsubsection*{Relação ilustrativa entre compromisso e capacidade:}
 
 Capacidade de aceitação - compromissos pendentes = capacidade de aceitação restante
 
@@ -1010,8 +1007,7 @@ A lista proibida seria versionada, publicamente auditável e modificável soment
 
 \textbf{Critérios de pausa de emergência.} Uma implementação participante declararia antecipadamente condições como uma interrupção do oráculo, alta utilização limite combinada com falhas de cumprimento, ou uma falha invariante, juntamente com verificações de currículo e requisitos de revisão pós-incidente.
 
-\subsection*{Exemplo de alimentação pública de índices para um Fundo e vale}
-\addcontentsline{toc}{subsection}{Exemplo de alimentação pública de índices para um Fundo e vale}
+\subsubsection*{Exemplo de alimentação pública de índices para um Fundo e vale}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Símbolo:} Por exemplo, \texttt{Maize\_50kg@IssuerY}.
@@ -1051,16 +1047,14 @@ Um ajustamento da cobertura não reduz o compromisso subjacente de um emissor co
 
 Esta secção distingue a responsabilidade do emissor, as proteções opcionais do Fundo e as garantias de terceiros. os Fundos podem competir em curadoria, termos e proteções expressamente oferecidas sem implicar que o CLC App, CPP, GEF ou qualquer rede mais ampla garanta automaticamente um vale.
 
-\subsection*{Responsabilidade do emissor de base}
-\addcontentsline{toc}{subsection}{Responsabilidade do emissor de base}
+\subsubsection*{Responsabilidade do emissor de base}
 
 \begin{itemize}[leftmargin=*]
 \item Cada vale é, em primeiro lugar, da responsabilidade do seu emissor. O emissor compromete-se a fornecer o bem, serviço ou equivalente em dinheiro legal declarado nos termos publicados.
 \item Os emissores publicariam quem pode apresentar o vale, o que significa o cumprimento, onde e quando está disponível, quais provas são necessárias e quais recursos são aplicáveis.
 \item Se um emissor não cumprir, o emissor é o principal responsável. As proteções de Fundo ou de rede só se aplicam quando adotadas, financiadas e divulgadas separadamente.
 \end{itemize}
-\subsection*{Proteções opcionais para Fundos}
-\addcontentsline{toc}{subsection}{Proteções opcionais para Fundos}
+\subsubsection*{Proteções opcionais para Fundos}
 
 Um Gestor do Fundo pode optar por adicionar uma proteção estreitamente definida aos vales admitidos. Não é automático e precisaria identificar a parte responsável, o financiamento, os eventos elegíveis, os limites, as janelas, as evidências, as exclusões e as medidas correctivas nos metadados do Fundo e nos termos aplicáveis.
 
@@ -1072,8 +1066,7 @@ Os tipos de protecção ilustrativos incluem:
 \item \textbf{Realização alternativa:} A parte responsável organiza um fornecedor de substituição aprovado dentro de um limite máximo de quantidade ou valor publicado.
 \item \textbf{Proteção da banda de câmbio:} No caso de categorias de vales selecionadas, um Fundo oferece apenas o ajustamento de cobertura ou o recurso de reversão de swap indicado nos seus termos pré-existentes. Isto não reduz a obrigação subjacente do emissor de vale.
 \end{enumerate}
-\subsection*{Fontes de financiamento possíveis}
-\addcontentsline{toc}{subsection}{Fontes de financiamento possíveis}
+\subsubsection*{Fontes de financiamento possíveis}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Obrigação do emissor:} Garantia depositada pelo emissor ou detida numa reserva divulgada e disponível após um evento coberto verificado.
@@ -1082,8 +1075,7 @@ Os tipos de protecção ilustrativos incluem:
 \end{itemize}
 A participação do garante seguiria os critérios de elegibilidade publicados, o tamanho das obrigações, os limites de concentração, a autoridade de decisão e as regras legais de execução.
 
-\subsection*{Processo de reclamações}
-\addcontentsline{toc}{subsection}{Processo de reclamações}
+\subsubsection*{Processo de reclamações}
 
 Uma política adotada definiria os factores desencadeáveis auditáveis, tais como um prazo de cumprimento não cumprido após a apresentação válida da resgate, a insolvência verificada do emissor, uma falha coberta ou de garantia, ou um estado de incidente formalmente declarado. Também se definiria:
 
@@ -1095,8 +1087,7 @@ Uma política adotada definiria os factores desencadeáveis auditáveis, tais co
 \end{itemize}
 As receitas de recuperação provenientes de emissores, arbitragem ou aplicação da lei reabasteceriam as obrigações ou reservas aplicáveis de acordo com a política publicada antes de serem utilizadas para o acesso proposto à rede CLC.
 
-\subsection*{Requisitos de divulgação}
-\addcontentsline{toc}{subsection}{Requisitos de divulgação}
+\subsubsection*{Requisitos de divulgação}
 
 Para cada classe de Fundos e vales cobertos, a parte responsável publicaria:
 

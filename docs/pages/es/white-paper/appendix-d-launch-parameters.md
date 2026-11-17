@@ -1,4 +1,4 @@
-## D. Parámetros de lanzamiento propuestos
+# D. Parámetros de lanzamiento propuestos
 
 Cada valor de abajo es ilustrativo. No se trata de una aplicación actual por defecto, configuración Protocol v1.1.0, garantía, oferta o compromiso de entrega. Una futura implementación tendría que adoptar, hacer cumplir, monitorear y publicar sus parámetros reales.
 

@@ -110,7 +110,7 @@ Recusar ou abandonar uma atividade opcional não deve resultar em represálias n
 
 ## 11. Imagens, histórias, investigação e dados pessoais
 
-A GEF recolhe e utiliza informações sobre crianças apenas quando existe uma finalidade clara, uma base legal e salvaguardas adequadas. Também se aplicam a [Política de Proteção de Dados](/pt/governance/data-protection) e a [Nota de orientação da ODPC sobre o tratamento de dados de crianças](https://www.odpc.go.ke/guidelines-2/index.html).
+A GEF recolhe e utiliza informações sobre crianças apenas quando existe uma finalidade clara, uma base legal e salvaguardas adequadas. Também se aplicam a [Política de Proteção de Dados](/pt/governance/data-protection) e a [Nota de orientação da ODPC sobre o tratamento de dados de crianças](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf).
 
 Antes de gravar ou publicar a imagem, voz, história, trabalho, identidade, dados de contacto, associação comunitária ou localização de uma criança, a equipa responsável deve considerar o consentimento, a dignidade, a exatidão, a reutilização futura, o público, a permanência digital e o risco de identificação ou dano.
 

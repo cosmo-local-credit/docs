@@ -121,8 +121,7 @@ The digital layer is shared memory and coordination infrastructure. It is not a 
 \section*{Current and proposed flows}
 \addcontentsline{toc}{section}{Current and proposed flows}
 
-\subsection*{Current direct or routed Pool flow}
-\addcontentsline{toc}{subsection}{Current direct or routed Pool flow}
+\subsubsection*{Current direct or routed Pool flow}
 
 \begin{enumerate}[leftmargin=*]
 \item A holder reviews a voucher, its issuer, its terms, and associated Offerings.
@@ -138,8 +137,7 @@ Taking inventory from a Pool is a swap. It is redemption only if that Pool has s
 
 The current public route configuration searches up to three Pool swaps and supports App-compatible EOA/Calibur wallets. It does not currently prepare routed exchanges for Safes or other contract wallets. The Solidity \texttt{SwapRouter} remains quote-only; CLC Core and the signed wallet batch coordinate execution above the contracts.
 
-\subsection*{Wider proposed design}
-\addcontentsline{toc}{subsection}{Wider proposed design}
+\subsubsection*{Wider proposed design}
 
 The proposed design explores cross-domain HTLC or escrow routing, opt-in Pool rebalancing, batch netting, additional shared services, network liquidity programs, insurance policies, and governance assets. Each would require implementation, responsible parties, adopted rules, funding, controls, and public disclosures before it could apply.
 
@@ -172,8 +170,7 @@ Protocol v1.1.0 provides current direct-swap building blocks: \texttt{GiftableTo
 
 The historic \textbf{Sarafu Network} used commitment-pooling concepts across community currencies, savings groups, mutual-aid systems, and production commitments. Its service later transitioned to the CLC App. This was not a representation that every historic account, wallet, token, voucher, Pool, balance, report, participant, or obligation migrated.
 
-\subsection*{Historical Sarafu Network snapshot --- Celo activity from 5 July 2023 through 20 July 2025}
-\addcontentsline{toc}{subsection}{Historical Sarafu Network snapshot --- Celo activity from 5 July 2023 through 20 July 2025}
+\subsubsection*{Historical Sarafu Network snapshot --- Celo activity from 5 July 2023 through 20 July 2025}
 
 \textbf{Source:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics dashboard}
 
@@ -186,6 +183,8 @@ The historic \textbf{Sarafu Network} used commitment-pooling concepts across com
 \item 899 reports published (\href{https://sarafu.network/reports}{historical reports archive})
 \end{itemize}
 These figures are historical evidence, not current CLC usage figures.
+
+The figures reproduce the dashboard's published labels for one coherent measurement window. ``User,'' ``active,'' ``exchange,'' and the USD conversion for Pool swap volume depend on the underlying dashboard queries and valuation method; they should not be treated as universal CLC KPI definitions. This repository has not independently recomputed the dataset. Any reuse should preserve the dates, source link, labels, and historical qualification. The proposed measurement requirements in \href{https://docs.cosmolocal.credit/white-paper/appendix-c-kpi-definitions}{Appendix C} are stricter for future reporting.
 
 The wider CLC design combines current routing with proposals for how compatible networks could:
 
@@ -285,8 +284,7 @@ Traditional finance begins with \textbf{Assets - Liabilities = Equity}. CPP refr
 \item \textbf{Outstanding commitments:} issued promises that remain unfulfilled and are held by others.
 \item \textbf{Fulfillment capacity:} the issuer's evidenced ability to perform those promises.
 \end{itemize}
-\subsection*{Illustrative commitment-capacity relationship:}
-\addcontentsline{toc}{subsection}{Illustrative commitment-capacity relationship:}
+\subsubsection*{Illustrative commitment-capacity relationship:}
 
 Acceptance capacity - outstanding commitments = remaining acceptance capacity
 
@@ -997,8 +995,7 @@ The prohibited list would be versioned, publicly auditable, and changeable only 
 
 \textbf{Emergency-pause criteria.} A participating deployment would predeclare conditions such as an oracle outage, high limit utilization combined with fulfillment failures, or an invariant failure, together with resume checks and post-incident review requirements.
 
-\subsection*{Example public index feed for one Pool and voucher}
-\addcontentsline{toc}{subsection}{Example public index feed for one Pool and voucher}
+\subsubsection*{Example public index feed for one Pool and voucher}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Symbol:} for example, \texttt{Maize\_50kg@IssuerY}.
@@ -1038,16 +1035,14 @@ A coverage adjustment does not reduce an issuer's underlying voucher commitment 
 
 This section distinguishes issuer responsibility, optional Pool protections, and third-party guarantees. Pools can compete on curation, terms, and expressly offered protections without implying that the CLC App, CPP, GEF, or any wider network automatically guarantees a voucher.
 
-\subsection*{Baseline issuer responsibility}
-\addcontentsline{toc}{subsection}{Baseline issuer responsibility}
+\subsubsection*{Baseline issuer responsibility}
 
 \begin{itemize}[leftmargin=*]
 \item Each voucher is first and foremost its issuer's responsibility. The issuer commits to provide the stated good, service, or lawful cash-equivalent under its published terms.
 \item Issuers would publish who may present the voucher, what fulfillment means, where and when it is available, what evidence is required, and what remedies apply.
 \item If an issuer fails to fulfill, the issuer is the primary responsible party. Pool or network protections apply only when separately adopted, funded, and disclosed.
 \end{itemize}
-\subsection*{Optional Pool protections}
-\addcontentsline{toc}{subsection}{Optional Pool protections}
+\subsubsection*{Optional Pool protections}
 
 A Pool Steward may choose to add a narrowly defined protection to admitted vouchers. It is not automatic and would need to identify the responsible party, funding, eligible events, caps, windows, evidence, exclusions, and remedies in Pool metadata and applicable terms.
 
@@ -1059,8 +1054,7 @@ Illustrative protection types include:
 \item \textbf{Alternative fulfillment:} the responsible party arranges an approved substitute provider within a published quantity or value cap.
 \item \textbf{Exchange-rate-band protection:} for selected voucher classes, a Pool offers only the coverage adjustment or swap-back remedy stated in its pre-existing terms. This does not reduce the issuer's underlying voucher obligation.
 \end{enumerate}
-\subsection*{Possible funding sources}
-\addcontentsline{toc}{subsection}{Possible funding sources}
+\subsubsection*{Possible funding sources}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Issuer bond:} collateral posted by the issuer or held in a disclosed reserve and available after a verified covered event.
@@ -1069,8 +1063,7 @@ Illustrative protection types include:
 \end{itemize}
 Guarantor participation would follow published eligibility criteria, bond sizing, concentration limits, decision authority, and lawful enforcement rules.
 
-\subsection*{Claims process}
-\addcontentsline{toc}{subsection}{Claims process}
+\subsubsection*{Claims process}
 
 An adopted policy would define auditable triggers, such as a fulfillment deadline missed after valid redemption presentment, verified issuer insolvency, a covered bridge or escrow failure, or a formally declared incident state. It would also define:
 
@@ -1082,8 +1075,7 @@ An adopted policy would define auditable triggers, such as a fulfillment deadlin
 \end{itemize}
 Recovery proceeds from issuers, arbitration, or lawful enforcement would refill the applicable bonds or reserves according to the published policy before being used for proposed CLC Network Pool swap access.
 
-\subsection*{Required disclosures}
-\addcontentsline{toc}{subsection}{Required disclosures}
+\subsubsection*{Required disclosures}
 
 For every covered Pool and voucher class, the responsible party would publish:
 
@@ -1271,7 +1263,7 @@ The output should not describe curation, limits, reserves, or verification as en
 
 CPP can coordinate tokens, vouchers, Pools, and swaps whose legal treatment depends on their design, marketing, use, responsible parties, and jurisdiction. Nothing in this White Paper is legal, tax, investment, credit, or financial advice.
 
-Use of the CLC App is governed by the \href{https://docs.cosmolocal.credit/governance/terms}{Terms of Service}. GEF operates the App and supporting infrastructure. Unless GEF expressly assumes another role, it is not an issuer, Pool Steward, custodian, lender, borrower, broker, guarantor, redeemer, adviser, insurer, or party to obligations between participants.
+Use of the CLC App is governed by the \href{https://docs.cosmolocal.credit/governance/terms}{Terms of Service}. The \href{https://docs.cosmolocal.credit/governance/policies}{policies and notices hub} links the current Privacy Notice, Data Protection Policy, and Child Safeguarding Policy. GEF operates the App and supporting infrastructure. Unless GEF expressly assumes another role, it is not an issuer, Pool Steward, custodian, lender, borrower, broker, guarantor, redeemer, adviser, insurer, or party to obligations between participants.
 
 Deployment-dependent payment services must identify their responsible provider, jurisdictions, eligibility, fees, limits, custody model, and terms. The presence of a connector does not mean that GEF or a Pool operates the underlying regulated service.
 
@@ -1314,7 +1306,7 @@ An ordinary \textbf{Pool swap} exchanges supported assets under a displayed quot
 
 \textbf{Redemption presentment} returns or presents voucher units to an issuer. \textbf{Fulfillment} is the issuer's promised performance. \textbf{Discharge} records fulfilled units so they cannot be reused. The App's \textbf{``Redeem''} action currently prepares a transfer to the token owner; that transfer alone does not prove fulfillment.
 
-The App's \textbf{``Retire voucher''} action is reversible catalog unlisting. It does not burn balances, cancel claims, or discharge obligations.
+The App's \textbf{``Request retirement''} action submits an owner request for administrative review. The Voucher or Pool remains active while the request is pending, and the request can be approved, rejected, or cancelled. Approved Voucher retirement removes the catalog record from active use without deleting balances, contracts, history, claims, or obligations. Approved Pool retirement blocks new swaps and deposits while leaving available withdrawals possible. Neither action is burning, fulfillment, or discharge.
 
 A future loan or other credit product would require separately presented supplemental and transaction terms before use. No ordinary send, contribution, Pool deposit, Pool swap, presentment, fulfillment, or discharge creates a loan merely because of its direction or asset type.
 

@@ -1,4 +1,4 @@
-## E. Pag-aaral ng halimbawa — iminungkahi na network rake
+# E. Pag-aaral ng halimbawa — iminungkahi na network rake
 
 Ang halimbawa na ito ay nagpapahiwatig ng iminungkahi na modelo ng rake. Hindi ito ang karagdagang pagkalkula ng protocol-fee na ginagamit ng Protocol v1.1.0.
 

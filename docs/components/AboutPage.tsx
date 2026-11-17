@@ -6,7 +6,9 @@ import {
   type SupportedLocale,
 } from '../i18n/locales'
 import type { SplashMessages } from '../i18n/messages'
-import { localizedPath } from '../i18n/routes'
+import { introductionGuideMessages } from '../i18n/introduction-guide'
+import { localizedPath, policyNavigationForLocale } from '../i18n/routes'
+import { IntroductionCarousel } from './IntroductionCarousel'
 
 const statistics = [
   { value: 745, key: 'vouchers', tone: 'orange' },
@@ -258,6 +260,72 @@ function RoleSeparator() {
   )
 }
 
+function FeaturesSection({
+  docsPath,
+  messages,
+}: {
+  docsPath: (path: string) => string
+  messages: SplashMessages
+}) {
+  return (
+    <section className="about-section about-features" id="features">
+      <div className="about-shell">
+        <div className="about-section-heading">
+          <h2>{messages.features.heading}</h2>
+          <div className="about-features__intro">
+            <p>{messages.features.intro[0]}</p>
+            <p>{messages.features.intro[1]}</p>
+            <p>
+              {richMessage(messages.features.intro[2], {
+                organization: (
+                  <a href="https://grassrootseconomics.org/" rel="noreferrer" target="_blank">
+                    {messages.features.organization}
+                  </a>
+                ),
+              })}
+            </p>
+            <p>
+              <a href={docsPath('/introduction/history')}>{messages.features.historyLink}</a>
+            </p>
+          </div>
+        </div>
+        <div className="about-features__layout">
+          <div className="about-feature-grid">
+            {messages.features.cards.map((feature, index) => (
+              <article className="about-feature-card" key={feature.title}>
+                <div className="about-card-number">{String(index + 1).padStart(2, '0')}</div>
+                <h3>
+                  {index === 3 ? (
+                    <a
+                      href="https://github.com/cosmo-local-credit"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {feature.title}
+                    </a>
+                  ) : (
+                    feature.title
+                  )}
+                </h3>
+                <p>{feature.description}</p>
+              </article>
+            ))}
+          </div>
+          <div className="about-features__visual">
+            <img
+              alt={messages.features.imageAlt}
+              height="1718"
+              loading="lazy"
+              src="/about/home/features-image.png"
+              width="1116"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 type AboutPageProps = {
   locale: SupportedLocale
   messages: SplashMessages
@@ -271,10 +339,10 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
   const englishDocsLink = hasTranslatedDocs
     ? {}
     : { 'data-english-source': 'true', hrefLang: 'en' }
+  const policyNavigation = policyNavigationForLocale(locale)
 
   return (
     <main className="about-page">
-
       <section className="about-overview" aria-labelledby="overview-title">
         <div className="about-shell">
           <div className="about-overview__intro">
@@ -342,6 +410,8 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
         </div>
       </section>
 
+      <FeaturesSection docsPath={docsPath} messages={messages} />
+
       <section className="about-hero about-section" id="about" aria-labelledby="about-title">
         <div className="about-shell about-hero__grid">
           <div className="about-hero__content">
@@ -382,17 +452,19 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
 
           <div className="about-hero__evidence">
             <div className="about-video">
-              <p className="about-video__label">{messages.hero.videoLabel}</p>
-              <div className="about-video__frame">
-                <iframe
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  src="https://www.youtube-nocookie.com/embed/gn4mMspXlF0"
-                  title={messages.hero.videoTitle}
-                />
-              </div>
+              <IntroductionCarousel
+                direction={LOCALE_BY_CODE[locale].direction}
+                messages={introductionGuideMessages[locale]}
+              />
+              <p className="about-video__label">
+                <a
+                  href="https://www.youtube.com/playlist?list=PLYU7c4M54B98"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  {messages.hero.videoLabel}
+                </a>
+              </p>
             </div>
 
             <dl className="about-stats">
@@ -438,30 +510,38 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="about-section about-how" aria-label={messages.howItWorks.label}>
-        <div className="about-shell about-how__layout">
-          <div className="about-how__visual">
-            <img
-              alt={messages.howItWorks.imageAlt}
-              height="473"
-              loading="lazy"
-              src="/about/home/how-it-works.png"
-              width="300"
-            />
+      <section className="about-section about-how" aria-labelledby="how-it-works-title">
+        <div className="about-shell">
+          <div className="about-section-heading">
+            <h2 id="how-it-works-title">{messages.howItWorks.label}</h2>
           </div>
-          <div className="about-step-grid">
-            {messages.howItWorks.steps.map((step, index) => (
-              <article className={`about-step-card about-step-card--${index + 1}`} key={step.title}>
-                <div className="about-card-number">{String(index + 1).padStart(2, '0')}</div>
-                <h2>{step.title}</h2>
-                <p>{step.description}</p>
-                {index < 3 ? (
-                  <span className="about-step-arrow" aria-hidden="true">
-                    →
-                  </span>
-                ) : null}
-              </article>
-            ))}
+          <div className="about-how__layout">
+            <div className="about-how__visual">
+              <img
+                alt={messages.howItWorks.imageAlt}
+                height="473"
+                loading="lazy"
+                src="/about/home/how-it-works.png"
+                width="300"
+              />
+            </div>
+            <div className="about-step-grid">
+              {messages.howItWorks.steps.map((step, index) => (
+                <article
+                  className={`about-step-card about-step-card--${index + 1}`}
+                  key={step.title}
+                >
+                  <div className="about-card-number">{String(index + 1).padStart(2, '0')}</div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  {index < 3 ? (
+                    <span className="about-step-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  ) : null}
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -496,11 +576,10 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
         )
       })}
 
-      <section
-        className="about-section about-impact"
-        id="impact"
-        aria-label={messages.testimonial.label}
-      >
+      <section className="about-section about-impact" id="impact">
+        <div className="about-shell about-section-heading">
+          <h2>{messages.testimonial.label}</h2>
+        </div>
         <div className="about-shell about-impact__card">
           <div className="about-impact__image">
             <img
@@ -527,55 +606,9 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="about-section about-features" id="features">
-        <div className="about-shell">
-          <div className="about-section-heading">
-            <h2>{messages.features.heading}</h2>
-            <div className="about-features__intro">
-              <p>{messages.features.intro[0]}</p>
-              <p>{messages.features.intro[1]}</p>
-              <p>
-                {richMessage(messages.features.intro[2], {
-                  organization: (
-                    <a href="https://grassrootseconomics.org/" rel="noreferrer" target="_blank">
-                      {messages.features.organization}
-                    </a>
-                  ),
-                })}
-              </p>
-              <p>
-                <a href={docsPath('/introduction/history')}>
-                  {messages.features.historyLink}
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="about-features__layout">
-            <div className="about-feature-grid">
-              {messages.features.cards.map((feature, index) => (
-                <article className="about-feature-card" key={feature.title}>
-                  <div className="about-card-number">{String(index + 1).padStart(2, '0')}</div>
-                  <h3>{feature.title}</h3>
-                  <p>{feature.description}</p>
-                </article>
-              ))}
-            </div>
-            <div className="about-features__visual">
-              <img
-                alt={messages.features.imageAlt}
-                height="1718"
-                loading="lazy"
-                src="/about/home/features-image.png"
-                width="1116"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="about-section about-partners" aria-label={messages.partners.sectionLabel}>
         <div className="about-shell">
-          <p className="about-logo-heading">{messages.partners.mediaHeading}</p>
+          <h2 className="about-logo-heading">{messages.partners.mediaHeading}</h2>
           <div className="about-logo-row about-logo-row--media">
             {mediaPartners.map((partner) => (
               <a
@@ -601,7 +634,7 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
             <span />
           </div>
 
-          <p className="about-logo-heading">{messages.partners.partnersHeading}</p>
+          <h2 className="about-logo-heading">{messages.partners.partnersHeading}</h2>
           <div className="about-logo-row">
             {organizationalPartners.map((partner) => (
               <a
@@ -657,13 +690,8 @@ export function AboutPage({ locale, messages }: AboutPageProps) {
             <a href={docsPath('/governance/terms')}>
               {messages.footer.terms}
             </a>
-            <a
-              href="https://docs.grassecon.org/commons/data_policy/"
-              hrefLang="en"
-              rel="noreferrer"
-              target="_blank"
-            >
-              {messages.footer.dataPolicy}
+            <a href={docsPath('/governance/privacy')}>
+              {policyNavigation?.privacy ?? messages.footer.dataPolicy}
             </a>
           </nav>
         </div>

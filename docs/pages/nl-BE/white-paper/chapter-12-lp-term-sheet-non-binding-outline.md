@@ -1,4 +1,4 @@
-## **12. Voorgestelde liquiditeitsprogramma-term sheet (niet bindend schema)**
+# 12. Voorgestelde liquiditeitsprogramma-term sheet (niet bindend schema)
 
 Dit is een illustratieve checklist voor een toekomstig, afzonderlijk gedocumenteerd programma. Het is geen aanbod, een huidige app-functie of een belofte van liquiditeit, toegang, verzekering, rendement, waarde of exit.
 

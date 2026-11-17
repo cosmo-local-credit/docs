@@ -1,4 +1,4 @@
-## **4. Herbruikbare forward-style zekerheden**
+# 4. Herbruikbare forward-style zekerheden
 
 Een afzonderlijk gedocumenteerde kredietfaciliteit kan fungieuze, overdraagbare waardebonnen accepteren als zekerheid of als terugbetalingsinstrument.
 
@@ -7,7 +7,7 @@ Een afzonderlijk gedocumenteerde kredietfaciliteit kan fungieuze, overdraagbare 
 - de limieten, het inventaris, de waardering, de liquiditeit, de prestaties van de uitgever en de risico's op verzuim blijven bestaan; en
 - er zou geen route, nakoming, terugbetaling, waarde of herstel worden gegarandeerd.
 
-### 4.1 Producentenkredietloop
+## 4.1 Producentenkredietloop
 
 Een toekomstige CLC--compatibele dienst zou producentenkrediet alleen kunnen ondersteunen wanneer de partijen een afzonderlijke faciliteit oprichten en de transactie uitdrukkelijk als terugbetaalbare voorschot presenteren.
 

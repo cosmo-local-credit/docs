@@ -166,6 +166,19 @@ L’Application web de production est distribuée par Cloudflare Pages. Sa confi
 
 D’autres intégrations dépendent des fonctionnalités utilisées. Lorsqu’il est activé et utilisé, un service de notification traite les points de terminaison d’abonnement push, l’état de l’appareil, les adresses de Portefeuille associées, les accusés de réception et de clic ainsi que l’état de la boîte de réception ; un relais de transactions traite les demandes signées et l’état des transactions ; un service de transaction Safe traite les adresses multisignatures, les propositions, les signatures, les confirmations et l’état d’exécution ; et un prestataire de paiement ou de conversion d’espèces traite le numéro de téléphone, l’adresse de Portefeuille, l’actif, le montant, l’identifiant du prestataire, le taux et l’état de la transaction nécessaires à cette fonctionnalité. Le stockage d’images, l’API de l’Application, les bases de données, les services d’indexation de blockchain et l’infrastructure de surveillance traitent le contenu et les enregistrements opérationnels nécessaires à leurs fonctions. Un service tiers peut également collecter directement des données conformément à son propre avis de confidentialité.
 
+### Registre actuel des services
+
+Ce registre indique les services attestés par la configuration de production examinée le 17 novembre 2026. Un service dépendant du déploiement n’intervient que lorsque la fonctionnalité correspondante est configurée ou utilisée. Les fonctionnalités, les lieux de traitement et les avis des prestataires peuvent évoluer ; l’avis en vigueur présenté par le prestataire s’applique également.
+
+| Service ou catégorie | Finalité et données concernées | Informations du prestataire | Statut |
+| --- | --- | --- | --- |
+| Cloudflare Pages | Distribue l’Application web et traite les requêtes réseau, notamment l’adresse IP ainsi que les informations relatives au navigateur, à la sécurité et à la requête. | [Politique de confidentialité de Cloudflare](https://www.cloudflare.com/privacypolicy/) | Hébergement web de production actuel |
+| MapTiler | Fournit les styles de carte et les suggestions de localisation fondées sur l’adresse IP ; les requêtes peuvent comprendre l’adresse IP, les informations du navigateur, la zone cartographique et le contexte de localisation. | [Politique de confidentialité de MapTiler](https://www.maptiler.com/privacy-policy/) | Configuration actuelle du navigateur |
+| Esri ArcGIS World Geocoding | Fournit la recherche de lieux et le géocodage inverse ; les requêtes peuvent comprendre le texte recherché, les coordonnées, l’adresse IP et les informations du navigateur. | [Déclaration de confidentialité d’Esri](https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement) | Configuration actuelle du navigateur |
+| Services de l’Application exploités par GEF | Fournissent l’API de l’Application, la base de données, le stockage d’images, l’indexation, l’accès RPC configuré, le relais de transactions, l’assistance et les opérations connexes. Les données dépendent de la fonctionnalité demandée. | Le présent Avis de confidentialité et la [Politique de protection des données](/fr/governance/data-protection) | Actuels, les différents composants étant activés selon le déploiement |
+| Service de transaction Safe | Prend en charge la découverte de multisignatures compatibles et la coordination des transactions, notamment les adresses Safe, les signataires, les seuils, les propositions, les confirmations et l’état d’exécution. | [Politique de confidentialité de Safe](https://safe.global/privacy) | Dépend du déploiement |
+| Prestataires facultatifs de notification, de paiement, de conversion d’espèces et autres | Traitent uniquement les informations nécessaires à une fonctionnalité activée, comme décrit ci-dessus et dans les conditions du prestataire affichées avec cette fonctionnalité. | L’avis et les conditions de transaction du prestataire concerné | Dépend du déploiement |
+
 ## 11. Traitement international
 
 L’Application, les réseaux de blockchain publics, les prestataires de services, les partenaires et les utilisateurs peuvent exercer leurs activités dans plusieurs pays. Des données à caractère personnel peuvent donc être consultées ou traitées en dehors du Kenya ou du pays dans lequel elles ont été collectées.
@@ -206,7 +219,7 @@ Adressez votre demande à [privacy@grassecon.org](mailto:privacy@grassecon.org).
 
 Vous pouvez également choisir de ne pas renseigner les champs facultatifs du profil, retirer des informations facultatives avant la publication, utiliser un moyen de contact public adapté, sélectionner un emplacement public sûr sur la carte, gérer l’autorisation de notification et ne pas utiliser une fonctionnalité qui exige des données que vous ne souhaitez pas fournir.
 
-Des informations sur les droits des personnes concernées au Kenya sont disponibles auprès de l’[ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/).
+Des informations sur les droits des personnes concernées au Kenya sont disponibles auprès de l’[ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/). Une personne concernée peut également utiliser la [page officielle de dépôt de plainte de l’ODPC](https://odpc.go.ke/file-a-complaint/index.html).
 
 ## 15. Enfants
 

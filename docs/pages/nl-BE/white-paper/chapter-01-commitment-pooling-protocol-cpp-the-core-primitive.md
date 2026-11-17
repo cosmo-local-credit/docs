@@ -1,16 +1,16 @@
-## **1. protocol voor het bundelen van verbintenissen (CPP): de primitieve kern**
+# 1. protocol voor het bundelen van verbintenissen (CPP): de primitieve kern
 
 **Mentaal model:** Een Commitmentfonds is een bestuurde regeling die Waardebonnen of andere activa toelaat, wisselregels publiceert, voorraad aanhoudt en swaps mogelijk maakt. Houders bieden Waardebonnen later bij hun Uitgever aan voor levering in de echte wereld. De Fondsswap en de levering door de Uitgever zijn afzonderlijke levenscycli.
 
 CPP coördineert de waarde door middel van duidelijk beschreven verplichtingen. [Grassroots Economie: Reflectie en praktijk](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
-### **1.1 Wat is een verbintenis?**
+## **1.1 Wat is een verbintenis?**
 
 Een verbintenis is de belofte van een geïdentificeerde partij van toekomstige levering, bijvoorbeeld voedsel, vervoer, arbeid, opslag of een ander wettelijk goed, dienstverlening, voordeel of prestatie. **waardebon** is een symbool of een record dat in gepubliceerde termen wordt weergegeven als die verbintenis.
 
 Het token contract registreert digitale mechanismen. De vouchervoorwaarden identificeren de uitgever, aanbod, capaciteit, plaats, tijdstip, beperkingen, presentatie, nakoming, klachten en ontlastingsproces.
 
-### **1.2 Wat is een Commitmentfonds?**
+## **1.2 Wat is een Commitmentfonds?**
 
 Een Commitmentfonds is de gereglementeerde regeling. Het kan worden beheerd door een individu, coöperatie, gemeenschapsgroep, overheidsinstantie, federatie, multisig, dienstverlener of een andere verantwoordelijke structuur.
 
@@ -36,7 +36,7 @@ De productieversies van de CLC App en CLC Core implementeren routering binnen é
 
 Het bredere voorgestelde CPP-ontwerp kan voortschrijdende limieten, accountcontroles, cross-domain paden met HTLC's of escrow, automatische herbalancering van Fondsen en batchverrekening toevoegen. Dat zijn voorgestelde onderdelen, geen beschrijvingen van de huidige `Limiter`, Solidity-router of routeringsworkflow van de App en CLC Core.
 
-### **1.3 Logiek van de huidige directe swap**
+## **1.3 Logiek van de huidige directe swap**
 
 Een huidige directe Fonds swap:
 
@@ -51,7 +51,7 @@ Een huidige directe Fonds swap:
 
 De offerte is een transactieparameter, geen bewijs van capaciteit van de Uitgever, inwisselwaarde, reële waarde, omzetbaarheid in geld of een garantie.
 
-### **1.4 Breder gebruik**
+## **1.4 Breder gebruik**
 
 Commitmentfondsen kan gemeenschapsruil, productie, wederzijdse hulp, openbare programma's en andere verantwoordingsplichtige structuren ondersteunen. Een afzonderlijk gedocumenteerd kredietproduct zou een waardebon als zekerheid of terugbetalingsinstrument kunnen gebruiken, maar het zou aanvullende en transactie-specifieke voorwaarden vereisen.
 

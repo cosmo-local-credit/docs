@@ -1,4 +1,4 @@
-## **13. Faharasa ya lugha rahisi**
+# 13. Faharasa ya lugha rahisi
 
 - **Cosmo-Local Credit (CLC):** Familia ya bidhaa, ikiwa ni pamoja na CLC App, hati, na kazi pana ya kuunganisha ahadi.
 - **CLC App:** Programu ya maendeleo ya mtandao inayotumiwa na GEF katika `cosmolocal.credit`.

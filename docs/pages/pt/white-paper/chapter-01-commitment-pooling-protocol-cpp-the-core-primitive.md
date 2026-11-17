@@ -1,16 +1,16 @@
-## **1. Protocolo de partilha de compromissos (CPP): o núcleo primitivo**
+# 1. Protocolo de partilha de compromissos (CPP): o núcleo primitivo
 
 **Modelo mental:** Um Fundo de Compromissos é um regime regulado para a admissão de vales ou outros ativos, a publicação de regras de câmbio, a detenção de inventário e a possibilitação de swaps. Os titulares posteriormente apresentam vales aos seus emissores para realização no mundo real. A troca de fundos e o cumprimento dos emissores são ciclos de vida separados.
 
 CPP coordena o valor através de compromissos claramente descritos. O modelo é discutido em [Economia de base: reflexão e prática](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
-### **1.1 O que é um compromisso?**
+## **1.1 O que é um compromisso?**
 
 Um compromisso é a promessa de uma parte identificada de entrega futura, por exemplo, alimentos, transportes, mão-de-obra, armazenamento ou outro bem, serviço, benefício ou desempenho legal. A **vale** é um token ou registro representado como esse compromisso em termos publicados.
 
 O contrato de tokens registra mecânica digital. Os termos do vale identificam o emissor, a oferta, a capacidade, o local, o horário, as restrições, a apresentação, o cumprimento, as reclamações e o processo de quitação.
 
-### **1.2 O que é um Fundo de Compromissos?**
+## **1.2 O que é um Fundo de Compromissos?**
 
 Um Fundo de Compromissos é o arranjo regido. Pode ser administrado por um indivíduo, cooperativa, Fundo comunitário, agência pública, federação, multisig, operador de serviços ou outra estrutura responsável.
 
@@ -36,7 +36,7 @@ A CLC App e o CLC Core em produção implementam encaminhamento na mesma cadeia 
 
 O projeto CPP proposto, mais amplo, pode acrescentar limites móveis, controlos por conta, caminhos entre domínios por HTLC ou depósito em garantia, reequilíbrio automático de Fundos e compensação por lotes. Estes são componentes propostos, não descrições do `Limiter` atual, do `SwapRouter` Solidity nem do fluxo de rotas da CLC App e do CLC Core.
 
-### **1.3 Lógico de troca direta atual**
+## **1.3 Lógico de troca direta atual**
 
 Uma troca direta do Fundo atual:
 
@@ -51,7 +51,7 @@ Uma troca direta do Fundo atual:
 
 A cotação é um parâmetro de transação, não prova da capacidade do emissor, do valor de resgate, do justo valor, da convertibilidade de caixa ou de uma garantia.
 
-### **1.4 Uso mais amplo**
+## **1.4 Uso mais amplo**
 
 O Fundos de Compromissos pode apoiar o intercâmbio comunitário, a produção, a ajuda mútua, os programas públicos e outras estruturas responsáveis. Um produto de crédito documentado separadamente poderia utilizar um vale como garantia ou instrumento de reembolso, mas exigiria termos suplementares e específicos da transação. Um envio ordinário, depósito de fundo, troca de fundo, apresentação de resgate, cumprimento ou liquidação não são automaticamente um empréstimo ou reembolso.
 

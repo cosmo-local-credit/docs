@@ -1,4 +1,4 @@
-## **14. Indicadores-chave de desempenho e indicadores de saúde**
+# 14. Indicadores-chave de desempenho e indicadores de saúde
 
 Uma implementação só deve publicar um indicador quando puder definir o evento, a fonte, a coorte ou o período, a unidade, o método e o momento da avaliação, as exclusões, a política de correção, as provas fora da cadeia e as limitações da qualidade dos dados.
 

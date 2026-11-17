@@ -110,7 +110,7 @@ Il rifiuto o l’abbandono di un’attività facoltativa non deve comportare rit
 
 ## 11. Immagini, storie, ricerca e dati personali
 
-GEF raccoglie e utilizza le informazioni relative ai minori soltanto quando esistono uno scopo chiaro, una base giuridica e garanzie adeguate. Si applicano inoltre la [Politica di protezione dei dati](/it/governance/data-protection) e la [Nota di orientamento dell’ODPC sul trattamento dei dati dei minori](https://www.odpc.go.ke/guidelines-2/index.html).
+GEF raccoglie e utilizza le informazioni relative ai minori soltanto quando esistono uno scopo chiaro, una base giuridica e garanzie adeguate. Si applicano inoltre la [Politica di protezione dei dati](/it/governance/data-protection) e la [Nota di orientamento dell’ODPC sul trattamento dei dati dei minori](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf).
 
 Prima di registrare o pubblicare l’immagine, la voce, la storia, il lavoro, l’identità, i recapiti, l’appartenenza a una comunità o la posizione di un minore, il gruppo responsabile deve considerare il consenso, la dignità, l’esattezza, i possibili riutilizzi futuri, il pubblico, la permanenza digitale e il rischio di identificazione o danno.
 

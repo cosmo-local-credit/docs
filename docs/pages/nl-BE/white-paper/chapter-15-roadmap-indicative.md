@@ -1,6 +1,6 @@
-## **15. Routekaart (indicatief)**
+# 15. Routekaart (indicatief)
 
-### **15.1 Tegenwoordige basis**
+## **15.1 Tegenwoordige basis**
 
 GEF exploiteert de CLC-app op `cosmolocal.credit` op Gnosis Chain. De app biedt ondersteuning voor account- en wallettoegang, een openbare marktcatalogus en interfaces voor tokens, Waardebonnen, aanbiedingen, wensen, commitmentpools, overschrijvingen, directe poolswaps en gerouteerde uitwisselingen.
 
@@ -8,7 +8,7 @@ Protocol v1.1.0 biedt de huidige contractbasis: `GiftableToken`, directe uitvoer
 
 CLC Core vormt nu de basis voor routering en waarneembaarheid binnen één blockchainnetwerk in de openbare App: een afgestemde graaf voor ontdekking, routes van maximaal drie Fondsswaps, offertes op basis van één vastgezet blok, grenzen en kosten per stap, simulatie van de volledige batch, ondertekende atomaire uitvoering via Calibur, relaytracking, afstemming van de afwikkeling, gebundelde transactieoverzichten en operationele statistieken. Beschikbaarheid blijft afhankelijk van de interface, ondersteund wallet- en tokengedrag, geïmplementeerde contracten, voorraad, configuratie, actualiteit van de dienst, netwerkstatus, toelatingscriteria, aanbieders, rechtsgebied en gepubliceerde voorwaarden van de Uitgever of het Fonds.
 
-### **15.2 Voorgestelde mijlpalen**
+## **15.2 Voorgestelde mijlpalen**
 
 Deze benoemde mijlpalen zijn ontwerprichtingen, geen releasenummers, opleverdatums of toezeggingen dat een functie wordt gelanceerd.
 

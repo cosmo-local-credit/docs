@@ -1,4 +1,4 @@
-## **17. Nota legal y de cumplimiento**
+# 17. Nota legal y de cumplimiento
 
 CPP puede coordinar tokens, vales, Fondos y swaps cuyo tratamiento legal depende de su diseño, comercialización, uso, partes responsables y jurisdicción. Nada en este Libro Blanco es asesoramiento jurídico, fiscal, de inversión, de crédito o financiero.
 
@@ -6,7 +6,7 @@ El uso de la CLC App se rige por el [Términos de servicio](/es/governance/terms
 
 Los servicios de pago dependientes del despliegue deberán identificar a su proveedor responsable, jurisdicciones, elegibilidad, tarifas, límites, modelo de custodia y condiciones. La presencia de un conector no significa que GEF o un grupo explote el servicio regulado subyacente.
 
-### **17.1 Información sobre los vales y las ofertas**
+## **17.1 Información sobre los vales y las ofertas**
 
 Un emisor debe publicar y mantener al día:
 
@@ -20,7 +20,7 @@ Un emisor debe publicar y mantener al día:
 
 Un contrato simbólico no establece estos términos ni prueba el rendimiento.
 
-### **17.2 Las divulgaciones del grupo**
+## **17.2 Las divulgaciones del grupo**
 
 Un Responsable del Fondo debe publicar:
 
@@ -34,7 +34,7 @@ Un Responsable del Fondo debe publicar:
 
 La cotización no es una aprobación, valoración, seguro o garantía de GEF.
 
-### **17.3 Acciones y obligaciones**
+## **17.3 Acciones y obligaciones**
 
 Un hombre ordinario **Intercambio de Fondos** los intercambios de activos apoyados en función de una cotización y límites de transacción mostrados. La dirección de los activos no lo convierte en un préstamo, pago, redención del emisor o cumplimiento real.
 
@@ -44,7 +44,7 @@ La aplicación es **“Retirar vale”** La acción es la eliminación de catál
 
 Un préstamo futuro u otro producto de crédito requeriría que se presentaran por separado los términos suplementarios y de la transacción antes de su uso. Ningún envío ordinario, contribución, depósito de grupo, swap de grupo, presentación, cumplimiento o descarga crea un préstamo simplemente debido a su dirección o tipo de activo.
 
-### **17.4 Protecciones, pruebas y leyes locales**
+## **17.4 Protecciones, pruebas y leyes locales**
 
 Un límite, una reserva, una entrada en el registro, una lista de aplicaciones o una transacción de cadena de bloques no son automáticamente una póliza de garantía o seguro. Cualquier protección debe identificar a la parte responsable, el evento cubierto, la financiación, el límite, las exclusiones, la duración, la evidencia, el proceso de reclamación y las condiciones aplicables.
 

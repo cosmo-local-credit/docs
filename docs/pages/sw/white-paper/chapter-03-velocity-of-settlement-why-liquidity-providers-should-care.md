@@ -1,4 +1,4 @@
-## **3. Utekelezaji, ukomo na ubadilishaji**
+# 3. Utekelezaji, ukomo na ubadilishaji
 
 Mabadiliko ya mkusanyiko swap ambayo hushughulikia mali kushikilia. utekelezaji wa vocha hufanyika wakati mtoaji hutimiza ahadi iliyochapishwa. Utoaji huorodhesha vitengo vilivyokamilika ili wasiweze kuwasilishwa tena. Matukio haya hayapaswi kuanguka katika matumizi moja ya settlement.
 

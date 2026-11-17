@@ -1,4 +1,4 @@
-## **11. Meccanismi di governance**
+# 11. Meccanismi di governance
 
 Questo capitolo propone un modello di governance. Non rappresenta che l'attuale CLC App utilizzi il voto governance-token, i blocchi di tempo, l'assicurazione condivisa, un processo di rivendicazione o ogni controllo descritto di seguito. Ogni distribuzione dovrebbe identificare i propri fattori decisionali, le autorità, i contratti, i processi e le politiche.
 
@@ -21,7 +21,7 @@ Le norme di registro pubblicate dovrebbero rendere condizionato lo status e poss
 
 L'elenco proibito sarebbe versionebile, verificabile pubblicamente e modificabile solo attraverso la soglia e il tempo di azione critica adottati, illustrati come Q3 + T3 nell'appendice D.
 
-### **11.1 Governanza dei tassi di cambio e dei limiti**
+## **11.1 Governanza dei tassi di cambio e dei limiti**
 
 **Cambiamenti bloccati nel tempo.** Un'implementazione secondo questo modello modificerebbe i metodi dei tassi di cambio e implementerebbe separatamente i parametri limite solo dopo un blocco temporale pubblico. Un percorso di emergenza utilizzerebbe un processo di autorizzazione rivelato separatamente e include un tramonto automatico o una revisione.
 
@@ -42,7 +42,7 @@ L'elenco proibito sarebbe versionebile, verificabile pubblicamente e modificabil
 - **Ragione:** le note pubblicate e una registrazione delle modifiche effettuate dall'aggiornamento precedente.
 - **Firmatari:** indirizzi multisig divulgati e soglia di omologazione.
 
-### **11.2 Libro di riferimento proposto per i fondi assicurativi**
+## **11.2 Libro di riferimento proposto per i fondi assicurativi**
 
 **Solo progettazione opzionale.** La presente guida si applica solo a una distribuzione che ha espressamente adottato e finanziato un fondo di assicurazione e pubblicato gli eventi coperti, i richiedenti ammissibili, l'entità responsabile, le attività, i limiti, le esclusioni, i requisiti di prova, il processo e i termini di gestione. Né l'attuale CLC App né GEF forniscono copertura solo perché questo disegno figura nel Libro bianco.
 
@@ -63,7 +63,7 @@ Un aggiustamento della copertura non riduce l'impegno sottostante di un emittent
 3. un piano di recupero potrebbe applicare una quota dichiarata del valore recuperato per un determinato periodo, dopo il quale qualsiasi deficit coperto rimanente sarebbe diventato una perdita registrata con un post mortem pubblico; e
 4. ogni decisione fornisce una ricevuta con l'incidente ID, la domanda e i buoni interessati, la decisione, il piano di recupero e la finestra di ricorso.
 
-### **11.3 Quadro di garanzia**
+## **11.3 Quadro di garanzia**
 
 Questa sezione distingue la responsabilità dell'emittente, le protezioni facoltative del fondo e le garanzie di terzi. Le fondo possono competere su curazioni, termini e protezioni espressamente offerte senza implicare che CLC App, CPP, GEF o qualsiasi rete più ampia garantisca automaticamente un buono.
 
@@ -115,7 +115,7 @@ Per ogni classe di fondo e di buono coperti, la parte responsabile pubblicherà:
 
 **Principio di cura.** Responsabili dei Fondi e le strutture giuridiche o di governance responsabili sono responsabili delle protezioni che pubblicizzano. Una distribuzione CPP-compatibile può fornire standard, registri o politiche condivise opzionali, ma né CLC né GEF garantiscono automaticamente buoni o fondo.
 
-### **11.4 Garda anti cattura**
+## **11.4 Garda anti cattura**
 
 In base a questo modello, le seguenti azioni critiche richiedono il livello di omologazione più elevato adottato e un lungo periodo di tempo:
 
@@ -125,7 +125,7 @@ In base a questo modello, le seguenti azioni critiche richiedono il livello di o
 4. l'espansione dei poteri di pausa di emergenza; o
 5. il debolezza della forcabilità, della trasparenza o degli impegni relativi alla sovranità dei Fondo indicati nel presente documento.
 
-### **11.5 Procedura per la forca e l'uscita**
+## **11.5 Procedura per la forca e l'uscita**
 
 Se la governance fosse catturata o i valori fossero sostanzialmente spostati, le comunità, Responsabili dei Fondi, e gli operatori potrebbero cercare di uscire forcando lo strato di governance della rete. La continuità dei fondo e dei buoni sottostanti dipende dai contratti, dalle chiavi, dalle interfacce, dalle infrastrutture, dai servizi di terzi e dagli obblighi applicabili.
 

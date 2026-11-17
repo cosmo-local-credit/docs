@@ -1,10 +1,10 @@
-## **7. Proposed CLC stewardship and governance assets**
+# 7. Proposed CLC stewardship and governance assets
 
 This chapter presents one optional future governance and liquidity-coordination design. The proposed CLC governance token, stCLC, sCLC, governance vault, insurance fund, Waterfall, gauges, mandates, fee-credit windows, and external-market programs are not part of the current CLC App or Protocol v1.1.0. Each would require an implementation, accountable operator, published policy and terms, security review, and applicable legal approval.
 
 CPP does not require this token model. Compatible deployments could instead use cooperatives, public agencies, federations, multisigs, services, or other accountable structures.
 
-### **7.1 Purpose**
+## **7.1 Purpose**
 
 If adopted, the proposed governance layer could:
 
@@ -15,7 +15,7 @@ If adopted, the proposed governance layer could:
 - recognize contributors under published eligibility and anti-gaming rules; and
 - preserve review, appeal, transparency, and credible exit as participation grows.
 
-### **7.2 Proposed governance-asset model**
+## **7.2 Proposed governance-asset model**
 
 The design contains three distinct proposed assets:
 
@@ -27,7 +27,7 @@ Neither stCLC nor sCLC would be equity, a dividend, a residual claim, a promise 
 
 Governance lockups, minimum durations, cooldowns, delegation, concentration caps, and critical-action thresholds would be published before use. Unlocked proposed CLC governance tokens would not vote under this design.
 
-#### **7.2.1 Illustrative supply and allocation**
+### **7.2.1 Illustrative supply and allocation**
 
 The illustrative total proposed CLC governance-token supply is **500,000,000**. This is a design parameter, not a current issuance, offer, valuation, or promise of liquidity.
 
@@ -47,7 +47,7 @@ Under the illustrative public-liquidity controls:
 
 A future launch could begin with a disclosed multisig and transition only after separately approved hardening milestones, such as independent audits, monitoring, incident runbooks, and tested pause and fork procedures. Every adopted parameter and change process would be published separately.
 
-#### **7.2.2 Availability and endowment stages**
+### **7.2.2 Availability and endowment stages**
 
 A future endowment program could use staged contribution windows and a published reference value for intake and budgeting. That reference would not be a promise of market price, appreciation, repayment, or exit.
 
@@ -55,7 +55,7 @@ Contribution terms would state whether assets are donated, endowed, withdrawable
 
 Any external-market liquidity would require a separate decision identifying venues, responsible operators, assets, caps, timing, conflicts, risk controls, reporting, and termination. The policy would not target or guarantee a price.
 
-#### **7.2.3 Proposed impact-seeding program**
+### **7.2.3 Proposed impact-seeding program**
 
 A future program could allocate part of the governance vault to contributors who place assets into designated Commitment Pools and measurably improve exchange access and confirmed issuer fulfillment.
 
@@ -70,7 +70,7 @@ An adopted eligibility policy would:
 
 Any grant would remain subject to the program's published terms, vesting, eligibility, compliance, and loss rules.
 
-### **7.3 Proposed voting, incentives, and fee access**
+## **7.3 Proposed voting, incentives, and fee access**
 
 Under this design, stCLC holders could vote on eligible Pools, route-service mandates, shared budgets, or other adopted proposals. A curated gauge system could translate votes into bounded sCLC incentives for eligible liquidity or routing operators.
 
@@ -78,7 +78,7 @@ The measurement policy would keep executed swaps and issuer fulfillment separate
 
 An adopted governance process could also publish an epoch fee-credit budget. Eligible stCLC holders might receive sCLC authorizing capped, time-limited swaps from designated fee-holding Pools into allowlisted assets or programs. This would be policy-gated access to available inventory, not passive income or ownership of the fee-holding Pool.
 
-#### **7.3.1 Service-fee enforcement and profile choice**
+### **7.3.1 Service-fee enforcement and profile choice**
 
 A future registry profile could require participating Pools or route services to use a compatible fee adapter or hook. The profile might refuse discovery, routing, or program support when the required receipt does not prove fee collection.
 
@@ -86,7 +86,7 @@ Names such as **PoolFactory** or **FeeHook** describe possible future modules; t
 
 Enforcement would be profile-specific. A Pool excluded by one profile could continue operating locally or join another compatible registry if its contracts and dependencies remained functional. Clients should expose available profiles and show applicable fees before authorization.
 
-#### **7.3.2 sCLC budget and optional external-float controls**
+### **7.3.2 sCLC budget and optional external-float controls**
 
 After funding adopted higher-priority budgets, a future process could publish an epoch fee-credit budget `F_epoch`, including zero. A policy might assign a participant limit in proportion to stCLC voting power:
 
@@ -105,7 +105,7 @@ A separate policy could authorize a capped, time-weighted acquisition of the pro
 
 The policy could remain disabled indefinitely.
 
-#### **7.3.3 Portfolio Pools and attestations**
+### **7.3.3 Portfolio Pools and attestations**
 
 A **portfolio Pool** would be an ordinary Commitment Pool curated around a mission or service domain. Its Pool Steward could be an individual, cooperative, community group, public agency, federation, multisig, service operator, or another accountable structure.
 
@@ -124,7 +124,7 @@ Certifications could inform admission or risk treatment but would not create ent
 
 The Pool would disclose how an attestation affects admission, exchange-rate methods, limits, or eligibility and how errors, expiry, conflicts, and appeals are handled.
 
-### **7.4 Proposed Waterfall and budgets**
+## **7.4 Proposed Waterfall and budgets**
 
 The proposed Waterfall would allocate only realized, eligible receipts under an adopted governance process. It would distinguish:
 

@@ -1,4 +1,4 @@
-## **14. KPI e indicatori sanitari**
+# 14. KPI e indicatori sanitari
 
 Un'implementazione dovrebbe pubblicare un KPI solo quando può definire l'evento, la fonte, la coorte o il periodo, l'unità, il metodo di valutazione e il timestamp, le esclusioni, la politica di correzione, le prove fuori catena e le limitazioni della qualità dei dati.
 

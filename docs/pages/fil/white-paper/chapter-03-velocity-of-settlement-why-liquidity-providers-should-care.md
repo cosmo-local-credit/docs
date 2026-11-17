@@ -1,4 +1,4 @@
-## **3. Mga aktibidad sa pagpapatupad, discharge, at paghahati**
+# 3. Mga aktibidad sa pagpapatupad, discharge, at paghahati
 
 Ang isang pool swap ay nagbabago na tumutukoy sa mga asset ng pagmamay-ari.
 

@@ -1,4 +1,4 @@
-## **Resumo executivo**
+# Resumo executivo
 
 A Comissão **Protocolo de Partilha de Compromissos (CPP)** descreve como a Fundos de Compromissos, governada de forma independente, pode criar compromissos reembolsáveis, publicar métodos e limites de taxa de câmbio, manter um inventário e permitir uma troca responsável. Os emitentes continuam a ser responsáveis pelos seus compromissos com os vales. A Gestores de Fundos continua a ser responsável pelas regras do Fundo e por quaisquer garantias que assumam expressamente. Nem o CLC App nem o GEF são um garante universal.
 

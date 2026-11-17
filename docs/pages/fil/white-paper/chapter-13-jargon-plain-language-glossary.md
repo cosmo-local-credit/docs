@@ -1,4 +1,4 @@
-## **13. Glosaryo sa simpleng wika**
+# 13. Glosaryo sa simpleng wika
 
 - **Cosmo-Local Credit (CLC):** Ang pamilya ng produkto, kabilang ang CLC App, dokumentasyon, at mas malawak na gawain sa commitment pooling.
 - **CLC App:** Ang progressive web app na pinapatakbo ng GEF sa `cosmolocal.credit`.

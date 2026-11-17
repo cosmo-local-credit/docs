@@ -1,4 +1,4 @@
-## **17. Paalala tungkol sa batas at compliance**
+# 17. Paalala tungkol sa batas at compliance
 
 Maaaring pag-ugnayin ng CPP ang mga token, voucher, Pool, at palitan na ang legal na pagtrato ay nakadepende sa disenyo, marketing, paggamit, mga responsableng partido, at hurisdiksyon. Walang bahagi ng White Paper na ito ang legal, tax, investment, credit, o financial advice.
 
@@ -6,7 +6,7 @@ Ang paggamit ng CLC App ay pinamamahalaan ng [Mga Tuntunin ng Serbisyo](/fil/gov
 
 Dapat tukuyin ng bawat payment service na depende sa deployment ang responsableng provider, mga hurisdiksyon, eligibility, bayarin, limitasyon, custody model, at tuntunin nito. Ang pagkakaroon ng connector ay hindi nangangahulugang pinapatakbo ng GEF o ng isang Pool ang pinagbabatayang regulated service.
 
-### **17.1 Mga pagsisiwalat tungkol sa Voucher at Offering**
+## **17.1 Mga pagsisiwalat tungkol sa Voucher at Offering**
 
 Dapat ilathala at panatilihing napapanahon ng tagapag-isyu ang sumusunod:
 
@@ -20,7 +20,7 @@ Dapat ilathala at panatilihing napapanahon ng tagapag-isyu ang sumusunod:
 
 Hindi itinatakda ng token contract ang mga tuntuning ito at hindi nito pinatutunayan ang performance.
 
-### **17.2 Mga pagsisiwalat tungkol sa Pool**
+## **17.2 Mga pagsisiwalat tungkol sa Pool**
 
 Dapat ilathala ng Tagapangasiwa ng Pool ang sumusunod:
 
@@ -34,7 +34,7 @@ Dapat ilathala ng Tagapangasiwa ng Pool ang sumusunod:
 
 Ang listing ay hindi pag-endorso, valuation, insurance, o garantiya ng GEF.
 
-### **17.3 Mga kilos at obligasyon**
+## **17.3 Mga kilos at obligasyon**
 
 Ipinagpapalit ng karaniwang **palitan sa Pool** ang mga suportadong asset sa ilalim ng ipinapakitang quote at transaction bound. Hindi ito nagiging pautang, repayment, pagtubos ng tagapag-isyu, o real-world fulfillment dahil lamang sa direksiyon ng asset.
 
@@ -44,7 +44,7 @@ Ang kilos na **“Retire voucher”** sa App ay reversible na pag-aalis ng listi
 
 Mangangailangan ang isang pautang o ibang credit product sa hinaharap ng hiwalay na supplemental at transaction terms bago gamitin. Walang karaniwang pagpapadala, contribution, deposito sa Pool, palitan sa Pool, paghaharap, pagtupad, o discharge na lumilikha ng pautang dahil lamang sa direksiyon o uri ng asset nito.
 
-### **17.4 Mga proteksiyon, ebidensiya, at lokal na batas**
+## **17.4 Mga proteksiyon, ebidensiya, at lokal na batas**
 
 Ang limitasyon, reserba, registry entry, listing sa App, o blockchain transaction ay hindi awtomatikong garantiya o insurance policy. Dapat tukuyin ng anumang proteksiyon ang responsableng partido, sakop na pangyayari, pondo, cap, exclusion, tagal, ebidensiya, proseso ng claim, at naaangkop na tuntunin.
 

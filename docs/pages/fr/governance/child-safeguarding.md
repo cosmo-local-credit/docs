@@ -110,7 +110,7 @@ Le refus ou l’abandon d’une activité facultative ne doit entraîner ni repr
 
 ## 11. Images, récits, recherche et données à caractère personnel
 
-GEF recueille et utilise les informations relatives aux enfants uniquement lorsqu’il existe une finalité claire, une autorisation légale et des garanties appropriées. La [Politique de protection des données](/fr/governance/data-protection) et la [Note d’orientation de l’ODPC sur le traitement des données relatives aux enfants](https://www.odpc.go.ke/guidelines-2/index.html) s’appliquent également.
+GEF recueille et utilise les informations relatives aux enfants uniquement lorsqu’il existe une finalité claire, une autorisation légale et des garanties appropriées. La [Politique de protection des données](/fr/governance/data-protection) et la [Note d’orientation de l’ODPC sur le traitement des données relatives aux enfants](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf) s’appliquent également.
 
 Avant d’enregistrer ou de publier l’image, la voix, le récit, le travail, l’identité, les coordonnées de contact, l’appartenance communautaire ou la localisation d’un enfant, l’équipe responsable doit examiner le consentement, la dignité, l’exactitude, les réutilisations futures, le public visé, la permanence numérique et les risques d’identification ou de préjudice.
 

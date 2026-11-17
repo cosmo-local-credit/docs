@@ -1,4 +1,4 @@
-## **8. Ámbito de aplicação técnico e crescimento**
+# 8. Ámbito de aplicação técnico e crescimento
 
 Este capítulo separa o serviço atual de encaminhamento em produção do crescimento opcional ou proposto. Uma capacidade atual aqui descrita continua específica da implementação pública da CLC App e do CLC Core; não é automaticamente uma característica dos contratos do Protocol v1.1.0 nem de outra implementação.
 
@@ -24,7 +24,7 @@ As áreas de crescimento possíveis incluem:
 
 Os preços do mercado externo não determinariam o que o emissor deve sob condições de vale. Um Fundo poderia utilizar uma referência externa protegida para um ativo fungível, mas o seu método de taxa de câmbio publicado, limites, taxas e inventário governariam as suas cotações.
 
-### **8.1 Serviço de rota actual e normas mais gerais**
+## **8.1 Serviço de rota actual e normas mais gerais**
 
 **Descoberta.** O CLC Core mantém um grafo reconciliado a partir dos catálogos configurados, das relações de registo, dos parâmetros dos Fundos, das comissões, dos limites, dos saldos e dos eventos da cadeia. Estima o que a carteira da sessão pode alcançar e assinala dados desatualizados. A configuração pública procura rotas de até três passos. A descoberta não é uma promessa executável.
 
@@ -51,7 +51,7 @@ Os preços do mercado externo não determinariam o que o emissor deve sob condi�
 
 **Requisitos do SDK e da interface.** Uma integração reutilizável de rotas deve fornecer um mapeamento determinístico entre cotação e recibo, verificações de invariantes em cada passo, códigos de falha compreensíveis e registos adequados para auditoria. A implementação atual da CLC App e do CLC Core fornece essas funções para o seu próprio perfil. O `SwapRouter` Solidity do Protocol v1.1.0 continua limitado a cotações e não executa a rota.
 
-#### **8.1.1 Especificação mínima de compatibilidade com a confederação**
+### **8.1.1 Especificação mínima de compatibilidade com a confederação**
 
 Um ecossistema Fundo que procure roteamento transversal publicaria informações legíveis por máquina para:
 
@@ -63,7 +63,7 @@ Um ecossistema Fundo que procure roteamento transversal publicaria informações
 
 Um perfil pode adicionar cobertura, conformidade, arbitragem ou outros serviços sem torná-los requisitos para a compatibilidade básica de CPP. Cada serviço opcional identificaria a parte responsável, a autoridade, o âmbito e os termos.
 
-### **8.2 Licenciamento, verificação e saída**
+## **8.2 Licenciamento, verificação e saída**
 
 Os contratos Protocol v1.1.0 são EVM-compatíveis. Os contratos no diretório `src` do repositório do Protocolo são publicados sob o título AGPL-3.0, exceto os componentes de terceiros não modificados identificados que conservam os seus próprios termos. As instruções de origem, de ABI e de implementação publicadas apoiam uma revisão independente, mas não provam por si só uma auditoria, uma implementação segura ou conformidade legal.
 

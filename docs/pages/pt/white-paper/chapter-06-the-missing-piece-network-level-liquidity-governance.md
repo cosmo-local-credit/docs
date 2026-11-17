@@ -1,4 +1,4 @@
-## **6. Proposta de liquidez e governação a nível da rede**
+# 6. Proposta de liquidez e governação a nível da rede
 
 A experiência do histórico Sarafu Network motivou a investigação em duas questões de design mais amplas:
 
@@ -7,7 +7,7 @@ A experiência do histórico Sarafu Network motivou a investigação em duas que
 
 Uma proposta de projeto CLC introduz uma **Proposta CLC Fundo de rede** como um acordo de compensação e de coordenação orçamental a nível da rede e **token de governação CLC proposto**. Nenhum deles existe na aplicação atual ou no Protocol v1.1.0. Outras implementações poderiam utilizar cooperativas, agências públicas, federações, multissociações, operadores de serviços ou outras estruturas responsáveis sem adotar qualquer proposta.
 
-### **6.1 Controle para baixo e opcionalidade**
+## **6.1 Controle para baixo e opcionalidade**
 
 O Protocol v1.1.0 atual pode aplicar limites de saldo de tokens Fundo e verificações de estoque. Estes controlos restringem determinadas ações contratuais; Não impedem o incumprimento do emissor, a perda de valor, a perda de chave, a falha de contrato ou qualquer outra perda.
 

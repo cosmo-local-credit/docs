@@ -1,4 +1,4 @@
-## **4. Las garantías de tipo a plazo reutilizables**
+# 4. Las garantías de tipo a plazo reutilizables
 
 Una entidad de crédito documentada por separado puede aceptar vales transferibles como garantía o como instrumento de reembolso. Si lo hizo:
 
@@ -7,7 +7,7 @@ Una entidad de crédito documentada por separado puede aceptar vales transferibl
 - permanecerían los límites, el inventario, la valoración, la liquidez, el rendimiento del emisor y los riesgos de incumplimiento; y
 - No se garantizaría ninguna ruta, cumplimiento, reembolso, valor o recuperación.
 
-### 4.1 Ciclo de crédito del productor
+## 4.1 Ciclo de crédito del productor
 
 Un futuro servicio compatible con CLC- solo podría apoyar el crédito al productor cuando las partes establezcan una facilidad distinta y presenten expresamente la transacción como un anticipo reembolsable. Sus términos de transacción identificarían al acreedor y al deudor y indicarían:
 

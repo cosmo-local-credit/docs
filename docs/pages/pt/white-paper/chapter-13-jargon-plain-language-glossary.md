@@ -1,4 +1,4 @@
-## **13. Glossário de linguagem simples**
+# 13. Glossário de linguagem simples
 
 - **Cosmo-Local Credit (CLC):** A família de produtos, incluindo o CLC App, documentação e um trabalho mais amplo de partilha de compromissos.
 - **CLC App:** A aplicação web progressiva operado por GEF em `cosmolocal.credit`.

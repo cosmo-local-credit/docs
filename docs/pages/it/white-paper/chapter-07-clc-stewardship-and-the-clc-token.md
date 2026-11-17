@@ -1,10 +1,10 @@
-## **7. Proposte attività di gestione e governance CLC**
+# 7. Proposte attività di gestione e governance CLC
 
 Questo capitolo presenta un progetto facoltativo di governance futura e di coordinamento della liquidità. Il token governance CLC proposto, stCLC, sCLC, governance vault, fondo assicurativo, cascata, indicatori, mandati, finestre di credito e programmi di mercato esterno non fanno parte dell'attuale CLC App o Protocol v1.1.0. Ciascuno richiederebbe un'attuazione, un operatore responsabile, una politica e dei termini pubblicati, una revisione della sicurezza e un'approvazione legale applicabile.
 
 CPP non richiede questo modello di token. Le implementazioni compatibili potrebbero invece utilizzare cooperative, agenzie pubbliche, federazioni, multisig, servizi o altre strutture responsabili.
 
-### **7.1 Scopo**
+## **7.1 Scopo**
 
 In caso di adozione, il livello di governance proposto potrebbe:
 
@@ -15,7 +15,7 @@ In caso di adozione, il livello di governance proposto potrebbe:
 - riconoscere i contribuenti in base alle norme pubblicate sull'ammissibilità e sull'anti-gioco; e
 - mantenere la revisione, l'appello, la trasparenza e l'uscita credibile con l'aumento della partecipazione.
 
-### **7.2 Modello proposto di attività di governance**
+## **7.2 Modello proposto di attività di governance**
 
 Il progetto contiene tre diversi attivi proposti:
 
@@ -27,7 +27,7 @@ Né stCLC né sCLC costituirebbero capitale, un dividendo, un credito residuo, u
 
 Prima dell'utilizzo verrebbero pubblicati i blocchi di governance, le durate minime, le riduzioni, le delegazioni, i massimali di concentrazione e le soglie di azione critica. I token di governance CLC proposti non avrebbero votato in base a questo progetto.
 
-#### **7.2.1 Offerta e allocazione illustrativa**
+### **7.2.1 Offerta e allocazione illustrativa**
 
 L'offerta totale illustrativa di tokens di governance CLC è **500,000,000**. Si tratta di un parametro progettuale, non di un'emissione attuale, di un'offerta, di una valutazione o di una promessa di liquidità.
 
@@ -47,7 +47,7 @@ Nell'ambito dei controlli illustrativi di liquidità pubblica:
 
 Un futuro lancio potrebbe iniziare con un multisig rivelato e la transizione solo dopo che siano state approvate separatamente pietre miliari di indurimento, come audit indipendenti, monitoraggio, runbook di incidenti e procedure di pausa e forchetta testate. Ogni parametro adottato e ogni processo di modifica verrebbero pubblicati separatamente.
 
-#### **7.2.2 Fase di disponibilità e di dotazione**
+### **7.2.2 Fase di disponibilità e di dotazione**
 
 Un futuro programma di sovvenzioni potrebbe utilizzare finestre di contributo in fase e un valore di riferimento pubblicato per l'assunzione e il bilancio. Tale riferimento non sarebbe una promessa di prezzo di mercato, di apprezzamento, di rimborso o di uscita.
 
@@ -55,7 +55,7 @@ Le condizioni del contributo indicano se le attività sono donate, dotate, ritir
 
 Qualsiasi liquidità di mercato esterno richiederebbe una decisione separata che identifichi le sedi, gli operatori responsabili, le attività, i massimali, i tempi, i conflitti, i controlli dei rischi, la segnalazione e la cessazione. La politica non mira o garantisce un prezzo.
 
-#### **7.2.3 Programma proposto per la seminazione degli impatti**
+### **7.2.3 Programma proposto per la seminazione degli impatti**
 
 Un futuro programma potrebbe assegnare una parte della riserva di governance ai contribuenti che depositano attività in Fondi di Impegni designato e migliorano in modo misurabile l'accesso allo scambio e l'adempimento confermato dall'emittente.
 
@@ -70,7 +70,7 @@ Una politica di ammissibilità adottata:
 
 Qualsiasi sovvenzione resterebbe soggetta ai termini pubblicati del programma, alle norme di acquisto, all'ammissibilità, alla conformità e alle norme sulle perdite.
 
-### **7.3 Proposta di voto, incentivi e accesso alle tasse**
+## **7.3 Proposta di voto, incentivi e accesso alle tasse**
 
 In base a tale progetto, i titolari di stCLC potranno votare sui fondo ammissibili, sui mandati dei servizi di percorso, sui bilanci condivisi o su altre proposte adottate. Un sistema di calibrazione curata potrebbe tradurre i voti in incentivi limitati sCLC per gli operatori di liquidità o di routing ammissibili.
 
@@ -78,7 +78,7 @@ La politica di valutazione manterrebbe separati gli swap eseguiti e l'adempiment
 
 Un processo di governance adottato potrebbe anche pubblicare un bilancio di tasse di credito epocale. I titolari idonei di stCLC potrebbero ricevere sCLC autorizzando gli swap limitati e a tempo limitato da Fondi designati di detenzione di commissioni in attività o programmi quotati. Si tratta di un accesso assicurato all'inventario disponibile, non di un reddito passivo o di una proprietà del fondo di detenzione delle commissioni.
 
-#### **7.3.1 L'applicazione delle tasse di servizio e la scelta del profilo**
+### **7.3.1 L'applicazione delle tasse di servizio e la scelta del profilo**
 
 Un futuro profilo di registro potrebbe richiedere ai servizi di fondo o di rotta partecipanti di utilizzare un adattatore o un gancio di tariffa compatibili. Il profilo potrebbe rifiutare la scoperta, il routing o il supporto al programma quando la ricevuta richiesta non dimostra la riscossione delle tasse.
 
@@ -86,7 +86,7 @@ Nomi quali: **PoolFactory ** o ** FeeHook** descrivere possibili moduli futuri; 
 
 L'applicazione sarebbe specifica per il profilo. Un gruppo escluso da un profilo potrebbe continuare a operare a livello locale o aderire a un altro registro compatibile se i suoi contratti e le dipendenze restassero funzionali. I clienti devono esporre i profili disponibili e mostrare le tasse applicabili prima dell'autorizzazione.
 
-#### **7.3.2 sCLC bilancio e controlli facoltativi di flotta esterna**
+### **7.3.2 sCLC bilancio e controlli facoltativi di flotta esterna**
 
 Dopo l'adozione dei bilanci prioritari più elevati, un processo futuro potrebbe pubblicare un bilancio di credito per tasse epocale `F_epoch`, incluso zero. Una politica può assegnare un limite di partecipazione proporzionale al potere di voto stCLC:
 
@@ -105,7 +105,7 @@ Una politica separata potrebbe autorizzare un'acquisizione limitata e ponderata 
 
 La polizza potrebbe rimanere disabilitata a tempo indeterminato.
 
-#### **7.3.3 Portfolio Fondi e attestati**
+### **7.3.3 Portfolio Fondi e attestati**
 
 A. **Portfolio Fondo** sarebbe un ordinario Fondo di Impegni curato attorno a un dominio di missione o di servizio. Il suo Responsabile del Fondo potrebbe essere un individuo, una cooperativa, un gruppo comunitario, un'agenzia pubblica, una federazione, un multisig, un operatore di servizi o un'altra struttura responsabile.
 
@@ -124,7 +124,7 @@ Le certificazioni potrebbero informare l'ammissione o il trattamento del rischio
 
 Il gruppo dovrebbe rivelare come una certificazione influisce sull'ammissione, sui metodi di cambio, sui limiti o sull'ammissibilità e su come vengono gestiti gli errori, le scadenze, i conflitti e gli appelli.
 
-### **7.4 Proposta di cascata e di bilancio**
+## **7.4 Proposta di cascata e di bilancio**
 
 Il progetto Waterfall assegnerà solo ricevute realizzate e ammissibili nell'ambito di un processo di governance adottato. Distingue:
 

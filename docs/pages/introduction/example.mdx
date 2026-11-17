@@ -1,10 +1,32 @@
-# Practical voucher example
+# Voucher exchange examples
 
-This example follows a voucher from an Offer and a Want through a two-Pool routed exchange, redemption presentment, fulfillment, and discharge. It illustrates the roles involved; it is not a promise that a particular voucher, Pool, route, or outcome will be available.
+These examples show how Vouchers, Wants, Pools, exchange, fulfillment, and discharge remain connected but distinct. They illustrate the roles involved; they do not promise that a particular Voucher, Pool, route, or outcome will be available.
 
-For definitions used here, see [Concepts and Vocabulary](/introduction/concepts).
+For definitions used here, see [Concepts and vocabulary](/introduction/concepts).
 
-## 1. An issuer publishes a commitment
+## Simple example: one Pool, three participants
+
+A farmer offers food baskets and needs dental care. A mechanic offers vehicle repair and needs food. A dentist offers dental care and needs vehicle repair.
+
+Each participant creates a Voucher with clear terms and publishes an Offering:
+
+- the farmer's Voucher can be used for food baskets;
+- the mechanic's Voucher can be used for repair services; and
+- the dentist's Voucher can be used for dental care.
+
+The dentist creates a **Health Market** Commitment Pool, publishes its rules, admits all three Vouchers, and deposits some dental-care Vouchers. The Pool's configured token-balance caps define how many farmer and mechanic Vouchers it may hold. These App **“Credit limits”** are Pool capacity controls, not personal loans.
+
+The farmer sees the dentist's Want for local food, reviews the dentist's Voucher and Pool terms, and exchanges food-basket Vouchers for dental-care Vouchers. The farmer then books an appointment, presents the dental-care Vouchers, receives the promised care, and the dentist records discharge.
+
+The mechanic exchanges repair-service Vouchers for the food-basket Vouchers now held by the Pool and uses them for food delivery. The dentist can exchange dental-care Vouchers for the mechanic's repair Vouchers and use them to repair a vehicle.
+
+Each Pool swap settles Voucher balances. Each Issuer remains separately responsible for providing the promised food, repair, or dental care. The Pool makes multilateral exchange possible without requiring each pair to want exactly the same thing at the same time.
+
+## Advanced example: a routed exchange
+
+This example follows a Voucher from an Offering and a Want through two independently governed Pools.
+
+### 1. An Issuer publishes a commitment
 
 Imagine a community kitchen creates a digital meal voucher. Before issuing it, the kitchen publishes information a holder needs to make an informed decision:
 
@@ -19,13 +41,13 @@ The kitchen is the issuer. It must keep this information accurate, avoid issuing
 
 The kitchen also publishes an **Offering** describing the meals available. The voucher and Offering are related but distinct: the voucher is the redeemable commitment, while the Offering helps people discover the goods or services associated with it.
 
-## 2. A participant publishes a Want
+### 2. A participant publishes a Want
 
 A nearby school has transport vouchers and needs meals for an event. It publishes a **Want** describing the meals, quantity, place, timing, and contact method.
 
 The Want expresses demand. It does not automatically accept the kitchen's voucher, reserve meals, create a contract, authorize a swap, or promise that the school will proceed. The school still needs to review the kitchen, voucher terms, available route, quote, and applicable conditions.
 
-## 3. Independent Pool Stewards curate a route
+### 3. Independent Pool Stewards curate a route
 
 Two independently governed Pools connect the assets:
 
@@ -45,13 +67,13 @@ Each Pool Steward reviews the assets and publishes that Pool's own rules, includ
 
 Admission means that a Pool's configured rules allow a voucher. It does not prove fulfillment capacity, establish cash value, create insurance, or make the two Pools one governed entity.
 
-## 4. Participants provide inventory
+### 4. Participants provide inventory
 
 The mobility Pool holds maize vouchers that can be exchanged for transport vouchers. The food-security Pool holds meal vouchers that can be exchanged for maize vouchers. Participants may have supplied that inventory under different published arrangements.
 
 A deposit increases available Pool inventory, but it does not automatically create a Pool share, repayment claim, withdrawal right, reward, or governance power. Any such right must come from a separate disclosed arrangement.
 
-## 5. The App discovers and quotes a route
+### 5. The App discovers and quotes a route
 
 The school's wallet opens the **Credit** view and selects the meal voucher. CLC Core estimates a possible path:
 
@@ -61,7 +83,7 @@ This discovery result is not yet a promise that the exchange will succeed. Every
 
 The school chooses how much it wants to **Get** or **Spend**. CLC Core then reads both Pools at one pinned block, produces an authoritative time-bounded quote, and simulates the complete wallet batch. The App's **Route details** show both swaps, the estimated amounts, and each hop's Pool and protocol fees.
 
-## 6. The holder executes the routed exchange
+### 6. The Holder executes the routed exchange
 
 After reviewing the minimum amount received and quote deadline, the school selects **Confirm exchange** and signs the prepared batch. The App submits one same-chain transaction containing the approvals and bounded swap call for each Pool.
 
@@ -69,19 +91,19 @@ If any call fails, the complete transaction reverts; the first Pool swap does no
 
 The school now holds meal vouchers. The on-chain exchange is **swap settlement**. It gives the school the resulting claim described by the meal-voucher terms; it does not prove that the kitchen has already supplied food.
 
-## 7. The holder presents the voucher
+### 7. The Holder presents the Voucher
 
 In the current App, choosing **“Redeem”** opens the ordinary send flow with the token owner's address prefilled. Sending the voucher back is evidence of presentment to the issuer; it does not by itself prove that the kitchen supplied a meal.
 
 The school follows the kitchen's booking or contact process. The kitchen verifies the presentment and provides the promised meals under its published terms.
 
-## 8. The issuer records fulfillment and discharge
+### 8. The Issuer records fulfillment and discharge
 
 After providing the meals, the kitchen records the fulfilled units so they cannot be presented twice. Depending on the published process, this may involve receiving, burning, cancelling, or otherwise disabling the returned voucher.
 
 If the kitchen does not honor its commitment, the holder uses the issuer's published complaint or remedy process and any rights available under applicable law. Neither GEF nor either Pool Steward becomes the redeemer merely because the App found the route or the Pools enabled its swaps.
 
-Choosing **“Retire voucher”** in the App is different: it hides the catalog listing while balances and history remain, and an administrator can restore it. It is not fulfillment, discharge, burning, or cancellation.
+Choosing **“Request retirement”** is different: the current owner asks an administrator to retire the Voucher. The Voucher remains active while the request is pending, and the request can be approved, rejected, or cancelled. Approved retirement removes it from active catalog use but does not delete its contract, balances, history, or outstanding obligations. It is not fulfillment, discharge, burning, or cancellation.
 
 ## Responsibilities at a glance
 
@@ -97,7 +119,7 @@ Choosing **“Retire voucher”** in the App is different: it hides the catalog 
 
 The App may find no route, or a quote may fail, when inventory is insufficient, a Pool cap would be exceeded, a voucher is not admitted, a token or quoter is unsupported, the wallet lacks enough input, the route data is stale, or the final batch simulation fails. A quote can also expire or become invalid before submission as Pool state changes.
 
-That outcome does not change the Want, the Offer, or the issuer's existing voucher obligations. The participant can refresh the route, choose a smaller amount, use another eligible input voucher, or wait for Pool conditions to change.
+That outcome does not change the Want, the Offering, or the Issuer's existing Voucher obligations. The participant can refresh the route, choose a smaller amount, use another eligible input Voucher, or wait for Pool conditions to change.
 
 ## Future credit arrangements
 

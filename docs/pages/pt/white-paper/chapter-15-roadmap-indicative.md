@@ -1,6 +1,6 @@
-## **15. Mapa de estrada (indicativo)**
+# 15. Mapa de estrada (indicativo)
 
-### **15.1 Fundamento atual**
+## **15.1 Fundamento atual**
 
 A GEF opera a CLC App em `cosmolocal.credit` na Gnosis Chain. A aplicação fornece acesso suportado a contas e carteiras, um catálogo público do Mercado e interfaces para tokens, vales, Ofertas, Wants, Fundos de Compromissos, transferências, trocas diretas de Fundo e trocas encaminhadas.
 
@@ -8,7 +8,7 @@ O Protocol v1.1.0 fornece a base contratual atual: `GiftableToken`, execução d
 
 O CLC Core fornece agora a base do encaminhamento e da observabilidade, na mesma cadeia, da CLC App pública: descoberta através de um grafo reconciliado, rotas com até três trocas de Fundo, cotações num bloco fixado, limites e comissões em cada passo, simulação do lote completo, execução atómica Calibur assinada, acompanhamento da retransmissão, reconciliação da liquidação, recibos agrupados e métricas operacionais. A disponibilidade continua a depender da interface, dos comportamentos suportados da carteira e dos tokens, dos contratos implementados, do inventário, da configuração, da atualidade do serviço, do estado da rede, da elegibilidade, dos fornecedores, da jurisdição e das condições publicadas pelo emissor ou pelo Fundo.
 
-### **15.2 Propostas marcas**
+## **15.2 Propostas marcas**
 
 Estes marcos nomeados são instruções de projeto, não números de lançamento, datas de entrega ou compromissos que um recurso lançará.
 

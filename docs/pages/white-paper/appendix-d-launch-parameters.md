@@ -1,4 +1,4 @@
-## D. Proposed launch parameters
+# D. Proposed launch parameters
 
 Every value below is illustrative. It is not a current App default, Protocol v1.1.0 setting, guarantee, offer, or delivery commitment. A future deployment would need to adopt, enforce, monitor, and publish its actual parameters.
 

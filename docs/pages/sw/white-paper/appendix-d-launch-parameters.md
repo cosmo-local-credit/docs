@@ -1,4 +1,4 @@
-## D. Vipimo vinavyopendekezwa vya uzinduzi
+# D. Vipimo vinavyopendekezwa vya uzinduzi
 
 Kila thamani hapa chini ni mfano. Sio default ya sasa ya programu, usanidi wa Protocol v1.1.0, dhamana, ofa, au ahadi ya utoaji. Utekelezaji wa baadaye utahitaji kupitisha, kutekeleza, kufuatilia, na kuchapisha vigezo vyake halisi.
 

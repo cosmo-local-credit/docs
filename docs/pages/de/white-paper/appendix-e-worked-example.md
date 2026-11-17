@@ -1,4 +1,4 @@
-## Das ist E. Arbeitsbeispiel — vorgeschlagene Netzwerkanteil
+# Das ist E. Arbeitsbeispiel — vorgeschlagene Netzwerkanteil
 
 Dieses Beispiel illustriert das vorgeschlagene Rake-Modell. Es handelt sich nicht um die von Protocol v1.1.0 verwendete zusätzliche Protokollgebührberechnung.
 

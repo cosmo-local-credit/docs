@@ -1,4 +1,4 @@
-## B. Cascata ilustrativa de taxas futuras
+# B. Cascata ilustrativa de taxas futuras
 
 Este é um projeto proposto para uma futura implementação. Aplica-se somente se for implementada, financiada e adotada através de governação e condições de participação publicadas. Não descreve uma taxa actual de Protocol v1.1.0, direito de contribuinte, reserva, garantia ou acordo de seguro.
 

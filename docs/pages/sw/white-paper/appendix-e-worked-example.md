@@ -1,4 +1,4 @@
-## E. Mfano uliofafanuliwa — sehemu ya mtandao inayopendekezwa
+# E. Mfano uliofafanuliwa — sehemu ya mtandao inayopendekezwa
 
 Mfano huu unaonyesha mfano uliopendekezwa. Siyo mahesabu ya ziada ya malipo ya itifaki kutumika na Protocol v1.1.0.
 

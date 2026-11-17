@@ -1,4 +1,4 @@
-## **2. El cambio de contabilidad: del activo al fideicomiso**
+# 2. El cambio de contabilidad: del activo al fideicomiso
 
 Las finanzas tradicionales comienzan con **Activos − pasivos = capital propio** CPP reformula esto para una economía de compromiso:
 

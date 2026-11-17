@@ -1,8 +1,8 @@
-## **10. Marco integral de riesgos**
+# 10. Marco integral de riesgos
 
 Este marco propuesto separa diez categorías de riesgo. Para cada categoría se identifican posibles indicadores, controles, pruebas de estrés y un apetito indicativo por el riesgo. Estas son recomendaciones de diseño, no afirmaciones de que todos los controles están desplegados, efectivos o suficientes. Los límites, las reservas, las garantías, el seguimiento, la cobertura y la gobernanza no pueden eliminar las pérdidas.
 
-### **10.1 Protocolo y riesgo de contratos inteligentes**
+## **10.1 Protocolo y riesgo de contratos inteligentes**
 
 - **Las amenazas:** los errores de contratación, los errores de actualización, las fallas de dependencia y los límites o tarifas mal configurados.
 - **Indicadores:** resultados de auditoría, movimientos de inventario inexplicables, fallas invariantes y retrocesos inusuales.
@@ -10,7 +10,7 @@ Este marco propuesto separa diez categorías de riesgo. Para cada categoría se 
 - **Pruebas de estrés:** las dependencias de cotizaciones o límites no disponibles, las carencias de inventario, los contratos interrumpidos y el tráfico estallado.
 - **El apetito por el riesgo:** bajo antes de escalar las obligaciones pendientes o el volumen de swap.
 
-### **10.2 Riesgo económico y de mercado**
+## **10.2 Riesgo económico y de mercado**
 
 - **Las amenazas:** el inventario delgado, los flujos unilaterales, las retiradas rápidas y las referencias de precios manipuladas o obsoletas.
 - **Indicadores:** La utilización de los tokens en el balance de la bolsa es elevada, las diferencias de cotizaciones se amplían, los límites se rechazan con frecuencia y el inventario se concentra.
@@ -18,7 +18,7 @@ Este marco propuesto separa diez categorías de riesgo. Para cada categoría se 
 - **Pruebas de estrés:** grandes movimientos de precios de referencia, aumentos de la presentación, solicitudes de retirada y interrupciones de las fuentes de datos.
 - **El apetito por el riesgo:** moderarse únicamente dentro de los parámetros publicados y de la capacidad de soporte de pérdidas financiada.
 
-### **10.3 Riesgo del emisor y del vale**
+## **10.3 Riesgo del emisor y del vale**
 
 - **Las amenazas:** la emisión que exceda la capacidad de cumplimiento, el incumplimiento del emisor, los términos engañosos y las ventanas de disponibilidad o presentación poco especificadas.
 - **Indicadores:** la disminución de las tasas de cumplimiento confirmadas, el envejecimiento de los vales pendientes, las quejas no resueltas y la exposición concentrada a un emisor.
@@ -26,7 +26,7 @@ Este marco propuesto separa diez categorías de riesgo. Para cada categoría se 
 - **Pruebas de estrés:** insolvencia del emisor, choques regionales de producción, reclamaciones falsificadas y retrasos prolongados en el cumplimiento.
 - **El apetito por el riesgo:** A medida que aumenta la concentración del emisor o de la oferta.
 
-### **10.4 El riesgo de presentación y cumplimiento de la redención**
+## **10.4 El riesgo de presentación y cumplimiento de la redención**
 
 - **Las amenazas:** la presentación no válida o duplicada, la capacidad insuficiente de los emisores, las existencias, las fallas logísticas y la falta de registros de descarga.
 - **Indicadores:** retraso en el cumplimiento de las solicitudes, presentaciones fallidas o controvertidas, existencias, atrasos de boletos y unidades cumplidas sin descarga.
@@ -34,7 +34,7 @@ Este marco propuesto separa diez categorías de riesgo. Para cada categoría se 
 - **Pruebas de estrés:** dos a cuatro veces el volumen de presentación, las interrupciones de las instalaciones, las fallas de los proveedores y los intentos de uso duplicado.
 - **El apetito por el riesgo:** bajo cuando se trate de bienes esenciales, participantes vulnerables o ventanas de cumplimiento largas.
 
-### **10.5 Riesgo de gobernanza**
+## **10.5 Riesgo de gobernanza**
 
 - **Las amenazas:** Captura de administrador o controlador, cambios de parámetros apresurados, conflictos de intereses, poderes técnicos ocultos y llamadas débiles.
 - **Indicadores:** la autoridad concentrada, las acciones de emergencia frecuentes, los cambios inexplicables de las políticas y las reiteradas interrupciones.
@@ -44,7 +44,7 @@ Este marco propuesto separa diez categorías de riesgo. Para cada categoría se 
 
 Para una futura implementación del token de gobernanza CLC propuesto, la prueba de captura incluirá acumulación seguida de intentos de redirigir presupuestos, debilitar los estándares de registro, aprobar mandatos de partes relacionadas o agotar la cobertura financiada. Las posibles salvaguardias incluyen bloqueos de gobernanza, umbrales más altos para las acciones críticas, retraso en la ejecución, seguimiento transparente de la delegación y la concentración, un proceso de incidencia y un procedimiento creíble de salida y salida. Ninguno está representado como desplegado simplemente apareciendo aquí.
 
-### **10.6 Riesgo legal y de cumplimiento**
+## **10.6 Riesgo legal y de cumplimiento**
 
 - **Las amenazas:** un vale, servicio, promoción o activo de gobernanza que reciba un tratamiento regulatorio inesperado; fallas en la protección de los consumidores; el blanqueo de capitales o la exposición a sanciones; y restricciones transfronterizas.
 - **Indicadores:** las banderas de jurisdicción, las consultas de los reguladores, las quejas, los partidos restringidos y la divergencia entre el comportamiento anunciado y el actual.
@@ -52,7 +52,7 @@ Para una futura implementación del token de gobernanza CLC propuesto, la prueba
 - **Pruebas de estrés:** una restricción jurisdiccional, la terminación del proveedor, la reclasificación obligatoria y una orden de pausa de una característica o clase de activos.
 - **El apetito por el riesgo:** bajo; restringir o detener la actividad no apoyada.
 
-#### 10.6.1 Posicionamiento legal y tratamiento de los tokens propuestos
+### 10.6.1 Posicionamiento legal y tratamiento de los tokens propuestos
 
 1. **Infraestructura verificable:** Los contratos Protocol v1.1.0 son compatibles con EVM- y su origen se publicará bajo las licencias y las excepciones de terceros identificadas en el repositorio del Protocolo. La publicación permite la revisión, pero no demuestra en sí misma una auditoría, un despliegue seguro o el cumplimiento legal. Cada despliegue debe revelar su versión de código, la procedencia de la base, las direcciones, los poderes del controlador y el estado de auditoría.
 2. **Posición del símbolo propuesto:** En este diseño, el token de gobernanza CLC propuesto coordinaría la gobernanza y el acceso a políticas. No crearía dividendos, participación en las ganancias, derechos residuales ni garantía de valor ni liquidez.
@@ -61,7 +61,7 @@ Para una futura implementación del token de gobernanza CLC propuesto, la prueba
 5. **Los controles de la jurisdicción:** una implementación puede requerir geofencing de interfaz, certificaciones para clases restringidas, límites de promoción, revisión específica de activos o controles que detengan una característica propuesta.
 6. **Notificación de los participantes:** Las condiciones adoptadas explicarán cuándo el acceso puede ser reducido o desactivado por razones legales, operativas o de riesgo y si se aplica alguna compensación o recurso.
 
-### **10.7 Riesgo de enrutamiento y riesgo entre dominios**
+## **10.7 Riesgo de enrutamiento y riesgo entre dominios**
 
 - **Amenazas actuales en la misma cadena:** datos de descubrimiento obsoletos, inventario insuficiente, cambios en los límites o la admisión, vencimiento de cotizaciones, billeteras o dependencias no admitidas, fallos de simulación o del relé, reorganizaciones de la cadena y alargamiento artificial del camino.
 - **Controles y pruebas actuales:** cotizaciones autorizadas en un bloque fijado, simulación del lote completo, salidas mínimas y plazos en cada paso, un lote Calibur firmado con `revertOnFailure`, recibos agrupados deterministas, conciliación y códigos de fallo explícitos. Estos controles reducen ciertos riesgos de ejecución, pero no garantizan la disponibilidad ni el cumplimiento del emisor.
@@ -71,21 +71,21 @@ Para una futura implementación del token de gobernanza CLC propuesto, la prueba
 - **Pruebas de estrés:** estado obsoleto del grafo, interrupción de una dependencia, un paso fallido en el lote atómico actual, una reorganización de la cadena y, para una futura ruta entre dominios, la parada de un puente o el vencimiento de un depósito en garantía.
 - **El apetito por el riesgo:** de baja a moderada únicamente para las dependencias identificadas y controladas.
 
-### **10.8 Riesgo de custodia y gestión de llaves**
+## **10.8 Riesgo de custodia y gestión de llaves**
 
 - **Las amenazas:** las claves perdidas o comprometidas, la colusión de los firmantes y la recuperación o autoridad del administrador poco claros.
 - **Indicadores:** firmas anómalas, cambios en el controlador, rotaciones fallidas y retiradas inusuales.
 - **Posibles controles:** la autorización de múltiples siglos o de umbral; llaves con soporte de hardware; la separación de roles; la rotación del signo; inventarios de los controladores públicos; los límites de retirada controlados; y procedimientos de recuperación probados.
 - **El apetito por el riesgo:** Bajo.
 
-### **10.9 Reputación y riesgo social**
+## **10.9 Reputación y riesgo social**
 
 - **Las amenazas:** reclamos engañosos, incentivos dañinos, quejas inaccesibles, malas experiencias de cumplimiento, fallas en la privacidad y protecciones que favorecen a los privilegiados.
 - **Indicadores:** las quejas por cohorte, las disputas no resueltas, las tendencias de rendimiento de los emisores, la concentración de beneficios o pérdidas y la retroalimentación de la comunidad.
 - **Posibles controles:** las revelaciones en lenguaje sencillo; las vías de reclamación y corrección; pruebas accesibles; la información transparente; la revisión de los incidentes; y sanciones proporcionales por falsas declaraciones.
 - **El apetito por el riesgo:** En la actualidad, el número de personas afectadas es bajo, con especial atención a las comunidades afectadas y a los participantes vulnerables.
 
-### **10.10 Riesgo de concentración y fragmentación**
+## **10.10 Riesgo de concentración y fragmentación**
 
 - **Las amenazas:** la dependencia de un pequeño número de emisores, grupos de datos, controladores, proveedores, redes o horquillas incompatibles.
 - **Indicadores:** medidas de concentración por emisor, grupo, inventario, controlador o proveedor de servicios; fallas de ruta entre grupos; y dependencias individuales críticas.

@@ -1,8 +1,8 @@
-## **9. Uchumi unaopendekezwa wa mipango ya ukwasi**
+# 9. Uchumi unaopendekezwa wa mipango ya ukwasi
 
 Sura hii inaelezea mfano wa wakati ujao, uliochukuliwa kando. Si huduma ya sasa ya programu, ofa, ahadi ya kurudi, au haki iliyoundwa kwa kuweka katika `SwapPool`.
 
-### **9.1 Chanzo cha mapato kilichopendekezwa**
+## **9.1 Chanzo cha mapato kilichopendekezwa**
 
 Bajeti ya mitandao ya baadaye inaweza kupokea:
 
@@ -14,7 +14,7 @@ Ada za jumla za Vikundi zinazobaki kwenye Vikundi si mapato ya mtandao. Protocol
 
 Mtiririko wa njia wa CLC App katika uzalishaji hauongezi ada tofauti ya huduma ya uelekezaji. Ubadilishaji wa njia bado unaweza kuwa na ada ya Kikundi na ada ya itifaki katika kila hatua. Ada hizi za sasa za kila hatua hazipaswi kuandikwa kama sehemu ya mtandao inayopendekezwa wala kuhesabiwa tena kama mapato ya huduma ya baadaye.
 
-### **9.2 Mfano wa kihisabati wa sehemu ya mtandao**
+## **9.2 Mfano wa kihisabati wa sehemu ya mtandao**
 
 Ikiwa Jumuiya inayoshiriki inatoza ada ya Jumuiya ya 2.00% na jumuiya iliyopitishwa ya mtandao hupokea 20% ya ada hiyo ya Jumuiya, kiwango cha kweli cha jumuiya ya mtandao kilichopendekezwa juu ya thamani iliyoelekezwa ni:
 
@@ -28,7 +28,7 @@ Mapendekezo ya mapato ya mtandao ni:
 
 Usiongeze ada ya Jumla ya Gross kwenye mtandao wa rake: rake ni uhamisho kutoka kwa ada hizo na vinginevyo ingehesabiwa mara mbili.
 
-### **9.3 Haki za programu ya upungufu wa fedha**
+## **9.3 Haki za programu ya upungufu wa fedha**
 
 Programu iliyopitishwa kwa njia tofauti inaweza kutegemeza rekodi za Hifadhi, huduma za kuelekeza, ufuatiliaji, au amri nyingine. Masharti yake yatahitaji kufunua:
 

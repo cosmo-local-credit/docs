@@ -1,4 +1,4 @@
-## C. Voorgestelde definities KPI
+# C. Voorgestelde definities KPI
 
 Deze KPI's vormen een voorgestelde meetspecificatie, niet een verklaring dat de huidige App of protocol elke vereiste gebeurtenis registreert.
 

@@ -110,7 +110,7 @@ Het weigeren of verlaten van een vrijwillige activiteit mag niet leiden tot repr
 
 ## 11. Afbeeldingen, verhalen, onderzoek en persoonsgegevens
 
-GEF verzamelt en gebruikt gegevens van kinderen alleen wanneer er een duidelijk doel, rechtmatige bevoegdheid en passende waarborg is. Het [Gegevensbeschermingsbeleid](/nl-BE/governance/data-protection) en de [richtsnoeren van de ODPC voor de verwerking van gegevens van kinderen](https://www.odpc.go.ke/guidelines-2/index.html) zijn eveneens van toepassing.
+GEF verzamelt en gebruikt gegevens van kinderen alleen wanneer er een duidelijk doel, rechtmatige bevoegdheid en passende waarborg is. Het [Gegevensbeschermingsbeleid](/nl-BE/governance/data-protection) en de [richtsnoeren van de ODPC voor de verwerking van gegevens van kinderen](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf) zijn eveneens van toepassing.
 
 Voordat het beeld, de stem, het verhaal, het werk, de identiteit, contactgegevens, band met een gemeenschap of locatie van een kind worden opgenomen of gepubliceerd, moet het verantwoordelijke team rekening houden met toestemming, waardigheid, juistheid, toekomstig hergebruik, publiek, digitale duurzaamheid en het risico op identificatie of schade.
 

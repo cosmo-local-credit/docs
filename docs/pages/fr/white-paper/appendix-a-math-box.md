@@ -1,8 +1,8 @@
-## A. Modèle proposé de mesure et de frais
+# A. Modèle proposé de mesure et de frais
 
 Cette annexe définit un cadre de mesure proposé. Protocol v1.1.0 n'enregistre pas l'exécution par l'émetteur, la décharge réelle ou tous les champs de données requis ci-dessous.
 
-### Définitions des événements et des stocks
+## Définitions des événements et des stocks
 
 Pour la classe de bons *j*, la cohorte ou la période *t*, et une méthode d'évaluation divulguée *m*:
 
@@ -16,7 +16,7 @@ Pour la classe de bons *j*, la cohorte ou la période *t*, et une méthode d'év
 
 Chaque mesure évaluée doit publier l'unité, la source, la méthode d'évaluation, l'horodatage et le traitement des taux de change divergents. Un transfert en chaîne peut prendre en charge `X` ou des preuves de présentation. il ne détermine pas par lui-même `F` ou `G`.
 
-### Mesures d'exécution fondées sur la cohorte
+## Mesures d'exécution fondées sur la cohorte
 
 Pour une cohorte de présentations de remboursement valables:
 
@@ -32,7 +32,7 @@ Utilisez la même cohorte fermée ou mature dans chaque numérateur et dénomina
 
 La latence d'exécution mesure le service de l'émetteur après la présentation. La durée de détention est une mesure distincte et ne doit pas être qualifiée de latence de remboursement.
 
-### Mesures de vitesse distinctes
+## Mesures de vitesse distinctes
 
 Une vitesse d'engagement-décharge proposée ne peut être calculée que lorsque `O` et la valeur accomplie utilisent la même méthode d'évaluation:
 
@@ -44,7 +44,7 @@ Une mesure de l'activité de swap de bassin est distincte:
 
 Aucune des deux valeurs ne prouve l'impact social, la capacité d'émetteur, la rentabilité ou la convertibilité en espèces.
 
-### Revenus de réseau proposés
+## Revenus de réseau proposés
 
 Pour:
 

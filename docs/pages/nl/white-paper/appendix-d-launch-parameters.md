@@ -1,4 +1,4 @@
-## D. Voorgestelde startparameters
+# D. Voorgestelde startparameters
 
 Alle waarden hieronder zijn illustratief. Het is niet een huidige app standaard, Protocol v1.1.0 instelling, garantie, aanbod of levering verplichting.
 

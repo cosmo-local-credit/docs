@@ -1,4 +1,4 @@
-## **12. Plano de prazo do programa de liquidez proposto (contacto não vinculativo)**
+# 12. Plano de prazo do programa de liquidez proposto (contacto não vinculativo)
 
 Esta é uma lista de verificação ilustrativa para um programa futuro, documentado separadamente. Não é uma oferta, um recurso atual da aplicação, ou uma promessa de liquidez, acesso, seguro, retorno, valor ou saída.
 

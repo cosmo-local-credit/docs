@@ -1,4 +1,4 @@
-## E. Bewerkte voorbeeld  voorgestelde netwerkrak
+# E. Bewerkte voorbeeld  voorgestelde netwerkrak
 
 Dit voorbeeld illustreert het voorgestelde rake-model.Protocol v1.1.0.
 

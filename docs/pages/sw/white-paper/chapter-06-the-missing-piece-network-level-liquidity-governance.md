@@ -1,4 +1,4 @@
-## **6. Ukwasi na utawala unaopendekezwa katika kiwango cha mtandao**
+# 6. Ukwasi na utawala unaopendekezwa katika kiwango cha mtandao
 
 Uzoefu kutoka kihistoria Sarafu Network kuhamasisha utafiti katika maswali mawili ya kubuni pana:
 
@@ -7,7 +7,7 @@ Uzoefu kutoka kihistoria Sarafu Network kuhamasisha utafiti katika maswali mawil
 
 Mpango mmoja uliopendekezwa wa CLC huanzisha **Iliyopendekezwa CLC Jumuiya ya Mtandao ** kama mpangilio wa upimaji wa kiwango cha mtandao na uratibu wa bajeti na ** iliyopendekezwa CLC utawala ishara**. . Hakuna katika sasa programu au Protocol v1.1.0. Mifumo mingine inaweza kutumia ushirika, mashirika ya umma, shirikisho, mashirika mengi, waendeshaji wa huduma, au miundo mingine inayohusika bila kupitisha pendekezo lolote.
 
-### **6.1 Udhibiti wa chini na upendeleo**
+## **6.1 Udhibiti wa chini na upendeleo**
 
 Hivi sasa Protocol v1.1.0 inaweza kutumia vikundi tokeni balance caps na hesabu ukaguzi. Udhibiti huu huzuia hatua zilizochaguliwa za mikataba; Hazizuia kutofanya kazi kwa mtoaji, upotezaji wa thamani, upotezaji wa ufunguo, kutofaulu kwa mkataba, au upotezaji mwingine wowote.
 

@@ -1,4 +1,4 @@
-## **16. Mfano uliopendekezwa wa tathmini**
+# 16. Mfano uliopendekezwa wa tathmini
 
 Programu ya rejista, kikundi, au ya baadaye ya upungufu inaweza kubadilisha templeti hii. Si kiwango cha sasa cha orodha ya ulimwengu au dhamana.
 

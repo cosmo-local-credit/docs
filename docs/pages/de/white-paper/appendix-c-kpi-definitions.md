@@ -1,4 +1,4 @@
-## C. vorgeschlagene Definitionen von KPI
+# C. vorgeschlagene Definitionen von KPI
 
 Diese KPIs bilden eine vorgeschlagene Messspezifikation, nicht eine Aussage, dass die aktuelle App oder das aktuelle Protokoll jedes erforderliche Ereignis aufzeichnet.
 

@@ -1,10 +1,10 @@
-## **7. Iminungkahing pangangasiwa at governance asset ng CLC**
+# 7. Iminungkahing pangangasiwa at governance asset ng CLC
 
 Inilalahad ng kabanatang ito ang isang opsyonal na disenyo sa hinaharap para sa pamamahala at koordinasyon ng liquidity. Ang iminungkahing CLC governance token, stCLC, sCLC, governance vault, insurance fund, Waterfall, gauge, mandate, fee-credit window, at external-market program ay hindi bahagi ng kasalukuyang CLC App o Protocol v1.1.0. Mangangailangan ang bawat isa ng isang pagpapatupad, may pananagutang operator, inilathalang patakaran at mga tuntunin, security review, at naaangkop na legal na pag-apruba.
 
 Hindi kailangan ng CPP ang modelong ito ng token. Maaaring gumamit ang mga katugmang deployment ng mga kooperatiba, pampublikong ahensya, pederasyon, multisig, serbisyo, o iba pang may pananagutang istruktura.
 
-### **7.1 Layunin**
+## **7.1 Layunin**
 
 Kung maipasa, ang iminungkahi na layer ng pamamahala ay maaaring:
 
@@ -15,7 +15,7 @@ Kung maipasa, ang iminungkahi na layer ng pamamahala ay maaaring:
 - makilala ang mga nag-aambag sa ilalim ng nai-publish na mga patakaran sa pagiging karapat-dapat at anti-gaming; at
 - panatilihin ang review, appeal, transparency, at credible exit habang lumalaki ang partisipasyon.
 
-### **7.2 Proposed governance-asset model**
+## **7.2 Proposed governance-asset model**
 
 Ang disenyo ay naglalaman ng tatlong iba't ibang iminungkahi assets:
 
@@ -27,7 +27,7 @@ Hindi magiging equity, dividend, residual claim, pangako ng return, o community 
 
 Ilalathala bago gamitin ang mga governance lockup, minimum na tagal, cooldown, delegation, concentration cap, at critical-action threshold. Hindi boboto ang mga naka-unlock na iminungkahing CLC governance token sa ilalim ng disenyong ito.
 
-#### **7.2.1 Ipakita ang supply at allocation**
+### **7.2.1 Ipakita ang supply at allocation**
 
 Ang illustrative total na iminungkahi CLC supply ng governance-token ay **500,000,000**. Ito ay isang disenyo parameter, hindi isang kasalukuyang emisyon, alok, pagpapahalaga, o pangako ng likididad.
 
@@ -47,7 +47,7 @@ Sa ilalim ng ilustrasyon na mga kontrol sa pampublikong likido:
 
 Ang isang hinaharap na paglunsad ay maaaring magsimula sa isang inihayag na multisig at paglipat lamang pagkatapos ng nag-iiba na naaprubahan ang mga landas ng pagpapahirap, tulad ng mga independiyenteng audit, pagsubaybay, runbooks ng insidente, at sinusubukan na pause at fork na pamamaraan.
 
-#### **7.2.2 Mga yugto ng pagkakaroon at pagbibigay**
+### **7.2.2 Mga yugto ng pagkakaroon at pagbibigay**
 
 Ang isang future endowment program ay maaaring gumamit ng mga yugto na window ng kontribusyon at isang nai-publish na halaga ng referensiya para sa pagkuha at pagbuwis ng badyet.
 
@@ -55,7 +55,7 @@ Ang mga tuntunin ng kontribusyon ay magpapakita kung ang mga kabtangan ay ibinig
 
 Ang anumang likididad sa panlabas na merkado ay nangangailangan ng isang hiwalay na desisyon na nakikilala ang mga lugar, responsable operator, mga asset, caps, timing, labanan, kontrol sa panganib, pagreport, at termination.
 
-#### **7.2.3 Proposed na programa ng impact seeding**
+### **7.2.3 Proposed na programa ng impact seeding**
 
 Ang isang hinaharap na programa ay maaaring mag-alok ng bahagi ng governance vault sa mga contributor na naglalagay ng mga asset sa tinukoy na mga Pool ng Pangako at masusukat na mapabuti ang pag-access sa exchange at nakumpirma na pagpapatupad ng tagapag-isyu.
 
@@ -70,7 +70,7 @@ Ang isang inaminang patakaran sa pagiging karapat-dapat ay:
 
 Ang anumang tulong ay mananatili sa ilalim ng mga nai-publish na tuntunin ng programa, pagmamay-ari, pagiging karapat-dapat, pagsunod, at mga patakaran sa pagkawala.
 
-### **7.3 Proposed na vote, mga insentibo, at access sa bayad**
+## **7.3 Proposed na vote, mga insentibo, at access sa bayad**
 
 Sa ilalim ng disenyong ito, maaaring bumoto ang mga may hawak ng stCLC tungkol sa mga karapat-dapat na Pool, route-service mandate, pinagsasaluhang badyet, o iba pang pinagtibay na panukala. Maaaring gawing limitadong sCLC incentive ng isang curated gauge system ang mga boto para sa karapat-dapat na liquidity o routing operator.
 
@@ -78,7 +78,7 @@ Pag-iibahin ng patakaran sa pagsukat ang mga naisagawang swap at pagtupad ng tag
 
 Maaari ring maglathala ang isang pinagtibay na proseso ng pamamahala ng epoch fee-credit budget. Maaaring tumanggap ang mga karapat-dapat na may hawak ng stCLC ng sCLC na nagpapahintulot sa capped at time-limited na mga swap mula sa mga itinalagang fee-holding Pool patungo sa mga allowlisted asset o programa. Ito ay access sa magagamit na inventory na pinahihintulutan ng patakaran, hindi passive income o pagmamay-ari sa fee-holding Pool.
 
-#### **7.3.1 Paglalapat ng bayad sa serbisyo at pagpili ng profile**
+### **7.3.1 Paglalapat ng bayad sa serbisyo at pagpili ng profile**
 
 Ang isang hinaharap na profile ng registry ay maaaring humingi sa mga nakikibahagi na Pool o serbisyo ng ruta na gumamit ng isang katugma na adapter ng bayad o hook.
 
@@ -86,7 +86,7 @@ Ang mga pangalang tulad ng **PoolFactory** o **FeeHook** ay naglalarawan ng mga 
 
 Magiging profile-specific ang enforcement. Maaaring patuloy na gumana nang lokal ang isang Pool na hindi isinama ng isang profile o sumali sa ibang katugmang registry kung nananatiling gumagana ang mga contract at dependency nito. Dapat ipakita ng mga client ang available na profile at naaangkop na bayad bago humingi ng awtorisasyon.
 
-#### **7.3.2 sCLC badyet at pagpipiliang panlabas na mga kontrol ng float**
+### **7.3.2 sCLC badyet at pagpipiliang panlabas na mga kontrol ng float**
 
 Pagkatapos pondohan ang pinagtibay na mas mataas na prayoridad na badyet, maaaring maglathala ang isang proseso sa hinaharap ng epoch fee-credit budget na `F_epoch`, kabilang ang zero. Maaaring magtakda ang isang patakaran ng limitasyon sa kalahok na proporsyonal sa voting power ng stCLC:
 
@@ -105,7 +105,7 @@ Ang isang hiwalay na patakaran ay maaaring magpahintulot sa isang capped, time-w
 
 Ang patakaran ay maaaring manatili na hindi aktibo nang walang hangganan.
 
-#### **7.3.3 Portfolio Pools at mga attestasyon**
+### **7.3.3 Portfolio Pools at mga attestasyon**
 
 Ang **portfolio Pool** ay magiging karaniwang Pool ng Pangako na inayos ayon sa isang misyon o larangan ng serbisyo. Maaaring maging indibidwal, kooperatiba, pangkat ng komunidad, pampublikong ahensya, pederasyon, multisig, operator ng serbisyo, o iba pang may pananagutang istruktura ang Tagapangasiwa ng Pool nito.
 
@@ -124,7 +124,7 @@ Ang mga sertipikasyon ay maaaring magbigay ng impormasyon sa pagpasok o paggamot
 
 Ipinapayag ng Pool kung paano nakakaapekto ang isang patnubay sa pagpasok, mga pamamaraan ng rate ng palitan, limitasyon, o pagiging karapat-dapat at kung paano itinataguyod ang mga error, expiration, conflicts, at appeals.
 
-### **7.4 Proposed Waterfall at mga badyet**
+## **7.4 Proposed Waterfall at mga badyet**
 
 Ang iminungkahi na Waterfall ay mag-alok lamang ng realisadong, karapat-dapat na kita sa ilalim ng isang inaminang proseso ng pamamahala.
 

@@ -1,0 +1,40 @@
+{
+  "source": {
+    "reviewDate": "17 November 2026",
+    "approvalDate": "17 November 2026",
+    "legalApproval": "confirmed",
+    "appCommit": "28ba4cb22182a22c2781ca24af1aa8c0291b3339",
+    "coreCommit": "d2f6c45614573a8f2145121c845b74d750c9faa0",
+    "protocolCommit": "ce090fd3d5a7493c726fb939da39af15ef1c9d7c",
+    "routes": {
+      "/introduction/getting-started": { "sha256": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac" },
+      "/introduction/concepts": { "sha256": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d" },
+      "/introduction/example": { "sha256": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5" },
+      "/protocol/network": { "sha256": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae" },
+      "/governance/privacy": { "sha256": "faaf1517659e9fb1d0fc910f09d3aa960b1d797fa671b879412fb746ae7e1426" },
+      "/governance/terms": { "sha256": "620ac4e8ee95ed5d8ddfaf2dbd615ed0e3211e723044bbfe602340bce9d4c2c4" },
+      "/white-paper": { "sha256": "91a55686f4a7fc1d2540bd5fcbe5acc03481c04c8a3bf8b9c581e0956d24bd69" },
+      "/white-paper/executive-summary": { "sha256": "0f150ea2091498f6627c69b8926757aef07aa1ee120f423b8592b1e044d2446f" },
+      "/white-paper/chapter-17-legal-compliance-note": { "sha256": "5b350a304f2e2af49b5ffddd22fb36813eff2cf5b0cb2239c0f6ccc47c02f751" }
+    }
+  },
+  "locales": {
+    "en": { "status": "current" },
+    "ar": { "status": "pending" },
+    "zh": { "status": "pending" },
+    "zh-Hant": { "status": "pending" },
+    "dz": { "status": "pending" },
+    "de": { "status": "pending" },
+    "es": { "status": "pending" },
+    "fil": { "status": "pending" },
+    "fr": { "status": "current", "reviewed": "17 November 2026" },
+    "hi": { "status": "pending" },
+    "it": { "status": "pending" },
+    "nl": { "status": "pending" },
+    "nl-BE": { "status": "pending" },
+    "pt": { "status": "pending" },
+    "sr": { "status": "pending" },
+    "uk": { "status": "pending" },
+    "sw": { "status": "pending" }
+  }
+}

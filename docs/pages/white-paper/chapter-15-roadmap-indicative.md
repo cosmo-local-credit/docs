@@ -1,6 +1,6 @@
-## **15. Roadmap (indicative)**
+# 15. Roadmap (indicative)
 
-### **15.1 Current foundation**
+## **15.1 Current foundation**
 
 GEF operates the CLC App at `cosmolocal.credit` on Gnosis Chain. The App provides supported account and wallet access, a public Market catalog, and interfaces for tokens, vouchers, Offerings, Wants, Commitment Pools, transfers, direct Pool swaps, and routed exchanges.
 
@@ -8,7 +8,7 @@ Protocol v1.1.0 provides the current contract foundation: `GiftableToken`, direc
 
 CLC Core now provides the public App's same-chain routing and observability foundation: reconciled graph discovery, routes of up to three Pool swaps, pinned-block quotes, per-hop bounds and fees, complete-batch simulation, signed atomic Calibur execution, relay tracking, settlement reconciliation, grouped receipts, and operational metrics. Availability still depends on the interface, supported wallet and token behavior, deployed contracts, inventory, configuration, service freshness, network state, eligibility, providers, jurisdiction, and published issuer or Pool terms.
 
-### **15.2 Proposed milestones**
+## **15.2 Proposed milestones**
 
 These named milestones are design directions, not release numbers, delivery dates, or commitments that a feature will launch.
 

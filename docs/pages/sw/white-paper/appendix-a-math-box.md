@@ -1,8 +1,8 @@
-## A. Mfano uliopendekezwa wa kipimo na ada
+# A. Mfano uliopendekezwa wa kipimo na ada
 
 Kiambatisho hiki kinafafanua mfumo wa kupima uliopendekezwa. Protocol v1.1.0 haina kurekodi utekelezaji wa mtoaji, ukomo kwa ulimwengu halisi, au kila uwanja wa data unaohitajika hapa chini.
 
-### Maelezo ya tukio na hisa
+## Maelezo ya tukio na hisa
 
 Kwa ajili ya kitambulisho darasa *j*, cohort au kipindi *t*, na kueleza utaratibu wa thamani *m*:
 
@@ -16,7 +16,7 @@ Kwa ajili ya kitambulisho darasa *j*, cohort au kipindi *t*, na kueleza utaratib
 
 Kila kipimo thamani lazima kuchapisha kitengo, chanzo, mbinu ya thamani, timestamp, na matibabu ya viwango vya kubadilishana kikundi tofauti. Uhamisho kwenye mnyororo unaweza kusaidia `X` au ushahidi wa uwasilishaji; haina mwenyewe kuanzisha `F` au `G`.
 
-### Hatua za utekelezaji kwa msingi wa vikundi
+## Hatua za utekelezaji kwa msingi wa vikundi
 
 Kwa kundi la maonyesho ya ukombozi halali:
 
@@ -32,7 +32,7 @@ Matumizi sawa kufungwa au kukomaa cohort katika kila numerator na denominator. R
 
 utekelezaji latency vipimo huduma issuer baada ya uwasilishaji. Muda wa kuhifadhi ni kipimo tofauti na haipaswi kutambuliwa kama latency ya ukombozi.
 
-### Vipimo tofauti vya kasi
+## Vipimo tofauti vya kasi
 
 Kasi iliyopendekezwa ya ukomo kwa ahadi inaweza kuhesabiwa tu wakati `O` na thamani iliyokamilika hutumia njia ile ile ya kutathmini:
 
@@ -44,7 +44,7 @@ Hatua ya shughuli za kubadilishana kikundi ni tofauti:
 
 Hakuna thamani yoyote kuthibitisha athari ya kijamii, uwezo wa mtoaji, faida, au cash convertibility.
 
-### Mapendekezo ya mapato ya mtandao
+## Mapendekezo ya mapato ya mtandao
 
 Hebu:
 

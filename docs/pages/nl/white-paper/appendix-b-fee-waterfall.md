@@ -1,4 +1,4 @@
-## B. Illustratieve waterval voor toekomstige vergoedingen
+# B. Illustratieve waterval voor toekomstige vergoedingen
 
 Dit is een voorgestelde ontwerp voor een toekomstige implementatie. Het geldt alleen als het wordt geïmplementeerd, gefinancierd en aangenomen door middel van gepubliceerde governance- en deelnemerstermijnen.Protocol v1.1.0 een vergoeding, bijdrage recht, reserve, garantie of verzekeringsovereenkomst.
 

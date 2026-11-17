@@ -1,4 +1,4 @@
-## D. Paramètres de lancement proposés
+# D. Paramètres de lancement proposés
 
 Chaque valeur ci-dessous est illustrative. Il ne s'agit pas d'une application par défaut actuelle, d'un réglage Protocol v1.1.0, d'une garantie, d'une offre ou d'un engagement de livraison. Un déploiement futur devrait adopter, appliquer, surveiller et publier ses paramètres réels.
 

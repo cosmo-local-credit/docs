@@ -60,6 +60,32 @@ export function MobileSiteNavigation({ label, locale, pathname }: MobileSiteNavi
     window.location.assign(`${window.location.origin}${path}`)
   }
 
+  function renderItems(items: SidebarItem[], depth = 0) {
+    return items.map((item) => {
+      if (item.link) {
+        const active = normalizePath(item.link) === normalizePath(pathname)
+        return (
+          <a
+            aria-current={active ? 'page' : undefined}
+            data-depth={depth}
+            href={origin ? `${origin}${item.link}` : item.link}
+            key={item.link}
+            onClick={(event) => followLink(event, item.link!)}
+          >
+            {item.text}
+          </a>
+        )
+      }
+      if (!item.items?.length) return null
+      return (
+        <div className="mobile-site-navigation__subgroup" key={`${depth}-${item.text}`}>
+          <div className="mobile-site-navigation__subgroup-label">{item.text}</div>
+          {renderItems(item.items, depth + 1)}
+        </div>
+      )
+    })
+  }
+
   useEffect(() => {
     setOrigin(window.location.origin)
   }, [])
@@ -134,7 +160,12 @@ export function MobileSiteNavigation({ label, locale, pathname }: MobileSiteNavi
               const expanded = expandedGroup === index
               const groupId = `${id}-site-navigation-group-${index}`
               const items = group.link
-                ? [{ text: overviewLabel, link: group.link }, ...(group.items ?? [])]
+                ? [{
+                    text: group.text === navigationMessages[locale].groups.whitePaper
+                      ? overviewLabel
+                      : group.text,
+                    link: group.link,
+                  }, ...(group.items ?? [])]
                 : (group.items ?? [])
 
               return (
@@ -153,20 +184,7 @@ export function MobileSiteNavigation({ label, locale, pathname }: MobileSiteNavi
                   </button>
                   {expanded ? (
                     <div className="mobile-site-navigation__items" id={groupId}>
-                      {items.map((item) => {
-                        if (!item.link) return null
-                        const active = normalizePath(item.link) === normalizePath(pathname)
-                        return (
-                          <a
-                            aria-current={active ? 'page' : undefined}
-                            href={origin ? `${origin}${item.link}` : item.link}
-                            key={item.link}
-                            onClick={(event) => followLink(event, item.link!)}
-                          >
-                            {item.text}
-                          </a>
-                        )
-                      })}
+                      {renderItems(items)}
                     </div>
                   ) : null}
                 </section>

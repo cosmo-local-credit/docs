@@ -1,4 +1,4 @@
-## **2. The accounting shift: from assets to trust**
+# 2. The accounting shift: from assets to trust
 
 Traditional finance begins with **Assets − Liabilities = Equity**. CPP reframes this for a commitment economy:
 

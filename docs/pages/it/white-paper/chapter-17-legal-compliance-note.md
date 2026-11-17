@@ -1,4 +1,4 @@
-## **17. Nota giuridica e di conformità**
+# 17. Nota giuridica e di conformità
 
 CPP può coordinare token, buoni, fondo e swap il cui trattamento legale dipende dalla loro progettazione, commercializzazione, utilizzo, parti responsabili e giurisdizione. Nulla di questo Libro Bianco è legale, fiscale, di investimento, di credito o di consulenza finanziaria.
 
@@ -6,7 +6,7 @@ L'uso della CLC App è regolato dalla [Termini di servizio](/it/governance/terms
 
 I servizi di pagamento dipendenti dall'impiego devono identificare il loro fornitore responsabile, le giurisdizioni, l'ammissibilità, le commissioni, i limiti, il modello di custodia e le condizioni. La presenza di un connettore non significa che GEF o un Fondo gestisca il servizio regolamentato sottostante.
 
-### **17.1 Disclosure dei buono e delle offerte**
+## **17.1 Disclosure dei buono e delle offerte**
 
 L'emittente dovrebbe pubblicare e mantenere aggiornate:
 
@@ -20,7 +20,7 @@ L'emittente dovrebbe pubblicare e mantenere aggiornate:
 
 Un contratto token non stabilisce questi termini né dimostra la performance.
 
-### **17.2 Divulgazioni del fondo**
+## **17.2 Divulgazioni del fondo**
 
 Un Responsabile del Fondo dovrebbe pubblicare:
 
@@ -34,7 +34,7 @@ Un Responsabile del Fondo dovrebbe pubblicare:
 
 La quotazione non è un'approvazione, una valutazione, un'assicurazione o una garanzia da parte di GEF.
 
-### **17.3 Azioni e obblighi**
+## **17.3 Azioni e obblighi**
 
 Un uomo comune . **Scambio di fondo** scambi di attività supportate in base a quote e limiti di transazione visualizzati. La direzione dell'attività non la rende un prestito, un rimborso, un riscatto da parte dell'emittente o una realizzazione del mondo reale.
 
@@ -44,7 +44,7 @@ L'app **“Ritiri il buono”** L'azione è la cancellazione del catalogo revers
 
 Un prestito futuro o un altro prodotto creditizio richiederebbe che le condizioni supplementari e le condizioni di transazione siano presentate separatamente prima di essere utilizzate. Nessun ordinario invito, contributo, deposito di fondo, swap di fondo, presentazione, adempimento o estinzione crea un prestito solo a causa della sua direzione o del tipo di attività.
 
-### **17.4 Protezioni, prove e leggi locali**
+## **17.4 Protezioni, prove e leggi locali**
 
 Un limite, una riserva, un'entrata nel registro, un elenco di app o una transazione blockchain non sono automaticamente una garanzia o una polizza assicurativa. Qualsiasi protezione deve identificare la parte responsabile, l'evento coperto, il finanziamento, il limite massimo, le esclusioni, la durata, le prove, il processo di domanda e le condizioni applicabili.
 

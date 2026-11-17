@@ -1,8 +1,8 @@
-## **9. Proposed economics for liquidity programs**
+# 9. Proposed economics for liquidity programs
 
 This chapter describes a future, separately adopted model. It is not a current App feature, an offer, a promised return, or a right created by depositing into `SwapPool`.
 
-### **9.1 Proposed revenue sources**
+## **9.1 Proposed revenue sources**
 
 A future network budget could receive:
 
@@ -14,7 +14,7 @@ Gross Pool fees retained by Pools are not network revenue. Current Protocol v1.1
 
 The production CLC App route workflow adds no separate routing-service fee. A routed exchange can still incur a Pool fee and protocol fee at every hop. Those current per-hop charges must not be labeled as the proposed network rake or counted again as future service revenue.
 
-### **9.2 Illustrative rake math**
+## **9.2 Illustrative rake math**
 
 If a participating Pool charges a 2.00% Pool fee and an adopted network rake receives 20% of that Pool fee, the proposed effective network-rake rate on routed value is:
 
@@ -28,7 +28,7 @@ Proposed network revenue is:
 
 Do not add gross Pool fees to the network rake: the rake is a transfer from those fees and would otherwise be counted twice.
 
-### **9.3 Liquidity-program rights**
+## **9.3 Liquidity-program rights**
 
 A separately adopted program could fund Pool inventory, routing services, monitoring, or other mandates. Its terms would need to disclose:
 

@@ -1,4 +1,4 @@
-## B. Cascata illustrativa delle tasse future
+# B. Cascata illustrativa delle tasse future
 
 Questo è un progetto proposto per un futuro dispiegamento. Essa si applica solo se attuata, finanziata e adottata tramite modalità di governance e di partecipazione pubblicate. Non descrive una tassa Protocol v1.1.0 attuale, il diritto del contribuente, la riserva, la garanzia o l'accordo di assicurazione.
 

@@ -1,4 +1,4 @@
-## **12. Plan de plazo del programa de liquidez propuesto (esbozo no vinculante)**
+# 12. Plan de plazo del programa de liquidez propuesto (esbozo no vinculante)
 
 Esta es una lista de verificación ilustrativa para un programa futuro, documentado por separado. No es una oferta, una característica actual de la aplicación, o una promesa de liquidez, acceso, seguro, retorno, valor o salida.
 

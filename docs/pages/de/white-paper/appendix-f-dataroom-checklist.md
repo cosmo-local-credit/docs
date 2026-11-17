@@ -1,4 +1,4 @@
-## F. Checkliste der Datenabteilung
+# F. Checkliste der Datenabteilung
 
 1. **Historische Beweise Sarafu Network**
    - Archiv datiert Swapvolumen, Definitionen von aktiven Benutzern und Vermögenswerten, Zwischenfälle, Erlösungsvorlagen, Alterungsgutscheine, bestätigte Erfüllung, Ausbuchung, Halterungsdauermaßnahmen, Perioden, Ausschlüsse und Methodik getrennt von aktuellen Cosmo-Local Credit-Metriken.

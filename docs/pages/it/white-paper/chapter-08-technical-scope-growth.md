@@ -1,4 +1,4 @@
-## **8. Portata tecnica e crescita**
+# 8. Portata tecnica e crescita
 
 Questo capitolo distingue il servizio di instradamento attualmente in produzione dalle funzionalità facoltative o proposte. Una capacità attuale descritta qui resta specifica della distribuzione pubblica di CLC App e CLC Core; non è automaticamente una caratteristica dei contratti Protocol v1.1.0 o di un'altra distribuzione.
 
@@ -24,7 +24,7 @@ Le aree di crescita possibili comprendono:
 
 I prezzi di mercato esterno non determinano il debito di un emittente in base ai termini del buono. Un fondo potrebbe utilizzare un riferimento esterno protetto per un asset fungible, ma il suo metodo di cambio pubblicato, i limiti, le commissioni e l'inventario reggerebbero le sue quotazioni.
 
-### **8.1 Servizio di instradamento attuale e regole più ampie**
+## **8.1 Servizio di instradamento attuale e regole più ampie**
 
 **Scoperta.** CLC Core mantiene un grafo riconciliato a partire da cataloghi configurati, relazioni dei registri, parametri dei Fondi, commissioni, limiti, saldi ed eventi della catena. Stima ciò che un portafoglio di sessione può raggiungere e segnala i dati obsoleti. La configurazione pubblica cerca percorsi fino a tre passaggi. La scoperta non costituisce una promessa eseguibile.
 
@@ -51,7 +51,7 @@ Un servizio opt-in potrebbe raccogliere le intenzioni di riequilibrio e cercare 
 
 **Requisiti per SDK e interfacce.** Un'integrazione riutilizzabile dei percorsi dovrebbe fornire una corrispondenza deterministica dalla quotazione alla ricevuta, controlli invarianti per ciascun passaggio, codici di errore comprensibili e registri facili da verificare. L'attuale implementazione in produzione di CLC App e CLC Core fornisce queste funzioni per il proprio profilo. Il contratto Solidity `SwapRouter` di Protocol v1.1.0 resta di sola quotazione e non esegue il percorso.
 
-#### **8.1.1 Specifica minima di compatibilità con la confederazione**
+### **8.1.1 Specifica minima di compatibilità con la confederazione**
 
 Un ecosistema Fondo che cerchi un routing a profilo incrociato pubblicherà informazioni leggibili dalla macchina per:
 
@@ -63,7 +63,7 @@ Un ecosistema Fondo che cerchi un routing a profilo incrociato pubblicherà info
 
 Un profilo potrebbe aggiungere copertura, conformità, arbitrato o altri servizi senza rendere questi requisiti per la compatibilità di base di CPP. Ogni servizio facoltativo identificerebbe la parte responsabile, l'autorità, la portata e i termini.
 
-### **8.2 Licenza, verifica e uscita**
+## **8.2 Licenza, verifica e uscita**
 
 I contratti Protocol v1.1.0 sono compatibili con EVM-. I contratti nella directory `src` del repository del protocollo sono pubblicati sotto AGPL-3.0, ad eccezione dei componenti di terzi non modificati identificati che conservano i propri termini. Le fonti, le API e le istruzioni di implementazione pubblicate supportano una revisione indipendente, ma non dimostrano di per sé un'audit, una implementazione sicura o una conformità legale.
 

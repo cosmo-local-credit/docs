@@ -1,4 +1,4 @@
-## **4. Dhamana inayoweza kutumiwa tena**
+# 4. Dhamana inayoweza kutumiwa tena
 
 Msaada wa mkopo ulioorodheshwa tofauti unaweza kukubali vocha zinazoweza kuhamishwa kama dhamana au kama chombo cha malipo. Ikiwa ilikuwa hivyo:
 
@@ -7,7 +7,7 @@ Msaada wa mkopo ulioorodheshwa tofauti unaweza kukubali vocha zinazoweza kuhamis
 - mipaka, hesabu, tathmini, umaarufu, utendaji wa mtoaji, na hatari za kutofaulu zitabaki; na
 - hakuna njia, utekelezaji, malipo, thamani, au ahueni itakuwa uhakika.
 
-### 4.1 Mzunguko wa mkopo wa wazalishaji
+## 4.1 Mzunguko wa mkopo wa wazalishaji
 
 Huduma ya baadaye ya CLC- inayolingana inaweza kusaidia mkopo wa wazalishaji tu wakati pande huanzisha kituo tofauti na kutoa wazi shughuli kama malipo ya awali. Masharti yake ya shughuli itakuwa kutambua mkopo na deni na taarifa:
 

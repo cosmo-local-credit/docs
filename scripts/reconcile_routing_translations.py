@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Reconcile the v0.9 routing changes into one reviewed locale.
+"""Reconcile a controlled English-source rollout into one reviewed locale.
 
 The general translation generator is useful for a first draft, but replacing a
-whole established locale can regress previously reviewed terminology.  This
-tool performs a three-way, section-level reconciliation instead:
+whole established locale can regress previously reviewed terminology. This
+tool performs a three-way, section-level reconciliation instead. It supports
+both the routing and English clarity-review registries:
 
 * the committed English page is the v0.8 base;
 * the working-tree English page is the v0.9 source;
@@ -34,6 +35,7 @@ from generate_documentation_translations import (
     MadladTranslator,
     NllbTranslator,
     ROUTING_ROLLOUT,
+    translate_segments,
 )
 
 
@@ -42,6 +44,9 @@ PAGES = ROOT / "docs/pages"
 ROUTES = list(ROUTING_ROLLOUT["source"]["affectedRoutes"])
 SOURCE_VERSION = ROUTING_ROLLOUT["source"]["whitePaperVersion"]
 SOURCE_DATE = ROUTING_ROLLOUT["source"]["publicationDate"]
+ENGLISH_REVIEW_ROLLOUT = json.loads(
+    (I18N / "english-review-rollout.json").read_text()
+)
 
 UNCHANGED_TERMS = [
     "Cosmo-Local Credit",
@@ -140,9 +145,9 @@ def assert_base_locale_structure(
 ) -> None:
     base_levels = [section.level for section in base]
     locale_levels = [section.level for section in localized]
-    if base_levels != locale_levels:
+    if len(base_levels) != len(locale_levels):
         raise ValueError(
-            f"{route}: committed English and localized heading levels differ: "
+            f"{route}: committed English and localized heading counts differ: "
             f"{base_levels!r} != {locale_levels!r}"
         )
 
@@ -154,11 +159,13 @@ class CandidateRenderer:
         translator: CachedTranslator,
         review_translator: CachedTranslator,
         glossary: dict[str, str],
+        app_glossary: dict[str, dict[str, str]],
     ) -> None:
         self.locale = locale
         self.translator = translator
         self.review_translator = review_translator
         self.glossary = glossary
+        self.app_glossary = app_glossary
         self.units: list[TranslationUnit] = []
         self.templates: dict[str, list[str]] = {}
 
@@ -240,86 +247,11 @@ class CandidateRenderer:
         core = value[len(leading) : core_end]
         if core != value:
             return f"{leading}{self.add_unit(route, core)}{trailing}"
-        if "<br/>" in value:
-            return "<br/>".join(
-                self.add_unit(route, part) for part in value.split("<br/>")
-            )
-        anchor = re.search(r"(<a\b[^>]*>)(.*?)(</a>)", value)
-        if anchor:
-            return "".join(
-                [
-                    self.add_unit(route, value[: anchor.start()]),
-                    anchor.group(1),
-                    self.add_unit(route, anchor.group(2)),
-                    anchor.group(3),
-                    self.add_unit(route, value[anchor.end() :]),
-                ]
-            )
-        math = re.search(r"\$[^$\n]+\$|\\\([^\n]+?\\\)", value)
-        if math:
-            return "".join(
-                [
-                    self.add_unit(route, value[: math.start()]),
-                    math.group(0),
-                    self.add_unit(route, value[math.end() :]),
-                ]
-            )
-        address = re.search(r"\b0x[a-fA-F0-9]+\b", value)
-        if address:
-            return "".join(
-                [
-                    self.add_unit(route, value[: address.start()]),
-                    address.group(0),
-                    self.add_unit(route, value[address.end() :]),
-                ]
-            )
-        html = re.search(r"<[^>]+>", value)
-        if html:
-            return "".join(
-                [
-                    self.add_unit(route, value[: html.start()]),
-                    html.group(0),
-                    self.add_unit(route, value[html.end() :]),
-                ]
-            )
-        inline_code = re.search(r"`([^`\n]+)`", value)
-        if inline_code:
-            return "".join(
-                [
-                    self.add_unit(route, value[: inline_code.start()]),
-                    inline_code.group(0),
-                    self.add_unit(route, value[inline_code.end() :]),
-                ]
-            )
-        link = re.search(r"\[([^\]\n]+)\]\(([^)\n]+)\)", value)
-        if link:
-            return "".join(
-                [
-                    self.add_unit(route, value[: link.start()]),
-                    "[",
-                    self.add_unit(route, link.group(1)),
-                    f"]({link.group(2)})",
-                    self.add_unit(route, value[link.end() :]),
-                ]
-            )
-        bare_url = re.search(r"(?:https?://|mailto:)[^\s)>]+", value)
-        if bare_url:
-            return "".join(
-                [
-                    self.add_unit(route, value[: bare_url.start()]),
-                    bare_url.group(0),
-                    self.add_unit(route, value[bare_url.end() :]),
-                ]
-            )
-        parts = re.split(r"(?<=[.!?])\s+(?=(?:[*`\[]|[A-Z]))", value)
-        if len(parts) > 1:
-            return " ".join(self.add_unit(route, part) for part in parts)
-        if len(value) > 600:
-            chunks = re.split(r"(?<=[:;])\s+", value)
-            if len(chunks) == 1:
-                chunks = re.split(r"(?<=,)\s+", value)
-            if len(chunks) > 1:
-                return " ".join(self.add_unit(route, chunk) for chunk in chunks)
+        # Keep complete sentences and link labels in context. The shared
+        # ``translate_segments`` pipeline protects Markdown, URLs, code,
+        # formulas, names, and canonical multi-word terms before translation.
+        # Splitting those fragments here produced fluent-looking but incorrect
+        # short labels and conjunctions in earlier candidates.
         prepared, replacements = self.protect(value)
         index = len(self.units)
         self.units.append(TranslationUnit(route, value, prepared, replacements))
@@ -409,33 +341,24 @@ class CandidateRenderer:
         return "".join(lines)
 
     def translate_all(self) -> tuple[list[str], list[dict[str, object]]]:
-        prepared = [unit.prepared for unit in self.units]
-        translated = self.translator.translate_many(
-            prepared, "en", self.locale, beam_size=4
-        )
-        restored: list[str] = []
-        for unit, value in zip(self.units, translated, strict=True):
-            try:
-                restored_value = self.restore(value, unit.replacements)
-            except ValueError as error:
-                raise ValueError(
-                    f"{unit.route}: {unit.source!r}: replacements={unit.replacements!r}: {error}"
-                ) from error
-            restored.append(self.normalize_terms(unit.source, restored_value))
-
-        # Independent back-translation supports focused human review.  Protect
-        # the already restored target terms only by translating the natural
-        # output directly; similarity is an alert, not an automatic approval.
-        back = self.review_translator.translate_many(
-            restored, self.locale, "en", beam_size=4
+        sources = [unit.source for unit in self.units]
+        translated, review = translate_segments(
+            self.translator,
+            sources,
+            self.locale,
+            self.glossary,
+            self.app_glossary,
+            protect_names=True,
+            forward_beam_size=4,
         )
         reviews: list[dict[str, object]] = []
-        for unit, target, back_value in zip(
-            self.units, restored, back, strict=True
+        for unit, target, back_value, similarity in zip(
+            self.units,
+            translated,
+            review["backTranslations"],
+            review["scores"],
+            strict=True,
         ):
-            similarity = SequenceMatcher(
-                None, unit.source.lower(), back_value.lower()
-            ).ratio()
             reviews.append(
                 {
                     "route": unit.route,
@@ -445,7 +368,7 @@ class CandidateRenderer:
                     "similarity": round(similarity, 4),
                 }
             )
-        return restored, reviews
+        return translated, reviews
 
 
 def localize_links(value: str, locale: str) -> str:
@@ -560,6 +483,11 @@ def reconcile_page(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--rollout",
+        choices=["routing", "english-review"],
+        default="routing",
+    )
     parser.add_argument("--locale", required=True, choices=LOCALES)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument(
@@ -574,10 +502,27 @@ def main() -> None:
     parser.add_argument("--cache-batch-size", type=int, default=128)
     args = parser.parse_args()
 
+    rollout = (
+        ROUTING_ROLLOUT
+        if args.rollout == "routing"
+        else ENGLISH_REVIEW_ROLLOUT
+    )
+    routes = (
+        list(rollout["source"]["affectedRoutes"])
+        if args.rollout == "routing"
+        else list(rollout["source"]["routes"])
+    )
+
     glossary_data = json.loads((I18N / "glossary.json").read_text())
+    canonical_source = [
+        "Commitment Pool",
+        "Commitment Pools",
+        "Pool Steward",
+        "Pool Stewards",
+    ]
     glossary = {
-        source: translations[args.locale]
-        for source, translations in glossary_data["terms"].items()
+        source: glossary_data["terms"][source][args.locale]
+        for source in canonical_source
     }
     engine = (
         MadladTranslator(args.model, args.threads)
@@ -595,12 +540,16 @@ def main() -> None:
     else:
         review_translator = translator
     renderer = CandidateRenderer(
-        args.locale, translator, review_translator, glossary
+        args.locale,
+        translator,
+        review_translator,
+        glossary,
+        glossary_data["terms"],
     )
 
     templates: dict[Path, str] = {}
     page_report: dict[str, object] = {}
-    for route in ROUTES:
+    for route in routes:
         relative = route_to_relative(route)
         base = committed_source(relative)
         current = (PAGES / relative).read_text()
@@ -616,28 +565,32 @@ def main() -> None:
             "changedSections": changed,
         }
 
-    notice_text = (
-        f"This is a translation of White Paper v{SOURCE_VERSION}. "
-        f"The English source was published on {SOURCE_DATE}. "
-        f"This translation was published on {args.translation_date}. "
-        "English is the source text."
-    )
-    notice_template = renderer.add_unit("/white-paper", notice_text)
+    notice_template = None
+    if args.rollout == "routing":
+        notice_text = (
+            f"This is a translation of White Paper v{SOURCE_VERSION}. "
+            f"The English source was published on {SOURCE_DATE}. "
+            f"This translation was published on {args.translation_date}. "
+            "English is the source text."
+        )
+        notice_template = renderer.add_unit("/white-paper", notice_text)
 
     values, reviews = renderer.translate_all()
-    translated_notice = interpolate(notice_template, values)
-    ui = json.loads((I18N / f"ui/{args.locale}.json").read_text())
-    notice_title = ui["whitePaper"]["translationTitle"]
-    source_label = ui["whitePaper"]["englishSource"]
-    notice = (
-        f'> **{notice_title}.** {translated_notice} '
-        f'<a data-english-source="true" href="/white-paper" hrefLang="en">'
-        f"{source_label}</a>."
-    )
+    notice = None
+    if notice_template is not None:
+        translated_notice = interpolate(notice_template, values)
+        ui = json.loads((I18N / f"ui/{args.locale}.json").read_text())
+        notice_title = ui["whitePaper"]["translationTitle"]
+        source_label = ui["whitePaper"]["englishSource"]
+        notice = (
+            f'> **{notice_title}.** {translated_notice} '
+            f'<a data-english-source="true" href="/white-paper" hrefLang="en">'
+            f"{source_label}</a>."
+        )
     args.output.mkdir(parents=True, exist_ok=True)
     for relative, template in templates.items():
         rendered = localize_links(interpolate(template, values), args.locale)
-        if relative.as_posix() == "white-paper/index.mdx":
+        if notice and relative.as_posix() == "white-paper/index.mdx":
             if re.search(r"(?m)^> .*\n\n", rendered):
                 rendered = re.sub(
                     r"(?m)^> .*\n\n", f"{notice}\n\n", rendered, count=1
@@ -656,12 +609,10 @@ def main() -> None:
     low_confidence = [review for review in reviews if review["similarity"] < 0.35]
     report = {
         "locale": args.locale,
-        "whitePaperVersion": SOURCE_VERSION,
-        "englishPublicationDate": SOURCE_DATE,
         "translationPublicationDate": args.translation_date,
-        "sourceAppCommit": ROUTING_ROLLOUT["source"]["appCommit"],
-        "sourceCoreCommit": ROUTING_ROLLOUT["source"]["coreCommit"],
-        "sourceProtocolCommit": ROUTING_ROLLOUT["source"]["protocolCommit"],
+        "sourceAppCommit": rollout["source"]["appCommit"],
+        "sourceCoreCommit": rollout["source"]["coreCommit"],
+        "sourceProtocolCommit": rollout["source"]["protocolCommit"],
         "summary": {
             "changedSections": sum(
                 int(page["changedSections"]) for page in page_report.values()
@@ -674,21 +625,40 @@ def main() -> None:
             ),
             "unitsBelow0_35": len(low_confidence),
         },
-        "mandatoryReview": [
-            "route discovery is estimated and the pinned-block quote is authoritative",
-            "current maximum route depth is three Pool swaps",
-            "same-chain Calibur batch uses revertOnFailure and per-hop bounds",
-            "Safes and other contract wallets are unsupported by the current route quote",
-            "Pool and protocol fees are per hop and there is no current route-service fee",
-            "Solidity SwapRouter remains quote-only",
-            "participant routing does not authorize Pool rebalancing",
-            "settlement remains separate from voucher fulfillment and discharge",
-            "complete natural-language page skim",
-        ],
+        "mandatoryReview": (
+            [
+                "route discovery is estimated and the pinned-block quote is authoritative",
+                "current maximum route depth is three Pool swaps",
+                "same-chain Calibur batch uses revertOnFailure and per-hop bounds",
+                "Safes and other contract wallets are unsupported by the current route quote",
+                "Pool and protocol fees are per hop and there is no current route-service fee",
+                "Solidity SwapRouter remains quote-only",
+                "participant routing does not authorize Pool rebalancing",
+                "settlement remains separate from voucher fulfillment and discharge",
+                "complete natural-language page skim",
+            ]
+            if args.rollout == "routing"
+            else [
+                "voucher retirement is reversible catalog removal rather than token destruction",
+                "current acceptance evidence is not represented as durable versioned consent",
+                "privacy service categories and ODPC complaint rights retain the English meaning",
+                "current routing and Protocol v1.1.0 boundaries remain distinct",
+                "White Paper statistics remain illustrative and require dated provenance",
+                "complete natural-language page skim",
+            ]
+        ),
         "pages": page_report,
         "lowConfidenceUnits": low_confidence,
     }
-    report_path = args.output.parent / f"routing-review.{args.locale}.json"
+    if args.rollout == "routing":
+        report["whitePaperVersion"] = SOURCE_VERSION
+        report["englishPublicationDate"] = SOURCE_DATE
+        report_name = f"routing-review.{args.locale}.json"
+    else:
+        report["reviewDate"] = rollout["source"]["reviewDate"]
+        report["approvalDate"] = rollout["source"]["approvalDate"]
+        report_name = f"english-review.{args.locale}.json"
+    report_path = args.output.parent / report_name
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(report["summary"], ensure_ascii=False))
 

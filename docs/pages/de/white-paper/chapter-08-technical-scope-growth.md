@@ -1,4 +1,4 @@
-## **8. Technischer Umfang und Wachstum**
+# 8. Technischer Umfang und Wachstum
 
 Dieses Kapitel trennt den aktuellen produktiven Routing-Dienst von optionalen oder vorgeschlagenen Erweiterungen. Eine hier als aktuell beschriebene Fähigkeit gilt für die öffentliche Bereitstellung von CLC App und CLC Core; sie ist nicht automatisch eine Eigenschaft der Verträge von Protocol v1.1.0 oder einer anderen Bereitstellung.
 
@@ -24,7 +24,7 @@ Mögliche Wachstumsbereiche sind:
 
 Die Preise auf dem Außenmarkt würden nicht bestimmen, was ein Emittent im Rahmen von Gutscheinen schuldet. Ein Fonds könnte eine geschützte externe Referenz für ein fungibles Vermögenswert verwenden, aber seine veröffentlichte Wechselkursmethode, Grenzen, Gebühren und Inventar würden seine Angebote regeln.
 
-### **8.1 Aktueller Routing-Dienst und weitergehende Standards**
+## **8.1 Aktueller Routing-Dienst und weitergehende Standards**
 
 **Routenerkennung.** CLC Core verwaltet einen abgestimmten Graphen aus konfigurierten Katalogen, Registerbeziehungen, Fondsparametern, Gebühren, Grenzen, Salden und Blockchain-Ereignissen. CLC Core schätzt, was die aktive Wallet erreichen kann, und kennzeichnet veraltete Daten. Die öffentliche Konfiguration durchsucht Routen mit bis zu drei Schritten. Die Erkennung ist kein ausführbares Versprechen.
 
@@ -51,7 +51,7 @@ Die Preise auf dem Außenmarkt würden nicht bestimmen, was ein Emittent im Rahm
 
 **SDK- und Schnittstellenanforderungen.** Eine wiederverwendbare Routing-Integration sollte eine deterministische Zuordnung von Angebot zu Beleg, Invariantenprüfungen je Schritt, verständliche Fehlercodes und prüffreundliche Protokolle bereitstellen. Die aktuelle produktive Implementierung von App und CLC Core bietet diese Funktionen für ihr eigenes Profil. Der Solidity-`SwapRouter` von Protocol v1.1.0 bleibt auf Kursangebote beschränkt und führt die Route nicht aus.
 
-#### **8.1.1 Mindestkonföderationskompatibilitätsspezifikation**
+### **8.1.1 Mindestkonföderationskompatibilitätsspezifikation**
 
 Ein Fonds-Ökosystem, das eine Profilübertragung anstrebt, würde maschinenlesbare Informationen für:
 
@@ -63,7 +63,7 @@ Ein Fonds-Ökosystem, das eine Profilübertragung anstrebt, würde maschinenlesb
 
 Ein Profil könnte Abdeckung, Compliance, Schiedsverfahren oder andere Dienstleistungen hinzufügen, ohne sie zu Anforderungen für die grundlegende Kompatibilität von CPP zu machen. Jeder optionelle Dienst würde seine Verantwortliche, seine Autorität, seinen Umfang und seine Bedingungen identifizieren.
 
-### **8.2 Lizenzierung, Überprüfung und Ausstieg**
+## **8.2 Lizenzierung, Überprüfung und Ausstieg**
 
 Protocol v1.1.0-Verträge sind EVM--kompatibel. Verträge im `src`-Verzeichnis des Protokollrepositoriums werden unter AGPL-3.0 veröffentlicht, mit Ausnahme der identifizierten unmodifizierten Drittanbieterkomponenten, die ihre eigenen Bedingungen behalten. Veröffentlichte Quell-, ABI- und Einsatzleitungen unterstützen eine unabhängige Überprüfung, beweisen jedoch nicht alleine eine Prüfung, eine sichere Bereitstellung oder die gesetzliche Einhaltung.
 

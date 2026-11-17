@@ -1,4 +1,4 @@
-## **13. 通俗術語表**
+# 13. 通俗術語表
 
 - **Cosmo-Local Credit (CLC):** 產品家族,包括 CLC App,文件和更廣泛的承諾共享工作.
 - **CLC App:** 透過 GEF 在 `cosmolocal.credit`.

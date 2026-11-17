@@ -1,4 +1,4 @@
-## **2. Ang paglipat ng accounting: mula sa mga assets papunta sa trust**
+# 2. Ang paglipat ng accounting: mula sa mga assets papunta sa trust
 
 Ang tradisyonal na pananalapi ay nagsisimula sa **Aktibo − Passive = Equity**. Ang CPP ay nagbabago ito para sa isang commitment economy:
 

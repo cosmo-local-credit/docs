@@ -1,4 +1,4 @@
-## **2. A mudança da contabilidade: dos ativos à confiança**
+# 2. A mudança da contabilidade: dos ativos à confiança
 
 As finanças tradicionais começam **Ativos − Passivos = Capitais**. O CPP reformula isto para uma economia de compromisso:
 

@@ -1,4 +1,4 @@
-## **18. Conclusão**
+# 18. Conclusão
 
 O Cosmo-Local Credit liga uma aplicação atual e a base do Protocol v1.1.0 a um projeto proposto mais amplo para Fundos de Compromissos governados de forma independente. As trocas diretas de Fundo e as trocas encaminhadas atuais da CLC App e do CLC Core podem ligar vales detidos pelos participantes através de vários Fundos, mantendo em cada passo as regras, comissões, limites, registos de liquidação e governação. Estas transações não provam o cumprimento pelo emissor, não criam direitos para contribuintes e não garantem valor, liquidez, resgate, seguro, estatuto jurídico nem proteção contra perdas.
 

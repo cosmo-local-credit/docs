@@ -1,4 +1,4 @@
-## F. Listahan sa pag-check ng data room
+# F. Listahan sa pag-check ng data room
 
 1. **Mga ebidensya sa kasaysayan ng Sarafu Network**
    - Ang dami ng swap, ang mga kahulugan ng aktibong gumagamit at asset, mga insidente, mga presentasyon ng pagbabayad, mga voucher sa pagtanda, nakumpirma na pagpapatupad, discharge, mga hakbang sa panahon ng pagpapanatili, mga yugto, exclusions, at metodolohiya ay hiwalay mula sa kasalukuyang metrics ng Cosmo-Local Credit.

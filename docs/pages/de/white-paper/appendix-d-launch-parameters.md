@@ -1,4 +1,4 @@
-## D. vorgeschlagene Startparameter
+# D. vorgeschlagene Startparameter
 
 Jeder Wert unten ist illustrativ. Es handelt sich nicht um eine aktuelle Standard-App, Protocol v1.1.0-Einstellung, Garantie, Angebot oder Lieferverpflichtung. Eine zukünftige Implementierung müsse ihre tatsächlichen Parameter annehmen, durchsetzen, überwachen und veröffentlichen.
 

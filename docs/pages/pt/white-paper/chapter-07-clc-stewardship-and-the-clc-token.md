@@ -1,10 +1,10 @@
-## **7. Propostos activos de gestão e governação CLC**
+# 7. Propostos activos de gestão e governação CLC
 
 Este capítulo apresenta um modelo opcional de governação futura e de coordenação da liquidez. O token de governação CLC proposto, stCLC, sCLC, cofre de governação, fundo de seguros, Waterfall, indicadores, mandatos, janelas de crédito e programas de mercado externo não fazem parte do atual CLC App ou Protocol v1.1.0. Cada um exigiria uma implementação, um operador responsável, políticas e termos publicados, revisão da segurança e aprovação legal aplicável.
 
 CPP não requer este modelo de token. Em vez disso, as implementações compatíveis poderiam utilizar cooperativas, agências públicas, federações, multissociações, serviços ou outras estruturas responsáveis.
 
-### **7.1 Propósito**
+## **7.1 Propósito**
 
 Se adotado, a camada de governação proposta poderá:
 
@@ -15,7 +15,7 @@ Se adotado, a camada de governação proposta poderá:
 - Reconhecer os contribuintes nos termos das regras publicadas de elegibilidade e de combate ao jogo; e
 - preservar a revisão, o recurso, a transparência e a saída credível à medida que a participação cresce.
 
-### **7.2 Modelo proposto de gestão de ativos**
+## **7.2 Modelo proposto de gestão de ativos**
 
 O projeto contém três activos propostos distintos:
 
@@ -27,7 +27,7 @@ Nem o stCLC nem o sCLC constituiriam capital próprio, dividendos, créditos res
 
 Os bloqueios de governação, as durações mínimas, as reduções de temperatura, a delegação, os limites de concentração e os limiares de ação crítica seriam publicados antes da utilização. Os tokens de governação CLC propostos desbloqueados não votariam sob este projeto.
 
-#### **7.2.1 Fornecimento e repartição ilustrativos**
+### **7.2.1 Fornecimento e repartição ilustrativos**
 
 O total ilustrativo proposto de tokens de governação CLC é **500,000,000**. Este é um parâmetro de design, não uma emissão atual, oferta, avaliação ou promessa de liquidez.
 
@@ -47,7 +47,7 @@ No âmbito dos controlos ilustrativos de liquidez pública:
 
 Um lançamento futuro poderia começar com um multisig divulgado e a transição somente após marcos de endurecimento aprovados separadamente, como auditorias independentes, monitoramento, cadernos de incidentes e procedimentos de pausa e garfo testados. Cada parâmetro e processo de alteração adoptados seriam publicados separadamente.
 
-#### **7.2.2 Estágios de disponibilidade e dotação**
+### **7.2.2 Estágios de disponibilidade e dotação**
 
 Um futuro programa de dotações poderia utilizar janelas de contribuição em fases e um valor de referência publicado para a admissão e o orçamento. Essa referência não seria uma promessa de preço de mercado, apreciação, reembolso ou saída.
 
@@ -55,7 +55,7 @@ Os termos da contribuição indicarão se os ativos são doados, dotados, retir�
 
 Qualquer liquidez no mercado externo exigiria uma decisão separada que identificasse os locais, os operadores responsáveis, os ativos, os limites máximos, o calendário, os conflitos, os controles de risco, a comunicação de relatórios e a terminação. A política não visa nem garante um preço.
 
-#### **7.2.3 Programa proposto de semente de impacto**
+### **7.2.3 Programa proposto de semente de impacto**
 
 Um futuro programa poderia atribuir parte do cofre de governação aos contribuintes que colocam ativos no Fundos de Compromissos designado e melhorem de forma mensurável o acesso às trocas e o cumprimento confirmado pelos emissores.
 
@@ -70,7 +70,7 @@ Uma política de elegibilidade adoptada:
 
 Qualquer subvenção ficaria sujeita aos termos publicados do programa, a atribuição, a elegibilidade, a conformidade e as regras de perda.
 
-### **7.3 Propostas de votação, incentivos e acesso a taxas**
+## **7.3 Propostas de votação, incentivos e acesso a taxas**
 
 No âmbito deste projeto, os titulares de stCLC poderiam votar em Fundos elegíveis, mandatos de serviço de rotas, orçamentos compartilhados ou outras propostas adotadas. Um sistema de calibração curada poderia traduzir os votos em incentivos limitados sCLC para operadores de liquidez ou de roteamento elegíveis.
 
@@ -78,7 +78,7 @@ A política de avaliação manteria os swaps executados e o cumprimento dos emis
 
 Um processo de governação adotado poderia igualmente publicar um orçamento de taxas de crédito de época. Os titulares elegíveis de stCLC podem receber sCLC autorizando swaps limitados e com prazo limitado a partir de Fundos designados de retenção de taxas em ativos ou programas autorizados. Esta seria uma política de acesso ao inventário disponível, e não a renda passiva ou a propriedade do Fundo de retenção de taxas.
 
-#### **7.3.1 A aplicação das taxas de serviço e a escolha do perfil**
+### **7.3.1 A aplicação das taxas de serviço e a escolha do perfil**
 
 Um futuro perfil de registo pode exigir que as Fundos participantes ou os serviços de rota utilizem um adaptador de taxas ou um gancho compatível. O perfil pode recusar a descoberta, roteamento ou suporte ao programa quando o recibo requerido não comprova a cobrança de taxas.
 
@@ -86,7 +86,7 @@ Nomes como: **PoolFactory** ou **FeeHook** Descrever possíveis módulos futuros
 
 A aplicação seria específica do perfil. Um Fundo excluído por um perfil poderia continuar a operar localmente ou aderir a outro registo compatível se os seus contratos e dependências continuassem a funcionar. Os clientes devem expor os perfis disponíveis e mostrar as taxas aplicáveis antes da autorização.
 
-#### **7.3.2 sCLC orçamento e controles opcionais de flutuação externa**
+### **7.3.2 sCLC orçamento e controles opcionais de flutuação externa**
 
 Após a adopção de orçamentos de prioridade mais elevada, um processo futuro poderá publicar um orçamento de taxa-crédito de época `F_epoch`, incluindo zero. Uma política pode atribuir um limite de participação proporcional ao poder de voto stCLC:
 
@@ -105,7 +105,7 @@ Uma política separada poderia autorizar uma aquisição limitada e ponderada no
 
 A apólice pode permanecer desativada indefinidamente.
 
-#### **7.3.3 Portfólio Fundos e atestados**
+### **7.3.3 Portfólio Fundos e atestados**
 
 A **Portfólio Fundos** seria um ordinário Fundo de Compromissos curado em torno de um domínio de missão ou serviço. O seu Gestor do Fundo pode ser um indivíduo, cooperativa, Fundo comunitário, agência pública, federação, multisig, operador de serviços ou outra estrutura responsável.
 
@@ -124,7 +124,7 @@ As certificações poderiam informar a admissão ou o tratamento do risco, mas n
 
 O Fundo divulgará como uma certificação afeta a admissão, os métodos de taxa de câmbio, os limites ou a elegibilidade e como os erros, a expiração, os conflitos e os recursos são tratados.
 
-### **7.4 Propostas de cachoeiras e orçamentos**
+## **7.4 Propostas de cachoeiras e orçamentos**
 
 A Waterfall proposta destina-se a atribuir apenas receitas realizadas e elegíveis no âmbito de um processo de governação adotado. Distingue:
 

@@ -1,8 +1,8 @@
-## **9. Economia proposta per i programmi di liquidità**
+# 9. Economia proposta per i programmi di liquidità
 
 Questo capitolo descrive un modello futuro, adottato separatamente. Non è una funzione attuale dell'app, un'offerta, un ritorno promesso o un diritto creato depositando in `SwapPool`.
 
-### **9.1 Fonti di entrate proposte**
+## **9.1 Fonti di entrate proposte**
 
 Un futuro bilancio della rete potrebbe ricevere:
 
@@ -14,7 +14,7 @@ Le commissioni lorde dei Fondi non costituiscono ricavi della rete. L'attuale Pr
 
 Il flusso di instradamento della CLC App in produzione non aggiunge una commissione separata per il servizio di instradamento. Uno scambio instradato può comunque applicare una commissione del Fondo e una commissione del Protocollo a ciascun passaggio. Queste commissioni attuali per passaggio non devono essere indicate come quota per la rete proposta né conteggiate di nuovo come futuri ricavi di servizio.
 
-### **9.2 Matematica grafica illustrativa**
+## **9.2 Matematica grafica illustrativa**
 
 Se un Fondo partecipante applica una commissione del 2,00% e una quota per la rete adottata riceve il 20% di tale commissione, il tasso effettivo della quota per la rete sul valore instradato è:
 
@@ -28,7 +28,7 @@ Le entrate di rete proposte sono:
 
 Non aggiungere le commissioni del Fondo alla quota per la rete: la quota per la rete è un trasferimento tratto da quelle commissioni e, altrimenti, verrebbe conteggiata due volte.
 
-### **9.3 Diritti del programma di liquidità**
+## **9.3 Diritti del programma di liquidità**
 
 Un programma adottato separatamente potrebbe finanziare l'inventario del Fondo, i servizi di routing, il monitoraggio o altri mandati. I suoi termini dovrebbero rivelare:
 

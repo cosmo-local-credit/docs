@@ -110,7 +110,7 @@ Die Ablehnung oder Beendigung einer freiwilligen Tätigkeit darf weder zu Vergel
 
 ## 11. Bilder, Geschichten, Forschung und personenbezogene Daten
 
-GEF erhebt und verwendet Informationen über Kinder nur bei einem klaren Zweck, einer rechtmäßigen Befugnis und geeigneten Schutzmaßnahmen. Die [Datenschutzrichtlinie](/de/governance/data-protection) und der [Leitfaden des ODPC zur Verarbeitung von Daten von Kindern](https://www.odpc.go.ke/guidelines-2/index.html) gelten ebenfalls.
+GEF erhebt und verwendet Informationen über Kinder nur bei einem klaren Zweck, einer rechtmäßigen Befugnis und geeigneten Schutzmaßnahmen. Die [Datenschutzrichtlinie](/de/governance/data-protection) und der [Leitfaden des ODPC zur Verarbeitung von Daten von Kindern](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf) gelten ebenfalls.
 
 Bevor Bild, Stimme, Geschichte, Werk, Identität, Kontaktdaten, Gemeinschaftszugehörigkeit oder Standort eines Kindes aufgezeichnet oder veröffentlicht werden, muss das verantwortliche Team Einwilligung, Würde, Richtigkeit, zukünftige Wiederverwendung, Publikum, digitale Dauerhaftigkeit und das Risiko einer Identifizierung oder Schädigung berücksichtigen.
 

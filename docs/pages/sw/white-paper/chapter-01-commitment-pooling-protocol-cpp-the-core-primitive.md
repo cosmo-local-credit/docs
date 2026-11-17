@@ -1,16 +1,16 @@
-## **1. Itifaki ya Kuunganisha Ahadi (CPP): msingi mkuu**
+# 1. Itifaki ya Kuunganisha Ahadi (CPP): msingi mkuu
 
 **Mfano wa akili:** Kikundi cha Ahadi ni mpangilio wa kudhibitiwa kwa kukubali vocha au mali nyingine, kuchapisha sheria za kubadilishana, kuhifadhi hisa, na kuwezesha swaps. Baada ya muda, wamiliki huwasilisha vocha kwa watangazaji wao kwa ajili ya kutimiza mahitaji yao katika ulimwengu halisi. Kubadilishana fedha na kukamilika kwa wachapishaji ni mizunguko tofauti ya maisha.
 
 CPP huunganisha thamani kupitia ahadi zilizoelezwa wazi. Mfano huu ni kujadiliwa katika [Uchumi wa Msingi: Kutafakari na Mazoezi](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
-### **1.1 Ahadi ni nini?**
+## **1.1 Ahadi ni nini?**
 
 Ushirikiano ni ahadi ya chama kinachojulikana ya utoaji wa baadaye—kwa mfano chakula, usafirishaji, kazi, uhifadhi, au bidhaa nyingine halali, huduma, faida, au utendaji. A **vocha** ni ishara au rekodi iliyowakilishwa kama ahadi hiyo kwa masharti yaliyochapishwa.
 
 Mikataba ya ishara kurekodi mitambo digital. Masharti ya vocha huamua mtoaji, Utoaji, uwezo, mahali, wakati, vizuizi, uwasilishaji, utekelezaji, malalamiko, na mchakato wa ukomo.
 
-### **1.2 Kikundi cha Ahadi ni nini?**
+## **1.2 Kikundi cha Ahadi ni nini?**
 
 Kikundi cha Ahadi ni mpangilio uliowekwa. Inaweza kusimamiwa na mtu binafsi, ushirika, kikundi cha jamii, shirika la umma, shirikisho, multisig, operator wa huduma, au muundo mwingine unaohusika.
 
@@ -36,7 +36,7 @@ CLC App na CLC Core za uzalishaji hutekeleza uelekezaji katika kiwango cha progr
 
 Muundo mpana unaopendekezwa wa CPP unaweza kuongeza mipaka inayobadilika kwa muda, vidhibiti vya akaunti, njia za HTLC au escrow kati ya vikoa, usawazishaji wa kiotomatiki wa Vikundi na ulinganishaji wa kundi. Hivi ni vipengele vinavyopendekezwa, si maelezo ya `Limiter` ya sasa, router ya Solidity au mtiririko wa njia wa App/Core.
 
-### **1.3 Utendaji wa sasa wa ubadilishaji wa moja kwa moja**
+## **1.3 Utendaji wa sasa wa ubadilishaji wa moja kwa moja**
 
 Sasa moja kwa moja Kikundi swap:
 
@@ -51,7 +51,7 @@ Sasa moja kwa moja Kikundi swap:
 
 Taarifa ni kipimo cha shughuli, si uthibitisho wa uwezo wa mtoaji, thamani ya ukombozi, thamani ya haki, cash convertibility, au dhamana.
 
-### **1.4 Matumizi makubwa zaidi**
+## **1.4 Matumizi makubwa zaidi**
 
 Vikundi vya Ahadi inaweza kusaidia kubadilishana kwa jamii, uzalishaji, misaada ya pamoja, mipango ya umma, na miundo mingine ya uwajibikaji. Bidhaa ya mkopo iliyosajiliwa tofauti inaweza kutumia vocha kama dhamana au chombo cha malipo, lakini itahitaji masharti ya ziada na maalum ya shughuli. Kutuma kwa kawaida, amana ya Jumla, kubadilishana Jumla, uwasilishaji wa fidia, kutimiza, au malipo sio mkopo au malipo ya moja kwa moja.
 

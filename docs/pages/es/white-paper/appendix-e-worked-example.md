@@ -1,4 +1,4 @@
-##  Ejemplo de trabajo — Rake de red propuesto
+#  Ejemplo de trabajo — Rake de red propuesto
 
 Este ejemplo ilustra el modelo de rake propuesto. No se trata del cálculo adicional de la tarifa de protocolo utilizado por Protocol v1.1.0.
 

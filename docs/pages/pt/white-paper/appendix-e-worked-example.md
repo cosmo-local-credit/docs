@@ -1,4 +1,4 @@
-## E. Exemplo de trabalho — comissão de rede proposto
+# E. Exemplo de trabalho — comissão de rede proposto
 
 Este exemplo ilustra o modelo de rake proposto. Não é o cálculo adicional de taxas de protocolo utilizado pela Protocol v1.1.0.
 

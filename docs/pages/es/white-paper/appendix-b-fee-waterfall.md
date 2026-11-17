@@ -1,4 +1,4 @@
-## B. En el Falta de agua de las tarifas futuras ilustrativa
+# B. En el Falta de agua de las tarifas futuras ilustrativa
 
 Este es un diseño propuesto para un futuro despliegue. Sólo se aplicará si se implementa, financia y adopta a través de términos publicados de gobernanza y de participación. No describe una cuota Protocol v1.1.0 actual, derecho de contribuyente, reserva, garantía o acuerdo de seguro.
 

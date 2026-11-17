@@ -1,4 +1,4 @@
-## **18. Conclusies**
+# 18. Conclusies
 
 Cosmo-Local Credit verbindt een huidige applicatie en de basis van Protocol v1.1.0 met een breder voorgesteld ontwerp voor onafhankelijk bestuurde Commitmentfondsen. Huidige directe Fondsswaps en gerouteerde wissels via de App en CLC Core kunnen Waardebonnen van deelnemers via meerdere Fondsen verbinden, terwijl de regels, kosten, grenzen, afwikkelingsgegevens en governance van iedere stap behouden blijven. Deze transacties bewijzen geen nakoming door de Uitgever, creëren geen rechten voor bijdragers en garanderen geen waarde, liquiditeit, inwisseling, verzekering, wettelijke status of bescherming tegen verlies.
 

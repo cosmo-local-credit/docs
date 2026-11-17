@@ -1,4 +1,4 @@
-## **17. Nota legal e de conformidade**
+# 17. Nota legal e de conformidade
 
 CPP pode coordenar tokens, vales, fundos e swaps cujo tratamento legal depende de sua concepção, comercialização, uso, partes responsáveis e jurisdição. Não há nada neste Livro Branco que contenha aconselhamento jurídico, fiscal, de investimento, de crédito ou financeiro.
 
@@ -6,7 +6,7 @@ A utilização do CLC App é regida pela [Termos de Serviço](/pt/governance/ter
 
 Os serviços de pagamento dependentes da implementação devem identificar o seu prestador responsável, as jurisdições, a elegibilidade, as taxas, os limites, o modelo de custódia e os termos. A presença de um conector não significa que GEF ou um Fundo operem o serviço regulamentado subjacente.
 
-### **17.1 Divulgação dos vales e das ofertas**
+## **17.1 Divulgação dos vales e das ofertas**
 
 Um emissor deve publicar e manter atualizado:
 
@@ -20,7 +20,7 @@ Um emissor deve publicar e manter atualizado:
 
 Um contrato simbólico não estabelece estes termos nem demonstra o desempenho.
 
-### **17.2 Divulgação do Fundo**
+## **17.2 Divulgação do Fundo**
 
 Um Gestor do Fundo deve publicar:
 
@@ -34,7 +34,7 @@ Um Gestor do Fundo deve publicar:
 
 A cotação não é um endosso, avaliação, seguro ou garantia da GEF.
 
-### **17.3 Ações e obrigações**
+## **17.3 Ações e obrigações**
 
 Um homem comum . **Intercâmbio de Fundo** as trocas de activos apoiados sob uma cotação e limites de transações exibidos. A direcção dos ativos não o torna em empréstimo, reembolso, resgate do emissor ou realização real.
 
@@ -44,7 +44,7 @@ A aplicação **“Retirar vale”** A ação é a exclusão reversível do cat�
 
 Um empréstimo futuro ou outro produto de crédito exigiria que os termos suplementares e de transação fossem apresentados separadamente antes da utilização. Nenhum envio, contribuição, depósito de Fundo, troca de Fundo, apresentação, cumprimento ou quitação ordinários cria um empréstimo apenas por causa de sua direção ou tipo de ativo.
 
-### **17.4 Proteções, evidências e direito local**
+## **17.4 Proteções, evidências e direito local**
 
 Um limite, reserva, entrada no registro, listagem de aplicações ou transação blockchain não são automaticamente uma garantia ou apólice de seguro. Qualquer proteção deve identificar a parte responsável, o evento abrangido, o financiamento, o limite máximo, as exclusões, a duração, as provas, o processo de reclamação e os termos aplicáveis.
 

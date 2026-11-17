@@ -2,14 +2,17 @@
   "/introduction/getting-started": {
     "en": [
       "getting-started",
-      "start-with-the-current-app",
-      "1-browse-the-market",
+      "a-first-journey-through-the-app",
+      "1-explore-the-market-and-wants",
       "2-create-or-access-an-account-and-wallet",
-      "3-create-a-voucher",
-      "4-create-or-assess-a-commitment-pool",
-      "5-exchange-directly-or-through-a-route",
-      "6-use-the-correct-action",
-      "current-deployment-dependent-and-proposed-capabilities"
+      "3-create-a-voucher-and-offering",
+      "4-publish-or-respond-to-a-want",
+      "5-find-or-create-a-commitment-pool",
+      "6-send-or-exchange-vouchers",
+      "7-use-a-voucher-with-its-issuer",
+      "before-you-publish",
+      "current-app-actions",
+      "responsibilities-and-important-limits"
     ],
     "ar": [
       "البدء",
@@ -90,14 +93,17 @@
     ],
     "fr": [
       "bien-démarrer",
-      "commencez-avec-lapplication-actuelle",
-      "1-parcourez-le-marché",
-      "2-créer-ou-accéder-à-un-compte-et-à-un-portefeuille",
-      "3-créer-un-bon-déchange",
-      "4-créer-ou-évaluer-un-bassin-dengagements",
-      "5-échanger-directement-ou-par-un-itinéraire",
-      "6-utilisez-la-bonne-action",
-      "capacités-actuelles-dépendantes-du-déploiement-et-proposées"
+      "un-premier-parcours-dans-lapplication",
+      "1-explorer-le-marché-et-les-demandes",
+      "2-créer-un-compte-et-un-portefeuille-ou-y-accéder",
+      "3-créer-un-bon-déchange-et-une-offre",
+      "4-publier-une-demande-ou-y-répondre",
+      "5-trouver-ou-créer-un-bassin-dengagements",
+      "6-envoyer-ou-échanger-des-bons-déchange",
+      "7-utiliser-un-bon-déchange-auprès-de-son-émetteur",
+      "avant-de-publier",
+      "actions-actuelles-de-lapplication",
+      "responsabilités-et-limites-importantes"
     ],
     "hi": [
       "शुरू-करें",
@@ -191,11 +197,13 @@
   "/introduction/concepts": {
     "en": [
       "concepts-and-vocabulary",
-      "product-and-protocol-layers",
-      "tokens-vouchers-and-offerings",
+      "everyday-terms",
+      "discovering-and-contacting-participants",
+      "vouchers-tokens-and-offerings",
       "accountable-roles-and-technical-control",
       "actions-and-lifecycle",
-      "market-values-limits-and-fees",
+      "product-and-protocol-layers",
+      "values-credit-limits-and-fees",
       "routes-and-liquidity",
       "protections-and-evidence",
       "status-words"
@@ -279,14 +287,16 @@
     ],
     "fr": [
       "concepts-et-vocabulaire",
-      "les-couches-de-produits-et-de-protocoles",
-      "des-jetons-des-bons-déchange-et-des-offrandes",
-      "rôles-de-responsabilité-et-contrôle-technique",
+      "termes-courants",
+      "découvrir-et-contacter-des-participants",
+      "bons-déchange-jetons-et-offres",
+      "rôles-responsables-et-contrôle-technique",
       "actions-et-cycle-de-vie",
-      "marché-valeurs-limites-et-frais",
-      "itinéraires-et-liquidité",
-      "protection-et-preuves",
-      "paroles-de-statut"
+      "couches-du-produit-et-du-protocole",
+      "valeurs-crédit-limites-et-frais",
+      "itinéraires-et-liquidités",
+      "protections-et-preuves",
+      "termes-de-statut"
     ],
     "hi": [
       "अवधारणाएँ-और-शब्दावली",
@@ -379,7 +389,9 @@
   },
   "/introduction/example": {
     "en": [
-      "practical-voucher-example",
+      "voucher-exchange-examples",
+      "simple-example-one-pool-three-participants",
+      "advanced-example-a-routed-exchange",
       "1-an-issuer-publishes-a-commitment",
       "2-a-participant-publishes-a-want",
       "3-independent-pool-stewards-curate-a-route",
@@ -491,18 +503,20 @@
       "mga-posibleng-kaayusan-sa-credit-sa-hinaharap"
     ],
     "fr": [
-      "exemple-pratique-de-bon-déchange",
+      "exemples-déchange-de-bons-déchange",
+      "exemple-simple--un-bassin-trois-participants",
+      "exemple-avancé--un-échange-routé",
       "1-un-émetteur-publie-un-engagement",
-      "2-un-participant-publie-un-want",
-      "3-des-gestionnaires-de-bassins-indépendants-organisent-un-itinéraire",
-      "4-les-participants-fournissent-un-inventaire",
-      "5-la-clc-app-découvre-et-cote-un-itinéraire",
+      "2-un-participant-publie-une-demande",
+      "3-des-gestionnaires-de-bassins-indépendants-sélectionnent-un-itinéraire",
+      "4-des-participants-fournissent-linventaire",
+      "5-lapplication-découvre-et-cote-un-itinéraire",
       "6-le-détenteur-exécute-léchange-routé",
-      "7-le-titulaire-présente-le-bon",
-      "8-lémetteur-enregistre-lexécution-et-la-décharge",
-      "les-responsabilités-en-un-coup-dœil",
-      "lorsquun-itinéraire-est-indisponible",
-      "accords-de-crédit-futurs"
+      "7-le-détenteur-présente-le-bon-déchange",
+      "8-lémetteur-enregistre-lexécution-et-lacquittement",
+      "aperçu-des-responsabilités",
+      "lorsquun-itinéraire-nest-pas-disponible",
+      "futurs-accords-de-crédit"
     ],
     "hi": [
       "वाउचर-का-व्यावहारिक-उदाहरण",
@@ -1307,6 +1321,7 @@
       "8-required-and-optional-data",
       "9-how-we-receive-data",
       "10-who-receives-data",
+      "current-service-register",
       "11-international-processing",
       "12-how-long-we-keep-data",
       "13-security",
@@ -1332,6 +1347,7 @@
       "8-données-obligatoires-et-facultatives",
       "9-comment-nous-recevons-les-données",
       "10-qui-reçoit-les-données-",
+      "registre-actuel-des-services",
       "11-traitement-international",
       "12-durée-de-conservation-des-données",
       "13-sécurité",
@@ -3121,7 +3137,7 @@
   },
   "/white-paper": {
     "en": [
-      "cosmo-local-credit-clc",
+      "cosmo-local-credit-white-paper",
       "a-network-for-routing-credit-coordinating-commitments-and-financing-a-healthy-cosmo-local-economy",
       "how-to-read-this-paper",
       "abstract",
@@ -3233,7 +3249,7 @@
       "gabay-para-sa-mambabasa"
     ],
     "fr": [
-      "cosmo-local-credit-clc",
+      "livre-blanc-cosmo-local-credit",
       "un-réseau-pour-la-répartition-des-crédits-la-coordination-des-engagements-et-le-financement-dune-économie-cosmolocale-saine",
       "comment-lire-cet-article-",
       "résumé",

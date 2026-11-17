@@ -1,10 +1,10 @@
-## **7. Angebotene CLC Stewardship- und Governance-Aktiva**
+# 7. Angebotene CLC Stewardship- und Governance-Aktiva
 
 Dieses Kapitel präsentiert eine optionale Gestaltung der zukünftigen Governance und der Liquiditätskoordination. Die vorgeschlagenen Governance-Token CLC, stCLC, sCLC, Governance Vault, Versicherungsfonds, Waterfall, Messgeräte, Mandate, Gebühren- und Kreditfenster und Programme für den externen Markt sind nicht Teil der aktuellen CLC App oder Protocol v1.1.0. Jeder würde eine Implementierung, einen verantwortungsvollen Betreiber, veröffentlichte Richtlinien und Bedingungen, eine Sicherheitsüberprüfung und eine anwendbare gesetzliche Genehmigung erfordern.
 
 CPP erfordert dieses Token-Modell nicht. Kompatible Bereitstellungen könnten stattdessen Genossenschaften, öffentliche Agenturen, Verbände, Multisgesellschaften, Dienstleistungen oder andere verantwortungsbewusste Strukturen verwenden.
 
-### **7.1 Zweck**
+## **7.1 Zweck**
 
 Bei Annahme könnte die vorgeschlagene Governance-Schicht:
 
@@ -15,7 +15,7 @@ Bei Annahme könnte die vorgeschlagene Governance-Schicht:
 - die Beiträge gemäß den veröffentlichten Förderungs- und Spielverhütungsvorschriften anerkennen; und
 - Erhaltung der Überprüfung, der Anziehungskraft, der Transparenz und des glaubwürdigen Austritts, wenn die Beteiligung zunimmt.
 
-### **7.2 Das vorgeschlagene Governance-Asset-Modell**
+## **7.2 Das vorgeschlagene Governance-Asset-Modell**
 
 Der Entwurf enthält drei verschiedene vorgeschlagene Vermögenswerte:
 
@@ -27,7 +27,7 @@ Weder stCLC noch sCLC wären Eigenkapital, Dividenden, Restansprüche, Rendition
 
 Governance-Lock-ups, Mindestdauer, Abkühlung, Delegation, Konzentrationsgrenzwerte und Schwellenwerte für kritische Maßnahmen würden vor der Verwendung veröffentlicht. Unverschlossene vorgeschlagene CLC Governance-Token stimmen nach diesem Entwurf nicht ab.
 
-#### **7.2.1 Illustrative Versorgung und Zuteilung**
+### **7.2.1 Illustrative Versorgung und Zuteilung**
 
 Der beispielhafte Gesamtbestand des vorgeschlagenen CLC-Governance-Tokens beträgt **500,000,000**. Dies ist ein Entwurfsparameter, keine aktuelle Ausgabe, kein Angebot, keine Bewertung und kein Liquiditätsversprechen.
 
@@ -47,7 +47,7 @@ Im Rahmen der illustrativen öffentlichen Liquiditätskontrollen:
 
 Ein zukünftiger Start könnte erst mit einem offenbarten Multisig und einem Übergang beginnen, wenn separat genehmigte Verstärkungs Meilensteine wie unabhängige Audits, Überwachung, Vorfallrunbooks und getestete Pause- und Gabelverfahren genehmigt wurden. Jeder angenommenen Parameter und jeder Änderungsprozess werden separat veröffentlicht.
 
-#### **7.2.2 Verfügbarkeits- und Bewilligungsstufen**
+### **7.2.2 Verfügbarkeits- und Bewilligungsstufen**
 
 Für ein zukünftiges Stipendierungsprogramm könnten schrittweise Beitragsfenster und ein veröffentlichtes Referenzwert für die Einnahme und die Haushaltslegung verwendet werden. Dieser Hinweis wäre kein Versprechen über Marktpreise, Wertschätzung, Rückzahlung oder Ausstieg.
 
@@ -55,7 +55,7 @@ Die Beitragsbedingungen würden angeben, ob Vermögenswerte gespendet, vergeben,
 
 Jede Liquidität auf dem Außenmarkt würde eine separate Entscheidung erfordern, die Orte, verantwortliche Betreiber, Vermögenswerte, Höchstgrenzen, Zeitpläne, Konflikte, Risikokontrollen, Berichterstattung und Kündigung identifiziert. Die Politik würde weder einen Preis zielen noch garantieren.
 
-#### **7.2.3 Vorschlag für ein Programm zur Einwirkungssätung**
+### **7.2.3 Vorschlag für ein Programm zur Einwirkungssätung**
 
 Ein zukünftiges Programm könnte einen Teil des Governance-Vaults an Beiträge vergeben, die Vermögenswerte in den bezeichneten Commitment-Fonds platzieren und den Zugang zu Börsen und die Erfüllung durch die bestätigten Emittenten messbar verbessern.
 
@@ -70,7 +70,7 @@ Eine verabschiedete Förderungspolitik würde:
 
 Alle Zuschüsse unterliegen weiterhin den veröffentlichten Bestimmungen des Programms, den Bestimmungen über Vergabe, Berechtigung, Einhaltung und Verlust.
 
-### **7.3 Vorschläge zur Abstimmung, Anreize und Zugang zu Gebühren**
+## **7.3 Vorschläge zur Abstimmung, Anreize und Zugang zu Gebühren**
 
 Im Rahmen dieses Entwurfs konnten die Inhaber von stCLC über zulässige Fonds, Mandate für Streckendienste, gemeinsame Budgets oder andere angenommenen Vorschläge abstimmen. Ein kuratiertes Messsystem könnte die Stimmen in begrenzte sCLC-Anreize für berechtigte Liquiditäts- oder Routingbetreiber umsetzen.
 
@@ -78,7 +78,7 @@ Die Bewertungspolitik würde die ausgeführten Swaps und die Erfüllung durch de
 
 Ein angenommenes Governance-Prozess könnte auch einen Epochen-Gebühren-Kredit-Haushalt veröffentlichen. Berechtigte Inhaber von stCLC erhalten möglicherweise sCLC mit einer Begrenzung von Zeitbegrenzten-Swaps von benannten Gebührenhalterpools in genehmigte Vermögenswerte oder Programme. Dies wäre ein beleidigter Zugang zu verfügbaren Bestandteilen, nicht passives Einkommen oder Eigentum an der Gebührenhalter-Fonds.
 
-#### **7.3.1 Durchsetzung der Dienstleistungsgebühren und Profilwahl**
+### **7.3.1 Durchsetzung der Dienstleistungsgebühren und Profilwahl**
 
 Ein zukünftiges Registerprofil könnte erfordern, dass die teilnehmenden Fonds oder Routendienste einen kompatiblen Gebührenadapter oder -haken verwenden. Das Profil kann Entdeckungs-, Routing- oder Programmunterstützung ablehnen, wenn die erforderliche Quittung keine Gebührenerhebung nachweist.
 
@@ -86,7 +86,7 @@ Namen wie: **PoolFactory ** oder ** FeeHook** mögliche zukünftige Module besch
 
 Die Vollstreckung wäre profiliert. Ein von einem Profil ausgeschlossener Fonds könnte weiterhin lokal tätig sein oder sich einem anderen kompatiblen Register anschließen, wenn seine Verträge und Abhängigkeiten funktionsfähig bleiben. Die Kunden sollten vor der Genehmigung die verfügbaren Profile und die geltenden Gebühren anzeigen.
 
-#### **7.3.2 Budget sCLC und optionale externe Flusskontrollen**
+### **7.3.2 Budget sCLC und optionale externe Flusskontrollen**
 
 Nach der Annahme von Finanzierungsbudgets mit höherer Priorität könnte ein zukünftiger Prozess einen Epoche-Gebühren-Kreditbudget `F_epoch`, einschließlich Null, veröffentlichen. Eine Politik kann eine Teilnehmergrenze im Verhältnis zur Stimmgewalt von stCLC festlegen:
 
@@ -105,7 +105,7 @@ Eine getrennte Politik könnte eine begrenzte, zeitgewichtete Übernahme des vor
 
 Die Politik könnte auf unbestimmte Zeit invalidiert bleiben.
 
-#### **7.3.3 Portfolio-Fonds und Bescheinigungen**
+### **7.3.3 Portfolio-Fonds und Bescheinigungen**
 
 Die A **Portfolio Fonds** würde ein gewöhnliches Commitment-Fonds sein, das um eine Mission oder eine Dienstleistungszone gekürt wird. Sein Fonds-Verantwortliche Person könnte ein Individuum, eine Genossenschaft, eine Gemeindegruppe, eine öffentliche Agentur, eine Föderation, ein Multisig, ein Dienstleistungsbetreiber oder eine andere verantwortungsvolle Struktur sein.
 
@@ -124,7 +124,7 @@ Zertifizierungen könnten die Zulassung oder die Risikobereitschaft informieren,
 
 Der Fonds würde offenlegen, wie eine Bescheinigung die Zulassung, die Wechselkursmethoden, die Grenzen oder die Zulassungsfähigkeit beeinflusst und wie Fehler, Ablaufzeiten, Konflikte und Beschwerden behandelt werden.
 
-### **7.4 Vorschlag für Wasserfälle und Haushaltspläne**
+## **7.4 Vorschlag für Wasserfälle und Haushaltspläne**
 
 Der vorgeschlagene Wasserfall würde nur realisierte, förderfähige Einnahmen im Rahmen eines übernommenen Governance-Prozesses vergeben. Es würde unterscheiden:
 

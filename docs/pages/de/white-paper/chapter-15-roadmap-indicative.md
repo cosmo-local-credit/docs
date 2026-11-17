@@ -1,6 +1,6 @@
-## **15. Fahrplan (Anzeige)**
+# 15. Fahrplan (Anzeige)
 
-### **15.1 Aktuelle Grundlagen**
+## **15.1 Aktuelle Grundlagen**
 
 GEF betreibt die CLC App unter `cosmolocal.credit` auf Gnosis Chain. Die App bietet unterstützten Zugang zu Konten und Wallets, einen öffentlichen Markt-Katalog sowie Benutzeroberflächen für Tokens, Gutscheine, Angebote, Wünsche, Commitment-Fonds, Übertragungen, direkte Fonds-Tausche und Tausche über Routen.
 
@@ -8,7 +8,7 @@ Protocol v1.1.0 stellt die aktuelle Vertragsgrundlage bereit: `GiftableToken`, d
 
 CLC Core stellt jetzt die Grundlage der öffentlichen App für Routing und Beobachtbarkeit innerhalb derselben Blockchain bereit: einen abgestimmten Graphen, Routen mit bis zu drei Fonds-Tauschen, Angebote auf Grundlage eines festgelegten Blocks, Grenzen und Gebühren je Schritt, Simulation des vollständigen Batchs, signierte atomare Calibur-Ausführung, Relayer-Verfolgung, Abstimmung der Abwicklung, zusammengefasste Belege und betriebliche Messdaten. Die Verfügbarkeit hängt weiterhin von Benutzeroberfläche, unterstütztem Wallet- und Tokenverhalten, bereitgestellten Verträgen, Beständen, Konfiguration, Aktualität des Dienstes, Netzwerkzustand, Berechtigung, Anbietern, Rechtsordnung und den veröffentlichten Bedingungen von Herausgeber oder Fonds ab.
 
-### **15.2 vorgeschlagene Meilensteine**
+## **15.2 vorgeschlagene Meilensteine**
 
 Diese genannten Meilensteine sind Entwurfsanweisungen, nicht Veröffentlichungsnummern, Liefertermine oder Verpflichtungen, die ein Feature starten wird.
 

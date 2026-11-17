@@ -1,12 +1,12 @@
-## **17. Note juridique et de conformité**
+# 17. Note juridique et de conformité
 
 CPP peut coordonner des jetons, des bons d’échange, des bassins et des swaps dont le traitement juridique dépend de leur conception, de leur commercialisation, de leur utilisation, des parties responsables et de leur juridiction. Rien dans ce livre blanc n'est un conseil juridique, fiscal, d'investissement, de crédit ou financier.
 
-L'utilisation du CLC App est régie par la [Conditions d'utilisation](/fr/governance/terms) GEF exploite l'application et l'infrastructure de support. Sauf si GEF assume expressément un autre rôle, il n'est ni émetteur, ni Gestionnaire de Bassin, ni dépositaire, ni prêteur, ni emprunteur, ni courtier, ni garant, ni racheteur, ni conseiller, ni assureur, ni partie aux obligations entre participants.
+L’utilisation de la CLC App est régie par les [Conditions d’utilisation](/fr/governance/terms). Le [centre des politiques et avis](/fr/governance/policies) donne accès à l’Avis de confidentialité, à la Politique de protection des données et à la Politique de protection de l’enfance en vigueur. GEF exploite l’Application et l’infrastructure d’assistance. Sauf si GEF assume expressément un autre rôle, elle n’est ni Émetteur, ni Gestionnaire de Bassin, ni dépositaire, ni prêteur, ni emprunteur, ni courtier, ni garant, ni responsable de l’utilisation des bons d’échange, ni conseiller, ni assureur, ni partie aux obligations entre participants.
 
 Les services de paiement dépendants du déploiement doivent identifier leur fournisseur responsable, leurs juridictions, leur admissibilité, leurs frais, leurs limites, leur modèle de conservation et leurs conditions. La présence d'un connecteur ne signifie pas que GEF ou un bassin exploite le service réglementé sous-jacent.
 
-### **17.1 Révélations sur les coupons et les offres**
+## **17.1 Révélations sur les coupons et les offres**
 
 L'émetteur devrait publier et tenir à jour:
 
@@ -20,7 +20,7 @@ L'émetteur devrait publier et tenir à jour:
 
 Un contrat symbolique n'établit pas ces termes ni ne prouve la performance.
 
-### **17.2 Divulgations de groupes**
+## **17.2 Divulgations de groupes**
 
 Un Gestionnaire de Bassin devrait publier:
 
@@ -34,17 +34,17 @@ Un Gestionnaire de Bassin devrait publier:
 
 La cotation n'est pas une approbation, une évaluation, une assurance ou une garantie de GEF.
 
-### **17.3 Actions et obligations**
+## **17.3 Actions et obligations**
 
 Un **swap de Bassin ordinaire** échange des actifs pris en charge selon une cotation affichée et des limites de transaction. Le sens du transfert d’actifs n’en fait ni un prêt, ni un remboursement, ni une utilisation auprès de l’émetteur, ni une exécution dans le monde réel.
 
 La **présentation pour utilisation ** retourne ou présente des unités de bon d’échange à un émetteur. L’** exécution ** correspond à la prestation promise par l’émetteur. La ** décharge ** enregistre les unités exécutées afin qu’elles ne puissent pas être réutilisées. L’action **« Redeem »** de l’application prépare actuellement un transfert vers le propriétaire du jeton ; ce transfert ne prouve pas à lui seul l’exécution.
 
-L’action **« Retire voucher »** de l’application retire la fiche du catalogue de façon réversible. Elle ne détruit pas les soldes, n’annule pas les créances et n’exécute pas les obligations.
+L’action **« Demander le retrait »** de l’Application soumet une demande du propriétaire à l’examen d’un administrateur. Le Bon d’échange ou le Bassin reste actif tant que la demande est en attente ; celle-ci peut être approuvée, rejetée ou annulée. Le retrait approuvé d’un Bon d’échange supprime sa fiche des usages actifs du catalogue sans supprimer les soldes, les contrats, l’historique, les créances ou les obligations. Le retrait approuvé d’un Bassin bloque les nouveaux échanges et dépôts tout en maintenant possibles les retraits disponibles. Aucune de ces actions ne constitue une destruction, une Exécution ou une Décharge.
 
 Un prêt futur ou un autre produit de crédit nécessiterait des conditions complémentaires et des conditions de transaction présentées séparément avant utilisation. Aucun envoi ordinaire, contribution, dépôt de bassin, échange de bassin, présentation, exécution ou décharge ne crée un prêt simplement en raison de sa direction ou de son type d'actif.
 
-### **17.4 Protection, preuves et lois locales**
+## **17.4 Protection, preuves et lois locales**
 
 Une limite, une réserve, une entrée dans le registre, une liste d'applications ou une transaction blockchain n'est pas automatiquement une garantie ou une police d'assurance. Toute protection doit identifier la partie responsable, l'événement couvert, le financement, le plafond, les exclusions, la durée, les éléments de preuve, le processus de réclamation et les conditions applicables.
 

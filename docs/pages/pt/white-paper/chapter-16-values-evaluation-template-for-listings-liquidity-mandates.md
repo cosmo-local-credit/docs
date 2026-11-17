@@ -1,4 +1,4 @@
-## **16. Modelo de avaliação proposto**
+# 16. Modelo de avaliação proposto
 
 Um registo, Fundo ou futuro programa de liquidez pode adaptar este modelo. Não se trata de um padrão ou garantia de listagem universal atual.
 

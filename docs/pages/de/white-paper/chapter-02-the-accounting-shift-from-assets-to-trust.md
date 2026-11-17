@@ -1,4 +1,4 @@
-## **2. Die Rechnungslegung verschiebt sich: vom Vermögenswert zum Vertrauen**
+# 2. Die Rechnungslegung verschiebt sich: vom Vermögenswert zum Vertrauen
 
 Traditionelle Finanzierungen beginnen mit **Vermögenswerte − Verbindlichkeiten = Eigenkapital**. CPP überträgt diese Betrachtung auf eine Wirtschaft der Verpflichtungen:
 

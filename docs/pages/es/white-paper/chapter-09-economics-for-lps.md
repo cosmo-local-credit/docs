@@ -1,8 +1,8 @@
-## **9. Economía propuesta para los programas de liquidez**
+# 9. Economía propuesta para los programas de liquidez
 
 Este capítulo describe un modelo futuro adoptado por separado. No es una función actual de la aplicación, una oferta, una devolución prometida o un derecho creado depositando en `SwapPool`.
 
-### **9.1 Fuentes de ingresos propuestas**
+## **9.1 Fuentes de ingresos propuestas**
 
 Un futuro presupuesto de la red podría recibir:
 
@@ -14,7 +14,7 @@ Los honorarios brutos de los grupos retenidos por los grupos no son ingresos de 
 
 El flujo de enrutamiento de la CLC App de producción no añade una comisión independiente por el servicio de enrutamiento. Un intercambio enrutado puede, aun así, incurrir en una comisión del Fondo y una comisión del protocolo en cada paso. Esos cargos actuales por paso no deben presentarse como el porcentaje de red propuesto ni contarse otra vez como futuros ingresos por servicios.
 
-### **9.2 Matemáticas ilustrativas de rake**
+## **9.2 Matemáticas ilustrativas de rake**
 
 Si un Fondo participante cobra una comisión de Fondo del 2,00 % y un Fondo de Red adoptado recibe el 20 % de esa comisión, el porcentaje efectivo propuesto para el Fondo de Red sobre el valor enrutado sería:
 
@@ -28,7 +28,7 @@ Los ingresos de la red propuestos son:
 
 No agregue las tasas brutas de Fondo al rake de la red: el rake es una transferencia de esas tasas y de lo contrario se contaría dos veces.
 
-### **9.3 Los derechos del programa de liquidez**
+## **9.3 Los derechos del programa de liquidez**
 
 Un programa adoptado por separado podría financiar el inventario del Fondo, los servicios de enrutamiento, el monitoreo u otros mandatos. Sus términos deberán revelar:
 

@@ -1,4 +1,4 @@
-## **3. Actividad de cumplimiento, descarga y intercambio**
+# 3. Actividad de cumplimiento, descarga y intercambio
 
 Cambios de swap de fondo que abordan los activos de tenencia. El cumplimiento del vale se produce cuando el emisor cumple el compromiso publicado. La descarga registra las unidades cumplidas para que no puedan ser presentadas de nuevo. Estos acontecimientos no se pueden desglosar en un solo uso de la solución.
 

@@ -1,4 +1,4 @@
-## **11. Governance-Mechanismen**
+# 11. Governance-Mechanismen
 
 Dieses Kapitel schlägt eine Governance-Vorlage vor. Es stellt nicht dar, dass die aktuelle CLC App governance-token-voting, timelocks, geteilte versicherung, einen anspruchsprozess oder jede nachstehend beschriebene kontrolle verwendet. Jeder Einsatz muss seine tatsächlichen Entscheidungsträger, Behörden, Verträge, Prozesse und Politiken identifizieren.
 
@@ -21,7 +21,7 @@ Veröffentlichte Registrierungsregeln sollten den Status bedingungsmäßig gesta
 
 Die verbotene Liste würde nur durch die angenommenen kritischen Maßnahmen-Schwelle und -Zeit eingeschränkt, die in Anlage D als Q3 + T3 dargestellt sind, versionisiert, öffentlich überprüfbar und veränderbar sein.
 
-### **11.1 Wechselkurs- und Grenzregelung**
+## **11.1 Wechselkurs- und Grenzregelung**
 
 **Zeitverschiebungen.** Eine Einführung nach dieser Vorlage würde die Wechselkursmethoden ändern und die Grenzparameter nur nach einer öffentlichen Zeitversperrung separat implementieren. Ein Notweg würde einen separat offengelegten Zulassungsprozess verwenden und einen automatischen Sonnenuntergang oder eine Überprüfung umfassen.
 
@@ -42,7 +42,7 @@ Die verbotene Liste würde nur durch die angenommenen kritischen Maßnahmen-Schw
 - **Die Begründung:** veröffentlichte Notizen und eine Änderungsaufzeichnung der vorherigen Aktualisierung.
 - **Unterzeichner:** offenbarte Multisig-Adressen und Genehmigungsschwelle.
 
-### **11.2 Das vorgeschlagene Versicherungsfondslaufbuch**
+## **11.2 Das vorgeschlagene Versicherungsfondslaufbuch**
 
 **Nur optionales Design.** Dieses Runbook gilt nur für eine Bereitstellung, die ausdrücklich einen Versicherungsfonds angenommen und finanziert hat und die abgedeckten Ereignisse, berechtigte Antragsteller, verantwortliche Stelle, Vermögenswerte, Grenzen, Ausschlüsse, Beweisvorgaben, Verfahren und Regelungsbedingungen veröffentlicht hat. Weder die aktuelle CLC App noch GEF bieten eine Abdeckung, nur weil dieses Design im Weißbuch erscheint.
 
@@ -63,7 +63,7 @@ Eine Berichtigung der Abdeckung reduziert nicht die zugrunde liegende Gutschrift
 3. Ein Rückgewinnungsplan könnte einen angegebenen Anteil des zurückgewinnten Werts für einen angegebenen Zeitraum anwenden, danach würde ein verbleibender gedeckter Mangel zu einem registrierten Verlust bei einem öffentlichen Post-Mortem werden; und
 4. jede Entscheidung würde eine Quittung mit dem Vorfall ID, betroffenen Ansprüchen und Gutscheinen, Entscheidung, Erholungsplan und Beschwerdefenster ergeben.
 
-### **11.3 Garantienrahmen**
+## **11.3 Garantienrahmen**
 
 Dieser Abschnitt unterscheidet zwischen der Emittentenverantwortung, optionalen Fonds-Schutzmaßnahmen und Garantien von Dritten. Fonds können sich auf Kurations-, Bedingungen- und ausdrücklich angebotene Schutzbedingungen bewerben, ohne dass das CLC App, CPP, GEF oder ein breiteres Netzwerk automatisch einen Gutschein garantiert.
 
@@ -115,7 +115,7 @@ Für jede abgedeckte Fonds- und Voucherklasse veröffentlicht die zuständige Pa
 
 **Kurationsprinzip.** Fonds-Verantwortliche und die zuständigen Rechts- oder Verwaltungsstrukturen sind für die von ihnen angekündigten Schutzmaßnahmen verantwortlich. Eine CPP--kompatible Implementierung kann Normen, Registrierungen oder optional geteilte Richtlinien bereitstellen, aber weder CLC noch GEF garantieren automatisch Gutscheine oder Fonds.
 
-### **11.4 Schutzschutzschutzschutzschrauben**
+## **11.4 Schutzschutzschutzschutzschrauben**
 
 Nach dieser Vorlage sind folgende kritische Maßnahmen erforderlich, die die höchste genehmigungsstufe und eine lange zeitliche Frist erfordern:
 
@@ -125,7 +125,7 @@ Nach dieser Vorlage sind folgende kritische Maßnahmen erforderlich, die die hö
 4. die Erweiterung der Notfallpausenbefugnisse; oder
 5. die in diesem Papier festgelegten Verpflichtungen zur Forkabilität, Transparenz oder Fonds-Souveränität zu schwächen.
 
-### **11.5 Fork- und Ausgangsverfahren**
+## **11.5 Fork- und Ausgangsverfahren**
 
 Wenn die Governance erfasst oder die Werte wesentlich gedreht werden, könnten Gemeinschaften, Fonds-Verantwortliche und Betreiber versuchen, die Netzwerk-Governance-Schicht zu entfernen. Die Kontinuität der zugrunde liegenden Fonds und Gutscheine würde von den eingesetzten Verträgen, Schlüsseln, Schnittstellen, Infrastrukturen, Dienstleistungen Dritter und den geltenden Verpflichtungen abhängen.
 

@@ -1,8 +1,8 @@
-## **9. Voorgestelde economie voor liquiditeitsprogramma's**
+# 9. Voorgestelde economie voor liquiditeitsprogramma's
 
 Dit hoofdstuk beschrijft een toekomstig, afzonderlijk vastgesteld model. Het is geen huidige App-functie, aanbod, beloofd rendement of recht dat ontstaat door een storting in `SwapPool`.
 
-### **9.1 Voorgestelde inkomstenbronnen**
+## **9.1 Voorgestelde inkomstenbronnen**
 
 Een toekomstige netwerkbegroting kan:
 
@@ -14,7 +14,7 @@ Bruto Fondskosten die Fondsen behouden zijn geen netwerkinkomsten. Het huidige P
 
 De routeringsworkflow van de productieversie van de CLC App voegt geen afzonderlijke vergoeding voor de routedienst toe. Een gerouteerde wissel kan bij iedere stap wel Fonds- en protocolkosten maken. Deze huidige kosten per stap mogen niet als de voorgestelde netwerkafdracht worden aangeduid of opnieuw als toekomstige service-inkomsten worden geteld.
 
-### **9.2 Illustratieve rake wiskunde**
+## **9.2 Illustratieve rake wiskunde**
 
 Als een deelnemend Fonds 2,00% Fondskosten rekent en een vastgestelde netwerkafdracht 20% van die Fondskosten ontvangt, is het voorgestelde effectieve tarief van de netwerkafdracht over de gerouteerde waarde:
 
@@ -28,7 +28,7 @@ De voorgestelde inkomsten uit het netwerk zijn:
 
 Voeg niet de bruto Fonds-heffingen toe aan het netwerk rake: de rake is een overdracht van die heffingen en zou anders tweemaal worden geteld.
 
-### **9.3 Liquiditeitsprogrammarechten**
+## **9.3 Liquiditeitsprogrammarechten**
 
 Een programma dat afzonderlijk wordt aangenomen, kan de financiering van Fonds-inventarisatie, routingdiensten, monitoring of andere opdrachten uitvoeren.
 

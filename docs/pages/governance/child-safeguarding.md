@@ -108,7 +108,7 @@ Refusing or leaving an optional activity must not result in retaliation or an un
 
 ## 11. Images, stories, research, and personal data
 
-GEF collects and uses children's information only where there is a clear purpose, lawful authority, and suitable safeguard. The [Data Protection Policy](/governance/data-protection) and the ODPC's [Guidance Note for Processing Children's Data](https://www.odpc.go.ke/guidelines-2/index.html) also apply.
+GEF collects and uses children's information only where there is a clear purpose, lawful authority, and suitable safeguard. The [Data Protection Policy](/governance/data-protection) and the ODPC's [Guidance Note for Processing Children's Data](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf) also apply.
 
 Before recording or publishing a child's image, voice, story, work, identity, contact details, community affiliation, or location, the responsible team must consider consent, dignity, accuracy, future reuse, audience, digital permanence, and the risk of identification or harm.
 

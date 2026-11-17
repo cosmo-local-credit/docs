@@ -1,10 +1,10 @@
-## **7. Actifs de gestion et de gouvernance proposés CLC**
+# 7. Actifs de gestion et de gouvernance proposés CLC
 
 Ce chapitre présente un modèle optionnel de gouvernance et de coordination de la liquidité à l'avenir. Le jeton de gouvernance proposé CLC, stCLC, sCLC, le coffre de gouvernance, le fonds d'assurance, Waterfall, les jauges, les mandats, les fenêtres de crédit de redevance et les programmes de marché extérieur ne font pas partie du CLC App ou du Protocol v1.1.0 actuel. Chacun nécessiterait une mise en œuvre, un opérateur responsable, une politique et des conditions publiées, un examen de la sécurité et l'approbation légale applicable.
 
 CPP ne nécessite pas ce modèle de jeton. Les déploiements compatibles pourraient plutôt utiliser des coopératives, des agences publiques, des fédérations, des multisigs, des services ou d'autres structures responsables.
 
-### **7.1 Objectif**
+## **7.1 Objectif**
 
 Si elle est adoptée, la couche de gouvernance proposée pourrait:
 
@@ -15,7 +15,7 @@ Si elle est adoptée, la couche de gouvernance proposée pourrait:
 - reconnaître les contributeurs en vertu des règles d'éligibilité et de lutte contre les jeux publiées ; et
 - préserver l'examen, l'appel, la transparence et une sortie crédible à mesure que la participation augmente.
 
-### **7.2 Modèle de gouvernance-actif proposé**
+## **7.2 Modèle de gouvernance-actif proposé**
 
 Le projet contient trois actifs proposés distincts:
 
@@ -27,7 +27,7 @@ Ni stCLC ni sCLC ne seraient des capitaux propres, un dividende, une créance r�
 
 Les limites de gouvernance, les durées minimales, les délais de refroidissement, la délégation, les plafonds de concentration et les seuils d'action critique seraient publiés avant leur utilisation. Les jetons de gouvernance CLC déverrouillés proposés ne voteraient pas en vertu de cette conception.
 
-#### **7.2.1 L'offre et l'allocation illustratives**
+### **7.2.1 L'offre et l'allocation illustratives**
 
 Le total illustratif proposé de la fourniture de jetons de gouvernance CLC est **500,000,000** Il s'agit d'un paramètre de conception, pas d'une émission, d'une offre, d'une évaluation ou d'une promesse de liquidité.
 
@@ -47,7 +47,7 @@ Dans le cadre des contrôles illustratifs des liquidités publiques:
 
 Un lancement futur pourrait commencer par une multisig et une transition divulguées uniquement après des étapes de durcissement approuvées séparément, telles que des audits indépendants, une surveillance, des carnets d'incidents et des procédures de test de pause et de fork. Chaque paramètre adopté et chaque processus de modification sera publié séparément.
 
-#### **7.2.2 Étapes de disponibilité et de dotation**
+### **7.2.2 Étapes de disponibilité et de dotation**
 
 Un futur programme de dotation pourrait utiliser des fenêtres de contribution par étapes et une valeur de référence publiée pour l'apport et la budgétisation. Cette référence ne serait pas une promesse de prix de marché, d'appréciation, de remboursement ou de sortie.
 
@@ -55,7 +55,7 @@ Les conditions de cotisation indiquent si les actifs sont donnés, dotés, retir
 
 Toute liquidité sur le marché extérieur nécessiterait une décision distincte identifiant les sites, les opérateurs responsables, les actifs, les plafonds, le calendrier, les conflits, les contrôles des risques, la déclaration et la résiliation. La politique ne vise pas ou ne garantit pas un prix.
 
-#### **7.2.3 Programme proposé de semis d'impact**
+### **7.2.3 Programme proposé de semis d'impact**
 
 Un programme futur pourrait allouer une partie de la réserve de gouvernance aux contributeurs qui placent des actifs dans des Bassins d’engagements désignés et améliorent de manière mesurable l'accès aux échanges et la conformité des émetteurs confirmés.
 
@@ -70,7 +70,7 @@ Une politique d'éligibilité adoptée devrait:
 
 Toute subvention resterait soumise aux conditions publiées du programme, à l'acquisition, à l'éligibilité, à la conformité et aux règles de perte.
 
-### **7.3 Proposition de vote, d'incitations et d'accès à la redevance**
+## **7.3 Proposition de vote, d'incitations et d'accès à la redevance**
 
 Dans le cadre de cette conception, les détenteurs de stCLC pourraient voter sur les bassins éligibles, les mandats de services routiers, les budgets partagés ou d'autres propositions adoptées. Un système d'indicateur sélectionné pourrait traduire les votes en incitations limitées sCLC pour les opérateurs de liquidité ou de routage éligibles.
 
@@ -78,7 +78,7 @@ La politique de mesure permettrait de séparer les swaps exécutés de l'exécut
 
 Un processus de gouvernance adopté pourrait également publier un budget de crédits de redevances pour l'époque. Les détenteurs admissibles de stCLC pourraient recevoir des swaps limités et limités dans le temps de sCLC autorisés par des bassins détenteurs de redevances désignés dans des actifs ou des programmes cotés. Il s'agirait d'un accès à l'inventaire disponible réglementé par la politique, et non d'un revenu passif ou de la propriété du bassin de détention de redevances.
 
-#### **7.3.1 Exécution des frais de service et choix du profil**
+### **7.3.1 Exécution des frais de service et choix du profil**
 
 Un futur profil de registre pourrait exiger que les bassins ou les services d'itinérance participants utilisent un adaptateur de tarification ou un crochet compatibles. Le profil peut refuser la découverte, le routage ou le support du programme lorsque le reçu requis ne prouve pas la perception des frais.
 
@@ -86,7 +86,7 @@ Des noms tels que **PoolFactory ** ou ** FeeHook** décrivent de possibles modul
 
 L'exécution serait spécifique au profil. Un bassin exclu par un profil pourrait continuer à fonctionner localement ou rejoindre un autre registre compatible si ses contrats et ses dépendances restaient fonctionnels. Les clients devraient exposer les profils disponibles et indiquer les frais applicables avant l'autorisation.
 
-#### **7.3.2 sCLC Budget et contrôles extérieurs facultatifs de flotteur**
+### **7.3.2 sCLC Budget et contrôles extérieurs facultatifs de flotteur**
 
 Après que le financement ait adopté des budgets de priorité plus élevée, un processus futur pourrait publier un budget de crédits de redevances pour l'époque `F_epoch`, y compris zéro. Une politique peut attribuer une limite de participant proportionnelle au pouvoir de vote stCLC:
 
@@ -105,7 +105,7 @@ Une politique distincte pourrait autoriser une acquisition limitée et pondéré
 
 La police pourrait rester désactivée indéfiniment.
 
-#### **7.3.3 Bassins de portefeuille et attestations**
+### **7.3.3 Bassins de portefeuille et attestations**
 
 À **Fonds de portefeuille** serait un Bassin d’engagements ordinaire organisé autour d'un domaine de mission ou de service. Son Gestionnaire de Bassin pourrait être un individu, une coopérative, un groupe communautaire, une agence publique, une fédération, un multisig, un opérateur de services ou une autre structure responsable.
 
@@ -124,7 +124,7 @@ Les certifications pourraient informer de l'admission ou du traitement des risqu
 
 Le bassin indiquerait comment une attestation affecte l'admission, les méthodes de change, les limites ou l'éligibilité et comment les erreurs, l'expiration, les conflits et les appels sont traités.
 
-### **7.4 Proposition de cascade et budgets**
+## **7.4 Proposition de cascade et budgets**
 
 La cascade proposée n'allouerait que des recettes éligibles réalisées dans le cadre d'un processus de gouvernance adopté. Il convient de distinguer:
 

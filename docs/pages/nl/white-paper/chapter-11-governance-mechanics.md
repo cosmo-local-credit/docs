@@ -1,4 +1,4 @@
-## **11. Bestuurmechanismen**
+# 11. Bestuurmechanismen
 
 Dit hoofdstuk stelt een governance template voor. Het vertegenwoordigt niet dat de huidige CLC App gebruik maakt van governance-token voting, timelocks, gedeelde verzekering, een claimsproces of elke controle die hieronder wordt beschreven.
 
@@ -21,7 +21,7 @@ Publiceerde registratievoorschriften moeten de status voorwaardelijk maken en ku
 
 De verbodlijst zou alleen worden verwerkt, openbaar kunnen worden gecontroleerd en kan worden gewijzigd door de vastgestelde kritische actie drempel en tijdslimiet, zoals hieronder wordt geïllustreerd:Q3 + T3in aanhangsel D.
 
-### **11.1 Beurs- en limietbeheersing**
+## **11.1 Beurs- en limietbeheersing**
 
 **Tijdvervangende veranderingen.** Een implementatie op basis van deze sjabloon zou de wisselkoersmethoden wijzigen en alleen na een publieke tijdslok afzonderlijk grensparameters implementeeren.
 
@@ -42,7 +42,7 @@ De verbodlijst zou alleen worden verwerkt, openbaar kunnen worden gecontroleerd 
 - **Rationale:** gepubliceerde notities en een verslag van wijzigingen uit de eerdere update.
 - **Ondertekenaars:** openbaar gemaakte multisig-adressen en goedkeuringsgrenzen.
 
-### **11.2 Aanbevolen verzekeringsfonds runbook**
+## **11.2 Aanbevolen verzekeringsfonds runbook**
 
 **Alleen optionele ontwerp.** Dit runbook is alleen van toepassing op een inzet die uitdrukkelijk een verzekeringsfonds heeft aangenomen en gefinancierd en de gedekte gebeurtenissen, in aanmerking komende eisers, verantwoordelijke entiteit, activa, limieten, uitsluitingen, bewijsvereisten, proces en regelgeving heeft gepubliceerd.CLC App noch GEF Het is de bedoeling van het Parlement dat deze richtlijn een nieuwe en doeltreffende oplossing voor de problemen van de landbouw vormt.
 
@@ -63,7 +63,7 @@ Een dekkingsaanpassing vermindert de onderliggende voucherverbintenis van een ui
 3. een herstelplan zou voor een bepaalde periode een aangegeven aandeel van de teruggevonden waarde kunnen toepassen, waarna elk overgebleven gedekte tekort een geregistreerd verlies bij een openbare post-mortem zou worden; en
 4. bij elke beslissing een ontvangstbewijs met het incident ID, de aangetaste vorderingen en bonen, de beslissing, het herstelplan en het klachtvenster.
 
-### **11.3 Garantie-kader**
+## **11.3 Garantie-kader**
 
 In dit artikel worden onderscheid gemaakt tussen de verantwoordelijkheid van de uitgever, de optionele bescherming van het Fonds en garanties van derden.CLC App, CPP, GEF, of een breeder netwerk dat automatisch een waardebon garandeert.
 
@@ -115,7 +115,7 @@ Voor elke gedekte fonds- en voucherklasse zou de verantwoordelijke partij:
 
 **Curatiebeginsel.** FondsbeheerdersDe verantwoordelijke juridische of bestuursstructuren zijn aansprakelijk voor de bescherming die zij adverteren.CPP-compatibele implementatie kan standaarden, registers of optionele gedeelde beleidslijnen bieden, maar geen van beideCLCnoch GEF automatisch garandeert waardebonnen of fondsen.
 
-### **11.4 Beveiliging tegen vangst**
+## **11.4 Beveiliging tegen vangst**
 
 In het kader van dit model zijn de volgende kritieke acties die een vastgestelde hoogste goedkeuringsniveau en een lange termijn vereisen:
 
@@ -125,7 +125,7 @@ In het kader van dit model zijn de volgende kritieke acties die een vastgestelde
 4. het uitbreiden van de bevoegdheden voor noodpauzes; of
 5. het verzwakken van de in dit document vermelde verbintenissen inzake forkability, transparantie of poolsoevereiniteit.
 
-### **11.5 Procedure voor vork en uitgang**
+## **11.5 Procedure voor vork en uitgang**
 
 Als de governance wordt vastgelegd of de waarden aanzienlijk afdrijven, kunnen gemeenschappen, Fondsbeheerders en exploitanten proberen te vertrekken door de netwerkgovernance-laag af te sluiten.
 

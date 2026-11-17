@@ -1,6 +1,6 @@
-## **15. Roadmap (indicative)**
+# 15. Roadmap (indicative)
 
-### **15.1 Kasalukuyang pundasyon**
+## **15.1 Kasalukuyang pundasyon**
 
 Pinapatakbo ng GEF ang CLC App sa `cosmolocal.credit` sa Gnosis Chain. Nagbibigay ang App ng sinusuportahang account at wallet access, pampublikong Market catalog, at mga interface para sa token, Voucher, Offering, Want, Commitment Pool, transfer, direct Pool swap, at routed exchange.
 
@@ -8,7 +8,7 @@ Ibinibigay ng Protocol v1.1.0 ang kasalukuyang contract foundation: `GiftableTok
 
 Ibinibigay na ngayon ng CLC Core ang same-chain routing at observability foundation ng pampublikong App: reconciled graph discovery, mga route na hanggang tatlong Pool swap, pinned-block quote, per-hop bound at fee, simulation ng buong batch, nilagdaang atomic Calibur execution, relay tracking, settlement reconciliation, pinagsamang receipt, at operational metric. Nakasalalay pa rin ang availability sa interface, sinusuportahang wallet at token behavior, naka-deploy na kontrata, inventory, configuration, freshness ng service, estado ng network, eligibility, provider, jurisdiction, at inilathalang tuntunin ng issuer o Pool.
 
-### **15.2 Mga proposed milestone**
+## **15.2 Mga proposed milestone**
 
 Mga direksiyon sa disenyo ang mga milestone na ito, hindi release number, petsa ng delivery, o pangakong ilulunsad ang isang feature.
 

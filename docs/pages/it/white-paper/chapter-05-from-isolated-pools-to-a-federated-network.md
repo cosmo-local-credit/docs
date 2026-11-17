@@ -1,10 +1,10 @@
-## **5. Da Fondi isolati a una rete federata**
+# 5. Da Fondi isolati a una rete federata
 
 L'attuale Protocol v1.1.0 supporta l'esecuzione diretta attraverso uno `SwapPool` e fornisce un contratto Solidity `SwapRouter` di sola quotazione. La CLC App e CLC Core in produzione coordinano percorsi sulla stessa catena, avviati dai partecipanti, attraverso un massimo di tre Fondi preparando un batch Calibur firmato. I contratti non eseguono autonomamente un percorso con più passaggi e l'attuale flusso App/Core non fornisce HTLC tra catene, percorsi tramite escrow, riequilibrio automatico dei Fondi, compensazione in batch o clearing tra reti.
 
 Il presente capitolo spiega l'attuale percorso dei partecipanti e lo distingue dal coordinamento proposto che richiederebbe una nuova autorità del Fondo. In entrambi i casi, i pool indipendenti mantengono le proprie regole di ammissione, valutazione, limite, commissioni, inventario, autorizzazione e governance.
 
-### **5.1 Misure separate di scambio e di adempimento**
+## **5.1 Misure separate di scambio e di adempimento**
 
 L'instradamento può migliorare l'accesso all'inventario, ma non unisce il ciclo di vita del buono a quello dello scambio. La misurazione deve mantenere separati questi eventi:
 
@@ -18,7 +18,7 @@ Più percorsi citati o eseguiti non dimostrano maggiore realizzazione. Le relazi
 
 **Percorso illustrativo:** Una scuola possiede buoni di mais ma ha bisogno di buoni per il trasporto. CLC Core può identificare gli inventari Fondo compatibili, citare il percorso selezionato in un blocco fissato e preparare le chiamate limitate per il portafoglio della scuola. L'esecuzione ha successo solo se ogni salto rimane entro i suoi limiti di quotazione, limiti, commissioni, inventario, comportamento supportato e politica. Gli swap risultanti non dimostrano che uno degli emittenti abbia in seguito adempiuto ai suoi impegni sui buoni.
 
-### **5.2 Routing attuale dei partecipanti e riequilibrio proposto**
+## **5.2 Routing attuale dei partecipanti e riequilibrio proposto**
 
 Due attività richiedono autorità diverse.
 
@@ -32,7 +32,7 @@ Il riequilibrio sarebbe opzionale. Un Fondo può consentire ai partecipanti ordi
 
 L'esecuzione cross-chain HTLC o escrow è anche separata dall'attuale lotto atomico della stessa catena. Ciò richiederebbe l'adozione di regole relative al timeout, all'aborto, al controllore, al recupero e al rischio residuo.
 
-#### **5.2.1 Confederazione e interoperabilità**
+### **5.2.1 Confederazione e interoperabilità**
 
 Le implementazioni indipendenti possono gestire i propri registri, interfacce, servizi di percorso e profili delle politiche scegliendo standard compatibili per i dati e la ricezione. L'attuale App pubblica utilizza il suo profilo di servizio e registro configurato. L'esecuzione cross-profile rimane dipendente dalla distribuzione.
 
@@ -46,7 +46,7 @@ Un profilo compatibile:
 
 La compatibilità può aumentare i percorsi di scambio disponibili e ridurre la dipendenza da un registro o da un operatore. Non rende la rete, CLC App, GEF o un altro Fondo responsabile dell'adempimento di un emittente.
 
-### **5.3 Modello proposto per la rete e per le tariffe di servizio**
+## **5.3 Modello proposto per la rete e per le tariffe di servizio**
 
 L'attuale Protocol v1.1.0 addebiterà una quota di fondo e, quando configurata, una quota di protocollo aggiuntiva su uno swap di fondo diretto. Tali tasse correnti rimangono distinte.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Questo è un'approssimazione analitica, non una promessa di entrate. Ogni input richiede una coorte, un periodo, un'unità, un timestamp di valutazione, un'esclusione e una politica di correzione.
 
-#### **5.3.1 Ricevute in contanti e in natura ammissibili**
+### **5.3.1 Ricevute in contanti e in natura ammissibili**
 
 Le commissioni possono arrivare in attività fungibili ammissibili in contanti o in buoni e altre attività in natura. Le ricevute in natura non possono pagare automaticamente le spese in contanti o i crediti di copertura. Qualsiasi scambio o conversione richiederebbe autorità, inventario disponibile, luoghi divulgati, limiti e esecuzione effettiva.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 L'analisi di bilancio e di equilibrio utilizzerebbe `F_cash` realizzato, non le commissioni quotate lotte o il valore nominale dell'inventario in natura. Un futuro programma riferirebbe separatamente le commissioni lorde del fondo, le entrate per la rete, le entrate per i servizi, la composizione delle attività, i risultati della conversione e le entrate utilizzabili in contanti.
 
-### **5.4 Programmi di liquidità proposti**
+## **5.4 Programmi di liquidità proposti**
 
 Un futuro programma di liquidità separatamente documentato potrebbe assegnare attività a fondo designati o servizi di routing. Gli attuali contratti `SwapPool` non controllano azioni Fondo né creano automaticamente diritti di rimborso, prelievo, ricompensa, governance o profitto.
 

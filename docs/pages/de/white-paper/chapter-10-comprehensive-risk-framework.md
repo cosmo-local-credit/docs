@@ -1,8 +1,8 @@
-## **10. Umfassender Risikorahmen**
+# 10. Umfassender Risikorahmen
 
 Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kategorie werden mögliche Indikatoren, Kontrollen, Stressprüfungen und ein indikativer Risikobereitschaft identifiziert. Es handelt sich hierbei um Entwurfsempfehlungen, nicht um Ansprüche, dass jede Kontrolle eingesetzt, wirksam oder ausreichend ist. Grenzen, Reserven, Garantien, Überwachung, Abdeckung und Governance können keinen Verlust beseitigen.
 
-### **10.1 Protokoll- und Smart-Contract-Risiko**
+## **10.1 Protokoll- und Smart-Contract-Risiko**
 
 - **Bedrohungen:** Vertragsfehler, Upgrade-Fehler, Abhängigkeitsfehler und falsch konfigurierte Limits oder Gebühren.
 - **Indikatoren:** Prüfungsergebnisse, unerklärliche Bestandsbewegungen, unveränderliche Ausfälle und ungewöhnliche Rückschläge.
@@ -10,7 +10,7 @@ Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kate
 - **Stressuntersuchungen:** Nicht verfügbare Quote- oder Limit-Abhängigkeiten, Lagermangel, Pausen von Verträgen und Ausbrüche des Verkehrs.
 - **Risikobereitschaft:** niedrig vor der Skalierung der ausstehenden Verbindlichkeiten oder des Swapvolumens.
 
-### **10.2 Wirtschafts- und Marktrisiken**
+## **10.2 Wirtschafts- und Marktrisiken**
 
 - **Bedrohungen:** Schwache Bestände, einseitige Flüsse, schnelle Abhebungen und manipulierte oder veraltete Preisreferenzen.
 - **Indikatoren:** Eine hohe Auslastung des Fonds-Token-Bilanzkapitals, die Erweiterung der Quoteunterschiede, häufige Begrenzungsverweigerung und ein konzentriertes Inventar.
@@ -18,7 +18,7 @@ Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kate
 - **Stressuntersuchungen:** große Referenzpreisbewegungen, Vorlageanstiege, Rücktrittsanfragen und Ausfälle der Datenquellen.
 - **Risikobereitschaft:** nur innerhalb der veröffentlichten Parameter und der finanzierten Verlustbeitragskapazität.
 
-### **10.3 Aussteller- und Gutscheinsrisiko**
+## **10.3 Aussteller- und Gutscheinsrisiko**
 
 - **Bedrohungen:** Ausgabe über die Erfüllungskapazität hinaus, Verzug des Emittenten, irreführende Bedingungen und schlecht spezifizierte Verfügbarkeits- oder Präsentationsfenster.
 - **Indikatoren:** Rückgang der bestätigten Erfüllungsraten, veraltete ausstehende Gutscheine, ungelöste Beschwerden und konzentrierte Exposition gegenüber einem Emittenten.
@@ -26,7 +26,7 @@ Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kate
 - **Stressuntersuchungen:** die Insolvenz des Emittenten, regionale Produktionsschläge, gefälschte Ansprüche und längere Erfüllungsverzögerungen.
 - **Risikobereitschaft:** die Konzentration des Emittenten oder des Angebots zunimmt.
 
-### **10.4 Rückzahlungs- und Erfüllungsrisiko**
+## **10.4 Rückzahlungs- und Erfüllungsrisiko**
 
 - **Bedrohungen:** ungültige oder doppelte Darstellung, unzureichende Emittentenkapazität, Auslagerungen, logistische Störungen und fehlende Entlastungsunterlagen.
 - **Indikatoren:** Verzögerung bei der Erfüllung von Anfragen, fehlgeschlagenen oder bestrittenen Vorlagen, Vorräte, Fahrkartenrückstände und ausgefüllte Einheiten ohne Ausbuchung.
@@ -34,7 +34,7 @@ Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kate
 - **Stressuntersuchungen:** Zwei- bis vierfaches Präsentationsvolumen, Ausfälle der Anlage, Versagen der Lieferanten und Versuche der doppelten Nutzung.
 - **Risikobereitschaft:** niedrig, wenn es um wesentliche Güter, anfällige Teilnehmer oder lange Erfüllungsfenster geht.
 
-### **10.5 Regierungsrisiko**
+## **10.5 Regierungsrisiko**
 
 - **Bedrohungen:** Steward oder Controller erfassen, beschleunigte Parameteränderungen, Interessenkonflikte, versteckte technische Kräfte und schwache Anrufe.
 - **Indikatoren:** Konzentrierte Autorität, häufige Notfallmaßnahmen, unerklärliche Politikänderungen und wiederholte Überprüfungen.
@@ -44,7 +44,7 @@ Dieser vorgeschlagene Rahmen unterscheidet zehn Risikokategorien. Für jede Kate
 
 Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC würde der Capture-Test eine Akkumulation umfassen, gefolgt von Versuchen, Budgets zu umleiten, Registrierungsstandards zu schwächen, Mandate verwandter Parteien zu genehmigen oder die finanzierte Abdeckung zu entlasten. Zu den möglichen Schutzmaßnahmen gehören Governance-Locks-ups, höhere Schwellenwerte für kritische Maßnahmen, verzögerte Ausführung, transparente Delegations- und Konzentrationsüberwachung, ein Vorfallprozess und ein glaubwürdiges Fork-and-Exit-Verfahren. Keiner wird als eingesetzt dargestellt, indem er nur hier erscheint.
 
-### **10.6 Rechtliche und Konformitätsrisiken**
+## **10.6 Rechtliche und Konformitätsrisiken**
 
 - **Bedrohungen:** ein Gutschein, eine Dienstleistung, eine Beförderung oder ein Governance-Aktiv, das eine unerwartete regulatorische Behandlung erhält; Verbraucherschutzfehler; Geldwäsche oder Sanktionen; und grenzüberschreitende Einschränkungen.
 - **Indikatoren:** Jurisdiktionsflaggen, Anfragen der Regulierungsbehörden, Beschwerden, Übereinstimmungen mit beschränkten Parteien und Abweichungen zwischen dem angekündigten und dem tatsächlichen Verhalten.
@@ -52,7 +52,7 @@ Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC w�
 - **Stressuntersuchungen:** eine Zuständigkeitsbeschränkung, die Kündigung des Anbieters, die zwingende Neuklassifizierung und eine Aufforderung zur Pause einer Merkmal- oder Anlageklasse.
 - **Risikobereitschaft:** niedrig; Ununterstützte Aktivitäten zu beschränken oder zu unterbrechen.
 
-#### 10.6.1 Rechtliche Positionierung und vorgeschlagene Tokenbehandlung
+### 10.6.1 Rechtliche Positionierung und vorgeschlagene Tokenbehandlung
 
 1. **Überprüfbare Infrastruktur:** Protocol v1.1.0-Verträge sind EVM--kompatibel und ihre Quelle wird unter den im Protokollrepository festgelegten Lizenzen und Ausnahmen von Dritten veröffentlicht. Die Veröffentlichung ermöglicht eine Überprüfung, beweist jedoch nicht selbst eine Prüfung, einen sicheren Einsatz oder die gesetzliche Einhaltung. Jede Bereitstellung sollte ihre Codeversion, die Herkunft des Builds, Adressen, die Befugnisse des Controllers und den Status des Audits offenlegen.
 2. **Angestellte Token-Haltung:** In diesem Entwurf würde das vorgeschlagene Governance-Token CLC Governance- und Policy-gated-Access koordinieren. Es würde keine Dividenden, keine Gewinnteilung, keine Restrechte oder eine Gewährleistung für den Wert oder die Liquidität schaffen.
@@ -61,7 +61,7 @@ Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC w�
 5. **Kontrolle der Zuständigkeit:** eine Bereitstellung erfordert möglicherweise ein Geofencing der Schnittstelle, Zertifizierungen für eingeschränkte Klassen, Beförderungslimits, asset-spezifische Überprüfung oder Kontrollen, die ein vorgeschlagenes Feature pausieren.
 6. **Mitteilung der Teilnehmer:** Die Kommission ist der Auffassung, daß die Kommission in der Lage sein wird, die erforderlichen Maßnahmen zu ergreifen, um zu gewährleisten, dass die Mitgliedstaaten die erforderlichen Maßnahmen treffen.
 
-### **10.7 Routing- und Cross-Domain-Risiko**
+## **10.7 Routing- und Cross-Domain-Risiko**
 
 - **Aktuelle Risiken innerhalb derselben Blockchain:** veraltete Erkennungsdaten, unzureichende Bestände, Änderungen an Grenzen oder Zulassungen, abgelaufene Angebote, nicht unterstützte Wallets oder Abhängigkeiten, Simulationsfehler, Relayer-Ausfälle, Blockchain-Reorganisation und unnötig lange Routen.
 - **Aktuelle Kontrollen und Nachweise:** Angebote auf Grundlage eines festgelegten Blocks, Simulation des vollständigen Batchs, Mindestausgaben und Fristen je Schritt, ein signierter Calibur-Batch mit `revertOnFailure`, deterministisch zusammengefasste Belege, Abstimmung und eindeutige Fehlercodes. Diese Kontrollen mindern ausgewählte Ausführungsrisiken, garantieren aber weder Verfügbarkeit noch Erfüllung durch den Herausgeber.
@@ -71,21 +71,21 @@ Für eine zukünftige Bereitstellung des vorgeschlagenen Governance-Token CLC w�
 - **Stresstests:** veralteter Graphzustand, Ausfall einer Abhängigkeit, ein fehlgeschlagener Schritt im aktuellen atomaren Batch, eine Blockchain-Reorganisation und – bei einer zukünftigen Blockchain-übergreifenden Route – ein Bridge-Ausfall oder abgelaufener Escrow.
 - **Risikobereitschaft:** nur bei identifizierten und überwachten Abhängigkeiten niedrig bis mäßig.
 
-### **10.8 Verwahrungs- und Schlüsselverwaltungsrisiko**
+## **10.8 Verwahrungs- und Schlüsselverwaltungsrisiko**
 
 - **Bedrohungen:** Verlorene oder kompromittierte Schlüssel, Unterzeichner-Kollusion und unklare Wiederherstellungs- oder Verwaltungsbefugnis.
 - **Indikatoren:** Abweichende Signaturen, Steuerungsänderungen, fehlgeschlagene Rotationen und ungewöhnliche Auszahlungen.
 - **Mögliche Kontrollen:** Mehrfach- oder Schwellenberechtigung; Hardware-gestützte Schlüssel; Funktionstrennung; die Signatur-Rotation; Verzeichnisse der öffentlichen Kontrolleure; überwachte Entzugsgrenzen; und getesteten Wiederherstellungsverfahren.
 - **Risikobereitschaft:** Niedrig.
 
-### **10.9 Reputation und soziales Risiko**
+## **10.9 Reputation und soziales Risiko**
 
 - **Bedrohungen:** Irreführende Ansprüche, schädliche Anreize, unzugängliche Beschwerden, schlechte Erlebnisse der Erfüllung, Privatsphäreversagen und Schutzvorteile für Insider.
 - **Indikatoren:** Beschwerden nach Kohorten, ungelöste Streitigkeiten, Entwicklung der Leistung der Emittenten, Konzentration von Vorteilen oder Verlusten und Feedback der Gemeinschaft.
 - **Mögliche Kontrollen:** die Offenlegung in einfacher Sprache; Beschwerde- und Korrekturwege; zugängliche Beweise; Transparente Berichterstattung; Überprüfung der Vorfälle; und verhältnismäßige Sanktionen für Fehlberichte.
 - **Risikobereitschaft:** Die Kommission hat die Kommission mit dem Vorschlag für eine Verordnung (EG) Nr. 1271/2006 zur Änderung der Verordnung (EG) Nr. 1305/2006 zur Änderung der Verordnung (EG) Nr. 1408/71 in Kraft gesetzt.
 
-### **10.10 Konzentrations- und Fragmentierungsrisiko**
+## **10.10 Konzentrations- und Fragmentierungsrisiko**
 
 - **Bedrohungen:** Abhängigkeit von einer kleinen Anzahl von Emittenten, Fonds, Verantwortlichen, Anbietern, Netzwerken oder nicht kompatiblen Gabeln.
 - **Indikatoren:** Konzentrationsmaßnahmen durch Emittenten, Fonds, Bestand, Verantwortliche oder Dienstleister; Streckenausfälle zwischen Clustern; und kritischen einzelnen Abhängigkeiten.

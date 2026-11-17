@@ -1,4 +1,4 @@
-## **4. Garantie à terme réutilisable**
+# 4. Garantie à terme réutilisable
 
 Une facilité de crédit documentée séparément pourrait accepter des bons d’échange transférables et fongibles comme garantie ou comme instrument de remboursement. Si c' est le cas:
 
@@ -7,7 +7,7 @@ Une facilité de crédit documentée séparément pourrait accepter des bons d�
 - les limites, l'inventaire, la valorisation, la liquidité, le rendement de l'émetteur et les risques de défaillance demeureraient ; et
 - Il n'y aurait aucune garantie de route, de réalisation, de remboursement, de valeur ou de récupération.
 
-### 4.1 Boucle de crédit du producteur
+## 4.1 Boucle de crédit du producteur
 
 Un futur service compatible CLC- ne pourrait soutenir le crédit aux producteurs que lorsque les parties établissent une facilité distincte et présentent expressément l'opération comme une avance remboursable. Ses conditions d'opération permettraient d'identifier le créancier et le débiteur et d'indiquer:
 

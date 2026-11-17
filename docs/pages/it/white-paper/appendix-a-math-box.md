@@ -1,8 +1,8 @@
-## A. Modello di misurazione e tasse proposto
+# A. Modello di misurazione e tasse proposto
 
 L'appendice definisce un quadro di misurazione proposto. Protocol v1.1.0 non registra l'adempimento dell'emittente, il rilascio nel mondo reale o ogni campo di dati richiesto di seguito.
 
-### Definizioni dell'evento e dello stock
+## Definizioni dell'evento e dello stock
 
 Per la classe di buono *j*, coorte o periodo *t*, e un metodo di valutazione divulgato *m*:
 
@@ -16,7 +16,7 @@ Per la classe di buono *j*, coorte o periodo *t*, e un metodo di valutazione div
 
 Ogni misura valutata deve pubblicare l'unità, la fonte, il metodo di valutazione, il timestamp e il trattamento dei tassi di cambio divergenti del fondo. Un trasferimento in catena può supportare `X` o prove di presentazione; non stabilisce da sola `F` o `G`.
 
-### Misure di adempimento basate su coorte
+## Misure di adempimento basate su coorte
 
 Per una coorte di presentazioni di rimborso valide:
 
@@ -32,7 +32,7 @@ Utilizzare la stessa coorte chiusa o matura in ogni numeratore e denominatore. R
 
 La latenza di esecuzione misura il servizio dell'emittente dopo la presentazione. La durata della conservazione è una misura separata e non deve essere etichettata come latenza di rimborso.
 
-### Misure di velocità distinte
+## Misure di velocità distinte
 
 La velocità di estinzione degli impegni proposta può essere calcolata solo se `O` e il valore soddisfatto utilizzano lo stesso metodo di valutazione:
 
@@ -44,7 +44,7 @@ Una misura di attività di swap fondo è separata:
 
 Nessuno dei due valori dimostra l'impatto sociale, la capacità dell'emittente, la redditività o la convertibilità dei contanti.
 
-### Rivenuti della rete proposti
+## Rivenuti della rete proposti
 
 Lasciate:
 

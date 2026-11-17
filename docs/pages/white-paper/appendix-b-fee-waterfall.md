@@ -1,4 +1,4 @@
-## B. Illustrative future fee waterfall
+# B. Illustrative future fee waterfall
 
 This is a proposed design for a future deployment. It applies only if implemented, funded, and adopted through published governance and participant terms. It does not describe a current Protocol v1.1.0 fee, contributor right, reserve, guarantee, or insurance arrangement.
 

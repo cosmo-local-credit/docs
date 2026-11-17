@@ -1,4 +1,4 @@
-## **3. nakoming, afboeking en uitwisselingsactiviteit**
+# 3. nakoming, afboeking en uitwisselingsactiviteit
 
 Een Fonds swap verandert die betrekking heeft op houdermiddelen. De nakoming van vouchers vindt plaats wanneer de uitgever de gepubliceerde verplichting nakomt. De afgifte registreert de voltooide eenheden zodat ze niet opnieuw kunnen worden gepresenteerd. Deze gebeurtenissen mogen niet worden samengesteld in één gebruik van “settlement.”
 

@@ -1,10 +1,10 @@
-## **5. Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa**
+# 5. Kutoka Vikundi vilivyojitenga hadi mtandao uliounganishwa
 
 Protocol v1.1.0 ya sasa inasaidia utekelezaji wa moja kwa moja kupitia `SwapPool` moja na hutoa `SwapRouter` ya Solidity inayotoa nukuu pekee. CLC App na CLC Core za uzalishaji huratibu njia kwenye mnyororo mmoja zinazoanzishwa na mshiriki kupitia hadi Vikundi vitatu kwa kutayarisha kundi moja la miamala ya Mkoba wa Calibur litakalotiwa sahihi. Mikataba yenyewe haitekelezi njia yenye hatua nyingi, na mtiririko wa sasa wa App/Core hautoi HTLC kati ya minyororo, njia za escrow, usawazishaji wa kiotomatiki wa Vikundi, ulinganishaji wa kundi wala ulinganishaji kati ya mitandao.
 
 Sura hii inaeleza njia ya sasa ya mshiriki na kuitofautisha na uratibu unaopendekezwa ambao utahitaji mamlaka mapya ya Kikundi. Katika hali zote mbili, Vikundi huru huhifadhi kanuni zao za kukubaliwa kwa mali, uthamini, mipaka, ada, mali zilizopo, idhini na utawala.
 
-### **5.1 Hatua tofauti za kubadilishana na kutimiza**
+## **5.1 Hatua tofauti za kubadilishana na kutimiza**
 
 Uelekezaji unaweza kuboresha upatikanaji wa mali, lakini hauunganishi mizunguko ya maisha ya vocha na ubadilishaji. Vipimo vinapaswa kuweka matukio haya tofauti:
 
@@ -18,7 +18,7 @@ Njia nyingi zilizotajwa au zilizofanywa hazithibitishi kutimizwa zaidi. Ripoti i
 
 **Njia ya kielelezo:** Shule ina vocha za mahindi lakini inahitaji vocha za usafiri. CLC Core inaweza kutambua mali zinazolingana katika Vikundi, kutoa nukuu ya njia iliyochaguliwa katika block moja iliyowekwa na kutayarisha simu zenye mipaka kwa Mkoba wa shule. Utekelezaji hufanikiwa tu ikiwa kila hatua inabaki ndani ya mipaka ya nukuu, ada, mali zilizopo, tabia zinazosaidiwa na sera. Ubadilishaji unaotokea hauthibitishi kuwa Mtoaji yeyote baadaye alitekeleza ahadi zake za vocha.
 
-### **5.2 Uelekezaji wa sasa wa mshiriki na usawazishaji unaopendekezwa**
+## **5.2 Uelekezaji wa sasa wa mshiriki na usawazishaji unaopendekezwa**
 
 Shughuli mbili hutaka mamlaka tofauti.
 
@@ -32,7 +32,7 @@ Usawazishaji utafanywa kwa hiari. Kikundi kinaweza kuruhusu njia za kawaida za w
 
 Utekelezaji wa HTLC au escrow kati ya minyororo pia ni tofauti na kundi atomiki la sasa kwenye mnyororo mmoja. Utahitaji kanuni zilizopitishwa za muda, kusitisha, udhibiti, urejeshaji na hatari iliyobaki.
 
-#### **5.2.1 Shirikisho na ushirikiano wa mifumo**
+### **5.2.1 Shirikisho na ushirikiano wa mifumo**
 
 Utekelezaji huru unaweza kuendesha rejesta, violeshura, huduma za njia na wasifu wake wa sera huku ukichagua viwango vinavyolingana vya data na risiti. App ya sasa ya umma hutumia rejesta na wasifu wake wa huduma uliosanidiwa. Utekelezaji kati ya wasifu bado hutegemea utekelezaji.
 
@@ -46,7 +46,7 @@ Profaili inayolingana ingekuwa:
 
 Upatano unaweza kuongeza njia za kubadilishana zinazopatikana na kupunguza utegemezi kwa rejista moja au operator. Haitafanya mtandao, CLC App, GEF, au Kikundi nyingine kuwajibika kwa utekelezaji wa mtoaji.
 
-### **5.3 Mfano uliopendekezwa wa upungufu wa mtandao na ada ya huduma**
+## **5.3 Mfano uliopendekezwa wa upungufu wa mtandao na ada ya huduma**
 
 Sasa Protocol v1.1.0 inachukua ada ya Kikundi na, wakati imewekwa, ada ya itifaki ya ziada kwenye kubadilishana moja kwa moja kwa Kikundi. Mshahara huo unaendelea kutofautiana.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Hii ni makadirio ya uchambuzi, si ahadi ya mapato. Kila input inahitaji cohort iliyotangazwa, kipindi, kitengo, thamani muda stempu, uondoaji, na marekebisho sera.
 
-#### **5.3.1 Malipo yanayoweza kulipwa kwa fedha na mapato ya aina**
+### **5.3.1 Malipo yanayoweza kulipwa kwa fedha na mapato ya aina**
 
 Malipo yanaweza kufika katika mali zinazoweza kulipwa kwa fedha au katika vocha na mali nyingine za asili. Malipo ya asili hayawezi kulipia gharama za fedha au madai ya bima. Kila kubadilishana au kubadilishana kungehitaji mamlaka, hesabu inayopatikana, maeneo yaliyofunuliwa, mipaka, na utekelezaji halisi.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 Uchambuzi wa bajeti na kusawazisha utatumia realized `F_cash`, si jumla ya ada zilizoorodheshwa au nywila ya hesabu ya asili. Programu ya siku zijazo ingeripoti mapato ya mkusanyiko wa jumla, mapato ya mitandao, mapato ya huduma, muundo wa mali, matokeo ya uongofu, na mapato ya matumizi ya fedha tofauti.
 
-### **5.4 Mipango ya upungufu wa fedha iliyopendekezwa**
+## **5.4 Mipango ya upungufu wa fedha iliyopendekezwa**
 
 Programu ya baadaye ya upungufu wa fedha, iliyoandikwa tofauti, inaweza kugawa mali kwa Vikundi zilizoainishwa au huduma za kuelekeza. Mikataba ya sasa ya `SwapPool` haitoi hisa za Kikundi au kuunda haki za kurudisha, kujiondoa, thawabu, utawala, au faida.
 

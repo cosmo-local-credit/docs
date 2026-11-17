@@ -1,4 +1,4 @@
-## **Muhtasari mkuu**
+# Muhtasari mkuu
 
 Waziri Mkuu **Itifaki ya Kuunganisha Ahadi (CPP)** inaelezea jinsi Vikundi vya Ahadi inayoongozwa kwa kujitegemea inaweza kutunza ahadi zinazoweza kufutwa, kuchapisha njia na mipaka ya kiwango cha ubadilishaji, kuhifadhi hesabu, na kuwezesha kubadilishana kwa hesabu. Watangazaji wanaendelea kuwajibika kwa ahadi zao za vocha. Wasimamizi wa Vikundi huendelea kuwajibika kwa sheria za Kikundi na dhamana yoyote wanayochukua wazi. Wala CLC App wala GEF ni mdhamini wa kimataifa.
 

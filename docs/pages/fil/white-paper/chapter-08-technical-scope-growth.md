@@ -1,4 +1,4 @@
-## **8. Technical scope at paglago**
+# 8. Technical scope at paglago
 
 Inihihiwalay ng kabanatang ito ang kasalukuyang production route service sa opsyonal o iminungkahing paglago. Ang kasalukuyang kakayahang inilalarawan dito ay partikular sa pampublikong CLC App/Core deployment; hindi ito awtomatikong feature ng mga contract ng Protocol v1.1.0 o ibang deployment.
 
@@ -24,7 +24,7 @@ Kabilang sa posibleng mga lugar ng paglago ang:
 
 Ang mga presyo sa panlabas na merkado ay hindi magtataguyod kung ano ang utang ng isang tagapag-isyu sa ilalim ng mga tuntunin ng voucher.
 
-### **8.1 Kasalukuyang serbisyo sa ruta at mas malawak na mga pamantayan**
+## **8.1 Kasalukuyang serbisyo sa ruta at mas malawak na mga pamantayan**
 
 **Discovery.** Pinananatili ng CLC Core ang reconciled graph mula sa naka-configure na catalog, ugnayan sa registry, parameter ng Pool, bayarin, limitasyon, balanse, at on-chain event. Tinatantiya nito kung ano ang maaabot ng session Wallet at minamarkahan ang stale na data. Hanggang tatlong hop ang hinahanap ng pampublikong configuration. Hindi executable commitment ang discovery.
 
@@ -51,7 +51,7 @@ Ang mga presyo sa panlabas na merkado ay hindi magtataguyod kung ano ang utang n
 
 **Mga kinakailangan sa SDK at interface.** Dapat magbigay ang reusable route integration ng deterministic quote-to-receipt mapping, per-hop invariant check, madaling maunawaang failure code, at audit-friendly log. Ibinibigay ng kasalukuyang production App/Core implementation ang mga function na ito para sa sarili nitong profile. Nananatiling quote-only ang Solidity `SwapRouter` ng Protocol v1.1.0 at hindi ito nagpapatupad ng ruta.
 
-#### **8.1.1 Minimum confederation compatibility specification**
+### **8.1.1 Minimum confederation compatibility specification**
 
 Ang isang ecosystem ng Pool na naghahanap ng cross-profile routing ay magpupublikar ng impormasyon na maaaring basahin ng makina para sa:
 
@@ -63,7 +63,7 @@ Ang isang ecosystem ng Pool na naghahanap ng cross-profile routing ay magpupubli
 
 Ang isang profile ay maaaring magdagdag ng coverage, compliance, arbitration, o iba pang mga serbisyo nang hindi ito gumagawa ng mga kinakailangan para sa pangunahing pagkakapantay-pantay ng CPP.
 
-### **8.2 Pagbibigay ng lisensya, pag-verify, at paglabas**
+## **8.2 Pagbibigay ng lisensya, pag-verify, at paglabas**
 
 EVM-compatible ang mga contract ng Protocol v1.1.0. Inilathala sa ilalim ng AGPL-3.0 ang mga contract sa `src` directory ng Protocol repository, maliban sa mga natukoy na hindi binagong third-party component na nagpapanatili ng sarili nilang mga tuntunin. Sinusuportahan ng inilathalang source, ABI, at deployment instruction ang independiyenteng pagsusuri, ngunit hindi pinatutunayan ng mga ito lamang na may audit, ligtas ang deployment, o sumusunod ito sa batas.
 

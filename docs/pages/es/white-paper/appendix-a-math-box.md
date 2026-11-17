@@ -1,8 +1,8 @@
-##  Modelo de medición y tarifa propuesto
+#  Modelo de medición y tarifa propuesto
 
 Este apéndice define un marco de medición propuesto. Protocol v1.1.0 no registra el cumplimiento del emisor, la descarga en el mundo real o todos los campos de datos requeridos a continuación.
 
-### Definiciones de eventos y existencias
+## Definiciones de eventos y existencias
 
 Para la clase de vales *j*, cohorte o período *t*, y un método de valoración divulgado *m*:
 
@@ -16,7 +16,7 @@ Para la clase de vales *j*, cohorte o período *t*, y un método de valoración 
 
 Cada medida valorada deberá publicar la unidad, la fuente, el método de valoración, el sello de tiempo y el tratamiento de los tipos de cambio divergentes del grupo. Una transferencia en cadena puede apoyar `X` o pruebas de presentación; no establece por sí solo `F` ni `G`.
 
-### Medidas de cumplimiento basadas en cohortes
+## Medidas de cumplimiento basadas en cohortes
 
 Para una cohorte de presentaciones de rescate válidas:
 
@@ -32,7 +32,7 @@ Utilice la misma cohorte cerrada o madura en cada numerador y denominador. Infor
 
 Las medidas de latencia de cumplimiento del servicio del emisor después de la presentación. La duración de retención es una medida separada y no debe etiquetarse como latencia de redención.
 
-### Medidas de velocidad distintas
+## Medidas de velocidad distintas
 
 La velocidad de descarga del compromiso propuesta solo podrá calcularse cuando `O` y el valor cumplido utilicen el mismo método de valoración:
 
@@ -44,7 +44,7 @@ Una medida de actividad de swap de grupo es separada:
 
 Ningún valor demuestra el impacto social, la capacidad del emisor, la rentabilidad o la convertibilidad en efectivo.
 
-### Ingresos de la red propuestos
+## Ingresos de la red propuestos
 
 Deje que:
 

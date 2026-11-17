@@ -1,10 +1,10 @@
-## **5. Von isolierten Fonds zu einem föderierten Netzwerk**
+# 5. Von isolierten Fonds zu einem föderierten Netzwerk
 
 Das aktuelle Protocol v1.1.0 unterstützt die direkte Ausführung über einen `SwapPool` und stellt einen Solidity-`SwapRouter` bereit, der nur Kursangebote erstellt. Die produktive CLC App und CLC Core koordinieren von Teilnehmern ausgelöste Routen innerhalb derselben Blockchain durch bis zu drei Fonds, indem sie einen signierten Calibur-Wallet-Batch vorbereiten. Die Verträge selbst führen keine mehrstufige Route aus. Der aktuelle Ablauf von App und CLC Core bietet weder Blockchain-übergreifende HTLCs oder Escrow-Routen noch automatischen Bestandsausgleich der Fonds, gebündelte Verrechnung oder Netzwerk-übergreifende Verrechnung.
 
 Dieses Kapitel erklärt den aktuellen Routing-Ablauf für Teilnehmer und grenzt ihn von vorgeschlagener Koordination ab, die neue Befugnisse über Fonds erfordern würde. In beiden Fällen behalten unabhängige Fonds ihre eigenen Regeln für Zulassung, Bewertung, Grenzen, Gebühren, Bestände, Autorisierung und Governance.
 
-### **5.1 Einzelne Austausch- und Erfüllungsmaßnahmen**
+## **5.1 Einzelne Austausch- und Erfüllungsmaßnahmen**
 
 Routing kann den Zugang zu Beständen verbessern, vereint aber nicht die Lebenszyklen von Gutschein und Tausch. Messungen sollten diese Ereignisse getrennt halten:
 
@@ -18,7 +18,7 @@ Mehr zitierte oder ausgeführte Routen beweisen keine größere Erfüllung. In d
 
 **Beispielroute:** Eine Schule besitzt Maisgutscheine, benötigt aber Transportgutscheine. CLC Core kann kompatible Fondsbestände erkennen, die ausgewählte Route in einem festgelegten Block berechnen und die begrenzten Aufrufe für die Wallet der Schule vorbereiten. Die Ausführung gelingt nur, wenn jeder Schritt innerhalb seiner Angebotsgrenzen, Limits, Gebühren, Bestände, des unterstützten Verhaltens und der geltenden Regeln bleibt. Die daraus entstehenden Tausche belegen nicht, dass einer der Herausgeber seine Gutscheinverpflichtungen später erfüllt.
 
-### **5.2 Aktuelles Teilnehmer-Routing und vorgeschlagener Bestandsausgleich**
+## **5.2 Aktuelles Teilnehmer-Routing und vorgeschlagener Bestandsausgleich**
 
 Zwei Tätigkeiten erfordern unterschiedliche Befugnisse.
 
@@ -32,7 +32,7 @@ Ein Bestandsausgleich wäre freiwillig. Ein Fonds kann gewöhnliche Teilnehmer-R
 
 Blockchain-übergreifende HTLC- oder Escrow-Ausführung ist ebenfalls vom aktuellen atomaren Batch innerhalb derselben Blockchain zu trennen. Sie würde beschlossene Regeln für Fristen, Abbruch, Kontrolle, Wiederherstellung und Restrisiken erfordern.
 
-#### **5.2.1 Konföderation und Interoperabilität**
+### **5.2.1 Konföderation und Interoperabilität**
 
 Unabhängige Bereitstellungen können eigene Register, Benutzeroberflächen, Routing-Dienste und Richtlinienprofile betreiben und zugleich kompatible Daten- und Belegstandards wählen. Die aktuelle öffentliche App verwendet ihr konfiguriertes Register- und Dienstprofil. Profilübergreifende Ausführung bleibt bereitstellungsabhängig.
 
@@ -46,7 +46,7 @@ Ein kompatibles Profil würde:
 
 Die Kompatibilität kann die verfügbaren Austauschwege erhöhen und die Abhängigkeit von einem Register oder einem Betreiber reduzieren. Sie macht das Netzwerk, CLC App, GEF oder einen anderen Fonds nicht für die Erfüllung eines Emittenten verantwortlich.
 
-### **5.3 Das vorgeschlagene Netz-Rake- und Servicegebührenmodell**
+## **5.3 Das vorgeschlagene Netz-Rake- und Servicegebührenmodell**
 
 Der aktuelle Protocol v1.1.0 erhebt eine Poolgebühr und, wenn sie konfiguriert ist, eine zusätzliche Protokollgebühr für einen direkten Fonds-Swap. Diese aktuellen Gebühren bleiben unterschiedlich.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Das ist eine analytische Annäherung, nicht ein Versprechen von Einnahmen. Jeder Eintrag erfordert eine angegebene Kohorte, Periode, Einheit, Bewertungszeitstempel, Ausschlüsse und Korrekturpolitik.
 
-#### **5.3.1 Zahlungsfähige und natürliche Einnahmen**
+### **5.3.1 Zahlungsfähige und natürliche Einnahmen**
 
 Die Gebühren können in barwertfähigen fungierbaren Vermögenswerten oder in Gutscheinen und anderen Sachverhältnissen entstehen. In natürlichen Quittungen können nicht automatisch Barkosten oder Deckungsansprüche bezahlt werden. Jeder Austausch oder Umwandlung würde Autorität, verfügbare Bestände, offengelegte Orte, Grenzen und tatsächliche Ausführung erfordern.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 Bei der Haushalts- und Ausgleichsanalyse würden realisierte `F_cash` verwendet, nicht die Bruttoanbietergebühren oder der Nennwert des Inventars in der Art. Ein zukünftiges Programm würde Brutto-Fonds-Gebühren, Netzkosten, Dienstleistungsgebühren, Vermögenszusammensetzung, Umrechnungsergebnisse und nutzbare Einnahmen separat melden.
 
-### **5.4 Angebotene Liquiditätsprogramme**
+## **5.4 Angebotene Liquiditätsprogramme**
 
 Ein zukünftig separat dokumentiertes Liquiditätsprogramm könnte Vermögenswerte für bestimmte Fonds oder Routing-Dienstleistungen vergeben. Aktuelle `SwapPool`-Verträge entwerfen keine Fonds-Aktien oder erzeugen automatisch Rückzahlungs-, Auszahlungs-, Vergütungs-, Governance- oder Gewinnrechte.
 

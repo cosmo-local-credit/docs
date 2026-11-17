@@ -135,8 +135,7 @@ La capa digital es la memoria compartida y la infraestructura de coordinación. 
 \section*{Flujos actuales y propuestos}
 \addcontentsline{toc}{section}{Flujos actuales y propuestos}
 
-\subsection*{Flujo actual directo o enrutado de Fondo}
-\addcontentsline{toc}{subsection}{Flujo actual directo o enrutado de Fondo}
+\subsubsection*{Flujo actual directo o enrutado de Fondo}
 
 \begin{enumerate}[leftmargin=*]
 \item Un titular revisa un vale, su emisor, sus términos y las Ofertas asociadas.
@@ -152,8 +151,7 @@ Tomar inventario de un Fondo es un intercambio. Solo es un canje si ese Fondo ha
 
 La configuración pública actual busca rutas de hasta tres intercambios de Fondo y admite billeteras EOA/Calibur compatibles con la CLC App. Actualmente no prepara intercambios enrutados para Safes ni otras billeteras de contrato. El \texttt{SwapRouter} Solidity sigue siendo solo para cotizaciones; CLC Core y el lote firmado por la billetera coordinan la ejecución por encima de los contratos.
 
-\subsection*{Proyecto más amplio propuesto}
-\addcontentsline{toc}{subsection}{Proyecto más amplio propuesto}
+\subsubsection*{Proyecto más amplio propuesto}
 
 El diseño propuesto explora el enrutamiento entre dominios mediante HTLC o depósito en garantía, el reequilibrio voluntario de Fondos, la compensación por lotes, servicios compartidos adicionales, programas de liquidez de red, pólizas de seguro y activos de gobernanza. Cada elemento requeriría implementación, partes responsables, reglas adoptadas, financiación, controles e información pública antes de poder aplicarse.
 
@@ -298,8 +296,7 @@ Las finanzas tradicionales comienzan con \textbf{Activos - pasivos = capital pro
 \item \textbf{Los compromisos pendientes:} promesas que no se cumplen y son mantenidas por otros.
 \item \textbf{Capacidad de ejecución:} la capacidad comprobada del emisor para cumplir dichas promesas.
 \end{itemize}
-\subsection*{Relación ilustrativa entre compromiso y capacidad:}
-\addcontentsline{toc}{subsection}{Relación ilustrativa entre compromiso y capacidad:}
+\subsubsection*{Relación ilustrativa entre compromiso y capacidad:}
 
 Capacidad de aceptación - compromisos pendientes = capacidad de aceptación restante
 
@@ -1010,8 +1007,7 @@ La lista prohibida sería versionada, auditable al público y cambiable únicame
 
 \textbf{Criterio de pausa de emergencia.} Un despliegue participante declararía de antemano condiciones tales como una interrupción del oráculo, una utilización de alto límite combinada con fallos de cumplimiento o un fallo invariante, junto con controles de currículum y requisitos de revisión posterior al incidente.
 
-\subsection*{Ejemplo de alimentación pública de índices para un Fondo y un vale}
-\addcontentsline{toc}{subsection}{Ejemplo de alimentación pública de índices para un Fondo y un vale}
+\subsubsection*{Ejemplo de alimentación pública de índices para un Fondo y un vale}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Símbolo:} por ejemplo, \texttt{Maize\_50kg@IssuerY}.
@@ -1051,16 +1047,14 @@ Un ajuste de cobertura no reducirá el compromiso subyacente de un emisor con el
 
 En esta sección se distingue la responsabilidad del emisor, las protecciones opcionales del grupo y las garantías de terceros. los Fondos pueden competir en la curación, los términos y las protecciones expresamente ofrecidas sin implicar que el CLC App, CPP, GEF o cualquier red más amplia garantice automáticamente un vale.
 
-\subsection*{Responsabilidad del emisor de referencia}
-\addcontentsline{toc}{subsection}{Responsabilidad del emisor de referencia}
+\subsubsection*{Responsabilidad del emisor de referencia}
 
 \begin{itemize}[leftmargin=*]
 \item Cada vale es, ante todo, responsabilidad de su emisor. El emisor se compromete a proporcionar el bien, servicio o equivalente en efectivo legal declarado en sus términos publicados.
 \item Los emisores publicarían quién puede presentar el vale, qué significa cumplimiento, dónde y cuándo está disponible, qué pruebas se requieren y qué remedios se aplican.
 \item Si un emisor no cumple, el emisor es el principal responsable. Las protecciones del Fondo o de la red solo se aplicarán cuando se adopten, financien y divulguen por separado.
 \end{itemize}
-\subsection*{Protecciones opcionales de los Fondos}
-\addcontentsline{toc}{subsection}{Protecciones opcionales de los Fondos}
+\subsubsection*{Protecciones opcionales de los Fondos}
 
 Un Responsable del Fondo podrá optar por añadir una protección estrechamente definida a los vales admitidos. No es automático y necesitaría identificar a la parte responsable, la financiación, los eventos elegibles, los límites máximos, las ventanas, la evidencia, las exclusiones y los recursos en los metadatos del grupo y en los términos aplicables.
 
@@ -1072,8 +1066,7 @@ Los tipos de protección ilustrativos incluyen:
 \item \textbf{Cumplimiento alternativo} la parte responsable organizará un proveedor de sustituto autorizado dentro de un límite de cantidad o valor publicado.
 \item \textbf{Protección por banda de cambio:} En el caso de las categorías de vales seleccionadas, un grupo solo ofrece el ajuste de cobertura o el remedio de swap-back indicado en sus términos preexistentes. Esto no reduce la obligación subyacente del emisor de vales.
 \end{enumerate}
-\subsection*{Fuentes de financiación posibles}
-\addcontentsline{toc}{subsection}{Fuentes de financiación posibles}
+\subsubsection*{Fuentes de financiación posibles}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Obligación del emisor:} las garantías depositadas por el emisor o mantenidas en una reserva divulgada y disponibles después de un evento cubierto verificado.
@@ -1082,8 +1075,7 @@ Los tipos de protección ilustrativos incluyen:
 \end{itemize}
 La participación del garante seguiría los criterios publicados de elegibilidad, el tamaño de los bonos, los límites de concentración, la autoridad de decisión y las normas de aplicación legal.
 
-\subsection*{Proceso de reclamaciones}
-\addcontentsline{toc}{subsection}{Proceso de reclamaciones}
+\subsubsection*{Proceso de reclamaciones}
 
 Una política adoptada definiría los factores desencadenantes auditables, como un plazo de cumplimiento que no se cumpla después de la presentación de la redención válida, la insolvencia verificada del emisor, un puente cubierto o un incumplimiento de las garantías o un estado de incidencia declarado formalmente. También definiría:
 
@@ -1095,8 +1087,7 @@ Una política adoptada definiría los factores desencadenantes auditables, como 
 \end{itemize}
 Los ingresos de la recuperación de los emisores, el arbitraje o la aplicación de la ley reponerían los bonos o reservas aplicables de acuerdo con la política publicada antes de ser utilizados para el acceso de intercambio de la red CLC.
 
-\subsection*{Las divulgaciones necesarias}
-\addcontentsline{toc}{subsection}{Las divulgaciones necesarias}
+\subsubsection*{Las divulgaciones necesarias}
 
 Para cada clase de Fondos y vales cubiertos, la parte responsable publicaría:
 

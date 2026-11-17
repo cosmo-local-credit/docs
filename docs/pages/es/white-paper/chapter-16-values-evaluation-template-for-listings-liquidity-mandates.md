@@ -1,4 +1,4 @@
-## **16. Modelo de evaluación propuesto**
+# 16. Modelo de evaluación propuesto
 
 Un registro, un grupo o un futuro programa de liquidez pueden adaptar esta plantilla. No es una norma o garantía de cotización universal actual.
 

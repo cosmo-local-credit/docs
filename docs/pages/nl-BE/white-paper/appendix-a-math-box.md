@@ -1,8 +1,8 @@
-## A. Voorgestelde meet- en vergoedingsmodel
+# A. Voorgestelde meet- en vergoedingsmodel
 
 Protocol v1.1.0 registreert niet de nakoming door uitgevers, afboeking in de echte wereld of elk hieronder vereist gegevensveld.
 
-### De definities van gebeurtenis en voorraad
+## De definities van gebeurtenis en voorraad
 
 Voor voucherklasse *j*, cohorte of periode *t* en een aangegeven waarderingsmethode *m*:
 
@@ -16,7 +16,7 @@ Voor voucherklasse *j*, cohorte of periode *t* en een aangegeven waarderingsmeth
 
 Iedere gewaardeerde maatstaf moet de eenheid, bron, waarderingsmethode, tijdstempel en behandeling van uiteenlopende Fondswisselkoersen publiceren. Een overdracht op de blockchain kan bewijs voor `X` of een aanbieding ter inwisseling ondersteunen, maar stelt op zichzelf `F` of `G` niet vast.
 
-### Cohortgebaseerde vervullingsmaatregelen
+## Cohortgebaseerde vervullingsmaatregelen
 
 Voor een cohorte van geldige terugbetalingsaanbiedingen:
 
@@ -32,7 +32,7 @@ Gebruik dezelfde gesloten of rijpe cohorte in elke teller en noemer. Rapport afg
 
 De latentie van nakoming meet de uitgevende dienst na presentatie.
 
-### Verschillende snelheidsmetingen
+## Verschillende snelheidsmetingen
 
 Een voorgestelde snelheid van verbintenisontlading mag alleen worden berekend wanneer `O` en de vervuld waarde dezelfde waarderingsmethode gebruiken:
 
@@ -44,7 +44,7 @@ Een Fonds swap-activiteitsmaatregel is afzonderlijk:
 
 Beide waarden bewijzen geen maatschappelijke impact, vermogen van de uitgever, winstgevendheid of cash convertibility.
 
-### Voorgestelde inkomsten uit het netwerk
+## Voorgestelde inkomsten uit het netwerk
 
 Laat:
 

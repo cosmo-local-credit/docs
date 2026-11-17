@@ -135,8 +135,7 @@ Ang digital layer ay shared memory at imprastraktura sa koordinasyon. Hindi nito
 \section*{Kasalukuyan at iminungkahing mga daloy}
 \addcontentsline{toc}{section}{Kasalukuyan at iminungkahing mga daloy}
 
-\subsection*{Kasalukuyang direkta o routed na flow sa Pool}
-\addcontentsline{toc}{subsection}{Kasalukuyang direkta o routed na flow sa Pool}
+\subsubsection*{Kasalukuyang direkta o routed na flow sa Pool}
 
 \begin{enumerate}[leftmargin=*]
 \item Sinusuri ng may-hawak ang Voucher, tagapag-isyu, mga tuntunin, at kaugnay na Offering.
@@ -152,8 +151,7 @@ Palitan ang pagkuha ng inventory mula sa Pool. Redemption lamang ito kung hiwala
 
 Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong route configuration, at sinusuportahan nito ang mga EOA/Calibur Wallet na katugma sa App. Hindi ito naghahanda ng routed exchange para sa Safe o ibang contract Wallet. Nananatiling quote-only ang Solidity \texttt{SwapRouter}; ang CLC Core at pinirmahang Wallet batch ang nag-uugnay ng execution sa ibabaw ng mga contract.
 
-\subsection*{Mas malawak na iminungkahing disenyo}
-\addcontentsline{toc}{subsection}{Mas malawak na iminungkahing disenyo}
+\subsubsection*{Mas malawak na iminungkahing disenyo}
 
 Ang iminungkahing disenyo ay nagsasaliksik sa cross-domain HTLC o escrow routing, opt-in Pool rebalancing, batch netting, karagdagang ibinahaging serbisyo, mga programa ng network liquidity, mga patakaran sa seguro, at mga ari-arian sa pamamahala. Ang bawat isa ay mangangailangan ng pagpapatupad, mga may pananagutan na partido, pinagtibay na mga patakaran, pagpopondo, mga kontrol, at pampublikong pagsisiwalat bago ito magamit.
 
@@ -298,8 +296,7 @@ Ang tradisyonal na pananalapi ay nagsisimula sa \textbf{Aktibo - Passive = Equit
 \item \textbf{Pinapahayag na mga pangako:} nagbigay ng mga pangako na hindi natupad at tinutupad ng iba.
 \item \textbf{Kapasidad ng pagpapatupad:} ang napatunayan na kakayahan ng tagapag-isyu na ipatupad ang mga pangako.
 \end{itemize}
-\subsection*{Mga ilustrasyon ng relasyon sa pangako-kapasidad:}
-\addcontentsline{toc}{subsection}{Mga ilustrasyon ng relasyon sa pangako-kapasidad:}
+\subsubsection*{Mga ilustrasyon ng relasyon sa pangako-kapasidad:}
 
 Kapasidad sa pagtanggap - mga naka-outstanding commitment = natitirang kapasidad ng pagtanggap
 
@@ -1010,8 +1007,7 @@ Ang ipinagbabawal na listahan ay magiging versioned, publicly auditable at maiba
 
 \textbf{Mga pamantayan para sa emergency pause.} Ang isang nakikibahagi na paglalapat ay magpapahayag nang maaga ng mga kondisyon tulad ng isang breakdown ng oracle, mataas na limitasyon ng paggamit na kasabay ng mga pagkabigo sa pagsasagawa, o isang invariant failure, kasama ang mga pagsusuri sa resume at mga kinakailangan ng pagsusuri pagkatapos ng insidente.
 
-\subsection*{Halimbawa ng pampublikong index feed para sa isang pool at voucher}
-\addcontentsline{toc}{subsection}{Halimbawa ng pampublikong index feed para sa isang pool at voucher}
+\subsubsection*{Halimbawa ng pampublikong index feed para sa isang pool at voucher}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Simbolo:} halimbawa, \texttt{Maize\_50kg@IssuerY}.
@@ -1051,16 +1047,14 @@ Ang isang pag-aayos sa coverage ay hindi binabawasan ang underlying voucher comm
 
 Pinag-iiba ng seksyong ito ang responsibilidad ng tagapag-isyu, opsyonal na proteksiyon ng Pool, at garantiya ng third party. Hindi awtomatikong ginagarantiyahan ng CLC App, CPP, GEF, o anumang mas malawak na network ang isang voucher.
 
-\subsection*{Responsabilidad ng tagapag-isyu base}
-\addcontentsline{toc}{subsection}{Responsabilidad ng tagapag-isyu base}
+\subsubsection*{Responsabilidad ng tagapag-isyu base}
 
 \begin{itemize}[leftmargin=*]
 \item Ang bawat voucher ay una at higit sa lahat ang responsibilidad ng tagapag-isyu nito.
 \item Ipinapalabas ng mga tagapag-isyu kung sino ang maaaring magsagawa ng voucher, kung ano ang ibig sabihin ng pagpapatupad, kung saan at kailan ito magagamit, kung anong katibayan ang kinakailangan, at kung aling mga paraan ang gagamitin.
 \item Kung ang isang tagapag-isyu ay hindi kumpleto, ang tagapag-isyu ang pangunahing responsable na partido.
 \end{itemize}
-\subsection*{Optional na mga proteksyon sa pool}
-\addcontentsline{toc}{subsection}{Optional na mga proteksyon sa pool}
+\subsubsection*{Optional na mga proteksyon sa pool}
 
 Ang Tagapangasiwa ng Pool ay maaaring pumili na magdagdag ng isang mahigpit na tinukoy na proteksyon sa mga admitted voucher. Ito ay hindi awtomatikong at kakailanganin upang makilala ang responsable na partido, pondo, karapat-dapat na mga kaganapan, caps, bintana, katibayan, exclusions, at remedies sa pool metadata at naaangkop na mga tuntunin.
 
@@ -1072,8 +1066,7 @@ Ang mga uri ng proteksyon sa ilustrasyon ay:
 \item \textbf{Alternatibong pagpapatupad:} ang responsable na partido ay nag-aayos ng isang awtorisadong tagapag-isyu ng kahalili sa loob ng isang naipahayag na limitasyon sa dami o halaga.
 \item \textbf{Proteksyon sa rate band:} para sa pinili na mga klase ng voucher, ang isang pool ay nag-aalok lamang ng pag-aayos sa coverage o remedy ng swap-back na ipinapakita sa kanyang umiiral na mga termino.
 \end{enumerate}
-\subsection*{Posible na mga mapagkukunan ng pondo}
-\addcontentsline{toc}{subsection}{Posible na mga mapagkukunan ng pondo}
+\subsubsection*{Posible na mga mapagkukunan ng pondo}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Mga obligasyon ng tagapag-isyu:} collateral na inilalagay ng tagapag-isyu o inaalagaan sa isang disclosed reserve at magagamit pagkatapos ng isang napatunayang nasa ilalim na kaganapan.
@@ -1082,8 +1075,7 @@ Ang mga uri ng proteksyon sa ilustrasyon ay:
 \end{itemize}
 Ang paglahok ng guarantor ay sumusunod sa mga inilathalang pamantayan sa eligibility, laki ng obligasyon, mga limitasyon sa concentration, awtoridad sa pagpapasya, at mga patakaran sa enforcement.
 
-\subsection*{Proseso ng mga reklamo}
-\addcontentsline{toc}{subsection}{Proseso ng mga reklamo}
+\subsubsection*{Proseso ng mga reklamo}
 
 Ang isang inaminang patakaran ay tatakda ang mga trigger na maaaring ma-audit, tulad ng isang deadline sa pagtuman na hindi natupad pagkatapos ng valid redemption presentation, napatunayang insolvensyon ng tagapag-isyu, isang nasabing sasakyan o pagkabigo ng escrow, o isang pormal na ideklaradong estado ng insidente.
 
@@ -1095,8 +1087,7 @@ Ang isang inaminang patakaran ay tatakda ang mga trigger na maaaring ma-audit, t
 \end{itemize}
 Ang mga kita ng pagbawi mula sa mga tagapag-isyu, arbitration, o legal enforcement ay muling punan ang mga kapaki-pakinabang na obligasyon o reserbasyon ayon sa naipahayag na patakaran bago magamit para sa iminungkahi na CLC Network Pool swap access.
 
-\subsection*{Kinakailangan na pagpapahayag}
-\addcontentsline{toc}{subsection}{Kinakailangan na pagpapahayag}
+\subsubsection*{Kinakailangan na pagpapahayag}
 
 Para sa bawat sakop na klase ng pool at voucher, ang responsable na partido ay mag-publish:
 

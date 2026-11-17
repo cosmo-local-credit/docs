@@ -1,4 +1,4 @@
-## E. Worked example — proposed network rake
+# E. Worked example — proposed network rake
 
 This example illustrates the proposed rake model. It is not the additional protocol-fee calculation used by Protocol v1.1.0.
 

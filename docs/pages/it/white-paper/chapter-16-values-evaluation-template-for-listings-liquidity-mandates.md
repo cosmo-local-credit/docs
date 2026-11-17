@@ -1,4 +1,4 @@
-## **16. Modello di valutazione proposto**
+# 16. Modello di valutazione proposto
 
 Un registro, un fondo o un futuro programma di liquidità possono adattare questo modello. Non si tratta di una norma o di una garanzia universali per l'inserimento nell'elenco.
 

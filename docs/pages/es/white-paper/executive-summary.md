@@ -1,4 +1,4 @@
-## **Resumen ejecutivo**
+# Resumen ejecutivo
 
 El **Protocolo de agrupación de compromisos (CPP)** describe cómo Fondos de Compromisos, gobernada de forma independiente, puede gestionar los compromisos canjeables, publicar los métodos y límites de los tipos de cambio, mantener inventarios y permitir un intercambio responsable. Los emisores siguen siendo responsables de sus compromisos de vales. Responsables de Fondos sigue siendo responsable de las normas del grupo y de cualquier garantía que asuman expresamente. Ni el CLC App ni el GEF son un garante universal.
 

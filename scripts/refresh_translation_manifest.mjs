@@ -9,14 +9,19 @@ const locale = process.argv[2] ?? 'fr'
 const manifestPath = join(root, `docs/i18n/translation-manifest.${locale}.json`)
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'))
 const glossary = JSON.parse(readFileSync(join(root, 'docs/i18n/glossary.json'), 'utf8'))
+const englishReviewRollout = JSON.parse(
+  readFileSync(join(root, 'docs/i18n/english-review-rollout.json'), 'utf8'),
+)
 const sha256 = (value) => createHash('sha256').update(value).digest('hex')
 
 manifest.sourceAppCommit = glossary.sourceAppCommit
 
-for (const entry of Object.values(manifest.pages)) {
+for (const [route, entry] of Object.entries(manifest.pages)) {
   const english = readFileSync(join(root, 'docs/pages', entry.source), 'utf8')
   const translated = readFileSync(join(root, 'docs/pages', locale, entry.source), 'utf8')
-  entry.sourceSha256 = sha256(english)
+  const pendingEnglishReview = englishReviewRollout.locales[locale]?.status === 'pending' &&
+    englishReviewRollout.source.routes[route]
+  if (!pendingEnglishReview) entry.sourceSha256 = sha256(english)
   entry.locales[locale].sha256 = sha256(translated)
 }
 

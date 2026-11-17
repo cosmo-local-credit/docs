@@ -1,4 +1,4 @@
-## **11. Mecanismos de gobernanza**
+# 11. Mecanismos de gobernanza
 
 Este capítulo propone una plantilla de gobernanza. No representa que el actual CLC App utilice la votación de tokens de gobernanza, los plazos, el seguro compartido, un proceso de reclamaciones o cualquier control descrito a continuación. Cada despliegue tendría que identificar a sus tomadores de decisiones, autoridades, contratos, procesos y políticas reales.
 
@@ -21,7 +21,7 @@ Las normas de registro publicadas deben hacer que el estado sea condicional y pu
 
 La lista prohibida sería versionada, auditable al público y cambiable únicamente a través del umbral de acción crítica adoptado y del bloqueo temporal, ilustrado como Q3 + T3 en el apéndice D.
 
-### **11.1 Gestión de los tipos de cambio y de los límites**
+## **11.1 Gestión de los tipos de cambio y de los límites**
 
 **Cambios bloqueados en el tiempo.** Una implementación siguiendo esta plantilla cambiaría los métodos de tipos de cambio y los parámetros límite implementados por separado solo después de un bloqueo de tiempo público. Un camino de emergencia utilizaría un proceso de autorización revelado por separado e incluiría una puesta de sol automática o una revisión.
 
@@ -42,7 +42,7 @@ La lista prohibida sería versionada, auditable al público y cambiable únicame
 - **Racionalización:** las notas publicadas y un registro de los cambios de la actualización anterior.
 - **Los firmantes:** las direcciones multisig y el umbral de aprobación reveladas.
 
-### **11.2 Libro de trabajo de los fondos de seguros propuesto**
+## **11.2 Libro de trabajo de los fondos de seguros propuesto**
 
 **Sólo diseño opcional.** El presente manual se aplica únicamente a un despliegue que haya adoptado y financiado expresamente un fondo de seguros y haya publicado los eventos cubiertos, los solicitantes elegibles, la entidad responsable, los activos, los límites, las exclusiones, los requisitos de evidencia, el proceso y los términos de gobierno. Ni la actual CLC App ni la GEF proporcionan cobertura simplemente porque este diseño figura en el Libro Blanco.
 
@@ -63,7 +63,7 @@ Un ajuste de cobertura no reducirá el compromiso subyacente de un emisor con el
 3. un plan de recuperación podría aplicar una proporción declarada del valor recuperado durante un período determinado, después de lo cual cualquier déficit cubierto restante se convertiría en una pérdida registrada con una post mortem pública; y
 4. cada decisión presentaría un recibo con el incidente ID, las reclamaciones y vales afectados, la decisión, el plan de recuperación y la ventana de recurso.
 
-### **11.3 Marco de garantía**
+## **11.3 Marco de garantía**
 
 En esta sección se distingue la responsabilidad del emisor, las protecciones opcionales del grupo y las garantías de terceros. los Fondos pueden competir en la curación, los términos y las protecciones expresamente ofrecidas sin implicar que el CLC App, CPP, GEF o cualquier red más amplia garantice automáticamente un vale.
 
@@ -115,7 +115,7 @@ Para cada clase de Fondos y vales cubiertos, la parte responsable publicaría:
 
 **Principio de curación.** Responsables de Fondos y las estructuras jurídicas o de gobernanza responsables son responsables de las protecciones que anuncian. Una implementación compatible con CPP- puede proporcionar estándares, registros o políticas compartidas opcionales, pero ni CLC ni GEF garantizan automáticamente vales o Fondos.
 
-### **11.4 Barreras de protección contra capturas**
+## **11.4 Barreras de protección contra capturas**
 
 En el marco de esta plantilla, las siguientes acciones críticas requerirían el nivel de aprobación más alto adoptado y un largo plazo:
 
@@ -125,7 +125,7 @@ En el marco de esta plantilla, las siguientes acciones críticas requerirían el
 4. ampliar las facultades de pausa de emergencia; o
 5. debilitar la forcabilidad, la transparencia o los compromisos de soberanía de la Comunidad establecidos en el presente documento.
 
-### **11.5 Procedimiento de forja y salida**
+## **11.5 Procedimiento de forja y salida**
 
 Si se captura la gobernanza o los valores se derivan sustancialmente, las comunidades, Responsables de Fondos, y los operadores podrían buscar salir forjando la capa de gobernanza de red. La continuidad de los fondos y vales subyacentes dependería de los contratos, claves, interfaces, infraestructura, servicios de terceros y obligaciones aplicables.
 

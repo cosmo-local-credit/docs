@@ -43,6 +43,8 @@ See [Concepts and vocabulary](/introduction/concepts) for the separation between
 
 A shared voucher creates a **possible graph path**, not a guaranteed route. The production CLC Core service maintains a reconciled graph from Pool, registry, catalog, balance, fee, and chain-event information. It also verifies the session wallet's relevant holdings. The public deployment currently searches paths of up to three Pool swaps.
 
+Production routing deliberately uses a narrower eligibility profile than direct Pool swapping. Only verified, relative-priced Pools and tokens whose transfers move exactly the stated amount are routed: `GiftableToken` vouchers and external plain ERC-20 tokens explicitly listed in the deployment's `router.plain_erc20` configuration. A token can therefore be usable in a direct Pool swap without being eligible for application-level routing.
+
 Graph discovery is fast but estimated as of its indexed block. A result may be marked stale, and a connection does not prove that the desired amount can pass through it. The App's **Credit** filter uses this reachable set for the Market and related discovery screens.
 
 ### Authoritative quote
@@ -82,7 +84,8 @@ A route can fail before signing because no eligible path or quote is available, 
   label="Commitment Pool dependencies and administrative powers"
   minWidth={820}
   chart={`flowchart TB
-    Owner["Contract owner or<br/>Pool Steward"] -->|configure, seal, collect, withdraw| Pool["SwapPool<br/>vault and settlement"]
+    Steward["Accountable Pool Steward"] -. publishes rules,<br/>disclosures and governance .-> Pool["SwapPool<br/>vault and settlement"]
+    Owner["SwapPool owner address"] -->|configure, seal, collect, withdraw| Pool
     ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|upgrade implementation| Pool
     Dependencies["Optional dependencies<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>each with its own governance"] -. settlement inputs .-> Pool
     Seal["Five sealable address slots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool

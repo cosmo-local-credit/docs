@@ -19,6 +19,10 @@ const routingRollout = JSON.parse(
   readFileSync(join(i18n, 'routing-rollout.json'), 'utf8'),
 )
 const routingAffectedRoutes = new Set(routingRollout.source.affectedRoutes)
+const englishReviewRollout = JSON.parse(
+  readFileSync(join(i18n, 'english-review-rollout.json'), 'utf8'),
+)
+const englishReviewAffectedRoutes = new Set(Object.keys(englishReviewRollout.source.routes))
 // Snapshot of the clc-app registry at the synchronization baseline below.
 // Keeping it here makes CI independent of the sibling repository while still
 // failing if the docs registry omits a known app language.
@@ -67,14 +71,38 @@ function keepsPreviousRoutingSource(locale, route) {
     routingAffectedRoutes.has(route)
 }
 
+function keepsPreviousEnglishReviewSource(locale, route) {
+  return locale !== 'en' &&
+    englishReviewRollout.locales[locale]?.status === 'pending' &&
+    englishReviewAffectedRoutes.has(route)
+}
+
+function keepsPreviousSource(locale, route) {
+  return keepsPreviousRoutingSource(locale, route) ||
+    keepsPreviousEnglishReviewSource(locale, route)
+}
+
 if (routingRollout.source.whitePaperVersion !== '0.9') {
   errors.push('Routing rollout must identify White Paper v0.9 as the English source')
 }
 if (routingRollout.source.publicationDate !== '16 November 2026') {
   errors.push('Routing rollout has an unexpected English publication date')
 }
-if (Object.keys(routingRollout.locales).sort().join(',') !== locales.sort().join(',')) {
+if (Object.keys(routingRollout.locales).sort().join(',') !== [...locales].sort().join(',')) {
   errors.push('Routing rollout locale set differs from the documentation locale set')
+}
+if (Object.keys(englishReviewRollout.locales).sort().join(',') !== [...locales].sort().join(',')) {
+  errors.push('English review rollout locale set differs from the documentation locale set')
+}
+for (const [route, entry] of Object.entries(englishReviewRollout.source.routes)) {
+  const stem = route === '/white-paper' ? 'white-paper/index' : route.slice(1)
+  const sourcePath = ['md', 'mdx']
+    .map((extension) => join(pages, `${stem}.${extension}`))
+    .find(existsSync)
+  if (!sourcePath) errors.push(`English review rollout references missing route ${route}`)
+  else if (sha256(readFileSync(sourcePath, 'utf8')) !== entry.sha256) {
+    errors.push(`${route}: English review rollout hash is stale`)
+  }
 }
 
 if (policyDocumentationLocales[0] !== 'en') {
@@ -231,8 +259,8 @@ function validateTranslation(source, route, english, locale) {
     errors.push(`${route}: missing ${locale} manifest entry`)
     return
   }
-  const previousRoutingSource = keepsPreviousRoutingSource(locale, route)
-  if (!previousRoutingSource && entry.sourceSha256 !== sha256(english)) {
+  const previousSource = keepsPreviousSource(locale, route)
+  if (!previousSource && entry.sourceSha256 !== sha256(english)) {
     errors.push(`${route}: ${locale} English source hash is stale`)
   }
   const translatedPath = localeSource(locale, source)
@@ -247,7 +275,7 @@ function validateTranslation(source, route, english, locale) {
   if (entry.locales?.[locale]?.sha256 !== sha256(translated)) {
     errors.push(`${route}: ${locale} translation hash is stale`)
   }
-  if (!previousRoutingSource) {
+  if (!previousSource) {
     for (const name of protectedNames) {
       if (english.includes(name) && !translated.includes(name)) {
         errors.push(`${route}: ${locale} changed protected name ${name}`)
@@ -322,7 +350,9 @@ for (const route of policyRoutes) {
   const sourceEntry = policyRegistry.source.routes[route]
   const policy = route.split('/').at(-1)
   const policySource = readFileSync(join(pages, sourceEntry.source), 'utf8')
-  if (sha256(policySource) !== sourceEntry.sha256) {
+  const currentPolicyHash = sha256(policySource)
+  const reviewedPolicyHash = englishReviewRollout.source.routes[route]?.sha256
+  if (currentPolicyHash !== sourceEntry.sha256 && currentPolicyHash !== reviewedPolicyHash) {
     errors.push(`${policy}: English policy source changed without updating the policy registry`)
   }
   for (const required of [
@@ -365,7 +395,7 @@ for (const [route, mapping] of Object.entries(headingMap)) {
   for (const locale of routeLocales) {
     if (!Array.isArray(mapping[locale])) {
       errors.push(`${route}: ${locale} heading mapping is missing`)
-    } else if (!keepsPreviousRoutingSource(locale, route) && mapping[locale].length !== count) {
+    } else if (!keepsPreviousSource(locale, route) && mapping[locale].length !== count) {
       errors.push(`${route}: ${locale} heading mapping differs from English`)
     }
   }

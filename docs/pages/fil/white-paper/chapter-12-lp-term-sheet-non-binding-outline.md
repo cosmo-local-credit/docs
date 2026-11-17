@@ -1,4 +1,4 @@
-## **12. Proposed liquidity program term sheet (non-binding outline)**
+# 12. Proposed liquidity program term sheet (non-binding outline)
 
 Ito ay isang ilustrasyong checklist para sa isang hinaharap, nag-iiba na dokumentadong programa. Hindi ito isang alok, kasalukuyang tampok ng App, o isang pangako ng likididad, pag-access, seguro, pagbabalik, halaga, o exit.
 

@@ -1,4 +1,4 @@
-## **4. Muling nagagamit na forward-style collateral**
+# 4. Muling nagagamit na forward-style collateral
 
 Maaaring tanggapin ng isang hiwalay na naka-documented credit facility ang mga fungible, transferable voucher bilang garantiya o bilang instrumento sa pagbabayad.
 
@@ -7,7 +7,7 @@ Maaaring tanggapin ng isang hiwalay na naka-documented credit facility ang mga f
 - ang mga limitasyon, inventory, valuation, liquidity, performance ng tagapag-isyu, at default risk ay mananatili; at
 - walang ruta, pagpapatupad, pagbabayad, halaga, o pagbawi ay garantiya.
 
-### 4.1 Ang credit loop ng tagagawa
+## 4.1 Ang credit loop ng tagagawa
 
 Ang isang hinaharap na CLC-compatible service ay maaaring suportahan ang producer credit lamang kung itinatag ng mga partido ang isang natatanging facility at malinaw na ipinapakita ang transaksyon bilang isang repayable advance.
 

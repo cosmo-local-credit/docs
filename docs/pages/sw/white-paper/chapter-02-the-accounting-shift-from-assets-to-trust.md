@@ -1,4 +1,4 @@
-## **2. Mabadiliko ya uhasibu: kutoka kwa mali hadi uaminifu**
+# 2. Mabadiliko ya uhasibu: kutoka kwa mali hadi uaminifu
 
 Fedha za jadi huanza na **Mali - Dhima = Sharia**. . CPP reframes hii kwa ajili ya uchumi wa ahadi:
 

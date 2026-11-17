@@ -1,4 +1,4 @@
-## D. Parametri di lancio proposti
+# D. Parametri di lancio proposti
 
 Ogni valore qui sotto è illustrativo. Non è una impostazione predefinita attuale dell'app, impostazione Protocol v1.1.0, garanzia, offerta o impegno di consegna. Una futura implementazione dovrebbe adottare, applicare, monitorare e pubblicare i propri parametri effettivi.
 

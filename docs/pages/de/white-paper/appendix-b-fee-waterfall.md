@@ -1,4 +1,4 @@
-## B. Veranschaulichendes Wasserfall für zukünftige Abgaben
+# B. Veranschaulichendes Wasserfall für zukünftige Abgaben
 
 Dies ist ein vorgeschlagener Entwurf für einen zukünftigen Einsatz. Sie gilt nur, wenn sie durch veröffentlichte Governance- und Teilnehmerbedingungen umgesetzt, finanziert und angenommen wird. Es beschreibt keine aktuelle Protocol v1.1.0-Gebühr, Beitrittsrecht, Reserve, Garantie oder Versicherungsvereinbarung.
 

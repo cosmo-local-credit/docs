@@ -1,4 +1,4 @@
-## **Sintesi**
+# Sintesi
 
 Il **Protocollo di messa in comune degli impegni (CPP)** descrive come Fondi di Impegni governati in modo indipendente possano curare impegni riscattabili, pubblicare metodi e limiti di cambio, detenere inventario e consentire scambi responsabili. Gli emittenti restano responsabili degli impegni associati ai propri buoni. I Responsabili dei Fondi restano responsabili delle regole dei Fondi e delle garanzie che assumono espressamente. Né la CLC App né GEF costituiscono un garante universale.
 

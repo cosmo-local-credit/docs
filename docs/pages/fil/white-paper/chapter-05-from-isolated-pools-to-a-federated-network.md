@@ -1,10 +1,10 @@
-## **5. Mula sa hiwalay na mga Pool tungo sa isang pederadong network**
+# 5. Mula sa hiwalay na mga Pool tungo sa isang pederadong network
 
 Sinusuportahan ng kasalukuyang Protocol v1.1.0 ang direktang execution sa pamamagitan ng isang `SwapPool` at nagbibigay ng quote-only na Solidity `SwapRouter`. Inuugnay ng production CLC App at CLC Core ang participant-initiated same-chain route sa hanggang tatlong Pool sa pamamagitan ng paghahanda ng isang pinirmahang Calibur Wallet batch. Hindi mismo ipinapatupad ng mga contract ang multi-hop route, at hindi nagbibigay ang kasalukuyang App/Core flow ng cross-chain HTLC, escrow route, awtomatikong Pool rebalancing, batch netting, o cross-network clearing.
 
 Ipinapaliwanag ng kabanatang ito ang kasalukuyang participant route at ibinubukod ito sa iminungkahing koordinasyon na mangangailangan ng bagong awtoridad ng Pool. Sa parehong kaso, pinananatili ng bawat hiwalay na Pool ang sarili nitong admission, valuation, limitasyon, bayarin, inventory, awtorisasyon, at governance rule.
 
-### **5.1 Hiwalay na sukat para sa palitan at fulfillment**
+## **5.1 Hiwalay na sukat para sa palitan at fulfillment**
 
 Maaaring mapabuti ng routing ang access sa inventory, ngunit hindi nito pinagsasama ang lifecycle ng Voucher at palitan. Dapat panatilihing hiwalay sa pagsukat ang mga pangyayaring ito:
 
@@ -18,7 +18,7 @@ Hindi pinatutunayan ng mas maraming quoted o executed route na mas maraming fulf
 
 **Halimbawang ruta:** May Voucher sa mais ang isang paaralan ngunit kailangan nito ng Voucher sa transportasyon. Maaaring tukuyin ng CLC Core ang katugmang inventory ng Pool, i-quote ang napiling path sa iisang pinned block, at ihanda ang bounded call para sa Wallet ng paaralan. Magtatagumpay lamang ang execution kung ang bawat hop ay pasok sa quote boundary, limitasyon, bayarin, inventory, suportadong behavior, at policy. Hindi pinatutunayan ng mga swap na tumupad na ang alinmang tagapag-isyu sa Voucher commitment nito.
 
-### **5.2 Kasalukuyang routing ng kalahok at iminungkahing muling pagbabalanse**
+## **5.2 Kasalukuyang routing ng kalahok at iminungkahing muling pagbabalanse**
 
 Ang dalawang gawain ay nangangailangan ng iba't ibang awtoridad.
 
@@ -32,7 +32,7 @@ Ang muling pagbabalanse ay magiging opt-in. Ang isang Pool ay maaaring payagan a
 
 Ang cross-chain HTLC o escrow execution ay hiwalay din sa kasalukuyang same-chain atomic batch. Kakailanganin nito ang pinagtibay na mga patakaran sa timeout, abort, controller, recovery, at residual-risk.
 
-#### **5.2.1 Konfederasyon at interoperability**
+### **5.2.1 Konfederasyon at interoperability**
 
 Ang mga independiyenteng deployments ay maaaring magpatakbo ng kanilang sariling mga rehistro, interface, serbisyo sa ruta, at mga profile ng patakaran habang pinipili ang mga katugmang data at mga pamantayan sa pagtanggap. Ang kasalukuyang pampublikong App ay gumagamit ng naka-configure na rehistro at profile ng serbisyo. Cross-profile pagpapatupad ay nananatiling deployment-dependent.
 
@@ -46,7 +46,7 @@ Ang isang compatible na profile ay:
 
 Maaaring paramihin ng compatibility ang mga available na landas ng palitan at bawasan ang pagdepende sa iisang registry o operator. Hindi nito ginagawang responsable ang network, CLC App, GEF, o ibang Pool para sa pagtupad ng isang tagapag-isyu.
 
-### **5.3 Proposed model ng network rake at service fee**
+## **5.3 Proposed model ng network rake at service fee**
 
 Sinisingil ng kasalukuyang Protocol v1.1.0 ang Pool fee at, kapag naka-configure, karagdagang protocol fee sa isang direct Pool swap.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Analytical approximation ito, hindi pangako ng revenue. Kailangan ng bawat input ang tinukoy na cohort, period, unit, valuation timestamp, exclusion, at correction policy.
 
-#### **5.3.1 Ang mga nakatanggap ng cash eligible at in-kind receipts**
+### **5.3.1 Ang mga nakatanggap ng cash eligible at in-kind receipts**
 
 Maaaring matanggap ang fee bilang cash-eligible fungible asset o bilang Voucher at ibang in-kind asset. Hindi awtomatikong pambayad sa cash expense o coverage claim ang in-kind receipt.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 Realized `F_cash` ang gagamitin sa budget at break-even analysis, hindi gross quoted fee o nominal value ng in-kind inventory.
 
-### **5.4 Proposed na mga programa ng likididad**
+## **5.4 Proposed na mga programa ng likididad**
 
 Maaaring maglaan ang isang hiwalay na dokumentadong liquidity program sa hinaharap ng mga asset sa mga itinalagang Pool o routing service. Hindi nagmi-mint ng Pool share o awtomatikong lumilikha ng karapatan sa pagbabayad, withdrawal, reward, pamamahala, o kita ang kasalukuyang mga `SwapPool` contract.
 

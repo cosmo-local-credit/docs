@@ -1,4 +1,4 @@
-## **12. Muhtasari wa masharti ya mpango wa ukwasi unaopendekezwa (hauwajibishi)**
+# 12. Muhtasari wa masharti ya mpango wa ukwasi unaopendekezwa (hauwajibishi)
 
 Hii ni orodha ya kuangalia kwa ajili ya programu ya wakati ujao, iliyoandikwa kwa njia tofauti. Ni si kutoa, kipengele cha sasa programu, au ahadi ya umaarufu, upatikanaji, bima, kurudi, thamani, au kuondoka.
 

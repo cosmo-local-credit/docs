@@ -1,4 +1,4 @@
-## D. Proposed launch parameters
+# D. Proposed launch parameters
 
 Ang bawat halaga sa ibaba ay nagpapaliwanag. Hindi ito isang kasalukuyang default na app, setting ng Protocol v1.1.0, garantiya, alok, o pangako sa paghahatid.
 

@@ -1,106 +1,128 @@
-# Exemple pratique de bon d’échange
+# Exemples d’échange de Bons d’échange
 
-Cet exemple suit un bon d’échange, depuis une Offre et un Want jusqu’à un échange routé traversant deux Bassins, puis sa présentation, son exécution et son acquittement. Il illustre les rôles concernés; il ne promet pas qu’un bon d’échange, un Bassin, un itinéraire ou un résultat particulier sera disponible.
+Ces exemples montrent comment les Bons d’échange, les Demandes, les Bassins, l’échange, l’exécution et l’acquittement restent liés, tout en étant distincts. Ils illustrent les rôles concernés, sans promettre qu’un Bon d’échange, un Bassin, un itinéraire ou un résultat précis sera disponible.
 
-Pour les définitions utilisées ici, voir [Concepts et vocabulaire](/fr/introduction/concepts).
+Pour les définitions utilisées ici, consultez la page [Concepts et vocabulaire](/fr/introduction/concepts).
 
-## 1. Un émetteur publie un engagement
+## Exemple simple : un Bassin, trois participants
 
-Imaginez une cuisine communautaire qui crée un bon d’échange de repas numérique. Avant de l'émettre, la cuisine publie les informations dont le titulaire a besoin pour prendre une décision éclairée:
+Une agricultrice propose des paniers de produits alimentaires et a besoin de soins dentaires. Un mécanicien propose des réparations de véhicules et a besoin de nourriture. Une dentiste propose des soins dentaires et a besoin de faire réparer son véhicule.
 
-- l'identité et les coordonnées de la cuisine;
-- le repas ou toute autre Offre représentée par un bon d’échange;
-- l'approvisionnement, l'unité, la valeur déclarée et la capacité de fonctionnement de la cuisine;
-- où et à quelles heures il peut être présenté;
-- la date d'expiration, le processus de réservation, les frais, les taxes ou les restrictions de transfert ; et
-- comment fonctionnent la présentation, l'exécution, les plaintes, les remboursements, les substitutions et autres recours.
+Chaque participant crée un Bon d’échange assorti de conditions claires et publie une Offre :
 
-La cuisine est l'émetteur. Il doit garder ces informations exactes, éviter d'émettre au-delà de sa capacité raisonnable et honorer les bons d’échange selon les conditions dans lesquelles les détenteurs les ont acquis. La création du jeton ou la publication de l'Offre ne prouve pas cette capacité ni ne fait de GEF l'émetteur.
+- le Bon d’échange de l’agricultrice peut être utilisé pour obtenir des paniers alimentaires ;
+- le Bon d’échange du mécanicien peut être utilisé pour des services de réparation ; et
+- le Bon d’échange de la dentiste peut être utilisé pour des soins dentaires.
 
-La cuisine publie également une **Offre** qui décrit les repas disponibles. Le bon d’échange et l’Offre sont liés mais distincts: le bon représente l’engagement utilisable, tandis que l’Offre aide les personnes à découvrir les biens ou services qui lui sont associés.
+La dentiste crée un Bassin d’engagements appelé **Marché de la santé**, publie ses règles, admet les trois Bons d’échange et dépose une partie de ses bons de soins dentaires. Les plafonds de solde configurés dans le Bassin déterminent combien de bons de l’agricultrice et du mécanicien il peut détenir. Ces **« Limites de crédit »** de l’Application contrôlent la capacité du Bassin ; ce ne sont pas des prêts personnels.
 
-## 2. Un participant publie un Want
+L’agricultrice voit la Demande de la dentiste pour des produits alimentaires locaux, examine le Bon d’échange de la dentiste et les règles du Bassin, puis échange ses bons de paniers alimentaires contre des bons de soins dentaires. Elle prend ensuite rendez-vous, présente les bons de soins dentaires, reçoit les soins promis, et la dentiste enregistre leur acquittement.
 
-Une école voisine possède des bons de transport et recherche des repas pour un événement. Elle publie un **Want** qui décrit les repas, la quantité, le lieu, le moment et la méthode de contact.
+Le mécanicien échange ses bons de services de réparation contre les bons de paniers alimentaires désormais détenus par le Bassin, puis les utilise pour obtenir une livraison de nourriture. La dentiste peut échanger ses bons de soins dentaires contre les bons de réparation du mécanicien et les utiliser pour faire réparer son véhicule.
 
-Le Want exprime un besoin. Il n’accepte pas automatiquement le bon d’échange de la cuisine, ne réserve pas les repas, ne crée pas de contrat, n’autorise pas un échange et ne promet pas que l’école donnera suite. L’école doit encore examiner la cuisine, les conditions du bon, l’itinéraire disponible, la cotation et les conditions applicables.
+Chaque échange dans le Bassin règle les soldes des Bons d’échange. Chaque Émetteur reste séparément responsable de fournir la nourriture, la réparation ou les soins dentaires promis. Le Bassin permet un échange multilatéral sans obliger chaque paire de participants à vouloir exactement ce que l’autre propose au même moment.
 
-## 3. Des Gestionnaires de Bassins indépendants organisent un itinéraire
+## Exemple avancé : un échange routé
 
-Deux Bassins gouvernés indépendamment relient les actifs:
+Cet exemple suit un Bon d’échange depuis une Offre et une Demande jusqu’à un itinéraire traversant deux Bassins gouvernés de façon indépendante.
 
-1. un Bassin de mobilité admet le bon de transport de l’école et un bon de maïs; et
+### 1. Un Émetteur publie un engagement
+
+Imaginez qu’une cuisine communautaire crée un bon numérique pour un repas. Avant de l’émettre, la cuisine publie les informations dont un Détenteur a besoin pour prendre une décision éclairée :
+
+- l’identité et les coordonnées de la cuisine ;
+- le repas ou toute autre Offre représenté par un bon ;
+- l’offre disponible, l’unité, la valeur déclarée et la capacité de la cuisine à tenir son engagement ;
+- le lieu et les horaires auxquels le bon peut être présenté ;
+- toute date d’expiration, procédure de réservation, frais, taxe ou restriction de transfert ; et
+- le fonctionnement de la présentation, de l’exécution, des réclamations, des remboursements, des substitutions et des autres recours.
+
+La cuisine est l’Émetteur. Elle doit maintenir ces informations à jour, éviter d’émettre au-delà de sa capacité raisonnable et honorer les bons selon les conditions qui s’appliquaient lorsque les Détenteurs les ont acquis. La création du jeton ou la publication de l’Offre ne prouve pas cette capacité et ne fait pas de GEF l’Émetteur.
+
+La cuisine publie également une **Offre** décrivant les repas disponibles. Le Bon d’échange et l’Offre sont liés mais distincts : le Bon d’échange représente l’engagement utilisable, tandis que l’Offre permet de découvrir les biens ou services qui lui sont associés.
+
+### 2. Un participant publie une Demande
+
+Une école voisine possède des bons de transport et a besoin de repas pour un événement. Elle publie une **Demande** décrivant les repas, la quantité, le lieu, le moment et le moyen de contact.
+
+La Demande exprime un besoin. Elle n’accepte pas automatiquement le bon de la cuisine, ne réserve pas de repas, ne crée pas de contrat, n’autorise pas d’échange et ne promet pas que l’école donnera suite. L’école doit encore examiner la cuisine, les conditions du Bon d’échange, l’itinéraire disponible, la cotation et les conditions applicables.
+
+### 3. Des Gestionnaires de Bassins indépendants sélectionnent un itinéraire
+
+Deux Bassins gouvernés de façon indépendante relient les actifs :
+
+1. un Bassin de mobilité admet le bon de transport de l’école et un bon de maïs ; et
 2. un Bassin de sécurité alimentaire admet ce bon de maïs et le bon de repas de la cuisine.
 
-Chaque Gestionnaire de Bassin examine les actifs et publie les règles propres à son Bassin, notamment:
+Chaque Gestionnaire de Bassin examine les actifs et publie les règles propres à son Bassin, notamment :
 
-- qui est responsable du Bassin;
-- le propriétaire actuel du `SwapPool`, l’administrateur du proxy et les contrôleurs des dépendances importantes;
-- les bons admis et autres actifs soutenus;
-- les méthodes de taux de change ou de cotation;
-- les plafonds de solde des jetons, appelés **« Credit limits »** dans la CLC App;
-- les frais de Bassin et de protocole;
-- les pouvoirs relatifs à l’inventaire et au retrait de liquidités; et
-- toute garantie, réserve ou disposition de soutien financée séparément.
+- qui est responsable du Bassin ;
+- le propriétaire actuel du `SwapPool`, l’administrateur du proxy et les contrôleurs des dépendances importantes ;
+- les Bons d’échange admis et les autres actifs pris en charge ;
+- les méthodes de taux de change ou de cotation ;
+- les plafonds de solde des jetons, appelés **« Limites de crédit »** dans l’Application ;
+- les frais du Bassin et du protocole ;
+- l’inventaire et les pouvoirs de retrait des liquidités ; et
+- toute garantie, réserve ou modalité de soutien financée séparément.
 
-L’admission signifie que les règles configurées d’un Bassin autorisent un bon d’échange. Elle ne prouve pas la capacité d’exécution, n’établit pas une valeur en espèces, ne crée pas d’assurance et ne réunit pas les deux Bassins en une seule entité gouvernée.
+L’admission signifie que les règles configurées d’un Bassin autorisent un Bon d’échange. Elle ne prouve pas la capacité d’exécution, n’établit pas une valeur en espèces, ne crée pas d’assurance et ne transforme pas les deux Bassins en une seule entité gouvernée.
 
-## 4. Les participants fournissent un inventaire
+### 4. Des participants fournissent l’inventaire
 
-Le Bassin de mobilité détient des bons de maïs qui peuvent être échangés contre des bons de transport. Le Bassin de sécurité alimentaire détient des bons de repas qui peuvent être échangés contre des bons de maïs. Les participants peuvent avoir fourni cet inventaire selon différents accords publiés.
+Le Bassin de mobilité détient des bons de maïs qui peuvent être échangés contre des bons de transport. Le Bassin de sécurité alimentaire détient des bons de repas qui peuvent être échangés contre des bons de maïs. Des participants peuvent avoir fourni cet inventaire selon des modalités publiées différentes.
 
-Un dépôt augmente l’inventaire disponible du Bassin, mais il ne crée pas automatiquement une part du Bassin, une créance de remboursement, un droit de retrait, une récompense ou un pouvoir de gouvernance. Tout droit de ce type doit découler d’un accord distinct et publié.
+Un dépôt augmente l’inventaire disponible du Bassin, mais il ne crée pas automatiquement de part du Bassin, de créance de remboursement, de droit de retrait, de récompense ou de pouvoir de gouvernance. Tout droit de cette nature doit découler d’un accord distinct et publié.
 
-## 5. La CLC App découvre et cote un itinéraire
+### 5. L’Application découvre et cote un itinéraire
 
-Le portefeuille de l’école ouvre la vue **Crédit** et sélectionne le bon de repas. CLC Core estime un chemin possible:
+Le Portefeuille de l’école ouvre la vue **Crédit** et sélectionne le bon de repas. CLC Core estime un chemin possible :
 
 `transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-Ce résultat de découverte ne promet pas encore que l’échange réussira. Chaque étape dépend de l’admission actuelle, des plafonds de solde des jetons du Bassin, de l’inventaire disponible, de la configuration des cotations et des frais, du comportement des jetons pris en charge et de l’actualité des données du service.
+Ce résultat de découverte ne promet pas encore que l’échange réussira. Chaque étape dépend de l’admission actuelle, des plafonds de solde des jetons du Bassin, de l’inventaire disponible, de la configuration des cotations et des frais, du comportement pris en charge des jetons et de l’actualité du service.
 
-L’école choisit le montant qu’elle veut **Obtenir** ou **Dépenser**. CLC Core lit ensuite les deux Bassins à un même bloc fixé, produit une cotation faisant autorité et limitée dans le temps, puis simule le lot de portefeuille complet. Les **Détails de l’itinéraire** de la CLC App présentent les deux échanges, les montants estimés et les frais de Bassin et de protocole de chaque étape.
+L’école choisit le montant qu’elle souhaite **Obtenir** ou **Dépenser**. CLC Core lit ensuite les deux Bassins à un même bloc fixé, produit une cotation limitée dans le temps qui fait autorité, puis simule le lot complet du Portefeuille. Les **Détails de l’itinéraire** dans l’Application montrent les deux échanges, les montants estimés ainsi que les frais du Bassin et du protocole à chaque étape.
 
-## 6. Le détenteur exécute l’échange routé
+### 6. Le Détenteur exécute l’échange routé
 
-Après avoir vérifié le montant minimum reçu et l’échéance de la cotation, l’école sélectionne **Confirmer l’échange** et signe le lot préparé. La CLC App soumet une transaction sur la même chaîne qui contient les approbations et l’appel d’échange borné pour chaque Bassin.
+Après avoir vérifié le montant minimal reçu et l’échéance de la cotation, l’école sélectionne **Confirmer l’échange** et signe le lot préparé. L’Application soumet une seule transaction sur la même chaîne, qui contient les autorisations et l’appel d’échange limité pour chaque Bassin.
 
-Si un appel échoue, toute la transaction est annulée; le premier échange de Bassin ne reste pas réglé sans le second. En cas de réussite, le reçu groupé de l’école affiche un identifiant de suivi, un hachage de transaction, les deux étapes de Bassin, les montants réglés et les frais de chaque étape.
+Si un appel échoue, toute la transaction est annulée : le premier échange de Bassin ne reste pas réglé sans le second. Si elle réussit, le reçu groupé de l’école indique un identifiant de suivi, un hachage de transaction, les deux étapes du Bassin, les montants réglés et les frais de chaque étape.
 
-L’école détient maintenant des bons de repas. L’échange sur la chaîne constitue le **règlement de l’échange**. Il donne à l’école la créance décrite dans les conditions du bon de repas; il ne prouve pas que la cuisine a déjà fourni les repas.
+L’école détient maintenant des bons de repas. L’échange sur la blockchain constitue le **règlement de l’échange**. Il donne à l’école la créance décrite par les conditions du bon de repas ; il ne prouve pas que la cuisine a déjà fourni les repas.
 
-## 7. Le titulaire présente le bon
+### 7. Le Détenteur présente le Bon d’échange
 
-Dans la CLC App actuelle, l’action **« Utiliser »** ouvre le flux d’envoi ordinaire avec l’adresse du propriétaire du jeton préremplie. Le renvoi du bon d’échange constitue une preuve de présentation à l’émetteur; il ne prouve pas à lui seul que la cuisine a fourni un repas.
+Dans l’Application actuelle, le choix **« Utiliser »** ouvre le parcours d’envoi ordinaire en préremplissant l’adresse du propriétaire du jeton. Le renvoi du bon constitue une preuve de sa présentation à l’Émetteur ; il ne prouve pas, à lui seul, que la cuisine a fourni un repas.
 
-L'école suit le processus de réservation ou de contact de la cuisine. La cuisine vérifie la présentation et fournit les repas promis selon ses conditions publiées.
+L’école suit la procédure de réservation ou de contact de la cuisine. La cuisine vérifie la présentation et fournit les repas promis selon ses conditions publiées.
 
-## 8. L'émetteur enregistre l'exécution et la décharge
+### 8. L’Émetteur enregistre l’exécution et l’acquittement
 
-Après avoir fourni les repas, la cuisine enregistre les unités remplies afin qu'elles ne puissent pas être présentées deux fois. Selon le processus publié, cela peut impliquer la réception, la combustion, l'annulation ou la désactivation du bon retourné.
+Après avoir fourni les repas, la cuisine enregistre les unités exécutées afin qu’elles ne puissent pas être présentées deux fois. Selon la procédure publiée, elle peut recevoir, détruire, annuler ou désactiver d’une autre manière le Bon d’échange renvoyé.
 
-Si la cuisine ne respecte pas son engagement, le détenteur utilise la procédure de réclamation ou de recours publiée par l’émetteur et les droits prévus par le droit applicable. Ni GEF ni les Gestionnaires de Bassins ne deviennent responsables de l’utilisation du bon simplement parce que la CLC App a trouvé l’itinéraire ou que les Bassins ont permis les échanges.
+Si la cuisine n’honore pas son engagement, le Détenteur utilise la procédure de réclamation ou de recours publiée par l’Émetteur ainsi que les droits dont il dispose selon le droit applicable. Ni GEF ni aucun Gestionnaire de Bassin ne devient responsable de l’utilisation du bon simplement parce que l’Application a trouvé l’itinéraire ou que les Bassins ont permis les échanges.
 
-L’action **« Retirer le bon d’échange »** est différente: elle masque la fiche du catalogue, mais les soldes et l’historique restent, et un administrateur peut restaurer la fiche. Il ne s’agit ni d’une exécution, ni d’un acquittement, ni d’une destruction, ni d’une annulation.
+Le choix **« Demander le retrait »** est différent : le propriétaire actuel demande à un administrateur de retirer le Bon d’échange. Celui-ci reste actif tant que la demande est en attente ; la demande peut être approuvée, rejetée ou annulée. Le retrait approuvé supprime le Bon d’échange des usages actifs du catalogue, mais ne supprime ni son contrat, ni ses soldes, ni son historique, ni ses obligations en cours. Il ne constitue ni une exécution, ni un acquittement, ni une destruction, ni une annulation.
 
-## Les responsabilités en un coup d'œil
+## Aperçu des responsabilités
 
-- **Émetteur:** décrit et remplit le bon d’échange et enregistre la décharge.
-- **Personne qui publie un Want:** décrit un besoin sans accepter automatiquement un bon d’échange ou un itinéraire.
-- **Gestionnaires de Bassins:** publient et administrent indépendamment les règles, les taux, les frais, les limites, les contrôles et toute garantie expressément assumée de chaque Bassin.
-- **Détenteur:** examine l’émetteur, les conditions du bon, les Bassins, la cotation de l’itinéraire, les frais, l’autorisation du portefeuille et le droit applicable.
-- **CLC App et CLC Core:** découvrent et cotent les itinéraires possibles, préparent et relaient le lot signé, puis regroupent les enregistrements techniques du règlement. Ils ne prouvent pas l’exécution par l’émetteur.
-- **Contrôleurs techniques:** exercent uniquement les pouvoirs qui leur sont attribués sur les contrats, les dépendances, les mises à niveau, les catalogues, le service de routage ou les frais.
-- **GEF:** exploite le CLC App et l'infrastructure de support, sous réserve du [Conditions d'utilisation](/fr/governance/terms); Il n'assume pas automatiquement les autres rôles.
+- **Émetteur :** décrit et exécute le Bon d’échange, puis enregistre l’acquittement.
+- **Personne qui publie une Demande :** décrit un besoin sans accepter automatiquement un Bon d’échange ou un itinéraire.
+- **Gestionnaires de Bassins :** publient et administrent indépendamment les règles, les taux, les frais, les limites et les contrôles de chaque Bassin, ainsi que toute garantie expressément assumée.
+- **Détenteur :** examine l’Émetteur, les conditions du Bon d’échange, les Bassins, la cotation de l’itinéraire, les frais, l’autorisation du Portefeuille et le droit applicable.
+- **CLC App et CLC Core :** découvrent et cotent des itinéraires possibles, préparent et relaient le lot signé, puis regroupent les enregistrements techniques du règlement. Ils ne prouvent pas l’exécution par l’Émetteur.
+- **Contrôleurs techniques :** n’exercent que les pouvoirs qui leur sont attribués sur le contrat, les dépendances, les mises à niveau, le catalogue, le service de routage ou les frais.
+- **GEF :** exploite la CLC App et son infrastructure d’assistance, sous réserve des [Conditions d’utilisation](/fr/governance/terms) ; elle n’assume pas automatiquement les autres rôles.
 
-## Lorsqu'un itinéraire est indisponible
+## Lorsqu’un itinéraire n’est pas disponible
 
-La CLC App peut ne trouver aucun itinéraire, ou une cotation peut échouer, si l’inventaire est insuffisant, si un plafond de Bassin serait dépassé, si un bon d’échange n’est pas admis, si un jeton ou un module de cotation n’est pas pris en charge, si le portefeuille ne dispose pas d’une entrée suffisante, si les données d’itinéraire sont obsolètes ou si la simulation finale du lot échoue. Une cotation peut aussi expirer ou devenir invalide avant sa soumission lorsque l’état d’un Bassin change.
+L’Application peut ne trouver aucun itinéraire, ou une cotation peut échouer, si l’inventaire est insuffisant, si le plafond d’un Bassin serait dépassé, si un Bon d’échange n’est pas admis, si un jeton ou un module de cotation n’est pas pris en charge, si le Portefeuille ne dispose pas d’un solde d’entrée suffisant, si les données de l’itinéraire sont obsolètes ou si la simulation finale du lot échoue. Une cotation peut aussi expirer ou devenir invalide avant sa soumission lorsque l’état d’un Bassin change.
 
-Ce résultat ne modifie pas le Want, l’Offre ni les obligations existantes de l’émetteur liées au bon d’échange. Le participant peut actualiser l’itinéraire, choisir un montant inférieur, utiliser un autre bon d’entrée admissible ou attendre que les conditions des Bassins changent.
+Ce résultat ne modifie ni la Demande, ni l’Offre, ni les obligations existantes de l’Émetteur au titre du Bon d’échange. Le participant peut actualiser l’itinéraire, choisir un montant plus faible, utiliser un autre Bon d’échange admissible ou attendre que la situation des Bassins évolue.
 
-## Accords de crédit futurs
+## Futurs accords de crédit
 
-Un futur bassin ou une autre partie responsable pourrait proposer séparément une transaction sous forme d'avance remboursable, d'opération garantie ou d'un autre produit de crédit. Un tel produit nécessiterait des conditions complémentaires et des conditions de transaction présentées séparément indiquant les parties, les montants, les dates d'échéance, les frais ou les intérêts, le traitement des garanties, la cession, le défaut de paiement, les recours et la preuve de la décharge.
+Un futur Bassin ou une autre partie responsable pourrait proposer séparément une transaction sous forme d’avance remboursable, d’opération garantie ou d’un autre produit de crédit. Un tel produit exigerait des conditions complémentaires et des conditions de transaction présentées séparément, précisant les parties, les montants, les échéances, les frais ou intérêts, le traitement de la garantie, la cession, le défaut, les recours et les preuves d’acquittement.
 
-Un envoi ordinaire, un dépôt dans un Bassin, un échange de Bassin direct ou routé, la présentation d’un bon d’échange, l’exécution ou l’acquittement ne créent pas à eux seuls ces obligations.
+Un envoi ordinaire, un dépôt dans un Bassin, un échange direct ou routé, la présentation d’un Bon d’échange, son exécution ou son acquittement ne crée pas, à lui seul, ces obligations.

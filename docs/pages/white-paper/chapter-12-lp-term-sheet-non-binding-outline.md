@@ -1,4 +1,4 @@
-## **12. Proposed liquidity-program term sheet (non-binding outline)**
+# 12. Proposed liquidity-program term sheet (non-binding outline)
 
 This is an illustrative checklist for a future, separately documented program. It is not an offer, a current App feature, or a promise of liquidity, access, insurance, return, value, or exit.
 

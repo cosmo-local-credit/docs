@@ -1,4 +1,4 @@
-## **Executive summary**
+# Executive summary
 
 Inilalarawan ng **Commitment Pooling Protocol (CPP)** kung paano maaaring mag-curate ng mga pangakong maaaring tubusin, maglathala ng paraan ng exchange rate at limitasyon, humawak ng inventory, at magbigay-daan sa may-pananagutang palitan ang mga Pool ng Pangako na malayang pinamamahalaan. Nananatiling responsable ang mga tagapag-isyu sa mga pangako ng kanilang voucher. Nananatiling responsable ang mga Tagapangasiwa ng Pool sa mga tuntunin ng Pool at anumang garantiyang hayagang inaako nila. Hindi pangkalahatang guarantor ang CLC App o GEF.
 

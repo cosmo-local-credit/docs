@@ -1,4 +1,4 @@
-## F. Orodha ya ukaguzi wa chumba cha data
+# F. Orodha ya ukaguzi wa chumba cha data
 
 1. **Ushahidi wa kihistoria Sarafu Network**
    - Archive tarehe swap kiasi, mtumiaji wa kazi na mali ufafanuzi, matukio, fidia mawasilisho, kuzeeka vocha, kuthibitishwa utekelezaji, discharge, kudumisha muda wa hatua, vipindi, exclusions, na mbinu tofauti na sasa Cosmo-Local Credit metrics.

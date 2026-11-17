@@ -1,4 +1,4 @@
-## **8. Portée technique et croissance**
+# 8. Portée technique et croissance
 
 Ce chapitre distingue le service de routage actuellement en production des évolutions facultatives ou proposées. Toute capacité actuelle décrite ici est propre au déploiement public de la CLC App et de CLC Core ; elle ne constitue pas automatiquement une fonctionnalité des contrats de Protocol v1.1.0 ni d'un autre déploiement.
 
@@ -24,7 +24,7 @@ Les domaines de croissance possibles sont les suivants:
 
 Les prix du marché extérieur ne détermineraient pas ce qu'un émetteur doit en termes de bons. Un bassin pourrait utiliser une référence externe protégée pour un actif fongible, mais sa méthode de taux de change publiée, ses limites, ses frais et son inventaire régiraient ses cotations.
 
-### **8.1 Service de routage actuel et normes plus générales**
+## **8.1 Service de routage actuel et normes plus générales**
 
 **Découverte.** CLC Core maintient un graphe rapproché à partir des catalogues configurés, des relations de registre, des paramètres des Bassins, des frais, des limites, des soldes et des événements sur la chaîne. Il estime ce qu'un portefeuille de session peut atteindre et signale les données obsolètes. La configuration publique recherche des itinéraires comportant jusqu'à trois étapes. La découverte ne constitue pas une promesse exécutable.
 
@@ -51,7 +51,7 @@ Un exploitant responsable pourrait exclure les dépendances ou contreparties dan
 
 **Exigences relatives au SDK et à l'interface.** Une intégration de routage réutilisable devrait fournir une correspondance déterministe entre la cotation et le reçu, des vérifications d'invariants à chaque étape, des codes d'échec compréhensibles et des journaux faciles à auditer. L'implémentation de production actuelle de l'application et de CLC Core fournit ces fonctions pour son propre profil. Le `SwapRouter` Solidity du protocole v1.1.0 calcule toujours uniquement des cotations et n'exécute pas l'itinéraire.
 
-#### **8.1.1 Spécification minimale de compatibilité de la confédération**
+### **8.1.1 Spécification minimale de compatibilité de la confédération**
 
 Un écosystème de bassin cherchant un routage interprofil publierait des informations lisibles par machine pour:
 
@@ -63,7 +63,7 @@ Un écosystème de bassin cherchant un routage interprofil publierait des inform
 
 Un profil pourrait ajouter des services de couverture, de conformité, d'arbitrage ou d'autres services sans en faire des exigences de compatibilité CPP de base. Chaque service facultatif devrait identifier sa partie responsable, son autorité, sa portée et ses modalités.
 
-### **8.2 Autorisation, vérification et sortie**
+## **8.2 Autorisation, vérification et sortie**
 
 Les contrats Protocol v1.1.0 sont compatibles avec EVM-. Les contrats dans le répertoire `src` du référentiel de protocoles sont publiés sous AGPL-3.0, à l'exception des composants tiers non modifiés identifiés qui conservent leurs propres termes. Les sources publiées, les ABI et les instructions de déploiement appuient l'examen indépendant, mais ne prouvent pas à elles seules un audit, un déploiement sûr ou une conformité légale.
 

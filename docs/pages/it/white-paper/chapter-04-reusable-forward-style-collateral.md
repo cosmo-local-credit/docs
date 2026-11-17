@@ -1,4 +1,4 @@
-## **4. Garanzia riutilizzabile di tipo forward**
+# 4. Garanzia riutilizzabile di tipo forward
 
 Una facilità di credito documentata separatamente può accettare buoni fungibili e trasferibili come garanzia o come strumento di rimborso. Se lo facesse:
 
@@ -7,7 +7,7 @@ Una facilità di credito documentata separatamente può accettare buoni fungibil
 - rimangerebbero i limiti, l'inventario, la valutazione, la liquidità, le prestazioni degli emittenti e i rischi di inadempimento; e
 - non sarebbe garantito alcun percorso, adempimento, rimborso, valore o recupero.
 
-### 4.1 Ciclo di credito del produttore
+## 4.1 Ciclo di credito del produttore
 
 Un futuro servizio CLC-compatibile potrebbe sostenere il credito al produttore solo se le parti stabiliscono una facilità distinta e presentano espressamente l'operazione come un anticipo rimborsabile. Le sue condizioni di transazione identificerebbero il creditore e il debitore e dichiarerebbero:
 

@@ -1,4 +1,4 @@
-## **18. Conclusion**
+# 18. Conclusion
 
 Cosmo-Local Credit relie une application actuelle et la base de Protocol v1.1.0 à une conception plus large proposée pour des Bassins d'engagement gouvernés indépendamment. Les échanges directs de Bassin et les échanges routés actuels de l'application et de CLC Core peuvent relier, à travers plusieurs Bassins, les bons détenus par les participants tout en préservant les règles, les frais, les bornes, les enregistrements de règlement et la gouvernance propres à chaque étape. Ces transactions ne prouvent pas que l'émetteur a honoré son engagement, ne créent pas de droits pour les contributeurs et ne garantissent ni la valeur, ni la liquidité, ni le remboursement, ni l'assurance, ni le statut juridique, ni la protection contre les pertes.
 

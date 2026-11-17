@@ -1,4 +1,4 @@
-## **3. Activité de remplissage, de décharge et d'échange**
+# 3. Activité de remplissage, de décharge et d'échange
 
 Une modification de swap de bassin qui adresse les actifs détenus. L'exécution du bon d’échange se produit lorsque l'émetteur remplit l'engagement publié. La décharge enregistre les unités remplies afin qu'elles ne puissent pas être présentées à nouveau. Ces événements ne doivent pas être regroupés en une seule utilisation du terme "établissement".
 

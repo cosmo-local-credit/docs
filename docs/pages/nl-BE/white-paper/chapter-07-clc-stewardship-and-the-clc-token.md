@@ -1,10 +1,10 @@
-## **7. Voorgestelde beheer- en governance activa CLC**
+# 7. Voorgestelde beheer- en governance activa CLC
 
 Dit hoofdstuk presenteert één optioneel toekomstig ontwerp voor bestuur en liquiditeitscoördinatie. De voorgestelde CLC-bestuurstoken, `stCLC`, `sCLC`, bestuurskluis, verzekeringsfonds, Waterfall, gauges, mandaten, vensters voor kostenkrediet en programma’s voor externe markten maken geen deel uit van de huidige CLC App of Protocol v1.1.0. Voor ieder onderdeel zijn een implementatie, verantwoordelijke beheerder, gepubliceerd beleid en voorwaarden, veiligheidsbeoordeling en toepasselijke juridische goedkeuring nodig.
 
 CPP vereist dit tokenmodel niet. Compatibele implementaties kunnen in plaats daarvan gebruik maken van coöperaties, publieke instanties, federaties, multisigs, diensten of andere verantwoordingsplichtige structuren.
 
-### **7.1 Doel**
+## **7.1 Doel**
 
 Indien aangenomen, kan de voorgestelde beheerslaag:
 
@@ -15,7 +15,7 @@ Indien aangenomen, kan de voorgestelde beheerslaag:
 - bijdragers onder de gepubliceerde regels inzake in aanmerking komendheid en anti-gaming erkennen; en
 - het behoud van herziening, aantrekkingskracht, transparantie en een geloofwaardige uittreding naarmate deelname toeneemt.
 
-### **7.2 Voorgestelde governance-actiefmodel**
+## **7.2 Voorgestelde governance-actiefmodel**
 
 Het ontwerp bevat drie verschillende voorgestelde activa:
 
@@ -27,7 +27,7 @@ Noch `stCLC`, noch `sCLC` zou een aandeel, dividend, resterende aanspraak, rende
 
 Voor gebruik zouden governance locks, minimumduur, cooldowns, delegatie, concentratie caps en kritische actie drempels worden gepubliceerd. Onblokkeerde voorgestelde CLC governance tokens zouden niet stemmen onder dit ontwerp.
 
-#### **7.2.1 Illustratie van het aanbod en de toewijzing**
+### **7.2.1 Illustratie van het aanbod en de toewijzing**
 
 De illustratieve totale voorgestelde aanbod van CLC governance-tokens is **500,000,000** Dit is een ontwerpparameter, geen lopende uitgifte, aanbod, waardering of belofte van liquiditeit.
 
@@ -47,7 +47,7 @@ Onder de illustratieve openbare liquiditeitscontroles:
 
 Een toekomstige lancering zou kunnen beginnen met een onthulde multisig en de overgang pas na afzonderlijk goedgekeurde verhardingsmilieven, zoals onafhankelijke audits, monitoring, incidentrunbooks en getest pauze- en forkprocedures.
 
-#### **7.2.2 Beschikbaarheid en toewijzingsfasen**
+### **7.2.2 Beschikbaarheid en toewijzingsfasen**
 
 In een toekomstig endowmentprogramma zouden geleidelijke bijdragevensters en een gepubliceerde referentiewaarde kunnen worden gebruikt voor inname en budgettering.
 
@@ -55,7 +55,7 @@ De voorwaarden voor de bijdrage zouden vermelden of activa worden gedoneerd, ges
 
 Voor elke liquiditeit op de externe markt zou een afzonderlijke beslissing nodig zijn om plaatsen, verantwoordelijke exploitanten, activa, maxima, timing, conflicten, risicocontroles, rapportage en beëindiging te identificeren.
 
-#### **7.2.3 Voorgestelde programma voor impactseeding**
+### **7.2.3 Voorgestelde programma voor impactseeding**
 
 Een toekomstig programma zou een deel van de governance vault kunnen toewijzen aan bijdragers die activa plaatsen in aangewezen Commitmentfondsen en de toegang tot beurzen meetbaar verbeteren.
 
@@ -70,7 +70,7 @@ Een goedgekeurd beleidsbeleid zou:
 
 Elke subsidie blijft onderworpen aan de gepubliceerde voorwaarden, verwerving, in aanmerking komendheid, naleving en verliesregels van het programma.
 
-### **7.3 Voorgestelde stemming, prikkels en toegang tot tarieven**
+## **7.3 Voorgestelde stemming, prikkels en toegang tot tarieven**
 
 In dit ontwerp kunnen houders van `stCLC` stemmen over in aanmerking komende Fondsen, mandaten voor routingdiensten, gedeelde budgetten of andere vastgestelde voorstellen. Een samengesteld gaugesysteem kan stemmen omzetten in begrensde `sCLC`-prikkels voor in aanmerking komende liquiditeits- of routingbeheerders.
 
@@ -78,7 +78,7 @@ Het metingsbeleid houdt de uitgevoerde swaps en de nakoming door de uitgever ges
 
 Een goedgekeurd bestuursproces zou ook een tijdvak-belastingkredietbegroting kunnen publiceren.stCLCde houders kunnen ontvangensCLChet toestaan van gelimiteerde, tijdelijk beperkte swaps van aangewezen fonds met vergoeding in gelisted activa of programma's. Dit zou beleidsgericht toegang tot beschikbare voorraad zijn, niet passief inkomen of eigendom van de fonds met betaling.
 
-#### **7.3.1 Handhaving van de kosten en profielkeuze**
+### **7.3.1 Handhaving van de kosten en profielkeuze**
 
 Een toekomstig registerprofiel kan vereisen dat deelnemende Fondsen of routediensten een compatibele kostenadapter of hook gebruiken. Het profiel kan de ontdekking, routing of programmaondersteuning weigeren wanneer het verlangde ontvangstbewijs geen vergoeding bewijst.
 
@@ -86,7 +86,7 @@ Names zoals: **PoolFactory ** of ** FeeHook** de mogelijkheid om toekomstige mod
 
 Een Fonds dat door één profiel wordt uitgesloten, kan op lokaal niveau blijven opereren of zich aansluiten bij een ander compatibel register indien de contracten en afhankelijkheden ervan functionelen.
 
-#### **7.3.2 sCLC begroting en optionele externe vlootcontroles**
+### **7.3.2 sCLC begroting en optionele externe vlootcontroles**
 
 Na de financiering van hogere prioritaire begrotingen zou een toekomstig proces een tijdvak-`F_epoch` Een beleid kan een deelnemersgrenze toewijzen in verhouding tot destCLCstemrecht:
 
@@ -105,7 +105,7 @@ Een afzonderlijk beleid zou een beperkte, tijdgewaardeerde verwerving van de voo
 
 Het beleid kan voor onbepaalde tijd uitgeschakeld blijven.
 
-#### **7.3.3 Portfolio Fondsen en attestaties**
+### **7.3.3 Portfolio Fondsen en attestaties**
 
 Een **portfoliofonds** zou een gewoon Commitmentfonds zijn dat rond een missie of dienstendomein is samengesteld. De Fondsbeheerder kan een persoon, coöperatie, gemeenschapsgroep, overheidsinstantie, federatie, multisig, dienstverlener of andere verantwoordelijke structuur zijn.
 
@@ -124,7 +124,7 @@ Certificaties kunnen de toelating of risicobehandelingen informeren, maar zouden
 
 De Fonds zou onthullen hoe een certificaat de toelating, wisselkoersmethoden, limieten of in aanmerking komendheid beïnvloedt en hoe fouten, vervaldatum, conflicten en beroepen worden behandeld.
 
-### **7.4 Voorgestelde waterval en begrotingen**
+## **7.4 Voorgestelde waterval en begrotingen**
 
 De voorgestelde waterval zou alleen gerealiseerde, in aanmerking komende ontvangsten onder een goedgekeurd bestuursproces toekennen.
 

@@ -1,10 +1,10 @@
-## **5. De Fundos isolados a uma rede federada**
+# 5. De Fundos isolados a uma rede federada
 
 O Protocol v1.1.0 atual suporta execução direta através de `SwapPool` e fornece um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção coordenam rotas na mesma cadeia, iniciadas pelos participantes, através de até três Fundos, preparando um lote Calibur assinado. Os próprios contratos não executam uma rota com vários passos, e o fluxo atual da CLC App e do CLC Core não fornece HTLCs entre cadeias, encaminhamento por depósito em garantia, reequilíbrio automático de Fundos, compensação por lotes nem compensação entre redes.
 
 Este capítulo explica o encaminhamento atual iniciado pelos participantes e distingue-o da coordenação proposta, que exigiria nova autoridade dos Fundos. Em ambos os casos, os Fundos independentes mantêm as suas próprias regras de admissão, avaliação, limites, comissões, inventário, autorização e governação.
 
-### **5.1 Medidas separadas de intercâmbio e de cumprimento**
+## **5.1 Medidas separadas de intercâmbio e de cumprimento**
 
 O encaminhamento pode melhorar o acesso ao inventário, mas não reúne os ciclos de vida do vale e da troca. A medição deve manter estes eventos separados:
 
@@ -18,7 +18,7 @@ Mais rotas citadas ou executadas não provam mais cumprimento. Os relatórios in
 
 **Rota ilustrativa:** uma escola possui vales de milho, mas precisa de vales de transporte. O CLC Core pode identificar inventários de Fundo compatíveis, cotar o caminho selecionado num mesmo bloco fixado e preparar chamadas limitadas para a carteira da escola. A execução só é bem-sucedida se cada passo permanecer dentro dos limites da cotação, dos limites de saldo, das comissões, do inventário, dos comportamentos suportados e das políticas. As trocas resultantes não provam que algum emissor tenha cumprido depois os compromissos dos seus vales.
 
-### **5.2 Encaminhamento atual dos participantes e reequilíbrio proposto**
+## **5.2 Encaminhamento atual dos participantes e reequilíbrio proposto**
 
 Duas atividades requerem autoridade diferente.
 
@@ -32,7 +32,7 @@ O reequilíbrio seria opcional. Um Fundo pode permitir rotas comuns de participa
 
 A execução entre cadeias por HTLC ou depósito em garantia também é distinta do lote atómico atual na mesma cadeia. Exigiria regras adotadas sobre prazos, cancelamento, controladores, recuperação e risco residual.
 
-#### **5.2.1 Confederação e interoperabilidade**
+### **5.2.1 Confederação e interoperabilidade**
 
 As implantações independentes podem operar seus próprios registros, interfaces, serviços de rotas e perfis de políticas enquanto escolhem padrões de dados e recepção compatíveis. O aplicativo público atual usa seu registro e perfil de serviço configurados. A execução de perfis cruzados permanece dependente da implantação.
 
@@ -46,7 +46,7 @@ Um perfil compatível:
 
 A compatibilidade pode aumentar os caminhos de intercâmbio disponíveis e reduzir a dependência de um registo ou operador. Não responsabiliza a rede, a CLC App, a GEF ou outro Fundo pelo cumprimento de um emissor.
 
-### **5.3 Modelo proposto de rede e taxas de serviço**
+## **5.3 Modelo proposto de rede e taxas de serviço**
 
 A Protocol v1.1.0 atual cobra uma taxa de fundo e, quando configurada, uma taxa adicional de protocolo em uma troca direta de fundo. As taxas atuais continuam a ser distintas.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Esta é uma aproximação analítica, não uma promessa de receita. Cada entrada requer uma coorte, período, unidade, marca de tempo de avaliação, exclusões e política de correcção especificadas.
 
-#### **5.3.1 Receitas em dinheiro elegíveis e em espécie**
+### **5.3.1 Receitas em dinheiro elegíveis e em espécie**
 
 As taxas podem chegar em ativos funcionais elegíveis para liquidação ou em vales e outros ativos em espécie. Os recibos em espécie não podem pagar automaticamente as despesas em dinheiro ou os créditos de cobertura. Qualquer troca ou conversão exigiria autoridade, inventário disponível, locais divulgados, limites e execução real.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 O orçamento e a análise de equilíbrio utilizariam o `F_cash` realizado, e não as taxas brutas cotadas ou o valor nominal do inventário em espécie. Um programa futuro relataria as taxas brutas do Fundo, as receitas da rede, as taxas de serviço, a composição dos ativos, os resultados da conversão e as receitas utilizáveis em dinheiro separadamente.
 
-### **5.4 Programas de liquidez propostos**
+## **5.4 Programas de liquidez propostos**
 
 Um futuro programa de liquidez documentado separadamente poderá atribuir ativos a Fundos designados ou serviços de roteamento. Os contratos `SwapPool` atuais não emitem ações do Fundo nem criam automaticamente direitos de reembolso, retirada, recompensa, governação ou lucro.
 

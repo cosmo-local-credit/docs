@@ -1,4 +1,4 @@
-## **2. De boekhoudverschuiving: van activa naar vertrouwen**
+# 2. De boekhoudverschuiving: van activa naar vertrouwen
 
 Traditionele financiering begint met: **Vermogensmiddelen − Passiva = eigen vermogen** CPP herformuleert dit voor een verbintenisseconomie:
 

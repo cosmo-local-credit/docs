@@ -1,8 +1,8 @@
-## A. A. Modelo de medição e taxa proposto
+# A. A. Modelo de medição e taxa proposto
 
 Este apêndice define um quadro de medição proposto. Protocol v1.1.0 não registra o cumprimento do emissor, a quitação no mundo real ou todos os campos de dados exigidos abaixo.
 
-### Definições de evento e estoque
+## Definições de evento e estoque
 
 Para a classe de vales *j*, coorte ou período *t*, e um método de avaliação divulgado *m*:
 
@@ -16,7 +16,7 @@ O `O` não pode ser deduzido apenas da oferta de tokens. Uma política de mediç
 
 Cada medida valorizada deve publicar a unidade, a fonte, o método de avaliação, o timestamp e o tratamento das taxas de câmbio divergentes do Fundo. Uma transferência na cadeia pode apoiar o `X` ou a apresentação de provas; Não estabelece por si só `F` ou `G`.
 
-### Medidas de cumprimento baseadas em coorte
+## Medidas de cumprimento baseadas em coorte
 
 Para uma coorte de apresentações de resgate válidas:
 
@@ -32,7 +32,7 @@ Use a mesma coorte fechada ou madura em cada numerador e denominador. Relatório
 
 As medidas de latência do cumprimento são o serviço do emissor após a apresentação. A duração da retenção é uma medida separada e não deve ser rotulada como latência de resgate.
 
-### Medidas de velocidade distintas
+## Medidas de velocidade distintas
 
 Uma velocidade de quitação de compromissos proposta só pode ser calculada se o `O` e o valor cumprido utilizarem o mesmo método de avaliação:
 
@@ -44,7 +44,7 @@ Uma medida de atividade de swap de fundo é separada:
 
 Nenhum dos dois valores demonstra o impacto social, a capacidade do emissor, a rentabilidade ou a convertibilidade de caixa.
 
-### Receita proposta da rede
+## Receita proposta da rede
 
 Deixe:
 

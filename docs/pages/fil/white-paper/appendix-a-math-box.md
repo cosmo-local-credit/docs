@@ -1,8 +1,8 @@
-## A. Proposed na modelo ng pagsukat at bayad
+# A. Proposed na modelo ng pagsukat at bayad
 
 Itinatakda ng appendix na ito ang isang iminungkahing balangkas sa pagsukat. Hindi itinatala ng Protocol v1.1.0 ang pagtupad ng tagapag-isyu, real-world discharge, o bawat data field na kinakailangan sa ibaba.
 
-### Mga kahulugan ng kaganapan at stock
+## Mga kahulugan ng kaganapan at stock
 
 Para sa klase ng voucher *j*, cohort o period *t*, at isang naitalahang pamamaraan ng valuation *m*:
 
@@ -16,7 +16,7 @@ Ang `O` ay hindi maaaring alisin mula sa supply ng token lamang. Ang isang patak
 
 Dapat ilathala ng bawat sinusukat na halaga ang unit, source, valuation method, timestamp, at pagtrato sa magkakaibang exchange rate ng Pool. Maaaring suportahan ng on-chain transfer ang `X` o ebidensiya ng presentment; hindi nito pinatutunayan nang mag-isa ang `F` o `G`.
 
-### Mga hakbang sa pagpapatupad na batay sa cohort
+## Mga hakbang sa pagpapatupad na batay sa cohort
 
 Para sa isang cohort ng mga valid redemption presentations:
 
@@ -32,7 +32,7 @@ Gamitin ang parehong naka-close o matandang cohort sa bawat numerator at denomin
 
 Ang pagganap ng latency ay tumutukoy sa serbisyo ng tagapag-isyu pagkatapos ng paghahatid. Ang tagal ng pagpapanatili ay isang hiwalay na sukat at hindi dapat i-label ang redemption latency
 
-### Iba't ibang mga sukat ng bilis
+## Iba't ibang mga sukat ng bilis
 
 Ang iminungkahi na bilis ng pagpapahintulot sa pananagutan ay maaaring kalkulahin lamang kung ang `O` at ang natupad na halaga ay gumagamit ng parehong pamamaraan ng pagpapahalaga:
 
@@ -44,7 +44,7 @@ Ang isang hakbang sa pag-swap ng pool ay hiwalay:
 
 Wala sa dalawang halaga ang nagpapatunay ng epekto sa lipunan, kapasidad ng tagapag-isyu, kapaki-pakinabang, o cash convertibility.
 
-### Proposed na kita sa network
+## Proposed na kita sa network
 
 Hayaan:
 

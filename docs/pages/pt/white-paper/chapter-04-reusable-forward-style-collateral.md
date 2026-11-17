@@ -1,4 +1,4 @@
-## **4. Garantia reutilizável de tipo forward**
+# 4. Garantia reutilizável de tipo forward
 
 Uma facilidade de crédito documentada separadamente pode aceitar vales fungíveis e transferíveis como garantia ou como instrumento de reembolso. Se o fizesse:
 
@@ -7,7 +7,7 @@ Uma facilidade de crédito documentada separadamente pode aceitar vales fungíve
 - Permanecerão os limites, o inventário, a avaliação, a liquidez, o desempenho do emissor e os riscos de incumprimento; e
 - Não haveria garantia de rota, cumprimento, reembolso, valor ou recuperação.
 
-### 4.1 Loop de crédito do produtor
+## 4.1 Loop de crédito do produtor
 
 Um futuro serviço compatível com o CLC só poderá apoiar o crédito ao produtor quando as partes estabelecerem uma facilidade distinta e expressamente apresentarem a transação como um adiantamento reembolsável. As suas condições de operação identificariam o credor e o devedor e declarariam:
 

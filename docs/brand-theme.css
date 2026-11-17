@@ -114,6 +114,18 @@ body:not(:has(.about-page)) .vocs_DocsLayout_gutterTop {
   box-shadow: 0 8px 24px var(--clc-shadow-soft);
 }
 
+.vocs_Content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+
+.vocs_Content th {
+  background: var(--vocs-color_tableHeaderBackground);
+}
+
 @media (max-width: 1080px) {
   .vocs_DocsLayout_content {
     box-shadow: none;

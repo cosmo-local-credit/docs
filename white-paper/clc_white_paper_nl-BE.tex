@@ -135,8 +135,7 @@ De digitale laag is een gedeeld geheugen en coördinatie-infrastructuur. Ze verv
 \section*{Huidige en voorgestelde processen}
 \addcontentsline{toc}{section}{Huidige en voorgestelde processen}
 
-\subsection*{Huidige directe of gerouteerde Fondswissel}
-\addcontentsline{toc}{subsection}{Huidige directe of gerouteerde Fondswissel}
+\subsubsection*{Huidige directe of gerouteerde Fondswissel}
 
 \begin{enumerate}[leftmargin=*]
 \item Een houder bekijkt een Waardebon, zijn uitgever, de voorwaarden en bijbehorende aanbiedingen.
@@ -152,8 +151,7 @@ Inventaris uit een Fonds ontvangen is een swap. Het is alleen inwisseling wannee
 
 De huidige openbare routering zoekt routes van maximaal drie Fondsswaps en ondersteunt EOA- en Calibur-wallets die met de App werken. De App bereidt momenteel geen gerouteerde wissels voor Safes of andere contractwallets voor. De Solidity-\texttt{SwapRouter} berekent alleen offertes; CLC Core en de door de houder ondertekende wallet-batch coördineren de uitvoering boven de contractlaag.
 
-\subsection*{Breder voorgesteld ontwerp}
-\addcontentsline{toc}{subsection}{Breder voorgesteld ontwerp}
+\subsubsection*{Breder voorgesteld ontwerp}
 
 Het voorgestelde ontwerp verkent cross-domain routering met HTLC's of escrow, vrijwillige herbalancering van Fondsen, batchverrekening, aanvullende gedeelde diensten, netwerkbrede liquiditeitsprogramma's, verzekeringen en governance-activa. Elk onderdeel vereist implementatie, verantwoordelijke partijen, vastgestelde regels, financiering, controles en openbare informatie voordat het kan worden toegepast.
 
@@ -186,8 +184,7 @@ Protocol v1.1.0 biedt de huidige bouwstenen voor directe Fondsswaps: \texttt{Gif
 
 Het historische \textbf{Sarafu Network} gebruikte commitment-poolingconcepten in gemeenschapsmunten, spaargroepen, wederzijdse-hulpsystemen en productietoezeggingen. De dienst ging later over naar de CLC App. Dat betekende niet dat elk historisch account, elke wallet, token, Waardebon, Fonds, elk saldo, verslag, elke deelnemer of verplichting werd overgedragen.
 
-\subsection*{Historische Sarafu Network snapshot --- Celo-activiteit van 5 juli 2023 tot en met 20 juli 2025}
-\addcontentsline{toc}{subsection}{Historische Sarafu Network snapshot --- Celo-activiteit van 5 juli 2023 tot en met 20 juli 2025}
+\subsubsection*{Historische Sarafu Network snapshot --- Celo-activiteit van 5 juli 2023 tot en met 20 juli 2025}
 
 \textbf{Bron:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics dashboard}
 
@@ -301,8 +298,7 @@ Traditionele financiering begint met: \textbf{Vermogensmiddelen - Passiva = eige
 \item \textbf{Uitgetrokken verplichtingen:} Ze hebben beloofd dat ze niet zouden kunnen volbrengen en door anderen gehouden worden.
 \item \textbf{Vervullingscapaciteit:} het bewezen vermogen van de uitgever om deze beloften te vervullen.
 \end{itemize}
-\subsection*{Illustratieve relatie tussen verbintenis en capaciteit:}
-\addcontentsline{toc}{subsection}{Illustratieve relatie tussen verbintenis en capaciteit:}
+\subsubsection*{Illustratieve relatie tussen verbintenis en capaciteit:}
 
 Aanvaardingskapaciteit - uitstaande verbintenissen = overgebleven aanvaardingscapaciteit
 
@@ -1013,8 +1009,7 @@ De verbodlijst zou alleen worden verwerkt, openbaar kunnen worden gecontroleerd 
 
 \textbf{Criteria voor noodpauze.} Een deelnemende implementatie zou vooraf voorwaarden zoals een oracle-uitbreking, hoge gebruiksgrenzen in combinatie met niet-nakoming of een invariantfalen, samen met hervatingscontroles en eisen voor beoordeling na het incident verklaren.
 
-\subsection*{Voorbeeld van een openbare index feed voor één fonds en waardebon}
-\addcontentsline{toc}{subsection}{Voorbeeld van een openbare index feed voor één fonds en waardebon}
+\subsubsection*{Voorbeeld van een openbare index feed voor één fonds en waardebon}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Symbool:} bijvoorbeeld \texttt{Maize\_50kg@IssuerY}.
@@ -1054,16 +1049,14 @@ Een dekkingsaanpassing vermindert de onderliggende voucherverbintenis van een ui
 
 In dit artikel worden onderscheid gemaakt tussen de verantwoordelijkheid van de uitgever, de optionele bescherming van het Fonds en garanties van derden.CLC App, CPP, GEF, of een breeder netwerk dat automatisch een waardebon garandeert.
 
-\subsection*{Baseline-verantwoordelijkheid van de uitgever}
-\addcontentsline{toc}{subsection}{Baseline-verantwoordelijkheid van de uitgever}
+\subsubsection*{Baseline-verantwoordelijkheid van de uitgever}
 
 \begin{itemize}[leftmargin=*]
 \item Elke waardebon is in de eerste plaats de verantwoordelijkheid van zijn uitgever.De uitgever verbindt zich ertoe het aangegeven goed, dienst of legaal contant-equivalent te leveren volgens zijn gepubliceerde voorwaarden.
 \item De uitgevers zouden bekendmaken wie de waardebon mag indienen, wat de nakoming betekent, waar en wanneer het beschikbaar is, welke bewijsstukken nodig zijn en welke rechtsmiddelen van toepassing zijn.
 \item Als een uitgever niet voldoet, is de uitgever de belangrijkste verantwoordelijke partij. Fonds- of netwerkbescherming geldt alleen wanneer deze afzonderlijk wordt aangenomen, gefinancierd en bekendgemaakt.
 \end{itemize}
-\subsection*{Optioneel Poolbescherming}
-\addcontentsline{toc}{subsection}{Optioneel Poolbescherming}
+\subsubsection*{Optioneel Poolbescherming}
 
 Een Fondsbeheerder kan ervoor kiezen een beperkt gedefinieerde bescherming toe te voegen aan toegelaten waardebonnen. Het is niet automatisch en zou de verantwoordelijke partij, financiering, in aanmerking komende evenementen, caps, vensters, bewijsmateriaal, uitsluitingen en rechtsmiddelen moeten identificeren in Fonds metadata en toepasselijke voorwaarden.
 
@@ -1075,8 +1068,7 @@ Illustratieve beschermingssoorten zijn:
 \item \textbf{Alternatieve nakoming:} de verantwoordelijke partij organiseert een goedgekeurde vervangende leverancier binnen een gepubliceerde hoeveelheid- of waardeheffing.
 \item \textbf{Beveiliging van de wisselkoersband:} voor geselecteerde voucherklassen biedt een Fonds alleen de in zijn reeds bestaande voorwaarden vermelde dekkingsaanpassing of swap-back remedy aan.
 \end{enumerate}
-\subsection*{Mogelijke financieringsbronnen}
-\addcontentsline{toc}{subsection}{Mogelijke financieringsbronnen}
+\subsubsection*{Mogelijke financieringsbronnen}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Bond van de uitgever:} zekerheid die door de uitgever is geplaatst of in een openbaar gemaakte reserve wordt gehouden en beschikbaar is na een geverifieerd gedekte gebeurtenis.
@@ -1085,8 +1077,7 @@ Illustratieve beschermingssoorten zijn:
 \end{itemize}
 De garantieparticipatie zou voldoen aan gepubliceerde in aanmerking komingscriteria, obligatiesomvang, concentratielimieten, besluitnemingsverantwoordelijkheid en wettig handhavingsregels.
 
-\subsection*{Vorderingenprocedure}
-\addcontentsline{toc}{subsection}{Vorderingenprocedure}
+\subsubsection*{Vorderingenprocedure}
 
 Een aangenomen beleid zou auditierbare triggers definiëren, zoals een na de geldige terugbetalingsvoorlegging overschreden vervullingstermijn, geverifieerde insolventie van de uitgever, een gedekte brug of niet-verzekering of een formeel aangekondigde incidentstatus.
 
@@ -1098,8 +1089,7 @@ Een aangenomen beleid zou auditierbare triggers definiëren, zoals een na de gel
 \end{itemize}
 De opbrengst van uitgiften, arbitrage of wettig handhaving zou de toepasselijke obligaties of reserves volgens het gepubliceerde beleid opnieuw invullen voordat deze worden gebruikt voor de voorgestelde toegang tot CLC Network Fonds swap.
 
-\subsection*{Vereiste openbaarmakingen}
-\addcontentsline{toc}{subsection}{Vereiste openbaarmakingen}
+\subsubsection*{Vereiste openbaarmakingen}
 
 Voor elke gedekte fonds- en voucherklasse zou de verantwoordelijke partij:
 

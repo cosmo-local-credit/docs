@@ -1,4 +1,4 @@
-## **18. Konklusyon**
+# 18. Konklusyon
 
 Iniuugnay ng Cosmo-Local Credit ang kasalukuyang application at pundasyon ng Protocol v1.1.0 sa mas malawak na proposed design para sa mga Commitment Pool na malayang pinamamahalaan. Maaaring iugnay ng kasalukuyang direct Pool swap at App/Core routed exchange ang mga Voucher na hawak ng kalahok sa pamamagitan ng maraming Pool habang pinananatili ang per-hop rule, fee, bound, settlement record, at governance. Hindi pinatutunayan ng mga transaksyong ito ang fulfillment ng issuer, lumilikha ng karapatan ng contributor, o ginagarantiya ang value, liquidity, redemption, insurance, legal status, o proteksiyon laban sa pagkawala.
 

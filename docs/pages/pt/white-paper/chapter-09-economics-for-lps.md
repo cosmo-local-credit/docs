@@ -1,8 +1,8 @@
-## **9. Proposta de economia para programas de liquidez**
+# 9. Proposta de economia para programas de liquidez
 
 Este capítulo descreve um modelo futuro, adotado separadamente. Não é um recurso da aplicação atual, uma oferta, uma devolução prometida ou um direito criado por depósito no `SwapPool`.
 
-### **9.1 Fontes de receita propostas**
+## **9.1 Fontes de receita propostas**
 
 Um futuro orçamento da rede poderá receber:
 
@@ -14,7 +14,7 @@ As taxas brutas do Fundo retidas pelos Fundos não são receitas da rede. A atua
 
 O fluxo de encaminhamento da CLC App em produção não acrescenta uma comissão separada pelo serviço de encaminhamento. Uma troca encaminhada pode ainda incorrer numa comissão do Fundo e numa comissão do protocolo em cada passo. Essas comissões atuais de cada passo não devem ser apresentadas como a percentagem de rede proposta nem voltar a ser contabilizadas como futuras receitas de serviço.
 
-### **9.2 Matemática de rake ilustrativa**
+## **9.2 Matemática de rake ilustrativa**
 
 Se um Fundo participante cobrar uma taxa de fundo de 2.00% e um rake de rede adotado receber 20% dessa taxa de fundo, a taxa efetiva proposta de rake de rede sobre o valor rotado é:
 
@@ -28,7 +28,7 @@ As receitas da rede propostas são:
 
 Não adicionar taxas brutas do Fundo ao comissão de rede: o rake é uma transferência dessas taxas e, caso contrário, seria contado duas vezes.
 
-### **9.3 Direitos do programa de liquidez**
+## **9.3 Direitos do programa de liquidez**
 
 Um programa separadamente adotado pode financiar o inventário do Fundo, os serviços de encaminhamento, a monitorização ou outros mandatos. Os seus termos deverão revelar:
 

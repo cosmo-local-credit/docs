@@ -1,4 +1,4 @@
-## C. Définition proposée des indicateurs clés
+# C. Définition proposée des indicateurs clés
 
 Ces indicateurs clés de performance forment une spécification de mesure proposée, et non une déclaration selon laquelle l'application ou le protocole actuel enregistre chaque événement requis.
 

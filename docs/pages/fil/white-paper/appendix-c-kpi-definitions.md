@@ -1,4 +1,4 @@
-## C. Mga proposed KPI definition
+# C. Mga proposed KPI definition
 
 Ang mga KPI na ito ay isang proposed measurement specification, hindi pahayag na itinatala ng kasalukuyang App o Protocol ang bawat kinakailangang event.
 

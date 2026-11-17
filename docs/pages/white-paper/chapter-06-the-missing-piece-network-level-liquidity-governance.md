@@ -1,4 +1,4 @@
-## **6. Proposed network-level liquidity and governance**
+# 6. Proposed network-level liquidity and governance
 
 Experience from the historic Sarafu Network motivated research into two wider design questions:
 
@@ -7,7 +7,7 @@ Experience from the historic Sarafu Network motivated research into two wider de
 
 One proposed CLC design introduces a **proposed CLC Network Pool** as a network-level clearing and budget-coordination arrangement and a **proposed CLC governance token**. Neither exists in the current App or Protocol v1.1.0. Other deployments could use cooperatives, public agencies, federations, multisigs, service operators, or other accountable structures without adopting either proposal.
 
-### **6.1 Downside controls and optionality**
+## **6.1 Downside controls and optionality**
 
 Current Protocol v1.1.0 can apply Pool token-balance caps and inventory checks. These controls constrain selected contract actions; they do not prevent issuer non-performance, loss of value, key loss, contract failure, or every other loss.
 

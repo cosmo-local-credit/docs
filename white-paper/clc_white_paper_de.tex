@@ -135,8 +135,7 @@ Die digitale Ebene dient als gemeinsames Gedächtnis und Koordinationsinfrastruk
 \section*{Aktuelle und vorgeschlagene Abläufe}
 \addcontentsline{toc}{section}{Aktuelle und vorgeschlagene Abläufe}
 
-\subsection*{Aktueller direkter oder gerouteter Fonds-Ablauf}
-\addcontentsline{toc}{subsection}{Aktueller direkter oder gerouteter Fonds-Ablauf}
+\subsubsection*{Aktueller direkter oder gerouteter Fonds-Ablauf}
 
 \begin{enumerate}[leftmargin=*]
 \item Ein Inhaber prüft einen Gutschein, seinen Herausgeber, seine Bedingungen und die zugehörigen Angebote.
@@ -152,8 +151,7 @@ Bestände aus einem Fonds zu erhalten, ist ein Tausch. Es handelt sich nur dann 
 
 Die aktuelle öffentliche Routenkonfiguration sucht Routen mit bis zu drei Fonds-Tauschen und unterstützt App-kompatible EOA-/Calibur-Wallets. Sie bereitet derzeit keine Tausche über Routen für Safes oder andere Smart-Contract-Wallets vor. Der Solidity-\texttt{SwapRouter} bleibt auf Kursangebote beschränkt; CLC Core und der signierte Wallet-Batch koordinieren die Ausführung oberhalb der Verträge.
 
-\subsection*{Weiter gefasster vorgeschlagener Entwurf}
-\addcontentsline{toc}{subsection}{Weiter gefasster vorgeschlagener Entwurf}
+\subsubsection*{Weiter gefasster vorgeschlagener Entwurf}
 
 Der vorgeschlagene Entwurf untersucht Blockchain-übergreifendes HTLC- oder Escrow-Routing, freiwilligen Bestandsausgleich der Fonds, gebündelte Verrechnung, zusätzliche gemeinsame Dienste, Netzwerkliquiditätsprogramme, Versicherungspolicen und Governance-Vermögenswerte. Jeder dieser Punkte würde eine Umsetzung, verantwortliche Parteien, beschlossene Regeln, Finanzierung, Kontrollen und öffentliche Offenlegungen erfordern, bevor er angewendet werden könnte.
 
@@ -186,8 +184,7 @@ Protocol v1.1.0 stellt die aktuellen Bausteine für direkte Tausche bereit: \tex
 
 Die historische \textbf{Sarafu Network} Gebrauch von Konzepten der Verpflichtungsherstellung in gemeinschaftlichen Währungen, Spargruppen, gegenseitigen Beihilferegelungen und Produktionsverpflichtungen. Sein Service wechselte später zum CLC App. Dies war keine Darstellung, dass jedes historische Konto, Brieftasche, Token, Gutschein, Fonds, Saldo, Bericht, Teilnehmer oder Verpflichtung migrierte.
 
-\subsection*{Historisches Sarafu Network-Snapshot --- Celo-Aktivität vom 5. Juli 2023 bis zum 20. Juli 2025}
-\addcontentsline{toc}{subsection}{Historisches Sarafu Network-Snapshot --- Celo-Aktivität vom 5. Juli 2023 bis zum 20. Juli 2025}
+\subsubsection*{Historisches Sarafu Network-Snapshot --- Celo-Aktivität vom 5. Juli 2023 bis zum 20. Juli 2025}
 
 \textbf{Quelle:} \href{https://dune.com/grassrootseconomics/sarafu-network}{Dune Analytics-Dashboard}
 
@@ -299,8 +296,7 @@ Traditionelle Finanzierungen beginnen mit \textbf{Vermögenswerte - Verbindlichk
 \item \textbf{Ausstehende Verpflichtungen:} Verheißungen, die nicht erfüllt werden und von anderen gehalten werden.
 \item \textbf{Leistungskapazität:} die nachgewiesene Fähigkeit des Emittenten, diese Versprechen zu erfüllen.
 \end{itemize}
-\subsection*{Illustrative Beziehung zwischen Verpflichtung und Kapazität:}
-\addcontentsline{toc}{subsection}{Illustrative Beziehung zwischen Verpflichtung und Kapazität:}
+\subsubsection*{Illustrative Beziehung zwischen Verpflichtung und Kapazität:}
 
 Akzeptanzfähigkeit - Ausstehende Verpflichtungen = verbleibende Akzeptanzfähigkeit
 
@@ -1013,8 +1009,7 @@ Die verbotene Liste würde nur durch die angenommenen kritischen Maßnahmen-Schw
 
 \textbf{Notfallpausenkriterien.} Ein teilnehmender Einsatz würde Bedingungen wie einen Oracle-Ausfall, eine hohe Grenznutzung in Kombination mit Ausfällen bei der Erfüllung oder einem invarianten Ausfall, zusammen mit Erfolgsuntersuchungen und Anforderungen für die Überprüfung nach dem Vorfall, vorher erklären.
 
-\subsection*{Beispiel öffentlicher Index-Feed für einen Fonds und einen Gutschein}
-\addcontentsline{toc}{subsection}{Beispiel öffentlicher Index-Feed für einen Fonds und einen Gutschein}
+\subsubsection*{Beispiel öffentlicher Index-Feed für einen Fonds und einen Gutschein}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Symbol:} beispielsweise \texttt{Maize\_50kg@IssuerY}.
@@ -1054,16 +1049,14 @@ Eine Berichtigung der Abdeckung reduziert nicht die zugrunde liegende Gutschrift
 
 Dieser Abschnitt unterscheidet zwischen der Emittentenverantwortung, optionalen Fonds-Schutzmaßnahmen und Garantien von Dritten. Fonds können sich auf Kurations-, Bedingungen- und ausdrücklich angebotene Schutzbedingungen bewerben, ohne dass das CLC App, CPP, GEF oder ein breiteres Netzwerk automatisch einen Gutschein garantiert.
 
-\subsection*{Die Ausgangsverantwortung des Emittenten}
-\addcontentsline{toc}{subsection}{Die Ausgangsverantwortung des Emittenten}
+\subsubsection*{Die Ausgangsverantwortung des Emittenten}
 
 \begin{itemize}[leftmargin=*]
 \item Jeder Gutschein liegt in erster Linie in der Verantwortung des Emittenten. Der Emittent verpflichtet sich, das angegebene Gut, die angegebene Dienstleistung oder das gesetzliche Bargeldäquivalent gemäß seinen veröffentlichten Bedingungen zu liefern.
 \item Die Emittenten würden veröffentlichen, wer den Gutschein vorlegen kann, was die Erfüllung bedeutet, wo und wann er verfügbar ist, welche Beweise erforderlich sind und welche Rechtsmittel gelten.
 \item Wenn ein Emittent nicht erfüllt, ist der Emittent die Hauptverantwortliche. Fonds- oder Netzschutzmaßnahmen gelten nur, wenn sie getrennt angenommen, finanziert und bekannt gegeben werden.
 \end{itemize}
-\subsection*{Optional Fonds-Schutze}
-\addcontentsline{toc}{subsection}{Optional Fonds-Schutze}
+\subsubsection*{Optional Fonds-Schutze}
 
 Ein Fonds-Verantwortliche Person kann sich entscheiden, den zugelassenen Gutscheinen einen eng definierten Schutz hinzuzufügen. Es ist nicht automatisch und müsste die verantwortliche Partei, die Finanzierung, die zulässigen Veranstaltungen, die Höchstgrenzen, die Fenster, die Beweise, die Ausschlüsse und die Rechtsmittel in den Metadaten des Fonds und den anwendbaren Bedingungen identifizieren.
 
@@ -1075,8 +1068,7 @@ Beispiele für Schutztypen sind:
 \item \textbf{Alternative Erfüllung} die zuständige Partei organisiert einen zugelassenen Ersatzdienstleister innerhalb einer veröffentlichten Menge- oder Wertobergrenze.
 \item \textbf{Schutz des Wechselkursbands:} für ausgewählte Gutscheinklassen bietet ein Fonds nur die Berichtigung der Abdeckung oder die Rückzahlungsregelung an, die in seinen vorhandenen Bedingungen angegeben ist. Dies verringert die zugrunde liegende Gutscheinverpflichtung des Emittenten nicht.
 \end{enumerate}
-\subsection*{Mögliche Finanzierungsquellen}
-\addcontentsline{toc}{subsection}{Mögliche Finanzierungsquellen}
+\subsubsection*{Mögliche Finanzierungsquellen}
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{Schuldverschreibung des Emittenten} Sicherheiten, die vom Emittenten hinterlegt oder in einer offensichtlichen Reserve gehalten werden und nach einem überprüften geschützten Ereignis verfügbar sind.
@@ -1085,8 +1077,7 @@ Beispiele für Schutztypen sind:
 \end{itemize}
 Die Beteiligung der Bürgschaft würde den veröffentlichten Förderkriterien, der Anleihungsgröße, den Konzentrationsgrenzen, der Entscheidungsbefugnis und den rechtmäßigen Durchsetzungsbestimmungen entsprechen.
 
-\subsection*{Anspruchsverfahren}
-\addcontentsline{toc}{subsection}{Anspruchsverfahren}
+\subsubsection*{Anspruchsverfahren}
 
 Eine verabschiedete Politik würde überprüfbare Auslöser definieren, wie z. B. eine nach einer gültigen Rückzahlung vorgelegten Frist für die Erfüllung, eine verifizierte Insolvenz des Emittenten, eine abgedeckte Brücke oder ein Verwahrungsversagen oder ein offiziell deklarierter Vorfallzustand. Es würde auch definieren:
 
@@ -1098,8 +1089,7 @@ Eine verabschiedete Politik würde überprüfbare Auslöser definieren, wie z. B
 \end{itemize}
 Die Einnahmen aus Emittenten, Schiedsverfahren oder rechtlicher Durchsetzung würden die geltenden Anleihen oder Reserven gemäß der veröffentlichten Richtlinie nachfüllen, bevor sie für den vorgeschlagenen CLC Network Fonds-Swap-Zugriff verwendet werden.
 
-\subsection*{Erforderliche Angaben}
-\addcontentsline{toc}{subsection}{Erforderliche Angaben}
+\subsubsection*{Erforderliche Angaben}
 
 Für jede abgedeckte Fonds- und Voucherklasse veröffentlicht die zuständige Partei:
 

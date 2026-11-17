@@ -1,10 +1,10 @@
-## **5. Van geïsoleerde Fondsen tot een federaal netwerk**
+# 5. Van geïsoleerde Fondsen tot een federaal netwerk
 
 Het huidige Protocol v1.1.0 ondersteunt directe uitvoering via één `SwapPool` en biedt een Solidity-`SwapRouter` die alleen offertes berekent. De productieversies van de CLC App en CLC Core coördineren door deelnemers gestarte routes binnen één blockchainnetwerk via maximaal drie Fondsen door één ondertekende Calibur-walletbatch voor te bereiden. De contracten voeren zelf geen route met meerdere stappen uit. De huidige App/Core-workflow biedt geen cross-chain HTLC's, escrowroutes, automatische herbalancering van Fondsen, batchverrekening of verrekening tussen netwerken.
 
 Dit hoofdstuk legt de huidige route voor deelnemers uit en onderscheidt deze van de voorgestelde coördinatie die een nieuwe Fonds-autoriteit vereist. In beide gevallen behouden de onafhankelijke Fondsen hun eigen regels inzake toelating, waardering, limiet, vergoeding, voorraad, machtiging en governance.
 
-### **5.1 Afzonderlijke uitwisselings- en vervullingsmaatregelen**
+## **5.1 Afzonderlijke uitwisselings- en vervullingsmaatregelen**
 
 Routering kan de toegang tot voorraad verbeteren, maar voegt de levenscyclus van een Waardebon niet samen met die van een swap. Metingen moeten deze gebeurtenissen gescheiden houden:
 
@@ -18,7 +18,7 @@ Meer genoteerde of uitgevoerde routes bewijzen niet meer voldoening. In de versl
 
 **Illustratieve route:** Een school bezit maïsbonnen maar heeft vervoerbonnen nodig. CLC Core kan compatibele Fondsvoorraden vinden, het gekozen pad offreren op basis van één vastgezet blok en begrensde contractaanroepen voor de wallet van de school voorbereiden. De uitvoering slaagt alleen als iedere stap binnen de offerte, limieten, kosten, voorraad, ondersteunde werking en het beleid blijft. De resulterende swaps bewijzen niet dat een van de Uitgevers later zijn toezeggingen is nagekomen.
 
-### **5.2 Huidige routing van deelnemers en voorgestelde herbalancering**
+## **5.2 Huidige routing van deelnemers en voorgestelde herbalancering**
 
 Twee activiteiten vereisen verschillende autoriteit.
 
@@ -32,7 +32,7 @@ Herbalansering zou opt-in zijn. Een Fonds kan gewone deelnemende routes toestaan
 
 Cross-chain uitvoering met HTLC's of escrow staat ook los van de huidige atomaire batch binnen één blockchainnetwerk. Hiervoor zouden regels nodig zijn voor time-outs, afbreken, verantwoordelijke beheerders, herstel en resterende risico's.
 
-#### **5.2.1 Confederatie en interoperabiliteit**
+### **5.2.1 Confederatie en interoperabiliteit**
 
 Onafhankelijke implementaties kunnen hun eigen registers, interfaces, routediensten en beleidsprofielen beheren en tegelijk voor compatibele gegevens- en transactieoverzichtsstandaarden kiezen. De huidige openbare App gebruikt haar geconfigureerde register- en serviceprofiel. Uitvoering tussen profielen blijft implementatieafhankelijk.
 
@@ -46,7 +46,7 @@ Een compatibel profiel zou:
 
 Compatibiliteit kan meer uitwisselingsroutes beschikbaar maken en de afhankelijkheid van één register of exploitant verminderen. Ze maakt het netwerk, de CLC App, GEF of een ander Fonds niet verantwoordelijk voor de nakoming door een Uitgever.
 
-### **5.3 Voorgesteld model voor netwerkafdracht en servicekosten**
+## **5.3 Voorgesteld model voor netwerkafdracht en servicekosten**
 
 Het huidige Protocol v1.1.0 rekent Fondskosten en, indien geconfigureerd, een aanvullende protocolvergoeding voor een directe Fondsswap. Deze huidige kosten blijven van elkaar onderscheiden.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Dit is een analytische benadering, geen belofte van inkomsten. Elke input vereist een opgegeven cohort, periode, eenheid, waarderingstijdstempel, uitsluitingen en correctiebeleid.
 
-#### **5.3.1 In aanmerking komende ontvangsten in contanten en in natura**
+### **5.3.1 In aanmerking komende ontvangsten in contanten en in natura**
 
 De kosten kunnen komen in cash-eligible fungiebele activa of in waardebonnen en andere in natura activa. In natura ontvangsten kunnen niet automatisch betalen contante uitgaven of dekking claims. Elke uitwisseling of conversie zou autoriteit, beschikbare inventaris, openbaar gemaakte locaties, limieten en daadwerkelijke uitvoering vereisen.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 De begroting en de break-even analyse zouden realiseerde `F_cash` In een toekomstig programma zouden de bruto-poolvergoedingen, netwerkrekeningen, servicekosten, activacompositie, omrekeningsresultaten en contante ontvangsten apart worden vermeld.
 
-### **5.4 Voorgestelde liquiditeitsprogramma's**
+## **5.4 Voorgestelde liquiditeitsprogramma's**
 
 Een toekomstig, afzonderlijk gedocumenteerd liquiditeitsprogramma zou activa kunnen toewijzen aan aangewezen Fondsen of routediensten. De huidige `SwapPool`-contracten creëren geen Fondsaandelen en geen automatisch recht op terugbetaling, opname, beloning, governance of winst.
 

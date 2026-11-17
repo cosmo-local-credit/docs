@@ -1,4 +1,4 @@
-## **8. Ámbito de aplicación técnico y crecimiento**
+# 8. Ámbito de aplicación técnico y crecimiento
 
 Este capítulo distingue el servicio de enrutamiento actualmente en producción de las ampliaciones opcionales o propuestas. Una capacidad actual descrita aquí sigue siendo específica del despliegue público de la CLC App y CLC Core; no es automáticamente una función de los contratos de Protocol v1.1.0 ni de otro despliegue.
 
@@ -24,7 +24,7 @@ Las posibles áreas de crecimiento incluyen:
 
 Los precios del mercado exterior no determinan lo que debe un emisor en virtud de los términos de los vales. Un grupo podría utilizar una referencia externa protegida para un activo fungible, pero su método de cambio publicado, límites, tarifas e inventario regirían sus cotizaciones.
 
-### **8.1 Servicio de enrutamiento actual y normas más amplias**
+## **8.1 Servicio de enrutamiento actual y normas más amplias**
 
 **Descubrimiento.** CLC Core mantiene un grafo reconciliado a partir de catálogos configurados, relaciones del registro, parámetros de los Fondos, comisiones, límites, saldos y eventos de la cadena. Estima lo que puede alcanzar una billetera de sesión y señala los datos obsoletos. La configuración pública busca rutas de hasta tres pasos. El descubrimiento no constituye una promesa ejecutable.
 
@@ -51,7 +51,7 @@ Un operador responsable podría excluir las dependencias o contrapartes insegura
 
 **Requisitos del SDK y de la interfaz.** Una integración de rutas reutilizable debería proporcionar una correspondencia determinista entre cotización y recibo, comprobaciones de invariantes en cada paso, códigos de fallo comprensibles y registros fáciles de auditar. La implementación actual de producción de la CLC App y CLC Core proporciona estas funciones para su propio perfil. El `SwapRouter` Solidity de Protocol v1.1.0 sigue calculando únicamente cotizaciones y no ejecuta la ruta.
 
-#### **8.1.1 Especificación mínima de compatibilidad con la confederación**
+### **8.1.1 Especificación mínima de compatibilidad con la confederación**
 
 Un ecosistema Fondo que busque un enrutamiento transversal publicaría información legible por máquina para:
 
@@ -63,7 +63,7 @@ Un ecosistema Fondo que busque un enrutamiento transversal publicaría informaci
 
 Un perfil podría agregar cobertura, cumplimiento, arbitraje u otros servicios sin que sean requisitos para la compatibilidad básica de CPP. Cada servicio opcional identificaría a su parte responsable, autoridad, alcance y términos.
 
-### **8.2 Licencia, verificación y salida**
+## **8.2 Licencia, verificación y salida**
 
 Los contratos de Protocol v1.1.0 son compatibles con EVM-. Los contratos en el directorio `src` del repositorio del Protocolo se publican bajo AGPL-3.0, a excepción de los componentes de terceros no modificados identificados que conservan sus propios términos. Las instrucciones de origen, ABI y despliegue publicadas apoyan una revisión independiente, pero por sí mismas no demuestran una auditoría, un despliegue seguro o un cumplimiento legal.
 

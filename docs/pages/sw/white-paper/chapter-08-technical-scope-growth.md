@@ -1,4 +1,4 @@
-## **8. Ufikiaji wa kiufundi na ukuaji**
+# 8. Ufikiaji wa kiufundi na ukuaji
 
 Sura hii hutenganisha huduma ya sasa ya uelekezaji katika uzalishaji na ukuaji wa hiari au unaopendekezwa. Uwezo wa sasa unaoelezwa hapa ni mahususi kwa utekelezaji wa umma wa CLC App/Core; si kipengele cha moja kwa moja cha mikataba ya Protocol v1.1.0 wala utekelezaji mwingine.
 
@@ -24,7 +24,7 @@ Maeneo ya uwezekano wa ukuaji ni pamoja na:
 
 Bei za soko la nje haziwezi kuamua ni kiasi gani cha mkopo wa mtoaji chini ya masharti ya vocha. Hifadhi inaweza kutumia marejeleo ya nje ya ulinzi kwa mali ya fungible, lakini njia yake ya kiwango cha ubadilishaji iliyochapishwa, mipaka, ada, na hesabu itaongoza nukuu zake.
 
-### **8.1 Huduma ya sasa ya njia na kanuni pana zaidi**
+## **8.1 Huduma ya sasa ya njia na kanuni pana zaidi**
 
 **Ugunduzi.** CLC Core hudumisha grafu iliyopatanishwa kutokana na katalogi zilizosanidiwa, mahusiano ya rejesta, vigezo vya Vikundi, ada, mipaka, salio na matukio ya mnyororo. Hukadiria kile ambacho Mkoba wa kipindi unaweza kufikia na kutia alama taarifa zilizopitwa na wakati. Usanidi wa umma hutafuta njia zenye hadi hatua tatu. Ugunduzi si ahadi inayoweza kutekelezwa.
 
@@ -51,7 +51,7 @@ Bei za soko la nje haziwezi kuamua ni kiasi gani cha mkopo wa mtoaji chini ya ma
 
 **Masharti ya SDK na kiolesura.** Muunganisho wa njia unaoweza kutumiwa tena lazima utoe ulinganishaji bainifu kutoka nukuu hadi risiti, ukaguzi wa kanuni zisizobadilika kwa kila hatua, misimbo ya makosa inayoeleweka na rekodi zinazofaa kwa ukaguzi. Utekelezaji wa sasa wa App/Core katika uzalishaji hutoa kazi hizi kwa wasifu wake. `SwapRouter` ya Solidity ya Protocol v1.1.0 hubaki ya nukuu pekee na haitekelezi njia.
 
-#### **8.1.1 Maelezo ya chini ya utangamano wa muungano**
+### **8.1.1 Maelezo ya chini ya utangamano wa muungano**
 
 Ecosystem ya kikundi ambayo inatafuta njia ya kuelekeza juu ya wasifu itachapisha habari inayoweza kusomwa na mashine kwa:
 
@@ -63,7 +63,7 @@ Ecosystem ya kikundi ambayo inatafuta njia ya kuelekeza juu ya wasifu itachapish
 
 Profaili inaweza kuongeza ufikiaji, kufuata, usuluhishi, au huduma nyingine bila kuwa mahitaji ya msingi CPP utangamano. Kila huduma ya hiari ingeonyesha mtu anayehusika, mamlaka yake, wigo wake, na masharti yake.
 
-### **8.2 Utoaji ruhusa, uthibitisho, na kuondoka**
+## **8.2 Utoaji ruhusa, uthibitisho, na kuondoka**
 
 Protocol v1.1.0 mikataba ni EVM- sambamba. Mikataba katika rekodi ya `src` ya hifadhidata ya Mkataba huchapishwa chini ya AGPL-3.0 isipokuwa kwa vipengele vya tatu vilivyotambuliwa bila kubadilishwa ambavyo vinahifadhi masharti yao wenyewe. Chanzo kilichochapishwa, ABIs, na maelekezo ya utekelezaji huunga mkono ukaguzi wa kujitegemea lakini hazionyeshi wenyewe ukaguzi, utekelezaji salama, au kufuata kisheria.
 

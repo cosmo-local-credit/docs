@@ -164,6 +164,19 @@ The production web application is delivered through Cloudflare Pages. Its curren
 
 Other integrations are feature-dependent. When enabled and used, a notification service processes push-subscription endpoints, device state, linked Wallet addresses, delivery and click acknowledgements, and inbox state; a transaction relayer processes signed requests and transaction status; a Safe transaction service processes multisig addresses, proposals, signatures, confirmations, and execution state; and a payment or cash-ramp provider processes the phone number, Wallet address, asset, amount, provider identifier, rate, and transaction status needed for that feature. Image storage, the App API, databases, blockchain indexers, and monitoring infrastructure process the content and operational records needed for their functions. A third-party service can also collect data directly under its own privacy notice.
 
+### Current service register
+
+This register records services evidenced by the production configuration reviewed on 17 November 2026. A deployment-dependent service appears only when the relevant feature is configured or used. Provider features, locations, and notices can change; the current notice presented by the provider also applies.
+
+| Service or category | Purpose and data involved | Provider information | Status |
+| --- | --- | --- | --- |
+| Cloudflare Pages | Delivers the web application and processes network requests, including IP address, browser, security, and request information. | [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/) | Current production web hosting |
+| MapTiler | Supplies map styles and IP-based location suggestions; requests can include IP address, browser information, map area, and location context. | [MapTiler Privacy Policy](https://www.maptiler.com/privacy-policy/) | Current browser configuration |
+| Esri ArcGIS World Geocoding | Provides place search and reverse geocoding; requests can include search text, coordinates, IP address, and browser information. | [Esri Privacy Statement](https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement) | Current browser configuration |
+| GEF-operated App services | Provide the App API, database, image storage, indexing, configured RPC access, transaction relaying, support, and related operations. The data depends on the requested App feature. | This Privacy Notice and the [Data Protection Policy](/governance/data-protection) | Current, with individual components enabled by deployment |
+| Safe transaction service | Supports compatible multisig discovery and transaction coordination, including Safe addresses, signers, thresholds, proposals, confirmations, and execution state. | [Safe Privacy Policy](https://safe.global/privacy) | Deployment-dependent |
+| Notification, payment, cash-ramp, and other optional providers | Process only the information needed for an enabled feature, as described above and in the provider terms shown with that feature. | The applicable provider's notice and transaction terms | Deployment-dependent |
+
 ## 11. International processing
 
 The App, public blockchain networks, service providers, partners, and users can operate in more than one country. Personal data may therefore be accessed or processed outside Kenya or the country where it was collected.
@@ -204,7 +217,7 @@ Send a request to [privacy@grassecon.org](mailto:privacy@grassecon.org). We may 
 
 You can also choose not to enter optional profile fields, remove optional information before publication, use a suitable public contact method, select a safe public map point, manage notification permission, and avoid a feature that requires data you do not wish to provide.
 
-Information about Kenyan data-subject rights is available from the [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/).
+Information about Kenyan data-subject rights is available from the [ODPC](https://www.odpc.go.ke/rights-of-a-data-subject/). A data subject can also use the ODPC's official [complaint page](https://odpc.go.ke/file-a-complaint/index.html).
 
 ## 15. Children
 

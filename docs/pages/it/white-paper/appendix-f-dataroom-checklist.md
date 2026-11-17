@@ -1,4 +1,4 @@
-## F. Lista di controllo delle stanze dati
+# F. Lista di controllo delle stanze dati
 
 1. **Prova storica Sarafu Network**
    - Il volume dello swap, le definizioni dell'utente attivo e dell'attività, gli incidenti, le presentazioni di rimborso, i buoni di invecchiamento, il rispetto confermato, la estinzione, le misure di durata di detenzione, i periodi, le esclusioni e la metodologia separati dalle metriche Cosmo-Local Credit attuali.

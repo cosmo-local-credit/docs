@@ -1,4 +1,4 @@
-## **11. Taratibu za utawala**
+# 11. Taratibu za utawala
 
 Sura hii inapendekeza template ya utawala. Haimaanishi kwamba CLC App ya sasa hutumia kupiga kura kwa ishara za utawala, nyakati za wakati, bima ya pamoja, mchakato wa madai, au udhibiti wowote ulioelezwa hapa chini. Kila utekelezaji utahitaji kutambua watunga maamuzi halisi, mamlaka, mikataba, michakato, na sera zake.
 
@@ -21,7 +21,7 @@ Kanuni za rejista zilizochapishwa zinapaswa kufanya hali iwe ya masharti na zina
 
 Orodha marufuku itakuwa versioned, umma auditable, na inaweza kubadilishwa tu kwa njia ya kupitishwa mgomo wa hatua muhimu na muda lock, iliyoonyeshwa kama Q3 + T3 katika nyongeza D.
 
-### **11.1 Utawala wa kiwango cha ubadilishaji na kikomo**
+## **11.1 Utawala wa kiwango cha ubadilishaji na kikomo**
 
 **Mabadiliko yaliyofungwa kwa wakati.** Kuanzishwa kufuatia template hii kubadilisha mbinu za kiwango cha ubadilishaji na kutekeleza kipekee mipaka parameter tu baada ya muda wa umma lock. Njia ya dharura ingetumia utaratibu wa ruhusa uliofunuliwa tofauti na kuingiza jua au ukaguzi wa moja kwa moja.
 
@@ -42,7 +42,7 @@ Orodha marufuku itakuwa versioned, umma auditable, na inaweza kubadilishwa tu kw
 - **Sababu:** maelezo yaliyochapishwa na rekodi ya mabadiliko kutoka kwa sasisho la awali.
 - **Waandishi:** anwani za multisig zilizofunuliwa na kizingiti cha idhini.
 
-### **11.2 Kusudi la mfuko wa fedha za bima**
+## **11.2 Kusudi la mfuko wa fedha za bima**
 
 **Ubunifu wa hiari tu.** Kitabu hiki kinatumika tu kwa utekelezaji ambao kwa wazi imechukua na kufadhili mfuko wa bima na kuchapisha matukio yaliyofunikwa, waombaji wanaostahiki, taasisi inayowajibika, mali, mipaka, uondoaji, mahitaji ya ushahidi, mchakato, na masharti ya utawala. Wala sasa CLC App wala GEF hutoa chanjo kwa sababu tu muundo huu ni katika kitabu nyeupe.
 
@@ -63,7 +63,7 @@ Marekebisho ya chanjo hayapunguzi dhamana ya dhamana ya msingi ya mtoaji au kuba
 3. Mpango wa kupona unaweza kutumia sehemu iliyoainishwa ya thamani iliyorudishwa kwa kipindi kilichoainishwa, baada ya hapo upungufu wowote uliobaki uliofunikwa utakuwa hasara iliyoorodheshwa na uchunguzi wa umma baada ya kufa; na
 4. kila uamuzi utazalisha risiti na tukio ID, madai na vocha walioathiriwa, uamuzi, mpango wa kupona, na windo la rufaa.
 
-### **11.3 Mfumo wa udhamini**
+## **11.3 Mfumo wa udhamini**
 
 Sehemu hii inatofautisha jukumu la mtoaji, ulinzi wa Hifadhi ya hiari, na dhamana za mtu wa tatu. Vikundi wanaweza kushindana juu ya utunzaji, masharti, na ulinzi zinazotolewa wazi bila maana kwamba CLC App, CPP, GEF, au mtandao wowote pana moja kwa moja kuhakikisha vocha.
 
@@ -115,7 +115,7 @@ Kwa kila kundi la kikundi na vocha zilizofunikwa, chama kinachohusika kitatangaz
 
 **Kanuni ya utunzaji.** Wasimamizi wa Vikundi na taasisi zinazohusika za kisheria au utawala ni wajibu kwa ajili ya ulinzi wao matangazo. CPP- sambamba utekelezaji inaweza kutoa viwango, kumbukumbu, au optional kushiriki sera, lakini wala CLC wala GEF moja kwa moja kuhakikisha vocha au Vikundi.
 
-### **11.4 Vituo vya kulinda dhidi ya kukamata**
+## **11.4 Vituo vya kulinda dhidi ya kukamata**
 
 Chini ya template hii, zifuatazo zitakuwa hatua muhimu zinazohitaji kiwango cha juu zaidi cha kupitishwa na muda mrefu:
 
@@ -125,7 +125,7 @@ Chini ya template hii, zifuatazo zitakuwa hatua muhimu zinazohitaji kiwango cha 
 4. kupanua uwezo wa mapumziko ya dharura; au
 5. kudhoofisha uhalali, uwazi, au wajibu wa enzi kuu Kikundi zilizotajwa katika karatasi hii.
 
-### **11.5 Utaratibu wa Fork na Kutoka**
+## **11.5 Utaratibu wa Fork na Kutoka**
 
 Kama utawala ulifanyika au maadili drifted kwa kiasi kikubwa, jamii, Wasimamizi wa Vikundi, na watendaji wangeweza kutafuta kuondoka kwa forking safu ya utawala wa mtandao. Utaratibu wa Vikundi na vocha msingi itategemea mikataba kutekelezwa, funguo, viungo, miundombinu, huduma za mtu wa tatu, na wajibu husika.
 

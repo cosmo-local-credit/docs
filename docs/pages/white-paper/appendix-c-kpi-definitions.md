@@ -1,4 +1,4 @@
-## C. Proposed KPI definitions
+# C. Proposed KPI definitions
 
 These KPIs form a proposed measurement specification, not a statement that the current App or Protocol records every required event.
 

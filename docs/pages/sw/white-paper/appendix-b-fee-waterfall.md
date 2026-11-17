@@ -1,4 +1,4 @@
-## B. Mgawanyo wa ada unaopendekezwa
+# B. Mgawanyo wa ada unaopendekezwa
 
 Huu ni mpango uliopendekezwa kwa ajili ya utekelezaji wa baadaye. Inatumika tu ikiwa imeanzishwa, imefadhiliwa, na kupitishwa kupitia utawala uliochapishwa na masharti ya washiriki. Haelezi ada ya sasa ya Protocol v1.1.0, haki ya mchango, hifadhi, dhamana, au mpango wa bima.
 

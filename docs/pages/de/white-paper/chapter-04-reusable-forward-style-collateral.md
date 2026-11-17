@@ -1,4 +1,4 @@
-## **4. Wiederverwendbare terminähnliche Sicherheiten**
+# 4. Wiederverwendbare terminähnliche Sicherheiten
 
 Eine separat dokumentierte Kreditfazilität kann fungible, übertragbare Gutscheine als Sicherheit oder als Rückzahlungsinstrument akzeptieren. Wenn es so ist:
 
@@ -7,7 +7,7 @@ Eine separat dokumentierte Kreditfazilität kann fungible, übertragbare Gutsche
 - Grenzwerte, Bestand, Bewertung, Liquidität, Emittent-Performance und Ausfallrisiken bleiben; und
 - keine Route, Erfüllung, Rückzahlung, Wert oder Rückgewinnung garantiert werden.
 
-### 4.1 Erzeugerkreditierungsschleife
+## 4.1 Erzeugerkreditierungsschleife
 
 Eine zukünftige CLC--kompatible Dienstleistung könnte nur dann den Erzeugerkredit unterstützen, wenn die Parteien eine eigene Einrichtung einrichten und die Transaktion ausdrücklich als erstattungsfähige Vorauszahlung darstellen. Die Transaktionsbedingungen würden den Gläubiger und Schuldner identifizieren und erklären:
 

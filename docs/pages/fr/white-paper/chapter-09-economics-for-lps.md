@@ -1,8 +1,8 @@
-## **9. Économie proposée pour les programmes de liquidité**
+# 9. Économie proposée pour les programmes de liquidité
 
 Ce chapitre décrit un futur modèle adopté séparément. Il ne s'agit pas d'une fonctionnalité actuelle de l'application, d'une offre, d'un retour promis ou d'un droit créé par un dépôt dans `SwapPool`.
 
-### **9.1 Sources de recettes proposées**
+## **9.1 Sources de recettes proposées**
 
 Un futur budget du réseau pourrait recevoir:
 
@@ -14,7 +14,7 @@ Les frais bruts de bassin retenus par Bassins ne sont pas des recettes de résea
 
 Le flux de routage de la CLC App de production n'ajoute pas de frais distincts pour le service de routage. Un échange routé peut néanmoins entraîner, à chaque étape, des frais du Bassin et des frais de protocole. Ces frais actuels par étape ne doivent pas être présentés comme le prélèvement de réseau proposé ni être comptabilisés une seconde fois comme de futurs revenus de service.
 
-### **9.2 Les mathématiques illustratives du prélèvement**
+## **9.2 Les mathématiques illustratives du prélèvement**
 
 Si un bassin participant facture une redevance de bassin de 2.00% et qu'un prélèvement de réseau adopté reçoit 20% de cette redevance de bassin, le taux effectif proposé pour le prélèvement de réseau sur la valeur acheminée est le suivant:
 
@@ -28,7 +28,7 @@ Les recettes du réseau proposées sont les suivantes:
 
 Ne pas ajouter les frais bruts de bassin au prélèvement du réseau: le prélèvement est un transfert de ces frais et serait autrement compté deux fois.
 
-### **9.3 Droits de programme de liquidité**
+## **9.3 Droits de programme de liquidité**
 
 Un programme adopté séparément pourrait financer l'inventaire du bassin, les services de routage, la surveillance ou d'autres mandats. Ses termes devraient indiquer:
 

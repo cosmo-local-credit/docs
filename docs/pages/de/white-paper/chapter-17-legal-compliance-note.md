@@ -1,4 +1,4 @@
-## **17. Rechtliche und Konformitätsnachweise**
+# 17. Rechtliche und Konformitätsnachweise
 
 CPP kann Token, Gutscheine, Fonds und Swaps koordinieren, deren rechtliche Behandlung von ihrer Gestaltung, Vermarktung, Verwendung, Verantwortlichen und Gerichtsbarkeit abhängt. Nichts in diesem Weißbuch ist rechtliche, steuerliche, Investitions-, Kredit- oder Finanzberatung.
 
@@ -6,7 +6,7 @@ Die Nutzung der CLC App unterliegt den [Nutzungsbedingungen](/de/governance/term
 
 Beim Einsatz abhängige Zahlungsdienste müssen der verantwortliche Anbieter, die Gerichtsbarkeit, die Berechtigung, die Gebühren, die Grenzen, das Modell der Aufbewahrung und die Bedingungen identifiziert werden. Die Anwesenheit eines Anschlusses bedeutet nicht, dass GEF oder ein Fonds den zugrunde liegenden regulierten Dienst betreibt.
 
-### **17.1 Gutscheine und Angebote**
+## **17.1 Gutscheine und Angebote**
 
 Ein Emittent sollte Folgendes veröffentlichen und auf dem neuesten Stand halten:
 
@@ -20,7 +20,7 @@ Ein Emittent sollte Folgendes veröffentlichen und auf dem neuesten Stand halten
 
 Ein Token-Vertrag legt diese Bedingungen nicht fest oder beweist die Leistung nicht.
 
-### **17.2 Veröffentlichungen des Fonds**
+## **17.2 Veröffentlichungen des Fonds**
 
 Eine Fonds-Verantwortliche Person sollte Folgendes veröffentlichen:
 
@@ -34,7 +34,7 @@ Eine Fonds-Verantwortliche Person sollte Folgendes veröffentlichen:
 
 Die Anmeldung ist keine Genehmigung, Bewertung, Versicherung oder Garantie von GEF.
 
-### **17.3 Aktionen und Verpflichtungen**
+## **17.3 Aktionen und Verpflichtungen**
 
 Ein gewöhnlicher **Fonds swap** Börsen unterstützte Vermögenswerte unter einer angezeigten Quote und Transaktionsgrenzen. Die Vermögensverwaltung macht es nicht zu einem Darlehen, zur Rückzahlung, zur Rückzahlung durch den Emittenten oder zur Realisierung.
 
@@ -44,7 +44,7 @@ Die App ist **„Gutschein stilllegen“** Die Aktion ist reversibel Katalog-Ent
 
 Für ein zukünftiges Darlehen oder ein anderes Kreditprodukt sind zusätzliche und Transaktionsbedingungen vor Verwendung getrennt vorzulegen. Ein gewöhnlicher Versand, Beitrag, Fonds-Einzahlung, Fonds-Swap, Darstellung, Erfüllung oder Ausbuchung erzeugt kein Darlehen nur aufgrund seiner Richtung oder Art des Vermögenswerts.
 
-### **17.4 Schutz, Beweise und lokales Recht**
+## **17.4 Schutz, Beweise und lokales Recht**
 
 Ein Limit, eine Reserve, eine Registrierung, eine App-Liste oder eine Blockchain-Transaktion sind nicht automatisch eine Garantie oder eine Versicherungspolice. Jeder Schutz muss seine verantwortliche Partei, das abgedeckte Ereignis, die Finanzierung, die Höchstgrenze, die Ausschlüsse, die Dauer, die Beweise, das Anspruchsprozess und die anwendbaren Bedingungen identifizieren.
 

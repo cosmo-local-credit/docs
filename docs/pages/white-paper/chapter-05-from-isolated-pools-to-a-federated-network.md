@@ -1,10 +1,10 @@
-## **5. From isolated Pools to a federated network**
+# 5. From isolated Pools to a federated network
 
 Current Protocol v1.1.0 supports direct execution through one `SwapPool` and provides a quote-only Solidity `SwapRouter`. The production CLC App and CLC Core coordinate participant-initiated same-chain routes through as many as three Pools by preparing one signed Calibur wallet batch. The contracts do not themselves execute a multi-hop route, and the current App/Core flow does not provide cross-chain HTLCs, escrow routes, automatic Pool rebalancing, batch netting, or cross-network clearing.
 
 This chapter explains the current participant route and distinguishes it from proposed coordination that would require new Pool authority. In both cases, independent Pools retain their own admission, valuation, limit, fee, inventory, authorization, and governance rules.
 
-### **5.1 Separate exchange and fulfillment measures**
+## **5.1 Separate exchange and fulfillment measures**
 
 Routing can improve access to inventory, but it does not merge the voucher and exchange lifecycles. Measurement should keep these events separate:
 
@@ -18,7 +18,7 @@ More quoted or executed routes do not prove more fulfillment. Reports would stat
 
 **Illustrative route:** A school holds maize vouchers but needs transport vouchers. CLC Core can identify compatible Pool inventories, quote the selected path at one pinned block, and prepare the bounded calls for the school's wallet. Execution succeeds only if every hop remains within its quote bounds, limits, fees, inventory, supported behavior, and policy. The resulting swaps do not prove that either issuer later fulfilled its voucher commitments.
 
-### **5.2 Current participant routing and proposed rebalancing**
+## **5.2 Current participant routing and proposed rebalancing**
 
 Two activities require different authority.
 
@@ -32,7 +32,7 @@ Rebalancing would be opt-in. A Pool can allow ordinary participant routes withou
 
 Cross-chain HTLC or escrow execution is also separate from the current same-chain atomic batch. It would require adopted timeout, abort, controller, recovery, and residual-risk rules.
 
-#### **5.2.1 Confederation and interoperability**
+### **5.2.1 Confederation and interoperability**
 
 Independent deployments can operate their own registries, interfaces, route services, and policy profiles while choosing compatible data and receipt standards. The current public App uses its configured registry and service profile. Cross-profile execution remains deployment-dependent.
 
@@ -46,7 +46,7 @@ A compatible profile would:
 
 Compatibility can increase available exchange paths and reduce dependency on one registry or operator. It does not make the network, CLC App, GEF, or another Pool responsible for an issuer's fulfillment.
 
-### **5.3 Proposed network-rake and service-fee model**
+## **5.3 Proposed network-rake and service-fee model**
 
 Current Protocol v1.1.0 charges a Pool fee and, when configured, an additional Protocol fee on a direct Pool swap. Those current fees remain distinct.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 This is an analytical approximation, not a promise of revenue. Every input requires a stated cohort, period, unit, valuation timestamp, exclusions, and correction policy.
 
-#### **5.3.1 Cash-eligible and in-kind receipts**
+### **5.3.1 Cash-eligible and in-kind receipts**
 
 Fees may arrive in cash-eligible fungible assets or in vouchers and other in-kind assets. In-kind receipts cannot automatically pay cash expenses or coverage claims. Any exchange or conversion would require authority, available inventory, disclosed venues, bounds, and actual execution.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 Budget and break-even analysis would use realized `F_cash`, not gross quoted fees or the face value of in-kind inventory. A future program would report gross Pool fees, network-rake receipts, service fees, asset composition, conversion results, and cash-usable receipts separately.
 
-### **5.4 Proposed liquidity programs**
+## **5.4 Proposed liquidity programs**
 
 A future, separately documented liquidity program could allocate assets to designated Pools or routing services. Current `SwapPool` contracts do not mint Pool shares or automatically create repayment, withdrawal, reward, governance, or profit rights.
 

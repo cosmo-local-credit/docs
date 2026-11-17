@@ -110,7 +110,7 @@ Hindi dapat magresulta sa pagganti o hindi inihayag na pagkawala ng mahalagang s
 
 ## 11. Mga larawan, kuwento, pananaliksik, at personal na data
 
-Kinokolekta at ginagamit lamang ng GEF ang impormasyon ng mga bata kapag may malinaw na layunin, legal na awtoridad, at angkop na proteksyon. Naaangkop din ang [Patakaran sa Proteksyon ng Data](/fil/governance/data-protection) at ang [Gabay ng ODPC sa Pagproseso ng Data ng mga Bata](https://www.odpc.go.ke/guidelines-2/index.html).
+Kinokolekta at ginagamit lamang ng GEF ang impormasyon ng mga bata kapag may malinaw na layunin, legal na awtoridad, at angkop na proteksyon. Naaangkop din ang [Patakaran sa Proteksyon ng Data](/fil/governance/data-protection) at ang [Gabay ng ODPC sa Pagproseso ng Data ng mga Bata](https://www.odpc.go.ke/wp-content/uploads/2025/11/ODPC-%E2%80%93-Guidance-Note-for-Processing-Childrens-Data.pdf).
 
 Bago i-record o ilathala ang larawan, boses, kuwento, gawa, pagkakakilanlan, contact detail, kaugnayan sa komunidad, o lokasyon ng bata, dapat isaalang-alang ng responsableng team ang pahintulot, dignidad, katumpakan, muling paggamit sa hinaharap, audience, digital permanence, at panganib ng pagkilala o pinsala.
 

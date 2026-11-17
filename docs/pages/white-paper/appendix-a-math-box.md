@@ -1,8 +1,8 @@
-## A. Proposed measurement and fee model
+# A. Proposed measurement and fee model
 
 This appendix defines a proposed measurement framework. Protocol v1.1.0 does not record issuer fulfillment, real-world discharge, or every data field required below.
 
-### Event and stock definitions
+## Event and stock definitions
 
 For voucher class *j*, cohort or period *t*, and a disclosed valuation method *m*:
 
@@ -16,7 +16,7 @@ For voucher class *j*, cohort or period *t*, and a disclosed valuation method *m
 
 Each valued measure must publish the unit, source, valuation method, timestamp, and treatment of divergent Pool exchange rates. An on-chain transfer can support `X` or presentment evidence; it does not by itself establish `F` or `G`.
 
-### Cohort-based fulfillment measures
+## Cohort-based fulfillment measures
 
 For a cohort of valid redemption presentments:
 
@@ -32,7 +32,7 @@ Use the same closed or mature cohort in each numerator and denominator. Report r
 
 Fulfillment latency measures issuer service after presentment. Holding duration is a separate measure and must not be labelled redemption latency.
 
-### Distinct velocity measures
+## Distinct velocity measures
 
 A proposed commitment-discharge velocity may be calculated only where `O` and fulfilled value use the same valuation method:
 
@@ -44,7 +44,7 @@ A Pool swap-activity measure is separate:
 
 Neither value proves social impact, issuer capacity, profitability, or cash convertibility.
 
-### Proposed network revenue
+## Proposed network revenue
 
 Let:
 

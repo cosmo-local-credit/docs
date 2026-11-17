@@ -1,4 +1,4 @@
-## C. Definizioni proposte dei KPI
+# C. Definizioni proposte dei KPI
 
 Questi KPI costituiscono una specifica di misurazione proposta, non un'affermazione secondo cui l'attuale App o il Protocollo registrano ogni evento richiesto.
 

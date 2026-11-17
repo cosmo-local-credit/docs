@@ -110,6 +110,28 @@
   text-decoration: none;
 }
 
+.mobile-site-navigation__items a[data-depth='1'] {
+  padding-inline-start: 1.6rem;
+}
+
+.mobile-site-navigation__items a[data-depth='1'] {
+  padding-inline-start: 1.5rem;
+}
+
+.mobile-site-navigation__subgroup {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.mobile-site-navigation__subgroup-label {
+  padding: 0.65rem 1rem 0.25rem;
+  color: var(--vocs-color_text3);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .mobile-site-navigation__items a:hover {
   color: var(--vocs-color_text);
   background: var(--vocs-color_background3);

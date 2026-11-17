@@ -1,4 +1,4 @@
-## **13. Begrippenlijst in gewone taal**
+# 13. Begrippenlijst in gewone taal
 
 - **Cosmo-Local Credit (CLC):** De productfamilie, waaronder de CLC App, de documentatie en het bredere werk rond commitment pooling.
 - **CLC App:** De progressieve webapp die GEF beheert op `cosmolocal.credit`.

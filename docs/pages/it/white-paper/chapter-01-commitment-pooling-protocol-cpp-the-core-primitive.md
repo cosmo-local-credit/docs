@@ -1,16 +1,16 @@
-## **1. Protocollo di pooling degli impegni (CPP): il nucleo primitivo**
+# 1. Protocollo di pooling degli impegni (CPP): il nucleo primitivo
 
 **Modello mentale:** un Fondo di Impegni è un accordo governato per l'ammissione di buoni o di altre attività, la pubblicazione di regole di cambio, la detenzione di inventario e l'acquisizione di swap. In seguito i titolari presentano i buoni ai loro emittenti per l'adempimento nel mondo reale. Lo scambio del fondo e l'adempimento dell'emittente sono cicli di vita separati.
 
 CPP coordina il valore attraverso impegni chiaramente descritti. Il modello è discusso in [Economia di base: riflessione e pratica](https://willruddick.substack.com/p/grassroots-economics-the-book-is).
 
-### **1.1 Cos'è un impegno?**
+## **1.1 Cos'è un impegno?**
 
 Un impegno è la promessa di una parte identificata di una futura consegna, ad esempio cibo, trasporto, lavoro, stoccaggio o altro bene, servizio, beneficio o prestazione legale. A. **il buono** è un token o un record rappresentato come tale impegno in termini pubblicati.
 
 Il contratto di token registra la meccanica digitale. I termini del buono identificano l'emittente, l'offerta, la capacità, il luogo, il tempo, le restrizioni, la presentazione, l'adempimento, i reclami e il processo di estinzione.
 
-### **1.2 Che cos'è un Fondo di Impegni?**
+## **1.2 Che cos'è un Fondo di Impegni?**
 
 Un Fondo di Impegni è l'accordo governato. Può essere gestita da un individuo, da una cooperativa, da un gruppo comunitario, da un'agenzia pubblica, da una federazione, da un multisig, da un operatore di servizi o da un'altra struttura responsabile.
 
@@ -36,7 +36,7 @@ La CLC App e CLC Core in produzione implementano l'instradamento sulla stessa ca
 
 Il progetto CPP più ampio proposto può aggiungere limiti mobili, controlli per account, percorsi HTLC o tramite escrow tra domini, riequilibrio automatico dei Fondi e compensazione in batch. Sono componenti proposti, non descrizioni dell'attuale `Limiter`, del contratto Solidity `SwapRouter` o del flusso dei percorsi di CLC App e CLC Core.
 
-### **1.3 Logica di scambio diretto attuale**
+## **1.3 Logica di scambio diretto attuale**
 
 Swap di fondo diretto attuale:
 
@@ -51,7 +51,7 @@ Swap di fondo diretto attuale:
 
 La quotazione è un parametro di transazione, non prova della capacità dell'emittente, del valore di rimborso, del fair value, della convertibilità in contanti o di una garanzia.
 
-### **1.4 Uso più ampio**
+## **1.4 Uso più ampio**
 
 Fondi di Impegni può sostenere lo scambio comunitario, la produzione, l'aiuto reciproco, i programmi pubblici e altre strutture responsabili. Un prodotto creditizio documentato separatamente potrebbe utilizzare un buono come garanzia o come strumento di rimborso, ma richiederebbe termini supplementari e specifici per la transazione. Una normale spedizione, deposito del fondo, swap del fondo, presentazione del riscatto, adempimento o estinzione non costituiscono automaticamente un prestito o un rimborso.
 

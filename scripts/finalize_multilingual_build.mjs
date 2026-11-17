@@ -93,6 +93,52 @@ function htmlFiles(directory) {
   return output
 }
 
+function plainMarkdown(value) {
+  return value
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/[*_~`]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function conciseDescription(markdown) {
+  const body = markdown.replace(/^---[\s\S]*?---\s*/, '')
+  const paragraphs = body.split(/\n\s*\n/)
+  const candidate = paragraphs
+    .map((part) => part.trim())
+    .filter((part) => part && !/^(?:#|>|\*\*|[-*+]\s|\d+\.\s|\||import\s|export\s|<)/.test(part))
+    .map(plainMarkdown)
+    .find((part) => part.length >= 70)
+  const text = candidate || plainMarkdown(paragraphs.find((part) => part.trim()) ?? '')
+  if (text.length <= 180) return text
+  const shortened = text.slice(0, 177).replace(/\s+\S*$/, '')
+  return `${shortened}…`
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+function routeMetadata(locale, sourcePath) {
+  if (sourcePath === '/') {
+    const messages = JSON.parse(readFileSync(join(i18n, `messages/${locale}.json`), 'utf8'))
+    return messages.metadata
+  }
+  const markdown = readFileSync(sourceFileForRoute(locale, sourcePath), 'utf8')
+  const title = plainMarkdown(markdown.match(/^#\s+(.+)$/m)?.[1] ?? 'Cosmo-Local Credit')
+  const description = conciseDescription(markdown)
+  return {
+    title: `${title} – Cosmo-Local Credit`,
+    description,
+  }
+}
+
 function finalizeHtml() {
   for (const locale of locales) {
     const route = pathForLocale('/', locale)
@@ -140,7 +186,33 @@ function finalizeHtml() {
       ...alternateLocales.map((candidate) => `<link rel="alternate" hreflang="${candidate}" href="${siteUrl}${pathForLocale(sourcePath, candidate)}">`),
       `<link rel="alternate" hreflang="x-default" href="${siteUrl}${sourcePath}">`,
     ].join('')
-    html = html.replace('</head>', `${links}</head>`)
+    const metadata = routeMetadata(locale, sourcePath)
+    const canonicalUrl = `${siteUrl}${pathForLocale(sourcePath, locale)}`
+    html = html
+      .replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(metadata.title)}</title>`)
+      .replace(/<meta\b(?=[^>]*\bname=(?:"description"|'description'))[^>]*>\s*/gi, '')
+      .replace(/<meta\b(?=[^>]*\bproperty=(?:"og:(?:title|description|url|type)"|'og:(?:title|description|url|type)'))[^>]*>\s*/gi, '')
+    const socialMetadata = [
+      `<meta name="description" content="${escapeHtml(metadata.description)}">`,
+      `<meta property="og:type" content="website">`,
+      `<meta property="og:title" content="${escapeHtml(metadata.title)}">`,
+      `<meta property="og:description" content="${escapeHtml(metadata.description)}">`,
+      `<meta property="og:url" content="${escapeHtml(canonicalUrl)}">`,
+    ].join('')
+    html = html.replace('</head>', `${links}${socialMetadata}</head>`)
+    const metadataChecks = [
+      ['title', /<title>[\s\S]*?<\/title>/gi],
+      ['description', /<meta\b(?=[^>]*\bname=(?:"description"|'description'))[^>]*>/gi],
+      ['Open Graph title', /<meta\b(?=[^>]*\bproperty=(?:"og:title"|'og:title'))[^>]*>/gi],
+      ['Open Graph description', /<meta\b(?=[^>]*\bproperty=(?:"og:description"|'og:description'))[^>]*>/gi],
+      ['Open Graph URL', /<meta\b(?=[^>]*\bproperty=(?:"og:url"|'og:url'))[^>]*>/gi],
+    ]
+    const head = html.match(/<head>[\s\S]*?<\/head>/i)?.[0] ?? ''
+    for (const [label, pattern] of metadataChecks) {
+      if ((head.match(pattern) ?? []).length !== 1) {
+        throw new Error(`${pathname}: expected exactly one ${label}`)
+      }
+    }
     writeFileSync(file, html)
   }
 }
@@ -267,13 +339,8 @@ function sourceFileForRoute(locale, route) {
 }
 
 function titleAndSummary(markdown) {
-  const title = markdown.match(/^#\s+(.+)$/m)?.[1]?.replace(/[*_`]/g, '') ?? 'Cosmo-Local Credit'
-  const withoutFrontmatter = markdown.replace(/^---[\s\S]*?---\s*/, '')
-  const summary = withoutFrontmatter
-    .split(/\n\s*\n/)
-    .map((part) => part.replace(/^#+\s+.*$/gm, '').replace(/<[^>]+>/g, '').trim())
-    .find((part) => part && !part.startsWith('import ') && !part.startsWith('>')) ?? ''
-  return { title, summary: summary.replace(/\s+/g, ' ') }
+  const title = plainMarkdown(markdown.match(/^#\s+(.+)$/m)?.[1] ?? 'Cosmo-Local Credit')
+  return { title, summary: conciseDescription(markdown) }
 }
 
 async function buildLlmsFiles() {

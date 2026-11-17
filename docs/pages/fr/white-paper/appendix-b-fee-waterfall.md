@@ -1,4 +1,4 @@
-## B. Illustration de la future cascade des frais
+# B. Illustration de la future cascade des frais
 
 Il s'agit d'un projet proposé pour un déploiement futur. Elle ne s'applique que si elle est mise en œuvre, financée et adoptée au moyen de conditions de gouvernance et de conditions de participation publiées. Il ne décrit pas une redevance actuelle Protocol v1.1.0, un droit de contributeur, une réserve, une garantie ou un arrangement d'assurance.
 

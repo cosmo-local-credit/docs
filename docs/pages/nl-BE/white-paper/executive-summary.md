@@ -1,4 +1,4 @@
-## **Uitvoerende samenvatting**
+# Uitvoerende samenvatting
 
 Het **Commitment Pooling Protocol (CPP)** beschrijft hoe onafhankelijk bestuurde Commitmentfondsen inwisselbare toezeggingen kunnen samenstellen, methoden en limieten voor wisselkoersen kunnen publiceren, voorraad kunnen aanhouden en verantwoorde uitwisseling mogelijk kunnen maken. Uitgevers blijven verantwoordelijk voor de toezeggingen van hun waardebonnen. Fondsbeheerders blijven verantwoordelijk voor de Fondsregels en iedere garantie die zij uitdrukkelijk aanvaarden. Noch de CLC App, noch GEF is een universele garant.
 

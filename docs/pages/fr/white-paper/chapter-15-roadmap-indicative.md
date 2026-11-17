@@ -1,6 +1,6 @@
-## **15. Feuille de route (indicative)**
+# 15. Feuille de route (indicative)
 
-### **15.1 Fondation actuelle**
+## **15.1 Fondation actuelle**
 
 GEF exploite l'application CLC à l'adresse `cosmolocal.credit` sur Gnosis Chain. L'application fournit un accès aux comptes et portefeuilles pris en charge, un catalogue public du Marché et des interfaces pour les jetons, les bons, les Offres, les Demandes, les Bassins d'engagement, les transferts, les échanges directs de Bassin et les échanges routés.
 
@@ -8,7 +8,7 @@ Le protocole v1.1.0 fournit la base contractuelle actuelle : `GiftableToken`, l'
 
 CLC Core fournit désormais la base de routage sur une même chaîne et d'observabilité de l'application publique : découverte au moyen d'un graphe rapproché, itinéraires comportant jusqu'à trois échanges de Bassin, cotations établies à un bloc déterminé, bornes et frais à chaque étape, simulation du lot complet, exécution atomique signée par Calibur, suivi du relais, rapprochement des règlements, reçus regroupés et mesures opérationnelles. La disponibilité dépend toujours de l'interface, du comportement des portefeuilles et des jetons pris en charge, des contrats déployés, de l'inventaire, de la configuration, de la fraîcheur du service, de l'état du réseau, de l'admissibilité, des prestataires, de la juridiction et des conditions publiées par l'émetteur ou le Bassin.
 
-### **15.2 Les jalons proposés**
+## **15.2 Les jalons proposés**
 
 Ces jalons nommés sont des directions de conception, pas des numéros de sortie, des dates de livraison ou des engagements qu'une fonctionnalité lancera.
 

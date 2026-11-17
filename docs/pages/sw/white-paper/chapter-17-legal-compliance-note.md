@@ -1,4 +1,4 @@
-## **17. Dokezo la kisheria na uzingatiaji**
+# 17. Dokezo la kisheria na uzingatiaji
 
 CPP inaweza kuratibu tokens, vocha, Vikundi, na swaps ambao matibabu ya kisheria inategemea kubuni yao, masoko, matumizi, vyama responsible, na mamlaka. Hakuna chochote katika kitabu hiki nyeupe ni kisheria, kodi, uwekezaji, mkopo, au ushauri wa kifedha.
 
@@ -6,7 +6,7 @@ Matumizi ya CLC App inatawaliwa na [Masharti ya Huduma](/sw/governance/terms). .
 
 Huduma za malipo zinazotegemea utekelezaji lazima ziangalie mtoaji wao anayewajibika, mamlaka, uhalali, ada, mipaka, mtindo wa uhifadhi, na masharti. Kuwapo kwa kiunganishi hakumaanishi kwamba GEF au Kikundi inafanya kazi huduma ya chini ya udhibiti.
 
-### **17.1 Ufafanuzi wa vocha na Ofa**
+## **17.1 Ufafanuzi wa vocha na Ofa**
 
 Mtoaji anapaswa kuchapisha na kuweka updated:
 
@@ -20,7 +20,7 @@ Mtoaji anapaswa kuchapisha na kuweka updated:
 
 Mkataba wa ishara si kuanzisha masharti haya au kuthibitisha utendaji.
 
-### **17.2 Kufunuliwa kwa hazina**
+## **17.2 Kufunuliwa kwa hazina**
 
 Msimamizi wa Kikundi inapaswa kuchapisha:
 
@@ -34,7 +34,7 @@ Msimamizi wa Kikundi inapaswa kuchapisha:
 
 Kuorodheshwa si kupitishwa, thamani, bima, au dhamana na GEF.
 
-### **17.3 Hatua na majukumu**
+## **17.3 Hatua na majukumu**
 
 Mtu wa kawaida **Kubadilishana kikundi** kubadilishana mali zilizofadhiliwa chini ya ofa iliyoonyeshwa na mipaka ya shughuli. Mwongozo wa mali haufanyi iwe mkopo, malipo, ukombozi kutoka kwa mtoaji, au kutimiza katika ulimwengu wa kweli.
 
@@ -44,7 +44,7 @@ Programu ya **“Staafisha vocha”** hatua ni reversible catalog unlisting. Hat
 
 Mkopo wa baadaye au bidhaa nyingine ya mkopo itahitaji masharti ya ziada na shughuli zilizowasilishwa tofauti kabla ya matumizi. Hakuna kutuma kawaida, mchango, kikundi amana, kikundi swap, kuwasilisha, kutimiza, au discharge inajenga mkopo kwa sababu tu ya mwelekeo wake au aina ya mali.
 
-### **17.4 Ulinzi, uthibitisho, na sheria za mitaa**
+## **17.4 Ulinzi, uthibitisho, na sheria za mitaa**
 
 Kiwango, hifadhi, kuingia kwenye rejista, orodha ya programu, au shughuli za blockchain sio dhamana au sera ya bima moja kwa moja. Ulinzi wowote lazima ueleze mtu anayewajibika, tukio linalohusika, fedha, kikomo, uondoaji, muda, ushahidi, mchakato wa madai, na masharti yanayotumika.
 

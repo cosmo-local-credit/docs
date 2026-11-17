@@ -1,8 +1,8 @@
-## **9. Angebotene Ökonomie für Liquiditätsprogramme**
+# 9. Angebotene Ökonomie für Liquiditätsprogramme
 
 Dieses Kapitel beschreibt ein zukünftiges, separat angenommenes Modell. Es handelt sich nicht um eine aktuelle App-Funktion, ein Angebot, eine versprochene Rückgabe oder ein Recht, das durch Einzahlung in `SwapPool` erzeugt wird.
 
-### **9.1 Angebotene Einnahmequellen**
+## **9.1 Angebotene Einnahmequellen**
 
 Ein zukünftiger Netzebudget könnte Folgendes erhalten:
 
@@ -14,7 +14,7 @@ Brutto-Fonds-Gebühren, die von Fonds aufbewahrt werden, sind keine Einnahmen au
 
 Der produktive Routing-Ablauf der CLC App erhebt keine gesonderte Gebühr für den Routing-Dienst. Bei einem Tausch über eine Route können dennoch für jeden Schritt eine Fonds- und eine Protokollgebühr anfallen. Diese aktuellen Gebühren je Schritt dürfen weder als vorgeschlagener Netzwerkanteil bezeichnet noch nochmals als zukünftige Serviceeinnahmen gezählt werden.
 
-### **9.2 Illustrative Rake Mathematik**
+## **9.2 Illustrative Rake Mathematik**
 
 Wird ein teilnehmender Fonds eine Poolgebühr von 2.00% berechnen und erhält ein angenommenes Netzwerkanteil 20% dieser Poolgebühr, beträgt der vorgeschlagene wirksame Netzwerkanteil-Rate auf den geleiteten Wert:
 
@@ -28,7 +28,7 @@ Die vorgeschlagenen Einnahmen aus dem Netz sind:
 
 Hinzufügen Sie nicht Brutto-Fonds-Gebühren zum Netzwerkanteil: Der Rake ist eine Übertragung aus diesen Gebühren und würde sonst zweimal gezählt werden.
 
-### **9.3 Liquiditätsprogrammrechte**
+## **9.3 Liquiditätsprogrammrechte**
 
 Ein separat verabschiedetes Programm könnte das Inventar des Fonds, die Routingdienste, die Überwachung oder andere Mandate finanzieren. Die Bedingungen müssen Folgendes offenlegen:
 

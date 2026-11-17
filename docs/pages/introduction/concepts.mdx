@@ -1,8 +1,93 @@
 # Concepts and vocabulary
 
-Cosmo-Local Credit connects an application, an open protocol, independently governed pools, and the real-world commitments represented by vouchers. These layers work together, but they are not the same thing.
+Cosmo-Local Credit connects people who offer goods or services, people who need them, and independently governed Commitment Pools that enable Voucher exchange. This page begins with the terms a participant sees, then explains the technical layers beneath them.
 
-This page defines the terms used across the documentation. Exact app labels appear in quotation marks where the interface uses a shorter or potentially ambiguous name.
+Exact App labels appear in quotation marks where the interface uses a shorter or potentially ambiguous name.
+
+## Everyday terms
+
+| Term | Plain-language meaning |
+| --- | --- |
+| **Voucher** | A transferable commitment—much like a gift card—whose Issuer promises specified goods, services, benefits, or other performance under published terms. |
+| **Issuer** | The person or organization that creates the Voucher and remains responsible for what it promises. |
+| **Offering** | A catalog record describing goods or services associated with a Voucher. It helps people discover the offer but does not prove availability or fulfillment. |
+| **Want** | A published expression of something a participant is looking for. It does not by itself accept an Offering, reserve goods, authorize an exchange, or create an obligation. |
+| **Market** | The App's discovery catalog for Vouchers, Pools, Offerings, Wants, and other public information. It is not automatically an exchange venue, seller, endorsement, or guarantee. |
+| **Commitment Pool** | A governed arrangement that selects supported Vouchers, publishes exchange rules, holds inventory, and enables exchange. **Pool** is the ordinary shorthand. |
+| **Pool Steward** | The accountable person, cooperative, public agency, federation, multisig, service, or other structure that publishes and administers a Pool's rules. |
+| **Holder** | A participant controlling a Voucher balance. Holding it does not prove fulfillment, cash value, or a guarantee. |
+| **Wallet** | The account and credentials used to authorize token transfers and Pool exchanges. |
+
+“Community member” is informal social language. It does not by itself create admission, ownership, governance, repayment, or other legal rights.
+
+## Discovering and contacting participants
+
+The Market helps people find Vouchers, Offerings, Wants, and Pools. A listing means the App can display a record; it does not prove that its information is accurate, that inventory is available, or that a transaction will succeed.
+
+A participant can publish a Want and can contact another participant through the available contact or messaging features. A contact request, message, booking discussion, or response to a Want does not by itself:
+
+- accept a Voucher or Offering;
+- authorize a transfer or Pool swap;
+- prove delivery or satisfaction;
+- fulfill or discharge a Voucher; or
+- make GEF a party to the participants' agreement.
+
+Reviews are public feedback about a Voucher or Pool. They are not the same as private eligibility evidence, operator due diligence, a guarantee, or a finding that fulfillment occurred.
+
+## Vouchers, tokens, and Offerings
+
+A **token** is an on-chain balance or digital asset. Token mechanics can record supply, transfers, expiry, and burning, but they do not by themselves promise goods, services, cash conversion, or redemption.
+
+A **Voucher** is a token or record that an Issuer represents as a redeemable commitment under published terms. Those terms should identify what is promised, who is responsible, where and when it can be presented, material limits, and the fulfillment and complaint process.
+
+An **Offering** is the catalog record for goods or services associated with a Voucher. In ordinary prose, “offer” simply means something a participant proposes; **Offering** is the named App record.
+
+Keep these four layers separate:
+
+1. the token contract and balances;
+2. the Voucher designation and published terms;
+3. one or more Offering records; and
+4. the Issuer's real-world performance.
+
+## Accountable roles and technical control
+
+| Role or authority | Responsibility or power |
+| --- | --- |
+| **Issuer** | Publishes and fulfills a Voucher commitment. This responsibility does not automatically move merely because contract ownership changes. |
+| **Pool Steward** | Publishes and administers Pool rules and remains accountable for any guarantee the Pool expressly advertises. |
+| **Pool owner** | The address with current `SwapPool` owner powers, including configuration, fee collection, and available-liquidity withdrawal. |
+| **Multisig signers** | Share the technical authority assigned to a multisig Wallet. Changing signers or thresholds does not silently transfer Issuer responsibility, Steward accountability, or legal ownership. |
+| **Proxy administrator** | Can upgrade a proxied contract implementation. It may differ from the Pool owner. |
+| **Dependency controller** | Controls a registry, limiter, quoter, oracle, fee policy, or protocol-fee controller. |
+| **Catalog moderator** | Can correct, hide, retire, or restore catalog records without deleting contracts, balances, or chain history. |
+| **Fee recipient** | Receives a configured Pool or protocol fee. It is not necessarily the Pool Steward or owner. |
+| **Supporter or liquidity provider** | Contributes assets under separately disclosed terms. The current `SwapPool` creates no automatic Pool shares, repayment, withdrawal, reward, or governance rights. |
+
+## Actions and lifecycle
+
+| App or documentation term | What it means |
+| --- | --- |
+| **Create or publish a Voucher** | Deploy or configure a token and publish its catalog record and terms. |
+| **Issue or mint** | Create token balance under the configured owner or writer authority. |
+| **Publish an Offering** | Add a goods or services record beneath a Voucher. |
+| **Publish a Want** | Describe a need for discovery and possible contact; it does not itself create a transaction. |
+| **Send** | Transfer a token balance to another address. |
+| **“Redeem”** | Open the send flow with the token owner's address prefilled. This is redemption presentment; it does not prove fulfillment. |
+| **Fulfill** | The Issuer provides the promised goods, services, benefits, or other performance. |
+| **Discharge** | Record fulfilled units so they cannot be presented again, for example by receiving, burning, cancelling, or otherwise disabling them under the published terms. |
+| **“Request retirement”** | The current owner asks an administrator to retire a Voucher or Pool. The resource remains active while the request is pending, and the request may be approved, rejected, or cancelled. |
+| **Retire a Voucher** | After approval, remove the Voucher from active catalog use. Contracts, balances, obligations, and history remain; retirement is not burning or discharge. |
+| **Retire a Pool** | After approval, stop new Pool swaps and deposits while allowing available withdrawals. Prior settlement records remain. |
+| **Pool deposit or contribution** | Transfer assets into a `SwapPool`. Repayment, withdrawal, reward, or governance rights exist only when separately disclosed. |
+| **Pool swap** | Exchange supported assets through one `SwapPool`. This is neither Issuer fulfillment nor automatically a loan. |
+| **Route discovery** | Find possible paths through configured Pool relationships. Discovery is an estimate, not an executable promise. |
+| **Route quote** | Calculate a time-bounded proposal from Pool state read at one pinned block and simulate it before signing. |
+| **Routed exchange** | Submit an ordered set of Pool swaps as one same-chain Wallet batch. In the current flow, every call reverts if any call fails. |
+| **Routed-exchange receipt** | Group the tracking status, transaction hash, route hops, settled amounts, and per-hop fees. |
+| **Pool liquidity withdrawal** | Let the Pool owner transfer available inventory to a selected address. |
+| **Fee collection** | Send accrued Pool fees to the configured recipient. |
+
+Use **swap settlement** for the on-chain transfers and fee accounting that complete a Pool swap. Use **redemption presentment**, **fulfillment**, and **discharge** for the separate real-world Voucher lifecycle.
 
 ## Product and protocol layers
 
@@ -10,100 +95,46 @@ This page defines the terms used across the documentation. Exact app labels appe
 | --- | --- |
 | **Cosmo-Local Credit (CLC)** | The product family: the CLC App, its documentation, and the wider commitment-pooling work. |
 | **CLC App** | The progressive web app at [cosmolocal.credit](https://cosmolocal.credit). GEF operates this interface and its supporting services. |
-| **CLC Core** | The App's supporting service for catalogs, indexed chain state, route discovery, authoritative route quotes, relay coordination, and routed-exchange receipts. It is not a smart contract or a Pool Steward. |
+| **CLC Core** | The supporting service for catalogs, indexed chain state, route discovery, authoritative quotes, relay coordination, and routed-exchange receipts. It is neither a smart contract nor a Pool Steward. |
 | **Commitment Pooling Protocol (CPP)** | The reusable model of curation, valuation, limitation, exchange, and accountable governance. |
 | **Protocol v1.1.0** | The verified public smart-contract release documented in the [Protocol reference](/protocol/overview). |
-| **Commitment Pool** | A governed arrangement that curates assets, publishes rules, and enables exchange. **Pool** is the ordinary shorthand. |
 | **`SwapPool`** | The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool. |
 | **Solidity `SwapRouter`** | The Protocol v1.1.0 contract that quotes a proposed multi-Pool path. It does not custody assets or execute the route. |
-| **Application routing workflow** | The current CLC App and CLC Core process that discovers same-chain paths, quotes and simulates them, prepares a signed wallet batch, relays it, and groups the resulting Pool settlements into one receipt. |
+| **Application routing workflow** | The current CLC App and CLC Core process that discovers same-chain paths, quotes and simulates them, prepares a signed Wallet batch, relays it, and groups the resulting Pool settlements into one receipt. |
 | **Proposed CLC governance token** | A future governance design in the White Paper. It is not a current App or Protocol v1.1.0 asset. |
 | **Proposed CLC Network Pool** | A future network-level clearing and coordination design. It is not the same as a current `SwapPool`. |
 
-## Tokens, vouchers, and Offerings
-
-A **token** is an on-chain balance or digital asset. Token mechanics can record supply, transfers, expiry, and burning, but they do not by themselves promise goods, services, cash conversion, or redemption.
-
-A **voucher** is a token or record that an issuer represents as a redeemable commitment under published terms. Those terms should identify what is promised, who is responsible, where and when it can be presented, material limits, and the fulfillment and complaint process.
-
-An **Offering** is the catalog record for goods or services associated with a voucher. Publishing an Offering does not mint tokens, prove availability, or show that fulfillment occurred.
-
-These are four separate layers:
-
-1. the token contract and balances;
-2. the voucher designation and published terms;
-3. one or more Offering records; and
-4. the issuer's real-world performance.
-
-## Accountable roles and technical control
-
-| Role or authority | Responsibility or power |
-| --- | --- |
-| **Issuer** | Publishes and fulfills a voucher commitment. This responsibility is not automatically transferred merely because contract ownership changes. |
-| **Holder** | Controls a voucher balance. Control does not prove fulfillment, cash value, or a guarantee. |
-| **Service provider** | A public-facing persona. A service provider becomes an issuer when it publishes a voucher commitment. |
-| **Pool Steward** | The accountable person, cooperative, public agency, federation, multisig, service, or other structure that publishes and administers Pool rules. |
-| **Pool owner** | The address with the current `SwapPool` owner powers, including configuration, fee collection, and available-liquidity withdrawal. |
-| **Proxy administrator** | The authority that can upgrade a proxied contract implementation. It may differ from the Pool owner. |
-| **Dependency controller** | An owner or writer controlling a registry, limiter, quoter, oracle, fee policy, or protocol-fee controller. |
-| **Catalog moderator** | An App operator that can correct, hide, or restore catalog records without changing on-chain balances. |
-| **Fee recipient** | The configured address receiving a Pool or protocol fee. It is not necessarily the Pool Steward or owner. |
-| **Supporter or liquidity provider** | A participant contributing assets under separately disclosed terms. The current `SwapPool` does not create Pool shares or automatic repayment, withdrawal, reward, or governance rights. |
-
-“Community member” is informal social language. It does not by itself create admission, ownership, governance, repayment, or other legal rights.
-
-## Actions and lifecycle
-
-| App or documentation term | What it means |
-| --- | --- |
-| **Create or publish a voucher** | Deploy or configure a token and publish its catalog record and terms. |
-| **Issue or mint** | Create token balance under the configured owner or writer authority. |
-| **Publish an Offering** | Add a goods or services record beneath a voucher. |
-| **Send** | Transfer a token balance to another address. |
-| **“Redeem”** | In the current App, open the send flow with the token owner's address prefilled. This presents or returns tokens to the issuer; it does not prove fulfillment. |
-| **Fulfill** | The issuer provides the promised goods, services, benefits, or other performance. |
-| **Discharge** | Record fulfilled units so they cannot be presented again, for example by receiving, burning, cancelling, or otherwise disabling them under the published terms. |
-| **“Retire voucher”** | Hide a voucher from the App catalog. Balances and history remain, and an administrator can restore the listing. It is not a burn or cancellation. |
-| **Pool deposit or contribution** | Transfer assets into a `SwapPool`. Rights to repayment, withdrawal, rewards, or governance exist only when separately disclosed. |
-| **Pool swap** | Exchange one supported asset for another through one `SwapPool`. This is not issuer fulfillment or automatically a loan. |
-| **Route discovery** | Find possible paths from a wallet's eligible vouchers to a target voucher through configured Pool relationships. Discovery is an estimate, not an executable promise. |
-| **Route quote** | A time-bounded, authoritative calculation for one selected path, based on Pool state read at one pinned block and simulated before signing. |
-| **Routed exchange** | An ordered set of Pool swaps submitted by the App as one same-chain wallet batch. In the current flow, every call reverts if any call fails. |
-| **Routed-exchange receipt** | One grouped record containing the tracking status, transaction hash, route hops, settled amounts, and per-hop Pool and protocol fees. |
-| **Pool liquidity withdrawal** | The Pool owner transfers available inventory to a selected address. |
-| **Fee collection** | A configured recipient collects accrued Pool fees. |
-
-Use **swap settlement** for the on-chain transfers and fee accounting that complete a Pool swap. Use **redemption presentment**, **fulfillment**, and **discharge** for the separate real-world voucher lifecycle.
-
-## Market, values, limits, and fees
-
-The App's **Market** is a discovery catalog for vouchers, Pools, Offerings, and public information. A listing is not automatically an exchange venue, seller relationship, endorsement, valuation, or guarantee.
+## Values, credit, limits, and fees
 
 Keep these value terms separate:
 
 - **Offering price:** the amount requested for a listed good or service;
-- **voucher stated value:** a value represented in the issuer's published terms;
+- **Voucher stated value:** a value represented in the Issuer's published terms;
 - **Pool exchange rate or quote:** the transaction parameter produced by a Pool's configured quoter;
 - **oracle reference:** external data used by a configured valuation module; and
-- **redemption terms:** what the issuer promises to provide and under what conditions.
+- **redemption terms:** what the Issuer promises and under what conditions.
 
-The App label **“Credit limit”** refers to a Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. It is not a personal credit line, an issuer-capacity check, or a guarantee of redemption. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.
+**Credit** in the App refers to reachable commitments and exchange capacity. It is not automatically personal borrowing, a loan, an Issuer-capacity assessment, or a guarantee.
 
-Current Protocol v1.1.0 can charge a **Pool fee** and an additional **protocol fee** on each Pool swap. A routed exchange itemizes those fees for every hop. The current CLC App route workflow adds no separate routing-service fee. The proposed White Paper model separately describes a future **network rake** taken from Pool fees and possible routing or service fees. These models must not be combined when explaining current charges or calculating future revenue.
+The label **“Credit limit”** means the Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.
+
+Protocol v1.1.0 can charge a **Pool fee** and an additional **protocol fee** on each Pool swap. A routed exchange itemizes both for every hop. The current App adds no separate routing-service fee. The proposed White Paper model separately describes a future network rake and possible service fees.
 
 ## Routes and liquidity
 
 A **route** is an ordered path through one or more independently governed Pools. **Route depth** is the number of Pool swaps in that path. The current public deployment searches up to three hops.
 
-**Available liquidity** means the eligible output inventory that a Pool can supply under its current admission, balance-cap, quote, fee, and reservation state. A graph connection alone does not prove that a useful amount can pass through it. Route discovery can become stale, while the later pinned-block quote is authoritative only until its deadline or relevant state changes.
+Production routing uses verified, relative-priced Pools and tokens whose transfers move exactly the stated amount: `GiftableToken` Vouchers and explicitly allowlisted plain ERC-20 tokens. Direct Pool swaps can support a broader configuration; appearing in a Pool does not automatically make a token eligible for App routing.
 
-Current route execution is same-chain and wallet-initiated. It does not pool governance, automatically rebalance Pool inventory, clear obligations among many parties, or prove fulfillment. Cross-chain HTLC or escrow routing, automatic rebalancing, and batch netting remain proposed or deployment-dependent.
+**Available liquidity** is eligible output inventory that a Pool can supply under its current admission, balance cap, quote, fee, and reservation state. A graph connection does not prove a useful amount can pass through it. Route discovery can become stale; the later pinned-block quote remains authoritative only until its deadline or relevant state changes.
+
+Current route execution is same-chain and Wallet-initiated. It does not pool governance, automatically rebalance Pool inventory, clear obligations among many parties, or prove fulfillment. Cross-chain HTLC or escrow routing, automatic rebalancing, and batch netting remain proposed or deployment-dependent.
 
 ## Protections and evidence
 
-Curation, registry inclusion, a limit, a reserve, App visibility, or a blockchain transaction does not by itself establish endorsement, issuer capacity, fulfillment, a guarantee, or insurance.
+Curation, registry inclusion, a limit, a reserve, App visibility, a Review, or a blockchain transaction does not by itself establish endorsement, Issuer capacity, fulfillment, a guarantee, or insurance.
 
-Any protection should identify the obligated party, covered event, funding, cap, exclusions, duration, evidence, and claim process. On-chain records can show addresses, assets, amounts, timestamps, and contract events. Issuer performance, satisfaction, governance deliberation, and social impact require separate disclosures, reports, attestations, or other evidence.
+Any protection should identify the obligated party, covered event, funding, cap, exclusions, duration, evidence, and claim process. On-chain records can show addresses, assets, amounts, timestamps, and contract events. Issuer performance, satisfaction, governance deliberation, and social impact require separate evidence.
 
 ## Status words
 
@@ -112,6 +143,6 @@ Any protection should identify the obligated party, covered event, funding, cap,
 - **Historical:** evidence or functionality from the earlier Sarafu Network service.
 - **Proposed:** a design or roadmap mechanism that is not represented as deployed.
 
-The [Getting started guide](/introduction/getting-started) applies these terms to the current App. The [Protocol reference](/protocol/overview) documents the verified contracts, while the [White Paper](/white-paper) presents the wider design and proposals.
+The [Getting started guide](/introduction/getting-started) applies these terms to the current App. The [Protocol reference](/protocol/overview) documents verified contracts, while the [White Paper](/white-paper) presents the wider design and proposals.
 
-For a supplementary, learn-through-play introduction to commitments, settlement, resource flows, exchange, and pooling, explore the [Grassroots Economics educational games](https://grassrootseconomics.org/games/). The games are learning resources, not definitions of current App or Protocol behavior.
+For a learn-through-play introduction to commitments, settlement, resource flows, exchange, and pooling, explore the [Grassroots Economics educational games](https://grassrootseconomics.org/games/). The games are supplementary learning resources, not definitions of current App or Protocol behavior.

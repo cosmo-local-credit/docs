@@ -1,4 +1,4 @@
-## **17. Juridische en nalevingsbrief**
+# 17. Juridische en nalevingsbrief
 
 CPP kan tokens, waardebonnen, fondsen en swaps coördineren waarvan de juridische behandeling afhangt van hun ontwerp, marketing, gebruik, verantwoordelijke partijen en rechtsmacht.
 
@@ -6,7 +6,7 @@ Het gebruik van de CLC App wordt geregeld door: [Voorwaarden van de dienstverlen
 
 Betalingsdiensten die afhankelijk zijn van de inzet moeten hun verantwoordelijke aanbieder, jurisdictie, in aanmerking komendheid, vergoedingen, limieten, bewaarmodel en voorwaarden identificeren. De aanwezigheid van een connector betekent niet dat GEF of een Fonds de onderliggende gereglementeerde dienst exploiteert.
 
-### **17.1 Informatie over vouchers en aanbiedingen**
+## **17.1 Informatie over vouchers en aanbiedingen**
 
 Een uitgever dient te publiceren en bij te houden:
 
@@ -20,7 +20,7 @@ Een uitgever dient te publiceren en bij te houden:
 
 Een tokencontract stelt deze voorwaarden niet vast of bewijst de uitvoering.
 
-### **17.2 Openbaarmaking van de fondsen**
+## **17.2 Openbaarmaking van de fondsen**
 
 Een Fondsbeheerder dient te publiceren:
 
@@ -34,7 +34,7 @@ Een Fondsbeheerder dient te publiceren:
 
 De notering is geen bevestiging, waardering, verzekering of garantie van GEF.
 
-### **17.3 Acties en verplichtingen**
+## **17.3 Acties en verplichtingen**
 
 Een gewone. **Fonds swap** de beurs ondersteunde activa onder een weergegeven offerte- en transactiegrens. De vermogensrichting maakt het niet tot een lening, terugbetaling, inwisseling door de uitgever of realisatie in de echte wereld.
 
@@ -44,7 +44,7 @@ De App's **Retirement waardebon”** Het is een terugkeerbare catalogusontwikkel
 
 Een toekomstige lening of ander kredietproduct zou voorafgaand aan het gebruik afzonderlijk gepresenteerde aanvullende en transactievoorwaarden vereisen.
 
-### **17.4 Bescherming, bewijsmateriaal en lokaal recht**
+## **17.4 Bescherming, bewijsmateriaal en lokaal recht**
 
 Een limiet, reserve, registerinvoer, app-lening of blockchain-transactie is niet automatisch een garantie of verzekeringspolis. Elke bescherming moet de verantwoordelijke partij, het gedekte evenement, de financiering, het maximum, uitsluitingen, duur, bewijsmateriaal, claimsproces en toepasselijke voorwaarden identificeren.
 

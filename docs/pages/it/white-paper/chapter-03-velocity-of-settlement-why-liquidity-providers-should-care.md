@@ -1,4 +1,4 @@
-## **3. Attività di adempimento, estinzione e scambio**
+# 3. Attività di adempimento, estinzione e scambio
 
 Le variazioni del fondo swap che riguardano le attività di detenzione. L'adempimento del buono avviene quando l'emittente esegue l'impegno pubblicato. Il estinzione registra le unità soddisfatte in modo che non possano essere presentate di nuovo. Questi eventi non devono essere riuniti in un solo uso di "settlement".
 

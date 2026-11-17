@@ -1,4 +1,4 @@
-## **6. Liquidité et gouvernance proposées au niveau du réseau**
+# 6. Liquidité et gouvernance proposées au niveau du réseau
 
 L'expérience du projet historique Sarafu Network a motivé la recherche sur deux questions de conception plus larges:
 
@@ -7,7 +7,7 @@ L'expérience du projet historique Sarafu Network a motivé la recherche sur deu
 
 Une conception CLC proposée introduit un **Réservoir de réseau CLC proposé ** Il s'agit d'un accord de compensation et de coordination budgétaire au niveau du réseau et d'un ** le jeton de gouvernance CLC proposé** Il n'existe ni dans l'application actuelle ni dans Protocol v1.1.0. D'autres déploiements pourraient utiliser des coopératives, des agences publiques, des fédérations, des multisigs, des opérateurs de services ou d'autres structures responsables sans adopter aucune des deux propositions.
 
-### **6.1 Contrôles à la baisse et faculté**
+## **6.1 Contrôles à la baisse et faculté**
 
 L'actuel Protocol v1.1.0 peut appliquer des plafonds de solde des jetons de bassin et des contrôles d'inventaire. Ces contrôles restreignent certaines actions contractuelles; ils n'empêchent pas la non-exécution de l'émetteur, la perte de valeur, la perte de clé, l'échec du contrat ou toute autre perte.
 

@@ -1,4 +1,4 @@
-## **16. Proposed evaluation template**
+# 16. Proposed evaluation template
 
 A registry, Pool, or future liquidity program can adapt this template. It is not a current universal listing standard or guarantee.
 

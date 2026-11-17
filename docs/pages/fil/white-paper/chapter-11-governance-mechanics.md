@@ -1,4 +1,4 @@
-## **11. Mga mekanismo ng pamamahala**
+# 11. Mga mekanismo ng pamamahala
 
 Ang kabanata na ito ay nagmumungkahi ng isang template sa pamamahala. Hindi ito kumakatawan na ang kasalukuyang CLC App ay gumagamit ng vote ng pamamahala-token, timelocks, nakabahagi insurance, isang proseso ng mga kahilingan, o anumang kontrol na inilarawan sa ibaba.
 
@@ -21,7 +21,7 @@ Ang nai-publish na mga patakaran ng registry ay dapat gumawa ng kondisyonal na k
 
 Ang ipinagbabawal na listahan ay magiging versioned, publicly auditable at maibabago lamang sa pamamagitan ng tinanggap kritikal na aksyon threshold at timelock, inilalarawan bilangQ3 + T3sa apendise D.
 
-### **11.1 Pagmamay-ari ng rate at limitasyong pamamahala**
+## **11.1 Pagmamay-ari ng rate at limitasyong pamamahala**
 
 **Ang mga pagbabago ay naka-lock sa oras.** Ang isang paglalapat na sumusunod sa template na ito ay magbabago ng mga pamamaraan ng rate ng palitan at nag-iiba ang mga parameter ng limitasyon pagkatapos lamang ng isang pampublikong timelock.
 
@@ -42,7 +42,7 @@ Ang ipinagbabawal na listahan ay magiging versioned, publicly auditable at maiba
 - **Reason:** nag-publish ng mga talaan at isang rekord ng pagbabago mula sa nakaraang update.
 - **Mga tagapagpahiwatig:** ang ipinahayag na multisig address at threshold ng pag-apruba.
 
-### **11.2 Proposed insurance fund runbook**
+## **11.2 Proposed insurance fund runbook**
 
 **Opsyonal na disenyo lamang.** Nauugnay lamang ang runbook na ito sa deployment na hayagang nagpatibay at nagpondo ng insurance fund at naglathala ng mga sakop na pangyayari, karapat-dapat na claimant, responsableng entity, asset, limitasyon, exclusion, kinakailangang ebidensiya, proseso, at namamahalang mga tuntunin. Hindi nagbibigay ng coverage ang CLC App o GEF dahil lamang lumitaw ang disenyong ito sa White Paper.
 
@@ -63,7 +63,7 @@ Ang isang pag-aayos sa coverage ay hindi binabawasan ang underlying voucher comm
 3. ang isang plano ng pagbawi ay maaaring mag-apply ng isang idetereklarar na bahagi ng nakuha na halaga para sa isang iditerekordahang panahon, pagkatapos nito ang anumang natitirang nasa ilalim na kakulangan ay magiging isang nakarekord na pagkawala sa isang pampublikong post mortem; at
 4. ang bawat desisyon ay magbibigay ng isang resibo na naglalaman ng insidente ID, naapektuhan na mga claim at voucher, desisyon, plano sa pagbawi, at window ng appeal.
 
-### **11.3 Katayuan ng Garantiya**
+## **11.3 Katayuan ng Garantiya**
 
 Pinag-iiba ng seksyong ito ang responsibilidad ng tagapag-isyu, opsyonal na proteksiyon ng Pool, at garantiya ng third party. Hindi awtomatikong ginagarantiyahan ng CLC App, CPP, GEF, o anumang mas malawak na network ang isang voucher.
 
@@ -115,7 +115,7 @@ Para sa bawat sakop na klase ng pool at voucher, ang responsable na partido ay m
 
 **Prinsipyo ng curation.** May pananagutan ang mga Tagapangasiwa ng Pool at ang mga responsableng legal o governance structure para sa mga proteksiyong inilalathala nila. Maaaring magbigay ang isang CPP-compatible deployment ng mga pamantayan, registry, o opsyonal na shared policy, ngunit hindi awtomatikong ginagarantiyahan ng CLC o GEF ang mga voucher o Pool.
 
-### **11.4 Mga guardrail laban sa pagkabihag**
+## **11.4 Mga guardrail laban sa pagkabihag**
 
 Sa ilalim ng template na ito, ang mga sumusunod ay magiging kritikal na aksyon na nangangailangan ng pinakamataas na antas ng pag-apruba at isang mahabang panahon:
 
@@ -125,7 +125,7 @@ Sa ilalim ng template na ito, ang mga sumusunod ay magiging kritikal na aksyon n
 4. pagpapalawak ng mga kapangyarihan sa emergency pause; o
 5. pagpapahirap ng mga pananagutan sa pagiging forkable, transparency, o pagkasoberano ng pool na ipinahayag sa papel na ito.
 
-### **11.5 Prosedura ng fork at exit**
+## **11.5 Prosedura ng fork at exit**
 
 Kung ang pamamahala ay kinuha o ang mga halaga ay nag-drift na malaki, ang mga komunidad, Mga Tagapangasiwa ng Pool, at operator ay maaaring maghanap upang lumabas sa pamamagitan ng pag-forking ng layer ng pamamahala ng network.
 

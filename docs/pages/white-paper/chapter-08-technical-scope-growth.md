@@ -1,4 +1,4 @@
-## **8. Technical scope and growth**
+# 8. Technical scope and growth
 
 This chapter separates the current production routing service from optional or proposed growth. A current capability described here remains specific to the public CLC App/Core deployment; it is not automatically a feature of the Protocol v1.1.0 contracts or another deployment.
 
@@ -24,7 +24,7 @@ Possible growth areas include:
 
 External-market prices would not determine what an issuer owes under voucher terms. A Pool could use a guarded external reference for a fungible asset, but its published exchange-rate method, limits, fees, and inventory would govern its quotes.
 
-### **8.1 Current route service and wider norms**
+## **8.1 Current route service and wider norms**
 
 **Discovery.** CLC Core maintains a reconciled graph from configured catalogs, registry relationships, Pool parameters, fees, limits, balances, and chain events. It estimates what a session wallet can reach and marks stale data. The public configuration searches routes of up to three hops. Discovery is not an executable promise.
 
@@ -51,7 +51,7 @@ External-market prices would not determine what an issuer owes under voucher ter
 
 **SDK and interface requirements.** A reusable route integration should provide deterministic quote-to-receipt mapping, per-hop invariant checks, understandable failure codes, and audit-friendly logs. The current production App/Core implementation provides these functions for its own profile. The Protocol v1.1.0 Solidity `SwapRouter` remains quote-only and does not execute the route.
 
-#### **8.1.1 Minimum confederation compatibility specification**
+### **8.1.1 Minimum confederation compatibility specification**
 
 A Pool ecosystem seeking cross-profile routing would publish machine-readable information for:
 
@@ -63,7 +63,7 @@ A Pool ecosystem seeking cross-profile routing would publish machine-readable in
 
 A profile could add coverage, compliance, arbitration, or other services without making them requirements for basic CPP compatibility. Each optional service would identify its responsible party, authority, scope, and terms.
 
-### **8.2 Licensing, verification, and exit**
+## **8.2 Licensing, verification, and exit**
 
 Protocol v1.1.0 contracts are EVM-compatible. Contracts in the Protocol repository's `src` directory are published under AGPL-3.0 except for identified unmodified third-party components that retain their own terms. Published source, ABIs, and deployment instructions support independent review but do not by themselves prove an audit, safe deployment, or legal compliance.
 

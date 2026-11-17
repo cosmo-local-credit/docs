@@ -1,4 +1,4 @@
-## **14. Indicadores clave de rendimiento y indicadores de salud**
+# 14. Indicadores clave de rendimiento y indicadores de salud
 
 Un despliegue solo debe publicar un KPI cuando pueda definir el evento, la fuente, la cohorte o el período, la unidad, el método de valoración y la marca de tiempo, las exclusiones, la política de corrección, las pruebas fuera de la cadena y las limitaciones en la calidad de los datos.
 

@@ -1,10 +1,10 @@
-## **5. De Fondos aislados a una red federada**
+# 5. De Fondos aislados a una red federada
 
 Protocol v1.1.0 admite la ejecución directa mediante un `SwapPool` y proporciona un `SwapRouter` Solidity que solo calcula cotizaciones. La CLC App y CLC Core de producción coordinan rutas en la misma cadena iniciadas por los participantes y formadas por hasta tres Fondos, preparando un solo lote firmado para la billetera Calibur. Los contratos no ejecutan por sí mismos una ruta de varios pasos y el flujo actual de la CLC App y CLC Core no proporciona HTLC intercadena, rutas de depósito en garantía, reequilibrio automático de Fondos, compensación por lotes ni compensación entre redes.
 
 Este capítulo explica la ruta actual de los participantes y la distingue de la coordinación propuesta que requeriría nueva autoridad sobre los Fondos. En ambos casos, los Fondos independientes conservan sus propias reglas de admisión, valoración, límites, comisiones, inventario, autorización y gobernanza.
 
-### **5.1 Medidas separadas de intercambio y cumplimiento**
+## **5.1 Medidas separadas de intercambio y cumplimiento**
 
 El enrutamiento puede mejorar el acceso al inventario, pero no fusiona los ciclos de vida del vale y del intercambio. Las mediciones deben mantener estos eventos separados:
 
@@ -18,7 +18,7 @@ Más rutas citadas o ejecutadas no demuestran mayor cumplimiento. Los informes i
 
 **Ruta ilustrativa:** Una escuela tiene vales de maíz, pero necesita vales de transporte. CLC Core puede identificar inventarios compatibles de los Fondos, cotizar el camino seleccionado en un bloque fijado y preparar los llamados limitados para la billetera de la escuela. La ejecución solo tiene éxito si cada paso respeta los límites de su cotización, sus límites, comisiones, inventario, comportamientos admitidos y política. Los intercambios resultantes no prueban que ninguno de los emisores haya cumplido después sus compromisos relativos a los vales.
 
-### **5.2 Enrutamiento actual de los participantes y reequilibrio propuesto**
+## **5.2 Enrutamiento actual de los participantes y reequilibrio propuesto**
 
 Dos actividades requieren autoridad diferente.
 
@@ -32,7 +32,7 @@ El reequilibrio sería voluntario. Un Fondo puede permitir rutas ordinarias de p
 
 La ejecución intercadena mediante HTLC o depósito en garantía también es distinta del lote atómico actual en la misma cadena. Requeriría adoptar reglas sobre plazos, cancelación, controladores, recuperación y riesgo residual.
 
-#### **5.2.1 Confederación y interoperabilidad**
+### **5.2.1 Confederación y interoperabilidad**
 
 Las implementaciones independientes pueden operar sus propios registros, interfaces, servicios de rutas y perfiles de políticas mientras eligen datos compatibles y estándares de recepción. La aplicación pública actual utiliza su perfil de servicio y registro configurado. La ejecución de perfiles cruzados sigue dependiendo del despliegue.
 
@@ -46,7 +46,7 @@ Un perfil compatible:
 
 La compatibilidad puede aumentar las vías de intercambio disponibles y reducir la dependencia de un registro o operador. No responsabiliza a la red, CLC App, GEF ni a otro grupo por el cumplimiento de un emisor.
 
-### **5.3 Modelo propuesto de red y tarifa de servicio**
+## **5.3 Modelo propuesto de red y tarifa de servicio**
 
 La Protocol v1.1.0 actual cobra una cuota de fondo y, cuando se configura, una cuota adicional de protocolo en un swap directo de fondo. Las tasas actuales siguen siendo distintas.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 Esta es una aproximación analítica, no una promesa de ingresos. Cada entrada requiere una cohorte, período, unidad, sello de tiempo de valoración, exclusiones y políticas de corrección establecidas.
 
-#### **5.3.1 Recibos en efectivo elegibles y en especie**
+### **5.3.1 Recibos en efectivo elegibles y en especie**
 
 Las tarifas pueden llegar en activos fúngicos elegibles en efectivo o en vales y otros activos en especie. Los recibos en especie no pueden pagar automáticamente los gastos en efectivo o los reclamos de cobertura. Cualquier intercambio o conversión requeriría autoridad, inventario disponible, lugares revelados, límites y ejecución real.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 El análisis presupuestario y de equilibrio de ruptura utilizarían `F_cash` realizado, no las tarifas brutas cotizadas ni el valor nominal del inventario en especie. Un futuro programa informaría por separado de los honorarios brutos del grupo, de los ingresos de la red, de los honorarios de servicios, de la composición de los activos, de los resultados de la conversión y de los ingresos utilizables en efectivo.
 
-### **5.4 Programas de liquidez propuestos**
+## **5.4 Programas de liquidez propuestos**
 
 Un futuro programa de liquidez, documentado por separado, podría asignar activos a Fondos designados o servicios de enrutamiento. Los contratos actuales de `SwapPool` no acuñan acciones de Fondo ni crean automáticamente derechos de reembolso, retiro, recompensa, gobernanza o beneficio.
 

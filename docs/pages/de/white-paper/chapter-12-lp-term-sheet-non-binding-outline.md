@@ -1,4 +1,4 @@
-## **12. Das vorgeschlagene Liquiditätsprogramm-Durchlaufblatt (nicht verbindliche Konzeption)**
+# 12. Das vorgeschlagene Liquiditätsprogramm-Durchlaufblatt (nicht verbindliche Konzeption)
 
 Dies ist eine illustrative Checkliste für ein zukünftiges, separat dokumentiertes Programm. Es ist kein Angebot, ein aktuelles App-Feature oder ein Versprechen über Liquidität, Zugang, Versicherung, Rendite, Wert oder Ausstieg.
 

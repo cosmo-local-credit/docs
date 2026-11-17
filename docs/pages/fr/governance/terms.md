@@ -51,7 +51,7 @@ Dans les présentes conditions:
 
 ## 2. Acceptation et portée
 
-L'Application actuelle n'enregistre pas une acceptation affirmative des présentes Conditions lors de la création du Compte. Dans la mesure où la loi applicable le permet, vous acceptez ces Conditions en créant ou en utilisant un Compte ou en continuant à utiliser l'Application après l'entrée en vigueur d'une mise à jour notifiée. Lorsque la loi applicable exige une acceptation ou une réacceptation affirmative, GEF présentera un contrôle d'acceptation avant de permettre la poursuite de l'utilisation des fonctionnalités du compte concerné. Le simple fait de consulter les présentes Conditions sans créer ou utiliser un Compte ne constitue pas en soi un accord.
+L’Application actuelle présente un contrôle d’acceptation explicite lors des parcours d’inscription pris en charge et avant qu’un Utilisateur ne publie un Bon d’échange ou un Bassin. Le fait de sélectionner ce contrôle et de poursuivre le parcours concerné indique l’acceptation des présentes Conditions. L’Application peut exiger qu’un Utilisateur accepte ou accepte de nouveau les Conditions en vigueur avant de pouvoir continuer à utiliser les fonctionnalités concernées. Lorsqu’un parcours ne conserve pas de preuve d’acceptation durable et propre à la version, vous acceptez également, dans la mesure permise par le droit applicable, les présentes Conditions en créant ou en utilisant un Compte, ou en continuant à utiliser l’Application après l’entrée en vigueur d’une mise à jour notifiée. Le simple fait de consulter les présentes Conditions sans créer ni utiliser de Compte ne constitue pas, à lui seul, un accord.
 
 Si vous n'êtes pas d'accord, ne créez pas de compte et n'utilisez pas l'application. Si vous acceptez pour une organisation, vous représentez que vous avez l'autorité de la lier. Dans ce cas,**Vous !** Elle inclut à la fois vous et l'organisation lorsque le contexte le permet.
 
@@ -152,7 +152,7 @@ Le titulaire doit lire les conditions du bon d’échange, évaluer l'émetteur 
 
 Si un destinataire modifie, reemballe ou redistribue une offre lorsque les conditions de l'émetteur le permettent, ce destinataire doit identifier avec précision les modifications importantes, conserver les justificatifs de provenance et de source requis, transmettre les conditions applicables et éviter de laisser entendre que l'émetteur initial ou GEF a approuvé l'offre modifiée.
 
-L’étiquette **« Retire voucher »** de l’application désigne le retrait réversible d’une fiche du catalogue. Cette action ne détruit ni n’annule les soldes, n’achève pas l’exécution ou la décharge et n’éteint pas les engagements encore dus par l’émetteur.
+L’étiquette **« Demander le retrait »** de l’Application permet au propriétaire actuel de demander à un administrateur de retirer un Bon d’échange. Le Bon d’échange reste actif tant que la demande est en attente. Le propriétaire peut annuler une demande en attente, et un administrateur peut l’approuver ou la rejeter. Une fois approuvé, le retrait supprime le Bon d’échange des usages actifs du catalogue, mais ne supprime ni son contrat, ni ses soldes, ni son historique de transactions, ni les engagements encore dus ; il ne constitue ni l’Exécution ni la Décharge et ne détruit ni n’annule les soldes. Un administrateur peut ensuite rétablir la fiche du catalogue lorsque la procédure applicable le permet.
 
 ## 10. Création et exploitation d'une réserve
 
@@ -176,6 +176,8 @@ L'intendant doit garder ces informations exactes, les appliquer systématiquemen
 Un administrateur ne doit pas utiliser un bassin pour faire des demandes de rendement trompeuses, dissimuler des services financiers illégaux, se soustraire à la protection des salaires ou de l'emploi, manipuler les prix ou l'activité, dissimuler la source ou l'utilisation des actifs, permettre des comportements interdits ou promettre un versement public, une convertibilité, une liquidité ou une protection contre les pertes qu'il ne peut pas fournir.
 
 GEF peut définir des normes minimales d'inscription, de sécurité, de divulgation ou techniques et peut refuser, suspendre, signaler ou supprimer un bassin d'un registre exploité par une application. Le statut du registre est conditionnel et ne constitue pas une garantie GEF.
+
+La procédure **« Demander le retrait »** de l’Application s’applique également à un Bassin. Le Bassin reste actif tant que la demande est en attente. Après approbation, l’Application et le service d’assistance bloquent les nouveaux échanges et dépôts dans le Bassin tout en maintenant possibles les retraits disponibles. Le retrait ne supprime ni le contrat du Bassin, ni les règlements antérieurs, ni les soldes, ni les obligations en cours, ni les droits et devoirs distincts prévus par les règles du Bassin.
 
 L'administrateur, le propriétaire du bassin, l'administrateur par procuration, les contrôleurs de dépendance, le modérateur de catalogue et les bénéficiaires de frais peuvent être des parties différentes. Les informations communiquées par les groupes doivent identifier chaque autorité pertinente. Le pouvoir d'un contrôleur technique ne fait pas de lui-même de cette partie l'intendant ni ne transfère les obligations de l'intendant.
 
@@ -273,6 +275,8 @@ L'activité de la blockchain publique peut exposer une adresse de portefeuille, 
 GEF conserve les informations aussi longtemps que raisonnablement nécessaire aux fins susmentionnées, y compris la sécurité, la prévention des fraudes, les preuves de transactions, les obligations légales, les délais de prescription, les sauvegardes et la résolution des différends. La conservation ne permet pas à GEF de supprimer les informations détenues par un réseau public ou un tiers.
 
 Sous réserve de la législation applicable, vous pouvez demander l'accès, la correction, la suppression, la restriction, l'opposition, la portabilité ou d'autres droits de données disponibles en communiquant avec `privacy@grassecon.org`. GEF utilise des garanties raisonnables mais ne peut pas promettre une sécurité ou une confidentialité absolue, en particulier pour l'activité publique de la blockchain et les informations que vous publiez.
+
+L’[Avis de confidentialité de la CLC App](/fr/governance/privacy) explique les champs propres à l’Application ainsi que les limites entre informations publiques et privées. La [Politique de protection des données](/fr/governance/data-protection) décrit les normes plus générales de gouvernance des données de GEF.
 
 ## 18. Modification du service, suspension et résiliation
 

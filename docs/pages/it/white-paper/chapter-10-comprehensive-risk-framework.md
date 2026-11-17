@@ -1,8 +1,8 @@
-## **10. Quadro completo dei rischi**
+# 10. Quadro completo dei rischi
 
 Questo quadro proposto separa dieci categorie di rischio. Per ciascuna categoria si identificano possibili indicatori, controlli, test di stress e un appetito di rischio indicativo. Si tratta di raccomandazioni di progettazione, non di affermazioni che ogni controllo sia implementato, efficace o sufficiente. Limiti, riserve, garanzie, monitoraggio, copertura e governance non possono eliminare le perdite.
 
-### **10.1 Protocollo e rischio per contratti intelligenti**
+## **10.1 Protocollo e rischio per contratti intelligenti**
 
 - **minacce:** bug del contratto, errori di aggiornamento, errori di dipendenza e limiti o commissioni configurati erroneamente.
 - **Indicatori:** i risultati dell'audit, movimenti di inventario inspiegabili, fallimenti invarianti e inversioni insolite.
@@ -10,7 +10,7 @@ Questo quadro proposto separa dieci categorie di rischio. Per ciascuna categoria
 - **Test dello stress:** non disponibili quote o limitazioni di dipendenza, carenze di inventario, contratti in pausa e traffico irrisolto.
 - **L'appetito per rischi:** bassi prima di ridurre i volumi di obbligazioni in sospeso o di scambi.
 
-### **10.2 Rischio economico e di mercato**
+## **10.2 Rischio economico e di mercato**
 
 - **minacce:** inventario sottile, flussi unilaterali, ritiri rapidi e riferimenti sui prezzi manipolati o obsoleti.
 - **Indicatori:** L'utilizzo del bilanciamento dei token del fondo è elevato, le differenze di quote aumentano, i rifiuti frequenti dei limiti e l'inventario concentrato.
@@ -18,7 +18,7 @@ Questo quadro proposto separa dieci categorie di rischio. Per ciascuna categoria
 - **Test dello stress:** notevoli spostamenti dei prezzi di riferimento, aumenti di presentazione, richieste di prelievo e interruzioni delle fonti di dati.
 - **L'appetito per rischi:** moderazione solo entro i parametri pubblicati e la capacità di copertura delle perdite finanziata.
 
-### **10.3 Rischio dell'emittente e del buono**
+## **10.3 Rischio dell'emittente e del buono**
 
 - **minacce:** l'emissione oltre la capacità di soddisfazione, il default dell'emittente, le condizioni fuorvianti e le finestre di disponibilità o di presentazione poco specificate.
 - **Indicatori:** diminuzione dei tassi di adempimento confermati, invecchiamento dei buoni in sospeso, reclami irrisolti e esposizione concentrata a un emittente.
@@ -26,7 +26,7 @@ Questo quadro proposto separa dieci categorie di rischio. Per ciascuna categoria
 - **Test dello stress:** l'insolvenza dell'emittente, gli shock di produzione regionali, i crediti contraffatti e i ritardi prolungati nell'adempimento.
 - **L'appetito per rischi:** diminuire con l'aumento della concentrazione dell'emittente o dell'offerta.
 
-### **10.4 Rischio di presentazione del rimborso e di adempimento**
+## **10.4 Rischio di presentazione del rimborso e di adempimento**
 
 - **minacce:** presentazione invalida o duplicata, capacità insufficiente dell'emittente, stanziamenti, guasti logistici e mancate registrazioni di estinzione.
 - **Indicatori:** la latenza per l'adempimento delle richieste, le presentazioni fallite o in controversia, le scorte, gli arretrati dei biglietti e le unità soddisfatte che non hanno ricevuto il estinzione.
@@ -34,7 +34,7 @@ Questo quadro proposto separa dieci categorie di rischio. Per ciascuna categoria
 - **Test dello stress:** volume di presentazione da due a quattro volte, interruzioni delle strutture, guasti dei fornitori e tentativi di doppio utilizzo.
 - **L'appetito per rischi:** bassi se sono coinvolti beni essenziali, partecipanti vulnerabili o lunghe finestre di realizzazione.
 
-### **10.5 Rischio di governance**
+## **10.5 Rischio di governance**
 
 - **minacce:** Capture steward o controller, cambiamenti di parametri precipitati, conflitti di interesse, poteri tecnici nascosti e deboli appelli.
 - **Indicatori:** l'autorità concentrata, le azioni di emergenza frequenti, i cambiamenti di politica inspiegabili e le ripetute sovrapposizioni.
@@ -44,7 +44,7 @@ Questo quadro proposto separa dieci categorie di rischio. Per ciascuna categoria
 
 Per una futura implementazione del token governance CLC proposto, il test di cattura includerà l'accumulo seguito da tentativi di riorientare i bilanci, indebolire gli standard di registro, approvare i mandati delle parti correlate o esaurire la copertura finanziata. Le possibili garanzie includono blocchi di governance, soglie più elevate per le azioni critiche, ritardo nell'esecuzione, controllo trasparente delle delegazioni e delle concentrazioni, un processo di incidente e una procedura credibile di forcamento e di uscita. Nessuno è rappresentato come dispiegato semplicemente apparendo qui.
 
-### **10.6 Rischio legale e di conformità**
+## **10.6 Rischio legale e di conformità**
 
 - **minacce:** un buono, un servizio, una promozione o un bene di governance che riceve un trattamento normativo inaspettato; fallimenti nella protezione dei consumatori; il riciclaggio di denaro o l'esposizione a sanzioni; e restrizioni transfrontaliere.
 - **Indicatori:** le bandiere di giurisdizione, le indagini dei regolatori, i reclami, le partite limitate e la divergenza tra il comportamento pubblicizzato e quello effettivo.
@@ -52,7 +52,7 @@ Per una futura implementazione del token governance CLC proposto, il test di cat
 - **Test dello stress:** una restrizione giurisdizionale, la chiusura del fornitore, la riclassificazione obbligatoria e un ordine di sospensione di una caratteristica o di una classe di attività.
 - **L'appetito per rischi:** basso; limitare o interrompere l'attività non supportata.
 
-#### 10.6.1 Posizionamento giuridico e trattamento del token proposto
+### 10.6.1 Posizionamento giuridico e trattamento del token proposto
 
 1. **Infrastrutture verificabili:** I contratti Protocol v1.1.0 sono compatibili con EVM- e la loro fonte è pubblicata in base alle licenze e alle eccezioni di terzi identificate nel repository del protocollo. La pubblicazione consente la revisione, ma non dimostra in sé un audit, un'implementazione sicura o la conformità alla legge. Ogni implementazione dovrebbe divulgare la sua versione di codice, la provenienza della costruzione, gli indirizzi, i poteri del controllore e lo stato di audit.
 2. **Proposta postura del token:** nel presente progetto, il token governance CLC proposto coordinerebbe la governance e l'accesso alle politiche. Non creerebbe dividendi, ripartizione dei profitti, diritti residui o garanzia di valore o liquidità.
@@ -61,7 +61,7 @@ Per una futura implementazione del token governance CLC proposto, il test di cat
 5. **Controlli di giurisdizione:** una implementazione potrebbe richiedere il geofencing di interfaccia, le certificazioni per le classi limitate, i limiti di promozione, la revisione specifica dell'attività o i controlli che interrompono una caratteristica proposta.
 6. **Avviso del partecipante:** le condizioni adottate spiegherebbero quando l'accesso può essere ridotto o disabilitato per ragioni legali, operative o di rischio e se si applica alcuna compensazione o rimedio.
 
-### **10.7 Rischio di routing e di cross-domain**
+## **10.7 Rischio di routing e di cross-domain**
 
 - ** Attuali minacce della stessa catena:** dati di scoperta obsoleti, inventario insufficiente, modifiche del limite o dell'ammissione, scadenza della quotazione, portafogli o dipendenze non supportati, guasto della simulazione, errore del relè, riorganizzazione della catena e inflazione del percorso.
 - **Controlli e prove attuali:** quotazioni autorevoli in blocchi fissati, simulazione di lotti completi, uscite minime per salto e scadenze, un lotto Calibur firmato con `revertOnFailure`, ricevute raggruppate deterministiche, riconciliazione e codici di guasto espliciti. Tali controlli riducono i rischi di esecuzione selezionati, ma non garantiscono la disponibilità o l'adempimento da parte dell'emittente.
@@ -71,21 +71,21 @@ Per una futura implementazione del token governance CLC proposto, il test di cat
 - **Prove di stress:** stato di grafico obsoleto, interruzione della dipendenza, un salto fallito nel lotto atomico corrente, una riorganizzazione della catena e — per un futuro percorso cross-domain — un arresto del ponte o escrow scaduto.
 - **L'appetito per rischi:** bassi a moderati solo per le dipendenze identificate e monitorate.
 
-### **10.8 Rischio di custodia e gestione delle chiavi**
+## **10.8 Rischio di custodia e gestione delle chiavi**
 
 - **minacce:** chiavi perdute o compromesse, collusione del firmatario e non chiara autorità di recupero o di amministrazione.
 - **Indicatori:** le firme anomali, le modifiche del controller, le rotazioni fallite e i ritiri insoliti.
 - **Possibili controlli:** autorizzazione multisig o soglia; chiavi supportate da hardware; separazione dei ruoli; rotazione del signatore; gli inventari dei controllori pubblici; i limiti di ritiro monitorati; e procedure di recupero testate.
 - **L'appetito per rischi:** basso.
 
-### **10.9 Rischio sociale e reputazione**
+## **10.9 Rischio sociale e reputazione**
 
 - **minacce:** affermazioni fuorvianti, incentivi nocivi, reclami inaccessibili, scarse esperienze di soddisfazione, fallimenti della privacy e protezioni che favoriscono gli addetti all'interno.
 - **Indicatori:** reclami per coorte, controversie irrisolte, tendenze di performance degli emittenti, concentrazione di benefici o perdite e feedback della comunità.
 - **Possibili controlli:** le informazioni comunicate in lingua semplice; i percorsi di denuncia e correzione; prove accessibili; la segnalazione trasparente; revisione degli incidenti; e sanzioni proporzionate per la falsità.
 - **L'appetito per rischi:** L'obiettivo del programma è quello di promuovere l'accesso alle comunità interessate e ai partecipanti vulnerabili.
 
-### **10.10 Rischio di concentrazione e frammentazione**
+## **10.10 Rischio di concentrazione e frammentazione**
 
 - **minacce:** dipendenza da un piccolo numero di emittenti, fondo, responsabili del trattamento, fornitori, reti o forch incompatibili.
 - **Indicatori:** misure di concentrazione da parte dell'emittente, del gruppo, dell'inventario, del titolare del trattamento o del fornitore di servizi; errori di rotta tra i cluster; e dipendenze singole critiche.

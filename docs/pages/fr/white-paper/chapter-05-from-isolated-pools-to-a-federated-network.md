@@ -1,10 +1,10 @@
-## **5. Des bassins isolés à un réseau fédéré**
+# 5. Des bassins isolés à un réseau fédéré
 
 Le protocole v1.1.0 actuel prend en charge l'exécution directe au moyen d'un `SwapPool` et fournit un `SwapRouter` Solidity qui calcule uniquement des cotations. L'application CLC de production et CLC Core coordonnent des itinéraires sur une même chaîne, initiés par les participants et traversant jusqu'à trois Bassins, en préparant un seul lot signé par le portefeuille Calibur. Les contrats n'exécutent pas eux-mêmes un itinéraire à plusieurs étapes, et le flux actuel de l'application et de CLC Core ne fournit ni HTLC interchaînes, ni itinéraires d'entiercement, ni rééquilibrage automatique des Bassins, ni compensation par lots, ni compensation entre réseaux.
 
 Ce chapitre explique l'itinéraire actuel des participants et le distingue de la coordination proposée qui nécessiterait une nouvelle autorité du Bassin. Dans les deux cas, les Bassins indépendants conservent leurs propres règles d'admission, de valorisation, de limite, de redevance, d'inventaire et d'autorisation ainsi que leurs règles de gouvernance.
 
-### **5.1 Mesures d'échange et d'exécution distinctes**
+## **5.1 Mesures d'échange et d'exécution distinctes**
 
 Le routage peut améliorer l'accès à l'inventaire, mais il ne fusionne pas les cycles de vie du bon et de l'échange. Les mesures doivent distinguer les événements suivants :
 
@@ -18,7 +18,7 @@ Plus d'itinéraires cités ou exécutés ne prouvent pas plus d'exécution. Les 
 
 **Itinéraire illustratif :** Une école détient des bons de maïs mais a besoin de bons de transport. CLC Core peut identifier les inventaires de Bassin compatibles, coter le chemin sélectionné à un bloc déterminé et préparer les appels bornés pour le portefeuille de l'école. L'exécution ne réussit que si chaque étape respecte les bornes de sa cotation, ses limites, ses frais, son inventaire, les comportements pris en charge et sa politique. Les échanges qui en résultent ne prouvent pas que l'un ou l'autre émetteur a ensuite honoré ses engagements liés aux bons.
 
-### **5.2 Routage actuel des participants et rééquilibrage proposé**
+## **5.2 Routage actuel des participants et rééquilibrage proposé**
 
 Deux activités nécessitent une autorité différente.
 
@@ -32,7 +32,7 @@ Le rééquilibrage serait facultatif. Un Bassin peut autoriser les itinéraires 
 
 L'exécution interchaînes par HTLC ou entiercement est également distincte du lot atomique actuel sur une même chaîne. Elle nécessiterait l'adoption de règles concernant les délais, l'abandon, le contrôleur, la récupération et le risque résiduel.
 
-#### **5.2.1 Confédération et interopérabilité**
+### **5.2.1 Confédération et interopérabilité**
 
 Les déploiements indépendants peuvent exploiter leurs propres registres, interfaces, services d'itinéraire et profils de politique tout en choisissant des normes de données et de réception compatibles. L'application publique actuelle utilise son registre et son profil de service configurés. L'exécution entre profils reste dépendante du déploiement.
 
@@ -46,7 +46,7 @@ Un profil compatible devrait:
 
 La compatibilité peut augmenter les voies d'échange disponibles et réduire la dépendance à l'égard d'un registre ou d'un opérateur. Il ne rend pas le réseau, CLC App, GEF ou un autre bassin responsable de l'exécution par un émetteur.
 
-### **5.3 Modèle proposé de redevance réseau et de redevance de service**
+## **5.3 Modèle proposé de redevance réseau et de redevance de service**
 
 L'actuel Protocol v1.1.0 facture une redevance de bassin et, lorsqu'il est configuré, une redevance de protocole supplémentaire sur un échange direct de bassin. Ces frais courants restent distincts.
 
@@ -83,7 +83,7 @@ F ≈ τ · Q_swap
 
 C'est une approximation analytique, pas une promesse de revenus. Chaque entrée nécessite une cohorte, une période, une unité, un calendrier d'évaluation, des exclusions et une politique de correction.
 
-#### **5.3.1 Récettes éligibles en espèces et en nature**
+### **5.3.1 Récettes éligibles en espèces et en nature**
 
 Les redevances peuvent être versées sous forme d'actifs fongibles éligibles à la liquidité ou sous forme de bons d’échange et d'autres actifs en nature. Les reçus en nature ne peuvent pas automatiquement payer les dépenses en espèces ou les créances de couverture. Tout échange ou conversion nécessiterait une autorisation, un inventaire disponible, des lieux divulgués, des limites et une exécution effective.
 
@@ -93,7 +93,7 @@ F_cash ≈ χ · F
 
 L'analyse du budget et du rendement net utiliserait `F_cash` réalisé, et non les frais bruts cotés ou la valeur nominale de l'inventaire en nature. Un programme futur déclarerait séparément les frais bruts de bassin, les recettes de réseau, les frais de service, la composition des actifs, les résultats de conversion et les recettes utilisables en espèces.
 
-### **5.4 Programmes de liquidité proposés**
+## **5.4 Programmes de liquidité proposés**
 
 Un futur programme de liquidité documenté séparément pourrait allouer des actifs à des bassins désignés ou à des services de routage. Les contrats actuels `SwapPool` ne frappent pas d'actions de bassin ni ne créent automatiquement de droits de remboursement, de retrait, de récompense, de gouvernance ou de bénéfice.
 

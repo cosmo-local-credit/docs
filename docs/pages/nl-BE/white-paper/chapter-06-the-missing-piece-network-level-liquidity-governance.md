@@ -1,4 +1,4 @@
-## **6. Voorgestelde liquiditeit en governance op netwerkniveau**
+# 6. Voorgestelde liquiditeit en governance op netwerkniveau
 
 De ervaring van de historische Sarafu Network motiveerde onderzoek naar twee bredere ontwerpvragen:
 
@@ -7,7 +7,7 @@ De ervaring van de historische Sarafu Network motiveerde onderzoek naar twee bre
 
 Eén voorgesteld CLC-ontwerp introduceert een **voorgesteld CLC Network Pool** als regeling voor netwerkbrede clearing en begrotingscoördinatie, en een **voorgestelde CLC-governancetoken**. Geen van beide bestaat in de huidige App of Protocol v1.1.0. Andere implementaties kunnen coöperaties, overheidsinstanties, federaties, multisigs, dienstverleners of andere verantwoordelijke structuren gebruiken zonder een van beide voorstellen over te nemen.
 
-### **6.1 Downside-controles en optionaliteit**
+## **6.1 Downside-controles en optionaliteit**
 
 De huidige Protocol v1.1.0 kan Fonds token-balans caps en voorraadcontroles toepassen. Deze controles beperken geselecteerde contractuele acties; ze voorkomen niet dat de uitgever niet presteert, waardeverlies, sleutelverlies of elk ander verlies.
 

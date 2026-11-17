@@ -1,4 +1,4 @@
-## **13. Plain-language glossary**
+# 13. Plain-language glossary
 
 - **Cosmo-Local Credit (CLC):** The product family, including the CLC App, documentation, and wider commitment-pooling work.
 - **CLC App:** The progressive web app operated by GEF at `cosmolocal.credit`.

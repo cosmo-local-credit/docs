@@ -49,7 +49,7 @@ In these Terms:
 
 ## 2. Acceptance and scope
 
-The current App does not record an affirmative acceptance of these Terms during Account creation. To the extent applicable law permits, you accept these Terms by creating or using an Account or by continuing to use the App after a notified update takes effect. Where applicable law requires affirmative acceptance or reacceptance, GEF will present an acceptance control before allowing continued use of the affected Account features. Merely viewing these Terms without creating or using an Account does not by itself create an agreement.
+The current App presents an affirmative acceptance control during supported Account onboarding and before a User publishes a Voucher or Pool. Selecting that control and continuing the relevant flow indicates acceptance of these Terms. The App may require a User to accept or reaccept the current Terms before allowing continued use of affected features. Where a flow does not retain a durable, version-specific acceptance record, then, to the extent applicable law permits, you also accept these Terms by creating or using an Account or by continuing to use the App after a notified update takes effect. Merely viewing these Terms without creating or using an Account does not by itself create an agreement.
 
 If you do not agree, do not create an Account or use the App. If you are accepting for an organization, you represent that you have authority to bind it. In that case, **you** includes both you and the organization where the context permits.
 
@@ -150,7 +150,7 @@ A Holder must read the Voucher terms, assess the Issuer and offering, follow the
 
 If a recipient modifies, repackages, or redistributes an offering where the Issuer's terms permit it, that recipient must accurately identify material changes, preserve required provenance and source acknowledgments, pass on applicable conditions, and avoid implying that the original Issuer or GEF approved the modified offering.
 
-The App label **“Retire voucher”** means reversible catalog unlisting. It does not burn or cancel balances, complete Fulfillment or Discharge, or extinguish the Issuer's outstanding commitments.
+The App label **“Request retirement”** lets the current owner ask an administrator to retire a Voucher. The Voucher remains active while the request is pending. The owner may cancel a pending request, and an administrator may approve or reject it. Approved retirement removes the Voucher from active catalog use but does not delete its contract, balances, transaction history, or outstanding commitments; complete Fulfillment or Discharge; or burn or cancel balances. An administrator may later restore the catalog record where the applicable process permits.
 
 ## 10. Creating and operating a Pool
 
@@ -174,6 +174,8 @@ The Steward must keep these disclosures accurate, enforce them consistently, doc
 A Steward must not use a Pool to make deceptive return claims, disguise unlawful financial services, evade wage or employment protections, manipulate prices or activity, conceal the source or use of assets, enable prohibited conduct, or promise public cash-out, convertibility, liquidity, or loss protection that it cannot deliver.
 
 GEF may set minimum listing, safety, disclosure, or technical standards and may decline, suspend, flag, or remove a Pool from an App-operated registry. Registry status is conditional and is not a GEF guarantee.
+
+The App's **“Request retirement”** process also applies to a Pool. The Pool remains active while the request is pending. After approval, the App and supporting service block new swaps and deposits while keeping available withdrawals possible. Retirement does not delete the Pool contract, prior settlements, balances, outstanding obligations, or any separate rights and duties under the Pool's rules.
 
 The Steward, Pool owner, proxy administrator, dependency controllers, catalog moderator, and fee recipients may be different parties. Pool disclosures must identify each material authority. A Technical Controller's power does not by itself make that party the Steward or transfer the Steward's obligations.
 
@@ -271,6 +273,8 @@ Public blockchain activity may expose a Wallet address, assets, amounts, timesta
 GEF retains information for as long as reasonably needed for the purposes above, including security, fraud prevention, transaction evidence, legal duties, limitation periods, backups, and dispute resolution. Retention does not make GEF able to delete information held by a public network or third party.
 
 Subject to applicable law, you may request access, correction, deletion, restriction, objection, portability, or other available data rights by contacting `privacy@grassecon.org`. GEF uses reasonable safeguards but cannot promise absolute security or confidentiality, particularly for public blockchain activity and information you publish.
+
+The [CLC App Privacy Notice](/governance/privacy) explains App-specific fields and public/private boundaries. The [Data Protection Policy](/governance/data-protection) describes GEF's wider data-governance standards.
 
 ## 18. Service changes, suspension, and termination
 

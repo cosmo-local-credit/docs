@@ -1,4 +1,4 @@
-## **14. KPI's en gezondheidsindicatoren**
+# 14. KPI's en gezondheidsindicatoren
 
 Een inzet dient een KPI alleen te publiceren wanneer zij de gebeurtenis, bron, cohorte of periode, eenheid, waarderingsmethode en tijdstempel, uitsluitingen, correctiebeleid, off-chain bewijsmateriaal en beperkingen van de gegevenskwaliteit kan definiëren.
 

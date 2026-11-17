@@ -1,4 +1,4 @@
-##  Lista de verificación de la sala de datos
+#  Lista de verificación de la sala de datos
 
 1. **Prueba histórica Sarafu Network**
    - El volumen de swap, las definiciones de usuario activo y de activos, los incidentes, las presentaciones de canje, los vales de envejecimiento, el cumplimiento confirmado, la descarga, las medidas de duración de la retención, los períodos, las exclusiones y la metodología separados de las métricas actuales de Cosmo-Local Credit.

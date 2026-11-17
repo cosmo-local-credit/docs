@@ -1,4 +1,4 @@
-## **14. KPI और स्वास्थ्य संकेतक**
+# 14. KPI और स्वास्थ्य संकेतक
 
 Deployment को KPI तभी प्रकाशित करना चाहिए जब वह event, source, cohort या period, unit, valuation method और timestamp, exclusions, correction policy, off-chain evidence और data-quality limits परिभाषित कर सके।
 

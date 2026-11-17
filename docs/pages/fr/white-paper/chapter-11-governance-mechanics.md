@@ -1,4 +1,4 @@
-## **11. Mécanismes de gouvernance**
+# 11. Mécanismes de gouvernance
 
 Ce chapitre propose un modèle de gouvernance. Il ne représente pas que l'actuel CLC App utilise le vote par jeton de gouvernance, les timelocks, l'assurance partagée, un processus de réclamation ou tous les contrôles décrits ci-dessous. Chaque déploiement devrait identifier ses véritables décideurs, autorités, contrats, processus et politiques.
 
@@ -21,7 +21,7 @@ Les règles du registre publiées devraient rendre le statut conditionnel et peu
 
 La liste interdite serait modifiée, vérifiable publiquement et modifiable uniquement au moyen du seuil et du délai d'action critique adoptés, illustrés par Q3 + T3 à l'appendice D.
 
-### **11.1 Gouvernance des taux de change et des limites**
+## **11.1 Gouvernance des taux de change et des limites**
 
 **Les changements sont temporaires.** Un déploiement suivant ce modèle ne modifierait les méthodes de taux de change et ne mettrait en œuvre séparément les paramètres limites qu'après un délai public. Une voie d'urgence utiliserait un processus d'autorisation divulgué séparément et inclurait un coucher du soleil ou un examen automatique.
 
@@ -42,7 +42,7 @@ La liste interdite serait modifiée, vérifiable publiquement et modifiable uniq
 - **Le raisonnement:** des notes publiées et un enregistrement des modifications par rapport à la mise à jour précédente.
 - **Les signataires:** les adresses multi-signales et le seuil d'approbation communiqués.
 
-### **11.2 Compte-rendu proposé des fonds d'assurance**
+## **11.2 Compte-rendu proposé des fonds d'assurance**
 
 **Design facultatif uniquement.** Ce répertoire s'applique uniquement à un déploiement qui a expressément adopté et financé un fonds d'assurance et publié les événements couverts, les demandeurs admissibles, l'entité responsable, les actifs, les limites, les exclusions, les exigences de preuve, le processus et les modalités. Ni l'actuel CLC App ni l'actuel GEF ne fournissent une couverture simplement parce que ce dessin apparaît dans le livre blanc.
 
@@ -63,7 +63,7 @@ Un ajustement de couverture ne réduit pas l'engagement de bon d’échange sous
 3. un plan de redressement pourrait appliquer une part déterminée de la valeur récupérée pour une période déterminée, après laquelle tout déficit restant couvert deviendrait une perte enregistrée avec un post-mortem public ; et
 4. Chaque décision produirait un reçu avec l'incident ID, les réclamations et les bons d’échange affectés, la décision, le plan de redressement et la fenêtre d'appel.
 
-### **11.3 Cadre du garant**
+## **11.3 Cadre du garant**
 
 Cette section distingue la responsabilité de l'émetteur, les protections optionnelles de bassin et les garanties de tiers. Les bassins peuvent rivaliser sur la conservation, les conditions et les protections expressément offertes sans impliquer que le CLC App, CPP, GEF, ou tout autre réseau plus large garantit automatiquement un bon d’échange.
 
@@ -115,7 +115,7 @@ Pour chaque catégorie de bassin et de bon d’échange couvert couverte, la par
 
 **Principe de conservation.** Gestionnaires de Bassins et les structures juridiques ou de gouvernance responsables sont responsables des protections qu'ils annoncent. Un déploiement CPP-compatible peut fournir des normes, des registres ou des politiques partagées optionnelles, mais ni CLC ni GEF ne garantissent automatiquement des bons d’échange ou des Bassins.
 
-### **11.4 Garnitures anti-capture**
+## **11.4 Garnitures anti-capture**
 
 Dans le cadre de ce modèle, les actions critiques suivantes nécessiteraient le niveau d'approbation le plus élevé adopté et un délai plus long:
 
@@ -125,7 +125,7 @@ Dans le cadre de ce modèle, les actions critiques suivantes nécessiteraient le
 4. l'élargissement des pouvoirs de pause d'urgence; ou à
 5. L'objectif est d'améliorer l'efficacité et la transparence de la politique de l'Union en ce qui concerne la protection des consommateurs.
 
-### **11.5 Procédure de fourche et de sortie**
+## **11.5 Procédure de fourche et de sortie**
 
 Si la gouvernance était capturée ou si les valeurs dérivaient de manière significative, les communautés, Gestionnaires de Bassins et les opérateurs pourraient chercher à sortir en bifurquant la couche de gouvernance du réseau. La continuité des bassins et des bons d’échange sous-jacents dépendrait des contrats déployés, des clés, des interfaces, de l'infrastructure, des services fournis par des tiers et des obligations applicables.
 

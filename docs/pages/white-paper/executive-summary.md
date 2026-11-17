@@ -1,4 +1,4 @@
-## **Executive summary**
+# Executive summary
 
 The **Commitment Pooling Protocol (CPP)** describes how independently governed Commitment Pools can curate redeemable commitments, publish exchange-rate methods and limits, hold inventory, and enable accountable exchange. Issuers remain responsible for their voucher commitments. Pool Stewards remain responsible for Pool rules and any guarantee they expressly assume. Neither the CLC App nor GEF is a universal guarantor.
 
@@ -18,6 +18,8 @@ The historic **Sarafu Network** used commitment-pooling concepts across communit
 - 899 reports published ([historical reports archive](https://sarafu.network/reports))
 
 These figures are historical evidence, not current CLC usage figures.
+
+The figures reproduce the dashboard's published labels for one coherent measurement window. “User,” “active,” “exchange,” and the USD conversion for Pool swap volume depend on the underlying dashboard queries and valuation method; they should not be treated as universal CLC KPI definitions. This repository has not independently recomputed the dataset. Any reuse should preserve the dates, source link, labels, and historical qualification. The proposed measurement requirements in [Appendix C](/white-paper/appendix-c-kpi-definitions) are stricter for future reporting.
 
 The wider CLC design combines current routing with proposals for how compatible networks could:
 

@@ -1,4 +1,4 @@
-## **16. Proposed na template ng evaluation**
+# 16. Proposed na template ng evaluation
 
 Ang isang registry, pool, o future liquidity program ay maaaring umangkop sa template na ito.
 
