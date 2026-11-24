@@ -1,117 +1,148 @@
 # Mga konsepto at bokabularyo
 
-Pinag-uugnay ng Cosmo-Local Credit ang isang application, bukas na protocol, mga Pool na may sariling pamamahala, at mga pangako sa tunay na mundo na kinakatawan ng mga voucher. Magkakaugnay ang mga layer na ito, ngunit hindi sila iisang bagay.
+Iniuugnay ng Cosmo-Local Credit ang mga nag-aalok ng produkto o serbisyo, ang mga nangangailangan nito, at ang mga Pool ng Pangako na magkakahiwalay ang pamamahala at nagbibigay-daan sa pagpapalitan ng Voucher. Nagsisimula ang pahinang ito sa mga terminong makikita ng kalahok, bago ipaliwanag ang mga teknikal na bahagi sa likod ng mga ito.
 
-Nililinaw ng pahinang ito ang mga terminong ginagamit sa buong dokumentasyon. Nasa panipi ang eksaktong label ng App kapag maikli o maaaring malabo ang pangalan sa interface.
+Nasa panipi ang eksaktong label ng App kapag gumagamit ang interface ng mas maikli o posibleng malabong pangalan.
 
-## Mga layer ng produkto at protocol
+## Mga pang-araw-araw na termino
 
-| Termino | Kahulugan |
+| Termino | Payak na kahulugan |
 | --- | --- |
-| **Cosmo-Local Credit (CLC)** | Ang pamilya ng produkto: ang CLC App, dokumentasyon nito, at mas malawak na gawain sa commitment pooling. |
-| **CLC App** | Ang progressive web app sa [cosmolocal.credit](https://cosmolocal.credit). Pinapatakbo ng GEF ang interface na ito at ang mga sumusuportang serbisyo nito. |
-| **CLC Core** | Ang serbisyo ng suporta ng App para sa mga katalogo, indexed chain state, pagtuklas ng ruta, awtoritative na mga quote sa ruta, koordinasyon ng relay, at mga resibo ng palitan. Hindi ito isang matalinong kontrata o isang Tagapangasiwa ng Pool. |
-| **Commitment Pooling Protocol (CPP)** | Ang magagamit-muling modelo para sa curation, valuation, limitasyon, palitan, at pamamahalang may pananagutan. |
-| **Protocol v1.1.0** | Ang napatunayang pampublikong release ng mga smart contract na nakadokumento sa [sanggunian ng Protokol](/fil/protocol/overview). |
-| **Pool ng Pangako** | Isang kaayusang may pamamahala na pumipili ng mga asset, naglalathala ng mga patakaran, at nagpapahintulot ng palitan. **Pool** ang karaniwang pinaikling tawag. |
-| **`SwapPool`** | Ang kasalukuyang protocol contract na nagtataglay ng inventory ng token at nagsasagawa ng direktang palitan. Isa itong teknikal na bahagi ng Pool ng Pangako. |
-| **Solidity `SwapRouter`** | Ang quote-only contract ng Protocol v1.1.0 para sa isang ibinigay na multi-Pool path. Hindi ito nag-iingat ng asset o nagpapatupad ng ruta. |
-| **Application routing workflow** | Ang kasalukuyang proseso ng CLC App at CLC Core na naghahanap ng same-chain path, nagko-quote at nag-si-simulate nito, naghahanda at nagre-relay ng pinirmahang Wallet batch, at pinagsasama ang settlement ng mga Pool sa isang resibo. |
-| **Iminungkahing CLC governance token** | Isang disenyo para sa pamamahala sa hinaharap na nasa White Paper. Hindi ito kasalukuyang asset ng App o Protocol v1.1.0. |
-| **Iminungkahing CLC Network Pool** | Isang disenyo sa hinaharap para sa clearing at koordinasyon sa antas ng network. Hindi ito katulad ng kasalukuyang `SwapPool`. |
+| **Voucher** | Isang naililipat na pangako—na parang gift card—kung saan nangangako ang Tagapag-isyu ng tiyak na produkto, serbisyo, benepisyo, o ibang pagtupad ayon sa inilathalang mga tuntunin. |
+| **Tagapag-isyu** | Ang tao o organisasyong gumagawa ng Voucher at nananatiling responsable sa ipinapangako nito. |
+| **Offering** | Tala sa katalogo na naglalarawan sa produkto o serbisyong kaugnay ng Voucher. Nakatutulong ito upang matuklasan ang alok, ngunit hindi patunay ng availability o pagtupad. |
+| **Pangangailangan (Want)** | Inilathalang pahayag ng hinahanap ng kalahok. Hindi nito, sa sarili nito, tinatanggap ang Offering, inirereserba ang produkto, pinapahintulutan ang palitan, o nililikha ang obligasyon. |
+| **Pamilihan** | Katalogo ng App para sa pagtuklas ng mga Voucher, Pool, Offering, Pangangailangan, at ibang pampublikong impormasyon. Hindi ito awtomatikong lugar ng palitan, nagbebenta, pag-endorso, o garantiya. |
+| **Pool ng Pangako (Commitment Pool)** | Kaayusang may pamamahala na pumipili ng suportadong Voucher, naglalathala ng mga patakaran sa palitan, humahawak ng imbentaryo, at nagbibigay-daan sa palitan. Karaniwang **Pool** ang pinaikling tawag. |
+| **Tagapangasiwa ng Pool** | Ang tao, kooperatiba, pampublikong ahensiya, pederasyon, multisig, serbisyo, o ibang istrukturang may pananagutan sa paglalathala at pangangasiwa ng mga patakaran ng Pool. |
+| **Mayhawak** | Kalahok na kumokontrol sa balanse ng Voucher. Hindi patunay ng pagtupad, halagang cash, o garantiya ang paghawak nito. |
+| **Wallet** | Ang account at mga credential na ginagamit upang pahintulutan ang paglilipat ng token at mga palitan sa Pool. |
 
-## Mga token, voucher, at Offering
+Ang “miyembro ng komunidad” ay impormal na panlipunang tawag. Hindi ito, sa sarili nito, lumilikha ng pagtanggap, pagmamay-ari, pamamahala, pagbabayad, o ibang legal na karapatan.
 
-Ang **token** ay on-chain na balanse o digital asset. Maaaring itala ng mga mekanismo ng token ang supply, transfer, expiry, at burning, ngunit hindi sila, sa sarili nila, nangangako ng produkto, serbisyo, pagpapalit sa cash, o pagtubos.
+## Pagtuklas at pakikipag-ugnayan sa mga kalahok
 
-Ang **voucher** ay token o tala na inilalarawan ng tagapag-isyu bilang pangakong maaaring tubusin sa ilalim ng mga inilathalang tuntunin. Dapat tukuyin ng mga tuntuning iyon kung ano ang ipinangako, sino ang may pananagutan, saan at kailan ito maaaring iharap, mahahalagang limitasyon, at proseso ng pagtupad at reklamo.
+Tinutulungan ng Pamilihan ang mga tao na makahanap ng Voucher, Offering, Pangangailangan, at Pool. Ang pagkakalista ay nangangahulugang maipapakita ng App ang tala; hindi nito pinatutunayang tama ang impormasyon, may available na imbentaryo, o magtatagumpay ang transaksyon.
 
-Ang **Offering** ay tala sa catalog para sa mga produkto o serbisyong kaugnay ng voucher. Ang paglalathala ng Offering ay hindi nagmi-mint ng token, nagpapatunay ng availability, o nagpapakitang naganap na ang pagtupad.
+Maaaring maglathala ng Pangangailangan ang isang kalahok at makipag-ugnayan sa iba gamit ang available na contact o messaging feature. Ang contact request, mensahe, pag-uusap tungkol sa booking, o tugon sa Pangangailangan ay hindi, sa sarili nito:
 
-Apat na magkahiwalay na layer ang mga ito:
+- pagtanggap ng Voucher o Offering;
+- pagpapahintulot sa paglilipat o palitan sa Pool;
+- patunay ng paghahatid o kasiyahan;
+- pagtupad o discharge ng Voucher; o
+- paggawa sa GEF na partido sa kasunduan ng mga kalahok.
 
-1. token contract at mga balanse;
-2. pangalan at inilathalang tuntunin ng voucher;
+Ang mga Review ay pampublikong puna tungkol sa Voucher o Pool. Iba ang mga ito sa pribadong ebidensiya ng pagiging kwalipikado, due diligence ng operator, garantiya, o pagpapasyang natupad na ang pangako.
+
+## Mga Voucher, token, at Offering
+
+Ang **token** ay balanse sa blockchain o digital na asset. Maaaring itala ng mekanismo ng token ang supply, paglilipat, pag-expire, at pag-burn, ngunit hindi ito, sa sarili nito, pangako ng produkto, serbisyo, cash conversion, o pagtubos.
+
+Ang **Voucher** ay token o tala na inilalarawan ng Tagapag-isyu bilang pangakong maaaring tubusin ayon sa inilathalang mga tuntunin. Dapat tukuyin ng mga tuntunin ang ipinapangako, ang responsable, saan at kailan ito maihaharap, mahahalagang limitasyon, at proseso ng pagtupad at reklamo.
+
+Ang **Offering** ay tala sa katalogo ng produkto o serbisyong kaugnay ng Voucher. Sa karaniwang pangungusap, ang “alok” ay isang bagay na iminumungkahi ng kalahok; **Offering** ang pangalan ng tala sa App.
+
+Panatilihing magkahiwalay ang apat na bahaging ito:
+
+1. ang token contract at mga balanse;
+2. ang pagtatalaga bilang Voucher at ang inilathalang mga tuntunin;
 3. isa o higit pang tala ng Offering; at
-4. aktuwal na pagtupad ng tagapag-isyu.
+4. ang aktuwal na pagtupad ng Tagapag-isyu.
 
 ## Mga tungkuling may pananagutan at teknikal na kontrol
 
 | Tungkulin o awtoridad | Pananagutan o kapangyarihan |
 | --- | --- |
-| **Tagapag-isyu** | Naglalathala at tumutupad sa pangako ng voucher. Hindi awtomatikong naililipat ang pananagutang ito dahil lamang nagbago ang may-ari ng contract. |
-| **May hawak** | Kumokontrol sa balanse ng voucher. Ang kontrol ay hindi patunay ng pagtupad, cash value, o garantiya. |
-| **Service provider** | Isang tungkuling nakikita ng publiko. Nagiging tagapag-isyu ang service provider kapag naglathala ito ng pangako sa voucher. |
-| **Tagapangasiwa ng Pool** | Ang tao, kooperatiba, pampublikong ahensya, pederasyon, multisig, serbisyo, o ibang istrakturang may pananagutan sa paglalathala at pangangasiwa ng mga patakaran ng Pool. |
-| **May-ari ng Pool** | Ang address na may kasalukuyang kapangyarihan ng may-ari ng `SwapPool`, kabilang ang configuration, pagkolekta ng bayarin, at pag-withdraw ng available na liquidity. |
-| **Proxy administrator** | Ang awtoridad na maaaring mag-upgrade sa implementation ng proxied contract. Maaaring iba ito sa may-ari ng Pool. |
-| **Dependency controller** | May-ari o writer na kumokontrol sa registry, limiter, quoter, oracle, fee policy, o protocol-fee controller. |
-| **Catalog moderator** | Operator ng App na maaaring magwasto, magtago, o magbalik ng mga tala sa catalog nang hindi binabago ang on-chain na balanse. |
-| **Tumatanggap ng bayarin** | Ang naka-configure na address na tumatanggap ng bayarin ng Pool o protocol. Hindi ito palaging Tagapangasiwa o may-ari ng Pool. |
-| **Tagasuporta o liquidity provider** | Kalahok na nag-aambag ng asset sa ilalim ng hiwalay na inilathalang tuntunin. Hindi gumagawa ang kasalukuyang `SwapPool` ng Pool share o awtomatikong karapatan sa pagbabayad, withdrawal, reward, o pamamahala. |
-
-Ang “miyembro ng komunidad” ay impormal na panlipunang tawag. Hindi ito, sa sarili nito, lumilikha ng admission, pagmamay-ari, pamamahala, pagbabayad, o ibang legal na karapatan.
+| **Tagapag-isyu** | Naglalathala at tumutupad sa pangako ng Voucher. Hindi awtomatikong naililipat ang pananagutang ito dahil lamang nagbago ang may-ari ng contract. |
+| **Tagapangasiwa ng Pool** | Naglalathala at nangangasiwa sa mga patakaran ng Pool, at nananatiling responsable sa garantiyang hayagang ipinapahayag ng Pool. |
+| **May-ari ng Pool** | Address na may kasalukuyang kapangyarihan ng may-ari ng `SwapPool`, kasama ang configuration, pagkolekta ng bayarin, at pag-withdraw ng magagamit na liquidity. |
+| **Mga multisig signer** | Naghahati sa teknikal na awtoridad na itinalaga sa multisig Wallet. Ang pagbabago ng signer o threshold ay hindi palihim na paglilipat ng pananagutan ng Tagapag-isyu o Tagapangasiwa, o ng legal na pagmamay-ari. |
+| **Proxy administrator** | Maaaring mag-upgrade ng implementation ng proxied contract. Maaaring iba ito sa may-ari ng Pool. |
+| **Dependency controller** | Kumokontrol sa registry, limiter, quoter, oracle, patakaran sa bayarin, o controller ng bayarin sa protocol. |
+| **Tagapangasiwa ng katalogo** | Maaaring magwasto, magtago, mag-retire, o magbalik ng tala sa katalogo nang hindi binubura ang mga contract, balanse, o kasaysayan sa blockchain. |
+| **Tatanggap ng bayarin** | Tumatanggap ng naka-configure na bayarin sa Pool o protocol. Hindi ito kinakailangang Tagapangasiwa o may-ari ng Pool. |
+| **Tagasuporta o liquidity provider** | Nag-aambag ng asset sa ilalim ng hiwalay na isiniwalat na mga tuntunin. Hindi awtomatikong lumilikha ang kasalukuyang `SwapPool` ng bahagi sa Pool o karapatan sa pagbabayad, withdrawal, reward, o pamamahala. |
 
 ## Mga kilos at lifecycle
 
 | Termino sa App o dokumentasyon | Kahulugan |
 | --- | --- |
-| **Gumawa o maglathala ng voucher** | Mag-deploy o mag-configure ng token at ilathala ang tala at mga tuntunin nito sa catalog. |
+| **Gumawa o maglathala ng Voucher** | Mag-deploy o mag-configure ng token at ilathala ang tala nito sa katalogo at mga tuntunin. |
 | **Mag-isyu o mag-mint** | Gumawa ng balanse ng token sa ilalim ng naka-configure na awtoridad ng may-ari o writer. |
-| **Maglathala ng Offering** | Magdagdag ng tala ng produkto o serbisyo sa ilalim ng voucher. |
-| **“Ipadala”** | Maglipat ng balanse ng token sa ibang address. |
-| **“Tubusin”** | Sa kasalukuyang App, binubuksan nito ang daloy ng pagpapadala na nakalagay na ang address ng may-ari ng token. Inihaharap o ibinabalik nito ang mga token sa tagapag-isyu; hindi nito pinatutunayan ang pagtupad. |
-| **Pagtupad** | Ibinibigay ng tagapag-isyu ang ipinangakong produkto, serbisyo, benepisyo, o ibang performance. |
-| **Discharge** | Itala ang mga natupad nang unit upang hindi na maiharap muli, halimbawa sa pagtanggap, pagsunog, pagkansela, o ibang pag-disable sa ilalim ng inilathalang tuntunin. |
-| **“Retire voucher”** | Itago ang voucher mula sa catalog ng App. Nananatili ang mga balanse at kasaysayan, at maaaring ibalik ng administrator ang listing. Hindi ito burning o pagkansela. |
-| **Deposit o kontribusyon sa Pool** | Maglipat ng mga asset sa isang `SwapPool`. Umiiral lamang ang karapatan sa pagbabayad, withdrawal, reward, o pamamahala kung hiwalay itong inilathala. |
-| **Palitan sa Pool** | Magpalit ng isang suportadong asset para sa isa pa sa pamamagitan ng isang `SwapPool`. Hindi ito pagtupad ng tagapag-isyu at hindi awtomatikong pautang. |
-| **Pagtuklas ng ruta** | Hanapin ang mga posibleng landas mula sa kwalipikadong mga Voucher ng isang wallet patungo sa isang target na Voucher sa pamamagitan ng naka-configure na mga ugnayan sa Pool. Ang pagtuklas ay isang pagtatantya, hindi isang pangako. |
-| **Route quote** | Isang may-awtoridad at may-takdang-panahong calculation para sa napiling path, batay sa state ng mga Pool na binasa sa iisang pinned block at sini-simulate bago pumirma. |
-| **Routed exchange** | Isang sunod-sunod na hanay ng palitan sa Pool na isinusumite ng App bilang same-chain Wallet batch. Sa kasalukuyang flow, babalik ang lahat ng call kapag may isang call na nabigo. |
-| **Routed-exchange receipt** | Grouped record na may tracking status, transaction hash, route hop, settled amount, at mga bayarin sa Pool at protocol sa bawat hop. |
-| **Pag-withdraw ng liquidity ng Pool** | Inililipat ng may-ari ng Pool ang available na inventory sa isang napiling address. |
-| **Pagkolekta ng bayarin** | Kinokolekta ng naka-configure na tatanggap ang naipong bayarin ng Pool. |
+| **Maglathala ng Offering** | Magdagdag ng tala ng produkto o serbisyo sa ilalim ng Voucher. |
+| **Maglathala ng Pangangailangan** | Ilarawan ang kailangan upang matuklasan at posibleng makaugnayan; hindi ito, sa sarili nito, lumilikha ng transaksyon. |
+| **Ipadala** | Ilipat ang balanse ng token sa ibang address. |
+| **“Tubusin”** | Buksan ang pagpapadala na nakalagay na ang address ng may-ari ng token. Paghaharap ito para sa pagtubos, hindi patunay ng pagtupad. |
+| **Tumupad** | Ibigay ng Tagapag-isyu ang ipinangakong produkto, serbisyo, benepisyo, o ibang pagtupad. |
+| **Discharge** | Itala ang mga natupad nang yunit upang hindi maiharap muli, halimbawa sa pagtanggap, pag-burn, pagkansela, o ibang paraan ng pagpapahinto sa paggamit ayon sa inilathalang mga tuntunin. |
+| **“Humiling ng pag-retire”** | Hilingin ng kasalukuyang may-ari sa administrator ang pag-retire ng Voucher o Pool. Aktibo pa rin ang resource habang nakabinbin ang hiling, at maaaring aprubahan, tanggihan, o kanselahin ang hiling. |
+| **I-retire ang Voucher** | Kapag naaprubahan, alisin ang Voucher sa aktibong paggamit sa katalogo. Nananatili ang mga contract, balanse, obligasyon, at kasaysayan; hindi pag-burn o discharge ang pag-retire. |
+| **I-retire ang Pool** | Kapag naaprubahan, ihinto ang mga bagong palitan at deposito sa Pool habang pinapayagan ang available na withdrawal. Nananatili ang mga naunang tala ng settlement. |
+| **Deposito o kontribusyon sa Pool** | Ilipat ang mga asset sa `SwapPool`. May karapatan lamang sa pagbabayad, withdrawal, reward, o pamamahala kapag hiwalay itong isiniwalat. |
+| **Palitan sa Pool** | Ipagpalit ang suportadong mga asset sa isang `SwapPool`. Hindi ito pagtupad ng Tagapag-isyu o awtomatikong pautang. |
+| **Pagtuklas ng ruta** | Maghanap ng posibleng daan sa mga naka-configure na ugnayan ng Pool. Tantiya ang pagtuklas, hindi pangakong maisasagawa. |
+| **Quote ng ruta** | Kalkulahin ang panukalang may takdang bisa mula sa estado ng Pool na binasa sa iisang pinned block, at i-simulate ito bago pumirma. |
+| **Routed exchange** | Isumite ang sunod-sunod na palitan sa Pool bilang isang Wallet batch sa iisang chain. Sa kasalukuyang daloy, nababawi ang lahat ng call kapag may isang nabigo. |
+| **Resibo ng routed exchange** | Pagsamahin ang tracking status, transaction hash, mga hop ng ruta, settled na halaga, at mga bayarin sa bawat hop. |
+| **Pag-withdraw ng liquidity sa Pool** | Hayaan ang may-ari ng Pool na ilipat ang magagamit na imbentaryo sa piniling address. |
+| **Pagkolekta ng bayarin** | Ipadala ang naipong bayarin sa Pool sa naka-configure na tatanggap. |
 
-Gamitin ang **swap settlement** para sa mga on-chain transfer at fee accounting na kumukumpleto sa palitan sa Pool. Gamitin ang **redemption presentment**, **pagtupad**, at **discharge** para sa magkahiwalay na lifecycle ng voucher sa tunay na mundo.
+Gamitin ang **swap settlement** para sa mga paglilipat sa blockchain at pagtatala ng bayarin na kumukumpleto sa palitan sa Pool. Gamitin ang **paghaharap para sa pagtubos**, **pagtupad**, at **discharge** para sa hiwalay na lifecycle ng Voucher sa aktuwal na buhay.
 
-## Pamilihan, mga halaga, limitasyon, at bayarin
+## Mga layer ng produkto at protokol
 
-Ang **Pamilihan** ng App ay discovery catalog para sa mga voucher, Pool, Offering, at pampublikong impormasyon. Ang listing ay hindi awtomatikong exchange venue, ugnayan sa nagbebenta, pag-endorso, valuation, o garantiya.
+| Termino | Kahulugan |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | Ang pamilya ng produkto: CLC App, dokumentasyon nito, at mas malawak na gawain sa commitment pooling. |
+| **CLC App** | Ang progressive web app sa [cosmolocal.credit](https://cosmolocal.credit). Pinapatakbo ng GEF ang interface na ito at mga sumusuportang serbisyo nito. |
+| **CLC Core** | Sumusuportang serbisyo para sa mga katalogo, indexed chain state, pagtuklas ng ruta, may-awtoridad na quote, relay coordination, at mga resibo ng routed exchange. Hindi ito smart contract o Tagapangasiwa ng Pool. |
+| **Commitment Pooling Protocol (CPP)** | Ang magagamit-muling modelo ng pagpili, valuation, paglilimita, palitan, at pamamahalang may pananagutan. |
+| **Protocol v1.1.0** | Ang pampublikong release ng mga smart contract na nakadokumento sa pangunahing [sanggunian sa software](https://software.cosmolocal.credit/contracts/) (Ingles). |
+| **`SwapPool`** | Ang kasalukuyang contract ng Protokol na humahawak ng imbentaryo ng token at nagsasagawa ng direktang palitan. Isa itong teknikal na bahagi ng Pool ng Pangako. |
+| **Solidity `SwapRouter`** | Ang contract ng Protocol v1.1.0 na nagku-quote ng iminungkahing daan sa maraming Pool. Hindi ito humahawak ng mga asset o nagsasagawa ng ruta. |
+| **Daloy ng routing sa application** | Naghahanap ang App at mga sumusuportang serbisyo ng posibleng daan sa mga Pool, nagku-quote ng palitan, humihingi ng pahintulot ng kalahok, at nag-uulat ng resulta. |
+| **Iminungkahing CLC governance token** | Disenyo para sa pamamahala sa hinaharap na nasa White Paper. Hindi ito kasalukuyang asset ng App o Protocol v1.1.0. |
+| **Iminungkahing CLC Network Pool** | Disenyo para sa clearing at koordinasyon sa antas ng network sa hinaharap. Iba ito sa kasalukuyang `SwapPool`. |
 
-Panatilihing magkahiwalay ang mga salitang ito tungkol sa halaga:
+## Halaga, kredito, limitasyon, at bayarin
 
-- **Presyo ng Offering:** halagang hinihingi para sa nakalistang produkto o serbisyo;
-- **nakasaad na halaga ng voucher:** halagang inilalarawan sa mga inilathalang tuntunin ng tagapag-isyu;
-- **exchange rate o quote ng Pool:** parameter ng transaksyon na ginawa ng naka-configure na quoter ng Pool;
-- **oracle reference:** panlabas na data na ginagamit ng naka-configure na valuation module; at
-- **mga tuntunin ng pagtubos:** kung ano ang ipinapangakong ibigay ng tagapag-isyu at sa ilalim ng anong kondisyon.
+Pag-ibahin ang mga terminong ito sa halaga:
 
-Ang label ng App na **“Credit limit”** ay tumutukoy sa naka-configure na cap sa balanse ng token ng Pool: ang pinakamataas na halaga ng token na maaaring hawakan ng Pool pagkatapos ng deposit. Hindi ito personal na credit line, pagsusuri sa kakayahan ng tagapag-isyu, o garantiya ng pagtubos. Ibang mekanismo ang iminungkahing rolling, account, at network-wide limit sa White Paper.
+- **Presyo ng Offering:** ang halagang hinihingi para sa nakalistang produkto o serbisyo;
+- **Nakasaad na halaga ng Voucher:** ang halagang inilalarawan sa inilathalang mga tuntunin ng Tagapag-isyu;
+- **Rate ng palitan o quote ng Pool:** ang parameter ng transaksyon mula sa naka-configure na quoter ng Pool;
+- **Sanggunian ng oracle:** panlabas na datos na ginagamit ng naka-configure na valuation module; at
+- **Mga tuntunin sa pagtubos:** ano ang ipinapangako ng Tagapag-isyu at sa anong mga kondisyon.
 
-Maaaring maningil ang kasalukuyang Protocol v1.1.0 ng **bayarin sa Pool** at karagdagang **bayarin sa protocol** sa bawat palitan sa Pool. Inililista ng routed exchange ang mga bayarin sa bawat hop. Walang hiwalay na route-service fee ang kasalukuyang CLC App workflow. Hiwalay na inilalarawan ng White Paper ang iminungkahing **network rake** mula sa mga bayarin sa Pool at posibleng routing o service fee sa hinaharap. Hindi dapat pagsamahin ang mga modelong ito kapag ipinapaliwanag ang kasalukuyang singil o kinukuwenta ang kita sa hinaharap.
+Ang **Kredito** sa App ay tumutukoy sa maaabot na mga pangako at kapasidad sa palitan. Hindi ito awtomatikong personal na pangungutang, pautang, pagtatasa ng kakayahan ng Tagapag-isyu, o garantiya.
 
-## Mga ruta at likididad
+Ang label na **“Credit limit”** ay ang naka-configure na token-balance cap ng Pool: ang pinakamataas na dami ng token na maaari nitong hawakan pagkatapos ng deposito. Ibang mekanismo ang iminungkahing rolling limit, account limit, at network-wide limit sa White Paper.
 
-Ang **route** ay isang sunod-sunod na path sa isa o higit pang Pool na magkakahiwalay ang pamamahala. Ang **route depth** ay bilang ng palitan sa Pool sa path. Hanggang tatlong hop ang hinahanap ng kasalukuyang pampublikong deployment.
+Maaaring maningil ang Protocol v1.1.0 ng **bayarin sa Pool** at karagdagang **bayarin sa protocol** sa bawat palitan sa Pool. Inililista ng routed exchange ang dalawa sa bawat hop. Walang hiwalay na routing-service fee ang kasalukuyang App. Hiwalay na inilalarawan ng iminungkahing modelo sa White Paper ang bahagi ng bayarin para sa network sa hinaharap at mga posibleng service fee.
 
-Ang **available liquidity** ay kwalipikadong output inventory na maibibigay ng Pool sa ilalim ng kasalukuyang admission, balance cap, quote, fee, at reservation status. Hindi pinatutunayan ng graph connection lamang na makakadaan ang kapaki-pakinabang na halaga. Maaaring maging stale ang route discovery, at may awtoridad lamang ang huling pinned-block quote hanggang sa deadline nito o hanggang magbago ang kaugnay na state.
+## Mga ruta at liquidity
 
-Ang kasalukuyang pagpapatupad ng ruta ay same-chain at wallet-initiated. Hindi nito pinagsama ang pamamahala, awtomatikong muling balansehin ang imbentaryo ng Pool, malinaw na mga obligasyon sa maraming partido, o patunayan ang katuparan. Ang cross-chain HTLC o escrow routing, automatic rebalancing, at batch netting ay nananatiling iminungkahi o nakasalalay sa deployment.
+Ang **ruta** ay nakaayos na daan sa isa o higit pang Pool na magkakahiwalay ang pamamahala. Ang **lalim ng ruta** ay bilang ng mga palitan sa Pool sa daang iyon.
+
+Hindi lahat ng Voucher, Pool, o Wallet ay kwalipikado sa routing. Hindi awtomatikong nagiging available ang Voucher sa lahat ng ruta dahil nasa isang Pool ito. Pinananatili sa [sanggunian sa routing ng software](https://software.cosmolocal.credit/contracts/routing) ang kasalukuyang mga tuntunin sa pagiging kwalipikado at configuration, sa Ingles.
+
+Ang **magagamit na liquidity** ay ang imbentaryong maibibigay ng Pool sa ilalim ng kasalukuyang mga patakaran, limitasyon, at bayarin nito. Hindi patunay ang koneksyon sa pagitan ng mga Pool na available ang halagang gusto mo. Suriin ang huling quote; maaari itong mag-expire o mawalan ng bisa kung magbago ang kalagayan ng Pool.
+
+Sa kasalukuyan, sa iisang chain at mula sa Wallet isinasagawa ang ruta. Hindi nito pinagsasama ang pamamahala, awtomatikong binabalanse ang imbentaryo ng Pool, isinasagawa ang clearing ng mga obligasyon ng maraming partido, o pinatutunayan ang pagtupad. Nananatiling iminungkahi o nakadepende sa deployment ang cross-chain HTLC o escrow routing, awtomatikong pagbabalanse, at batch netting.
 
 ## Mga proteksyon at ebidensiya
 
-Ang curation, pagkakasama sa registry, limitasyon, reserve, visibility sa App, o transaksyon sa blockchain ay hindi, sa sarili nito, patunay ng pag-endorso, kakayahan ng tagapag-isyu, pagtupad, garantiya, o insurance.
+Ang pagpili, pagkakasama sa registry, limitasyon, reserba, visibility sa App, Review, o transaksyon sa blockchain ay hindi, sa sarili nito, patunay ng pag-endorso, kakayahan ng Tagapag-isyu, pagtupad, garantiya, o insurance.
 
-Dapat tukuyin ng anumang proteksyon ang may obligasyong partido, sakop na pangyayari, pinagmumulan ng pondo, cap, exclusion, tagal, ebidensiya, at proseso ng claim. Maaaring ipakita ng on-chain record ang mga address, asset, halaga, timestamp, at contract event. Kailangan ng hiwalay na disclosure, report, attestation, o ibang ebidensiya para sa pagtupad ng tagapag-isyu, satisfaction, talakayan sa pamamahala, at social impact.
+Dapat tukuyin ng anumang proteksyon ang may obligasyon, saklaw na pangyayari, pondo, cap, mga hindi saklaw, tagal, ebidensiya, at proseso ng claim. Maaaring ipakita ng mga tala sa blockchain ang mga address, asset, halaga, timestamp, at event ng contract. Kailangan ng hiwalay na ebidensiya ang pagtupad ng Tagapag-isyu, kasiyahan, pagtalakay sa pamamahala, at epekto sa lipunan.
 
 ## Mga salitang tumutukoy sa katayuan
 
 - **Kasalukuyan:** napatunayan sa CLC App o Protocol v1.1.0 na inilalarawan ng dokumentasyong ito.
-- **Nakadepende sa deployment:** available lamang kung pinapahintulutan ng partikular na deployment, Pool, provider, hurisdiksiyon, o inilathalang policy.
-- **Makasaysayan:** ebidensiya o functionality mula sa naunang serbisyo ng Sarafu Network.
-- **Iminungkahi:** disenyo o mekanismo sa roadmap na hindi inilalarawang naka-deploy na.
+- **Nakadepende sa deployment:** available lamang kung pinapagana ng partikular na deployment, Pool, provider, hurisdiksiyon, o inilathalang patakaran.
+- **Makasaysayan:** ebidensiya o kakayahan mula sa naunang serbisyong Sarafu Network.
+- **Iminungkahi:** disenyo o mekanismo sa roadmap na hindi inilalarawang deployed na.
 
-Inilalapat ng [gabay sa pagsisimula](/fil/introduction/getting-started) ang mga terminong ito sa kasalukuyang App. Idinodokumento ng [sanggunian ng Protokol](/fil/protocol/overview) ang mga napatunayang contract, habang ipinapakita ng [White Paper](/fil/white-paper) ang mas malawak na disenyo at mga panukala.
+Inilalapat ng [gabay sa pagsisimula](/fil/introduction/getting-started) ang mga terminong ito sa kasalukuyang App. Iniuugnay ng [pangkalahatang-ideya ng Protokol](/fil/protocol/overview) ang mga konsepto sa pangunahing [dokumentasyon ng software](https://software.cosmolocal.credit/), samantalang inilalahad ng [White Paper](/fil/white-paper) ang mas malawak na disenyo at mga panukala.
 
-Para sa karagdagang pagpapakilala sa mga pangako, settlement, daloy ng resource, palitan, at pooling sa pamamagitan ng laro, tingnan ang [mga larong pang-edukasyon ng Grassroots Economics](https://grassrootseconomics.org/games/). Mga learning resource ang mga laro, hindi depinisyon ng kasalukuyang pag-uugali ng App o Protokol.
+Para matutuhan sa paglalaro ang mga pangako, settlement, daloy ng resource, palitan, at pooling, subukan ang [mga larong pang-edukasyon ng Grassroots Economics](https://grassrootseconomics.org/games/). Karagdagang sanggunian sa pag-aaral ang mga laro, hindi depinisyon ng kasalukuyang kilos ng App o Protokol.

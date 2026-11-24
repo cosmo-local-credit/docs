@@ -1,0 +1,2155 @@
+{
+  "locale": "nl-BE",
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "2da37fc062d8a93fb6f0da8fda43e3907086bc024dc4f73f7e427c689aa855c8"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "946cc176469d6d7806499c9e940537cdd97c731274f86603706a378815165247"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "afe00cd7627f54011614cc5198040945ede570663eaca5aca30bec0551a8a815"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "51202a15309a31b66c66c10d0deee255998fa1effcf23f9f8b45bcf7c749a74e"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "43e5a190bd242a3c8cc734325493f6e288ea7916932e6bb4aea3995e0fe83237"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "2bf18735c55e627789c5199c95a095e6979800d4ef1283ac8d0a73f4c49db222"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "e8f7b845b865a76c51716ae41caa8b045e014296a4d2d16cf4640fb55ccb0f6c"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "Het Commitment Pooling Protocol (CPP) beschrijft hoe onafhankelijk bestuurde Fondsen Waardebonnen selecteren, ruilregels publiceren en uitwisseling mogelijk maken. Een Houder gebruikt een Waardebon later bij de Uitgever voor de beloofde goederen of diensten. Dit zijn afzonderlijke stappen, met afzonderlijke verantwoordelijkheden.",
+      "backTranslation": "The Commitment Pooling Protocol (CPP) describes how independently managed Funds select Vouchers, publish exchange rules and facilitate exchange. A Holder uses a Voucher later at the Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "similarity": 0.8951
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "Deze site legt deze begrippen uit en laat zien hoe je de CLC App gebruikt. De CLC-softwaredocumentatie is de definitieve referentie voor software-implementatie, contracten, API's, uitrol en beheer. Deze is momenteel beschikbaar in het Engels.",
+      "backTranslation": "This site explains these concepts and shows you how to use the CLC App. The CLC software documentation is the ultimate reference for software implementation, contracts, APIs, rollout and management. It is currently available in English.",
+      "similarity": 0.8908
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "Begin met Begrippen en woordenschat voor de gedeelde termen, of met de White Paper voor het bredere ontwerp en de voorstellen.",
+      "backTranslation": "Start with the Concepts and Vocabulary for the common terms, or the White Paper for the broader design and proposals.",
+      "similarity": 0.9035
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "Verschillende gemeenschappen en organisaties kunnen compatibele software gebruiken onder hun eigen regels. Grassroots Economics Foundation beheert de openbare CLC App. Iedere implementatie moet haar beheerders, contracten en verantwoordelijke autoriteiten benoemen.",
+      "backTranslation": "Different communities and organizations can use compatible software under their own rules. Grassroots Economics Foundation manages the public CLC App. Each implementation must appoint its administrators, contracts and responsible authorities.",
+      "similarity": 0.8875
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "Gebruik Implementaties en verificatie voor contractadressen, uitrolinstructies en het controleren van eigenaars en upgradebevoegdheden. Begin bij de CLC Core API om de ondersteunende diensten te beheren.",
+      "backTranslation": "Use Deployments and Authentication for contract addresses, deployment instructions, and verification of owners and upgrade permissions. Start with the CLC Core API to manage support services.",
+      "similarity": 0.6042
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "Gebruik de softwarereferentie voor:",
+      "backTranslation": "Use the software reference for:",
+      "similarity": 1.0
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "Onderwerp  Definitieve softwaredocumentatie",
+      "backTranslation": "Subject  Final software documentation",
+      "similarity": 0.7532
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "Waardebonnen maken, voorraad en verval  Waardebonnen",
+      "backTranslation": "Coupons: Creating, Stocking and Expiring  Couponing    Vouchers",
+      "similarity": 0.6055
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "Fondsinstellingen, stortingen, opnames en zeggenschap  Fondsen",
+      "backTranslation": "Fund creation, deposits, withdrawals and control  Funds  Funding",
+      "similarity": 0.736
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "Wisselkoersen berekenen  Quoters",
+      "backTranslation": "Calculate exchange rates  Quoters  Quotations",
+      "similarity": 0.55
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "Swaps uitvoeren, kosten en transactiegegevens  Swaps offreren en afwikkelen",
+      "backTranslation": "Swap execution, fees and transaction details  Bidding and settling swaps",
+      "similarity": 0.8085
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "Uitwisseling via meerdere Fondsen  Routing",
+      "backTranslation": "Exchange through multiple Funds  Routing",
+      "similarity": 0.7342
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "Zoeken en ondersteunende contracten  Registers en hulpmiddelen",
+      "backTranslation": "Search and supporting contracts  Registers and tools",
+      "similarity": 0.8036
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "API-verzoeken en antwoorden  OpenAPI-referentie",
+      "backTranslation": "API requests and responses  OpenAPI reference",
+      "similarity": 1.0
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "Backend- en routinginstellingen  Configuratie",
+      "backTranslation": "Backend and routing settings  Configuration  1.",
+      "similarity": 0.9556
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "De App kan een deelnemer helpen via meerdere Fondsen te ruilen wanneer een geschikte route beschikbaar is. De deelnemer beoordeelt de offerte en geeft toestemming voor de uitwisseling. Ieder Fonds behoudt zijn eigen regels en verantwoordelijke partijen.",
+      "backTranslation": "The App may assist a participant in exchanging through multiple Funds when a suitable route is available.The participant reviews the offer and gives consent to the exchange.Each Fund retains its own rules and responsible parties.",
+      "similarity": 0.8063
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "Zie Routes en verantwoordelijkheden voor de betekenis voor deelnemers, en Routingimplementatie voor hoe de software routes offreert en uitvoert.",
+      "backTranslation": "See Routes and Responsibilities for the meaning to participants, and Routing Implementation for how the software offers and executes routes.",
+      "similarity": 0.9366
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "Software maakt de uitwisseling mogelijk. Uitgevers blijven verantwoordelijk voor de toezeggingen van hun Waardebonnen en Fondsbeheerders voor hun gepubliceerde regels. Voor gebruik van de openbare App gelden de Gebruiksvoorwaarden.",
+      "backTranslation": "Software enables the exchange. Issuers remain responsible for the commitments of their Vouchers and Fund Managers to their published rules. Use of the Public App is subject to the Terms of Use.",
+      "similarity": 0.7631
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 1,
+      "source": "# Smart contracts",
+      "translation": "# Slimme contracten",
+      "backTranslation": "# Smart contracts # Smart decentralization",
+      "similarity": 0.5763
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "Contracten registreren tokensaldi en voeren Fondsuitwisselingen uit. De CLC-softwaredocumentatie is de definitieve implementatiereferentie en is momenteel beschikbaar in het Engels. Deze pagina legt uit wat deelnemers moeten begrijpen voordat ze die contracten gebruiken.",
+      "backTranslation": "Contracts record token balances and execute Fund Exchanges. The CLC software documentation is the final implementation reference and is currently available in English. This page explains what participants need to understand before using those contracts.",
+      "similarity": 0.8871
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "Zie Begrippen en woordenschat voor het verschil tussen een bestuurd Commitmentfonds en het bijbehorende SwapPool-contract, en tussen uitwisseling en nakoming door de Uitgever.",
+      "backTranslation": "See Terms and Glossary for the difference between a managed Commitment Fund and its associated SwapPool contract, and between exchange and Issuer performance.",
+      "similarity": 0.7974
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "Een Waardebon verbindt een digitaal saldo met een gepubliceerde toezegging van een Uitgever. De voorwaarden leggen uit waarvoor de bon kan worden gebruikt, waar en wanneer hij wordt aanvaard en wie verantwoordelijk is. Het maken van een token bewijst niet dat de Uitgever de beloofde goederen of diensten kan leveren.",
+      "backTranslation": "A Voucher links a digital balance to a published commitment by an Issuer.The terms and conditions explain what the voucher can be used for, where and when it is accepted, and who is responsible.Creating a token does not prove that the Issuer can deliver the promised goods or services.",
+      "similarity": 0.8483
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "Lees Waardebonnen voor de werking van het maken, uitgeven, verbranden en vervallen van tokens.",
+      "backTranslation": "Read Vouchers for the operation of token creation, issuance, burning and expiration.",
+      "similarity": 0.1842
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "Een Commitmentfonds brengt geselecteerde Waardebonnen samen onder gepubliceerde regels. Het contract houdt voorraad aan en wisselt ondersteunde activa uit. Een storting geeft de storter niet automatisch Fondsaandelen of recht op terugbetaling, opname, beloning of bestuur. Dergelijke rechten vereisen afzonderlijk bekendgemaakte voorwaarden.",
+      "backTranslation": "A Commitment Fund brings together selected Vouchers under published rules. The contract holds stock and exchanges backed assets. A deposit does not automatically confer on the depositor Fund Shares or rights to redemption, withdrawal, reward or administration. Such rights require separately disclosed terms.",
+      "similarity": 0.777
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "Controleer welke Waardebonnen een Fonds aanvaardt, hoe het wisselkoersen bepaalt, welke limieten en kosten gelden en wie deze kan wijzigen. De softwarereferentie beschrijft Fondsinstellingen en verzegeling.",
+      "backTranslation": "Check which Vouchers a Fund accepts, how it determines exchange rates, what limits and fees apply, and who can change them. The software reference describes Fund settings and sealing.",
+      "similarity": 0.8324
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "Een geslaagde swap verandert de betreffende saldi. Dit bewijst niet dat een Uitgever goederen of diensten heeft geleverd. Controleer vóór bevestiging de invoer, uitvoer, ontvanger, het minimaal te ontvangen bedrag en wanneer de offerte verloopt.",
+      "backTranslation": "A successful swap will change the relevant balances, but does not prove that an Issuer has supplied goods or services. Before confirming, please check the import, export, recipient, minimum amount to be received and when the quote expires.",
+      "similarity": 0.836
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "Lees Swaps offreren en afwikkelen voor uitvoeringsmethoden en afwikkelingsgegevens.",
+      "backTranslation": "See Offering and Settlement of Swaps for execution methods and settlement details.",
+      "similarity": 0.5513
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 27,
+      "source": "### Additive fee calculation",
+      "translation": "### Berekening van de additieve vergoeding",
+      "backTranslation": "### Calculation of the additive fee",
+      "similarity": 0.5079
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "Een swap kan zowel Fondskosten als aanvullende protocolkosten omvatten. Controleer het totaal in de offerte; een route door meerdere Fondsen kan bij iedere stap kosten meebrengen. De swapreferentie houdt de berekening en het uitgewerkte voorbeeld actueel.",
+      "backTranslation": "A swap can include both Fund fees and additional protocol fees. Check the total in the quote; a route through multiple funds may incur costs at each step. The swap reference keeps the calculation and the completed example up to date.",
+      "similarity": 0.7783
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 31,
+      "source": "### Owner and upgrade powers",
+      "translation": "### Eigenaar- en upgradebevoegdheden",
+      "backTranslation": "### Owner and upgrade permissions.",
+      "similarity": 0.8387
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "De Fondseigenaar kan beschikbare voorraad opnemen. Andere autoriteiten kunnen upgrades of instellingen beheren. Beoordeel deze bevoegdheden samen met de gepubliceerde regels van de Fondsbeheerder voordat je stort of op een Fonds vertrouwt. Verzegelde instellingen bewijzen op zichzelf niet dat de voorraad permanent is vergrendeld.",
+      "backTranslation": "The Fund Owner may take stock available. Other authorities may administer upgrades or settings. Please assess these powers along with the published rules of the Fund Manager before depositing or trusting a Fund. Sealed settings do not in themselves prove that stock is permanently locked.",
+      "similarity": 0.7115
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "Zie Fondsen en Een instantie verifiëren voor de technische controles.",
+      "backTranslation": "For the technical checks, see Funds and Verifying an Entity.",
+      "similarity": 0.4237
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "De wisselkoers van een Fonds staat los van de vermelde waarde van een Waardebon en de inwisselvoorwaarden van de Uitgever. Controleer de gekozen methode en wie de invoergegevens kan wijzigen. De softwarereferentie legt de beschikbare Quoters uit.",
+      "backTranslation": "The exchange rate of a Fund is independent from the quoted value of a Voucher and the Issuer’s redemption conditions. Check the method chosen and who can change the input data. The software reference explains the available Quotators.",
+      "similarity": 0.7289
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "De ‘Kredietlimiet’ in de App is het maximale saldo van een bepaalde Waardebon dat een Fonds mag aanhouden. Dit beschrijft ruilcapaciteit en is geen persoonlijke lening of garantie van nakoming. Bekijk de Fondsregels en configuratie om te zien hoe limieten en kosten worden toegepast.",
+      "backTranslation": "The ‘Credit Limit’ in the App is the maximum balance of a particular Voucher that a Fund may hold. This describes exchange capacity and is not a personal loan or guarantee of performance. Please refer to the Fund Rules and Configuration to see how limits and fees are applied.",
+      "similarity": 0.7941
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 45,
+      "source": "## Protocol fee controller",
+      "translation": "## Controller voor protocolkosten",
+      "backTranslation": "## Controller for protocol costs.",
+      "similarity": 0.4407
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "Protocolkosten hebben een ingestelde ontvanger. Het ontvangen van die kosten maakt de ontvanger niet automatisch tot Fondsbeheerder of garant. Zie de kostenreferentie voor de huidige werking en de bestuursmechanismen voor verantwoordelijkheid en bekendmaking.",
+      "backTranslation": "Protocol fees have a set recipient. Receiving those fees does not automatically make the recipients Fund Manager or guarantor. See the fee reference for current operation and governance mechanisms for accountability and disclosure.",
+      "similarity": 0.8365
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "Meerdere onafhankelijk bestuurde Fondsen kunnen de Waardebon die je hebt verbinden met de bon die je wilt. Ieder Fonds levert één stap in de uitwisseling, volgens zijn eigen regels en met de beschikbare voorraad.",
+      "backTranslation": "Multiple independently managed Funds can link the Voucher you have with the one you want.Each Fund delivers one step in the exchange, according to its own rules and with the available stock.",
+      "similarity": 0.7268
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "De CLC-softwarereferentie voor routing is de definitieve bron voor routeontdekking, geschiktheid, uitvoering en service-interfaces. De softwaredocumentatie is momenteel in het Engels. Deze pagina legt de stappen en verantwoordelijkheden voor deelnemers uit.",
+      "backTranslation": "The CLC Software Reference for Routing is the ultimate source for route discovery, suitability, implementation and service interfaces.The software documentation is currently in English.This page explains the steps and responsibilities for participants.",
+      "similarity": 0.8136
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "Kies in de Krediet-weergave van de App de Waardebon die je wilt Verkrijgen of de bon die je wilt Besteden. Een route kan bijvoorbeeld via twee verschillende Fondsen een vervoersbon omwisselen voor een voedselbon.",
+      "backTranslation": "In the Credit view of the App, choose the Voucher you want to Obtain or the voucher you wish to Spend. For example, a route can exchange a transport voucher for a food voucher through two different Funds: one is a Food Voucher and the other is a Transport Voucher.",
+      "similarity": 0.7281
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "Een verbinding vinden garandeert geen uitwisseling. De ondersteunde Waardebonnen, Fondslimieten, beschikbare voorraad, kosten, compatibiliteit van de Portefeuille en beschikbaarheid van diensten moeten het gevraagde bedrag toelaten.",
+      "backTranslation": "Finding a connection does not guarantee an exchange. Supported Vouchers, Fund Limits, available stock, fees, Wallet compatibility and service availability must allow the requested amount to be transferred.",
+      "similarity": 0.8978
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "Controleer vóór bevestiging de Routedetails: wat je betaalt, wat je ontvangt, ieder deelnemend Fonds, de kosten, het minimaal te ontvangen bedrag en wanneer de offerte verloopt. Een schatting helpt je mogelijkheden te verkennen; de offerte is het voorstel waarvoor je toestemming geeft. Vernieuw deze als hij verloopt of Fondsomstandigheden veranderen.",
+      "backTranslation": "Before confirming, check the Route Details: what you pay, what you receive, each participating Fund, fees, minimum amount to be received and when the quote expires. An estimate helps you explore possibilities; the quote is the proposal you consent to. Renew it if it expires or Fund Conditions change.",
+      "similarity": 0.7835
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "De routingreferentie en serviceconfiguratie houden de technische geschiktheidsregels en offerte-instellingen actueel.",
+      "backTranslation": "The routing reference and service configuration keep the technical eligibility rules and quote settings up to date.",
+      "similarity": 0.8969
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "Je beoordeelt de volledige uitwisseling en geeft er toestemming voor. De huidige route slaagt als geheel, of alle Fondsswaps worden samen teruggedraaid als één stap mislukt. Zo wordt voorkomen dat slechts een deel van de route wordt uitgevoerd. Dit garandeert niet dat goederen of diensten later worden geleverd.",
+      "backTranslation": "You review and approve the entire exchange. The current route as a whole will succeed, or all Fund Swaps will be reversed together if one step fails. This prevents only part of the route from being executed. This does not guarantee that goods or services will be delivered later.",
+      "similarity": 0.7276
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "Zie Een route uitvoeren voor het opbouwen en uitvoeren van de transactie.",
+      "backTranslation": "To build and execute the transaction, see Execute a Route.See Executing a Route for details on how to build and perform the transaction.",
+      "similarity": 0.39
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "De Solidity-SwapRouter, die alleen offertes berekent, en de uitwisselingsworkflow van de App zijn verschillende softwarecomponenten. Hun onderlinge relatie wordt uitgelegd in Routing.",
+      "backTranslation": "The Solidity SwapRouter, which only calculates quotes, and the App’s exchange workflow are separate software components, their relationship is explained in Routing. The SoliditieswapRouter is a simple routing tool that can be used to create a secure network for your app.",
+      "similarity": 0.6058
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "Voor deelnemers is de belangrijkste controle de volledige offerte. Ieder Fonds kan kosten rekenen. Een gedeelde route voegt die Fondsen niet samen en maakt de ene Fondsbeheerder niet verantwoordelijk voor een ander Fonds.",
+      "backTranslation": "For participants, the most important check is the full quote. Each Fund may charge fees. A shared route does not merge those Funds and does not make one Fund Manager responsible for another Fund.",
+      "similarity": 0.8235
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "Controleer na indiening of de uitwisseling in behandeling, bevestigd of mislukt is en bewaar het ontvangstbewijs. Als er geen route beschikbaar is, probeer dan te vernieuwen, het bedrag te verlagen of een andere ondersteunde invoer-Waardebon te kiezen.",
+      "backTranslation": "After submitting, check whether the exchange is pending, confirmed or failed and keep the receipt. If no route is available, try renewing, lowering the amount or choosing another supported import voucher.",
+      "similarity": 0.932
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "Een mislukte uitwisseling verandert de bestaande toezeggingen van de Uitgever niet. Een geslaagde uitwisseling registreert gewijzigde saldi; nakoming en afboeking blijven de voorwaarden van de Uitgever volgen. Zie de praktische voorbeelden.",
+      "backTranslation": "A failed exchange does not change the Issuer’s existing commitments. A successful exchange records changed balances; fulfilment and deduction continue to follow the terms of the Issuers. See the practical examples.",
+      "similarity": 0.8647
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "Ontwikkelaars vinden transactie- en trackinginterfaces in de CLC Core API-referentie.",
+      "backTranslation": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "similarity": 1.0
+    },
+    {
+      "route": "/protocol/network",
+      "line": 39,
+      "source": "## Pool internals",
+      "translation": "## Binnen het Fonds",
+      "backTranslation": "## Within the Fund ## Without the Fund",
+      "similarity": 0.2909
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "Bepaal voordat je op een Fonds vertrouwt wie de Fondsbeheerder, contracteigenaar, upgradebevoegden, kostenontvangers en beheerders van belangrijke instellingen zijn. De technische beheerder en de verantwoordelijke Fondsbeheerder kunnen verschillende partijen zijn.",
+      "backTranslation": "Before you trust a Fund, determine who is the Fund Manager, contract owner, upgrade authorities, expense recipients and key institution administrators.The technical administrator and responsible Fund Manager may be different parties.",
+      "similarity": 0.6432
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "De softwarereferentie houdt de Fondsmechanismen en implementatieverificatie actueel. Deze documentatie legt rollen en begrippen, bestuursverantwoordelijkheden en het bredere CPP-ontwerp uit.",
+      "backTranslation": "The software reference keeps the Fund Mechanisms and Implementation Verification up to date, explaining roles and concepts, governance responsibilities and the broader CPP design.",
+      "similarity": 0.7749
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 3,
+      "source": "Cosmo-Local Credit (CLC) helps people describe what they offer, publish what they need, and exchange vouchers through independently governed Commitment Pools. Open the CLC App to begin.",
+      "translation": "Cosmo-Local Credit (CLC) helpt mensen te beschrijven wat ze aanbieden, bekend te maken wat ze nodig hebben en Waardebonnen uit te wisselen via onafhankelijk bestuurde Commitmentfondsen. Open de CLC App om te beginnen.",
+      "backTranslation": "Cosmo-Local Credit (CLC) helps people describe what they offer, disclose what they need and exchange Vouchers through independently managed Commitment Funds. Open the CLC App to get started.",
+      "similarity": 0.8853
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 5,
+      "source": "The basic idea is simple:",
+      "translation": "Het basisidee is eenvoudig:",
+      "backTranslation": "The basic idea is simple: the idea of a secured network.",
+      "similarity": 0.6173
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 7,
+      "source": "1. Create a voucher—much like a gift card—for something you can provide.",
+      "translation": "1. Maak een Waardebon—vergelijkbaar met een geschenkbon—voor iets dat je kunt leveren.",
+      "backTranslation": "1. Create a Voucher—similar to a gift certificate—for something you can deliver.",
+      "similarity": 0.7632
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 8,
+      "source": "2. Publish an Offering so people can discover the related goods or services.",
+      "translation": "2. Publiceer een Aanbieding, zodat mensen de bijbehorende goederen of diensten kunnen vinden.",
+      "backTranslation": "2. Publish a Listing so that people can find the related goods or services.",
+      "similarity": 0.8344
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 9,
+      "source": "3. Publish or respond to a Want to find possible exchange partners.",
+      "translation": "3. Publiceer een Verzoek of reageer erop om mogelijke ruilpartners te vinden.",
+      "backTranslation": "3. Post or respond to a Request to find potential exchange partners.",
+      "similarity": 0.8148
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 10,
+      "source": "4. Use a Commitment Pool to exchange supported vouchers under published rules.",
+      "translation": "4. Gebruik een Commitmentfonds om ondersteunde Waardebonnen volgens gepubliceerde regels uit te wisselen.",
+      "backTranslation": "4. Use a Commitment Fund to redeem supported Vouchers according to published rules.",
+      "similarity": 0.795
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 11,
+      "source": "5. Use a voucher with its Issuer for what its terms promise.",
+      "translation": "5. Gebruik een Waardebon bij de Uitgever voor wat de voorwaarden ervan beloven.",
+      "backTranslation": "Use a Voucher at the Issuer for what its terms and conditions promise. 6.",
+      "similarity": 0.7669
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 13,
+      "source": "“Credit” in the App means recognized commitments and Voucher exchange capacity. It is not automatically a personal loan, borrowing limit, or promise to advance money.",
+      "translation": "‘Krediet’ betekent in de App erkende toezeggingen en capaciteit om Waardebonnen uit te wisselen. Het is niet automatisch een persoonlijke lening, leenlimiet of belofte om geld voor te schieten.",
+      "backTranslation": "“Credit” means the commitments and capacity to redeem Vouchers recognized in the App, not necessarily a personal loan, limit or promise to advance money.",
+      "similarity": 0.6646
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 15,
+      "source": "For exact definitions, see Concepts and vocabulary.",
+      "translation": "Zie Begrippen en woordenschat voor de precieze definities.",
+      "backTranslation": "For the exact definitions, see Terms and Vocabulary.",
+      "similarity": 0.8738
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 17,
+      "source": "## A first journey through the App",
+      "translation": "## Een eerste rondgang door de App",
+      "backTranslation": "## A first tour of the App.",
+      "similarity": 0.7869
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 19,
+      "source": "### 1. Explore the Market and Wants",
+      "translation": "### 1. Verken de Markt en Verzoeken",
+      "backTranslation": "### 1.Explore the Market and Requests.",
+      "similarity": 0.8493
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 21,
+      "source": "Browse the CLC App before creating anything. The Market is a discovery catalog, not automatically a seller, exchange venue, endorsement, or guarantee.",
+      "translation": "Bekijk de CLC App voordat je iets maakt. De Markt is een catalogus om aanbod te vinden, niet automatisch een verkoper, ruilplaats, goedkeuring of garantie.",
+      "backTranslation": "Check the CLC App before you create anything.The Marketplace is a catalog to find offers, not automatically a seller, exchange, approval or guarantee.",
+      "similarity": 0.76
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 23,
+      "source": "When reviewing a Voucher, check:",
+      "translation": "Controleer bij een Waardebon:",
+      "backTranslation": "Check with a Voucher: Please check the following for a Vehicle Voucher",
+      "similarity": 0.4118
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 25,
+      "source": "- who issued it;",
+      "translation": "- wie de Waardebon heeft uitgegeven;",
+      "backTranslation": "- who issued the Voucher; - who has issued it;",
+      "similarity": 0.5161
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 26,
+      "source": "- the goods or services it promises;",
+      "translation": "- welke goederen of diensten worden beloofd;",
+      "backTranslation": "- what goods or services are promised; which goods and services are being offered;",
+      "similarity": 0.5424
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 27,
+      "source": "- where, when, and how it can be used;",
+      "translation": "- waar, wanneer en hoe de Waardebon kan worden gebruikt;",
+      "backTranslation": "- where, when and how the Voucher can be used; where, how and when it can be redeemed.",
+      "similarity": 0.5806
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 28,
+      "source": "- its limits, expiry, contact method, and complaint process; and",
+      "translation": "- de limieten, vervaldatum, contactmethode en klachtenprocedure; en",
+      "backTranslation": "- the limits, expiry date, contact method and complaint procedure; and",
+      "similarity": 0.8806
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 29,
+      "source": "- which Commitment Pools support it.",
+      "translation": "- welke Commitmentfondsen de Waardebon ondersteunen.",
+      "backTranslation": "- which Commitment Funds support the Voucher.",
+      "similarity": 0.7654
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 31,
+      "source": "A Want expresses demand. Publishing or answering one does not automatically accept a Voucher, reserve goods, authorize an exchange, or create an obligation. Contacting or messaging another participant also does not by itself create, fulfill, or discharge a Voucher commitment.",
+      "translation": "Een Verzoek maakt bekend waarnaar iemand op zoek is. Het publiceren of beantwoorden ervan betekent niet automatisch dat een Waardebon wordt aanvaard, goederen worden gereserveerd, een uitwisseling wordt goedgekeurd of een verplichting ontstaat. Ook contact of berichten tussen deelnemers creëren, vervullen of beëindigen op zichzelf geen verbintenis van een Waardebon.",
+      "backTranslation": "A Request makes known what someone is looking for. Posting or responding to a Request does not automatically mean that a Voucher is accepted, goods are reserved, an exchange is approved or any obligation is created. Nor does contact or communication between participants in itself create, fulfill or terminate a Vehicle Voucher commitment.",
+      "similarity": 0.6049
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 35,
+      "source": "The App uses an account for profile and session access and a Wallet for blockchain authorization. Protect your passkey, paper-wallet material, recovery information, devices, and any other credentials. Review every address, asset, amount, Pool, fee, and authorization before confirming a transaction.",
+      "translation": "De App gebruikt een account voor toegang tot je profiel en sessie, en een Portefeuille voor blockchainautorisatie. Bescherm je passkey, papieren-portefeuillemateriaal, herstelinformatie, toestellen en andere toegangsgegevens. Controleer elk adres, activum, bedrag, Fonds, elke vergoeding en autorisatie voordat je een transactie bevestigt.",
+      "backTranslation": "The App uses an account to access your profile and session, and a Wallet for blockchain authorization. Protect your passkey, paper wallet material, recovery information, devices and other access data. Verify each address, asset, amount, Fund, fee and authorization before confirming a transaction.",
+      "similarity": 0.8926
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 37,
+      "source": "The interface asks you to confirm the Terms during onboarding and before publishing a Voucher or Pool. Read the Terms of Service and Privacy Notice before continuing.",
+      "translation": "De interface vraagt je tijdens de registratie en vóór het publiceren van een Waardebon of Fonds om de voorwaarden te bevestigen. Lees eerst de Gebruiksvoorwaarden en Privacyverklaring.",
+      "backTranslation": "The interface will ask you to confirm the terms during registration and before publishing a Voucher or Fund. Please read the Terms of Use and Privacy Statement first, then the User Agreement and Pseudonyms Policy.",
+      "similarity": 0.6807
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 39,
+      "source": "### 3. Create a Voucher and Offering",
+      "translation": "### 3. Maak een Waardebon en Aanbieding",
+      "backTranslation": "### 3. Create a Voucher and Offer.",
+      "similarity": 0.9429
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 41,
+      "source": "Create a Voucher for something you can reasonably provide. Think of it as making your own gift card: you describe what it represents and the conditions for using it.",
+      "translation": "Maak een Waardebon voor iets dat je redelijkerwijs kunt leveren. Zie het als je eigen geschenkbon: je beschrijft wat die vertegenwoordigt en onder welke voorwaarden die kan worden gebruikt.",
+      "backTranslation": "Make a Voucher for something you can reasonably deliver, think of it as your own gift certificate: you describe what it represents and under what conditions it can be used.",
+      "similarity": 0.8012
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 43,
+      "source": "A complete Voucher has several separate layers:",
+      "translation": "Een volledige Waardebon heeft verschillende afzonderlijke lagen:",
+      "backTranslation": "A complete Voucher has several separate layers: The first is the voucher itself.",
+      "similarity": 0.7402
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 46,
+      "source": "2. the Issuer's published Voucher terms;",
+      "translation": "2. de gepubliceerde voorwaarden van de Uitgever;",
+      "backTranslation": "2. the published terms and conditions of the Publisher; the published conditions of use of the Website;",
+      "similarity": 0.3217
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 47,
+      "source": "3. one or more Offering records describing associated goods or services; and",
+      "translation": "3. een of meer Aanbiedingen die de bijbehorende goederen of diensten beschrijven; en",
+      "backTranslation": "3. one or more Offers describing the related goods or services; and",
+      "similarity": 0.8392
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 50,
+      "source": "Creating or minting a token does not prove that an Offering exists, that the Issuer has capacity, or that Grassroots Economics Foundation (GEF) guarantees fulfillment.",
+      "translation": "Het maken of uitgeven van een token bewijst niet dat er een Aanbieding bestaat, dat de Uitgever voldoende capaciteit heeft of dat Grassroots Economics Foundation (GEF) de nakoming garandeert.",
+      "backTranslation": "The creation or issuance of a token does not prove that an Offer exists, that the Issuer has sufficient capacity, or that Grassroots Economics Foundation (GEF) guarantees compliance.",
+      "similarity": 0.8596
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 52,
+      "source": "### 4. Publish or respond to a Want",
+      "translation": "### 4. Publiceer of beantwoord een Verzoek",
+      "backTranslation": "### 4. Post or reply to a Request.",
+      "similarity": 0.6667
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 54,
+      "source": "Use a Want to describe something you are looking for, including the amount, place, timing, and a suitable contact method. Another participant can discover it, review your public Vouchers and Offerings, and decide whether to contact you.",
+      "translation": "Gebruik een Verzoek om te beschrijven wat je zoekt, inclusief hoeveelheid, plaats, tijdstip en een geschikte contactmethode. Een andere deelnemer kan het vinden, je openbare Waardebonnen en Aanbiedingen bekijken en beslissen of die contact met je opneemt.",
+      "backTranslation": "Use a Request to describe what you are looking for, including quantity, location, time and an appropriate contact method. Another participant can find it, view your public Coupons and Deals, and decide whether to contact you.",
+      "similarity": 0.8026
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 56,
+      "source": "Keep negotiation and responsibility clear. A message can help participants agree on delivery, booking, or other details, but the applicable Voucher terms and any separately agreed transaction terms determine the commitment.",
+      "translation": "Houd onderhandelingen en verantwoordelijkheden duidelijk. Een bericht kan deelnemers helpen afspraken te maken over levering, boeking of andere details, maar de voorwaarden van de toepasselijke Waardebon en eventueel afzonderlijk overeengekomen transactievoorwaarden bepalen de verbintenis.",
+      "backTranslation": "A message may help participants to make arrangements for delivery, booking or other details, but the terms of the applicable Voucher and any separately agreed transactional terms will govern the commitment. Keep negotiations and responsibilities clear.",
+      "similarity": 0.6779
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 58,
+      "source": "### 5. Find or create a Commitment Pool",
+      "translation": "### 5. Vind of maak een Commitmentfonds",
+      "backTranslation": "Find or create a Commitment Fund, which will be used to fund your commitments.",
+      "similarity": 0.5128
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 60,
+      "source": "A Commitment Pool curates selected Vouchers and enables their exchange. Before using or supporting one, review:",
+      "translation": "Een Commitmentfonds selecteert Waardebonnen en maakt de uitwisseling ervan mogelijk. Controleer voordat je een Fonds gebruikt of ondersteunt:",
+      "backTranslation": "A Commitment Fund selects Vouchers and enables their exchange.Before using or supporting a Fund, please check:",
+      "similarity": 0.8235
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 62,
+      "source": "- the accountable Pool Steward and current contract owner;",
+      "translation": "- de verantwoordelijke Fondsbeheerder en de huidige contracteigenaar;",
+      "backTranslation": "- the responsible Fund Manager and current contract owner; the current contract holder;",
+      "similarity": 0.5931
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 63,
+      "source": "- admitted Vouchers and other supported assets;",
+      "translation": "- toegelaten Waardebonnen en andere ondersteunde activa;",
+      "backTranslation": "- eligible Vouchers and other backed assets; - elected securities;",
+      "similarity": 0.6018
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 65,
+      "source": "- the App's “Credit limit”, which is a Pool token-balance cap rather than personal credit;",
+      "translation": "- de App-instelling ‘Kredietlimiet’, die een bovengrens voor het tokensaldo van het Fonds is en geen persoonlijk krediet;",
+      "backTranslation": "- the App setting ‘Credit Limit’, which is an upper limit for the Fund’s token balance and not a personal credit;",
+      "similarity": 0.6995
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 67,
+      "source": "- available inventory and the Pool owner's liquidity-withdrawal power;",
+      "translation": "- de beschikbare voorraad en de bevoegdheid van de Fondseigenaar om liquiditeit op te nemen;",
+      "backTranslation": "- the available stock and the authority of the Fund Owner to draw liquidity;",
+      "similarity": 0.5753
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 68,
+      "source": "- proxy, multisig, and dependency controllers; and",
+      "translation": "- beheerders van proxy's, multisigs en afhankelijkheden; en",
+      "backTranslation": "- administrators of proxies, multisigs and dependencies; and administrators for the creation of new dependencies.",
+      "similarity": 0.454
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 69,
+      "source": "- any separately published contribution, guarantee, reserve, reward, or insurance terms.",
+      "translation": "- afzonderlijk gepubliceerde voorwaarden voor bijdragen, garanties, reserves, beloningen of verzekeringen.",
+      "backTranslation": "- separately published terms and conditions for contributions, guarantees, reserves, remuneration or insurance.",
+      "similarity": 0.7437
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 71,
+      "source": "Depositing transfers assets into the Pool's SwapPool. Protocol v1.1.0 does not automatically give a depositor Pool shares, repayment, withdrawal, reward, or governance rights.",
+      "translation": "Bij een storting worden activa overgedragen aan de SwapPool van het Fonds. Protocol v1.1.0 geeft een storter niet automatisch recht op Fondsaandelen, terugbetaling, opname, een beloning of bestuur.",
+      "backTranslation": "Upon deposit, assets are transferred to the Fund’s SwapPool. Protocol v1.1.0 does not automatically entitle a depositor to Fund Shares, redemption, withdrawal, any reward or governance.",
+      "similarity": 0.7722
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 73,
+      "source": "### 6. Send or exchange Vouchers",
+      "translation": "### 6. Verzend of ruil Waardebonnen",
+      "backTranslation": "### 6.Send or exchange Vouchers.",
+      "similarity": 0.9688
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 75,
+      "source": "Use Send to transfer a Voucher directly. Use a Pool swap to exchange one supported asset for another through one Pool.",
+      "translation": "Gebruik Verzenden om een Waardebon rechtstreeks over te dragen. Gebruik een Fondsswap om via één Fonds een ondersteund activum voor een ander om te wisselen.",
+      "backTranslation": "Use Send to transfer a Voucher directly.Use a Fund Swap to exchange a supported asset for another through one Fund. Use a Fundswap to exchange an asset for a supporting asset through one fund.",
+      "similarity": 0.7032
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 77,
+      "source": "The App's Credit view can also find Vouchers reachable through several independently governed Pools. Choose Get for the Voucher you want or Spend for the Voucher you want to use. Then review:",
+      "translation": "De Krediet-weergave van de App kan ook Waardebonnen vinden die via meerdere onafhankelijk bestuurde Fondsen bereikbaar zijn. Kies Verkrijgen voor de Waardebon die je wilt ontvangen of Besteden voor de Waardebon die je wilt gebruiken. Controleer daarna:",
+      "backTranslation": "The App’s Credit view can also find Vouchers that are available through multiple independently managed Funds. Choose Get for the Voucher you want to receive or Spend for the voucher you wish to use, then check: 1.",
+      "similarity": 0.8119
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 79,
+      "source": "1. the Pay with choice and Estimate;",
+      "translation": "1. de keuze onder Betalen met en de Schatting;",
+      "backTranslation": "1. the choice under Pay with and Estimate; 2. the selection of the estimated price;",
+      "similarity": 0.4874
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 80,
+      "source": "2. Route details, including every Pool, amount, Pool fee, and protocol fee;",
+      "translation": "2. de Routedetails, waaronder elk Fonds, bedrag, Fondskosten en protocolkosten;",
+      "backTranslation": "2. the Route Details, including each Fund, amount, Fund Fees and protocol fees;",
+      "similarity": 0.8052
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 81,
+      "source": "3. the minimum amount received and quote expiry; and",
+      "translation": "3. het minimaal te ontvangen bedrag en wanneer de offerte verloopt; en",
+      "backTranslation": "3. the minimum amount to be received and when the offer expires; and",
+      "similarity": 0.8
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 82,
+      "source": "4. the prepared Wallet batch before choosing Confirm exchange.",
+      "translation": "4. de voorbereide Portefeuille-batch voordat je Omwisseling bevestigen kiest.",
+      "backTranslation": "4. the prepared Wallet batch before you choose Confirm Exchange.",
+      "similarity": 0.9365
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "Niet iedere Waardebon, ieder Fonds of iedere Portefeuille ondersteunt gerouteerde uitwisseling. De App controleert of een uitwisseling beschikbaar is voor jouw keuzes. De softwarereferentie voor routing houdt de huidige geschiktheidsregels en technische vereisten bij in het Engels.",
+      "backTranslation": "Not every Voucher, Fund or Portfolio supports routing exchange. The App will check if an exchange is available for your choices. The Routing Software Reference keeps track of current eligibility rules and technical requirements in English.",
+      "similarity": 0.8337
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "Routeontdekking is een schatting. Controleer vóór ondertekening de definitieve offerte, inclusief het minimaal te ontvangen bedrag en de vervaltijd. De huidige gerouteerde uitwisseling slaagt als geheel, of de Fondsswaps worden samen teruggedraaid. Controleer na indiening het ontvangstbewijs voor de uitkomst, uitgewisselde bedragen en kosten.",
+      "backTranslation": "Route discovery is an estimate. Before signing, check the final quote, including the minimum amount to be received and expiration time. The current routed exchange succeeds as a whole, or the Fund Swaps are rolled back together. After submission, check receipt for outcome, exchanged amounts and charges.",
+      "similarity": 0.8247
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 88,
+      "source": "### 7. Use a Voucher with its Issuer",
+      "translation": "### 7. Gebruik een Waardebon bij de Uitgever",
+      "backTranslation": "7.Use a Voucher at the Issuer.",
+      "similarity": 0.7576
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 90,
+      "source": "Read the Voucher terms and follow the Issuer's booking, delivery, or contact process. In the current App, “Redeem” opens the ordinary send flow with the token owner's address prefilled. Sending the Voucher is redemption presentment; it does not prove that the Issuer has provided the promised goods or services.",
+      "translation": "Lees de voorwaarden van de Waardebon en volg de boekings-, leverings- of contactprocedure van de Uitgever. In de huidige App opent ‘Inwisselen’ de gewone verzendstroom met het adres van de tokeneigenaar vooraf ingevuld. Het verzenden van de Waardebon is aanbieding ter inwisseling; het bewijst niet dat de Uitgever de beloofde goederen of diensten heeft geleverd.",
+      "backTranslation": "Read the terms and conditions of the Voucher and follow the Issuer’s booking, delivery or contact procedure. In the current App, ‘Redeem’ opens the normal mailing flow with the address of the token owner pre-filled. The sending of the voucher is an offer for redemption; it does not prove that the Issue has delivered the promised goods or services.",
+      "similarity": 0.7939
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 92,
+      "source": "After fulfillment, the Issuer should record discharge so fulfilled units cannot be used again—for example by receiving, burning, cancelling, or otherwise disabling them under the published terms.",
+      "translation": "Na de nakoming moet de Uitgever afboeking vastleggen, zodat nagekomen eenheden niet opnieuw kunnen worden gebruikt—bijvoorbeeld door ze te ontvangen, verbranden, annuleren of anderszins uit te schakelen volgens de gepubliceerde voorwaarden.",
+      "backTranslation": "After compliance, the Issuer must record deduction so that fulfilled units cannot be reused—for example by receiving them, burning them, cancelling them or otherwise disabling them in accordance with published terms.",
+      "similarity": 0.8029
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 94,
+      "source": "## Before you publish",
+      "translation": "## Voordat je publiceert",
+      "backTranslation": "## Before you publish, do the following:",
+      "similarity": 0.6885
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 96,
+      "source": "Voucher, Pool, Offering, Want, Catalog, Post, and Review information can have different visibility. Before publishing a resource:",
+      "translation": "Informatie over Waardebonnen, Fondsen, Aanbiedingen, Verzoeken, Catalogi, Berichten en Beoordelingen kan verschillende zichtbaarheidsniveaus hebben. Voordat je een bron publiceert:",
+      "backTranslation": "Information about Vouchers, Funds, Offers, Requests, Catalogues, Messages and Reviews may have different levels of visibility.Before publishing a resource:",
+      "similarity": 0.5
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 98,
+      "source": "- choose a map point that is safe to make public; exact coordinates may be visible;",
+      "translation": "- kies een kaartpunt dat veilig openbaar kan worden gemaakt; exacte coördinaten kunnen zichtbaar zijn;",
+      "backTranslation": "- choose a map point that can be safely made public; exact coordinates may be visible; select a location that is not in the public domain",
+      "similarity": 0.7
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 99,
+      "source": "- check which information is visible while signed out and while signed in;",
+      "translation": "- controleer welke informatie zichtbaar is wanneer je bent afgemeld en aangemeld;",
+      "backTranslation": "- control what information is visible when you are logged out and logged in; check which information is displayed when you're logged on and locked out.",
+      "similarity": 0.4089
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 100,
+      "source": "- use contact details that are suitable for the intended audience;",
+      "translation": "- gebruik contactgegevens die geschikt zijn voor het beoogde publiek;",
+      "backTranslation": "- use contact details that are appropriate for the intended audience; use a name and address that is clearly identifiable.",
+      "similarity": 0.6489
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 101,
+      "source": "- do not copy private profile information into a public resource unless you intend to publish it; and",
+      "translation": "- kopieer geen privéprofielgegevens naar een openbare bron, tenzij je die bewust wilt publiceren; en",
+      "backTranslation": "- do not copy private profile information to a public source, unless you knowingly want to publish it; and",
+      "similarity": 0.9082
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 102,
+      "source": "- read the Privacy Notice's “What becomes public?” section.",
+      "translation": "- lees in de Privacyverklaring het gedeelte ‘Wat wordt openbaar?’.",
+      "backTranslation": "- read the Privacy Statement section ‘What is public?’, which explains what information will be made public.",
+      "similarity": 0.5269
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 104,
+      "source": "## Current App actions",
+      "translation": "## Huidige App-acties",
+      "backTranslation": "## Current App Actions ## Current Apps",
+      "similarity": 0.7333
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 106,
+      "source": "App action  What it does",
+      "translation": "App-actie  Wat die doet",
+      "backTranslation": "App action  What it does What it is doing",
+      "similarity": 0.7385
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 108,
+      "source": "Send  Transfers a token balance to another address.",
+      "translation": "Verzenden  Draagt een tokensaldo over aan een ander adres.",
+      "backTranslation": "Send  Transfers a token balance to another address.",
+      "similarity": 1.0
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 109,
+      "source": "Pool swap  Exchanges supported assets through one SwapPool. On-chain settlement does not prove Issuer fulfillment.",
+      "translation": "Fondsswap  Wisselt ondersteunde activa uit via één SwapPool. Afwikkeling op de blockchain bewijst niet dat de Uitgever zijn toezegging is nagekomen.",
+      "backTranslation": "Fund Swap  Exchanges supported assets through one SwapPool. Settlement on the blockchain does not prove that the Issuer has fulfilled its commitment.",
+      "similarity": 0.7681
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 110,
+      "source": "Routed exchange  Executes an ordered set of Pool swaps in one bounded, same-chain Wallet transaction. It does not merge the Pools' governance.",
+      "translation": "Gerouteerde uitwisseling  Voert een geordende reeks Fondsswaps uit in één begrensde Portefeuilletransactie op dezelfde blockchain. De besturen van de Fondsen worden hierdoor niet samengevoegd.",
+      "backTranslation": "Routed Exchange  Performs an ordered series of Fund Swaps in a single limited Portfolio transaction on the same blockchain, without merging the funds’ board members.",
+      "similarity": 0.5603
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 111,
+      "source": "“Redeem”  Prefills a send to the token owner as redemption presentment. Fulfillment and discharge remain separate.",
+      "translation": "‘Inwisselen’  Bereidt als aanbieding ter inwisseling een verzending aan de tokeneigenaar voor. Nakoming en afboeking blijven afzonderlijke stappen.",
+      "backTranslation": "‘Redeem’  Prepares a shipment to the token owner as an offer for redemption. Fulfillment and billing remain separate steps.",
+      "similarity": 0.7426
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 112,
+      "source": "“Request retirement”  Lets the current owner ask an administrator to retire a Voucher or Pool. The resource remains active while the request is pending; the owner can cancel the request, and an administrator can approve or reject it. Retirement does not delete contracts, balances, or history.",
+      "translation": "‘Buitengebruikstelling aanvragen’  Laat de huidige eigenaar een beheerder vragen een Waardebon of Fonds buiten gebruik te stellen. De bron blijft actief terwijl het verzoek in behandeling is; de eigenaar kan het verzoek annuleren en een beheerder kan het goedkeuren of afwijzen. Buitengebruikstelling verwijdert geen contracten, saldi of geschiedenis.",
+      "backTranslation": "‘Request Deactivation’  Lets the current owner ask an administrator to deactivate a Voucher or Fund. The resource remains active while the request is pending; the owner can cancel the request and an administrator can approve or reject it. Deactivating does not delete contracts, balances or history.",
+      "similarity": 0.9155
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 113,
+      "source": "Pool retirement  After approval, blocks new Pool swaps and deposits while keeping available withdrawals possible. It does not erase prior settlement records.",
+      "translation": "Buitengebruikstelling van een Fonds  Blokkeert na goedkeuring nieuwe Fondsswaps en stortingen, terwijl beschikbare opnames mogelijk blijven. Eerdere afwikkelingsgegevens worden niet gewist.",
+      "backTranslation": "Deactivate a Fund  Blocks new Fund Swaps and deposits after approval, while allowing available withdrawals. Previous settlement data is not erased.",
+      "similarity": 0.6118
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 114,
+      "source": "Pool liquidity withdrawal  Lets the Pool owner transfer available inventory to a selected address.",
+      "translation": "Liquiditeit uit een Fonds opnemen  Laat de Fondseigenaar beschikbare voorraad naar een gekozen adres overdragen.",
+      "backTranslation": "Withdrawing liquidity from a Fund  Have the Fund Owner transfer available stock to an address of choice.",
+      "similarity": 0.6139
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 115,
+      "source": "Fee collection  Sends accrued Pool fees to the configured recipient.",
+      "translation": "Kosten innen  Stuurt opgebouwde Fondskosten naar de ingestelde ontvanger.",
+      "backTranslation": "Collect Costs  Sends accrued Fund Costs to the selected recipient.",
+      "similarity": 0.7164
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 117,
+      "source": "## Responsibilities and important limits",
+      "translation": "## Verantwoordelijkheden en belangrijke grenzen",
+      "backTranslation": "## Responsibilities and important boundaries",
+      "similarity": 0.8571
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 119,
+      "source": "Grassroots Economics Foundation operates the App and supporting infrastructure. Unless GEF expressly accepts another role for a particular transaction, it is not the Issuer of a user-created Voucher, the Steward of a user-created Pool, a custodian, lender, borrower, guarantor, insurer, or redeemer.",
+      "translation": "Grassroots Economics Foundation beheert de App en ondersteunende infrastructuur. Tenzij GEF uitdrukkelijk een andere rol voor een bepaalde transactie aanvaardt, is GEF niet de Uitgever van een door een gebruiker gemaakte Waardebon, de Beheerder van een door een gebruiker gemaakt Fonds, een bewaarder, kredietgever, kredietnemer, garant, verzekeraar of partij die de Waardebon inwisselt.",
+      "backTranslation": "Grassroots Economics Foundation operates the App and supporting infrastructure. Unless GEF expressly accepts another role for a particular transaction, GEF is not the Issuer of a user-created Voucher, the Administrator of a User-creating Fund, a custodian, lender, borrower, guarantor, insurer or party that redeems the Voucher.",
+      "similarity": 0.9155
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 121,
+      "source": "Before transacting, remember:",
+      "translation": "Onthoud vóór een transactie:",
+      "backTranslation": "Before you make a transaction, remember:",
+      "similarity": 0.8116
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 123,
+      "source": "- You must meet the Terms' age, legal-capacity, and jurisdiction requirements.",
+      "translation": "- Je moet voldoen aan de leeftijds-, handelingsbekwaamheids- en rechtsgebiedvereisten van de Gebruiksvoorwaarden.",
+      "backTranslation": "- You must meet the age, legal capacity and jurisdiction requirements of the Terms of Use.",
+      "similarity": 0.8214
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 124,
+      "source": "- Issuers are responsible for their Voucher commitments.",
+      "translation": "- Uitgevers zijn verantwoordelijk voor de verbintenissen van hun Waardebonnen.",
+      "backTranslation": "- Issuers are responsible for the obligations of their Vouchers and are not liable for any loss or damage arising from the use of their vouchers.",
+      "similarity": 0.4975
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 125,
+      "source": "- Pool Stewards are responsible for their published Pool rules and any guarantee they expressly assume.",
+      "translation": "- Fondsbeheerders zijn verantwoordelijk voor hun gepubliceerde Fondsregels en iedere garantie die zij uitdrukkelijk aanvaarden.",
+      "backTranslation": "- Fund managers are responsible for their published Fund Rules and any guarantee they expressly accept.",
+      "similarity": 0.835
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 126,
+      "source": "- A listing, review, route, limit, reserve, or blockchain record is not automatically an endorsement, valuation, fulfillment record, guarantee, insurance policy, or promise of cash-out.",
+      "translation": "- Een vermelding, beoordeling, route, limiet, reserve of blockchainrecord is niet automatisch een goedkeuring, waardering, bewijs van nakoming, garantie, verzekering of belofte van uitbetaling in geld.",
+      "backTranslation": "- An entry, assessment, route, limit, reserve or blockchain record is not automatically an endorsement, appraisal, proof of performance, guarantee, insurance or promise of cash payment.",
+      "similarity": 0.7784
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 127,
+      "source": "- Payment services, rewards, contribution arrangements, and other provider integrations are deployment-dependent and require their own disclosures.",
+      "translation": "- Betalingsdiensten, beloningen, bijdrageregelingen en andere integraties met aanbieders zijn implementatieafhankelijk en vereisen hun eigen bekendmakingen.",
+      "backTranslation": "- Payment services, rewards, contribution schemes and other integrations with providers are implementation-dependent and require their own disclosures.",
+      "similarity": 0.8389
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "De App ondersteunt rechtstreekse en gerouteerde Fondsuitwisselingen waar die beschikbaar zijn. Cross-chainrouting, automatische herbalancering van Fondsen, batchnetting, gedeelde verzekering, voorgestelde bestuursactiva, liquiditeitsprogramma’s op netwerkniveau en gereguleerde betalingsrails blijven voorgesteld of implementatieafhankelijk, tenzij een specifieke implementatie ze als actief benoemt.",
+      "backTranslation": "The App supports direct and routed Fund Exchanges where available. Cross-chain routing, automatic rebalancing of Funds, batch netting, shared insurance, proposed governance assets, network-level liquidity programs and regulated payment rails remain proposed or implementation dependent unless a specific implementation names them as an asset.",
+      "similarity": 0.8896
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 131,
+      "source": "See the simple and advanced examples, the Protocol overview, or governance mechanics for more detail.",
+      "translation": "Zie de eenvoudige en geavanceerde voorbeelden, het Protocoloverzicht of de bestuursmechanismen voor meer informatie.",
+      "backTranslation": "For more information, see the simple and advanced examples, the Protocol overview or the governance mechanisms.",
+      "similarity": 0.7925
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 3,
+      "source": "Cosmo-Local Credit connects people who offer goods or services, people who need them, and independently governed Commitment Pools that enable Voucher exchange. This page begins with the terms a participant sees, then explains the technical layers beneath them.",
+      "translation": "Cosmo-Local Credit verbindt mensen die goederen of diensten aanbieden met mensen die ze nodig hebben, via onafhankelijk bestuurde Commitmentfondsen waarin Waardebonnen kunnen worden uitgewisseld. Deze pagina begint met de begrippen die een deelnemer ziet en legt daarna de onderliggende technische lagen uit.",
+      "backTranslation": "Cosmo-Local Credit connects people who offer goods or services with those in need of them through independently managed Commitment Funds where Vouchers can be exchanged. This page starts with the concepts a participant sees and then explains the underlying technical layers.",
+      "similarity": 0.7828
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 5,
+      "source": "Exact App labels appear in quotation marks where the interface uses a shorter or potentially ambiguous name.",
+      "translation": "Exacte App-labels staan tussen aanhalingstekens wanneer de interface een kortere of mogelijk dubbelzinnige naam gebruikt.",
+      "backTranslation": "Exact App labels are enclosed in quotation marks when the interface uses a shorter or potentially ambiguous name.",
+      "similarity": 0.9231
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 7,
+      "source": "## Everyday terms",
+      "translation": "## Alledaagse begrippen",
+      "backTranslation": "## Everyday terms and expressions",
+      "similarity": 0.68
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 9,
+      "source": "Term  Plain-language meaning",
+      "translation": "Begrip  Betekenis in gewone taal",
+      "backTranslation": "Meaning  Meaning in ordinary language.",
+      "similarity": 0.4242
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 11,
+      "source": "Voucher  A transferable commitment—much like a gift card—whose Issuer promises specified goods, services, benefits, or other performance under published terms.",
+      "translation": "Waardebon  Een overdraagbare verbintenis—vergelijkbaar met een geschenkbon—waarvan de Uitgever onder gepubliceerde voorwaarden bepaalde goederen, diensten, voordelen of andere prestaties belooft.",
+      "backTranslation": "Voucher  A transferable commitment—similar to a gift certificate—by which the Issuer promises, under published terms and conditions, certain goods, services, benefits or other performance.",
+      "similarity": 0.6859
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 12,
+      "source": "Issuer  The person or organization that creates the Voucher and remains responsible for what it promises.",
+      "translation": "Uitgever  De persoon of organisatie die de Waardebon maakt en verantwoordelijk blijft voor wat deze belooft.",
+      "backTranslation": "Issuer  The person or organization that makes the Voucher and remains responsible for what it promises.",
+      "similarity": 0.9712
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 13,
+      "source": "Offering  A catalog record describing goods or services associated with a Voucher. It helps people discover the offer but does not prove availability or fulfillment.",
+      "translation": "Aanbieding  Een catalogusrecord dat goederen of diensten beschrijft die bij een Waardebon horen. Het helpt mensen het aanbod te vinden, maar bewijst geen beschikbaarheid of nakoming.",
+      "backTranslation": "Offer  A catalog record that describes the goods or services associated with a Voucher.It helps people find the offer, but does not prove availability or fulfillment.",
+      "similarity": 0.9124
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 14,
+      "source": "Want  A published expression of something a participant is looking for. It does not by itself accept an Offering, reserve goods, authorize an exchange, or create an obligation.",
+      "translation": "Verzoek  Een gepubliceerde beschrijving van iets waarnaar een deelnemer op zoek is. Het aanvaardt niet automatisch een Aanbieding, reserveert geen goederen, keurt geen uitwisseling goed en schept geen verplichting.",
+      "backTranslation": "Request  A published description of something a participant is looking for. It does not automatically accept an Offer, reserve goods, approve an exchange, or create any obligation.",
+      "similarity": 0.8483
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 15,
+      "source": "Market  The App's discovery catalog for Vouchers, Pools, Offerings, Wants, and other public information. It is not automatically an exchange venue, seller, endorsement, or guarantee.",
+      "translation": "Markt  De zoekcatalogus van de App voor Waardebonnen, Fondsen, Aanbiedingen, Verzoeken en andere openbare informatie. De Markt is niet automatisch een ruilplaats, verkoper, goedkeuring of garantie.",
+      "backTranslation": "Market  The App's search catalog for Vouchers, Funds, Offers, Requests and other public information.The Market is not automatically an exchange, seller, endorsement or guarantee.",
+      "similarity": 0.8667
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 16,
+      "source": "Commitment Pool  A governed arrangement that selects supported Vouchers, publishes exchange rules, holds inventory, and enables exchange. Pool is the ordinary shorthand.",
+      "translation": "Commitmentfonds  Een bestuurde regeling die ondersteunde Waardebonnen selecteert, ruilregels publiceert, voorraad aanhoudt en uitwisseling mogelijk maakt. Fonds is de gebruikelijke afkorting.",
+      "backTranslation": "Commitment Fund  A managed scheme that selects supported Vouchers, publishes exchange rules, maintains stock and enables exchange. Fund is the usual abbreviation.",
+      "similarity": 0.7251
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 17,
+      "source": "Pool Steward  The accountable person, cooperative, public agency, federation, multisig, service, or other structure that publishes and administers a Pool's rules.",
+      "translation": "Fondsbeheerder  De verantwoordelijke persoon, coöperatie, overheidsinstantie, federatie, multisig, dienst of andere structuur die de regels van een Fonds publiceert en beheert.",
+      "backTranslation": "Fund Manager  The responsible person, cooperative, government agency, federation, multisignature, service or other structure that publishes and administers the rules of a Fund.",
+      "similarity": 0.7811
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 18,
+      "source": "Holder  A participant controlling a Voucher balance. Holding it does not prove fulfillment, cash value, or a guarantee.",
+      "translation": "Houder  Een deelnemer die een Waardebonsaldo beheert. Het bezit ervan bewijst geen nakoming, geldwaarde of garantie.",
+      "backTranslation": "Holder  A participant who manages a Voucher balance. Its possession does not prove any performance, monetary value or guarantee.",
+      "similarity": 0.7206
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 19,
+      "source": "Wallet  The account and credentials used to authorize token transfers and Pool exchanges.",
+      "translation": "Portefeuille  Het account en de toegangsgegevens waarmee tokenoverdrachten en Fondsuitwisselingen worden goedgekeurd.",
+      "backTranslation": "Wallet  The account and access credentials used to approve token transfers and Fund Exchanges.",
+      "similarity": 0.8634
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 21,
+      "source": "“Community member” is informal social language. It does not by itself create admission, ownership, governance, repayment, or other legal rights.",
+      "translation": "‘Gemeenschapslid’ is informele sociale taal. Het begrip schept op zichzelf geen toelating, eigendom, bestuur, terugbetaling of andere wettelijke rechten.",
+      "backTranslation": "‘Community member’ is informal social language, and the term does not in itself create admission, ownership, control, refund or other legal rights.",
+      "similarity": 0.8454
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 23,
+      "source": "## Discovering and contacting participants",
+      "translation": "## Deelnemers vinden en contacteren",
+      "backTranslation": "## Find and contact participants ## Contact participants",
+      "similarity": 0.6122
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 25,
+      "source": "The Market helps people find Vouchers, Offerings, Wants, and Pools. A listing means the App can display a record; it does not prove that its information is accurate, that inventory is available, or that a transaction will succeed.",
+      "translation": "De Markt helpt mensen Waardebonnen, Aanbiedingen, Verzoeken en Fondsen te vinden. Een vermelding betekent dat de App een record kan tonen; ze bewijst niet dat de informatie juist is, dat voorraad beschikbaar is of dat een transactie zal slagen.",
+      "backTranslation": "The Marketplace helps people find Vouchers, Offers, Requests and Funds. A listing means that the App may display a record; it does not prove that the information is accurate, that stock is available or that a transaction will succeed.",
+      "similarity": 0.8922
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 27,
+      "source": "A participant can publish a Want and can contact another participant through the available contact or messaging features. A contact request, message, booking discussion, or response to a Want does not by itself:",
+      "translation": "Een deelnemer kan een Verzoek publiceren en via beschikbare contact- of berichtfuncties contact opnemen met een andere deelnemer. Een contactverzoek, bericht, boekingsgesprek of reactie op een Verzoek betekent op zichzelf niet dat:",
+      "backTranslation": "A participant may post a Request and contact another participant through available contact or message functions.A contact request, message, booking call or response to a Request does not in itself mean that:",
+      "similarity": 0.8086
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 29,
+      "source": "- accept a Voucher or Offering;",
+      "translation": "- een Waardebon of Aanbieding wordt aanvaard;",
+      "backTranslation": "- a Voucher or Offer is accepted; a Vehicle is purchased;",
+      "similarity": 0.5
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 30,
+      "source": "- authorize a transfer or Pool swap;",
+      "translation": "- een overdracht of Fondsswap wordt goedgekeurd;",
+      "backTranslation": "- a transfer or Fund Swap is approved; a transfer is approve",
+      "similarity": 0.4583
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 31,
+      "source": "- prove delivery or satisfaction;",
+      "translation": "- levering of tevredenheid is bewezen;",
+      "backTranslation": "- delivery or satisfaction is proven; proof of delivery or satisfactory satisfaction is provided.",
+      "similarity": 0.4154
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 32,
+      "source": "- fulfill or discharge a Voucher; or",
+      "translation": "- een Waardebon is nagekomen of afgeboekt; of",
+      "backTranslation": "- a Voucher has been paid or debited; or",
+      "similarity": 0.3947
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 33,
+      "source": "- make GEF a party to the participants' agreement.",
+      "translation": "- GEF partij wordt bij de overeenkomst tussen de deelnemers.",
+      "backTranslation": "- GEF becomes party to the agreement between participants.",
+      "similarity": 0.6111
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 35,
+      "source": "Reviews are public feedback about a Voucher or Pool. They are not the same as private eligibility evidence, operator due diligence, a guarantee, or a finding that fulfillment occurred.",
+      "translation": "Beoordelingen zijn openbare feedback over een Waardebon of Fonds. Ze zijn niet hetzelfde als privébewijs van geschiktheid, onderzoek door een beheerder, een garantie of een vaststelling dat nakoming heeft plaatsgevonden.",
+      "backTranslation": "Reviews are public feedback on a Voucher or Fund and are not the same as private evidence of eligibility, managerial review, guarantee or determination that compliance has taken place.",
+      "similarity": 0.663
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 37,
+      "source": "## Vouchers, tokens, and Offerings",
+      "translation": "## Waardebonnen, tokens en Aanbiedingen",
+      "backTranslation": "## Coupons, Tokens and Deals at Bongacams.ee",
+      "similarity": 0.5897
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 39,
+      "source": "A token is an on-chain balance or digital asset. Token mechanics can record supply, transfers, expiry, and burning, but they do not by themselves promise goods, services, cash conversion, or redemption.",
+      "translation": "Een token is een saldo op de blockchain of een digitaal activum. Tokenmechanismen kunnen aanbod, overdrachten, verval en verbranding registreren, maar beloven op zichzelf geen goederen, diensten, omzetting in geld of inwisseling.",
+      "backTranslation": "A token is a balance on the blockchain or a digital asset. Token mechanisms can record supply, transfers, expiration and burning but do not promise in themselves goods, services, conversion into cash or exchange.",
+      "similarity": 0.7681
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 41,
+      "source": "A Voucher is a token or record that an Issuer represents as a redeemable commitment under published terms. Those terms should identify what is promised, who is responsible, where and when it can be presented, material limits, and the fulfillment and complaint process.",
+      "translation": "Een Waardebon is een token of record dat een Uitgever onder gepubliceerde voorwaarden als inwisselbare verbintenis presenteert. Die voorwaarden moeten aangeven wat wordt beloofd, wie verantwoordelijk is, waar en wanneer de Waardebon kan worden aangeboden, welke belangrijke beperkingen gelden en hoe nakoming en klachten worden afgehandeld.",
+      "backTranslation": "A Voucher is a token or record that an Issuer presents as a redeemable commitment under published terms and conditions, which should state what is promised, who is responsible, where and when the Voucher may be offered, important limitations applying, and how compliance and complaints will be handled.",
+      "similarity": 0.7614
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 43,
+      "source": "An Offering is the catalog record for goods or services associated with a Voucher. In ordinary prose, “offer” simply means something a participant proposes; Offering is the named App record.",
+      "translation": "Een Aanbieding is het catalogusrecord voor goederen of diensten die bij een Waardebon horen. In gewone tekst betekent ‘aanbod’ eenvoudigweg iets dat een deelnemer voorstelt; Aanbieding is de naam van het App-record.",
+      "backTranslation": "An Offer is the catalog record for goods or services associated with a Voucher. In plain text, ‘offer’ simply means something that a participant proposes; Offer is its App record name.",
+      "similarity": 0.877
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 45,
+      "source": "Keep these four layers separate:",
+      "translation": "Houd deze vier lagen uit elkaar:",
+      "backTranslation": "Keep these four layers apart: keep the four layer of the skin separate.",
+      "similarity": 0.6019
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 48,
+      "source": "2. the Voucher designation and published terms;",
+      "translation": "2. de aanduiding en gepubliceerde voorwaarden van de Waardebon;",
+      "backTranslation": "2. the designation and published terms of the Voucher; the name of the voucher;",
+      "similarity": 0.619
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 49,
+      "source": "3. one or more Offering records; and",
+      "translation": "3. een of meer Aanbiedingsrecords; en",
+      "backTranslation": "3. one or more Offering Records; and",
+      "similarity": 1.0
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 50,
+      "source": "4. the Issuer's real-world performance.",
+      "translation": "4. de werkelijke prestatie van de Uitgever.",
+      "backTranslation": "4. the actual performance of the Publisher.",
+      "similarity": 0.561
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 56,
+      "source": "Issuer  Publishes and fulfills a Voucher commitment. This responsibility does not automatically move merely because contract ownership changes.",
+      "translation": "Uitgever  Publiceert een verbintenis van een Waardebon en komt die na. Deze verantwoordelijkheid gaat niet automatisch over wanneer het contracteigendom verandert.",
+      "backTranslation": "Issuer  Publishes and fulfills a Voucher commitment. This responsibility does not automatically pass when contract ownership changes.",
+      "similarity": 0.9058
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 57,
+      "source": "Pool Steward  Publishes and administers Pool rules and remains accountable for any guarantee the Pool expressly advertises.",
+      "translation": "Fondsbeheerder  Publiceert en beheert Fondsregels en blijft verantwoordelijk voor iedere garantie die het Fonds uitdrukkelijk bekendmaakt.",
+      "backTranslation": "Fund Manager  Publishes and administers the Fund Rules and remains responsible for any guarantee expressly disclosed by the Fund.",
+      "similarity": 0.7063
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 59,
+      "source": "Multisig signers  Share the technical authority assigned to a multisig Wallet. Changing signers or thresholds does not silently transfer Issuer responsibility, Steward accountability, or legal ownership.",
+      "translation": "Multisigondertekenaars  Delen de technische bevoegdheid die aan een multisig-Portefeuille is toegekend. Een wijziging van ondertekenaars of drempels draagt de verantwoordelijkheid van de Uitgever, de verantwoordingsplicht van de Fondsbeheerder of het juridische eigendom niet stilzwijgend over.",
+      "backTranslation": "Multi-Signature Signatories  Share the technical authority granted to a multi-signature Portfolio. A change in signators or thresholds does not implicitly transfer Issuer responsibility, Fund Manager accountability or legal ownership.",
+      "similarity": 0.8284
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 60,
+      "source": "Proxy administrator  Can upgrade a proxied contract implementation. It may differ from the Pool owner.",
+      "translation": "Proxybeheerder  Kan de implementatie van een geproxied contract upgraden. Dit kan een andere partij zijn dan de Fondseigenaar.",
+      "backTranslation": "Proxy Administrator  Can upgrade the implementation of a proxy contract, which can be a party other than the Fund Owner.",
+      "similarity": 0.6306
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 61,
+      "source": "Dependency controller  Controls a registry, limiter, quoter, oracle, fee policy, or protocol-fee controller.",
+      "translation": "Afhankelijkheidsbeheerder  Beheert een register, limiter, quoter, oracle, kostenbeleid of controller voor protocolkosten.",
+      "backTranslation": "Dependency Manager  Manages a registry, limiter, quotar, oracle, cost policy or controller for protocol costs.",
+      "similarity": 0.7248
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 62,
+      "source": "Catalog moderator  Can correct, hide, retire, or restore catalog records without deleting contracts, balances, or chain history.",
+      "translation": "Catalogusmoderator  Kan catalogusrecords corrigeren, verbergen, buiten gebruik stellen of herstellen zonder contracten, saldi of blockchainhistorie te verwijderen.",
+      "backTranslation": "Catalog Moderator  Can correct, hide, deactivate or restore catalog records without deleting contracts, balances or blockchain history.",
+      "similarity": 0.943
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 63,
+      "source": "Fee recipient  Receives a configured Pool or protocol fee. It is not necessarily the Pool Steward or owner.",
+      "translation": "Ontvanger van kosten  Ontvangt ingestelde Fonds- of protocolkosten. Dit is niet noodzakelijk de Fondsbeheerder of eigenaar.",
+      "backTranslation": "Receiver of fees  Receives set Fund or protocol fees. This is not necessarily the Fund Manager or owner.",
+      "similarity": 0.6919
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 64,
+      "source": "Supporter or liquidity provider  Contributes assets under separately disclosed terms. The current SwapPool creates no automatic Pool shares, repayment, withdrawal, reward, or governance rights.",
+      "translation": "Ondersteuner of liquiditeitsverschaffer  Draagt activa bij onder afzonderlijk bekendgemaakte voorwaarden. De huidige SwapPool schept geen automatische Fondsaandelen of rechten op terugbetaling, opname, beloning of bestuur.",
+      "backTranslation": "Supporter or liquidity provider  Contributes assets under separately disclosed terms and conditions. The current SwapPool does not create automatic Fund Shares or rights to redemption, withdrawal, reward or administration.",
+      "similarity": 0.7855
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 70,
+      "source": "Create or publish a Voucher  Deploy or configure a token and publish its catalog record and terms.",
+      "translation": "Een Waardebon maken of publiceren  Een token implementeren of configureren en het catalogusrecord en de voorwaarden ervan publiceren.",
+      "backTranslation": "Create or publish a voucher  Deploy or configure a token and publish the catalog record and its terms.",
+      "similarity": 0.96
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 71,
+      "source": "Issue or mint  Create token balance under the configured owner or writer authority.",
+      "translation": "Uitgeven of aanmaken  Een tokensaldo creëren onder de bevoegdheid van de ingestelde eigenaar of schrijver.",
+      "backTranslation": "Issue or create  Create a token balance under the authority of the set owner or writer.",
+      "similarity": 0.7412
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 72,
+      "source": "Publish an Offering  Add a goods or services record beneath a Voucher.",
+      "translation": "Een Aanbieding publiceren  Een record van goederen of diensten aan een Waardebon toevoegen.",
+      "backTranslation": "Publish an Offer  Add a record of goods or services to a Voucher.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 73,
+      "source": "Publish a Want  Describe a need for discovery and possible contact; it does not itself create a transaction.",
+      "translation": "Een Verzoek publiceren  Een behoefte beschrijven zodat die kan worden gevonden en contact mogelijk wordt; dit creëert op zichzelf geen transactie.",
+      "backTranslation": "Publish a Request  Describe a need so that it can be found and contact is made possible; this does not in itself create a transaction.",
+      "similarity": 0.7107
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 75,
+      "source": "“Redeem”  Open the send flow with the token owner's address prefilled. This is redemption presentment; it does not prove fulfillment.",
+      "translation": "‘Inwisselen’  De verzendstroom openen met het adres van de tokeneigenaar vooraf ingevuld. Dit is aanbieding ter inwisseling; het bewijst geen nakoming.",
+      "backTranslation": "‘Redeem’  Open the mailing stream with the address of the token owner pre-filled. This is an offer to redeem; it does not prove compliance.",
+      "similarity": 0.6544
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 77,
+      "source": "Discharge  Record fulfilled units so they cannot be presented again, for example by receiving, burning, cancelling, or otherwise disabling them under the published terms.",
+      "translation": "Afboeken  Nagekomen eenheden registreren zodat ze niet opnieuw kunnen worden aangeboden, bijvoorbeeld door ze volgens de gepubliceerde voorwaarden te ontvangen, verbranden, annuleren of anderszins uit te schakelen.",
+      "backTranslation": "Depreciation  Registering fulfilled units so that they cannot be re-offered, for example by receiving them according to published terms, burning, cancelling or otherwise disabling them.",
+      "similarity": 0.6986
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 78,
+      "source": "“Request retirement”  The current owner asks an administrator to retire a Voucher or Pool. The resource remains active while the request is pending, and the request may be approved, rejected, or cancelled.",
+      "translation": "‘Buitengebruikstelling aanvragen’  De huidige eigenaar vraagt een beheerder een Waardebon of Fonds buiten gebruik te stellen. De bron blijft actief terwijl het verzoek in behandeling is; het verzoek kan worden goedgekeurd, afgewezen of geannuleerd.",
+      "backTranslation": "‘Request Deactivation’  The current owner asks an administrator to deactivate a Voucher or Fund. The source remains active while the request is pending; the request can be approved, rejected or cancelled.",
+      "similarity": 0.8851
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 79,
+      "source": "Retire a Voucher  After approval, remove the Voucher from active catalog use. Contracts, balances, obligations, and history remain; retirement is not burning or discharge.",
+      "translation": "Een Waardebon buiten gebruik stellen  De Waardebon na goedkeuring uit actief catalogusgebruik verwijderen. Contracten, saldi, verplichtingen en historie blijven bestaan; buitengebruikstelling is geen verbranding of afboeking.",
+      "backTranslation": "Deactivating a Voucher  Remove the Voucher from active catalog use after approval. Contracts, balances, obligations and history remain; deactivation is not burning or posting.",
+      "similarity": 0.7977
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 80,
+      "source": "Retire a Pool  After approval, stop new Pool swaps and deposits while allowing available withdrawals. Prior settlement records remain.",
+      "translation": "Een Fonds buiten gebruik stellen  Na goedkeuring nieuwe Fondsswaps en stortingen stoppen, terwijl beschikbare opnames mogelijk blijven. Eerdere afwikkelingsgegevens blijven bestaan.",
+      "backTranslation": "Deactivate a Fund  Upon approval, stop new Fund swaps and deposits while allowing available withdrawals. Previous settlement data remains.",
+      "similarity": 0.8235
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 81,
+      "source": "Pool deposit or contribution  Transfer assets into a SwapPool. Repayment, withdrawal, reward, or governance rights exist only when separately disclosed.",
+      "translation": "Storting of bijdrage aan een Fonds  Activa naar een SwapPool overdragen. Rechten op terugbetaling, opname, beloning of bestuur bestaan alleen wanneer ze afzonderlijk zijn bekendgemaakt.",
+      "backTranslation": "Deposit or Contribute to a Fund  Transfer assets to a SwapPool. Rights of redemption, withdrawal, remuneration or administration exist only where they are disclosed separately.",
+      "similarity": 0.6646
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 82,
+      "source": "Pool swap  Exchange supported assets through one SwapPool. This is neither Issuer fulfillment nor automatically a loan.",
+      "translation": "Fondsswap  Ondersteunde activa uitwisselen via één SwapPool. Dit is geen nakoming door de Uitgever en niet automatisch een lening.",
+      "backTranslation": "Fund Swap  Exchange of backed assets through a single SwapPool. This is not a performance by the Issuer and does not automatically constitute a loan.",
+      "similarity": 0.709
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 83,
+      "source": "Route discovery  Find possible paths through configured Pool relationships. Discovery is an estimate, not an executable promise.",
+      "translation": "Routeontdekking  Mogelijke paden door ingestelde Fondsrelaties vinden. De ontdekking is een schatting en geen uitvoerbare belofte.",
+      "backTranslation": "Route Discovery  Finds possible paths through established Fund Relationships. The discovery is an estimate and not a workable promise.",
+      "similarity": 0.8321
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 84,
+      "source": "Route quote  Calculate a time-bounded proposal from Pool state read at one pinned block and simulate it before signing.",
+      "translation": "Routeofferte  Een tijdgebonden voorstel berekenen uit Fondsstatus die op één vastgezet blok is gelezen en dit vóór ondertekening simuleren.",
+      "backTranslation": "Route Quote  Calculate a time-bound proposal from Fund Status read on one locked block and simulate it before signing.",
+      "similarity": 0.8945
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 85,
+      "source": "Routed exchange  Submit an ordered set of Pool swaps as one same-chain Wallet batch. In the current flow, every call reverts if any call fails.",
+      "translation": "Gerouteerde uitwisseling  Een geordende reeks Fondsswaps als één Portefeuille-batch op dezelfde blockchain indienen. In de huidige stroom worden alle oproepen teruggedraaid als één oproep mislukt.",
+      "backTranslation": "Routed Exchange  Submit an ordered series of Fund Swaps as one Portfolio batch on the same blockchain.In the current stream, all calls are turned back if one call fails.",
+      "similarity": 0.6795
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 86,
+      "source": "Routed-exchange receipt  Group the tracking status, transaction hash, route hops, settled amounts, and per-hop fees.",
+      "translation": "Ontvangstbewijs van een gerouteerde uitwisseling  De volgstatus, transactiehash, routehops, afgewikkelde bedragen en kosten per hop groeperen.",
+      "backTranslation": "Receipt of a routed exchange  Group the tracking status, transaction hash, route hops, amounts settled and costs per hop.",
+      "similarity": 0.7848
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 87,
+      "source": "Pool liquidity withdrawal  Let the Pool owner transfer available inventory to a selected address.",
+      "translation": "Liquiditeit uit een Fonds opnemen  De Fondseigenaar beschikbare voorraad naar een gekozen adres laten overdragen.",
+      "backTranslation": "Withdraw liquidity from a Fund  Have the Fund Owner transfer available stock to an address of your choice.",
+      "similarity": 0.6108
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 88,
+      "source": "Fee collection  Send accrued Pool fees to the configured recipient.",
+      "translation": "Kosten innen  Opgebouwde Fondskosten naar de ingestelde ontvanger sturen.",
+      "backTranslation": "Collect costs  Send accrued Fund fees to the set recipient.",
+      "similarity": 0.7619
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 90,
+      "source": "Use swap settlement for the on-chain transfers and fee accounting that complete a Pool swap. Use redemption presentment, fulfillment, and discharge for the separate real-world Voucher lifecycle.",
+      "translation": "Gebruik swapafwikkeling voor de overdrachten en kostenboekhouding op de blockchain waarmee een Fondsswap wordt voltooid. Gebruik aanbieding ter inwisseling, nakoming en afboeking voor de afzonderlijke werkelijke levenscyclus van een Waardebon.",
+      "backTranslation": "Use swap settlement for the transfers and cost accounting on the blockchain that complete a Fund Swap.Use offer to redeem, fulfillment and depreciation for the separate actual life cycle of a Voucher.",
+      "similarity": 0.6904
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 96,
+      "source": "Cosmo-Local Credit (CLC)  The product family: the CLC App, its documentation, and the wider commitment-pooling work.",
+      "translation": "Cosmo-Local Credit (CLC)  De productfamilie: de CLC App, de documentatie en het bredere werk rond commitment pooling.",
+      "backTranslation": "Cosmo-Local Credit (CLC)  The product family: the CLC App, the documentation and the broader work around commitment pooling.",
+      "similarity": 0.875
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 98,
+      "source": "CLC Core  The supporting service for catalogs, indexed chain state, route discovery, authoritative quotes, relay coordination, and routed-exchange receipts. It is neither a smart contract nor a Pool Steward.",
+      "translation": "CLC Core  De ondersteunende dienst voor catalogi, geïndexeerde blockchainstatus, routeontdekking, gezaghebbende offertes, relaycoördinatie en ontvangstbewijzen van gerouteerde uitwisselingen. CLC Core is geen smart contract of Fondsbeheerder.",
+      "backTranslation": "CLC Core  The support service for catalogs, indexed blockchain status, route discovery, authoritative quotes, relay coordination and receipts of routed exchanges.CLC Core is not a smart contract or Fund Manager.",
+      "similarity": 0.799
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 99,
+      "source": "Commitment Pooling Protocol (CPP)  The reusable model of curation, valuation, limitation, exchange, and accountable governance.",
+      "translation": "Commitment Pooling Protocol (CPP)  Het herbruikbare model voor selectie, waardering, beperking, uitwisseling en verantwoordelijk bestuur.",
+      "backTranslation": "Commitment Pooling Protocol (CPP)  The reusable model for selection, appreciation, limitation, exchange and responsible governance.",
+      "similarity": 0.876
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  De openbare smartcontractrelease die in de definitieve softwarereferentie wordt beschreven (Engels).",
+      "backTranslation": "Protocol v1.1.0  The public smart contract release described in the final software reference.",
+      "similarity": 0.8416
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 101,
+      "source": "SwapPool  The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool.",
+      "translation": "SwapPool  Het huidige Protocolcontract dat tokenvoorraad aanhoudt en rechtstreekse swaps uitvoert. Het is één technisch onderdeel van een Commitmentfonds.",
+      "backTranslation": "SwapPool  The current Protocol contract that holds token stock and performs direct swaps.It is one technical part of a Commitment Fund.",
+      "similarity": 0.8571
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 102,
+      "source": "Solidity SwapRouter  The Protocol v1.1.0 contract that quotes a proposed multi-Pool path. It does not custody assets or execute the route.",
+      "translation": "Solidity-SwapRouter  Het Protocol v1.1.0-contract dat een voorgesteld pad door meerdere Fondsen berekent. Het bewaart geen activa en voert de route niet uit.",
+      "backTranslation": "Solidity-SwapRouter  The Protocol v1.1.0 contract that calculates a proposed path through multiple Funds. It does not store assets and does not execute the route.",
+      "similarity": 0.82
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "Routeringsworkflow van de App  De App en ondersteunende diensten zoeken mogelijke paden door Fondsen, berekenen een offerte voor de uitwisseling, vragen toestemming van de deelnemer en melden het resultaat.",
+      "backTranslation": "App Routing Workflow  The App and supporting services search for possible paths through Funds, calculate a quote for the exchange, request consent from the participant, and report the result.",
+      "similarity": 0.7892
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 105,
+      "source": "Proposed CLC Network Pool  A future network-level clearing and coordination design. It is not the same as a current SwapPool.",
+      "translation": "Voorgesteld CLC Network Pool  Een toekomstig ontwerp voor verrekening en coördinatie op netwerkniveau. Dit is niet hetzelfde als een huidige SwapPool.",
+      "backTranslation": "Proposed CLC Network Pool  A future design for network-level settlement and coordination.This is not the same as a current SwapPool.A proposed CLC network pool is a future design of a network-wide pool that will be used to handle transactions at the network level.",
+      "similarity": 0.5656
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 107,
+      "source": "## Values, credit, limits, and fees",
+      "translation": "## Waarden, krediet, limieten en kosten",
+      "backTranslation": "## Values, credit, limits and charges",
+      "similarity": 0.8889
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 111,
+      "source": "- Offering price: the amount requested for a listed good or service;",
+      "translation": "- prijs van een Aanbieding: het gevraagde bedrag voor een vermeld goed of dienst;",
+      "backTranslation": "- price of an Offer: the amount requested for a listed good or service;",
+      "similarity": 0.8489
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 112,
+      "source": "- Voucher stated value: a value represented in the Issuer's published terms;",
+      "translation": "- vermelde waarde van een Waardebon: een waarde in de gepubliceerde voorwaarden van de Uitgever;",
+      "backTranslation": "- stated value of a Voucher: a value in the published terms and conditions of the Issuer;",
+      "similarity": 0.5697
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 113,
+      "source": "- Pool exchange rate or quote: the transaction parameter produced by a Pool's configured quoter;",
+      "translation": "- wisselkoers of offerte van een Fonds: de transactieparameter die door de ingestelde quoter van een Fonds wordt geproduceerd;",
+      "backTranslation": "- exchange rate or quote of a Fund: the transaction parameter produced by the set quotation of a fund;",
+      "similarity": 0.7374
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 114,
+      "source": "- oracle reference: external data used by a configured valuation module; and",
+      "translation": "- oraclereferentie: externe gegevens die een ingestelde waarderingsmodule gebruikt; en",
+      "backTranslation": "- oraclereference: external data used by a set rating module; and",
+      "similarity": 0.8511
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 115,
+      "source": "- redemption terms: what the Issuer promises and under what conditions.",
+      "translation": "- inwisselvoorwaarden: wat de Uitgever belooft en onder welke voorwaarden.",
+      "backTranslation": "- terms of redemption: what the Publisher promises and under which conditions.",
+      "similarity": 0.8188
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 117,
+      "source": "Credit in the App refers to reachable commitments and exchange capacity. It is not automatically personal borrowing, a loan, an Issuer-capacity assessment, or a guarantee.",
+      "translation": "Krediet verwijst in de App naar bereikbare verbintenissen en uitwisselingscapaciteit. Het is niet automatisch persoonlijk lenen, een lening, een beoordeling van de capaciteit van de Uitgever of een garantie.",
+      "backTranslation": "Credit refers in the App to achievable commitments and exchange capacity, it is not an automatic personal borrowing, a loan, an assessment of Issuer’s capacity or a guarantee.",
+      "similarity": 0.8092
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 119,
+      "source": "The label “Credit limit” means the Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.",
+      "translation": "Het label ‘Kredietlimiet’ betekent de ingestelde bovengrens voor het tokensaldo van het Fonds: het maximale aantal van die token dat het Fonds na een storting mag bezitten. Voorgestelde doorlopende limieten, accountlimieten en netwerkbrede limieten in de White Paper zijn andere mechanismen.",
+      "backTranslation": "The ‘Credit Limit’ label means the set upper limit on the Fund’s token balance: the maximum number of that token that the Fund may hold after a deposit. Proposed running limits, account limits and network-wide limits in the White Paper are other mechanisms.",
+      "similarity": 0.7846
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 121,
+      "source": "Protocol v1.1.0 can charge a Pool fee and an additional protocol fee on each Pool swap. A routed exchange itemizes both for every hop. The current App adds no separate routing-service fee. The proposed White Paper model separately describes a future network rake and possible service fees.",
+      "translation": "Protocol v1.1.0 kan voor iedere Fondsswap Fondskosten en aanvullende protocolkosten aanrekenen. Een gerouteerde uitwisseling specificeert beide voor iedere hop. De huidige App voegt geen afzonderlijke routeringsservicekosten toe. Het voorgestelde model in de White Paper beschrijft afzonderlijk een toekomstige netwerkafdracht en mogelijke servicekosten.",
+      "backTranslation": "Protocol v1.1.0 may charge Fund Fees and additional protocol fees for each Fund Swap. A routed exchange specifies both for each hop. The current App does not add separate routing service fees. The model proposed in the White Paper describes a future network fee and potential service fees separately.",
+      "similarity": 0.8081
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "Een route is een geordend pad door een of meer onafhankelijk bestuurde Fondsen. De routediepte is het aantal Fondsswaps in dat pad.",
+      "backTranslation": "A route is an ordered path through one or more independently managed Funds, and the route depth is the number of Fund Swaps in that path. A route depths the number and type of Fund swaps in the path.",
+      "similarity": 0.7052
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "Niet iedere Waardebon, ieder Fonds of iedere Portefeuille is geschikt voor routing. Een vermelding in een Fonds maakt een Waardebon niet automatisch beschikbaar via iedere route. De softwarereferentie voor routing houdt de huidige geschiktheidsregels en configuratie bij in het Engels.",
+      "backTranslation": "Not every Voucher, Fund or Portfolio is eligible for routing. An entry in a Fund does not automatically make a Voucher available through every route. The Routing Software Reference keeps track of current eligibility rules and configuration.",
+      "similarity": 0.818
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "Beschikbare liquiditeit is de voorraad die een Fonds kan leveren volgens zijn huidige regels, limieten en kosten. Een verbinding tussen Fondsen bewijst niet dat het gewenste bedrag beschikbaar is. Controleer de definitieve offerte; die kan verlopen of ongeldig worden als Fondsomstandigheden veranderen.",
+      "backTranslation": "Available liquidity is the stock that a Fund can provide under its current rules, limits and fees. A connection between Funds does not prove that the desired amount is available. Check the final quote; it may expire or become invalid if Fund Conditions change.",
+      "similarity": 0.8445
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 131,
+      "source": "Current route execution is same-chain and Wallet-initiated. It does not pool governance, automatically rebalance Pool inventory, clear obligations among many parties, or prove fulfillment. Cross-chain HTLC or escrow routing, automatic rebalancing, and batch netting remain proposed or deployment-dependent.",
+      "translation": "De huidige route-uitvoering vindt plaats op één blockchain en wordt door de Portefeuille gestart. Ze voegt het bestuur niet samen, herbalanceert Fondsvoorraad niet automatisch, verrekent geen verplichtingen tussen veel partijen en bewijst geen nakoming. Cross-chainrouting via HTLC of escrow, automatische herbalancering en batchnetting blijven voorgesteld of implementatieafhankelijk.",
+      "backTranslation": "The current route execution takes place on one blockchain and is initiated by the Portfolio, it does not merge board, automatically rebalance Fund Stock, set off obligations between many parties, and prove compliance. Cross-chain routing via HTLC or escrow, automatic rebalancing and batch netting remain proposed or implementation dependent.",
+      "similarity": 0.7377
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 135,
+      "source": "Curation, registry inclusion, a limit, a reserve, App visibility, a Review, or a blockchain transaction does not by itself establish endorsement, Issuer capacity, fulfillment, a guarantee, or insurance.",
+      "translation": "Selectie, opname in een register, een limiet, een reserve, zichtbaarheid in de App, een Beoordeling of een blockchaintransactie bewijst op zichzelf geen goedkeuring, capaciteit van de Uitgever, nakoming, garantie of verzekering.",
+      "backTranslation": "Selection, inclusion in a register, limit, reserve, visibility in the App, an Assessment or blockchain transaction does not in itself prove endorsement, ability of the Issuer, performance, guarantee or assurance.",
+      "similarity": 0.6957
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 137,
+      "source": "Any protection should identify the obligated party, covered event, funding, cap, exclusions, duration, evidence, and claim process. On-chain records can show addresses, assets, amounts, timestamps, and contract events. Issuer performance, satisfaction, governance deliberation, and social impact require separate evidence.",
+      "translation": "Iedere bescherming moet vermelden wie de verplichting op zich neemt, welke gebeurtenis gedekt is, de financiering, bovengrens, uitsluitingen, duur, bewijseisen en de procedure om aanspraak te maken op die bescherming. Blockchainrecords kunnen adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Voor prestaties van Uitgevers, tevredenheid, bestuursoverleg en maatschappelijke impact is afzonderlijk bewijs nodig.",
+      "backTranslation": "Each protection should state who is taking the obligation, what event is covered, the financing, cap, exclusions, duration, evidentiary requirements and the procedure for claiming that protection.Blockchain records can show addresses, assets, amounts, timestamps and contract events.Separate evidence is required for Issuer performance, satisfaction, governance consultation and social impact.",
+      "similarity": 0.7189
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 141,
+      "source": "- Current: verified in the CLC App or Protocol v1.1.0 described by these docs.",
+      "translation": "- Huidig: geverifieerd in de CLC App of Protocol v1.1.0 zoals deze documentatie die beschrijft.",
+      "backTranslation": "- Current: verified in the CLC App or Protocol v1.1.0 as described in this documentation.",
+      "similarity": 0.8743
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 142,
+      "source": "- Deployment-dependent: available only where a particular deployment, Pool, provider, jurisdiction, or published policy enables it.",
+      "translation": "- Implementatieafhankelijk: alleen beschikbaar wanneer een bepaalde implementatie, een bepaald Fonds, een aanbieder, rechtsgebied of gepubliceerd beleid dit mogelijk maakt.",
+      "backTranslation": "- Implementation-dependent: available only when a particular implementation, Fund, provider, jurisdiction or published policy allows it.",
+      "similarity": 0.839
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 143,
+      "source": "- Historical: evidence or functionality from the earlier Sarafu Network service.",
+      "translation": "- Historisch: bewijs of functionaliteit van de eerdere dienst Sarafu Network.",
+      "backTranslation": "- Historical: evidence or functionality of the previous Sarafu Network service, such as a currency exchange.",
+      "similarity": 0.766
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "De gids Aan de slag past deze begrippen toe op de huidige App. Het Protocoloverzicht verbindt deze begrippen met de definitieve softwaredocumentatie, terwijl de White Paper het bredere ontwerp en de voorstellen presenteert.",
+      "backTranslation": "The Getting Started guide applies these concepts to the current App, the Protocol Overview connects these conceptions with the final software documentation, while the White Paper presents the broader design and proposals.",
+      "similarity": 0.9245
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 148,
+      "source": "For a learn-through-play introduction to commitments, settlement, resource flows, exchange, and pooling, explore the Grassroots Economics educational games. The games are supplementary learning resources, not definitions of current App or Protocol behavior.",
+      "translation": "Bekijk voor een speelse kennismaking met verbintenissen, afwikkeling, hulpbronstromen, uitwisseling en pooling de educatieve spelen van Grassroots Economics. Deze spellen zijn aanvullend lesmateriaal en geen definities van het huidige gedrag van de App of het Protocol.",
+      "backTranslation": "For a playful introduction to commitments, settlements, resource flows, exchange and pooling, check out Grassroots Economics’ educational games.These games are complementary teaching materials and not definitions of the current behaviour of the App or Protocol. For more information on the App, please visit the official website of the app:",
+      "similarity": 0.7203
+    },
+    {
+      "route": "/introduction/example",
+      "line": 1,
+      "source": "# Voucher exchange examples",
+      "translation": "# Voorbeelden van uitwisseling met Waardebonnen",
+      "backTranslation": "# Examples of exchanges with Vouchers",
+      "similarity": 0.4688
+    },
+    {
+      "route": "/introduction/example",
+      "line": 3,
+      "source": "These examples show how Vouchers, Wants, Pools, exchange, fulfillment, and discharge remain connected but distinct. They illustrate the roles involved; they do not promise that a particular Voucher, Pool, route, or outcome will be available.",
+      "translation": "Deze voorbeelden laten zien hoe Waardebonnen, Verzoeken, Fondsen, uitwisseling, nakoming en afboeking met elkaar verbonden maar afzonderlijk blijven. Ze tonen de betrokken rollen; ze beloven niet dat een bepaalde Waardebon, een bepaald Fonds, een bepaalde route of uitkomst beschikbaar zal zijn.",
+      "backTranslation": "These examples show how Vouchers, Requests, Funds, exchange, fulfilment and deduction are interconnected but separate; they demonstrate the roles involved; they do not promise that a particular Voucher, Fund, route or outcome will be available.",
+      "similarity": 0.8536
+    },
+    {
+      "route": "/introduction/example",
+      "line": 7,
+      "source": "## Simple example: one Pool, three participants",
+      "translation": "## Eenvoudig voorbeeld: één Fonds, drie deelnemers",
+      "backTranslation": "## Simple example: one Fund, three participants.",
+      "similarity": 0.9053
+    },
+    {
+      "route": "/introduction/example",
+      "line": 9,
+      "source": "A farmer offers food baskets and needs dental care. A mechanic offers vehicle repair and needs food. A dentist offers dental care and needs vehicle repair.",
+      "translation": "Een boer biedt voedselmanden aan en heeft tandheelkundige zorg nodig. Een monteur biedt autoreparaties aan en heeft voedsel nodig. Een tandarts biedt tandheelkundige zorg aan en heeft een autoreparatie nodig.",
+      "backTranslation": "A farmer offers food baskets and needs dental care; a mechanic offers car repairs and requires food; a dentist offers dental care and require a car repair; a doctor offers dental treatment and require the use of a dental machine.",
+      "similarity": 0.7083
+    },
+    {
+      "route": "/introduction/example",
+      "line": 11,
+      "source": "Each participant creates a Voucher with clear terms and publishes an Offering:",
+      "translation": "Iedere deelnemer maakt een Waardebon met duidelijke voorwaarden en publiceert een Aanbieding:",
+      "backTranslation": "Each participant creates a Voucher with clear terms and conditions and publishes an Offer: Offer.",
+      "similarity": 0.8571
+    },
+    {
+      "route": "/introduction/example",
+      "line": 13,
+      "source": "- the farmer's Voucher can be used for food baskets;",
+      "translation": "- de Waardebon van de boer kan worden gebruikt voor voedselmanden;",
+      "backTranslation": "- the Farmers Voucher can be used for food baskets; it is also available for purchase of groceries.",
+      "similarity": 0.6755
+    },
+    {
+      "route": "/introduction/example",
+      "line": 14,
+      "source": "- the mechanic's Voucher can be used for repair services; and",
+      "translation": "- de Waardebon van de monteur kan worden gebruikt voor reparatiediensten; en",
+      "backTranslation": "- the technician's voucher can be used for repair services; and",
+      "similarity": 0.9516
+    },
+    {
+      "route": "/introduction/example",
+      "line": 15,
+      "source": "- the dentist's Voucher can be used for dental care.",
+      "translation": "- de Waardebon van de tandarts kan worden gebruikt voor tandheelkundige zorg.",
+      "backTranslation": "- the Dentist Voucher can be used for dental care.",
+      "similarity": 0.9804
+    },
+    {
+      "route": "/introduction/example",
+      "line": 17,
+      "source": "The dentist creates a Health Market Commitment Pool, publishes its rules, admits all three Vouchers, and deposits some dental-care Vouchers. The Pool's configured token-balance caps define how many farmer and mechanic Vouchers it may hold. These App “Credit limits” are Pool capacity controls, not personal loans.",
+      "translation": "De tandarts maakt een Commitmentfonds met de naam Health Market, publiceert de regels, laat alle drie de Waardebonnen toe en stort een aantal Waardebonnen voor tandheelkundige zorg. De ingestelde tokensaldoplafonds van het Fonds bepalen hoeveel Waardebonnen van de boer en monteur het Fonds mag aanhouden. Deze ‘Kredietlimieten’ in de App zijn capaciteitslimieten van het Fonds, geen persoonlijke leningen.",
+      "backTranslation": "The dentist creates a Commitment Fund called Health Market, publishes the rules, allows all three Vouchers and deposits some dental care Voucher. The set token balance caps of the Fund determine how many farmer and mechanic Voucher the Fund may hold. These ‘Credit Limits’ in the App are capacity limits of The Fund, not personal loans.",
+      "similarity": 0.7766
+    },
+    {
+      "route": "/introduction/example",
+      "line": 19,
+      "source": "The farmer sees the dentist's Want for local food, reviews the dentist's Voucher and Pool terms, and exchanges food-basket Vouchers for dental-care Vouchers. The farmer then books an appointment, presents the dental-care Vouchers, receives the promised care, and the dentist records discharge.",
+      "translation": "De boer ziet het Verzoek van de tandarts om lokaal voedsel, beoordeelt de Waardebon en Fondsvoorwaarden van de tandarts en wisselt Waardebonnen voor voedselmanden om voor Waardebonnen voor tandheelkundige zorg. Daarna boekt de boer een afspraak, biedt de Waardebonnen aan, ontvangt de beloofde zorg en legt de tandarts de afboeking vast.",
+      "backTranslation": "The farmer sees the dentist’s Request for Local Food, reviews the dentist's Voucher and Fund Terms and Conditions, then exchanges food basket vouchers for dental care voucher.Then the farmer book an appointment, offers the voucher, receives the promised care and the dentist records the debit.",
+      "similarity": 0.8464
+    },
+    {
+      "route": "/introduction/example",
+      "line": 21,
+      "source": "The mechanic exchanges repair-service Vouchers for the food-basket Vouchers now held by the Pool and uses them for food delivery. The dentist can exchange dental-care Vouchers for the mechanic's repair Vouchers and use them to repair a vehicle.",
+      "translation": "De monteur wisselt Waardebonnen voor reparatiediensten om voor de Waardebonnen voor voedselmanden die het Fonds nu aanhoudt en gebruikt ze voor een voedsellevering. De tandarts kan Waardebonnen voor tandheelkundige zorg omwisselen voor de reparatie-Waardebonnen van de monteur en die gebruiken om een voertuig te laten repareren.",
+      "backTranslation": "The mechanic exchanges Repair Service Vouchers for the Food Basket Voucher that the Fund currently holds and uses them to make a food delivery. The dentist can exchange Dental Care Voucher for the repair voucher of the mechanic and use it to have a vehicle repaired.",
+      "similarity": 0.8039
+    },
+    {
+      "route": "/introduction/example",
+      "line": 23,
+      "source": "Each Pool swap settles Voucher balances. Each Issuer remains separately responsible for providing the promised food, repair, or dental care. The Pool makes multilateral exchange possible without requiring each pair to want exactly the same thing at the same time.",
+      "translation": "Iedere Fondsswap wikkelt Waardebonsaldi af. Iedere Uitgever blijft afzonderlijk verantwoordelijk voor het beloofde voedsel, de reparatie of de tandheelkundige zorg. Het Fonds maakt multilaterale uitwisseling mogelijk zonder dat ieder paar op hetzelfde moment precies hetzelfde van elkaar hoeft te willen.",
+      "backTranslation": "Each Fund Swap settles Voucher Balances.Each Issuer remains individually responsible for the promised food, repair or dental care.The Fund allows multilateral exchange without each pair having to want exactly the same thing from each other at the same time.",
+      "similarity": 0.8154
+    },
+    {
+      "route": "/introduction/example",
+      "line": 25,
+      "source": "## Advanced example: a routed exchange",
+      "translation": "## Geavanceerd voorbeeld: een gerouteerde uitwisseling",
+      "backTranslation": "## Advanced example: a routed exchange.",
+      "similarity": 0.987
+    },
+    {
+      "route": "/introduction/example",
+      "line": 27,
+      "source": "This example follows a Voucher from an Offering and a Want through two independently governed Pools.",
+      "translation": "Dit voorbeeld volgt een Waardebon vanuit een Aanbieding en een Verzoek door twee onafhankelijk bestuurde Fondsen.",
+      "backTranslation": "This example follows a Voucher from an Offer and Request by two independently managed Funds, one of which is the 100% owned by the other.",
+      "similarity": 0.6667
+    },
+    {
+      "route": "/introduction/example",
+      "line": 29,
+      "source": "### 1. An Issuer publishes a commitment",
+      "translation": "### 1. Een Uitgever publiceert een toezegging",
+      "backTranslation": "### 1. A Publisher publishes a commitment.",
+      "similarity": 0.8889
+    },
+    {
+      "route": "/introduction/example",
+      "line": 40,
+      "source": "The kitchen is the issuer. It must keep this information accurate, avoid issuing beyond its reasonable capacity, and honor vouchers according to the terms under which holders acquired them. Creating the token or publishing the Offering does not prove that capacity or make GEF the issuer.",
+      "translation": "De keuken is de Uitgever. Zij moet deze informatie juist houden, niet meer uitgeven dan zij redelijkerwijs kan nakomen en de toezeggingen van haar Waardebonnen nakomen volgens de voorwaarden waaronder Houders ze hebben verkregen. Het maken van de token of publiceren van de Aanbieding bewijst die capaciteit niet en maakt GEF niet tot Uitgever.",
+      "backTranslation": "The kitchen is the Issuer. It must keep this information accurate, not issue more than it can reasonably meet and fulfil its commitments in respect of its Vouchers according to the terms under which Holders obtained them. Creating the token or publishing the Offer does not prove that capacity and does not make GEF an Issuer, nor does it become an Issue.",
+      "similarity": 0.7838
+    },
+    {
+      "route": "/introduction/example",
+      "line": 42,
+      "source": "The kitchen also publishes an Offering describing the meals available. The voucher and Offering are related but distinct: the voucher is the redeemable commitment, while the Offering helps people discover the goods or services associated with it.",
+      "translation": "De keuken publiceert ook een Aanbieding waarin de beschikbare maaltijden worden beschreven. De Waardebon en de Aanbieding horen bij elkaar, maar zijn niet hetzelfde: de Waardebon is de inwisselbare toezegging, terwijl de Aanbieding mensen helpt de bijbehorende goederen of diensten te vinden.",
+      "backTranslation": "The kitchen also publishes an Offer describing the available meals.The Voucher and the Offer go hand in hand but are not the same: the Voucher is the redeemable commitment, while the Offer helps people find the associated goods or services.",
+      "similarity": 0.7819
+    },
+    {
+      "route": "/introduction/example",
+      "line": 44,
+      "source": "### 2. A participant publishes a Want",
+      "translation": "### 2. Een deelnemer publiceert een Verzoek",
+      "backTranslation": "2. A participant publishes a Request to the Participant's email address.",
+      "similarity": 0.5872
+    },
+    {
+      "route": "/introduction/example",
+      "line": 46,
+      "source": "A nearby school has transport vouchers and needs meals for an event. It publishes a Want describing the meals, quantity, place, timing, and contact method.",
+      "translation": "Een nabijgelegen school heeft vervoersbonnen en heeft maaltijden nodig voor een evenement. De school publiceert een Verzoek met de gewenste maaltijden, hoeveelheid, plaats, tijd en contactmethode.",
+      "backTranslation": "A nearby school has transportation tickets and needs meals for an event.The school publishes a Request with the required meals, quantity, location, time and contact method.",
+      "similarity": 0.789
+    },
+    {
+      "route": "/introduction/example",
+      "line": 48,
+      "source": "The Want expresses demand. It does not automatically accept the kitchen's voucher, reserve meals, create a contract, authorize a swap, or promise that the school will proceed. The school still needs to review the kitchen, voucher terms, available route, quote, and applicable conditions.",
+      "translation": "Het Verzoek maakt de behoefte zichtbaar. Het aanvaardt niet automatisch de Waardebon van de keuken, reserveert geen maaltijden, sluit geen contract, keurt geen swap goed en belooft niet dat de school doorgaat. De school moet de keuken, de voorwaarden van de Waardebon, de beschikbare route, de offerte en de toepasselijke voorwaarden nog beoordelen.",
+      "backTranslation": "The Request makes the need visible. It does not automatically accept the kitchen’s Voucher, reserve meals, enter into a contract, approve a swap or promise that the school will continue. The school still needs to review the kitchen, the terms of the Voucher and the available route, quote and applicable conditions.",
+      "similarity": 0.8372
+    },
+    {
+      "route": "/introduction/example",
+      "line": 50,
+      "source": "### 3. Independent Pool Stewards curate a route",
+      "translation": "### 3. Onafhankelijke Fondsbeheerders stellen een route samen",
+      "backTranslation": "### 3.Independent Fund Managers will put together a route.",
+      "similarity": 0.5905
+    },
+    {
+      "route": "/introduction/example",
+      "line": 59,
+      "source": "- who is accountable for the Pool;",
+      "translation": "- wie verantwoordelijk is voor het Fonds;",
+      "backTranslation": "- who is responsible for the Fund; who is in charge of the Fund's operations;",
+      "similarity": 0.4685
+    },
+    {
+      "route": "/introduction/example",
+      "line": 70,
+      "source": "### 4. Participants provide inventory",
+      "translation": "### 4. Deelnemers verstrekken voorraad",
+      "backTranslation": "### 4. Participants provide stock.",
+      "similarity": 0.8451
+    },
+    {
+      "route": "/introduction/example",
+      "line": 76,
+      "source": "### 5. The App discovers and quotes a route",
+      "translation": "### 5. De App ontdekt een route en berekent een offerte",
+      "backTranslation": "The App will discover a route and calculate a quote for you, which is based on the number of passengers and the distance.",
+      "similarity": 0.2927
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "De school kiest hoeveel zij wil Verkrijgen of Besteden. De App toont een offerte voor de volledige uitwisseling. De Routedetails tonen beide swaps, de bedragen en de Fonds- en protocolkosten van iedere stap. De school controleert het minimaal te ontvangen bedrag en de vervaltijd voordat zij doorgaat.",
+      "backTranslation": "The school chooses how much it wants to Get or Spend. The App displays a quote for the full exchange. The Route Details show both swaps, the amounts and the Fund and protocol fees of each step. The school checks the minimum amount to receive and expiration time before proceeding.",
+      "similarity": 0.822
+    },
+    {
+      "route": "/introduction/example",
+      "line": 86,
+      "source": "### 6. The Holder executes the routed exchange",
+      "translation": "### 6. De Houder voert de gerouteerde uitwisseling uit",
+      "backTranslation": "The Holder performs the routing exchange, and the Holder is responsible for ensuring that the exchange is successfully completed.",
+      "similarity": 0.32
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "De school kiest Omwisseling bevestigen en geeft toestemming voor de volledige route. Bij succes toont het ontvangstbewijs de twee Fondsswaps, de uitgewisselde bedragen en de kosten.",
+      "backTranslation": "The school chooses Confirm Exchange and authorizes the full route.Upon success, the receipt shows the two Fund Swaps, the amounts exchanged and the fees.",
+      "similarity": 0.8217
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "Als een stap mislukt, worden beide Fondsswaps samen teruggedraaid; de eerste blijft niet afgewikkeld zonder de tweede. Zie de routingreferentie (Engels) voor hoe de software die transactie opbouwt en uitvoert.",
+      "backTranslation": "If one step fails, both Fund Swaps are reversed together; the first will not be settled without the second. See the routing reference for how the software builds and executes that transaction.",
+      "similarity": 0.7241
+    },
+    {
+      "route": "/introduction/example",
+      "line": 94,
+      "source": "### 7. The Holder presents the Voucher",
+      "translation": "### 7. De Houder biedt de Waardebon aan",
+      "backTranslation": "The Holder offers the Voucher to the other Holder, who accepts it and uses it for a purchase.",
+      "similarity": 0.3817
+    },
+    {
+      "route": "/introduction/example",
+      "line": 98,
+      "source": "The school follows the kitchen's booking or contact process. The kitchen verifies the presentment and provides the promised meals under its published terms.",
+      "translation": "De school volgt het boekings- of contactproces van de keuken. De keuken controleert of de Waardebon is aangeboden en levert de beloofde maaltijden volgens de gepubliceerde voorwaarden.",
+      "backTranslation": "The school follows the booking or contact process of the kitchen, which checks that the Voucher has been offered and delivers the promised meals according to the published conditions.",
+      "similarity": 0.6785
+    },
+    {
+      "route": "/introduction/example",
+      "line": 100,
+      "source": "### 8. The Issuer records fulfillment and discharge",
+      "translation": "### 8. De Uitgever registreert nakoming en afboeking",
+      "backTranslation": "The Issuer shall record compliance and deductions from the account of the Issuer.",
+      "similarity": 0.1818
+    },
+    {
+      "route": "/introduction/example",
+      "line": 106,
+      "source": "Choosing “Request retirement” is different: the current owner asks an administrator to retire the Voucher. The Voucher remains active while the request is pending, and the request can be approved, rejected, or cancelled. Approved retirement removes it from active catalog use but does not delete its contract, balances, history, or outstanding obligations. It is not fulfillment, discharge, burning, or cancellation.",
+      "translation": "‘Buitengebruikstelling aanvragen’ is iets anders: de huidige eigenaar vraagt een beheerder de Waardebon buiten gebruik te stellen. De Waardebon blijft actief terwijl het verzoek in behandeling is en het verzoek kan worden goedgekeurd, afgewezen of geannuleerd. Na goedkeuring verdwijnt de Waardebon uit actief catalogusgebruik, maar het contract, de saldi, de geschiedenis en openstaande verplichtingen worden niet verwijderd. Het is geen nakoming, afboeking, verbranding of annulering.",
+      "backTranslation": "‘Request deactivation’ is something different: the current owner asks an administrator to deactivate the Voucher. The Voucher remains active while the request is pending and can be approved, rejected or cancelled. After approval, the Vehicle Voucher disappears from active catalog use, but the contract, balances, history and outstanding obligations are not deleted. It is not a performance, debiting, burning or cancellation.",
+      "similarity": 0.7791
+    },
+    {
+      "route": "/introduction/example",
+      "line": 111,
+      "source": "- Person publishing a Want: describes a need without automatically accepting a voucher or route.",
+      "translation": "- Persoon die een Verzoek publiceert: beschrijft een behoefte zonder automatisch een Waardebon of route te aanvaarden.",
+      "backTranslation": "- Person publishing a Request: describes a need without automatically accepting a Voucher or route.",
+      "similarity": 0.9538
+    },
+    {
+      "route": "/introduction/example",
+      "line": 122,
+      "source": "That outcome does not change the Want, the Offering, or the Issuer's existing Voucher obligations. The participant can refresh the route, choose a smaller amount, use another eligible input Voucher, or wait for Pool conditions to change.",
+      "translation": "Deze uitkomst verandert het Verzoek, de Aanbieding of de bestaande verplichtingen van de Uitgever niet. De deelnemer kan de route vernieuwen, een kleiner bedrag kiezen, een andere geschikte invoer-Waardebon gebruiken of wachten totdat de Fondsvoorwaarden veranderen.",
+      "backTranslation": "This outcome does not change the Request, Offer or existing obligations of the Issuer. The participant may renew the route, choose a smaller amount, use another suitable import Voucher or wait until the Fund Terms and Conditions change.",
+      "similarity": 0.7696
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "De CLC App en ondersteunende diensten helpen deelnemers Waardebonnen te vinden, uitwisselingen te regelen en uitkomsten te controleren. Beheerders zijn verantwoordelijk voor hun eigen diensten en het uitleggen van storingen. De definitieve softwaredocumentatie beschrijft de ondersteunende systemen en hun beheer in het Engels.",
+      "backTranslation": "The CLC App and supporting services help participants find Vouchers, arrange exchanges and check outcomes. Administrators are responsible for their own services and explaining failures. The final software documentation describes the supporting systems and their management in English.",
+      "similarity": 0.8946
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "Een gerouteerde uitwisseling bewaart de grenzen tussen de Fondsen. Ieder Fonds past zijn eigen regels en bevoegdheden toe. Een gezamenlijk ontvangstbewijs voegt het Fondsbestuur niet samen en draagt de verantwoordelijkheid van een Uitgever niet over aan de routebeheerder. Gebruik de softwarereferentie voor swaps voor technische transactiegegevens.",
+      "backTranslation": "A routed exchange preserves the boundaries between the Funds. Each Fund applies its own rules and powers. A joint receipt does not merge the Fund Board or transfer a Issuer’s responsibility to the route manager. Use the swap software reference for technical transaction data.",
+      "similarity": 0.7456
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 48,
+      "source": "A CLC-compatible Pool, registry, or service can be governed by a nonprofit foundation, cooperative, community group, federation, company, multisig, public agency, institutional board, on-chain voting system, or another accountable structure. Whatever structure is chosen, participants should be able to determine:",
+      "translation": "Een CLC-compatibel Fonds, register of dienst kan worden bestuurd door een stichting zonder winstoogmerk, coöperatie, gemeenschapsgroep, federatie, bedrijf, multisig, overheidsinstantie, instellingsbestuur, stemsysteem op de blockchain of een andere verantwoordelijke structuur. Welke structuur ook wordt gekozen, deelnemers moeten kunnen bepalen:",
+      "backTranslation": "A CLC-compliant Fund, register or service can be managed by a nonprofit foundation, cooperative, community group, federation, company, multisignature, government agency, institutional board, blockchain voting system or other responsible structure.Whether structure is chosen, participants should be able to determine:",
+      "similarity": 0.8794
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 50,
+      "source": "- who has authority to make and execute decisions;",
+      "translation": "- wie bevoegd is om beslissingen te nemen en uit te voeren;",
+      "backTranslation": "- who is authorized to make and implement decisions; who is responsible for the implementation of decisions.",
+      "similarity": 0.5316
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 51,
+      "source": "- how assets, Issuers, and participants are admitted, reviewed, suspended, or removed;",
+      "translation": "- hoe activa, Uitgevers en deelnemers worden toegelaten, beoordeeld, opgeschort of verwijderd;",
+      "backTranslation": "- how assets, Issuers and participants are admitted, reviewed, suspended or removed; and",
+      "similarity": 0.9655
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 52,
+      "source": "- how valuations, fees, limits, reserves, guarantees, and other material settings are established and changed;",
+      "translation": "- hoe waarderingen, kosten, limieten, reserves, garanties en andere belangrijke instellingen worden vastgesteld en gewijzigd;",
+      "backTranslation": "- how valuations, costs, limits, reserves, guarantees and other important institutions are established and modified;",
+      "similarity": 0.823
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 53,
+      "source": "- which dependencies or contracts can be upgraded, replaced, paused, or permanently sealed;",
+      "translation": "- welke afhankelijkheden of contracten kunnen worden geüpgraded, vervangen, gepauzeerd of permanent verzegeld;",
+      "backTranslation": "- which dependencies or contracts can be upgraded, replaced, paused or permanently sealed; and",
+      "similarity": 0.973
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 57,
+      "source": "- how participants can complain, exit, migrate, or address unresolved obligations.",
+      "translation": "- hoe deelnemers kunnen klagen, vertrekken, migreren of onopgeloste verplichtingen aanpakken.",
+      "backTranslation": "- how participants can complain, leave, migrate or deal with unresolved obligations.",
+      "similarity": 0.8675
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 59,
+      "source": "Published rules should match the powers available in the relevant contracts and services. Governance should keep material decisions transparent and auditable and should not describe convertibility, liquidity, returns, insurance, reserves, or guarantees more broadly than the responsible party can actually provide.",
+      "translation": "De gepubliceerde regels moeten overeenstemmen met de bevoegdheden in de betreffende contracten en diensten. Het bestuur moet belangrijke beslissingen transparant en controleerbaar houden. Het mag omzetbaarheid, liquiditeit, rendement, verzekeringen, reserves of garanties niet ruimer beschrijven dan de verantwoordelijke partij daadwerkelijk kan bieden.",
+      "backTranslation": "The published rules must be consistent with the powers in the relevant contracts and services.The board must keep important decisions transparent and accountable.It should not describe marketability, liquidity, returns, insurance, reserves or guarantees more broadly than the responsible party can actually provide.",
+      "similarity": 0.8394
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "Actuele softwarereferentie",
+      "backTranslation": "Current software reference.",
+      "similarity": 0.9811
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "Dit is de gepubliceerde White Paper v0.9. Gebruik de CLC-softwaredocumentatie voor de huidige software-implementatie, contracten, API’s en uitrolinstructies.",
+      "backTranslation": "This is the published White Paper v0.9. Use the CLC software documentation for current software implementation, contracts, APIs and rollout instructions.",
+      "similarity": 0.7331
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "Softwaredocumentatie lezen (Engels)",
+      "backTranslation": "Read software documentation (English) Read software manuals",
+      "similarity": 0.74
+    }
+  ],
+  "reviewDate": "24 November 2026",
+  "readingNoteSha256": "59536a31bac0f096e20fb9a2c6d24bf7c1ff5e22d0a38db963dd3757a1ebd0fe",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation using the committed app glossary",
+      "complete natural-language clarity and protected-content review",
+      "independent MADLAD back-translation and direct comparison with English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 15,
+    "resolution": "Used the independently reviewed Dutch guides as a semantic starting point, then reviewed all seven Flemish guides directly against English and the old Flemish participants guidance. Reconciled the expanded Introduction structure and matched the committed App labels Portefeuille, Waardebon, Fonds, Verzoek, Verkrijgen, Besteden, Omwisseling bevestigen and Buitengebruikstelling aanvragen. Revised regional phrasing, issuer fulfillment language, presentment verification, and the distinction between a protection claim and a complaint. Independent back-translation covered all 261 revised units, including the final three clarity changes; all 15 low-confidence results were inspected. Model-added passengers, purchase counterparties, cash-payment meanings, liability claims, and duplicated explanations are absent from the actual Flemish source. Confirmed independent governance, technical authority, no automatic contribution rights, owner withdrawals, additive fees, conditional and atomic routing, fulfillment/discharge boundaries, and current/proposed status. Preserved all former section destinations by subject and left the older unfinished clarity rollout and frozen legal/publication sources unchanged."
+  },
+  "appVocabularyBaseline": {
+    "commit": "7d51e3e8b91370f0ba5379e7b4032929211a17dd",
+    "catalog": "packages/i18n/src/catalogs/nl-BE/messages.po",
+    "scope": "Read-only inspection of committed user-interface labels; no sibling-repository changes."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/nl-BE/governance/privacy#what-becomes-public",
+    "afterHref": "/nl-BE/governance/privacy#4-wat-wordt-openbaar",
+    "previousSha256": "9c052b24d0a5295d1ed5314cf872a59fc4b13f1fc266b39cead1e987d18231e3",
+    "sha256": "51202a15309a31b66c66c10d0deee255998fa1effcf23f9f8b45bcf7c749a74e",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

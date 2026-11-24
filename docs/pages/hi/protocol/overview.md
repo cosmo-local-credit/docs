@@ -1,39 +1,36 @@
 # प्रोटोकॉल
 
-Protocol v1.1.0 के अनुबंध श्वेत पत्र के [अध्याय 1](/hi/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) में बताए गए **Commitment Pooling Protocol (CPP)** के लिए ब्लॉकचेन पर काम करने वाले आधार देते हैं। यह संदर्भ सार्वजनिक [`v1.1.0` release](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0) के अनुसार है।
+**Commitment Pooling Protocol (CPP)** बताता है कि स्वतंत्र रूप से संचालित पूल वाउचर कैसे चुनते हैं, विनिमय के नियम कैसे प्रकाशित करते हैं और विनिमय कैसे संभव बनाते हैं। धारक बाद में जारीकर्ता के पास वाउचर का उपयोग करके वादा की गई वस्तुएँ या सेवाएँ लेता है। ये अलग चरण हैं और इनकी ज़िम्मेदारियाँ भी अलग हैं।
 
-यहाँ इस्तेमाल की गई उत्पाद परतों, जवाबदेह भूमिकाओं, कार्रवाई के जीवनचक्र, मूल्यों, सीमाओं, शुल्कों और स्थिति संबंधी शब्दों के लिए [अवधारणाएँ और शब्दावली](/hi/introduction/concepts) देखें।
+यह साइट इन अवधारणाओं और CLC App के उपयोग को समझाती है। सॉफ़्टवेयर की कार्यप्रणाली, अनुबंधों, API, तैनाती और संचालन के लिए [CLC सॉफ़्टवेयर दस्तावेज़](https://software.cosmolocal.credit/) निर्णायक संदर्भ हैं। वे अभी अंग्रेज़ी में उपलब्ध हैं।
 
-Grassroots Economics Foundation (GEF) [cosmolocal.credit](https://cosmolocal.credit) पर प्रगतिशील वेब ऐप चलाता है। वह ऐप इन अनुबंधों के साथ काम करने का एक तरीका देता है। ऐप और अनुबंध अलग हैं। केवल interface चलाने से GEF किसी वाउचर का जारीकर्ता, पूल प्रबंधक, संरक्षक, गारंटर या उपयोगकर्ता के लेन-देन का दूसरा पक्ष नहीं बनता। ये भूमिकाएँ संबंधित तैनाती, नियंत्रक पतों और जारीकर्ता या पूल की प्रकाशित शर्तों पर निर्भर हैं। [सेवा की शर्तें](/hi/governance/terms) देखें।
+साझा शब्द समझने के लिए [अवधारणाएँ और शब्दावली](/hi/introduction/concepts) से शुरू करें। व्यापक डिज़ाइन और प्रस्तावों के लिए [श्वेत पत्र](/hi/white-paper) पढ़ें।
 
 ## तैनाती का तरीका
 
-स्थिति रखने वाले अधिकतर modules को Solady के `ERC1967Factory` से **ERC-1967 proxy instances** के रूप में शुरू किया जाता है। कई instances एक implementation साझा कर सकते हैं, जबकि उनके मालिक, configuration और storage अलग रहते हैं। तैनाती deterministic salts भी इस्तेमाल कर सकती है, ताकि deployment से पहले पतों का अनुमान लगाया जा सके।
+अलग समुदाय और संगठन अपने नियमों के तहत संगत सॉफ़्टवेयर चला सकते हैं। Grassroots Economics Foundation [सार्वजनिक CLC App](https://cosmolocal.credit) चलाता है। हर तैनाती को अपने संचालकों, अनुबंधों और जवाबदेह अधिकारियों की पहचान बतानी चाहिए।
 
-हर contract proxy नहीं है। `DecimalQuoter` और `SwapRouter` स्थिति न रखने वाली सीधी deployments हैं। `RescueVault` और `ERC1967Factory` भी सीधे deploy होते हैं। नीचे बताए गए बाकी stateful modules proxy deployment के लिए बनाए गए हैं।
-
-हर proxy का administrator उसकी implementation बदल सकता है। Proxy administration contract ownership से अलग है और उसे उचित शासन वाले पते को दिया जाना चाहिए। Pool की configuration seal होने के बाद भी upgrade व्यवहार बदल सकता है। इसलिए उपयोगकर्ताओं को Pool मालिक और proxy administrator दोनों का आकलन करना चाहिए।
-
-EIP-165 समर्थन भी हर contract के लिए अलग है; यह सभी में नहीं है। `GiftableToken`, तीनों quoters, `OracleRelay`, `Limiter`, कई registries और indexes, `Splitter`, `EthFaucet`, `PeriodSimple` और `RescueVault` इसे उपलब्ध कराते हैं। v1.1.0 में `SwapPool`, `SwapRouter`, `FeePolicy`, `ProtocolFeeController` और `CAT` `supportsInterface` उपलब्ध नहीं कराते।
+अनुबंध के पते, तैनाती के निर्देश तथा मालिकों और अपग्रेड की शक्तियों की जाँच के लिए [तैनाती और सत्यापन](https://software.cosmolocal.credit/contracts/deployments) देखें। सहायक सेवाएँ चलाने के लिए [CLC Core API](https://software.cosmolocal.credit/core-api/) से शुरू करें।
 
 ## मुख्य हिस्से
 
-- **GiftableToken** — ERC20 supply, minting, burning और वैकल्पिक expiry की कार्यप्रणाली। जारीकर्ता किसी instance को वाउचर की तरह इस्तेमाल कर सकता है, लेकिन अकेला contract यह तय नहीं करता कि क्या, किससे, कहाँ या किन शर्तों पर भुनाया जा सकता है।
-- **SwapPool** — टोकन vault और swap-settlement engine। तैनाती चयन, मूल्यांकन, शुल्क, सीमा और protocol-fee components जोड़ सकती है या समर्थित निर्भरताओं को unset छोड़ सकती है।
-- **DecimalQuoter, RelativeQuoter और OracleQuoter** — decimal parity, मालिक द्वारा संचालित relative rates या oracle से निकली rates के लिए बदलकर इस्तेमाल किए जा सकने वाले valuation modules। `OracleRelay` एक बाहरी feed को `OracleQuoter` तक पहुँचा सकता है।
-- **FeePolicy और Limiter** — token pair के शुल्क और हर token के लिए Pool balance limits के वैकल्पिक नियम।
-- **ProtocolFeeController** — protocol fee की वैकल्पिक और बदली जा सकने वाली दर, प्राप्तकर्ता और सक्रिय स्थिति, जिसे Pool settlement के समय देख सकता है।
-- **TokenUniqueSymbolIndex, AccountsIndex और ContractRegistry** — token, account और address खोजने के हिस्से। `CAT` किसी account की settlement-token preferences का क्रम दर्ज करता है।
-- **SwapRouter** — प्रस्तावित कई-Pool वाले path पर exact-input और exact-output की केवल quote गणनाएँ। यह tokens को अपने पास नहीं रखता और swaps नहीं करता।
-- **Splitter, EthFaucet, PeriodSimple और RescueVault** — वितरण, gas funding, rate limits और asset recovery के सहायक tools।
+इन विषयों के लिए सॉफ़्टवेयर संदर्भ देखें:
 
-अनुबंधों को अलग-अलग तरीकों से जोड़ा जा सकता है। Registry listing, quote या graph path यह गारंटी नहीं देता कि लेन-देन पूरा होगा। मौजूदा liquidity, token limits, fees, oracle state, authorization, deadlines, network conditions और हर Pool की configuration अभी भी लागू होती है।
-
+| विषय | निर्णायक सॉफ़्टवेयर दस्तावेज़ |
+| --- | --- |
+| वाउचर बनाना, आपूर्ति और समाप्ति | [वाउचर](https://software.cosmolocal.credit/contracts/vouchers) |
+| पूल के नियम, जमा, निकासी और नियंत्रण | [पूल](https://software.cosmolocal.credit/contracts/pools) |
+| विनिमय दर की गणना | [Quoter](https://software.cosmolocal.credit/contracts/quoters) |
+| स्वैप का निष्पादन, शुल्क और लेनदेन रिकॉर्ड | [स्वैप का कोटेशन और निपटान](https://software.cosmolocal.credit/contracts/swaps) |
+| कई पूलों से होकर विनिमय | [रूटिंग](https://software.cosmolocal.credit/contracts/routing) |
+| खोज और सहायक अनुबंध | [रजिस्ट्रियाँ और सहायक साधन](https://software.cosmolocal.credit/contracts/registries) |
+| API अनुरोध और जवाब | [OpenAPI संदर्भ](https://software.cosmolocal.credit/core-api/reference) |
+| बैकएंड और रूटिंग की सेटिंग | [कॉन्फ़िगरेशन](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## एप्लीकेशन-स्तरीय रूटेड एक्सचेंज
 
-उत्पादन CLC App केवल Solidity `SwapRouter` को call करने से आगे जाता है। CLC Core योग्य पूल संबंधों का मिलान किया हुआ graph बनाए रखता है, पहुँच योग्य वाउचरों का अनुमान लगाता है, आधिकारिक कोटेशन के लिए एक निश्चित ब्लॉक पर चुने गए पूल पढ़ता है, पूरे मार्ग का अनुकरण करता है और Calibur वॉलेट बैच तैयार करता है। उपयोगकर्ता उस बैच पर हस्ताक्षर करता है और relayer उसे एक समान-चेन लेन-देन के रूप में भेजता है।
+उपयुक्त मार्ग उपलब्ध होने पर ऐप प्रतिभागी को कई पूलों से होकर विनिमय करने में मदद कर सकता है। प्रतिभागी कोटेशन की समीक्षा करता है और विनिमय की अनुमति देता है। हर पूल के अपने नियम और जवाबदेह पक्ष बने रहते हैं।
 
-हर हॉप सीधे एक `SwapPool` को call करता है। बैच आवश्यक token allowance को पहले शून्य करता और फिर तय करता है, उसके बाद न्यूनतम output और deadline वाली सीमाबद्ध `SwapPool.withdraw` overload को call करता है। `revertOnFailure` सक्रिय है, इसलिए कोई call विफल होने पर पूरा मार्गित लेन-देन वापस हो जाता है। ऐप फिर हर हॉप के निपटान और शुल्क विवरण वाली एक समूहित रसीद दिखाता है।
+प्रतिभागियों के लिए इसका अर्थ समझने के लिए [मार्ग और ज़िम्मेदारियाँ](/hi/protocol/network) देखें। सॉफ़्टवेयर मार्ग का कोटेशन और निष्पादन कैसे करता है, इसके लिए [रूटिंग की कार्यप्रणाली](https://software.cosmolocal.credit/contracts/routing) देखें।
 
-यह routing workflow Protocol v1.1.0 के ऊपर बनी App/Core क्षमता है। यह Solidity `SwapRouter` को execution router नहीं बनाता, किसी पूल के मालिक या प्रबंधक को नहीं बदलता और एक पूल को दूसरे पूल के नियमों या किसी जारीकर्ता द्वारा वादा पूरा करने के लिए ज़िम्मेदार नहीं बनाता। पूरा प्रवाह [प्रोटोकॉल नेटवर्क आर्किटेक्चर](/hi/protocol/network) में देखें।
+सॉफ़्टवेयर विनिमय संभव बनाता है। जारीकर्ता अपने वाउचर के वादों के लिए और पूल प्रबंधक अपने प्रकाशित नियमों के लिए ज़िम्मेदार रहते हैं। सार्वजनिक ऐप का उपयोग [सेवा की शर्तों](/hi/governance/terms) के तहत होता है।

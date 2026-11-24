@@ -1,104 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # Arkitektura ng protocol network
 
-Maaaring pag-ugnayin ng isang CPP-compatible deployment ang maraming Voucher at Pool sa pamamagitan ng opsyonal na registry, index, quote module, at pagtuklas ng ruta sa antas ng application. Nananatiling hiwalay na vault ang bawat Pool, na may sariling liquidity, may-ari, proxy administrator, configuration, at mga dependency.
+Maaaring iugnay ng maraming Pool na magkakahiwalay ang pamamahala ang hawak mong Voucher sa Voucher na gusto mo. Bawat Pool ang nagbibigay ng isang hakbang sa palitan, gamit ang sarili nitong mga patakaran at magagamit na imbentaryo.
 
-Pinapatakbo ng Grassroots Economics Foundation ang pampublikong App sa [cosmolocal.credit](https://cosmolocal.credit). Maaaring gamitin ng ibang interface at deployment ang parehong pampublikong protocol. Ang pagpapatakbo sa App ay hindi awtomatikong ginagawang may-ari, tagapag-isyu, Tagapangasiwa, tumatanggap ng bayarin, o guarantor ang GEF para sa bawat contract sa ibaba.
-
-Tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa pagkakaiba ng mga tungkuling may pananagutan at teknikal na kapangyarihan.
+Ang [sanggunian sa routing ng CLC software](https://software.cosmolocal.credit/contracts/routing) ang pangunahing sanggunian sa pagtuklas ng ruta, pagiging kwalipikado, pagsasagawa, at mga service interface. Nasa Ingles ang dokumentasyon ng software sa kasalukuyan. Ipinapaliwanag ng pahinang ito ang paglalakbay at pananagutan ng kalahok.
 
 ## Production route discovery at execution
 
-<MermaidDiagram
-  label="Production routing architecture ng CLC App at CLC Core"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["Kalahok"] --> App["CLC App<br/>Kredito · Kunin · Gastusin"]
-    App -->|maaabot na Voucher at posibleng ruta| Core["Route service ng CLC Core"]
-    Catalog["Mga katalogo, mga rehistro,<br/>naka-index na mga kaganapan sa kadena"] --> Core
-    Chain["Pinned-block chain na binabasa"] -->|Estado ng Pool, mga balanse, bayad,<br/>mga limitasyon at quote inputs| Core
-    Reconcile["Pag-index at pagkakatugma"] --> Catalog
+Sa view na **Kredito** ng App, piliin ang Voucher na gusto mong **Kunin** o ang nais mong **Gastusin**. Halimbawa, maaaring ipalit ng isang ruta ang Voucher sa transportasyon sa Voucher sa pagkain sa pamamagitan ng dalawang magkaibang Pool.
 
-    Core -->|may-awtoridad na quote,<br/>mga boundary at handang call| App
-    Core -->|simulahin ang kumpletong batch| Chain
-    App -->|pagsusuri at pag-sign| Wallet["App-katugma<br/>EOA / Calibur wallet"]
-    Wallet -->|naka-sign na batch| Relayer["Relayer"]
-    Relayer -->|isang same-chain na transaksyon<br/>revertOnFailure = true| Batch["Calibur batch<br/>approve 0 · approve amount<br/>bounded withdraw bawat hop"]
-
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>(kung kinakailangan)"]
-    PoolA --> Events["Mga settlement event"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["Grouped routed-exchange receipt<br/>status · tx hash · hops · halaga · bayarin"]
-    Receipt --> App
-
-    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>quote-only reusable na kontrata"] -. reads quotes; does not execute .-> PoolA
-    SolidityRouter -. reads quotes; does not execute .-> PoolB`}
-/>
-
-Ang magkaparehong Voucher sa iba’t ibang Pool ay maaaring lumikha ng **posibleng path sa graph**, hindi garantisadong ruta. Pinananatili ng production CLC Core ang reconciled graph mula sa impormasyon tungkol sa mga Pool, registry, catalog, balanse, bayarin, at on-chain event. Tinitiyak din nito ang kaugnay na holdings ng session Wallet. Hanggang tatlong palitan sa Pool ang hinahanap ng kasalukuyang pampublikong deployment.
-
-Mabilis ang graph discovery ngunit tantiya lamang batay sa indexed block. Maaaring markahang stale ang resulta, at hindi pinatutunayan ng graph edge na makakadaan ang hinihinging halaga. Ginagamit ng filter na **Kredito** ang maaabot na set sa Pamilihan at kaugnay na discovery screen.
+Hindi garantiya ng palitan ang pagkakaroon ng koneksyon. Dapat pahintulutan ng mga suportadong Voucher, limitasyon ng Pool, magagamit na imbentaryo, bayarin, pagiging katugma ng Wallet, at availability ng serbisyo ang hinihinging halaga.
 
 ### May-awtoridad na quote
 
-Pagkapili ng kalahok ng ruta at halaga, binabasa ng CLC Core ang bawat kaugnay na Pool sa iisang pinned block at inuulit ang suportadong `SwapPool` calculation. Inililista ng quote ang bawat hop, input at output, bayarin sa Pool, bayarin sa protocol, minimum na output, final recipient, at expiry. Limang minuto ang bisa ng kasalukuyang production quote.
+Suriin ang **Mga detalye ng ruta** bago kumpirmahin: ano ang ibabayad at matatanggap mo, bawat kasaling Pool, mga bayarin, minimum na matatanggap, at pag-expire ng quote. Nakatutulong ang tantiya sa pagtingin ng mga pagpipilian; ang quote ang panukalang pinapahintulutan mo. Kumuha ng bagong quote kung nag-expire ito o nagbago ang kalagayan ng Pool.
 
-Pagkatapos ay binubuo at sini-simulate ng service ang buong Calibur batch. Maaaring hindi ito makapagbigay ng quote dahil sa hindi suportadong token behavior o quoter, kulang na balanse sa Wallet, admission failure, token-balance cap ng Pool, kulang na liquidity, invalid fee domain, gas limit, o ibang dahilan ng revert.
+Pinananatili sa [sanggunian sa routing](https://software.cosmolocal.credit/contracts/routing) at [configuration ng serbisyo](https://software.cosmolocal.credit/core-api/configuration#credit-router) ang mga teknikal na tuntunin sa pagiging kwalipikado at mga setting ng quote.
 
-Magkaibang ebidensiya ang discovery at quote. Ipinapakita ng discovery na maaaring may path; ang pinned-block quote ang may-awtoridad na panukala sa transaksyon. Maaari pa ring mag-expire o mawalan ng bisa ang quote kung magbabago ang kaugnay na state bago isumite.
+### Pinirmahang atomic batch
 
-### Pinirmahang atomikong batch
+Sinusuri at pinapahintulutan mo ang buong palitan. Sa kasalukuyang ruta, nagtatagumpay ang lahat ng palitan sa Pool o sabay-sabay na nababawi ang mga ito kapag may nabigong hakbang. Pinipigilan nito ang pagkumpleto ng bahagi lamang ng ruta; hindi nito ginagarantiya ang paghahatid ng produkto o serbisyo pagkatapos.
 
-Sinusuri ng gumagamit ang **Mga detalye ng ruta** at pinipirmahan ang handang Wallet batch. Sa bawat hop, tinatawag ng batch ang `approve(pool, 0)`, `approve(pool, amountIn)`, at ang bounded overload ng `SwapPool.withdraw`. Ipinapatupad ng bawat bounded withdraw ang minimum na output at deadline. Bumabalik sa iisang Wallet ang intermediate Voucher bago gastusin ng susunod na Pool ang quoted amount; nananatili rin sa Wallet ang anumang bridging remainder.
-
-Isinusumite ng relayer ang batch bilang isang same-chain na transaksyon kung saan nakatakda sa `true` ang `revertOnFailure`. Kung mabigo ang anumang approval o palitan sa Pool, sabay na babalik ang lahat ng route call—kabilang ang mga naunang hop at pagbabago sa allowance. Ito ang atomicity ng kasalukuyang same-chain transaction; hindi ito cross-chain atomicity, HTLC, escrow, netting, o awtomatikong Pool rebalancing.
-
-Sinusuportahan ng kasalukuyang route flow ang mga EOA/Calibur Wallet na katugma sa App. Tinatanggihan ng kasalukuyang quote path ang Safe at ibang contract Wallet.
+Para sa pagbuo at pagsasagawa ng transaksyon, tingnan ang [Pagsasagawa ng ruta](https://software.cosmolocal.credit/contracts/routing#execute-a-route).
 
 ### Solidity `SwapRouter` at mga bayarin
 
-Nananatiling quote-only ang Solidity `SwapRouter` ng Protocol v1.1.0. Maaari nitong tawagin ang quote function ng Pool sa isang ibinigay na path, ngunit hindi ito humahawak ng pondo, nag-aapprove ng token, o nagsasagawa ng palitan. Hiwalay na application-level coordinator ang production App/Core flow; direkta nitong tinatawag ang bawat `SwapPool` sa pamamagitan ng pinirmahang Wallet batch ng kalahok.
+Magkaibang bahagi ng software ang quote-only na Solidity `SwapRouter` at ang daloy ng palitan sa App. Ipinapaliwanag ang ugnayan nila sa [Routing](https://software.cosmolocal.credit/contracts/routing).
 
-Ang mga bayarin sa Pool ay mananatiling nasa naaangkop na Pool para sa kalaunang pagkolekta. Ang anumang bayad sa protocol ay dagdag at direktang ililipat mula sa Pool na iyon sa naka-configure na tatanggap ng protocol nito sa panahon ng Palitan.
+Para sa kalahok, mahalagang suriin ang buong quote. Maaaring maningil ang bawat Pool. Hindi pinagsasama ng iisang ruta ang mga Pool o ginagawang responsable ang isang Tagapangasiwa sa ibang Pool.
 
-Walang hiwalay na route-service fee ang kasalukuyang App. Gayunman, maaaring may maraming bayarin sa Pool at protocol ang isang routed exchange dahil hiwalay na `SwapPool` settlement ang bawat hop.
+### Resibo at mga katayuan ng pagkabigo
 
-### Receipt at failure status
+Pagkatapos magsumite, tingnan kung nakabinbin, kumpirmado, o nabigo ang palitan, at itago ang resibo. Kung walang ruta, subukang mag-refresh, bawasan ang halaga, o pumili ng ibang suportadong input Voucher.
 
-Pinagsasama ng CLC Core ang ruta sa iisang tracking ID. Ipinapakita ng App ang **Nagpapalit**, **Napalitan**, o **Nabigo ang palitan**, kasama ang teknikal na status na **Nakabinbin**, **Kumpirmado**, o **Binalik**. Itinatala ng resibo ang transaction hash, route depth, bawat Pool at token pair, quoted at settled na halaga, bayarin sa Pool at protocol sa bawat hop, minimum na natanggap, at anumang intermediate remainder sa Wallet.
+Hindi binabago ng nabigong palitan ang mga naunang pangako ng Tagapag-isyu. Itinatala ng matagumpay na palitan ang pagbabago ng balanse; sumusunod pa rin sa mga tuntunin ng Tagapag-isyu ang pagtupad at discharge. Tingnan ang [mga praktikal na halimbawa](/fil/introduction/example).
 
-Ang isang ruta ay maaaring mabigo bago ang pag-sign dahil walang kwalipikadong landas o quote ay magagamit, sa panahon ng simulation dahil ang batch ay babalik, sa oras ng relay dahil ang naka-sign na transaksyon ay hindi maipadala, o on-chain dahil ang estado ay nagbago o isa pang kondisyon ng pagpapatupad ay nabigo. Ang isang nabigo o hindi magagamit na ruta ay hindi muling isusulat ang mga patakaran ng Pool, mag-discharge ng isang Voucher, o patunayan ang anumang bagay tungkol sa katuparan ng tagapag-isyu.
+Makikita ng mga developer ang mga interface para sa transaksyon at pagsubaybay sa [sanggunian sa CLC Core API](https://software.cosmolocal.credit/core-api/reference).
 
+## Mga panloob na bahagi ng Pool
 
-## Loob ng Pool
+Bago umasa sa Pool, tukuyin ang Tagapangasiwa, may-ari ng contract, mga awtoridad sa upgrade, tatanggap ng bayarin, at sinumang maaaring magbago ng mahahalagang setting. Maaaring magkaibang partido ang teknikal na controller at ang Tagapangasiwang may pananagutan.
 
-<MermaidDiagram
-  scrollMessage="Mag-scroll pahalang upang makita ang buong diagram."
-  errorMessage="Hindi maipakita ang diagram"
-  label="Mga dependency ng Pool ng Pangako at kapangyarihang administratibo"
-  minWidth={820}
-  chart={`flowchart TB
-    Owner["May-ari ng contract o<br/>Tagapangasiwa ng Pool"] -->|mag-configure, mag-seal, mangolekta, mag-withdraw| Pool["SwapPool<br/>vault at settlement"]
-    ProxyAdmin["ERC-1967<br/>proxy administrator"] -->|mag-upgrade ng implementation| Pool
-    Dependencies["Opsyonal na mga dependency<br/>registry · limiter · quoter<br/>fee policy · protocol fee controller<br/>bawat isa ay may sariling pamamahala"] -. mga input sa settlement .-> Pool
-    Seal["Limang sealable address slot<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. nagla-lock ng mga address .-> Pool
-
-    Wallet["Wallet ng gumagamit"] -->|deposit o input sa palitan| Pool
-    Pool -->|netong output ng palitan| Wallet
-    Pool -->|nakolektang bayarin ng Pool| FeeAddress["Naka-configure na<br/>fee address"]
-    Pool -->|bayarin ng protocol sa parehong palitan| ProtocolRecipient["Tatanggap ng<br/>protocol"]
-    Pool -->|withdrawLiquidity| Destination["Tatanggap na pinili<br/>ng may-ari"]`}
-/>
-
-Opsyonal ang registry, limiter, quoter, fee policy, at protocol-fee controller. Kung walang registry, pumapasa ang anumang token sa admission check; kung walang limiter, walang cap ang deposit; kung walang quoter, raw-unit parity ang ginagamit ng Pool; at kung walang fee module, zero ang kaugnay na bayarin.
-
-Ang limang sealable slot ay `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry`, at `tokenLimiter`. Pinipigilan ng seal ang kasalukuyang may-ari ng Pool na palitan ang address na iyon sa pamamagitan ng setter nito, ngunit hindi nito pine-freeze ang internal state ng dependency. Hindi sakop ng limang seal bit ang address ng `protocolFeeController` at mode na `feesDecoupled`. Hiwalay din sa sealing ang kakayahan ng proxy administrator na i-upgrade ang Pool.
-
-Maaaring i-withdraw ng may-ari ng contract ang available na liquidity ng Pool patungo sa napiling address. Sa decoupled-fee mode, hindi kasama sa landas na iyon ang naipong bayarin; nananatili ang kapangyarihang i-withdraw ang natitirang liquidity. Dapat suriin ng mga kalahok ang may-ari, proxy administrator, dependency controller, seal state, tumatanggap ng bayarin, at inilathalang patakaran ng Pool bago umasa sa isang Pool.
-
-Para sa konseptuwal na disenyo sa likod ng mga contract na ito—kabilang ang curation, valuation, limitasyon, palitan, at pamamahala—tingnan ang [White Paper](/fil/white-paper).
+Pinananatili ng sanggunian sa software ang [mga mekanismo ng Pool](https://software.cosmolocal.credit/contracts/pools) at [beripikasyon ng deployment](https://software.cosmolocal.credit/contracts/deployments). Ipinapaliwanag dito ang [mga tungkulin at bokabularyo](/fil/introduction/concepts), [mga pananagutan sa pamamahala](/fil/governance/mechanics), at ang [mas malawak na disenyo ng CPP](/fil/white-paper).

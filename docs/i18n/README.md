@@ -23,6 +23,118 @@ Its materially changed routes and per-locale status are recorded in
 `english-review-rollout.json`; a pending locale remains pinned to its last
 reviewed source until that focused reconciliation is complete.
 
+## Software-reference consolidation
+
+The definitive software implementation reference is
+[CLC Developer Docs](https://software.cosmolocal.credit/), maintained in the
+separate `software-docs` repository. Keep App journeys, participant concepts,
+responsibilities, governance, and policies here. Link to the software site for
+contract mechanics, API schemas, deployment, configuration, and operation.
+The software site is currently English-only: translate link labels, identify
+the destination as English, and never add a docs locale prefix to its URLs.
+
+The 23 November 2026 cleanup is recorded in `software-docs-rollout.json`.
+English was accepted on 23 November 2026 and all 17 software-reference locales
+completed their sequential review on 24 November 2026. Consult the registry for
+each locale’s current status. Each affected
+route records its prior and revised English hashes. Each pending locale also
+records the actual English source hash from its existing manifest. The new
+review takes precedence only for its seven affected routes; the November
+clarity and policy reviews continue to govern all other routes.
+
+After English acceptance, reconcile French, Spanish, Portuguese, Italian,
+Kiswahili, German, Ukrainian, Serbian, Arabic, Dzongkha, Dutch, Hindi,
+Simplified Chinese, Traditional Chinese, Filipino, and Flemish sequentially.
+For a locale, update the seven pages, translate its complete `readingNote`
+strings, and review meaning, clarity, protected content, and external links.
+Then set that locale's new rollout status to `current`, refresh its manifest,
+and refresh the heading map. Never refresh a pending locale's source hashes
+as a substitute for translating it. Pending translations keep their existing
+content in localized search and `llms` output.
+
+Preserve every existing heading destination. Record corrected headings and
+their previous IDs in `heading-aliases.json`. The shared MDX heading wrapper
+renders these compatibility anchors in server HTML and client navigation,
+including Markdown pages where Vocs strips raw source HTML. The language
+switcher resolves old IDs before mapping the equivalent translated section.
+Run `npm run check:software-reference:build` after building to verify that all
+registered old IDs remain in the emitted HTML. Existing source-level MDX
+aliases remain supported; the heading mapper excludes inline HTML from text.
+When an earlier guide has fewer sections, map its old headings by meaning,
+not by ordinal position. Preserve both published bookmarks and any heading
+destinations in the draft being reconciled.
+
+Keep spaces around emphasized CJK labels when they touch neighboring words.
+Otherwise CommonMark can show literal asterisks, especially after a closing
+parenthesis or quotation mark. The locale check rejects unparsed strong
+markers in current software guides; code spans and fenced code are excluded.
+
+`scripts/review_software_translation.py` batches independent back-translation
+of revised units and the reading note with the machine-local MADLAD model.
+Pass `--locale`, `--baseline-root` (a checkout with that locale before this
+cleanup), `--model`, `--cache` (outside Git), and `--output` (a temporary
+candidate report). Keep one Markdown line per corresponding English unit.
+Review every unit against English, including every low-confidence result;
+the similarity score is an aid, not an approval decision.
+
+Dzongkha requires direct source comparison because the machine model often
+misreads valid app vocabulary and negation. Its software-reference review
+records these limitations, corrects the seven controlled guides, and preserves
+old heading IDs through the alias registry. Do not reuse the model's English
+output as authoritative. The app catalog's unrelated Arabic-script Want
+value is explained in Dzongkha here; untranslated action labels are quoted
+with a clear explanation. These observations do not authorize app edits or
+changes to the frozen legal and publication sources.
+
+The Simplified Chinese software pass explicitly reconciles the four
+overlapping clarity drafts within the seven controlled guides. Review those
+changes against the last committed sources as well as English, so an existing
+draft does not acquire fresh hashes without a meaning review. The separate
+Terms, Privacy and three White Paper edits remain unfinished, unchanged and
+outside this pass. Keep their original hash/notice failures visible in the
+main checkout; do not mark the older clarity rollout complete or refresh
+those five hashes. Validate the software checkpoint independently of them.
+
+Save the completed review as `software-review.<locale>.json`, recording the
+review date, resolutions, exact source/translation hashes and hashes of both
+reading-note catalogs. Replace the seven pages' old manifest review metrics
+with their actual new review evidence. A current locale must have a completed
+report matching its source, translation, and reading-note hashes.
+
+The final checkpoint records URL-only Privacy-section corrections separately
+in the registry's `source.linkCorrections` and each report's `linkVerification`.
+The translated prose and existing back-translation units are unchanged by
+those corrections; the source and translation hashes cover the actual revised
+files. Use the localized heading correspondence, including section numbers,
+instead of copying an English fragment into a translated link. The software
+checks validate internal heading destinations against the tracked map and,
+with `--built`, the emitted destination HTML. Do not change an approved policy
+to compensate for an incorrect link to it.
+
+Traditional Chinese may use the reviewed Simplified Chinese guides as a
+semantic starting point, but character conversion is not a translation review.
+Reconcile regional phrasing, the existing Traditional Chinese glossary and
+exact App controls, then independently back-translate every revised unit and
+compare it with English. Preserve the distinct fulfillment/discharge terms
+and map old sections by meaning when the Introduction structure expands.
+Keep any machine-local conversion or translation tooling outside Git.
+
+Freeze the reviewed page text and reading note before starting the production
+build. If public copy changes during a build, rebuild from the final text and
+verify both the prerendered page and client bundle; fresh server HTML alone
+does not prove that the browser will hydrate with matching text.
+
+Run `npm run check:software-reference`, `npm run typecheck`,
+`npm run check:i18n`, `npm run i18n:headings:check`, the production build, and
+`git diff --check` at each review checkpoint. Check the localized page links,
+desktop/mobile navigation, theme, and reading note in the browser.
+
+The note above the White Paper landing page is a layout-supplied MDX wrapper.
+It is outside the publication source, omitted from print, and displayed only
+in languages that have completed this review. White Paper HTML source,
+LaTeX, PDFs, Terms, and policy texts are frozen for this cleanup; do not
+regenerate or revise them as part of these seven-page translations.
+
 ## Files
 
 - `locales.ts` is the single locale registry and preserves the app's order,
@@ -35,6 +147,8 @@ reviewed source until that focused reconciliation is complete.
 - `glossary.json` records the app vocabulary and the docs' canonical
   Commitment Pool and Pool Steward terms.
 - `heading-map.json` maps equivalent heading anchors by document order.
+- `heading-aliases.json` preserves former IDs in the controlled software
+  guides when correcting a translated heading; it does not change publications.
 - `translation-manifest.<locale>.json` records source and translation hashes,
   the app baseline, review status, date, and automated review results.
 - `routing-rollout.json` records the v0.9 production-routing source evidence,
@@ -42,6 +156,8 @@ reviewed source until that focused reconciliation is complete.
 - `english-review-rollout.json` records the current English product-review
   evidence, materially changed routes, exact source hashes, and the translations
   that still require reconciliation.
+- `software-docs-rollout.json` owns the software-reference cleanup status and
+  reading notes; `software-review.<locale>.json` records each completed review.
 - `drafts/pages/` preserves unfinished deep-page translations outside Vocs'
   public route compiler.
 

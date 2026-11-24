@@ -1,106 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # Architecture du réseau du protocole
 
-Un déploiement compatible avec CPP peut relier de nombreux bons d’échange et Bassins au moyen de registres facultatifs, d’index, de modules de cotation et d’une recherche d’itinéraires au niveau de l’application. Chaque Bassin reste un coffre-fort distinct, avec sa propre liquidité, son propriétaire, son administrateur de proxy, sa configuration et ses dépendances.
+Plusieurs Bassins gouvernés de façon indépendante peuvent relier le Bon d’échange que vous détenez à celui que vous souhaitez obtenir. Chaque Bassin assure une étape de l’échange selon ses propres règles et son inventaire disponible.
 
-Grassroots Economics Foundation exploite l'application publique au [cosmolocal.credit](https://cosmolocal.credit) D'autres interfaces et déploiements peuvent utiliser le même protocole public. L'exploitation de l'application ne fait pas automatiquement de GEF le propriétaire, l'émetteur, l'administrateur, le bénéficiaire des frais ou le garant de chaque contrat indiqué ci-dessous.
-
-Voir aussi [Concepts et vocabulaire](/fr/introduction/concepts) pour la séparation entre les rôles responsables et les pouvoirs techniques.
-
+La [référence technique du routage CLC](https://software.cosmolocal.credit/contracts/routing) fait autorité pour la découverte des itinéraires, les critères d’admissibilité, l’exécution et les interfaces des services. La documentation des logiciels est actuellement en anglais. Cette page explique le parcours du participant et les responsabilités.
 
 ## Découverte et exécution des itinéraires en production
 
-<MermaidDiagram
-  label="Architecture du routage en production dans la CLC App et CLC Core"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["Participant"] --> App["CLC App<br/>Crédit · Obtenir · Dépenser"]
-    App -->|bons d’échange accessibles et itinéraires possibles| Core["Service de routage CLC Core"]
-    Catalog["Catalogues, registres<br/>et événements indexés de la chaîne"] --> Core
-    Chain["Lectures de la chaîne à un bloc fixé"] -->|État des Bassins, soldes, frais,<br/>limites et données de cotation| Core
-    Reconcile["Indexation et rapprochement"] --> Catalog
+Dans la vue **Crédit** de l’Application, choisissez le Bon que vous souhaitez **Obtenir** ou celui que vous souhaitez **Dépenser**. Un itinéraire peut, par exemple, échanger un Bon de transport contre un Bon alimentaire au moyen de deux Bassins.
 
-    Core -->|cotation faisant autorité,<br/>limites et appels préparés| App
-    Core -->|simuler le lot complet| Chain
-    App -->|vérifier et signer| Wallet["Portefeuille EOA / Calibur<br/>compatible avec la CLC App"]
-    Wallet -->|lot signé| Relayer["Le relais"]
-    Relayer -->|une transaction sur la même chaîne<br/>revertOnFailure = true| Batch["Lot Calibur<br/>approve 0 · approve montant<br/>retrait borné à chaque étape"]
-
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>(si nécessaire)"]
-    PoolA --> Events["Événements de règlement"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["Reçu groupé de l’échange routé<br/>statut · hachage · étapes · montants · frais"]
-    Receipt --> App
-
-    SolidityRouter["SwapRouter Solidity de Protocol v1.1.0<br/>contrat réutilisable de cotation uniquement"] -. lit les cotations sans exécuter .-> PoolA
-    SolidityRouter -. lit les cotations sans exécuter .-> PoolB`}
-/>
-
-Un bon d’échange partagé crée un **chemin possible dans le graphe**, et non un itinéraire garanti. Le service CLC Core en production maintient un graphe réconcilié à partir des informations sur les Bassins, les registres, les catalogues, les soldes, les frais et les événements de la chaîne. Il vérifie aussi les avoirs pertinents du portefeuille de la session. Le déploiement public recherche actuellement des itinéraires comportant jusqu’à trois échanges de Bassin.
-
-Le routage en production applique volontairement des critères d’admissibilité plus stricts que les échanges directs dans un Bassin. Seuls sont utilisés les Bassins vérifiés à prix relatif et les jetons dont le transfert porte exactement sur le montant indiqué : les bons d’échange `GiftableToken` et les jetons ERC-20 externes explicitement inscrits dans la configuration `router.plain_erc20` du déploiement. Un jeton peut donc être utilisable dans un échange direct sans être admissible au routage au niveau de l’Application.
-
-La découverte dans le graphe est rapide, mais elle repose sur l’état du bloc indexé. Un résultat peut être signalé comme obsolète, et une connexion ne prouve pas que la quantité souhaitée puisse la traverser. Le filtre **Crédit** de la CLC App utilise cet ensemble de bons accessibles dans le Marché et les écrans de découverte associés.
+Trouver une connexion ne garantit pas l’échange. Les Bons pris en charge, les limites des Bassins, l’inventaire, les frais, la compatibilité du Portefeuille et la disponibilité du service doivent permettre le montant demandé.
 
 ### Cotation faisant autorité
 
-Après qu’un participant a choisi un itinéraire et un montant, CLC Core lit tous les Bassins concernés à un même bloc fixé et reproduit les calculs pris en charge par `SwapPool`. La cotation indique chaque étape, les entrées et sorties, les frais de Bassin et de protocole, la sortie minimale, le destinataire final et l’échéance. Le délai actuel d’une cotation en production est de cinq minutes.
+Avant de confirmer, vérifiez les **Détails de l’itinéraire** : ce que vous payez et recevez, chaque Bassin participant, les frais, le minimum reçu et l’expiration de la cotation. Une estimation permet d’explorer ; la cotation est la proposition que vous autorisez. Actualisez-la si elle expire ou si les conditions des Bassins changent.
 
-Le service construit et simule ensuite le lot Calibur complet. Un comportement de jeton ou un module de cotation non pris en charge, un solde de portefeuille insuffisant, un refus d’admission, un plafond de solde dépassé, une liquidité insuffisante, un domaine de frais invalide, une limite de gaz ou un autre retour d’erreur peut empêcher la production d’une cotation.
-
-La découverte et la cotation constituent deux niveaux de preuve différents. La découverte indique qu’un chemin peut exister; la cotation au bloc fixé est la proposition de transaction faisant autorité. Même cette proposition peut expirer ou devenir invalide si l’état pertinent change avant sa soumission.
+La [référence du routage](https://software.cosmolocal.credit/contracts/routing) et la [configuration du service](https://software.cosmolocal.credit/core-api/configuration#credit-router) précisent les critères techniques d’admissibilité et les paramètres des cotations.
 
 ### Lot atomique signé
 
-L’utilisateur examine les **Détails de l’itinéraire** et signe le lot de portefeuille préparé. À chaque étape, le lot appelle `approve(pool, 0)`, `approve(pool, amountIn)` puis la variante bornée de `SwapPool.withdraw`. Chaque retrait borné impose une sortie minimale et une échéance. Les bons intermédiaires reviennent dans le même portefeuille avant que le Bassin suivant ne dépense le montant coté; tout solde intermédiaire restant demeure dans ce portefeuille.
+Vous vérifiez et autorisez l’ensemble de l’échange. L’itinéraire actuel réussit entièrement, ou ses échanges de Bassin sont annulés ensemble si une étape échoue. Cela évite qu’une partie seulement de l’itinéraire soit exécutée ; cela ne garantit pas une livraison ultérieure de biens ou de services.
 
-Le relais soumet le lot dans une seule transaction sur la même chaîne, avec `revertOnFailure` défini sur `true`. Si une approbation ou un échange de Bassin échoue, tous les appels de l’itinéraire — y compris les étapes précédentes et leurs changements d’autorisation — sont annulés ensemble. Il s’agit de l’atomicité actuelle d’une transaction sur une même chaîne, et non d’une atomicité interchaînes, d’un HTLC, d’un séquestre, d’une compensation ou d’un rééquilibrage automatique des Bassins.
-
-Le flux d’itinéraire actuel prend en charge les portefeuilles EOA/Calibur compatibles avec la CLC App. Un portefeuille Safe ou un autre portefeuille contractuel est refusé par le flux de cotation actuel.
+Pour la construction et l’exécution de la transaction, consultez [Exécuter un itinéraire](https://software.cosmolocal.credit/contracts/routing#execute-a-route).
 
 ### `SwapRouter` Solidity et frais
 
-Le `SwapRouter` Solidity de Protocol v1.1.0 reste un contrat de cotation uniquement. Il peut appeler les fonctions de cotation des Bassins le long d’un chemin fourni, mais il ne détient pas de fonds, n’approuve pas de jetons et n’exécute pas d’échanges. Le flux App/Core en production décrit ci-dessus est un coordinateur distinct au niveau de l’application; il appelle directement chaque `SwapPool` au moyen du lot de portefeuille signé par le participant.
+Le contrat Solidity `SwapRouter`, limité aux cotations, et le parcours d’échange de l’Application sont des composants logiciels différents. Leur relation est expliquée dans [Routage](https://software.cosmolocal.credit/contracts/routing).
 
-Les frais de Bassin restent dans le Bassin concerné jusqu’à leur collecte. Les frais de protocole éventuels s’y ajoutent et sont transférés directement de ce Bassin au destinataire de protocole configuré pendant l’échange.
-
-La CLC App actuelle n’ajoute pas de frais distincts pour le service de routage. Un échange routé peut néanmoins comporter plusieurs frais de Bassin et de protocole, car chaque étape constitue un règlement `SwapPool` distinct.
+Pour les participants, l’essentiel est de vérifier la cotation complète. Chaque Bassin peut prélever des frais. Un itinéraire commun ne fusionne pas les Bassins et ne rend pas un Gestionnaire responsable d’un autre Bassin.
 
 ### États de réception et d'échec
 
-CLC Core regroupe l’itinéraire sous un même identifiant de suivi. La CLC App affiche **Échange en cours**, **Échangé** ou **Échec de l’échange**, avec un statut technique **En attente**, **Confirmé** ou **Annulé**. Le reçu indique le hachage de la transaction, la profondeur de l’itinéraire, chaque paire de Bassin et de jetons, les montants cotés et réglés, les frais de Bassin et de protocole à chaque étape, le minimum reçu et tout solde intermédiaire restant dans le portefeuille.
+Après l’envoi, vérifiez si l’échange est en attente, confirmé ou en échec, puis conservez le reçu. Si aucun itinéraire n’est disponible, essayez d’actualiser, de réduire le montant ou de choisir un autre Bon d’entrée pris en charge.
 
-Un itinéraire peut échouer avant la signature si aucun chemin ou aucune cotation admissible n’est disponible, pendant la simulation si le lot serait annulé, pendant le relais si la transaction signée ne peut pas être soumise, ou sur la chaîne si l’état a changé ou si une autre condition d’exécution échoue. Un itinéraire indisponible ou échoué ne modifie pas les règles d’un Bassin, n’acquitte pas un bon d’échange et ne prouve rien quant à l’exécution par l’émetteur.
+Un échange échoué ne modifie pas les promesses existantes de l’Émetteur. Un échange réussi enregistre des changements de soldes ; l’exécution de l’engagement et son acquittement suivent toujours les conditions de l’Émetteur. Consultez les [exemples pratiques](/fr/introduction/example).
 
+Les développeurs trouveront les interfaces de transaction et de suivi dans la [référence de l’API CLC Core](https://software.cosmolocal.credit/core-api/reference).
 
 ## Intérieur du Bassin
 
-<MermaidDiagram
-  label="Dépendances et pouvoirs administratifs d’un Bassin d’engagements"
-  minWidth={820}
-  chart={`flowchart TB
-    Steward["Gestionnaire de Bassin responsable"] -. publie les règles,<br/>informations et modalités de gouvernance .-> Pool["SwapPool<br/>le coffre et le règlement"]
-    Owner["Adresse du propriétaire du SwapPool"] -->|configurer, sceller, recueillir, retirer| Pool
-    ProxyAdmin["ERC-1967<br/>administrateur par procuration"] -->|mise en œuvre de la mise à niveau| Pool
-    Dependencies["Dépendances facultatives<br/>enregistrement · limitateur · cotateur<br/>Politique des redevances · contrôleur des redevances du protocole<br/>chacune avec sa propre gouvernance"] -. settlement inputs .-> Pool
-    Seal["Cinq emplacements d'adressage scellés<br/>feePolicy · feeAddress · coté<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+Avant de vous appuyer sur un Bassin, identifiez son Gestionnaire, le propriétaire du contrat, les autorités de mise à niveau, les destinataires des frais et toute personne pouvant modifier des paramètres importants. Le détenteur d’un pouvoir technique peut être distinct du Gestionnaire responsable.
 
-    Wallet["Portefeuille utilisateur"] -->|entrée de dépôt ou de swap| Pool
-    Pool -->|Production nette des swaps| Wallet
-    Pool -->|Frais de bassin collectés| FeeAddress["Configuré<br/>adresse de la redevance"]
-    Pool -->|Frais de protocole dans le même échange| ProtocolRecipient["Le protocole<br/>récipiendaire"]
-    Pool -->|withdrawLiquidity| Destination["Owner-selected<br/>recipient"]`}
-/>
-
-Le registre, le limiteur, le cotateur, la politique des frais et le contrôleur des frais de protocole sont facultatifs. Sans enregistrement, tout jeton passe le contrôle d'admission; sans limiteur, les dépôts sont sans plafond; en l'absence de cotation, le bassin utilise la parité des unités brutes; et sans modules de redevance, les redevances correspondantes sont nulles.
-
-Les cinq emplacements à sceller sont `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` et `tokenLimiter`. Un sceau empêche le propriétaire actuel du bassin de remplacer cette adresse par son setter, mais il ne congèle pas l'état interne de la dépendance. L'adresse `protocolFeeController` et le mode `feesDecoupled` ne sont pas couverts par ces cinq bits d'étanchéité. La capacité de l'administrateur proxy à mettre à niveau le Bassin est également distincte du scellement.
-
-Le titulaire du contrat peut retirer la liquidité du bassin disponible à l'adresse choisie. Dans le mode des frais découplés, les frais accumulés sont réservés à cette voie; le pouvoir de retirer la liquidité restante existe toujours. Les participants doivent vérifier le propriétaire, l'administrateur par procuration, les contrôleurs de la dépendance, l'état du sceau, les bénéficiaires des frais et les règles publiées du bassin avant de s'appuyer sur un bassin.
-
-Pour la conception conceptuelle de ces contrats, y compris la conservation, l'évaluation, la limitation, l'échange et la gouvernance, voir le [Le livre blanc](/fr/white-paper).
+La référence technique décrit les [mécanismes des Bassins](https://software.cosmolocal.credit/contracts/pools) et la [vérification des déploiements](https://software.cosmolocal.credit/contracts/deployments). Ce site explique les [rôles et le vocabulaire](/fr/introduction/concepts), les [responsabilités de gouvernance](/fr/governance/mechanics) et la [conception générale du CPP](/fr/white-paper).

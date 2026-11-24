@@ -74,16 +74,16 @@ Bij een storting worden activa overgedragen aan de `SwapPool` van het Fonds. Pro
 
 Gebruik **Verzenden** om een Waardebon rechtstreeks over te dragen. Gebruik een **Fondsswap** om via één Fonds een ondersteund activum voor een ander om te wisselen.
 
-De **Krediet**-weergave van de App kan ook Waardebonnen vinden die via meerdere onafhankelijk bestuurde Fondsen bereikbaar zijn. Kies **Verkrijgen** voor de Waardebon die je wilt ontvangen of **Uitgeven** voor de Waardebon die je wilt gebruiken. Controleer daarna:
+De **Krediet**-weergave van de App kan ook Waardebonnen vinden die via meerdere onafhankelijk bestuurde Fondsen bereikbaar zijn. Kies **Verkrijgen** voor de Waardebon die je wilt ontvangen of **Besteden** voor de Waardebon die je wilt gebruiken. Controleer daarna:
 
 1. de keuze onder **Betalen met** en de **Schatting**;
 2. de **Routedetails**, waaronder elk Fonds, bedrag, Fondskosten en protocolkosten;
 3. het minimaal te ontvangen bedrag en wanneer de offerte verloopt; en
 4. de voorbereide Portemonneebatch voordat je **Ruil bevestigen** kiest.
 
-Productierouting is bewust beperkter dan een rechtstreekse Fondsswap. Alleen geverifieerde Fondsen met relatieve prijzen en tokens waarvan de overdracht precies het vermelde bedrag verplaatst, worden gebruikt: `GiftableToken`-Waardebonnen en uitdrukkelijk toegelaten gewone ERC-20-tokens. De openbare implementatie zoekt routes van maximaal drie Fondsswaps en ondersteunt compatibele EOA/Calibur-Portemonnees, niet Safes of andere contractportemonnees.
+Niet iedere Waardebon, ieder Fonds of iedere Portemonnee ondersteunt gerouteerde uitwisseling. De App controleert of een uitwisseling beschikbaar is voor jouw keuzes. De [softwarereferentie voor routing](https://software.cosmolocal.credit/contracts/routing) houdt de huidige geschiktheidsregels en technische vereisten bij in het Engels.
 
-Routeontdekking is een schatting. Vóór ondertekening leest CLC Core de geselecteerde Fondsen op één vastgezet blok, berekent het een tijdgebonden offerte, past het grenzen voor minimale output en deadlines toe en simuleert het de volledige batch. Als een oproep mislukt, wordt de volledige transactie op dezelfde blockchain teruggedraaid. Het ontvangstbewijs groepeert de afgewikkelde bedragen en de Fonds- en protocolkosten per hop.
+Routeontdekking is een schatting. Controleer vóór ondertekening de definitieve offerte, inclusief het minimaal te ontvangen bedrag en de vervaltijd. De huidige gerouteerde uitwisseling slaagt als geheel, of de Fondsswaps worden samen teruggedraaid. Controleer na indiening het ontvangstbewijs voor de uitkomst, uitgewisselde bedragen en kosten.
 
 ### 7. Gebruik een Waardebon bij de Uitgever
 
@@ -99,7 +99,7 @@ Informatie over Waardebonnen, Fondsen, Aanbiedingen, Verzoeken, Catalogi, Berich
 - controleer welke informatie zichtbaar is wanneer je bent afgemeld en aangemeld;
 - gebruik contactgegevens die geschikt zijn voor het beoogde publiek;
 - kopieer geen privéprofielgegevens naar een openbare bron, tenzij je die bewust wilt publiceren; en
-- lees in de Privacyverklaring het gedeelte [‘Wat wordt openbaar?’](/nl/governance/privacy#what-becomes-public).
+- lees in de Privacyverklaring het gedeelte [‘Wat wordt openbaar?’](/nl/governance/privacy#4-wat-wordt-openbaar).
 
 ## Huidige App-acties
 
@@ -126,6 +126,6 @@ Onthoud vóór een transactie:
 - Een vermelding, beoordeling, route, limiet, reserve of blockchainrecord is niet automatisch een goedkeuring, waardering, bewijs van nakoming, garantie, verzekering of belofte van uitbetaling in geld.
 - Betalingsdiensten, beloningen, bijdrageregelingen en andere integraties met aanbieders zijn implementatieafhankelijk en vereisen hun eigen bekendmakingen.
 
-Protocol v1.1.0 biedt rechtstreekse Fondsuitvoering en een Solidity-`SwapRouter` die alleen offertes berekent. De productie-App en CLC Core coördineren boven deze contracten de uitvoering via meerdere Fondsen op dezelfde blockchain. Cross-chainrouting, automatische herbalancering van Fondsen, batchnetting, gedeelde verzekering, voorgestelde bestuursactiva, liquiditeitsprogramma's op netwerkniveau en gereguleerde betalingsrails blijven voorgesteld of implementatieafhankelijk, tenzij een specifieke implementatie ze als actief aanwijst.
+De App ondersteunt rechtstreekse en gerouteerde Fondsuitwisselingen waar die beschikbaar zijn. Cross-chainrouting, automatische herbalancering van Fondsen, batchnetting, gedeelde verzekering, voorgestelde bestuursactiva, liquiditeitsprogramma’s op netwerkniveau en gereguleerde betalingsrails blijven voorgesteld of implementatieafhankelijk, tenzij een specifieke implementatie ze als actief benoemt.
 
 Zie de [eenvoudige en geavanceerde voorbeelden](/nl/introduction/example), het [Protocoloverzicht](/nl/protocol/overview) of de [bestuursmechanismen](/nl/governance/mechanics) voor meer informatie.

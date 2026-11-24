@@ -97,10 +97,10 @@ Usi **regolamento dello scambio** per i trasferimenti on-chain e la contabilizza
 | **CLC App** | L'applicazione web progressiva disponibile su [cosmolocal.credit](https://cosmolocal.credit). GEF gestisce questa interfaccia e i relativi servizi di supporto. |
 | **CLC Core** | Il servizio di supporto per cataloghi, stato indicizzato della catena, scoperta dei percorsi, quotazioni autorevoli, coordinamento dell'inoltro e ricevute degli scambi instradati. Non è uno smart contract né un Responsabile del Fondo. |
 | **Protocollo di messa in comune degli impegni (CPP)** | Il modello riutilizzabile per selezione, valutazione, limitazione, scambio e governance responsabile. |
-| **Protocol v1.1.0** | La versione pubblica e verificata degli smart contract documentata nel [riferimento del protocollo](/it/protocol/overview). |
+| **Protocol v1.1.0** | La versione pubblica degli smart contract documentata nel [riferimento definitivo del software](https://software.cosmolocal.credit/contracts/) (in inglese). |
 | **`SwapPool`** | L'attuale contratto del protocollo che detiene l'inventario dei token ed esegue scambi diretti. È uno dei componenti tecnici di un Fondo di Impegni. |
 | **`SwapRouter` Solidity** | Il contratto di Protocol v1.1.0 che calcola la quotazione di un percorso proposto attraverso più Fondi. Non custodisce asset e non esegue il percorso. |
-| **Flusso di instradamento dell'applicazione** | L'attuale processo della CLC App e di CLC Core che scopre, quota e simula percorsi sulla stessa catena, prepara un lotto firmato dal Portafoglio, lo inoltra e raggruppa i regolamenti dei Fondi in un'unica ricevuta. |
+| **Flusso di instradamento dell'applicazione** | L'App e i servizi di supporto trovano possibili percorsi attraverso i Fondi, quotano uno scambio, richiedono l'autorizzazione del partecipante e ne comunicano l'esito. |
 | **Token di governance CLC proposto** | Un futuro modello di governance descritto nel Libro bianco. Non è un asset attuale dell'app o di Protocol v1.1.0. |
 | **Fondo di rete CLC proposto** | Un futuro modello di compensazione e coordinamento a livello di rete. Non equivale a uno `SwapPool` attuale. |
 
@@ -122,11 +122,11 @@ Protocol v1.1.0 può addebitare una **commissione del Fondo** e un'ulteriore **c
 
 ## Percorsi e liquidità
 
-Un **percorso** è una sequenza ordinata attraverso uno o più Fondi governati in modo indipendente. La **profondità del percorso** è il numero di scambi tramite Fondo che contiene. L'attuale implementazione pubblica cerca fino a tre passaggi.
+Un **percorso** è una sequenza ordinata attraverso uno o più Fondi governati in modo indipendente. La **profondità del percorso** è il numero di scambi tramite Fondo presenti in quella sequenza.
 
-L'instradamento in produzione usa Fondi verificati con prezzi relativi e token i cui trasferimenti spostano esattamente l'importo dichiarato: Buoni `GiftableToken` e token ERC-20 semplici espressamente inseriti nella allowlist. Gli scambi diretti tramite Fondo possono supportare una configurazione più ampia; la presenza in un Fondo non rende automaticamente un token idoneo all'instradamento dell'app.
+Non tutti i Buoni, i Fondi o i Portafogli sono idonei all'instradamento. La presenza di un Buono in un Fondo non lo rende automaticamente disponibile attraverso ogni percorso. Il [riferimento sull'instradamento del software](https://software.cosmolocal.credit/contracts/routing) mantiene aggiornate le regole di idoneità e la configurazione, in inglese.
 
-La **liquidità disponibile** è l'inventario in uscita idoneo che un Fondo può fornire in base al proprio stato attuale di ammissione, limite di saldo, quotazione, commissioni e riserve. Un collegamento nel grafo non prova che una quantità utile possa attraversarlo. La scoperta del percorso può diventare obsoleta; la successiva quotazione calcolata in un blocco fissato resta autorevole solo fino alla sua scadenza o a una modifica rilevante dello stato.
+La **liquidità disponibile** è l'inventario che un Fondo può fornire secondo le regole, i limiti e le commissioni attuali. Un collegamento tra Fondi non dimostra che l'importo desiderato sia disponibile. Esamini la quotazione finale: può scadere o diventare non valida se cambiano le condizioni del Fondo.
 
 L'esecuzione attuale del percorso viene avviata dal Portafoglio sulla stessa catena. Non unisce la governance dei Fondi, non riequilibra automaticamente il loro inventario, non compensa obblighi tra più parti e non dimostra l'adempimento. L'instradamento tra catene tramite HTLC o deposito a garanzia, il riequilibrio automatico e la compensazione in lotti restano proposti o dipendenti dall'implementazione.
 
@@ -143,6 +143,6 @@ Qualsiasi protezione dovrebbe identificare la parte obbligata, l'evento coperto,
 - **Storico:** prova o funzionalità del precedente servizio Sarafu Network.
 - **Proposto:** modello o meccanismo della roadmap che non viene presentato come implementato.
 
-La guida [Per iniziare](/it/introduction/getting-started) applica questi termini all'app attuale. Il [riferimento del protocollo](/it/protocol/overview) documenta i contratti verificati, mentre il [Libro bianco](/it/white-paper) presenta il modello e le proposte più ampie.
+La guida [Per iniziare](/it/introduction/getting-started) applica questi termini all'App attuale. La [panoramica del protocollo](/it/protocol/overview) collega questi concetti alla [documentazione definitiva del software](https://software.cosmolocal.credit/), mentre il [Libro bianco](/it/white-paper) presenta il modello e le proposte più ampie.
 
 Per un'introduzione basata sul gioco a impegni, regolamento, flussi di risorse, scambio e messa in comune, esplori i [giochi educativi di Grassroots Economics](https://grassrootseconomics.org/games/). I giochi sono risorse didattiche complementari, non definizioni del comportamento attuale dell'app o del protocollo.

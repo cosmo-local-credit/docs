@@ -81,9 +81,9 @@ The App's **Credit** view can also find Vouchers reachable through several indep
 3. the minimum amount received and quote expiry; and
 4. the prepared Wallet batch before choosing **Confirm exchange**.
 
-Production routing is intentionally narrower than direct Pool swapping. It uses verified, relative-priced Pools and tokens whose transfers move exactly the stated amount: `GiftableToken` vouchers and explicitly allowlisted plain ERC-20 tokens. The public deployment searches routes of up to three Pool swaps and supports compatible EOA/Calibur Wallets, not Safes or other contract Wallets.
+Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The [software routing reference](https://software.cosmolocal.credit/contracts/routing) maintains the current eligibility rules and technical requirements in English.
 
-Route discovery is an estimate. Before signing, CLC Core reads the selected Pools at one pinned block, calculates a time-bounded quote, applies minimum-output and deadline bounds, and simulates the complete batch. If any call fails, the complete same-chain transaction reverts. The receipt groups the route's settled amounts and per-hop Pool and protocol fees.
+Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.
 
 ### 7. Use a Voucher with its Issuer
 
@@ -99,7 +99,7 @@ Voucher, Pool, Offering, Want, Catalog, Post, and Review information can have di
 - check which information is visible while signed out and while signed in;
 - use contact details that are suitable for the intended audience;
 - do not copy private profile information into a public resource unless you intend to publish it; and
-- read the Privacy Notice's [“What becomes public?”](/governance/privacy#what-becomes-public) section.
+- read the Privacy Notice's [“What becomes public?”](/governance/privacy#4-what-becomes-public) section.
 
 ## Current App actions
 
@@ -126,6 +126,6 @@ Before transacting, remember:
 - A listing, review, route, limit, reserve, or blockchain record is not automatically an endorsement, valuation, fulfillment record, guarantee, insurance policy, or promise of cash-out.
 - Payment services, rewards, contribution arrangements, and other provider integrations are deployment-dependent and require their own disclosures.
 
-Protocol v1.1.0 provides direct Pool execution and a quote-only Solidity `SwapRouter`. The production App and CLC Core coordinate same-chain multi-Pool execution above those contracts. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
+The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.
 
 See the [simple and advanced examples](/introduction/example), the [Protocol overview](/protocol/overview), or [governance mechanics](/governance/mechanics) for more detail.

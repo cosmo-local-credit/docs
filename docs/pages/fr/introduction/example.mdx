@@ -81,13 +81,13 @@ Le Portefeuille de l’école ouvre la vue **Crédit** et sélectionne le bon de
 
 Ce résultat de découverte ne promet pas encore que l’échange réussira. Chaque étape dépend de l’admission actuelle, des plafonds de solde des jetons du Bassin, de l’inventaire disponible, de la configuration des cotations et des frais, du comportement pris en charge des jetons et de l’actualité du service.
 
-L’école choisit le montant qu’elle souhaite **Obtenir** ou **Dépenser**. CLC Core lit ensuite les deux Bassins à un même bloc fixé, produit une cotation limitée dans le temps qui fait autorité, puis simule le lot complet du Portefeuille. Les **Détails de l’itinéraire** dans l’Application montrent les deux échanges, les montants estimés ainsi que les frais du Bassin et du protocole à chaque étape.
+L’école choisit le montant qu’elle souhaite **Obtenir** ou **Dépenser**. L’Application présente une cotation pour l’ensemble de l’échange. Les **Détails de l’itinéraire** montrent les deux échanges, les montants et les frais du Bassin et du protocole à chaque étape. L’école vérifie le minimum reçu et l’expiration de la cotation avant de poursuivre.
 
 ### 6. Le Détenteur exécute l’échange routé
 
-Après avoir vérifié le montant minimal reçu et l’échéance de la cotation, l’école sélectionne **Confirmer l’échange** et signe le lot préparé. L’Application soumet une seule transaction sur la même chaîne, qui contient les autorisations et l’appel d’échange limité pour chaque Bassin.
+L’école sélectionne **Confirmer l’échange** et autorise l’itinéraire complet. En cas de réussite, le reçu indique les deux échanges de Bassin, les montants échangés et les frais.
 
-Si un appel échoue, toute la transaction est annulée : le premier échange de Bassin ne reste pas réglé sans le second. Si elle réussit, le reçu groupé de l’école indique un identifiant de suivi, un hachage de transaction, les deux étapes du Bassin, les montants réglés et les frais de chaque étape.
+Si une étape échoue, les deux échanges de Bassin sont annulés ensemble : le premier ne reste pas réglé sans le second. Pour comprendre comment le logiciel construit et exécute cette transaction, consultez la [référence du routage](https://software.cosmolocal.credit/contracts/routing), en anglais.
 
 L’école détient maintenant des bons de repas. L’échange sur la blockchain constitue le **règlement de l’échange**. Il donne à l’école la créance décrite par les conditions du bon de repas ; il ne prouve pas que la cuisine a déjà fourni les repas.
 

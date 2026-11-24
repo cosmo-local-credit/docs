@@ -36,9 +36,13 @@ Maoni ni mrejesho wa umma kuhusu vocha au Kikundi. Si sawa na ushahidi wa faragh
 
 ## Vocha, tokeni, na Ofa
 
-**Tokeni** ni salio au mali ya kidijitali kwenye mnyororo. Utendaji wa tokeni unaweza kurekodi ugavi, uhamishaji, tarehe ya mwisho, na uchomaji, lakini peke yake hauahidi bidhaa.
+**Tokeni** ni salio au mali ya kidijitali kwenye mnyororo. Utendaji wa tokeni unaweza kurekodi ugavi, uhamishaji, muda wa mwisho na uchomaji, lakini peke yake hauahidi bidhaa, huduma, ubadilishaji kuwa pesa taslimu au ukombozi.
 
-Vocha kamili ina tabaka nne tofauti:
+**Vocha** ni tokeni au rekodi ambayo Mtoaji anaiwasilisha kama ahadi inayoweza kukombolewa chini ya masharti yaliyochapishwa. Masharti hayo yanapaswa kutaja kinachoahidiwa, anayewajibika, mahali na wakati wa kuiwasilisha, mipaka muhimu, na utaratibu wa kutekeleza ahadi na kushughulikia malalamiko.
+
+**Ofa** ni rekodi ya katalogi ya bidhaa au huduma zinazohusiana na Vocha. Katika lugha ya kawaida, kutoa ofa humaanisha kupendekeza kitu; **Ofa** ni jina la rekodi katika Programu.
+
+Tenganisha tabaka hizi nne:
 
 1. utendaji wa mkataba wa tokeni na salio;
 2. utambulisho wa vocha na masharti yaliyochapishwa na Mtoaji;
@@ -93,10 +97,10 @@ Tumia **malipo ya ubadilishaji** kwa uhamishaji wa kwenye mnyororo na uhasibu wa
 | **CLC App** | Programu ya wavuti inayoendelea kwenye [cosmolocal.credit](https://cosmolocal.credit). GEF huendesha kiolesura hiki na huduma zinazokiunga mkono. |
 | **CLC Core** | Huduma inayounga mkono katalogi, hali ya mnyororo iliyoainishwa, ugunduzi wa njia, nukuu za mamlaka, uratibu wa uwasilishaji, na risiti za ubadilishaji kupitia njia. Si mkataba mahiri wala Msimamizi wa Kikundi. |
 | **Commitment Pooling Protocol (CPP)** | Muundo unaoweza kutumiwa tena wa uchaguzi, tathmini, mipaka, ubadilishaji, na utawala unaowajibika. |
-| **Protocol v1.1.0** | Toleo la mikataba mahiri ya umma lililothibitishwa na kuelezwa katika [marejeo ya Itifaki](/sw/protocol/overview). |
+| **Protocol v1.1.0** | Toleo la umma la mikataba mahiri lililoelezwa katika [marejeo rasmi ya programu](https://software.cosmolocal.credit/contracts/) (kwa Kiingereza). |
 | **`SwapPool`** | Mkataba wa sasa wa Itifaki unaohifadhi tokeni na kutekeleza ubadilishaji wa moja kwa moja. Ni sehemu moja ya kiufundi ya Kikundi cha Ahadi. |
 | **Solidity `SwapRouter`** | Mkataba wa Protocol v1.1.0 unaotoa nukuu ya njia inayopendekezwa kupitia Vikundi vingi. Hauhifadhi mali wala kutekeleza njia. |
-| **Mtiririko wa uelekezaji wa Programu** | Mchakato wa sasa wa CLC App na CLC Core wa kugundua njia kwenye mnyororo mmoja, kutoa na kuiga nukuu, kuandaa kundi la miamala ya Mkoba linalotiwa sahihi, kuliwasilisha, na kukusanya malipo ya Vikundi katika risiti moja. |
+| **Mtiririko wa uelekezaji wa Programu** | Programu na huduma zake za usaidizi hutafuta njia zinazowezekana kupitia Vikundi, hutoa nukuu ya ubadilishaji, huomba idhini ya mshiriki na kuripoti matokeo. |
 | **Tokeni ya utawala ya CLC inayopendekezwa** | Muundo wa baadaye wa utawala katika Waraka Mweupe. Si mali ya sasa ya Programu au Protocol v1.1.0. |
 | **Kikundi cha Mtandao wa CLC kinachopendekezwa** | Muundo wa baadaye wa malipo na uratibu katika kiwango cha mtandao. Si sawa na `SwapPool` ya sasa. |
 
@@ -118,11 +122,11 @@ Protocol v1.1.0 inaweza kutoza **ada ya Kikundi** na **ada ya itifaki** ya ziada
 
 ## Njia na ukwasi
 
-**Njia** ni mfululizo uliopangwa kupitia Kikundi kimoja au zaidi vinavyosimamiwa kwa kujitegemea. **Kina cha njia** ni idadi ya ubadilishaji wa Vikundi katika njia hiyo. Mfumo wa sasa wa umma hutafuta hadi hatua tatu.
+**Njia** ni mfululizo uliopangwa kupitia Kikundi kimoja au zaidi vinavyosimamiwa kwa kujitegemea. **Kina cha njia** ni idadi ya ubadilishaji wa Vikundi katika mfululizo huo.
 
-Uelekezaji wa uzalishaji hutumia Vikundi vilivyothibitishwa vyenye bei linganishi na tokeni ambazo uhamishaji wake huhamisha kiasi kilichotajwa: vocha za `GiftableToken` na tokeni za kawaida za ERC-20 zilizoidhinishwa wazi. Ubadilishaji wa moja kwa moja wa Kikundi unaweza kukubali usanidi mpana zaidi; kuonekana katika Kikundi hakufanyi tokeni ikubalike moja kwa moja kwa uelekezaji wa Programu.
+Uelekezaji haupatikani kwa kila Vocha, Kikundi au Mkoba. Kuonekana katika Kikundi hakuifanyi Vocha ipatikane moja kwa moja kupitia kila njia. [Marejeo ya uelekezaji wa programu](https://software.cosmolocal.credit/contracts/routing) yana sheria za sasa za ustahiki na usanidi kwa Kiingereza.
 
-**Ukwasi unaopatikana** ni mali ya kutoa inayostahiki ambayo Kikundi kinaweza kutoa chini ya hali yake ya sasa ya uanachama, kikomo cha salio, nukuu, ada, na uhifadhi. Muunganisho katika grafu hauthibitishi kuwa kiasi kinachofaa kinaweza kupita. Ugunduzi wa njia unaweza kupitwa na wakati; nukuu ya baadaye ya block iliyowekwa hubaki halali tu hadi muda wake wa mwisho au hali husika ibadilike.
+**Ukwasi unaopatikana** ni mali ambazo Kikundi kinaweza kutoa chini ya sheria, mipaka na ada zake za sasa. Muunganiko kati ya Vikundi hauthibitishi kuwa kiasi unachotaka kinapatikana. Kagua nukuu ya mwisho; inaweza kuisha muda au kukosa uhalali hali za Kikundi zikibadilika.
 
 Utekelezaji wa sasa wa njia ni wa mnyororo mmoja na huanzishwa na Mkoba. Hauunganishi utawala, hausawazishi mali za Vikundi kiotomatiki, hausafishi wajibu wa wahusika wengi, wala hauthibitishi utekelezaji. Uelekezaji wa HTLC au escrow kati ya minyororo, usawazishaji kiotomatiki, na ulinganishaji wa kundi hubaki mapendekezo au hutegemea utekelezaji.
 
@@ -139,6 +143,6 @@ Ulinzi wowote unapaswa kutaja mhusika mwenye wajibu, tukio linalolindwa, ufadhil
 - **Ya kihistoria:** ushahidi au utendaji kutoka huduma ya awali ya Sarafu Network.
 - **Inayopendekezwa:** muundo au mpango ambao haujaelezwa kuwa tayari umetumika.
 
-[Mwongozo wa kuanza](/sw/introduction/getting-started) hutumia maneno haya kwa Programu ya sasa. [Marejeo ya Itifaki](/sw/protocol/overview) yanaeleza mikataba iliyothibitishwa, na [Waraka Mweupe](/sw/white-paper) unaeleza muundo mpana na mapendekezo.
+Mwongozo wa [Kuanza kutumia](/sw/introduction/getting-started) hutumia maneno haya kueleza Programu ya sasa. [Muhtasari wa Itifaki](/sw/protocol/overview) unaunganisha dhana hizi na [nyaraka rasmi za programu](https://software.cosmolocal.credit/), huku [Waraka Mweupe](/sw/white-paper) ukieleza muundo na mapendekezo mapana zaidi.
 
 Kwa utangulizi wa kujifunza kupitia michezo kuhusu ahadi, malipo, mtiririko wa rasilimali, ubadilishaji, na kuunganisha, angalia [michezo ya elimu ya Grassroots Economics](https://grassrootseconomics.org/games/). Michezo hii ni nyenzo za ziada za kujifunza, si ufafanuzi wa utendaji wa sasa wa Programu au Itifaki.

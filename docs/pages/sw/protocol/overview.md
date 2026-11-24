@@ -1,39 +1,36 @@
 # Itifaki
 
-Mikataba ya Protocol v1.1.0 hutoa vipengele vya kwenye blockchain vya **Itifaki ya Kuunganisha Ahadi (CPP)** inayoelezwa katika [Sura ya 1](/sw/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) ya Waraka Mweupe. Marejeleo haya yanafuata [toleo la umma la `v1.1.0`](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0).
+**Itifaki ya Kuunganisha Ahadi (CPP)** inaeleza jinsi Vikundi vinavyosimamiwa kwa kujitegemea huchagua Vocha, huchapisha sheria za ubadilishaji na kuwezesha ubadilishaji. Baadaye, Mmiliki hutumia Vocha kwa Mtoaji wake kupata bidhaa au huduma zilizoahidiwa. Hizi ni hatua tofauti, zenye wajibu tofauti.
 
-Tumia [Dhana na msamiati](/sw/introduction/concepts) kuelewa vipengele vya bidhaa, majukumu yenye uwajibikaji, mzunguko wa vitendo, thamani, mipaka, ada na maneno ya hali yanayotumiwa hapa.
+Tovuti hii inaeleza dhana hizo na jinsi ya kutumia CLC App. [Nyaraka za programu za CLC](https://software.cosmolocal.credit/) ndizo marejeo rasmi ya utekelezaji wa programu, mikataba, API, usakinishaji na uendeshaji. Kwa sasa zinapatikana kwa Kiingereza.
 
-Grassroots Economics Foundation (GEF) huendesha programu ya wavuti inayoendelea kwenye [cosmolocal.credit](https://cosmolocal.credit), ambayo ni njia mojawapo ya kutumia mikataba hii. Programu na mikataba ni vitu tofauti. Kuendesha kiolesura pekee hakufanyi GEF kuwa Mtoaji wa vocha, Msimamizi wa Kikundi, mtunza mali, mdhamini au upande wa muamala wa mtumiaji. Majukumu hayo hutegemea utekelezaji unaohusika, anwani za wadhibiti na masharti yaliyochapishwa ya Mtoaji au Kikundi. Angalia [Masharti ya Huduma](/sw/governance/terms).
+Anza na [Dhana na msamiati](/sw/introduction/concepts) kwa maneno ya pamoja, au [Waraka Mweupe](/sw/white-paper) kwa muundo na mapendekezo mapana zaidi.
 
 ## Mfumo wa utekelezaji
 
-Moduli nyingi zenye hali huanzishwa kama **proksi za ERC-1967** kupitia `ERC1967Factory` ya Solady. Matukio mengi yanaweza kutumia utekelezaji mmoja huku yakihifadhi wamiliki, usanidi na data tofauti. Utekelezaji unaweza pia kutumia chumvi bainifu ili anwani ziweze kutabirika kabla ya utekelezaji.
+Jamii na mashirika mbalimbali yanaweza kuendesha programu zinazooana chini ya sheria zao wenyewe. Grassroots Economics Foundation huendesha [CLC App ya umma](https://cosmolocal.credit). Kila mfumo uliowekwa unapaswa kutaja waendeshaji, mikataba na mamlaka zake zinazowajibika.
 
-Si kila mkataba hutumia proksi. `DecimalQuoter` na `SwapRouter` ni mikataba isiyo na hali inayotekelezwa moja kwa moja; `RescueVault` na `ERC1967Factory` pia hutekelezwa moja kwa moja. Moduli nyingine zenye hali zilizoorodheshwa hapa zimeundwa kutekelezwa kupitia proksi.
-
-Kila proksi ina msimamizi anayeweza kubadilisha utekelezaji wake. Usimamizi wa proksi ni tofauti na umiliki wa mkataba na unapaswa kukabidhiwa anwani inayosimamiwa ipasavyo. Uboreshaji unaweza kubadilisha tabia hata baada ya Kikundi kufunga sehemu za usanidi, kwa hiyo watumiaji wanapaswa kutathmini mmiliki wa Kikundi na msimamizi wa proksi.
-
-Usaidizi wa EIP-165 pia hutegemea mkataba; haupatikani kila mahali. Unapatikana katika `GiftableToken`, quoter zote tatu, `OracleRelay`, `Limiter`, rejesta na faharasa kadhaa, `Splitter`, `EthFaucet`, `PeriodSimple` na `RescueVault`. `SwapPool`, `SwapRouter`, `FeePolicy`, `ProtocolFeeController` na `CAT` hazitoi `supportsInterface` katika v1.1.0.
+Kwa anwani za mikataba, maelekezo ya usakinishaji na jinsi ya kuthibitisha wamiliki na mamlaka ya kuboresha, tumia [Usakinishaji na uthibitishaji](https://software.cosmolocal.credit/contracts/deployments). Kwa uendeshaji wa huduma zinazosaidia mfumo, anza na [API ya CLC Core](https://software.cosmolocal.credit/core-api/).
 
 ## Ramani ya vipengele
 
-- **GiftableToken** — usambazaji wa ERC20, uzalishaji, uchomaji na utendaji wa hiari wa muda wa matumizi. Mtoaji anaweza kutumia tukio lake kama Vocha, lakini mkataba pekee hauelezi kinachoweza kukombolewa, na nani, wapi au chini ya masharti gani.
-- **SwapPool** — hifadhi ya tokeni na injini ya kukamilisha ubadilishaji. Utekelezaji unaweza kuunganisha vipengele vya uratibu, uthamini, ada, mipaka na ada ya itifaki, au kuacha vitegemezi vinavyokubaliwa bila kuwekwa.
-- **DecimalQuoter, RelativeQuoter na OracleQuoter** — moduli za uthamini zinazoweza kubadilishwa kwa usawa wa desimali, viwango vinavyosimamiwa na mmiliki au viwango vinavyotokana na oracle. `OracleRelay` inaweza kuwasilisha chanzo kimoja cha data cha nje kwa `OracleQuoter`.
-- **FeePolicy na Limiter** — kanuni za hiari za ada kwa jozi na mipaka ya salio la tokeni kwa kila Kikundi.
-- **ProtocolFeeController** — kiwango cha hiari na kinachoweza kubadilishwa cha ada ya itifaki, mpokeaji na hali ya kuwashwa ambavyo Kikundi kinaweza kutumia wakati wa kukamilisha ubadilishaji.
-- **TokenUniqueSymbolIndex, AccountsIndex na ContractRegistry** — vipengele vya kugundua tokeni, akaunti na anwani. `CAT` hurekodi mpangilio wa tokeni za ukamilishaji unaopendelewa na akaunti.
-- **SwapRouter** — hukokotoa tu makadirio ya ingizo au matokeo kamili kwenye njia inayopendekezwa ya Vikundi vingi. Haihifadhi tokeni wala kutekeleza ubadilishaji.
-- **Splitter, EthFaucet, PeriodSimple na RescueVault** — zana saidizi za usambazaji, ufadhili wa gesi, udhibiti wa kiwango na urejeshaji wa mali.
+Tumia marejeo ya programu kwa:
 
-Mikataba inaweza kuunganishwa kwa njia mbalimbali. Kuorodheshwa kwenye rejesta, makadirio au njia kwenye grafu si dhamana kwamba muamala utatekelezwa: ukwasi wa sasa, mipaka ya tokeni, ada, hali ya oracle, idhini, muda wa mwisho, hali ya mtandao na usanidi wa kila Kikundi bado hutumika.
-
+| Mada | Nyaraka rasmi za programu |
+| --- | --- |
+| Uundaji, kiasi kilichotolewa na muda wa mwisho wa Vocha | [Vocha](https://software.cosmolocal.credit/contracts/vouchers) |
+| Usanidi, amana, utoaji na udhibiti wa Kikundi | [Vikundi](https://software.cosmolocal.credit/contracts/pools) |
+| Hesabu za viwango vya ubadilishaji | [Moduli za nukuu (Quoter)](https://software.cosmolocal.credit/contracts/quoters) |
+| Utekelezaji wa ubadilishaji, ada na rekodi za miamala | [Toa nukuu na kamilisha ubadilishaji](https://software.cosmolocal.credit/contracts/swaps) |
+| Ubadilishaji kupitia Vikundi kadhaa | [Uelekezaji](https://software.cosmolocal.credit/contracts/routing) |
+| Ugunduzi na mikataba ya kusaidia mfumo | [Sajili na zana](https://software.cosmolocal.credit/contracts/registries) |
+| Maombi na majibu ya API | [Marejeo ya OpenAPI](https://software.cosmolocal.credit/core-api/reference) |
+| Mipangilio ya huduma za nyuma na uelekezaji | [Usanidi](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## Ubadilishaji wa njia katika kiwango cha programu
 
-CLC App ya uzalishaji hufanya zaidi ya kuita `SwapRouter` ya Solidity. CLC Core hudumisha grafu iliyopatanishwa ya mahusiano ya Vikundi yanayofaa, hukadiria vocha zinazoweza kufikiwa, husoma Vikundi vilivyochaguliwa katika block iliyowekwa ili kutoa nukuu halali, huiga njia nzima na kutayarisha kundi la miamala ya Mkoba wa Calibur. Mtumiaji hutia sahihi kundi hilo, kisha relayer huliwasilisha kama muamala mmoja kwenye mnyororo huo.
+Programu inaweza kumsaidia mshiriki kubadilishana kupitia Vikundi kadhaa wakati njia inayofaa inapatikana. Mshiriki hukagua nukuu na kuidhinisha ubadilishaji. Kila Kikundi hubaki na sheria zake na wahusika wake wanaowajibika.
 
-Kila hatua huita `SwapPool` moja kwa moja. Kundi huweka upya na kuweka idhini inayohitajika ya tokeni, kisha huita toleo la `SwapPool.withdraw` lenye mipaka ya kiwango cha chini cha matokeo na muda wa mwisho. `revertOnFailure` imewashwa, hivyo simu yoyote ikishindwa muamala wote wa njia hurejeshwa. Kisha App huonyesha risiti moja iliyojumuishwa yenye maelezo ya ukamilishaji na ada za kila hatua.
+Soma [Njia na wajibu](/sw/protocol/network) kwa maana yake kwa washiriki, na [Utekelezaji wa uelekezaji](https://software.cosmolocal.credit/contracts/routing) kwa jinsi programu hutoa nukuu na kutekeleza njia.
 
-Mtiririko huu wa uelekezaji ni uwezo wa App/Core uliojengwa juu ya Protocol v1.1.0. Haufanyi `SwapRouter` ya Solidity kuwa mkataba wa utekelezaji, haubadilishi mmiliki au Msimamizi wa Kikundi, wala kufanya Kikundi kimoja kiwajibike kwa kanuni za Kikundi kingine au utekelezaji wa Mtoaji. Angalia [muundo wa mtandao wa Itifaki](/sw/protocol/network) kwa mtiririko kamili.
+Programu huwezesha ubadilishaji; Watoaji hubaki na wajibu wa ahadi za Vocha zao, na Wasimamizi wa Vikundi hubaki na wajibu wa sheria walizochapisha. Matumizi ya Programu ya umma yanaongozwa na [Masharti ya Huduma](/sw/governance/terms).

@@ -25,7 +25,7 @@ Herstel binnen een Fonds blijft bij het bevoegde bestuur en de verantwoordelijke
 
 ## Operaties op netwerkniveau
 
-De productieversies van de CLC App en CLC Core verzorgen gedeelde ontdekking, routeoffertes, voorbereiding van walletbatches, relaycoördinatie, indexering, afstemming en gebundelde transactieoverzichten van gerouteerde wissels. Incidenten op netwerkniveau kunnen bestaan uit verouderde of niet-beschikbare routegegevens, afstemmingsfouten, niet-ondersteunde afhankelijkheden, relayfouten en interoperabiliteitsproblemen tussen Fondsen.
+De CLC App en ondersteunende diensten helpen deelnemers Waardebonnen te vinden, uitwisselingen te regelen en uitkomsten te controleren. Beheerders zijn verantwoordelijk voor hun eigen diensten en het uitleggen van storingen. De definitieve [softwaredocumentatie](https://software.cosmolocal.credit/core-api/) beschrijft de ondersteunende systemen en hun beheer in het Engels.
 
 Een beheerder kan zijn eigen dienst pauzeren of corrigeren, de geïndexeerde status vernieuwen, niet-ondersteunde paden uitsluiten, een storing toelichten en afstemmen met getroffen Fondsbeheerders. Deze operationele rol geeft geen bevoegdheid om de regels van een onafhankelijk Fonds te wijzigen, de voorraad ervan te verplaatsen, een toezegging van een Uitgever kwijt te schelden of een lokaal geschil over nakoming te beslissen.
 
@@ -39,24 +39,24 @@ Het corrigeren of verwijderen van een vermelding draait geen afwikkeling op de b
 
 ## Routebewijs en verantwoordelijkheid
 
-Een gerouteerde uitwisseling bewaart de grenzen tussen haar hops. Ieder Fonds past zijn eigen toelating, quote, tokensaldoplafond, kosten, voorraad en beheerdersbevoegdheden toe. CLC Core groepeert het technische resultaat in één ontvangstbewijs, maar dat ontvangstbewijs voegt het bestuur van de Fondsen niet samen en draagt de verantwoordelijkheid van een Uitgever niet over aan de routebeheerder.
+Een gerouteerde uitwisseling bewaart de grenzen tussen de Fondsen. Ieder Fonds past zijn eigen regels en bevoegdheden toe. Een gezamenlijk ontvangstbewijs voegt het Fondsbestuur niet samen en draagt de verantwoordelijkheid van een Uitgever niet over aan de routebeheerder. Gebruik de [softwarereferentie voor swaps](https://software.cosmolocal.credit/contracts/swaps) voor technische transactiegegevens.
 
 Het ontvangstbewijs kan de routekeuze, autorisatie, transactiestatus en afwikkelingsbedragen en kosten per hop aantonen. Aanbieding ter inwisseling, nakoming, tevredenheid en afboeking in de echte wereld vereisen afzonderlijk bewijs en blijven de verantwoordelijkheid van de geïdentificeerde Uitgever en het toepasselijke proces.
 
 ## Verantwoordelijke governance-structuren
 
-Een CLC-compatibel Fonds, register of dienst kan worden beheerd door een non-profit stichting, coöperatie, gemeenschapsgroep, federatie, bedrijf, multisig, publieke instantie, institutionele raad, stemmingssysteem op ketting of een andere verantwoordelijke structuur. Welke structuur ook wordt gekozen, de deelnemers moeten in staat zijn om te bepalen:
+Een CLC-compatibel Fonds, register of dienst kan worden bestuurd door een stichting zonder winstoogmerk, coöperatie, gemeenschapsgroep, federatie, bedrijf, multisig, overheidsinstantie, instellingsbestuur, stemsysteem op de blockchain of een andere verantwoordelijke structuur. Welke structuur ook wordt gekozen, deelnemers moeten kunnen bepalen:
 
-- die bevoegd is om beslissingen te nemen en uit te voeren;
-- hoe activa, emittenten en deelnemers worden toegelaten, beoordeeld, opgeschort of verwijderd;
-- de wijze waarop waarderingen, vergoedingen, limieten, reserves, garanties en andere materiële instellingen worden vastgesteld en gewijzigd;
-- welke afhankelijkheden of contracten kunnen worden opgebouwd, vervangen, onderbroken of permanent gesloten;
+- wie bevoegd is om beslissingen te nemen en uit te voeren;
+- hoe activa, Uitgevers en deelnemers worden toegelaten, beoordeeld, opgeschort of verwijderd;
+- hoe waarderingen, kosten, limieten, reserves, garanties en andere belangrijke instellingen worden vastgesteld en gewijzigd;
+- welke afhankelijkheden of contracten kunnen worden geüpgraded, vervangen, gepauzeerd of permanent verzegeld;
 - hoe belangenconflicten worden bekendgemaakt en behandeld;
 - welke registraties, kennisgevingen, goedkeuringen en herzieningstermijnen van toepassing zijn;
 - welke noodbevoegdheden bestaan en hoe het gebruik ervan wordt beoordeeld; en
-- Hoe deelnemers kunnen klagen, vertrekken, migreren of onopgeloste verplichtingen aanpakken.
+- hoe deelnemers kunnen klagen, vertrekken, migreren of onopgeloste verplichtingen aanpakken.
 
-De gepubliceerde regels moeten overeenstemmen met de bevoegdheden die beschikbaar zijn in de relevante opdrachten en diensten. Het bestuur moet belangrijke beslissingen transparant en controleerbaar houden en moet niet convertibiliteit, liquiditeit, rendementen, verzekeringen, reserves of garanties breder beschrijven dan de verantwoordelijke partij daadwerkelijk kan bieden.
+De gepubliceerde regels moeten overeenstemmen met de bevoegdheden in de betreffende contracten en diensten. Het bestuur moet belangrijke beslissingen transparant en controleerbaar houden. Het mag omzetbaarheid, liquiditeit, rendement, verzekeringen, reserves of garanties niet ruimer beschrijven dan de verantwoordelijke partij daadwerkelijk kan bieden.
 
 ## Opties voor technisch bestuur
 

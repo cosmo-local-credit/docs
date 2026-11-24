@@ -1,98 +1,47 @@
-# Smart contracts
+# Slimme contracten
 
-Deze pagina beschrijft de belangrijkste Fonds- en waardeboncontracten in Protocol v1.1.0. De contracten verzorgen de technische afwikkeling. Ze vervangen niet de informatie van de uitgever, de regels van een Fonds of andere voorwaarden die voor een bepaalde transactie gelden.
+Contracten registreren tokensaldi en voeren Fondsuitwisselingen uit. De [CLC-softwaredocumentatie](https://software.cosmolocal.credit/contracts/) is de definitieve implementatiereferentie en is momenteel beschikbaar in het Engels. Deze pagina legt uit wat deelnemers moeten begrijpen voordat ze die contracten gebruiken.
 
-Lees [Begrippen en woordenschat](/nl-BE/introduction/concepts) om het verschil te begrijpen tussen een beheerd Commitmentfonds en `SwapPool`, en tussen swapafwikkeling, aanbieding ter inwisseling, nakoming en afboeking.
-
+Zie [Begrippen en woordenschat](/nl-BE/introduction/concepts) voor het verschil tussen een bestuurd Commitmentfonds en het bijbehorende `SwapPool`-contract, en tussen uitwisseling en nakoming door de Uitgever.
 
 ## Waardebon (`GiftableToken`)
 
-`GiftableToken` is een ERC20-token met functies die een uitgever voor een waardebon kan gebruiken:
+Een Waardebon verbindt een digitaal saldo met een gepubliceerde toezegging van een Uitgever. De voorwaarden leggen uit waarvoor de bon kan worden gebruikt, waar en wanneer hij wordt aanvaard en wie verantwoordelijk is. Het maken van een token bewijst niet dat de Uitgever de beloofde goederen of diensten kan leveren.
 
-- **Geautoriseerde uitgifte** — De eigenaar kan schrijvers aanduiden die met `mintTo` tokens mogen uitgeven.
-- **Optionele vervaldatum** — Een vervaldatum van `0` betekent dat er op contractniveau geen vervaldatum is. Anders mislukken overdrachten, uitgiftes en verbrandingen op of na het ingestelde tijdstip. Iedereen kan de definitieve status `expired` vastleggen door rechtstreeks `applyExpiry` aan te roepen.
-- **Boekhouding van de voorraad** — `totalMinted` en `totalBurned` tonen de cumulatieve uitgifte en verbranding. Alleen de eigenaar kan met `burn` tokens verbranden die op het adres van de eigenaar staan.
-
-Het tokencontract vermeldt **niet** welke goederen of diensten de uitgever aanbiedt, bepaalt geen inwisselwaarde, bewijst geen leveringscapaciteit en belooft geen omzetting in geld. Een `GiftableToken` wordt alleen een inwisselbare verbintenis door de afzonderlijk gepubliceerde voorwaarden en het handelen van de uitgever. Uitgevers blijven verantwoordelijk voor een juiste beschrijving en de naleving van die voorwaarden.
-
+Lees [Waardebonnen](https://software.cosmolocal.credit/contracts/vouchers) voor de werking van het maken, uitgeven, verbranden en vervallen van tokens.
 
 ## Commitmentfonds (`SwapPool`)
 
-`SwapPool` is een kluis voor tokens en een mechanisme voor swapafwikkeling. Het contract gebruikt ERC20-metadata voor de naam, het symbool en het aantal decimalen van het Fonds, maar Protocol v1.1.0 geeft geen deelnemingsbewijzen of Fondsaandelen uit. Liquiditeit wordt toegevoegd door tokens naar het Fonds over te dragen. De contracteigenaar kan beschikbare liquiditeit opnemen.
+Een Commitmentfonds brengt geselecteerde Waardebonnen samen onder gepubliceerde regels. Het contract houdt voorraad aan en wisselt ondersteunde activa uit. Een storting geeft de storter niet automatisch Fondsaandelen of recht op terugbetaling, opname, beloning of bestuur. Dergelijke rechten vereisen afzonderlijk bekendgemaakte voorwaarden.
 
 ### Samenstelling en optionele afhankelijkheden
 
-| Configuratie | Als deze niet is ingesteld | Adresslot kan worden verzegeld |
-| --- | --- | --- |
-| `tokenRegistry` | Elk token kan de selectiecontrole van het Fonds doorstaan | Ja |
-| `tokenLimiter` | Stortingen hebben geen saldolimiet op contractniveau | Ja |
-| `quoter` | Het ruwe invoerbedrag geldt als het ruwe geoffreerde uitvoerbedrag | Ja |
-| `feePolicy` | De Fondsvergoeding is nul | Ja |
-| `feeAddress` | Fondsvergoedingen worden niet opgebouwd als opneembare vergoedingen voor een aangeduide ontvanger | Ja |
-| `protocolFeeController` | Er wordt geen protocolvergoeding aangerekend | Nee |
-
-De vijf verzegelbits blokkeren blijvend wijzigingen via de overeenkomstige instelfuncties aan de huidige adressen voor `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` en `tokenLimiter`. `protocolFeeController` en `feesDecoupled` zijn initialisatiewaarden en vallen niet onder die vijf bits.
-
-Een adresslot verzegelen bevriest het contract op dat adres niet. Een verzegeld register, limiter, quoter of kostenbeleid — en een ingestelde beheerder voor protocolvergoedingen — kan nog veranderen als het eigen bestuur dat toelaat. De ERC-1967-proxybeheerder kan ook de implementatie van het Fonds upgraden. Een zinvolle bewering over onveranderlijkheid hangt daarom af van het bestuur van de Fondseigenaar, de proxybeheerder en elke ingestelde afhankelijkheid.
+Controleer welke Waardebonnen een Fonds aanvaardt, hoe het wisselkoersen bepaalt, welke limieten en kosten gelden en wie deze kan wijzigen. De softwarereferentie beschrijft [Fondsinstellingen en verzegeling](https://software.cosmolocal.credit/contracts/pools).
 
 ### Swapafwikkeling
 
-Voor een swap voert `SwapPool` de volgende stappen uit:
+Een geslaagde swap verandert de betreffende saldi. Dit bewijst niet dat een Uitgever goederen of diensten heeft geleverd. Controleer vóór bevestiging de invoer, uitvoer, ontvanger, het minimaal te ontvangen bedrag en wanneer de offerte verloopt.
 
-1. Het controleert of de invoer- en uitvoertokens door het optionele register zijn toegelaten en toetst de gevraagde invoer aan de optionele saldolimiet van het Fonds.
-2. Het haalt het invoertoken bij de aanroeper op en meet het werkelijk ontvangen bedrag. De prijsberekening gebruikt dit gemeten bedrag, ook voor tokens die bij overdracht kosten aanrekenen.
-3. Het vraagt een bruto offerte aan de ingestelde quoter, of gebruikt het ruwe ontvangen bedrag als er geen quoter is ingesteld.
-4. Het berekent de Fondsvergoeding en een eventuele bijkomende protocolvergoeding en controleert daarna de beschikbare liquiditeit van het uitvoertoken.
-5. Het stuurt de protocolvergoeding rechtstreeks naar de ingestelde protocolontvanger, draagt de nominale netto-uitvoer over aan de ontvanger en registreert de Fondsvergoeding als er een kostenadres is ingesteld.
-6. Het registreert zowel het oudere `Swap`-event als het uitgebreidere `SwapSettlement`-event.
+Lees [Swaps offreren en afwikkelen](https://software.cosmolocal.credit/contracts/swaps) voor uitvoeringsmethoden en afwikkelingsgegevens.
 
-`SwapSettlement` vermeldt de initiatiefnemer, beide tokens, de gemeten invoer, de bruto geoffreerde uitvoer, de verzonden nominale uitvoer, de werkelijk waargenomen uitvoer bij de ontvanger, de Fondsvergoeding en de protocolvergoeding. De nominale en waargenomen uitvoer kunnen verschillen als het uitvoertoken zelf overdrachtskosten aanrekent. Het veld `fee` in het oudere `Swap`-event bevat alleen de Fondsvergoeding.
+### Berekening van de additieve vergoeding
 
-De variant met zes argumenten, `withdraw(tokenOut, tokenIn, value, recipient, minAmountOut, deadline)`, is het begrensde uitvoeringspad. De transactie mislukt na de deadline of als de waargenomen saldostijging van de ontvanger lager is dan `minAmountOut`. Integratoren gebruiken bij voorkeur dit pad, omdat een getoonde offerte tijdelijk is: de toestand van de quoter, het kostenbeleid, de liquiditeit, de limieten en de orakelgegevens kunnen vóór de uitvoering veranderen. De oudere varianten met drie en vier argumenten bieden die grenzen op Fondsniveau niet.
+Een swap kan zowel Fondskosten als aanvullende protocolkosten omvatten. Controleer het totaal in de offerte; een route door meerdere Fondsen kan bij iedere stap kosten meebrengen. De [swapreferentie](https://software.cosmolocal.credit/contracts/swaps#account-for-fees-and-settlement) houdt de berekening en het uitgewerkte voorbeeld actueel.
 
-### Additieve kostenberekening
+### Eigenaar- en upgradebevoegdheden
 
-Zowel de Fondsvergoeding als de protocolvergoeding wordt afgetrokken van de bruto geoffreerde uitvoer. De protocolvergoeding wordt **niet uit de Fondsvergoeding genomen**; het Fonds behoudt zijn volledig berekende vergoeding.
+De Fondseigenaar kan beschikbare voorraad opnemen. Andere autoriteiten kunnen upgrades of instellingen beheren. Beoordeel deze bevoegdheden samen met de gepubliceerde regels van de Fondsbeheerder voordat je stort of op een Fonds vertrouwt. Verzegelde instellingen bewijzen op zichzelf niet dat de voorraad permanent is vergrendeld.
 
-Bijvoorbeeld, bij een bruto offerte van 100 eenheden:
-
-- een Fondsvergoeding van 2% levert 2 eenheden voor het Fonds op;
-- een protocoltarief van 10% dat op die Fondsvergoeding wordt toegepast, stuurt nog eens 0,2 eenheid rechtstreeks naar de protocolontvanger; en
-- de gebruiker ontvangt 97,8 eenheden.
-
-De protocolberekening gebruikt de hoogste waarde van de berekende Fondsvergoeding en een veronderstelde kostenbasis van 1%. Zo kan een zeer kleine Fondsvergoeding de protocolberekening niet tot bijna nul herleiden. Ongeldige gecombineerde tarieven mislukken met `FeeTooHigh`; een offerte die op nul zou uitkomen, mislukt met `InsufficientOutput`.
-
-### Bevoegdheden van eigenaar en proxybeheerder
-
-De contracteigenaar kan opgebouwde Fondsvergoedingen innen en kan met `withdrawLiquidity` elk beschikbaar Fondstoken naar een gekozen adres sturen dat niet nul is. Als vergoedingen zijn losgekoppeld, blijven opgebouwde vergoedingen gereserveerd voor dit liquiditeitsopnamepad. Anders blijven ze deel van het Fondssaldo. Deelnemers mogen gestorte liquiditeit niet als blijvend vergrendeld beschouwen, tenzij bijkomende en controleerbare bestuursmaatregelen dat resultaat vastleggen.
-
-Het verzegelen van de configuratie verwijdert deze bevoegdheid om liquiditeit op te nemen niet. Het verwijdert evenmin de afzonderlijke upgradebevoegdheid van de ERC-1967-proxybeheerder.
-
+Zie [Fondsen](https://software.cosmolocal.credit/contracts/pools) en [Een instantie verifiëren](https://software.cosmolocal.credit/contracts/deployments#verify-an-instance) voor de technische controles.
 
 ## Waarderingsmodules
 
-Alle drie de quoters bieden voorwaartse en omgekeerde offertefuncties die `SwapPool` en `SwapRouter` gebruiken:
-
-- **`DecimalQuoter`** — Toestandsloze normalisatie van decimalen op basis van de veronderstelling dat waarden 1:1 gelijk zijn.
-- **`RelativeQuoter`** — Normalisatie van decimalen met relatieve prijsindexen die door de eigenaar worden beheerd. Een token zonder ingestelde index krijgt standaard pariteit.
-- **`OracleQuoter`** — Waardeert elk token via een ingesteld orakel, met een algemene of tokenspecifieke verouderingslimiet en een optionele uitvoermultiplicator van 0,9 tot 1,0.
-
-Een `OracleQuoter` is slechts zo betrouwbaar als de gekozen gegevensbron en het beheer ervan. De munteenheid en richting van de bronnen moeten consistent zijn, decimalen moeten kloppen, updates moeten positief en actueel zijn, en het bestuur kan bronnen vervangen of actualiteitsinstellingen wijzigen. Manipulatie van de bron, vertraagde updates, netwerkstoringen, een verkeerd ingesteld paar of verlies van de sleutel van de orakeleigenaar kan slechte offertes veroorzaken of swaps doen mislukken.
-
-`OracleRelay` is een optioneel doorgeefcontract voor de recentste ronde van één gegevensbron en is compatibel met de orakelinterface. Een aangeduide schrijver publiceert bronwaarden opnieuw; er is geen bewijs tussen blockchains en er wordt geen geschiedenis van rondes bewaard. Het doorgeefcontract aanvaardt de waarden van de schrijver en controleert alleen of het tijdstip niet in de toekomst ligt. `OracleQuoter` weigert zelfstandig niet-positieve of verouderde antwoorden. De eigenaar van het doorgeefcontract kan de schrijver vervangen of de huidige ronde ongeldig maken. Gebruikers moeten daarom de bron, de schrijver, de eigenaar en het controleproces beoordelen.
-
+De wisselkoers van een Fonds staat los van de vermelde waarde van een Waardebon en de inwisselvoorwaarden van de Uitgever. Controleer de gekozen methode en wie de invoergegevens kan wijzigen. De softwarereferentie legt de beschikbare [Quoters](https://software.cosmolocal.credit/contracts/quoters) uit.
 
 ## Kostenbeleid en limieten
 
-`FeePolicy` bewaart een standaardvergoeding in delen per miljoen en optionele uitzonderingen per richting en tokenpaar. De eigenaar kan die tarieven wijzigen, tenzij bestuur buiten het contract die bevoegdheid beperkt.
+De **‘Kredietlimiet’** in de App is het maximale saldo van een bepaalde Waardebon dat een Fonds mag aanhouden. Dit beschrijft ruilcapaciteit en is geen persoonlijke lening of garantie van nakoming. Bekijk de [Fondsregels en configuratie](https://software.cosmolocal.credit/contracts/pools) om te zien hoe limieten en kosten worden toegepast.
 
-`Limiter` bewaart een maximaal saldo voor een token op het adres van een bepaald Fonds. De eigenaar of een geautoriseerde schrijver kan die limiet wijzigen. Een limiet van nul blokkeert stortingen wanneer de limiter actief is. Zonder ingestelde limiter zijn stortingen niet begrensd.
+## Controller voor protocolkosten
 
-Deze limieten beschrijven de ingestelde **tokenblootstelling** van een Fonds. Ze maken van een tokensaldo op zichzelf geen lening of juridische schuld, bewijzen niet dat een uitgever kan nakomen en garanderen geen levering. Die vragen hangen af van de voorwaarden van de uitgever, de regels van het Fonds, de transactie die aan de gebruiker wordt getoond en het toepasselijke recht.
-
-
-## Beheerder van protocolvergoedingen
-
-`ProtocolFeeController` is een optionele kostencomponent op implementatieniveau. De eigenaar kan het protocoltarief en de ontvanger wijzigen of de vergoeding uitschakelen. Eén controller kan door meerdere Fondsen worden gedeeld, maar het protocol vereist niet één controller per netwerk.
-
-Als de controller actief en ingesteld is, wordt de ontvanger bij elke geslaagde swap rechtstreeks in het uitvoertoken betaald. Hoe die ontvanger het geld gebruikt — bijvoorbeeld voor werking, toezicht, liquiditeitsondersteuning of een ander gepubliceerd doel — is een bestuursbeslissing en geen garantie van het contract.
+Protocolkosten hebben een ingestelde ontvanger. Het ontvangen van die kosten maakt de ontvanger niet automatisch tot Fondsbeheerder of garant. Zie de [kostenreferentie](https://software.cosmolocal.credit/contracts/swaps#account-for-fees-and-settlement) voor de huidige werking en de [bestuursmechanismen](/nl-BE/governance/mechanics) voor verantwoordelijkheid en bekendmaking.

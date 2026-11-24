@@ -25,7 +25,7 @@ Repair within a Pool remains with its authorized governance and responsible part
 
 ## Network-level operations
 
-The production CLC App and CLC Core operate shared discovery, route quoting, wallet-batch preparation, relay coordination, indexing, reconciliation, and grouped routed-exchange receipts. Network-level incidents can include stale or unavailable route data, reconciliation failures, unsupported dependencies, relay failures, and cross-Pool interoperability problems.
+The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive [software documentation](https://software.cosmolocal.credit/core-api/) describes the supporting systems and their operation in English.
 
 An operator can pause or correct its own service, refresh indexed state, exclude unsupported paths, explain a failure, and coordinate with affected Stewards. That operational role does not grant authority to change an independent Pool's rules, move its inventory, waive an issuer's commitment, or decide a local fulfillment dispute.
 
@@ -39,7 +39,7 @@ Correcting or removing a listing does not reverse an on-chain settlement, remove
 
 ## Route evidence and responsibility
 
-A routed exchange preserves the boundaries between its hops. Each Pool applies its own admission, quote, balance cap, fees, inventory, and controller powers. CLC Core groups the technical result into one receipt, but that receipt does not merge Pool governance or transfer an issuer's responsibility to the route operator.
+A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the [software swap reference](https://software.cosmolocal.credit/contracts/swaps).
 
 The receipt can evidence route selection, authorization, transaction status, per-hop settlement amounts, and fees. Real-world presentment, fulfillment, satisfaction, and discharge require separate evidence and remain with the identified issuer and applicable process.
 

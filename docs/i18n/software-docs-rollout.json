@@ -1,0 +1,438 @@
+{
+  "source": {
+    "reviewDate": "23 November 2026",
+    "softwareDocsCommit": "40a5b7f83782c18f33320fddfbb61bc83081bcf2",
+    "referenceUrl": "https://software.cosmolocal.credit/",
+    "routes": {
+      "/protocol/overview": {
+        "source": "protocol/overview.md",
+        "previousSha256": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "sha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73"
+      },
+      "/protocol/smart-contracts": {
+        "source": "protocol/smart-contracts.md",
+        "previousSha256": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "sha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8"
+      },
+      "/protocol/network": {
+        "source": "protocol/network.mdx",
+        "previousSha256": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "sha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df"
+      },
+      "/introduction/getting-started": {
+        "source": "introduction/getting-started.mdx",
+        "previousSha256": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "sha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e"
+      },
+      "/introduction/concepts": {
+        "source": "introduction/concepts.mdx",
+        "previousSha256": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "sha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e"
+      },
+      "/introduction/example": {
+        "source": "introduction/example.mdx",
+        "previousSha256": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "sha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f"
+      },
+      "/governance/mechanics": {
+        "source": "governance/mechanics.md",
+        "previousSha256": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180",
+        "sha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d"
+      }
+    },
+    "linkCorrections": {
+      "reviewDate": "24 November 2026",
+      "route": "/introduction/getting-started",
+      "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "reason": "Use the actual numbered Privacy heading, localized by its tracked heading correspondence. Link targets only; prose, legal text and review scope are unchanged.",
+      "locales": {
+        "en": {
+          "beforeHref": "/governance/privacy#what-becomes-public",
+          "afterHref": "/governance/privacy#4-what-becomes-public",
+          "previousSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+          "sha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e"
+        },
+        "ar": {
+          "beforeHref": "/ar/governance/privacy#what-becomes-public",
+          "afterHref": "/ar/governance/privacy#4-ما-الذي-يصبح-عامًا",
+          "previousSha256": "82f7f4e6f4266dc70e3108fd7b976e7ca24d041cc2e8f272cad713d63562a45e",
+          "sha256": "53ff114b9d63a131ed728ce21c15ffdd472d7f3eb4ec00b37f2ef11c7b400e41"
+        },
+        "zh": {
+          "beforeHref": "/zh/governance/privacy#what-becomes-public",
+          "afterHref": "/zh/governance/privacy#4-哪些信息会公开",
+          "previousSha256": "baec8b4511e0b5edf80db821f7fa9b184b9e74dd3543b1915adc9fc63414d2df",
+          "sha256": "41f2f92382b6a941f301d0c649f6f0d2a4d1be4fd9fd9601ffbce7229ae4d7a5"
+        },
+        "zh-Hant": {
+          "beforeHref": "/zh-Hant/governance/privacy#what-becomes-public",
+          "afterHref": "/zh-Hant/governance/privacy#4-哪些資訊會公開",
+          "previousSha256": "9aa6963d51be999a0647728fb83232d5ea7bac8d193aa77343035e17a9e91a55",
+          "sha256": "acfcec59404ca04e141b49b786683ac765ac9d1b4dc99250eb56938c5fd4d33a"
+        },
+        "dz": {
+          "beforeHref": "/dz/governance/privacy#༤-གཅིཡོངསཁྱབའགྱོཝཨིནན",
+          "afterHref": "/dz/governance/privacy#༤-གཅིཡོངསཁྱབའགྱོཝཨིནན",
+          "previousSha256": "101dec71ec71e2c8512b1c4dfeba7e33e6090e2041d886063fdaa5a70b5713aa",
+          "sha256": "101dec71ec71e2c8512b1c4dfeba7e33e6090e2041d886063fdaa5a70b5713aa"
+        },
+        "de": {
+          "beforeHref": "/de/governance/privacy#what-becomes-public",
+          "afterHref": "/de/governance/privacy#4-was-wird-öffentlich",
+          "previousSha256": "a9384b0f52de28eb76c590d76d218077846e47e52fcc551a3edaa9b37d15f723",
+          "sha256": "1b204188b3d934c20bdec5a1e19512d7e6b899a6b00f4abc2f785b5e01e4cbdc"
+        },
+        "es": {
+          "beforeHref": "/es/governance/privacy#qué-se-hace-público",
+          "afterHref": "/es/governance/privacy#4-qué-se-hace-público",
+          "previousSha256": "d04ee7aeb73151660b7df9a8bb8589e2b39939622168d541a4a53095b891ed52",
+          "sha256": "21c272f51081851b3a67054aa8e7152cd8d5eb8f3a47326f13d9b0d6fa26d0ed"
+        },
+        "fil": {
+          "beforeHref": "/fil/governance/privacy#what-becomes-public",
+          "afterHref": "/fil/governance/privacy#4-ano-ang-nagiging-pampubliko",
+          "previousSha256": "5bc9151b4e3845e8eaecba1f63b47fc88d91ca773b6f60498664bcd6edb1a223",
+          "sha256": "2519b7ab9b4160d60d7f088ed3030068da6495efc4d22ff9d125d28a312c7e3d"
+        },
+        "fr": {
+          "beforeHref": "/fr/governance/privacy#what-becomes-public",
+          "afterHref": "/fr/governance/privacy#4-quest-ce-qui-devient-public-",
+          "previousSha256": "c69172b0be1be457152de67e91caaa6340777f4e10d37f4d5e59c2d67dfc3030",
+          "sha256": "0ace9fb1963ca65d9a738146e6573e51cb7b12c9f2b6c610eef80bfacac6a3ee"
+        },
+        "hi": {
+          "beforeHref": "/hi/governance/privacy#what-becomes-public",
+          "afterHref": "/hi/governance/privacy#4-क्या-सार्वजनिक-हो-जाता-है",
+          "previousSha256": "7355817bacbac1a632739f0b5a7257933a9d8121de43755fc16bd26d88ac1611",
+          "sha256": "b5ff0f472d68ef3b3c2dcde66b1e71512084ffd9d6041c128d7f1c7a1c54ddbc"
+        },
+        "it": {
+          "beforeHref": "/it/governance/privacy#cosa-diventa-pubblico",
+          "afterHref": "/it/governance/privacy#4-cosa-diventa-pubblico",
+          "previousSha256": "bc16bb31523066f0c76d3245bf971bf43e85ce9d7c6cad1b288da0213973c59a",
+          "sha256": "a5c8d3cf72a926696849c85fdc845b31c48fded6df5a87259360c417ca1708ec"
+        },
+        "nl": {
+          "beforeHref": "/nl/governance/privacy#what-becomes-public",
+          "afterHref": "/nl/governance/privacy#4-wat-wordt-openbaar",
+          "previousSha256": "2aab965645e3201f80600d2d3640a00263051b4428cad7abe60ee98cd6ce5705",
+          "sha256": "b4e194cd6dc3175a98185a00e0acb108d3da66a77b46550adcb37772caed0ff1"
+        },
+        "nl-BE": {
+          "beforeHref": "/nl-BE/governance/privacy#what-becomes-public",
+          "afterHref": "/nl-BE/governance/privacy#4-wat-wordt-openbaar",
+          "previousSha256": "9c052b24d0a5295d1ed5314cf872a59fc4b13f1fc266b39cead1e987d18231e3",
+          "sha256": "51202a15309a31b66c66c10d0deee255998fa1effcf23f9f8b45bcf7c749a74e"
+        },
+        "pt": {
+          "beforeHref": "/pt/governance/privacy#o-que-se-torna-público",
+          "afterHref": "/pt/governance/privacy#4-o-que-se-torna-público",
+          "previousSha256": "c801e339754a15aa01da4304b694e5d1047364fe9a30902c965af44b4bf3c431",
+          "sha256": "a34c06e78c030b5d94d7e33f6f184d6ae9e2d83d535eb247c19a225552283671"
+        },
+        "sr": {
+          "beforeHref": "/sr/governance/privacy#what-becomes-public",
+          "afterHref": "/sr/governance/privacy#4-шта-постаје-јавно",
+          "previousSha256": "1f51174c20e9e8c020077973220292863bfee20e36241465ef6490dd994679eb",
+          "sha256": "f74671241ed2a5a2f7dac896397923635cecc154a27c17e7a283e09228e4e417"
+        },
+        "uk": {
+          "beforeHref": "/uk/governance/privacy#what-becomes-public",
+          "afterHref": "/uk/governance/privacy#4-що-стає-публічним",
+          "previousSha256": "721f78ba8be703bc0daa119a66703805d9f746a8016fc4e452f9c238b28d848d",
+          "sha256": "bebdfdb225e00bf4fcf9de7e047c8feeec079141d6d0b5c84a6cd4bd11c840e3"
+        },
+        "sw": {
+          "beforeHref": "/sw/governance/privacy#what-becomes-public",
+          "afterHref": "/sw/governance/privacy#4-nini-huwa-cha-umma",
+          "previousSha256": "528a7a1cdcb9211e7a18e318434dce774f9e998df5b9446721211a5e7105055e",
+          "sha256": "ee356a9575c43815f821b06fa2f5d034a823e4e2ddf3f0c5162a87892fcd6866"
+        }
+      }
+    }
+  },
+  "locales": {
+    "en": {
+      "status": "current",
+      "readingNote": {
+        "label": "Current software reference",
+        "body": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+        "link": "Read the software documentation (English)"
+      },
+      "reviewedSources": {}
+    },
+    "ar": {
+      "status": "current",
+      "readingNote": {
+        "label": "مرجع البرمجيات الحالي",
+        "body": "هذه هي الورقة البيضاء المنشورة v0.9. لمعرفة تفاصيل التنفيذ البرمجي والعقود وواجهات API وإرشادات النشر الحالية، استخدم وثائق برمجيات CLC.",
+        "link": "قراءة وثائق البرمجيات (بالإنجليزية)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "zh": {
+      "status": "current",
+      "readingNote": {
+        "label": "当前软件参考",
+        "body": "这是已发布的白皮书 v0.9。有关软件当前实现、合约、API 和部署说明，请参阅 CLC 软件文档。",
+        "link": "阅读软件文档（英文）"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+        "/introduction/getting-started": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+        "/introduction/concepts": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+        "/introduction/example": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "zh-Hant": {
+      "status": "current",
+      "readingNote": {
+        "label": "目前的軟體參考",
+        "body": "這是已發布的白皮書 v0.9。軟體目前的實作、合約、API、部署和操作說明，請參閱 CLC 軟體文件。",
+        "link": "閱讀軟體文件（英文）"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+        "/introduction/getting-started": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+        "/introduction/concepts": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+        "/introduction/example": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "dz": {
+      "status": "current",
+      "readingNote": {
+        "label": "ད་ལྟོའི་མཉེན་ཆས་གཞི་བཞག་ཡིག་ཆ",
+        "body": "འདི་པར་བསྐྲུན་འབད་ཡོད་པའི་དེབ་དཀར་ v0.9 ཨིན། ད་ལྟོའི་མཉེན་ཆས་ལག་ལེན་བསྟར་ཐངས་ གན་རྒྱ་ API དང་བཙུགས་སྤྱོད་ལམ་སྟོན་གྱི་དོན་ལུ་ CLC མཉེན་ཆས་ཀྱི་ཡིག་ཆ་ལག་ལེན་འཐབ།",
+        "link": "མཉེན་ཆས་ཀྱི་ཡིག་ཆ་དབྱིན་སྐད་ནང་ལྷག"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "de": {
+      "status": "current",
+      "readingNote": {
+        "label": "Aktuelle Softwarereferenz",
+        "body": "Dies ist das veröffentlichte Whitepaper v0.9. Für die aktuelle Softwareimplementierung, Verträge, APIs und Bereitstellungsanleitungen nutzen Sie die CLC-Softwaredokumentation.",
+        "link": "Softwaredokumentation lesen (Englisch)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "es": {
+      "status": "current",
+      "readingNote": {
+        "label": "Referencia actual del software",
+        "body": "Esta es la edición publicada del Libro Blanco v0.9. Para conocer la implementación actual del software, los contratos, las API y las instrucciones de despliegue, consulta la documentación del software CLC.",
+        "link": "Leer la documentación del software (en inglés)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "fil": {
+      "status": "current",
+      "readingNote": {
+        "label": "Kasalukuyang sanggunian sa software",
+        "body": "Ito ang inilathalang White Paper v0.9. Para sa kasalukuyang implementasyon ng software, mga contract, API, at gabay sa deployment, gamitin ang dokumentasyon ng CLC software.",
+        "link": "Basahin ang dokumentasyon ng software (Ingles)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+        "/introduction/getting-started": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+        "/introduction/concepts": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+        "/introduction/example": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "fr": {
+      "status": "current",
+      "readingNote": {
+        "label": "Référence actuelle des logiciels",
+        "body": "Voici l’édition publiée du Livre blanc v0.9. Pour le fonctionnement technique actuel des logiciels, les contrats, les API et les instructions de déploiement, consultez la documentation des logiciels CLC.",
+        "link": "Lire la documentation des logiciels (en anglais)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "hi": {
+      "status": "current",
+      "readingNote": {
+        "label": "मौजूदा सॉफ़्टवेयर संदर्भ",
+        "body": "यह प्रकाशित श्वेत पत्र v0.9 है। सॉफ़्टवेयर की मौजूदा कार्यप्रणाली, अनुबंधों, API और तैनाती के निर्देशों के लिए CLC सॉफ़्टवेयर दस्तावेज़ देखें।",
+        "link": "सॉफ़्टवेयर दस्तावेज़ पढ़ें (अंग्रेज़ी)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "it": {
+      "status": "current",
+      "readingNote": {
+        "label": "Riferimento attuale del software",
+        "body": "Questa è l'edizione pubblicata del Libro bianco v0.9. Per l'implementazione attuale del software, i contratti, le API e le istruzioni di installazione, consulti la documentazione del software CLC.",
+        "link": "Leggere la documentazione del software (in inglese)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "nl": {
+      "status": "current",
+      "readingNote": {
+        "label": "Actuele softwarereferentie",
+        "body": "Dit is de gepubliceerde White Paper v0.9. Gebruik de CLC-softwaredocumentatie voor de huidige software-implementatie, contracten, API’s en uitrolinstructies.",
+        "link": "Softwaredocumentatie lezen (Engels)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "nl-BE": {
+      "status": "current",
+      "readingNote": {
+        "label": "Actuele softwarereferentie",
+        "body": "Dit is de gepubliceerde White Paper v0.9. Gebruik de CLC-softwaredocumentatie voor de huidige software-implementatie, contracten, API’s en uitrolinstructies.",
+        "link": "Softwaredocumentatie lezen (Engels)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "9d465cf7e501fdc635d855367a81d8e35adce41f9783e22f1f6ed83bd2e48ea9",
+        "/introduction/getting-started": "7efd080573f59b556a0a266620f78a99d804024eda9b662678e7195811c554d1",
+        "/introduction/concepts": "f340e10fa6443749f437f5de273753044ace31b8829d2b833b9ad213751d6086",
+        "/introduction/example": "364f2f12f6035d293fa9998a6f769cfa5adf9722f923be1e663bd26ca34d7bc1",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "pt": {
+      "status": "current",
+      "readingNote": {
+        "label": "Referência atual do software",
+        "body": "Esta é a edição publicada do Livro Branco v0.9. Para conhecer a implementação atual do software, os contratos, as API e as instruções de instalação, consulte a documentação do software CLC.",
+        "link": "Ler a documentação do software (em inglês)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "sr": {
+      "status": "current",
+      "readingNote": {
+        "label": "Актуелна софтверска документација",
+        "body": "Ово је објављена Бела књига v0.9. За актуелну имплементацију софтвера, уговоре, API и упутства за постављање користите документацију CLC софтвера.",
+        "link": "Прочитајте софтверску документацију (на енглеском)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "uk": {
+      "status": "current",
+      "readingNote": {
+        "label": "Актуальний довідник програмного забезпечення",
+        "body": "Це опублікована Біла книга v0.9. Актуальну реалізацію програмного забезпечення, контракти, API й інструкції з розгортання описано в документації програмного забезпечення CLC.",
+        "link": "Читати документацію програмного забезпечення (англійською)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    },
+    "sw": {
+      "status": "current",
+      "readingNote": {
+        "label": "Marejeo ya sasa ya programu",
+        "body": "Hili ni toleo lililochapishwa la Waraka Mweupe v0.9. Kwa utekelezaji wa sasa wa programu, mikataba, API na maelekezo ya usakinishaji, tumia nyaraka za programu za CLC.",
+        "link": "Soma nyaraka za programu (kwa Kiingereza)"
+      },
+      "reviewedSources": {
+        "/protocol/overview": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+        "/protocol/smart-contracts": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+        "/protocol/network": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+        "/introduction/getting-started": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+        "/introduction/concepts": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+        "/introduction/example": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+        "/governance/mechanics": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180"
+      }
+    }
+  }
+}

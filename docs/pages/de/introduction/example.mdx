@@ -81,13 +81,13 @@ Die Geldbörse der Schule öffnet die Ansicht **Kredit** und wählt den Essensgu
 
 Dieses Erkennungsergebnis ist noch kein Versprechen, dass der Tausch gelingt. Jeder Schritt hängt von aktueller Zulassung, den Token-Saldenobergrenzen des Fonds, dem verfügbaren Bestand, der Konfiguration von Bewertung und Gebühren, unterstütztem Token-Verhalten und der Aktualität des Dienstes ab.
 
-Die Schule wählt, wie viel sie **Bekommen** oder **Ausgeben** möchte. CLC Core liest anschließend beide Fonds in einem festgelegten Block aus, erstellt ein verbindliches und zeitlich begrenztes Kursangebot und simuliert den vollständigen Wallet-Batch. Die **Routendetails** der App zeigen beide Tausche, die geschätzten Beträge sowie die Fonds- und Protokollgebühren jedes Schritts.
+Die Schule wählt, wie viel sie **Bekommen** oder **Ausgeben** möchte. Die App zeigt ein Kursangebot für den gesamten Tausch. Die **Routendetails** zeigen beide Tausche, die Beträge und die Fonds- und Protokollgebühren jedes Schritts. Die Schule prüft den Mindestbetrag und den Ablaufzeitpunkt des Kursangebots, bevor sie fortfährt.
 
 ### 6. Der Inhaber führt den Tausch über die Route aus
 
-Nach der Prüfung des Mindestbetrags und der Frist des Kursangebots wählt die Schule **Umtausch bestätigen** und signiert den vorbereiteten Batch. Die App übermittelt eine Transaktion innerhalb derselben Blockchain, die die Freigaben und begrenzten Tauschaufrufe für jeden Fonds enthält.
+Die Schule wählt **Umtausch bestätigen** und autorisiert die gesamte Route. Bei Erfolg zeigt der Beleg die beiden Fonds-Tausche, die getauschten Beträge und die Gebühren.
 
-Wenn ein Aufruf fehlschlägt, wird die gesamte Transaktion rückgängig gemacht; der erste Fonds-Tausch bleibt nicht ohne den zweiten abgewickelt. Ist sie erfolgreich, zeigt der zusammengefasste Beleg der Schule eine Tracking-ID, einen Transaktionshash, beide Fonds-Schritte, die abgewickelten Beträge und die Gebühren je Schritt.
+Wenn ein Schritt fehlschlägt, werden beide Fonds-Tausche gemeinsam rückgängig gemacht; der erste bleibt nicht ohne den zweiten abgewickelt. Wie die Software diese Transaktion vorbereitet und ausführt, erklärt die [Routing-Referenz](https://software.cosmolocal.credit/contracts/routing) (Englisch).
 
 Die Schule hält nun Essensgutscheine. Der Tausch auf der Blockchain ist die **Tauschabwicklung**. Er gibt der Schule den in den Essensgutscheinbedingungen beschriebenen Anspruch; er beweist nicht, dass die Küche bereits Essen bereitgestellt hat.
 

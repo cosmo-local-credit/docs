@@ -25,7 +25,7 @@ Les mesures correctives au sein d’un Bassin restent du ressort de sa gouvernan
 
 ## Opérations au niveau du réseau
 
-La CLC App et CLC Core en production assurent la découverte partagée, la cotation des itinéraires, la préparation des lots de portefeuille, la coordination du relais, l’indexation, le rapprochement et les reçus groupés des échanges routés. Les incidents au niveau du réseau peuvent comprendre des données d’itinéraire obsolètes ou indisponibles, des échecs de rapprochement, des dépendances non prises en charge, des défaillances du relais et des problèmes d’interopérabilité entre Bassins.
+La CLC App et ses services aident les participants à découvrir des Bons d’échange, à organiser des échanges et à en vérifier le résultat. Les opérateurs sont responsables de leurs propres services et de l’explication des défaillances. La [documentation des logiciels](https://software.cosmolocal.credit/core-api/), référence technique disponible en anglais, décrit ces systèmes et leur exploitation.
 
 Un opérateur peut suspendre ou corriger son propre service, actualiser l’état indexé, exclure les chemins non pris en charge, expliquer une défaillance et se coordonner avec les Gestionnaires concernés. Ce rôle opérationnel ne lui donne pas le pouvoir de modifier les règles d’un Bassin indépendant, d’en déplacer l’inventaire, d’annuler l’engagement d’un émetteur ou de trancher un litige local relatif à l’exécution.
 
@@ -39,7 +39,7 @@ La correction ou la suppression d’une fiche n’annule pas un règlement sur l
 
 ## Preuves de l’itinéraire et responsabilité
 
-Un échange routé préserve les limites entre ses étapes. Chaque Bassin applique ses propres règles et pouvoirs d’admission, de cotation, de plafond de solde, de frais, d’inventaire et de contrôle. CLC Core regroupe le résultat technique dans un reçu unique, mais ce reçu ne fusionne pas la gouvernance des Bassins et ne transfère pas la responsabilité de l’émetteur à l’opérateur du routage.
+Un échange routé préserve les limites entre les Bassins. Chaque Bassin applique ses propres règles et contrôles. Un reçu commun ne fusionne pas la gouvernance des Bassins et ne transfère pas la responsabilité d’un Émetteur à l’opérateur du routage. Pour les enregistrements techniques des transactions, consultez la [référence des échanges](https://software.cosmolocal.credit/contracts/swaps).
 
 Le reçu peut prouver la sélection de l’itinéraire, l’autorisation, le statut de la transaction, les montants réglés et les frais à chaque étape. La présentation, l’exécution réelle et l’acquittement exigent des preuves distinctes et restent sous la responsabilité de l’émetteur identifié et de la procédure applicable.
 

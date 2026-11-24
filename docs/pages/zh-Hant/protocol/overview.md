@@ -1,39 +1,36 @@
 # 協議
 
-Protocol v1.1.0 合約提供了白皮書 [第 1 章](/zh-Hant/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) 中所述 **承諾匯聚協議 (CPP)** 的鏈上構件。本參考文件以公開的 [`v1.1.0` 版本](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0) 為準。
+**Commitment Pooling Protocol（CPP，承諾匯聚協議）** 說明獨立治理的資金池如何選擇代金券、公佈交換規則並支援交換。持有人之後向發行方使用代金券，獲得承諾的商品或服務。這些是不同的步驟，各自有不同的責任。
 
-有關本文使用的產品層級、負責任角色、操作生命週期、價值、限制、費用和狀態術語，請參閱 [概念和術語](/zh-Hant/introduction/concepts)。
+本網站解釋這些概念以及如何使用 CLC App。[CLC 軟體文件](https://software.cosmolocal.credit/)是軟體實現、合約、API、部署和營運的權威參考，目前提供英文版本。
 
-Grassroots Economics Foundation (GEF) 運營 [cosmolocal.credit](https://cosmolocal.credit) 上的漸進式網頁應用，該應用是與這些合約互動的一種方式。應用和合約彼此獨立。僅運營介面不會使 GEF 自動成為代金券發行方、資金池管理者、託管人、擔保人或使用者交易的對手方。這些角色取決於相關部署、控制者地址以及已公佈的發行方或資金池條款。請參閱 [服務條款](/zh-Hant/governance/terms)。
+瞭解共同術語，可以先閱讀[概念與詞彙](/zh-Hant/introduction/concepts)；瞭解更廣泛的設計和提案，可以閱讀[白皮書](/zh-Hant/white-paper)。
 
 ## 部署模式
 
-大多數有狀態模組都透過 Solady 的 `ERC1967Factory` 初始化為 **ERC-1967 代理例項**。多個例項可以共享一個實現，同時保持各自獨立的所有者、配置和儲存。部署還可以使用確定性鹽值，便於在部署前預測地址。
+不同社區和組織可以按照自己的規則運行相容軟體。Grassroots Economics Foundation 營運[公共 CLC App](https://cosmolocal.credit)。每項部署都應說明營運方、合約和責任機構。
 
-並非每個合約都使用代理。`DecimalQuoter` 和 `SwapRouter` 是無狀態的直接部署；`RescueVault` 和 `ERC1967Factory` 也是直接部署。下面列出的其餘有狀態模組均為代理部署而設計。
-
-每個代理都有一名可替換其實現的管理員。代理管理與合約所有權相互獨立，應當分配給受適當治理的地址。即使資金池已封存配置，升級仍可能改變行為，因此使用者應同時評估資金池所有者和代理管理員。
-
-EIP-165 支援也取決於具體合約，並非普遍存在。`GiftableToken`、三個報價器、`OracleRelay`、`Limiter`、多個登錄檔和索引、`Splitter`、`EthFaucet`、`PeriodSimple` 和 `RescueVault` 都提供 EIP-165 支援。在 v1.1.0 中，`SwapPool`、`SwapRouter`、`FeePolicy`、`ProtocolFeeController` 和 `CAT` 不提供 `supportsInterface`。
+合約地址、部署說明以及如何覈實所有者和升級權限，見[部署與驗證](https://software.cosmolocal.credit/contracts/deployments)。運行配套服務，可以從 [CLC Core API](https://software.cosmolocal.credit/core-api/) 開始。
 
 ## 元件概覽
 
-- **GiftableToken** — ERC20 供應、鑄造、銷燬和可選過期機制。發行方可以將某個例項用作代金券，但合約本身不會定義可兌付的內容、兌付人、地點或條款。
-- **SwapPool** — 代幣保管庫和交換結算引擎。部署可以連線篩選、估值、費用、限制和協議費用元件，也可以不設定某些受支援的依賴項。
-- **DecimalQuoter、RelativeQuoter 和 OracleQuoter** — 可互換的估值模組，分別用於小數位平價、所有者管理的相對匯率，或預言機推導的匯率。`OracleRelay` 可以為 `OracleQuoter` 中繼一個外部資料來源。
-- **FeePolicy 和 Limiter** — 可選的資產對費用規則和每代幣資金池餘額上限。
-- **ProtocolFeeController** — 可選、可變的協議費率、接收方和活躍狀態，資金池可在結算時讀取它。
-- **TokenUniqueSymbolIndex、AccountsIndex 和 ContractRegistry** — 代幣、賬戶和地址發現元件。`CAT` 記錄某個賬戶按順序排列的結算代幣偏好。
-- **SwapRouter** — 針對擬議的多資金池路徑進行僅報價的精確輸入和精確輸出計算。它不託管代幣，也不執行交換。
-- **Splitter、EthFaucet、PeriodSimple 和 RescueVault** — 用於分配、Gas 資助、頻率限制和資產恢復的支援工具。
+以下主題請查閱軟體參考文件：
 
-這些合約可以以不同方式組合。登錄檔上架、報價或圖上路徑都不能保證交易必然執行：當前流動性、代幣限制、費用、預言機狀態、授權、截止時間、網路狀況和各資金池的配置仍然適用。
-
+| 主題 | 權威軟體文件 |
+| --- | --- |
+| 代金券建立、供應量和到期機制 | [代金券](https://software.cosmolocal.credit/contracts/vouchers) |
+| 資金池配置、存入、提取和控制 | [資金池](https://software.cosmolocal.credit/contracts/pools) |
+| 匯率計算 | [報價器（Quoter）](https://software.cosmolocal.credit/contracts/quoters) |
+| 交換執行、費用和交易記錄 | [交換報價與結算](https://software.cosmolocal.credit/contracts/swaps) |
+| 透過多個資金池交換 | [路由](https://software.cosmolocal.credit/contracts/routing) |
+| 發現服務和配套合約 | [註冊表與工具](https://software.cosmolocal.credit/contracts/registries) |
+| API 請求和響應 | [OpenAPI 參考](https://software.cosmolocal.credit/core-api/reference) |
+| 後端和路由設定 | [配置](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## 應用層路徑兌換
 
-生產環境中的 CLC App 不只是呼叫 Solidity `SwapRouter`。CLC Core 維護一張經過對賬的合格資金池關係圖，估算可到達的代金券，在固定區塊讀取選定資金池以生成權威報價，模擬完整路徑，並準備 Calibur 錢包批次。使用者簽署該批次，中繼器再把它作為一筆同鏈交易提交。
+有合適路線時，App 可以幫助參與者透過多個資金池交換。參與者審核報價並授權交換。每個資金池仍保留自己的規則和責任方。
 
-每一跳都會直接呼叫一個 `SwapPool`。批次先重置並設定所需的代幣額度，再呼叫帶有最低輸出和截止時間限制的 `SwapPool.withdraw` 過載。`revertOnFailure` 已啟用，因此任何呼叫失敗都會使整筆路徑交易回滾。應用隨後顯示一張分組收據，其中包含逐跳結算和費用詳情。
+參與者應瞭解的含義，見[路線與責任](/zh-Hant/protocol/network)；軟體如何報價和執行路線，見[路由實現](https://software.cosmolocal.credit/contracts/routing)。
 
-此路徑工作流程是建立在 Protocol v1.1.0 之上的 App/Core 功能。它不會把 Solidity `SwapRouter` 變成執行路由器，不會改變資金池所有者或管理者，也不會讓一個資金池對另一個資金池的規則或發行方履約負責。完整流程見[協議網路架構](/zh-Hant/protocol/network)。
+軟體使交換成為可能；發行方仍對代金券承諾負責，資金池管理者仍對自己公佈的規則負責。公共 App 的使用受[服務條款](/zh-Hant/governance/terms)約束。

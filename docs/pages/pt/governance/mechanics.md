@@ -25,7 +25,7 @@ A reparação dentro de um Fundo permanece sob a sua governação autorizada e a
 
 ## Operações a nível da rede
 
-A CLC App e o CLC Core em produção fornecem descoberta partilhada, cotação de rotas, preparação de lotes da carteira, coordenação da retransmissão, indexação, reconciliação e recibos agrupados de trocas encaminhadas. Os incidentes ao nível da rede podem incluir dados de rota desatualizados ou indisponíveis, falhas de reconciliação, dependências não suportadas, falhas da retransmissão e problemas de interoperabilidade entre Fundos.
+A CLC App e os seus serviços de apoio ajudam os participantes a descobrir Vales, organizar trocas e verificar os resultados. Os operadores são responsáveis pelos seus próprios serviços e por explicar as falhas. A [documentação definitiva do software](https://software.cosmolocal.credit/core-api/), em inglês, descreve os sistemas de apoio e a sua operação.
 
 Um operador pode pausar ou corrigir o seu próprio serviço, atualizar o estado indexado, excluir caminhos não suportados, explicar uma falha e coordenar-se com os Gestores afetados. Essa função operacional não lhe confere autoridade para alterar as regras de um Fundo independente, mover o seu inventário, anular o compromisso de um emissor ou decidir uma disputa local sobre cumprimento.
 
@@ -39,7 +39,7 @@ A correção ou a supressão de uma listagem não reverte uma liquidação na ca
 
 ## Provas da rota e responsabilidade
 
-Uma troca encaminhada preserva os limites entre os seus passos. Cada Fundo aplica as suas próprias regras e poderes de admissão, cotação, limite de saldo, comissões, inventário e controlo. O CLC Core agrupa o resultado técnico num único recibo, mas esse recibo não reúne a governação dos Fundos nem transfere a responsabilidade de um emissor para o operador da rota.
+Uma troca encaminhada preserva os limites entre os seus Fundos. Cada Fundo aplica as suas próprias regras e controlos. Um recibo conjunto não reúne a governação dos Fundos nem transfere a responsabilidade de um Emissor para o operador da rota. Para os registos técnicos das transações, consulte a [referência das trocas do software](https://software.cosmolocal.credit/contracts/swaps).
 
 O recibo pode comprovar a seleção da rota, a autorização, o estado da transação, os montantes liquidados e as comissões de cada passo. A apresentação, o cumprimento no mundo real e a quitação exigem provas separadas e permanecem sob a responsabilidade do emissor identificado e do processo aplicável.
 

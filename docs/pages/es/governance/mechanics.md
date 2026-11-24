@@ -25,7 +25,7 @@ La reparación dentro de un Fondo corresponde a su gobernanza autorizada y a las
 
 ## Operaciones a nivel de red
 
-La CLC App y CLC Core de producción proporcionan descubrimiento compartido, cotización de rutas, preparación de lotes para la billetera, coordinación del relé, indexación, conciliación y recibos agrupados de intercambios enrutados. Los incidentes a nivel de red pueden incluir datos de ruta obsoletos o no disponibles, fallos de conciliación, dependencias no admitidas, fallos del relé y problemas de interoperabilidad entre Fondos.
+La CLC App y sus servicios de apoyo ayudan a los participantes a descubrir Vales, organizar intercambios y comprobar los resultados. Los operadores son responsables de sus propios servicios y de explicar sus fallos. La [documentación definitiva del software](https://software.cosmolocal.credit/core-api/), en inglés, describe los sistemas de apoyo y su operación.
 
 Un operador puede pausar o corregir su propio servicio, actualizar el estado indexado, excluir caminos no admitidos, explicar un fallo y coordinarse con los Responsables afectados. Esa función operativa no le da autoridad para cambiar las reglas de un Fondo independiente, mover su inventario, anular el compromiso de un emisor ni resolver una disputa local sobre el cumplimiento.
 
@@ -39,7 +39,7 @@ Corregir o retirar una ficha no revierte una liquidación en la cadena, no elimi
 
 ## Pruebas de ruta y responsabilidad
 
-Un intercambio enrutado conserva los límites entre sus pasos. Cada Fondo aplica sus propias reglas y facultades de admisión, cotización, límite de saldo, comisiones, inventario y control. CLC Core agrupa el resultado técnico en un solo recibo, pero ese recibo no fusiona la gobernanza de los Fondos ni transfiere la responsabilidad de un emisor al operador de enrutamiento.
+Un intercambio enrutado conserva los límites entre sus Fondos. Cada Fondo aplica sus propias reglas y controles. Un recibo conjunto no fusiona la gobernanza de los Fondos ni transfiere la responsabilidad de un Emisor al operador de enrutamiento. Para los registros técnicos de las transacciones, consulta la [referencia de intercambios del software](https://software.cosmolocal.credit/contracts/swaps).
 
 El recibo puede demostrar la selección de la ruta, la autorización, el estado de la transacción, los importes liquidados y las comisiones de cada paso. La presentación, el cumplimiento real y la descarga requieren pruebas separadas y siguen siendo responsabilidad del emisor identificado y del proceso aplicable.
 

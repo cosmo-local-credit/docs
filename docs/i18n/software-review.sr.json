@@ -1,0 +1,574 @@
+{
+  "locale": "sr",
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "24abd81d9ec0b06cf23c2860f0774b693fec5751d907a7ed22e6708b44ef03c3"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "9f88baf46ca26813e2cacfdf5a507e5bb77d7a8ef9c2b2aa9aaebf75edd3c48c"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "5b42eadaa9161db21374fb4c8fd82f880f8ee2e31d34512d8f5cb002a01aa75f"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "f74671241ed2a5a2f7dac896397923635cecc154a27c17e7a283e09228e4e417"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "105abc71a23fd162927c2cdc7d9b5fc98988a1352560b57d60fd61919cbb80ad"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "7590e455d6c3b9cccf186d2435cf0ebb1218576ab5a9bf5b8a72fe8555fa89be"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "4bd31dcce8fe3937ea81c8cc50593d372e9db2e490d1fa5b8c821eec9a6d93a7"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "Протокол удруживања обавеза (CPP) описује како независно управљане Тржнице бирају Ваучере, објављују правила размене и омогућавају размену. Ималац касније користи Ваучер код његовог Издаваоца за обећану робу или услуге. То су одвојени кораци са одвојеним одговорностима.",
+      "backTranslation": "The CPP (Commitment Pooling Protocol) describes how independently managed Marketplaces select Vouchers, publish exchange rules and facilitate exchange. The Holder subsequently redeems the Voucher with its Issuer for promised goods or services. These are separate steps with separate responsibilities.",
+      "similarity": 0.8542
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "Овај сајт објашњава те појмове и коришћење CLC App. Документација CLC софтвера је меродавни извор за имплементацију софтвера, уговоре, API, постављање система и рад. Тренутно је доступна на енглеском.",
+      "backTranslation": "This site explains these terms and the use of CLC App. The CLC software documentation is an authoritative source for software implementation, agreements, API, system setup and operation.",
+      "similarity": 0.7146
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "Почните од појмова и речника за заједничке изразе или од Беле књиге за шири нацрт и предлоге.",
+      "backTranslation": "Start with the Terms and Glossary for common terms or the White Paper for a broader draft and proposals.",
+      "similarity": 0.7349
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "Различите заједнице и организације могу да користе компатибилан софтвер по сопственим правилима. Grassroots Economics Foundation управља јавном CLC App. Свака примена треба да наведе своје операторе, уговоре и одговорна тела.",
+      "backTranslation": "Different communities and organizations can use the compatible software under their own rules. The Grassroots Economics Foundation manages a public CLC App. Each application should list its operators, contracts and responsible bodies.",
+      "similarity": 0.8814
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "За адресе уговора, упутства за постављање и проверу власника и овлашћења за надоградњу користите Постављање и проверу. За рад пратећих сервиса почните од CLC Core API.",
+      "backTranslation": "For contract addresses, owner setup and verification instructions, and upgrade authorizations, use Setup and Verify. Start with the CLC Core API for follow-up services.",
+      "similarity": 0.5873
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "Користите софтверску документацију за:",
+      "backTranslation": "Use the software documentation for:",
+      "similarity": 0.7273
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "Тема  Меродавна софтверска документација",
+      "backTranslation": "Topic  Authoritative software documentation",
+      "similarity": 0.8434
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "Стварање, количина у оптицају и истек Ваучера  Ваучери",
+      "backTranslation": "Creation, quantity in circulation and expiration of Vouchers  Voucher creation",
+      "similarity": 0.2581
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "Подешавања, депозити, повлачења и контрола Тржница  Тржнице",
+      "backTranslation": "Settings, deposits, withdrawals and controls Marketplace  Marketplaces",
+      "similarity": 0.6565
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "Обрачун курсева размене  Модули котације (Quoter)",
+      "backTranslation": "Calculation of exchange rates Quotation modules (Quoter)",
+      "similarity": 0.4396
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "Извршење размене, накнаде и записи трансакција  Котација и поравнање размене",
+      "backTranslation": "Execution of exchange, fees and transaction records Quotation and settlement of exchange",
+      "similarity": 0.7261
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "Размена преко више Тржница  Рутирање",
+      "backTranslation": "Exchange over multiple Marketplaces Routing",
+      "similarity": 0.5854
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "Проналажење и пратећи уговори  Регистри и помоћни алати",
+      "backTranslation": "Finding and following contracts Registers and auxiliary tools",
+      "similarity": 0.6777
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "API захтеви и одговори  OpenAPI референца",
+      "backTranslation": "API requests and responses OpenAPI reference OpenAPI Reference",
+      "similarity": 0.8411
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "Подешавања серверских сервиса и рутирања  Конфигурација",
+      "backTranslation": "Server Services and Routing Settings  Configuration",
+      "similarity": 0.8085
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "Апликација може да помогне учеснику у размени преко више Тржница када постоји одговарајућа рута. Учесник проверава котацију и одобрава размену. Свака Тржница задржава сопствена правила и одговорне стране.",
+      "backTranslation": "The application can assist a participant in an exchange across multiple Marketplaces when there is a suitable route. The participant checks the quote and approves the exchange. Each Marketplace retains its own rules and responsible parties.",
+      "similarity": 0.7341
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "У одељку Руте и одговорности прочитајте шта то значи за учеснике, а у Имплементацији рутирања како софтвер израчунава котације и извршава руте.",
+      "backTranslation": "In the section Routes and Responsibilities, read what this means for participants, and in Routing Implementation how software calculates quotations and executes routes.",
+      "similarity": 0.8397
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "Софтвер омогућава размену; Издаваоци остају одговорни за обећања својих Ваучера, а Управници Тржница за објављена правила. Коришћење јавне Апликације уређују Услови коришћења.",
+      "backTranslation": "The Software enables exchange; Publishers remain responsible for the promises of their Vouchers, and Marketplace Managers for published rules. Use of the Public Application is governed by the Terms of Use.",
+      "similarity": 0.77
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "Уговори бележе стања токена и извршавају размене преко Тржница. Документација CLC софтвера је меродавна референца за имплементацију, тренутно на енглеском. Ова страница објашњава шта учесници треба да разумеју пре коришћења тих уговора.",
+      "backTranslation": "The contracts record token statuses and perform exchanges through the Marketplaces. The CLC software documentation is an authoritative reference for implementation, currently in English. This page explains what participants should understand before using those contracts.",
+      "similarity": 0.8132
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "Погледајте Појмове и речник за разлику између управљане Тржнице обавеза и њеног уговора SwapPool, као и између размене и Испуњења Издаваоца.",
+      "backTranslation": "See the Terms and Glossary for the difference between a Managed Obligation Marketplace and its SwapPool contract, as well as between an Exchange and Issuer Fulfillment.",
+      "similarity": 0.7601
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "Ваучер повезује дигитално стање са објављеним обећањем Издаваоца. Његови услови објашњавају за шта може да се користи, где и када се прихвата и ко је одговоран. Стварање токена не доказује да Издавалац може да обезбеди обећану робу или услуге.",
+      "backTranslation": "The voucher links the digital status to a published promise by the Issuer. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuers can provide the promised goods or services.",
+      "similarity": 0.8956
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "За механизме стварања, ковања, спаљивања и истека прочитајте Ваучере.",
+      "backTranslation": "For the mechanisms of creation, forging, burning and expiration see Vouchers.",
+      "similarity": 0.6759
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "Тржница обавеза окупља одабране Ваучере по објављеним правилима. Њен уговор држи залиху и размењује подржану имовину. Депозит не даје особи која га положи аутоматски удео у Тржници или права на повраћај, повлачење, награду или управљање; таква права захтевају посебно објављене услове.",
+      "backTranslation": "The Deposit Market gathers selected Vouchers according to published rules. Its contract holds stock and exchanges the underlying assets. A deposit does not give the person placing it an automatic share in the Market or rights of redemption, withdrawal, reward or management; such rights require separately published terms.",
+      "similarity": 0.6506
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "Проверите које Ваучере Тржница прихвата, како одређује курсеве размене, њена ограничења и накнаде и ко може да их мења. Софтверска документација описује подешавање и закључавање поставки Тржнице.",
+      "backTranslation": "Check which Vouchers the Marketplace accepts, how it determines exchange rates, its limits and fees, and who can change them. The software documentation describes setting up and locking the Market place settings.",
+      "similarity": 0.739
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "Успешна размена мења одговарајућа стања. Она не доказује да је Издавалац испоручио робу или услуге. Пре потврде проверите улаз, излаз, примаоца, најмањи износ који ћете примити и рок котације.",
+      "backTranslation": "It does not prove that the Issuer has delivered goods or services. Before confirming, please check the entry, exit, recipient, minimum amount to be received and deadline of the quote.",
+      "similarity": 0.6941
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "За начине извршења и записе поравнања прочитајте Котацију и поравнање размене.",
+      "backTranslation": "For execution methods and settlement records, see Quotation and Settlement of Exchange.",
+      "similarity": 0.8199
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "Размена може да укључује и накнаду Тржнице и додатну накнаду протокола. Проверите укупан износ у котацији; рута преко више Тржница може да има накнаде у сваком кораку. Референца за размену садржи актуелни обрачун и разрађени пример.",
+      "backTranslation": "The exchange may include both a Marketplace fee and an additional protocol fee. Check the total amount in the quote; routes through multiple Marketplaces may have fees at each step. The exchange reference contains the actual calculation and elaborated example.",
+      "similarity": 0.7474
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "Власник Тржнице може да повуче доступну залиху. Друга овлашћена тела могу да контролишу надоградње или поставке. Проверите та овлашћења заједно са објављеним правилима Управника пре депозита или ослањања на Тржницу. Само закључавање поставки не доказује да је залиха трајно закључана.",
+      "backTranslation": "The Marketplace owner may withdraw available stock. Other authorized bodies may control upgrades or settings. Please check these authorizations along with the Manager's published policies before depositing or relying on the Marketplace.",
+      "similarity": 0.6628
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "За техничке провере погледајте Тржнице и Проверите појединачну инстанцу.",
+      "backTranslation": "For technical checks, see Marketplaces and Check an individual instance.",
+      "similarity": 0.3231
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "Курс размене Тржнице одвојен је од наведене вредности Ваучера и услова искоришћења код Издаваоца. Проверите метод који је Тржница одабрала и ко може да мења његове улазне податке. Софтверска документација објашњава доступне модуле котације (Quoter).",
+      "backTranslation": "The Marketplace exchange rate is separate from the Voucher’s stated value and the Issuer’s redemption conditions. Check which method the Marketplace has selected and who can change its input data. The software documentation explains the available Quotation modules.",
+      "similarity": 0.7386
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "„Кредитни лимит“ у Апликацији је највеће стање одређеног Ваучера које Тржница може да држи. Он описује капацитет за размену, а не лично задуживање или гаранцију Испуњења. У правилима и подешавањима Тржнице прочитајте како се примењују ограничења и накнаде.",
+      "backTranslation": "The “Credit Limit” in the App is the maximum amount of a given Voucher that the Store can hold. It describes the capacity to redeem, not personal borrowing or guaranteed fulfilment. Read the Marketplace rules and settings for how limits and charges apply.",
+      "similarity": 0.7259
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "Накнада протокола има подешеног примаоца. Њено примање не чини ту страну аутоматски Управником Тржнице или гарантом. Референца за накнаде објашњава тренутне механизме, а механизми управљања одговорност и објављивање информација.",
+      "backTranslation": "The receipt of the fee does not automatically make that party a Market Manager or guarantor. The Fee Reference explains current mechanisms, and the governance mechanisms for accountability and disclosure of information.",
+      "similarity": 0.671
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "Више независно управљаних Тржница може да повеже Ваучер који држите са оним који желите. Свака Тржница обезбеђује један корак размене, користећи сопствена правила и доступну залиху.",
+      "backTranslation": "Several independently managed Marketplaces can link the Voucher you hold with the one you want. Each Marketplace provides a single-step exchange, using its own rules and available stock.",
+      "similarity": 0.7624
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "Референца за рутирање CLC софтвера је меродавни извор за проналажење рута, услове подобности, извршење и интерфејсе сервиса. Софтверска документација је тренутно на енглеском. Ова страница објашњава пут учесника и његове одговорности.",
+      "backTranslation": "The CLC Software Routing Reference is the authoritative source for service routing, eligibility requirements, execution and interfaces. The software documentation is currently in English. This page explains the participant’s path and responsibilities.",
+      "similarity": 0.8635
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "У приказу Кредит у Апликацији изаберите Набави за жељени Ваучер или Потроши за Ваучер који желите да употребите. Рута би, на пример, могла да размени Ваучер за превоз за Ваучер за храну преко две различите Тржнице.",
+      "backTranslation": "In the Credit view in the App, select Purchase for the desired Voucher or Spend for the Voucher you want to use. A route could, for example, exchange a Transportation Voucher for a Food Voucher across two different Markets.",
+      "similarity": 0.6386
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "Проналажење везе не гарантује размену. Подржани Ваучери, ограничења Тржница, доступна залиха, накнаде, компатибилност Новчаника и доступност сервиса морају да омогуће тражени износ.",
+      "backTranslation": "Supported Vouchers, Marketplace restrictions, available stock, fees, Wallet compatibility and service availability must allow the amount requested. Finding a connection does not guarantee an exchange.",
+      "similarity": 0.2626
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "Пре потврде проверите Детаље руте: шта плаћате и примате, све укључене Тржнице, накнаде, најмањи примљени износ и рок котације. Процена помаже у претрази; котација је предлог који одобравате. Освежите је ако истекне или се услови Тржница промене.",
+      "backTranslation": "Before confirming, check the Route Details: what you pay and receive, all Markets included, fees, minimum amount received and quote deadline. The estimate helps in the inquiry; the quotation is a proposal that you approve of. Refresh it if it expires or conditions Market changes.",
+      "similarity": 0.6631
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "Референца за рутирање и конфигурација сервиса садрже актуелна техничка правила подобности и поставке котација.",
+      "backTranslation": "The Routing and Configuration Reference for the service contains current technical rules of eligibility and quota setting.",
+      "similarity": 0.6783
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "Проверавате и одобравате целу размену. Тренутна рута успева у целини или се њене размене преко Тржница заједно поништавају ако један корак не успе. То штити од делимичног извршења руте; не гарантује каснију испоруку робе или услуга.",
+      "backTranslation": "You review and approve the entire trade. The current route succeeds in its entirety or its Marketplace trades are cancelled collectively if one step fails. This protects against partial execution of the route; it does not guarantee subsequent delivery of goods or services.",
+      "similarity": 0.6617
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "За припрему и извршење трансакције погледајте Извршење руте.",
+      "backTranslation": "To prepare and execute a transaction, see Executing a Route.",
+      "similarity": 0.6129
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "Solidity SwapRouter, који само израчунава котације, и поступак размене у Апликацији су различите софтверске компоненте. Њихов однос објашњен је у одељку Рутирање.",
+      "backTranslation": "The Solidity SwapRouter, which only calculates quotes, and the exchange process in the App are separate software components. Their relationship is explained in the Routing section.",
+      "similarity": 0.7077
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "За учеснике је важна провера целе котације. Свака Тржница може да наплати накнаде. Заједничка рута не спаја те Тржнице нити чини једног Управника одговорним за другу Тржницу.",
+      "backTranslation": "Each Marketplace may charge fees. A shared route does not connect those Marketplaces nor makes one Manager responsible for another Marketplace. It is important for participants to check the entire quote.",
+      "similarity": 0.5445
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "Након слања проверите да ли размена чека, да ли је потврђена или неуспешна, и сачувајте потврду. Ако нема доступне руте, покушајте да освежите претрагу, смањите износ или одаберете други подржани улазни Ваучер.",
+      "backTranslation": "After submitting, check if the exchange is pending, confirmed or failed and save your confirmation. If there is no route available, try refreshing your search, reducing the amount or selecting another supported entry voucher.",
+      "similarity": 0.8037
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "Неуспешна размена не мења постојећа обећања Издаваоца. Успешна размена бележи промењена стања; Испуњење и Раздужење и даље прате услове Издаваоца. Погледајте практичне примере.",
+      "backTranslation": "A failed exchange does not change the Publisher’s existing promises. A successful exchange records the changed states; Fulfillment and Extension continue to follow the Publisher's terms.",
+      "similarity": 0.7876
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "Програмери могу да пронађу интерфејсе трансакција и праћења у CLC Core API референци.",
+      "backTranslation": "Developers can find the transaction and tracking interfaces in the CLC Core API reference.",
+      "similarity": 0.9773
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "Пре ослањања на Тржницу утврдите ко су њен Управник, власник уговора, стране овлашћене за надоградњу, примаоци накнада и сви који могу да мењају битне поставке. Технички контролор и одговорни Управник могу бити различите стране.",
+      "backTranslation": "Before relying on the Marketplace, determine who is its Manager, contract owner, parties authorized to upgrade, fee recipients and anyone who can change important settings. The technical controller and responsible Manager may be different parties.",
+      "similarity": 0.7735
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "Софтверска документација одржава актуелне механизме Тржница и проверу постављених система. Ова документација објашњава улоге и речник, одговорности у управљању и шири нацрт CPP.",
+      "backTranslation": "The software documentation maintains the current mechanisms of Marketplace and verification of deployed systems. This documentation explains roles and vocabulary, responsibilities in management and extends the draft CPP.",
+      "similarity": 0.6327
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "Не подржава сваки Ваучер, Тржница или Новчаник рутирану размену. Апликација проверава да ли је размена доступна за ваш избор. Софтверска референца за рутирање садржи актуелна правила подобности и техничке захтеве на енглеском.",
+      "backTranslation": "Not every Voucher, Marketplace or Wallet supports routing exchange. The app checks if the exchange is available for your choice. The Routing Software Reference contains current eligibility rules and technical requirements in English.",
+      "similarity": 0.887
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "Проналажење руте је процена. Пре потписивања проверите коначну котацију, укључујући најмањи износ који ћете примити и рок. Тренутна рутирана размена успева у целини или се њене размене преко Тржница заједно поништавају. Након слања проверите у потврди исход, размењене износе и накнаде.",
+      "backTranslation": "Before signing, check the final quote, including the minimum amount you will receive and the deadline. Is the current routed exchange successful in its entirety or are all of its Marketplace trades cancelled together? After sending, check in the confirmation the outcome, exchanged amounts and fees.",
+      "similarity": 0.6447
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "Апликација подржава непосредне и рутиране размене преко Тржница тамо где су доступне. Рутирање између ланаца, аутоматско уравнотежење Тржница, пакетни нетинг, заједничко осигурање, предложена управљачка имовина, мрежни програми ликвидности и регулисани платни канали остају предлози или зависе од примене, осим ако их одређена примена не наведе као активне.",
+      "backTranslation": "The application supports direct and routed exchanges through Marketplaces where available. Routing between chains, automatic Marketplace balancing, bundle netting, mutual insurance, proposed asset management, network liquidity programs, and regulated payment channels remain suggestions or application-dependent unless specified as active by the particular application.",
+      "similarity": 0.6973
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  Јавна верзија паметних уговора описана у меродавној софтверској документацији (на енглеском).",
+      "backTranslation": "Protocol v1.1.0  Public version of the smart contracts described in the applicable software documentation.",
+      "similarity": 0.6233
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "Ток рутирања у Апликацији  Апликација и пратећи сервиси проналазе могуће путеве кроз Тржнице, израчунавају котацију размене, траже одобрење учесника и пријављују резултат.",
+      "backTranslation": "The App and its tracking services find possible routes through the Marketplaces, calculate the exchange quote, seek approval from participants, and report the result.",
+      "similarity": 0.6435
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "Рута је уређен пут кроз једну или више независно управљаних Тржница. Дубина руте је број размена преко Тржница на том путу.",
+      "backTranslation": "A route is a regulated path through one or more independently managed Marketplaces. The depth of the route is the number of exchanges across Marketplace on that path.",
+      "similarity": 0.723
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "Није сваки Ваучер, Тржница или Новчаник подобан за рутирање. Присуство Ваучера у Тржници не чини га аутоматски доступним преко сваке руте. Софтверска референца за рутирање садржи актуелна правила подобности и конфигурацију на енглеском.",
+      "backTranslation": "Not every Voucher, Marketplace or Wallet is suitable for routing. The presence of a Voucher in the Marketplace does not automatically make it available across every route. The Software Reference for Routing contains current eligibility rules and configuration.",
+      "similarity": 0.7623
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "Доступна ликвидност је залиха коју Тржница може да понуди према својим тренутним правилима, ограничењима и накнадама. Веза између Тржница не доказује да је жељени износ доступан. Проверите коначну котацију; она може да истекне или изгуби важење ако се услови Тржнице промене.",
+      "backTranslation": "Available liquidity is the stock that a Marketplace can offer under its current rules, limits and fees. The connection between Marketplaces does not prove that the desired amount is available. Please check the final quote; it may expire or become invalid if the conditions of the Marketplace change.",
+      "similarity": 0.7964
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "Водич Први кораци примењује ове појмове на тренутну Апликацију. Преглед Протокола повезује те појмове са меродавном софтверском документацијом, док Бела књига представља шири нацрт и предлоге.",
+      "backTranslation": "The Getting Started Guide applies these concepts to the current Application. The Protocol Overview links these conceptes to authoritative software documentation, while the White Paper presents a broader outline and proposals.",
+      "similarity": 0.8617
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "Школа бира колико жели да добије преко Набави или да употреби преко Потроши. Апликација приказује котацију за целу размену. Детаљи руте показују обе размене, износе и накнаде Тржнице и протокола за сваки корак. Школа проверава најмањи примљени износ и рок котације пре наставка.",
+      "backTranslation": "The school chooses how much it wants to get via Purchase or use via Spend. The app displays a quote for the entire exchange. Route details show both the exchange, amounts and fees of the Marketplace and protocol for each step.",
+      "similarity": 0.6599
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "Школа бира Потврдите размјену и одобрава целу руту. Ако она успе, потврда приказује две размене преко Тржница, размењене износе и накнаде.",
+      "backTranslation": "The school selects Confirm Exchange and approves the entire route. If it succeeds, the confirmation shows two exchanges via Marketplace, the amounts exchanged and fees.",
+      "similarity": 0.7356
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "Ако један корак не успе, обе размене преко Тржница се заједно поништавају; прва не остаје поравната без друге. Како софтвер припрема и извршава ту трансакцију, прочитајте у референци за рутирање (на енглеском).",
+      "backTranslation": "If one step fails, both exchanges through the Marketplace are cancelled together; the first is not left even without the second. How the software prepares and executes that transaction, see the Routing Reference.",
+      "similarity": 0.7422
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "CLC App и њени пратећи сервиси помажу учесницима да пронађу Ваучере, организују размене и провере исходе. Оператори су одговорни за сопствене сервисе и објашњење њихових кварова. Меродавна софтверска документација описује пратеће системе и њихов рад на енглеском.",
+      "backTranslation": "The CLC App and its supporting services help participants find Vouchers, arrange exchanges and check results. Operators are responsible for their own services and explanation of their failures. Authoritative software documentation describes the supporting systems and their operation in English.",
+      "similarity": 0.9048
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "Рутирана размена чува границе између њених Тржница. Свака Тржница примењује своја правила и контроле. Заједничка потврда не спаја управљање Тржницама и не преноси одговорност Издаваоца на оператора руте. За техничке записе трансакција користите софтверску референцу за размену.",
+      "backTranslation": "A routed exchange keeps the boundaries between its Marketplaces. Each Marketplace applies its own rules and controls. The shared confirmation does not merge the management of the Marketplace and does not transfer responsibility from the Issuer to the route operator.",
+      "similarity": 0.6284
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "Актуелна софтверска документација",
+      "backTranslation": "Current software documentation.",
+      "similarity": 0.6667
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "Ово је објављена Бела књига v0.9. За актуелну имплементацију софтвера, уговоре, API и упутства за постављање користите документацију CLC софтвера.",
+      "backTranslation": "This is the released White Paper v0.9. For actual software implementation, agreements, API and setup guidelines use the CLC Software documentation.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "Прочитајте софтверску документацију (на енглеском)",
+      "backTranslation": "Read the software documentation.",
+      "similarity": 0.8493
+    }
+  ],
+  "reviewDate": "23 November 2026",
+  "readingNoteSha256": "1853ad3673e0a4168bc416fb9c9b8820ae988e79d31d993b41f2a7c534d69451",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation with the established app glossary",
+      "complete clarity and protected-content review",
+      "independent MADLAD back-translation and comparison of all 64 changed units against English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 4,
+    "resolution": "All 64 revised units were compared with English and reviewed for natural Serbian and established Ваучер/Тржница/Издавалац/Управник/Новчаник vocabulary. Four low-confidence table, verification-link and availability units were confirmed equivalent. Redemption now explicitly means using a Voucher with its issuer rather than a cash buyback; depositor wording avoids an investment implication. Both corrections were independently rechecked. Model omissions of balance changes, permanent-lock limits and configured recipients are absent from the actual Serbian source. Issuer fulfillment, no automatic depositor rights, separate technical control, additive fees, balance caps and whole-route rollback retain their meanings."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/sr/governance/privacy#what-becomes-public",
+    "afterHref": "/sr/governance/privacy#4-шта-постаје-јавно",
+    "previousSha256": "1f51174c20e9e8c020077973220292863bfee20e36241465ef6490dd994679eb",
+    "sha256": "f74671241ed2a5a2f7dac896397923635cecc154a27c17e7a283e09228e4e417",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

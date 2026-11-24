@@ -1,106 +1,128 @@
-# Praktikal na halimbawa ng voucher
+# Mga halimbawa ng palitan ng Voucher
 
-Sinusundan ng halimbawang ito ang isang Voucher mula sa Offering at Want, sa two-Pool routed exchange, redemption presentment, fulfillment, at discharge. Ipinapakita nito ang mga tungkuling kasangkot; hindi ito pangakong magiging available ang isang partikular na Voucher, Pool, route, o resulta.
+Ipinapakita ng mga halimbawang ito kung paano magkaugnay ngunit magkakaiba ang mga Voucher, Pangangailangan, Pool, palitan, pagtupad, at discharge. Inilalarawan nila ang mga tungkulin; hindi nila ipinapangakong available ang isang partikular na Voucher, Pool, ruta, o resulta.
 
-Para sa mga kahulugang ginagamit dito, tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts).
+Para sa mga kahulugan, tingnan ang [Mga konsepto at bokabularyo](/fil/introduction/concepts).
 
-## 1. Naglalathala ng pangako ang tagapag-isyu
+## Simpleng halimbawa: isang Pool, tatlong kalahok
 
-Isipin na gumawa ang isang kusinang pangkomunidad ng digital na voucher para sa pagkain. Bago ito mag-isyu, naglalathala ang kusina ng impormasyong kailangan ng may hawak upang makapagpasya nang may sapat na kaalaman:
+Nag-aalok ang isang magsasaka ng mga basket ng pagkain at nangangailangan ng serbisyong dental. Nag-aalok ang isang mekaniko ng pagkukumpuni ng sasakyan at nangangailangan ng pagkain. Nag-aalok ang isang dentista ng serbisyong dental at nangangailangan ng pagkukumpuni ng sasakyan.
 
-- pagkakakilanlan at mga detalye sa pakikipag-ugnayan ng kusina;
-- ang pagkain o ibang Offering na kinakatawan ng isang voucher;
-- supply, yunit, nakasaad na halaga, at kakayahan ng kusinang tumupad;
-- saan at kailan maaaring iharap ang voucher;
-- petsa ng pag-expire, proseso ng pagpapareserba, bayarin, buwis, o paghihigpit sa paglilipat, kung mayroon; at
-- paano gumagana ang paghaharap, pagtupad, reklamo, refund, pagpapalit, at iba pang remedyo.
+Bawat kalahok ay gumagawa ng Voucher na may malinaw na tuntunin at naglalathala ng Offering:
 
-Ang kusina ang tagapag-isyu. Dapat nitong panatilihing tama ang impormasyong ito, iwasang mag-isyu nang higit sa makatuwirang kakayahan nito, at tuparin ang mga voucher ayon sa mga tuntunin noong nakuha ang mga ito. Ang paggawa ng token o paglalathala ng Offering ay hindi patunay ng kakayahang iyon at hindi nito ginagawang tagapag-isyu ang GEF.
+- magagamit ang Voucher ng magsasaka para sa mga basket ng pagkain;
+- magagamit ang Voucher ng mekaniko para sa pagkukumpuni; at
+- magagamit ang Voucher ng dentista para sa serbisyong dental.
 
-Naglathala rin ang kusina ng **Offering** na naglalarawan sa mga available na pagkain. Magkaugnay ngunit magkaiba ang Voucher at Offering: ang Voucher ang transferable commitment, samantalang tinutulungan ng Offering ang mga tao na makita ang kaugnay na produkto o serbisyo.
+Gumagawa ang dentista ng Pool ng Pangako na **Health Market**, naglalathala ng mga patakaran, tumatanggap ng tatlong Voucher, at nagdedeposito ng ilang Voucher sa serbisyong dental. Tinutukoy ng naka-configure na token-balance cap ng Pool kung gaano karaming Voucher ng magsasaka at mekaniko ang maaari nitong hawakan. Mga kontrol sa kapasidad ng Pool ang **“Credit limit”** na ito sa App, hindi personal na pautang.
 
-## 2. Ang isang kalahok ay naglalathala ng Want
+Nakikita ng magsasaka ang Pangangailangan ng dentista para sa lokal na pagkain, sinusuri ang mga tuntunin ng Voucher at Pool ng dentista, at ipinagpapalit ang Voucher sa basket ng pagkain para sa Voucher sa serbisyong dental. Pagkatapos, nagpapa-appointment ang magsasaka, inihaharap ang Voucher, tumatanggap ng ipinangakong pangangalaga, at itinatala ng dentista ang discharge.
 
-Ang isang malapit na paaralan ay may mga voucher sa transportasyon at nangangailangan ng pagkain para sa isang kaganapan. Ito'y naglalathala ng isang **Want** na naglalarawan sa mga pagkain, dami, lugar, oras, at paraan ng pakikipag-ugnayan.
+Ipinagpapalit ng mekaniko ang Voucher sa pagkukumpuni para sa Voucher sa basket ng pagkain na hawak na ngayon ng Pool, at ginagamit ito para sa paghahatid ng pagkain. Maaaring ipalit ng dentista ang Voucher sa serbisyong dental sa Voucher ng mekaniko at gamitin iyon upang ipaayos ang sasakyan.
 
-Ang Want ay nagpapahayag ng kahilingan. Hindi nito awtomatikong tatanggapin ang Voucher ng kusina, magreserba ng pagkain, gumawa ng kontrata, pahintulutan ang pagpapalit, o pangako na magpapatuloy ang paaralan. Kailangan pa ring suriin ng paaralan ang kusina, mga tuntunin sa Voucher, magagamit na ruta, quote, at naaangkop na mga kundisyon.
+Bawat palitan sa Pool ay nagsesettle ng mga balanse ng Voucher. Hiwalay na nananatiling responsable ang bawat Tagapag-isyu sa ipinangakong pagkain, pagkukumpuni, o serbisyong dental. Nagbibigay-daan ang Pool sa pagpapalitan ng maraming panig nang hindi kailangang magkatugma sa parehong oras ang gusto ng bawat pares.
 
-## 3. Nagbibigay-daan sa route ang mga independiyenteng Pool Steward
+## Mas advanced na halimbawa: routed exchange
 
-Dalawang malayang pinamamahalaang mga Pool ang nag-uugnay sa mga ari-arian:
+Sinusundan ng halimbawang ito ang isang Voucher mula sa Offering at Pangangailangan hanggang sa palitan sa dalawang Pool na magkakahiwalay ang pamamahala.
 
-1. tumatanggap ang Mobility Pool ng transport Voucher ng paaralan at maize Voucher; at
-2. tumatanggap ang Food-Security Pool ng maize Voucher at meal Voucher ng kusina.
+### 1. Naglalathala ng pangako ang Tagapag-isyu
 
-Sinusuri ng bawat Tagapangasiwa ng Pool ang mga ari-arian at inilalathala ang sariling mga patakaran ng Pool, kabilang ang:
+Ipagpalagay na gumawa ang kusina ng komunidad ng digital na Voucher para sa pagkain. Bago mag-isyu, inilalathala nito ang impormasyong kailangan ng Mayhawak upang makapagpasya nang may kaalaman:
+
+- pagkakakilanlan at contact detail ng kusina;
+- ang pagkain o ibang Offering na kinakatawan ng bawat Voucher;
+- supply, yunit, nakasaad na halaga, at kakayahan ng kusina na tumupad;
+- saan at sa anong oras ito maihaharap;
+- pag-expire, proseso ng booking, bayarin, buwis, o paghihigpit sa paglilipat; at
+- paano hinahawakan ang paghaharap, pagtupad, reklamo, refund, pagpapalit, at ibang remedyo.
+
+Ang kusina ang Tagapag-isyu. Dapat nitong panatilihing tama ang impormasyon, umiwas sa pag-isyu nang higit sa makatuwirang kaya nitong ibigay, at tuparin ang mga Voucher ayon sa mga tuntuning naaangkop noong nakuha ang mga ito. Hindi patunay ng kakayahan ang paggawa ng token o paglalathala ng Offering, at hindi nito ginagawang Tagapag-isyu ang GEF.
+
+Naglalathala rin ang kusina ng **Offering** na naglalarawan sa mga available na pagkain. Magkaugnay ngunit magkaiba ang Voucher at Offering: pangakong maaaring tubusin ang Voucher, samantalang tinutulungan ng Offering ang mga tao na makita ang kaugnay na produkto o serbisyo.
+
+### 2. Naglalathala ng Pangangailangan ang kalahok
+
+May Voucher sa transportasyon ang kalapit na paaralan at kailangan nito ng pagkain para sa isang pagtitipon. Naglalathala ito ng **Pangangailangan (Want)** na naglalarawan sa pagkain, dami, lugar, oras, at paraan ng pakikipag-ugnayan.
+
+Nagpapahayag ng hinahanap ang Pangangailangan. Hindi nito awtomatikong tinatanggap ang Voucher ng kusina, inirereserba ang pagkain, nililikha ang kontrata, pinapahintulutan ang palitan, o ipinapangakong magpapatuloy ang paaralan. Kailangan pa ring suriin ng paaralan ang kusina, mga tuntunin ng Voucher, mga available na ruta, quote, at naaangkop na kondisyon.
+
+### 3. Pinipili ng magkahiwalay na Tagapangasiwa ng Pool ang ruta
+
+Dalawang Pool na magkakahiwalay ang pamamahala ang nag-uugnay sa mga asset:
+
+1. tumatanggap ang isang Pool sa transportasyon ng Voucher ng paaralan sa transportasyon at isang Voucher sa mais; at
+2. tumatanggap ang isang Pool para sa seguridad sa pagkain ng parehong Voucher sa mais at ng Voucher ng kusina sa pagkain.
+
+Sinusuri ng bawat Tagapangasiwa ng Pool ang mga asset at inilalathala ang sariling mga patakaran ng Pool, kabilang ang:
 
 - sino ang may pananagutan sa Pool;
-- ang kasalukuyang owner ng `SwapPool`, proxy administrator, at mga controller ng material dependency;
-- tinanggap na mga voucher at iba pang suportadong ari-arian;
-- mga pamamaraan ng exchange rate o quote;
-- token-balance caps, na tinatawag na **“Credit limit”** sa App;
-- Mga bayarin sa Pool at protocol;
-- mga kapangyarihan sa imbentaryo at pag-alis ng likididad; at
-- anumang hiwalay na pinondohan na garantiya, reserba, o support arrangement.
+- ang kasalukuyang may-ari ng `SwapPool`, proxy administrator, at mahahalagang dependency controller;
+- mga tinanggap na Voucher at ibang suportadong asset;
+- mga paraan ng rate ng palitan o quote;
+- mga cap sa balanse ng token na tinatawag na **“Credit limit”** sa App;
+- mga bayarin sa Pool at protocol;
+- imbentaryo at mga kapangyarihan sa pag-withdraw ng liquidity; at
+- anumang garantiya, reserba, o suportang hiwalay na pinondohan.
 
-Ang admission ay nangangahulugang pinapayagan ng naka-configure na mga tuntunin ng Pool ang isang Voucher. Hindi nito pinatutunayan ang fulfillment capacity, itinatakda ang cash value, lumilikha ng insurance, o pinagsasama ang dalawang Pool sa iisang pinamamahalaang entity.
+Ang pagtanggap sa Pool ay nangangahulugang pinapayagan ng naka-configure na mga patakaran nito ang Voucher. Hindi nito pinatutunayan ang kakayahan ng Tagapag-isyu, itinatakda ang halagang cash, nililikha ang insurance, o pinagsasama ang dalawang Pool sa iisang pinamamahalaang entidad.
 
-## 4. Nagbibigay ng imbentaryo ang mga kalahok
+### 4. Nagbibigay ng imbentaryo ang mga kalahok
 
-Ang Mobility Pool ay nagtataglay ng mga voucher sa mais na maaaring palitan ng mga transportasyon voucher. Ang Food-Security Pool ay nagtataglay ng mga voucher sa pagkain na maaaring palitan ng mga Voucher sa mais. Ang mga kalahok ay maaaring nagbigay ng imbentaryo na iyon sa ilalim ng iba't ibang nai-publish na kaayusan.
+Hawak ng Pool sa transportasyon ang mga Voucher sa mais na maaaring ipalit sa Voucher sa transportasyon. Hawak ng Pool para sa seguridad sa pagkain ang mga Voucher sa pagkain na maaaring ipalit sa Voucher sa mais. Maaaring magbigay ang iba't ibang kalahok ng imbentaryo sa ilalim ng magkakaibang inilathalang kaayusan.
 
-Ang isang deposito ay nagdaragdag ng magagamit na imbentaryo ng Pool, ngunit hindi ito awtomatikong lumilikha ng bahagi sa Pool, kahilingan sa pagbabayad, karapatan sa pag-atras, gantimpala, o kapangyarihan sa pamamahala. Ang anumang gayong karapatan ay dapat na nagmumula sa isang hiwalay na isiniwalat na kaayusan.
+Nadaragdagan ng deposito ang magagamit na imbentaryo ng Pool, ngunit hindi ito awtomatikong lumilikha ng bahagi sa Pool o karapatan sa pagbabayad, withdrawal, reward, o pamamahala. Kailangang manggaling ang gayong mga karapatan sa hiwalay na isiniwalat na kaayusan.
 
-## 5. Natuklasan at binabanggit ng App ang isang ruta
+### 5. Nakakahanap ang App ng ruta at nagbibigay ng quote
 
-Binubuksan ng Wallet ng paaralan ang view na **Kredito** at pinipili ang meal Voucher. Tinatantiya ng CLC Core ang isang posibleng path:
+Binubuksan ng Wallet ng paaralan ang view na **Kredito** at pinipili ang Voucher sa pagkain. Tinatantiya ng CLC Core ang posibleng daan:
 
 `transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher`
 
-Hindi pangako ng matagumpay na exchange ang discovery result na ito. Nakasalalay ang bawat hop sa kasalukuyang admission, Pool token-balance cap, available inventory, quote at fee configuration, sinusuportahang token behavior, at freshness ng service.
+Hindi pa pangakong magtatagumpay ang palitan ang resultang ito. Nakasalalay ang bawat hop sa kasalukuyang pagtanggap, mga cap ng Pool sa balanse ng token, magagamit na imbentaryo, configuration ng quote at bayarin, suportadong kilos ng token, at pagiging napapanahon ng datos ng serbisyo.
 
-Pinipili ng paaralan kung magkano ang gusto nitong kunin o gastusin. Binabasa ng CLC Core ang dalawang Pool sa iisang pinned block, gumagawa ng may-awtoridad at time-bounded na quote, at sini-simulate ang buong Wallet batch. Ipinapakita ng **Mga detalye ng ruta** ang dalawang palitan, tinantiyang halaga, at bayarin sa Pool at protocol sa bawat hop.
+Pinipili ng paaralan ang halagang nais nitong **Kunin** o **Gastusin**. Nagku-quote ang App para sa buong palitan. Ipinapakita ng **Mga detalye ng ruta** ang dalawang hop, mga halaga, at bayarin sa Pool at protocol sa bawat hakbang. Sinusuri ng paaralan ang minimum na matatanggap at pag-expire ng quote bago magpatuloy.
 
-## 6. Ang may-ari ay nagpapatupad ng naka-routed na palitan
+### 6. Isinasagawa ng Mayhawak ang routed exchange
 
-Matapos suriin ang minimum na matatanggap at ang deadline ng quote, pinipili ng paaralan ang **Kumpirmahin ang palitan** at pinipirmahan ang handang batch. Nagsusumite ang App ng isang same-chain na transaksyon na naglalaman ng mga approval at bounded swap call para sa bawat Pool.
+Pinipili ng paaralan ang **Kumpirmahin ang palitan** at pinapahintulutan ang buong ruta. Kapag nagtagumpay, ipinapakita ng resibo ang dalawang palitan sa Pool, mga halagang ipinagpalit, at mga bayarin.
 
-Kung mabigo ang alinmang call, babalik ang buong transaksyon; hindi mananatiling settled ang unang palitan sa Pool nang wala ang pangalawa. Kung magtagumpay, ipinapakita ng grouped receipt ang tracking ID, transaction hash, dalawang Pool hop, settled na halaga, at mga bayarin sa bawat hop.
+Kung mabigo ang isang hakbang, sabay-sabay na nababawi ang dalawang palitan sa Pool; hindi mananatiling settled ang una nang wala ang ikalawa. Para sa pagbuo at pagsasagawa ng transaksyon sa software, tingnan ang [sanggunian sa routing](https://software.cosmolocal.credit/contracts/routing) (Ingles).
 
-Hawak na ngayon ng paaralan ang mga meal Voucher. **Swap settlement** ang on-chain exchange. Ibinibigay nito sa paaralan ang nagresultang claim na inilalarawan sa terms ng meal Voucher; hindi nito pinatutunayang naibigay na ng kusina ang pagkain.
+Hawak na ngayon ng paaralan ang mga Voucher sa pagkain. Ang palitan sa blockchain ay **swap settlement**. Ibinibigay nito sa paaralan ang karapatang nakasaad sa mga tuntunin ng Voucher sa pagkain; hindi nito pinatutunayang nakapagbigay na ng pagkain ang kusina.
 
-## 7. Ipapakita ng may-ari ang Voucher
+### 7. Inihaharap ng Mayhawak ang Voucher
 
-Sa kasalukuyang App, binubuksan ng **“Tubusin”** ang ordinaryong flow na Ipadala na nakahanda na ang address ng may-ari ng token. Ang pagbabalik ng Voucher ay ebidensiya ng paghaharap nito sa tagapag-isyu; hindi nito pinatutunayang naibigay na ng kusina ang pagkain.
+Sa kasalukuyang App, binubuksan ng **“Tubusin”** ang karaniwang pagpapadala na nakalagay na ang address ng may-ari ng token. Ebidensiya ng paghaharap sa Tagapag-isyu ang pagpapadala pabalik ng Voucher; hindi ito, sa sarili nito, patunay na nagbigay na ng pagkain ang kusina.
 
-Sinusunod ng paaralan ang proseso ng pag-book o pakikipag-ugnay sa kusina. Sinusuri ng kusina ang presentasyon at ibinibigay ang ipinangakong pagkain sa ilalim ng inilathala nitong mga tuntunin.
+Sinusunod ng paaralan ang proseso ng kusina para sa booking o pakikipag-ugnayan. Tinitiyak ng kusina ang paghaharap at ibinibigay ang ipinangakong pagkain ayon sa inilathalang mga tuntunin.
 
-## 8. Itinatala ng issuer ang fulfillment at discharge
+### 8. Itinatala ng Tagapag-isyu ang pagtupad at discharge
 
-Pagkatapos ibigay ang pagkain, itinatala ng kusina ang fulfilled unit upang hindi ito maipresentang muli. Depende sa inilathalang proseso, maaaring kabilang dito ang pagtanggap, pagsunog, pagkansela, o ibang paraan ng pag-disable sa ibinalik na Voucher.
+Pagkatapos magbigay ng pagkain, itinatala ng kusina ang mga natupad nang yunit upang hindi maiharap nang dalawang beses. Depende sa inilathalang proseso, maaaring kabilang dito ang pagtanggap, pag-burn, pagkansela, o ibang paraan ng pagpapahinto sa paggamit ng ibinalik na Voucher.
 
-Kung hindi tuparin ng kusina ang pangako nito, maaaring gamitin ng holder ang inilathalang complaint o remedy process ng issuer at anumang karapatang available sa ilalim ng naaangkop na batas. Hindi nagiging redeemer ang GEF o alinmang Pool Steward dahil lamang nahanap ng App ang route o pinahintulutan ng mga Pool ang mga swap nito.
+Kung hindi tumupad ang kusina, ginagamit ng Mayhawak ang inilathalang proseso ng reklamo o remedyo ng Tagapag-isyu at anumang karapatan sa ilalim ng naaangkop na batas. Hindi nagiging tagatubos ang GEF o alinmang Tagapangasiwa dahil lamang nahanap ng App ang ruta o nagbigay-daan ang mga Pool sa palitan.
 
-Iba ang pagpili ng **“I-retire ang Voucher”** sa App: itinatago nito ang catalog listing habang nananatili ang mga balanse at kasaysayan, at maaari itong ibalik ng administrator. Hindi ito pagtupad, discharge, pagsunog, o pagkansela.
+Iba ang **“Humiling ng pag-retire”**: hinihiling ng kasalukuyang may-ari sa administrator na i-retire ang Voucher. Aktibo pa rin ang Voucher habang nakabinbin ang hiling, na maaaring aprubahan, tanggihan, o kanselahin. Inaalis ito ng aprubadong pag-retire sa aktibong paggamit sa katalogo ngunit hindi binubura ang contract, mga balanse, kasaysayan, o hindi pa natutupad na obligasyon. Hindi ito pagtupad, discharge, pag-burn, o pagkansela.
 
 ## Buod ng mga pananagutan
 
-- **Issuer:** inilalarawan at tinutupad ang Voucher at itinatala ang discharge.
-- **Taong naglathala ng Want:** inilalarawan ang pangangailangan nang hindi awtomatikong tumatanggap ng Voucher o route.
-- **Mga Pool Steward:** malayang naglalathala at namamahala sa mga tuntunin, rate, fee, limit, control, at anumang tahasang pinondohang garantiya ng bawat Pool.
-- **Holder:** sinusuri ang issuer, terms ng Voucher, mga Pool, route quote, fee, pahintulot sa Wallet, at naaangkop na batas.
-- **CLC App at CLC Core:** naghahanap at nagko-quote ng mga posibleng ruta, naghahanda at nagre-relay ng pinirmahang batch, at pinagsasama ang teknikal na settlement record. Hindi nila pinatutunayan ang pagtupad ng tagapag-isyu.
-- **Mga technical administrator:** ginagamit lamang ang contract, dependency, upgrade, catalog, routing-service, o fee power na itinalaga sa kanila.
-- **GEF:** nagpapatakbo ng CLC App at sumusuportang imprastraktura, alinsunod sa [Mga Tuntunin ng Serbisyo](/fil/governance/terms); hindi nito awtomatikong inaako ang ibang mga tungkulin.
+- **Tagapag-isyu:** inilalarawan at tinutupad ang Voucher at itinatala ang discharge.
+- **Naglalathala ng Pangangailangan:** inilalarawan ang kailangan nang hindi awtomatikong tumatanggap ng Voucher o ruta.
+- **Mga Tagapangasiwa ng Pool:** magkakahiwalay na naglalathala at nangangasiwa sa mga patakaran, rate, bayarin, limitasyon, kontrol, at anumang hayagang inaakong garantiya ng bawat Pool.
+- **Mayhawak:** sinusuri ang Tagapag-isyu, mga tuntunin ng Voucher, mga Pool, quote ng ruta, bayarin, awtorisasyon ng Wallet, at naaangkop na batas.
+- **CLC App at CLC Core:** naghahanap at nagku-quote ng posibleng ruta, naghahanda at nagre-relay ng pinirmahang batch, at pinagsasama ang mga teknikal na tala ng settlement. Hindi nila pinatutunayan ang pagtupad ng Tagapag-isyu.
+- **Mga teknikal na controller:** ginagamit lamang ang itinalagang kapangyarihan sa contract, dependency, upgrade, katalogo, routing service, o bayarin.
+- **GEF:** nagpapatakbo ng CLC App at sumusuportang imprastraktura, alinsunod sa [Mga Tuntunin ng Serbisyo](/fil/governance/terms); hindi nito awtomatikong inaako ang ibang tungkulin.
 
-## Kapag ang isang ruta ay hindi magagamit
+## Kapag walang available na ruta
 
-Ang App ay maaaring hindi makahanap ng ruta, o ang isang quote ay maaaring mabigo, kapag ang imbentaryo ay hindi sapat, isang Pool cap ay lalampas, isang Voucher ay hindi pinapayagan, isang token o quoter ay hindi sinusuportahan, ang wallet ay kulang sa sapat na input, ang data ng ruta ay wala, o nabigo ang pangwakas na batch simulation. Ang isang quote ay maaari ring mag-expire o maging invalid bago ang pagsusumite habang nagbabago ang estado ng Pool.
+Maaaring walang mahanap na ruta ang App o mabigo ang quote kapag kulang ang imbentaryo, lalampas sa cap ng Pool, hindi tinatanggap ang Voucher, hindi suportado ang token o quoter, kulang ang input sa Wallet, luma ang datos ng ruta, o nabigo ang huling simulation ng batch. Maaari ring mag-expire o mawalan ng bisa ang quote bago isumite dahil nagbabago ang kalagayan ng Pool.
 
-Hindi binabago ng resultang iyon ang Want, Offering, o umiiral na obligasyon ng issuer sa Voucher. Maaaring i-refresh ng kalahok ang route, pumili ng mas maliit na amount, gumamit ng ibang kwalipikadong input Voucher, o maghintay hanggang magbago ang kondisyon ng Pool.
+Hindi binabago ng resultang iyon ang Pangangailangan, Offering, o mga umiiral na obligasyon ng Tagapag-isyu sa Voucher. Maaaring i-refresh ng kalahok ang ruta, pumili ng mas maliit na halaga, gumamit ng ibang kwalipikadong input Voucher, o maghintay na magbago ang kalagayan ng Pool.
 
-## Mga posibleng kaayusan sa credit sa hinaharap
+## Mga kaayusan sa kredito sa hinaharap
 
-Maaaring hiwalay na mag-alok ang isang Pool o ibang responsableng partido ng transaksyon bilang advance na kailangang bayaran, secured transaction, o ibang credit product. Mangangailangan iyon ng hiwalay na supplemental at transaction terms na tumutukoy sa mga partido, halaga, due date, bayarin o interes, collateral, assignment, default, remedyo, at ebidensiya ng discharge.
+Maaaring hiwalay na mag-alok ang isang Pool o ibang responsableng partido ng transaksyon bilang paunang pondong kailangang ibalik, secured transaction, o ibang credit product sa hinaharap. Kailangan nito ng hiwalay na inilahad na supplemental at transaction terms na tumutukoy sa mga partido, halaga, takdang petsa, bayarin o interes, pagtrato sa collateral, pagtatalaga ng mga karapatan, default, remedyo, at ebidensiya ng discharge.
 
-Hindi kusang lumilikha ng mga obligasyong iyon ang ordinaryong send, Pool deposit, direct o routed Pool swap, Voucher presentment, fulfillment, o discharge.
+Hindi nililikha ng karaniwang pagpapadala, deposito sa Pool, direkta o routed na palitan sa Pool, paghaharap ng Voucher, pagtupad, o discharge ang mga obligasyong iyon sa sarili nito.

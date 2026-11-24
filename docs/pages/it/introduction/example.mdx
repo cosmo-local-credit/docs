@@ -81,13 +81,13 @@ Il Portafoglio della scuola apre la vista **Credito** e seleziona il Buono per i
 
 Questo risultato della scoperta non è ancora una promessa che lo scambio avrà successo. Ogni passaggio dipende dall'ammissione attuale, dai limiti al saldo di token del Fondo, dall'inventario disponibile, dalla configurazione delle quotazioni e delle commissioni, dal comportamento supportato dei token e dall'aggiornamento del servizio.
 
-La scuola sceglie quanto desidera **Ottenga** o **Spenda**. CLC Core legge quindi entrambi i Fondi in un unico blocco fissato, produce una quotazione autorevole con scadenza e simula l'intero lotto del Portafoglio. I **Dettagli del percorso** dell'app mostrano entrambi gli scambi, gli importi stimati e le commissioni del Fondo e del protocollo per ogni passaggio.
+La scuola sceglie quanto desidera ricevere con **Ottenga** o usare con **Spenda**. L'App presenta una quotazione per l'intero scambio. I **Dettagli del percorso** mostrano entrambi gli scambi, gli importi e le commissioni del Fondo e del protocollo per ogni passaggio. La scuola esamina il minimo ricevuto e la scadenza della quotazione prima di procedere.
 
 ### 6. Il Titolare esegue lo scambio instradato
 
-Dopo aver esaminato l'importo minimo ricevuto e la scadenza della quotazione, la scuola seleziona **Confermi lo scambio** e firma il lotto preparato. L'app invia un'unica transazione sulla stessa catena che contiene le approvazioni e la chiamata di scambio vincolata per ciascun Fondo.
+La scuola seleziona **Confermi lo scambio** e autorizza l'intero percorso. Se riesce, la ricevuta mostra i due scambi tramite Fondo, gli importi scambiati e le commissioni.
 
-Se una chiamata fallisce, l'intera transazione viene annullata; il primo scambio tramite Fondo non resta regolato senza il secondo. Se ha successo, la ricevuta raggruppata della scuola mostra un identificativo di tracciamento, un hash della transazione, entrambi i passaggi tra Fondi, gli importi regolati e le commissioni per ogni passaggio.
+Se un passaggio fallisce, entrambi gli scambi tramite Fondo vengono annullati insieme; il primo non rimane regolato senza il secondo. Per sapere come il software costruisce ed esegue la transazione, consulti il [riferimento sull'instradamento](https://software.cosmolocal.credit/contracts/routing) (in inglese).
 
 La scuola ora detiene Buoni per i pasti. Lo scambio on-chain è il **regolamento dello scambio**. Attribuisce alla scuola il credito descritto nelle condizioni del Buono per i pasti; non dimostra che la cucina abbia già fornito il cibo.
 

@@ -25,7 +25,7 @@ La riparazione all'interno di un Fondo rimane affidata alla sua amministrazione 
 
 ## Operazioni a livello di rete
 
-Le applicazioni di produzione CLC e CLC Core gestiscono la scoperta condivisa, la quotazione dei percorsi, la preparazione del portafoglio-batch, il coordinamento delle relè, l'indicizzazione, la riconciliazione e le ricevute di scambio raggruppate. Gli incidenti a livello di rete possono includere dati di rotta obsoleti o non disponibili, errori di riconciliazione, dipendenze non supportate, guasti di relè e problemi di interoperabilità tra Fondo.
+La CLC App e i servizi di supporto aiutano i partecipanti a trovare Buoni, organizzare scambi e verificarne l'esito. Gli operatori sono responsabili dei propri servizi e di spiegare i malfunzionamenti. La [documentazione definitiva del software](https://software.cosmolocal.credit/core-api/) descrive i sistemi di supporto e il loro funzionamento, in inglese.
 
 Un operatore può mettere in pausa o correggere il proprio servizio, aggiornare lo stato indicizzato, escludere i percorsi non supportati, spiegare un guasto e coordinarsi con gli Steward interessati. Tale ruolo operativo non conferisce l'autorizzazione a modificare le regole di un Fondo indipendente, spostare il suo inventario, rinunciare all'impegno di un emittente o risolvere una controversia in materia di esecuzione locale.
 
@@ -39,7 +39,7 @@ La rettifica o la rimozione di una quotazione non revoca un regolamento on-chain
 
 ## Evidenza del percorso e responsabilità
 
-Uno scambio routed preserva i confini tra i suoi hop. Ogni Fondo applica i propri diritti di ammissione, quotazione, limite massimo del saldo, commissioni, inventario e poteri di controllore. CLC Core raggruppa il risultato tecnico in un'unica ricevuta, ma tale ricevuta non fonde la governance del Fondo né trasferisce la responsabilità di un emittente all'operatore di rotta.
+Uno scambio instradato mantiene distinti i Fondi che lo compongono. Ogni Fondo applica le proprie regole e i propri controlli. Una ricevuta congiunta non unisce la governance dei Fondi né trasferisce la responsabilità di un Emittente all'operatore del percorso. Per i registri tecnici delle transazioni, consulti il [riferimento sugli scambi del software](https://software.cosmolocal.credit/contracts/swaps).
 
 La ricevuta può dimostrare la selezione del percorso, l'autorizzazione, lo stato della transazione, gli importi di regolamento per salto e le commissioni. La presentazione nel mondo reale, l'adempimento, la soddisfazione e lo scarico richiedono prove separate e rimangono con l'emittente identificato e il processo applicabile.
 

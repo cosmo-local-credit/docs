@@ -1,108 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # Arquitetura de rede de protocolo
 
-Uma implementação compatível com o CPP pode ligar muitos vales e Fundos através de registos opcionais, índices, módulos de cotação e descoberta de rotas ao nível da aplicação. Cada Fundo permanece um cofre separado, com liquidez, proprietário, administrador de proxy, configuração e dependências próprios.
+Vários Fundos governados de forma independente podem ligar o Vale que tem a um que pretende obter. Cada Fundo fornece uma etapa da troca, segundo as suas próprias regras e o inventário disponível.
 
-A Grassroots Economics Foundation gere a aplicação pública em [cosmolocal.credit](https://cosmolocal.credit). Outras interfaces e implementações podem utilizar o mesmo protocolo público. A gestão da aplicação não torna automaticamente a GEF proprietária, emissora, gestora, destinatária de comissões ou garante de cada contrato apresentado abaixo.
-
-Consulte [Conceitos e vocabulário](/pt/introduction/concepts) para compreender a separação entre funções responsáveis e poderes técnicos.
-
+A [referência de encaminhamento do software CLC](https://software.cosmolocal.credit/contracts/routing) é a fonte definitiva sobre descoberta de rotas, elegibilidade, execução e interfaces dos serviços. A documentação do software está atualmente em inglês. Esta página explica o percurso e as responsabilidades do participante.
 
 ## Descoberta e execução da rota de produção
 
-<MermaidDiagram
-  label="Arquitetura de roteamento de produção CLC App e Core"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["Participante"] --> App["CLC App<br/>Crédito · Obter · Gastar"]
-    App -->|Vales acessíveis e caminhos candidatos| Core["Serviço de encaminhamento CLC Core"]
-    Catalog["Catálogos, registos,<br/>eventos de cadeia indexados"] --> Core
-    Chain["Leitura da cadeia num bloco fixado"] -->|Estado do Fundo, saldos, comissões,<br/>limites e dados de cotação| Core
-    Reconcile["Indexação e reconciliação"] --> Catalog
+Na vista **Crédito** da aplicação, escolha o Vale que pretende **Obter** ou aquele que pretende **Gastar**. Por exemplo, uma rota pode trocar um Vale de transporte por um Vale de alimentos através de dois Fundos diferentes.
 
-    Core -->|cotação autorizada,<br/>limites e chamadas preparadas| App
-    Core -->|simulação de lote completo| Chain
-    App -->|revisão e assinatura| Wallet["Compatível com a aplicação<br/>Carteira EOA / Calibur"]
-    Wallet -->|lote assinado| Relayer["Relê"]
-    Relayer -->|uma transação na mesma cadeia<br/>revertOnFailure = true| Batch["Lote Calibur<br/>autorizar 0 · autorizar montante<br/>levantamento limitado em cada passo"]
+Encontrar uma ligação não garante uma troca. Os Vales suportados, os limites dos Fundos, o inventário, as comissões, a compatibilidade da Carteira e a disponibilidade do serviço têm de permitir o montante pedido.
 
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>(quando necessário)"]
-    PoolA --> Events["Eventos de liquidação"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["Recibo agrupado da troca encaminhada<br/>estado · hash da transação · passos · montantes · comissões"]
-    Receipt --> App
+### Cotação definitiva<span className="legacy-heading-anchor" id="citação-autorizada" />
 
-    SolidityRouter["Protocol v1.1.0 SwapRouter Solidity<br/>Contrato reutilizável apenas para cotações"] -. lê cotações; não executa .-> PoolA
-    SolidityRouter -. lê cotações; não executa .-> PoolB`}
-/>
+Antes de confirmar, verifique os **Detalhes da rota**: o que paga e recebe, cada Fundo participante, as comissões, o mínimo recebido e o prazo da cotação. Uma estimativa ajuda a explorar; a cotação é a proposta que autoriza. Atualize-a se o prazo terminar ou as condições dos Fundos mudarem.
 
-Um vale partilhado cria um **caminho possível no grafo**, não uma rota garantida. O serviço CLC Core em produção mantém um grafo reconciliado com informações dos Fundos, registos, catálogos, saldos, comissões e eventos da cadeia. Também verifica as posições relevantes da carteira da sessão. A implementação pública procura atualmente caminhos com até três trocas de Fundo.
-
-O encaminhamento de produção utiliza deliberadamente um perfil de elegibilidade mais restrito do que a troca direta num Fundo. Apenas são encaminhados Fundos verificados com preços relativos e tokens cujas transferências movem exatamente o montante indicado: Vales `GiftableToken` e tokens ERC-20 externos e simples expressamente listados na configuração `router.plain_erc20` da implementação. Por conseguinte, um token pode ser utilizado numa troca direta de Fundo sem ser elegível para o encaminhamento ao nível da aplicação.
-
-A descoberta no grafo é rápida, mas é uma estimativa baseada no bloco indexado. Um resultado pode ser assinalado como desatualizado, e uma ligação não prova que a quantidade pretendida possa atravessá-la. O filtro **Crédito** da CLC App utiliza esse conjunto de vales acessíveis no Mercado e nos ecrãs de descoberta relacionados.
-
-### Citação autorizada
-
-Depois de um participante selecionar uma rota e um montante, o CLC Core lê todos os Fundos relevantes num mesmo bloco fixado e reproduz a aritmética suportada por `SwapPool`. A cotação identifica cada passo, entrada e saída, comissão do Fundo, comissão do protocolo, saída mínima, destinatário final e prazo. A cotação é válida durante cinco minutos.
-
-O serviço constrói e simula então o lote Calibur completo. Comportamentos de token ou cotadores não suportados, saldo insuficiente da carteira, falhas de admissão, limites de saldo de tokens do Fundo, liquidez insuficiente, domínios de comissões inválidos, limites de gás e outras reversões podem impedir a apresentação de uma cotação.
-
-Descobrir e citar são provas diferentes. A descoberta diz que um caminho pode existir; a cotação de bloco fixado é a proposta de transação autorizada. Mesmo essa proposta pode expirar ou tornar-se inválida se houver alterações relevantes antes da sua apresentação.
+A [referência de encaminhamento](https://software.cosmolocal.credit/contracts/routing) e a [configuração do serviço](https://software.cosmolocal.credit/core-api/configuration#credit-router) mantêm os critérios técnicos de elegibilidade e os parâmetros das cotações.
 
 ### Lote atómico assinado
 
-O utilizador revê os **Detalhes da rota** e assina o lote preparado para a carteira. Em cada passo, o lote chama `approve(pool, 0)`, `approve(pool, amountIn)` e a sobrecarga limitada de `SwapPool.withdraw`. Cada levantamento limitado impõe uma saída mínima e um prazo. Os vales intermédios regressam à mesma carteira antes de o Fundo seguinte gastar o montante cotado; qualquer saldo intermédio permanece nessa carteira.
+Analise e autorize a troca completa. A rota atual é concluída na totalidade ou as suas trocas de Fundos são revertidas em conjunto se alguma etapa falhar. Isto evita que apenas parte da rota seja concluída; não garante uma entrega posterior de bens ou serviços.
 
-O relayer envia o lote como uma transação na mesma cadeia com `revertOnFailure` definido como `true`. Se alguma autorização ou troca de Fundo falhar, todas as chamadas da rota, incluindo as anteriores e as respetivas alterações de autorização, são revertidas em conjunto. Esta é a atomicidade atual de uma transação na mesma cadeia. Não é atomicidade entre cadeias, um HTLC, depósito em garantia, compensação por lotes nem reequilíbrio automático de Fundos.
-
-O fluxo atual de rotas suporta carteiras EOA/Calibur compatíveis com a CLC App. Uma Safe ou outra carteira de contrato é rejeitada pelo fluxo atual de cotação.
+Para a construção e a execução da transação, consulte [Executar uma rota](https://software.cosmolocal.credit/contracts/routing#execute-a-route).
 
 ### `SwapRouter` Solidity e comissões
 
-O `SwapRouter` Solidity do Protocol v1.1.0 continua a servir apenas para cotações. Pode chamar funções de cotação dos Fundos num caminho fornecido, mas não detém fundos, não autoriza tokens e não executa trocas. O fluxo de produção da CLC App e do CLC Core descrito acima é um coordenador separado, ao nível da aplicação, que chama diretamente cada `SwapPool` através do lote assinado pela carteira do participante.
+O contrato Solidity `SwapRouter`, que apenas calcula cotações, e o percurso de troca da aplicação são componentes de software diferentes. A sua relação é explicada em [Encaminhamento](https://software.cosmolocal.credit/contracts/routing).
 
-As comissões do Fundo permanecem no Fundo relevante para cobrança posterior. Qualquer comissão do protocolo é adicional e é transferida diretamente desse Fundo para o destinatário do protocolo configurado durante a troca.
-
-A aplicação atual não acrescenta uma comissão separada pelo serviço de encaminhamento. Contudo, uma troca encaminhada pode incluir várias comissões de Fundo e de protocolo, porque cada passo é uma liquidação distinta de `SwapPool`.
+Para os participantes, o essencial é verificar a cotação completa. Cada Fundo pode cobrar comissões. Uma rota partilhada não reúne os Fundos nem torna um Gestor responsável por outro Fundo.
 
 ### Estado do recibo e falhas
 
-O CLC Core agrupa a rota sob um identificador de acompanhamento. A aplicação mostra **Troca**, **Trocado** ou **Falha nas trocas**, com o estado técnico **Pendente**, **Confirmado** ou **Revertido**. O recibo regista o hash da transação, a profundidade da rota, cada par de Fundo e token, os montantes cotados e liquidados, as comissões do Fundo e do protocolo em cada passo, o mínimo recebido e qualquer saldo intermédio deixado na carteira.
+Após o envio, verifique se a troca está pendente, confirmada ou falhou e guarde o recibo. Se não houver uma rota disponível, tente atualizar, reduzir o montante ou escolher outro Vale de entrada suportado.
 
-Uma rota pode falhar antes da assinatura por não existir um caminho ou uma cotação elegível, durante a simulação porque o lote seria revertido, durante a retransmissão porque a transação assinada não pode ser enviada, ou na cadeia porque o estado mudou ou outra condição de execução falhou. Uma rota falhada ou indisponível não altera as regras de um Fundo, não extingue um vale e não prova o cumprimento pelo emissor.
+Uma troca falhada não altera as promessas existentes do Emissor. Uma troca bem-sucedida regista alterações de saldos; o cumprimento e a quitação continuam sujeitos às condições do Emissor. Consulte os [exemplos práticos](/pt/introduction/example).
 
+Os programadores podem encontrar as interfaces de transação e acompanhamento na [referência da API do CLC Core](https://software.cosmolocal.credit/core-api/reference).
 
 ## Internos do Fundo
 
-<MermaidDiagram
-  scrollMessage="Desloque-se horizontalmente para ver o diagrama completo."
-  errorMessage="Não foi possível apresentar o diagrama"
-  label="Dependências e poderes administrativos de um Fundo de Compromissos"
-  minWidth={820}
-  chart={`flowchart TB
-    Steward["Gestor do Fundo<br/>responsável"] -. publica regras,<br/>divulgações e governação .-> Pool["SwapPool<br/>cofre e liquidação"]
-    Owner["Endereço proprietário<br/>do SwapPool"] -->|configurar, selar, cobrar, levantar| Pool
-    ProxyAdmin["ERC-1967<br/>administrador proxy"] -->|implementação de atualizações| Pool
-    Dependencies["Dependências opcionais<br/>registry · limiter · quoter<br/>Política de taxas · Controlador de taxas de protocolo<br/>Cada um com a sua própria governação"] -. settlement inputs .-> Pool
-    Seal["Cinco espaços de endereço selados<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. locks addresses .-> Pool
+Antes de depender de um Fundo, identifique o seu Gestor, o proprietário do contrato, as autoridades de atualização, os destinatários das comissões e quem pode alterar parâmetros importantes. O controlador técnico e o Gestor responsável podem ser partes diferentes.
 
-    Wallet["Carteira do utilizador"] -->|Entrada de depósito ou troca| Pool
-    Pool -->|Saída líquida da troca| Wallet
-    Pool -->|Taxas do Fundo cobradas| FeeAddress["Configuração<br/>endereço de taxa"]
-    Pool -->|Taxa de protocolo na mesma troca| ProtocolRecipient["Protocolo<br/>destinatário"]
-    Pool -->|withdrawLiquidity| Destination["Destinatário<br/>escolhido pelo proprietário"]`}
-/>
-
-O registo, o limitador, o quotador, a política de taxas e o controlador de taxas de protocolo são opcionais. Sem registo, qualquer token passa a verificação de admissão; Sem limite, os depósitos não têm limite; sem cotador, o Fundo utiliza a paridade de unidade bruta; e sem módulos de taxas, as taxas correspondentes são zero.
-
-Os cinco espaços selados são `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` e `tokenLimiter`. Um selo impede que o atual proprietário do Fundo substitua esse endereço através do seu setter, mas não congela o estado interno da dependência. O endereço `protocolFeeController` e o modo `feesDecoupled` não são abrangidos por esses cinco bits de vedação. A capacidade do administrador proxy para atualizar o Fundo também é separada do selamento.
-
-O titular do contrato pode retirar a liquidez disponível do Fundo para um endereço escolhido. No modo de tarifas descopladas, as tarifas acumuladas são reservadas a partir desse caminho; O poder de retirar a liquidez restante ainda existe. Os participantes devem inspecionar o proprietário, o administrador por procuração, os controladores de dependências, o estado do selo, os destinatários das taxas e as regras publicadas do Fundo antes de dependerem de um Fundo.
-
-Para o desenho conceitual por trás destes contratos—incluindo curadoria, avaliação, limitação, troca e governação—veja o [Livro Branco](/pt/white-paper).
+A referência do software mantém os [mecanismos dos Fundos](https://software.cosmolocal.credit/contracts/pools) e a [verificação das implementações](https://software.cosmolocal.credit/contracts/deployments). Esta documentação explica os [papéis e o vocabulário](/pt/introduction/concepts), as [responsabilidades de governação](/pt/governance/mechanics) e o [modelo geral do CPP](/pt/white-paper).

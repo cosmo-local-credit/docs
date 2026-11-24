@@ -97,10 +97,10 @@ Gebruik **swapafwikkeling** voor de overdrachten en kostenboekhouding op de bloc
 | **CLC App** | De progressieve webapp op [cosmolocal.credit](https://cosmolocal.credit). GEF beheert deze interface en de ondersteunende diensten. |
 | **CLC Core** | De ondersteunende dienst voor catalogi, geïndexeerde blockchainstatus, routeontdekking, gezaghebbende offertes, relaycoördinatie en ontvangstbewijzen van gerouteerde uitwisselingen. CLC Core is geen smart contract of Fondsbeheerder. |
 | **Commitment Pooling Protocol (CPP)** | Het herbruikbare model voor selectie, waardering, beperking, uitwisseling en verantwoordelijk bestuur. |
-| **Protocol v1.1.0** | De geverifieerde openbare smartcontractrelease die in de [Protocolreferentie](/nl/protocol/overview) wordt beschreven. |
+| **Protocol v1.1.0** | De openbare smartcontractrelease die in de definitieve [softwarereferentie](https://software.cosmolocal.credit/contracts/) wordt beschreven (Engels). |
 | **`SwapPool`** | Het huidige Protocolcontract dat tokenvoorraad aanhoudt en rechtstreekse swaps uitvoert. Het is één technisch onderdeel van een Commitmentfonds. |
 | **Solidity-`SwapRouter`** | Het Protocol v1.1.0-contract dat een voorgesteld pad door meerdere Fondsen berekent. Het bewaart geen activa en voert de route niet uit. |
-| **Routeringsworkflow van de App** | Het huidige proces van de CLC App en CLC Core dat paden op dezelfde blockchain ontdekt, offertes berekent en simuleert, een ondertekende Portemonneebatch voorbereidt en doorgeeft, en de resulterende Fondsafwikkelingen in één ontvangstbewijs groepeert. |
+| **Routeringsworkflow van de App** | De App en ondersteunende diensten zoeken mogelijke paden door Fondsen, berekenen een offerte voor de uitwisseling, vragen toestemming van de deelnemer en melden het resultaat. |
 | **Voorgestelde CLC-bestuurstoken** | Een toekomstig bestuursontwerp in de White Paper. Dit is geen huidig activum van de App of Protocol v1.1.0. |
 | **Voorgesteld CLC Network Pool** | Een toekomstig ontwerp voor verrekening en coördinatie op netwerkniveau. Dit is niet hetzelfde als een huidige `SwapPool`. |
 
@@ -122,11 +122,11 @@ Protocol v1.1.0 kan voor iedere Fondsswap **Fondskosten** en aanvullende **proto
 
 ## Routes en liquiditeit
 
-Een **route** is een geordend pad door een of meer onafhankelijk bestuurde Fondsen. De **routediepte** is het aantal Fondsswaps in dat pad. De huidige openbare implementatie zoekt maximaal drie hops.
+Een **route** is een geordend pad door een of meer onafhankelijk bestuurde Fondsen. De **routediepte** is het aantal Fondsswaps in dat pad.
 
-Productierouting gebruikt geverifieerde Fondsen met relatieve prijzen en tokens waarvan overdrachten precies het vermelde bedrag verplaatsen: `GiftableToken`-Waardebonnen en uitdrukkelijk toegelaten gewone ERC-20-tokens. Rechtstreekse Fondsswaps kunnen een ruimere configuratie ondersteunen; aanwezigheid in een Fonds maakt een token niet automatisch geschikt voor App-routering.
+Niet iedere Waardebon, ieder Fonds of iedere Portemonnee is geschikt voor routing. Een vermelding in een Fonds maakt een Waardebon niet automatisch beschikbaar via iedere route. De [softwarereferentie voor routing](https://software.cosmolocal.credit/contracts/routing) houdt de huidige geschiktheidsregels en configuratie bij in het Engels.
 
-**Beschikbare liquiditeit** is geschikte uitvoervoorraad die een Fonds kan leveren volgens de huidige toelating, saldolimiet, offerte, kosten en reserveringsstatus. Een verbinding in de grafiek bewijst niet dat een bruikbare hoeveelheid kan passeren. Routeontdekking kan verouderen; de latere offerte op basis van één vastgezet blok blijft alleen gezaghebbend tot de deadline of totdat relevante status verandert.
+**Beschikbare liquiditeit** is de voorraad die een Fonds kan leveren volgens zijn huidige regels, limieten en kosten. Een verbinding tussen Fondsen bewijst niet dat het gewenste bedrag beschikbaar is. Controleer de definitieve offerte; die kan verlopen of ongeldig worden als Fondsomstandigheden veranderen.
 
 De huidige route-uitvoering vindt plaats op één blockchain en wordt door de Portemonnee gestart. Ze voegt het bestuur niet samen, herbalanceert Fondsvoorraad niet automatisch, verrekent geen verplichtingen tussen veel partijen en bewijst geen nakoming. Cross-chainrouting via HTLC of escrow, automatische herbalancering en batchnetting blijven voorgesteld of implementatieafhankelijk.
 
@@ -134,7 +134,7 @@ De huidige route-uitvoering vindt plaats op één blockchain en wordt door de Po
 
 Selectie, opname in een register, een limiet, een reserve, zichtbaarheid in de App, een Beoordeling of een blockchaintransactie bewijst op zichzelf geen goedkeuring, capaciteit van de Uitgever, nakoming, garantie of verzekering.
 
-Iedere bescherming moet de verplichte partij, gedekte gebeurtenis, financiering, bovengrens, uitsluitingen, duur, bewijseisen en klachtenprocedure vermelden. Blockchainrecords kunnen adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Voor prestaties van Uitgevers, tevredenheid, bestuursoverleg en maatschappelijke impact is afzonderlijk bewijs nodig.
+Iedere bescherming moet vermelden wie de verplichting op zich neemt, welke gebeurtenis gedekt is, de financiering, bovengrens, uitsluitingen, duur, bewijseisen en de procedure om aanspraak te maken op die bescherming. Blockchainrecords kunnen adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Voor prestaties van Uitgevers, tevredenheid, bestuursoverleg en maatschappelijke impact is afzonderlijk bewijs nodig.
 
 ## Statuswoorden
 
@@ -143,6 +143,6 @@ Iedere bescherming moet de verplichte partij, gedekte gebeurtenis, financiering,
 - **Historisch:** bewijs of functionaliteit van de eerdere dienst Sarafu Network.
 - **Voorgesteld:** een ontwerp- of roadmapmechanisme dat niet als geïmplementeerd wordt voorgesteld.
 
-De [gids Aan de slag](/nl/introduction/getting-started) past deze begrippen toe op de huidige App. De [Protocolreferentie](/nl/protocol/overview) beschrijft geverifieerde contracten, terwijl de [White Paper](/nl/white-paper) het bredere ontwerp en de voorstellen presenteert.
+De [gids Aan de slag](/nl/introduction/getting-started) past deze begrippen toe op de huidige App. Het [Protocoloverzicht](/nl/protocol/overview) verbindt deze begrippen met de definitieve [softwaredocumentatie](https://software.cosmolocal.credit/), terwijl de [White Paper](/nl/white-paper) het bredere ontwerp en de voorstellen presenteert.
 
 Bekijk voor een speelse kennismaking met verbintenissen, afwikkeling, hulpbronstromen, uitwisseling en pooling de [educatieve spellen van Grassroots Economics](https://grassrootseconomics.org/games/). Deze spellen zijn aanvullend lesmateriaal en geen definities van het huidige gedrag van de App of het Protocol.

@@ -81,9 +81,9 @@ In der App-Ansicht **Kredit** finden Sie außerdem Gutscheine, die über mehrere
 3. den Mindestbetrag, den Sie erhalten, und den Ablaufzeitpunkt des Kursangebots; und
 4. den vorbereiteten Wallet-Batch, bevor Sie **Umtausch bestätigen** wählen.
 
-Das produktive Routing ist absichtlich enger begrenzt als der direkte Fonds-Tausch. Es verwendet verifizierte Fonds mit relativer Bewertung und Tokens, deren Übertragungen genau den angegebenen Betrag bewegen: `GiftableToken`-Gutscheine und ausdrücklich zugelassene einfache ERC-20-Tokens. Die öffentliche Bereitstellung sucht Routen mit bis zu drei Fonds-Tauschen und unterstützt kompatible EOA-/Calibur-Geldbörsen, nicht aber Safes oder andere Contract Wallets.
+Nicht jeder Gutschein, Fonds oder jede Geldbörse unterstützt den Tausch über Routen. Die App prüft, ob für Ihre Auswahl ein Tausch verfügbar ist. Die [Software-Routing-Referenz](https://software.cosmolocal.credit/contracts/routing) enthält die aktuellen Zulassungsregeln und technischen Anforderungen auf Englisch.
 
-Die Routenerkennung ist eine Schätzung. Vor der Signatur liest CLC Core die ausgewählten Fonds in einem festgelegten Block aus, berechnet ein zeitlich begrenztes Kursangebot, wendet Mindestbetrags- und Fristgrenzen an und simuliert den vollständigen Batch. Wenn ein Aufruf fehlschlägt, wird die gesamte Transaktion innerhalb derselben Blockchain rückgängig gemacht. Der Beleg fasst die abgewickelten Beträge der Route sowie die Fonds- und Protokollgebühren je Schritt zusammen.
+Die Routenerkennung ist eine Schätzung. Prüfen Sie vor der Signatur das endgültige Kursangebot, einschließlich Mindestbetrag und Ablaufzeitpunkt. Der aktuelle Tausch über eine Route gelingt vollständig oder seine Fonds-Tausche werden gemeinsam rückgängig gemacht. Prüfen Sie nach der Übermittlung im Beleg das Ergebnis, die getauschten Beträge und die Gebühren.
 
 ### 7. Einen Gutschein bei seinem Herausgeber nutzen
 
@@ -99,7 +99,7 @@ Informationen zu Gutscheinen, Fonds, Angeboten, Gesuchen, Katalogen, Beiträgen 
 - prüfen Sie, welche Informationen im abgemeldeten und angemeldeten Zustand sichtbar sind;
 - verwenden Sie Kontaktdaten, die für die vorgesehene Zielgruppe geeignet sind;
 - kopieren Sie keine privaten Profilangaben in eine öffentliche Ressource, sofern Sie diese nicht veröffentlichen möchten; und
-- lesen Sie im Datenschutzhinweis den Abschnitt [„Was wird öffentlich?“](/de/governance/privacy#what-becomes-public).
+- lesen Sie im Datenschutzhinweis den Abschnitt [„Was wird öffentlich?“](/de/governance/privacy#4-was-wird-öffentlich).
 
 ## Aktuelle Aktionen in der App
 
@@ -126,6 +126,6 @@ Beachten Sie vor einer Transaktion:
 - Eine Auflistung, Bewertung, Route, Grenze, Reserve oder Blockchain-Aufzeichnung ist nicht automatisch eine Empfehlung, Bewertung des Werts, Erfüllungsnachweis, Garantie, Versicherungspolice oder Auszahlungszusage.
 - Zahlungsdienste, Belohnungen, Beitragsvereinbarungen und andere Anbieterintegrationen sind bereitstellungsabhängig und erfordern eigene Offenlegungen.
 
-Protocol v1.1.0 ermöglicht die direkte Ausführung in einem Fonds und enthält einen Solidity-`SwapRouter`, der nur Kursangebote erstellt. Die produktive App und CLC Core koordinieren über diesen Verträgen die Ausführung über mehrere Fonds innerhalb derselben Blockchain. Blockchain-übergreifendes Routing, automatischer Bestandsausgleich der Fonds, gebündelte Verrechnung, gemeinsame Versicherung, vorgeschlagene Governance-Vermögenswerte, Netzwerkliquiditätsprogramme und regulierte Zahlungswege bleiben vorgeschlagen oder bereitstellungsabhängig, sofern eine konkrete Bereitstellung sie nicht ausdrücklich als aktiv ausweist.
+Die App unterstützt direkte Fonds-Tausche und den Tausch über Routen, soweit verfügbar. Blockchain-übergreifendes Routing, automatischer Bestandsausgleich zwischen Fonds, Batch-Verrechnung, gemeinsame Versicherung, vorgeschlagene Governance-Vermögenswerte, Netzwerk-Liquiditätsprogramme und regulierte Zahlungswege bleiben vorgeschlagen oder bereitstellungsabhängig, solange eine konkrete Bereitstellung sie nicht als aktiv ausweist.
 
 Weitere Einzelheiten finden Sie in den [einfachen und erweiterten Beispielen](/de/introduction/example), dem [Protokollüberblick](/de/protocol/overview) und den [Governance-Mechanismen](/de/governance/mechanics).

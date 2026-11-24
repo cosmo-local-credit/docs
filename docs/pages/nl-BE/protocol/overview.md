@@ -1,39 +1,36 @@
 # Protocol
 
-De contracten van Protocol v1.1.0 leveren de bouwstenen op de blockchain voor het **Commitment Pooling Protocol (CPP)** dat in [hoofdstuk 1](/nl-BE/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) van de White Paper wordt beschreven. Deze referentie volgt de openbare [`v1.1.0`-release](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0).
+Het **Commitment Pooling Protocol (CPP)** beschrijft hoe onafhankelijk bestuurde Fondsen Waardebonnen selecteren, ruilregels publiceren en uitwisseling mogelijk maken. Een Houder gebruikt een Waardebon later bij de Uitgever voor de beloofde goederen of diensten. Dit zijn afzonderlijke stappen, met afzonderlijke verantwoordelijkheden.
 
-Bekijk [Begrippen en woordenschat](/nl-BE/introduction/concepts) voor de productlagen, verantwoordelijke rollen, levenscyclus van handelingen, waarden, limieten, kosten en statusbegrippen die hier worden gebruikt.
+Deze site legt deze begrippen uit en laat zien hoe je de CLC App gebruikt. De [CLC-softwaredocumentatie](https://software.cosmolocal.credit/) is de definitieve referentie voor software-implementatie, contracten, API's, uitrol en beheer. Deze is momenteel beschikbaar in het Engels.
 
-Grassroots Economics Foundation (GEF) beheert de progressieve webapp op [cosmolocal.credit](https://cosmolocal.credit). Die App is één manier om met deze contracten te werken. De App en de contracten zijn afzonderlijke onderdelen. Het beheren van de interface maakt GEF op zichzelf niet tot Uitgever van een waardebon, Fondsbeheerder, bewaarder, garant of tegenpartij bij een gebruikerstransactie. Deze rollen hangen af van de betreffende implementatie, de adressen van beheerders en de gepubliceerde voorwaarden van de Uitgever of het Fonds. Bekijk de [Gebruiksvoorwaarden](/nl-BE/governance/terms).
+Begin met [Begrippen en woordenschat](/nl-BE/introduction/concepts) voor de gedeelde termen, of met de [White Paper](/nl-BE/white-paper) voor het bredere ontwerp en de voorstellen.
 
 ## Implementatiepatroon
 
-De meeste modules met status worden via Solady’s `ERC1967Factory` geïnitialiseerd als **ERC-1967-proxy-instanties**. Meerdere instanties kunnen dezelfde implementatie delen en toch afzonderlijke eigenaars, configuraties en opslag behouden. Een implementatie kan ook deterministische salts gebruiken, zodat adressen vóór de implementatie kunnen worden voorspeld.
+Verschillende gemeenschappen en organisaties kunnen compatibele software gebruiken onder hun eigen regels. Grassroots Economics Foundation beheert de [openbare CLC App](https://cosmolocal.credit). Iedere implementatie moet haar beheerders, contracten en verantwoordelijke autoriteiten benoemen.
 
-Niet ieder contract gebruikt een proxy. `DecimalQuoter` en `SwapRouter` zijn statusloze, rechtstreekse implementaties. `RescueVault` en `ERC1967Factory` worden eveneens rechtstreeks geïmplementeerd. De overige hieronder genoemde modules met status zijn ontworpen voor proxy-implementatie.
-
-Elke proxy heeft een beheerder die de implementatie kan vervangen. Proxybeheer staat los van contracteigendom en moet aan een passend bestuurd adres worden toegewezen. Een upgrade kan het gedrag veranderen, zelfs nadat een Fonds zijn configuratie heeft verzegeld. Gebruikers moeten daarom zowel de Fondseigenaar als de proxybeheerder beoordelen.
-
-Ondersteuning van EIP-165 is eveneens contractgebonden en niet universeel. `GiftableToken`, de drie quoters, `OracleRelay`, `Limiter`, verschillende registers en indexen, `Splitter`, `EthFaucet`, `PeriodSimple` en `RescueVault` bieden deze ondersteuning. `SwapPool`, `SwapRouter`, `FeePolicy`, `ProtocolFeeController` en `CAT` bieden in v1.1.0 geen `supportsInterface`.
+Gebruik [Implementaties en verificatie](https://software.cosmolocal.credit/contracts/deployments) voor contractadressen, uitrolinstructies en het controleren van eigenaars en upgradebevoegdheden. Begin bij de [CLC Core API](https://software.cosmolocal.credit/core-api/) om de ondersteunende diensten te beheren.
 
 ## Overzicht van componenten
 
-- **GiftableToken** — ERC20-mechanismen voor voorraad, aanmaken, verbranden en optioneel verval. Een Uitgever kan een instantie als waardebon gebruiken, maar alleen het contract bepaalt niet wat kan worden ingewisseld, door wie, waar of onder welke voorwaarden.
-- **SwapPool** — Tokenkluis en motor voor swapafwikkeling. Een implementatie kan componenten voor samenstelling, waardering, kosten, limieten en protocolkosten koppelen, of ondersteunde afhankelijkheden ongeconfigureerd laten.
-- **DecimalQuoter, RelativeQuoter en OracleQuoter** — Uitwisselbare waarderingsmodules voor decimale pariteit, door de eigenaar beheerde relatieve koersen of uit een oracle afgeleide koersen. `OracleRelay` kan één externe feed doorgeven aan een `OracleQuoter`.
-- **FeePolicy en Limiter** — Optionele regels voor kosten per paar en saldolimieten per token in een Fonds.
-- **ProtocolFeeController** — Een optionele en wijzigbare instelling voor het protocolkostentarief, de ontvanger en de actieve status die een Fonds tijdens de afwikkeling kan raadplegen.
-- **TokenUniqueSymbolIndex, AccountsIndex en ContractRegistry** — Componenten voor het vinden van tokens, accounts en adressen. `CAT` registreert de gerangschikte voorkeuren van een account voor afwikkelingstokens.
-- **SwapRouter** — Berekeningen voor exacte invoer en exacte uitvoer over een voorgesteld pad met meerdere Fondsen. Deze component geeft alleen offertes, bewaart geen tokens en voert geen swaps uit.
-- **Splitter, EthFaucet, PeriodSimple en RescueVault** — Ondersteunende hulpmiddelen voor distributie, gasfinanciering, snelheidslimieten en herstel van activa.
+Gebruik de softwarereferentie voor:
 
-De contracten kunnen op verschillende manieren worden gecombineerd. Een registervermelding, offerte of pad in een graaf garandeert niet dat een transactie wordt uitgevoerd. De actuele liquiditeit, tokenlimieten, kosten, oraclestatus, autorisatie, deadlines, netwerkomstandigheden en configuratie van ieder Fonds blijven van toepassing.
-
+| Onderwerp | Definitieve softwaredocumentatie |
+| --- | --- |
+| Waardebonnen maken, voorraad en verval | [Waardebonnen](https://software.cosmolocal.credit/contracts/vouchers) |
+| Fondsinstellingen, stortingen, opnames en zeggenschap | [Fondsen](https://software.cosmolocal.credit/contracts/pools) |
+| Wisselkoersen berekenen | [Quoters](https://software.cosmolocal.credit/contracts/quoters) |
+| Swaps uitvoeren, kosten en transactiegegevens | [Swaps offreren en afwikkelen](https://software.cosmolocal.credit/contracts/swaps) |
+| Uitwisseling via meerdere Fondsen | [Routing](https://software.cosmolocal.credit/contracts/routing) |
+| Zoeken en ondersteunende contracten | [Registers en hulpmiddelen](https://software.cosmolocal.credit/contracts/registries) |
+| API-verzoeken en antwoorden | [OpenAPI-referentie](https://software.cosmolocal.credit/core-api/reference) |
+| Backend- en routinginstellingen | [Configuratie](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## Gerouteerde uitwisseling op applicatieniveau
 
-De productieversie van de CLC App doet meer dan de Solidity `SwapRouter` aanroepen. CLC Core onderhoudt een afgestemde grafiek van geschikte Fondsrelaties, schat welke Waardebonnen bereikbaar zijn, leest de geselecteerde Fondsen op één vastgezet blok voor een gezaghebbende quote, simuleert de volledige route en bereidt een Calibur-portefeuillebatch voor. De gebruiker ondertekent die batch en een relayer dient haar als één transactie op dezelfde blockchain in.
+De App kan een deelnemer helpen via meerdere Fondsen te ruilen wanneer een geschikte route beschikbaar is. De deelnemer beoordeelt de offerte en geeft toestemming voor de uitwisseling. Ieder Fonds behoudt zijn eigen regels en verantwoordelijke partijen.
 
-Iedere hop roept rechtstreeks een `SwapPool` aan. De batch zet eerst de tokenallowance terug en stelt daarna de vereiste allowance in. Vervolgens roept zij de begrensde overload van `SwapPool.withdraw` aan met een minimale output en deadline. `revertOnFailure` is ingeschakeld, zodat één mislukte aanroep de volledige gerouteerde transactie terugdraait. De App toont daarna één gegroepeerd ontvangstbewijs met afwikkelings- en kostengegevens per hop.
+Zie [Routes en verantwoordelijkheden](/nl-BE/protocol/network) voor de betekenis voor deelnemers, en [Routingimplementatie](https://software.cosmolocal.credit/contracts/routing) voor hoe de software routes offreert en uitvoert.
 
-Deze routingwerkstroom is een mogelijkheid van de App en CLC Core die boven Protocol v1.1.0 is gebouwd. Zij maakt van de Solidity `SwapRouter` geen uitvoeringsrouter, verandert de eigenaar of Fondsbeheerder van een Fonds niet en maakt één Fonds niet verantwoordelijk voor de regels van een ander Fonds of de nakoming door een Uitgever. Bekijk de [protocolnetwerkarchitectuur](/nl-BE/protocol/network) voor de volledige stroom.
+Software maakt de uitwisseling mogelijk. Uitgevers blijven verantwoordelijk voor de toezeggingen van hun Waardebonnen en Fondsbeheerders voor hun gepubliceerde regels. Voor gebruik van de openbare App gelden de [Gebruiksvoorwaarden](/nl-BE/governance/terms).

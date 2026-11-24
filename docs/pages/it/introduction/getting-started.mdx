@@ -81,9 +81,9 @@ La vista **Credito** dell'app può inoltre trovare Buoni raggiungibili attravers
 3. l'importo minimo ricevuto e la scadenza della quotazione; e
 4. il lotto preparato per il Portafoglio prima di scegliere **Confermi lo scambio**.
 
-L'instradamento in produzione è volutamente più limitato dello scambio diretto tramite Fondo. Usa Fondi verificati con prezzi relativi e token i cui trasferimenti spostano esattamente l'importo dichiarato: Buoni `GiftableToken` e token ERC-20 semplici espressamente inseriti nella allowlist. L'implementazione pubblica cerca percorsi con un massimo di tre scambi tramite Fondo e supporta Portafogli EOA/Calibur compatibili, non Safe o altri Portafogli basati su contratto.
+Non tutti i Buoni, i Fondi o i Portafogli supportano gli scambi instradati. L'App verifica se è disponibile uno scambio per le sue scelte. Il [riferimento sull'instradamento del software](https://software.cosmolocal.credit/contracts/routing) mantiene aggiornate le regole di idoneità e i requisiti tecnici, in inglese.
 
-La scoperta del percorso è una stima. Prima della firma, CLC Core legge i Fondi selezionati in un unico blocco fissato, calcola una quotazione con scadenza, applica limiti all'importo minimo in uscita e alla scadenza e simula l'intero lotto. Se una chiamata fallisce, l'intera transazione sulla stessa catena viene annullata. La ricevuta raggruppa gli importi regolati del percorso e le commissioni del Fondo e del protocollo per ogni passaggio.
+La scoperta del percorso è una stima. Prima di firmare, esamini la quotazione finale, compresi il minimo ricevuto e la scadenza. Lo scambio instradato attuale riesce interamente oppure gli scambi nei Fondi vengono annullati insieme. Dopo l'invio, controlli nella ricevuta l'esito, gli importi scambiati e le commissioni.
 
 ### 7. Usare un Buono con il suo Emittente
 
@@ -99,7 +99,7 @@ Le informazioni relative a Buoni, Fondi, Offerte, Richieste, Cataloghi, Post e R
 - controlli quali informazioni sono visibili senza aver effettuato l'accesso e dopo averlo effettuato;
 - usi recapiti adatti al pubblico previsto;
 - non copi informazioni private del profilo in una risorsa pubblica, a meno che non intenda pubblicarle; e
-- legga la sezione [«Cosa diventa pubblico?»](/it/governance/privacy#cosa-diventa-pubblico) dell'Informativa sulla privacy.
+- legga la sezione [«Cosa diventa pubblico?»](/it/governance/privacy#4-cosa-diventa-pubblico) dell'Informativa sulla privacy.
 
 ## Azioni disponibili nell'app
 
@@ -126,6 +126,6 @@ Prima di effettuare una transazione, ricordi:
 - Una voce del catalogo, una Recensione, un percorso, un limite, una riserva o un registro su blockchain non costituiscono automaticamente un'approvazione, una valutazione, una prova di adempimento, una garanzia, una polizza assicurativa o una promessa di conversione in denaro.
 - I servizi di pagamento, le ricompense, gli accordi di contribuzione e le altre integrazioni dei fornitori dipendono dall'implementazione e richiedono informative proprie.
 
-Protocol v1.1.0 fornisce l'esecuzione diretta tramite Fondo e uno `SwapRouter` Solidity che calcola soltanto quotazioni. La CLC App e CLC Core in produzione coordinano l'esecuzione, sulla stessa catena e al di sopra di tali contratti, di percorsi attraverso più Fondi. L'instradamento tra catene, il riequilibrio automatico dei Fondi, la compensazione in lotti, l'assicurazione condivisa, gli asset di governance proposti, i programmi di liquidità della rete e i canali di pagamento regolamentati restano proposti o dipendenti dall'implementazione, salvo che una specifica implementazione li identifichi come attivi.
+L'App supporta scambi diretti e instradati tramite Fondi dove disponibili. L'instradamento tra catene, il riequilibrio automatico dei Fondi, la compensazione in lotti, l'assicurazione condivisa, gli asset di governance proposti, i programmi di liquidità della rete e i canali di pagamento regolamentati restano proposti o dipendenti dall'implementazione, salvo che una specifica implementazione li identifichi come attivi.
 
 Per maggiori dettagli, consulti gli [esempi semplici e avanzati](/it/introduction/example), la [panoramica del protocollo](/it/protocol/overview) o i [meccanismi di governance](/it/governance/mechanics).

@@ -97,10 +97,10 @@ Verwenden Sie **Tauschabwicklung** für die Übertragungen auf der Blockchain un
 | **CLC App** | Die progressive Web-App unter [cosmolocal.credit](https://cosmolocal.credit). GEF betreibt diese Benutzeroberfläche und die unterstützenden Dienste. |
 | **CLC Core** | Der unterstützende Dienst für Kataloge, den indexierten Blockchain-Zustand, Routenerkennung, verbindliche Routenangebote, die Koordination des Relayers und Belege für Tausche über Routen. CLC Core ist weder ein Smart Contract noch eine Fonds-Verantwortliche Person. |
 | **Commitment Pooling Protocol (CPP)** | Das wiederverwendbare Modell für Kuratierung, Bewertung, Begrenzung, Tausch und verantwortliche Governance. |
-| **Protocol v1.1.0** | Die geprüfte öffentliche Smart-Contract-Version, die in der [Protokollreferenz](/de/protocol/overview) dokumentiert ist. |
+| **Protocol v1.1.0** | Die öffentliche Smart-Contract-Version, die in der maßgeblichen [Softwarereferenz](https://software.cosmolocal.credit/contracts/) dokumentiert ist (Englisch). |
 | **`SwapPool`** | Der aktuelle Protokollvertrag, der Token-Bestände hält und direkte Tausche ausführt. Er ist eine technische Komponente eines Commitment-Fonds. |
 | **Solidity-`SwapRouter`** | Der Vertrag von Protocol v1.1.0, der ein Kursangebot für einen vorgeschlagenen Weg durch mehrere Fonds berechnet. Er verwahrt keine Vermögenswerte und führt die Route nicht aus. |
-| **Routing-Ablauf der App** | Der aktuelle Ablauf von CLC App und CLC Core: Routen innerhalb derselben Blockchain erkennen, berechnen und simulieren, einen signierten Wallet-Batch vorbereiten und weiterleiten sowie die daraus entstehenden Fonds-Abwicklungen in einem Beleg zusammenfassen. |
+| **Routing-Ablauf der Anwendung** | Die App und unterstützende Dienste finden mögliche Wege durch Fonds, berechnen ein Kursangebot, fordern die Autorisierung der teilnehmenden Person an und melden das Ergebnis. |
 | **Vorgeschlagener CLC-Governance-Token** | Ein zukünftiger Governance-Entwurf im Whitepaper. Er ist kein aktueller Vermögenswert der App oder von Protocol v1.1.0. |
 | **Vorgeschlagener CLC-Netzwerkfonds** | Ein zukünftiger Entwurf für Verrechnung und Koordination auf Netzwerkebene. Er ist nicht dasselbe wie ein aktueller `SwapPool`. |
 
@@ -122,11 +122,11 @@ Protocol v1.1.0 kann bei jedem Fonds-Tausch eine **Fondsgebühr** und zusätzlic
 
 ## Routen und Liquidität
 
-Eine **Route** ist ein geordneter Weg durch einen oder mehrere unabhängig verwaltete Fonds. Die **Routentiefe** ist die Anzahl der Fonds-Tausche auf diesem Weg. Die aktuelle öffentliche Bereitstellung sucht bis zu drei Schritte.
+Eine **Route** ist ein geordneter Weg durch einen oder mehrere unabhängig verwaltete Fonds. Die **Routentiefe** ist die Anzahl der Fonds-Tausche auf diesem Weg.
 
-Das produktive Routing verwendet verifizierte Fonds mit relativer Bewertung und Tokens, deren Übertragungen genau den angegebenen Betrag bewegen: `GiftableToken`-Gutscheine und ausdrücklich zugelassene einfache ERC-20-Tokens. Direkte Fonds-Tausche können eine breitere Konfiguration unterstützen; das Erscheinen in einem Fonds macht einen Token nicht automatisch für das App-Routing geeignet.
+Nicht jeder Gutschein, Fonds oder jede Geldbörse ist für Routing geeignet. Ein Gutschein in einem Fonds ist dadurch nicht automatisch über jede Route verfügbar. Die [Software-Routing-Referenz](https://software.cosmolocal.credit/contracts/routing) enthält die aktuellen Zulassungsregeln und die Konfiguration auf Englisch.
 
-**Verfügbare Liquidität** ist der geeignete Ausgabebestand, den ein Fonds gemäß seiner aktuellen Zulassung, Saldenobergrenze, Bewertung, Gebühren- und Reservierungszustand liefern kann. Eine Verbindung im Graphen beweist nicht, dass eine nützliche Menge darüber getauscht werden kann. Die Routenerkennung kann veralten; das spätere Kursangebot auf Grundlage eines festgelegten Blocks bleibt nur bis zu seiner Frist oder einer relevanten Zustandsänderung verbindlich.
+**Verfügbare Liquidität** ist der Bestand, den ein Fonds unter seinen aktuellen Regeln, Grenzen und Gebühren bereitstellen kann. Eine Verbindung zwischen Fonds beweist nicht, dass der gewünschte Betrag verfügbar ist. Prüfen Sie das endgültige Kursangebot; es kann ablaufen oder ungültig werden, wenn sich Fondsbedingungen ändern.
 
 Die aktuelle Routenausführung erfolgt innerhalb derselben Blockchain und wird von der Geldbörse initiiert. Sie bündelt keine Governance, gleicht Fondsbestände nicht automatisch aus, verrechnet keine Verpflichtungen zwischen vielen Parteien und beweist keine Erfüllung. Blockchain-übergreifendes HTLC- oder Escrow-Routing, automatischer Bestandsausgleich und gebündelte Verrechnung bleiben vorgeschlagen oder bereitstellungsabhängig.
 
@@ -143,6 +143,6 @@ Jeder Schutz sollte die verpflichtete Partei, das abgedeckte Ereignis, die Finan
 - **Historisch:** Nachweise oder Funktionen des früheren Sarafu Network-Dienstes.
 - **Vorgeschlagen:** ein Entwurfs- oder Roadmap-Mechanismus, der nicht als bereitgestellt dargestellt wird.
 
-Der Leitfaden [Erste Schritte](/de/introduction/getting-started) wendet diese Begriffe auf die aktuelle App an. Die [Protokollreferenz](/de/protocol/overview) dokumentiert geprüfte Verträge, während das [Whitepaper](/de/white-paper) den weiteren Entwurf und Vorschläge darstellt.
+Der [Leitfaden für den Einstieg](/de/introduction/getting-started) wendet diese Begriffe auf die aktuelle App an. Die [Protokollübersicht](/de/protocol/overview) verbindet diese Konzepte mit der maßgeblichen [Softwaredokumentation](https://software.cosmolocal.credit/), während das [Whitepaper](/de/white-paper) den übergreifenden Entwurf und die Vorschläge vorstellt.
 
 Eine spielerische Einführung in Verpflichtungen, Abwicklung, Ressourcenflüsse, Tausch und Pooling bieten die [Bildungsspiele von Grassroots Economics](https://grassrootseconomics.org/games/). Die Spiele sind ergänzende Lernmaterialien und keine Definitionen des aktuellen Verhaltens von App oder Protokoll.

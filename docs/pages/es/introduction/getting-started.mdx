@@ -81,9 +81,9 @@ La vista **Crédito** de la App también puede encontrar Vales accesibles median
 3. el importe mínimo que recibirás y el vencimiento de la cotización; y
 4. el lote preparado para la Billetera antes de seleccionar **Confirmar intercambio**.
 
-El enrutamiento de producción es deliberadamente más limitado que el intercambio directo en un Fondo. Utiliza Fondos verificados con precios relativos y tokens cuyas transferencias mueven exactamente el importe indicado: Vales `GiftableToken` y tokens ERC-20 sencillos incluidos expresamente en la lista permitida. El despliegue público busca rutas de hasta tres intercambios de Fondo y admite Billeteras EOA/Calibur compatibles, pero no Billeteras Safe ni otras Billeteras de contrato.
+No todos los Vales, Fondos o Billeteras admiten intercambios enrutados. La App comprueba si hay un intercambio disponible para tus elecciones. La [referencia de enrutamiento del software](https://software.cosmolocal.credit/contracts/routing), en inglés, mantiene los criterios de admisibilidad y los requisitos técnicos actuales.
 
-El descubrimiento de rutas es una estimación. Antes de la firma, CLC Core lee los Fondos seleccionados en un mismo bloque fijado, calcula una cotización con vencimiento, aplica límites de salida mínima y plazo, y simula el lote completo. Si falla cualquiera de las llamadas, se revierte toda la transacción en la misma cadena. El recibo agrupa los importes liquidados y las comisiones del Fondo y del protocolo de cada paso.
+El descubrimiento de rutas es una estimación. Antes de firmar, revisa la cotización final, incluidos el mínimo recibido y el vencimiento. El intercambio enrutado actual se completa en su totalidad o los intercambios de sus Fondos se revierten juntos. Después del envío, consulta el recibo para conocer el resultado, los importes intercambiados y las comisiones.
 
 ### 7. Utiliza un Vale con su Emisor
 
@@ -99,7 +99,7 @@ La información sobre Vales, Fondos, Ofertas, Solicitudes, Catálogos, Publicaci
 - comprueba qué información se ve con y sin iniciar sesión;
 - utiliza datos de contacto adecuados para el público previsto;
 - no copies información privada de tu perfil en un recurso público salvo que quieras publicarla; y
-- lee la sección [«¿Qué se hace público?»](/es/governance/privacy#qué-se-hace-público) del Aviso de privacidad.
+- lee la sección [«¿Qué se hace público?»](/es/governance/privacy#4-qué-se-hace-público) del Aviso de privacidad.
 
 ## Acciones actuales de la App
 
@@ -126,6 +126,6 @@ Antes de realizar una transacción, recuerda:
 - Una publicación, reseña, ruta, límite, reserva o registro de la cadena de bloques no constituye automáticamente un respaldo, valoración, registro de cumplimiento, garantía, póliza de seguro ni promesa de conversión a dinero.
 - Los servicios de pago, recompensas, acuerdos de contribución y otras integraciones con proveedores dependen del despliegue y requieren sus propias divulgaciones.
 
-Protocol v1.1.0 permite la ejecución directa en un Fondo y ofrece un `SwapRouter` de Solidity que solo calcula cotizaciones. La CLC App y CLC Core de producción coordinan la ejecución en la misma cadena y mediante varios Fondos por encima de esos contratos. El enrutamiento entre cadenas, el reequilibrio automático de Fondos, la compensación por lotes, los seguros compartidos, los activos de gobernanza propuestos, los programas de liquidez de red y las vías de pago reguladas siguen siendo propuestas o dependen del despliegue, salvo que un despliegue concreto las identifique como activas.
+La App permite intercambios directos y enrutados de Fondos cuando están disponibles. El enrutamiento entre cadenas, el reequilibrio automático de Fondos, la compensación por lotes, los seguros compartidos, los activos de gobernanza propuestos, los programas de liquidez de red y las vías de pago reguladas siguen siendo propuestas o dependen del despliegue, salvo que un despliegue concreto las identifique como activas.
 
 Consulta los [ejemplos sencillo y avanzado](/es/introduction/example), la [descripción general del Protocolo](/es/protocol/overview) o los [mecanismos de gobernanza](/es/governance/mechanics) para obtener más información.

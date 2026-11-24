@@ -56,7 +56,7 @@ Twee onafhankelijk beheerde Fondsen verbinden de activa:
 
 Iedere Fondsbeheerder beoordeelt de activa en publiceert de eigen regels van dat Fonds, waaronder:
 
-- wie verantwoordelijk is voor de Fonds;
+- wie verantwoordelijk is voor het Fonds;
 - de huidige eigenaar van de `SwapPool`, de proxybeheerder en de beheerders van belangrijke afhankelijkheden;
 - toegelaten Waardebonnen en andere ondersteunde activa;
 - methoden voor wisselkoersen of quotes;
@@ -81,13 +81,13 @@ De portemonnee van de school opent de weergave **Krediet** en selecteert de maal
 
 Dit ontdekkingsresultaat garandeert nog niet dat de uitwisseling slaagt. Iedere hop hangt af van de huidige toelating, tokensaldoplafonds van het Fonds, beschikbare voorraad, instellingen voor quotes en kosten, ondersteund tokengedrag en actuele servicegegevens.
 
-De school kiest hoeveel zij wil **Verkrijgen** of **Uitgeven**. CLC Core leest daarna beide Fondsen op één vastgezet blok, maakt een gezaghebbende offerte met een vervaltijd en simuleert de volledige walletbatch. **Routedetails** in de App toont beide swaps, de geschatte bedragen en de Fonds- en protocolkosten van iedere stap.
+De school kiest hoeveel zij wil **Verkrijgen** of **Besteden**. De App toont een offerte voor de volledige uitwisseling. De **Routedetails** tonen beide swaps, de bedragen en de Fonds- en protocolkosten van iedere stap. De school controleert het minimaal te ontvangen bedrag en de vervaltijd voordat zij doorgaat.
 
 ### 6. De Houder voert de gerouteerde uitwisseling uit
 
-Na controle van het minimaal te ontvangen bedrag en de vervaltijd van de offerte kiest de school **Ruil bevestigen** en ondertekent zij de voorbereide batch. De App dient één transactie op hetzelfde blockchainnetwerk in met de toestemmingen en begrensde swapaanroepen voor ieder Fonds.
+De school kiest **Ruil bevestigen** en geeft toestemming voor de volledige route. Bij succes toont het ontvangstbewijs de twee Fondsswaps, de uitgewisselde bedragen en de kosten.
 
-Als één aanroep mislukt, wordt de volledige transactie teruggedraaid; de eerste Fondsswap blijft niet afgewikkeld zonder de tweede. Bij succes toont het gegroepeerde ontvangstbewijs van de school één tracking-ID, één transactiehash, beide Fondshops, afgewikkelde bedragen en kosten per hop.
+Als een stap mislukt, worden beide Fondsswaps samen teruggedraaid; de eerste blijft niet afgewikkeld zonder de tweede. Zie de [routingreferentie](https://software.cosmolocal.credit/contracts/routing) (Engels) voor hoe de software die transactie opbouwt en uitvoert.
 
 De school bezit nu maaltijdbonnen. De uitwisseling op de blockchain is **swapafwikkeling**. Zij geeft de school de aanspraak die in de voorwaarden van de maaltijdbon wordt beschreven; zij bewijst niet dat de keuken de maaltijden al heeft geleverd.
 

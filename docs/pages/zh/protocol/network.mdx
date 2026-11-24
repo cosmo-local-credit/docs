@@ -1,104 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # 协议网络架构
 
-兼容 CPP 的部署可以通过可选的注册表、索引、报价模块和应用层路径发现功能，连接多个代金券与资金池。每个资金池仍是独立的保管库，拥有自己的流动性、所有者、代理管理员、配置和依赖项。
+多个独立治理的资金池可以把您持有的代金券连接到想要的代金券。每个资金池按照自己的规则，使用可用库存完成交换中的一步。
 
-Grassroots Economics Foundation 在 [cosmolocal.credit](https://cosmolocal.credit) 运营公开的 CLC App。其他界面和部署也可以使用同一套公开协议。运营该应用并不会自动使 GEF 成为下图每份合约的所有者、发行方、资金池管理者、费用接收方或担保人。
-
-有关责任角色与技术权限之间的区别，请参阅 [概念和术语](/zh/introduction/concepts)。
+[CLC 软件路由参考](https://software.cosmolocal.credit/contracts/routing)是路线发现、资格、执行和服务接口的权威来源。软件文档目前提供英文版本。本页说明参与者的操作流程和责任。
 
 ## 生产路径发现与执行
 
-<MermaidDiagram
-  label="CLC App 和 Core 的生产路径架构"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["参与者"] --> App["CLC App<br/>可存入 · 获取 · 花费"]
-    App -->|可到达的代金券和候选路径| Core["CLC Core 路径服务"]
-    Catalog["目录、注册表、<br/>已索引链上事件"] --> Core
-    Chain["固定区块链上读取"] -->|资金池状态、余额、费用、<br/>限制和报价输入| Core
-    Reconcile["索引与对账"] --> Catalog
+在 App 的 **可存入（Credit）** 视图中，选择想要 **获取（Get）** 或 **花费（Spend）** 的代金券。例如，某条路线可以通过两个不同的资金池，把交通代金券换成食品代金券。
 
-    Core -->|权威报价、<br/>限制和准备好的调用| App
-    Core -->|模拟完整批次| Chain
-    App -->|核对并签署| Wallet["与应用兼容的<br/>EOA / Calibur 钱包"]
-    Wallet -->|已签署批次| Relayer["中继器"]
-    Relayer -->|一笔同链交易<br/>revertOnFailure = true| Batch["Calibur 批次<br/>approve 0 · approve amount<br/>逐跳限额提取"]
-
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>（需要时）"]
-    PoolA --> Events["结算事件"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["分组路径兑换收据<br/>状态 · tx 哈希 · 各跳 · 金额 · 费用"]
-    Receipt --> App
-
-    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>仅用于报价的可重复使用合约"] -. 读取报价；不执行 .-> PoolA
-    SolidityRouter -. 读取报价；不执行 .-> PoolB`}
-/>
-
-共享代金券会形成一条**可能的图路径**，而不是有保证的路径。生产环境中的 CLC Core 根据资金池、注册表、目录、余额、费用和链上事件信息维护经过对账的图，并核实会话钱包中的相关持仓。当前公开部署最多搜索包含三次资金池兑换的路径。
-
-图发现速度快，但只是截至已索引区块的估算。结果可能被标记为过时，图上的连接也不能证明所需金额可以通过。应用的**可存入**筛选器会在市场和相关发现页面使用这组可到达的代金券。
+找到连接并不保证可以交换。受支持的代金券、资金池限额、可用库存、费用、钱包兼容性和服务可用性，都必须允许所请求的数量。
 
 ### 权威报价
 
-参与者选择路径和金额后，CLC Core 会在同一个固定区块读取每个相关资金池，并重现受支持的 `SwapPool` 计算。报价会列出每一跳、输入和输出、资金池费用、协议费用、最低输出、最终接收方和到期时间。当前生产报价的有效期为五分钟。
+确认前请查看 **路径详情（Route details）**：您支付什么、收到什么、每个参与的资金池、费用、最低收到数量和报价到期时间。估算帮助您探索选项；报价才是您授权的交易提案。报价到期或资金池条件改变时，应重新获取报价。
 
-服务随后构建并模拟完整的 Calibur 批次。不受支持的代币行为、不受支持的报价器、钱包余额不足、准入失败、资金池代币余额上限、流动性不足、无效费用域、Gas 限制和其他回滚，都可能使系统无法提供报价。
-
-路径发现和报价是不同的证据。发现表示路径可能存在；固定区块报价才是权威的交易提议。即使如此，若相关状态在提交前变化，该提议也可能过期或失效。
+[路由参考](https://software.cosmolocal.credit/contracts/routing)和[服务配置](https://software.cosmolocal.credit/core-api/configuration#credit-router)维护技术资格规则和报价设置。
 
 ### 已签署的原子批次
 
-用户核对**路径详情**并签署准备好的钱包批次。每一跳都会调用 `approve(pool, 0)`、`approve(pool, amountIn)` 和有限额的 `SwapPool.withdraw` 重载。每次限额提取都会执行最低输出和截止时间。下一个资金池花费报价金额前，中间代金券会回到同一个钱包；任何桥接余量都留在该钱包中。
+您审核并授权完整交换。当前路线要么整体成功，要么在某一步失败时，把所有资金池交换一起回滚。这样可避免仅完成部分路线，但不能保证之后一定交付商品或服务。
 
-中继器把批次作为同一条链上的一笔交易提交，并将 `revertOnFailure` 设为 `true`。如果任何授权或资金池兑换失败，所有路径调用——包括此前各跳及其 allowance 变化——都会一起回滚。这是当前同链交易的原子性；并不等于跨链原子性、HTLC、托管、净额结算或自动资金池再平衡。
-
-当前路径流程支持与应用兼容的 EOA/Calibur 钱包。当前报价路径会拒绝 Safe 或其他合约钱包。
+交易构建和执行方法，见[执行路线](https://software.cosmolocal.credit/contracts/routing#execute-a-route)。
 
 ### Solidity `SwapRouter` 与费用
 
-Protocol v1.1.0 的 Solidity `SwapRouter` 仍然仅用于报价。它可以沿给定路径调用资金池报价函数，但不会持有资金、授权代币或执行兑换。上述生产 App/Core 流程是单独的应用层协调器，它通过参与者已签署的钱包批次直接调用每个 `SwapPool`。
+仅提供报价的 Solidity `SwapRouter` 与 App 的交换流程是不同的软件组件。二者的关系见[路由](https://software.cosmolocal.credit/contracts/routing)。
 
-资金池费用保留在相关资金池中，供之后收取。协议费用是额外费用，并在兑换过程中由该资金池直接转给已配置的协议接收方。
-
-当前应用不会另收路径服务费。不过，一次路径兑换仍可能包含多笔资金池费用和协议费用，因为每一跳都是一次独立的 `SwapPool` 结算。
+对参与者而言，重要的是检查完整报价。每个资金池都可能收费。共享路线不会合并资金池，也不会使某个管理者对另一个资金池负责。
 
 ### 收据与失败状态
 
-CLC Core 用一个跟踪 ID 汇总路径。应用显示**正在兑换**、**已兑换**或**兑换失败**，并显示**待处理**、**已确认**或**已回滚**的技术状态。收据记录交易哈希、路径深度、每个资金池和代币对、报价金额和已结算金额、逐跳资金池费用和协议费用、最低收到金额，以及钱包中留下的任何中间余量。
+提交后，请检查交换是待处理、已确认还是失败，并保留收据。找不到路线时，可以尝试刷新、减少数量或选择另一种受支持的输入代金券。
 
-路径可能在签署前失败，因为没有符合条件的路径或报价；可能在模拟时失败，因为批次会回滚；可能在中继时失败，因为已签署交易无法提交；也可能在链上失败，因为状态变化或其他执行条件不满足。失败或不可用的路径不会改写资金池规则、核销代金券，也不能证明发行方是否履约。
+交换失败不会改变发行方已有的承诺。交换成功会记录余额变化；履行和解除仍按照发行方条款处理。请参阅[实用示例](/zh/introduction/example)。
 
+开发者可在 [CLC Core API 参考](https://software.cosmolocal.credit/core-api/reference)中查阅交易和跟踪接口。
 
 ## 资金池内部结构
 
-<MermaidDiagram
-  scrollMessage="横向滚动以查看完整图表。"
-  errorMessage="无法渲染图表"
-  label="承诺资金池的依赖项与管理权限"
-  minWidth={820}
-  chart={`flowchart TB
-    Owner["合约所有者或<br/>资金池管理者"] -->|配置、封存、收取、提取| Pool["SwapPool<br/>保管库与结算"]
-    ProxyAdmin["ERC-1967<br/>代理管理员"] -->|升级实现| Pool
-    Dependencies["可选依赖项<br/>registry · limiter · quoter<br/>费用政策 · 协议费控制器<br/>各自拥有独立治理"] -. 结算输入 .-> Pool
-    Seal["五个可封存的地址槽位<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. 锁定地址 .-> Pool
+依赖资金池之前，请确定管理者、合约所有者、升级权限方、费用接收方，以及谁能更改重要设置。技术控制者与负有责任的管理者可能是不同的主体。
 
-    Wallet["用户钱包"] -->|存入或交换输入| Pool
-    Pool -->|交换净输出| Wallet
-    Pool -->|已收取的资金池费用| FeeAddress["已配置的<br/>费用地址"]
-    Pool -->|同一交换中的协议费| ProtocolRecipient["协议费<br/>接收方"]
-    Pool -->|withdrawLiquidity| Destination["所有者选择的<br/>接收方"]`}
-/>
-
-注册表、限制器、报价器、费用政策和协议费控制器都是可选的。未配置注册表时，任何代币都能通过准入检查；未配置限制器时，存入不设上限；未配置报价器时，资金池按原始单位的一比一关系处理；未配置费用模块时，相应费用为零。
-
-五个可封存槽位是 `feePolicy`、`feeAddress`、`quoter`、`tokenRegistry` 和 `tokenLimiter`。封存会阻止当前资金池所有者通过设置函数替换该地址，但不会冻结依赖合约的内部状态。`protocolFeeController` 地址和 `feesDecoupled` 模式不受这五个封存位控制。代理管理员升级资金池实现的权限也独立于封存机制。
-
-合约所有者可以把可用的资金池流动性提取到其选择的地址。在费用解耦模式下，已累积费用会从该提取路径中预留；所有者仍可提取其余流动性。参与者在依赖某个资金池前，应检查其所有者、代理管理员、依赖项控制者、封存状态、费用接收方以及公布的资金池规则。
-
-有关这些合约背后的概念设计，包括筛选、估值、限制、交换和治理，请参阅 [白皮书](/zh/white-paper)。
+软件参考文档维护[资金池机制](https://software.cosmolocal.credit/contracts/pools)和[部署验证](https://software.cosmolocal.credit/contracts/deployments)。本文档说明[角色与词汇](/zh/introduction/concepts)、[治理责任](/zh/governance/mechanics)和[更广泛的 CPP 设计](/zh/white-paper)。

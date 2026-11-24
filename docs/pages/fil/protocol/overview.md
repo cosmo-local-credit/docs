@@ -1,39 +1,36 @@
 # Protokol
 
-Ang mga contract ng Protocol v1.1.0 ang nagbibigay ng on-chain na mga pangunahing bahagi ng **Commitment Pooling Protocol (CPP)** na inilalarawan sa [Kabanata 1](/fil/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) ng White Paper. Ang sangguniang ito ay sumusunod sa pampublikong [`v1.1.0` release](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0).
+Inilalarawan ng **Commitment Pooling Protocol (CPP)** kung paano pumipili ng mga Voucher ang mga Pool na may magkakahiwalay na pamamahala, naglalathala ng mga patakaran sa palitan, at nagbibigay-daan sa pagpapalitan. Ginagamit naman ng Mayhawak ang Voucher sa Tagapag-isyu para sa ipinangakong produkto o serbisyo. Magkahiwalay na hakbang ang mga ito, na may magkahiwalay na pananagutan.
 
-Basahin ang [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa mga layer ng produkto, tungkuling may pananagutan, lifecycle ng mga kilos, halaga, limitasyon, bayarin, at mga salitang tumutukoy sa katayuan.
+Ipinapaliwanag ng site na ito ang mga konseptong iyon at ang paggamit ng CLC App. Ang [dokumentasyon ng CLC software](https://software.cosmolocal.credit/) ang pangunahing sanggunian para sa implementasyon ng software, mga contract, API, deployment, at pagpapatakbo. Nasa Ingles ito sa kasalukuyan.
 
-Pinapatakbo ng Grassroots Economics Foundation (GEF) ang progressive web app sa [cosmolocal.credit](https://cosmolocal.credit), na isang paraan ng pakikipag-ugnayan sa mga contract na ito. Magkahiwalay ang App at mga contract. Ang pagpapatakbo sa interface ay hindi, sa sarili nito, ginagawang tagapag-isyu ng Voucher, Tagapangasiwa ng Pool, custodian, guarantor, o counterparty ang GEF sa transaksyon ng gumagamit. Nakadepende ang mga tungkuling iyon sa kaugnay na deployment, mga address ng controller, at inilathalang tuntunin ng tagapag-isyu o Pool. Tingnan ang [Mga Tuntunin ng Serbisyo](/fil/governance/terms).
+Magsimula sa [Mga konsepto at bokabularyo](/fil/introduction/concepts) para sa mga karaniwang termino, o sa [White Paper](/fil/white-paper) para sa mas malawak na disenyo at mga panukala.
 
 ## Paraan ng deployment
 
-Karamihan sa mga module na may state ay ini-initialize bilang **ERC-1967 proxy instance** sa pamamagitan ng `ERC1967Factory` ng Solady. Maaaring gumamit ang maraming instance ng iisang implementation habang magkahiwalay ang mga may-ari, configuration, at storage. Maaari ring gumamit ang deployment ng deterministic salt upang mahulaan ang mga address bago ang deployment.
+Maaaring magpatakbo ang iba't ibang komunidad at organisasyon ng magkatugmang software sa ilalim ng sarili nilang mga patakaran. Pinapatakbo ng Grassroots Economics Foundation ang [pampublikong CLC App](https://cosmolocal.credit). Dapat tukuyin ng bawat deployment ang mga operator, contract, at awtoridad na may pananagutan dito.
 
-Hindi lahat ng contract ay proxy. Ang `DecimalQuoter` at `SwapRouter` ay stateless na direktang deployment; direkta ring dini-deploy ang `RescueVault` at `ERC1967Factory`. Dinisenyo para sa proxy deployment ang natitirang stateful module na nakalista sa ibaba.
-
-May administrator ang bawat proxy na maaaring magpalit ng implementation nito. Hiwalay ang proxy administration sa pagmamay-ari ng contract at dapat itong italaga sa address na may angkop na pamamahala. Maaaring baguhin ng upgrade ang pag-uugali kahit na-seal na ng Pool ang configuration nito, kaya dapat suriin ng mga gumagamit ang may-ari ng Pool at proxy administrator.
-
-Nakadepende rin sa bawat contract ang EIP-165 support; hindi ito pangkalahatan. Inilalantad ito ng `GiftableToken`, ng tatlong quoter, `OracleRelay`, `Limiter`, ilang registry at index, `Splitter`, `EthFaucet`, `PeriodSimple`, at `RescueVault`. Hindi inilalantad ng `SwapPool`, `SwapRouter`, `FeePolicy`, `ProtocolFeeController`, at `CAT` ang `supportsInterface` sa v1.1.0.
+Para sa mga address ng contract, gabay sa deployment, at pagsusuri sa mga may-ari at kapangyarihang mag-upgrade, tingnan ang [Deployment at beripikasyon](https://software.cosmolocal.credit/contracts/deployments). Para sa pagpapatakbo ng mga sumusuportang serbisyo, magsimula sa [CLC Core API](https://software.cosmolocal.credit/core-api/).
 
 ## Mapa ng mga component
 
-- **GiftableToken** — ERC20 supply, minting, burning, at opsyonal na expiry. Maaaring gamitin ng tagapag-isyu ang isang instance bilang Voucher, ngunit hindi inilalarawan ng contract lamang kung ano ang maaaring tubusin, sino ang maaaring tumubos, saan, o sa ilalim ng anong tuntunin.
-- **SwapPool** — Token vault at swap-settlement engine. Maaaring ikabit ng deployment ang mga component para sa curation, valuation, bayarin, limitasyon, at protocol fee, o iwanang walang value ang mga suportadong dependency.
-- **DecimalQuoter, RelativeQuoter, at OracleQuoter** — Mga mapagpapalit na valuation module para sa decimal parity, relative rate na pinamamahalaan ng may-ari, o rate mula sa oracle. Maaaring maghatid ang `OracleRelay` ng isang panlabas na feed para gamitin ng `OracleQuoter`.
-- **FeePolicy at Limiter** — Opsyonal na patakaran sa bayarin kada pair at limitasyon sa balanse ng bawat token sa Pool.
-- **ProtocolFeeController** — Opsyonal at nababagong protocol-fee rate, tatanggap, at active state na maaaring konsultahin ng Pool habang nagsa-settle.
-- **TokenUniqueSymbolIndex, AccountsIndex, at ContractRegistry** — Mga component para sa pagtuklas ng token, account, at address. Itinatala ng `CAT` ang nakaayos na kagustuhan ng account para sa settlement token.
-- **SwapRouter** — Mga kalkulasyon lamang ng quote para sa exact-input at exact-output sa isang iminungkahing multi-Pool path. Hindi ito nag-iingat ng token o nagsasagawa ng palitan.
-- **Splitter, EthFaucet, PeriodSimple, at RescueVault** — Mga kasangkapan para sa distribution, gas funding, rate limit, at asset recovery.
+Gamitin ang sanggunian sa software para sa:
 
-Maaaring pagsama-samahin ang mga contract sa iba’t ibang paraan. Ang listing sa registry, quote, o graph path ay hindi garantiya na maisasagawa ang transaksyon: nakadepende pa rin ito sa kasalukuyang liquidity, limitasyon ng token, bayarin, estado ng oracle, awtorisasyon, deadline, kondisyon ng network, at configuration ng bawat Pool.
-
+| Paksa | Pangunahing dokumentasyon ng software |
+| --- | --- |
+| Paggawa, supply, at pag-expire ng Voucher | [Mga Voucher](https://software.cosmolocal.credit/contracts/vouchers) |
+| Configuration, deposito, withdrawal, at kontrol ng Pool | [Mga Pool](https://software.cosmolocal.credit/contracts/pools) |
+| Pagkalkula ng rate ng palitan | [Mga Quoter](https://software.cosmolocal.credit/contracts/quoters) |
+| Pagsasagawa ng palitan, bayarin, at mga tala ng transaksyon | [Pag-quote at pag-settle ng palitan](https://software.cosmolocal.credit/contracts/swaps) |
+| Pagpapalitan sa maraming Pool | [Routing](https://software.cosmolocal.credit/contracts/routing) |
+| Pagtuklas at mga sumusuportang contract | [Mga registry at kasangkapan](https://software.cosmolocal.credit/contracts/registries) |
+| Mga request at response ng API | [Sanggunian sa OpenAPI](https://software.cosmolocal.credit/core-api/reference) |
+| Mga setting ng backend at routing | [Configuration](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## Routed exchange sa application layer
 
-Hindi basta tumatawag lang sa Solidity `SwapRouter` ang production CLC App. Pinananatili ng CLC Core ang reconciled graph ng mga kwalipikadong ugnayan ng Pool, tinatantiya ang maaabot na Voucher, binabasa ang mga napiling Pool sa iisang pinned block upang gumawa ng may-awtoridad na quote, sini-simulate ang buong ruta, at naghahanda ng Calibur Wallet batch. Pinipirmahan ito ng gumagamit at isinusumite ng relayer bilang isang same-chain na transaksyon.
+Matutulungan ng App ang isang kalahok na magpalitan sa maraming Pool kapag may angkop na ruta. Sinusuri ng kalahok ang quote at pinapahintulutan ang palitan. Nananatili sa bawat Pool ang sarili nitong mga patakaran at responsableng partido.
 
-Direktang tumatawag ang bawat hop sa isang `SwapPool`. Nire-reset at itinatakda ng batch ang kinakailangang token allowance, at tinatawag ang bounded `SwapPool.withdraw` overload na may minimum output at deadline. Naka-enable ang `revertOnFailure`, kaya ibinabalik ng isang nabigong call ang buong routed transaction. Pagkatapos ay nagpapakita ang App ng grouped receipt na may settlement at fee detail sa bawat hop.
+Tingnan ang [Mga ruta at pananagutan](/fil/protocol/network) para sa kahulugan nito sa mga kalahok, at ang [Implementasyon ng routing](https://software.cosmolocal.credit/contracts/routing) para sa pag-quote at pagsasagawa ng mga ruta sa software.
 
-Ang routing workflow na ito ay kakayahan ng App/Core na itinayo sa ibabaw ng Protocol v1.1.0. Hindi nito ginagawang execution router ang Solidity `SwapRouter`, binabago ang may-ari o Tagapangasiwa ng Pool, o ginagawang responsable ang isang Pool sa mga patakaran ng ibang Pool o pagtupad ng tagapag-isyu. Tingnan ang [arkitektura ng protocol network](/fil/protocol/network) para sa buong flow.
+Nagbibigay-daan ang software sa palitan; nananatiling responsable ang mga Tagapag-isyu sa mga pangako ng kanilang Voucher, at ang mga Tagapangasiwa ng Pool sa kanilang inilathalang patakaran. Ang paggamit sa pampublikong App ay saklaw ng [Mga Tuntunin ng Serbisyo](/fil/governance/terms).

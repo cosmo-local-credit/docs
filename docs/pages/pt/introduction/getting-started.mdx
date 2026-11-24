@@ -81,9 +81,9 @@ A vista **Crédito** da aplicação também pode encontrar Vales acessíveis atr
 3. o montante mínimo recebido e o prazo da cotação; e
 4. o lote preparado para a Carteira antes de selecionar **Confirmar a troca**.
 
-O encaminhamento de produção é deliberadamente mais limitado do que a troca direta num Fundo. Utiliza Fundos verificados com preços relativos e tokens cujas transferências movem exatamente o montante indicado: Vales `GiftableToken` e tokens ERC-20 simples expressamente incluídos na lista de permissões. A implementação pública procura rotas com até três trocas de Fundo e suporta Carteiras EOA/Calibur compatíveis, mas não Safes nem outras Carteiras de contrato.
+Nem todos os Vales, Fundos ou Carteiras suportam trocas encaminhadas. A aplicação verifica se existe uma troca disponível para as suas escolhas. A [referência de encaminhamento do software](https://software.cosmolocal.credit/contracts/routing), em inglês, mantém os critérios de elegibilidade e os requisitos técnicos atuais.
 
-A descoberta da rota é uma estimativa. Antes da assinatura, o CLC Core lê os Fundos selecionados num mesmo bloco fixado, calcula uma cotação com prazo, aplica limites de saída mínima e de tempo e simula o lote completo. Se alguma chamada falhar, toda a transação na mesma cadeia é revertida. O recibo agrupa os montantes liquidados e as comissões do Fundo e do protocolo de cada passo.
+A descoberta de rotas é uma estimativa. Antes de assinar, verifique a cotação final, incluindo o mínimo recebido e o prazo. A troca encaminhada atual é concluída na totalidade ou as suas trocas de Fundos são revertidas em conjunto. Após o envio, consulte o recibo para conhecer o resultado, os montantes trocados e as comissões.
 
 ### 7. Utilizar um Vale junto do seu Emissor
 
@@ -99,7 +99,7 @@ As informações sobre Vales, Fundos, Ofertas, Pedidos, Catálogos, Publicaçõe
 - verifique que informações são visíveis com e sem sessão iniciada;
 - utilize dados de contacto adequados ao público pretendido;
 - não copie informações privadas do perfil para um recurso público, a menos que pretenda publicá-las; e
-- leia a secção [«O que se torna público?»](/pt/governance/privacy#o-que-se-torna-público) do Aviso de Privacidade.
+- leia a secção [«O que se torna público?»](/pt/governance/privacy#4-o-que-se-torna-público) do Aviso de Privacidade.
 
 ## Ações atuais da aplicação
 
@@ -126,6 +126,6 @@ Antes de efetuar uma transação, lembre-se:
 - Uma listagem, avaliação, rota, limite, reserva ou registo na blockchain não é automaticamente um endosso, avaliação de valor, registo de cumprimento, garantia, apólice de seguro ou promessa de conversão em dinheiro.
 - Os serviços de pagamento, recompensas, mecanismos de contribuição e outras integrações de fornecedores dependem da implementação e exigem divulgações próprias.
 
-O Protocol v1.1.0 fornece execução direta num Fundo e um `SwapRouter` Solidity que apenas calcula cotações. A CLC App e o CLC Core em produção coordenam a execução na mesma cadeia através de vários Fundos acima desses contratos. O encaminhamento entre cadeias, o reequilíbrio automático dos Fundos, a compensação por lotes, os seguros partilhados, os ativos de governação propostos, os programas de liquidez de rede e os meios de pagamento regulados continuam propostos ou dependentes da implementação, salvo quando uma implementação específica os identifique como ativos.
+A aplicação suporta trocas diretas e encaminhadas de Fundos quando estão disponíveis. O encaminhamento entre cadeias, o reequilíbrio automático dos Fundos, a compensação por lotes, os seguros partilhados, os ativos de governação propostos, os programas de liquidez de rede e os meios de pagamento regulados continuam propostos ou dependentes da implementação, salvo quando uma implementação específica os identifique como ativos.
 
 Consulte os [exemplos simples e avançado](/pt/introduction/example), a [visão geral do Protocolo](/pt/protocol/overview) ou os [mecanismos de governação](/pt/governance/mechanics) para obter mais informações.

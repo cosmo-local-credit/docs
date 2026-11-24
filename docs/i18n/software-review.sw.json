@@ -1,0 +1,638 @@
+{
+  "locale": "sw",
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "1fa77311b5061eabe22da13072fe9a96c64aa0569373913fbb1a9025a58dfe62"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "787d77e641845147f07f050ff3f5a0a4ae75faab58ecb8e2d5e9e502167b93d1"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "9db0cb5465724923f23c2bdc5e3effc20d96e2ae1b8e1a2c4884281835d2ca81"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "ee356a9575c43815f821b06fa2f5d034a823e4e2ddf3f0c5162a87892fcd6866"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "1445bcb32e3287f2e0f64e873674ee5d7e205028cfa1933afb86b2c1fc06175e"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "84148c7cc3112fd01504014d8e34163710e1c08a5fe4482f447b3d16f11c0317"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "19868b53e8813c8b2256817dddd08af12c6e7a7699b6e282a6a5ff5c0ff3c866"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "Itifaki ya Kuunganisha Ahadi (CPP) inaeleza jinsi Vikundi vinavyosimamiwa kwa kujitegemea huchagua Vocha, huchapisha sheria za ubadilishaji na kuwezesha ubadilishaji. Baadaye, Mmiliki hutumia Vocha kwa Mtoaji wake kupata bidhaa au huduma zilizoahidiwa. Hizi ni hatua tofauti, zenye wajibu tofauti.",
+      "backTranslation": "The CPP (Combined Promise Protocol) describes how independently managed groups select Vouchers, publish exchange rules and facilitate exchange. Subsequently, the Holder uses the Voucher to its Vendor to obtain the promised goods or services. These are different steps, with different responsibilities.",
+      "similarity": 0.7614
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "Tovuti hii inaeleza dhana hizo na jinsi ya kutumia CLC App. Nyaraka za programu za CLC ndizo marejeo rasmi ya utekelezaji wa programu, mikataba, API, usakinishaji na uendeshaji. Kwa sasa zinapatikana kwa Kiingereza.",
+      "backTranslation": "This website explains these concepts and how to use the CLC App. The CLC app documentation is the official reference for application implementation, agreements, API, installation and operation. Currently available in English.",
+      "similarity": 0.8246
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "Anza na Dhana na msamiati kwa maneno ya pamoja, au Waraka Mweupe kwa muundo na mapendekezo mapana zaidi.",
+      "backTranslation": "Start with the Concepts and Vocabulary for common terms, or the White Paper for more extensive structure and recommendations.",
+      "similarity": 0.7288
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "Jamii na mashirika mbalimbali yanaweza kuendesha programu zinazooana chini ya sheria zao wenyewe. Grassroots Economics Foundation huendesha CLC App ya umma. Kila mfumo uliowekwa unapaswa kutaja waendeshaji, mikataba na mamlaka zake zinazowajibika.",
+      "backTranslation": "Communities and organizations can run the CLC App under their own rules. The Grassroots Economics Foundation operates the public CLC app. Each system installed should list its operators, contracts and responsible authorities.",
+      "similarity": 0.851
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "Kwa anwani za mikataba, maelekezo ya usakinishaji na jinsi ya kuthibitisha wamiliki na mamlaka ya kuboresha, tumia Usakinishaji na uthibitishaji. Kwa uendeshaji wa huduma zinazosaidia mfumo, anza na API ya CLC Core.",
+      "backTranslation": "For contract addresses, installation instructions and how to verify owners and upgrade authorities, use Installation & Authentication. For running system-supporting services, start with the CLC Core API.",
+      "similarity": 0.8283
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "Tumia marejeo ya programu kwa:",
+      "backTranslation": "Use the software reference for:",
+      "similarity": 1
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "Mada  Nyaraka rasmi za programu",
+      "backTranslation": "Topic  The official software documentation.",
+      "similarity": 0.8193
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "Uundaji, kiasi kilichotolewa na muda wa mwisho wa Vocha  Vocha",
+      "backTranslation": "Creation, amount issued and expiry time of the Voucher  Vouchers",
+      "similarity": 0.6
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "Usanidi, amana, utoaji na udhibiti wa Kikundi  Vikundi",
+      "backTranslation": "Group structure, deposit, disbursement and control  Groups",
+      "similarity": 0.5714
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "Hesabu za viwango vya ubadilishaji  Moduli za nukuu (Quoter)",
+      "backTranslation": "Exchange rate calculations  Quotation modules (Quoter)",
+      "similarity": 0.7416
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "Utekelezaji wa ubadilishaji, ada na rekodi za miamala  Toa nukuu na kamilisha ubadilishaji",
+      "backTranslation": "Exchange execution, fees and transaction records  Quote and complete the exchange.",
+      "similarity": 0.7682
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "Ubadilishaji kupitia Vikundi kadhaa  Uelekezaji",
+      "backTranslation": "Change through Several Groups  Targeting",
+      "similarity": 0.8101
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "Ugunduzi na mikataba ya kusaidia mfumo  Sajili na zana",
+      "backTranslation": "Discovery and contract support system  Registration and tools",
+      "similarity": 0.6777
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "Maombi na majibu ya API  Marejeo ya OpenAPI",
+      "backTranslation": "API requests and responses  OpenAPI references",
+      "similarity": 0.989
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "Mipangilio ya huduma za nyuma na uelekezaji  Usanidi",
+      "backTranslation": "Backend and routing settings  Configuration",
+      "similarity": 1
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "Programu inaweza kumsaidia mshiriki kubadilishana kupitia Vikundi kadhaa wakati njia inayofaa inapatikana. Mshiriki hukagua nukuu na kuidhinisha ubadilishaji. Kila Kikundi hubaki na sheria zake na wahusika wake wanaowajibika.",
+      "backTranslation": "The program can assist a participant to exchange through several Groups when the appropriate method is available. The participant reviews quotes and approves the exchange. Each Group remains with its own rules and responsible persons.",
+      "similarity": 0.7884
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "Soma Njia na wajibu kwa maana yake kwa washiriki, na Utekelezaji wa uelekezaji kwa jinsi programu hutoa nukuu na kutekeleza njia.",
+      "backTranslation": "Read Ways and Responsibilities for its meaning to participants, and Implementation guidance for how the application provides quotes and implements ways.",
+      "similarity": 0.7095
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "Programu huwezesha ubadilishaji; Watoaji hubaki na wajibu wa ahadi za Vocha zao, na Wasimamizi wa Vikundi hubaki na wajibu wa sheria walizochapisha. Matumizi ya Programu ya umma yanaongozwa na Masharti ya Huduma.",
+      "backTranslation": "The Software facilitates exchanges; Donors remain liable for their Voucher promises, and Group Administrators remain liables for the policies they publish. Use of the Public Software is governed by the Terms of Service.",
+      "similarity": 0.7728
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "Mikataba hurekodi salio la tokeni na kutekeleza ubadilishaji wa Vikundi. Nyaraka za programu za CLC ndizo marejeo rasmi ya utekelezaji, kwa sasa zikiwa kwa Kiingereza. Ukurasa huu unaeleza mambo ambayo washiriki wanapaswa kuelewa kabla ya kutumia mikataba hiyo.",
+      "backTranslation": "The CLC software documentation is the official reference for implementation, currently in English. This page explains things that participants should understand before using the contracts.",
+      "similarity": 0.7517
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "Soma Dhana na msamiati kwa tofauti kati ya Kikundi cha Ahadi kinachosimamiwa na mkataba wake wa SwapPool, na kati ya ubadilishaji na utekelezaji wa ahadi wa Mtoaji.",
+      "backTranslation": "Read the Concepts and Glossary for the difference between a Promise Pool governed by its SwapPool contract, and between an exchange and the execution of a Provider’s pledge.",
+      "similarity": 0.7055
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "Vocha huunganisha salio la kidijitali na ahadi iliyochapishwa na Mtoaji. Masharti yake yanaeleza inaweza kutumiwa kwa nini, mahali na wakati inapokubaliwa, na anayewajibika. Kuunda tokeni hakuthibitishi kwamba Mtoaji anaweza kutoa bidhaa au huduma zilizoahidiwa.",
+      "backTranslation": "The voucher combines a digital balance with a promise printed by the Vendor. Its terms state why, where and when it can be used, and who is responsible for it. Creating a token does not confirm that the Vendors can deliver the goods or services promised.",
+      "similarity": 0.7093
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "Kwa utendaji wa kuunda, kuzalisha, kuchoma na kuisha muda, soma Vocha.",
+      "backTranslation": "For the functionality of creating, generating, burning and expiring, see Vocha.",
+      "similarity": 0.585
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "Kikundi cha Ahadi huleta pamoja Vocha zilizochaguliwa chini ya sheria zilizochapishwa. Mkataba wake hushikilia mali na kubadilisha mali zinazokubaliwa. Amana haimpi mweka amana moja kwa moja hisa za Kikundi au haki za kulipwa, kutoa mali, kupata zawadi au kushiriki katika utawala; haki kama hizo zinahitaji masharti yaliyoelezwa kando.",
+      "backTranslation": "The Depository Group brings together selected Vouchers under published law. Its contract holds the assets and exchanges the accepted assets. The deposit does not automatically give the depositor shares in the Group or rights to pay, give property, receive gifts or participate in administration; such rights require conditions stated separately.",
+      "similarity": 0.6306
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "Kagua Vocha ambazo Kikundi kinakubali, jinsi kinavyoweka viwango vya ubadilishaji, mipaka na ada zake, na anayeweza kuvibadilisha. Marejeo ya programu yanaeleza usanidi na kufunga mipangilio ya Kikundi.",
+      "backTranslation": "Check the Vouchers that Group accepts, how it sets its exchange rates, limits and fees, and who can change them. The software reference explains how to set up and close Group settings.",
+      "similarity": 0.7744
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "Ubadilishaji uliofanikiwa hubadilisha salio husika. Hauthibitishi kwamba Mtoaji ametoa bidhaa au huduma. Kabla ya kuthibitisha, kagua mali unayotoa, unayopokea, mpokeaji, kiasi cha chini utakachopokea na muda wa mwisho wa nukuu.",
+      "backTranslation": "It does not confirm that the Vendor has delivered goods or services. Before verifying, check the goods you are sending, the ones you receive, the recipient, the minimum amount you will receive and the deadline for the quote.",
+      "similarity": 0.5535
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "Kwa mbinu za utekelezaji na rekodi za malipo ya ubadilishaji, soma Toa nukuu na kamilisha ubadilishaji.",
+      "backTranslation": "For execution methods and payment records for exchanges, see Quote and Complete an Exchange.",
+      "similarity": 0.6988
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "Ubadilishaji unaweza kujumuisha ada ya Kikundi na ada ya ziada ya itifaki. Kagua jumla iliyo kwenye nukuu; njia kupitia Vikundi kadhaa inaweza kuwa na ada katika kila hatua. Marejeo ya ubadilishaji yana hesabu na mfano uliofanyiwa kazi.",
+      "backTranslation": "The exchange may include a Group fee and an additional protocol fee. Check the total on the quote; a route through several Groups may have fees at each stage. The exchange reference has a calculation and model work done.",
+      "similarity": 0.7651
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "Mmiliki wa Kikundi anaweza kutoa mali zinazopatikana. Mamlaka nyingine zinaweza kudhibiti uboreshaji au mipangilio. Kagua mamlaka hizi pamoja na sheria zilizochapishwa na Msimamizi kabla ya kuweka mali au kutegemea Kikundi. Kufungwa kwa mipangilio pekee hakuthibitishi kwamba mali zimefungwa kabisa.",
+      "backTranslation": "Other authorities may control upgrades or settings. Please check these authorities as well as the policies published by the Administrator before placing properties or relying on a Group. The closure of the settings alone does not confirm that the property is completely closed.",
+      "similarity": 0.6137
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "Soma Vikundi na Thibitisha mfumo uliowekwa kwa ukaguzi wa kiufundi.",
+      "backTranslation": "Read Groups and verify the system installed for technical inspection.",
+      "similarity": 0.6457
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "Kiwango cha ubadilishaji cha Kikundi ni tofauti na thamani iliyotajwa ya Vocha na masharti ya ukombozi ya Mtoaji. Kagua mbinu iliyochaguliwa na Kikundi na anayeweza kubadilisha taarifa zinazotumika katika hesabu zake. Marejeo ya programu yanaeleza moduli za nukuu (Quoter) zinazopatikana.",
+      "backTranslation": "The Group’s exchange rate is different from the quoted value of the Voucher and the Vendor’s redemption terms. Review the method chosen by the Group and who may change the information used in its calculations. The software reference describes available Quoter modules.",
+      "similarity": 0.6928
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "“Kikomo cha mkopo” cha Programu ni salio la juu zaidi la Vocha fulani ambalo Kikundi kinaweza kushikilia. Kinaeleza uwezo wa ubadilishaji, si mkopo wa mtu binafsi au dhamana ya utekelezaji wa ahadi. Kagua sheria na usanidi wa Kikundi kwa jinsi mipaka na ada zinavyotumika.",
+      "backTranslation": "The Program’s “Credit Limit” is the maximum balance of a particular Voucher that a Group can hold. It describes redemption capacity, not individual credit or guarantee of commitment performance. Check your Group policies and settings for how limits and fees apply.",
+      "similarity": 0.7173
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "Ada ya itifaki ina mpokeaji aliyesanidiwa. Kupokea ada hiyo hakumfanyi mpokeaji kuwa Msimamizi wa Kikundi au mdhamini moja kwa moja. Soma marejeo ya ada kwa utendaji wa sasa na utendaji wa utawala kwa wajibu na taarifa zinazopaswa kuwekwa wazi.",
+      "backTranslation": "The protocol fee has a designated recipient. Receiving the fee does not automatically make the recipients Group Manager or sponsor. Please refer to the current and administrative performance fees for responsibilities and disclosures.",
+      "similarity": 0.7273
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "Vikundi kadhaa vinavyosimamiwa kwa kujitegemea vinaweza kuunganisha Vocha uliyo nayo na unayoitaka. Kila Kikundi hutoa hatua moja ya ubadilishaji, kikitumia sheria zake na mali zinazopatikana.",
+      "backTranslation": "Several independently managed groups can combine the Vouchers you have with the ones you want. Each Group provides a single step of exchange, using its own rules and available assets.",
+      "similarity": 0.7855
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "Marejeo ya uelekezaji wa programu za CLC ndicho chanzo rasmi cha ugunduzi wa njia, ustahiki, utekelezaji na miingiliano ya huduma. Nyaraka za programu kwa sasa ziko kwa Kiingereza. Ukurasa huu unaeleza safari ya mshiriki na wajibu wake.",
+      "backTranslation": "The CLC Program Guidance Reference is the official source for path discovery, eligibility, implementation and service interactions. The program documentation is currently available in English. This page describes the participant’s journey and responsibilities.",
+      "similarity": 0.8166
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "Katika mwonekano wa Mkopo wa Programu, chagua Pata kwa Vocha unayotaka kupata au Tumia kwa ile unayotaka kutumia. Njia inaweza kubadilisha Vocha ya usafiri kuwa Vocha ya chakula kupitia Vikundi viwili tofauti.",
+      "backTranslation": "In the App Credit view, choose Get for the voucher you want to get or Redeem for the one you want. The method can convert a Transport Voucher into a Food Voucher through two different Groups.",
+      "similarity": 0.8172
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "Kupata muunganiko hakuhakikishi ubadilishaji. Vocha zinazokubaliwa, mipaka ya Vikundi, mali zinazopatikana, ada, uoanifu wa Mkoba na upatikanaji wa huduma lazima viruhusu kiasi kinachoombwa.",
+      "backTranslation": "Getting connected does not guarantee exchange. Acceptable vouchers, Group limits, available assets, fees, Wallet authentication and service availability must allow the amount requested.",
+      "similarity": 0.7664
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "Kagua Maelezo ya njia kabla ya kuthibitisha: unacholipa, unachopokea, kila Kikundi kinachohusika, ada, kiasi cha chini utakachopokea na muda wa mwisho wa nukuu. Makadirio hukusaidia kuchunguza; nukuu ndiyo pendekezo unaloidhinisha. Ionyeshe upya ikiwa imeisha muda au hali za Vikundi zimebadilika.",
+      "backTranslation": "Check the Path Details before confirming: what you pay, what you receive, each Group involved, fees, minimum amount you will receive and quote deadline. Estimates help you investigate; the quotation is the proposal you approve. Re-show it if time has expired or Group conditions have changed.",
+      "similarity": 0.7155
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "Marejeo ya uelekezaji na usanidi wa huduma huweka sheria za kiufundi za ustahiki na mipangilio ya nukuu.",
+      "backTranslation": "The service routing and configuration reference sets the appropriate technical rules and quotation settings.",
+      "similarity": 0.6574
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "Unakagua na kuidhinisha ubadilishaji mzima. Njia ya sasa hufaulu yote au ubadilishaji wa Vikundi vyake hubatilishwa pamoja ikiwa hatua moja itashindwa. Hii huzuia sehemu tu ya njia kukamilika; haihakikishi utoaji wa bidhaa au huduma baadaye.",
+      "backTranslation": "You review and approve the entire transaction. The current path will either pass all or its Groups of transactions will be cancelled together if one step fails. This only prevents part of the path from being completed; it does not guarantee the delivery of a product or service later.",
+      "similarity": 0.5978
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "Kwa uundaji na utekelezaji wa muamala, soma Tekeleza njia.",
+      "backTranslation": "For creating and executing a transaction, see Execute a path.",
+      "similarity": 0.656
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "SwapRouter ya Solidity, inayotoa nukuu pekee, na mtiririko wa ubadilishaji wa Programu ni vipengele tofauti vya programu. Uhusiano wao umeelezwa katika Uelekezaji.",
+      "backTranslation": "Solidity's SwapRouter, which provides quote-only, and the Software Exchange Flow are separate components of the software. Their relationship is described in the Guidelines.",
+      "similarity": 0.5931
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "Kwa washiriki, ukaguzi muhimu ni nukuu nzima. Kila Kikundi kinaweza kutoza ada. Njia ya pamoja haiunganishi Vikundi hivyo wala kumfanya Msimamizi mmoja kuwajibika kwa Kikundi kingine.",
+      "backTranslation": "For Participants, the key check is a full quotation. Each Group may charge fees. A joint approach does not connect those Groups or make one Administrator responsible for another Group.",
+      "similarity": 0.7383
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "Baada ya kuwasilisha, angalia ikiwa ubadilishaji unasubiri, umethibitishwa au umeshindwa, na uhifadhi risiti. Ikiwa hakuna njia inayopatikana, jaribu kuonyesha upya, kupunguza kiasi au kuchagua Vocha nyingine inayokubaliwa ya kuanzia.",
+      "backTranslation": "After submitting, check if the exchange is pending, confirmed or failed, and keep a receipt. If no method is available, try re-displaying, reducing the amount or choosing another acceptable Voucher to start with.",
+      "similarity": 0.8238
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "Ubadilishaji ulioshindwa haubadilishi ahadi zilizopo za Mtoaji. Ubadilishaji uliofanikiwa hurekodi salio lililobadilika; utekelezaji wa ahadi na ukomo bado hufuata masharti ya Mtoaji. Soma mifano ya vitendo.",
+      "backTranslation": "A failed exchange does not change Provider’s existing commitments. A successful exchange records the changed balance; the execution of the commitment and limit still follows Provider terms. Read practical examples.",
+      "similarity": 0.7729
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "Watengenezaji wa programu wanaweza kupata miingiliano ya miamala na ufuatiliaji katika marejeo ya API ya CLC Core.",
+      "backTranslation": "Software developers can find transaction and tracking interactions in the CLC Core API reference. CLC core API reference",
+      "similarity": 0.8155
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "Kabla ya kutegemea Kikundi, tambua Msimamizi wake, mmiliki wa mkataba, mamlaka za uboreshaji, wapokeaji wa ada na yeyote anayeweza kubadilisha mipangilio muhimu. Mwenye udhibiti wa kiufundi na Msimamizi anayewajibika wanaweza kuwa wahusika tofauti.",
+      "backTranslation": "Before relying on a Group, identify its Administrator, contract owner, improvement authorities, fee collectors and anyone who can change key settings. The technical controller and the responsible Administrator may be different persons.",
+      "similarity": 0.7851
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "Marejeo ya programu yanaeleza utendaji wa Vikundi na uthibitishaji wa mifumo iliyowekwa. Nyaraka hizi zinaeleza majukumu na msamiati, wajibu wa utawala na muundo mpana wa CPP.",
+      "backTranslation": "The software references describe the functioning of the Groups and verification of the systems in place. These documents explain roles and vocabulary, governance responsibilities and the broad structure of CPP.",
+      "similarity": 0.6911
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "Ubadilishaji kupitia njia haupatikani kwa kila Vocha, Kikundi au Mkoba. Programu huangalia ikiwa ubadilishaji unapatikana kwa machaguo yako. Marejeo ya uelekezaji wa programu yana sheria za sasa za ustahiki na mahitaji ya kiufundi kwa Kiingereza.",
+      "backTranslation": "The application checks if exchange is available for your choices. The application guidance reference has the current eligibility rules and technical requirements for English.",
+      "similarity": 0.7073
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "Ugunduzi wa njia ni makadirio. Kagua nukuu ya mwisho kabla ya kutia sahihi, ikiwa ni pamoja na kiasi cha chini utakachopokea na muda wa mwisho. Ubadilishaji wa sasa kupitia njia hufaulu wote au ubadilishaji wa Vikundi vyake hubatilishwa pamoja. Baada ya kuwasilisha, kagua risiti kwa matokeo, kiasi kilichobadilishwa na ada.",
+      "backTranslation": "The discovery of the route is an estimate. Check the final quote before signing, including the minimum amount you will receive and the deadline. Current exchanges through the route either succeed or the exchange of its groups are cancelled together. After submitting, check the receipt for the result, the amount changed and the fee.",
+      "similarity": 0.6874
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "Programu inakubali ubadilishaji wa moja kwa moja na wa kupitia njia za Vikundi pale unapopatikana. Uelekezaji kati ya minyororo, kusawazisha mali za Vikundi kiotomatiki, kufidia miamala kwa makundi, bima ya pamoja, mali za utawala zinazopendekezwa, programu za ukwasi wa mtandao na njia za malipo zinazodhibitiwa kisheria bado ni mapendekezo au hutegemea mfumo uliowekwa, isipokuwa mfumo maalumu uzitaje kuwa hai.",
+      "backTranslation": "The software supports direct and group-based exchanges where available. Routing between chains, automatic balance of Group assets, group-wide repayment of transactions, joint insurance, recommended governance assets and legally regulated network capitalization and payment methods are still recommended or depend on the system in place, unless a specific system requires them to be live.",
+      "similarity": 0.565
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 39,
+      "source": "A token is an on-chain balance or digital asset. Token mechanics can record supply, transfers, expiry, and burning, but they do not by themselves promise goods, services, cash conversion, or redemption.",
+      "translation": "Tokeni ni salio au mali ya kidijitali kwenye mnyororo. Utendaji wa tokeni unaweza kurekodi ugavi, uhamishaji, muda wa mwisho na uchomaji, lakini peke yake hauahidi bidhaa, huduma, ubadilishaji kuwa pesa taslimu au ukombozi.",
+      "backTranslation": "A token is a balance or digital asset on the chain. The function of a token may record supply, transfer, expiration and burning, but it does not by itself promise goods, services, exchange into cash or redemption.",
+      "similarity": 0.7566
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 41,
+      "source": "A Voucher is a token or record that an Issuer represents as a redeemable commitment under published terms. Those terms should identify what is promised, who is responsible, where and when it can be presented, material limits, and the fulfillment and complaint process.",
+      "translation": "Vocha ni tokeni au rekodi ambayo Mtoaji anaiwasilisha kama ahadi inayoweza kukombolewa chini ya masharti yaliyochapishwa. Masharti hayo yanapaswa kutaja kinachoahidiwa, anayewajibika, mahali na wakati wa kuiwasilisha, mipaka muhimu, na utaratibu wa kutekeleza ahadi na kushughulikia malalamiko.",
+      "backTranslation": "A voucher is a token or record that the Issuer presents as a redeemable pledge under published terms. These terms should specify what is promised, who is liable, where and when it is to be submitted, relevant limits, and procedures for fulfilling the pledge and handling complaints.",
+      "similarity": 0.7891
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 43,
+      "source": "An Offering is the catalog record for goods or services associated with a Voucher. In ordinary prose, “offer” simply means something a participant proposes; Offering is the named App record.",
+      "translation": "Ofa ni rekodi ya katalogi ya bidhaa au huduma zinazohusiana na Vocha. Katika lugha ya kawaida, kutoa ofa humaanisha kupendekeza kitu; Ofa ni jina la rekodi katika Programu.",
+      "backTranslation": "Offer is a record of a catalogue of products or services related to the Voucher. In common language, offering an offer means recommending something; Offer is the name of the record in the Application.",
+      "similarity": 0.5744
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 45,
+      "source": "Keep these four layers separate:",
+      "translation": "Tenganisha tabaka hizi nne:",
+      "backTranslation": "Separate these four layers: The first layer is the base.",
+      "similarity": 0.5227
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  Toleo la umma la mikataba mahiri lililoelezwa katika marejeo rasmi ya programu (kwa Kiingereza).",
+      "backTranslation": "Protocol v1.1.0  The public version of the smart contracts described in the official software reference.",
+      "similarity": 0.7324
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "Mtiririko wa uelekezaji wa Programu  Programu na huduma zake za usaidizi hutafuta njia zinazowezekana kupitia Vikundi, hutoa nukuu ya ubadilishaji, huomba idhini ya mshiriki na kuripoti matokeo.",
+      "backTranslation": "The application and its support services search for possible routes through Groups, provide exchange quotes, request participant permission and report the results.",
+      "similarity": 0.6901
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "Njia ni mfululizo uliopangwa kupitia Kikundi kimoja au zaidi vinavyosimamiwa kwa kujitegemea. Kina cha njia ni idadi ya ubadilishaji wa Vikundi katika mfululizo huo.",
+      "backTranslation": "A path is an ordered sequence through one or more independently managed Groups. The depth of the path is the number of changes of Groups in that sequence.",
+      "similarity": 0.7113
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "Uelekezaji haupatikani kwa kila Vocha, Kikundi au Mkoba. Kuonekana katika Kikundi hakuifanyi Vocha ipatikane moja kwa moja kupitia kila njia. Marejeo ya uelekezaji wa programu yana sheria za sasa za ustahiki na usanidi kwa Kiingereza.",
+      "backTranslation": "The referral is not available for every Voucher, Group or Wallet. Being in a Group does not make the Voucher automatically available through every channel. The App Referral reference has current eligibility rules and is set to English.",
+      "similarity": 0.6446
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "Ukwasi unaopatikana ni mali ambazo Kikundi kinaweza kutoa chini ya sheria, mipaka na ada zake za sasa. Muunganiko kati ya Vikundi hauthibitishi kuwa kiasi unachotaka kinapatikana. Kagua nukuu ya mwisho; inaweza kuisha muda au kukosa uhalali hali za Kikundi zikibadilika.",
+      "backTranslation": "Available reserves are assets that the Group can provide under its current laws, limits and fees. The combination of Groups does not confirm that the amount you want is available. Check the final quote; it may expire or become invalid as Group circumstances change.",
+      "similarity": 0.7262
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "Mwongozo wa Kuanza kutumia hutumia maneno haya kueleza Programu ya sasa. Muhtasari wa Itifaki unaunganisha dhana hizi na nyaraka rasmi za programu, huku Waraka Mweupe ukieleza muundo na mapendekezo mapana zaidi.",
+      "backTranslation": "The Getting Started Guide uses these terms to describe the current Software. The Protocol Summary links these concepts with the official software documentation, while the White Paper outlines the structure and more broad recommendations.",
+      "similarity": 0.7373
+    },
+    {
+      "route": "/introduction/example",
+      "line": 78,
+      "source": "The school's wallet opens the Credit view and selects the meal voucher. CLC Core estimates a possible path:",
+      "translation": "Mkoba wa shule hufungua mwonekano wa Mkopo na kuchagua vocha ya chakula. CLC Core hukadiria njia inayowezekana:",
+      "backTranslation": "The school wallet opens the Credit view and selects a meal voucher. CLC Core estimates a possible way:",
+      "similarity": 0.9474
+    },
+    {
+      "route": "/introduction/example",
+      "line": 82,
+      "source": "This discovery result is not yet a promise that the exchange will succeed. Every hop depends on current admission, Pool token-balance caps, available inventory, quote and fee configuration, supported token behavior, and service freshness.",
+      "translation": "Matokeo haya ya ugunduzi bado si ahadi kwamba ubadilishaji utafaulu. Kila hatua hutegemea ukubalifu wa sasa, vikomo vya salio la tokeni la Kikundi, mali zinazopatikana, usanidi wa nukuu na ada, utendaji unaokubaliwa wa tokeni na usasa wa taarifa za huduma.",
+      "backTranslation": "These discovery results are not yet a promise that the exchange will succeed. Each step depends on current acceptability, Group token balance limits, available assets, quote and fee configuration, acceptable performance of the token and accuracy of service information.",
+      "similarity": 0.7495
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "Shule huchagua kiasi cha kupokea kupitia Pata au cha kutumia kupitia Tumia. Programu huonyesha nukuu ya ubadilishaji mzima. Maelezo ya njia yanaonyesha ubadilishaji wote wawili, kiasi na ada za Kikundi na itifaki kwa kila hatua. Shule hukagua kiasi cha chini kitakachopokelewa na muda wa mwisho wa nukuu kabla ya kuendelea.",
+      "backTranslation": "The school chooses the amount to receive through Get or spend through Spend. The application displays a quote for the entire exchange. The path description shows both the exchange, the amount and Group fees and protocols for each step. The school checks the minimum amount to be received and the quotation deadline before proceeding.",
+      "similarity": 0.6823
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "Shule huchagua Thibitisha ubadilishaji na kuidhinisha njia nzima. Ikifaulu, risiti huonyesha ubadilishaji wa Vikundi vyote viwili, kiasi kilichobadilishwa na ada.",
+      "backTranslation": "The school selects Confirm the conversion and approves all the way. If successful, a receipt shows the conversion of both Groups, the amount modified by the fee.",
+      "similarity": 0.646
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "Hatua moja ikishindwa, ubadilishaji wa Vikundi vyote viwili hubatilishwa pamoja; wa kwanza haubaki umekamilika bila wa pili. Kwa jinsi programu huunda na kutekeleza muamala huo, soma marejeo ya uelekezaji (kwa Kiingereza).",
+      "backTranslation": "If one step fails, the exchange of both Groups is cancelled together; the first remains incomplete without the second. For how the software creates and executes the transaction, see the guidance reference.",
+      "similarity": 0.7598
+    },
+    {
+      "route": "/introduction/example",
+      "line": 126,
+      "source": "A future Pool or other responsible party could separately offer a transaction as a repayable advance, secured transaction, or other credit product. Such a product would require separately presented supplemental and transaction terms identifying the parties, amounts, due dates, fees or interest, collateral treatment, assignment, default, remedies, and discharge evidence.",
+      "translation": "Kikundi au mhusika mwingine anayewajibika anaweza baadaye kutoa muamala tofauti kama mkopo unaopaswa kulipwa, muamala wenye dhamana au bidhaa nyingine ya mkopo. Bidhaa hiyo ingehitaji masharti ya ziada na ya muamala yaliyowasilishwa kando, yakitaja wahusika, kiasi, tarehe za malipo, ada au riba, utaratibu wa dhamana, uhamishaji wa haki, kutotimiza wajibu, suluhisho na ushahidi wa ukomo wa wajibu.",
+      "backTranslation": "The group or other liable party may subsequently provide a different transaction as a payable loan, collateralized transaction or other credit product. That product would require additional and separately presented transaction terms, specifying the parties, amount, payment dates, fees or interest, arrangement of guarantee, transfer of rights, default, settlement and proof of limitation of liability.",
+      "similarity": 0.6925
+    },
+    {
+      "route": "/introduction/example",
+      "line": 128,
+      "source": "An ordinary send, Pool deposit, direct or routed Pool swap, voucher presentment, fulfillment, or discharge does not create those obligations on its own.",
+      "translation": "Kutuma kwa kawaida, amana ya Kikundi, ubadilishaji wa moja kwa moja au kupitia njia za Vikundi, kuwasilisha vocha, kutekeleza ahadi au kurekodi ukomo hakuundi wajibu huo peke yake.",
+      "backTranslation": "The ordinary sending, Group deposits, exchange directly or through Group channels, presentation of vouchers, execution of pledges or recording of limits do not constitute such sole obligation.",
+      "similarity": 0.5291
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "CLC App na huduma zake za usaidizi huwasaidia washiriki kugundua Vocha, kupanga ubadilishaji na kukagua matokeo. Waendeshaji wanawajibika kwa huduma zao na kueleza hitilafu za huduma. Nyaraka rasmi za programu zinaeleza mifumo ya usaidizi na uendeshaji wake kwa Kiingereza.",
+      "backTranslation": "The CLC App and its support services help participants to detect Vouchers, schedule exchanges and review results. Operators are responsible for their services and explain service failures. The official software documentation describes the support systems and their operation in English.",
+      "similarity": 0.8746
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "Ubadilishaji kupitia njia hudumisha mipaka kati ya Vikundi vyake. Kila Kikundi hutumia sheria na vidhibiti vyake. Risiti ya pamoja haiunganishi utawala wa Vikundi wala kuhamisha wajibu wa Mtoaji kwa mwendeshaji wa njia. Kwa rekodi za kiufundi za miamala, tumia marejeo ya ubadilishaji wa programu.",
+      "backTranslation": "Exchange through the route maintains boundaries between its Groups. Each Group applies its own rules and regulations. The joint receipt does not combine the administration of the Groups nor transfer Provider responsibility to the route operator. For technical records of transactions, use the software exchange reference.",
+      "similarity": 0.7255
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "Marejeo ya sasa ya programu",
+      "backTranslation": "The current software reference is the software reference.",
+      "similarity": 0.6265
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "Hili ni toleo lililochapishwa la Waraka Mweupe v0.9. Kwa utekelezaji wa sasa wa programu, mikataba, API na maelekezo ya usakinishaji, tumia nyaraka za programu za CLC.",
+      "backTranslation": "This is the published version of the v0.9 White Paper. For current software implementation, agreements, API and installation instructions, please refer to CLC Software Documentation.",
+      "similarity": 0.7941
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "Soma nyaraka za programu (kwa Kiingereza)",
+      "backTranslation": "Read the software documentation (in English)",
+      "similarity": 0.9647
+    }
+  ],
+  "reviewDate": "23 November 2026",
+  "readingNoteSha256": "dc63f29fe27174b9f7ff1912d9d2dc1af4dfa437e70b09da85639e4f2ca374c7",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation with the established app glossary",
+      "complete clarity and protected-content review",
+      "independent MADLAD back-translation and comparison of all 72 changed units against English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 0,
+    "resolution": "All 72 revised units were compared with English and reviewed for natural Kiswahili and established Vocha/Kikundi/Mtoaji/Msimamizi/Mkoba vocabulary. No low-confidence results remain. Direct review checked model omissions of the opening balance and owner-withdrawal sentences; both are explicit in Kiswahili. Model-only additions about a base layer are absent. Token, Voucher and Offering definitions and future-credit safeguards were reconciled in full. Issuer performance, separate Pool control, balance caps, additive fees and whole-route rollback retain distinct meanings. Three new White Paper references were aligned with the existing Waraka Mweupe navigation term and independently rechecked."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/sw/governance/privacy#what-becomes-public",
+    "afterHref": "/sw/governance/privacy#4-nini-huwa-cha-umma",
+    "previousSha256": "528a7a1cdcb9211e7a18e318434dce774f9e998df5b9446721211a5e7105055e",
+    "sha256": "ee356a9575c43815f821b06fa2f5d034a823e4e2ddf3f0c5162a87892fcd6866",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

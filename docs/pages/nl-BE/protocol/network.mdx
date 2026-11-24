@@ -1,105 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # Protocolnetwerkarchitectuur
 
-Een CPP-compatibele implementatie kan veel Waardebonnen en Fondsen verbinden via optionele registers, indexen, offertemodules en routeontdekking op applicatieniveau. Ieder Fonds blijft een afzonderlijke kluis met eigen liquiditeit, eigenaar, proxybeheerder, configuratie en afhankelijkheden.
+Meerdere onafhankelijk bestuurde Fondsen kunnen de Waardebon die je hebt verbinden met de bon die je wilt. Ieder Fonds levert één stap in de uitwisseling, volgens zijn eigen regels en met de beschikbare voorraad.
 
-Grassroots Economics Foundation beheert de openbare App op [cosmolocal.credit](https://cosmolocal.credit). Andere interfaces en implementaties kunnen hetzelfde openbare protocol gebruiken. Het beheer van de App maakt GEF niet automatisch tot eigenaar, Uitgever, Fondsbeheerder, kostenontvanger of garant van ieder contract hieronder.
-
-Bekijk [Begrippen en woordenschat](/nl-BE/introduction/concepts) voor het onderscheid tussen verantwoordelijke rollen en technische bevoegdheden.
-
+De [CLC-softwarereferentie voor routing](https://software.cosmolocal.credit/contracts/routing) is de definitieve bron voor routeontdekking, geschiktheid, uitvoering en service-interfaces. De softwaredocumentatie is momenteel in het Engels. Deze pagina legt de stappen en verantwoordelijkheden voor deelnemers uit.
 
 ## Ontdekken en uitvoeren van productieroutes
 
-<MermaidDiagram
-  label="Productiearchitectuur voor routering door de CLC App en CLC Core"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["Deelnemer"] --> App["CLC App<br/>Krediet · Verkrijgen · Besteden"]
-    App -->|bereikbare Waardebonnen en kandidaat-paden| Core["CLC Core routing service"]
-    Catalog["Catalogi, registers,<br/>geïndexeerde blockchaingebeurtenissen"] --> Core
-    Chain["Blockchainlezingen op één vastgezet blok"] -->|Fondsstatus, saldi, kosten,<br/>limieten en offerte-invoer| Core
-    Reconcile["Indexering en afstemming"] --> Catalog
+Kies in de **Krediet**-weergave van de App de Waardebon die je wilt **Verkrijgen** of de bon die je wilt **Besteden**. Een route kan bijvoorbeeld via twee verschillende Fondsen een vervoersbon omwisselen voor een voedselbon.
 
-    Core -->|gezaghebbende offerte,<br/>grenzen en voorbereide aanroepen| App
-    Core -->|simulatie van de volledige batch| Chain
-    App -->|herziening en ondertekening| Wallet["App-compatibel<br/>EOA / Calibur portefeuille"]
-    Wallet -->|ondertekende batch| Relayer["Relayer"]
-    Relayer -->|één transactie op dezelfde blockchain<br/>revertOnFailure = true| Batch["Calibur-batch<br/>approve 0 · approve amount<br/>begrensde opname per hop"]
-
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>(indien nodig)"]
-    PoolA --> Events["Afwikkelingsgebeurtenissen"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["Gebundeld overzicht van de gerouteerde wissel<br/>status · tx-hash · stappen · bedragen · kosten"]
-    Receipt --> App
-
-    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>herbruikbaar contract dat alleen quotes berekent"] -. leest quotes; voert niet uit .-> PoolA
-    SolidityRouter -. leest quotes; voert niet uit .-> PoolB`}
-/>
-
-Een gedeelde Waardebon creëert een **mogelijk grafiekpad**, geen gegarandeerde route. De productiedienst CLC Core onderhoudt een afgestemde grafiek op basis van informatie over Fondsen, registers, catalogi, saldi, kosten en blockchaingebeurtenissen. De dienst controleert ook de relevante bezittingen van de actieve portefeuille. De openbare implementatie zoekt momenteel paden van maximaal drie Fondsswaps.
-
-Grafiekontdekking is snel, maar blijft een schatting op basis van het geïndexeerde blok. Een resultaat kan als verouderd worden gemarkeerd en een verbinding bewijst niet dat de gewenste hoeveelheid erdoorheen kan. Het filter **Krediet** in de App gebruikt deze bereikbare verzameling voor de Markt en verwante ontdekkingsoverzichten.
+Een verbinding vinden garandeert geen uitwisseling. De ondersteunde Waardebonnen, Fondslimieten, beschikbare voorraad, kosten, compatibiliteit van de Portefeuille en beschikbaarheid van diensten moeten het gevraagde bedrag toelaten.
 
 ### Gezaghebbende offerte
 
-Nadat een deelnemer een route en bedrag heeft gekozen, leest CLC Core ieder relevant Fonds op één vastgezet blok en reproduceert het de ondersteunde `SwapPool`-berekeningen. De offerte vermeldt iedere stap, invoer en uitvoer, Fonds- en protocolkosten, minimale uitvoer, eindontvanger en vervaltijd. De huidige vervaltijd voor een productieofferte is vijf minuten.
+Controleer vóór bevestiging de **Routedetails**: wat je betaalt, wat je ontvangt, ieder deelnemend Fonds, de kosten, het minimaal te ontvangen bedrag en wanneer de offerte verloopt. Een schatting helpt je mogelijkheden te verkennen; de offerte is het voorstel waarvoor je toestemming geeft. Vernieuw deze als hij verloopt of Fondsomstandigheden veranderen.
 
-De dienst bouwt en simuleert daarna de volledige Calibur-batch. Niet-ondersteund tokengedrag of quoters, een onvoldoende portefeuillesaldo, mislukte toelating, overschreden tokensaldoplafonds van een Fonds, onvoldoende liquiditeit, ongeldige kostendomeinen, gaslimieten en andere oorzaken van een terugdraaiing kunnen voorkomen dat een quote wordt aangeboden.
-
-Ontdekking en offreren leveren verschillend bewijs. Ontdekking zegt dat een pad mogelijk bestaat; de offerte op basis van het vastgezette blok is het gezaghebbende transactievoorstel. Ook dat voorstel kan verlopen of ongeldig worden wanneer de relevante status vóór indiening verandert.
+De [routingreferentie](https://software.cosmolocal.credit/contracts/routing) en [serviceconfiguratie](https://software.cosmolocal.credit/core-api/configuration#credit-router) houden de technische geschiktheidsregels en offerte-instellingen actueel.
 
 ### Ondertekende atomaire batch
 
-De gebruiker bekijkt **Routedetails** en ondertekent de voorbereide portefeuillebatch. Voor iedere hop roept de batch `approve(pool, 0)`, `approve(pool, amountIn)` en de begrensde overload van `SwapPool.withdraw` aan. Iedere begrensde opname handhaaft een minimale output en deadline. Tussenliggende Waardebonnen keren terug naar dezelfde portefeuille voordat het volgende Fonds het gequote bedrag besteedt; een eventueel restant van het brugactivum blijft in die portefeuille.
+Je beoordeelt de volledige uitwisseling en geeft er toestemming voor. De huidige route slaagt als geheel, of alle Fondsswaps worden samen teruggedraaid als één stap mislukt. Zo wordt voorkomen dat slechts een deel van de route wordt uitgevoerd. Dit garandeert niet dat goederen of diensten later worden geleverd.
 
-De relayer dient de batch in als één transactie op dezelfde blockchain, met `revertOnFailure` ingesteld op `true`. Als een goedkeuring of Fondsswap mislukt, worden alle routeaanroepen—ook eerdere hops en hun allowancewijzigingen—samen teruggedraaid. Dit is de huidige transactieatomiciteit op dezelfde blockchain. Het is geen cross-chain atomiciteit, HTLC, escrow, netting of automatische herbalancering van een Fonds.
-
-De huidige routestroom ondersteunt de EOA/Calibur-portefeuilles die compatibel zijn met de App. Een Safe of andere contractportefeuille wordt door het huidige quotepad afgewezen.
+Zie [Een route uitvoeren](https://software.cosmolocal.credit/contracts/routing#execute-a-route) voor het opbouwen en uitvoeren van de transactie.
 
 ### Solidity `SwapRouter` en kosten
 
-De Solidity `SwapRouter` van Protocol v1.1.0 blijft uitsluitend quotes berekenen. Hij kan de quotefuncties van Fondsen over een aangeleverd pad aanroepen, maar bewaart geen middelen, keurt geen tokens goed en voert geen swaps uit. De hierboven beschreven productie-werkstroom van App en CLC Core is een afzonderlijke coördinator op applicatieniveau die iedere `SwapPool` rechtstreeks via de ondertekende portefeuillebatch van de deelnemer aanroept.
+De Solidity-`SwapRouter`, die alleen offertes berekent, en de uitwisselingsworkflow van de App zijn verschillende softwarecomponenten. Hun onderlinge relatie wordt uitgelegd in [Routing](https://software.cosmolocal.credit/contracts/routing).
 
-Fondskosten blijven bij het betreffende Fonds voor latere inning. Eventuele protocolkosten komen daar bovenop en worden tijdens de swap rechtstreeks van dat Fonds naar de ingestelde protocolontvanger overgedragen.
-
-De huidige App voegt geen afzonderlijke kosten voor de routedienst toe. Een gerouteerde wissel kan toch meerdere Fonds- en protocolkosten bevatten, omdat iedere stap een afzonderlijke `SwapPool`-afwikkeling is.
+Voor deelnemers is de belangrijkste controle de volledige offerte. Ieder Fonds kan kosten rekenen. Een gedeelde route voegt die Fondsen niet samen en maakt de ene Fondsbeheerder niet verantwoordelijk voor een ander Fonds.
 
 ### Transactieoverzicht en mislukking
 
-CLC Core groepeert de route onder één tracking-ID. De App toont **Bezig met omwisselen**, **Omgewisseld** of **Omwisseling mislukt**, met de technische status **In behandeling**, **Bevestigd** of **Teruggedraaid**. Het transactieoverzicht vermeldt de transactiehash, routediepte, ieder Fonds- en tokenpaar, geoffreerde en afgewikkelde bedragen, Fonds- en protocolkosten per stap, het minimaal ontvangen bedrag en ieder tussentijds restant dat in de wallet is achtergebleven.
+Controleer na indiening of de uitwisseling in behandeling, bevestigd of mislukt is en bewaar het ontvangstbewijs. Als er geen route beschikbaar is, probeer dan te vernieuwen, het bedrag te verlagen of een andere ondersteunde invoer-Waardebon te kiezen.
 
-Een route kan vóór ondertekening mislukken omdat geen geschikt pad of geen quote beschikbaar is; tijdens simulatie omdat de batch zou worden teruggedraaid; tijdens relay omdat de ondertekende transactie niet kan worden ingediend; of op de blockchain omdat de status veranderde of een andere uitvoeringsvoorwaarde faalde. Een mislukte of niet-beschikbare route herschrijft de regels van een Fonds niet, boekt geen Waardebon af en bewijst niets over nakoming door de Uitgever.
+Een mislukte uitwisseling verandert de bestaande toezeggingen van de Uitgever niet. Een geslaagde uitwisseling registreert gewijzigde saldi; nakoming en afboeking blijven de voorwaarden van de Uitgever volgen. Zie de [praktische voorbeelden](/nl-BE/introduction/example).
 
+Ontwikkelaars vinden transactie- en trackinginterfaces in de [CLC Core API-referentie](https://software.cosmolocal.credit/core-api/reference).
 
-## Poolinterieur
+## Binnen het Fonds
 
-<MermaidDiagram
-  scrollMessage="Scroll horizontaal om het volledige diagram te bekijken."
-  errorMessage="Het diagram kon niet worden weergegeven"
-  label="Commitmentfonds afhankelijkheden en administratieve bevoegdheden"
-  minWidth={820}
-  chart={`flowchart TB
-    Owner["Contracteigenaar of<br/>Fondsbeheerder"] -->|configureren · verzegelen · innen · opnemen| Pool["SwapPool<br/>kluis en afwikkeling"]
-    ProxyAdmin["ERC-1967<br/>proxybeheerder"] -->|implementatie upgraden| Pool
-    Dependencies["Optionele afhankelijkheden<br/>register · limiter · quoter<br/>kostenbeleid · protocolkostenbeheerder<br/>elk met eigen bestuur"] -. invoer voor afwikkeling .-> Pool
-    Seal["Vijf verzegelbare adresslots<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. vergrendelt adressen .-> Pool
+Bepaal voordat je op een Fonds vertrouwt wie de Fondsbeheerder, contracteigenaar, upgradebevoegden, kostenontvangers en beheerders van belangrijke instellingen zijn. De technische beheerder en de verantwoordelijke Fondsbeheerder kunnen verschillende partijen zijn.
 
-    Wallet["Gebruikersportefeuille"] -->|deposito- of swap-invoer| Pool
-    Pool -->|netto swap output| Wallet
-    Pool -->|geïnde Fondskosten| FeeAddress["Ingesteld<br/>kostenadres"]
-    Pool -->|protocolkosten in dezelfde swap| ProtocolRecipient["Protocol-<br/>ontvanger"]
-    Pool -->|withdrawLiquidity| Destination["Door eigenaar gekozen<br/>ontvanger"]`}
-/>
-
-Het register, limiter, quoter, fee policy en protocol-fee controller zijn optioneel.
-
-De vijf verzegelbare slots zijn `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` en `tokenLimiter`. Een verzegeling voorkomt dat de huidige Fondseigenaar dat adres via de setter vervangt, maar bevriest de interne toestand van de afhankelijkheid niet. Het adres `protocolFeeController` en de modus `feesDecoupled` vallen niet onder die vijf seal bits. Ook de mogelijkheid van de proxybeheerder om het Fonds te upgraden staat los van de verzegeling.
-
-De contracteigenaar kan beschikbare liquiditeit van het Fonds naar een gekozen adres opnemen. In de losgekoppelde kostenmodus blijven opgebouwde kosten buiten dat opnamepad gereserveerd; de bevoegdheid om de resterende liquiditeit op te nemen blijft bestaan. Deelnemers moeten de eigenaar, proxybeheerder, afhankelijkheidsbeheerders, verzegelingsstatus, kostenontvangers en gepubliceerde Fondsregels controleren voordat zij op een Fonds vertrouwen.
-
-Zie de [White Paper](/nl-BE/white-paper) voor het conceptuele ontwerp achter deze contracten, waaronder curatie, waardering, begrenzing, uitwisseling en bestuur.
+De softwarereferentie houdt de [Fondsmechanismen](https://software.cosmolocal.credit/contracts/pools) en [implementatieverificatie](https://software.cosmolocal.credit/contracts/deployments) actueel. Deze documentatie legt [rollen en begrippen](/nl-BE/introduction/concepts), [bestuursverantwoordelijkheden](/nl-BE/governance/mechanics) en het [bredere CPP-ontwerp](/nl-BE/white-paper) uit.

@@ -25,7 +25,7 @@ Suluhisho ndani ya Kikundi hubaki chini ya utawala ulioidhinishwa na wahusika wa
 
 ## Shughuli katika ngazi ya mtandao
 
-CLC App na CLC Core za uzalishaji huendesha ugunduzi wa pamoja, nukuu za njia, utayarishaji wa kundi la miamala ya Mkoba, uratibu wa uwasilishaji, uainishaji, upatanisho na risiti zilizojumuishwa za ubadilishaji wa njia. Matukio katika kiwango cha mtandao yanaweza kujumuisha taarifa za njia zilizopitwa na wakati au zisizopatikana, kushindwa kwa upatanisho, vitegemezi visivyosaidiwa, kushindwa kwa uwasilishaji na matatizo ya utangamano kati ya Vikundi.
+CLC App na huduma zake za usaidizi huwasaidia washiriki kugundua Vocha, kupanga ubadilishaji na kukagua matokeo. Waendeshaji wanawajibika kwa huduma zao na kueleza hitilafu za huduma. [Nyaraka rasmi za programu](https://software.cosmolocal.credit/core-api/) zinaeleza mifumo ya usaidizi na uendeshaji wake kwa Kiingereza.
 
 Mwendeshaji anaweza kusimamisha au kusahihisha huduma yake, kuonyesha upya hali iliyoainishwa, kuondoa njia zisizosaidiwa, kueleza kushindwa na kuratibu na Wasimamizi walioathirika. Jukumu hilo la uendeshaji halitoi mamlaka ya kubadilisha kanuni za Kikundi huru, kuhamisha mali zake, kuondoa ahadi ya Mtoaji au kuamua mgogoro wa utekelezaji wa eneo husika.
 
@@ -39,7 +39,7 @@ Kusahihisha au kuondoa orodha hakubatilishi ukamilishaji wa muamala kwenye mnyor
 
 ## Ushahidi wa njia na wajibu
 
-Ubadilishaji wa njia huhifadhi mipaka kati ya hatua zake. Kila Kikundi hutumia masharti yake ya kukubaliwa kwa mali, nukuu, kikomo cha salio, ada, mali zilizopo na mamlaka ya wadhibiti. CLC Core huweka matokeo ya kiufundi katika risiti moja, lakini risiti hiyo haiunganishi utawala wa Vikundi wala kuhamisha wajibu wa Mtoaji kwa mwendeshaji wa njia.
+Ubadilishaji kupitia njia hudumisha mipaka kati ya Vikundi vyake. Kila Kikundi hutumia sheria na vidhibiti vyake. Risiti ya pamoja haiunganishi utawala wa Vikundi wala kuhamisha wajibu wa Mtoaji kwa mwendeshaji wa njia. Kwa rekodi za kiufundi za miamala, tumia [marejeo ya ubadilishaji wa programu](https://software.cosmolocal.credit/contracts/swaps).
 
 Risiti inaweza kuthibitisha uchaguzi wa njia, idhini, hali ya muamala, kiasi kilichokamilishwa na ada kwa kila hatua. Uwasilishaji, utekelezaji, kuridhika na ukomo katika ulimwengu halisi huhitaji ushahidi tofauti na hubaki chini ya Mtoaji aliyetambuliwa na mchakato unaotumika.
 

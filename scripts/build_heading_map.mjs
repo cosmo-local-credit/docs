@@ -2,7 +2,8 @@
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import GithubSlugger from 'github-slugger'
+import { headingData } from './heading_data.mjs'
+import { keepsPreviousSoftwareSource, softwareDocsRollout } from './software_reference_rollout.mjs'
 import {
   policyDocumentationLocales,
   policyRouteSet,
@@ -65,34 +66,12 @@ function keepsPreviousRoutingSource(locale, route) {
 
 
 function keepsPreviousSource(locale, route) {
+  if (softwareDocsRollout.source.routes[route]) return keepsPreviousSoftwareSource(locale, route)
   return keepsPreviousRoutingSource(locale, route) || (
     locale !== 'en' &&
     englishReviewRollout.locales[locale]?.status === 'pending' &&
     englishReviewAffectedRoutes.has(route)
   )
-}
-
-function headingData(markdown) {
-  const slugger = new GithubSlugger()
-  const headings = []
-  let inCode = false
-  for (const line of markdown.split('\n')) {
-    if (line.trimStart().startsWith('```')) {
-      inCode = !inCode
-      continue
-    }
-    if (inCode) continue
-    const match = line.match(/^(#{1,6})\s+(.+?)\s*#*$/)
-    if (!match) continue
-    const title = match[2]
-      .replace(/<[^>]*>/g, '')
-      .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
-      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-      .replace(/[*_~`]/g, '')
-      .trim()
-    headings.push({ level: match[1].length, slug: slugger.slug(title) })
-  }
-  return headings
 }
 
 const mapping = {}

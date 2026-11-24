@@ -97,10 +97,10 @@ Utilize **liquidação da troca** para as transferências na cadeia e a contabil
 | **CLC App** | A aplicação web progressiva em [cosmolocal.credit](https://cosmolocal.credit). A GEF gere esta interface e os respetivos serviços de apoio. |
 | **CLC Core** | O serviço de apoio para catálogos, estado indexado da cadeia, descoberta de rotas, cotações autorizadas, coordenação de retransmissão e recibos de trocas encaminhadas. Não é um contrato inteligente nem um Gestor do Fundo. |
 | **Protocolo de Agrupamento de Compromissos (CPP)** | O modelo reutilizável de curadoria, avaliação, limitação, troca e governação responsável. |
-| **Protocol v1.1.0** | A versão verificada dos contratos inteligentes públicos documentada na [referência do Protocolo](/pt/protocol/overview). |
+| **Protocol v1.1.0** | A versão pública dos contratos inteligentes documentada na [referência definitiva do software](https://software.cosmolocal.credit/contracts/) (em inglês). |
 | **`SwapPool`** | O contrato atual do Protocolo que mantém inventário de tokens e executa trocas diretas. É um componente técnico de um Fundo de Compromissos. |
 | **`SwapRouter` Solidity** | O contrato do Protocol v1.1.0 que calcula a cotação de um caminho proposto através de vários Fundos. Não mantém ativos nem executa a rota. |
-| **Fluxo de encaminhamento da aplicação** | O processo atual da CLC App e CLC Core que descobre caminhos na mesma cadeia, calcula e simula as cotações, prepara um lote assinado da Carteira, retransmite-o e agrupa as liquidações resultantes dos Fundos num recibo. |
+| **Fluxo de encaminhamento da aplicação** | A aplicação e os serviços de apoio procuram rotas possíveis através de Fundos, apresentam uma cotação, pedem a autorização do participante e comunicam o resultado. |
 | **Token de governação CLC proposto** | Um futuro modelo de governação do Livro Branco. Não é um ativo atual da aplicação ou do Protocol v1.1.0. |
 | **Fundo de Rede CLC proposto** | Um futuro modelo de compensação e coordenação ao nível da rede. Não é o mesmo que um `SwapPool` atual. |
 
@@ -122,11 +122,11 @@ O Protocol v1.1.0 pode cobrar uma **comissão do Fundo** e uma **comissão do pr
 
 ## Rotas e liquidez
 
-Uma **rota** é um caminho ordenado através de um ou mais Fundos governados de forma independente. A **profundidade da rota** é o número de trocas de Fundo nesse caminho. A implementação pública atual procura até três passos.
+Uma **rota** é um caminho ordenado através de um ou mais Fundos governados de forma independente. A **profundidade da rota** é o número de trocas de Fundo nesse caminho.
 
-O encaminhamento de produção utiliza Fundos verificados com preços relativos e tokens cujas transferências movem exatamente o montante indicado: Vales `GiftableToken` e tokens ERC-20 simples expressamente incluídos na lista de permissões. As trocas diretas de Fundo podem suportar uma configuração mais ampla; aparecer num Fundo não torna automaticamente um token elegível para o encaminhamento da aplicação.
+Nem todos os Vales, Fundos ou Carteiras são elegíveis para encaminhamento. Aparecer num Fundo não torna automaticamente um Vale disponível através de todas as rotas. A [referência de encaminhamento do software](https://software.cosmolocal.credit/contracts/routing), em inglês, mantém os critérios de elegibilidade e a configuração atuais.
 
-A **liquidez disponível** é o inventário de saída elegível que um Fundo pode fornecer segundo o seu estado atual de admissão, limite de saldo, cotação, comissões e reservas. Uma ligação no grafo não prova que um montante útil a possa atravessar. A descoberta de rotas pode ficar desatualizada; a cotação posterior, baseada num bloco fixado, só continua válida até ao seu prazo ou até que mude um estado relevante.
+A **liquidez disponível** é o inventário que um Fundo pode fornecer segundo as suas regras, limites e comissões atuais. Uma ligação entre Fundos não prova que o montante pretendido esteja disponível. Verifique a cotação final; pode expirar ou deixar de ser válida se as condições dos Fundos mudarem.
 
 A execução atual das rotas ocorre na mesma cadeia e é iniciada pela Carteira. Não reúne a governação, reequilibra automaticamente o inventário dos Fundos, compensa obrigações entre várias partes ou prova o cumprimento. O encaminhamento entre cadeias através de HTLC ou depósito em garantia, o reequilíbrio automático e a compensação por lotes continuam propostos ou dependentes da implementação.
 
@@ -143,6 +143,6 @@ Qualquer proteção deve identificar a parte obrigada, o evento coberto, o finan
 - **Histórico:** provas ou funcionalidades do serviço anterior Sarafu Network.
 - **Proposto:** um mecanismo de conceção ou roteiro que não é apresentado como implementado.
 
-O [guia para começar](/pt/introduction/getting-started) aplica estes termos à aplicação atual. A [referência do Protocolo](/pt/protocol/overview) documenta os contratos verificados, enquanto o [Livro Branco](/pt/white-paper) apresenta o modelo mais amplo e as suas propostas.
+O [guia para começar](/pt/introduction/getting-started) aplica estes termos à aplicação atual. A [visão geral do Protocolo](/pt/protocol/overview) liga estes conceitos à [documentação definitiva do software](https://software.cosmolocal.credit/), enquanto o [Livro Branco](/pt/white-paper) apresenta o modelo geral e as propostas.
 
 Para aprender através de jogos sobre compromissos, liquidação, fluxos de recursos, troca e agrupamento, explore os [jogos educativos da Grassroots Economics](https://grassrootseconomics.org/games/). Estes jogos são recursos complementares de aprendizagem, não definições do comportamento atual da aplicação ou do Protocolo.

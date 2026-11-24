@@ -1,39 +1,36 @@
 # Protocollo
 
-I contratti di Protocol v1.1.0 forniscono i componenti on-chain del **Protocollo di messa in comune degli impegni (CPP)** descritto nel [Capitolo 1](/it/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) del Libro bianco. Questo riferimento segue la versione pubblica [`v1.1.0`](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0).
+Il **Protocollo di messa in comune degli impegni (CPP)** descrive come Fondi governati in modo indipendente selezionano Buoni, pubblicano regole di scambio e rendono possibili gli scambi. In seguito, un Titolare usa un Buono presso il suo Emittente per ottenere i beni o servizi promessi. Sono passaggi distinti, con responsabilità distinte.
 
-Consulti [Concetti e vocabolario](/it/introduction/concepts) per i livelli del prodotto, i ruoli responsabili, il ciclo di vita delle azioni, i valori, i limiti, le commissioni e i termini relativi allo stato usati in questa sezione.
+Questo sito spiega questi concetti e come usare la CLC App. La [documentazione del software CLC](https://software.cosmolocal.credit/) è il riferimento definitivo per l'implementazione del software, i contratti, le API, l'installazione e la gestione. Al momento è disponibile in inglese.
 
-Grassroots Economics Foundation (GEF) gestisce l'applicazione web progressiva disponibile su [cosmolocal.credit](https://cosmolocal.credit), che offre un modo per interagire con questi contratti. L'app e i contratti sono distinti. La gestione dell'interfaccia non rende di per sé GEF l'emittente di un buono, il Responsabile di un Fondo, un custode, garante o controparte di una transazione dell'utente. Questi ruoli dipendono dall'implementazione pertinente, dagli indirizzi di controllo e dalle condizioni pubblicate dall'emittente o dal Fondo. Consulti i [Termini di servizio](/it/governance/terms).
+Inizi da [Concetti e vocabolario](/it/introduction/concepts) per i termini condivisi, oppure dal [Libro bianco](/it/white-paper) per il modello e le proposte più ampie.
 
 ## Modello di implementazione
 
-La maggior parte dei moduli con stato viene inizializzata come **istanza proxy ERC-1967** tramite `ERC1967Factory` di Solady. Più istanze possono condividere un'implementazione mantenendo separati proprietari, configurazione e archiviazione. Un'implementazione può anche usare salt deterministici, così da prevedere gli indirizzi prima dell'implementazione.
+Comunità e organizzazioni diverse possono gestire software compatibile secondo le proprie regole. Grassroots Economics Foundation gestisce la [CLC App pubblica](https://cosmolocal.credit). Ogni implementazione dovrebbe indicare i propri operatori, contratti e autorità responsabili.
 
-Non tutti i contratti usano un proxy. `DecimalQuoter` e `SwapRouter` sono implementazioni dirette senza stato; anche `RescueVault` ed `ERC1967Factory` vengono implementati direttamente. Gli altri moduli con stato elencati di seguito sono progettati per l'implementazione tramite proxy.
-
-Ogni proxy ha un amministratore che può sostituirne l'implementazione. L'amministrazione del proxy è distinta dalla proprietà del contratto e dovrebbe essere assegnata a un indirizzo con una governance adeguata. Un aggiornamento può modificare il comportamento anche dopo che un Fondo ha sigillato la propria configurazione; gli utenti dovrebbero quindi valutare sia il proprietario del Fondo sia l'amministratore del proxy.
-
-Anche il supporto EIP-165 dipende dal singolo contratto e non è universale. È esposto da `GiftableToken`, dai tre quotatori, da `OracleRelay`, `Limiter`, vari registri e indici, `Splitter`, `EthFaucet`, `PeriodSimple` e `RescueVault`. `SwapPool`, `SwapRouter`, `FeePolicy`, `ProtocolFeeController` e `CAT` non espongono `supportsInterface` nella versione v1.1.0.
+Per gli indirizzi dei contratti, le istruzioni di installazione e la verifica dei proprietari e dei poteri di aggiornamento, consulti [Implementazioni e verifica](https://software.cosmolocal.credit/contracts/deployments). Per gestire i servizi di supporto, inizi dall'[API CLC Core](https://software.cosmolocal.credit/core-api/).
 
 ## Mappa dei componenti
 
-- **GiftableToken** — Meccanismi ERC20 per offerta, conio, distruzione e scadenza facoltativa. Un emittente può usare un'istanza come buono, ma il contratto da solo non definisce cosa può essere riscattato, da chi, dove o a quali condizioni.
-- **SwapPool** — Deposito di token e motore per il regolamento degli scambi. Un'implementazione può collegare componenti per curatela, valutazione, commissioni, limiti e commissioni di protocollo, oppure lasciare non configurate le dipendenze supportate.
-- **DecimalQuoter, RelativeQuoter e OracleQuoter** — Moduli di valutazione intercambiabili per parità decimale, tassi relativi gestiti dal proprietario o tassi derivati da un oracolo. `OracleRelay` può inoltrare un feed esterno a un `OracleQuoter`.
-- **FeePolicy e Limiter** — Regole facoltative per le commissioni per coppia e per i limiti al saldo di ogni token nel Fondo.
-- **ProtocolFeeController** — Tasso, destinatario e stato attivo facoltativi e modificabili per la commissione di protocollo che un Fondo può consultare durante il regolamento.
-- **TokenUniqueSymbolIndex, AccountsIndex e ContractRegistry** — Componenti per la scoperta di token, account e indirizzi. `CAT` registra le preferenze ordinate di un account per i token di regolamento.
-- **SwapRouter** — Calcoli di sola quotazione, con input o output esatto, lungo un percorso proposto tra più Fondi. Non custodisce token e non esegue scambi.
-- **Splitter, EthFaucet, PeriodSimple e RescueVault** — Strumenti di supporto per distribuzione, finanziamento del gas, limitazione della frequenza e recupero degli asset.
+Consulti il riferimento del software per:
 
-I contratti possono essere combinati in modi diversi. La presenza in un registro, una quotazione o un percorso nel grafo non garantiscono l'esecuzione di una transazione: rimangono rilevanti la liquidità attuale, i limiti dei token, le commissioni, lo stato dell'oracolo, le autorizzazioni, le scadenze, le condizioni della rete e la configurazione di ogni Fondo.
-
+| Argomento | Documentazione definitiva del software |
+| --- | --- |
+| Creazione, quantità emessa e scadenza dei Buoni | [Buoni](https://software.cosmolocal.credit/contracts/vouchers) |
+| Configurazione, depositi, prelievi e controllo dei Fondi | [Fondi](https://software.cosmolocal.credit/contracts/pools) |
+| Calcolo dei tassi di cambio | [Moduli di quotazione (Quoter)](https://software.cosmolocal.credit/contracts/quoters) |
+| Esecuzione degli scambi, commissioni e registri delle transazioni | [Quotare e regolare gli scambi](https://software.cosmolocal.credit/contracts/swaps) |
+| Scambio attraverso più Fondi | [Instradamento](https://software.cosmolocal.credit/contracts/routing) |
+| Scoperta e contratti di supporto | [Registri e strumenti](https://software.cosmolocal.credit/contracts/registries) |
+| Richieste e risposte delle API | [Riferimento OpenAPI](https://software.cosmolocal.credit/core-api/reference) |
+| Impostazioni del backend e dell'instradamento | [Configurazione](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## Scambio instradato a livello dell'applicazione
 
-La CLC App in produzione fa più che interrogare il contratto Solidity `SwapRouter`. CLC Core mantiene un grafo riconciliato delle relazioni idonee tra Fondi, stima quali buoni sono raggiungibili, legge i Fondi selezionati allo stesso blocco fissato per produrre una quotazione autorevole, simula l'intero percorso e prepara un batch per il portafoglio Calibur. L'utente firma il batch e un relayer lo invia come singola transazione sulla stessa catena.
+L'App può aiutare un partecipante a scambiare attraverso più Fondi quando è disponibile un percorso adatto. Il partecipante esamina la quotazione e autorizza lo scambio. Ogni Fondo mantiene le proprie regole e i propri responsabili.
 
-Ogni passaggio chiama direttamente un `SwapPool`. Il batch azzera e imposta l'autorizzazione necessaria per il token, quindi chiama la versione di `SwapPool.withdraw` con limiti, specificando un output minimo e una scadenza. `revertOnFailure` è attivo: se una chiamata fallisce, l'intera transazione viene annullata. L'App presenta poi una ricevuta raggruppata con i dettagli del regolamento e delle commissioni per ciascun passaggio.
+Consulti [Percorsi e responsabilità](/it/protocol/network) per le implicazioni per i partecipanti e [Implementazione dell'instradamento](https://software.cosmolocal.credit/contracts/routing) per sapere come il software quota ed esegue i percorsi.
 
-Questo flusso di instradamento è una funzionalità di CLC App e CLC Core costruita sul Protocol v1.1.0. Non trasforma il contratto Solidity `SwapRouter` in un router di esecuzione, non cambia il proprietario o il Responsabile di un Fondo e non rende un Fondo responsabile delle regole di un altro Fondo o dell'adempimento di un emittente. Per il flusso completo, vedere [Architettura della rete del protocollo](/it/protocol/network).
+Il software rende possibile lo scambio; gli Emittenti restano responsabili delle promesse dei loro Buoni e i Responsabili dei Fondi delle regole pubblicate. L'uso dell'App pubblica è regolato dai [Termini di servizio](/it/governance/terms).

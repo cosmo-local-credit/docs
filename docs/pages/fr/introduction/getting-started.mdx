@@ -81,9 +81,9 @@ La vue **Crédit** de l’Application peut également trouver des Bons d’écha
 3. le montant minimal reçu et l’expiration de la cotation ; et
 4. le lot préparé pour le Portefeuille avant de choisir **Confirmer l’échange**.
 
-Le routage en production est volontairement plus restreint que l’échange direct dans un Bassin. Il utilise des Bassins vérifiés à prix relatif et des jetons dont le transfert porte exactement sur le montant indiqué : les bons d’échange `GiftableToken` et les jetons ERC-20 ordinaires explicitement autorisés. Le déploiement public recherche des itinéraires comportant jusqu’à trois échanges de Bassin et prend en charge les Portefeuilles EOA/Calibur compatibles, mais pas les Safe ni les autres Portefeuilles contractuels.
+Tous les Bons, Bassins et Portefeuilles ne permettent pas les échanges routés. L’Application vérifie si un échange est disponible pour vos choix. La [référence technique du routage](https://software.cosmolocal.credit/contracts/routing), en anglais, présente les critères d’admissibilité et les exigences techniques actuels.
 
-La découverte d’un itinéraire est une estimation. Avant la signature, CLC Core lit les Bassins sélectionnés à un même bloc fixé, calcule une cotation limitée dans le temps, applique des limites de sortie minimale et d’échéance, puis simule le lot complet. Si un appel échoue, toute la transaction sur la même chaîne est annulée. Le reçu regroupe les montants réglés sur l’itinéraire ainsi que les frais du Bassin et du protocole pour chaque étape.
+La découverte d’un itinéraire est une estimation. Avant de signer, vérifiez la cotation finale, notamment le minimum reçu et son expiration. L’échange routé actuel réussit entièrement ou ses échanges de Bassin sont annulés ensemble. Après l’envoi, consultez le reçu pour connaître le résultat, les montants échangés et les frais.
 
 ### 7. Utiliser un Bon d’échange auprès de son Émetteur
 
@@ -99,7 +99,7 @@ Les informations relatives aux Bons d’échange, Bassins, Offres, Demandes, Cat
 - vérifiez quelles informations sont visibles lorsque vous êtes déconnecté puis connecté ;
 - utilisez des coordonnées adaptées au public visé ;
 - ne recopiez pas des informations privées de votre profil dans une ressource publique, sauf si vous souhaitez les publier ; et
-- lisez la section [« Qu’est-ce qui devient public ? »](/fr/governance/privacy#what-becomes-public) de l’Avis de confidentialité.
+- lisez la section [« Qu’est-ce qui devient public ? »](/fr/governance/privacy#4-quest-ce-qui-devient-public-) de l’Avis de confidentialité.
 
 ## Actions actuelles de l’Application
 
@@ -126,6 +126,6 @@ Avant d’effectuer une transaction, retenez les points suivants :
 - Une fiche, un avis, un itinéraire, une limite, une réserve ou une inscription sur la blockchain ne constitue pas automatiquement une approbation, une évaluation, une preuve d’exécution, une garantie, une assurance ou une promesse de conversion en espèces.
 - Les services de paiement, les récompenses, les modalités de contribution et les autres intégrations de prestataires dépendent du déploiement et exigent leurs propres informations.
 
-Protocol v1.1.0 assure l’exécution directe dans un Bassin et fournit un contrat Solidity `SwapRouter` limité aux cotations. L’Application en production et CLC Core coordonnent au-dessus de ces contrats l’exécution passant par plusieurs Bassins sur une même chaîne. Le routage interchaînes, le rééquilibrage automatique des Bassins, la compensation par lots, l’assurance partagée, les actifs de gouvernance proposés, les programmes de liquidité du réseau et les services de paiement réglementés restent proposés ou dépendants du déploiement, sauf si un déploiement précis les déclare actifs.
+L’Application permet les échanges directs et routés entre Bassins lorsqu’ils sont disponibles. Le routage interchaînes, le rééquilibrage automatique des Bassins, la compensation par lots, l’assurance partagée, les actifs de gouvernance proposés, les programmes de liquidité du réseau et les services de paiement réglementés restent proposés ou dépendants du déploiement, sauf si un déploiement précis les déclare actifs.
 
 Consultez les [exemples simples et avancés](/fr/introduction/example), la [vue d’ensemble du Protocole](/fr/protocol/overview) ou les [mécanismes de gouvernance](/fr/governance/mechanics) pour en savoir plus.

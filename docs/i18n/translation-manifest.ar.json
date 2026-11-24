@@ -10,42 +10,55 @@
   "pages": {
     "/introduction/concepts": {
       "source": "introduction/concepts.mdx",
-      "sourceSha256": "8c401a45e68b0a53d117f1f7908732bd85ae4c2b205a16a0b0424158c24d9c4d",
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
       "locales": {
         "ar": {
-          "sha256": "2efed11105c7d6dcd8a03a271f226c3c4d5636ec9e2253a563bbd135dacc2f2a",
+          "sha256": "b9711ae8f451e9f709c35108291d62b1c39cb7d2947ff70347ee9a2df389c350",
           "review": {
-            "units": 150,
-            "meanBackTranslationSimilarity": 0.6037,
-            "unitsBelow0_35": 25
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 6,
+            "meanBackTranslationSimilarity": 0.6077,
+            "lowConfidenceUnits": 1,
+            "report": "software-review.ar.json"
           }
         }
       }
     },
     "/introduction/example": {
       "source": "introduction/example.mdx",
-      "sourceSha256": "15fc488c336ba1059379a89c21265ee9b0f6c8e5a14d1e6a764f79305e3e69d5",
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
       "locales": {
         "ar": {
-          "sha256": "a9c85e70fb235365ea94292079c6c82c918aa503e0352ba8a0001725238e92f5",
+          "sha256": "8032703ca9fcc26063349c2bcdf6b6e57c75966eecfb857c5e3049ebca04dcb1",
           "review": {
-            "units": 60,
-            "meanBackTranslationSimilarity": 0.6114,
-            "unitsBelow0_35": 9
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 7,
+            "meanBackTranslationSimilarity": 0.6302,
+            "lowConfidenceUnits": 1,
+            "report": "software-review.ar.json"
           }
         }
       }
     },
     "/introduction/getting-started": {
       "source": "introduction/getting-started.mdx",
-      "sourceSha256": "d4d1c6fc3baee57697796bdd4d63624932d003720e817a6c35ec7ac13a86f2ac",
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
       "locales": {
         "ar": {
-          "sha256": "42ca1d2b2ad6f9dd667eff4ad32d9f5957ef415ce9c1f986f16221a6c4cff90e",
+          "sha256": "53ff114b9d63a131ed728ce21c15ffdd472d7f3eb4ec00b37f2ef11c7b400e41",
           "review": {
-            "units": 74,
-            "meanBackTranslationSimilarity": 0.5889,
-            "unitsBelow0_35": 13
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 3,
+            "meanBackTranslationSimilarity": 0.7547,
+            "lowConfidenceUnits": 0,
+            "report": "software-review.ar.json",
+            "linkVerification": "24 November 2026; software-review.ar.json"
           }
         }
       }
@@ -66,56 +79,72 @@
     },
     "/protocol/network": {
       "source": "protocol/network.mdx",
-      "sourceSha256": "dfa60b49d68edcb83e944ac483d80107cfc96698a672343755574dc8854ad4ae",
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
       "locales": {
         "ar": {
-          "sha256": "4c6c79e0357aba5b9607011a949e81ee73014b78cf9421f4fca5f9ceb1ec968d",
+          "sha256": "633eea991c2d984c319af352fae2a876db35598887413842178f765ace245363",
           "review": {
-            "units": 72,
-            "meanBackTranslationSimilarity": 0.5454,
-            "unitsBelow0_35": 14
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 15,
+            "meanBackTranslationSimilarity": 0.7337,
+            "lowConfidenceUnits": 2,
+            "report": "software-review.ar.json"
           }
         }
       }
     },
     "/protocol/overview": {
       "source": "protocol/overview.md",
-      "sourceSha256": "498a2c4f6cbaa0f068bad53500922cd7b316548c2269b073e82e151c5681b308",
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
       "locales": {
         "ar": {
-          "sha256": "05b9284cd8e63f660568449b1ac712996d38c422984bbe487c7809133b112b31",
+          "sha256": "a00b461c92a5519bf3e7172010c7e620e1e9f8cffdd093ff82d85cb27f4201cb",
           "review": {
-            "units": 41,
-            "meanBackTranslationSimilarity": 0.5745,
-            "unitsBelow0_35": 9
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 18,
+            "meanBackTranslationSimilarity": 0.6933,
+            "lowConfidenceUnits": 1,
+            "report": "software-review.ar.json"
           }
         }
       }
     },
     "/protocol/smart-contracts": {
       "source": "protocol/smart-contracts.md",
-      "sourceSha256": "6b667ed9948dde5fcf41e6ca90dfb4ff236cfbda138178811c8e4e8c1492a3ed",
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
       "locales": {
         "ar": {
-          "sha256": "52fcd2b20d6462bd18b5523fc523904b858443fcca86c42f305a9d98021e064b",
+          "sha256": "ddf55b9a905d271ebdb4afa4f4a17b73f30250ca1865ac5d2fb8d5a2339ef468",
           "review": {
-            "units": 83,
-            "meanBackTranslationSimilarity": 0.5161,
-            "unitsBelow0_35": 21
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 14,
+            "meanBackTranslationSimilarity": 0.6371,
+            "lowConfidenceUnits": 1,
+            "report": "software-review.ar.json"
           }
         }
       }
     },
     "/governance/mechanics": {
       "source": "governance/mechanics.md",
-      "sourceSha256": "d3a2e05aad10d95669e22444c9046698b0043613beab4a901d7851d001885180",
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
       "locales": {
         "ar": {
-          "sha256": "2ba9249a3f26f6bb7d574249247b0a66a414b9f7d8aec9dce16fb3c7700c6cbb",
+          "sha256": "8c4e66c280ac66e7301ea1a11749fa41194074badd91e7c9d5989c4b20b8a870",
           "review": {
-            "units": 39,
-            "meanBackTranslationSimilarity": 0.5826,
-            "unitsBelow0_35": 7
+            "status": "review-complete",
+            "date": "23 November 2026",
+            "method": "semantic translation, clarity revision, independent MADLAD back-translation, protected-content and source comparison",
+            "units": 2,
+            "meanBackTranslationSimilarity": 0.7721,
+            "lowConfidenceUnits": 0,
+            "report": "software-review.ar.json"
           }
         }
       }

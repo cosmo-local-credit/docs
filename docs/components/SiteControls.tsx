@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom'
 
 import '../theme-toggle.css'
 import headingMap from '../i18n/heading-map.json'
+import headingAliases from '../i18n/heading-aliases.json'
+import { canonicalHeadingId } from '../i18n/heading-aliases'
 import {
   DEFAULT_LOCALE,
   hasLocalizedDocumentation,
@@ -69,7 +71,7 @@ function destinationHash(
   const pageHeadings = headings[sourcePath]
   const current = pageHeadings?.[currentLocale] ?? []
   const target = pageHeadings?.[nextLocale] ?? []
-  const index = current.indexOf(currentHash)
+  const index = current.indexOf(canonicalHeadingId(headingAliases, pathname, currentHash))
   return index >= 0 && target[index] ? `#${encodeURIComponent(target[index])}` : ''
 }
 

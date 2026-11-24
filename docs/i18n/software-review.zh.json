@@ -1,0 +1,2502 @@
+{
+  "locale": "zh",
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "bb2ae1521a0868ed1a81107b2bcddad094cf560fa8de9741ff7169eac1e05ead"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "bb44c3ee3eaa3e0be4577842506e6b2c48c32ed242524cbfa96a02ea4d4171ff"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "d9d4f18ce68e54dd39978e4716c1a89938aceb3acd5ce45ee1f16557020f595a"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "41f2f92382b6a941f301d0c649f6f0d2a4d1be4fd9fd9601ffbce7229ae4d7a5"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "34a925d4bd1233acf3f151d1517f053c8934b7e5d348e1b8b2f62f5dfa42d321"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "67bbfd07d6f9bc6285c2846a47e49c4c85d252a55bb2b5ec52d4c2e33cfb9489"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "fa7340809371c610f22a8224e30c94cdf322b8d06da0f8bc5db61c472b28b0c9"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "Commitment Pooling Protocol（CPP，承诺汇集协议） 说明独立治理的资金池如何选择代金券、公布交换规则并支持交换。持有人之后向发行方使用代金券，获得承诺的商品或服务。这些是不同的步骤，各自有不同的责任。",
+      "backTranslation": "Commitment Pooling Protocol (CPP) Describes how an independently governed pool selects vouchers, publishes exchange rules and supports exchange. Holders then use the voucher to obtain goods or services from the issuer that they have committed to. These are different steps with different responsibilities.",
+      "similarity": 0.7429
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "本网站解释这些概念以及如何使用 CLC App。CLC 软件文档是软件实现、合约、API、部署和运营的权威参考，目前提供英文版本。",
+      "backTranslation": "This website explains these concepts and how to use the CLC App. The CLC Software Documentation is an authoritative reference for software implementation, contracting, API, deployment and operations, currently available in English.",
+      "similarity": 0.9264
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "了解共同术语，可以先阅读概念与词汇；了解更广泛的设计和提案，可以阅读白皮书。",
+      "backTranslation": "To understand common terms, read the Concepts and Vocabulary first; to learn about wider designs and proposals, read white papers.",
+      "similarity": 0.5726
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "不同社区和组织可以按照自己的规则运行兼容软件。Grassroots Economics Foundation 运营公共 CLC App。每项部署都应说明运营方、合约和责任机构。",
+      "backTranslation": "Different communities and organizations can run compatible software according to their own rules. The Grassroots Economics Foundation operates the public CLC App. Each deployment should state the operator, contractor and responsible agency.",
+      "similarity": 0.887
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "合约地址、部署说明以及如何核实所有者和升级权限，见部署与验证。运行配套服务，可以从 CLC Core API 开始。",
+      "backTranslation": "For contract addresses, deployment instructions and how to verify ownership and upgrade permissions, see Deployment & Verification.Run the accompanying services, which can be started from the CLC Core API.",
+      "similarity": 0.8342
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "以下主题请查阅软件参考文档：",
+      "backTranslation": "Please refer to the software reference documentation for the following topics:",
+      "similarity": 0.5505
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "主题  权威软件文档",
+      "backTranslation": "Authoritative software documentation  Authoritatives  Authorities  Authoritarian software documentations",
+      "similarity": 0.4167
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "代金券创建、供应量和到期机制  代金券",
+      "backTranslation": "Voucher creation, supply and expiration mechanisms  Vouchers",
+      "similarity": 0.8302
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "资金池配置、存入、提取和控制  资金池",
+      "backTranslation": "Pool Configuration, Deposits, Withdrawals and Control  Pool Configurations  Pools",
+      "similarity": 0.8451
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "汇率计算  报价器（Quoter）",
+      "backTranslation": "Exchange rate calculation  Quoter",
+      "similarity": 0.9412
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "交换执行、费用和交易记录  交换报价与结算",
+      "backTranslation": "Exchange execution, fees and transaction records  Exchange quotes and settlement",
+      "similarity": 0.7919
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "通过多个资金池交换  路由",
+      "backTranslation": "Exchange through multiple pools of funds  Routing",
+      "similarity": 0.75
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "发现服务和配套合约  注册表与工具",
+      "backTranslation": "Discover services and accompanying contracts  Forms and tools",
+      "similarity": 0.6446
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "API 请求和响应  OpenAPI 参考",
+      "backTranslation": "API requests and responses  OpenAPI reference",
+      "similarity": 1
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "后端和路由设置  配置",
+      "backTranslation": "Backend and routing settings  Configuration",
+      "similarity": 1
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "有合适路线时，App 可以帮助参与者通过多个资金池交换。参与者审核报价并授权交换。每个资金池仍保留自己的规则和责任方。",
+      "backTranslation": "When there is a suitable route, the App can help participants exchange through multiple pools. Participants review bids and authorize exchanges. Each pool still retains its own rules and responsibilities.",
+      "similarity": 0.6921
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "参与者应了解的含义，见路线与责任；软件如何报价和执行路线，见路由实现。",
+      "backTranslation": "For what participants should understand, see Routes and responsibilities; for how software quotes and executes routes, see Routing implementation.",
+      "similarity": 0.5241
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "软件使交换成为可能；发行方仍对代金券承诺负责，资金池管理者仍对自己公布的规则负责。公共 App 的使用受服务条款约束。",
+      "backTranslation": "The software makes exchange possible; the issuer remains responsible for voucher commitments and the pool manager remains liable for the rules they publish. Use of Public Apps is governed by Terms of Service.",
+      "similarity": 0.7596
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "合约记录代币余额并执行资金池交换。CLC 软件文档是软件实现的权威参考，目前提供英文版本。本页说明参与者在使用这些合约前应了解的内容。",
+      "backTranslation": "The contracts record token balances and execute pool exchanges.The CLC software documentation is the authoritative reference for the software implementation, currently available in English.This page describes what participants should know before using these contracts.",
+      "similarity": 0.8023
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "受治理的承诺资金池与其 SwapPool 合约之间，以及交换与发行方履行之间的区别，见概念与词汇。",
+      "backTranslation": "For the differences between a governed commitment pool and its SwapPool contract, as well as between exchange and issuer performance, see Concepts & Glossary.",
+      "similarity": 0.7331
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "代金券把数字余额与发行方公布的承诺联系起来。条款说明用途、接受的地点和时间，以及责任方。创建代币不能证明发行方有能力提供承诺的商品或服务。",
+      "backTranslation": "The terms describe the use, place and time of acceptance, and liable party. Creating tokens does not prove that the issuer is able to provide the goods or services promised.",
+      "similarity": 0.5793
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "创建、铸造、销毁和到期机制，见代金券。",
+      "backTranslation": "For the mechanisms of creation, minting, destruction and expiration, see Voucher.",
+      "similarity": 0.6577
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "承诺资金池按照公布的规则汇集选定的代金券。合约持有库存并交换受支持资产。存入资产不会自动赋予存入人资金池份额、还款权、提款权、奖励或治理权；此类权利需要另行披露的条款。",
+      "backTranslation": "The contract holds stock and exchanges the backed assets. Deposited assets do not automatically confer on the depositor a share in the pool, repayment rights, withdrawal rights, incentives or governance; such rights require separate disclosure terms.",
+      "similarity": 0.6522
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "请检查资金池接受哪些代金券、如何设定汇率、有哪些限额和费用，以及谁能更改这些设置。软件参考文档说明资金池配置与封存。",
+      "backTranslation": "Please check which tokens the pool accepts, how to set exchange rates, limits and fees, and who can change these settings. The software reference documentation describes how to configure and lock the pool.",
+      "similarity": 0.7842
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "成功的交换会改变相关余额，但不能证明发行方已交付商品或服务。确认前，请查看输入、输出、接收方、最低收到数量和报价到期时间。",
+      "backTranslation": "Successful exchanges change the relevant balance, but do not prove that the issuer has delivered goods or services. Before confirmation, please check input, output, recipient, minimum quantity received and quote expiration time.",
+      "similarity": 0.8525
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "执行方式和结算记录，见交换报价与结算。",
+      "backTranslation": "For the execution method and settlement record, see Exchange quotes and settlement.",
+      "similarity": 0.8153
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "交换可能同时收取资金池费用和额外协议费。请查看报价显示的总额；通过多个资金池的路线可能在每一步收费。交换参考维护最新计算方法和完整示例。",
+      "backTranslation": "Exchanges may charge both the pool fee and additional agreement fees. Please check the total amount displayed on the quote; routes through multiple pools may be charged at each step. The exchange reference maintains the latest calculation methodology and complete examples.",
+      "similarity": 0.696
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "资金池所有者可以提取可用库存。其他权限方可能控制升级或设置。存入资产或依赖资金池之前，应结合管理者公布的规则审查这些权力。仅仅封存设置，不能证明库存已永久锁定。",
+      "backTranslation": "Other authorized parties may control upgrades or settings. These rights should be reviewed in conjunction with the rules published by the administrator before depositing assets or relying on the pool. Merely sealing a setting does not prove that inventory is permanently locked.",
+      "similarity": 0.645
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "技术检查方法，见资金池和验证实例。",
+      "backTranslation": "For technical check methods, see pool and validation examples.For more information on the proof of concept, see the 2016-2020 ETF Funding Pool and Validation Examples.",
+      "similarity": 0.1867
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "资金池的汇率不同于代金券的标示价值，也不同于发行方的兑换条款。请查看资金池选择的方法以及谁能更改其输入。软件参考文档介绍可用的报价器（Quoter）。",
+      "backTranslation": "The exchange rate of the pool is different from the nominal value of the voucher and the issuer's terms of redemption. See how to select a pool and who can change its input.The software reference documentation describes available Quoters.",
+      "similarity": 0.6813
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "App 中的 “信用额度” 是资金池可以持有某种代金券的最大余额。它表示交换容量，不是个人借款或履行担保。限额和费用如何应用，见资金池规则与配置。",
+      "backTranslation": "The “Credit Line” in the app is the maximum balance of a certain token that a pool can hold. It represents exchange capacity, not personal borrowing or performance guarantee. See Pool Rules & Configuration for how limits and fees apply.",
+      "similarity": 0.7735
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "协议费用有一个配置的接收方。收取费用不会自动使其成为资金池管理者或担保人。当前机制见费用参考，责任与披露见治理机制。",
+      "backTranslation": "The fee has a configured recipient. Collecting the fee does not automatically make it the pool manager or guarantor. For current mechanisms, see the fee reference and for accountability and disclosure, see governance mechanisms.",
+      "similarity": 0.6752
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "多个独立治理的资金池可以把您持有的代金券连接到想要的代金券。每个资金池按照自己的规则，使用可用库存完成交换中的一步。",
+      "backTranslation": "Multiple independently governed pools can connect your tokens to the tokens you want. Each pool uses its own rules and completes a step in the exchange with available stock.",
+      "similarity": 0.6648
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "CLC 软件路由参考是路线发现、资格、执行和服务接口的权威来源。软件文档目前提供英文版本。本页说明参与者的操作流程和责任。",
+      "backTranslation": "The CLC Software Routing Reference is an authoritative source for route discovery, qualification, execution and service interfaces. The software documentation is currently available in English. This page describes the operational processes and responsibilities of participants.",
+      "similarity": 0.813
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "在 App 的 可存入（Credit） 视图中，选择想要 获取（Get） 或 花费（Spend） 的代金券。例如，某条路线可以通过两个不同的资金池，把交通代金券换成食品代金券。",
+      "backTranslation": "In the App's Credit view, select the voucher you want to Get or Spend. For example, a route can be exchanged for transportation vouchers for food voucher in two different pools.",
+      "similarity": 0.7933
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "找到连接并不保证可以交换。受支持的代金券、资金池限额、可用库存、费用、钱包兼容性和服务可用性，都必须允许所请求的数量。",
+      "backTranslation": "Finding a connection does not guarantee exchangeability. Supported tokens, pool limits, available inventory, fees, wallet compatibility and service availability must all allow the requested quantity.",
+      "similarity": 0.9114
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "确认前请查看 路径详情（Route details）：您支付什么、收到什么、每个参与的资金池、费用、最低收到数量和报价到期时间。估算帮助您探索选项；报价才是您授权的交易提案。报价到期或资金池条件改变时，应重新获取报价。",
+      "backTranslation": "Before confirming, please check the Route details: what you pay, what you receive, each participating pool, fees, minimum amount to be received and when your quote expires. Estimates help you explore options; quotes are your authorized trade proposals. When a quote expire or pool conditions change, re-obtain the quote.",
+      "similarity": 0.6889
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "路由参考和服务配置维护技术资格规则和报价设置。",
+      "backTranslation": "Routing references and service configuration maintain technical qualification rules and pricing settings.",
+      "similarity": 0.8263
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "您审核并授权完整交换。当前路线要么整体成功，要么在某一步失败时，把所有资金池交换一起回滚。这样可避免仅完成部分路线，但不能保证之后一定交付商品或服务。",
+      "backTranslation": "You review and authorize the entire exchange. Either the current route is successful in its entirety, or if a certain step fails, roll back all of the pools together. This avoids completing only part of the route, but does not guarantee that goods or services will be delivered afterwards.",
+      "similarity": 0.6966
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "交易构建和执行方法，见执行路线。",
+      "backTranslation": "For the transaction construction and execution method, see Execution path.",
+      "similarity": 0.8406
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "仅提供报价的 Solidity SwapRouter 与 App 的交换流程是不同的软件组件。二者的关系见路由。",
+      "backTranslation": "The Solidity SwapRouter, which only provides quotes, and the App's exchange process are different software components. For the relationship between the two, see Routing.",
+      "similarity": 0.7197
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "对参与者而言，重要的是检查完整报价。每个资金池都可能收费。共享路线不会合并资金池，也不会使某个管理者对另一个资金池负责。",
+      "backTranslation": "For participants, it is important to check the full quote. Each pool may be charged. A shared route does not merge pools or make one manager responsible for another pool.",
+      "similarity": 0.8653
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "提交后，请检查交换是待处理、已确认还是失败，并保留收据。找不到路线时，可以尝试刷新、减少数量或选择另一种受支持的输入代金券。",
+      "backTranslation": "Once submitted, check whether the exchange is pending, confirmed or failed and keep your receipt. If you can't find a route, try refreshing, reducing the amount or selecting another supported type of voucher input.",
+      "similarity": 0.8104
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "交换失败不会改变发行方已有的承诺。交换成功会记录余额变化；履行和解除仍按照发行方条款处理。请参阅实用示例。",
+      "backTranslation": "Failure of the exchange does not change the issuer’s existing commitment. Successful exchange records balance changes; performance and termination are still treated according to the terms of the issuers. See practical examples.",
+      "similarity": 0.7166
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "开发者可在 CLC Core API 参考中查阅交易和跟踪接口。",
+      "backTranslation": "Developers can view the transaction and tracking interface in the CLC Core API reference.The CLC core API reference is available for developers to download.",
+      "similarity": 0.6777
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "依赖资金池之前，请确定管理者、合约所有者、升级权限方、费用接收方，以及谁能更改重要设置。技术控制者与负有责任的管理者可能是不同的主体。",
+      "backTranslation": "Before relying on the pool, determine who is the administrator, contract owner, upgrader, fee recipient and who can change important settings. The technical controller may be a different entity than the responsible administrator.",
+      "similarity": 0.6889
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "软件参考文档维护资金池机制和部署验证。本文档说明角色与词汇、治理责任和更广泛的 CPP 设计。",
+      "backTranslation": "Software reference documentation for maintaining the pool mechanism and validating deployments. This document describes roles and vocabulary, governance responsibilities and the broader CPP design.",
+      "similarity": 0.7642
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 3,
+      "source": "Cosmo-Local Credit (CLC) helps people describe what they offer, publish what they need, and exchange vouchers through independently governed Commitment Pools. Open the CLC App to begin.",
+      "translation": "Cosmo-Local Credit（CLC）帮助人们说明自己能提供什么、发布自己需要什么，并通过独立治理的承诺资金池交换代金券。打开 CLC App 即可开始。",
+      "backTranslation": "Cosmo-Local Credit (CLC) helps people say what they can offer, publish what they need and exchange vouchers through an independently governed commitment pool. Open the CLC App to get started.",
+      "similarity": 0.9149
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 5,
+      "source": "The basic idea is simple:",
+      "translation": "基本思路很简单：",
+      "backTranslation": "The basic idea is simple: the idea is to make a giant, massive, and powerful machine.",
+      "similarity": 0.4545
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 7,
+      "source": "1. Create a voucher—much like a gift card—for something you can provide.",
+      "translation": "1. 为自己能提供的东西创建一张代金券——它很像礼品卡。",
+      "backTranslation": "1. Create a voucher for what you can offer – it’s much like a gift card.",
+      "similarity": 0.5694
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 8,
+      "source": "2. Publish an Offering so people can discover the related goods or services.",
+      "translation": "2. 发布一项 商品或服务项目（Offering），让人们发现相关的商品或服务。",
+      "backTranslation": "2. Publish an Offering to help people find the relevant goods or services.",
+      "similarity": 0.84
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 9,
+      "source": "3. Publish or respond to a Want to find possible exchange partners.",
+      "translation": "3. 发布或回应一项 需求（Want），寻找可能的交换伙伴。",
+      "backTranslation": "3. Post or respond to a Want, looking for potential exchange partners.",
+      "similarity": 0.7883
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 10,
+      "source": "4. Use a Commitment Pool to exchange supported vouchers under published rules.",
+      "translation": "4. 通过承诺资金池，按照已公布的规则交换受支持的代金券。",
+      "backTranslation": "4. Exchange supported vouchers through the commitment pool in accordance with published rules. The voucher will be exchanged through the pool.",
+      "similarity": 0.4727
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 11,
+      "source": "5. Use a voucher with its Issuer for what its terms promise.",
+      "translation": "5. 按照代金券条款，向发行方使用代金券并获得其承诺的商品或服务。",
+      "backTranslation": "5. Purchase of goods or services from the issuer in exchange for vouchers and under the terms of the voucher, as promised by the issuers.",
+      "similarity": 0.3858
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 13,
+      "source": "“Credit” in the App means recognized commitments and Voucher exchange capacity. It is not automatically a personal loan, borrowing limit, or promise to advance money.",
+      "translation": "App 中的 Credit（界面标签为“可存入”）是指获得认可的承诺以及代金券交换容量，并不自动表示个人贷款、借款额度或垫款承诺。",
+      "backTranslation": "Credit in the App (interface labelled as “Depositable”) refers to accredited commitments and voucher exchange capacity, and does not automatically represent a personal loan, borrowing limit or advance commitment.",
+      "similarity": 0.7354
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 15,
+      "source": "For exact definitions, see Concepts and vocabulary.",
+      "translation": "准确的定义请参阅概念与词汇。",
+      "backTranslation": "For the exact definitions, see Concepts and Glossary.For more information on the terms used in this document, please refer to the Terms and Definitions section.",
+      "similarity": 0.4265
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 17,
+      "source": "## A first journey through the App",
+      "translation": "## 第一次使用 App",
+      "backTranslation": "## First time using the App",
+      "similarity": 0.6557
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 19,
+      "source": "### 1. Explore the Market and Wants",
+      "translation": "### 1. 浏览市场和需求",
+      "backTranslation": "1. Browse the market and demands.",
+      "similarity": 0.7059
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 21,
+      "source": "Browse the CLC App before creating anything. The Market is a discovery catalog, not automatically a seller, exchange venue, endorsement, or guarantee.",
+      "translation": "创建任何内容之前，可以先浏览 CLC App。市场（Market） 是用于发现内容的目录，本身并不自动成为卖方、交换场所、认可或担保。",
+      "backTranslation": "Browse the CLC App before creating any content.The Market is a directory for discovering content and does not automatically become a seller, exchange, endorsement or sponsorship in itself.",
+      "similarity": 0.7574
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 23,
+      "source": "When reviewing a Voucher, check:",
+      "translation": "查看代金券时，请确认：",
+      "backTranslation": "When viewing the voucher, please confirm:",
+      "similarity": 0.6849
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 25,
+      "source": "- who issued it;",
+      "translation": "- 由谁发行；",
+      "backTranslation": "- Who issued it; who is the issuer;",
+      "similarity": 0.6275
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 26,
+      "source": "- the goods or services it promises;",
+      "translation": "- 承诺提供哪些商品或服务；",
+      "backTranslation": "- The goods or services that are being offered; and the goods and services that you promise to provide.",
+      "similarity": 0.4892
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 27,
+      "source": "- where, when, and how it can be used;",
+      "translation": "- 可以在何处、何时以及如何使用；",
+      "backTranslation": "- Can be used where, when and how; can be used in any environment.",
+      "similarity": 0.6346
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 28,
+      "source": "- its limits, expiry, contact method, and complaint process; and",
+      "translation": "- 有哪些限制、有效期、联系方法和投诉流程；以及",
+      "backTranslation": "- What restrictions, validity periods, contact methods and complaint processes are available; as well as the complaint process.",
+      "similarity": 0.5445
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 29,
+      "source": "- which Commitment Pools support it.",
+      "translation": "- 哪些承诺资金池支持它。",
+      "backTranslation": "- What commitments the pool supports it.",
+      "similarity": 0.8421
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 31,
+      "source": "A Want expresses demand. Publishing or answering one does not automatically accept a Voucher, reserve goods, authorize an exchange, or create an obligation. Contacting or messaging another participant also does not by itself create, fulfill, or discharge a Voucher commitment.",
+      "translation": "需求（Want） 用来表达需要。发布或回应需求，并不自动表示接受代金券、预留商品、授权交换或产生义务。联系其他参与者或给对方发送消息，本身也不会产生、履行或解除代金券承诺。",
+      "backTranslation": "Posting or responding to a request does not automatically mean acceptance of the voucher, reservation of goods, authorization for exchange or creation of an obligation. Contacting other participants or sending messages to them does not in itself create, fulfill or discharge a commitment to the vehicle.",
+      "similarity": 0.7081
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 35,
+      "source": "The App uses an account for profile and session access and a Wallet for blockchain authorization. Protect your passkey, paper-wallet material, recovery information, devices, and any other credentials. Review every address, asset, amount, Pool, fee, and authorization before confirming a transaction.",
+      "translation": "App 使用账户来访问个人资料和会话，并使用 钱包（Wallet） 进行区块链授权。请妥善保护通行密钥、纸钱包资料、恢复信息、设备和其他凭据。确认交易前，请检查每个地址、资产、金额、资金池、费用和授权。",
+      "backTranslation": "The app uses the account to access profiles and sessions, and uses Wallet for blockchain authorization. Protect your passkeys, paper wallet information, recovery information, devices, and other credentials. Check each address, asset, amount, pool, charge, and authorization before confirming transactions.",
+      "similarity": 0.8808
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 37,
+      "source": "The interface asks you to confirm the Terms during onboarding and before publishing a Voucher or Pool. Read the Terms of Service and Privacy Notice before continuing.",
+      "translation": "界面会在注册流程中以及发布代金券或资金池之前要求您确认条款。继续之前，请阅读服务条款和隐私声明。",
+      "backTranslation": "You will be asked to confirm the terms during the registration process and before issuing vouchers or pools. Before continuing, please read the Terms of Service and Privacy Statement.",
+      "similarity": 0.6762
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 39,
+      "source": "### 3. Create a Voucher and Offering",
+      "translation": "### 3. 创建代金券和商品或服务项目",
+      "backTranslation": "3. Create vouchers and items of goods or services.",
+      "similarity": 0.6279
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 41,
+      "source": "Create a Voucher for something you can reasonably provide. Think of it as making your own gift card: you describe what it represents and the conditions for using it.",
+      "translation": "为自己能够合理提供的东西创建代金券。可以把它理解为制作自己的礼品卡：您说明它代表什么，以及使用条件是什么。",
+      "backTranslation": "Create vouchers for things you can reasonably offer. You can think of it as making your own gift card: you specify what it represents and what the conditions are for using it.",
+      "similarity": 0.8706
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 43,
+      "source": "A complete Voucher has several separate layers:",
+      "translation": "一张完整的代金券包含几个彼此独立的层面：",
+      "backTranslation": "A complete voucher contains several independent levels: The first is the value of the voucher.",
+      "similarity": 0.539
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 46,
+      "source": "2. the Issuer's published Voucher terms;",
+      "translation": "2. 发行方公布的代金券条款；",
+      "backTranslation": "2. The terms of the voucher as published by the issuer;",
+      "similarity": 0.5684
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 47,
+      "source": "3. one or more Offering records describing associated goods or services; and",
+      "translation": "3. 一项或多项描述相关商品或服务的 商品或服务项目（Offering） 记录；以及",
+      "backTranslation": "3. One or more records of an Offering describing the related goods or services; and a record of the offer.",
+      "similarity": 0.6813
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 48,
+      "source": "4. the Issuer's real-world fulfillment.",
+      "translation": "4. 发行方在现实世界中的履行。",
+      "backTranslation": "4. Issuer’s performance in the real world. Issuers’ performance in real world",
+      "similarity": 0.4138
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 50,
+      "source": "Creating or minting a token does not prove that an Offering exists, that the Issuer has capacity, or that Grassroots Economics Foundation (GEF) guarantees fulfillment.",
+      "translation": "创建或铸造代币，并不能证明相关商品或服务项目确实存在、发行方具备履行能力，或 Grassroots Economics Foundation（GEF）保证履行。",
+      "backTranslation": "The creation or minting of tokens does not prove the existence of the goods or services involved, the issuer’s capacity to perform, or the guarantee of performance by the Grassroots Economics Foundation (GEF).",
+      "similarity": 0.6489
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 52,
+      "source": "### 4. Publish or respond to a Want",
+      "translation": "### 4. 发布或回应需求",
+      "backTranslation": "### 4. Post or respond to requests.",
+      "similarity": 0.7143
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 54,
+      "source": "Use a Want to describe something you are looking for, including the amount, place, timing, and a suitable contact method. Another participant can discover it, review your public Vouchers and Offerings, and decide whether to contact you.",
+      "translation": "使用需求来说明您正在寻找什么，包括数量、地点、时间和合适的联系方法。其他参与者可以发现这项需求、查看您公开的代金券和商品或服务项目，并决定是否与您联系。",
+      "backTranslation": "Use the demand to describe what you are looking for, including quantity, location, time and appropriate contact method. Other participants can discover this demand, view your public vouchers and goods or services, and decide whether to contact you.",
+      "similarity": 0.8099
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 56,
+      "source": "Keep negotiation and responsibility clear. A message can help participants agree on delivery, booking, or other details, but the applicable Voucher terms and any separately agreed transaction terms determine the commitment.",
+      "translation": "应明确协商内容和责任。消息可以帮助参与者就交付、预约或其他细节达成一致，但承诺的内容取决于适用的代金券条款以及另行约定的交易条款。",
+      "backTranslation": "The content and responsibilities of the negotiation should be clear. Messages can help participants agree on delivery, appointment or other details, but the content of the commitment depends on the applicable voucher terms as well as any separately agreed transaction terms.",
+      "similarity": 0.7082
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 58,
+      "source": "### 5. Find or create a Commitment Pool",
+      "translation": "### 5. 查找或创建承诺资金池",
+      "backTranslation": "### 5. Find or create a commitment pool.",
+      "similarity": 0.9873
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 60,
+      "source": "A Commitment Pool curates selected Vouchers and enables their exchange. Before using or supporting one, review:",
+      "translation": "承诺资金池对选定的代金券进行筛选，并支持它们之间的交换。使用或支持资金池之前，请查看：",
+      "backTranslation": "The commitment pool screens selected vouchers and supports exchange between them. Before using or supporting the pool, please see:",
+      "similarity": 0.7469
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 62,
+      "source": "- the accountable Pool Steward and current contract owner;",
+      "translation": "- 负有责任的 资金池管理者（Pool Steward） 和当前合约所有者；",
+      "backTranslation": "- The Pool Steward and current contract owner; the responsible pool steward; and the current contract holder.",
+      "similarity": 0.5509
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 63,
+      "source": "- admitted Vouchers and other supported assets;",
+      "translation": "- 获准进入的代金券和其他受支持资产；",
+      "backTranslation": "- Vouchers and other backed assets that have been granted entry; vouchers, bonds and securities;",
+      "similarity": 0.4336
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 65,
+      "source": "- the App's “Credit limit”, which is a Pool token-balance cap rather than personal credit;",
+      "translation": "- App 中的 “信用额度（Credit limit）”，它是资金池的代币余额上限，不是个人信用额度；",
+      "backTranslation": "- The “Credit limit” in the app, which is the token balance cap of the pool and not a personal credit line;",
+      "similarity": 0.731
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 67,
+      "source": "- available inventory and the Pool owner's liquidity-withdrawal power;",
+      "translation": "- 可用库存，以及资金池所有者提取流动性的权限；",
+      "backTranslation": "- Available stocks, as well as the power of pool owners to draw liquidity; and the right of pool owner to withdraw liquidity.",
+      "similarity": 0.5231
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 68,
+      "source": "- proxy, multisig, and dependency controllers; and",
+      "translation": "- 代理、多签和依赖项控制者；以及",
+      "backTranslation": "- Agent, multi-signature and dependency controllers; as well as proxy, multisignatures and dependencies.",
+      "similarity": 0.5714
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 69,
+      "source": "- any separately published contribution, guarantee, reserve, reward, or insurance terms.",
+      "translation": "- 另行公布的贡献、担保、储备、奖励或保险条款。",
+      "backTranslation": "- Contribution, guarantee, reserve, incentive or insurance terms separately published.",
+      "similarity": 0.6552
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 71,
+      "source": "Depositing transfers assets into the Pool's SwapPool. Protocol v1.1.0 does not automatically give a depositor Pool shares, repayment, withdrawal, reward, or governance rights.",
+      "translation": "存入资产会把资产转移到资金池的 SwapPool 中。Protocol v1.1.0 不会自动赋予存款人资金池份额、还款权、提款权、奖励或治理权。",
+      "backTranslation": "Depositing assets transfers assets to the pool’s SwapPool.Protocol v1.1.0 does not automatically grant depositors a share in the pool, repayment rights, withdrawal rights, incentives or governance.",
+      "similarity": 0.8011
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 73,
+      "source": "### 6. Send or exchange Vouchers",
+      "translation": "### 6. 发送或交换代金券",
+      "backTranslation": "### 6. Send or exchange vouchers.",
+      "similarity": 0.9846
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 75,
+      "source": "Use Send to transfer a Voucher directly. Use a Pool swap to exchange one supported asset for another through one Pool.",
+      "translation": "使用 发送（Send） 直接转移代金券。使用 资金池交换（Pool swap），通过一个资金池把一种受支持资产换成另一种。",
+      "backTranslation": "Use Send to transfer tokens directly.Use Pool swap to exchange one supported asset for another through a pool.Using Pool swaps, you can trade one supporting asset for the other.",
+      "similarity": 0.7119
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 77,
+      "source": "The App's Credit view can also find Vouchers reachable through several independently governed Pools. Choose Get for the Voucher you want or Spend for the Voucher you want to use. Then review:",
+      "translation": "App 的 可存入（Credit） 视图还可以查找通过多个独立治理资金池可达的代金券。选择 获取（Get） 来指定想获得的代金券，或选择 花费（Spend） 来指定想使用的代金券。然后查看：",
+      "backTranslation": "The app's Credit view also lets you find vouchers available through multiple independently governed pools. Select Get to specify the voucher you want to get, or select Spend to specifi to the vehicle you want.",
+      "similarity": 0.66
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 79,
+      "source": "1. the Pay with choice and Estimate;",
+      "translation": "1. 支付方式（Pay with） 和 估算（Estimate）；",
+      "backTranslation": "1. Pay with and Estimate; 2.",
+      "similarity": 0.7812
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 80,
+      "source": "2. Route details, including every Pool, amount, Pool fee, and protocol fee;",
+      "translation": "2. 路径详情（Route details），包括每个资金池、金额、资金池费用和协议费用；",
+      "backTranslation": "2. Route details, including each pool, amount, pool and agreement fees; route details for each pool;",
+      "similarity": 0.6857
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 81,
+      "source": "3. the minimum amount received and quote expiry; and",
+      "translation": "3. 最低收到数量和报价到期时间；以及",
+      "backTranslation": "3. Minimum quantity to be received and quote expiration date; as well as minimum quantity of the item to be purchased.",
+      "similarity": 0.5176
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 82,
+      "source": "4. the prepared Wallet batch before choosing Confirm exchange.",
+      "translation": "4. 在选择 确认兑换（Confirm exchange） 前，检查准备好的钱包批次。",
+      "backTranslation": "4. Before selecting Confirm exchange, check the batch of wallets you have prepared.",
+      "similarity": 0.4414
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "并非每张代金券、每个资金池或每种钱包都支持路由交换。App 会检查您的选项是否可以交换。软件路由参考以英文维护当前资格规则和技术要求。",
+      "backTranslation": "Not every voucher, pool or wallet supports routing exchange. The app will check if your options are available for exchange.The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "similarity": 0.8632
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "路线发现只是估算。签名前，请审核最终报价，包括最低收到数量和到期时间。当前路由交换要么整体成功，要么各资金池交换一起回滚。提交后，请检查收据中的结果、交换数量和费用。",
+      "backTranslation": "The route findings are only estimates. Before signing, please review the final offer, including minimum amount to be received and expiration time. The current route exchange is either successful as a whole or rolls back all pools together. After submission, check the results, exchange amounts and fees on your receipt.",
+      "similarity": 0.6968
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 88,
+      "source": "### 7. Use a Voucher with its Issuer",
+      "translation": "### 7. 向发行方使用代金券",
+      "backTranslation": "7. Use vouchers to issuers.",
+      "similarity": 0.7302
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 90,
+      "source": "Read the Voucher terms and follow the Issuer's booking, delivery, or contact process. In the current App, “Redeem” opens the ordinary send flow with the token owner's address prefilled. Sending the Voucher is redemption presentment; it does not prove that the Issuer has provided the promised goods or services.",
+      "translation": "阅读代金券条款，并按照发行方的预约、交付或联系流程操作。在当前 App 中，“兑付（Redeem）” 会打开普通发送流程，并预填代币所有者的地址。发送代金券属于兑付出示，并不能证明发行方已经提供承诺的商品或服务。",
+      "backTranslation": "Read the terms of the voucher and follow the issuer's appointment, delivery or contact process. In the current App, \"Redeem\" opens the normal sending process and pre-fills the address of the token owner. Sending a voucher is a form of redemption and does not prove that the issuers have provided the goods or services promised.",
+      "similarity": 0.7586
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 92,
+      "source": "After fulfillment, the Issuer should record discharge so fulfilled units cannot be used again—for example by receiving, burning, cancelling, or otherwise disabling them under the published terms.",
+      "translation": "履行后，发行方应记录 解除（discharge），使已经履行的单位不能再次使用，例如按照公布的条款接收、销毁、取消或以其他方式停用这些单位。",
+      "backTranslation": "After performance, the issuer shall record discharges to prevent reuse of the units that have been performed, such as acceptance, destruction, cancellation or otherwise disabling those units in accordance with the terms published.",
+      "similarity": 0.6212
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 94,
+      "source": "## Before you publish",
+      "translation": "## 发布之前",
+      "backTranslation": "## Before release.",
+      "similarity": 0.6154
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 96,
+      "source": "Voucher, Pool, Offering, Want, Catalog, Post, and Review information can have different visibility. Before publishing a resource:",
+      "translation": "代金券、资金池、商品或服务项目、需求、目录、帖子和评价可能具有不同的可见范围。发布资源之前：",
+      "backTranslation": "Vouchers, pools, merchandise or services, demands, directories, posts and reviews may have different visibility scope.Before publishing resources: Before publishing a resource:",
+      "similarity": 0.682
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 98,
+      "source": "- choose a map point that is safe to make public; exact coordinates may be visible;",
+      "translation": "- 选择一个可以安全公开的地图位置；精确坐标可能会显示；",
+      "backTranslation": "- Select a map location that can be safely made public; exact coordinates may be displayed; and select the map location.",
+      "similarity": 0.6601
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 99,
+      "source": "- check which information is visible while signed out and while signed in;",
+      "translation": "- 检查未登录和已登录状态下分别会显示哪些信息；",
+      "backTranslation": "- Check what information is displayed when you are logged in and not; check the status of your account.",
+      "similarity": 0.5537
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 100,
+      "source": "- use contact details that are suitable for the intended audience;",
+      "translation": "- 使用适合预期受众的联系方式；",
+      "backTranslation": "- Use contact details appropriate to the intended audience; use a communication strategy that is relevant to the targeted audience.",
+      "similarity": 0.5178
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 101,
+      "source": "- do not copy private profile information into a public resource unless you intend to publish it; and",
+      "translation": "- 除非确实打算公开，否则不要把私人个人资料信息复制到公共资源中；以及",
+      "backTranslation": "- Do not copy private personal information into public resources unless it is intended to be made public; and do not share your private information with others.",
+      "similarity": 0.6743
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 102,
+      "source": "- read the Privacy Notice's “What becomes public?” section.",
+      "translation": "- 阅读隐私声明中的“哪些信息会公开？”部分。",
+      "backTranslation": "- Read the \"What information is disclosed?\" section of the Privacy Statement.",
+      "similarity": 0.3971
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 104,
+      "source": "## Current App actions",
+      "translation": "## 当前 App 操作",
+      "backTranslation": "## Current App Operations",
+      "similarity": 0.8936
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 106,
+      "source": "App action  What it does",
+      "translation": "App 操作  作用",
+      "backTranslation": "App Operations  Actions",
+      "similarity": 0.4681
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 108,
+      "source": "Send  Transfers a token balance to another address.",
+      "translation": "发送（Send）  将代币余额转移到另一个地址。",
+      "backTranslation": "Send  Transfers the token balance to another address.Send          $100,000",
+      "similarity": 0.7937
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 109,
+      "source": "Pool swap  Exchanges supported assets through one SwapPool. On-chain settlement does not prove Issuer fulfillment.",
+      "translation": "资金池交换（Pool swap）  通过一个 SwapPool 交换受支持资产。链上结算不能证明发行方已履行承诺。",
+      "backTranslation": "Pool swap  Exchanges supported assets through a SwapPool. Chain-based settlement cannot prove that the issuer has fulfilled its commitment.",
+      "similarity": 0.8142
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 110,
+      "source": "Routed exchange  Executes an ordered set of Pool swaps in one bounded, same-chain Wallet transaction. It does not merge the Pools' governance.",
+      "translation": "路由交换（Routed exchange）  在一笔有明确边界的同链钱包交易中，按顺序执行多次资金池交换。它不会合并各资金池的治理。",
+      "backTranslation": "A routed exchange  executes multiple pool exchanges in a sequential manner in one peer-to-peer wallet transaction with clear boundaries. It does not consolidate the governance of the pools.",
+      "similarity": 0.5861
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 111,
+      "source": "“Redeem”  Prefills a send to the token owner as redemption presentment. Fulfillment and discharge remain separate.",
+      "translation": "“兑付（Redeem）”  预填向代币所有者发送代币的流程，作为兑付出示。履行和解除仍是不同步骤。",
+      "backTranslation": "“Redeem”  Pre-fills the process of sending tokens to the token owner as a redemption demonstration. Fulfilment and redemptions remain separate steps.",
+      "similarity": 0.7376
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 112,
+      "source": "“Request retirement”  Lets the current owner ask an administrator to retire a Voucher or Pool. The resource remains active while the request is pending; the owner can cancel the request, and an administrator can approve or reject it. Retirement does not delete contracts, balances, or history.",
+      "translation": "“申请停用（Request retirement）”  允许当前所有者请求管理员停用代金券或资金池。请求待处理期间，资源仍保持活跃；所有者可以取消请求，管理员可以批准或拒绝。停用不会删除合约、余额或历史记录。",
+      "backTranslation": "\"Request retirement\"  Allows the current owner to request the administrator to deactivate a token or pool. While the request is pending, the resource remains active; the owner can cancel the request and the administrator can approve or reject it. Deactivation does not delete contracts, balances or history.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 113,
+      "source": "Pool retirement  After approval, blocks new Pool swaps and deposits while keeping available withdrawals possible. It does not erase prior settlement records.",
+      "translation": "资金池停用  获批后，阻止新的资金池交换和存款，但仍允许可用的提款。它不会删除此前的结算记录。",
+      "backTranslation": "Disable pool  Once approved, it blocks new pool exchanges and deposits but still allows available withdrawals. It does not delete previous settlement records.",
+      "similarity": 0.7175
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 114,
+      "source": "Pool liquidity withdrawal  Lets the Pool owner transfer available inventory to a selected address.",
+      "translation": "提取资金池流动性  允许资金池所有者把可用库存转移到选定地址。",
+      "backTranslation": "Drawing out pool liquidity  Allows the pool owner to transfer available stock to a selected address.",
+      "similarity": 0.798
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 115,
+      "source": "Fee collection  Sends accrued Pool fees to the configured recipient.",
+      "translation": "收取费用  把累计的资金池费用发送给配置的接收方。",
+      "backTranslation": "Collect Fees  Sends the accumulated pool fees to the recipient as configured.",
+      "similarity": 0.6897
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 117,
+      "source": "## Responsibilities and important limits",
+      "translation": "## 责任和重要限制",
+      "backTranslation": "## DISCLAIMER OF LIABILITY AND MATERIAL LIMITATIONS",
+      "similarity": 0.5495
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 119,
+      "source": "Grassroots Economics Foundation operates the App and supporting infrastructure. Unless GEF expressly accepts another role for a particular transaction, it is not the Issuer of a user-created Voucher, the Steward of a user-created Pool, a custodian, lender, borrower, guarantor, insurer, or redeemer.",
+      "translation": "Grassroots Economics Foundation 运营 App 和支持基础设施。除非 GEF 明确接受某笔特定交易中的其他角色，否则它不是用户创建代金券的发行方、用户创建资金池的管理者、托管人、贷款人、借款人、担保人、保险人或兑换方。",
+      "backTranslation": "The Grassroots Economics Foundation operates the App and supporting infrastructure. Unless GEF explicitly accepts other roles in a particular transaction, it is not the issuer of vouchers created by users, manager of pools created By users, trustee, lender, borrower, guarantor, insurer or redeemer.",
+      "similarity": 0.8261
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 121,
+      "source": "Before transacting, remember:",
+      "translation": "交易前请记住：",
+      "backTranslation": "Before you trade, remember:",
+      "similarity": 0.75
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 123,
+      "source": "- You must meet the Terms' age, legal-capacity, and jurisdiction requirements.",
+      "translation": "- 您必须符合服务条款中的年龄、法律行为能力和管辖权要求。",
+      "backTranslation": "- You must meet the age, legal capacity and jurisdiction requirements set out in the Terms of Service.",
+      "similarity": 0.7667
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 124,
+      "source": "- Issuers are responsible for their Voucher commitments.",
+      "translation": "- 发行方对自己的代金券承诺负责。",
+      "backTranslation": "- Issuers are responsible for their own voucher commitments. The issuer is liable for the vouchers he or she has pledged.",
+      "similarity": 0.6328
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 125,
+      "source": "- Pool Stewards are responsible for their published Pool rules and any guarantee they expressly assume.",
+      "translation": "- 资金池管理者对自己公布的资金池规则以及明确承担的任何担保负责。",
+      "backTranslation": "- The pool manager is responsible for the pool rules published by him/her and any guarantees expressly assumed.",
+      "similarity": 0.729
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 126,
+      "source": "- A listing, review, route, limit, reserve, or blockchain record is not automatically an endorsement, valuation, fulfillment record, guarantee, insurance policy, or promise of cash-out.",
+      "translation": "- 列入目录、评价、路线、限额、储备或区块链记录，并不自动表示认可、估值、履行记录、担保、保险政策或兑现现金的承诺。",
+      "backTranslation": "- Inclusion in a catalog, evaluation, route, quota, reserve or blockchain record does not automatically imply endorsement, valuation, performance of the record, guarantee, insurance policy or cash redemption commitment.",
+      "similarity": 0.7277
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 127,
+      "source": "- Payment services, rewards, contribution arrangements, and other provider integrations are deployment-dependent and require their own disclosures.",
+      "translation": "- 支付服务、奖励、贡献安排和其他服务商集成取决于具体部署，并需要各自的披露。",
+      "backTranslation": "- Payment services, rewards, contribution arrangements and other service provider integration depend on specific deployments and require respective disclosures.",
+      "similarity": 0.8208
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "App 支持可用的直接和路由资金池交换。跨链路由、资金池自动再平衡、批量净额结算、共享保险、拟议治理资产、网络流动性计划和受监管支付通道仍属于拟议功能或取决于具体部署，除非某个具体部署明确表示已经启用。",
+      "backTranslation": "The app supports available direct and routed pool exchanges. Cross-link routing, automatic pool rebalancing, bulk net settlement, shared insurance, proposed governance assets, network liquidity plans, and regulated payment channels remain proposed functionality or depending on specific deployments unless a specific deployee explicitly indicates that they are enabled.",
+      "similarity": 0.7834
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 131,
+      "source": "See the simple and advanced examples, the Protocol overview, or governance mechanics for more detail.",
+      "translation": "更多信息请参阅简单示例和进阶示例、协议概述或治理机制。",
+      "backTranslation": "For more information, see the simple and advanced examples, protocol overview or governance mechanism.",
+      "similarity": 0.7882
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 1,
+      "source": "# Concepts and vocabulary",
+      "translation": "# 概念与词汇",
+      "backTranslation": "# Concepts and vocabulary",
+      "similarity": 1
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 3,
+      "source": "Cosmo-Local Credit connects people who offer goods or services, people who need them, and independently governed Commitment Pools that enable Voucher exchange. This page begins with the terms a participant sees, then explains the technical layers beneath them.",
+      "translation": "Cosmo-Local Credit 把提供商品或服务的人、需要这些商品或服务的人，以及支持代金券交换的独立治理承诺资金池连接起来。本页先介绍参与者会看到的词语，再说明其背后的技术层面。",
+      "backTranslation": "Cosmo-Local Credit connects people who provide goods or services, those who need them and the independent governance commitment pool that supports voucher exchange. This page introduces the words participants will see and then explains the technical aspects behind it.",
+      "similarity": 0.8182
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 5,
+      "source": "Exact App labels appear in quotation marks where the interface uses a shorter or potentially ambiguous name.",
+      "translation": "如果 App 界面使用了较短或可能有歧义的名称，下文会用引号标出准确的界面标签。",
+      "backTranslation": "If the App interface uses a shorter or potentially ambiguous name, the exact interface label is enclosed in quotation marks below.",
+      "similarity": 0.5126
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 7,
+      "source": "## Everyday terms",
+      "translation": "## 日常用语",
+      "backTranslation": "## Everyday phrases ## Every day phrase",
+      "similarity": 0.5357
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 9,
+      "source": "Term  Plain-language meaning",
+      "translation": "术语  通俗解释",
+      "backTranslation": "Terms  Common sense interpretation",
+      "similarity": 0.3226
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 11,
+      "source": "Voucher  A transferable commitment—much like a gift card—whose Issuer promises specified goods, services, benefits, or other performance under published terms.",
+      "translation": "代金券（Voucher）  一项可以转让的承诺，很像礼品卡。发行方按照公布的条款，承诺提供指定的商品、服务、权益或其他履行。",
+      "backTranslation": "Voucher  A transferable pledge, much like a gift card. The issuer undertakes to provide specified goods, services, benefits or other performance on published terms.",
+      "similarity": 0.8483
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 12,
+      "source": "Issuer  The person or organization that creates the Voucher and remains responsible for what it promises.",
+      "translation": "发行方（Issuer）  创建代金券，并继续对其承诺负责的个人或组织。",
+      "backTranslation": "Issuer  The individual or organization that creates the voucher and remains responsible for its commitments.",
+      "similarity": 0.8638
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 13,
+      "source": "Offering  A catalog record describing goods or services associated with a Voucher. It helps people discover the offer but does not prove availability or fulfillment.",
+      "translation": "商品或服务项目（Offering）  描述与代金券相关商品或服务的目录记录。它帮助人们发现相关内容，但不能证明有货或已经履行。",
+      "backTranslation": "Offering  A catalog record describing goods or services related to the voucher. It helps people find relevant content, but cannot prove that it is in stock or has been fulfilled.",
+      "similarity": 0.7289
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 14,
+      "source": "Want  A published expression of something a participant is looking for. It does not by itself accept an Offering, reserve goods, authorize an exchange, or create an obligation.",
+      "translation": "需求（Want）  参与者公开说明自己正在寻找什么。它本身不会接受商品或服务项目、预留商品、授权交换或产生义务。",
+      "backTranslation": "The participant publicly states what he or she is looking for. It does not in itself accept goods or services, reserve goods, authorize exchange or create obligations.",
+      "similarity": 0.7055
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 15,
+      "source": "Market  The App's discovery catalog for Vouchers, Pools, Offerings, Wants, and other public information. It is not automatically an exchange venue, seller, endorsement, or guarantee.",
+      "translation": "市场（Market）  App 中用于发现代金券、资金池、商品或服务项目、需求及其他公开信息的目录。它本身并不自动成为交换场所、卖方、认可或担保。",
+      "backTranslation": "A directory in the Market  App for discovering vouchers, pools, goods or services, demands and other public information.It itself does not automatically become an exchange, seller, endorsement or guarantee.",
+      "similarity": 0.768
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 16,
+      "source": "Commitment Pool  A governed arrangement that selects supported Vouchers, publishes exchange rules, holds inventory, and enables exchange. Pool is the ordinary shorthand.",
+      "translation": "承诺资金池（Commitment Pool）  一项受治理的安排：筛选受支持的代金券、公布交换规则、持有库存并支持交换。日常可以简称为 资金池（Pool）。",
+      "backTranslation": "Commitment Pool A governed arrangement that screens supported tokens, publishes exchange rules, holds inventory and supports the exchange. Commonly referred to as a pool.",
+      "similarity": 0.7493
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 17,
+      "source": "Pool Steward  The accountable person, cooperative, public agency, federation, multisig, service, or other structure that publishes and administers a Pool's rules.",
+      "translation": "资金池管理者（Pool Steward）  公布和管理资金池规则并对其负责的个人、合作社、公共机构、联合会、多签、服务或其他结构。",
+      "backTranslation": "Pool Steward  The individual, cooperative, public body, association, multi-signature, service or other structure that publishes and administers the pool rules and is responsible for them.",
+      "similarity": 0.7564
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 18,
+      "source": "Holder  A participant controlling a Voucher balance. Holding it does not prove fulfillment, cash value, or a guarantee.",
+      "translation": "持有人（Holder）  控制某项代金券余额的参与者。持有代金券不能证明已经履行、具有现金价值或受到担保。",
+      "backTranslation": "Holder  A participant in control of a voucher's balance. The holder of the voucher cannot prove that it has been fulfilled, has cash value or is guaranteed.",
+      "similarity": 0.72
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 19,
+      "source": "Wallet  The account and credentials used to authorize token transfers and Pool exchanges.",
+      "translation": "钱包（Wallet）  用于授权代币转账和资金池交换的账户和凭据。",
+      "backTranslation": "Wallet  Account and credentials used to authorize token transfers and pool exchanges.",
+      "similarity": 0.977
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 21,
+      "source": "“Community member” is informal social language. It does not by itself create admission, ownership, governance, repayment, or other legal rights.",
+      "translation": "“社区成员”是非正式的社群用语，本身不会产生准入、所有权、治理、还款或其他法律权利。",
+      "backTranslation": "“Community membership” is an informal community term and does not in itself create access, ownership, governance, repayment or other legal rights.",
+      "similarity": 0.8345
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 23,
+      "source": "## Discovering and contacting participants",
+      "translation": "## 发现并联系参与者",
+      "backTranslation": "## Discover and contact participants.",
+      "similarity": 0.9114
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 25,
+      "source": "The Market helps people find Vouchers, Offerings, Wants, and Pools. A listing means the App can display a record; it does not prove that its information is accurate, that inventory is available, or that a transaction will succeed.",
+      "translation": "市场帮助人们查找代金券、商品或服务项目、需求和资金池。列入目录只表示 App 可以显示该记录；它不能证明信息准确、库存可用或交易一定成功。",
+      "backTranslation": "The Marketplace helps people find vouchers, goods or services, demand and pools. Listing in the catalog only means that the App can display the record; it does not guarantee that information is accurate, inventory availability, or transactions will be successful.",
+      "similarity": 0.787
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 27,
+      "source": "A participant can publish a Want and can contact another participant through the available contact or messaging features. A contact request, message, booking discussion, or response to a Want does not by itself:",
+      "translation": "参与者可以发布需求，并通过可用的联系或消息功能联系其他参与者。联系请求、消息、预约讨论或对需求的回应，本身不会：",
+      "backTranslation": "Participants can post requests and contact other participants through the available contact or messaging functionality. Contact requests, messages, appointment discussions or responses to requests will not in themselves:",
+      "similarity": 0.7796
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 29,
+      "source": "- accept a Voucher or Offering;",
+      "translation": "- 接受代金券或商品或服务项目；",
+      "backTranslation": "- Accepting vouchers or items of goods or services; accepting gift certificates;",
+      "similarity": 0.5045
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 30,
+      "source": "- authorize a transfer or Pool swap;",
+      "translation": "- 授权转账或资金池交换；",
+      "backTranslation": "- Authorize transfers or pool exchanges; authorize funds transfers and pool exchange.",
+      "similarity": 0.4959
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 31,
+      "source": "- prove delivery or satisfaction;",
+      "translation": "- 证明已交付或对方满意；",
+      "backTranslation": "- proof of delivery or satisfaction; and",
+      "similarity": 0.8493
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 32,
+      "source": "- fulfill or discharge a Voucher; or",
+      "translation": "- 履行或解除代金券；或",
+      "backTranslation": "- the performance or redemption of a voucher; or",
+      "similarity": 0.5476
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 33,
+      "source": "- make GEF a party to the participants' agreement.",
+      "translation": "- 使 GEF 成为参与者协议的一方。",
+      "backTranslation": "- Make the GEF a party to the Participants Agreement.",
+      "similarity": 0.9515
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 35,
+      "source": "Reviews are public feedback about a Voucher or Pool. They are not the same as private eligibility evidence, operator due diligence, a guarantee, or a finding that fulfillment occurred.",
+      "translation": "评价是关于代金券或资金池的公开反馈。它不同于非公开的资格证据、运营方尽职调查、担保或已经履行的认定。",
+      "backTranslation": "A review is public feedback on a voucher or pool. It is different from non-public evidence of eligibility, operator due diligence, guarantees or findings that have been fulfilled.",
+      "similarity": 0.7107
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 37,
+      "source": "## Vouchers, tokens, and Offerings",
+      "translation": "## 代金券、代币和商品或服务项目",
+      "backTranslation": "## Vouchers, tokens and goods or services.",
+      "similarity": 0.7632
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 39,
+      "source": "A token is an on-chain balance or digital asset. Token mechanics can record supply, transfers, expiry, and burning, but they do not by themselves promise goods, services, cash conversion, or redemption.",
+      "translation": "代币（token） 是链上余额或数字资产。代币机制可以记录供应量、转账、到期和销毁，但本身不会承诺商品、服务、现金兑换或赎回。",
+      "backTranslation": "A token is a balance or digital asset on the chain. The token mechanism can record supply, transfer, expiration and destruction, but does not itself commit goods, services, cash exchange or redemption.",
+      "similarity": 0.7792
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 41,
+      "source": "A Voucher is a token or record that an Issuer represents as a redeemable commitment under published terms. Those terms should identify what is promised, who is responsible, where and when it can be presented, material limits, and the fulfillment and complaint process.",
+      "translation": "代金券 是发行方按照公布条款表示为可兑换承诺的代币或记录。这些条款应说明承诺内容、责任方、可在何时何地出示、重要限制，以及履行和投诉流程。",
+      "backTranslation": "A voucher is a token or record of an issuer's commitment expressed as convertible under the terms of publication.These terms should describe the content of the commitment, the party liable, when and where it may be presented, significant limitations, and the performance and complaint processes.",
+      "similarity": 0.6252
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 43,
+      "source": "An Offering is the catalog record for goods or services associated with a Voucher. In ordinary prose, “offer” simply means something a participant proposes; Offering is the named App record.",
+      "translation": "商品或服务项目（Offering） 是与代金券相关商品或服务的目录记录。在一般文字中，“提供”只是指参与者提出的内容；Offering 是 App 中特定记录的名称。",
+      "backTranslation": "An Offering is a catalog record of goods or services related to the voucher. In general language, “offer” simply refers to content submitted by participants; an Offering will be the name of a specific record in the App.",
+      "similarity": 0.7042
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 45,
+      "source": "Keep these four layers separate:",
+      "translation": "应把以下四个层面分开：",
+      "backTranslation": "The following four levels should be distinguished: The level of the citizen.",
+      "similarity": 0.3333
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 48,
+      "source": "2. the Voucher designation and published terms;",
+      "translation": "2. 代币作为代金券的标识和公布条款；",
+      "backTranslation": "2. Marking and publication of tokens as vouchers; conditions for issuance of token voucher;",
+      "similarity": 0.3623
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 49,
+      "source": "3. one or more Offering records; and",
+      "translation": "3. 一项或多项商品或服务项目记录；以及",
+      "backTranslation": "3. Record of one or more items of goods or services; and",
+      "similarity": 0.587
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 50,
+      "source": "4. the Issuer's real-world performance.",
+      "translation": "4. 发行方在现实世界中的履行。",
+      "backTranslation": "4. Issuer’s performance in the real world. Issuers’ performance in real world",
+      "similarity": 0.3966
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 52,
+      "source": "## Accountable roles and technical control",
+      "translation": "## 责任角色与技术控制",
+      "backTranslation": "## Responsible roles and technical controls",
+      "similarity": 0.8471
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 56,
+      "source": "Issuer  Publishes and fulfills a Voucher commitment. This responsibility does not automatically move merely because contract ownership changes.",
+      "translation": "发行方  公布并履行代金券承诺。仅仅改变合约所有权，不会自动转移这项责任。",
+      "backTranslation": "The issuer  publishes and fulfils the voucher commitment. A mere change in ownership of the contract does not automatically transfer this responsibility.",
+      "similarity": 0.6284
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 57,
+      "source": "Pool Steward  Publishes and administers Pool rules and remains accountable for any guarantee the Pool expressly advertises.",
+      "translation": "资金池管理者  公布和管理资金池规则，并对资金池明确宣传的任何担保负责。",
+      "backTranslation": "The pool manager  publishes and administers the pool rules, and is responsible for any guarantees explicitly announced by the pool.",
+      "similarity": 0.6693
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 58,
+      "source": "Pool owner  The address with current SwapPool owner powers, including configuration, fee collection, and available-liquidity withdrawal.",
+      "translation": "资金池所有者  当前拥有 SwapPool 所有者权限的地址，包括配置、收取费用和提取可用流动性的权限。",
+      "backTranslation": "The pool owner  is the address that currently has SwapPool owner privileges, including permission to configure, charge fees and withdraw available liquidity.",
+      "similarity": 0.6962
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 59,
+      "source": "Multisig signers  Share the technical authority assigned to a multisig Wallet. Changing signers or thresholds does not silently transfer Issuer responsibility, Steward accountability, or legal ownership.",
+      "translation": "多签签名人  共同使用分配给多签钱包的技术权限。更改签名人或门槛，不会自动转移发行方责任、管理者问责或法律所有权。",
+      "backTranslation": "Changing the signatory or threshold does not automatically transfer issuer responsibility, administrator accountability, or legal ownership. Multi-signature celebrities  Share the technical permissions assigned to multi-signatured wallets.",
+      "similarity": 0.5158
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 60,
+      "source": "Proxy administrator  Can upgrade a proxied contract implementation. It may differ from the Pool owner.",
+      "translation": "代理管理员  可以升级代理合约的实现。该角色可能不同于资金池所有者。",
+      "backTranslation": "The proxy administrator can upgrade the implementation of the proxy contract. This role may be different from the pool owner.",
+      "similarity": 0.7313
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 61,
+      "source": "Dependency controller  Controls a registry, limiter, quoter, oracle, fee policy, or protocol-fee controller.",
+      "translation": "依赖项控制者  控制 registry、limiter、quoter、oracle、费用政策或协议费用控制器。",
+      "backTranslation": "Dependency controllers  Control the registry, limiter, quota, oracle, cost policy or protocol cost controller.",
+      "similarity": 0.8807
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 62,
+      "source": "Catalog moderator  Can correct, hide, retire, or restore catalog records without deleting contracts, balances, or chain history.",
+      "translation": "目录管理员  可以纠正、隐藏、停用或恢复目录记录，但不会删除合约、余额或链上历史。",
+      "backTranslation": "Directory administrators can correct, hide, disable or restore directory records, but they do not delete contracts, balances or chain history.",
+      "similarity": 0.7481
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 63,
+      "source": "Fee recipient  Receives a configured Pool or protocol fee. It is not necessarily the Pool Steward or owner.",
+      "translation": "费用接收方  接收配置的资金池费用或协议费用，不一定是资金池管理者或所有者。",
+      "backTranslation": "Fees recipient  The party receiving the allocated pool fees or agreement fees, not necessarily the pool manager or owner.",
+      "similarity": 0.7105
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 64,
+      "source": "Supporter or liquidity provider  Contributes assets under separately disclosed terms. The current SwapPool creates no automatic Pool shares, repayment, withdrawal, reward, or governance rights.",
+      "translation": "支持者或流动性提供者  按照另行披露的条款提供资产。当前 SwapPool 不会自动产生资金池份额、还款权、提款权、奖励或治理权。",
+      "backTranslation": "Supporters or liquidity providers  provide assets under separately disclosed terms.The current SwapPool does not automatically generate pool shares, redemption rights, withdrawal rights, rewards or governance rights.",
+      "similarity": 0.8509
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 68,
+      "source": "App or documentation term  What it means",
+      "translation": "App 或文档术语  含义",
+      "backTranslation": "App or documentation terms  Meanings",
+      "similarity": 0.8421
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 70,
+      "source": "Create or publish a Voucher  Deploy or configure a token and publish its catalog record and terms.",
+      "translation": "创建或发布代金券  部署或配置代币，并公布其目录记录和条款。",
+      "backTranslation": "Create or publish tokens  Deploy or configure tokens and publish their catalog entries and terms.",
+      "similarity": 0.8513
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 71,
+      "source": "Issue or mint  Create token balance under the configured owner or writer authority.",
+      "translation": "发行或铸造  在配置的所有者或写入者权限下创建代币余额。",
+      "backTranslation": "Issue or Mint  Creates a token balance under the permission of the owner or writer of the configuration.",
+      "similarity": 0.7807
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 73,
+      "source": "Publish a Want  Describe a need for discovery and possible contact; it does not itself create a transaction.",
+      "translation": "发布需求  说明一项需要，以便发现和联系；本身不会创建交易。",
+      "backTranslation": "A publishing request  describes a need for discovery and contact; does not create a transaction in itself.",
+      "similarity": 0.785
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 74,
+      "source": "Send  Transfer a token balance to another address.",
+      "translation": "发送（Send）  将代币余额转移到另一个地址。",
+      "backTranslation": "Send  Transfers the token balance to another address.Send          $100,000",
+      "similarity": 0.784
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 75,
+      "source": "“Redeem”  Open the send flow with the token owner's address prefilled. This is redemption presentment; it does not prove fulfillment.",
+      "translation": "“兑付（Redeem）”  打开发送流程并预填代币所有者的地址。这属于兑付出示，不能证明已经履行。",
+      "backTranslation": "\"Redeem\"  opens the sending process and pre-fills the address of the token owner.This is a redemption display, not a proof of fulfillment.",
+      "similarity": 0.6273
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 76,
+      "source": "Fulfill  The Issuer provides the promised goods, services, benefits, or other performance.",
+      "translation": "履行（Fulfill）  发行方提供承诺的商品、服务、权益或其他履行。",
+      "backTranslation": "Fulfill  The issuer provides the goods, services, interests or other performance promised.",
+      "similarity": 0.8444
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 77,
+      "source": "Discharge  Record fulfilled units so they cannot be presented again, for example by receiving, burning, cancelling, or otherwise disabling them under the published terms.",
+      "translation": "解除（Discharge）  记录已经履行的单位，使其不能再次出示，例如按照公布条款接收、销毁、取消或以其他方式停用。",
+      "backTranslation": "Discharge  records the units that have been discharged so that they cannot be displayed again, for example by receipt, destruction, cancellation or otherwise being discharges in accordance with the terms of publication.",
+      "similarity": 0.6324
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 78,
+      "source": "“Request retirement”  The current owner asks an administrator to retire a Voucher or Pool. The resource remains active while the request is pending, and the request may be approved, rejected, or cancelled.",
+      "translation": "“申请停用（Request retirement）”  当前所有者请求管理员停用代金券或资金池。请求待处理期间资源仍保持活跃；请求可以获批、被拒绝或被取消。",
+      "backTranslation": "\"Request retirement\"  The current owner requests the administrator to deactivate a token or pool. While the request is pending, the resource remains active; the request can be approved, rejected, or cancelled.",
+      "similarity": 0.7778
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 79,
+      "source": "Retire a Voucher  After approval, remove the Voucher from active catalog use. Contracts, balances, obligations, and history remain; retirement is not burning or discharge.",
+      "translation": "代金券停用  获批后，从活跃目录中移除代金券。合约、余额、义务和历史仍然保留；停用并不等于销毁或解除。",
+      "backTranslation": "Vouchers are removed from the active directory after approval. Contracts, balances, obligations and history remain; deactivation does not amount to destruction or cancellation.",
+      "similarity": 0.5591
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 80,
+      "source": "Retire a Pool  After approval, stop new Pool swaps and deposits while allowing available withdrawals. Prior settlement records remain.",
+      "translation": "资金池停用  获批后，停止新的资金池交换和存款，同时允许可用的提款。此前的结算记录仍然保留。",
+      "backTranslation": "Disable pool  Once approved, new pool exchanges and deposits are stopped while allowing available withdrawals. Previous settlement records remain preserved.",
+      "similarity": 0.7724
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 81,
+      "source": "Pool deposit or contribution  Transfer assets into a SwapPool. Repayment, withdrawal, reward, or governance rights exist only when separately disclosed.",
+      "translation": "资金池存款或贡献  将资产转移到 SwapPool。只有在另行披露时，才会产生还款、提款、奖励或治理权。",
+      "backTranslation": "Pool deposits or contributions  Transfer assets to the SwapPool.Repayment, withdrawal, reward or governance rights are only created when otherwise disclosed.",
+      "similarity": 0.8738
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 82,
+      "source": "Pool swap  Exchange supported assets through one SwapPool. This is neither Issuer fulfillment nor automatically a loan.",
+      "translation": "资金池交换  通过一个 SwapPool 交换受支持资产。这既不是发行方履行，也不会自动形成贷款。",
+      "backTranslation": "A pooled swap  is an exchange of backed assets through a SwapPool. This is neither issuer performance nor automatically forms a loan.",
+      "similarity": 0.8095
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 83,
+      "source": "Route discovery  Find possible paths through configured Pool relationships. Discovery is an estimate, not an executable promise.",
+      "translation": "路线发现  通过配置的资金池关系寻找可能的路径。发现只是估算，不是可执行承诺。",
+      "backTranslation": "Path discovery  Looks for possible paths through the configured pool relationship. The discoveries are only estimates, not enforceable commitments.",
+      "similarity": 0.7855
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 84,
+      "source": "Route quote  Calculate a time-bounded proposal from Pool state read at one pinned block and simulate it before signing.",
+      "translation": "路线报价  根据在一个固定区块读取的资金池状态计算有时限的提案，并在签名前进行模拟。",
+      "backTranslation": "Route quote  Time-bound proposals are calculated based on the pool status read in a fixed block and simulated before signing.",
+      "similarity": 0.7377
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 85,
+      "source": "Routed exchange  Submit an ordered set of Pool swaps as one same-chain Wallet batch. In the current flow, every call reverts if any call fails.",
+      "translation": "路由交换  把有序的资金池交换作为一个同链钱包批次提交。在当前流程中，只要一个调用失败，所有调用都会回滚。",
+      "backTranslation": "Route Exchange  Submits an ordered pool exchange as a peer-to-peer wallet batch. In the current process, if one call fails, all calls roll back.",
+      "similarity": 0.669
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 86,
+      "source": "Routed-exchange receipt  Group the tracking status, transaction hash, route hops, settled amounts, and per-hop fees.",
+      "translation": "路由交换收据  把跟踪状态、交易哈希、路线各跳、已结算数量和每一跳费用归为一组。",
+      "backTranslation": "Route Exchange Receipt  Groups the tracking status, transaction hash, route hops, amount of settlements and fee per hop.",
+      "similarity": 0.8644
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 87,
+      "source": "Pool liquidity withdrawal  Let the Pool owner transfer available inventory to a selected address.",
+      "translation": "提取资金池流动性  允许资金池所有者把可用库存转移到选定地址。",
+      "backTranslation": "Drawing out pool liquidity  Allows the pool owner to transfer available stock to a selected address.",
+      "similarity": 0.7919
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 88,
+      "source": "Fee collection  Send accrued Pool fees to the configured recipient.",
+      "translation": "收取费用  把累计的资金池费用发送给配置的接收方。",
+      "backTranslation": "Collect Fees  Sends the accumulated pool fees to the recipient as configured.",
+      "similarity": 0.6806
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 90,
+      "source": "Use swap settlement for the on-chain transfers and fee accounting that complete a Pool swap. Use redemption presentment, fulfillment, and discharge for the separate real-world Voucher lifecycle.",
+      "translation": "用 交换结算（swap settlement） 表示完成资金池交换的链上转账和费用核算。用 兑付出示（redemption presentment）、履行（fulfillment） 和 解除（discharge） 表示彼此独立的现实世界代金券生命周期。",
+      "backTranslation": "Use swap settlement to denote the chain of transfers and charge accounting that completes a pool exchange. Use redemption presentment, fulfilment, and discharge to denote the independent real-world life cycles of vouchers.",
+      "similarity": 0.7981
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 92,
+      "source": "## Product and protocol layers",
+      "translation": "## 产品和协议层面",
+      "backTranslation": "## Product and protocol levels.",
+      "similarity": 0.8852
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 96,
+      "source": "Cosmo-Local Credit (CLC)  The product family: the CLC App, its documentation, and the wider commitment-pooling work.",
+      "translation": "Cosmo-Local Credit（CLC）  产品体系，包括 CLC App、相关文档以及更广泛的承诺汇集工作。",
+      "backTranslation": "Cosmo-Local Credit (CLC)  product system, including the CLC App, related documentation and broader commitment aggregation work.",
+      "similarity": 0.7654
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 97,
+      "source": "CLC App  The progressive web app at cosmolocal.credit. GEF operates this interface and its supporting services.",
+      "translation": "CLC App  位于 cosmolocal.credit 的渐进式网页应用。GEF 运营该界面及其支持服务。",
+      "backTranslation": "The CLC App is a progressive web application located on cosmolocal.credit. GEF operates the interface and its support services.",
+      "similarity": 0.8571
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 98,
+      "source": "CLC Core  The supporting service for catalogs, indexed chain state, route discovery, authoritative quotes, relay coordination, and routed-exchange receipts. It is neither a smart contract nor a Pool Steward.",
+      "translation": "CLC Core  为目录、索引后的链上状态、路线发现、权威报价、relay 协调和路由交换收据提供支持的服务。它既不是智能合约，也不是资金池管理者。",
+      "backTranslation": "CLC Core  is a service that supports cataloging, chained state after indexing, route discovery, authoritative quotes, relay coordination and routing exchange receipts. It is neither a smart contract nor a pool manager.",
+      "similarity": 0.8047
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 99,
+      "source": "Commitment Pooling Protocol (CPP)  The reusable model of curation, valuation, limitation, exchange, and accountable governance.",
+      "translation": "承诺汇集协议（Commitment Pooling Protocol，CPP）  关于筛选、估值、限制、交换和责任治理的可复用模型。",
+      "backTranslation": "Commitment Pooling Protocol (CPP)  A replicable model for screening, valuation, limitation, exchange and accountability governance.",
+      "similarity": 0.8915
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  权威软件参考中记录的公开智能合约版本（英文）。",
+      "backTranslation": "Protocol v1.1.0  The version of the public smart contract as documented in authoritative software references.",
+      "similarity": 0.7982
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 101,
+      "source": "SwapPool  The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool.",
+      "translation": "SwapPool  当前持有代币库存并执行直接交换的协议合约。它是承诺资金池的一个技术组成部分。",
+      "backTranslation": "SwapPool  currently holds token inventory and executes direct swap protocol contracts.It is a technical component of the Commitment Pool.",
+      "similarity": 0.8085
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 102,
+      "source": "Solidity SwapRouter  The Protocol v1.1.0 contract that quotes a proposed multi-Pool path. It does not custody assets or execute the route.",
+      "translation": "Solidity SwapRouter  Protocol v1.1.0 中为拟议的多资金池路径提供报价的合约。它不托管资产，也不执行路线。",
+      "backTranslation": "A contract in Solidity SwapRouter Protocol v1.1.0 that provides a quote for the proposed multi-pool route. It does not hold assets or execute routes.",
+      "similarity": 0.7666
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "应用层路由流程  App 和支持服务通过资金池寻找可能的路径、为交换报价、请求参与者授权，并报告结果。",
+      "backTranslation": "The application-layer routing processes  App and support services find possible paths through the pool, quote for exchange, request authorization from participants, and report results.",
+      "similarity": 0.7713
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 104,
+      "source": "Proposed CLC governance token  A future governance design in the White Paper. It is not a current App or Protocol v1.1.0 asset.",
+      "translation": "拟议的 CLC 治理代币  白皮书中的未来治理设计，不是当前 App 或 Protocol v1.1.0 的资产。",
+      "backTranslation": "The future governance design of the proposed CLC Governance Token in the white paper is not an asset to the current App or Protocol v1.1.0.",
+      "similarity": 0.6692
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 105,
+      "source": "Proposed CLC Network Pool  A future network-level clearing and coordination design. It is not the same as a current SwapPool.",
+      "translation": "拟议的 CLC 网络资金池  未来的网络级清算和协调设计，不等同于当前 SwapPool。",
+      "backTranslation": "The proposed CLC Network Pool  Future network-level clearing and coordination design, not equivalent to the current SwapPool.",
+      "similarity": 0.848
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 107,
+      "source": "## Values, credit, limits, and fees",
+      "translation": "## 价值、信用、限额和费用",
+      "backTranslation": "## Value, credit, limits and fees",
+      "similarity": 0.9706
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 109,
+      "source": "Keep these value terms separate:",
+      "translation": "应区分以下价值术语：",
+      "backTranslation": "The following value terms should be distinguished: Value of the assets",
+      "similarity": 0.4118
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 111,
+      "source": "- Offering price: the amount requested for a listed good or service;",
+      "translation": "- 商品或服务项目价格： 列出商品或服务所要求的金额；",
+      "backTranslation": "- Item price of goods or services: List the amount required for the goods and services; list the amount requested for the service.",
+      "similarity": 0.4646
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 112,
+      "source": "- Voucher stated value: a value represented in the Issuer's published terms;",
+      "translation": "- 代金券标示价值： 发行方在公布条款中表示的价值；",
+      "backTranslation": "- Voucher's marked value: The value indicated by the issuer in the terms of publication;",
+      "similarity": 0.6463
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 113,
+      "source": "- Pool exchange rate or quote: the transaction parameter produced by a Pool's configured quoter;",
+      "translation": "- 资金池汇率或报价： 资金池配置的 quoter 生成的交易参数；",
+      "backTranslation": "- Pool exchange rate or quote: The trading parameters generated by the quotar for the pool configuration;",
+      "similarity": 0.7363
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 114,
+      "source": "- oracle reference: external data used by a configured valuation module; and",
+      "translation": "- oracle 参考： 配置的估值模块使用的外部数据；以及",
+      "backTranslation": "- Oracle reference: External data used by the configured evaluation module; and the oracle reference.",
+      "similarity": 0.8475
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 115,
+      "source": "- redemption terms: what the Issuer promises and under what conditions.",
+      "translation": "- 兑换条款： 发行方承诺什么，以及在什么条件下履行。",
+      "backTranslation": "- Terms of exchange: What the issuer promises to perform and under what conditions.",
+      "similarity": 0.7792
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 117,
+      "source": "Credit in the App refers to reachable commitments and exchange capacity. It is not automatically personal borrowing, a loan, an Issuer-capacity assessment, or a guarantee.",
+      "translation": "App 中的 信用（Credit，界面标签为“可存入”） 是指可达的承诺和交换容量，并不自动表示个人借款、贷款、发行方能力评估或担保。",
+      "backTranslation": "Credit in the App (interface labelled “available to deposit”) refers to attainable commitments and exchange capacity, and does not automatically represent personal borrowing, loan, issuer ability assessment or guarantee.",
+      "similarity": 0.7673
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 119,
+      "source": "The label “Credit limit” means the Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.",
+      "translation": "“信用额度（Credit limit）” 标签是指资金池配置的代币余额上限，也就是存款后资金池最多可以持有的该代币数量。白皮书中拟议的滚动限额、账户限额和全网络限额是不同机制。",
+      "backTranslation": "The “Credit limit” label refers to the maximum token balance that a pool can hold after depositing. The rolling limit, account limit and network-wide limit proposed in the white paper are different mechanisms.",
+      "similarity": 0.7207
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 121,
+      "source": "Protocol v1.1.0 can charge a Pool fee and an additional protocol fee on each Pool swap. A routed exchange itemizes both for every hop. The current App adds no separate routing-service fee. The proposed White Paper model separately describes a future network rake and possible service fees.",
+      "translation": "Protocol v1.1.0 可以对每次资金池交换收取 资金池费用 和一项额外的 协议费用。路由交换会逐跳列出这两种费用。当前 App 不收取单独的路由服务费。拟议白皮书模型另行描述未来的网络抽成和可能的服务费用。",
+      "backTranslation": "Protocol v1.1.0 can charge a pool fee and an additional protocol fee for each pool exchange. The routing exchange will list both fees jump by jump. Current App does not charge separate routing service fees. The proposed white paper model describes future network drawdowns and possible service fees separately.",
+      "similarity": 0.8214
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 123,
+      "source": "## Routes and liquidity",
+      "translation": "## 路线与流动性",
+      "backTranslation": "## Routes and mobility",
+      "similarity": 0.8
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "路线 是通过一个或多个独立治理资金池的有序路径。路线深度 是该路径中的资金池交换次数。",
+      "backTranslation": "A route is an ordered path through one or more independently governed pools. The depth of the route is the number of time the pools have exchanged in that path.",
+      "similarity": 0.8483
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "并非每张代金券、每个资金池或每种钱包都符合路由资格。出现在资金池中，不会使代金券自动通过所有路线可用。软件路由参考以英文维护当前资格规则和配置。",
+      "backTranslation": "Not every voucher, not every pool or not every wallet is eligible for routing. Being in a pool does not automatically make the voucher available through all routes. The current eligibility rules and configuration are maintained by the Software Routing Reference.",
+      "similarity": 0.7476
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "可用流动性 是资金池按照当前规则、限额和费用能够提供的库存。资金池之间存在连接，不能证明您想要的数量可用。请审核最终报价；资金池条件变化时，报价可能到期或失效。",
+      "backTranslation": "Available liquidity is the stock available in a pool under current rules, limits and fees. There are connections between pools that cannot prove the amount you want to be available. Please review final quotes; quotes may expire or become invalid if pool conditions change.",
+      "similarity": 0.8255
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 131,
+      "source": "Current route execution is same-chain and Wallet-initiated. It does not pool governance, automatically rebalance Pool inventory, clear obligations among many parties, or prove fulfillment. Cross-chain HTLC or escrow routing, automatic rebalancing, and batch netting remain proposed or deployment-dependent.",
+      "translation": "当前路线执行由钱包发起并发生在同一条链上。它不会合并治理、自动重新平衡资金池库存、在多方之间清算义务或证明履行。跨链 HTLC 或托管路由、自动再平衡和批量净额结算仍属于拟议功能或取决于具体部署。",
+      "backTranslation": "It does not consolidate governance, automatically rebalance pool inventory, clear obligations between multiple parties or certify performance. Cross-chain HTLC or managed routing, automatic rebalancing and bulk net settlement remain proposed features or depending on specific deployments. Current route execution is initiated by the wallet and occurs on the same chain.",
+      "similarity": 0.6074
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 135,
+      "source": "Curation, registry inclusion, a limit, a reserve, App visibility, a Review, or a blockchain transaction does not by itself establish endorsement, Issuer capacity, fulfillment, a guarantee, or insurance.",
+      "translation": "筛选、纳入 registry、限额、储备、App 可见性、评价或区块链交易，本身都不能证明认可、发行方能力、履行、担保或保险。",
+      "backTranslation": "Screening, inclusion in registry, quotas, reserves, App visibility, ratings or blockchain transactions are not in themselves evidence of endorsement, issuer capability, performance, guarantee or insurance.",
+      "similarity": 0.7125
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 137,
+      "source": "Any protection should identify the obligated party, covered event, funding, cap, exclusions, duration, evidence, and claim process. On-chain records can show addresses, assets, amounts, timestamps, and contract events. Issuer performance, satisfaction, governance deliberation, and social impact require separate evidence.",
+      "translation": "任何保护安排都应说明义务方、承保事件、资金来源、上限、除外事项、期限、证据和索赔流程。链上记录可以显示地址、资产、金额、时间戳和合约事件。发行方表现、满意程度、治理讨论和社会影响需要单独的证据。",
+      "backTranslation": "Any protection arrangement should describe the obligor, insured event, source of funds, caps, exclusions, duration, evidence and claim process. Chain records can show addresses, assets, amounts, timestamps and contract events. Issuer performance, satisfaction, governance discussions and social impact require separate evidence.",
+      "similarity": 0.8862
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 139,
+      "source": "## Status words",
+      "translation": "## 状态用语",
+      "backTranslation": "## State Terms ## Status Terms",
+      "similarity": 0.5333
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 141,
+      "source": "- Current: verified in the CLC App or Protocol v1.1.0 described by these docs.",
+      "translation": "- 当前： 已在这些文档所述的 CLC App 或 Protocol v1.1.0 中验证。",
+      "backTranslation": "- Current: Verified in the CLC App or Protocol v1.1.0 described in these documents. - Not valid: Not verified in these documentations.",
+      "similarity": 0.717
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 142,
+      "source": "- Deployment-dependent: available only where a particular deployment, Pool, provider, jurisdiction, or published policy enables it.",
+      "translation": "- 取决于部署： 仅在特定部署、资金池、提供方、管辖区或公布政策启用时可用。",
+      "backTranslation": "- Deployment-dependent: Available only when enabled by a specific deployment, pool, provider, jurisdiction or published policy.",
+      "similarity": 0.8605
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 144,
+      "source": "- Proposed: a design or roadmap mechanism that is not represented as deployed.",
+      "translation": "- 拟议： 未被表述为已经部署的设计或路线图机制。",
+      "backTranslation": "- Proposed: Not described as a deployed design or roadmap mechanism. - Not describes the proposed design and/or roadmap.",
+      "similarity": 0.596
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "入门指南把这些术语应用于当前 App。协议概述把这些概念与权威软件文档连接起来，而白皮书介绍更广泛的设计和提案。",
+      "backTranslation": "The Getting Started Guide applies these terms to the current App. Protocol overviews connect these concepts with authoritative software documentation, while white papers introduce broader design and proposals.",
+      "similarity": 0.88
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 148,
+      "source": "For a learn-through-play introduction to commitments, settlement, resource flows, exchange, and pooling, explore the Grassroots Economics educational games. The games are supplementary learning resources, not definitions of current App or Protocol behavior.",
+      "translation": "如需通过游戏了解承诺、结算、资源流动、交换和汇集，请浏览 Grassroots Economics 教育游戏。这些游戏是补充学习资料，不是当前 App 或协议行为的定义。",
+      "backTranslation": "For games that teach about commitments, settlements, resource flows, exchange and pooling, please browse Grassroots Economics Educational Games. These games are for complementary learning purposes and not a definition of the current App or agreement behavior.",
+      "similarity": 0.7946
+    },
+    {
+      "route": "/introduction/example",
+      "line": 1,
+      "source": "# Voucher exchange examples",
+      "translation": "# 代金券交换示例",
+      "backTranslation": "# Example voucher exchange.",
+      "similarity": 0.6667
+    },
+    {
+      "route": "/introduction/example",
+      "line": 3,
+      "source": "These examples show how Vouchers, Wants, Pools, exchange, fulfillment, and discharge remain connected but distinct. They illustrate the roles involved; they do not promise that a particular Voucher, Pool, route, or outcome will be available.",
+      "translation": "这些示例说明代金券、需求、资金池、交换、履行和解除之间如何相互关联但彼此不同。它们用于说明相关角色，并不承诺某张代金券、某个资金池、某条路线或某种结果一定可用。",
+      "backTranslation": "These examples illustrate how vouchers, demands, pools, exchanges, fulfillments and discharges are interrelated but different. They serve to illustrate the roles involved and do not commit that a particular voucher, pool, route or outcome will be available.",
+      "similarity": 0.8554
+    },
+    {
+      "route": "/introduction/example",
+      "line": 5,
+      "source": "For definitions used here, see Concepts and vocabulary.",
+      "translation": "相关定义请参阅概念与词汇。",
+      "backTranslation": "For definitions, see Concepts and Glossary.For more information on the terms used in this document, see Terms of Use.",
+      "similarity": 0.4535
+    },
+    {
+      "route": "/introduction/example",
+      "line": 7,
+      "source": "## Simple example: one Pool, three participants",
+      "translation": "## 简单示例：一个资金池，三名参与者",
+      "backTranslation": "## Simple example: one pool, three participants.",
+      "similarity": 0.9895
+    },
+    {
+      "route": "/introduction/example",
+      "line": 9,
+      "source": "A farmer offers food baskets and needs dental care. A mechanic offers vehicle repair and needs food. A dentist offers dental care and needs vehicle repair.",
+      "translation": "一位农民提供食品篮，需要牙科服务。一位修理工提供车辆维修，需要食品。一位牙医提供牙科服务，需要车辆维修。",
+      "backTranslation": "A farmer provides a food basket and needs dental services.A repairman provides vehicle repairs and needs food.A dentist provides dental services and needs vehicle repair.",
+      "similarity": 0.8185
+    },
+    {
+      "route": "/introduction/example",
+      "line": 11,
+      "source": "Each participant creates a Voucher with clear terms and publishes an Offering:",
+      "translation": "每名参与者都创建一张条款清楚的代金券，并发布一个商品或服务项目：",
+      "backTranslation": "Each participant creates a voucher with clear terms and conditions, and issues one item of goods or services: a product or service.",
+      "similarity": 0.6603
+    },
+    {
+      "route": "/introduction/example",
+      "line": 13,
+      "source": "- the farmer's Voucher can be used for food baskets;",
+      "translation": "- 农民的代金券可以用于食品篮；",
+      "backTranslation": "- Farmers' vouchers can be used for food baskets; farmers can use their voucher to buy food.",
+      "similarity": 0.6528
+    },
+    {
+      "route": "/introduction/example",
+      "line": 14,
+      "source": "- the mechanic's Voucher can be used for repair services; and",
+      "translation": "- 修理工的代金券可以用于维修服务；以及",
+      "backTranslation": "- Repairer vouchers can be used for repair services; and also for repair service.",
+      "similarity": 0.6901
+    },
+    {
+      "route": "/introduction/example",
+      "line": 15,
+      "source": "- the dentist's Voucher can be used for dental care.",
+      "translation": "- 牙医的代金券可以用于牙科服务。",
+      "backTranslation": "- Dentist vouchers can be used for dental services.Dentist vehicles are not allowed in the area.",
+      "similarity": 0.6216
+    },
+    {
+      "route": "/introduction/example",
+      "line": 17,
+      "source": "The dentist creates a Health Market Commitment Pool, publishes its rules, admits all three Vouchers, and deposits some dental-care Vouchers. The Pool's configured token-balance caps define how many farmer and mechanic Vouchers it may hold. These App “Credit limits” are Pool capacity controls, not personal loans.",
+      "translation": "牙医创建一个名为 Health Market 的承诺资金池，公布规则，准入三种代金券，并存入一些牙科服务代金券。资金池配置的代币余额上限决定它最多可以持有多少农民和修理工的代金券。App 中的这些 “信用额度” 是资金池容量控制，不是个人贷款。",
+      "backTranslation": "The dentist creates a commitment pool called Health Market, publishes rules for accessing three vouchers and deposits some dental service voucher. The token balance cap of the pool configuration determines how many farmer and repairer voucher it can hold. These “credit lines” in the app are pool capacity controls, not personal loans.",
+      "similarity": 0.7562
+    },
+    {
+      "route": "/introduction/example",
+      "line": 19,
+      "source": "The farmer sees the dentist's Want for local food, reviews the dentist's Voucher and Pool terms, and exchanges food-basket Vouchers for dental-care Vouchers. The farmer then books an appointment, presents the dental-care Vouchers, receives the promised care, and the dentist records discharge.",
+      "translation": "农民看到牙医对本地食品的需求，查看牙医的代金券和资金池条款，然后用食品篮代金券换取牙科服务代金券。农民随后预约、出示牙科服务代金券、接受承诺的治疗，牙医再记录解除。",
+      "backTranslation": "The farmers see the dentist’s demand for local food, check the voucher and pool terms of the dentist, then exchange the food basket vouchers for dental service voucher. The farmer then makes an appointment, presents the dental service Voucher, receives the treatment promised, and the dentist unrecords.",
+      "similarity": 0.8154
+    },
+    {
+      "route": "/introduction/example",
+      "line": 21,
+      "source": "The mechanic exchanges repair-service Vouchers for the food-basket Vouchers now held by the Pool and uses them for food delivery. The dentist can exchange dental-care Vouchers for the mechanic's repair Vouchers and use them to repair a vehicle.",
+      "translation": "修理工用维修服务代金券换取资金池中已有的食品篮代金券，并用它们获得食品配送。牙医可以用牙科服务代金券换取修理工的维修代金券，再用它们维修车辆。",
+      "backTranslation": "Repair Service Vouchers for repairers exchange food basket vouchers from the fund pool and are used to receive food delivery. Dentists can use dental service voucher to exchange repair service vehicle voucher for repair workers.",
+      "similarity": 0.5805
+    },
+    {
+      "route": "/introduction/example",
+      "line": 23,
+      "source": "Each Pool swap settles Voucher balances. Each Issuer remains separately responsible for providing the promised food, repair, or dental care. The Pool makes multilateral exchange possible without requiring each pair to want exactly the same thing at the same time.",
+      "translation": "每次资金池交换都会结算代金券余额。每个发行方仍分别负责提供承诺的食品、维修或牙科服务。资金池使多方交换成为可能，不要求每一对参与者都在同一时间恰好需要对方提供的东西。",
+      "backTranslation": "Each issuer remains responsible for providing the food, repair or dental services that they have committed to. The pool makes multiple exchanges possible without requiring each pair of participants to be in need of exactly what the other has to offer at the same time.",
+      "similarity": 0.6968
+    },
+    {
+      "route": "/introduction/example",
+      "line": 25,
+      "source": "## Advanced example: a routed exchange",
+      "translation": "## 进阶示例：路由交换",
+      "backTranslation": "## Advanced example: Router switching",
+      "similarity": 0.8267
+    },
+    {
+      "route": "/introduction/example",
+      "line": 27,
+      "source": "This example follows a Voucher from an Offering and a Want through two independently governed Pools.",
+      "translation": "本例说明一张代金券如何从商品或服务项目和需求出发，通过两个独立治理的资金池完成交换。",
+      "backTranslation": "This example shows how a voucher can be exchanged from a good or service item and demand through two separately governed pools of funds.",
+      "similarity": 0.6695
+    },
+    {
+      "route": "/introduction/example",
+      "line": 29,
+      "source": "### 1. An Issuer publishes a commitment",
+      "translation": "### 1. 发行方公布一项承诺",
+      "backTranslation": "1. The issuer publishes a commitment, which is the subject of the publication.",
+      "similarity": 0.5641
+    },
+    {
+      "route": "/introduction/example",
+      "line": 31,
+      "source": "Imagine a community kitchen creates a digital meal voucher. Before issuing it, the kitchen publishes information a holder needs to make an informed decision:",
+      "translation": "假设一家社区厨房创建数字餐食代金券。发行前，厨房公布持有人作出知情决定所需的信息：",
+      "backTranslation": "Suppose a community kitchen creates digital meal vouchers. Prior to issuance, the kitchen publishes the information required for holders to make informed decisions:",
+      "similarity": 0.8162
+    },
+    {
+      "route": "/introduction/example",
+      "line": 34,
+      "source": "- the meal or other Offering represented by one voucher;",
+      "translation": "- 每张代金券所代表的餐食或其他商品或服务项目；",
+      "backTranslation": "- The meal or other goods or services represented by each voucher; the item of food or other commodity or service;",
+      "similarity": 0.5882
+    },
+    {
+      "route": "/introduction/example",
+      "line": 35,
+      "source": "- supply, unit, stated value, and the kitchen's capacity to perform;",
+      "translation": "- 供应量、单位、标示价值以及厨房的履行能力；",
+      "backTranslation": "- quantity, unit, marked value and capacity of the kitchen; delivery capacity;",
+      "similarity": 0.6438
+    },
+    {
+      "route": "/introduction/example",
+      "line": 36,
+      "source": "- where and during what hours it can be presented;",
+      "translation": "- 可以在何处、什么时间出示；",
+      "backTranslation": "- Can be displayed wherever and whenever; can be shown at any time.",
+      "similarity": 0.2735
+    },
+    {
+      "route": "/introduction/example",
+      "line": 37,
+      "source": "- any expiry date, booking process, fees, taxes, or transfer restrictions; and",
+      "translation": "- 有效期、预约流程、费用、税费或转让限制；以及",
+      "backTranslation": "- Validity period, appointment process, fees, taxes or transfer restrictions; and as well as",
+      "similarity": 0.7529
+    },
+    {
+      "route": "/introduction/example",
+      "line": 38,
+      "source": "- how presentment, fulfillment, complaints, refunds, substitutions, and other remedies work.",
+      "translation": "- 出示、履行、投诉、退款、替代和其他补救如何处理。",
+      "backTranslation": "- How presentation, performance, complaints, refunds, substitutions and other remedies are handled.",
+      "similarity": 0.8063
+    },
+    {
+      "route": "/introduction/example",
+      "line": 40,
+      "source": "The kitchen is the issuer. It must keep this information accurate, avoid issuing beyond its reasonable capacity, and honor vouchers according to the terms under which holders acquired them. Creating the token or publishing the Offering does not prove that capacity or make GEF the issuer.",
+      "translation": "厨房是发行方，必须保持信息准确，避免发行超过合理履行能力的数量，并按照持有人取得代金券时适用的条款履行承诺。创建代币或发布商品或服务项目，不能证明厨房具备履行能力，也不会使 GEF 成为发行方。",
+      "backTranslation": "The Kitchen is an issuer and must keep information accurate, avoid issuing more than it can reasonably perform, and fulfil its commitments in accordance with the terms and conditions applicable when the holder obtains the voucher. Creating tokens or issuing goods or services does not prove the Kitchen’s ability to perform nor will it make GEF an issuers.",
+      "similarity": 0.646
+    },
+    {
+      "route": "/introduction/example",
+      "line": 42,
+      "source": "The kitchen also publishes an Offering describing the meals available. The voucher and Offering are related but distinct: the voucher is the redeemable commitment, while the Offering helps people discover the goods or services associated with it.",
+      "translation": "厨房还发布一个描述可用餐食的 商品或服务项目（Offering）。代金券和该项目相关但不同：代金券是可兑换的承诺，而商品或服务项目帮助人们发现相关商品或服务。",
+      "backTranslation": "The kitchen also publishes an Offering that describes the available meals. Vouchers are related to this offer but different: vouchers represent a redeemable promise, while goods or services help people discover relevant goods and services.",
+      "similarity": 0.6227
+    },
+    {
+      "route": "/introduction/example",
+      "line": 44,
+      "source": "### 2. A participant publishes a Want",
+      "translation": "### 2. 参与者发布需求",
+      "backTranslation": "### 2. Participants publish the requirements.",
+      "similarity": 0.7317
+    },
+    {
+      "route": "/introduction/example",
+      "line": 46,
+      "source": "A nearby school has transport vouchers and needs meals for an event. It publishes a Want describing the meals, quantity, place, timing, and contact method.",
+      "translation": "附近一所学校持有交通代金券，需要为一次活动准备餐食。学校发布一项 需求（Want），说明餐食、数量、地点、时间和联系方法。",
+      "backTranslation": "A nearby school holds a transportation voucher and needs to prepare meals for an event. The school issues a Want, specifying the meal, quantity, location, time and contact method.",
+      "similarity": 0.8144
+    },
+    {
+      "route": "/introduction/example",
+      "line": 48,
+      "source": "The Want expresses demand. It does not automatically accept the kitchen's voucher, reserve meals, create a contract, authorize a swap, or promise that the school will proceed. The school still needs to review the kitchen, voucher terms, available route, quote, and applicable conditions.",
+      "translation": "需求用于表达需要。它不会自动接受厨房的代金券、预留餐食、创建合同、授权交换或承诺学校一定继续交易。学校仍需审查厨房、代金券条款、可用路线、报价和适用条件。",
+      "backTranslation": "The request is used to express a need. It does not automatically accept kitchen vouchers, reserve meals, create contracts, authorize exchanges or commit the school to continue the transaction. Schools still have to review the kitchen, voucher terms, available routes, rates and applicable conditions.",
+      "similarity": 0.8109
+    },
+    {
+      "route": "/introduction/example",
+      "line": 50,
+      "source": "### 3. Independent Pool Stewards curate a route",
+      "translation": "### 3. 独立的资金池管理者筛选路线",
+      "backTranslation": "### 3. Independent pool managers screen the routes.",
+      "similarity": 0.7755
+    },
+    {
+      "route": "/introduction/example",
+      "line": 52,
+      "source": "Two independently governed Pools connect the assets:",
+      "translation": "两个独立治理的资金池连接这些资产：",
+      "backTranslation": "These assets are linked by two separately governed pools: the ETF and the Equity Fund.",
+      "similarity": 0.4493
+    },
+    {
+      "route": "/introduction/example",
+      "line": 54,
+      "source": "1. a mobility Pool admits the school's transport voucher and a maize voucher; and",
+      "translation": "1. 一个交通资金池准入学校的交通代金券和一种玉米代金券；以及",
+      "backTranslation": "1. A transportation pool of school-access transport vouchers and a corn voucher; as well as a corn coupon;",
+      "similarity": 0.6203
+    },
+    {
+      "route": "/introduction/example",
+      "line": 55,
+      "source": "2. a food-security Pool admits that maize voucher and the kitchen's meal voucher.",
+      "translation": "2. 一个食品保障资金池准入同一张玉米代金券和厨房的餐食代金券。",
+      "backTranslation": "2. A food security pool accesses the same corn voucher and kitchen meal vouchers.There is a food security fund that provides food for the children in need.",
+      "similarity": 0.5424
+    },
+    {
+      "route": "/introduction/example",
+      "line": 57,
+      "source": "Each Pool Steward reviews the assets and publishes that Pool's own rules, including:",
+      "translation": "每个资金池管理者分别审查资产并公布本资金池的规则，包括：",
+      "backTranslation": "Each pool manager separately reviews the assets and publishes rules for that pool, including:",
+      "similarity": 0.7684
+    },
+    {
+      "route": "/introduction/example",
+      "line": 60,
+      "source": "- the current SwapPool owner, proxy administrator, and material dependency controllers;",
+      "translation": "- 当前 SwapPool 所有者、代理管理员和重要依赖项控制者；",
+      "backTranslation": "- Current SwapPool owner, proxy administrator and critical dependency controller; current Swap Pool owner, agent administrator and key dependency controller;",
+      "similarity": 0.6393
+    },
+    {
+      "route": "/introduction/example",
+      "line": 61,
+      "source": "- admitted vouchers and other supported assets;",
+      "translation": "- 准入的代金券和其他受支持资产；",
+      "backTranslation": "- Access to vouchers and other backed assets; access to vehicles;",
+      "similarity": 0.6071
+    },
+    {
+      "route": "/introduction/example",
+      "line": 62,
+      "source": "- exchange-rate or quote methods;",
+      "translation": "- 汇率或报价方法；",
+      "backTranslation": "- Exchange rate or quotation methodology; exchange rate or quote methodology",
+      "similarity": 0.5505
+    },
+    {
+      "route": "/introduction/example",
+      "line": 63,
+      "source": "- token-balance caps, called “Credit limits” in the App;",
+      "translation": "- App 中称为 “信用额度” 的代币余额上限；",
+      "backTranslation": "- Token balance limits, known as “Credit Line” in the App;",
+      "similarity": 0.7544
+    },
+    {
+      "route": "/introduction/example",
+      "line": 64,
+      "source": "- Pool and protocol fees;",
+      "translation": "- 资金池费用和协议费用；",
+      "backTranslation": "- Pool and agreement fees; pool fees; agreement fees.",
+      "similarity": 0.5385
+    },
+    {
+      "route": "/introduction/example",
+      "line": 65,
+      "source": "- inventory and liquidity-withdrawal powers; and",
+      "translation": "- 库存和提取流动性的权限；以及",
+      "backTranslation": "- the authority to hold stocks and withdraw liquidity; as well as the power to withdraw cash.",
+      "similarity": 0.4113
+    },
+    {
+      "route": "/introduction/example",
+      "line": 66,
+      "source": "- any separately funded guarantee, reserve, or support arrangement.",
+      "translation": "- 任何单独出资的担保、储备或支持安排。",
+      "backTranslation": "- any separately funded guarantee, reserve or support arrangement.",
+      "similarity": 0.9925
+    },
+    {
+      "route": "/introduction/example",
+      "line": 68,
+      "source": "Admission means that a Pool's configured rules allow a voucher. It does not prove fulfillment capacity, establish cash value, create insurance, or make the two Pools one governed entity.",
+      "translation": "准入表示资金池配置的规则允许该代金券，但不能证明发行方具备履行能力、建立现金价值、形成保险，也不会把两个资金池变成同一个治理实体。",
+      "backTranslation": "The rules of access indicating the pool configuration allow for the warrant, but it does not prove the issuer’s ability to perform, establish cash value, form insurance, or turn the two pools into one governing entity.",
+      "similarity": 0.6584
+    },
+    {
+      "route": "/introduction/example",
+      "line": 70,
+      "source": "### 4. Participants provide inventory",
+      "translation": "### 4. 参与者提供库存",
+      "backTranslation": "4. Participants provide inventory.",
+      "similarity": 0.9296
+    },
+    {
+      "route": "/introduction/example",
+      "line": 72,
+      "source": "The mobility Pool holds maize vouchers that can be exchanged for transport vouchers. The food-security Pool holds meal vouchers that can be exchanged for maize vouchers. Participants may have supplied that inventory under different published arrangements.",
+      "translation": "交通资金池持有可用交通代金券交换的玉米代金券。食品保障资金池持有可用玉米代金券交换的餐食代金券。不同参与者可能按照不同的公布安排提供这些库存。",
+      "backTranslation": "The Transportation pool holds available corn vouchers for exchange against transportation voucher. The Food Security pool holding available meal voucher for exchange towards corn vehicle voucher, which may be provided by different participants under different disclosure arrangements.",
+      "similarity": 0.6382
+    },
+    {
+      "route": "/introduction/example",
+      "line": 74,
+      "source": "A deposit increases available Pool inventory, but it does not automatically create a Pool share, repayment claim, withdrawal right, reward, or governance power. Any such right must come from a separate disclosed arrangement.",
+      "translation": "存款会增加可用的资金池库存，但不会自动产生资金池份额、还款请求权、提款权、奖励或治理权限。任何此类权利都必须来自另行披露的安排。",
+      "backTranslation": "Deposits increase the available pool stock, but do not automatically generate a pool share, repayment claim rights, withdrawal rights, incentives or governance rights. Any such rights must derive from arrangements that are separately disclosed.",
+      "similarity": 0.7393
+    },
+    {
+      "route": "/introduction/example",
+      "line": 76,
+      "source": "### 5. The App discovers and quotes a route",
+      "translation": "### 5. App 发现路线并提供报价",
+      "backTranslation": "### 5. The app finds routes and provides quotes.",
+      "similarity": 0.6813
+    },
+    {
+      "route": "/introduction/example",
+      "line": 78,
+      "source": "The school's wallet opens the Credit view and selects the meal voucher. CLC Core estimates a possible path:",
+      "translation": "学校的钱包打开 可存入（Credit） 视图并选择餐食代金券。CLC Core 估算一条可能的路径：",
+      "backTranslation": "The school wallet opens the Credit view and selects meal vouchers.CLC Core estimates one possible path: a credit voucher.",
+      "similarity": 0.8684
+    },
+    {
+      "route": "/introduction/example",
+      "line": 80,
+      "source": "transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher",
+      "translation": "transport voucher → mobility Pool → maize voucher → food-security Pool → meal voucher（即：交通代金券 → 交通资金池 → 玉米代金券 → 食品保障资金池 → 餐食代金券）",
+      "backTranslation": "transport voucher → mobility Pool → maize voucher ← food-security Pool → meal voucher (i.e.: transport vehicle vouchers → mobilité pool → maizen voucher→ food security pool → meals voucher)",
+      "similarity": 0.6131
+    },
+    {
+      "route": "/introduction/example",
+      "line": 82,
+      "source": "This discovery result is not yet a promise that the exchange will succeed. Every hop depends on current admission, Pool token-balance caps, available inventory, quote and fee configuration, supported token behavior, and service freshness.",
+      "translation": "这个发现结果还不是交换一定成功的承诺。每一跳都取决于当前准入、资金池代币余额上限、可用库存、报价和费用配置、受支持的代币行为以及服务数据是否及时。",
+      "backTranslation": "Each jump depends on current access, pool token balance caps, available inventory, bid and charge configurations, supported token behaviors, and the timeliness of service data. The resulting discovery is not a guarantee of exchange success.",
+      "similarity": 0.6109
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "学校选择想要 获取（Get） 或 花费（Spend） 的数量。App 提供完整交换的报价。路径详情（Route details） 显示两次交换、数量和每一步的资金池费用及协议费用。学校继续之前，会检查最低收到数量和报价到期时间。",
+      "backTranslation": "The school selects the amount it wants to Get or Spend.The app provides a quote for the entire exchange.Route details display both exchanges, quantity and pool and agreement fees for each step.A minimum quantity to receive and offer expiration time are checked before the school proceeds.",
+      "similarity": 0.575
+    },
+    {
+      "route": "/introduction/example",
+      "line": 86,
+      "source": "### 6. The Holder executes the routed exchange",
+      "translation": "### 6. 持有人执行路由交换",
+      "backTranslation": "6. The holder executes the routing switching.",
+      "similarity": 0.7912
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "学校选择 确认兑换（Confirm exchange） 并授权完整路线。成功后，收据会显示两次资金池交换、交换数量和费用。",
+      "backTranslation": "The school selects Confirm exchange and authorizes the entire route. Once successful, a receipt will show both pool exchanges, the amount of exchanged funds and the fee.",
+      "similarity": 0.7939
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "如果某一步失败，两次资金池交换会一起回滚；第一次不会在没有第二次的情况下保持结算。软件如何构建和执行这笔交易，见路由参考（英文）。",
+      "backTranslation": "If a step fails, the two pool exchanges roll back together; the first will not keep settlement without the second. See the routing reference for how the software builds and executes this transaction.",
+      "similarity": 0.5721
+    },
+    {
+      "route": "/introduction/example",
+      "line": 92,
+      "source": "The school now holds meal vouchers. The on-chain exchange is swap settlement. It gives the school the resulting claim described by the meal-voucher terms; it does not prove that the kitchen has already supplied food.",
+      "translation": "学校现在持有餐食代金券。链上交换属于 交换结算，使学校取得餐食代金券条款所述的请求权；它不能证明厨房已经提供餐食。",
+      "backTranslation": "The school now holds the meal vouchers. Chained exchange is a form of exchange settlement that gives the school the right to claim as described in the terms of the meals voucher; it cannot prove that the kitchen has provided the meats.",
+      "similarity": 0.7406
+    },
+    {
+      "route": "/introduction/example",
+      "line": 94,
+      "source": "### 7. The Holder presents the Voucher",
+      "translation": "### 7. 持有人出示代金券",
+      "backTranslation": "7. The holder presents the voucher to the bank.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/introduction/example",
+      "line": 96,
+      "source": "In the current App, choosing “Redeem” opens the ordinary send flow with the token owner's address prefilled. Sending the voucher back is evidence of presentment to the issuer; it does not by itself prove that the kitchen supplied a meal.",
+      "translation": "在当前 App 中，选择 “兑付（Redeem）” 会打开普通发送流程，并预填代币所有者的地址。把代金券发回去属于向发行方出示，但本身不能证明厨房已经提供餐食。",
+      "backTranslation": "In the current App, selecting “Redeem” will open the normal sending process and pre-fill the address of the token owner. The voucher is sent back to be presented to the issuer but cannot itself prove that a meal has been provided by the kitchen.",
+      "similarity": 0.639
+    },
+    {
+      "route": "/introduction/example",
+      "line": 98,
+      "source": "The school follows the kitchen's booking or contact process. The kitchen verifies the presentment and provides the promised meals under its published terms.",
+      "translation": "学校按照厨房的预约或联系流程操作。厨房确认出示，并按照公布条款提供承诺的餐食。",
+      "backTranslation": "Schools operate according to the kitchen’s appointment or contact process. The kitchen confirms presentation and provides the meal as promised in accordance with the published terms.",
+      "similarity": 0.7041
+    },
+    {
+      "route": "/introduction/example",
+      "line": 100,
+      "source": "### 8. The Issuer records fulfillment and discharge",
+      "translation": "### 8. 发行方记录履行和解除",
+      "backTranslation": "8. Issuer records performance and termination.",
+      "similarity": 0.5773
+    },
+    {
+      "route": "/introduction/example",
+      "line": 102,
+      "source": "After providing the meals, the kitchen records the fulfilled units so they cannot be presented twice. Depending on the published process, this may involve receiving, burning, cancelling, or otherwise disabling the returned voucher.",
+      "translation": "提供餐食后，厨房记录已经履行的单位，使其不能被重复出示。根据公布的流程，这可能包括接收、销毁、取消或以其他方式停用退回的代金券。",
+      "backTranslation": "After a meal is provided, the kitchen records which units have been fulfilled so that they cannot be displayed again. Depending on the process published, this may include receiving, destroying, cancelling or otherwise disallowing returned vouchers.",
+      "similarity": 0.7641
+    },
+    {
+      "route": "/introduction/example",
+      "line": 104,
+      "source": "If the kitchen does not honor its commitment, the holder uses the issuer's published complaint or remedy process and any rights available under applicable law. Neither GEF nor either Pool Steward becomes the redeemer merely because the App found the route or the Pools enabled its swaps.",
+      "translation": "如果厨房不履行承诺，持有人可以使用发行方公布的投诉或补救流程，以及适用法律提供的任何权利。仅仅因为 App 找到路线或资金池支持交换，GEF 和两个资金池管理者都不会因此成为兑换方。",
+      "backTranslation": "If the Kitchen fails to meet its commitments, the Holder may use the complaint or redress process published by the Issuer and any rights provided under applicable law. Neither GEF nor the two Pool Managers become redemption parties simply because the App finds a route or pool supports the exchange.",
+      "similarity": 0.6894
+    },
+    {
+      "route": "/introduction/example",
+      "line": 106,
+      "source": "Choosing “Request retirement” is different: the current owner asks an administrator to retire the Voucher. The Voucher remains active while the request is pending, and the request can be approved, rejected, or cancelled. Approved retirement removes it from active catalog use but does not delete its contract, balances, history, or outstanding obligations. It is not fulfillment, discharge, burning, or cancellation.",
+      "translation": "“申请停用（Request retirement）” 是不同的操作：当前所有者请求管理员停用代金券。请求待处理期间，代金券仍保持活跃；请求可以获批、被拒绝或被取消。获批后，代金券会从活跃目录中移除，但不会删除合约、余额、历史或未履行的义务。这不是履行、解除、销毁或取消。",
+      "backTranslation": "“Request withdrawal” is a different operation: the current owner requests the administrator to deactivate the voucher. While the request is pending, the vehicle remains active; the request can be approved, rejected or cancelled. Once approved the volunteer is removed from the active directory but does not delete the contract, balance, history or outstanding obligations. This is not performance, dissolution, destruction or cancellation.",
+      "similarity": 0.7462
+    },
+    {
+      "route": "/introduction/example",
+      "line": 108,
+      "source": "## Responsibilities at a glance",
+      "translation": "## 责任一览",
+      "backTranslation": "## Summary of responsibilities",
+      "similarity": 0.623
+    },
+    {
+      "route": "/introduction/example",
+      "line": 110,
+      "source": "- Issuer: describes and fulfills the voucher and records discharge.",
+      "translation": "- 发行方： 说明并履行代金券承诺，并记录解除。",
+      "backTranslation": "- Issuer: Declares and fulfils the pledge of the voucher, and records redemption.",
+      "similarity": 0.7568
+    },
+    {
+      "route": "/introduction/example",
+      "line": 111,
+      "source": "- Person publishing a Want: describes a need without automatically accepting a voucher or route.",
+      "translation": "- 发布需求的人： 说明一项需要，但不会因此自动接受某张代金券或某条路线。",
+      "backTranslation": "- The person who issues the request: He or she expresses a need, but does not automatically accept a voucher or route.",
+      "similarity": 0.6729
+    },
+    {
+      "route": "/introduction/example",
+      "line": 112,
+      "source": "- Pool Stewards: independently publish and administer each Pool's rules, rates, fees, limits, controls, and any expressly assumed guarantee.",
+      "translation": "- 资金池管理者： 分别公布和管理各资金池的规则、汇率、费用、限额、控制权以及明确承担的任何担保。",
+      "backTranslation": "- Pool manager: publishes and manages the rules, exchange rates, fees, limits, controls and any explicitly assumed guarantees for each pool separately.",
+      "similarity": 0.6735
+    },
+    {
+      "route": "/introduction/example",
+      "line": 113,
+      "source": "- Holder: reviews the issuer, voucher terms, Pools, route quote, fees, wallet authorization, and applicable law.",
+      "translation": "- 持有人： 审查发行方、代金券条款、资金池、路线报价、费用、钱包授权和适用法律。",
+      "backTranslation": "- Holders: Review issuer, voucher terms, pool, route quotes, fees, wallet authorization and applicable law.",
+      "similarity": 0.9589
+    },
+    {
+      "route": "/introduction/example",
+      "line": 114,
+      "source": "- CLC App and CLC Core: discover and quote possible routes, prepare and relay the signed batch, and group technical settlement records. They do not prove issuer fulfillment.",
+      "translation": "- CLC App 和 CLC Core： 发现可能路线并报价，准备和 relay 已签名批次，并对技术结算记录分组；它们不能证明发行方已经履行。",
+      "backTranslation": "- CLC App and CLC Core: Discover possible routes and quotes, prepare and relay signed batches, and group against technical settlement records; they cannot prove that the issuer has fulfilled.",
+      "similarity": 0.8352
+    },
+    {
+      "route": "/introduction/example",
+      "line": 115,
+      "source": "- Technical controllers: exercise only the contract, dependency, upgrade, catalog, routing-service, or fee powers assigned to them.",
+      "translation": "- 技术控制者： 只行使分配给自己的合约、依赖项、升级、目录、路由服务或费用权限。",
+      "backTranslation": "- Technical Controller: Exercise only the rights assigned to him/her for contracts, dependencies, upgrades, directories, routing services or charges.",
+      "similarity": 0.4286
+    },
+    {
+      "route": "/introduction/example",
+      "line": 116,
+      "source": "- GEF: operates the CLC App and supporting infrastructure, subject to the Terms of Service; it does not automatically take on the other roles.",
+      "translation": "- GEF： 按照服务条款运营 CLC App 和支持基础设施；它不会自动承担上述其他角色。",
+      "backTranslation": "- GEF: Operates the CLC App and supporting infrastructure in accordance with the Terms of Service; it does not automatically assume any of the other roles mentioned above.",
+      "similarity": 0.8307
+    },
+    {
+      "route": "/introduction/example",
+      "line": 118,
+      "source": "## When a route is unavailable",
+      "translation": "## 路线不可用时",
+      "backTranslation": "## When the route is unavailable.",
+      "similarity": 0.9206
+    },
+    {
+      "route": "/introduction/example",
+      "line": 120,
+      "source": "The App may find no route, or a quote may fail, when inventory is insufficient, a Pool cap would be exceeded, a voucher is not admitted, a token or quoter is unsupported, the wallet lacks enough input, the route data is stale, or the final batch simulation fails. A quote can also expire or become invalid before submission as Pool state changes.",
+      "translation": "如果库存不足、资金池上限会被超过、代金券未获准入、代币或 quoter 不受支持、钱包没有足够输入、路线数据过时或最终批次模拟失败，App 可能找不到路线，报价也可能失败。随着资金池状态变化，报价还可能在提交前到期或失效。",
+      "backTranslation": "If there is insufficient inventory, the pool ceiling will be exceeded, vouchers are not allowed, tokens or quoter are not supported, wallet input is inadequate, route data is outdated or final batch simulation fails, the App may not find a route and the offer may fail. As the pool status changes, offers may also expire before being submitted.",
+      "similarity": 0.5681
+    },
+    {
+      "route": "/introduction/example",
+      "line": 122,
+      "source": "That outcome does not change the Want, the Offering, or the Issuer's existing Voucher obligations. The participant can refresh the route, choose a smaller amount, use another eligible input Voucher, or wait for Pool conditions to change.",
+      "translation": "这一结果不会改变需求、商品或服务项目，也不会改变发行方现有的代金券义务。参与者可以刷新路线、选择较小数量、使用另一张符合条件的输入代金券，或等待资金池条件改变。",
+      "backTranslation": "This outcome does not change the demand, goods or services, nor does it change the issuer's existing voucher obligations. Participants can refresh their route, choose a smaller quantity, use another eligible input voucher, or wait for the pool conditions to change.",
+      "similarity": 0.8526
+    },
+    {
+      "route": "/introduction/example",
+      "line": 124,
+      "source": "## Future credit arrangements",
+      "translation": "## 未来的信用安排",
+      "backTranslation": "## Future credit arrangements",
+      "similarity": 1
+    },
+    {
+      "route": "/introduction/example",
+      "line": 126,
+      "source": "A future Pool or other responsible party could separately offer a transaction as a repayable advance, secured transaction, or other credit product. Such a product would require separately presented supplemental and transaction terms identifying the parties, amounts, due dates, fees or interest, collateral treatment, assignment, default, remedies, and discharge evidence.",
+      "translation": "未来，某个资金池或其他责任方可以另行提供可偿还垫款、担保交易或其他信用产品。此类产品需要另行提供补充条款和交易条款，明确当事方、金额、到期日、费用或利息、担保物处理、转让、违约、补救和解除证据。",
+      "backTranslation": "In the future, a pool or other liable party may provide separately repayable advances, secured transactions or other credit products. Such products require additional terms and conditions of transaction to specify parties, amounts, maturities, fees or interest, collateral disposition, transfer, default, remedies and discharge evidence.",
+      "similarity": 0.7334
+    },
+    {
+      "route": "/introduction/example",
+      "line": 128,
+      "source": "An ordinary send, Pool deposit, direct or routed Pool swap, voucher presentment, fulfillment, or discharge does not create those obligations on its own.",
+      "translation": "普通发送、资金池存款、直接或路由资金池交换、代金券出示、履行或解除，本身不会产生这些义务。",
+      "backTranslation": "Ordinary dispatch, deposits into the pool, exchanges directly or via the pool and presentation, performance or discharge of vouchers do not in themselves create these obligations.",
+      "similarity": 0.5982
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 9,
+      "source": "Concepts and vocabulary maps these public roles to contract ownership, proxy administration, dependency control, catalog moderation, and fee receipt.",
+      "translation": "概念与词汇说明这些公开角色如何对应合约所有权、代理管理、依赖项控制、目录审核和费用接收。",
+      "backTranslation": "Concepts and vocabulary describe how these public roles correspond to contract ownership, agent management, dependency control, catalog auditing and expense receipt.",
+      "similarity": 0.7834
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "CLC App 和配套服务帮助参与者发现代金券、安排交换和检查结果。运营方对自己的服务以及说明服务故障负责。权威软件文档以英文说明配套系统及其运行。",
+      "backTranslation": "The CLC App and the accompanying services help participants to locate vouchers, arrange exchanges and check results. Operators are responsible for their own service and for reporting service failures. Authoritative software documentation describes the acknowledgement system and its operation in English.",
+      "similarity": 0.8487
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "路由交换会保留各资金池之间的边界。每个资金池应用自己的规则和控制。共享收据不会合并资金池治理，也不会把发行方责任转移给路线运营方。技术交易记录见软件交换参考。",
+      "backTranslation": "The routing exchange maintains the boundaries between pools. Each pool applies its own rules and controls. Shared receipts do not consolidate pool governance or transfer issuer responsibility to the route operator. See the software exchange reference for technical transaction records.",
+      "similarity": 0.7708
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 44,
+      "source": "The receipt can evidence route selection, authorization, transaction status, per-hop settlement amounts, and fees. Real-world presentment, fulfillment, satisfaction, and discharge require separate evidence and remain with the identified issuer and applicable process.",
+      "translation": "收据可以证明路线选择、授权、交易状态、逐跳结算数量和费用。现实中的兑付出示、履行、满意度和解除需要单独证据，并仍由确定的发行方和适用流程负责。",
+      "backTranslation": "Receipt can prove route selection, authorization, transaction status, step-by-step settlement amount and charge. Real-world redemption presentation, performance, satisfaction and discharge require separate evidence and remain the responsibility of the identified issuer and applicable processes.",
+      "similarity": 0.8327
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "当前软件参考",
+      "backTranslation": "Current software references.",
+      "similarity": 0.963
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "这是已发布的白皮书 v0.9。有关软件当前实现、合约、API 和部署说明，请参阅 CLC 软件文档。",
+      "backTranslation": "This is the released white paper v0.9. For current software implementation, contracts, API and deployment instructions, please refer to CLC Software documentation.",
+      "similarity": 0.9221
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "阅读软件文档（英文）",
+      "backTranslation": "Read the software documentation (English)",
+      "similarity": 1
+    }
+  ],
+  "reviewDate": "23 November 2026",
+  "readingNoteSha256": "34d3ace357655a3fc5cc62ff036768361e2ffd9e7103debc4d09f0cd70232615",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation with the established app glossary",
+      "complete clarity and protected-content review",
+      "independent MADLAD back-translation and comparison of all 302 changed units against English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 17,
+    "resolution": "Independently reviewed all 302 final changed units against current English and the last committed Chinese sources, including the four pre-existing overlapping clarity drafts; inspected all 17 low-confidence back-translations. Retained their plain-language Offering/Want explanations, role and lifecycle distinctions, practical example and privacy cautions rather than replacing them with older text. Resolved quoted controls against the committed app catalog: Credit is labelled 可存入, Credit limit 信用额度, Redeem 兑付, Request retirement 申请停用, Route details 路径详情 and Confirm exchange 确认兑换. Clarified token designation versus intended use, distinguished swap exchange from redemption presentment, and retained the Chinese route explanation alongside the protected English code illustration. Machine-added money amounts, extra qualifiers and missing clauses were checked against the actual Chinese and rejected as back-translation artifacts. All current/proposed, fee, deposit-right, withdrawal, atomic-settlement, fulfillment/discharge and legal responsibility boundaries match English. Preserved published heading destinations by semantic mapping and retained all draft heading destinations. Only the seven controlled sources and the outside-publication v0.9 reading note are promoted; the separate five legal/publication drafts and the older overall clarity review remain pending. Corrected CJK emphasis spacing within the controlled pages after browser review, rechecked the 53 newly formatted review units, and added a parser-based guard against visible Markdown delimiters without changing the text meaning."
+  },
+  "appVocabularyBaseline": {
+    "commit": "d54c667c783428ca2f1472daed7c14a1e024c014",
+    "catalog": "packages/i18n/src/catalogs/zh/messages.po",
+    "scope": "Read-only check of committed labels, including the non-literal 可存入 label for Credit. Conceptual credit remains exchange capacity rather than personal lending."
+  },
+  "preExistingClarityWork": {
+    "committedBaseline": "61659cb818f3798d8fb41a41c47a51c023d7ed40",
+    "reviewBaseline": "last committed Chinese sources, so carried-over draft changes are included in the independent review",
+    "reconciledSources": {
+      "introduction/getting-started.mdx": "cea219ccbacdd125db1765f60a8029e289b716fbaca62060b7540813f358d36f",
+      "introduction/concepts.mdx": "0a705144b31a19945cb3e77646b746ccc9a9317789127067aa1fb3eb7c8cd5a1",
+      "introduction/example.mdx": "29aa9b1802f1723877cbe878aea2417c0e988d87969ed707fe7337c00f32ad6e",
+      "protocol/network.mdx": "921ea033baebac29748dc127dd48b30815933ea3d418df4144c51bcb580a0d26"
+    },
+    "excludedSources": {
+      "governance/privacy.md": "36341f4b60842f76f433b66e5e4f19b6c2738161b099d3ea21eee2999e0642a7",
+      "governance/terms.md": "ed96918960e4bb7a147c051655a5dabd8aba4782692390df9c8b54e062ee011b",
+      "white-paper/index.mdx": "fdf40348d9fffe3875a9cd673745645a1c6595d5ae23335de6b27018c677b5ee",
+      "white-paper/executive-summary.md": "3b1151893c131bf3add66730e787b0c65843ee0c9a4019a59d3094f6fcfdd4e9",
+      "white-paper/chapter-17-legal-compliance-note.md": "c870910c46c8a7c5d9fadf2cefef0a9cef1de32c6ee4bde508db00b4d57c0986"
+    },
+    "olderRolloutStatus": "pending",
+    "scope": "The four overlapping drafts are explicitly reconciled only within the seven-route software review. Terms, Privacy and three White Paper edits are unchanged and their original hash/notice failures are retained in the main checkout; no older unfinished review is marked complete."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/zh/governance/privacy#what-becomes-public",
+    "afterHref": "/zh/governance/privacy#4-哪些信息会公开",
+    "previousSha256": "baec8b4511e0b5edf80db821f7fa9b184b9e74dd3543b1915adc9fc63414d2df",
+    "sha256": "41f2f92382b6a941f301d0c649f6f0d2a4d1be4fd9fd9601ffbce7229ae4d7a5",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

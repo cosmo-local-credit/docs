@@ -81,13 +81,13 @@ The school's wallet opens the **Credit** view and selects the meal voucher. CLC 
 
 This discovery result is not yet a promise that the exchange will succeed. Every hop depends on current admission, Pool token-balance caps, available inventory, quote and fee configuration, supported token behavior, and service freshness.
 
-The school chooses how much it wants to **Get** or **Spend**. CLC Core then reads both Pools at one pinned block, produces an authoritative time-bounded quote, and simulates the complete wallet batch. The App's **Route details** show both swaps, the estimated amounts, and each hop's Pool and protocol fees.
+The school chooses how much it wants to **Get** or **Spend**. The App presents a quote for the complete exchange. **Route details** show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.
 
 ### 6. The Holder executes the routed exchange
 
-After reviewing the minimum amount received and quote deadline, the school selects **Confirm exchange** and signs the prepared batch. The App submits one same-chain transaction containing the approvals and bounded swap call for each Pool.
+The school selects **Confirm exchange** and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.
 
-If any call fails, the complete transaction reverts; the first Pool swap does not remain settled without the second. If it succeeds, the school's grouped receipt shows one tracking ID, one transaction hash, both Pool hops, settled amounts, and per-hop fees.
+If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the [routing reference](https://software.cosmolocal.credit/contracts/routing) (English).
 
 The school now holds meal vouchers. The on-chain exchange is **swap settlement**. It gives the school the resulting claim described by the meal-voucher terms; it does not prove that the kitchen has already supplied food.
 

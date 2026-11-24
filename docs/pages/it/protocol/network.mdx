@@ -1,107 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # Architettura della rete del protocollo
 
-Un'implementazione compatibile con CPP può collegare molti buoni e Fondi tramite registri, indici e moduli di quotazione facoltativi, oltre alla scoperta dei percorsi a livello dell'applicazione. Ogni Fondo rimane un deposito distinto con la propria liquidità, il proprio proprietario, amministratore del proxy, configurazione e dipendenze.
+Più Fondi governati in modo indipendente possono collegare il Buono che possiede a quello che desidera. Ogni Fondo fornisce un passaggio dello scambio, secondo le proprie regole e con l'inventario disponibile.
 
-Grassroots Economics Foundation gestisce l'app pubblica su [cosmolocal.credit](https://cosmolocal.credit). Altre interfacce e implementazioni possono usare lo stesso protocollo pubblico. La gestione dell'app non rende automaticamente GEF proprietario, emittente, Responsabile del Fondo, destinatario delle commissioni o garante di ogni contratto mostrato di seguito.
-
-Consulti [Concetti e vocabolario](/it/introduction/concepts) per distinguere i ruoli responsabili dai poteri tecnici.
+Il [riferimento sull'instradamento del software CLC](https://software.cosmolocal.credit/contracts/routing) è la fonte definitiva per la scoperta dei percorsi, i requisiti di idoneità, l'esecuzione e le interfacce dei servizi. La documentazione del software è attualmente in inglese. Questa pagina spiega il percorso del partecipante e le sue responsabilità.
 
 ## Scoperta ed esecuzione dei percorsi in produzione
 
-<MermaidDiagram
-  label="Architettura di routing della produzione CLC App e Core"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["Partecipante"] --> App["App CLC<br/>Credito · Acquisto · Spesa"]
-    App -->|voucher raggiungibili e percorsi candidati| Core["Servizio di routing CLC Core"]
-    Catalog["Cataloghi, registri,<br/>eventi a catena indicizzati"] --> Core
-    Chain["Letture della catena a un blocco fissato"] -->|Stato dei Fondi, saldi, commissioni,<br/>limiti e quotazioni| Core
-    Reconcile["Indicizzazione e riconciliazione"] --> Catalog
+Nella vista **Credito** dell'App, scelga **Ottenga** per il Buono che desidera ricevere o **Spenda** per quello che desidera usare. Un percorso potrebbe scambiare un Buono per il trasporto con un Buono alimentare attraverso due Fondi diversi.
 
-    Core -->|quotazione autorevole,<br/>limiti e chiamate preparate| App
-    Core -->|simulare il lotto completo| Chain
-    App -->|revisione e firma| Wallet["App-compatibile<br/>Portafoglio EOA / Calibur"]
-    Wallet -->|lotto firmato| Relayer["Relais"]
-    Relayer -->|una transazione sulla stessa catena<br/>revertOnFailure = true| Batch["Batch Calibur<br/>approve 0 · approve importo<br/>withdraw con limiti per passaggio"]
-
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>(se necessario)"]
-    PoolA --> Events["Eventi di regolamento"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["Ricevuta raggruppata dello scambio instradato<br/>Stato · hash tx · passaggi · importi · commissioni"]
-    Receipt --> App
-
-    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>contratto riutilizzabile di sola quotazione"] -. legge le quotazioni; non esegue .-> PoolA
-    SolidityRouter -. legge le quotazioni; non esegue .-> PoolB`}
-/>
-
-Un Buono condiviso crea un **percorso grafico possibile**, non un percorso garantito. Il servizio di produzione CLC Core mantiene un grafico riconciliato da Fondo, registro, catalogo, saldo, tariffa e informazioni sulla catena degli eventi. Verifica anche le riserve rilevanti del portafoglio di sessione. L'implementazione pubblica attualmente cerca percorsi per un massimo di tre Fondo swap.
-
-L'instradamento in produzione usa volutamente criteri di idoneità più ristretti rispetto allo scambio diretto tramite Fondo. Vengono instradati soltanto Fondi verificati con prezzi relativi e token i cui trasferimenti spostano esattamente l'importo dichiarato: Buoni `GiftableToken` e token ERC-20 esterni semplici espressamente elencati nella configurazione `router.plain_erc20` dell'implementazione. Un token può quindi essere utilizzabile in uno scambio diretto tramite Fondo senza essere idoneo all'instradamento a livello applicativo.
-
-La scoperta del grafico è veloce ma stimata a partire dal suo blocco indicizzato. Un risultato può essere contrassegnato come obsoleto, e una connessione non prova che la quantità desiderata possa passare attraverso di esso. Il filtro **Credito** dell'App utilizza questo set raggiungibile per il mercato e le relative schermate di scoperta.
+Trovare un collegamento non garantisce uno scambio. I Buoni supportati, i limiti dei Fondi, l'inventario disponibile, le commissioni, la compatibilità del Portafoglio e la disponibilità dei servizi devono consentire l'importo richiesto.
 
 ### Quotazione autorevole
 
-Dopo che un partecipante ha selezionato il percorso e l'importo, CLC Core legge ogni Fondo rilevante allo stesso blocco fissato e riproduce l'aritmetica supportata di `SwapPool`. La quotazione identifica ogni passaggio, input e output, commissione del Fondo, commissione del Protocollo, output minimo, destinatario finale e scadenza. Attualmente una quotazione è valida per cinque minuti.
+Esamini i **Dettagli del percorso** prima di confermare: cosa paga, cosa riceve, tutti i Fondi coinvolti, le commissioni, il minimo ricevuto e la scadenza della quotazione. Una stima aiuta a esplorare; la quotazione è la proposta che autorizza. La aggiorni se scade o se cambiano le condizioni dei Fondi.
 
-Il servizio costruisce e simula l'intero batch Calibur. Comportamenti o quotatori di token non supportati, saldo insufficiente del portafoglio, errori di ammissione, limiti al saldo dei token del Fondo, liquidità insufficiente, domini di commissione non validi, limiti del gas e altre cause di revert possono impedire la produzione della quotazione.
-
-Scoperta e quotazione forniscono prove diverse. La scoperta indica che un percorso può esistere; la quotazione al blocco fissato costituisce la proposta di transazione autorevole. Anche questa proposta può scadere o diventare non valida se lo stato rilevante cambia prima dell'invio.
+Il [riferimento sull'instradamento](https://software.cosmolocal.credit/contracts/routing) e la [configurazione dei servizi](https://software.cosmolocal.credit/core-api/configuration#credit-router) mantengono aggiornate le regole tecniche di idoneità e le impostazioni delle quotazioni.
 
 ### Lotto atomico firmato
 
-L'utente esamina i dettagli del percorso e firma il batch preparato per il portafoglio. Per ogni passaggio, il batch chiama `approve(pool, 0)`, `approve(pool, amountIn)` e la versione di `SwapPool.withdraw` con limiti. Ogni prelievo con limiti impone un output minimo e una scadenza. I buoni intermedi tornano nello stesso portafoglio prima che il Fondo successivo spenda l'importo quotato; ogni saldo intermedio residuo rimane in quel portafoglio.
+Esamini e autorizzi lo scambio completo. Il percorso attuale riesce interamente oppure, se un passaggio fallisce, gli scambi nei Fondi vengono annullati insieme. Questo evita che il percorso venga completato solo in parte; non garantisce una successiva consegna di beni o servizi.
 
-Il relayer invia il batch come un'unica transazione sulla stessa catena con `revertOnFailure` impostato su `true`. Se un'approvazione o uno scambio nel Fondo fallisce, tutte le chiamate del percorso, comprese quelle già eseguite, e le relative variazioni di saldo vengono annullate insieme. Questa è l'attuale atomicità di una transazione sulla stessa catena. Non equivale ad atomicità tra catene, HTLC, escrow, compensazione o riequilibrio automatico dei Fondi.
-
-Il flusso di percorsi attuale supporta i portafogli EOA/Calibur compatibili dell'App. Un Safe o un altro portafoglio contrattuale viene respinto dal percorso di quotazione corrente.
+Per la costruzione e l'esecuzione della transazione, consulti [Eseguire un percorso](https://software.cosmolocal.credit/contracts/routing#execute-a-route).
 
 ### Contratto Solidity `SwapRouter` e commissioni
 
-Il contratto Solidity `SwapRouter` del Protocol v1.1.0 resta di sola quotazione. Può chiamare le funzioni di quotazione dei Fondi lungo un percorso fornito, ma non custodisce fondi, non approva token e non esegue scambi. Il flusso di produzione di CLC App e CLC Core descritto sopra è un coordinatore separato, a livello applicativo, che chiama direttamente ogni `SwapPool` attraverso il portafoglio firmato del partecipante.
+Il contratto Solidity `SwapRouter`, che calcola solo quotazioni, e il flusso di scambio dell'App sono componenti software diversi. Il loro rapporto è spiegato in [Instradamento](https://software.cosmolocal.credit/contracts/routing).
 
-Le commissioni del Fondo rimangono nel Fondo interessato per la riscossione successiva. L'eventuale commissione del Protocollo è aggiuntiva e, durante lo scambio, viene trasferita direttamente dal Fondo al destinatario configurato.
-
-L'App attuale non aggiunge una commissione separata per il servizio di instradamento. Uno scambio instradato può tuttavia includere più commissioni dei Fondi e del Protocollo, perché ogni passaggio costituisce un regolamento distinto in un `SwapPool`.
+Per i partecipanti, il controllo importante riguarda la quotazione completa. Ogni Fondo può applicare commissioni. Un percorso condiviso non unisce i Fondi né rende un Responsabile responsabile di un altro Fondo.
 
 ### Stati di ricezione e di fallimento
 
-CLC Core raggruppa il percorso sotto un unico ID di tracciamento. L'App mostra **Scambio in corso**, **Scambiato** o **Scambio non riuscito**, con uno stato tecnico **In attesa**, **Confermato** o **Annullato**. La ricevuta registra l'hash della transazione, la profondità del percorso, ogni coppia di Fondo e token, gli importi quotati e regolati, le commissioni del Fondo e del Protocollo per ciascun passaggio, il minimo ricevuto e ogni residuo intermedio rimasto nel portafoglio.
+Dopo l'invio, controlli se lo scambio è in attesa, confermato o fallito e conservi la ricevuta. Se non è disponibile un percorso, provi ad aggiornare, ridurre l'importo o scegliere un altro Buono supportato in entrata.
 
-Un percorso può fallire prima della firma perché non è disponibile un percorso o una quotazione idonei, durante la simulazione perché il lotto sarebbe invertito, durante il relay perché la transazione firmata non può essere inviata o on-chain perché lo stato è cambiato o un'altra condizione di esecuzione ha fallito. Un percorso fallito o indisponibile non riscrive le regole di un Fondo, scarica un Buono o prova nulla sull'adempimento dell'emittente.
+Uno scambio fallito non modifica le promesse già assunte dall'Emittente. Uno scambio riuscito registra saldi modificati; l'adempimento e l'estinzione seguono comunque le condizioni dell'Emittente. Consulti gli [esempi pratici](/it/introduction/example).
 
+Gli sviluppatori possono trovare le interfacce per le transazioni e il loro monitoraggio nel [riferimento API CLC Core](https://software.cosmolocal.credit/core-api/reference).
 
 ## Componenti interni del Fondo
 
-<MermaidDiagram
-  scrollMessage="Scorri orizzontalmente per vedere il diagramma completo."
-  errorMessage="Non è stato possibile visualizzare il diagramma"
-  label="Dipendenze e poteri amministrativi del Fondo di Impegni"
-  minWidth={820}
-  chart={`flowchart TB
-    Steward["Responsabile del Fondo"] -. pubblica regole,<br/>informative e governance .-> Pool["SwapPool<br/>deposito e regolamento"]
-    Owner["Indirizzo del proprietario<br/>dello SwapPool"] -->|configura, sigilla, riscuote, preleva| Pool
-    ProxyAdmin["Amministratore del proxy<br/>ERC-1967"] -->|aggiorna l'implementazione| Pool
-    Dependencies["Dipendenze facoltative<br/>registro · limitatore · quotatore<br/>politica delle commissioni · controller delle commissioni di protocollo<br/>ciascuno con la propria governance"] -. dati per il regolamento .-> Pool
-    Seal["Cinque indirizzi sigillabili<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. blocca gli indirizzi .-> Pool
+Prima di fare affidamento su un Fondo, identifichi il Responsabile, il proprietario del contratto, le autorità di aggiornamento, i destinatari delle commissioni e chiunque possa modificare impostazioni rilevanti. Chi esercita il controllo tecnico e il Responsabile possono essere soggetti diversi.
 
-    Wallet["Portafoglio dell'utente"] -->|deposito o input dello scambio| Pool
-    Pool -->|output netto dello scambio| Wallet
-    Pool -->|commissioni del Fondo riscosse| FeeAddress["Indirizzo delle<br/>commissioni configurato"]
-    Pool -->|commissione di protocollo nello stesso scambio| ProtocolRecipient["Destinatario<br/>del protocollo"]
-    Pool -->|withdrawLiquidity| Destination["Destinatario scelto<br/>dal proprietario"]`}
-/>
-
-Il registro, il limitatore, il quotatore, la politica delle commissioni e il controller delle commissioni di protocollo sono facoltativi. Senza registro, qualsiasi token supera il controllo di ammissione; senza limitatore, i depositi non hanno un limite massimo; senza quotatore, il Fondo usa la parità delle unità grezze; senza moduli per le commissioni, le commissioni corrispondenti sono pari a zero.
-
-I cinque indirizzi sigillabili sono `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` e `tokenLimiter`. Un sigillo impedisce all'attuale proprietario del Fondo di sostituire quell'indirizzo tramite il relativo setter, ma non blocca lo stato interno della dipendenza. L'indirizzo `protocolFeeController` e la modalità `feesDecoupled` non rientrano in questi cinque sigilli. Anche la capacità dell'amministratore del proxy di aggiornare il Fondo è distinta dal sigillo.
-
-Il proprietario del contratto può prelevare la liquidità disponibile del Fondo verso un indirizzo scelto. Quando le commissioni sono separate, le commissioni accumulate sono escluse da questo percorso; il potere di prelevare la liquidità rimanente continua comunque a esistere. Prima di fare affidamento su un Fondo, i partecipanti dovrebbero verificare il proprietario, l'amministratore del proxy, i responsabili delle dipendenze, lo stato dei sigilli, i destinatari delle commissioni e le regole pubblicate del Fondo.
-
-Per il modello concettuale alla base di questi contratti, comprese curatela, valutazione, limitazione, scambio e governance, consulti il [Libro bianco](/it/white-paper).
+Il riferimento del software mantiene aggiornati i [meccanismi dei Fondi](https://software.cosmolocal.credit/contracts/pools) e la [verifica delle implementazioni](https://software.cosmolocal.credit/contracts/deployments). Questi documenti spiegano [ruoli e vocabolario](/it/introduction/concepts), [responsabilità di governance](/it/governance/mechanics) e il [modello CPP più ampio](/it/white-paper).

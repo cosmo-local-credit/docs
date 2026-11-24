@@ -3,6 +3,13 @@
 import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { extname, join, relative, resolve } from 'node:path'
+import { literalStrongMarkers } from './heading_data.mjs'
+import {
+  keepsPreviousSoftwareSource,
+  softwareDocsRollout,
+  supersedesEnglishReviewSource,
+  validateSoftwareReferenceRollout,
+} from './software_reference_rollout.mjs'
 import {
   policyDocumentationLocales,
   policyRegistry,
@@ -78,6 +85,7 @@ function keepsPreviousEnglishReviewSource(locale, route) {
 }
 
 function keepsPreviousSource(locale, route) {
+  if (softwareDocsRollout.source.routes[route]) return keepsPreviousSoftwareSource(locale, route)
   return keepsPreviousRoutingSource(locale, route) ||
     keepsPreviousEnglishReviewSource(locale, route)
 }
@@ -100,10 +108,13 @@ for (const [route, entry] of Object.entries(englishReviewRollout.source.routes))
     .map((extension) => join(pages, `${stem}.${extension}`))
     .find(existsSync)
   if (!sourcePath) errors.push(`English review rollout references missing route ${route}`)
-  else if (sha256(readFileSync(sourcePath, 'utf8')) !== entry.sha256) {
+  else if (sha256(readFileSync(sourcePath, 'utf8')) !== entry.sha256 &&
+      !supersedesEnglishReviewSource(route, entry.sha256)) {
     errors.push(`${route}: English review rollout hash is stale`)
   }
 }
+
+errors.push(...validateSoftwareReferenceRollout(locales))
 
 if (policyDocumentationLocales[0] !== 'en') {
   errors.push('Policy locale registry must list English first')
@@ -269,6 +280,11 @@ function validateTranslation(source, route, english, locale) {
     return
   }
   const translated = readFileSync(translatedPath, 'utf8')
+  if (!previousSource && softwareDocsRollout.source.routes[route]) {
+    for (const { line } of literalStrongMarkers(translated)) {
+      errors.push(`${route}: ${locale} has unrendered emphasis at line ${line}`)
+    }
+  }
   if (/CLCTRANSLATE|XxOpaque/i.test(translated)) {
     errors.push(`${route}: ${locale} contains an unresolved translation marker`)
   }

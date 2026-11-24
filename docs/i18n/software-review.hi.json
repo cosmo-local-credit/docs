@@ -1,0 +1,1059 @@
+{
+  "locale": "hi",
+  "appVocabularyBaseline": {
+    "commit": "d54c667c783428ca2f1472daed7c14a1e024c014",
+    "catalog": "packages/i18n/src/catalogs/hi/messages.po",
+    "scope": "Read-only check of committed Hindi labels, including वाउचर, पूल, जारीकर्ता, क्रेडिट, वॉलेट, प्राप्त करें, खर्च करें, मार्ग विवरण, विनिमय की पुष्टि करें and उपयोग से हटाने का अनुरोध करें."
+  },
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "04eae380bf7e4e5ae8613c4691cc6128d820b83df43aa9fe6379d9cbb0c110d2"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "2b883a0b5cade3fb3b4a339329def7f060f5e9f73ce14308298dd7444dcf660d"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "48df66a08e54fa6a08746c8f33dd5ca011d6f37bcfc610a6e7886bce263a7dfc"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "b5ff0f472d68ef3b3c2dcde66b1e71512084ffd9d6041c128d7f1c7a1c54ddbc"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "cf7dc5e8e71352ea6e2d22757c4a523c14fe294bbeecf9904a17a51ffb280481"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "bc1445afd011defc26bce3683283c615c89dc6e9cbe8bfc6684d54ad5616c0ca"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "f3a8bb6e5b1359db2af691b46b116047829547bb1cfc30ed618c3133d3520b85"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "Commitment Pooling Protocol (CPP) बताता है कि स्वतंत्र रूप से संचालित पूल वाउचर कैसे चुनते हैं, विनिमय के नियम कैसे प्रकाशित करते हैं और विनिमय कैसे संभव बनाते हैं। धारक बाद में जारीकर्ता के पास वाउचर का उपयोग करके वादा की गई वस्तुएँ या सेवाएँ लेता है। ये अलग चरण हैं और इनकी ज़िम्मेदारियाँ भी अलग हैं।",
+      "backTranslation": "The Commitment Pooling Protocol (CPP) describes how independently operated pools select vouchers, publish exchange rules and enable exchange. The holder then takes the promised goods or services from the issuer using the voucher. These are different steps and have different responsibilities.",
+      "similarity": 0.7526
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "यह साइट इन अवधारणाओं और CLC App के उपयोग को समझाती है। सॉफ़्टवेयर की कार्यप्रणाली, अनुबंधों, API, तैनाती और संचालन के लिए CLC सॉफ़्टवेयर दस्तावेज़ निर्णायक संदर्भ हैं। वे अभी अंग्रेज़ी में उपलब्ध हैं।",
+      "backTranslation": "This site explains these concepts and how to use the CLC App. The CLC software documentation is the decisive reference for the software's working principles, contracts, APIs, deployment and operation.",
+      "similarity": 0.8213
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "साझा शब्द समझने के लिए अवधारणाएँ और शब्दावली से शुरू करें। व्यापक डिज़ाइन और प्रस्तावों के लिए श्वेत पत्र पढ़ें।",
+      "backTranslation": "Start with concepts and vocabulary to understand common terms. Read the white paper for comprehensive design and proposals.",
+      "similarity": 0.7949
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "अलग समुदाय और संगठन अपने नियमों के तहत संगत सॉफ़्टवेयर चला सकते हैं। Grassroots Economics Foundation सार्वजनिक CLC App चलाता है। हर तैनाती को अपने संचालकों, अनुबंधों और जवाबदेह अधिकारियों की पहचान बतानी चाहिए।",
+      "backTranslation": "Different communities and organizations may run compatible software under their own rules. The Grassroots Economics Foundation runs the public CLC App. Each deployment should identify its operators, contractors and accountable officials.",
+      "similarity": 0.9011
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "अनुबंध के पते, तैनाती के निर्देश तथा मालिकों और अपग्रेड की शक्तियों की जाँच के लिए तैनाती और सत्यापन देखें। सहायक सेवाएँ चलाने के लिए CLC Core API से शुरू करें।",
+      "backTranslation": "See Deployment and Verification for the address of the contract, deployment instructions and to check owners and upgrade authorities. Start with the CLC Core API to run auxiliary services.",
+      "similarity": 0.5354
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "इन विषयों के लिए सॉफ़्टवेयर संदर्भ देखें:",
+      "backTranslation": "See the software reference for these topics:",
+      "similarity": 0.8
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "विषय  निर्णायक सॉफ़्टवेयर दस्तावेज़",
+      "backTranslation": "Subject matter Determining software documentation",
+      "similarity": 0.6966
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "वाउचर बनाना, आपूर्ति और समाप्ति  वाउचर",
+      "backTranslation": "Creating, issuing and expiring vouchers  Vouchers are created by the customer.",
+      "similarity": 0.5
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "पूल के नियम, जमा, निकासी और नियंत्रण  पूल",
+      "backTranslation": "Pool rules, deposits, withdrawals and controls Pool Pool rules",
+      "similarity": 0.7642
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "विनिमय दर की गणना  Quoter",
+      "backTranslation": "Calculation of exchange rate  Quoter .",
+      "similarity": 0.5205
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "स्वैप का निष्पादन, शुल्क और लेनदेन रिकॉर्ड  स्वैप का कोटेशन और निपटान",
+      "backTranslation": "Execution of the swap, fees and transaction records Quotation and settlement of the Swap",
+      "similarity": 0.7643
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "कई पूलों से होकर विनिमय  रूटिंग",
+      "backTranslation": "Exchange routing through multiple pools.",
+      "similarity": 0.6076
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "खोज और सहायक अनुबंध  रजिस्ट्रियाँ और सहायक साधन",
+      "backTranslation": "Search and Supporting Contracts Registries and Support Tools",
+      "similarity": 0.7833
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "API अनुरोध और जवाब  OpenAPI संदर्भ",
+      "backTranslation": "API requests and responses OpenAPI references",
+      "similarity": 0.9778
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "बैकएंड और रूटिंग की सेटिंग  कॉन्फ़िगरेशन",
+      "backTranslation": "Setting the backend and routing Configuration .",
+      "similarity": 0.7333
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "उपयुक्त मार्ग उपलब्ध होने पर ऐप प्रतिभागी को कई पूलों से होकर विनिमय करने में मदद कर सकता है। प्रतिभागी कोटेशन की समीक्षा करता है और विनिमय की अनुमति देता है। हर पूल के अपने नियम और जवाबदेह पक्ष बने रहते हैं।",
+      "backTranslation": "The app can help a participant to trade through multiple pools when suitable routes are available. The participant reviews the quote and allows the exchange. Each pool has its own rules and accountable parties remain.",
+      "similarity": 0.8426
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "प्रतिभागियों के लिए इसका अर्थ समझने के लिए मार्ग और ज़िम्मेदारियाँ देखें। सॉफ़्टवेयर मार्ग का कोटेशन और निष्पादन कैसे करता है, इसके लिए रूटिंग की कार्यप्रणाली देखें।",
+      "backTranslation": "See Paths and Responsibilities to understand what this means for participants. For how the software quotes and executes a path, see Routing procedures.",
+      "similarity": 0.7458
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "सॉफ़्टवेयर विनिमय संभव बनाता है। जारीकर्ता अपने वाउचर के वादों के लिए और पूल प्रबंधक अपने प्रकाशित नियमों के लिए ज़िम्मेदार रहते हैं। सार्वजनिक ऐप का उपयोग सेवा की शर्तों के तहत होता है।",
+      "backTranslation": "The software makes the exchange possible. Issuers remain responsible for their voucher promises and pool managers for their published rules. Use of public apps is subject to terms of service.",
+      "similarity": 0.8221
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "अनुबंध टोकन की शेष राशि दर्ज करते हैं और पूल विनिमय करते हैं। CLC सॉफ़्टवेयर दस्तावेज़ कार्यप्रणाली के निर्णायक संदर्भ हैं और अभी अंग्रेज़ी में उपलब्ध हैं। यह पृष्ठ बताता है कि इन अनुबंधों का उपयोग करने से पहले प्रतिभागियों को क्या समझना चाहिए।",
+      "backTranslation": "Contracts enter the balance of tokens and pool exchanges. The CLC software documentation is the definitive reference to the operating procedure and is currently available in English. This page explains what participants should understand before using these contracts.",
+      "similarity": 0.8157
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "संचालित प्रतिबद्धता पूल और उसके SwapPool अनुबंध का अंतर तथा विनिमय और जारीकर्ता द्वारा वादा पूरा करने का अंतर समझने के लिए अवधारणाएँ और शब्दावली देखें।",
+      "backTranslation": "See concepts and terminology to understand the difference between an operated commitment pool and its SwapPool contract, and the difference in exchange and issuer fulfillment.",
+      "similarity": 0.8476
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "वाउचर डिजिटल शेष राशि को जारीकर्ता के प्रकाशित वादे से जोड़ता है। उसकी शर्तें बताती हैं कि उसका उपयोग किसलिए हो सकता है, कहाँ और कब उसे स्वीकार किया जाता है और कौन ज़िम्मेदार है। टोकन बनाना यह साबित नहीं करता कि जारीकर्ता वादा की गई वस्तुएँ या सेवाएँ दे सकता है।",
+      "backTranslation": "The voucher links the digital balance to the issuer’s published promise. Its terms tell you what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the issuers can deliver the goods or services promised.",
+      "similarity": 0.8745
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "बनाने, जारी करने, नष्ट करने और समाप्ति की कार्यप्रणाली के लिए वाउचर पढ़ें।",
+      "backTranslation": "Read the voucher for procedures of creation, issuance, destruction and expiration.",
+      "similarity": 0.4267
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "प्रतिबद्धता पूल प्रकाशित नियमों के तहत चुने गए वाउचर एक साथ लाता है। उसका अनुबंध वाउचर का भंडार रखता है और समर्थित संपत्तियों का विनिमय करता है। जमा करने से अपने आप पूल में हिस्सेदारी, पुनर्भुगतान, निकासी, पुरस्कार या शासन का अधिकार नहीं मिलता। ऐसे अधिकारों के लिए अलग से बताई गई शर्तें चाहिए।",
+      "backTranslation": "The commitment pool brings together selected vouchers under published rules. Its contract stores the voucher and exchanges the backed assets. Depositing does not automatically give you a right to share, redeem, withdraw, award or rule in the pool. Such rights must be subject to separately stated terms.",
+      "similarity": 0.7372
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "जाँचें कि पूल कौन-से वाउचर स्वीकार करता है, विनिमय दर कैसे तय करता है, उसकी सीमाएँ और शुल्क क्या हैं और इन्हें कौन बदल सकता है। सॉफ़्टवेयर संदर्भ में पूल की सेटिंग और उन्हें स्थायी रूप से सील करने का विवरण है।",
+      "backTranslation": "Check which vouchers the pool accepts, how it determines its exchange rate, what its limits and fees are and who can change them. The software context describes the settings of the pool and how to permanently seal it.",
+      "similarity": 0.7245
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "सफल स्वैप संबंधित शेष राशियाँ बदलता है। इससे यह साबित नहीं होता कि जारीकर्ता ने वस्तुएँ या सेवाएँ दे दी हैं। पुष्टि से पहले इनपुट, आउटपुट, प्राप्तकर्ता, मिलने वाली न्यूनतम राशि और कोटेशन की समाप्ति जाँचें।",
+      "backTranslation": "A successful swap changes the related balance amounts. This does not prove that the issuer has delivered goods or services. Check input, output, recipient, minimum amount to be received and expiration of quote before confirmation.",
+      "similarity": 0.7752
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "निष्पादन के तरीकों और निपटान रिकॉर्ड के लिए स्वैप का कोटेशन और निपटान पढ़ें।",
+      "backTranslation": "Read the quote and settlement of a swap for methods of execution and settlement records.",
+      "similarity": 0.4568
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "स्वैप में पूल शुल्क और अतिरिक्त प्रोटोकॉल शुल्क दोनों हो सकते हैं। कोटेशन में कुल शुल्क देखें; कई पूलों से जाने वाले मार्ग में हर चरण पर शुल्क लग सकता है। स्वैप संदर्भ में मौजूदा गणना और उदाहरण दिए गए हैं।",
+      "backTranslation": "A swap may have both a pool fee and an additional protocol fee. See the total fee in the quote; routes through multiple pools may incur fees on each stage. Current calculations and examples are given in the context of swaps.",
+      "similarity": 0.7317
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "पूल मालिक उपलब्ध भंडार निकाल सकता है। दूसरे अधिकारी अपग्रेड या सेटिंग नियंत्रित कर सकते हैं। जमा करने या पूल पर भरोसा करने से पहले इन शक्तियों और पूल प्रबंधक के प्रकाशित नियमों की समीक्षा करें। केवल सेटिंग सील होने से यह साबित नहीं होता कि भंडार स्थायी रूप से बंद है।",
+      "backTranslation": "The pool owner can remove available repositories. Other authorities may control upgrades or settings. Review these powers and the pool manager's published policies before depositing or trusting a pool. Merely having a setting sealed does not prove that the repository is permanently closed.",
+      "similarity": 0.7937
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "तकनीकी जाँच के लिए पूल और किसी इंस्टेंस का सत्यापन देखें।",
+      "backTranslation": "See Pool and Verify an Instance for technical checks. See the SQL Server 2014 Authentication Guide for more information.",
+      "similarity": 0.5955
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "पूल की विनिमय दर वाउचर की बताई गई कीमत और जारीकर्ता की भुनाने की शर्तों से अलग है। चुनी गई विधि और उसके इनपुट कौन बदल सकता है, इसकी समीक्षा करें। सॉफ़्टवेयर संदर्भ उपलब्ध Quoter समझाता है।",
+      "backTranslation": "The exchange rate of the pool differs from the quoted price of the voucher and the redemption terms of the issuer. Review who can change the selected method and its input. Software reference explains available Quoter.",
+      "similarity": 0.6267
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "ऐप की ‘क्रेडिट सीमा’ किसी खास वाउचर की वह अधिकतम शेष राशि है जो पूल रख सकता है। यह विनिमय की क्षमता बताती है, व्यक्तिगत ऋण या वादा पूरा होने की गारंटी नहीं। सीमाएँ और शुल्क कैसे लागू होते हैं, इसके लिए पूल के नियम और कॉन्फ़िगरेशन देखें।",
+      "backTranslation": "The app’s ‘credit limit’ is the maximum balance of a particular voucher that the pool can hold. It indicates the ability to exchange, not guarantees that an individual loan or promise will be fulfilled. See the pool’s rules and configuration for how limits and charges apply.",
+      "similarity": 0.7138
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "प्रोटोकॉल शुल्क का एक तय प्राप्तकर्ता होता है। शुल्क मिलने से वह प्राप्तकर्ता अपने आप पूल प्रबंधक या गारंटर नहीं बनता। मौजूदा कार्यप्रणाली के लिए शुल्क संदर्भ और ज़िम्मेदारी तथा जानकारी प्रकाशित करने के लिए शासन तंत्र देखें।",
+      "backTranslation": "The receipt of the fee does not automatically make that recipient a pool manager or guarantor. For current operating procedures, see the governance for reference and responsibility for fees and for information on publishing.",
+      "similarity": 0.5733
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "कई स्वतंत्र रूप से संचालित पूल आपके पास मौजूद वाउचर को उस वाउचर से जोड़ सकते हैं जो आपको चाहिए। हर पूल अपने नियमों और उपलब्ध भंडार के तहत विनिमय का एक चरण देता है।",
+      "backTranslation": "Several independently operated pools can match the voucher you already have with the one you need. Each pool offers a stage of exchange under its own rules and available stock.",
+      "similarity": 0.7557
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "मार्ग खोज, पात्रता, निष्पादन और सेवा इंटरफ़ेस के लिए CLC सॉफ़्टवेयर रूटिंग संदर्भ निर्णायक स्रोत है। सॉफ़्टवेयर दस्तावेज़ अभी अंग्रेज़ी में हैं। यह पृष्ठ प्रतिभागियों के चरण और ज़िम्मेदारियाँ समझाता है।",
+      "backTranslation": "The CLC software routing reference is the ultimate source for route discovery, eligibility, execution and service interfaces. The software documentation is currently in English. This page explains the steps and responsibilities of participants.",
+      "similarity": 0.8961
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "ऐप के क्रेडिट दृश्य में जो वाउचर चाहिए उसके लिए प्राप्त करें या जिसे इस्तेमाल करना है उसके लिए खर्च करें चुनें। उदाहरण के लिए कोई मार्ग दो अलग पूलों से होकर परिवहन वाउचर को भोजन वाउचर में बदल सकता है।",
+      "backTranslation": "In the app’s credit view, choose to get for what voucher you want or spend for what you want to use. For example, a route through two different pools could change a transportation voucher into a food voucher.",
+      "similarity": 0.5604
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "मार्ग मिलना विनिमय की गारंटी नहीं है। समर्थित वाउचर, पूल की सीमाएँ, उपलब्ध भंडार, शुल्क, वॉलेट की संगतता और सेवा की उपलब्धता को माँगी गई राशि का विनिमय संभव बनाना चाहिए।",
+      "backTranslation": "Finding the right route is not a guarantee of exchange. Supported vouchers, pool limits, available stock, fees, wallet compatibility and service availability should make it possible to exchange the amount requested.",
+      "similarity": 0.764
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "पुष्टि से पहले मार्ग विवरण जाँचें: आप क्या देते हैं, क्या पाते हैं, हर भाग लेने वाला पूल, शुल्क, मिलने वाली न्यूनतम राशि और कोटेशन कब समाप्त होगा। अनुमान विकल्प खोजने में मदद करता है; कोटेशन वह प्रस्ताव है जिसकी आप अनुमति देते हैं। उसके समाप्त होने या पूल की स्थिति बदलने पर उसे ताज़ा करें।",
+      "backTranslation": "Check the route details before confirming: what you give, what you get, each participating pool, fees, minimum amount to be received and when the quote will end. Estimate helps find options; a quotation is the offer that you allow. Refresh it when it expires or the pool status changes.",
+      "similarity": 0.7443
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "रूटिंग संदर्भ और सेवा कॉन्फ़िगरेशन में तकनीकी पात्रता के नियम और कोटेशन की सेटिंग अद्यतन रखी जाती हैं।",
+      "backTranslation": "The routing reference and service configuration are kept up to date with the rules of technical eligibility and quota settings.",
+      "similarity": 0.817
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "आप पूरे विनिमय की समीक्षा करते हैं और उसे अनुमति देते हैं। मौजूदा मार्ग पूरा सफल होता है, या एक चरण विफल होने पर उसके सभी पूल स्वैप एक साथ वापस हो जाते हैं। इससे केवल आधा मार्ग पूरा होने से बचाव होता है। बाद में वस्तुएँ या सेवाएँ मिलेंगी, इसकी गारंटी नहीं मिलती।",
+      "backTranslation": "You review and allow the entire exchange. The current route is completely successful, or if a stage fails all its pool swaps are returned at once. This only prevents half of the route from being completed. There is no guarantee that goods or services will be received later.",
+      "similarity": 0.6015
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "लेनदेन तैयार करने और उसे चलाने के लिए मार्ग का निष्पादन देखें।",
+      "backTranslation": "See the execution of the path to prepare and run a transaction.",
+      "similarity": 0.252
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "केवल कोटेशन देने वाला Solidity SwapRouter और ऐप की विनिमय प्रक्रिया सॉफ़्टवेयर के अलग हिस्से हैं। उनका संबंध रूटिंग में समझाया गया है।",
+      "backTranslation": "The quote-only Solidity SwapRouter and the app's exchange process are separate parts of the software. Their relationship is explained in Routing.",
+      "similarity": 0.8276
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "प्रतिभागी के लिए सबसे ज़रूरी जाँच पूरा कोटेशन है। हर पूल शुल्क ले सकता है। साझा मार्ग उन पूलों को एक नहीं बनाता और एक प्रबंधक को दूसरे पूल का ज़िम्मेदार नहीं बनाता।",
+      "backTranslation": "The most important check for a participant is the full quotation. Each pool can charge fees. A shared route does not make those pools one and does not put one manager in charge of another pool.",
+      "similarity": 0.6882
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "भेजने के बाद जाँचें कि विनिमय लंबित, पुष्ट या विफल है और रसीद सँभालकर रखें। मार्ग न मिलने पर ताज़ा करने, राशि घटाने या कोई दूसरा समर्थित इनपुट वाउचर चुनने का प्रयास करें।",
+      "backTranslation": "After sending, check whether the exchange is pending, confirmed or failed and keep your receipt. If you cannot find the route, try refreshing, deducting the amount or selecting another supported input voucher.",
+      "similarity": 0.8489
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "विफल विनिमय जारीकर्ता के पहले से मौजूद वादे नहीं बदलता। सफल विनिमय बदली हुई शेष राशियाँ दर्ज करता है; वादा पूरा करना और निस्तारण अब भी जारीकर्ता की शर्तों के तहत होते हैं। व्यावहारिक उदाहरण देखें।",
+      "backTranslation": "A failed exchange does not change the issuer’s pre-existing promises. A successful exchange records changed balance amounts; fulfillment and settlement are still subject to the terms of the issuers. See practical examples.",
+      "similarity": 0.8436
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "डेवलपर लेनदेन और उनकी स्थिति जानने वाले इंटरफ़ेस CLC Core API संदर्भ में देख सकते हैं।",
+      "backTranslation": "Developers can view transactions and their status in the context of the CLC Core API interface.",
+      "similarity": 0.7072
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "पूल पर भरोसा करने से पहले उसके प्रबंधक, अनुबंध मालिक, अपग्रेड के अधिकारी, शुल्क प्राप्तकर्ता और महत्वपूर्ण सेटिंग बदल सकने वाले लोगों की पहचान करें। तकनीकी नियंत्रक और जवाबदेह पूल प्रबंधक अलग पक्ष हो सकते हैं।",
+      "backTranslation": "Before trusting a pool, identify its managers, contract owners, upgrade officers, charge recipients and those who can change critical settings. The technical controller and the responsible pool manager may be different parties.",
+      "similarity": 0.7768
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "सॉफ़्टवेयर संदर्भ पूल की कार्यप्रणाली और तैनाती के सत्यापन को अद्यतन रखता है। यहाँ भूमिकाएँ और शब्दावली, शासन की ज़िम्मेदारियाँ और CPP का व्यापक डिज़ाइन समझाया गया है।",
+      "backTranslation": "The software keeps up-to-date the operational procedures of the reference pool and verification of deployment. Roles and vocabulary, governance responsibilities and the overall design of CPP are explained here.",
+      "similarity": 0.6283
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 15,
+      "source": "For exact definitions, see Concepts and vocabulary.",
+      "translation": "सटीक परिभाषाओं के लिए अवधारणाएँ और शब्दावली देखें।",
+      "backTranslation": "See Concepts and Glossary for exact definitions.",
+      "similarity": 0.4444
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 82,
+      "source": "4. the prepared Wallet batch before choosing Confirm exchange.",
+      "translation": "4. विनिमय की पुष्टि करें चुनने से पहले तैयार वॉलेट बैच की जाँच करें।",
+      "backTranslation": "4. Check the ready wallet batch before selecting Confirm Exchange.",
+      "similarity": 0.8438
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "हर वाउचर, पूल या वॉलेट मार्गित विनिमय का समर्थन नहीं करता। ऐप जाँचता है कि आपके विकल्पों के लिए विनिमय उपलब्ध है या नहीं। सॉफ़्टवेयर रूटिंग संदर्भ मौजूदा पात्रता के नियम और तकनीकी आवश्यकताएँ अंग्रेज़ी में अद्यतन रखता है।",
+      "backTranslation": "Not every voucher, pool or wallet supports routed exchanges. The app checks whether an exchange is available for your options. The software routing reference keeps current eligibility rules and technical requirements in English up to date.",
+      "similarity": 0.9221
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "मार्ग खोज एक अनुमान है। हस्ताक्षर से पहले अंतिम कोटेशन जाँचें, जिसमें मिलने वाली न्यूनतम राशि और समाप्ति शामिल हैं। मौजूदा मार्गित विनिमय पूरा सफल होता है या उसके पूल स्वैप एक साथ वापस हो जाते हैं। भेजने के बाद परिणाम, बदली गई राशियाँ और शुल्क रसीद में जाँचें।",
+      "backTranslation": "The route search is an estimate. Before signing, check the final quote, which includes the minimum amount to be received and expiration. The current routed exchange completes successfully or its pool swaps return together. After sending, check on the result, changed amounts and fee receipt.",
+      "similarity": 0.7241
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 112,
+      "source": "“Request retirement”  Lets the current owner ask an administrator to retire a Voucher or Pool. The resource remains active while the request is pending; the owner can cancel the request, and an administrator can approve or reject it. Retirement does not delete contracts, balances, or history.",
+      "translation": "‘उपयोग से हटाने का अनुरोध करें’  मौजूदा मालिक व्यवस्थापक से वाउचर या पूल को उपयोग से हटाने का अनुरोध कर सकता है। अनुरोध लंबित रहने तक संसाधन सक्रिय रहता है। मालिक अनुरोध रद्द कर सकता है और व्यवस्थापक उसे मंज़ूर या अस्वीकार कर सकता है। उपयोग से हटाने पर अनुबंध, शेष राशि या इतिहास नहीं मिटते।",
+      "backTranslation": "‘Request Deactivation’ The current owner can request the manager to deactivate a voucher or pool. The resource remains active until the request is pending. The owner can cancel the request and the manager can approve or reject it.",
+      "similarity": 0.7151
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 113,
+      "source": "Pool retirement  After approval, blocks new Pool swaps and deposits while keeping available withdrawals possible. It does not erase prior settlement records.",
+      "translation": "पूल को उपयोग से हटाना  मंज़ूरी के बाद नए पूल स्वैप और जमा रोकता है, जबकि उपलब्ध निकासी संभव रहती है। पुराने निपटान रिकॉर्ड नहीं मिटते।",
+      "backTranslation": "Deactivating a pool After approval, new pool swaps and deposits are blocked, while available withdrawals remain possible. Old settlement records are not deleted.",
+      "similarity": 0.6792
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 114,
+      "source": "Pool liquidity withdrawal  Lets the Pool owner transfer available inventory to a selected address.",
+      "translation": "पूल से तरलता की निकासी  पूल मालिक को उपलब्ध भंडार चुने गए पते पर भेजने देती है।",
+      "backTranslation": "Withdrawing liquidity from the pool allows the pool owner to send available reserves to the address of his choice.",
+      "similarity": 0.5849
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "जहाँ उपलब्ध हों, ऐप सीधे और मार्गित पूल विनिमय का समर्थन करता है। अलग ब्लॉकचेन के बीच रूटिंग, पूल का स्वचालित पुनर्संतुलन, बैच में दायित्वों का समायोजन, साझा बीमा, प्रस्तावित शासन संपत्तियाँ, नेटवर्क तरलता कार्यक्रम और विनियमित भुगतान माध्यम तब तक प्रस्तावित या तैनाती पर निर्भर हैं, जब तक कोई खास तैनाती उन्हें सक्रिय न बताए।",
+      "backTranslation": "The app supports direct and routed pool exchanges where available. Routing between separate blockchains, automatic rebalancing of the pool, adjustment of liabilities in batches, shared insurance, proposed government assets, network liquidity programs and regulated payment media are all dependent on the proposed or deployment until a specific deployments indicates they are activated.",
+      "similarity": 0.7686
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 13,
+      "source": "Offering  A catalog record describing goods or services associated with a Voucher. It helps people discover the offer but does not prove availability or fulfillment.",
+      "translation": "पेशकश  वाउचर से जुड़ी वस्तुएँ या सेवाएँ बताने वाला कैटलॉग रिकॉर्ड। यह लोगों को पेशकश खोजने में मदद करता है, लेकिन उपलब्धता या वादा पूरा होने का प्रमाण नहीं है।",
+      "backTranslation": "Offer A catalog record that lists the goods or services associated with a voucher. It helps people find an offer, but is not proof of availability or promise fulfillment.",
+      "similarity": 0.8179
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 16,
+      "source": "Commitment Pool  A governed arrangement that selects supported Vouchers, publishes exchange rules, holds inventory, and enables exchange. Pool is the ordinary shorthand.",
+      "translation": "प्रतिबद्धता पूल  नियमों से संचालित व्यवस्था जो समर्थित वाउचर चुनती है, विनिमय के नियम प्रकाशित करती है, भंडार रखती है और विनिमय संभव बनाती है। पूल इसका सामान्य छोटा नाम है।",
+      "backTranslation": "Commitment pool A rules-driven system that selects supported vouchers, publishes the exchange rules, stores and enables exchange. Pool is its common abbreviation.",
+      "similarity": 0.7492
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 19,
+      "source": "Wallet  The account and credentials used to authorize token transfers and Pool exchanges.",
+      "translation": "वॉलेट  टोकन हस्तांतरण और पूल विनिमय की अनुमति देने के लिए इस्तेमाल किया जाने वाला खाता और प्रवेश-संबंधी पहचान।",
+      "backTranslation": "Wallet  The account and access-related identifier used to allow token transfers and pool exchanges.",
+      "similarity": 0.8404
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 59,
+      "source": "Multisig signers  Share the technical authority assigned to a multisig Wallet. Changing signers or thresholds does not silently transfer Issuer responsibility, Steward accountability, or legal ownership.",
+      "translation": "मल्टीसिग हस्ताक्षरकर्ता  मल्टीसिग वॉलेट को दिए गए तकनीकी अधिकार साझा करते हैं। हस्ताक्षरकर्ता या आवश्यक हस्ताक्षरों की संख्या बदलने से जारीकर्ता की ज़िम्मेदारी, प्रबंधक की जवाबदेही या कानूनी स्वामित्व चुपचाप नहीं बदलता।",
+      "backTranslation": "Multi-signature signatories share the technical rights granted to a multi-signatured wallet. Changing the signer or the number of required signatures does not change the issuer's responsibility, managerial liability or legal ownership.",
+      "similarity": 0.7306
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 62,
+      "source": "Catalog moderator  Can correct, hide, retire, or restore catalog records without deleting contracts, balances, or chain history.",
+      "translation": "कैटलॉग समीक्षक  अनुबंध, शेष राशि या ब्लॉकचेन इतिहास मिटाए बिना कैटलॉग रिकॉर्ड सुधार, छिपा, उपयोग से हटा या वापस ला सकता है।",
+      "backTranslation": "Catalog Reviewer can correct, hide, remove or restore catalog records without deleting contracts, balances or blockchain history.",
+      "similarity": 0.8949
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 78,
+      "source": "“Request retirement”  The current owner asks an administrator to retire a Voucher or Pool. The resource remains active while the request is pending, and the request may be approved, rejected, or cancelled.",
+      "translation": "‘उपयोग से हटाने का अनुरोध करें’  मौजूदा मालिक व्यवस्थापक से वाउचर या पूल उपयोग से हटाने का अनुरोध करता है। अनुरोध लंबित रहने तक संसाधन सक्रिय रहता है। अनुरोध मंज़ूर, अस्वीकार या रद्द हो सकता है।",
+      "backTranslation": "‘Request Disable’  The current owner requests the administrator to disable a voucher or pool. The resource remains active until the request is pending. The request can be approved, denied or canceled.",
+      "similarity": 0.8346
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 79,
+      "source": "Retire a Voucher  After approval, remove the Voucher from active catalog use. Contracts, balances, obligations, and history remain; retirement is not burning or discharge.",
+      "translation": "वाउचर को उपयोग से हटाना  मंज़ूरी के बाद वाउचर सक्रिय कैटलॉग से हटता है। अनुबंध, शेष राशि, दायित्व और इतिहास बने रहते हैं। यह टोकन नष्ट करना या निस्तारण नहीं है।",
+      "backTranslation": "Deactivating a Voucher After approval, the voucher is removed from the active catalog. Contracts, balances, liabilities and history remain. This is not token destruction or disposal.",
+      "similarity": 0.7422
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 80,
+      "source": "Retire a Pool  After approval, stop new Pool swaps and deposits while allowing available withdrawals. Prior settlement records remain.",
+      "translation": "पूल को उपयोग से हटाना  मंज़ूरी के बाद नए पूल स्वैप और जमा रुकते हैं, जबकि उपलब्ध निकासी संभव रहती है। पुराने निपटान रिकॉर्ड बने रहते हैं।",
+      "backTranslation": "Deactivating a pool After approval, new pool swaps and deposits stop, while available withdrawals remain possible. Old settlement records remain.",
+      "similarity": 0.8029
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 87,
+      "source": "Pool liquidity withdrawal  Let the Pool owner transfer available inventory to a selected address.",
+      "translation": "पूल से तरलता की निकासी  पूल मालिक को उपलब्ध भंडार चुने गए पते पर भेजने देती है।",
+      "backTranslation": "Withdrawing liquidity from the pool allows the pool owner to send available reserves to the address of his choice.",
+      "similarity": 0.5782
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 99,
+      "source": "Commitment Pooling Protocol (CPP)  The reusable model of curation, valuation, limitation, exchange, and accountable governance.",
+      "translation": "Commitment Pooling Protocol (CPP)  चयन, मूल्यांकन, सीमाओं, विनिमय और जवाबदेह शासन का दोबारा इस्तेमाल किया जा सकने वाला मॉडल।",
+      "backTranslation": "Commitment Pooling Protocol (CPP)  A reusable model for selection, evaluation, limits, exchange and accountable governance.",
+      "similarity": 0.912
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  सार्वजनिक स्मार्ट-अनुबंध रिलीज़ जिसका विवरण निर्णायक सॉफ़्टवेयर संदर्भ में है (अंग्रेज़ी)।",
+      "backTranslation": "Protocol v1.1.0  Public smart-contract release with description in the Critical Software Context.",
+      "similarity": 0.7087
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 101,
+      "source": "SwapPool  The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool.",
+      "translation": "SwapPool  मौजूदा प्रोटोकॉल अनुबंध जो टोकन का भंडार रखता है और सीधे स्वैप करता है। यह प्रतिबद्धता पूल का एक तकनीकी हिस्सा है।",
+      "backTranslation": "SwapPool  An existing protocol contract that stores tokens and swaps directly. It is a technical part of the commitment pool.",
+      "similarity": 0.7333
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "ऐप की रूटिंग प्रक्रिया  ऐप और सहायक सेवाएँ पूलों से होकर संभावित मार्ग खोजती हैं, विनिमय का कोटेशन देती हैं, प्रतिभागी की अनुमति माँगती हैं और परिणाम बताती हैं।",
+      "backTranslation": "App routing process The app and its auxiliary services find potential routes through pools, quote the exchange, ask the participant for permission, and report the results.",
+      "similarity": 0.7486
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 107,
+      "source": "## Values, credit, limits, and fees",
+      "translation": "## मूल्य, क्रेडिट, सीमाएँ और शुल्क",
+      "backTranslation": "## Value, credit, limits and charges",
+      "similarity": 0.8732
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 117,
+      "source": "Credit in the App refers to reachable commitments and exchange capacity. It is not automatically personal borrowing, a loan, an Issuer-capacity assessment, or a guarantee.",
+      "translation": "ऐप में क्रेडिट का अर्थ पहुँच योग्य प्रतिबद्धताएँ और विनिमय की क्षमता है। यह अपने आप व्यक्तिगत उधार, ऋण, जारीकर्ता की क्षमता का आकलन या गारंटी नहीं है।",
+      "backTranslation": "Credit in the App means accessible commitments and ability to exchange. It is not, per se, an assessment or guarantee of the ability of the individual loaner, borrower, issuer.",
+      "similarity": 0.5533
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 119,
+      "source": "The label “Credit limit” means the Pool's configured token-balance cap: the maximum amount of that token the Pool may hold after a deposit. Proposed rolling, account, and network-wide limits in the White Paper are different mechanisms.",
+      "translation": "‘क्रेडिट सीमा’ पूल में टोकन की शेष राशि की तय ऊपरी सीमा है: जमा होने के बाद पूल उस टोकन की अधिकतम कितनी राशि रख सकता है। श्वेत पत्र में प्रस्तावित चलती अवधि, खाते और पूरे नेटवर्क की सीमाएँ अलग व्यवस्थाएँ हैं।",
+      "backTranslation": "The ‘credit limit’ is a fixed upper limit on the amount of tokens remaining in the pool: how much of that token can be held by the pool after it has been deposited. The proposed term, account and network-wide limits in the white paper are separate arrangements.",
+      "similarity": 0.6129
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "मार्ग स्वतंत्र रूप से संचालित एक या अधिक पूलों से होकर जाने वाला क्रमबद्ध पथ है। मार्ग की गहराई उस पथ में पूल स्वैप की संख्या है।",
+      "backTranslation": "A path is a sequenced path that passes through one or more independently operated pools. The depth of the path is the number of pool swaps in that path.",
+      "similarity": 0.8085
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "हर वाउचर, पूल या वॉलेट रूटिंग के लिए पात्र नहीं है। पूल में दिखाई देने से वाउचर अपने आप हर मार्ग से उपलब्ध नहीं होता। सॉफ़्टवेयर रूटिंग संदर्भ मौजूदा पात्रता के नियम और कॉन्फ़िगरेशन अंग्रेज़ी में अद्यतन रखता है।",
+      "backTranslation": "Not every voucher, pool or wallet is eligible for routing. Appearing in a pool does not automatically make the voucher available from all routes. The software routing reference keeps current eligibility rules and configuration updated in English.",
+      "similarity": 0.9091
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "उपलब्ध तरलता वह भंडार है जो पूल अपने मौजूदा नियमों, सीमाओं और शुल्क के तहत दे सकता है। पूलों का जुड़ा होना यह साबित नहीं करता कि माँगी गई राशि उपलब्ध है। अंतिम कोटेशन जाँचें; पूल की स्थिति बदलने पर वह समाप्त या अमान्य हो सकता है।",
+      "backTranslation": "Available liquidity is the supply that a pool can provide under its current rules, limits and fees. The fact that pools are joined does not prove that the amount requested is available. Check the final quote; if the pool's status changes it may expire or become invalid.",
+      "similarity": 0.7269
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "शुरू करने की गाइड इन शब्दों को मौजूदा ऐप के उपयोग से जोड़ती है। प्रोटोकॉल परिचय इन अवधारणाओं को निर्णायक सॉफ़्टवेयर दस्तावेज़ों से जोड़ता है। श्वेत पत्र व्यापक डिज़ाइन और प्रस्ताव बताता है।",
+      "backTranslation": "The Getting Started Guide links these terms to the use of existing apps. The Protocol Introduction links these concepts to critical software documentation. The White Paper describes comprehensive design and proposals.",
+      "similarity": 0.776
+    },
+    {
+      "route": "/introduction/example",
+      "line": 60,
+      "source": "- the current SwapPool owner, proxy administrator, and material dependency controllers;",
+      "translation": "- मौजूदा SwapPool मालिक, प्रॉक्सी प्रशासक और महत्वपूर्ण निर्भरताओं के नियंत्रक;",
+      "backTranslation": "- Current SwapPool owner, proxy administrator and controller of critical dependencies;",
+      "similarity": 0.7977
+    },
+    {
+      "route": "/introduction/example",
+      "line": 70,
+      "source": "### 4. Participants provide inventory",
+      "translation": "### 4. प्रतिभागी भंडार उपलब्ध कराते हैं",
+      "backTranslation": "### 4. Participants provide the inventory.",
+      "similarity": 0.9367
+    },
+    {
+      "route": "/introduction/example",
+      "line": 72,
+      "source": "The mobility Pool holds maize vouchers that can be exchanged for transport vouchers. The food-security Pool holds meal vouchers that can be exchanged for maize vouchers. Participants may have supplied that inventory under different published arrangements.",
+      "translation": "परिवहन पूल के पास मक्का वाउचर हैं जिन्हें परिवहन वाउचर के बदले पाया जा सकता है। खाद्य-सुरक्षा पूल के पास भोजन वाउचर हैं जिन्हें मक्का वाउचर के बदले पाया जा सकता है। प्रतिभागियों ने यह भंडार अलग-अलग प्रकाशित व्यवस्थाओं के तहत दिया हो सकता है।",
+      "backTranslation": "The transport pool has corn vouchers that can be obtained in exchange for the transport voucher. The food security pool has food voucher, which can be received in exchange of the corn vehicle. Participants may have provided this stock under different published arrangements.",
+      "similarity": 0.7637
+    },
+    {
+      "route": "/introduction/example",
+      "line": 74,
+      "source": "A deposit increases available Pool inventory, but it does not automatically create a Pool share, repayment claim, withdrawal right, reward, or governance power. Any such right must come from a separate disclosed arrangement.",
+      "translation": "जमा करने से पूल का उपलब्ध भंडार बढ़ता है, लेकिन अपने आप पूल में हिस्सेदारी, पुनर्भुगतान का दावा, निकासी का अधिकार, पुरस्कार या शासन की शक्ति नहीं मिलती। ऐसे अधिकार अलग से बताई गई व्यवस्था से ही मिलने चाहिए।",
+      "backTranslation": "Depositing increases the pool’s available reserve, but does not automatically give you a share in the pool, claim for repayment, right to withdraw, award or power of rule. Such rights should be acquired through a separately specified arrangement.",
+      "similarity": 0.6468
+    },
+    {
+      "route": "/introduction/example",
+      "line": 78,
+      "source": "The school's wallet opens the Credit view and selects the meal voucher. CLC Core estimates a possible path:",
+      "translation": "स्कूल का वॉलेट क्रेडिट दृश्य खोलता है और भोजन वाउचर चुनता है। CLC Core एक संभावित मार्ग का अनुमान लगाता है:",
+      "backTranslation": "The school's wallet credit view opens and selects the meal voucher. CLC Core guesses a possible path:",
+      "similarity": 0.8846
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "स्कूल चुनता है कि उसे कितनी राशि प्राप्त करनी है या खर्च करनी है। इसके लिए प्राप्त करें या खर्च करें विकल्प हैं। ऐप पूरे विनिमय का कोटेशन देता है। मार्ग विवरण दोनों स्वैप, राशियाँ और हर चरण का पूल तथा प्रोटोकॉल शुल्क दिखाता है। आगे बढ़ने से पहले स्कूल मिलने वाली न्यूनतम राशि और कोटेशन की समाप्ति जाँचता है।",
+      "backTranslation": "The school chooses how much it wants to receive or spend. There are either the receive or the spend options for this. The app gives a quote of the entire exchange. Route details show both swaps, amounts and pool and protocol fees for each step.",
+      "similarity": 0.6444
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "स्कूल विनिमय की पुष्टि करें चुनता है और पूरे मार्ग की अनुमति देता है। सफल होने पर रसीद दो पूल स्वैप, बदली गई राशियाँ और शुल्क दिखाती है।",
+      "backTranslation": "The school selects Confirm the Exchange and allows the entire route. When successful, a receipt shows two pool swaps, amounts changed and fees.",
+      "similarity": 0.7763
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "एक चरण विफल होने पर दोनों पूल स्वैप एक साथ वापस हो जाते हैं। पहला स्वैप दूसरे के बिना पूरा नहीं रहता। सॉफ़्टवेयर यह लेनदेन कैसे तैयार और निष्पादित करता है, इसके लिए रूटिंग संदर्भ देखें (अंग्रेज़ी)।",
+      "backTranslation": "When one step fails, both pool swaps are returned together. The first swap is not complete without the second. See the Routing Reference for how the software prepares and executes this transaction.",
+      "similarity": 0.58
+    },
+    {
+      "route": "/introduction/example",
+      "line": 104,
+      "source": "If the kitchen does not honor its commitment, the holder uses the issuer's published complaint or remedy process and any rights available under applicable law. Neither GEF nor either Pool Steward becomes the redeemer merely because the App found the route or the Pools enabled its swaps.",
+      "translation": "रसोई अपना वादा पूरा न करे तो धारक जारीकर्ता की प्रकाशित शिकायत या समाधान प्रक्रिया और लागू कानून के अधिकार इस्तेमाल करता है। केवल ऐप के मार्ग खोजने या पूलों के स्वैप संभव बनाने से GEF या कोई पूल प्रबंधक वाउचर भुनाने का ज़िम्मेदार पक्ष नहीं बनता।",
+      "backTranslation": "If the Kitchen fails to meet its promise, the holder uses the Issuer’s published complaint or resolution process and rights under applicable law. Merely locating the App or enabling pool swaps does not make GEF or any Pool Manager a responsible party for redeeming the voucher.",
+      "similarity": 0.5638
+    },
+    {
+      "route": "/introduction/example",
+      "line": 106,
+      "source": "Choosing “Request retirement” is different: the current owner asks an administrator to retire the Voucher. The Voucher remains active while the request is pending, and the request can be approved, rejected, or cancelled. Approved retirement removes it from active catalog use but does not delete its contract, balances, history, or outstanding obligations. It is not fulfillment, discharge, burning, or cancellation.",
+      "translation": "‘उपयोग से हटाने का अनुरोध करें’ अलग कार्रवाई है। मौजूदा मालिक व्यवस्थापक से वाउचर उपयोग से हटाने को कहता है। अनुरोध लंबित रहने तक वाउचर सक्रिय रहता है। अनुरोध मंज़ूर, अस्वीकार या रद्द हो सकता है। मंज़ूरी के बाद वाउचर सक्रिय कैटलॉग से हटता है, लेकिन अनुबंध, शेष राशि, इतिहास या अधूरे दायित्व नहीं मिटते। यह वादा पूरा करना, निस्तारण, टोकन नष्ट करना या प्रतिबद्धता रद्द करना नहीं है।",
+      "backTranslation": "The current owner asks the manager to deactivate the voucher. The voucher remains active until the request is pending. The request can be approved, rejected or cancelled. After approval, the vehicle is removed from the active catalog but does not delete the contract, balance, history or uncompleted obligations. This is not fulfilling a promise, settling, destroying tokens or canceling an undertaking.",
+      "similarity": 0.7399
+    },
+    {
+      "route": "/introduction/example",
+      "line": 114,
+      "source": "- CLC App and CLC Core: discover and quote possible routes, prepare and relay the signed batch, and group technical settlement records. They do not prove issuer fulfillment.",
+      "translation": "- CLC App और CLC Core: संभावित मार्ग खोजते हैं, कोटेशन देते हैं, हस्ताक्षरित बैच तैयार करके आगे भेजते हैं और तकनीकी निपटान रिकॉर्ड एक साथ दिखाते हैं। वे जारीकर्ता द्वारा वादा पूरा होने का प्रमाण नहीं देते।",
+      "backTranslation": "- CLC App and CLC Core: Find potential routes, provide quotes, prepare signed batches for forwarding and show technical discharge records together. They do not provide evidence of the issuer’s fulfillment of promises.",
+      "similarity": 0.6564
+    },
+    {
+      "route": "/introduction/example",
+      "line": 126,
+      "source": "A future Pool or other responsible party could separately offer a transaction as a repayable advance, secured transaction, or other credit product. Such a product would require separately presented supplemental and transaction terms identifying the parties, amounts, due dates, fees or interest, collateral treatment, assignment, default, remedies, and discharge evidence.",
+      "translation": "भविष्य में पूल या दूसरा जवाबदेह पक्ष अलग से पुनर्भुगतान योग्य अग्रिम, जमानत पर आधारित लेनदेन या दूसरा क्रेडिट उत्पाद दे सकता है। इसके लिए अलग पूरक और लेनदेन शर्तें चाहिए। उनमें पक्षों, राशियों, भुगतान की तारीखों, शुल्क या ब्याज, गिरवी संपत्ति के व्यवहार, अधिकार के हस्तांतरण, चूक, समाधान और निस्तारण के प्रमाण की पहचान होनी चाहिए।",
+      "backTranslation": "In the future, the pool or other liable party may provide separate repayable advances, collateral-based transactions or other credit products. These require separate supplementary and transactional terms. They must identify parties, amounts, dates of payment, fees or interest, handling of mortgaged property, transfer of rights, fault, settlement and settlement evidence.",
+      "similarity": 0.6667
+    },
+    {
+      "route": "/introduction/example",
+      "line": 128,
+      "source": "An ordinary send, Pool deposit, direct or routed Pool swap, voucher presentment, fulfillment, or discharge does not create those obligations on its own.",
+      "translation": "सामान्य हस्तांतरण, पूल जमा, सीधे या मार्गित पूल स्वैप, वाउचर की प्रस्तुति, वादा पूरा करने या निस्तारण से अपने आप ये दायित्व नहीं बनते।",
+      "backTranslation": "These obligations do not arise by themselves from a simple transfer, pool deposit, direct or routed pool swap, presentation of vouchers, fulfillment of promises or settlement.",
+      "similarity": 0.4709
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 3,
+      "source": "Governance in Cosmo-Local Credit (CLC) is divided among distinct roles rather than assigned to one universal authority. This page describes governance options for CLC-compatible networks; it does not prescribe a single legal form, voting system, or organization.",
+      "translation": "Cosmo-Local Credit (CLC) में शासन अलग भूमिकाओं में बँटा है; सारी शक्ति किसी एक प्राधिकरण को नहीं दी गई है। यह पृष्ठ CLC-संगत नेटवर्क के शासन विकल्प बताता है। यह किसी एक कानूनी रूप, मतदान प्रणाली या संगठन को अनिवार्य नहीं करता।",
+      "backTranslation": "In Cosmo-Local Credit (CLC), governance is divided into different roles; all power is not given to a single authority. This page describes the governance options for a CLC-compliant network. It does not require any particular legal form, voting system or organization.",
+      "similarity": 0.7623
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 5,
+      "source": "Grassroots Economics Foundation (GEF) operates the public progressive web app at cosmolocal.credit and its supporting services. In that role, GEF may maintain interfaces and catalogs, apply minimum listing or safety standards, moderate content, restrict App features, and coordinate technical operations. Unless it expressly accepts another role for a particular arrangement, GEF is not the Issuer of a user-created Voucher, the Steward of a user-created Pool, a guarantor, insurer, custodian, lender, borrower, redeemer, or party to a user-to-user transaction.",
+      "translation": "Grassroots Economics Foundation (GEF) cosmolocal.credit पर सार्वजनिक प्रगतिशील वेब ऐप और उसकी सहायक सेवाएँ चलाता है। इस भूमिका में GEF इंटरफ़ेस और कैटलॉग बनाए रख सकता है, सूचीबद्ध करने या सुरक्षा के न्यूनतम मानक लागू कर सकता है, सामग्री की समीक्षा कर सकता है, ऐप की सुविधाएँ सीमित कर सकता है और तकनीकी संचालन का समन्वय कर सकता है। जब तक GEF किसी खास व्यवस्था में दूसरी भूमिका स्पष्ट रूप से स्वीकार न करे, वह उपयोगकर्ता के बनाए वाउचर का जारीकर्ता, उपयोगकर्ता के बनाए पूल का प्रबंधक, गारंटर, बीमाकर्ता, संपत्ति संरक्षक, ऋणदाता, ऋण लेने वाला, वाउचर भुनाने वाला या उपयोगकर्ताओं के बीच लेनदेन का पक्ष नहीं है।",
+      "backTranslation": "The Grassroots Economics Foundation (GEF) operates the public progressive web app and its ancillary services on cosmolocal.credit. In this role, GEF may maintain the interface and catalog, enforce minimum standards of listing or security, review content, limit the features of the app, and coordinate technical operations. Unless GEF explicitly accepts another role in a particular arrangement, it is not the issuer of a user-created voucher, manager of a users-create pool, guarantor, insurer, custodian, lender, borrower, redeemer of vouchers, or party to transactions between users.",
+      "similarity": 0.7993
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 7,
+      "source": "The Terms of Service govern use of the public App and explain these responsibilities in detail.",
+      "translation": "सेवा की शर्तें सार्वजनिक ऐप के उपयोग को नियंत्रित करती हैं और इन ज़िम्मेदारियों को विस्तार से बताती हैं।",
+      "backTranslation": "The Terms of Service govern the use of Public Apps and detail these responsibilities. These Terms are available in English, French, German, Italian, Spanish, Portuguese, Russian, Spanish and Chinese.",
+      "similarity": 0.5782
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 9,
+      "source": "Concepts and vocabulary maps these public roles to contract ownership, proxy administration, dependency control, catalog moderation, and fee receipt.",
+      "translation": "अवधारणाएँ और शब्दावली इन सार्वजनिक भूमिकाओं का अनुबंध स्वामित्व, प्रॉक्सी प्रशासन, निर्भरता नियंत्रण, कैटलॉग समीक्षा और शुल्क प्राप्ति से संबंध समझाती है।",
+      "backTranslation": "Concepts and terminology explain the relationship of these public roles to contract ownership, proxy administration, dependency control, catalog review and fee collection.",
+      "similarity": 0.7875
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 13,
+      "source": "- Voucher Issuers govern their own Offerings. They publish accurate identity, capacity, supply, valuation, expiry, presentment, fulfillment, geographic, timing, fee, restriction, and remedy information, and they remain responsible for honoring those commitments.",
+      "translation": "- वाउचर जारीकर्ता अपनी पेशकश का संचालन करते हैं। वे पहचान, क्षमता, आपूर्ति, मूल्यांकन, समाप्ति, प्रस्तुति, वादा पूरा करने, स्थान, समय, शुल्क, प्रतिबंध और सुधार के उपायों की सही जानकारी प्रकाशित करते हैं। अपनी प्रतिबद्धताएँ पूरी करने की ज़िम्मेदारी उन्हीं की रहती है।",
+      "backTranslation": "- Voucher Issuers operate their offer. They publish accurate information on identity, capacity, supply, valuation, expiration, presentation, promise fulfillment, location, time, charges, restrictions and remedial measures. They are responsible for meeting their commitments.",
+      "similarity": 0.7724
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 14,
+      "source": "- Pool Stewards govern admission, asset curation, valuation, fees, limits, inventory, reserves, contributions, conflicts, provenance, configuration, pauses, upgrades, and any guarantee or loss-allocation mechanism for their Pools.",
+      "translation": "- पूल प्रबंधक अपने पूल में प्रवेश, संपत्ति चयन, मूल्यांकन, शुल्क, सीमाएँ, भंडार, आरक्षित संपत्तियाँ, योगदान, हितों के टकराव, स्रोत, सेटिंग, विराम, अपग्रेड और किसी गारंटी या नुकसान बाँटने की व्यवस्था का संचालन करते हैं।",
+      "backTranslation": "- The pool manager operates the arrangements for entering, asset selection, valuation, fees, limits, stocks, reserved assets, contributions, conflict of interest, source, setting, suspension, upgrade and any guarantee or loss sharing in his pool.",
+      "similarity": 0.6555
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 15,
+      "source": "- Registry and service stewards may govern which Pools or assets appear in a registry and the operating rules for discovery, routing, monitoring, liquidity support, or other shared services. Their service authority does not automatically extend to a Pool's assets or an issuer's obligations.",
+      "translation": "- रजिस्ट्री और सेवा प्रबंधक तय कर सकते हैं कि रजिस्ट्री में कौन-से पूल या संपत्तियाँ दिखें तथा खोज, रूटिंग, निगरानी, तरलता सहायता या दूसरी साझा सेवाओं के नियम क्या हों। सेवा का यह अधिकार अपने आप पूल की संपत्तियों या जारीकर्ता के दायित्वों तक नहीं फैलता।",
+      "backTranslation": "- The Registry and Service Manager may decide which pools or assets appear in the registry, and what rules apply to discovery, routing, monitoring, liquidity assistance or other shared services. This right of service does not extend per se to the pool’s assets or issuer’s liabilities.",
+      "similarity": 0.7812
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 16,
+      "source": "- Users decide whether an Issuer, Voucher, Pool, quote, and transaction are acceptable and lawful for them. A registry entry or App listing is not a guarantee or endorsement.",
+      "translation": "- उपयोगकर्ता तय करते हैं कि जारीकर्ता, वाउचर, पूल, कोटेशन और लेनदेन उनके लिए स्वीकार्य और कानूनी हैं या नहीं। रजिस्ट्री या ऐप में सूचीबद्ध होना गारंटी या समर्थन नहीं है।",
+      "backTranslation": "- Users decide whether or not issuers, vouchers, pools, quotations and transactions are acceptable and legal to them. Being listed in the registry or app is not a guarantee or endorsement.",
+      "similarity": 0.8343
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 18,
+      "source": "One person or organization can hold more than one role, but it should disclose each role and the conflicts and obligations that follow from it.",
+      "translation": "एक व्यक्ति या संगठन एक से अधिक भूमिकाएँ निभा सकता है, लेकिन उसे हर भूमिका और उससे जुड़े हितों के टकराव तथा दायित्व बताने चाहिए।",
+      "backTranslation": "An individual or organization may have more than one role, but they should disclose each role and the conflicts of interest and responsibilities associated with it.",
+      "similarity": 0.7036
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 22,
+      "source": "A Pool Steward is accountable for that Pool's published curation, valuation, limitations, fees, exchange conditions, accepted commitments, inventory policy, local disputes, repair process, and authorized governance changes. Technical authority may be distributed among a SwapPool owner, proxy administrator, dependency controllers, multisig signers, and fee recipients; the public rules should identify those powers rather than treating them as one role.",
+      "translation": "पूल प्रबंधक अपने पूल के प्रकाशित चयन, मूल्यांकन, सीमाओं, शुल्क, विनिमय शर्तों, स्वीकृत प्रतिबद्धताओं, भंडार नीति, स्थानीय विवादों, सुधार प्रक्रिया और अधिकृत शासन बदलावों के लिए जवाबदेह है। तकनीकी अधिकार SwapPool मालिक, प्रॉक्सी प्रशासक, निर्भरता नियंत्रक, मल्टीसिग हस्ताक्षरकर्ता और शुल्क प्राप्तकर्ता में बँटे हो सकते हैं। सार्वजनिक नियमों में इन शक्तियों को अलग पहचानना चाहिए, सबको एक भूमिका नहीं मानना चाहिए।",
+      "backTranslation": "The pool manager is responsible for the published selection, valuation, limits, fees, exchange terms, accepted commitments, stock policy, local disputes, reform process and authorized governance changes of his pool. Technical rights may be divided between SwapPool owner, proxy administrator, dependency controller, multisignature signatory and fee receiver. Public rules should distinguish these powers, not consider them all to be a role.",
+      "similarity": 0.7808
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 24,
+      "source": "Repair within a Pool remains with its authorized governance and responsible parties. A Steward may correct a configuration, suspend an admission, address a local dispute, or adopt a remedy within its authority. It cannot erase public transaction history or silently discharge an issuer's separate voucher obligation.",
+      "translation": "पूल में सुधार उसकी अधिकृत शासन व्यवस्था और जवाबदेह पक्षों की ज़िम्मेदारी है। प्रबंधक अपने अधिकार में सेटिंग सुधार सकता है, प्रवेश रोक सकता है, स्थानीय विवाद सुलझा सकता है या समाधान अपना सकता है। वह सार्वजनिक लेनदेन का इतिहास नहीं मिटा सकता और जारीकर्ता की अलग वाउचर प्रतिबद्धता का चुपचाप निस्तारण नहीं कर सकता।",
+      "backTranslation": "The pool is the responsibility of its authorized governance and accountable parties to improve. The manager may correct settings, block access, resolve local disputes or adopt solutions in his/her powers. He/she cannot erase public transaction history and silently discharge a separate voucher commitment of an issuer.",
+      "similarity": 0.6625
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "CLC App और सहायक सेवाएँ प्रतिभागियों को वाउचर खोजने, विनिमय की व्यवस्था करने और परिणाम जाँचने में मदद करती हैं। संचालक अपनी सेवाओं और उनकी विफलता समझाने के लिए ज़िम्मेदार हैं। निर्णायक सॉफ़्टवेयर दस्तावेज़ सहायक प्रणालियों और उनके संचालन को अंग्रेज़ी में समझाते हैं।",
+      "backTranslation": "The CLC App and the Supporting Services help participants find vouchers, arrange exchanges and check results. Operators are responsible for explaining their services and their failures. Decisive software documentation explains the supporting systems and their operation in English.",
+      "similarity": 0.8547
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 30,
+      "source": "An operator can pause or correct its own service, refresh indexed state, exclude unsupported paths, explain a failure, and coordinate with affected Stewards. That operational role does not grant authority to change an independent Pool's rules, move its inventory, waive an issuer's commitment, or decide a local fulfillment dispute.",
+      "translation": "संचालक अपनी सेवा रोक या सुधार सकता है, सूचीबद्ध स्थिति ताज़ा कर सकता है, असमर्थित मार्ग हटा सकता है, विफलता समझा सकता है और प्रभावित प्रबंधकों से समन्वय कर सकता है। इससे उसे स्वतंत्र पूल के नियम बदलने, उसका भंडार हटाने, जारीकर्ता का वादा माफ़ करने या स्थानीय पूर्ति विवाद का फैसला करने का अधिकार नहीं मिलता।",
+      "backTranslation": "The operator may suspend or correct its service, refresh its listing status, remove unsupported routes, explain failures and coordinate with affected managers. This does not give it the right to change the rules of an independent pool, remove its inventory, forgive a issuer's promise or decide on local supply disputes.",
+      "similarity": 0.7607
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 32,
+      "source": "Current participant-initiated routing also does not authorize automatic Pool rebalancing. Any rebalancing, netting, shared-liquidity, guarantee, or insurance service would require separate opt-in authority, controls, responsible parties, and published terms.",
+      "translation": "प्रतिभागी द्वारा शुरू की गई मौजूदा रूटिंग भी पूल का भंडार अपने आप पुनर्संतुलित करने की अनुमति नहीं देती। पुनर्संतुलन, परस्पर दायित्वों की गणना करके समायोजन, साझा तरलता, गारंटी या बीमा सेवा के लिए अलग सहमति, अधिकार, नियंत्रण, जवाबदेह पक्ष और प्रकाशित शर्तें चाहिए।",
+      "backTranslation": "The current routing initiated by the participants also does not allow pool stock to be rebalanced on its own. Rebalancing, adjustment by calculation of mutual liabilities, shared liquidity, guarantee or insurance service require separate consents, rights, controls, liable parties and published terms.",
+      "similarity": 0.6798
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 34,
+      "source": "## Registry-level stewardship",
+      "translation": "## रजिस्ट्री-स्तर पर प्रबंध",
+      "backTranslation": "## Registry-level management.",
+      "similarity": 0.6552
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 36,
+      "source": "A registry or catalog steward may address incorrect listings, identity and metadata integrity, registry permissions, publication status, service failures, and correction, suspension, or appeal procedures. A registry record helps discovery; it is not itself an issuer-capacity assessment, Pool guarantee, or fulfillment record.",
+      "translation": "रजिस्ट्री या कैटलॉग प्रबंधक गलत सूचियाँ, पहचान और विवरण की शुद्धता, रजिस्ट्री की अनुमतियाँ, प्रकाशन की स्थिति, सेवा की विफलता और सुधार, निलंबन या अपील की प्रक्रियाएँ देख सकता है। रजिस्ट्री रिकॉर्ड खोज में मदद करता है; वह अपने आप जारीकर्ता की क्षमता का आकलन, पूल की गारंटी या वादा पूरा होने का रिकॉर्ड नहीं है।",
+      "backTranslation": "The registry or catalog manager can view incorrect listings, the accuracy of identification and descriptions, registry permissions, publication status, service failures and correction, suspension or appeal processes. The registrys record helps with searching; it is not itself an assessment of the issuer’s ability, guarantee of the pool or record of promise fulfillment.",
+      "similarity": 0.7231
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 38,
+      "source": "Correcting or removing a listing does not reverse an on-chain settlement, remove a balance, change a Pool's independently governed configuration, or discharge an outstanding commitment. Those outcomes require the authority and process applicable to the relevant contract, Pool, issuer, or legal obligation.",
+      "translation": "सूची सुधारने या हटाने से ब्लॉकचेन पर हुआ निपटान वापस नहीं होता, शेष राशि नहीं मिटती, पूल की स्वतंत्र सेटिंग नहीं बदलती और अधूरी प्रतिबद्धता का निस्तारण नहीं होता। इन परिणामों के लिए संबंधित अनुबंध, पूल, जारीकर्ता या कानूनी दायित्व पर लागू अधिकार और प्रक्रिया चाहिए।",
+      "backTranslation": "Amendment or removal of a list does not reverse the settlement on the blockchain, erase the balance, change the independent pool setting, or settle an incomplete commitment. These results require applicable rights and processes to the relevant contract, pool, issuer, or legal liability.",
+      "similarity": 0.688
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "मार्गित विनिमय अपने पूलों की सीमाएँ बनाए रखता है। हर पूल अपने नियम और नियंत्रण लागू करता है। साझा रसीद पूलों का शासन एक नहीं करती और जारीकर्ता की ज़िम्मेदारी मार्ग संचालक को नहीं देती। तकनीकी लेनदेन रिकॉर्ड के लिए सॉफ़्टवेयर स्वैप संदर्भ देखें।",
+      "backTranslation": "Each pool applies its own rules and controls. The governance of shared receipt pools does not unify and does not place issuer responsibility on the route operator. See software swap reference for technical transaction records.",
+      "similarity": 0.5687
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 44,
+      "source": "The receipt can evidence route selection, authorization, transaction status, per-hop settlement amounts, and fees. Real-world presentment, fulfillment, satisfaction, and discharge require separate evidence and remain with the identified issuer and applicable process.",
+      "translation": "रसीद मार्ग चयन, अनुमति, लेनदेन की स्थिति, हर चरण की निपटान राशि और शुल्क का प्रमाण दे सकती है। वास्तविक प्रस्तुति, वादा पूरा होने, संतुष्टि और निस्तारण के लिए अलग प्रमाण चाहिए। इनकी ज़िम्मेदारी पहचाने गए जारीकर्ता और लागू प्रक्रिया के पास रहती है।",
+      "backTranslation": "The receipt can provide proof of route selection, authorization, transaction status, settlement amount and charges for each step. Actual presentation, fulfillment of promise, satisfaction and settlement require separate evidence. Responsibility for these remains with the identified issuer and applied process.",
+      "similarity": 0.7834
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 48,
+      "source": "A CLC-compatible Pool, registry, or service can be governed by a nonprofit foundation, cooperative, community group, federation, company, multisig, public agency, institutional board, on-chain voting system, or another accountable structure. Whatever structure is chosen, participants should be able to determine:",
+      "translation": "CLC-संगत पूल, रजिस्ट्री या सेवा का संचालन गैर-लाभकारी संस्था, सहकारी संस्था, सामुदायिक समूह, संघ, कंपनी, मल्टीसिग, सरकारी संस्था, संस्थागत बोर्ड, ब्लॉकचेन मतदान प्रणाली या दूसरी जवाबदेह संरचना कर सकती है। चुनी गई संरचना चाहे जो हो, प्रतिभागियों को ये बातें जान सकनी चाहिए:",
+      "backTranslation": "A CLC-compliant pool, registry or service can be operated by a non-profit organization, cooperative, community group, association, company, multisig, governmental body, institutional board, blockchain voting system or other accountable structure. Whatever the chosen structure, participants should know these things:",
+      "similarity": 0.8235
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 50,
+      "source": "- who has authority to make and execute decisions;",
+      "translation": "- निर्णय लेने और उन्हें लागू करने का अधिकार किसके पास है;",
+      "backTranslation": "- Who has the authority to make decisions and implement them; who is responsible for their implementation.",
+      "similarity": 0.4872
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 51,
+      "source": "- how assets, Issuers, and participants are admitted, reviewed, suspended, or removed;",
+      "translation": "- संपत्तियों, जारीकर्ताओं और प्रतिभागियों का प्रवेश, समीक्षा, निलंबन या निष्कासन कैसे होता है;",
+      "backTranslation": "- How assets, issuers and participants are admitted, reviewed, suspended or excluded; how they are removed from the system.",
+      "similarity": 0.7943
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 52,
+      "source": "- how valuations, fees, limits, reserves, guarantees, and other material settings are established and changed;",
+      "translation": "- मूल्यांकन, शुल्क, सीमाएँ, आरक्षित संपत्तियाँ, गारंटी और दूसरी महत्वपूर्ण सेटिंग कैसे तय और बदली जाती हैं;",
+      "backTranslation": "- How valuation, fees, limits, reserved assets, guarantee and other important settings are set and changed;",
+      "similarity": 0.8571
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 53,
+      "source": "- which dependencies or contracts can be upgraded, replaced, paused, or permanently sealed;",
+      "translation": "- किन निर्भरताओं या अनुबंधों को अपग्रेड, बदला, रोका या स्थायी रूप से सील किया जा सकता है;",
+      "backTranslation": "- Which dependencies or contracts can be upgraded, changed, suspended or permanently sealed;",
+      "similarity": 0.9071
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 54,
+      "source": "- how conflicts of interest are disclosed and handled;",
+      "translation": "- हितों के टकराव कैसे बताए और संभाले जाते हैं;",
+      "backTranslation": "- How conflicts of interest are disclosed and managed; how to report on them.",
+      "similarity": 0.7786
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 55,
+      "source": "- what records, notices, approvals, and review periods apply;",
+      "translation": "- कौन-से रिकॉर्ड, सूचनाएँ, मंज़ूरियाँ और समीक्षा अवधि लागू हैं;",
+      "backTranslation": "- Which records, information, approvals and review periods are applicable;",
+      "similarity": 0.8
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 56,
+      "source": "- what emergency powers exist and how their use is reviewed; and",
+      "translation": "- आपात शक्तियाँ क्या हैं और उनके उपयोग की समीक्षा कैसे होती है; और",
+      "backTranslation": "- What emergency powers are and how their use is reviewed; and what the consequences of their use are.",
+      "similarity": 0.7229
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 57,
+      "source": "- how participants can complain, exit, migrate, or address unresolved obligations.",
+      "translation": "- प्रतिभागी शिकायत कैसे करें, बाहर कैसे निकलें, स्थानांतरित कैसे हों या अधूरे दायित्व कैसे सुलझाएँ।",
+      "backTranslation": "- How participants can complain, withdraw, transfer or resolve incomplete obligations.",
+      "similarity": 0.7619
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 59,
+      "source": "Published rules should match the powers available in the relevant contracts and services. Governance should keep material decisions transparent and auditable and should not describe convertibility, liquidity, returns, insurance, reserves, or guarantees more broadly than the responsible party can actually provide.",
+      "translation": "प्रकाशित नियम संबंधित अनुबंधों और सेवाओं की शक्तियों से मेल खाने चाहिए। शासन को महत्वपूर्ण निर्णय पारदर्शी और जाँचने योग्य रखने चाहिए। विनिमय की क्षमता, तरलता, प्रतिफल, बीमा, आरक्षित संपत्ति या गारंटी का दावा जवाबदेह पक्ष की वास्तविक क्षमता से अधिक व्यापक नहीं होना चाहिए।",
+      "backTranslation": "The published rules should correspond to the powers of the contracts and services concerned. Governance should keep critical decisions transparent and verifiable. Claims for exchange capacity, liquidity, returns, insurance, reserved assets or guarantees should not be more extensive than the actual ability of the liable party.",
+      "similarity": 0.6739
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 63,
+      "source": "Where token voting is appropriate, a deployment may use OpenZeppelin Governor contracts and an interface such as Tally. Other deployments may rely on multisig approvals, cooperative resolutions, board decisions, public-agency mandates, or hybrid processes.",
+      "translation": "जहाँ टोकन से मतदान उपयुक्त हो, वहाँ तैनाती OpenZeppelin Governor अनुबंध और Tally जैसा इंटरफ़ेस इस्तेमाल कर सकती है। दूसरी तैनातियाँ मल्टीसिग मंज़ूरी, सहकारी प्रस्ताव, बोर्ड के निर्णय, सरकारी संस्था के आदेश या संयुक्त प्रक्रियाएँ अपना सकती हैं।",
+      "backTranslation": "Where token voting is appropriate, deployments may use interfaces such as OpenZeppelin Governor Contract and Tally. Other deployment can adopt multi-signature approvals, cooperative proposals, board decisions, government agency orders or joint procedures.",
+      "similarity": 0.7671
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 65,
+      "source": "These tools are optional. The public App currently provides participant-initiated same-chain routing through CLC Core, but that does not imply token voting, automatic rebalancing, netting, shared insurance, network liquidity programs, or central governance by GEF. Each deployment must identify its actual decision-makers, contracts, service providers, and policies.",
+      "translation": "ये साधन वैकल्पिक हैं। सार्वजनिक ऐप अभी CLC Core के ज़रिए प्रतिभागी द्वारा शुरू की गई उसी ब्लॉकचेन की रूटिंग देता है। इससे टोकन मतदान, स्वचालित पुनर्संतुलन, दायित्वों का समायोजन, साझा बीमा, नेटवर्क तरलता कार्यक्रम या GEF का केंद्रीय शासन अपने आप लागू नहीं होता। हर तैनाती को अपने वास्तविक निर्णयकर्ताओं, अनुबंधों, सेवा प्रदाताओं और नीतियों की पहचान बतानी चाहिए।",
+      "backTranslation": "These means are optional. The public app now provides routing of the same blockchain as initiated by the participant via CLC Core. This does not automatically apply to token voting, automatic rebalancing, adjustment of liabilities, shared insurance, network liquidity program or central governance of the GEF. Each deployment should identify its actual decision makers, contracts, service providers and policies.",
+      "similarity": 0.7686
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 69,
+      "source": "An App operator or registry steward may hide, flag, suspend, or remove an item from an interface. That action does not necessarily pause a smart contract, reverse a completed transaction, remove a public-blockchain record, eliminate a balance, or discharge an obligation between users. Governance plans should distinguish interface controls from the authorities that exist on-chain and from legal duties that continue off-chain.",
+      "translation": "ऐप संचालक या रजिस्ट्री प्रबंधक इंटरफ़ेस में कोई चीज़ छिपा, चिह्नित, रोक या हटा सकता है। इस कार्रवाई से ज़रूरी नहीं कि स्मार्ट अनुबंध रुके, पूरा लेनदेन वापस हो, सार्वजनिक ब्लॉकचेन रिकॉर्ड या शेष राशि मिटे या उपयोगकर्ताओं के बीच दायित्व का निस्तारण हो। शासन योजनाओं को इंटरफ़ेस नियंत्रण, ब्लॉकचेन की शक्तियों और उसके बाहर जारी कानूनी दायित्वों के बीच अंतर रखना चाहिए।",
+      "backTranslation": "The app operator or registry manager can hide, mark, stop or remove anything in the interface. This action does not necessarily stop the smart contract, reverse the entire transaction, erase public blockchain records or balances, or resolve liabilities between users. Governance plans should distinguish between interface control, the powers of the blockchain and legal obligations issued outside it.",
+      "similarity": 0.7222
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 71,
+      "source": "For the broader design, see the White Paper's Governance Mechanics chapter.",
+      "translation": "व्यापक डिज़ाइन के लिए श्वेत पत्र का शासन तंत्र अध्याय देखें।",
+      "backTranslation": "See the governance chapter of the white paper for a comprehensive design.",
+      "similarity": 0.4189
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "मौजूदा सॉफ़्टवेयर संदर्भ",
+      "backTranslation": "Existing software references.",
+      "similarity": 0.7636
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "यह प्रकाशित श्वेत पत्र v0.9 है। सॉफ़्टवेयर की मौजूदा कार्यप्रणाली, अनुबंधों, API और तैनाती के निर्देशों के लिए CLC सॉफ़्टवेयर दस्तावेज़ देखें।",
+      "backTranslation": "This published white paper is v0.9. See the CLC software documentation for the current operating procedures of the software, contracts, API and deployment instructions.",
+      "similarity": 0.411
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "सॉफ़्टवेयर दस्तावेज़ पढ़ें (अंग्रेज़ी)",
+      "backTranslation": "Read software documentation Read software manual",
+      "similarity": 0.6966
+    }
+  ],
+  "reviewDate": "23 November 2026",
+  "readingNoteSha256": "68858cec2d961eda6a286577d60f0d59f332f919cc708bfe321602cf8195e80e",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation with the established app glossary",
+      "complete clarity and protected-content review",
+      "independent MADLAD back-translation and comparison of all 124 changed units against English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 5,
+    "resolution": "Compared all 124 revised units directly with English and the committed app glossary; inspected all five final low-confidence back-translations. Short link sentences and the reading note use equivalent wording or reordered clauses; machine omissions of the English-language disclosure were checked against the actual Hindi text, where it is present. Removed duplicated implementation details while preserving the difference between quote-only SwapRouter and App execution, atomic settlement and Issuer fulfillment/discharge, Pool balance caps and personal loans, additive fees, owner withdrawals and the absence of automatic depositor rights. Reconciled Offering to पेशकश and Request retirement to the exact committed app label उपयोग से हटाने का अनुरोध करें; corrected inventory/list confusion, the misleading credit-as-debt heading, and incomplete governance responsibility text. Clarified secured transaction as collateral-based and retained every separately required future-credit term. Preserved all external URLs, code identifiers, heading destinations, legal responsibility boundaries and frozen publication sources. The web-only note accurately identifies White Paper v0.9 and the current English software reference."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/hi/governance/privacy#what-becomes-public",
+    "afterHref": "/hi/governance/privacy#4-क्या-सार्वजनिक-हो-जाता-है",
+    "previousSha256": "7355817bacbac1a632739f0b5a7257933a9d8121de43755fc16bd26d88ac1611",
+    "sha256": "b5ff0f472d68ef3b3c2dcde66b1e71512084ffd9d6041c128d7f1c7a1c54ddbc",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

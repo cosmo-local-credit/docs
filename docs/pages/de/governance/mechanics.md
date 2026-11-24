@@ -25,7 +25,7 @@ Abhilfe innerhalb eines Fonds bleibt Aufgabe seiner autorisierten Governance und
 
 ## Betrieb auf Netzwerkebene
 
-Die produktive CLC App und CLC Core betreiben gemeinsame Routenerkennung und -berechnung, die Vorbereitung von Wallet-Batches, die Koordination des Relayers, Indexierung, Abstimmung und zusammengefasste Belege für Tausche über Routen. Vorfälle auf Netzwerkebene können veraltete oder nicht verfügbare Routendaten, Abstimmungsfehler, nicht unterstützte Abhängigkeiten, Relayer-Fehler und Interoperabilitätsprobleme zwischen Fonds umfassen.
+Die CLC App und ihre unterstützenden Dienste helfen Teilnehmenden, Gutscheine zu finden, Tausche zu organisieren und Ergebnisse zu prüfen. Betreiber sind für ihre eigenen Dienste und für die Erklärung von Dienstausfällen verantwortlich. Die maßgebliche [Softwaredokumentation](https://software.cosmolocal.credit/core-api/) beschreibt die unterstützenden Systeme und ihren Betrieb auf Englisch.
 
 Ein Betreiber kann seinen eigenen Dienst pausieren oder berichtigen, den indexierten Zustand aktualisieren, nicht unterstützte Routen ausschließen, einen Fehler erklären und sich mit betroffenen Fonds-Verantwortlichen abstimmen. Diese operative Rolle verleiht keine Befugnis, die Regeln eines unabhängigen Fonds zu ändern, seine Bestände zu verschieben, auf eine Verpflichtung des Herausgebers zu verzichten oder über einen lokalen Erfüllungsstreit zu entscheiden.
 
@@ -39,7 +39,7 @@ Die Berichtigung oder Entfernung einer Auflistung macht keine Abwicklung auf der
 
 ## Routennachweise und Verantwortung
 
-Ein Tausch über eine Route wahrt die Grenzen zwischen seinen einzelnen Schritten. Jeder Fonds wendet seine eigenen Zulassungen, Kursangebote, Saldenlimits, Gebühren, Bestände und Kontrollbefugnisse an. CLC Core fasst das technische Ergebnis in einem Beleg zusammen. Dieser Beleg vereint jedoch nicht die Governance der Fonds und überträgt die Verantwortung eines Herausgebers nicht auf den Routing-Dienst.
+Ein Tausch über eine Route wahrt die Grenzen zwischen den beteiligten Fonds. Jeder Fonds wendet seine eigenen Regeln und Kontrollen an. Ein gemeinsamer Beleg führt die Governance der Fonds nicht zusammen und überträgt keine Verantwortung eines Herausgebers auf den Routenbetreiber. Technische Transaktionsaufzeichnungen finden Sie in der [Software-Tauschreferenz](https://software.cosmolocal.credit/contracts/swaps).
 
 Der Beleg kann Routenauswahl, Autorisierung, Transaktionsstatus, Abwicklungsbeträge und Gebühren für jeden Schritt nachweisen. Vorlage, tatsächliche Erfüllung, Annahme der Leistung und Ausbuchung erfordern gesonderte Nachweise und bleiben Sache des benannten Herausgebers und des anwendbaren Verfahrens.
 

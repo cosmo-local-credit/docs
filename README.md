@@ -1,6 +1,12 @@
 ## Docs
 
-All CLC related documentation.
+Public explanations, App guidance, governance, policies, and the versioned
+White Paper for Cosmo-Local Credit.
+
+The definitive software reference is [CLC Developer Docs](https://software.cosmolocal.credit/),
+maintained in [software-docs](https://github.com/cosmo-local-credit/software-docs).
+Link there for contract mechanics, APIs, deployment, configuration, and service
+operation instead of duplicating those instructions here.
 
 ## Prerequisites
 

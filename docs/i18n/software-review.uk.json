@@ -1,0 +1,574 @@
+{
+  "locale": "uk",
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "3d48ca2fff8acf676bc14898defe10fc1e13dcca0dd1fe878737aa674d77c9d9"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "60fc6868fe7f96203172bc63aa1ecda69217e7e54c773e1cedb538b944a87e9d"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "ed1c4aa4c82fe373c61b4aa3c4c28b1d18bffcee70889605cce22bde59f9293f"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "bebdfdb225e00bf4fcf9de7e047c8feeec079141d6d0b5c84a6cd4bd11c840e3"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "a65b4771066974b668460992970e021fbcb9161ed5052882e548df18e1c6a732"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "e12523fe01d73d87c8b8a4b39d11c0befccb95b25bf834399dc4fd8fa34614ac"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "8df45f1253ec08ee44a7f52460b477fd9ee2786f359c878d7d8deeaf765c70cb"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "Протокол об’єднання зобов’язань (CPP) описує, як незалежно керовані Пули добирають Ваучери, публікують правила обміну й уможливлюють обмін. Згодом Власник Ваучера використовує його в Емітента для отримання обіцяних товарів чи послуг. Це окремі кроки з окремою відповідальністю.",
+      "backTranslation": "The CPP describes how independently managed Pools select Vouchers, publish exchange rules and facilitate the exchange. Subsequently, the Voucher Holder uses it at the Issuer to receive the promised goods or services. These are separate steps with separate responsibilities.",
+      "similarity": 0.778
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "Цей сайт пояснює ці поняття й використання CLC App. Документація програмного забезпечення CLC є основним довідником із реалізації програмного забезпечення, контрактів, API, розгортання й експлуатації. Наразі вона доступна англійською.",
+      "backTranslation": "This site explains these concepts and the use of CLC App. The CLC Software Documentation is the basic guide to software implementation, contracts, APIs, deployment and operation.",
+      "similarity": 0.7971
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "Почніть із понять і термінології, щоб ознайомитися зі спільними термінами, або з Білої книги, щоб дізнатися про ширший задум і пропозиції.",
+      "backTranslation": "Start with the Concepts and Terminology to familiarize yourself with common terms, or the White Paper to learn about the broader concept and proposals.",
+      "similarity": 0.6718
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "Різні спільноти й організації можуть використовувати сумісне програмне забезпечення за власними правилами. Grassroots Economics Foundation керує публічним CLC App. Кожне розгортання має зазначати своїх операторів, контракти й відповідальні органи.",
+      "backTranslation": "Different communities and organizations can use the compatible software under their own rules. The Grassroots Economics Foundation manages a public CLC App. Each deployment must specify its operators, contracts and responsible bodies.",
+      "similarity": 0.8941
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "Адреси контрактів, інструкції з розгортання та перевірку власників і повноважень оновлення описано в розділі Розгортання й перевірка. Щодо експлуатації допоміжних служб почніть з API CLC Core.",
+      "backTranslation": "Contract addresses, deployment instructions and verification of owners and upgrade authorizations are described in the Deployment and Verification section. For support services, start with the CLC Core API.",
+      "similarity": 0.792
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "Використовуйте довідник програмного забезпечення для таких тем:",
+      "backTranslation": "Use the software guide for topics such as:",
+      "similarity": 0.6301
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "Тема  Основна документація програмного забезпечення",
+      "backTranslation": "Topic  Basic software documentation",
+      "similarity": 0.8267
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "Створення, обсяг випуску й строк дії Ваучерів  Ваучери",
+      "backTranslation": "Creation, Volume and Term of Vouchers  Voucher creation, volume and term of validity",
+      "similarity": 0.4462
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "Налаштування, депозити, виведення й контроль Пулів  Пули",
+      "backTranslation": "Setting up, depositing, withdrawing and monitoring Pools  Pools",
+      "similarity": 0.6452
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "Розрахунок обмінних курсів  Модулі котирування (Quoter)",
+      "backTranslation": "Calculation of exchange rates Quotation modules (Quoter)",
+      "similarity": 0.4396
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "Виконання обміну, комісії й записи транзакцій  Котирування й розрахунок обмінів",
+      "backTranslation": "Exchange execution, commissions and transaction recording  Quotation and calculation of exchanges",
+      "similarity": 0.5904
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "Обмін через кілька Пулів  Маршрутизація",
+      "backTranslation": "Exchange through multiple Pools Routing Delivery of the pool",
+      "similarity": 0.6465
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "Пошук і допоміжні контракти  Реєстри й інструменти",
+      "backTranslation": "Search and auxiliary contracts Registers and tools",
+      "similarity": 0.6545
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "Запити й відповіді API  Довідник OpenAPI",
+      "backTranslation": "API requests and responses OpenAPI Manual",
+      "similarity": 0.8372
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "Налаштування серверних служб і маршрутизації  Конфігурація",
+      "backTranslation": "Configuring Server Services and Routing  Configuration 1.",
+      "similarity": 0.58
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "Застосунок може допомогти учаснику обміняти активи через кілька Пулів, коли доступний відповідний маршрут. Учасник переглядає котирування й дозволяє обмін. Кожен Пул зберігає власні правила й відповідальних осіб.",
+      "backTranslation": "The app can help a participant exchange assets across multiple Pools when the appropriate route is available. The participant reviews quotes and allows the exchange. Each Pool has its own rules and responsible persons.",
+      "similarity": 0.8314
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "У розділі Маршрути й відповідальність пояснено, що це означає для учасників, а в Реалізації маршрутизації — як програмне забезпечення розраховує й виконує маршрути.",
+      "backTranslation": "The section on Routes and Responsibility explains what this means for participants, and the section on Routing Implementation explains how software calculates and executes routes.",
+      "similarity": 0.7926
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "Програмне забезпечення уможливлює обмін; Емітенти залишаються відповідальними за обіцянки своїх Ваучерів, а Куратори Пулів — за опубліковані правила. Використання публічного Застосунку регулюють Умови надання послуг.",
+      "backTranslation": "The software enables exchange; Issuers remain responsible for the promises of their Vouchers and Pool Curators for the published rules. Use of the Public Application is governed by the Terms of Service.",
+      "similarity": 0.8146
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "Контракти записують баланси токенів і виконують обміни в Пулах. Документація програмного забезпечення CLC є основним довідником із реалізації й наразі доступна англійською. Ця сторінка пояснює, що учасникам варто розуміти перед використанням цих контрактів.",
+      "backTranslation": "The contracts write token balances and perform exchanges in the Pools. The CLC software documentation is the main implementation guide and is currently available in English. This page explains what participants should understand before using these contracts.",
+      "similarity": 0.8383
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "У розділі Поняття й термінологія пояснено різницю між керованим Пулом зобов’язань і його контрактом SwapPool, а також між обміном і виконанням Емітентом.",
+      "backTranslation": "The Terms and Terminology section explains the difference between a Managed Liability Pool and its SwapPool contract, as well as between exchange and Issuer performance.",
+      "similarity": 0.6957
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "Ваучер поєднує цифровий баланс з опублікованою обіцянкою Емітента. Його умови пояснюють, для чого його можна використати, де й коли його приймають і хто відповідальний. Створення токена не доводить, що Емітент може надати обіцяні товари чи послуги.",
+      "backTranslation": "The voucher combines a digital balance with the Issuer’s published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuers can deliver the goods or services promised.",
+      "similarity": 0.9242
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "Про механізми створення, карбування, спалення й завершення строку дії читайте в розділі Ваучери.",
+      "backTranslation": "For the mechanisms of creation, minting, burning and expiration, see Vouchers.",
+      "similarity": 0.7534
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "Пул зобов’язань об’єднує відібрані Ваучери за опублікованими правилами. Його контракт зберігає запаси й обмінює підтримувані активи. Депозит не надає вкладнику автоматичних часток Пулу чи прав на повернення, виведення, винагороду або управління; такі права потребують окремо розкритих умов.",
+      "backTranslation": "Its contract holds stocks and exchanges the backed assets. The deposit does not confer on the depositor automatic shares in the Pool or rights to return, withdrawal, reward or management; such rights require separately disclosed terms.",
+      "similarity": 0.622
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "Перевірте, які Ваучери приймає Пул, як він визначає обмінні курси, які має ліміти й комісії та хто може їх змінювати. Довідник програмного забезпечення описує налаштування й блокування параметрів Пулу.",
+      "backTranslation": "Check which Vouchers the Pool accepts, how it determines exchange rates, what limits and fees it has and who can change them. The software manual describes setting up and locking the Pool settings.",
+      "similarity": 0.7366
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "Успішний обмін змінює відповідні баланси. Він не доводить, що Емітент надав товари чи послуги. Перед підтвердженням перевірте вхідний і вихідний активи, одержувача, мінімальну отримувану суму й строк дії котирування.",
+      "backTranslation": "A successful exchange changes the respective balances. It does not prove that the Issuer has provided goods or services. Before confirming, check the incoming and outgoing assets, recipient, minimum amount received and duration of the quote.",
+      "similarity": 0.7696
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "Про методи виконання й записи розрахунків читайте в розділі Котирування й розрахунок обмінів.",
+      "backTranslation": "For methods of execution and recording of the calculations, see Quotation and calculation of exchanges.",
+      "similarity": 0.4746
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "Обмін може включати комісію Пулу й додаткову комісію протоколу. Перевірте загальну суму в котируванні; маршрут через кілька Пулів може передбачати комісії на кожному кроці. Довідник обміну містить актуальний розрахунок і розібраний приклад.",
+      "backTranslation": "The exchange may include a Pool fee and an additional protocol fee. Check the total amount in the quote; a route through several Pools may involve commissions at each step. The exchange guide contains the current calculation and a detailed example.",
+      "similarity": 0.7747
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "Власник Пулу може вивести доступні запаси. Інші уповноважені сторони можуть контролювати оновлення чи налаштування. Перегляньте ці повноваження разом з опублікованими правилами Куратора, перш ніж робити депозит або покладатися на Пул. Саме лише блокування налаштувань не доводить, що запаси заблоковано назавжди.",
+      "backTranslation": "Other authorized parties may control updates or configurations. Review these authorizations along with the Curator's published policies before making a deposit or relying on the Pool. The mere fact of locking settings does not prove that stock is locked forever.",
+      "similarity": 0.6234
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "Технічні перевірки описано в розділах Пули і Перевірка окремого екземпляра.",
+      "backTranslation": "Technical checks are described in the Pools and Single Instance Check sections.",
+      "similarity": 0.2482
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "Обмінний курс Пулу відрізняється від заявленої вартості Ваучера й умов погашення Емітента. Перевірте обраний Пулом метод і те, хто може змінювати його вхідні дані. Довідник програмного забезпечення пояснює доступні модулі котирування (Quoter).",
+      "backTranslation": "The exchange rate of the Pool differs from the declared value of the Voucher and the redemption terms of the Issuer. Check the method selected by the Pool and who can change its input data. The software manual explains available Quotation modules.",
+      "similarity": 0.6207
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "«Кредитний ліміт» Застосунку — це максимальний баланс певного Ваучера, який може утримувати Пул. Він описує можливість обміну, а не особисту позику чи гарантію виконання. У розділі Правила й налаштування Пулу пояснено застосування лімітів і комісій.",
+      "backTranslation": "The App’s “Credit Limit” is the maximum balance of a given Voucher that a Pool can hold. It describes the possibility of exchange, not a personal loan or performance guarantee. The Pool Rules and Settings section explains the application of limits and fees.",
+      "similarity": 0.6962
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "Комісія протоколу має налаштованого одержувача. Отримання комісії не робить його автоматично Куратором Пулу чи гарантом. Довідник комісій пояснює поточні механізми, а механізми управління — відповідальність і розкриття інформації.",
+      "backTranslation": "The commission of the protocol has a set recipient. Receiving a commission does not automatically make them Pool Curator or Guarantor. The Commissions Manual explains current mechanisms and governance mechanisms — accountability and disclosure.",
+      "similarity": 0.6942
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "Кілька незалежно керованих Пулів можуть з’єднати Ваучер, який ви маєте, з потрібним вам Ваучером. Кожен Пул забезпечує один крок обміну, використовуючи власні правила й доступні запаси.",
+      "backTranslation": "Several independently managed Pools can connect the Voucher you have with the Vehicle you need. Each Pool provides one exchange step, using its own rules and available stocks.",
+      "similarity": 0.792
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "Довідник маршрутизації програмного забезпечення CLC є основним джерелом щодо пошуку маршрутів, критеріїв допуску, виконання й інтерфейсів служб. Документація програмного забезпечення наразі англійською. Ця сторінка пояснює шлях учасника та його відповідальність.",
+      "backTranslation": "The CLC Software Routing Guide is the primary source for route search, admission criteria, execution and service interfaces. The software documentation is currently in English. This page explains the participant’s path and responsibilities.",
+      "similarity": 0.846
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "У розділі Кредит Застосунку виберіть Отримати для потрібного Ваучера або Витратити для Ваучера, який хочете використати. Наприклад, маршрут може обміняти транспортний Ваучер на продовольчий через два різні Пули.",
+      "backTranslation": "In the App Credit section, select Get for the Voucher you want or Spend for the voucher you wish to use. For example, a route may exchange a transportation voucher for a grocery voucher through two different Pools.",
+      "similarity": 0.7848
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "Знайдений зв’язок не гарантує обміну. Підтримувані Ваучери, ліміти Пулів, доступні запаси, комісії, сумісність Гаманця й доступність служб мають дозволяти запитану суму.",
+      "backTranslation": "Supported Vouchers, Pool limits, available stock, fees, Wallet compatibility and service availability should allow the requested amount. The link found does not guarantee an exchange.",
+      "similarity": 0.6755
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "Перед підтвердженням перегляньте Деталі маршруту: що ви сплачуєте й отримуєте, усі задіяні Пули, комісії, мінімальну отримувану суму й строк дії котирування. Оцінка допомагає під час пошуку; котирування — це пропозиція, яку ви дозволяєте виконати. Оновіть його, якщо строк сплив або умови Пулів змінилися.",
+      "backTranslation": "Before confirming, review the Route Details: what you pay and receive, all Pools involved, commissions, minimum amount received and quotation duration. The estimate helps you search; the quotations are the bids you allow to be made. Update it if the deadline has expired or Pool conditions have changed.",
+      "similarity": 0.5925
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "Довідник маршрутизації і налаштування служб містять актуальні технічні правила допуску й параметри котирувань.",
+      "backTranslation": "The Routing and Service Configuration Guide contains the latest technical admission rules and quota parameters.",
+      "similarity": 0.7397
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "Ви перевіряєте й дозволяєте весь обмін. Поточний маршрут виконується повністю або обміни в його Пулах скасовуються разом, якщо один крок не вдається. Це захищає від часткового виконання маршруту, але не гарантує подальшого надання товарів чи послуг.",
+      "backTranslation": "You verify and allow all exchanges. The current route is completed in full or the exchanges in its Pools are cancelled together if one step fails. This protects against partial completion of the route, but does not guarantee continued supply of goods or services.",
+      "similarity": 0.693
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "Про побудову й виконання транзакції читайте в розділі Виконання маршруту.",
+      "backTranslation": "For information on how to build and execute a transaction, see Executing the Route.",
+      "similarity": 0.6803
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "Solidity SwapRouter, який лише розраховує котирування, і процес обміну в Застосунку — різні програмні компоненти. Їхній зв’язок пояснено в розділі Маршрутизація.",
+      "backTranslation": "The Solidity SwapRouter, which only calculates the quotes, and the exchange process in the App are different software components. Their relationship is explained in the Routing section.",
+      "similarity": 0.7333
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "Для учасників важливо перевірити повне котирування. Кожен Пул може стягувати комісії. Спільний маршрут не об’єднує ці Пули й не робить одного Куратора відповідальним за інший Пул.",
+      "backTranslation": "Each Pool may charge commissions. A shared route does not combine these Pools and does not make one Curator responsible for another Pool. It is important for participants to check the full quote.",
+      "similarity": 0.5615
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "Після надсилання перевірте, чи обмін очікує виконання, підтверджений або невдалий, і збережіть квитанцію. Якщо маршрут недоступний, спробуйте оновити пошук, зменшити суму або вибрати інший підтримуваний вхідний Ваучер.",
+      "backTranslation": "After submitting, check whether the exchange is pending, confirmed or failed and save your receipt. If the route is not available, try refreshing your search, reducing the amount or selecting another supported incoming Voucher.",
+      "similarity": 0.8598
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "Невдалий обмін не змінює наявних обіцянок Емітента. Успішний обмін фіксує змінені баланси; виконання й припинення зобов’язання й далі визначаються умовами Емітента. Дивіться практичні приклади.",
+      "backTranslation": "A failed exchange does not change the Issuer’s existing promises. A successful exchange fixes the changed balances; performance and termination of obligations continue to be governed by the terms of the Issuers. See practical examples.",
+      "similarity": 0.7402
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "Розробники знайдуть інтерфейси транзакцій і відстеження в довіднику API CLC Core.",
+      "backTranslation": "Developers can find transaction and tracking interfaces in the CLC Core API manual.",
+      "similarity": 0.9231
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "Перш ніж покладатися на Пул, з’ясуйте, хто є його Куратором, власником контракту, уповноваженим на оновлення, одержувачем комісій і хто може змінювати важливі налаштування. Технічний контролер і відповідальний Куратор можуть бути різними сторонами.",
+      "backTranslation": "Before relying on a Pool, determine who is its Curator, contract owner, upgrade authorized, commission recipient and who can change important settings. The technical controller and the responsible Curator may be different parties.",
+      "similarity": 0.7805
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "Довідник програмного забезпечення містить актуальні механізми Пулів і перевірку розгортання. Ця документація пояснює ролі й термінологію, відповідальність в управлінні і ширший задум CPP.",
+      "backTranslation": "The Software Manual contains the current Pools mechanisms and deployment check. This documentation explains roles and terminology, responsibilities in management, and the broader CPP concept.",
+      "similarity": 0.6556
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "Не кожен Ваучер, Пул або Гаманець підтримує маршрутизований обмін. Застосунок перевіряє, чи доступний обмін для вашого вибору. Довідник маршрутизації програмного забезпечення містить актуальні правила допуску й технічні вимоги англійською.",
+      "backTranslation": "Not every Voucher, Pool or Wallet supports routing exchange. The app will check if an exchange is available for your choice. The software's Routing Guide contains the current admission rules and technical requirements in English.",
+      "similarity": 0.8774
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "Пошук маршруту дає оцінку. Перед підписанням перевірте остаточне котирування, зокрема мінімальну отримувану суму й строк дії. Поточний маршрутизований обмін виконується повністю або його обміни в Пулах скасовуються разом. Після надсилання перевірте у квитанції результат, обміняні суми й комісії.",
+      "backTranslation": "Before signing, check the final quote, including the minimum amount to be received and the duration. The current routed exchange is executed in full or its exchanges in Pools are cancelled together. After sending, check your receipt for the result, exchanged amounts and commissions.",
+      "similarity": 0.6702
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "Застосунок підтримує прямі й маршрутизовані обміни в Пулах там, де вони доступні. Міжланцюгова маршрутизація, автоматичне балансування Пулів, пакетний неттінг, спільне страхування, запропоновані активи управління, мережеві програми ліквідності й регульовані платіжні канали залишаються пропозиціями або залежать від розгортання, якщо конкретне розгортання не визначає їх як активні.",
+      "backTranslation": "The application supports direct and routed exchanges in Pools where available. Interchain routing, automatic pool balancing, batch netting, mutual insurance, proposed management assets, network liquidity programs, and regulated payment channels remain offerings or depending on the deployment unless a specific deployments defines them as active.",
+      "similarity": 0.8368
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  Публічна версія смартконтрактів, описана в основному довіднику програмного забезпечення (англійською).",
+      "backTranslation": "Protocol v1.1.0  Public version of the smart contracts, described in the main software manual.",
+      "similarity": 0.6502
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "Процес маршрутизації Застосунку  Застосунок і допоміжні служби знаходять можливі шляхи через Пули, розраховують котирування обміну, запитують дозвіл учасника й повідомляють результат.",
+      "backTranslation": "The Application and support services find possible routes through the Pools, calculate exchange quotes, request permission from the participant and report the result.",
+      "similarity": 0.7246
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "Маршрут — це впорядкований шлях через один або кілька незалежно керованих Пулів. Глибина маршруту — кількість обмінів у Пулах на цьому шляху.",
+      "backTranslation": "A route is an ordered path through one or more independently managed Pools. Route depth is the number of Pool exchanges on that path.",
+      "similarity": 0.9202
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "Не кожен Ваучер, Пул або Гаманець придатний для маршрутизації. Наявність Ваучера в Пулі не робить його автоматично доступним через кожен маршрут. Довідник маршрутизації програмного забезпечення містить актуальні правила допуску й налаштування англійською.",
+      "backTranslation": "Not every Voucher, Pool or Wallet is suitable for routing. The presence of a Voucher in a Pool does not automatically make it available through every route. The software's Routing Guide contains the current admission and configuration rules in English.",
+      "similarity": 0.8104
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "Доступна ліквідність — це запаси, які Пул може надати за своїми поточними правилами, лімітами й комісіями. Зв’язок між Пулами не доводить доступності потрібної суми. Перевірте остаточне котирування: його строк може сплинути або воно може втратити чинність, якщо умови Пулу зміняться.",
+      "backTranslation": "Available liquidity is the stock that a Pool can provide under its current rules, limits and fees. The connection between Pools does not indicate that the required amount is available. Check the final quote: it may expire or become invalid if the Pool conditions change.",
+      "similarity": 0.8512
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "Посібник Початок роботи застосовує ці терміни до поточного Застосунку. Огляд Протоколу пов’язує ці поняття з основною документацією програмного забезпечення, а Біла книга представляє ширший задум і пропозиції.",
+      "backTranslation": "The Getting Started Guide applies these terms to the current Application. The Protocol Overview links these concepts to the core software documentation, and the White Paper presents a broader vision and proposals.",
+      "similarity": 0.8765
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "Школа вибирає, скільки хоче Отримати або Витратити. Застосунок показує котирування всього обміну. Деталі маршруту містять обидва обміни, суми й комісії Пулу та протоколу на кожному кроці. Перед продовженням школа перевіряє мінімальну отримувану суму й строк дії котирування.",
+      "backTranslation": "The app shows the quote for the entire exchange. Route details include both exchanges, amounts and Pool and protocol fees at each step. Before continuing, the school checks the minimum amount received and the validity of the quote.",
+      "similarity": 0.5847
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "Школа вибирає Підтвердити обмін і дозволяє весь маршрут. У разі успіху квитанція показує два обміни в Пулах, обміняні суми й комісії.",
+      "backTranslation": "The school selects Confirm Exchange and allows the entire route. If successful, the receipt shows two exchanges in Pools, the amounts exchanged and the commissions.",
+      "similarity": 0.7569
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "Якщо один крок не вдається, обидва обміни в Пулах скасовуються разом; перший не залишається розрахованим без другого. Як програмне забезпечення будує й виконує цю транзакцію, описано в довіднику маршрутизації (англійською).",
+      "backTranslation": "If one step fails, both Pool exchanges are cancelled together; the first is not settled without the second. How software builds and executes this transaction is described in the Routing Manual.",
+      "similarity": 0.7576
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "CLC App і допоміжні служби допомагають учасникам знаходити Ваучери, організовувати обміни й перевіряти результати. Оператори відповідають за власні служби й пояснення їхніх збоїв. Основна документація програмного забезпечення описує допоміжні системи та їхню експлуатацію англійською.",
+      "backTranslation": "The CLC App and support services help members find Vouchers, arrange exchanges and verify results. Operators are responsible for their own services and explanations of their failures. The basic software documentation describes the support systems and their operation in English.",
+      "similarity": 0.8419
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "Маршрутизований обмін зберігає межі між його Пулами. Кожен Пул застосовує власні правила й засоби контролю. Спільна квитанція не об’єднує управління Пулами й не передає відповідальність Емітента оператору маршруту. Технічні записи транзакцій описано в довіднику обміну програмного забезпечення.",
+      "backTranslation": "A routed exchange maintains the boundaries between its Pools. Each Pool applies its own rules and controls. The shared receipt does not consolidate the management of the Pools or transfer Issuer responsibility to the route operator. Technical transaction records are described in the software exchange manual.",
+      "similarity": 0.79
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "Актуальний довідник програмного забезпечення",
+      "backTranslation": "The latest software guide.",
+      "similarity": 0.5
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "Це опублікована Біла книга v0.9. Актуальну реалізацію програмного забезпечення, контракти, API й інструкції з розгортання описано в документації програмного забезпечення CLC.",
+      "backTranslation": "This is the published White Paper v0.9. The current software implementation, contracts, API and deployment instructions are described in the CLC software documentation.",
+      "similarity": 0.9264
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "Читати документацію програмного забезпечення (англійською)",
+      "backTranslation": "Read the software documentation (in English)",
+      "similarity": 0.9647
+    }
+  ],
+  "reviewDate": "23 November 2026",
+  "readingNoteSha256": "7ff44461004b90af9be3e4f7fe9fc018998a571f596abd6e304678ca24a3cba7",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation with the established app glossary",
+      "complete clarity and protected-content review",
+      "independent MADLAD back-translation and comparison of all 64 changed units against English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 3,
+    "resolution": "All 64 revised units were compared with English and reviewed for natural Ukrainian, established app vocabulary and distinct responsibilities. The three low-confidence results are equivalent table labels and deployment-verification wording. Direct review confirmed the model omitted some opening sentences, including the owner withdrawal power, while those statements remain explicit in Ukrainian. Model-only vehicle and pool-delivery substitutions are absent. Issuer promises, no automatic depositor rights, additive fees, balance caps rather than loans, expiring quotes, whole-route rollback and separate Pool governance retain their source meanings. Existing heading destinations and exact app labels remain intact."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/uk/governance/privacy#what-becomes-public",
+    "afterHref": "/uk/governance/privacy#4-що-стає-публічним",
+    "previousSha256": "721f78ba8be703bc0daa119a66703805d9f746a8016fc4e452f9c238b28d848d",
+    "sha256": "bebdfdb225e00bf4fcf9de7e047c8feeec079141d6d0b5c84a6cd4bd11c840e3",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

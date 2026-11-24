@@ -1,105 +1,43 @@
-import { MermaidDiagram } from '../../../components/MermaidDiagram'
-
 # Muundo wa mtandao wa Itifaki
 
-Utekelezaji unaolingana na CPP unaweza kuunganisha Vocha na Vikundi vingi kupitia rejesta za hiari, faharasa, moduli za makadirio na ugunduzi wa njia katika kiwango cha programu. Kila Kikundi hubaki hifadhi tofauti yenye ukwasi, mmiliki, msimamizi wa proksi, usanidi na vitegemezi vyake.
+Vikundi kadhaa vinavyosimamiwa kwa kujitegemea vinaweza kuunganisha Vocha uliyo nayo na unayoitaka. Kila Kikundi hutoa hatua moja ya ubadilishaji, kikitumia sheria zake na mali zinazopatikana.
 
-Grassroots Economics Foundation huendesha programu ya umma kwenye [cosmolocal.credit](https://cosmolocal.credit). Violeshura na utekelezaji mwingine vinaweza kutumia itifaki hiyo hiyo ya umma. Kuendesha programu hakufanyi GEF moja kwa moja kuwa mmiliki, Mtoaji, Msimamizi, mpokeaji wa ada au mdhamini wa kila mkataba unaoonyeshwa hapa chini.
-
-Angalia [Dhana na msamiati](/sw/introduction/concepts) ili kuelewa tofauti kati ya majukumu yenye uwajibikaji na mamlaka za kiufundi.
+[Marejeo ya uelekezaji wa programu za CLC](https://software.cosmolocal.credit/contracts/routing) ndicho chanzo rasmi cha ugunduzi wa njia, ustahiki, utekelezaji na miingiliano ya huduma. Nyaraka za programu kwa sasa ziko kwa Kiingereza. Ukurasa huu unaeleza safari ya mshiriki na wajibu wake.
 
 ## Ugunduzi na utekelezaji wa njia katika uzalishaji
 
-<MermaidDiagram
-  label="Muundo wa uelekezaji wa CLC App na CLC Core katika uzalishaji"
-  minWidth={1180}
-  chart={`flowchart TB
-    User["Mshiriki"] --> App["CLC App<br/>Mkopo · Pata · Tumia"]
-    App -->|vocha zinazoweza kufikiwa na njia zinazowezekana| Core["Huduma ya uelekezaji ya CLC Core"]
-    Catalog["Katalogi, rejesta,<br/>matukio ya mnyororo yaliyoainishwa"] --> Core
-    Chain["Usomaji wa mnyororo<br/>katika block iliyowekwa"] -->|hali ya Kikundi, salio, ada,<br/>mipaka na taarifa za nukuu| Core
-    Reconcile["Uainishaji na upatanisho"] --> Catalog
+Katika mwonekano wa **Mkopo** wa Programu, chagua **Pata** kwa Vocha unayotaka kupata au **Tumia** kwa ile unayotaka kutumia. Njia inaweza kubadilisha Vocha ya usafiri kuwa Vocha ya chakula kupitia Vikundi viwili tofauti.
 
-    Core -->|nukuu halali,<br/>mipaka na simu zilizotayarishwa| App
-    Core -->|iga kundi lote| Chain
-    App -->|kagua na utie sahihi| Wallet["Mkoba wa EOA/Calibur<br/>unaoendana na App"]
-    Wallet -->|kundi lililotiwa sahihi| Relayer["Relayer"]
-    Relayer -->|muamala mmoja kwenye mnyororo huo<br/>revertOnFailure = true| Batch["Kundi la Calibur<br/>idhini 0 · idhini ya kiasi<br/>utoaji wenye mipaka kwa kila hatua"]
-
-    Batch --> PoolA["SwapPool A"]
-    Batch --> PoolB["SwapPool B"]
-    Batch --> PoolC["SwapPool C<br/>(ikiwa inahitajika)"]
-    PoolA --> Events["Matukio ya ukamilishaji"]
-    PoolB --> Events
-    PoolC --> Events
-    Events --> Reconcile
-    Reconcile --> Receipt["Risiti iliyojumuishwa ya ubadilishaji wa njia<br/>hali · hash ya muamala · hatua · kiasi · ada"]
-    Receipt --> App
-
-    SolidityRouter["Protocol v1.1.0 Solidity SwapRouter<br/>mkataba unaotumika tena wa nukuu pekee"] -. husoma nukuu; hautekelezi .-> PoolA
-    SolidityRouter -. husoma nukuu; hautekelezi .-> PoolB`}
-/>
-
-Vocha inayoshirikiwa huunda **njia inayowezekana kwenye grafu**, si njia yenye dhamana. Huduma ya CLC Core katika uzalishaji hudumisha grafu iliyopatanishwa kutokana na taarifa za Vikundi, rejesta, katalogi, salio, ada na matukio ya mnyororo. Pia huthibitisha mali muhimu katika Mkoba wa kipindi. Utekelezaji wa umma kwa sasa hutafuta njia zenye hadi ubadilishaji tatu wa Kikundi.
-
-Uelekezaji wa uzalishaji hutumia kwa makusudi vigezo vichache zaidi kuliko ubadilishaji wa moja kwa moja wa Kikundi. Huelekeza tu kupitia Vikundi vilivyothibitishwa vyenye bei linganishi na tokeni ambazo uhamishaji wake huhamisha kiasi kilichotajwa: vocha za `GiftableToken` na tokeni za kawaida za ERC-20 zilizoidhinishwa wazi katika usanidi wa `router.plain_erc20` wa utekelezaji. Kwa hiyo, tokeni inaweza kutumiwa katika ubadilishaji wa moja kwa moja wa Kikundi bila kustahiki uelekezaji wa kiwango cha Programu.
-
-Ugunduzi wa grafu ni wa haraka, lakini ni makadirio ya hali katika block iliyoainishwa. Matokeo yanaweza kutiwa alama kuwa yamepitwa na wakati, na muunganisho hauthibitishi kuwa kiasi kinachotakiwa kinaweza kupita. Kichujio cha **Mkopo** katika App hutumia seti hii inayoweza kufikiwa katika Soko na skrini nyingine za ugunduzi.
+Kupata muunganiko hakuhakikishi ubadilishaji. Vocha zinazokubaliwa, mipaka ya Vikundi, mali zinazopatikana, ada, uoanifu wa Mkoba na upatikanaji wa huduma lazima viruhusu kiasi kinachoombwa.
 
 ### Nukuu ya mamlaka
 
-Baada ya mshiriki kuchagua njia na kiasi, CLC Core husoma kila Kikundi kinachohusika katika block moja iliyowekwa na kurudia hesabu zinazosaidiwa za `SwapPool`. Nukuu hutaja kila hatua, ingizo na matokeo, ada ya Kikundi, ada ya itifaki, kiwango cha chini cha matokeo, mpokeaji wa mwisho na muda wa kuisha. Muda wa sasa wa nukuu katika uzalishaji ni dakika tano.
+Kagua **Maelezo ya njia** kabla ya kuthibitisha: unacholipa, unachopokea, kila Kikundi kinachohusika, ada, kiasi cha chini utakachopokea na muda wa mwisho wa nukuu. Makadirio hukusaidia kuchunguza; nukuu ndiyo pendekezo unaloidhinisha. Ionyeshe upya ikiwa imeisha muda au hali za Vikundi zimebadilika.
 
-Kisha huduma huunda na kuiga kundi lote la Calibur. Tabia za tokeni zisizosaidiwa, quoter zisizosaidiwa, salio lisilotosha la Mkoba, kushindwa kwa kukubaliwa, vikomo vya salio la tokeni la Kikundi, ukwasi usiotosha, vikoa batili vya ada, vikomo vya gesi na sababu nyingine za kurejesha muamala zinaweza kuzuia nukuu kutolewa.
-
-Ugunduzi na nukuu ni ushahidi tofauti. Ugunduzi unasema kuwa njia inaweza kuwepo; nukuu ya block iliyowekwa ndiyo pendekezo halali la muamala. Hata pendekezo hilo linaweza kuisha muda au kuwa batili ikiwa hali inayohusika itabadilika kabla ya kuwasilishwa.
+[Marejeo ya uelekezaji](https://software.cosmolocal.credit/contracts/routing) na [usanidi wa huduma](https://software.cosmolocal.credit/core-api/configuration#credit-router) huweka sheria za kiufundi za ustahiki na mipangilio ya nukuu.
 
 ### Kundi atomiki lililotiwa sahihi
 
-Mtumiaji hukagua **Maelezo ya njia** na kutia sahihi kundi la miamala ya Mkoba lililotayarishwa. Kwa kila hatua, kundi huita `approve(pool, 0)`, `approve(pool, amountIn)` na toleo la `SwapPool.withdraw` lenye mipaka. Kila utoaji wenye mipaka huweka kiwango cha chini cha matokeo na muda wa mwisho. Vocha za kati hurudi kwenye Mkoba huohuo kabla Kikundi kinachofuata hakijatumia kiasi kilichonukuliwa; salio lolote la mali ya kati hubaki katika Mkoba huo.
+Unakagua na kuidhinisha ubadilishaji mzima. Njia ya sasa hufaulu yote au ubadilishaji wa Vikundi vyake hubatilishwa pamoja ikiwa hatua moja itashindwa. Hii huzuia sehemu tu ya njia kukamilika; haihakikishi utoaji wa bidhaa au huduma baadaye.
 
-Relayer huwasilisha kundi kama muamala mmoja kwenye mnyororo huo huku `revertOnFailure` ikiwa `true`. Idhini au ubadilishaji wowote wa Kikundi ukishindwa, simu zote za njia—ikiwemo hatua za awali na mabadiliko yake ya idhini—hurejeshwa pamoja. Huu ndio uatomiki wa sasa wa muamala kwenye mnyororo mmoja. Si uatomiki kati ya minyororo, HTLC, escrow, ulinganishaji wala usawazishaji wa kiotomatiki wa Vikundi.
-
-Mtiririko wa sasa wa njia unasaidia Mikoba ya EOA/Calibur inayoendana na App. Safe au Mkoba mwingine wa mkataba hukataliwa na njia ya sasa ya nukuu.
+Kwa uundaji na utekelezaji wa muamala, soma [Tekeleza njia](https://software.cosmolocal.credit/contracts/routing#execute-a-route).
 
 ### `SwapRouter` ya Solidity na ada
 
-`SwapRouter` ya Solidity ya Protocol v1.1.0 hubaki ya nukuu pekee. Inaweza kuita vitendaji vya nukuu vya Vikundi katika njia iliyotolewa, lakini haishikilii fedha, haiidhinishi tokeni wala kutekeleza ubadilishaji. Mtiririko wa App/Core katika uzalishaji ulioelezwa hapo juu ni mratibu tofauti katika kiwango cha programu anayeita kila `SwapPool` moja kwa moja kupitia kundi la miamala ya Mkoba lililotiwa sahihi na mshiriki.
+`SwapRouter` ya Solidity, inayotoa nukuu pekee, na mtiririko wa ubadilishaji wa Programu ni vipengele tofauti vya programu. Uhusiano wao umeelezwa katika [Uelekezaji](https://software.cosmolocal.credit/contracts/routing).
 
-Ada za Kikundi hubaki katika Kikundi kinachohusika ili zikusanywe baadaye. Ada yoyote ya itifaki ni ya ziada na huhamishwa moja kwa moja kutoka Kikundi hicho kwenda kwa mpokeaji wa itifaki aliyesanidiwa wakati wa ubadilishaji.
-
-App ya sasa haiongezi ada tofauti ya huduma ya uelekezaji. Hata hivyo, ubadilishaji wa njia unaweza kuwa na ada kadhaa za Kikundi na itifaki kwa sababu kila hatua ni ukamilishaji tofauti wa `SwapPool`.
+Kwa washiriki, ukaguzi muhimu ni nukuu nzima. Kila Kikundi kinaweza kutoza ada. Njia ya pamoja haiunganishi Vikundi hivyo wala kumfanya Msimamizi mmoja kuwajibika kwa Kikundi kingine.
 
 ### Hali za risiti na kushindwa
 
-CLC Core huweka njia chini ya kitambulisho kimoja cha ufuatiliaji. App huonyesha **Inabadilisha**, **Imebadilishwa** au **Ubadilishaji umeshindwa**, pamoja na hali ya kiufundi ya **Inasubiri**, **Imethibitishwa** au **Imerejeshwa**. Risiti hurekodi hash ya muamala, kina cha njia, kila Kikundi na jozi ya tokeni, kiasi kilichonukuliwa na kilichokamilishwa, ada za Kikundi na itifaki kwa kila hatua, kiwango cha chini kilichopokelewa na salio lolote la kati lililobaki katika Mkoba.
+Baada ya kuwasilisha, angalia ikiwa ubadilishaji unasubiri, umethibitishwa au umeshindwa, na uhifadhi risiti. Ikiwa hakuna njia inayopatikana, jaribu kuonyesha upya, kupunguza kiasi au kuchagua Vocha nyingine inayokubaliwa ya kuanzia.
 
-Njia inaweza kushindwa kabla ya kutia sahihi kwa sababu hakuna njia inayofaa au nukuu inayopatikana; wakati wa uigaji kwa sababu kundi lingerudishwa; wakati wa uwasilishaji kwa sababu muamala uliotiwa sahihi hauwezi kuwasilishwa; au kwenye mnyororo kwa sababu hali ilibadilika au sharti jingine la utekelezaji lilishindwa. Njia iliyoshindwa au isiyopatikana haibadilishi kanuni za Kikundi, haiweki ukomo wa vocha wala kuthibitisha chochote kuhusu utekelezaji wa Mtoaji.
+Ubadilishaji ulioshindwa haubadilishi ahadi zilizopo za Mtoaji. Ubadilishaji uliofanikiwa hurekodi salio lililobadilika; utekelezaji wa ahadi na ukomo bado hufuata masharti ya Mtoaji. Soma [mifano ya vitendo](/sw/introduction/example).
 
+Watengenezaji wa programu wanaweza kupata miingiliano ya miamala na ufuatiliaji katika [marejeo ya API ya CLC Core](https://software.cosmolocal.credit/core-api/reference).
 
 ## Vipengele vya ndani vya Kikundi
 
-<MermaidDiagram
-  label="Vitegemezi vya Kikundi cha Ahadi na mamlaka za usimamizi"
-  minWidth={820}
-  chart={`flowchart TB
-    Steward["Msimamizi wa Kikundi anayewajibika"] -. huchapisha sheria,<br/>taarifa na utawala .-> Pool["SwapPool<br/>hifadhi na malipo"]
-    Owner["Anwani ya mmiliki wa SwapPool"] -->|sanidi, funga, kusanya, toa| Pool
-    ProxyAdmin["Msimamizi wa proksi<br/>ya ERC-1967"] -->|boresha utekelezaji| Pool
-    Dependencies["Vitegemezi vya hiari<br/>rejesta · limiter · quoter<br/>sera ya ada · kidhibiti cha ada ya itifaki<br/>kila kimoja na utawala wake"] -. taarifa za ukamilishaji .-> Pool
-    Seal["Nafasi tano zinazoweza kufungwa<br/>feePolicy · feeAddress · quoter<br/>tokenRegistry · tokenLimiter"] -. hufunga anwani .-> Pool
+Kabla ya kutegemea Kikundi, tambua Msimamizi wake, mmiliki wa mkataba, mamlaka za uboreshaji, wapokeaji wa ada na yeyote anayeweza kubadilisha mipangilio muhimu. Mwenye udhibiti wa kiufundi na Msimamizi anayewajibika wanaweza kuwa wahusika tofauti.
 
-    Wallet["Mkoba wa mtumiaji"] -->|amana au ingizo la ubadilishaji| Pool
-    Pool -->|matokeo halisi ya ubadilishaji| Wallet
-    Pool -->|ada za Kikundi zilizokusanywa| FeeAddress["Anwani ya ada<br/>iliyosanidiwa"]
-    Pool -->|ada ya itifaki katika ubadilishaji huo| ProtocolRecipient["Mpokeaji wa<br/>itifaki"]
-    Pool -->|withdrawLiquidity| Destination["Mpokeaji aliyechaguliwa<br/>na mmiliki"]`}
-/>
-
-Rejesta, limiter, quoter, sera ya ada na kidhibiti cha ada ya itifaki ni za hiari. Bila rejesta, tokeni yoyote hupita ukaguzi wa kukubaliwa; bila limiter, amana hazina kikomo; bila quoter, Kikundi hutumia usawa wa vitengo ghafi; na bila moduli za ada, ada husika huwa sifuri.
-
-Nafasi tano zinazoweza kufungwa ni `feePolicy`, `feeAddress`, `quoter`, `tokenRegistry` na `tokenLimiter`. Kufunga nafasi humzuia mmiliki wa sasa wa Kikundi kubadilisha anwani hiyo kupitia setter yake, lakini hakufungi hali ya ndani ya kitegemezi. Anwani ya `protocolFeeController` na hali ya `feesDecoupled` hazijumuishwi katika nafasi hizo tano. Uwezo wa msimamizi wa proksi kuboresha Kikundi pia ni tofauti na kufunga nafasi.
-
-Mmiliki wa mkataba anaweza kutoa ukwasi unaopatikana wa Kikundi kwenda anwani iliyochaguliwa. Katika hali ya ada zilizotenganishwa, ada zilizokusanywa huhifadhiwa kutoka kwenye njia hiyo; mamlaka ya kutoa ukwasi uliobaki bado ipo. Washiriki wanapaswa kukagua mmiliki, msimamizi wa proksi, wadhibiti wa vitegemezi, hali ya nafasi zilizofungwa, wapokeaji wa ada na kanuni zilizochapishwa za Kikundi kabla ya kukitegemea.
-
-Kwa muundo wa dhana unaotegemeza mikataba hii—ikiwemo uratibu, uthamini, mipaka, ubadilishaji na utawala—angalia [Waraka Mweupe](/sw/white-paper).
+Marejeo ya programu yanaeleza [utendaji wa Vikundi](https://software.cosmolocal.credit/contracts/pools) na [uthibitishaji wa mifumo iliyowekwa](https://software.cosmolocal.credit/contracts/deployments). Nyaraka hizi zinaeleza [majukumu na msamiati](/sw/introduction/concepts), [wajibu wa utawala](/sw/governance/mechanics) na [muundo mpana wa CPP](/sw/white-paper).

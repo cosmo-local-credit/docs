@@ -1,39 +1,36 @@
 # 协议
 
-Protocol v1.1.0 合约提供了白皮书 [第 1 章](/zh/white-paper/chapter-01-commitment-pooling-protocol-cpp-the-core-primitive) 中所述 **承诺汇聚协议 (CPP)** 的链上构件。本参考文档以公开的 [`v1.1.0` 版本](https://github.com/cosmo-local-credit/protocol/tree/v1.1.0) 为准。
+**Commitment Pooling Protocol（CPP，承诺汇集协议）** 说明独立治理的资金池如何选择代金券、公布交换规则并支持交换。持有人之后向发行方使用代金券，获得承诺的商品或服务。这些是不同的步骤，各自有不同的责任。
 
-有关本文使用的产品层级、负责任角色、操作生命周期、价值、限制、费用和状态术语，请参阅 [概念和术语](/zh/introduction/concepts)。
+本网站解释这些概念以及如何使用 CLC App。[CLC 软件文档](https://software.cosmolocal.credit/)是软件实现、合约、API、部署和运营的权威参考，目前提供英文版本。
 
-Grassroots Economics Foundation (GEF) 运营 [cosmolocal.credit](https://cosmolocal.credit) 上的渐进式网页应用，该应用是与这些合约交互的一种方式。应用和合约彼此独立。仅运营界面不会使 GEF 自动成为代金券发行方、资金池管理者、托管人、担保人或用户交易的对手方。这些角色取决于相关部署、控制者地址以及已公布的发行方或资金池条款。请参阅 [服务条款](/zh/governance/terms)。
+了解共同术语，可以先阅读[概念与词汇](/zh/introduction/concepts)；了解更广泛的设计和提案，可以阅读[白皮书](/zh/white-paper)。
 
 ## 部署模式
 
-大多数有状态模块都通过 Solady 的 `ERC1967Factory` 初始化为 **ERC-1967 代理实例**。多个实例可以共享一个实现，同时保持各自独立的所有者、配置和存储。部署还可以使用确定性盐值，便于在部署前预测地址。
+不同社区和组织可以按照自己的规则运行兼容软件。Grassroots Economics Foundation 运营[公共 CLC App](https://cosmolocal.credit)。每项部署都应说明运营方、合约和责任机构。
 
-并非每个合约都使用代理。`DecimalQuoter` 和 `SwapRouter` 是无状态的直接部署；`RescueVault` 和 `ERC1967Factory` 也是直接部署。下面列出的其余有状态模块均为代理部署而设计。
-
-每个代理都有一名可替换其实现的管理员。代理管理与合约所有权相互独立，应当分配给受适当治理的地址。即使资金池已封存配置，升级仍可能改变行为，因此用户应同时评估资金池所有者和代理管理员。
-
-EIP-165 支持也取决于具体合约，并非普遍存在。`GiftableToken`、三个报价器、`OracleRelay`、`Limiter`、多个注册表和索引、`Splitter`、`EthFaucet`、`PeriodSimple` 和 `RescueVault` 都提供 EIP-165 支持。在 v1.1.0 中，`SwapPool`、`SwapRouter`、`FeePolicy`、`ProtocolFeeController` 和 `CAT` 不提供 `supportsInterface`。
+合约地址、部署说明以及如何核实所有者和升级权限，见[部署与验证](https://software.cosmolocal.credit/contracts/deployments)。运行配套服务，可以从 [CLC Core API](https://software.cosmolocal.credit/core-api/) 开始。
 
 ## 组件概览
 
-- **GiftableToken** — ERC20 供应、铸造、销毁和可选过期机制。发行方可以将某个实例用作代金券，但合约本身不会定义可兑付的内容、兑付人、地点或条款。
-- **SwapPool** — 代币保管库和交换结算引擎。部署可以连接筛选、估值、费用、限制和协议费用组件，也可以不设置某些受支持的依赖项。
-- **DecimalQuoter、RelativeQuoter 和 OracleQuoter** — 可互换的估值模块，分别用于小数位平价、所有者管理的相对汇率，或预言机推导的汇率。`OracleRelay` 可以为 `OracleQuoter` 中继一个外部数据源。
-- **FeePolicy 和 Limiter** — 可选的资产对费用规则和每代币资金池余额上限。
-- **ProtocolFeeController** — 可选、可变的协议费率、接收方和活跃状态，资金池可在结算时读取它。
-- **TokenUniqueSymbolIndex、AccountsIndex 和 ContractRegistry** — 代币、账户和地址发现组件。`CAT` 记录某个账户按顺序排列的结算代币偏好。
-- **SwapRouter** — 针对拟议的多资金池路径进行仅报价的精确输入和精确输出计算。它不托管代币，也不执行交换。
-- **Splitter、EthFaucet、PeriodSimple 和 RescueVault** — 用于分配、Gas 资助、频率限制和资产恢复的支持工具。
+以下主题请查阅软件参考文档：
 
-这些合约可以以不同方式组合。注册表上架、报价或图上路径都不能保证交易必然执行：当前流动性、代币限制、费用、预言机状态、授权、截止时间、网络状况和各资金池的配置仍然适用。
-
+| 主题 | 权威软件文档 |
+| --- | --- |
+| 代金券创建、供应量和到期机制 | [代金券](https://software.cosmolocal.credit/contracts/vouchers) |
+| 资金池配置、存入、提取和控制 | [资金池](https://software.cosmolocal.credit/contracts/pools) |
+| 汇率计算 | [报价器（Quoter）](https://software.cosmolocal.credit/contracts/quoters) |
+| 交换执行、费用和交易记录 | [交换报价与结算](https://software.cosmolocal.credit/contracts/swaps) |
+| 通过多个资金池交换 | [路由](https://software.cosmolocal.credit/contracts/routing) |
+| 发现服务和配套合约 | [注册表与工具](https://software.cosmolocal.credit/contracts/registries) |
+| API 请求和响应 | [OpenAPI 参考](https://software.cosmolocal.credit/core-api/reference) |
+| 后端和路由设置 | [配置](https://software.cosmolocal.credit/core-api/configuration) |
 
 ## 应用层路径兑换
 
-生产环境中的 CLC App 不只是调用 Solidity `SwapRouter`。CLC Core 维护一张经过对账的合格资金池关系图，估算可到达的代金券，在固定区块读取选定资金池以生成权威报价，模拟完整路径，并准备 Calibur 钱包批次。用户签署该批次，中继器再把它作为一笔同链交易提交。
+有合适路线时，App 可以帮助参与者通过多个资金池交换。参与者审核报价并授权交换。每个资金池仍保留自己的规则和责任方。
 
-每一跳都会直接调用一个 `SwapPool`。批次先重置并设置所需的代币额度，再调用带有最低输出和截止时间限制的 `SwapPool.withdraw` 重载。`revertOnFailure` 已启用，因此任何调用失败都会使整笔路径交易回滚。应用随后显示一张分组收据，其中包含逐跳结算和费用详情。
+参与者应了解的含义，见[路线与责任](/zh/protocol/network)；软件如何报价和执行路线，见[路由实现](https://software.cosmolocal.credit/contracts/routing)。
 
-此路径工作流程是建立在 Protocol v1.1.0 之上的 App/Core 功能。它不会把 Solidity `SwapRouter` 变成执行路由器，不会改变资金池所有者或管理者，也不会让一个资金池对另一个资金池的规则或发行方履约负责。完整流程见[协议网络架构](/zh/protocol/network)。
+软件使交换成为可能；发行方仍对代金券承诺负责，资金池管理者仍对自己公布的规则负责。公共 App 的使用受[服务条款](/zh/governance/terms)约束。

@@ -1,117 +1,148 @@
 # Begrippen en woordenschat
 
-Cosmo-Local Credit verbindt een applicatie, een open protocol, onafhankelijk bestuurde Fondsen en de werkelijke toezeggingen die waardebonnen vertegenwoordigen. Deze lagen werken samen, maar zijn niet hetzelfde.
+Cosmo-Local Credit verbindt mensen die goederen of diensten aanbieden met mensen die ze nodig hebben, via onafhankelijk bestuurde Commitmentfondsen waarin Waardebonnen kunnen worden uitgewisseld. Deze pagina begint met de begrippen die een deelnemer ziet en legt daarna de onderliggende technische lagen uit.
 
-Deze pagina omschrijft de begrippen die in de documentatie worden gebruikt. Exacte labels uit de App staan tussen aanhalingstekens wanneer de interface een kortere of mogelijk dubbelzinnige naam gebruikt.
+Exacte App-labels staan tussen aanhalingstekens wanneer de interface een kortere of mogelijk dubbelzinnige naam gebruikt.
 
-## Product- en protocollagen
+## Alledaagse begrippen
 
-| Begrip | Betekenis |
+| Begrip | Betekenis in gewone taal |
 | --- | --- |
-| **Cosmo-Local Credit (CLC)** | De productfamilie: de CLC App, de documentatie en het bredere werk rond het bundelen van toezeggingen. |
-| **CLC App** | De progressieve webapp op [cosmolocal.credit](https://cosmolocal.credit). GEF beheert deze interface en de ondersteunende diensten. |
-| **CLC Core** | De ondersteunende dienst van de App voor catalogi, geïndexeerde blockchainstatus, routeontdekking, gezaghebbende routequotes, relaycoördinatie en ontvangstbewijzen van gerouteerde uitwisselingen. Het is geen smart contract of Fondsbeheerder. |
-| **Commitment Pooling Protocol (CPP)** | Het herbruikbare model voor samenstelling, waardering, begrenzing, uitwisseling en verantwoordelijk bestuur. |
-| **Protocol v1.1.0** | De geverifieerde openbare smart-contractrelease die in de [Protocolreferentie](/nl-BE/protocol/overview) wordt beschreven. |
-| **Commitmentfonds** | Een bestuurde regeling die activa samenstelt, regels publiceert en uitwisseling mogelijk maakt. **Fonds** is de gebruikelijke verkorte naam. |
-| **`SwapPool`** | Het huidige Protocolcontract dat een tokenvoorraad aanhoudt en rechtstreekse swaps uitvoert. Het is één technisch onderdeel van een Commitmentfonds. |
-| **Solidity `SwapRouter`** | Het contract van Protocol v1.1.0 dat een voorgestelde route door meerdere Fondsen quote. Het bewaart geen activa en voert de route niet uit. |
-| **Routingwerkstroom van de App** | Het huidige proces van CLC App en CLC Core dat paden op dezelfde blockchain ontdekt, quote en simuleert, een ondertekende portefeuillebatch voorbereidt en doorstuurt, en de resulterende Fondsafwikkelingen in één ontvangstbewijs groepeert. |
-| **Voorgestelde CLC-bestuurstoken** | Een toekomstig bestuursontwerp in de White Paper. Dit is geen huidig activum van de App of Protocol v1.1.0. |
-| **Voorgesteld CLC-netwerkfonds** | Een toekomstig ontwerp voor verrekening en coördinatie op netwerkniveau. Dit is niet hetzelfde als een huidige `SwapPool`. |
+| **Waardebon** | Een overdraagbare verbintenis—vergelijkbaar met een geschenkbon—waarvan de Uitgever onder gepubliceerde voorwaarden bepaalde goederen, diensten, voordelen of andere prestaties belooft. |
+| **Uitgever** | De persoon of organisatie die de Waardebon maakt en verantwoordelijk blijft voor wat deze belooft. |
+| **Aanbieding** | Een catalogusrecord dat goederen of diensten beschrijft die bij een Waardebon horen. Het helpt mensen het aanbod te vinden, maar bewijst geen beschikbaarheid of nakoming. |
+| **Verzoek** | Een gepubliceerde beschrijving van iets waarnaar een deelnemer op zoek is. Het aanvaardt niet automatisch een Aanbieding, reserveert geen goederen, keurt geen uitwisseling goed en schept geen verplichting. |
+| **Markt** | De zoekcatalogus van de App voor Waardebonnen, Fondsen, Aanbiedingen, Verzoeken en andere openbare informatie. De Markt is niet automatisch een ruilplaats, verkoper, goedkeuring of garantie. |
+| **Commitmentfonds** | Een bestuurde regeling die ondersteunde Waardebonnen selecteert, ruilregels publiceert, voorraad aanhoudt en uitwisseling mogelijk maakt. **Fonds** is de gebruikelijke afkorting. |
+| **Fondsbeheerder** | De verantwoordelijke persoon, coöperatie, overheidsinstantie, federatie, multisig, dienst of andere structuur die de regels van een Fonds publiceert en beheert. |
+| **Houder** | Een deelnemer die een Waardebonsaldo beheert. Het bezit ervan bewijst geen nakoming, geldwaarde of garantie. |
+| **Portefeuille** | Het account en de toegangsgegevens waarmee tokenoverdrachten en Fondsuitwisselingen worden goedgekeurd. |
 
-## Tokens, waardebonnen en Aanbiedingen
+‘Gemeenschapslid’ is informele sociale taal. Het begrip schept op zichzelf geen toelating, eigendom, bestuur, terugbetaling of andere wettelijke rechten.
 
-Een **token** is een saldo op de blockchain of een digitaal activum. Tokenmechanismen kunnen voorraad, overdrachten, verval en verbranding registreren, maar beloven op zichzelf geen goederen, diensten, omzetting in geld of inwisseling.
+## Deelnemers vinden en contacteren
 
-Een **waardebon** is een token of registratie die een Uitgever onder gepubliceerde voorwaarden als inwisselbare toezegging aanbiedt. Die voorwaarden moeten vermelden wat wordt beloofd, wie verantwoordelijk is, waar en wanneer de waardebon kan worden aangeboden, welke belangrijke beperkingen gelden en hoe nakoming en klachten worden afgehandeld.
+De Markt helpt mensen Waardebonnen, Aanbiedingen, Verzoeken en Fondsen te vinden. Een vermelding betekent dat de App een record kan tonen; ze bewijst niet dat de informatie juist is, dat voorraad beschikbaar is of dat een transactie zal slagen.
 
-Een **Aanbieding** is de catalogusregistratie van goederen of diensten die bij een waardebon horen. Het publiceren van een Aanbieding maakt geen tokens aan, bewijst geen beschikbaarheid en toont niet aan dat nakoming heeft plaatsgevonden.
+Een deelnemer kan een Verzoek publiceren en via beschikbare contact- of berichtfuncties contact opnemen met een andere deelnemer. Een contactverzoek, bericht, boekingsgesprek of reactie op een Verzoek betekent op zichzelf niet dat:
 
-Dit zijn vier afzonderlijke lagen:
+- een Waardebon of Aanbieding wordt aanvaard;
+- een overdracht of Fondsswap wordt goedgekeurd;
+- levering of tevredenheid is bewezen;
+- een Waardebon is nagekomen of afgeboekt; of
+- GEF partij wordt bij de overeenkomst tussen de deelnemers.
+
+Beoordelingen zijn openbare feedback over een Waardebon of Fonds. Ze zijn niet hetzelfde als privébewijs van geschiktheid, onderzoek door een beheerder, een garantie of een vaststelling dat nakoming heeft plaatsgevonden.
+
+## Waardebonnen, tokens en Aanbiedingen
+
+Een **token** is een saldo op de blockchain of een digitaal activum. Tokenmechanismen kunnen aanbod, overdrachten, verval en verbranding registreren, maar beloven op zichzelf geen goederen, diensten, omzetting in geld of inwisseling.
+
+Een **Waardebon** is een token of record dat een Uitgever onder gepubliceerde voorwaarden als inwisselbare verbintenis presenteert. Die voorwaarden moeten aangeven wat wordt beloofd, wie verantwoordelijk is, waar en wanneer de Waardebon kan worden aangeboden, welke belangrijke beperkingen gelden en hoe nakoming en klachten worden afgehandeld.
+
+Een **Aanbieding** is het catalogusrecord voor goederen of diensten die bij een Waardebon horen. In gewone tekst betekent ‘aanbod’ eenvoudigweg iets dat een deelnemer voorstelt; **Aanbieding** is de naam van het App-record.
+
+Houd deze vier lagen uit elkaar:
 
 1. het tokencontract en de saldi;
-2. de omschrijving en gepubliceerde voorwaarden van de waardebon;
-3. een of meer Aanbiedingen; en
-4. de daadwerkelijke prestatie van de Uitgever.
+2. de aanduiding en gepubliceerde voorwaarden van de Waardebon;
+3. een of meer Aanbiedingsrecords; en
+4. de werkelijke prestatie van de Uitgever.
 
 ## Verantwoordelijke rollen en technische zeggenschap
 
 | Rol of bevoegdheid | Verantwoordelijkheid of macht |
 | --- | --- |
-| **Uitgever** | Publiceert een toezegging in de vorm van een waardebon en komt die na. Deze verantwoordelijkheid gaat niet automatisch over wanneer het eigendom van een contract verandert. |
-| **Houder** | Beheert een saldo aan waardebonnen. Zeggenschap bewijst geen nakoming, geldwaarde of garantie. |
-| **Dienstverlener** | Een publiek gerichte rol. Een dienstverlener wordt Uitgever wanneer die een toezegging in de vorm van een waardebon publiceert. |
-| **Fondsbeheerder** | De verantwoordelijke persoon, coöperatie, overheidsinstantie, federatie, multisig, dienst of andere structuur die Fondsregels publiceert en beheert. |
+| **Uitgever** | Publiceert een verbintenis van een Waardebon en komt die na. Deze verantwoordelijkheid gaat niet automatisch over wanneer het contracteigendom verandert. |
+| **Fondsbeheerder** | Publiceert en beheert Fondsregels en blijft verantwoordelijk voor iedere garantie die het Fonds uitdrukkelijk bekendmaakt. |
 | **Fondseigenaar** | Het adres met de huidige eigenaarsbevoegdheden van de `SwapPool`, waaronder configuratie, inning van kosten en opname van beschikbare liquiditeit. |
-| **Proxybeheerder** | De bevoegde partij die de implementatie van een proxycontract kan upgraden. Dit kan een andere partij zijn dan de Fondseigenaar. |
-| **Beheerder van een afhankelijkheid** | Een eigenaar of schrijver met zeggenschap over een register, limiter, quoter, oracle, kostenbeleid of beheerder van protocolkosten. |
-| **Catalogusmoderator** | Een App-beheerder die catalogusgegevens kan corrigeren, verbergen of herstellen zonder saldi op de blockchain te wijzigen. |
-| **Ontvanger van kosten** | Het geconfigureerde adres dat Fonds- of protocolkosten ontvangt. Dit is niet noodzakelijk de Fondsbeheerder of Fondseigenaar. |
-| **Ondersteuner of liquiditeitsverschaffer** | Een deelnemer die activa bijdraagt onder afzonderlijk bekendgemaakte voorwaarden. De huidige `SwapPool` maakt geen Fondsdeelnemingen aan en geeft geen automatisch recht op terugbetaling, opname, beloningen of bestuur. |
-
-‘Gemeenschapslid’ is informele sociale taal. Dit begrip geeft op zichzelf geen recht op toelating, eigendom, bestuur, terugbetaling of andere juridische rechten.
+| **Multisigondertekenaars** | Delen de technische bevoegdheid die aan een multisig-Portefeuille is toegekend. Een wijziging van ondertekenaars of drempels draagt de verantwoordelijkheid van de Uitgever, de verantwoordingsplicht van de Fondsbeheerder of het juridische eigendom niet stilzwijgend over. |
+| **Proxybeheerder** | Kan de implementatie van een geproxied contract upgraden. Dit kan een andere partij zijn dan de Fondseigenaar. |
+| **Afhankelijkheidsbeheerder** | Beheert een register, limiter, quoter, oracle, kostenbeleid of controller voor protocolkosten. |
+| **Catalogusmoderator** | Kan catalogusrecords corrigeren, verbergen, buiten gebruik stellen of herstellen zonder contracten, saldi of blockchainhistorie te verwijderen. |
+| **Ontvanger van kosten** | Ontvangt ingestelde Fonds- of protocolkosten. Dit is niet noodzakelijk de Fondsbeheerder of eigenaar. |
+| **Ondersteuner of liquiditeitsverschaffer** | Draagt activa bij onder afzonderlijk bekendgemaakte voorwaarden. De huidige `SwapPool` schept geen automatische Fondsaandelen of rechten op terugbetaling, opname, beloning of bestuur. |
 
 ## Handelingen en levenscyclus
 
 | Begrip in de App of documentatie | Betekenis |
 | --- | --- |
-| **Een waardebon maken of publiceren** | Een token implementeren of configureren en de catalogusregistratie en voorwaarden publiceren. |
-| **Uitgeven of aanmaken** | Een tokensaldo maken onder de bevoegdheid van de geconfigureerde eigenaar of schrijver. |
-| **Een Aanbieding publiceren** | Een registratie van goederen of diensten aan een waardebon toevoegen. |
+| **Een Waardebon maken of publiceren** | Een token implementeren of configureren en het catalogusrecord en de voorwaarden ervan publiceren. |
+| **Uitgeven of aanmaken** | Een tokensaldo creëren onder de bevoegdheid van de ingestelde eigenaar of schrijver. |
+| **Een Aanbieding publiceren** | Een record van goederen of diensten aan een Waardebon toevoegen. |
+| **Een Verzoek publiceren** | Een behoefte beschrijven zodat die kan worden gevonden en contact mogelijk wordt; dit creëert op zichzelf geen transactie. |
 | **Verzenden** | Een tokensaldo naar een ander adres overdragen. |
-| **‘Inwisselen’** | In de huidige App de verzendstroom openen met het adres van de tokeneigenaar vooraf ingevuld. Hiermee worden tokens aan de Uitgever aangeboden of teruggestuurd; het bewijst geen nakoming. |
+| **‘Inwisselen’** | De verzendstroom openen met het adres van de tokeneigenaar vooraf ingevuld. Dit is aanbieding ter inwisseling; het bewijst geen nakoming. |
 | **Nakomen** | De Uitgever levert de beloofde goederen, diensten, voordelen of andere prestatie. |
-| **Afboeken** | Nagekomen eenheden registreren zodat ze niet opnieuw kunnen worden aangeboden, bijvoorbeeld door ze volgens de gepubliceerde voorwaarden te ontvangen, verbranden, annuleren of op een andere manier uit te schakelen. |
-| **‘Waardebon buiten gebruik stellen’** | Een waardebon in de App-catalogus verbergen. Saldi en geschiedenis blijven bestaan en een beheerder kan de vermelding herstellen. Het is geen verbranding of annulering. |
-| **Storting of bijdrage aan een Fonds** | Activa naar een `SwapPool` overdragen. Rechten op terugbetaling, opname, beloningen of bestuur bestaan alleen als ze afzonderlijk bekendgemaakt zijn. |
-| **Fondsswap** | Eén ondersteund activum via één `SwapPool` omwisselen voor een ander. Dit is geen nakoming door de Uitgever en ook niet automatisch een lening. |
-| **Routeontdekking** | Zoekt mogelijke paden van geschikte Waardebonnen in een portefeuille naar een doel-Waardebon via ingestelde Fondsrelaties. De ontdekking is een schatting, geen uitvoerbare belofte. |
-| **Routequote** | Een tijdgebonden, gezaghebbende berekening voor één geselecteerd pad, gebaseerd op de Fondsstatus die op één vastgezet blok wordt gelezen en vóór ondertekening wordt gesimuleerd. |
-| **Gerouteerde uitwisseling** | Een geordende reeks Fondsswaps die de App als één portefeuillebatch op dezelfde blockchain indient. In de huidige stroom worden alle aanroepen teruggedraaid als één aanroep mislukt. |
-| **Ontvangstbewijs van een gerouteerde uitwisseling** | Eén gegroepeerd record met trackingstatus, transactiehash, routehops, afgewikkelde bedragen en de Fonds- en protocolkosten per hop. |
-| **Liquiditeit uit een Fonds opnemen** | De Fondseigenaar draagt beschikbare voorraad over naar een gekozen adres. |
-| **Kosten innen** | Een geconfigureerde ontvanger int opgebouwde Fondskosten. |
+| **Afboeken** | Nagekomen eenheden registreren zodat ze niet opnieuw kunnen worden aangeboden, bijvoorbeeld door ze volgens de gepubliceerde voorwaarden te ontvangen, verbranden, annuleren of anderszins uit te schakelen. |
+| **‘Buitengebruikstelling aanvragen’** | De huidige eigenaar vraagt een beheerder een Waardebon of Fonds buiten gebruik te stellen. De bron blijft actief terwijl het verzoek in behandeling is; het verzoek kan worden goedgekeurd, afgewezen of geannuleerd. |
+| **Een Waardebon buiten gebruik stellen** | De Waardebon na goedkeuring uit actief catalogusgebruik verwijderen. Contracten, saldi, verplichtingen en historie blijven bestaan; buitengebruikstelling is geen verbranding of afboeking. |
+| **Een Fonds buiten gebruik stellen** | Na goedkeuring nieuwe Fondsswaps en stortingen stoppen, terwijl beschikbare opnames mogelijk blijven. Eerdere afwikkelingsgegevens blijven bestaan. |
+| **Storting of bijdrage aan een Fonds** | Activa naar een `SwapPool` overdragen. Rechten op terugbetaling, opname, beloning of bestuur bestaan alleen wanneer ze afzonderlijk zijn bekendgemaakt. |
+| **Fondsswap** | Ondersteunde activa uitwisselen via één `SwapPool`. Dit is geen nakoming door de Uitgever en niet automatisch een lening. |
+| **Routeontdekking** | Mogelijke paden door ingestelde Fondsrelaties vinden. De ontdekking is een schatting en geen uitvoerbare belofte. |
+| **Routeofferte** | Een tijdgebonden voorstel berekenen uit Fondsstatus die op één vastgezet blok is gelezen en dit vóór ondertekening simuleren. |
+| **Gerouteerde uitwisseling** | Een geordende reeks Fondsswaps als één Portefeuille-batch op dezelfde blockchain indienen. In de huidige stroom worden alle oproepen teruggedraaid als één oproep mislukt. |
+| **Ontvangstbewijs van een gerouteerde uitwisseling** | De volgstatus, transactiehash, routehops, afgewikkelde bedragen en kosten per hop groeperen. |
+| **Liquiditeit uit een Fonds opnemen** | De Fondseigenaar beschikbare voorraad naar een gekozen adres laten overdragen. |
+| **Kosten innen** | Opgebouwde Fondskosten naar de ingestelde ontvanger sturen. |
 
-Gebruik **swapafwikkeling** voor de overdrachten op de blockchain en de kostenboekhouding waarmee een Fondsswap wordt voltooid. Gebruik **aanbieding ter inwisseling**, **nakoming** en **afboeking** voor de afzonderlijke levenscyclus van een Waardebon in de echte wereld.
+Gebruik **swapafwikkeling** voor de overdrachten en kostenboekhouding op de blockchain waarmee een Fondsswap wordt voltooid. Gebruik **aanbieding ter inwisseling**, **nakoming** en **afboeking** voor de afzonderlijke werkelijke levenscyclus van een Waardebon.
 
-## Markt, waarden, limieten en kosten
+## Product- en protocollagen
 
-De **Markt** in de App is een ontdekcatalogus voor waardebonnen, Fondsen, Aanbiedingen en openbare informatie. Een vermelding is niet automatisch een handelsplaats, verkopersrelatie, goedkeuring, waardering of garantie.
+| Begrip | Betekenis |
+| --- | --- |
+| **Cosmo-Local Credit (CLC)** | De productfamilie: de CLC App, de documentatie en het bredere werk rond commitment pooling. |
+| **CLC App** | De progressieve webapp op [cosmolocal.credit](https://cosmolocal.credit). GEF beheert deze interface en de ondersteunende diensten. |
+| **CLC Core** | De ondersteunende dienst voor catalogi, geïndexeerde blockchainstatus, routeontdekking, gezaghebbende offertes, relaycoördinatie en ontvangstbewijzen van gerouteerde uitwisselingen. CLC Core is geen smart contract of Fondsbeheerder. |
+| **Commitment Pooling Protocol (CPP)** | Het herbruikbare model voor selectie, waardering, beperking, uitwisseling en verantwoordelijk bestuur. |
+| **Protocol v1.1.0** | De openbare smartcontractrelease die in de definitieve [softwarereferentie](https://software.cosmolocal.credit/contracts/) wordt beschreven (Engels). |
+| **`SwapPool`** | Het huidige Protocolcontract dat tokenvoorraad aanhoudt en rechtstreekse swaps uitvoert. Het is één technisch onderdeel van een Commitmentfonds. |
+| **Solidity-`SwapRouter`** | Het Protocol v1.1.0-contract dat een voorgesteld pad door meerdere Fondsen berekent. Het bewaart geen activa en voert de route niet uit. |
+| **Routeringsworkflow van de App** | De App en ondersteunende diensten zoeken mogelijke paden door Fondsen, berekenen een offerte voor de uitwisseling, vragen toestemming van de deelnemer en melden het resultaat. |
+| **Voorgestelde CLC-bestuurstoken** | Een toekomstig bestuursontwerp in de White Paper. Dit is geen huidig activum van de App of Protocol v1.1.0. |
+| **Voorgesteld CLC Network Pool** | Een toekomstig ontwerp voor verrekening en coördinatie op netwerkniveau. Dit is niet hetzelfde als een huidige `SwapPool`. |
+
+## Waarden, krediet, limieten en kosten
 
 Houd deze waardebegrippen uit elkaar:
 
-- **prijs van een Aanbieding:** het bedrag dat voor een vermeld goed of een vermelde dienst wordt gevraagd;
-- **vermelde waarde van een waardebon:** een waarde die in de gepubliceerde voorwaarden van de Uitgever wordt genoemd;
-- **wisselkoers of offerte van een Fonds:** de transactieparameter die door de geconfigureerde quoter van een Fonds wordt berekend;
-- **oraclereferentie:** externe gegevens die door een geconfigureerde waarderingsmodule worden gebruikt; en
-- **inwisselvoorwaarden:** wat de Uitgever belooft te leveren en onder welke voorwaarden.
+- **prijs van een Aanbieding:** het gevraagde bedrag voor een vermeld goed of dienst;
+- **vermelde waarde van een Waardebon:** een waarde in de gepubliceerde voorwaarden van de Uitgever;
+- **wisselkoers of offerte van een Fonds:** de transactieparameter die door de ingestelde quoter van een Fonds wordt geproduceerd;
+- **oraclereferentie:** externe gegevens die een ingestelde waarderingsmodule gebruikt; en
+- **inwisselvoorwaarden:** wat de Uitgever belooft en onder welke voorwaarden.
 
-Het App-label **‘Kredietlimiet’** verwijst naar de geconfigureerde bovengrens voor het tokensaldo van een Fonds: de maximale hoeveelheid van die token die het Fonds na een storting mag aanhouden. Het is geen persoonlijke kredietlijn, controle van de capaciteit van een Uitgever of garantie op inwisseling. De voorgestelde voortschrijdende limieten en limieten per account of voor het hele netwerk in de White Paper zijn andere mechanismen.
+**Krediet** verwijst in de App naar bereikbare verbintenissen en uitwisselingscapaciteit. Het is niet automatisch persoonlijk lenen, een lening, een beoordeling van de capaciteit van de Uitgever of een garantie.
 
-Het huidige Protocol v1.1.0 kan voor iedere Fondsswap **Fondskosten** en aanvullende **protocolkosten** aanrekenen. Een gerouteerde uitwisseling vermeldt deze kosten per hop. De huidige routingwerkstroom van de CLC App voegt geen afzonderlijke routingservicekosten toe. Het voorgestelde model in de White Paper beschrijft daarnaast een toekomstige ‘network rake’ uit Fondskosten en eventuele routing- of servicekosten. Deze modellen mogen niet worden gecombineerd wanneer de huidige kosten worden uitgelegd of toekomstige inkomsten worden berekend.
+Het label **‘Kredietlimiet’** betekent de ingestelde bovengrens voor het tokensaldo van het Fonds: het maximale aantal van die token dat het Fonds na een storting mag bezitten. Voorgestelde doorlopende limieten, accountlimieten en netwerkbrede limieten in de White Paper zijn andere mechanismen.
+
+Protocol v1.1.0 kan voor iedere Fondsswap **Fondskosten** en aanvullende **protocolkosten** aanrekenen. Een gerouteerde uitwisseling specificeert beide voor iedere hop. De huidige App voegt geen afzonderlijke routeringsservicekosten toe. Het voorgestelde model in de White Paper beschrijft afzonderlijk een toekomstige netwerkafdracht en mogelijke servicekosten.
 
 ## Routes en liquiditeit
 
-Een **route** is een geordend pad door één of meer onafhankelijk bestuurde Fondsen. **Routediepte** is het aantal Fondsswaps in dat pad. De huidige openbare implementatie zoekt maximaal drie hops.
+Een **route** is een geordend pad door een of meer onafhankelijk bestuurde Fondsen. De **routediepte** is het aantal Fondsswaps in dat pad.
 
-**Bereikbare liquiditeit** betekent de geschikte uitvoervoorraad die een Fonds kan leveren op grond van de huidige toelating, het tokensaldoplafond, de quote, kosten en reserveringsstatus. Alleen een verbinding in de grafiek bewijst niet dat een bruikbare hoeveelheid erdoorheen kan. Routeontdekking kan verouderd raken; de latere quote op een vastgezet blok is slechts gezaghebbend tot de deadline of een relevante statuswijziging.
+Niet iedere Waardebon, ieder Fonds of iedere Portefeuille is geschikt voor routing. Een vermelding in een Fonds maakt een Waardebon niet automatisch beschikbaar via iedere route. De [softwarereferentie voor routing](https://software.cosmolocal.credit/contracts/routing) houdt de huidige geschiktheidsregels en configuratie bij in het Engels.
 
-De huidige route-uitvoering vindt plaats op dezelfde blockchain en wordt door de portefeuille gestart. Zij voegt geen bestuur samen, herbalanceert de Fondsvoorraad niet automatisch, verrekent geen verplichtingen tussen meerdere partijen en bewijst geen nakoming. Cross-chain routing via HTLC of escrow, automatische herbalancering en batchnetting blijven voorgesteld of implementatieafhankelijk.
+**Beschikbare liquiditeit** is de voorraad die een Fonds kan leveren volgens zijn huidige regels, limieten en kosten. Een verbinding tussen Fondsen bewijst niet dat het gewenste bedrag beschikbaar is. Controleer de definitieve offerte; die kan verlopen of ongeldig worden als Fondsomstandigheden veranderen.
+
+De huidige route-uitvoering vindt plaats op één blockchain en wordt door de Portefeuille gestart. Ze voegt het bestuur niet samen, herbalanceert Fondsvoorraad niet automatisch, verrekent geen verplichtingen tussen veel partijen en bewijst geen nakoming. Cross-chainrouting via HTLC of escrow, automatische herbalancering en batchnetting blijven voorgesteld of implementatieafhankelijk.
 
 ## Bescherming en bewijs
 
-Samenstelling, opname in een register, een limiet, een reserve, zichtbaarheid in de App of een blockchaintransactie vormen op zichzelf geen goedkeuring, bewijs van capaciteit van de Uitgever, nakoming, garantie of verzekering.
+Selectie, opname in een register, een limiet, een reserve, zichtbaarheid in de App, een Beoordeling of een blockchaintransactie bewijst op zichzelf geen goedkeuring, capaciteit van de Uitgever, nakoming, garantie of verzekering.
 
-Iedere bescherming moet de verplichte partij, de gedekte gebeurtenis, financiering, bovengrens, uitsluitingen, looptijd, het bewijs en de claimprocedure noemen. Gegevens op de blockchain kunnen adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Voor prestaties van de Uitgever, tevredenheid, bestuurlijk overleg en maatschappelijke impact zijn afzonderlijke bekendmakingen, verslagen, verklaringen of andere bewijzen nodig.
+Iedere bescherming moet vermelden wie de verplichting op zich neemt, welke gebeurtenis gedekt is, de financiering, bovengrens, uitsluitingen, duur, bewijseisen en de procedure om aanspraak te maken op die bescherming. Blockchainrecords kunnen adressen, activa, bedragen, tijdstempels en contractgebeurtenissen tonen. Voor prestaties van Uitgevers, tevredenheid, bestuursoverleg en maatschappelijke impact is afzonderlijk bewijs nodig.
 
 ## Statuswoorden
 
-- **Huidig:** geverifieerd in de CLC App of Protocol v1.1.0 zoals in deze documentatie beschreven.
-- **Implementatieafhankelijk:** alleen beschikbaar wanneer een specifieke implementatie, een specifiek Fonds, een aanbieder, een rechtsgebied of gepubliceerd beleid dit mogelijk maakt.
-- **Historisch:** bewijs of functionaliteit uit de eerdere dienst Sarafu Network.
+- **Huidig:** geverifieerd in de CLC App of Protocol v1.1.0 zoals deze documentatie die beschrijft.
+- **Implementatieafhankelijk:** alleen beschikbaar wanneer een bepaalde implementatie, een bepaald Fonds, een aanbieder, rechtsgebied of gepubliceerd beleid dit mogelijk maakt.
+- **Historisch:** bewijs of functionaliteit van de eerdere dienst Sarafu Network.
 - **Voorgesteld:** een ontwerp- of roadmapmechanisme dat niet als geïmplementeerd wordt voorgesteld.
 
-De gids [Aan de slag](/nl-BE/introduction/getting-started) past deze begrippen toe op de huidige App. De [Protocolreferentie](/nl-BE/protocol/overview) beschrijft de geverifieerde contracten, terwijl de [White Paper](/nl-BE/white-paper) het bredere ontwerp en de voorstellen presenteert.
+De [gids Aan de slag](/nl-BE/introduction/getting-started) past deze begrippen toe op de huidige App. Het [Protocoloverzicht](/nl-BE/protocol/overview) verbindt deze begrippen met de definitieve [softwaredocumentatie](https://software.cosmolocal.credit/), terwijl de [White Paper](/nl-BE/white-paper) het bredere ontwerp en de voorstellen presenteert.
 
-Bekijk voor een aanvullende speelse kennismaking met toezeggingen, afwikkeling, grondstofstromen, uitwisseling en bundeling de [educatieve spellen van Grassroots Economics](https://grassrootseconomics.org/games/). De spellen zijn leermiddelen en geen definities van het huidige gedrag van de App of het Protocol.
+Bekijk voor een speelse kennismaking met verbintenissen, afwikkeling, hulpbronstromen, uitwisseling en pooling de [educatieve spelen van Grassroots Economics](https://grassrootseconomics.org/games/). Deze spellen zijn aanvullend lesmateriaal en geen definities van het huidige gedrag van de App of het Protocol.

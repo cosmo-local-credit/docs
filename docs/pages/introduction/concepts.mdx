@@ -97,10 +97,10 @@ Use **swap settlement** for the on-chain transfers and fee accounting that compl
 | **CLC App** | The progressive web app at [cosmolocal.credit](https://cosmolocal.credit). GEF operates this interface and its supporting services. |
 | **CLC Core** | The supporting service for catalogs, indexed chain state, route discovery, authoritative quotes, relay coordination, and routed-exchange receipts. It is neither a smart contract nor a Pool Steward. |
 | **Commitment Pooling Protocol (CPP)** | The reusable model of curation, valuation, limitation, exchange, and accountable governance. |
-| **Protocol v1.1.0** | The verified public smart-contract release documented in the [Protocol reference](/protocol/overview). |
+| **Protocol v1.1.0** | The public smart-contract release documented in the definitive [software reference](https://software.cosmolocal.credit/contracts/) (English). |
 | **`SwapPool`** | The current Protocol contract that holds token inventory and executes direct swaps. It is one technical component of a Commitment Pool. |
 | **Solidity `SwapRouter`** | The Protocol v1.1.0 contract that quotes a proposed multi-Pool path. It does not custody assets or execute the route. |
-| **Application routing workflow** | The current CLC App and CLC Core process that discovers same-chain paths, quotes and simulates them, prepares a signed Wallet batch, relays it, and groups the resulting Pool settlements into one receipt. |
+| **Application routing workflow** | The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result. |
 | **Proposed CLC governance token** | A future governance design in the White Paper. It is not a current App or Protocol v1.1.0 asset. |
 | **Proposed CLC Network Pool** | A future network-level clearing and coordination design. It is not the same as a current `SwapPool`. |
 
@@ -122,11 +122,11 @@ Protocol v1.1.0 can charge a **Pool fee** and an additional **protocol fee** on 
 
 ## Routes and liquidity
 
-A **route** is an ordered path through one or more independently governed Pools. **Route depth** is the number of Pool swaps in that path. The current public deployment searches up to three hops.
+A **route** is an ordered path through one or more independently governed Pools. **Route depth** is the number of Pool swaps in that path.
 
-Production routing uses verified, relative-priced Pools and tokens whose transfers move exactly the stated amount: `GiftableToken` Vouchers and explicitly allowlisted plain ERC-20 tokens. Direct Pool swaps can support a broader configuration; appearing in a Pool does not automatically make a token eligible for App routing.
+Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The [software routing reference](https://software.cosmolocal.credit/contracts/routing) maintains the current eligibility rules and configuration in English.
 
-**Available liquidity** is eligible output inventory that a Pool can supply under its current admission, balance cap, quote, fee, and reservation state. A graph connection does not prove a useful amount can pass through it. Route discovery can become stale; the later pinned-block quote remains authoritative only until its deadline or relevant state changes.
+**Available liquidity** is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.
 
 Current route execution is same-chain and Wallet-initiated. It does not pool governance, automatically rebalance Pool inventory, clear obligations among many parties, or prove fulfillment. Cross-chain HTLC or escrow routing, automatic rebalancing, and batch netting remain proposed or deployment-dependent.
 
@@ -143,6 +143,6 @@ Any protection should identify the obligated party, covered event, funding, cap,
 - **Historical:** evidence or functionality from the earlier Sarafu Network service.
 - **Proposed:** a design or roadmap mechanism that is not represented as deployed.
 
-The [Getting started guide](/introduction/getting-started) applies these terms to the current App. The [Protocol reference](/protocol/overview) documents verified contracts, while the [White Paper](/white-paper) presents the wider design and proposals.
+The [Getting started guide](/introduction/getting-started) applies these terms to the current App. The [Protocol overview](/protocol/overview) connects these concepts to the definitive [software documentation](https://software.cosmolocal.credit/), while the [White Paper](/white-paper) presents the wider design and proposals.
 
 For a learn-through-play introduction to commitments, settlement, resource flows, exchange, and pooling, explore the [Grassroots Economics educational games](https://grassrootseconomics.org/games/). The games are supplementary learning resources, not definitions of current App or Protocol behavior.

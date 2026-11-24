@@ -1,5 +1,37 @@
 @import './brand-theme.css';
 
+.legacy-heading-anchor {
+  scroll-margin-block-start: 8rem;
+}
+
+.software-reference-note {
+  margin-block-end: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--clc-border);
+  border-inline-start: 3px solid var(--clc-accent-text);
+  border-radius: 0.5rem;
+  background: var(--clc-teal-soft);
+  color: var(--clc-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.software-reference-note p {
+  margin: 0 0 0.5rem;
+}
+
+.software-reference-note a:focus-visible {
+  outline: 3px solid var(--clc-focus);
+  outline-offset: 3px;
+}
+
+@media print {
+  .software-reference-note {
+    display: none;
+  }
+}
+
 /* Landing Page Styles */
 
 html:lang(ar) body {
@@ -39,6 +71,11 @@ html[dir='rtl'] [class*='Footer_navigationIcon'] {
  * article, top navigation, and outline keep the same usable widths as LTR.
  */
 @media (min-width: 1081px) {
+  html[dir='rtl'] .vocs_DesktopTopNav_logoWrapper {
+    right: 0;
+    left: auto;
+  }
+
   html[dir='rtl'] .vocs_DocsLayout_gutterLeft {
     right: 0;
     left: auto;

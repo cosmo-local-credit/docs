@@ -81,13 +81,13 @@ A carteira da escola abre a vista **Crédito** e seleciona o vale de refeições
 
 Este resultado de descoberta ainda não é uma promessa de que a troca será concluída. Cada etapa depende da admissão atual, dos limites dos saldos de tokens do Fundo, do inventário disponível, da configuração da cotação e das taxas, do comportamento suportado dos tokens e da atualidade do serviço.
 
-A escola escolhe quanto pretende **Obter** ou **Gastar**. Em seguida, o CLC Core lê ambos os Fundos no mesmo bloco fixado, produz uma cotação oficial com duração limitada e simula o lote completo da carteira. Os **Detalhes da rota** na App mostram as duas trocas, os montantes estimados e as taxas do Fundo e do protocolo em cada etapa.
+A escola escolhe quanto pretende **Obter** ou **Gastar**. A aplicação apresenta uma cotação para a troca completa. Os **Detalhes da rota** mostram as duas trocas, os montantes e as comissões do Fundo e do protocolo em cada etapa. A escola verifica o mínimo recebido e o prazo da cotação antes de continuar.
 
 ### 6. O Titular executa a troca encaminhada
 
-Depois de analisar o montante mínimo a receber e o prazo da cotação, a escola seleciona **Confirmar a troca** e assina o lote preparado. A App envia uma única transação na mesma cadeia que contém as aprovações e a chamada de troca limitada para cada Fundo.
+A escola seleciona **Confirmar a troca** e autoriza a rota completa. Se for bem-sucedida, o recibo mostra as duas trocas de Fundo, os montantes trocados e as comissões.
 
-Se alguma chamada falhar, toda a transação é revertida; a troca no primeiro Fundo não permanece liquidada sem a segunda. Se for bem-sucedida, o recibo agrupado da escola mostra um identificador de acompanhamento, um hash de transação, as duas etapas nos Fundos, os montantes liquidados e as taxas de cada etapa.
+Se uma etapa falhar, as duas trocas de Fundo são revertidas em conjunto; a primeira não permanece liquidada sem a segunda. Para saber como o software constrói e executa essa transação, consulte a [referência de encaminhamento](https://software.cosmolocal.credit/contracts/routing) (em inglês).
 
 A escola possui agora vales de refeições. A troca na cadeia constitui a **liquidação da troca**. Dá à escola o direito resultante descrito nas condições do vale de refeições; não prova que a cozinha já forneceu os alimentos.
 

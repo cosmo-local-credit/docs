@@ -97,10 +97,10 @@ Utilisez **règlement de l’échange** pour les transferts sur la blockchain et
 | **CLC App** | L’application web progressive disponible sur [cosmolocal.credit](https://cosmolocal.credit). GEF exploite cette interface et ses services d’assistance. |
 | **CLC Core** | Le service d’assistance pour les catalogues, l’état indexé de la blockchain, la découverte d’itinéraires, les cotations faisant autorité, la coordination du relais et les reçus d’échanges routés. Il ne s’agit ni d’un contrat intelligent ni d’un Gestionnaire de Bassin. |
 | **Protocole de mise en commun des engagements (CPP)** | Le modèle réutilisable de sélection, d’évaluation, de limitation, d’échange et de gouvernance responsable. |
-| **Protocol v1.1.0** | La version publique vérifiée des contrats intelligents décrite dans la [référence du Protocole](/fr/protocol/overview). |
+| **Protocol v1.1.0** | La version publique des contrats intelligents décrite dans la [référence des logiciels](https://software.cosmolocal.credit/contracts/), qui fait autorité et est disponible en anglais. |
 | **`SwapPool`** | Le contrat actuel du Protocole qui détient l’inventaire des jetons et exécute les échanges directs. Il constitue un composant technique d’un Bassin d’engagements. |
 | **`SwapRouter` Solidity** | Le contrat de Protocol v1.1.0 qui calcule la cotation d’un itinéraire proposé traversant plusieurs Bassins. Il ne conserve pas d’actifs et n’exécute pas l’itinéraire. |
-| **Parcours de routage de l’Application** | Le processus actuel de la CLC App et de CLC Core qui découvre des chemins sur une même chaîne, les cote et les simule, prépare un lot de Portefeuille signé, le relaie et regroupe les règlements des Bassins dans un même reçu. |
+| **Parcours de routage de l’Application** | L’Application et ses services recherchent des chemins possibles entre Bassins, proposent une cotation, demandent l’autorisation du participant et indiquent le résultat. |
 | **Jeton de gouvernance CLC proposé** | Un projet de gouvernance future présenté dans le Livre blanc. Il ne s’agit pas d’un actif actuel de l’Application ou de Protocol v1.1.0. |
 | **Bassin du réseau CLC proposé** | Un futur modèle de compensation et de coordination à l’échelle du réseau. Il ne s’agit pas d’un `SwapPool` actuel. |
 
@@ -122,11 +122,11 @@ Protocol v1.1.0 peut prélever des **frais de Bassin** et des **frais de protoco
 
 ## Itinéraires et liquidités
 
-Un **itinéraire** est un chemin ordonné qui traverse un ou plusieurs Bassins gouvernés de façon indépendante. La **profondeur de l’itinéraire** est le nombre d’échanges de Bassin qui le composent. Le déploiement public actuel recherche jusqu’à trois étapes.
+Un **itinéraire** est un chemin ordonné qui traverse un ou plusieurs Bassins gouvernés de façon indépendante. La **profondeur de l’itinéraire** est le nombre d’échanges de Bassin qui le composent.
 
-Le routage en production utilise des Bassins vérifiés à prix relatif et des jetons dont le transfert porte exactement sur le montant indiqué : les Bons d’échange `GiftableToken` et les jetons ERC-20 ordinaires explicitement autorisés. Les échanges directs de Bassin peuvent accepter une configuration plus large ; la présence d’un jeton dans un Bassin ne le rend pas automatiquement admissible au routage de l’Application.
+Tous les Bons, Bassins et Portefeuilles ne sont pas admissibles au routage. La présence d’un Bon dans un Bassin ne le rend pas automatiquement disponible par tous les itinéraires. La [référence technique du routage](https://software.cosmolocal.credit/contracts/routing), en anglais, présente les critères d’admissibilité et la configuration actuels.
 
-La **liquidité disponible** est l’inventaire de sortie admissible qu’un Bassin peut fournir selon son état actuel d’admission, de plafond de solde, de cotation, de frais et de réservation. Une connexion dans le graphe ne prouve pas qu’une quantité utile puisse la traverser. La découverte d’itinéraire peut devenir obsolète ; la cotation ultérieure au bloc fixé ne fait autorité que jusqu’à son échéance ou jusqu’à une modification pertinente de l’état.
+La **liquidité disponible** est l’inventaire qu’un Bassin peut fournir selon ses règles, limites et frais actuels. Une connexion entre Bassins ne prouve pas que le montant souhaité soit disponible. Vérifiez la cotation finale ; elle peut expirer ou devenir invalide si les conditions des Bassins changent.
 
 L’exécution actuelle d’un itinéraire est lancée par le Portefeuille sur une même chaîne. Elle ne regroupe pas la gouvernance, ne rééquilibre pas automatiquement l’inventaire des Bassins, ne compense pas les obligations de plusieurs parties et ne prouve pas l’exécution. Le routage interchaînes par HTLC ou séquestre, le rééquilibrage automatique et la compensation par lots restent proposés ou dépendants du déploiement.
 
@@ -143,6 +143,6 @@ Toute protection doit désigner la partie obligée, l’événement couvert, le 
 - **Historique :** preuve ou fonctionnalité provenant de l’ancien service Sarafu Network.
 - **Proposé :** mécanisme de conception ou de feuille de route qui n’est pas présenté comme déployé.
 
-Le [guide Bien démarrer](/fr/introduction/getting-started) applique ces termes à l’Application actuelle. La [référence du Protocole](/fr/protocol/overview) décrit les contrats vérifiés, tandis que le [Livre blanc](/fr/white-paper) présente la conception générale et les propositions.
+Le [guide Bien démarrer](/fr/introduction/getting-started) applique ces termes à l’Application actuelle. La [vue d’ensemble du Protocole](/fr/protocol/overview) relie ces concepts à la [documentation des logiciels](https://software.cosmolocal.credit/), qui fait autorité, tandis que le [Livre blanc](/fr/white-paper) présente la conception générale et les propositions.
 
 Pour découvrir par le jeu les engagements, le règlement, les flux de ressources, l’échange et la mise en commun, explorez les [jeux éducatifs de Grassroots Economics](https://grassrootseconomics.org/games/). Ces jeux sont des ressources d’apprentissage complémentaires, et non des définitions du fonctionnement actuel de l’Application ou du Protocole.

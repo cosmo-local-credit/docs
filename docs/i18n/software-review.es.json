@@ -1,0 +1,574 @@
+{
+  "locale": "es",
+  "model": "madlad400-3b-mt-ct2-int8",
+  "method": "independent machine back-translation of revised units; manual meaning review required",
+  "status": "review-complete",
+  "pages": {
+    "/protocol/overview": {
+      "sourceSha256": "cf4d399acfd5c79b469bab7cec01e4fa36b286f853399c65f5705999d037ac73",
+      "sha256": "beb03ae417663e0d5390694747aa900f23182b50d0d54550276b9e43d8264fde"
+    },
+    "/protocol/smart-contracts": {
+      "sourceSha256": "d819e4a8005b8b51f1609ef9c43645ffb4f1584af05a2fb26557f356b6a7d3c8",
+      "sha256": "131fa8460a5e18e07864bb429ebe88a3840bfec7cee29d275602b8f81086dc22"
+    },
+    "/protocol/network": {
+      "sourceSha256": "81e6431f4a405cae9f4fa2494c1d0a37088bfd91bfef68e286147a1bb9ab92df",
+      "sha256": "d393ac47fc594bf7f5faa36161db461b52ecdf90888f6e592779bcbbf42218a7"
+    },
+    "/introduction/getting-started": {
+      "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+      "sha256": "21c272f51081851b3a67054aa8e7152cd8d5eb8f3a47326f13d9b0d6fa26d0ed"
+    },
+    "/introduction/concepts": {
+      "sourceSha256": "326e9911c7271c9428e6420a733cfe027d4dd01f17395d13b3949a2433c8018e",
+      "sha256": "4d5a0d732299fdf3838bfaee016a1d11eb4cfe9811a75e1d246bb5e5e19039cf"
+    },
+    "/introduction/example": {
+      "sourceSha256": "b565b5f99ddad7e097ab14539eb65829cda43ba301dc28e5c2ec998cca28451f",
+      "sha256": "4e1cf819ad1424c587c61eb7d5279c21619b74a03e4223e0b54a1f3508d382ce"
+    },
+    "/governance/mechanics": {
+      "sourceSha256": "9915e7911997b17fd9430074fc094ac4547710ff4888a4c6aa8cd62401a1f05d",
+      "sha256": "c9ea0718dfa77c97362577365555112dfa280d62065a636f30f3699d8ce3bc95"
+    }
+  },
+  "units": [
+    {
+      "route": "/protocol/overview",
+      "line": 3,
+      "source": "The Commitment Pooling Protocol (CPP) describes how independently governed Pools select Vouchers, publish exchange rules, and make exchanges possible. A Holder later uses a Voucher with its Issuer for the promised goods or services. These are separate steps, with separate responsibilities.",
+      "translation": "El Protocolo de Agrupación de Compromisos (CPP) describe cómo los Fondos gobernados de forma independiente seleccionan Vales, publican reglas y permiten intercambios. Después, el Titular utiliza un Vale con su Emisor para obtener los bienes o servicios prometidos. Son pasos distintos, con responsabilidades distintas.",
+      "backTranslation": "The Bundling of Commitments Protocol (CPP) describes how independently governed Funds select Vouchers, publish rules and allow exchanges.Then the Holder uses a Voucher with its Issuer to obtain the promised goods or services.These are separate steps, with different responsibilities.",
+      "similarity": 0.8412
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 5,
+      "source": "This site explains those concepts and how to use the CLC App. The CLC software documentation is the definitive reference for software implementation, contracts, APIs, deployment, and operation. It is currently available in English.",
+      "translation": "Este sitio explica esos conceptos y cómo utilizar la CLC App. La documentación del software CLC es la referencia definitiva sobre su implementación, contratos, API, despliegue y operación. Actualmente está disponible en inglés.",
+      "backTranslation": "This site explains these concepts and how to use the CLC App. The CLC software documentation is the ultimate reference on its implementation, contracts, API, deployment and operation.",
+      "similarity": 0.8406
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 7,
+      "source": "Start with Concepts and vocabulary for the shared terms, or the White Paper for the wider design and proposals.",
+      "translation": "Consulta Conceptos y vocabulario para conocer los términos comunes, o el Libro Blanco para explorar el diseño general y las propuestas.",
+      "backTranslation": "See the Concepts and Vocabulary for common terms, or the White Paper to explore overall design and proposals.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 11,
+      "source": "Different communities and organizations can run compatible software under their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment should identify its operators, contracts, and responsible authorities.",
+      "translation": "Distintas comunidades y organizaciones pueden operar software compatible según sus propias reglas. Grassroots Economics Foundation opera la CLC App pública. Cada despliegue debe identificar a sus operadores, contratos y autoridades responsables.",
+      "backTranslation": "Different communities and organizations can operate compatible software according to their own rules. Grassroots Economics Foundation operates the public CLC App. Each deployment must identify its operators, contracts and responsible authorities.",
+      "similarity": 0.9339
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 13,
+      "source": "For contract addresses, deployment instructions, and how to verify owners and upgrade powers, use Deployments and verification. For running the supporting services, start with the CLC Core API.",
+      "translation": "Para consultar direcciones de contratos, instrucciones de despliegue y cómo verificar propietarios y poderes de actualización, visita Despliegues y verificación. Para operar los servicios de apoyo, comienza por la API de CLC Core.",
+      "backTranslation": "For contract addresses, deployment instructions and how to verify owners and upgrade powers, visit Deployments & Verification. To operate support services, start with the CLC Core API.",
+      "similarity": 0.9178
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 17,
+      "source": "Use the software reference for:",
+      "translation": "La documentación del software cubre estos temas:",
+      "backTranslation": "The software documentation covers these topics: How to use the software",
+      "similarity": 0.3137
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 19,
+      "source": "Topic  Definitive software documentation",
+      "translation": "Tema  Referencia definitiva del software",
+      "backTranslation": "Topic  Definitive software reference",
+      "similarity": 0.7632
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 21,
+      "source": "Voucher creation, supply, and expiry  Vouchers",
+      "translation": "Creación, cantidad emitida y vencimiento de Vales  Vales",
+      "backTranslation": "Creation, Issuance and Expiration of Vouchers  Voucher",
+      "similarity": 0.62
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 22,
+      "source": "Pool configuration, deposits, withdrawals, and control  Pools",
+      "translation": "Configuración, depósitos, retiros y control de Fondos  Fondos",
+      "backTranslation": "Setting up, depositing, withdrawing and controlling funds  Funds  Funding",
+      "similarity": 0.5522
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 23,
+      "source": "Exchange-rate calculations  Quoters",
+      "translation": "Cálculo de tipos de cambio  Cotizadores (Quoter)",
+      "backTranslation": "Calculation of exchange rates  Quotators (Quoter)",
+      "similarity": 0.4762
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 24,
+      "source": "Swap execution, fees, and transaction records  Quote and settle swaps",
+      "translation": "Ejecución de intercambios, comisiones y registros de transacciones  Cotizar y liquidar intercambios",
+      "backTranslation": "Execution of exchanges, commissions and transaction logs  Quoting and settling exchanges",
+      "similarity": 0.6624
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 25,
+      "source": "Exchange through several Pools  Routing",
+      "translation": "Intercambio mediante varios Fondos  Enrutamiento",
+      "backTranslation": "Exchange through multiple Funds  Routing",
+      "similarity": 0.7342
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 26,
+      "source": "Discovery and supporting contracts  Registries and utilities",
+      "translation": "Descubrimiento y contratos de apoyo  Registros y utilidades",
+      "backTranslation": "Discovery and support contracts  Records and utilities",
+      "similarity": 0.8947
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 27,
+      "source": "API requests and responses  OpenAPI reference",
+      "translation": "Solicitudes y respuestas de la API  Referencia OpenAPI",
+      "backTranslation": "API Requests and Responses  OpenAPI Reference  Open API Requesting",
+      "similarity": 0.8108
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 28,
+      "source": "Backend and routing settings  Configuration",
+      "translation": "Parámetros del servicio y del enrutamiento  Configuración",
+      "backTranslation": "Service and Routing Parameters  Configuration  Configurations",
+      "similarity": 0.6346
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 32,
+      "source": "The App can help a participant exchange through several Pools when a suitable route is available. The participant reviews the quote and authorizes the exchange. Each Pool keeps its own rules and responsible parties.",
+      "translation": "Cuando hay una ruta adecuada, la App puede ayudar a un participante a intercambiar mediante varios Fondos. El participante revisa la cotización y autoriza el intercambio. Cada Fondo conserva sus propias reglas y partes responsables.",
+      "backTranslation": "When there is a suitable route, the App can help a participant to trade through multiple Funds. The participant reviews the quote and authorizes the exchange. Each Fund retains its own rules and responsible parties.",
+      "similarity": 0.7488
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 34,
+      "source": "See Routes and responsibilities for what this means to participants, and Routing implementation for how the software quotes and executes routes.",
+      "translation": "Consulta Rutas y responsabilidades para entender qué significa esto para los participantes, y la implementación del enrutamiento para conocer cómo el software cotiza y ejecuta las rutas.",
+      "backTranslation": "See Routes and responsibilities to understand what this means for participants, and the implementation of routing to learn how the software quotes and executes routes.",
+      "similarity": 0.8746
+    },
+    {
+      "route": "/protocol/overview",
+      "line": 36,
+      "source": "Software enables the exchange; Issuers remain responsible for their Voucher promises, and Pool Stewards remain responsible for their published rules. Use of the public App is governed by the Terms of Service.",
+      "translation": "El software permite el intercambio; los Emisores siguen siendo responsables de las promesas de sus Vales y los Responsables de los Fondos, de sus reglas publicadas. El uso de la App pública se rige por los Términos de Servicio.",
+      "backTranslation": "The software allows for exchange; Issuers remain responsible for the promises of their Vouchers and Fund Managers, for their published rules. Use of the Public App is governed by the Terms of Service.",
+      "similarity": 0.8137
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 3,
+      "source": "Contracts record token balances and carry out Pool exchanges. The CLC software documentation is the definitive implementation reference, currently in English. This page explains what participants should understand before using those contracts.",
+      "translation": "Los contratos registran saldos de tokens y ejecutan intercambios de Fondos. La documentación del software CLC es la referencia definitiva de implementación, actualmente en inglés. Esta página explica lo que los participantes deben comprender antes de utilizar esos contratos.",
+      "backTranslation": "The CLC software documentation is the ultimate implementation reference, currently in English. This page explains what participants need to understand before using those contracts. The CLS software documentations are available on the CLC website and can be downloaded from the CLS website.",
+      "similarity": 0.6353
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 5,
+      "source": "See Concepts and vocabulary for the difference between a governed Commitment Pool and its SwapPool contract, and between exchange and Issuer fulfillment.",
+      "translation": "Consulta Conceptos y vocabulario para distinguir un Fondo de Compromisos gobernado de su contrato SwapPool, y el intercambio del cumplimiento de la promesa por parte del Emisor.",
+      "backTranslation": "See Concepts and Vocabulary to distinguish a Governed Commitment Fund from its SwapPool contract, and the exchange of the Issuer’s performance of the pledge.",
+      "similarity": 0.7032
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 9,
+      "source": "A Voucher combines a digital balance with an Issuer's published promise. Its terms explain what it can be used for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the promised goods or services.",
+      "translation": "Un Vale combina un saldo digital con la promesa publicada de un Emisor. Sus términos explican para qué sirve, dónde y cuándo se acepta y quién es responsable. Crear un token no demuestra que el Emisor pueda proporcionar los bienes o servicios prometidos.",
+      "backTranslation": "A Voucher combines a digital balance with an Issuer’s published promise. Its terms explain what it is for, where and when it is accepted, and who is responsible. Creating a token does not prove that the Issuer can provide the goods or services promised.",
+      "similarity": 0.9398
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 11,
+      "source": "For creation, minting, burning, and expiry mechanics, read Vouchers.",
+      "translation": "Para conocer los mecanismos de creación, emisión, quema y vencimiento, consulta Vales.",
+      "backTranslation": "For the mechanisms of creation, issuance, burning and expiration, see Vouchers.",
+      "similarity": 0.6803
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 15,
+      "source": "A Commitment Pool brings selected Vouchers together under published rules. Its contract holds inventory and exchanges supported assets. A deposit does not automatically give the depositor Pool shares, repayment, withdrawal, reward, or governance rights; any such rights need separately disclosed terms.",
+      "translation": "Un Fondo de Compromisos reúne Vales seleccionados según reglas publicadas. Su contrato mantiene inventario e intercambia activos compatibles. Un depósito no concede automáticamente al depositante participaciones del Fondo ni derechos de reembolso, retiro, recompensa o gobernanza; esos derechos requieren condiciones comunicadas por separado.",
+      "backTranslation": "A Commitment Fund gathers Vouchers selected according to published rules. Its contract maintains inventory and exchanges compatible assets. A deposit does not automatically confer on the depositor shares in the Fund or rights of redemption, withdrawal, reward or governance; such rights require separately communicated conditions.",
+      "similarity": 0.7278
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 19,
+      "source": "Check which Vouchers a Pool accepts, how it sets exchange rates, its limits and fees, and who can change them. The software reference documents Pool configuration and sealing.",
+      "translation": "Comprueba qué Vales acepta un Fondo, cómo establece sus tipos de cambio, sus límites y comisiones, y quién puede modificarlos. La referencia del software describe la configuración y el sellado de parámetros del Fondo.",
+      "backTranslation": "Check which Vouchers a Fund accepts, how it sets its exchange rates, limits and fees, and who can change them. The software reference describes the setup and setting of parameters for the Fund.",
+      "similarity": 0.7772
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 23,
+      "source": "A successful swap changes the relevant balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review the input, output, recipient, minimum received, and quote expiry.",
+      "translation": "Un intercambio completado cambia los saldos correspondientes. No demuestra que un Emisor haya entregado bienes o servicios. Antes de confirmar, revisa lo que entregas y recibes, el destinatario, el mínimo recibido y el vencimiento de la cotización.",
+      "backTranslation": "A completed exchange changes the corresponding balances. It does not prove that an Issuer has delivered goods or services. Before confirming, review what you deliver and receive, the recipient, the minimum received, and the expiration of the quote.",
+      "similarity": 0.7489
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 25,
+      "source": "For execution methods and settlement records, read Quote and settle swaps.",
+      "translation": "Para los métodos de ejecución y los registros de liquidación, consulta Cotizar y liquidar intercambios.",
+      "backTranslation": "For execution methods and settlement records, see Quoting and Settle Trades.",
+      "similarity": 0.8933
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 29,
+      "source": "A swap may include both a Pool fee and an additional protocol fee. Review the total shown in the quote; a route through several Pools can incur fees at each step. The swap reference maintains the calculation and worked example.",
+      "translation": "Un intercambio puede incluir una comisión del Fondo y una comisión adicional del protocolo. Revisa el total mostrado en la cotización; una ruta mediante varios Fondos puede generar comisiones en cada paso. La referencia de intercambios mantiene el cálculo y un ejemplo numérico.",
+      "backTranslation": "An exchange may include a Fund fee and an additional protocol fee. Review the total shown in the quote; a route through multiple Funds can generate fees at each step. The exchange reference keeps the calculation and a numerical example.",
+      "similarity": 0.8035
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 33,
+      "source": "The Pool owner can withdraw available inventory. Other authorities may control upgrades or settings. Review these powers alongside the Steward's published rules before depositing or relying on a Pool. Sealed settings alone do not establish that inventory is permanently locked.",
+      "translation": "El propietario del Fondo puede retirar el inventario disponible. Otras autoridades pueden controlar actualizaciones o parámetros. Revisa esos poderes junto con las reglas publicadas del Responsable antes de depositar activos o depender de un Fondo. Sellar parámetros no demuestra por sí solo que el inventario esté bloqueado permanentemente.",
+      "backTranslation": "Other authorities may control updates or parameters. Review those powers together with the Manager’s published rules before depositing assets or relying on a Fund. Sealing parameters does not in itself prove that inventory is permanently locked. The owner of the Fund can withdraw available inventory.",
+      "similarity": 0.6332
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 35,
+      "source": "See Pools and Verify an instance for the technical checks.",
+      "translation": "Consulta Fondos y Verificar una instancia para conocer las comprobaciones técnicas.",
+      "backTranslation": "See Funds and Verify an Instance for technical checks.",
+      "similarity": 0.8929
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 39,
+      "source": "A Pool's exchange rate is separate from a Voucher's stated value and the Issuer's redemption terms. Review the Pool's chosen method and who can change its inputs. The software reference explains the available Quoters.",
+      "translation": "El tipo de cambio de un Fondo es distinto del valor declarado de un Vale y de los términos de canje del Emisor. Revisa el método elegido por el Fondo y quién puede cambiar sus datos. La referencia del software explica los cotizadores (Quoter) disponibles.",
+      "backTranslation": "The exchange rate of a Fund is different from the declared value of a Voucher and the Issuer’s redemption terms. Review the method chosen by the Fund and who can change its data. The software reference explains the available Quoters.",
+      "similarity": 0.7778
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 43,
+      "source": "The App's “Credit limit” is the maximum balance of a particular Voucher that a Pool may hold. It describes exchange capacity rather than personal borrowing or a guarantee of fulfillment. Review the Pool rules and configuration for how limits and fees are applied.",
+      "translation": "El «Límite de crédito» de la App es el saldo máximo de un Vale concreto que el Fondo puede mantener. Describe capacidad de intercambio, no endeudamiento personal ni una garantía de cumplimiento. Consulta las reglas y la configuración del Fondo para saber cómo se aplican límites y comisiones.",
+      "backTranslation": "The “Credit Limit” in the App is the maximum balance of a particular Voucher that the Fund can hold. It describes exchange capacity, not personal debt or a guarantee of compliance. Please refer to the Fund’s rules and settings for how limits and fees apply.",
+      "similarity": 0.7615
+    },
+    {
+      "route": "/protocol/smart-contracts",
+      "line": 47,
+      "source": "A protocol fee has a configured recipient. Receiving that fee does not automatically make the recipient the Pool Steward or a guarantor. See the fee reference for current mechanics and governance mechanics for responsibility and disclosure.",
+      "translation": "Una comisión del protocolo tiene un destinatario configurado. Recibirla no convierte automáticamente al destinatario en Responsable del Fondo ni en garante. Consulta la referencia de comisiones para los mecanismos actuales y los mecanismos de gobernanza para las responsabilidades y la información que se debe publicar.",
+      "backTranslation": "A protocol commission has a configured recipient. Receiving it does not automatically make the recipients Fund Manager or Guarantor. Refer to the commissions reference for current arrangements and governance arrangements for responsibilities and information to be published.",
+      "similarity": 0.7471
+    },
+    {
+      "route": "/protocol/network",
+      "line": 3,
+      "source": "Several independently governed Pools can connect the Voucher you hold to one you want. Each Pool supplies one step in the exchange, using its own rules and available inventory.",
+      "translation": "Varios Fondos gobernados de forma independiente pueden conectar el Vale que tienes con uno que quieres obtener. Cada Fondo proporciona un paso del intercambio según sus propias reglas y el inventario disponible.",
+      "backTranslation": "Several independently governed Funds can connect the Voucher you have with one you want to get.Each Fund provides a step of the exchange according to its own rules and available inventory.",
+      "similarity": 0.8297
+    },
+    {
+      "route": "/protocol/network",
+      "line": 5,
+      "source": "The CLC software routing reference is the definitive source for route discovery, eligibility, execution, and service interfaces. The software documentation is currently in English. This page explains the participant's journey and responsibilities.",
+      "translation": "La referencia de enrutamiento del software CLC es la fuente definitiva sobre descubrimiento de rutas, admisibilidad, ejecución e interfaces de los servicios. La documentación del software está actualmente en inglés. Esta página explica el recorrido y las responsabilidades del participante.",
+      "backTranslation": "The CLC software routing reference is the ultimate source on route discovery, eligibility, execution and service interfaces.The software documentation is currently in English.This page explains the journey and participant responsibilities.",
+      "similarity": 0.9095
+    },
+    {
+      "route": "/protocol/network",
+      "line": 9,
+      "source": "In the App's Credit view, choose the Voucher you want to Get or the one you want to Spend. A route might exchange a transport Voucher for a food Voucher through two different Pools.",
+      "translation": "En la vista Crédito de la App, elige el Vale que quieres Obtener o el que quieres Gastar. Por ejemplo, una ruta puede intercambiar un Vale de transporte por un Vale de alimentos mediante dos Fondos distintos.",
+      "backTranslation": "In the Credit view of the App, choose the Voucher you want to Get or the one you want To Spend. For example, a route can exchange a Transportation Voucher for a Food Voucher through two different Funds.",
+      "similarity": 0.8668
+    },
+    {
+      "route": "/protocol/network",
+      "line": 11,
+      "source": "Finding a connection does not guarantee an exchange. The supported Vouchers, Pool limits, available inventory, fees, Wallet compatibility, and service availability must allow the requested amount.",
+      "translation": "Encontrar una conexión no garantiza un intercambio. Los Vales compatibles, los límites de los Fondos, el inventario, las comisiones, la compatibilidad de la Billetera y la disponibilidad del servicio deben permitir el importe solicitado.",
+      "backTranslation": "Finding a connection does not guarantee an exchange. Compatible Vouchers, Fund limits, inventory, fees, Wallet compatibility and service availability must allow for the amount requested.",
+      "similarity": 0.8534
+    },
+    {
+      "route": "/protocol/network",
+      "line": 15,
+      "source": "Review Route details before confirming: what you pay, what you receive, every participating Pool, the fees, the minimum received, and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Refresh it if it expires or Pool conditions change.",
+      "translation": "Antes de confirmar, revisa los Detalles de la ruta: lo que pagas, lo que recibes, cada Fondo participante, las comisiones, el mínimo recibido y cuándo vence la cotización. Una estimación te ayuda a explorar; la cotización es la propuesta que autorizas. Actualízala si vence o cambian las condiciones de los Fondos.",
+      "backTranslation": "Before confirming, review the Route Details: what you pay, what you receive, each participating Fund, fees, minimum received and when the quote expires. An estimate helps you explore; the quote is the proposal you authorize. Update it if it expires or the conditions of the funds change.",
+      "similarity": 0.8204
+    },
+    {
+      "route": "/protocol/network",
+      "line": 17,
+      "source": "The routing reference and service configuration maintain the technical eligibility rules and quote settings.",
+      "translation": "La referencia de enrutamiento y la configuración del servicio mantienen los criterios técnicos de admisibilidad y los parámetros de las cotizaciones.",
+      "backTranslation": "The routing reference and service configuration maintain the technical eligibility criteria and parameters of the quotations.",
+      "similarity": 0.8498
+    },
+    {
+      "route": "/protocol/network",
+      "line": 21,
+      "source": "You review and authorize the complete exchange. The current route succeeds as a whole or its Pool swaps revert together if a step fails. This protects against completing only part of the route; it does not guarantee that a later goods or services delivery will happen.",
+      "translation": "Revisas y autorizas el intercambio completo. La ruta actual se completa en su totalidad o los intercambios de sus Fondos se revierten juntos si falla un paso. Esto evita que se complete solo parte de la ruta; no garantiza una entrega posterior de bienes o servicios.",
+      "backTranslation": "You review and authorize the entire exchange. The current route is completed in its entirety or your Funds’ exchanges are reversed together if a step fails. This prevents only part of the route from being completed; it does not guarantee subsequent delivery of goods or services.",
+      "similarity": 0.702
+    },
+    {
+      "route": "/protocol/network",
+      "line": 23,
+      "source": "For transaction construction and execution, see Execute a route.",
+      "translation": "Para la construcción y ejecución de la transacción, consulta Ejecutar una ruta.",
+      "backTranslation": "For the construction and execution of the transaction, see Execute a route.",
+      "similarity": 0.777
+    },
+    {
+      "route": "/protocol/network",
+      "line": 27,
+      "source": "The quote-only Solidity SwapRouter and the App's exchange workflow are different software components. Their relationship is explained in Routing.",
+      "translation": "El contrato Solidity SwapRouter, que solo calcula cotizaciones, y el flujo de intercambio de la App son componentes de software distintos. Su relación se explica en Enrutamiento.",
+      "backTranslation": "The Solidity SwapRouter contract, which only calculates quotes, and the App’s swap flow are separate software components. Their relationship is explained in Routing.",
+      "similarity": 0.7484
+    },
+    {
+      "route": "/protocol/network",
+      "line": 29,
+      "source": "For participants, the important check is the complete quote. Each Pool may charge fees. A shared route does not merge those Pools or make one Steward responsible for another Pool.",
+      "translation": "Para los participantes, lo importante es revisar la cotización completa. Cada Fondo puede cobrar comisiones. Una ruta compartida no fusiona los Fondos ni hace que un Responsable responda por otro Fondo.",
+      "backTranslation": "For participants, the important thing is to review the full quote. Each Fund may charge fees. A shared route does not merge the Funds or make one Manager responsible for another Fund.",
+      "similarity": 0.8232
+    },
+    {
+      "route": "/protocol/network",
+      "line": 33,
+      "source": "After submission, check whether the exchange is pending, confirmed, or failed, and keep the receipt. If no route is available, try refreshing, reducing the amount, or choosing another supported input Voucher.",
+      "translation": "Después del envío, comprueba si el intercambio está pendiente, confirmado o fallido y conserva el recibo. Si no hay una ruta disponible, intenta actualizar, reducir el importe o elegir otro Vale de entrada compatible.",
+      "backTranslation": "After sending, check if the exchange is pending, confirmed or failed and keep your receipt.If there is no route available, try updating, reducing the amount or choosing another compatible Entry Voucher.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/protocol/network",
+      "line": 35,
+      "source": "A failed exchange does not change the Issuer's existing promises. A successful exchange records changed balances; fulfillment and discharge still follow the Issuer's terms. See the practical examples.",
+      "translation": "Un intercambio fallido no cambia las promesas existentes del Emisor. Un intercambio completado registra cambios de saldos; el cumplimiento y la extinción siguen los términos del Emisor. Consulta los ejemplos prácticos.",
+      "backTranslation": "A failed exchange does not change the Issuer’s existing promises. A completed exchange records balance changes; fulfillment and extinction follow the terms of the Issuers. See practical examples.",
+      "similarity": 0.8101
+    },
+    {
+      "route": "/protocol/network",
+      "line": 37,
+      "source": "Developers can find transaction and tracking interfaces in the CLC Core API reference.",
+      "translation": "Los desarrolladores encontrarán las interfaces de transacción y seguimiento en la referencia de la API de CLC Core.",
+      "backTranslation": "Developers will find the transaction and tracking interfaces in the CLC Core API reference.CLC Core is a free, open source, and open-source application development framework.",
+      "similarity": 0.6385
+    },
+    {
+      "route": "/protocol/network",
+      "line": 41,
+      "source": "Before relying on a Pool, identify its Steward, contract owner, upgrade authorities, fee recipients, and anyone who can change material settings. A technical controller and an accountable Steward may be different parties.",
+      "translation": "Antes de depender de un Fondo, identifica a su Responsable, al propietario del contrato, a las autoridades de actualización, a los destinatarios de comisiones y a cualquier persona que pueda cambiar parámetros importantes. El controlador técnico y el Responsable del Fondo pueden ser partes distintas.",
+      "backTranslation": "Before relying on a Fund, identify your Manager, the contract owner, update authorities, commission recipients and anyone who may change important parameters.The controller and the Fund Manager can be separate parties.",
+      "similarity": 0.6925
+    },
+    {
+      "route": "/protocol/network",
+      "line": 43,
+      "source": "The software reference maintains Pool mechanics and deployment verification. These docs explain roles and vocabulary, governance responsibilities, and the wider CPP design.",
+      "translation": "La referencia del software mantiene los mecanismos de los Fondos y la verificación de despliegues. Esta documentación explica los roles y el vocabulario, las responsabilidades de gobernanza y el diseño general del CPP.",
+      "backTranslation": "The software reference maintains the mechanisms of the Funds and verification of deployments.This documentation explains roles and vocabulary, governance responsibilities and the overall design of the CPP.",
+      "similarity": 0.7639
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 84,
+      "source": "Not every Voucher, Pool, or Wallet supports routed exchange. The App checks whether an exchange is available for your choices. The software routing reference maintains the current eligibility rules and technical requirements in English.",
+      "translation": "No todos los Vales, Fondos o Billeteras admiten intercambios enrutados. La App comprueba si hay un intercambio disponible para tus elecciones. La referencia de enrutamiento del software, en inglés, mantiene los criterios de admisibilidad y los requisitos técnicos actuales.",
+      "backTranslation": "Not all Vouchers, Funds or Wallets support routed exchanges. The App checks if an exchange is available for your choices. Software routing reference maintains current eligibility criteria and technical requirements.",
+      "similarity": 0.8692
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 86,
+      "source": "Route discovery is an estimate. Review the final quote before signing, including the minimum received and expiry. The current routed exchange succeeds as a whole or its Pool swaps revert together. After submission, check the receipt for the outcome, exchanged amounts, and fees.",
+      "translation": "El descubrimiento de rutas es una estimación. Antes de firmar, revisa la cotización final, incluidos el mínimo recibido y el vencimiento. El intercambio enrutado actual se completa en su totalidad o los intercambios de sus Fondos se revierten juntos. Después del envío, consulta el recibo para conocer el resultado, los importes intercambiados y las comisiones.",
+      "backTranslation": "The route discovery is an estimate. Before signing, review the final quote, including minimum received and maturity. The current routing exchange completes in full or your Funds’ exchanges are reversed together. After sending, refer to the receipt for the result, amounts traded and fees.",
+      "similarity": 0.7138
+    },
+    {
+      "route": "/introduction/getting-started",
+      "line": 129,
+      "source": "The App supports direct and routed Pool exchanges where available. Cross-chain routing, automatic Pool rebalancing, batch netting, shared insurance, proposed governance assets, network liquidity programs, and regulated payment rails remain proposed or deployment-dependent unless a specific deployment identifies them as active.",
+      "translation": "La App permite intercambios directos y enrutados de Fondos cuando están disponibles. El enrutamiento entre cadenas, el reequilibrio automático de Fondos, la compensación por lotes, los seguros compartidos, los activos de gobernanza propuestos, los programas de liquidez de red y las vías de pago reguladas siguen siendo propuestas o dependen del despliegue, salvo que un despliegue concreto las identifique como activas.",
+      "backTranslation": "The App enables direct and routed exchanges of Funds when available. Cross-chain routing, automatic Fund rebalancing, batch clearing, shared insurance, proposed governance assets, network liquidity programs, and regulated payment channels remain proposed or deployment dependent unless a specific deployments identifies them as active.",
+      "similarity": 0.917
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 100,
+      "source": "Protocol v1.1.0  The public smart-contract release documented in the definitive software reference (English).",
+      "translation": "Protocol v1.1.0  La versión pública de los contratos inteligentes documentada en la referencia definitiva del software (en inglés).",
+      "backTranslation": "Protocol v1.1.0  The public version of the smart contracts documented in the software's definitive reference.",
+      "similarity": 0.7523
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 103,
+      "source": "Application routing workflow  The App and supporting services find possible paths through Pools, quote an exchange, request the participant's authorization, and report the result.",
+      "translation": "Flujo de enrutamiento de la aplicación  La App y sus servicios de apoyo buscan rutas posibles mediante Fondos, cotizan un intercambio, solicitan la autorización del participante e informan del resultado.",
+      "backTranslation": "App Routing Flow  The App and its support services search for possible routes using Funds, quote an exchange, request the participant's authorization, and report the result.",
+      "similarity": 0.8409
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 125,
+      "source": "A route is an ordered path through one or more independently governed Pools. Route depth is the number of Pool swaps in that path.",
+      "translation": "Una ruta es un recorrido ordenado mediante uno o varios Fondos gobernados de forma independiente. La profundidad de la ruta es el número de intercambios de Fondo de ese recorrido.",
+      "backTranslation": "A route is a path ordered by one or more independently governed Funds. The depth of the route is the number of Fund exchanges on that path.",
+      "similarity": 0.7584
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 127,
+      "source": "Not every Voucher, Pool, or Wallet is eligible for routing. Appearing in a Pool does not automatically make a Voucher available through every route. The software routing reference maintains the current eligibility rules and configuration in English.",
+      "translation": "No todos los Vales, Fondos o Billeteras son aptos para el enrutamiento. Que un Vale aparezca en un Fondo no lo hace automáticamente disponible mediante todas las rutas. La referencia de enrutamiento del software, en inglés, mantiene los criterios de admisibilidad y la configuración actuales.",
+      "backTranslation": "Not all Vouchers, Funds or Wallets are eligible for routing. The fact that a Voucher appears in a Fund does not automatically make it available through all routes. The software routing reference maintains the current eligibility criteria and configuration.",
+      "similarity": 0.8
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 129,
+      "source": "Available liquidity is the inventory a Pool can supply under its current rules, limits, and fees. A connection between Pools does not prove that the amount you want is available. Review the final quote; it can expire or become invalid if Pool conditions change.",
+      "translation": "La liquidez disponible es el inventario que un Fondo puede proporcionar según sus reglas, límites y comisiones actuales. Una conexión entre Fondos no demuestra que el importe que quieres esté disponible. Revisa la cotización final; puede vencer o dejar de ser válida si cambian las condiciones de los Fondos.",
+      "backTranslation": "Available liquidity is the inventory that a Fund can provide under its current rules, limits and fees. A connection between funds does not prove that the amount you want is available. Please review the final quote; it may expire or become invalid if the conditions of the funds change.",
+      "similarity": 0.8828
+    },
+    {
+      "route": "/introduction/concepts",
+      "line": 146,
+      "source": "The Getting started guide applies these terms to the current App. The Protocol overview connects these concepts to the definitive software documentation, while the White Paper presents the wider design and proposals.",
+      "translation": "La guía de primeros pasos aplica estos términos a la App actual. La visión general del Protocolo conecta estos conceptos con la documentación definitiva del software, mientras que el Libro Blanco presenta el diseño general y las propuestas.",
+      "backTranslation": "The Getting Started Guide applies these terms to the actual App.The Protocol Overview connects these concepts with the final software documentation, while the White Paper presents the overall design and proposals.",
+      "similarity": 0.9277
+    },
+    {
+      "route": "/introduction/example",
+      "line": 84,
+      "source": "The school chooses how much it wants to Get or Spend. The App presents a quote for the complete exchange. Route details show both swaps, the amounts, and each step's Pool and protocol fees. The school reviews the minimum received and quote expiry before proceeding.",
+      "translation": "La escuela elige cuánto quiere Obtener o Gastar. La App presenta una cotización para el intercambio completo. Los Detalles de la ruta muestran ambos intercambios, los importes y las comisiones del Fondo y del protocolo en cada paso. La escuela revisa el mínimo recibido y el vencimiento de la cotización antes de continuar.",
+      "backTranslation": "The school chooses how much it wants to Get or Spend. The App presents a quote for the full exchange. The Route Details show both exchanges, Fund and protocol amounts and fees at each step. The school reviews the minimum received and the expiration of the quote before continuing.",
+      "similarity": 0.789
+    },
+    {
+      "route": "/introduction/example",
+      "line": 88,
+      "source": "The school selects Confirm exchange and authorizes the complete route. If it succeeds, the receipt shows the two Pool swaps, the exchanged amounts, and the fees.",
+      "translation": "La escuela selecciona Confirmar intercambio y autoriza la ruta completa. Si se completa, el recibo muestra los dos intercambios de Fondo, los importes intercambiados y las comisiones.",
+      "backTranslation": "The school selects Confirm Exchange and authorizes the full route. If completed, the receipt shows both Fund exchanges, the amounts exchanged and fees.",
+      "similarity": 0.7692
+    },
+    {
+      "route": "/introduction/example",
+      "line": 90,
+      "source": "If a step fails, both Pool swaps revert together; the first does not remain settled without the second. For how the software constructs and executes that transaction, see the routing reference (English).",
+      "translation": "Si falla un paso, ambos intercambios de Fondo se revierten juntos; el primero no queda liquidado sin el segundo. Para conocer cómo el software construye y ejecuta esa transacción, consulta la referencia de enrutamiento (en inglés).",
+      "backTranslation": "If one step fails, both Fund exchanges are reversed together; the first is not settled without the second. For how the software builds and executes that transaction, see the routing reference.",
+      "similarity": 0.8405
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 28,
+      "source": "The CLC App and its supporting services help participants discover Vouchers, arrange exchanges, and check outcomes. Operators are responsible for their own services and for explaining service failures. The definitive software documentation describes the supporting systems and their operation in English.",
+      "translation": "La CLC App y sus servicios de apoyo ayudan a los participantes a descubrir Vales, organizar intercambios y comprobar los resultados. Los operadores son responsables de sus propios servicios y de explicar sus fallos. La documentación definitiva del software, en inglés, describe los sistemas de apoyo y su operación.",
+      "backTranslation": "The CLC App and its support services help participants discover Vouchers, arrange exchanges and check results. Operators are responsible for their own services and explaining their failures. The final documentation of the software describes the support systems and their operation.",
+      "similarity": 0.8786
+    },
+    {
+      "route": "/governance/mechanics",
+      "line": 42,
+      "source": "A routed exchange preserves the boundaries between its Pools. Each Pool applies its own rules and controls. A combined receipt does not merge Pool governance or transfer an Issuer's responsibility to the route operator. For the technical transaction records, use the software swap reference.",
+      "translation": "Un intercambio enrutado conserva los límites entre sus Fondos. Cada Fondo aplica sus propias reglas y controles. Un recibo conjunto no fusiona la gobernanza de los Fondos ni transfiere la responsabilidad de un Emisor al operador de enrutamiento. Para los registros técnicos de las transacciones, consulta la referencia de intercambios del software.",
+      "backTranslation": "A routed exchange retains the boundaries between its Funds. Each Fund applies its own rules and controls. A joint receipt does not merge the governance of the Funds or transfer responsibility from an Issuer to the routing operator. For technical records of transactions, refer to the software's exchange reference.",
+      "similarity": 0.7901
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "label",
+      "source": "Current software reference",
+      "translation": "Referencia actual del software",
+      "backTranslation": "Current software reference.",
+      "similarity": 0.9811
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "body",
+      "source": "This is the published White Paper v0.9. For current software implementation, contracts, APIs, and deployment instructions, use the CLC software documentation.",
+      "translation": "Esta es la edición publicada del Libro Blanco v0.9. Para conocer la implementación actual del software, los contratos, las API y las instrucciones de despliegue, consulta la documentación del software CLC.",
+      "backTranslation": "This is the published edition of the White Paper v0.9. For current software implementation, contracts, APIs and deployment instructions, please refer to the CLC software documentation.",
+      "similarity": 0.9123
+    },
+    {
+      "route": "/white-paper#software-reference-note",
+      "field": "link",
+      "source": "Read the software documentation (English)",
+      "translation": "Leer la documentación del software (en inglés)",
+      "backTranslation": "Read the software documentation.",
+      "similarity": 0.8493
+    }
+  ],
+  "reviewDate": "23 November 2026",
+  "readingNoteSha256": "d7686ed2db98583aed0428a2250d0dab98af03a653c40d52fdc847005ebb18e2",
+  "englishReadingNoteSha256": "101005dc1f3df6fe684512c2d170c8cecc2e5aa63df53d02c17f359e32b63c7c",
+  "manualReview": {
+    "passes": [
+      "semantic translation of revised units with established Spanish vocabulary",
+      "complete clarity review of revised pages and reading note",
+      "independent MADLAD back-translation and comparison of all 64 units against English"
+    ],
+    "lowConfidenceThreshold": 0.45,
+    "lowConfidenceUnitsReviewed": 1,
+    "resolution": "The one flagged introduction is equivalent plain-language wording. Reviewed all units directly for the Pool/contract distinction, issuer performance, no automatic depositor rights, credit limits, fees, route rollback, and conditional availability. The back-translation model added unrelated CLS/framework wording in two outputs; those additions are absent from the Spanish source."
+  },
+  "linkVerification": {
+    "date": "24 November 2026",
+    "route": "/introduction/getting-started",
+    "beforeHref": "/es/governance/privacy#qué-se-hace-público",
+    "afterHref": "/es/governance/privacy#4-qué-se-hace-público",
+    "previousSha256": "d04ee7aeb73151660b7df9a8bb8589e2b39939622168d541a4a53095b891ed52",
+    "sha256": "21c272f51081851b3a67054aa8e7152cd8d5eb8f3a47326f13d9b0d6fa26d0ed",
+    "previousSourceSha256": "1aaee69ed09f2f939bb4a5ba1fc10fbb1f8222d73e8b345108aec5030a30bfa5",
+    "sourceSha256": "32340df3a673362d87eb373b3a7d41b4b8d3c978214bccca4fb5938e8c7eb59e",
+    "meaningReview": "Only the Privacy destination fragment changed. Link labels and normalized prose are byte-for-byte unchanged, so the recorded independent back-translation remains applicable. Destination verified against the corresponding legal-page heading; no legal source edited."
+  }
+}

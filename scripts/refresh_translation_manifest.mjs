@@ -3,6 +3,7 @@
 import { createHash } from 'node:crypto'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { keepsPreviousSoftwareSource, softwareDocsRollout } from './software_reference_rollout.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const locale = process.argv[2] ?? 'fr'
@@ -19,9 +20,10 @@ manifest.sourceAppCommit = glossary.sourceAppCommit
 for (const [route, entry] of Object.entries(manifest.pages)) {
   const english = readFileSync(join(root, 'docs/pages', entry.source), 'utf8')
   const translated = readFileSync(join(root, 'docs/pages', locale, entry.source), 'utf8')
-  const pendingEnglishReview = englishReviewRollout.locales[locale]?.status === 'pending' &&
+  const pendingEnglishReview = !softwareDocsRollout.source.routes[route] &&
+    englishReviewRollout.locales[locale]?.status === 'pending' &&
     englishReviewRollout.source.routes[route]
-  if (!pendingEnglishReview) entry.sourceSha256 = sha256(english)
+  if (!pendingEnglishReview && !keepsPreviousSoftwareSource(locale, route)) entry.sourceSha256 = sha256(english)
   entry.locales[locale].sha256 = sha256(translated)
 }
 

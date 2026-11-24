@@ -81,13 +81,13 @@ La Billetera de la escuela abre la vista **Crédito** y selecciona el vale de co
 
 Este resultado de descubrimiento todavía no promete que el intercambio vaya a completarse. Cada paso depende de la admisión actual, los límites del saldo de tokens del Fondo, el inventario disponible, la configuración de cotizaciones y comisiones, el comportamiento compatible del token y la vigencia de los datos del servicio.
 
-La escuela elige cuánto quiere **Obtener** o **Gastar**. CLC Core lee después los dos Fondos en un mismo bloque fijado, produce una cotización autorizada con vencimiento y simula el lote completo de la Billetera. Los **Detalles de la ruta** de la App muestran ambos intercambios, los importes estimados y las comisiones del Fondo y del protocolo en cada paso.
+La escuela elige cuánto quiere **Obtener** o **Gastar**. La App presenta una cotización para el intercambio completo. Los **Detalles de la ruta** muestran ambos intercambios, los importes y las comisiones del Fondo y del protocolo en cada paso. La escuela revisa el mínimo recibido y el vencimiento de la cotización antes de continuar.
 
 ### 6. El Titular ejecuta el intercambio enrutado
 
-Después de revisar el importe mínimo recibido y el plazo de la cotización, la escuela selecciona **Confirmar intercambio** y firma el lote preparado. La App envía una única transacción en la misma cadena que contiene las aprobaciones y la llamada de intercambio acotada para cada Fondo.
+La escuela selecciona **Confirmar intercambio** y autoriza la ruta completa. Si se completa, el recibo muestra los dos intercambios de Fondo, los importes intercambiados y las comisiones.
 
-Si falla alguna llamada, se revierte toda la transacción; el intercambio del primer Fondo no queda liquidado sin el segundo. Si se completa, el recibo agrupado de la escuela muestra un identificador de seguimiento, un hash de transacción, los dos pasos por Fondos, los importes liquidados y las comisiones de cada paso.
+Si falla un paso, ambos intercambios de Fondo se revierten juntos; el primero no queda liquidado sin el segundo. Para conocer cómo el software construye y ejecuta esa transacción, consulta la [referencia de enrutamiento](https://software.cosmolocal.credit/contracts/routing) (en inglés).
 
 La escuela ahora posee vales de comidas. El intercambio en la cadena constituye la **liquidación del intercambio**. Proporciona a la escuela el derecho descrito en los términos de esos vales; no demuestra que la cocina ya haya entregado los alimentos.
 
