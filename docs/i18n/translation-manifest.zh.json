@@ -151,14 +151,18 @@
     },
     "/governance/terms": {
       "source": "governance/terms.md",
-      "sourceSha256": "fee15fcb695f11875a50703cda0eeceab57cdd7c475d7bea39fd71e065e74d1d",
+      "sourceSha256": "620ac4e8ee95ed5d8ddfaf2dbd615ed0e3211e723044bbfe602340bce9d4c2c4",
       "locales": {
         "zh": {
-          "sha256": "6f6c39be2b6b88b34c38155fe68fbe04138ed8a21bd7da39ce9e820c764c6862",
+          "sha256": "4cae2b0cdd8e4311a785d21f7a9b5ad32c7439f0f363e78a720cd24fa3ecc7fe",
           "review": {
-            "units": 307,
-            "meanBackTranslationSimilarity": 0.5622,
-            "unitsBelow0_35": 79
+            "status": "review-complete",
+            "date": "24 November 2026",
+            "method": "Complete direct English comparison and Chinese clarity revision, followed by independent machine back-translation of every aligned unit and manual adjudication.",
+            "units": 245,
+            "meanBackTranslationSimilarity": 0.7618,
+            "lowConfidenceUnits": 3,
+            "report": "clarity-review.zh.json"
           }
         }
       }
@@ -487,14 +491,18 @@
     },
     "/white-paper/chapter-17-legal-compliance-note": {
       "source": "white-paper/chapter-17-legal-compliance-note.md",
-      "sourceSha256": "dd18e711224203ad9caf9695aba24868114e8fa11515418479825eb66e7b4ed5",
+      "sourceSha256": "5b350a304f2e2af49b5ffddd22fb36813eff2cf5b0cb2239c0f6ccc47c02f751",
       "locales": {
         "zh": {
-          "sha256": "9a0a35a0d74d2c56e6150455aea750f1fe69feadeb3cceece474faced40e09a9",
+          "sha256": "07abb8b983364b9c113efaabb1602b72db01c0aa15980fb3a5f6d30f2990f6b4",
           "review": {
-            "units": 46,
-            "meanBackTranslationSimilarity": 0.5597,
-            "unitsBelow0_35": 9
+            "status": "review-complete",
+            "date": "24 November 2026",
+            "method": "Complete direct English comparison and Chinese clarity revision, followed by independent machine back-translation of every aligned unit and manual adjudication.",
+            "units": 33,
+            "meanBackTranslationSimilarity": 0.6773,
+            "lowConfidenceUnits": 3,
+            "report": "clarity-review.zh.json"
           }
         }
       }
@@ -515,28 +523,36 @@
     },
     "/white-paper/executive-summary": {
       "source": "white-paper/executive-summary.md",
-      "sourceSha256": "0ea6749f959a98aef81f15e20f9385688758614efb3a81896af2079355b33175",
+      "sourceSha256": "0f150ea2091498f6627c69b8926757aef07aa1ee120f423b8592b1e044d2446f",
       "locales": {
         "zh": {
-          "sha256": "6d03c99911ecda3a9d596f02563d08bfcee9bb8eec2a7f3f868607b077fdd2d9",
+          "sha256": "a8fdfbb6140f9fc5ec316586e496b0619efe069e8b0d0905e920a103a6d391aa",
           "review": {
-            "units": 35,
-            "meanBackTranslationSimilarity": 0.6751,
-            "unitsBelow0_35": 5
+            "status": "review-complete",
+            "date": "24 November 2026",
+            "method": "Complete direct English comparison and Chinese clarity revision, followed by independent machine back-translation of every aligned unit and manual adjudication.",
+            "units": 25,
+            "meanBackTranslationSimilarity": 0.7799,
+            "lowConfidenceUnits": 0,
+            "report": "clarity-review.zh.json"
           }
         }
       }
     },
     "/white-paper": {
       "source": "white-paper/index.mdx",
-      "sourceSha256": "dfba309365534fa5271db0c53356428084c398f47024400c4857e7ab72e38aaf",
+      "sourceSha256": "91a55686f4a7fc1d2540bd5fcbe5acc03481c04c8a3bf8b9c581e0956d24bd69",
       "locales": {
         "zh": {
-          "sha256": "61802a9872e09afa064a8a704e14dd1d921f23f10f43ee06e59b71b9c5a50bef",
+          "sha256": "bb02a7a144df6eb7f49460b9d8707d1760dcded3ef205edae9d0b3d398e2f425",
           "review": {
-            "units": 115,
-            "meanBackTranslationSimilarity": 0.6183,
-            "unitsBelow0_35": 25
+            "status": "review-complete",
+            "date": "24 November 2026",
+            "method": "Complete direct English comparison and Chinese clarity revision, followed by independent machine back-translation of every aligned unit and manual adjudication.",
+            "units": 73,
+            "meanBackTranslationSimilarity": 0.7658,
+            "lowConfidenceUnits": 3,
+            "report": "clarity-review.zh.json"
           }
         }
       }
@@ -561,17 +577,19 @@
       "source": "governance/privacy.md",
       "locales": {
         "zh": {
-          "sha256": "8f5a9fe62392d806cee859e1509cff375d34a68d0f272fe44a1d5932dd7604e5",
+          "sha256": "5d59add524481826050d67b3ec2356b89655b8d0c3da8fabf2226bef8651ae53",
           "review": {
-            "units": 11,
-            "meanBackTranslationSimilarity": 0.6398,
-            "unitsBelow0_35": 1,
-            "method": "semantic translation, plain-language review, and independent back-translation",
-            "status": "release-review-complete"
+            "status": "review-complete",
+            "date": "24 November 2026",
+            "method": "Complete direct English comparison and Chinese clarity revision, followed by independent machine back-translation of every aligned unit and manual adjudication.",
+            "units": 152,
+            "meanBackTranslationSimilarity": 0.781,
+            "lowConfidenceUnits": 6,
+            "report": "clarity-review.zh.json"
           }
         }
       },
-      "sourceSha256": "de0a3577c611ad097a0e402413e84fccc9f750b0860b6299c6da92d32101343b"
+      "sourceSha256": "faaf1517659e9fb1d0fc910f09d3aa960b1d797fa671b879412fb746ae7e1426"
     },
     "/governance/data-protection": {
       "source": "governance/data-protection.md",

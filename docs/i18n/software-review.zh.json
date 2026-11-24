@@ -2486,7 +2486,13 @@
       "white-paper/chapter-17-legal-compliance-note.md": "c870910c46c8a7c5d9fadf2cefef0a9cef1de32c6ee4bde508db00b4d57c0986"
     },
     "olderRolloutStatus": "pending",
-    "scope": "The four overlapping drafts are explicitly reconciled only within the seven-route software review. Terms, Privacy and three White Paper edits are unchanged and their original hash/notice failures are retained in the main checkout; no older unfinished review is marked complete."
+    "scope": "The four overlapping drafts are explicitly reconciled only within the seven-route software review. Terms, Privacy and three White Paper edits are unchanged and their original hash/notice failures are retained in the main checkout; no older unfinished review is marked complete.",
+    "followUpResolution": {
+      "date": "24 November 2026",
+      "status": "review-complete",
+      "report": "clarity-review.zh.json",
+      "scope": "The earlier excludedSources hashes above are retained as historical evidence, not current exclusion instructions. All five sources have now received semantic, clarity and independent back-translation review in the actual working tree. The nine-route Simplified Chinese clarity rollout is current; the corrected Chinese HTML and localized PDF are validated together."
+    }
   },
   "linkVerification": {
     "date": "24 November 2026",

@@ -23,6 +23,23 @@ Its materially changed routes and per-locale status are recorded in
 `english-review-rollout.json`; a pending locale remains pinned to its last
 reviewed source until that focused reconciliation is complete.
 
+## Release gate
+
+Run `npm run build` and `git diff --check` against the complete proposed commit.
+The build starts with `check:release`, which checks types, source hashes,
+notices, heading mappings, theme contrast, controlled software references and
+completed review evidence before Vocs runs. The finalizer then checks emitted
+headings, links, locale metadata and indexes; the asset guard enforces
+Cloudflare’s 25 MiB limit. Reproduce deployment failures with production
+Node/npm (22.23.4 / 10.9.9 at this checkpoint).
+
+Keep unfinished candidates under `docs/i18n/drafts/`, outside public routes.
+A passing isolated checkout does not validate a failing main working tree.
+Do not substitute older public pages, exclude failures from a release, refresh
+hashes without review, or leave commit exclusions for the user to remember.
+When review changes a published translation, reconcile its HTML and localized
+TeX/PDF together; preserve the controlling English publication and legal text.
+
 ## Software-reference consolidation
 
 The definitive software implementation reference is
@@ -90,10 +107,17 @@ The Simplified Chinese software pass explicitly reconciles the four
 overlapping clarity drafts within the seven controlled guides. Review those
 changes against the last committed sources as well as English, so an existing
 draft does not acquire fresh hashes without a meaning review. The separate
-Terms, Privacy and three White Paper edits remain unfinished, unchanged and
-outside this pass. Keep their original hash/notice failures visible in the
-main checkout; do not mark the older clarity rollout complete or refresh
-those five hashes. Validate the software checkpoint independently of them.
+Terms, Privacy and three White Paper edits were subsequently completed in the
+24 November 2026 Cloudflare release repair. `clarity-review.zh.json` records
+the complete five-page meaning/clarity review, 528 independent back-translated
+units and all 15 low-confidence decisions. Together these reviews cover all
+nine older clarity routes; only Simplified Chinese was promoted. The corrected
+Chinese v0.9 HTML, TeX and PDF use 24 November as the translation date while
+retaining the English publication date. Historical excluded-source hashes in
+`software-review.zh.json` remain evidence, not instructions to omit files. The
+normal production build and desktop/mobile browser matrix pass for the complete
+checkout; source links are verified in emitted HTML and preserve English when
+a visitor has a saved Chinese preference.
 
 Save the completed review as `software-review.<locale>.json`, recording the
 review date, resolutions, exact source/translation hashes and hashes of both

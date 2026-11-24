@@ -6,6 +6,71 @@ This ledger records work that belongs to this documentation repository. The
 technical localization workflow and commands live in the
 [documentation localization guide](docs/i18n/README.md).
 
+## Cloudflare release repair — 24 November 2026
+
+Commit `eb4e9864fc32633175b914e4247645b8a9b7edb3` included five unfinished
+Chinese legal/White Paper sources. The finalizer expected the published
+`cosmo-local-credit-clc` heading, while the changed page emitted a different
+ID. Hash/notice and other heading failures were also present. Earlier isolated
+checks had excluded these files and therefore were not release evidence.
+
+The five pages have now received complete English meaning comparison, Chinese
+clarity revision, app-label alignment at `16645b9c03a14ae7bdf3edbb88aca111e9e8b4da`,
+and independent back-translation of 528 units. All 15 low-confidence outputs
+were manually adjudicated. `docs/i18n/clarity-review.zh.json` records exact
+hashes and decisions; the preceding four-page review completes all nine routes.
+Only Simplified Chinese is promoted in the older clarity registry.
+
+The Chinese Terms preserve the approved English rights, exceptions and
+1 October effective date. Privacy preserves private/public/authenticated field
+boundaries and the English-source notice. The White Paper restores the
+5 July 2023–20 July 2025 period. Its corrected Chinese HTML/TeX/PDF remains
+v0.9, retaining the English publication date of 16 November and recording
+24 November 2026 as the corrected translation date. Other published editions
+and the English legal sources remain unchanged. Twenty-six additional legacy
+heading aliases preserve prior bookmarks, for 189 aliases overall.
+
+`npm run build` now starts with `check:release`: TypeScript, locale/source and
+notice checks, heading parity, theme checks, software references, aliases, and
+the completed Chinese review. Emitted heading/link checks and the Cloudflare
+25 MiB asset guard still run after bundling. The 6144 MB heap setting remains.
+`AGENTS.md` requires validation of the complete proposed release tree and keeps
+unfinished work outside public routes; hash refreshes cannot stand in for review.
+
+Validation passed against the complete actual working tree with Node 22.23.4
+and npm 10.9.9 (installed package versions match the lockfile):
+
+- `npm run build`: all preflight checks and 15 regression tests passed; 17
+  splash plus 680 documentation routes emitted. All 1,522 files meet the
+  Cloudflare limit (largest: 6.2 MiB); 189 aliases and 17 guide heading links
+  are verified against emitted HTML.
+- Independent artifact checks: all 697 pages have correct language, direction,
+  canonical and reciprocal alternate metadata; all 17 search and LLM indexes
+  are isolated by language.
+- Negative fixtures containing the actual release sources reject the original
+  five drafts, a missing controlling-English notice even after its hash is
+  refreshed, and a stale heading map. Each fails before Vocs starts.
+- All five Chinese pages pass browser checks at 1440px and 390px in both
+  themes: wrapping, heading order, Privacy tables, legacy anchors, localized
+  search, PDF download, language/query/heading switching and theme persistence.
+  Source links actually open English while preserving the saved Chinese
+  preference. A browser-discovered stripped Terms anchor was replaced with
+  equivalent Markdown; the shared SSR source-link wrapper prevents source links
+  being localized back to their translations. Emitted source links are now
+  checked as part of the normal build.
+- Chinese TeX matches its generator; the 41-page PDF matches both the build
+  output and emitted public asset byte-for-byte. Text extraction, v0.9/dates,
+  statistics, formulas, embedded CJK fonts, `zh-CN` metadata, syntax and visual
+  page checks pass, with no missing-glyph warnings.
+- `git diff --check` passes. All 706 protected public sources and publication
+  artifacts outside the authorized Chinese correction remain byte-identical.
+  No sibling repository was changed.
+
+Preview: `http://localhost:4174/zh/governance/terms` (this repository's actual
+production output). Deployment, committing and pushing remain user-managed.
+Traditional Chinese, Filipino and Flemish remain pending only in the separate
+older clarity rollout; their completed software-reference work is unchanged.
+
 ## Software-reference consolidation — sequential translations
 
 [CLC Developer Docs](https://software.cosmolocal.credit/) is the definitive
@@ -25,10 +90,10 @@ concepts, governance, policies, history, and versioned publications.
   reading note live in `docs/i18n/software-docs-rollout.json`. Pending
   translations retain their reviewed source records; this review does not
   promote the unfinished November clarity translations.
-- Four of the nine pre-existing Simplified Chinese drafts are explicitly
-  reconciled within the seven-guide software review. The five separate Terms,
-  Privacy and White Paper edits remain untouched and unfinished; their original
-  hash/notice failures and heading differences are outside this checkpoint.
+- All nine pre-existing Simplified Chinese clarity pages are now reconciled.
+  Four were covered by the software review; the remaining Terms, Privacy and
+  three White Paper pages were completed in the 24 November Cloudflare repair
+  below. The corrected Chinese PDF matches the web publication.
 - The build exposed one pre-existing Dzongkha anchor-map mismatch caused by
   literal Markdown emphasis markers. The heading mapper now parses Markdown
   text, with regression checks; only the affected mapping changed, without
@@ -57,6 +122,10 @@ concepts, governance, policies, history, and versioned publications.
 | 14 | Traditional Chinese (`zh-Hant`) | Current; translation review, build, search, CJK layout, browser, and legacy-heading gates passed |
 | 15 | Filipino (`fil`) | Current; full controlled-guide reconciliation, translation review, build, search, browser, and legacy-heading gates passed |
 | 16 | Flemish (`nl-BE`) | Current; translation review, build, search, browser, and legacy-heading gates passed |
+
+The checkpoint history below records the state of each earlier software-only
+review. Statements about excluded Chinese work are superseded by the complete
+Cloudflare release repair above; they are not current release instructions.
 
 ### Traditional Chinese checkpoint — 24 November 2026
 
@@ -133,12 +202,12 @@ and mobile widths in both themes; all 17 Privacy links were followed in the
 mobile browser. Existing language/query/heading switching, reading-note print
 exclusion and theme persistence remain working.
 
-Published White Paper HTML sources, LaTeX, PDFs, approved legal texts, and the
-five excluded Chinese drafts remain unchanged. The main checkout retains the
-eight known hash/notice failures and stale heading mappings caused by those
-five drafts. Keep them outside this software checkpoint commit. The complete
-validated checkpoint is available locally at `http://localhost:4173` from
-`/tmp/clc-software-reference-checkpoint`; deployment, committing, pushing, and
+This isolated checkpoint was historical evidence for the software-reference
+changes only. It did not validate the complete release tree: five unfinished
+Chinese sources were later committed and caused the Cloudflare failure. The
+24 November release repair below supersedes those exclusion instructions.
+Validate the complete current checkout with `npm run build`; an isolated
+checkpoint is never a substitute. Deployment, committing, pushing, and
 sibling-repository changes remain user-owned handoffs.
 
 For future per-language updates, use one commit boundary per language.
@@ -407,7 +476,7 @@ note and print exclusion. Additional checks at 1440/390/320px confirm CJK
 wrapping, no literal Markdown markers or horizontal overflow, and correct
 English destinations for old bookmarks. Traditional Chinese is next.
 
-The separate unfinished files remain:
+The five files that were unfinished at that historical checkpoint were:
 
 - `docs/pages/zh/governance/terms.md`
 - `docs/pages/zh/governance/privacy.md`
@@ -415,14 +484,11 @@ The separate unfinished files remain:
 - `docs/pages/zh/white-paper/executive-summary.md`
 - `docs/pages/zh/white-paper/chapter-17-legal-compliance-note.md`
 
-These five files are byte-for-byte unchanged from their pre-existing drafts.
-They still cause eight hash/notice failures in the main checkout. Their
-Privacy, White Paper landing and legal-chapter heading edits also make the
-main heading-map check fail. These are excluded draft failures, not software
-rollout failures. The older Chinese clarity rollout remains pending. Keep
-these five edits outside the software checkpoint commit; the isolated
-checkpoint uses their unchanged committed versions. All 614 frozen legal and
-publication file snapshots remain unchanged, including those five drafts.
+At that checkpoint these five unfinished files still caused eight hash/notice
+failures and stale heading mappings in the main checkout. That incomplete
+release state is resolved by the 24 November Cloudflare repair. Their meaning
+review, source hashes, compatibility anchors and corrected Chinese PDF are now
+tracked together; there are no current instructions to exclude these files.
 
 ### English checkpoint verification — 23 November 2026
 
@@ -445,7 +511,8 @@ excluding the nine pre-existing Chinese edits:
 At this English checkpoint, the main working tree contained nine unfinished
 Chinese edits and 12 existing hash/notice failures. Its original Chinese diff
 was verified unchanged then. The later Simplified Chinese checkpoint above
-records the explicit four-guide reconciliation and the five remaining drafts.
+records the explicit four-guide reconciliation and the five drafts subsequently
+completed by the Cloudflare release repair above.
 
 ### Differences recorded during consolidation
 
@@ -538,7 +605,7 @@ steps.
 | 10 | Dzongkha (`dz`) | Reconciled to the approved English review | Product-owner acceptance of the prior machine translation, targeted source reconciliation, foreign-script cleanup, and focused checks passed | Release-ready | User-managed | External follow-up |
 | 11 | Dutch (`nl`) | Reconciled to the approved English review | Focused checks and localized PDF passed | Release-ready | User-managed | External follow-up |
 | 12 | Hindi (`hi`) | Reconciled to the approved English review | NLLB back-translation, legal-meaning review, focused checks, and localized PDF passed | Release-ready | User-managed | External follow-up |
-| 13 | Simplified Chinese (`zh`) | Final | NLLB back-translation, complete low-confidence review, legal-meaning review, and focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
+| 13 | Simplified Chinese (`zh`) | Reconciled to the approved English review | Complete legal-meaning review and independent back-translation; see 24 November release repair | Release-ready; full-tree build and browser checks passed 24 November | User-managed | External follow-up |
 | 14 | Traditional Chinese (`zh-Hant`) | Final | App-vocabulary alignment, independent back-translation, complete low-confidence review, and focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
 | 15 | Filipino (`fil`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
 | 16 | Flemish (`nl-BE`) | Final | Focused checks passed | Prior release only; Privacy reconciliation pending | User-managed | External follow-up |
@@ -551,7 +618,7 @@ metadata. The affected routes are Getting Started, Concepts, the practical
 example, Protocol network architecture, Privacy Notice, Terms, the White Paper
 landing page, Executive Summary, and legal/compliance chapter.
 
-English, French, Spanish, Portuguese, Italian, Kiswahili, German, Ukrainian, Serbian, Arabic, Dzongkha, Dutch, and Hindi are current. The remaining 4 translated locales are deliberately marked
+English, French, Spanish, Portuguese, Italian, Kiswahili, German, Ukrainian, Serbian, Arabic, Dzongkha, Dutch, Hindi, and Simplified Chinese are current. The remaining 3 translated locales (Traditional Chinese, Filipino, and Flemish) are deliberately marked
 `pending` for these nine routes in `docs/i18n/english-review-rollout.json`.
 Their files, hashes, search content, and links remain usable at the last
 reviewed version; validators must not silently promote them to the new English

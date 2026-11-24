@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vocs dev",
-    "build": "node scripts/run_vocs_build.mjs && node scripts/finalize_multilingual_build.mjs && node scripts/check_build_asset_sizes.mjs",
+    "build": "npm run check:release && node scripts/run_vocs_build.mjs && node scripts/finalize_multilingual_build.mjs && node scripts/check_build_asset_sizes.mjs && npm run check:software-reference:build",
+    "check:release": "npm run typecheck && npm run check:i18n && npm run i18n:headings:check && npm run check:theme && npm run check:software-reference && node scripts/check_clarity_review.mjs",
     "check:theme": "node scripts/check_theme.mjs",
     "check:software-reference": "node --test scripts/software_reference_rollout.test.mjs scripts/heading_data.test.mjs scripts/heading_aliases.test.mjs && node scripts/check_heading_aliases.mjs && node scripts/check_software_reference_links.mjs",
-    "check:software-reference:build": "node scripts/check_heading_aliases.mjs --built && node scripts/check_software_reference_links.mjs --built",
+    "check:software-reference:build": "node scripts/check_heading_aliases.mjs --built && node scripts/check_software_reference_links.mjs --built && node scripts/check_clarity_review.mjs --built",
     "check:i18n": "node scripts/check_locales.mjs && node scripts/check_translation_quality.mjs",
     "check:policies": "node scripts/check_policy_translation.mjs",
     "policies:promote": "node scripts/promote_policy_translation.mjs",

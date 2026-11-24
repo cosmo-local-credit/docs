@@ -33,6 +33,13 @@ npm run dev
 npm run build
 ```
 
+The build first runs `check:release` against the current source tree so stale
+translation hashes, missing notices, and heading mappings fail before bundling.
+After prerendering it validates emitted headings/links and enforces Cloudflare’s
+25 MiB per-file limit. Run `git diff --check` too before committing. Validate the
+complete proposed commit; keep unfinished translations outside public routes.
+The Cloudflare reproduction baseline is Node 22.23.4 with npm 10.9.9.
+
 Vocs 1.4.1 prerenders the complete multilingual site in one process. The
 repository's build launcher gives that process a 6144 MB V8 heap so it can use
 the 8 GB available in the Cloudflare build environment without hitting Node's

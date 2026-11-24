@@ -314,14 +314,17 @@ function validateTranslation(source, route, english, locale) {
       const target = match[1]
       const publicAsset = target.startsWith('/about/') ||
         (/^\/white-paper\/.+\.(?:pdf|svg|png|jpe?g)$/i.test(target))
-      const controllingEnglishPolicy = policyRouteSet.has(route) && target === route
+      const controllingEnglishPolicy = (policyRouteSet.has(route) || route === '/governance/terms') && target === route
       if (!target.startsWith(`/${locale}/`) && !publicAsset && !controllingEnglishPolicy) {
         errors.push(`${route}: ${locale} has an unlocalized internal link ${target}`)
       }
     }
   }
   if (route === '/governance/terms') {
-    if (!translated.includes('data-english-source="true"') || !translated.includes('hrefLang="en"')) {
+    const sourceLink = translated.includes('](/governance/terms)') || (
+      translated.includes('data-english-source="true"') && translated.includes('hrefLang="en"')
+    )
+    if (!sourceLink) {
       errors.push(`${route}: ${locale} is missing the controlling-English notice`)
     }
   }

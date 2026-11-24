@@ -3,6 +3,7 @@ import { MDXProvider } from 'vocs/mdx-react'
 
 import { SiteControls } from './components/SiteControls'
 import { HeadingAliases } from './components/HeadingAliases'
+import { EnglishSourceLinks } from './components/EnglishSourceLinks'
 import { WhitePaperReadingContext, type SoftwareReadingNote } from './components/WhitePaperReadingContext'
 import { englishPath, routeLocale } from './i18n/routes'
 import softwareDocsRollout from './i18n/software-docs-rollout.json'
@@ -29,7 +30,9 @@ export default function Layout({ children, path }: { children: ReactNode; path: 
     <>
       <SiteControls initialPath={path} />
       <MDXProvider components={components}>
-        <HeadingAliases path={path}>{children}</HeadingAliases>
+        <EnglishSourceLinks path={path}>
+          <HeadingAliases path={path}>{children}</HeadingAliases>
+        </EnglishSourceLinks>
       </MDXProvider>
     </>
   )
